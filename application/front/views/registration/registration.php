@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+     <title>Find the Best Jobs, Hiring, Employment and Freelance | Aileensoul.com</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+
+    <!-- seo changes start -->
+    <!--Need to add following TAG in Header.-->
+
+    
+        <meta name="google-site-verification" content="BKzvAcFYwru8LXadU4sFBBoqd0Z_zEVPOtF0dSxVyQ4" />
+
+<link rel="canonical" href="https://www.aileensoul.com" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+<meta name="description" content="Aileensoul provides best opportunity where you can Hire, Recruit, Freelance, Busines and find or search jobs of your preference in your required field." />
+<meta name="keywords" content="Hire Freelancers, Freelance Jobs Online, Find Freelance Work, Freelance Jobs, Get Online Work, online freelance jobs, freelance websites, freelance portal, online freelance work, freelance job sites, freelance consulting jobs, hire freelancers online, best freelancing sites, online writing jobs for beginners, top freelance websites, freelance marketplace, jobs, Job search, job vacancies, Job Opportunities in India, jobs in India, job openings, Jobs Recruitment, Apply For Jobs, Find the right Job, online job applications, apply for jobs online, online job search, online jobs india, job posting sites, job seeking sites, job search websites, job websites in india, job listing websites, jobs hiring, how to find a job, employment agency, employment websites, employment vacancies, application for employment, employment in india, searching for a job, job search companies, job search in india, best jobs in india, job agency, job placement agencies, how to apply for a job, jobs for freshers, job vacancies for freshers, recruitment agencies, employment agencies, job recruitment, hiring agencies, hiring websites, recruitment sites, corporate recruiter, career recruitment, online recruitment, executive recruiters, job recruiting companies, online job recruitment, job recruitment agencies, it, recruitment agencies, recruitment websites, executive search firms, sales recruitment agencies, top executive search firms, recruitment services, technical recruiter, recruitment services, job recruitment agency, recruitment career" />
+<!-- <link href="css/bootstrap.css" rel="stylesheet" type="text/css"> -->
+
+<!-- Add following GoogleAnalytics tracking code in Header.-->
+
+<!-- <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-91486853-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6060111582812113",
+    enable_page_level_ads: true
+  });
+</script>
+ -->
+
+
+<link rel="canonical" href="https://www.aileensoul.com" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+ <link rel="stylesheet" type="text/css" href="<?php echo base_url('partical/media.css'); ?>">
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url('partical/common-style.css'); ?>">
+
+  <!-- Calender Css Start-->
+   <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/jquery.datetimepicker.css'); ?>">
+   <!-- Calender Css End-->
+
+  <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+ 
+<link rel="stylesheet" type="text/css" href="partical/css/style_login1.css">
+    <meta content="" name="author" />
+    <link rel="icon" href="">
+    <!-- css start -->
+   <style type="text/css">
+     
+
+   </style>
+</head>
+<!-- header -->
+
+<!-- style for span id=notification_count start-->
+        
+
+<body>
+  <header>
+          
+        <div class="header3">
+            <div class="container">
+
+
+                <div class="row">
+                    <div class="col-md-5 col-sm-5">
+                        <div class="logo"><a href="<?php echo base_url('dashboard') ?>"><img src="<?php echo base_url('images/logo.png'); ?>"></a></div>
+                    </div>
+                    <div class="col-md-7 col-sm-7 header-left-menu">
+                        <div class="pushmenu pushmenu-left">
+                        <ul class="fr">
+    
+
+                               
+                         
+                                </div>
+
+                                <!-- Friend Request End-->
+
+                                <!-- END USER LOGIN DROPDOWN -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="buttonset">
+        <div id="nav_list"></div>
+    </section>
+
+    <!-- header end -->
+
+    	 <marquee behavior="alternate" style="font-size: 30px;color: red; line-height: 30px;padding: 5px;">This Site Is Under Construction</marquee>
+
+    <section>
+    <div id="particles-js"></div>
+
+
+    <div class="banner_cnt_reg text-center clearfix">
+    
+          <div class="form" style="max-width:100%;" >
+       <div class="tab-group-reg">
+      <ul >
+        <li class="tab active"><a class="head-ail2">Join Aileensoul</a></li>
+      </ul>
+      </div>
+        <div id="login2"> 
+
+           
+<?php echo form_open_multipart(base_url('registration/reg_insert'),array('id' => 'regform','name' => 'regform','class' => "clearfix"));
+  
+  if ($this->session->flashdata('error')) 
+               {
+                      echo '<div class="alert alert-danger">' . $this->session->flashdata('error') . '</div>';
+                }
+                if ($this->session->flashdata('success'))
+                 {
+                         echo '<div class="alert alert-success">' . $this->session->flashdata('success') . '</div>';
+                }
+
+?>
+          
+            <span id="uname-error"> </span>
+          <div class="top-row">
+            <div class="field-wrap">
+             
+
+              <label class="fname_reg">First Name<span class="req">*</span> </label>
+                      <input type="text" value="<?php if($fsname){ echo $fsname; }?>" name="fname" id="fname" placeholder="">
+                      <?php echo form_error('fname'); ?>
+                     
+            </div>
+        
+            <div class="field-wrap">
+              <label class="fname_reg">Last Name<span class="req">*</span></label>
+                      <input type="text" value="<?php if($lname){ echo $lname; }?>"name="lname" id="lname" placeholder="">
+                      <?php echo form_error('lname'); ?>
+            </div>
+          </div>
+              
+          <div class="top-row">
+            <div class="field-wrap">
+             <label class="fname_reg">Email Address <span class="req">*</span></label>
+             <input type="text" name="email" id="email" placeholder="" value="<?php if($email){ echo $email; }?>">
+              <?php echo form_error('email'); ?>
+            </div>
+        
+            <div class="field-wrap">
+               <label class="fname_reg">User Name<span class="req">*</span></label>   
+                      <input type="text" name="uname" id="uname" placeholder="" onkeyup="check_if_exists();" onkeypress="return RestrictSpace()">
+                      <?php echo form_error('uname'); ?>
+                      <input type="hidden" id="user" name="user" >
+
+            </div>
+          </div>
+              
+         <div class="top-row">
+            <div class="field-wrap">
+        <label class="fname_reg">Password<span class="req">*</span></label>
+    <input type="password" name="password" id="password" class="showpassword" />
+                      <?php echo form_error('password'); ?>
+            </div>
+        
+            <div class="field-wrap">
+                <label class="fname_reg">Confirm Password<span class="req">*</span></label>
+   <input type="password" name="password2" id="password2" class="showpassword2" placeholder="" onkeypress="return RestrictSpace()"/>
+                <?php echo form_error('password2'); ?>
+            </div>
+          </div>
+              
+          <div class="top-row">
+            <div class="field-wrap">
+              <label class="fname_reg">
+             
+              </label>
+              <input type="text" name="datepicker" id="datepicker" placeholder="dd/mm/yyyy"   autocomplete="off" >
+            </div>
+<!--                    <div class="field-wrap" id="gen">
+                <label class="label_gen">Gender</label>
+        <input type="radio" name="gender" id="male" value="male">Male
+       
+        <input type="radio" name="gender" id="female" value="female">Female
+            </div>        -->
+            <div class="field-wrap" id="gen">
+           <span class="gen_lbl">Gender<span class="req">*</span>: </span>    
+                      <input type="radio" name="gen" id="gen" value="M" <?php if($gender == 'M'){ echo 'checked'; }?>>Male
+                      <input type="radio" name="gen" id="gen" value="F" <?php if($gender == 'F'){ echo 'checked'; }?>>Female
+                      <?php echo form_error('gen'); ?>
+
+       
+            </div>
+           </div>
+              
+              <div class="terms">
+                  <span>By Clicking on create an account button you agree our <a> Terms and Condition </a>and <a> Privacy Policy </a> . </span>
+              </div>
+         
+           
+         <!--  <button class="button3 button-block3 " style="background-image: url(partical/images/bg-button.png); background-repeat: no-repeat; background-position: right center ; margin-top:  10px;">Create an Account</button> -->
+           <input type="submit" value="Create an Account" name="submit" class="button3 button-block3 " style="background-image: url(partical/images/bg-button.png); background-repeat: no-repeat; background-position: right center ; margin-top:  10px;">
+          <div class="or"> <span>or</span></div>
+          
+          <button class="button3 button-block3 facebook_ac" style="background-image: url(partical/images/bg-button.png); background-repeat: no-repeat; background-position: right center">Sign Up With Facebook</button>
+         
+          <div class="or">Already on Aileensoul? <a href="<?php echo base_url('login')?>"  style="color: #a0b3b0;
+    font-size: 17px;
+    font-weight: 600;
+    padding-bottom: 10px;">Sign in</a></div>
+        <!--<small class="help-block" data-fv-validator="notEmpty" data-fv-for="agree" data-fv-result="VALID" style="display: none;">You must agree with the terms and conditions</small>-->
+          </form>
+
+       
+          </form>
+
+        </div>
+        
+      </div>
+
+    </div>
+
+
+<!-- scripts -->
+<!-- <script src="<?php //echo base_url('partical/particles.json'); ?>"></script> -->
+
+<script src="<?php echo base_url('js/jquery-1.11.1.min.js'); ?>"></script>
+<script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
+ 
+<script src="<?php echo base_url('partical/particles.min.js'); ?>"></script>
+<script src="<?php echo base_url('partical/js/app.js'); ?>"></script>
+
+<!-- stats.js -->
+<script src="<?php echo base_url('partical/js/lib/stats.js'); ?>"></script>
+
+
+
+   
+  
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+
+<script src="<?php echo base_url('partical/js/index.js'); ?>"></script>
+
+
+     
+    <footer>
+
+
+
+</body>
+
+</html>
+
+<!-- Calender JS Start-->
+<script src="<?php echo base_url('js/jquery.js'); ?>"></script>
+<script src="<?php echo base_url('js/jquery.datetimepicker.full.js'); ?>"></script>
+<script type="text/javascript">
+$('#datepicker').datetimepicker({
+  //yearOffset:222,
+  startDate: "2013/02/14",
+  lang:'ch',
+  timepicker:false,
+  format:'d/m/Y',
+  formatDate:'Y/m/d'
+  //minDate:'-1970/01/02', // yesterday is minimum date
+  //maxDate:'+1970/01/02' // and tommorow is maximum date calendar
+});
+</script>
+<!-- Calender Js End-->
+
+<!-- Field Validation Js start -->
+<script src="<?php echo base_url('js/jquery.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.min.js') ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
+<!-- Field Validation Js End -->
+
+
+
+<!--validation using Javascript Start -->
+<script type="text/javascript">
+
+ var timer = setTimeout(function() {
+           <?php echo $this->session->unset_userdata('fbuser'); ?>
+        }, 180000);
+
+
+ $(function(){
+    $(".showpassword").each(function(index,input) {
+        var $input = $(input);
+        $('<div class="checkbox2 show" style="display: block;">').append(
+            $("<input type='checkbox' class='showpasswordcheckbox' /><h6>Show Password</h6></div> ").click(function() {
+                var change = $(this).is(":checked") ? "text" : "password";
+                var rep = $("<input type='" + change + "' />")
+                    .attr("id", $input.attr("id"))
+                    .attr("name", $input.attr("name"))
+                    .attr('class', $input.attr('class'))
+                    .val($input.val())
+                    .insertBefore($input);
+                $input.remove();
+                $input = rep;
+             })
+        ).insertAfter($input);
+    });
+});
+
+
+
+ $(function(){
+    $(".showpassword2").each(function(index,input) {
+        var $input = $(input);
+        $('<div class="checkbox2 show" style="display: block;">').append(
+            $("<input type='checkbox' class='showpasswordcheckbox2' /><h6>Show Password</h6></div> ").click(function() {
+                var change = $(this).is(":checked") ? "text" : "password";
+                var rep = $("<input type='" + change + "' />")
+                    .attr("id", $input.attr("id"))
+                    .attr("name", $input.attr("name"))
+                    .attr('class', $input.attr('class'))
+                    .val($input.val())
+                    .insertBefore($input);
+                $input.remove();
+                $input = rep;
+             })
+        ).insertAfter($input);
+    });
+});
+
+            //validation for edit email formate form
+
+            $(document).ready(function () { 
+
+                $("#regform").validate({
+
+                    rules: {
+                      uname:{
+                            required: true,
+                            pattern1: /^([a-zA-Z+]+[0-9+]+)$/
+                        },
+
+                        fname: {
+
+                            required: true,
+                            pattern: /^[A-Za-z]{0,}$/
+                        },
+                        lname: {
+
+                            required: true,
+                             pattern: /^[A-Za-z]{0,}$/
+                        },
+                        email: {
+
+                            required: true,
+                            email:true,
+                             remote: {
+                                url: "<?php echo site_url() . 'registration/check_email' ?>",
+                                type: "post",
+                                data: {
+                                    email: function () {
+                                     // alert("hi");
+                                        return $("#email").val();
+                                    },
+                                    '<?php echo $this->security->get_csrf_token_name(); ?>': '<?php echo $this->security->get_csrf_hash(); ?>',
+                                },
+                              },
+                        },
+                        password: {
+
+                            required: true,
+                            minlength: 6,
+                             maxlength: 20
+                        },
+                        password2: {
+
+                             required: true,
+                              minlength: 6,
+                              maxlength: 20,
+                             equalTo: "#password"
+                        },
+                        datepicker: {
+
+                            required: true
+                            // date: true
+                        },
+                        gen: {
+
+                            required: true,
+                        }
+                       
+                    },
+
+                    messages: {
+
+                       uname: {
+                           required: "User Name Is Required.",
+                            
+                        },
+
+                        fname: {
+
+                            required: "First Name Is Required.",
+                            
+                        },
+                        lname: {
+
+                            required: "Last Name Is Required."
+                        },
+                         email: {
+
+                            required: "Email Address Is Required.",
+                             email:"Please Enter Valid Email Id.",
+                              remote: "Email already exists"
+                        },
+                         password: {
+
+                            required: "Please provide a Password.",
+                            minlength: "Your password must be at least 6 characters long",
+                            maxlength: "Your password must be less than 20 characters"
+                        },
+                         password2: {
+
+                            required: "Please provide a Confirm Password",
+                             minlength: "Your password must be at least 6 characters long",
+                             maxlength: "Your password must be less than 20 characters",
+                             equalTo: "Please enter the same password as above"
+                           
+                        },
+                         datepicker: {
+
+                            required: "Date of Birth Is Required."
+
+                        },
+                         
+                        gen: {
+
+                            required: "Gender Is Required."
+                        }
+                 
+                    },
+
+                });
+                   });
+
+            //pattern validation at fname and lname start//
+              $.validator.addMethod("pattern", function(value, element, param) {
+              if (this.optional(element)) {
+               return true;
+              }
+              if (typeof param === "string") {
+                param = new RegExp("^(?:" + param + ")$");
+              }
+              return param.test(value);
+            }, "Digit Is Not Allowed");
+             //pattern validation at fname and lname end//
+
+
+            //pattern validation at Username start//
+              $.validator.addMethod("pattern1", function(value, element, param) {
+              if (this.optional(element)) {
+               return true;
+              }
+              if (typeof param === "string") {
+                param = new RegExp("^(?:" + param + ")$");
+              }
+              return param.test(value);
+            }, "Username should only contains first letter is character and last letter is digit. e.g. aileensoul1, Aileensoul13 ");
+             //pattern validation at Username end//
+
+
+             //function for restrictspace on keypress at password and confirm password start 
+             function RestrictSpace() 
+             {
+              if (event.keyCode == 32)
+                 {
+                     return false;
+                }
+            }
+            //function for restrictspace on keypress at password and confirm password end 
+
+            //function for username checking start 
+            function check_if_exists() 
+            {
+
+                  result = true;
+                  
+                  var uname=document.getElementById('uname').value;
+                  var postStr="uname="+uname;
+
+
+                  var name = $("#uname").val();
+                  if(name.length > 3)
+                  {   
+                  $("#uname-error").html('checking...');
+
+                  $.ajax({
+                    type: "POST",
+                    url: "<?php echo base_url(); ?>registration/filename_exists",
+                    dataType:'xml',
+                    async: false,
+                    data: postStr,
+                    success:function(res)
+                    {
+                      var returnVal=$(res).text();
+                     //alert($(res).text());
+                     document.getElementById('user').value=returnVal;
+                      if(returnVal=="Available")
+                      {
+                        
+                        document.getElementById('uname-error').innerHTML = returnVal;
+                        color = 'brown';
+                        result = true;
+                      }  
+
+                      else
+                      {
+                        document.getElementById('uname-error').innerHTML = returnVal;
+                        
+                        color = 'green';
+                        result = false;
+                      } 
+                       $('#uname-error').css('color', color);   
+                    }
+                  });
+                }
+                else
+                {
+                  // document.getElementById('uname-error').innerHTML = "<span style=\"color:red\">" + "Username Should be more than 3 characters" + "</span>";
+                  
+                  result = false;
+                  //alert(result);
+                  //$("#uname-error").html('');
+                }
+                  
+                    return result;
+
+                  }
+              //function for username checking end 
+
+              //function for autocomplete in all input type Start
+              $(document).ready(function(){ 
+                $("input").attr("autocomplete", "off"); 
+              });
+              //function for autocomplete in all input type End
+
+              
+  </script>
+ <!--validation using Javascript End -->
+
+
+

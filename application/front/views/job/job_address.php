@@ -1,0 +1,685 @@
+<!-- start head -->
+<?php echo $head; ?>
+<!-- END HEAD -->
+
+<!-- start header -->
+<?php echo $header; ?>
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+
+<?php echo $job_header2; ?>
+<!-- END HEADER -->
+<body class="page-container-bg-solid page-boxed">
+
+    <section>
+
+        <div class="user-midd-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-4">
+                        <div class="left-side-bar">
+                            <ul>
+                                <li><a href="<?php echo base_url('job/job_basicinfo_update'); ?>">Basic Information</a></li>
+
+                                <li  <?php if ($this->uri->segment(1) == 'job') { ?> class="active" <?php } ?>><a href="#">Address</a></li>
+
+                                <li class="<?php
+                                if ($jobdata[0]['job_step'] < '2') {
+                                    echo "khyati";
+                                }
+                                ?>"><a href="<?php echo base_url('job/job_education_update'); ?>">Educational Qualification</a></li>
+
+                                <li class="<?php
+                                if ($jobdata[0]['job_step'] < '2') {
+                                    echo "khyati";
+                                }
+                                ?>"><a href="<?php echo base_url('job/job_project_update'); ?>">Project And Training / Internship</a></li>
+
+                                <li class="<?php
+                                if ($jobdata[0]['job_step'] < '2') {
+                                    echo "khyati";
+                                }
+                                ?>"><a href="<?php echo base_url('job/job_skill_update'); ?>">Professional Skills</a></li>
+
+                                <li class="<?php
+                                if ($jobdata[0]['job_step'] < '2') {
+                                    echo "khyati";
+                                }
+                                ?>"><a href="<?php echo base_url('job/job_apply_for_update'); ?>">Apply For</a></li>
+
+                                <li class="<?php
+                                if ($jobdata[0]['job_step'] < '2') {
+                                    echo "khyati";
+                                }
+                                ?>"><a href="<?php echo base_url('job/job_work_exp_update'); ?>">Work Experience</a></li>
+
+                                <li class="<?php
+                                if ($jobdata[0]['job_step'] < '2') {
+                                    echo "khyati";
+                                }
+                                ?>"><a href="<?php echo base_url('job/job_curricular_update'); ?>">Extra Curricular Activities</a></li>
+
+                                <li class="<?php
+                                if ($jobdata[0]['job_step'] < '2') {
+                                    echo "khyati";
+                                }
+                                ?>"><a href="<?php echo base_url('job/job_reference_update'); ?>">Interest & Reference</a></li>
+
+                                <li class="<?php
+                                if ($jobdata[0]['job_step'] < '2') {
+                                    echo "khyati";
+                                }
+                                ?>"><a href="<?php echo base_url('job/job_carrier_update'); ?>">Carrier Objectives</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- middle section start -->
+                    <div class="col-md-6 col-sm-8">
+
+                        <div>
+                            <?php
+                            if ($this->session->flashdata('error')) {
+                                echo '<div class="alert alert-danger">' . $this->session->flashdata('error') . '</div>';
+                            }
+                            if ($this->session->flashdata('success')) {
+                                echo '<div class="alert alert-success">' . $this->session->flashdata('success') . '</div>';
+                            }
+                            ?>
+                        </div>
+
+                        <div class="clearfix">
+
+
+                            <div class="common-form">
+                                <h3>Address</h3>
+                                <?php echo form_open(base_url('job/job_address_insert'), array('id' => 'jobseeker_regform', 'name' => 'jobseeker_regform', 'class' => 'clearfix')); ?>
+                                <div><span style="color:red">Fields marked with asterisk (*) are mandatory</span></div>
+
+                                <div class="job_add_head"><span >Present Address</span></div>
+
+                                <?php
+                                $country = form_error('country');
+                                $state = form_error('state');
+                                $city = form_error('city');
+                                $address = form_error('address');
+                                $pincode = form_error('pincode');
+                                $country_permenant = form_error('country_permenant');
+                                $state_permenant = form_error('state_permenant');
+                                $city_permenant = form_error('city_permenant');
+                                $address_permenant = form_error('address_permenant');
+                                $pincode_permenant = form_error('pincode_permenant');
+                                ?>
+                                
+                                <fieldset <?php if ($country) { ?> class="error-msg" <?php } ?>>
+                                    <label>Country<span style="color:red">*</span></label>
+                                    <select name="country" id="country">
+                                        <option value="">Select Country</option>
+                                        <?php
+                                        if (count($countries) > 0) {
+                                            foreach ($countries as $cnt) {
+
+                                                if ($country1) {
+                                                    ?>
+                                                    <option value="<?php echo $cnt['country_id']; ?>" <?php if ($cnt['country_id'] == $country1) echo 'selected'; ?>><?php echo $cnt['country_name']; ?></option>
+
+                                                    <?php
+                                                }
+                                                else {
+                                                    ?>
+                                                    <option value="<?php echo $cnt['country_id']; ?>"><?php echo $cnt['country_name']; ?></option>
+                                                    <?php
+                                                }
+                                            }
+                                        }
+                                        ?>
+
+
+                                    </select>
+                                    <?php echo form_error('country'); ?>
+                                </fieldset>
+
+                                <fieldset <?php if ($state) { ?> class="error-msg" <?php } ?>>
+                                    <label>State<span style="color:red">*</span></label>
+                                    <select name="state" id="state">
+                                        <?php
+                                        if ($state1) {
+                                            foreach ($states as $cnt) {
+                                                ?>
+
+                                                <option value="<?php echo $cnt['state_id']; ?>" <?php if ($cnt['state_id'] == $state1) echo 'selected'; ?>><?php echo $cnt['state_name']; ?></option>
+
+                                                <?php
+                                            }
+                                        }
+
+                                        else {
+                                            ?>
+                                            <option value="">Select country first</option>
+                                            <?php
+                                        }
+                                        ?>
+
+                                    </select>
+                                    <?php echo form_error('state'); ?>
+                                </fieldset>
+
+                                <fieldset <?php if ($city) { ?> class="error-msg" <?php } ?>>
+                                    <label>City</label>
+                                    <select name="city" id="city">
+                                        <?php
+                                        if ($city1) {
+                                            foreach ($cities as $cnt) {
+                                                ?>
+
+                                                <option value="<?php echo $cnt['city_id']; ?>" <?php if ($cnt['city_id'] == $city1) echo 'selected'; ?>><?php echo $cnt['city_name']; ?></option>
+
+                                                <?php
+                                            }
+                                        }
+
+                                        else {
+                                            ?>
+                                            <option value="">Select state first</option>
+
+                                            <?php
+                                        }
+                                        ?>
+                                    </select>
+                                    <?php echo form_error('city'); ?>
+                                </fieldset>
+
+                                <fieldset <?php if ($pincode) { ?> class="error-msg" <?php } ?>>
+                                    <label>Pincode:</label>
+                                    <input type="text" name="pincode" id="pincode" placeholder="Enter Pincode" value="<?php
+                                    if ($pincode1) {
+                                        echo $pincode1;
+                                    }
+                                    ?>"/> <span id="pincode-error"> </span>
+                                           <?php echo form_error('pincode'); ?>
+                                </fieldset>
+
+                                <fieldset class="full-width">
+                                    <label>Address:<span style="color:red">*</span></label>
+
+                                    <textarea name ="address" id="address" rows="4" cols="50" placeholder="Enter Address" style="resize: none;"><?php
+                                        if ($address1) {
+                                            echo $address1;
+                                        }
+                                        ?></textarea>
+                                    <?php echo form_error('address'); ?>
+                                </fieldset>
+
+
+                                <fieldset class="hs-submit full-width">
+                                    <input type="button" value="copy" onClick="copy()"/>
+                                </fieldset>
+                                <div class="job_add_head"><span>Permenant Address</span></div>
+
+                                <fieldset <?php if ($country_permenant) { ?> class="error-msg" <?php } ?>>
+                                    <label>Country<span style="color:red">*</span></label>
+                                    <select name="country_permenant" id="country_permenant">
+                                        <option value="">Select Country</option>
+                                        <?php
+                                        if (count($countries) > 0) {
+                                            foreach ($countries as $cnt) {
+
+                                                if ($country1_permenant) {
+                                                    ?>
+                                                    <option value="<?php echo $cnt['country_id']; ?>" <?php if ($cnt['country_id'] == $country1_permenant) echo 'selected'; ?>><?php echo $cnt['country_name']; ?></option>
+
+                                                    <?php
+                                                }
+                                                else {
+                                                    ?>
+                                                    <option value="<?php echo $cnt['country_id']; ?>"><?php echo $cnt['country_name']; ?></option>
+                                                    <?php
+                                                }
+                                            }
+                                        }
+                                        ?>
+
+
+                                    </select>
+                                    <?php echo form_error('country_permenant'); ?>
+                                </fieldset>
+
+                                <fieldset <?php if ($state_permenant) { ?> class="error-msg" <?php } ?>>
+                                    <label>State<span style="color:red">*</span></label>
+                                    <select name="state_permenant" id="state_permenant">
+                                        <?php
+                                        if ($state1_permenant) {
+                                            foreach ($states as $cnt) {
+                                                ?>
+
+                                                <option value="<?php echo $cnt['state_id']; ?>" <?php if ($cnt['state_id'] == $state1_permenant) echo 'selected'; ?>><?php echo $cnt['state_name']; ?></option>
+
+                                                <?php
+                                            }
+                                        }
+
+                                        else {
+                                            ?>
+                                            <option value="">Select country first</option>
+                                            <?php
+                                        }
+                                        ?>
+
+                                    </select>
+                                    <?php echo form_error('state_permenant'); ?>
+                                </fieldset>
+
+                                <fieldset <?php if ($city_permenant) { ?> class="error-msg" <?php } ?>>
+                                    <label>City</label>
+                                    <select name="city_permenant" id="city_permenant">
+                                        <?php
+                                        if ($city1_permenant) {
+                                            foreach ($cities as $cnt) {
+                                                ?>
+
+                                                <option value="<?php echo $cnt['city_id']; ?>" <?php if ($cnt['city_id'] == $city1_permenant) echo 'selected'; ?>><?php echo $cnt['city_name']; ?></option>
+
+                                                <?php
+                                            }
+                                        }
+
+                                        else {
+                                            ?>
+                                            <option value="">Select state first</option>
+
+                                            <?php
+                                        }
+                                        ?>
+                                    </select>
+                                    <?php echo form_error('city_permenant'); ?>
+                                </fieldset>
+
+                                <fieldset <?php if ($pincode_permenant) { ?> class="error-msg" <?php } ?>>
+                                    <label>Pincode:</label>
+                                    <input type="text" name="pincode_permenant" id="pincode_permenant" placeholder="Enter Pincode" value="<?php
+                                    if ($pincode1_permenant) {
+                                        echo $pincode1_permenant;
+                                    }
+                                    ?>"/> <span id="pincode-error"> </span>
+                                           <?php echo form_error('pincode_permenant'); ?>
+                                </fieldset>
+
+                                <fieldset class="full-width">
+                                    <label>Address:<span style="color:red">*</span></label>
+
+                                    <textarea name ="address_permenant" id="address_permenant" rows="4" cols="50" placeholder="Enter Address" style="resize: none;"><?php
+                                        if ($address1_permenant) {
+                                            echo $address1_permenant;
+                                        }
+                                        ?></textarea>
+                                    <?php echo form_error('address_permenant'); ?>
+                                </fieldset>
+
+                                <fieldset class="hs-submit full-width">
+
+<!--                                        <input type="reset">
+                                        <input type="submit"  id="previous" name="previous" value="previous">-->
+                                    <input type="submit"  id="next" name="next" value="Next">
+
+
+                                </fieldset>
+
+
+                                </form>
+                            </div>    
+                        </div>
+                    </div>
+                    <!-- middle section end -->
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+</body>
+</html>
+
+
+<!-- Calender JS Start-->
+<script src="<?php echo base_url('js/jquery.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('js/jquery-ui.js') ?>"></script>
+<script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
+<script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
+<script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+<!-- script for skill textbox automatic end -->
+<script>
+
+                                        var data = <?php echo json_encode($demo); ?>;
+
+                                        $(function () {
+                                            // alert('hi');
+                                            $("#tags").autocomplete({
+                                                source: function (request, response) {
+                                                    var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+                                                    response($.grep(data, function (item) {
+                                                        return matcher.test(item.label);
+                                                    }));
+                                                },
+                                                minLength: 1,
+                                                select: function (event, ui) {
+                                                    event.preventDefault();
+                                                    $("#tags").val(ui.item.label);
+                                                    $("#selected-tag").val(ui.item.label);
+                                                    // window.location.href = ui.item.value;
+                                                }
+                                                ,
+                                                focus: function (event, ui) {
+                                                    event.preventDefault();
+                                                    $("#tags").val(ui.item.label);
+                                                }
+                                            });
+                                        });
+
+</script>
+
+<!-- for search validation -->
+<script type="text/javascript">
+    function checkvalue() {
+        // alert("hi");
+        var searchkeyword = document.getElementById('tags').value;
+        var searchplace = document.getElementById('searchplace').value;
+        // alert(searchkeyword);
+        // alert(searchplace);
+        if (searchkeyword == "" && searchplace == "") {
+            //alert('Please enter Keyword');
+            return false;
+        }
+    }
+
+</script>
+
+<script>
+//select2 autocomplete start for skill
+    $('#searchskills').select2({
+
+        placeholder: 'Find Your Skills',
+
+        ajax: {
+
+            url: "<?php echo base_url(); ?>job/keyskill",
+            dataType: 'json',
+            delay: 250,
+
+            processResults: function (data) {
+
+                return {
+
+                    results: data
+
+
+                };
+
+            },
+            cache: true
+        }
+    });
+//select2 autocomplete End for skill
+
+//select2 autocomplete start for Location
+    $('#searchplace').select2({
+
+        placeholder: 'Find Your Location',
+        maximumSelectionLength: 1,
+        ajax: {
+
+            url: "<?php echo base_url(); ?>job/location",
+            dataType: 'json',
+            delay: 250,
+
+            processResults: function (data) {
+
+                return {
+
+                    results: data
+
+
+                };
+
+            },
+            cache: true
+        }
+    });
+//select2 autocomplete End for Location
+
+</script>
+
+<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.min.js') ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
+
+<!-- script for click on copy button to get similar value Start -->
+<script type="text/javascript">
+    function copy() {
+        var country = document.getElementById("country");
+        var country_permenant = document.getElementById("country_permenant");
+        country_permenant.value = country.value;
+        // alert(country.value);
+        // alert(country_permenant.value);
+
+        //var state = document.getElementById("state").value;
+        var state = document.getElementById('state').innerHTML;
+        var state1 = document.getElementById("state").value;
+        //alert( document.getElementById('state').innerHTML);
+        var state_permenant = document.getElementById("state_permenant");
+        state_permenant.innerHTML = state;
+        state_permenant.value = state1;
+        //alert(state);
+        //alert(state_permenant.innerHTML);
+
+        var city = document.getElementById('city').innerHTML;
+        var city1 = document.getElementById("city").value;
+        //alert( document.getElementById('state').innerHTML);
+        var city_permenant = document.getElementById("city_permenant");
+        city_permenant.innerHTML = city;
+        city_permenant.value = city1;
+
+        var pincode = document.getElementById("pincode");
+        var pincode_permenant = document.getElementById("pincode_permenant");
+        pincode_permenant.value = pincode.value;
+
+        var address = document.getElementById("address");
+        var address_permenant = document.getElementById("address_permenant");
+        address_permenant.value = address.value;
+
+    }
+
+
+</script>
+<!-- script for click on copy button to get similar value  end -->
+
+<!-- script for country,state,city start -->
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#country').on('change', function () {
+            var countryID = $(this).val();
+
+            if (countryID) {
+                $.ajax({
+                    type: 'POST',
+                    url: '<?php echo base_url() . "job_profile/ajax_data"; ?>',
+                    data: 'country_id=' + countryID,
+                    success: function (html) {
+                        $('#state').html(html);
+
+                        //$('#state_permenant').html(html);
+                        $('#city').html('<option value="">Select state first</option>');
+                    }
+                });
+            } else {
+                $('#state').html('<option value="">Select country first</option>');
+                $('#city').html('<option value="">Select state first</option>');
+            }
+        });
+
+        $('#state').on('change', function () {
+            var stateID = $(this).val();
+            if (stateID) {
+                $.ajax({
+                    type: 'POST',
+                    url: '<?php echo base_url() . "job_profile/ajax_data"; ?>',
+                    data: 'state_id=' + stateID,
+                    success: function (html) {
+
+                        $('#city').html(html);
+                    }
+                });
+            } else {
+                $('#city').html('<option value="">Select state first</option>');
+            }
+        });
+    });
+</script>
+<!-- script for country,state,city end -->
+
+<!-- script for country,state,city copy start -->
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#country_permenant').on('change', function () {
+            var countryID = $(this).val();
+
+            if (countryID) {
+                $.ajax({
+                    type: 'POST',
+                    url: '<?php echo base_url() . "job_profile/ajax_data"; ?>',
+                    data: 'country_id=' + countryID,
+                    success: function (html) {
+                        $('#state_permenant').html(html);
+                        $('#city_permenant').html('<option value="">Select state first</option>');
+                    }
+                });
+            } else {
+                $('#state_permenant').html('<option value="">Select country first</option>');
+                $('#city_permenant').html('<option value="">Select state first</option>');
+            }
+        });
+
+        $('#state_permenant').on('change', function () {
+            var stateID = $(this).val();
+            if (stateID) {
+                $.ajax({
+                    type: 'POST',
+                    url: '<?php echo base_url() . "job_profile/ajax_data"; ?>',
+                    data: 'state_id=' + stateID,
+                    success: function (html) {
+                        $('#city_permenant').html(html);
+                    }
+                });
+            } else {
+                $('#city_permenant').html('<option value="">Select state first</option>');
+            }
+        });
+    });
+</script>
+<!-- script for country,state,city copy end -->
+
+
+
+
+<script type="text/javascript">
+
+    //validation for edit email formate form
+
+    $(document).ready(function () {
+
+        $("#jobseeker_regform").validate({
+
+            rules: {
+
+                country: {
+
+                    required: true,
+
+                },
+
+                state: {
+
+                    required: true,
+
+                },
+
+                address: {
+
+                    required: true,
+
+                },
+
+                country_permenant: {
+
+                    required: true,
+
+                },
+
+                state_permenant: {
+
+                    required: true,
+
+                },
+
+                address_permenant: {
+
+                    required: true,
+
+                },
+
+            },
+
+            messages: {
+
+                country: {
+
+                    required: "Country Is Required.",
+
+                },
+
+                state: {
+
+                    required: "State Is Required.",
+
+                },
+
+                address: {
+
+                    required: "Address  Is Required.",
+
+                },
+
+                country_permenant: {
+
+                    required: "Country Is Required.",
+
+                },
+
+                state_permenant: {
+
+                    required: "State Is Required.",
+
+                },
+
+                address_permenant: {
+
+                    required: "Address  Is Required.",
+
+                },
+
+            },
+
+        });
+    });
+</script>
+
+
+<script>
+
+    var complex = <?php echo json_encode($selectdata); ?>;
+    $("#lan").select2().select2('val', complex)
+
+</script>
+<!-- script for Language textbox automatic end (option 2)-->

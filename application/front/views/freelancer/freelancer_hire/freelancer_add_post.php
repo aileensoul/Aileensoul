@@ -1,0 +1,614 @@
+<!-- start head -->
+<?php  echo $head; ?>
+    <!-- END HEAD -->
+    <!-- start header -->
+<?php echo $header; ?>
+    <!-- END HEADER -->
+
+    <!--  <rash code 7-4 start> -->
+   <?php echo $freelancer_hire_header2; ?>
+   <!--  <rash code 7-4 end> -->
+
+
+   <!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+ <!--  <rash code 7-4 start> -->
+
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
+
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+
+<script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
+
+<!-- Calender Css Start-->
+   <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/jquery.datetimepicker.css'); ?>">
+   <!-- Calender Css End-->
+
+
+</head>
+<body>
+
+        <div>
+        <div class="user-midd-section">
+        <div class="row"></div>
+            <div class="container">
+              <div class="col-md-3"></div>
+                      <div class="col-md-7 col-sm-7">
+
+                    <div>
+                        <?php
+                                        if ($this->session->flashdata('error')) {
+                                            echo '<div class="alert alert-danger">' . $this->session->flashdata('error') . '</div>';
+                                        }
+                                        if ($this->session->flashdata('success')) {
+                                            echo '<div class="alert alert-success">' . $this->session->flashdata('success') . '</div>';
+                                        }?>
+                    </div>
+
+                        <div class="common-form">
+                            <div class="job-saved-box">
+                                <h3>Post Your Project</h3> 
+                                
+                                
+                           <?php echo form_open(base_url('freelancer/freelancer_add_post_insert'), array('id' => 'postinfo','name' => 'postinfo','class' => 'clearfix')); ?>
+                            <div>
+                                  <h4> Project Description</h4></div>
+                        <div><span style="color:red">Fields marked with asterisk (*) are mandatory</span></div> 
+                            
+
+
+                            <?php
+                         $post_name =  form_error('post_name');
+                        
+                         $skills =  form_error('skills');
+                         
+                         $post_desc =  form_error('post_desc');
+                        
+                         ?>
+
+
+                        <fieldset class="full-width" <?php if($post_name) {  ?> class="error-msg" <?php } ?>>
+                        <label >Post Title:<span style="color:red">*</span></label>                 
+                        <input name="post_name" type="text" id="post_name" placeholder="Enter Post Name"/>
+                        <span id="fullname-error"></span>
+                        <?php echo form_error('post_name'); ?>
+                        </fieldset>
+
+                         <fieldset class="full-width">
+                        <label>Post description :<span style="color:red">*</span></label>
+
+                        <textarea name="post_desc" id="post_desc" placeholder="Enter Description"></textarea>
+                      
+                        <?php echo form_error('post_desc'); ?>
+                      </fieldset>
+
+                       <fieldset class="full-width" <?php if($fields_req) {  ?> class="error-msg" <?php } ?>>
+                  <label>Fields Of Requirmeant:<span style="color:red">*</span></label>
+                   <select name="fields_req" id="fields_req">
+                  <option value="">Select Fields of Requirement</option>
+                  <?php
+                                            if(count($category) > 0){
+                                                foreach($category as $cnt){
+                                          
+                                            if($fields_req1)
+                                            {
+                                              ?>
+                                                 <option value="<?php echo $cnt['category_id']; ?>" <?php if($cnt['category_id']==$fields_req1) echo 'selected';?>><?php echo $cnt['category_name'];?></option>
+                                               
+                                                <?php
+                                                }
+                                                else
+                                                {
+                                            ?>
+                                              
+                                                  <option value="<?php echo $cnt['category_id']; ?>"><?php echo $cnt['category_name'];?></option> 
+                                                  <?php
+                                            
+                                            }
+       
+                                            }}
+                                            ?>
+              </select>
+              <?php echo form_error('fields_req'); ?>
+                  </fieldset>
+
+                  <fieldset  <?php if($skills) {  ?> class="error-msg" <?php } ?>>
+                        <label>Skills of requirements:<span style="color:red">*</span></label>
+                         <select class="keyskil" name="skills[]" id="skills" multiple="multiple" style="cursor: default;"></select>
+                        <span id="fullname-error"></span>
+                        <?php echo form_error('skills'); ?>
+                       </fieldset>
+
+                        <fieldset <?php if($other_skill) {  ?> class="error-msg" <?php } ?> >
+                            <label class="control-label">Other Skill:<!-- <span style="color:red">*</span> --></label>
+                            <input name="other_skill" class="keyskil"  type="text" id="other_skill" placeholder="Enter Your Other Skill" />
+                                <span id="fullname-error"></span>
+                                <?php echo form_error('other_skill'); ?>
+                        </fieldset>
+
+
+                    <fieldset class="full-width" <?php if($est_time) {  ?> class="error-msg" <?php } ?>>
+                        <label>Estimated time of project:</label>
+                        <input name="est_time" type="text" id="est_time" placeholder="Enter Estimated time in month/year" /><span id="fullname-error"></span>
+                        <?php echo form_error('est_time'); ?>
+                         </fieldset>
+
+                       
+                        <fieldset class="col-md-12">  
+                        <b><h2>Payment : </h2></b>
+                         </fieldset>
+                         
+                          <fieldset class="col-md-4" <?php if($rate) {  ?> class="error-msg" <?php } ?> >
+                            <label class="control-label">Rate:<span style="color:red">*</span></label>
+                            <input name="rate" type="number" id="rate" placeholder="Enter Your rate" />
+                                <span id="fullname-error"></span>
+                                <?php echo form_error('rate'); ?>
+                        </fieldset>
+
+
+                          <fieldset class="col-md-4" <?php if($csurrency) {  ?> class="error-msg" <?php } ?> class="two-select-box"> 
+                     <label>Currency:<span style="color:red">*</span></label>
+                            <select name="currency" id="currency">
+
+                            <?php foreach($currency as $cur){ ?>
+                             <option value="<?php echo $cur['currency_id']; ?>"><?php echo $cur['currency_name']; ?></option>
+                             <?php } ?>
+                             </select>
+
+          
+                             <?php echo form_error('currency'); ?>
+</fieldset>
+
+<fieldset class="col-md-4">
+
+<label> Work Type</label>  <input type="radio" name="rating" value="0" checked> Hourly
+  <input type="radio" name="rating" value="1"> Fixed
+  <?php echo form_error('rating'); ?>
+                               </fieldset>
+
+
+
+
+
+                         <fieldset <?php if($month) {  ?> class="error-msg" <?php } ?> class="two-select-box"> 
+                     <label>Experience:</label>
+                            <select name="month" id="month">
+                            <option value="">Month</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                               </select>
+                                <?php echo form_error('month'); ?>
+                            <select name="year">
+                            <option value="">Year</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                            </select>
+                            <span id="fullname-error"></span>
+                            <?php echo form_error('year'); ?>
+                    </fieldset>
+
+                   
+                    <fieldset <?php if($last_date) {  ?> class="error-msg" <?php } ?>>
+                        <label>Last date for apply:<span style="color:red">*</span></label>
+                        <input type="text" name="last_date" id="datepicker" placeholder="dd/mm/yyyy"   autocomplete="off" value="" >
+
+                        <?php echo form_error('last_date'); ?> 
+                    </fieldset>
+
+                    <!-- <fieldset class="full-width" <?php if($location) {  ?> class="error-msg" <?php } ?>>
+                        <label>Location:</label>
+                        <input name="location" type="text" id="location" placeholder="Enter Location" /><span id="fullname-error"></span>
+                         <?php echo form_error('location'); ?>
+                    </fieldset> -->
+
+
+                    <fieldset <?php if($country) {  ?> class="error-msg" <?php } ?>>
+                <label>Country:<span style="color:red">*</span></label>
+                
+                        <select name="country" id="country">
+                          <option value="">Select Country</option>
+                          <?php
+                                            if(count($countries) > 0){
+                                                foreach($countries as $cnt){
+                                          
+                                            if($country1)
+                                            {
+                                              ?>
+                                                 <option value="<?php echo $cnt['country_id']; ?>" <?php if($cnt['country_id']==$country1) echo 'selected';?>><?php echo $cnt['country_name'];?></option>
+                                               
+                                                <?php
+                                                }
+                                                else
+                                                {
+                                            ?>
+                                                 <option value="<?php echo $cnt['country_id']; ?>"><?php echo $cnt['country_name'];?></option>
+                                                  <?php
+                                            
+                                            }
+       
+                                            }}
+                                            ?>
+                      </select><span id="country-error"></span>
+                   <?php echo form_error('country'); ?>
+                  </fieldset>
+
+                  <fieldset>
+                    <label> City:</label>
+                  <select name="city" id="city">
+                    <?php
+
+                                         if($city1)
+
+                                            {
+                                          foreach($cities as $cnt){
+                                               
+                                              ?>
+
+                                               <option value="<?php echo $cnt['city_id']; ?>" <?php if($cnt['city_id']==$city1) echo 'selected';?>><?php echo $cnt['city_name'];?></option>
+
+                                                <?php
+                                                } }
+                                              
+                                                else
+                                                {
+                                            ?>
+                                        <option value="">Select Country first</option>
+
+                                         <?php
+                                            
+                                            }
+                                            ?>
+                  </select><span id="city-error"></span>
+                                    <?php echo form_error('city'); ?>
+                </fieldset>
+
+             
+                 <div class="fr">           
+
+                    <fieldset class="hs-submit full-width">
+
+                        <input type="reset" value="cancel" >
+                        <input type="submit" id="submit" name="submit" value="Post">
+                    
+                    </fieldset>
+                      </div>      
+                      </form>
+                                          
+                                        </div>
+                                        <div class="col-md-1">
+                                        </div>
+                                    </div>
+                    
+                      </div>
+                </div>
+            </div>
+        </div>
+        </div>
+         
+        <div class="user-midd-section">
+            <div class="container">
+                <div class="row">
+                
+                                </div>
+
+
+                          
+                        </div>
+                    </div>
+    </section>
+    <footer>
+
+        <footer>
+            <?php echo $footer; ?>
+        </footer>
+
+       
+</body>
+
+</html>
+<script src="<?php echo base_url('js/jquery.js'); ?>"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js">
+    <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
+    
+    
+<script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
+   <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
+        <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+
+    <!-- Calender JS Start-->
+
+<script src="<?php echo base_url('js/jquery.datetimepicker.full.js'); ?>"></script>
+<script type="text/javascript">
+$('#datepicker').datetimepicker({
+  //yearOffset:222,
+  startDate: "2013/02/14",
+  lang:'ch',
+  timepicker:false,
+  format:'d/m/Y',
+  formatDate:'Y/m/d'
+  //minDate:'-1970/01/02', // yesterday is minimum date
+  //maxDate:'+1970/01/02' // and tommorow is maximum date calendar
+});
+</script>
+<!-- Calender Js End-->
+
+<!-- Field Validation Js Start -->
+<!--<script type="text/javascript" src="<?php echo base_url('js/jquery-1.11.1.min.js'); ?>"></script>-->
+<!--<script type="text/javascript" src="<?php echo base_url('js/jquery.validate1.15.0..min.js'); ?>"></script>-->
+<!--<script type="text/javascript" src="<?php echo base_url('js/additional-methods1.15.0.min.js'); ?>"></script>-->
+
+<!-- Field Validation Js End -->
+
+<!-- javascript validation start -->
+   <script type="text/javascript">
+
+           
+
+            $(document).ready(function () { 
+
+                $("#postinfo").validate({
+
+                  ignore: '*:not([name])',
+
+                    rules: {
+
+                        post_name: {
+
+                            required: true,
+                           
+                        },
+
+                         'skills[]': {
+                            
+                          require_from_group: [1, ".keyskil"] 
+                          //required:true 
+                        }, 
+
+                        other_skill: {
+                            
+                           require_from_group: [1, ".keyskil"]
+                            // required:true 
+                        },
+                       
+                      
+                       post_desc: {
+
+                            required: true,
+                           
+                        },
+                        last_date:{
+                          required:true,
+                        },
+                        currency:{
+                          required:true,
+                        }
+                      
+                    },
+
+                    messages: {
+
+                        post_name: {
+
+                            required: "Post name Is Required.",
+                            
+                        },
+
+                       'skills[]': {
+
+                            require_from_group: "You must either fill out 'Keyskills' or 'Other Skills'"
+
+                        },
+
+                        other_skill: {
+
+                            require_from_group: "You must either fill out 'Keyskills' or 'Other Skills'"
+                        },
+                        
+                        post_desc: {
+
+                            required: "Post Description  Is Required.",
+                            
+                        },
+                       last_date:{
+                         required:"Last Date of apply is required.",
+                       },
+                       currency:{
+                        required:"Please select currency type",
+                       }
+
+                    },
+
+                });
+                   });
+</script>
+<!-- javascript validation End -->
+<!-- 
+<rash code 7-4 start> -->
+
+
+ <script>
+
+var data= <?php echo json_encode($demo); ?>;
+//alert(data);
+
+        
+$(function() {
+    // alert('hi');
+$( "#tags" ).autocomplete({
+     source: function( request, response ) {
+         var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
+         response( $.grep( data, function( item ){
+             return matcher.test( item.label );
+         }) );
+   },
+    minLength: 1,
+    select: function(event, ui) {
+        event.preventDefault();
+        $("#tags").val(ui.item.label);
+        $("#selected-tag").val(ui.item.label);
+        // window.location.href = ui.item.value;
+    }
+    ,
+    focus: function(event, ui) {
+        event.preventDefault();
+        $("#tags").val(ui.item.label);
+    }
+});
+});
+  
+</script>
+
+  <script type="text/javascript">
+function checkvalue(){
+   //alert("hi");
+  var searchkeyword=document.getElementById('tags').value;
+  var searchplace=document.getElementById('searchplace').value;
+  // alert(searchkeyword);
+  // alert(searchplace);
+  if(searchkeyword == "" && searchplace == ""){
+     alert('Please enter Keyword');
+    return false;
+  }
+}
+</script>
+ 
+ <!-- <rash code 7-4 end>  -->
+
+<!-- country city dependent -->
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $('#country').on('change',function(){ 
+        var countryID = $(this).val();
+        if(countryID){
+            $.ajax({
+                type:'POST',
+                url:'<?php echo base_url() . "freelancer/ajax_dataforcity"; ?>',
+                data:'country_id='+countryID,
+                success:function(html){
+                    $('#city').html(html); 
+                }
+            }); 
+        }else{
+            $('#city').html('<option value="">Select Country first</option>'); 
+        }
+    });
+    
+});
+</script>
+
+
+<script>
+//select2 autocomplete start for skill
+$('#searchskills').select2({
+        
+        placeholder: 'Find Your Skills',
+       
+        ajax:{
+
+         
+          url: "<?php echo base_url(); ?>freelancer/keyskill",
+          dataType: 'json',
+          delay: 250,
+          
+          processResults: function (data) {
+            
+            return {
+              //alert(data);
+
+              results: data
+
+
+            };
+            
+          },
+           cache: true
+        }
+      });
+//select2 autocomplete End for skill
+
+//select2 autocomplete start for Location
+$('#searchplace').select2({
+        
+        placeholder: 'Find Your Location',
+        maximumSelectionLength: 1,
+       
+        ajax:{
+
+         
+          url: "<?php echo base_url(); ?>freelancer/location",
+          dataType: 'json',
+          delay: 250,
+          
+          processResults: function (data) {
+            
+            return {
+              //alert(data);
+
+              results: data
+
+
+            };
+            
+          },
+           cache: true
+        }
+      });
+//select2 autocomplete End for Location
+
+//select2 autocomplete start for skill
+$('#skills').select2({
+        
+        placeholder: 'Find Your Skills',
+       
+        ajax:{
+
+         
+          url: "<?php echo base_url(); ?>freelancer/keyskill",
+          dataType: 'json',
+          delay: 250,
+          
+          processResults: function (data) {
+            
+            return {
+              //alert(data);
+
+              results: data
+
+
+            };
+            
+          },
+           cache: true
+        }
+      });
+//select2 autocomplete End for skill
+
+</script>
+
