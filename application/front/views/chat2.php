@@ -3,17 +3,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<title>Chat-Example | CodeIgniter</title>
-	
-	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <meta charset="utf-8">
+  <title>Chat-Example | CodeIgniter</title>
+  
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
  
-		
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
-	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-	
-	<!-- http://bootsnipp.com/snippets/4jXW -->
-	
+<link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+      
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  
+  <!-- http://bootsnipp.com/snippets/4jXW -->
+  
   <link rel="stylesheet" href="<?php echo base_url(); ?>css/style_chat.css" />
   
 </head>
@@ -148,11 +149,40 @@ if($lstusrdata){?>
                 <input id="nickname" type="text" class="form-control input-sm" placeholder="Nickname..." />
               </div>
             </div> -->
-            <div class="col-md-9" id="msg_block">
+              <div class="col-md-12" id="msg_block">
               <div class="input-group">
-                <input id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." />
+
+               <!--  <input id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." /> -->
+                <form name="blog">
+               
+               <div class="form-control input-sm" contentEditable="true" name="comments" id="message  smily" style="position: relative; height: 40px;">
+            
+              </div>
+<div for="smily" style="position: absolute;
+z-index: 9; 
+    top: 7px;
+    right: 61px;
+    bottom: 0;">
+<div id="notification_li" style="position: absolute;
+    bottom: 5px;">
+    <a href="#" id="notificationLink" style="position: absolute;
+    bottom: 4px;
+    left: -22px;"><i class="em em-blush"></i></a>
+    
+      <div id="notificationContainer" style="display: none;
+    position: relative;margin-bottom: 30px;">
+     
+      <div id="notificationsBody" class="notifications"></div>
+     
+      </div>
+
+    </div>
+
+</div>
+            </form>
+    
                 <span class="input-group-btn">
-        <button class="btn btn-warning btn-sm" id="submit">Send</button>
+        <button class="btn btn-warning btn-sm" id="submit" style="padding: 10px">Send</button>
                 </span>
               </div>
             </div>
@@ -182,11 +212,39 @@ if($lstusrdata){?>
         <div class="panel-footer">
           <div class="clearfix">
             
-            <div class="col-md-9" id="msg_block">
+             <div class="col-md-12" id="msg_block">
               <div class="input-group">
-                <input id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." />
+
+               <!--  <input id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." /> -->
+                <form name="blog">
+               
+               <div class="form-control input-sm" contentEditable="true" name="comments" id="message  smily" style="position: relative;">
+            
+              </div>
+<div for="smily" style="position: absolute;
+    top: 7px;
+    right: 61px;
+    bottom: 0;">
+<div id="notification_li" style="position: absolute;
+    bottom: 5px;">
+    <a href="#" id="notificationLink" style="position: absolute;
+    bottom: 4px;
+    left: -22px;"><i class="em em-blush"></i></a>
+    
+      <div id="notificationContainer" style="display: none;
+    position: relative;margin-bottom: 30px;">
+     
+      <div id="notificationsBody" class="notifications"></div>
+     
+      </div>
+
+    </div>
+
+</div>
+            </form>
+    
                 <span class="input-group-btn">
-        <button class="btn btn-warning btn-sm" id="submit">Send</button>
+        <button class="btn btn-warning btn-sm" id="submit" style="padding: 10px">Send</button>
                 </span>
               </div>
             </div>
@@ -194,7 +252,7 @@ if($lstusrdata){?>
         </div>
     </div>
  <?php } ?>
-		<!-- chat start -->
+    <!-- chat start -->
     </div>
 
 </body>
@@ -203,54 +261,54 @@ if($lstusrdata){?>
 var request_timestamp = 0;
  
 var setCookie = function(key, value) {
-	var expires = new Date();
-	expires.setTime(expires.getTime() + (5 * 60 * 1000));
-	document.cookie = key + '=' + value + ';expires=' + expires.toUTCString();
+  var expires = new Date();
+  expires.setTime(expires.getTime() + (5 * 60 * 1000));
+  document.cookie = key + '=' + value + ';expires=' + expires.toUTCString();
 }
  
 var getCookie = function(key) {
-	var keyValue = document.cookie.match('(^|;) ?' + key + '=([^;]*)(;|$)');
-	return keyValue ? keyValue[2] : null;
+  var keyValue = document.cookie.match('(^|;) ?' + key + '=([^;]*)(;|$)');
+  return keyValue ? keyValue[2] : null;
 }
  
 var guid = function() {
-	function s4() {
-		return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
-	}
-	return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
+  function s4() {
+    return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
+  }
+  return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
 }
  
 if(getCookie('user_guid') == null || typeof(getCookie('user_guid')) == 'undefined'){
-	var user_guid = guid();
-	setCookie('user_guid', user_guid);
+  var user_guid = guid();
+  setCookie('user_guid', user_guid);
 }
  
  
 // https://gist.github.com/kmaida/6045266
 var parseTimestamp = function(timestamp) {
-	var d = new Date( timestamp * 1000 ), // milliseconds
-		yyyy = d.getFullYear(),
-		mm = ('0' + (d.getMonth() + 1)).slice(-2),	// Months are zero based. Add leading 0.
-		dd = ('0' + d.getDate()).slice(-2),			// Add leading 0.
-		hh = d.getHours(),
-		h = hh,
-		min = ('0' + d.getMinutes()).slice(-2),		// Add leading 0.
-		ampm = 'AM',
-		timeString;
-			
-	if (hh > 12) {
-		h = hh - 12;
-		ampm = 'PM';
-	} else if (hh === 12) {
-		h = 12;
-		ampm = 'PM';
-	} else if (hh == 0) {
-		h = 12;
-	}
+  var d = new Date( timestamp * 1000 ), // milliseconds
+    yyyy = d.getFullYear(),
+    mm = ('0' + (d.getMonth() + 1)).slice(-2),  // Months are zero based. Add leading 0.
+    dd = ('0' + d.getDate()).slice(-2),     // Add leading 0.
+    hh = d.getHours(),
+    h = hh,
+    min = ('0' + d.getMinutes()).slice(-2),   // Add leading 0.
+    ampm = 'AM',
+    timeString;
+      
+  if (hh > 12) {
+    h = hh - 12;
+    ampm = 'PM';
+  } else if (hh === 12) {
+    h = 12;
+    ampm = 'PM';
+  } else if (hh == 0) {
+    h = 12;
+  }
  
-	timeString = yyyy + '-' + mm + '-' + dd + ', ' + h + ':' + min + ' ' + ampm;
-		
-	return timeString;
+  timeString = yyyy + '-' + mm + '-' + dd + ', ' + h + ':' + min + ' ' + ampm;
+    
+  return timeString;
 }
 
 
@@ -260,25 +318,25 @@ var sendChat = function (message, callback) {
   var fname = '<?php echo $logfname; ?>';
   var lname = '<?php echo $loglname; ?>';
   
-	$.getJSON('<?php echo base_url() . 'api/send_message/' . $toid ?>?message=' + message + '&nickname='  + fname + ' ' + lname +  '&guid=' + getCookie('user_guid'), function (data){
-		callback();
-	});
+  $.getJSON('<?php echo base_url() . 'api/send_message/' . $toid ?>?message=' + message + '&nickname='  + fname + ' ' + lname +  '&guid=' + getCookie('user_guid'), function (data){
+    callback();
+  });
 }
  
 var append_chat_data = function (chat_data) {
-	chat_data.forEach(function (data) {
-		var is_me = data.guid == getCookie('user_guid');
+  chat_data.forEach(function (data) {
+    var is_me = data.guid == getCookie('user_guid');
    var userid = '<?php echo $userid; ?>';
    var curuser = data.message_from;
    var touser = data.message_to;
-		
-		 if(curuser == userid){
-			var timestamp = data.timestamp; // replace your timestamp
+    
+     if(curuser == userid){
+      var timestamp = data.timestamp; // replace your timestamp
 var date = new Date(timestamp * 1000);
 var formattedDate = ('0' + date.getDate()).slice(-2) + '/' + ('0' + (date.getMonth() + 1)).slice(-2) + '/' + date.getFullYear() + ' ' + ('0' + date.getHours()).slice(-2) + ':' + ('0' + date.getMinutes()).slice(-2);
 console.log(formattedDate);
 
-			  var html = ' <li class="clearfix">';
+        var html = ' <li class="clearfix">';
   html += '   <div class="message-data align-right">';
           html += '    <span class="message-data-time" >' + formattedDate + '</span>&nbsp; &nbsp;';
              html += '    <span  class="message-data-name"  >' + data.nickname + '</span> <i class="fa fa-circle me"></i>';
@@ -287,17 +345,17 @@ console.log(formattedDate);
               html += '     <div class="message other-message float-right">' + data.message + '</div>';
          html += '</li>';
     
-			
+      
        $('.' + 'status' + touser).html(data.message);
-		}else{
+    }else{
 
-			var timestamp = data.timestamp; // replace your timestamp
+      var timestamp = data.timestamp; // replace your timestamp
 var date = new Date(timestamp * 1000);
 var formattedDate = ('0' + date.getDate()).slice(-2) + '/' + ('0' + (date.getMonth() + 1)).slice(-2) + '/' + date.getFullYear() + ' ' + ('0' + date.getHours()).slice(-2) + ':' + ('0' + date.getMinutes()).slice(-2);
 console.log(formattedDate);
 
 
-		   var html = '<li> <div class="message-data">';
+       var html = '<li> <div class="message-data">';
        html += '<span class="message-data-name"><i class="fa fa-circle online"></i>' + data.nickname + ' </span>';
         html += '<span class="message-data-time">' + formattedDate + ' </span>';
  html += ' </div>';
@@ -305,51 +363,51 @@ console.log(formattedDate);
       html += '</li>';
 
       
-			
+      
        $('.' + 'status' + touser).html(data.message);
-		}
-		$("#received").html( $("#received").html() + html);
-	});
+    }
+    $("#received").html( $("#received").html() + html);
+  });
   
-	$('#received').animate({ scrollTop: $('#received').height()}, 1000);
+  $('#received').animate({ scrollTop: $('#received').height()}, 1000);
 }
  
 var update_chats = function () {
-	if(typeof(request_timestamp) == 'undefined' || request_timestamp == 0){
-		var offset = 52560000; // 100 years min
-		request_timestamp = parseInt( Date.now() / 1000 - offset );
-	}
-	$.getJSON('<?php echo base_url() . 'api/get_messages/' . $toid ?>?timestamp=' + request_timestamp, function (data){
-		append_chat_data(data);	
+  if(typeof(request_timestamp) == 'undefined' || request_timestamp == 0){
+    var offset = 52560000; // 100 years min
+    request_timestamp = parseInt( Date.now() / 1000 - offset );
+  }
+  $.getJSON('<?php echo base_url() . 'api/get_messages/' . $toid ?>?timestamp=' + request_timestamp, function (data){
+    append_chat_data(data); 
  
-		var newIndex = data.length-1;
-		if(typeof(data[newIndex]) != 'undefined'){
-			request_timestamp = data[newIndex].timestamp;
-		}
-	});      
+    var newIndex = data.length-1;
+    if(typeof(data[newIndex]) != 'undefined'){
+      request_timestamp = data[newIndex].timestamp;
+    }
+  });      
 }
 
 
 $('#submit').click(function (e) {
-	e.preventDefault();
-	
-	var $field = $('#message');
-	var data = $field.val();
+  e.preventDefault();
+  
+  var $field = $('#message');
+  var data = $field.val();
  
-	$field.addClass('disabled').attr('disabled', 'disabled');
-	sendChat(data, function (){
-		$field.val('').removeClass('disabled').removeAttr('disabled');
-	});
+  $field.addClass('disabled').attr('disabled', 'disabled');
+  sendChat(data, function (){
+    $field.val('').removeClass('disabled').removeAttr('disabled');
+  });
 });
  
 $('#message').keyup(function (e) {
-	if (e.which == 13) {
-		$('#submit').trigger('click');
-	}
+  if (e.which == 13) {
+    $('#submit').trigger('click');
+  }
 });
  
 setInterval(function (){
-	update_chats();
+  update_chats();
 }, 1500);
 
 </script>
@@ -434,3 +492,30 @@ function enteruser()
 </script>
 
 <!-- user search list 20-4 end -->
+
+
+
+<script type="text/javascript">
+        $(document).ready(function()
+      {
+      $("#notificationLink").click(function()
+      {
+      $("#notificationContainer").fadeToggle(300);
+      $("#notification_count").fadeOut("slow");
+      return false;
+      });
+
+      //Document Click hiding the popup 
+      $(document).click(function()
+      {
+      $("#notificationContainer").hide();
+      });
+
+      //Popup on click
+      $("#notificationContainer").click(function()
+      {
+      return false;
+      });
+
+      });
+</script>
