@@ -893,11 +893,17 @@ class Artistic extends MY_Controller {
 
         $post = array();
 
+        //$i =0;
         foreach ($qbc as $key => $row) {
-
             $post[$key] = $row['art_post_id'];
+          //  $qbc[$i]['created_date'] = $this->time_elapsed_string(date('Y-m-d H:i:s', strtotime($row['created_date'])));
+            //$i++;
         }
+
         array_multisort($post, SORT_DESC, $qbc);
+        // echo '<pre>';
+        // print_r($qbc);
+        // exit;
         $this->data['finalsorting'] = $qbc;
 
 
@@ -2647,6 +2653,9 @@ $followingdatacount = count($followingotherdata);
 
             $artname = $this->db->get_where('art_reg', array('user_id' => $art['user_id'], 'status' => 1))->row()->art_name;
 
+             $artlastname =  $this->db->get_where('art_reg',array('user_id' => $art['user_id']))->row()->art_lastname;
+
+
             $art_userimage = $this->db->get_where('art_reg', array('user_id' => $art['user_id'], 'status' => 1))->row()->art_user_image;
 
             $cmtinsert .= '<div class="all-comment-comment-box">';
@@ -2655,12 +2664,17 @@ $followingdatacount = count($followingotherdata);
 
             $cmtinsert .= '<img  src="' . base_url(USERIMAGE . $art_userimage) . '" alt="">  </div>';
 
-            $cmtinsert .= '<div class="comment-name"><b>' . $artname . '</b>';
+            $cmtinsert .= '<div class="comment-name"><b>' . ucwords($artname) .'&nbsp;' . ucwords($artlastname) .'</b>';
             $cmtinsert .= '</div>';
             $cmtinsert .= '<div class="comment-details" id= "showcomment' . $art['artistic_post_comment_id'] . '"" >';
             $cmtinsert .= $art['comments'];
             $cmtinsert .= '</div>';
-            $cmtinsert .= '<input type="text" name="' . $art['artistic_post_comment_id'] . '" id="editcomment' . $art['artistic_post_comment_id'] . '"style="display:none" value="' . $art['comments'] . ' " onClick="commentedit(this.name)">';
+
+
+            $cmtinsert .= '<textarea  name="' . $art['artistic_post_comment_id'] . '" id="editcomment' . $art['artistic_post_comment_id'] . '" style="display:none" onClick="commentedit(this.name)">';
+            $cmtinsert .= '' . $art['comments'] . '';
+            $cmtinsert .= '</textarea>';
+
             $cmtinsert .= '<button id="editsubmit' . $art['artistic_post_comment_id'] . '" style="display:none" onClick="edit_comment(' . $art['artistic_post_comment_id'] . ')">Comment</button><div class="art-comment-menu-design"> <div class="comment-details-menu" id="likecomment1' . $art['artistic_post_comment_id'] . '">';
 
             $cmtinsert .= '<a id="' . $art['artistic_post_comment_id'] . '"';
@@ -2715,7 +2729,7 @@ $followingdatacount = count($followingotherdata);
             $cmtinsert .= '</a></div>';
             $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
             $cmtinsert .= '<div class="comment-details-menu">';
-            $cmtinsert .= '<b>' . $art['created_date'] . '</b></div></div></div>';
+            $cmtinsert .= '<p>' . $art['created_date'] . '</p></div></div></div>';
             if (count($allcomnt) > 1) {
                 $cntinsert = '<a onclick="commentall(this.id)" id="' . $art['art_post_id'] . '">';
                 $cntinsert .= '<i class="fa fa-comment-o" aria-hidden="true">' .
@@ -2749,6 +2763,10 @@ $followingdatacount = count($followingotherdata);
 
             $artname = $this->db->get_where('art_reg', array('user_id' => $art['user_id'], 'status' => 1))->row()->art_name;
 
+             $artlastname =  $this->db->get_where('art_reg',array('user_id' => $art['user_id']))->row()->art_lastname;
+
+
+
             $art_userimage = $this->db->get_where('art_reg', array('user_id' => $art['user_id'], 'status' => 1))->row()->art_user_image;
 
             $cmtinsert .= '<div class="all-comment-comment-box">';
@@ -2757,12 +2775,18 @@ $followingdatacount = count($followingotherdata);
 
             $cmtinsert .= '<img  src="' . base_url(USERIMAGE . $art_userimage) . '" alt="">  </div>';
 
-            $cmtinsert .= '<div class="comment-name"><b>' . $artname . '</b>';
+            $cmtinsert .= '<div class="comment-name"><b>' . ucwords($artname) .'&nbsp;'.ucwords($artlastname). '</b>';
             $cmtinsert .= '</div>';
             $cmtinsert .= '<div class="comment-details" id= "showcommenttwo' . $art['artistic_post_comment_id'] . '"" >';
             $cmtinsert .= $art['comments'];
             $cmtinsert .= '</div>';
-            $cmtinsert .= '<input type="text" name="' . $art['artistic_post_comment_id'] . '" id="editcommenttwo' . $art['artistic_post_comment_id'] . '"style="display:none" value="' . $art['comments'] . ' " onClick="commentedittwo(this.name)">';
+
+
+            $cmtinsert .= '<textarea  name="' . $art['artistic_post_comment_id'] . '" id="editcommenttwo' . $art['artistic_post_comment_id'] . '" style="display:none" onClick="commentedittwo(this.name)">';
+            $cmtinsert .= '' . $art['comments'] . '';
+            $cmtinsert .= '</textarea>';
+
+
             $cmtinsert .= '<button id="editsubmittwo' . $art['artistic_post_comment_id'] . '" style="display:none" onClick="edit_commenttwo(' . $art['artistic_post_comment_id'] . ')">Comment</button><div class="art-comment-menu-design"> <div class="comment-details-menu" id="likecomment1' . $art['artistic_post_comment_id'] . '">';
 
             $cmtinsert .= '<a id="' . $art['artistic_post_comment_id'] . '"';
@@ -2814,7 +2838,7 @@ $followingdatacount = count($followingotherdata);
             $cmtinsert .= '</a></div>';
             $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
             $cmtinsert .= '<div class="comment-details-menu">';
-            $cmtinsert .= '<b>' . $art['created_date'] . '</b></div></div></div>';
+            $cmtinsert .= '<p>' . $art['created_date'] . '</p></div></div></div>';
         }
         echo $cmtinsert;
     }
@@ -2935,7 +2959,7 @@ $followingdatacount = count($followingotherdata);
              $cmtlikeuser .= '</div>';
 
              $cmtlikeuser .= '<div style="padding-left: 5px;">';
-             $cmtlikeuser .= '' . $countlike . 'others;';
+             $cmtlikeuser .= '' . $countlike . ' others';
              $cmtlikeuser .= '</div>';
 
              }
@@ -2951,10 +2975,11 @@ $followingdatacount = count($followingotherdata);
 
 
 
-            } else {
-                
-            }
+            } 
         } else {
+
+            $contition_array = array('art_post_id' => $_POST["post_id"], 'status' => '1');
+            $artdata1 = $this->data['artdata1'] = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
             foreach ($likeuserarray as $key => $val) {
                 if ($val == $userid) { //echo $key;
@@ -2996,7 +3021,7 @@ $followingdatacount = count($followingotherdata);
 
          $cmtlikeuser .= '<div id=popuplike' . $artdata1[0]['art_post_id'].' class="overlay"';
          $cmtlikeuser .= '<div class="popup">';
-         $cmtlikeuser .= '<div class="pop_content">';
+         $cmtlikeuser .= '<div class="pop_content2">';
 
          $contition_array = array('art_post_id' => $artdata1[0]['art_post_id'], 'status' => '1', 'is_delete' =>'0');
         $commnetcount = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = ''); 
@@ -3038,13 +3063,14 @@ $followingdatacount = count($followingotherdata);
 
             $likelistarray = explode(',', $likeuser);
 
-            $art_fname =  $this->db->get_where('art_reg',array('user_id' => $likelistarray[0], 'status' => 1))->row()->art_name;
+            $art_fname12 =  $this->db->get_where('art_reg',array('user_id' => $likelistarray[0], 'status' => 1))->row()->art_name;
 
-            $art_lname =  $this->db->get_where('art_reg',array('user_id' => $likelistarray[0], 'status' => 1))->row()->art_lastname;
+
+            $art_lname12 =  $this->db->get_where('art_reg',array('user_id' => $likelistarray[0], 'status' => 1))->row()->art_lastname;
 
             $cmtlikeuser .= '<div class="fl" style=" padding-left: 22px;" >';
         
-            $cmtlikeuser .= '' . ucwords($art_fname) . '&nbsp;' . ucwords($art_lname) . '&nbsp;';
+            $cmtlikeuser .= '' . ucwords($art_fname12) . '&nbsp;' . ucwords($art_lname12) . '&nbsp;';
 
             $cmtlikeuser .= '</div>';
 
@@ -3056,7 +3082,7 @@ $followingdatacount = count($followingotherdata);
              $cmtlikeuser .= '</div>';
 
              $cmtlikeuser .= '<div style="padding-left: 5px;">';
-             $cmtlikeuser .= '' . $countlike . 'others;';
+             $cmtlikeuser .= '' . $countlike . 'others';
              $cmtlikeuser .= '</div>';
 
              }
@@ -3105,6 +3131,9 @@ $followingdatacount = count($followingotherdata);
 
             $artname = $this->db->get_where('art_reg', array('user_id' => $art['user_id'], 'status' => 1))->row()->art_name;
 
+             $artlastname =  $this->db->get_where('art_reg',array('user_id' => $art['user_id']))->row()->art_lastname;
+
+
             $art_userimage = $this->db->get_where('art_reg', array('user_id' => $art['user_id'], 'status' => 1))->row()->art_user_image;
 
             $cmtinsert .= '<div class="all-comment-comment-box">';
@@ -3113,12 +3142,17 @@ $followingdatacount = count($followingotherdata);
 
             $cmtinsert .= '<img  src="' . base_url(USERIMAGE . $art_userimage) . '" alt="">  </div>';
 
-            $cmtinsert .= '<div class="comment-name"><b>' . $artname . '</b>';
+            $cmtinsert .= '<div class="comment-name"><b>' . ucwords($artname) .'&nbsp;' . ucwords($artlastname).'</b>';
             $cmtinsert .= '</div>';
             $cmtinsert .= '<div class="comment-details" id= "showcommenttwo' . $art['artistic_post_comment_id'] . '"" >';
             $cmtinsert .= $art['comments'];
             $cmtinsert .= '</div>';
-            $cmtinsert .= '<input type="text" name="' . $art['artistic_post_comment_id'] . '" id="editcommenttwo' . $art['artistic_post_comment_id'] . '"style="display:none" value="' . $art['comments'] . ' " onClick="commentedittwo(this.name)">';
+
+            $cmtinsert .= '<textarea  name="' . $art['artistic_post_comment_id'] . '" id="editcommenttwo' . $art['artistic_post_comment_id'] . '" style="display:none" onClick="commentedittwo(this.name)">';
+            $cmtinsert .= '' . $art['comments'] . '';
+            $cmtinsert .= '</textarea>';
+
+
             $cmtinsert .= '<button id="editsubmittwo' . $art['artistic_post_comment_id'] . '" style="display:none" onClick="edit_commenttwo(' . $art['artistic_post_comment_id'] . ')">Comment</button><div class="art-comment-menu-design"> <div class="comment-details-menu" id="likecomment1' . $art['artistic_post_comment_id'] . '">';
 
             $cmtinsert .= '<a id="' . $art['artistic_post_comment_id'] . '"';
@@ -3173,7 +3207,7 @@ $followingdatacount = count($followingotherdata);
             $cmtinsert .= '</a></div>';
             $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
             $cmtinsert .= '<div class="comment-details-menu">';
-            $cmtinsert .= '<b>' . $art['created_date'] . '</b></div></div></div>';
+            $cmtinsert .= '<p>' . $art['created_date'] . '</p></div></div></div>';
         }
         echo $cmtinsert;
         // khyati chande 
@@ -3213,6 +3247,9 @@ $followingdatacount = count($followingotherdata);
 
             $artname = $this->db->get_where('art_reg', array('user_id' => $art['user_id'], 'status' => 1))->row()->art_name;
 
+             $artlastname =  $this->db->get_where('art_reg',array('user_id' => $art['user_id']))->row()->art_lastname;
+
+
             $art_userimage = $this->db->get_where('art_reg', array('user_id' => $art['user_id'], 'status' => 1))->row()->art_user_image;
 
             $cmtinsert .= '<div class="all-comment-comment-box">';
@@ -3221,12 +3258,16 @@ $followingdatacount = count($followingotherdata);
 
             $cmtinsert .= '<img  src="' . base_url(USERIMAGE . $art_userimage) . '" alt="">  </div>';
 
-            $cmtinsert .= '<div class="comment-name"><b>' . $artname . '</b>';
+            $cmtinsert .= '<div class="comment-name"><b>' . ucwords($artname) .'&nbsp;'. ucwords($artlastname). '</b>';
             $cmtinsert .= '</div>';
             $cmtinsert .= '<div class="comment-details" id= "showcomment' . $art['artistic_post_comment_id'] . '"" >';
             $cmtinsert .= $art['comments'];
             $cmtinsert .= '</div>';
-            $cmtinsert .= '<input type="text" name="' . $art['artistic_post_comment_id'] . '" id="editcomment' . $art['artistic_post_comment_id'] . '"style="display:none" value="' . $art['comments'] . ' " onClick="commentedit(this.name)">';
+
+            $cmtinsert .= '<textarea  name="' . $art['artistic_post_comment_id'] . '" id="editcomment' . $art['artistic_post_comment_id'] . '" style="display:none" onClick="commentedit(this.name)">';
+            $cmtinsert .= '' . $art['comments'] . '';
+            $cmtinsert .= '</textarea>';
+
             $cmtinsert .= '<button id="editsubmit' . $art['artistic_post_comment_id'] . '" style="display:none" onClick="edit_comment(' . $art['artistic_post_comment_id'] . ')">Comment</button><div class="art-comment-menu-design"> <div class="comment-details-menu" id="likecomment1' . $art['artistic_post_comment_id'] . '">';
 
             $cmtinsert .= '<a id="' . $art['artistic_post_comment_id'] . '"';
@@ -3281,7 +3322,7 @@ $followingdatacount = count($followingotherdata);
             $cmtinsert .= '</a></div>';
             $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
             $cmtinsert .= '<div class="comment-details-menu">';
-            $cmtinsert .= '<b>' . $art['created_date'] . '</b></div></div></div>';
+            $cmtinsert .= '<p>' . $art['created_date'] . '</p></div></div></div>';
             if (count($allcomnt) > 1) {
                 $cntinsert = '<a onclick="commentall(this.id)" id="' . $art['art_post_id'] . '">';
                 $cntinsert .= '<i class="fa fa-comment-o" aria-hidden="true">' .
@@ -4554,6 +4595,13 @@ $followingdatacount = count($followingotherdata);
 
                 $fourdata .= '<div class="comment-details" id= "showcommenttwo' . $rowdata['artistic_post_comment_id'] . '">';
                 $fourdata .= '' . $rowdata['comments'] . '</br></div>';
+
+
+
+                $fourdata .= '<textarea  name="' . $rowdata['artistic_post_comment_id'] . '" id="editcommenttwo' . $rowdata['artistic_post_comment_id'] . '" style="display:none" onClick="commentedittwo(this.name)">';
+                $fourdata .= '' . $rowdata['comments'] . '';
+                $fourdata .= '</textarea>';
+
                 $fourdata .= '<input type="text" name="' . $rowdata['artistic_post_comment_id'] . '" id="editcommenttwo' . $rowdata['artistic_post_comment_id'] . '" style="display:none" value="' . $rowdata['comments'] . '"  onClick="commentedittwo(this.name)">';
                 $fourdata .= '<button id="editsubmittwo' . $rowdata['artistic_post_comment_id'] . '" style="display:none" onClick="edit_commenttwo(' . $rowdata['artistic_post_comment_id'] . ')">Comment</button>';
 
