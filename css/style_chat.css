@@ -257,7 +257,7 @@ chat*/
       #notificationContainer 
       {
          background-color: #fff;
-    border: 1px solid rgba(100, 100, 100, .4);
+    
     /* -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25); */
     /* overflow: visible; */
     /* overflow-y: scroll; */
@@ -266,6 +266,10 @@ chat*/
     margin-left: -188px;
     width: 250px;
     z-index: 3;
+    position: relative;
+    margin-bottom: 37px;
+    box-shadow: 0 0 40px #ccc;
+    border-radius: 5px;
     /* display: none; */
       }
       
@@ -319,10 +323,11 @@ chat*/
   border-top-color: #fff;
    bottom: -19px;
     right: 63px;
+
 }
 
 #notificationContainer:after {
-  border-color: rgba(136, 183, 213, 0);
+  border-color: rgba(204,204,204, 0);
   border-top-color: #88b7d5;
   border-width: 30px;
   margin-left: -30px;
