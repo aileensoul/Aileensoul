@@ -36,7 +36,7 @@
                                 <li><a href="<?php echo base_url('edit_business_profile/edit_contact_information'); ?>">Contact information</a></li>
                                 <li><a href="<?php echo base_url('edit_business_profile/edit_description'); ?>">Description</a></li>
                                 <li><a href="<?php echo base_url('edit_business_profile/edit_image'); ?>">Images</a></li>
-                                <li><a href="<?php echo base_url('edit_business_profile/edit_addmore'); ?>">Add more</a></li>
+                              
                                 
                             </ul>
                         </div>

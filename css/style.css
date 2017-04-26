@@ -3000,7 +3000,7 @@ follow box*/
         /* right: 0; */
         margin-right: 10px}
 
-.saved, .applied{ color: #fff !important; background-color: #000033 !important;  pointer-events: none;}
+.saved, .applied{ color: #fff !important; background-color: #000033 !important;  pointer-events: none; font-weight: bold;}
 
 .image_profile{height: 120px; float: left;
                width: 120px;

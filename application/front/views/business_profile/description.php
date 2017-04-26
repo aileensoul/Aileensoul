@@ -29,8 +29,7 @@
 
                                 <li class="<?php if($businessdata[0]['business_step'] < '3'){echo "khyati";}?>"><a href="<?php echo base_url('business_profile/image'); ?>">Images</a></li>
 
-                                <li class="<?php if($businessdata[0]['business_step'] < '3'){echo "khyati";}?>"><a href="<?php echo base_url('business_profile/addmore'); ?>">Add more</a></li>
-                                
+                               
                             </ul>
                         </div>
                     </div>
@@ -189,9 +188,7 @@ style="<?php if($industriyal1 != 0) {echo 'display: none'; } ?>">
 
                                 <fieldset class="hs-submit full-width">
                                     
-                                    <input type="reset">
-                                    <a href="<?php echo base_url('business_profile/contact_information'); ?>">Previous</a>
-
+                                   
                                     <input type="submit"  id="next" name="next" value="Next">
                                     
                                     

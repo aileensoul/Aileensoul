@@ -63,8 +63,6 @@
                                 <fieldset class="hs-submit full-width">
                                     
 
-                                     <input type="reset">
-                                    <a href="<?php echo base_url('business_profile/image'); ?>">Previous</a>
                                     
                                     <input type="submit"  id="submit" name="submit" value="Submit">
                                    

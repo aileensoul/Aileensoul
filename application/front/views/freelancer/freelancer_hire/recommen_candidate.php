@@ -511,7 +511,11 @@ if ($freehiredata[0]['designation']) {
                                                                         // khayti changes end 6-4                              
                                                                     }
                                                                     ?> 
-                                                                    <a href="<?php echo base_url('message/message_chats/' . $row['user_id']); ?>">Message</a>
+                              <a href="<?php echo base_url('chat/abc/' . $row['user_id']); ?>">Message</a>
+
+                             
+
+                             
                                                                 </div>
                                                             </div>
                                                         </div>
