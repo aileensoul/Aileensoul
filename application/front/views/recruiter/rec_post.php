@@ -188,7 +188,15 @@ echo $head; ?>
 
 
 <!-- END HEADER -->
-<?php echo $recruiter_header2; ?>
+<?php
+ $returnpage= $_GET['page'];
+ if($returnpage == 'job'){
+     echo $job_header2; 
+ }
+ else{
+echo $recruiter_header2; 
+ }
+?>
 
 <body   class="page-container-bg-solid page-boxed">
 
@@ -303,16 +311,27 @@ echo $head; ?>
 
 
 
-                    <li <?php if ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'rec_profile') { ?> class="active" <?php } ?>><a href="<?php echo base_url('recruiter/rec_profile'); ?>">Details</a>
+                    <li <?php if ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'rec_profile') { ?> class="active" <?php } ?>>
+                        <?php if($returnpage == 'job'){?>
+     <a href="<?php echo base_url('recruiter/rec_profile/'.$this->uri->segment(3).'?page='.$returnpage); ?>">Details</a>
+        <?php }else{?>
+     <a href="<?php echo base_url('recruiter/rec_profile'); ?>">Details</a>
+        <?php }?>
                     </li>
 
 
-                    <?php if (($this->uri->segment(1) == 'recruiter') && ($this->uri->segment(2) == 'rec_post' || $this->uri->segment(2) == 'rec_profile' || $this->uri->segment(2) == 'add_post' || $this->uri->segment(2) == 'save_candidate') && ($this->uri->segment(3) == $this->session->userdata('aileenuser') || $this->uri->segment(3) == '')) { ?>
+                    <?php if (($this->uri->segment(1) == 'recruiter') && ($this->uri->segment(2) == 'rec_post' || $this->uri->segment(2) == 'rec_profile' || $this->uri->segment(2) == 'add_post' || $this->uri->segment(2) == 'save_candidate') && ($this->uri->segment(3) == $this->session->userdata('aileenuser') || $this->uri->segment(3) != '')) { ?>
 
-                        <li <?php if ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'rec_post') { ?> class="active" <?php } ?>><a href="<?php echo base_url('recruiter/rec_post'); ?>">Post</a>
+                        <li <?php if ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'rec_post') { ?> class="active" <?php } ?>>
+                            <?php if($returnpage == 'job'){ ?>
+                                           <a href="<?php echo base_url('recruiter/rec_post/'.$this->uri->segment(3).'?page='.$returnpage); ?>">Post</a>
+                                           <?php } else {?>
+                                           <a href="<?php echo base_url('recruiter/rec_post'); ?>">Post</a>
+                                           <?php }?>
                         </li>
 
-
+                         <?php } ?>
+                        <?php if (($this->uri->segment(1) == 'recruiter') && ($this->uri->segment(2) == 'rec_post' || $this->uri->segment(2) == 'rec_profile' || $this->uri->segment(2) == 'add_post' || $this->uri->segment(2) == 'save_candidate') && ($this->uri->segment(3) == $this->session->userdata('aileenuser') || $this->uri->segment(3) == '')) { ?>
                         <li <?php if ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'save_candidate') { ?> class="active" <?php } ?>><a href="<?php echo base_url('recruiter/save_candidate'); ?>">Saved </a>
                         </li> 
                         <fa>
@@ -327,14 +346,14 @@ echo $head; ?>
         <!-- menubar -->    
     </div>                       
      <div class="job-menu-profile1">
-        <a href="<?php echo site_url('recruiter/rec_profile/' . $recruiterdata[0]['user_id']); ?>" title="<?php echo $recdata[0]['rec_firstname'] . ' ' . $recdata[0]['rec_lastname']; ?>"><h5><?php echo $recdata[0]['rec_firstname'] . ' ' . $recdata[0]['rec_lastname']; ?></h5></a>
+        <a href="<?php echo site_url('recruiter/rec_profile/' . $postdata[0]['user_id']); ?>" title="<?php echo $postdata[0]['rec_firstname'] . ' ' . $postdata[0]['rec_lastname']; ?>"><h5><?php echo $postdata[0]['rec_firstname'] . ' ' . $recdata[0]['rec_lastname']; ?></h5></a>
         <!-- text head start -->
         <div class="profile-text" >
 
           <?php 
                    
                   
-            if ($recdata[0]['designation'] == "") {
+            if ($postdata[0]['designation'] == "") {
                
                 ?>
                             <!--<center><a id="myBtn" title="Designation">Designation</a></center>-->
@@ -344,7 +363,7 @@ echo $head; ?>
                
                 ?> 
                 <!--<a id="myBtn" title="<?php echo ucwords($job[0]['designation']); ?>"><?php echo ucwords($job[0]['designation']); ?></a>-->
-                <a id="designation" class="designation" title="<?php echo ucwords($recdata[0]['designation']); ?>"><?php echo ucwords($recdata[0]['designation']); ?></a>
+                <a id="designation" class="designation" title="<?php echo ucwords($postdata[0]['designation']); ?>"><?php echo ucwords($postdata[0]['designation']); ?></a>
             <?php } ?>
 
 

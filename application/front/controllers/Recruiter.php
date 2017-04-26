@@ -562,7 +562,7 @@ class Recruiter extends MY_Controller {
              $join_str[0]['join_type'] = '';
 
 
-            $contition_array = array('rec_post.user_id' => $userid, 'rec_post.is_delete' => 0);
+            $contition_array = array('rec_post.user_id' => $id, 'rec_post.is_delete' => 0);
             $this->data['postdata'] = $this->common->select_data_by_condition('rec_post', $contition_array, $data = '*', $sortby = 'post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
               // echo "<pre>"; print_r($this->data['postdata']); die();
         }

@@ -154,7 +154,15 @@ body {
 
     <!-- END HEADER -->
 
-<?php echo $recruiter_header2; ?>
+<?php
+ $returnpage= $_GET['page'];
+ if($returnpage == 'job'){
+     echo $job_header2; 
+ }
+ else{
+echo $recruiter_header2; 
+ }
+?>
 
 <body   class="page-container-bg-solid page-boxed">
 
@@ -260,7 +268,12 @@ body {
 <div class="right-side-menu col-md-9">  
  <ul class="">
                                   
- <li <?php if($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'rec_profile'){?> class="active" <?php } ?>><a href="<?php echo base_url('recruiter/rec_profile'); ?>">Details</a>
+ <li <?php if($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'rec_profile'){?> class="active" <?php } ?>>
+        <?php if($returnpage == 'job'){?>
+     <a href="<?php echo base_url('recruiter/rec_profile/'.$this->uri->segment(3).'?page='.$returnpage); ?>">Details</a>
+        <?php }else{?>
+     <a href="<?php echo base_url('recruiter/rec_profile'); ?>">Details</a>
+        <?php }?>
                                     </li>
 
 
@@ -268,7 +281,12 @@ body {
                                     <?php
                                     if(($this->uri->segment(1) == 'recruiter') && ($this->uri->segment(2) == 'rec_post' || $this->uri->segment(2) == 'rec_profile' || $this->uri->segment(2) == 'add_post' || $this->uri->segment(2) == 'save_candidate') && ($this->uri->segment(3) == $this->session->userdata('aileenuser')|| $this->uri->segment(3) == '' ||  $this->uri->segment(3) != '')) { ?>
 
-                                       <li <?php if($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'rec_post'){?> class="active" <?php } ?>><a href="<?php echo base_url('recruiter/rec_post'); ?>">Post</a>
+                                       <li <?php if($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'rec_post'){?> class="active" <?php } ?>>
+                                           <?php if($returnpage == 'job'){ ?>
+                                           <a href="<?php echo base_url('recruiter/rec_post/'.$this->uri->segment(3).'?page='.$returnpage); ?>">Post</a>
+                                           <?php } else {?>
+                                           <a href="<?php echo base_url('recruiter/rec_post'); ?>">Post</a>
+                                           <?php }?>
                                     </li>
 
 
