@@ -1001,10 +1001,12 @@ foreach ($businessprofiledata as $row) {
                                                     </div>
 
                                                 </div>                    
-                                                <span class="show"> 
+                                                <span> 
 
                                                     <div id="<?php echo 'editpostdetails' . $row['business_profile_post_id']; ?>" style="display:block;">
+                                                        <span class="show"> 
         <?php print text2link($row['product_description']); ?>
+                                                        </span>
                                                     </div>
 
                                                     <div id="<?php echo 'editpostdetailbox' . $row['business_profile_post_id']; ?>" style="display:none;">
@@ -2095,7 +2097,7 @@ foreach ($businessprofiledata as $row) {
 <script src="jquery-1.8.2.js"></script>
 <script>
     $(function() {
-    var showTotalChar = 270, showChar = "Further", hideChar = "less";
+    var showTotalChar = 200, showChar = "More", hideChar = "Less";
     $('.show').each(function() {
     var content = $(this).text();
     if (content.length > showTotalChar) {
