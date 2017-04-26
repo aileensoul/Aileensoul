@@ -533,7 +533,7 @@ if ($artisticdata[0]['art_bestofmine']) {
                                             </div>
                                         </li>
 
-                                        <li> <b> Achievmeant </b> <span>
+<!--                                         <li> <b> Achievmeant </b> <span>
                                                 <div class="buisness-profile-pic">
 
                                                     <?php
@@ -586,7 +586,7 @@ if ($artisticdata[0]['art_bestofmine']) {
 
                                             </span>
                                             </div>
-                                        </li>
+                                        </li> -->
                                         <li> <b>Tell me about yourself: </b> <span> <?php echo $artisticdata[0]['art_portfolio']; ?> </span>
                                         </li>
 
