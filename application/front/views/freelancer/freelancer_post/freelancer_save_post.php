@@ -350,7 +350,7 @@
 
 
                                 <!-- pop up box start-->
-                                <div id="popup2" class="overlay">
+                               <!--  <div id="popup2" class="overlay">
                                     <div class="popup">
 
                                         <div class="pop_content">
@@ -359,7 +359,7 @@
                                         </div>
 
                                     </div>
-                                </div>
+                                </div> -->
                                 <!-- pop up box end-->
 
 
@@ -898,6 +898,20 @@ $( "#tags" ).autocomplete({
             }
     });
     }
+
+      function apply_post(abc)
+    {
+    var alldata = document.getElementById("allpost" + abc);
+    var user = document.getElementById("userid" + abc);
+    $.ajax({
+    type:'POST',
+            url:'<?php echo base_url() . "freelancer/apply_insert" ?>',
+            data: 'post_id=' + abc + '&allpost=' + alldata.value + '&userid=' + user.value,
+            success:function(data){
+            $('.' + 'applypost' + abc).html(data);
+            }
+    });
+    }
 </script>
 
 <!-- remove save post end -->
@@ -905,7 +919,7 @@ $( "#tags" ).autocomplete({
 
 <!-- apply post start -->
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     function apply_post(abc)
     {
 
@@ -921,7 +935,8 @@ $( "#tags" ).autocomplete({
             }
     });
     }
-                        </script>
+    
+  </script> -->
 
 
                         <script>
