@@ -83,7 +83,7 @@ class Registration extends CI_Controller {
        
        // if($username != "Available" || $username == " ")
        // {
-       //    redirect('registration/index');  
+       //    redirect('registration');  
        //  }
 
        
@@ -159,7 +159,7 @@ class Registration extends CI_Controller {
        else
         {
                 $this->session->flashdata('error','Sorry!! Your data not inserted');
-               redirect('registration/index', 'refresh');
+               redirect('registration', 'refresh');
         }
       
 
