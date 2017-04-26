@@ -56,7 +56,7 @@
                                 ?>
 
                                 <fieldset>
-                                    <label>Best of mine:</label>
+                                   <!--  <label>Best of mine:</label> -->
                                     <input type="file" name="bestofmine" id="bestofmine" placeholder="Enter Best of mine" />
 
                                     <?php
@@ -110,7 +110,7 @@
                                     
                                 </fieldset>
 
-                                <fieldset>
+<!--                                 <fieldset>
                                     <label>Achievement:</label>
                                     <input name="achievmeant"  type="file" id="achievmeant" placeholder="Enter Achievement" /> 
 
@@ -161,10 +161,10 @@
 
                                     <input type="hidden" name="archiver" id="archiver" value="<?php echo $achievmeant1; ?>"><span id="achievmeant-error"></span>
                                   
-                                </fieldset>
+                                </fieldset> -->
 
                                 <fieldset class="full-width">
-                                    <label>Tell me about yourself:</label>
+                                    <!-- <label>Tell me about yourself:</label> -->
 
                                   
                                      <textarea name ="artportfolio" id="artportfolio" rows="4" cols="50" placeholder="Enter Portfolio Detail" style="resize: none;"><?php if($address1){ echo $address1; } ?></textarea>
@@ -200,6 +200,21 @@
         <?php echo $footer;  ?>
     </footer>
     
+
+    <!-- Bid-modal  -->
+                <div class="modal fade message-box biderror" id="bidmodal" role="dialog">
+                    <div class="modal-dialog modal-lm">
+                        <div class="modal-content">
+                            <button type="button" class="modal-close" data-dismiss="modal">&times;</button>       
+                            <div class="modal-body">
+                                <!--<img class="icon" src="images/dollar-icon.png" alt="" />-->
+                                <span class="mes"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Model Popup Close -->
+
 </body>
 </html>
 
@@ -318,4 +333,101 @@ $( "#tags" ).autocomplete({
 
 
 
+
     <!-- footer end -->
+
+
+    <!-- only pdf insert script strat -->
+
+    <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
+<script type="text/javascript">
+  
+function imgval(event){ 
+alert("fil");
+
+//var fileInput = document.getElementById('test-upload');
+
+var fileInput = document.getElementById("bestmine").files;
+
+for (var i = 0; i < fileInput.length; i++)
+{
+    var vname = fileInput[i].name;
+    var vfirstname = fileInput[0].name;
+    var ext = vfirstname.split('.').pop();
+    var ext1 = vname.split('.').pop(); 
+    var allowespdf = ['pdf'];
+
+
+var foundPresentpdf = $.inArray(ext, allowespdf) > -1;
+
+ 
+  
+  if(foundPresentpdf == true)
+  {
+
+      var foundPresent1 = $.inArray(ext1, allowespdf) > -1;
+
+      if(foundPresent1 == true && fileInput.length == 1){
+       }else{
+        $('.biderror .mes').html("<div class='pop_content'>sorry this is not valid file.");
+          $('#bidmodal').modal('show');
+         setInterval('window.location.reload()', 10000);
+       event.preventDefault();
+        return false;
+          }   
+  }
+
+}
+  }
+ 
+</script>
+<script type="text/javascript">
+  
+$(document).ready(function(){
+  $('.modal-close').on('click',function(){
+      $('.modal-post').hide();
+  });
+});
+
+</script>
+
+
+<!-- only pdf insert script end -->
+
+<!-- <script type="text/javascript">
+
+            //validation for edit email formate form
+
+            jQuery.validator.setDefaults({
+            debug: true,
+            success: "valid"
+             });
+
+
+            $(document).ready(function () {  
+
+                $("#artportfolio").validate({ 
+
+                    rules: {
+
+                        bestmine: {
+
+                            required: true,
+                            accept: "pdf/*"
+                        },
+
+                    },
+
+                //     messages: {
+
+                //         bestmine: {
+
+                //             required: "Pdf Is Required.",
+                            
+                //         },
+                       
+                // },
+
+                });
+                   });
+  </script> -->

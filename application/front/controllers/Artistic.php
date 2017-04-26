@@ -616,7 +616,7 @@ class Artistic extends MY_Controller {
         //best of mine image upload code start
 
         $config['upload_path'] = 'uploads/art_images/';
-        $config['allowed_types'] = 'jpg|jpeg|png|gif|mp4|3gp|pdf|mp3';
+        $config['allowed_types'] = 'pdf';
 
         $config['file_name'] = $_FILES['bestofmine']['name'];
         $config['upload_max_filesize'] = '40M';
@@ -635,23 +635,23 @@ class Artistic extends MY_Controller {
             $picture = '';
         }
         //best of mine image upload code End
-        //Achievement image upload code start
-        $config['upload_path'] = 'uploads/art_images/';
-        $config['allowed_types'] = 'jpg|jpeg|png|gif|mp4|3gp|pdf|mp3';
+        // //Achievement image upload code start
+        // $config['upload_path'] = 'uploads/art_images/';
+        // $config['allowed_types'] = 'jpg|jpeg|png|gif|mp4|3gp|pdf|mp3';
 
-        $config['file_name'] = $_FILES['achievmeant']['name'];
-        $config['upload_max_filesize'] = '40M';
-        //Load upload library and initialize configuration
-        $this->load->library('upload', $config);
-        $this->upload->initialize($config);
+        // $config['file_name'] = $_FILES['achievmeant']['name'];
+        // $config['upload_max_filesize'] = '40M';
+        // //Load upload library and initialize configuration
+        // $this->load->library('upload', $config);
+        // $this->upload->initialize($config);
 
-        if ($this->upload->do_upload('achievmeant')) {
-            $uploadData = $this->upload->data();
-            $picture_achiev = $uploadData['file_name'];
-        } else {
-            $picture_achiev = '';
-        }
-        //Achievement image upload code End
+        // if ($this->upload->do_upload('achievmeant')) {
+        //     $uploadData = $this->upload->data();
+        //     $picture_achiev = $uploadData['file_name'];
+        // } else {
+        //     $picture_achiev = '';
+        // }
+        // //Achievement image upload code End
 
         if ($picture && $picture_achiev) {
 

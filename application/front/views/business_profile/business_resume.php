@@ -205,7 +205,7 @@ if($status == 0 || $status == " "){?>
 <?php }?>
      </div> 
      <a href="<?php echo base_url('chat/abc/'.$businessdata1[0]['user_id']); ?>">Message</a>
-   </div>
+   </div> 
 
    
 
@@ -346,8 +346,8 @@ if($status == 0 || $status == " "){?>
                                                 <div class="profile-job-profile-button clearfix">
                                                     <div class="profile-job-details">
                                                         <ul>
-                                                            <li>
-                                                            <p> Basic Information</p> 
+                                   <li>
+               <p class="details_all_tital "> Basic Information</p> 
                                                             </li>
                                                           
                                                         </ul>
@@ -377,8 +377,9 @@ if($status == 0 || $status == " "){?>
                                                 <div class="profile-job-profile-button clearfix">
                                                  <div class="profile-job-details">
                                                         <ul>
+              
                                                             <li>
-                                          <p> Contact Information</p>
+              <p class="details_all_tital "> Contact Information</p>
                                                             </li>
                                                           
                                                         </ul>
@@ -405,7 +406,7 @@ if($status == 0 || $status == " "){?>
                                                  <div class="profile-job-details">
                                                         <ul>
                                                             <li>
-                                  <p>Professional Information</p>
+                        <p class="details_all_tital ">Professional Information</p>
                                                             </li>
                                                           
                                                         </ul>
@@ -452,9 +453,7 @@ if($status == 0 || $status == " "){?>
                                                 <div class="profile-job-profile-button clearfix">
                                                  <div class="profile-job-details">
                                                         <ul>
-                                                            <li>
-                                                                <p> Images</p>
-                                                            </li>
+                 <li><p class="details_all_tital "> Images</p> </li>
                                                           
                                                         </ul>
                                                     </div>

@@ -355,7 +355,7 @@ if ($artisticdata[0]['user_id'] === $userid) {
                                     <div class="profile-job-details">
                                         <ul>
                                             <li>
-                                                <p> Basic Information</p>
+            <p class="details_all_tital "> Basic Information</p>
                                             </li>
 
                                         </ul>
@@ -379,7 +379,7 @@ if ($artisticdata[0]['user_id'] === $userid) {
                                         <div class="profile-job-details">
                                             <ul>
                                                 <li>
-                                                    <p>Contact Address</p>
+                    <p class="details_all_tital ">Contact Address</p>
                                                 </li>
 
                                             </ul>
@@ -411,7 +411,7 @@ $this->db->get_where('cities', array('city_id' => $artisticdata[0]['art_city']))
                                         <div class="profile-job-details">
                                             <ul>
                                                 <li>
-                                                    <p> Art Information</p>
+             <p class="details_all_tital "> Art Information</p>
                                                 </li>
 
                                             </ul>
@@ -472,7 +472,7 @@ echo $listFinal . ',' . $artisticdata[0]['other_skill'];
                                     <div class="profile-job-details">
                                         <ul>
                                             <li>
-                                                <p>Portfolio</p>
+                <p class="details_all_tital ">Portfolio</p>
                                             </li>
 
                                         </ul>
@@ -533,7 +533,7 @@ if ($artisticdata[0]['art_bestofmine']) {
                                             </div>
                                         </li>
 
-                                        <li> <b> Achievmeant </b> <span>
+<!--                                         <li> <b> Achievmeant </b> <span>
                                                 <div class="buisness-profile-pic">
 
                                                     <?php
@@ -586,7 +586,7 @@ if ($artisticdata[0]['art_bestofmine']) {
 
                                             </span>
                                             </div>
-                                        </li>
+                                        </li> -->
                                         <li> <b>Tell me about yourself: </b> <span> <?php echo $artisticdata[0]['art_portfolio']; ?> </span>
                                         </li>
 
