@@ -280,9 +280,16 @@ if ($this->session->flashdata('success')) {
                                                     </div>
                                                 </li>
                                                 <li>
-                                                    <div class="">
-                                                        <div class="follow-li-text ">
-                                                            <a href="<?php echo base_url('artistic/art_manage_post/' . $user['user_id']); ?>"><?php echo $user['art_name']; ?></a></div>
+                                    <div class="">
+                                    <div class="follow-li-text ">
+                                    <a href="<?php echo base_url('artistic/art_manage_post/' . $user['user_id']); ?>"><?php echo ucwords($user['art_name']); echo "&nbsp;"; echo ucwords($user['art_lastname']); ?></a></div>
+
+
+                                <div>
+                               <a><?php echo ucwords($user['designation']); ?></a>
+                                </div>
+
+
                                                 </li>
 
                                                 <li class="fr <?php echo "fruser" . $user['art_id']; ?>">
