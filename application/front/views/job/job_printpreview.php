@@ -196,8 +196,7 @@ echo $head;
                                     <div class="profile-job-details">
 
                                         <ul>
-                                            <li>
-                                                <p> Basic Information</p>
+                                <li><p class="details_all_tital"> Basic Information</p>
                                             </li>
 
                                         </ul>
@@ -258,8 +257,8 @@ echo $head;
                                     <div class="profile-job-profile-button clearfix">
                                         <div class="profile-job-details">
                                             <ul>
-                                                <li>
-                                                    <p> Address</p>
+                    
+                    <li><p class="details_all_tital"> Address</p>
                                                 </li>
 
                                             </ul>
@@ -350,9 +349,8 @@ echo $head;
                                         <div class="profile-job-profile-button clearfix">
                                             <div class="profile-job-details">
                                                 <ul>
-                                                    <li>
-                                                        <p> Education</p>
-                                                    </li>
+           
+           <li><p class="details_all_tital"> Education</p></li>
 
                                                 </ul>
                                             </div>
@@ -519,9 +517,7 @@ echo $head;
                                                     <div class="profile-job-details">
                                                         <ul>
 
-                                                            <li>
-                                                                <p>Project And Training / Internship</p>
-                                                            </li>
+            <li><p class="details_all_tital">Project And Training / Internship</p></li>
 
                                                         </ul>
                                                     </div>
@@ -533,7 +529,7 @@ echo $head;
                                                         if ($job[0]['project_name'] != "" || $job[0]['project_duration'] != "" || $job[0]['project_description'] != "") {
                                                             ?>
                                                             <li>
-                                                                <p> Project And Training</p>
+            <center><h5> Project And Training</h5></center>
                                                             </li>
                                                             <?php
                                                         }
@@ -567,13 +563,13 @@ echo $head;
                                                             <?php
                                                         }
                                                         ?>
-                                                        <br><br>
+                                                        <br>
 
                                                         <?php
                                                         if ($job[0]['training_as'] != "" || $job[0]['training_duration'] != "" || $job[0]['training_organization'] != "") {
                                                             ?>
                                                             <li>
-                                                                <p>Internship</p>
+                   <center><h5>Internship</h5></center>
                                                             </li>
                                                             <?php
                                                         }
@@ -617,9 +613,7 @@ echo $head;
                                                 <div class="profile-job-profile-button clearfix">
                                                     <div class="profile-job-details">
                                                         <ul>
-                                                            <li>
-                                                                <p> Key Skill</p>
-                                                            </li>
+             <li><p class="details_all_tital"> Key Skill</p></li>
 
                                                         </ul>
                                                     </div>
@@ -677,9 +671,8 @@ echo $head;
                                                 <div class="profile-job-profile-button clearfix">
                                                     <div class="profile-job-details">
                                                         <ul>
-                                                            <li>
-                                                                <p> Apply For</p>
-                                                            </li>
+          
+            <li><p class="details_all_tital"> Apply For</p></li>
 
                                                         </ul>
                                                     </div>
@@ -705,9 +698,8 @@ echo $head;
                                                 <div class="profile-job-profile-button clearfix">
                                                     <div class="profile-job-details">
                                                         <ul>
-                                                            <li>
-                                                                <p> Work Experience</p>
-                                                            </li>
+                 
+                 <li><p class="details_all_tital"> Work Experience</p></li>
 
                                                         </ul>
                                                     </div>
@@ -808,9 +800,8 @@ echo $head;
                                                     <div class="profile-job-profile-button clearfix">
                                                         <div class="profile-job-details">
                                                             <ul>
-                                                                <li>
-                                                                    <p> Extra Curricular Activities</p>
-                                                                </li>
+                                                            
+        <li><p class="details_all_tital"> Extra Curricular Activities</p></li>
 
                                                             </ul>
                                                         </div>
@@ -828,9 +819,8 @@ echo $head;
                                                     <div class="profile-job-profile-button clearfix">
                                                         <div class="profile-job-details">
                                                             <ul>
-                                                                <li>
-                                                                    <p> Interest & Reference</p>
-                                                                </li>
+           
+    <li> <p class="details_all_tital"> Interest & Reference</p></li>
 
                                                             </ul>
                                                         </div>
@@ -856,9 +846,8 @@ echo $head;
                                                         <div class="profile-job-profile-button clearfix">
                                                             <div class="profile-job-details">
                                                                 <ul>
-                                                                    <li>
-                                                                        <p>Carrier Objectives</p>
-                                                                    </li>
+                                                               
+             <li><p class="details_all_tital">Carrier Objectives</p></li>
 
                                                                 </ul>
                                                             </div>

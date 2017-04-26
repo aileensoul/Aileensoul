@@ -2188,7 +2188,7 @@ border-bottom: 1px solid #000033;
 .tablet-hi {
     overflow: hidden;
     border: 1px solid #000033;
-    background-color: #4f6eb0;
+    background-color: #000;
 }
 
 /* Style the links inside the tab */
@@ -3872,5 +3872,7 @@ input:-moz-placeholder { color:#999; font-size: 15px; }
 /* v 26-4-17 start*/
 
 .display_inline { display: inline !important; }
+.job_address_btn { min-width: 70px; font-size: 16px; }
+.details_all_tital { font-weight: 700; font-size: 20px; }
 
 /* v 26-4-17 end*/

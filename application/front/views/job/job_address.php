@@ -213,7 +213,7 @@
 
 
                                 <fieldset class="hs-submit full-width">
-                                    <input type="button" value="copy" onClick="copy()"/>
+                                <input type="button" class="job_address_btn" value="copy" onClick="copy()"/>
                                 </fieldset>
                                 <div class="job_add_head"><span>Permenant Address</span></div>
 
