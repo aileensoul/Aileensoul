@@ -67,7 +67,7 @@
                              $business_address= form_error('business_address'); 
                          ?>
 
-                                <fieldset <?php if($companyname) {  ?> class="error-msg" <?php } ?>>
+                                <fieldset class="full-width" <?php if($companyname) {  ?> class="error-msg" <?php } ?>>
                                     <label>Company Name:<span style="color:red">*</span></label>
                                     <input name="companyname" type="text" id="companyname" placeholder="Enter company Name" value="<?php if($companyname1){ echo $companyname1; } ?>"/>
                                     <?php echo form_error('companyname'); ?>
@@ -164,7 +164,7 @@
                                 </fieldset>
                                 
 
-                                <fieldset class="full-width">
+                                <fieldset>
                                     <label>Pincode:</label>
                                     <input name="pincode"  type="text" id="pincode" placeholder="Enter Pincode" value="<?php if($pincode1){ echo $pincode1; } ?>">
                                      
