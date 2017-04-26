@@ -29,8 +29,7 @@
 
                                 <li <?php if($this->uri->segment(1) == 'business_profile'){?> class="active" <?php } ?>><a href="#">Images</a></li>
 
-                                <li class="<?php if($businessdata[0]['business_step'] < '4'){echo "khyati";}?>"><a href="<?php echo base_url('business_profile/addmore'); ?>">Add more</a></li>
-                                
+                               
                             </ul>
                         </div>
                     </div>
@@ -70,11 +69,8 @@
                                <fieldset class="hs-submit full-width">
                                    
 
-                                    <input type="reset">
-
-                                    <a href="<?php echo base_url('business_profile/description'); ?>">Previous</a>
-                                    
-                                    <input type="submit"  id="next" name="next" value="Next">
+                                   
+                                    <input type="submit"  id="submit" name="submit" value="Submit">
                                    
                                     
                                 </fieldset>

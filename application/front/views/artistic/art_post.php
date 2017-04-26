@@ -844,9 +844,9 @@ $followfrom =  $this->db->get_where('art_reg',array('user_id' => $userid, 'statu
  <div id="myBtn"  class="editor-content col-md-10 popup-text" >
         <!-- <textarea name="product_title" placeholder="Post Your Product...."></textarea>  -->
          <textarea placeholder="Post Your Art...."  onKeyPress=check_length(this.form); onKeyDown=check_length(this.form); 
- name=my_text rows=4 cols=30 class="post_product_name"></textarea>
-  <div>                        
-<input size=1 value=50 name=text_num style="width: 52px; display: none;"> 
+ name=my_text rows=4 cols=30 class="post_product_name" style="position: relative;"></textarea>
+  <div style="position: absolute; top: 20px; right: 13px; border: none;">                        
+<input size=1 value=50 name=text_num style="width: 52px;" readonly> 
        </div>
       
      </div>
@@ -1013,8 +1013,12 @@ foreach($finalsorting as $row)
                  
 
                         <li>
-                        <div class="post-design-product"><a style="    font-size: 16px;
-    line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; " href="<?php echo base_url('artistic/art_manage_post/'.$row['user_id']); ?>"><?php echo ucwords($firstname); print "&nbsp;&nbsp;"; echo ucwords($lastname); ?> <span style="font-weight: 400;"> <?php echo date('d-M-Y',strtotime($row['created_date'])); ?></span></a> </div></li>
+                        <div class="post-design-product"><a style="font-size: 16px;
+    line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; " href="<?php echo base_url('artistic/art_manage_post/'.$row['user_id']); ?>"><?php echo ucwords($firstname); print "&nbsp;&nbsp;"; echo ucwords($lastname); ?> <span style="font-weight: 400;"> <?php// echo date('d-M-Y',strtotime($row['created_date'])); ?>
+    	
+    <?php echo $row['created_date']; ?>
+
+    </span></a> </div></li>
                         <!-- 
                         <li><div class="post-design-product"><a><?php  //echo $listFinal ; ?> </a></div></li>
                          -->
@@ -1078,8 +1082,8 @@ foreach($finalsorting as $row)
   <div class="post-design-desc ">
   <span> 
 
-  <div class="show" id="<?php echo 'editpostdetails' . $row['art_post_id']; ?>" style="display:block;">
-  <?php print text2link($row['art_description']); ?>
+  <div  id="<?php echo 'editpostdetails' . $row['art_post_id']; ?>" style="display:block ; padding-bottom: 10px;">
+  <span class="show"><?php echo $row['art_description']; ?></span>
   </div>
 
   <div id="<?php echo 'editpostdetailbox' . $row['art_post_id']; ?>" style="display:none;">
@@ -1088,7 +1092,8 @@ foreach($finalsorting as $row)
   </textarea> 
   </div>
 
-  <button id="<?php echo "editpostsubmit" . $row['art_post_id']; ?>" style="display:none" onClick="edit_postinsert(<?php echo $row['art_post_id']; ?>)">EditPost</button>
+  <button id="<?php echo "editpostsubmit" . $row['art_post_id']; ?>" style="display:none" onClick="edit_postinsert(<?php echo $row['art_post_id']; ?>)">Save</button>
+  
   
 
    </span></div> 
@@ -1466,8 +1471,8 @@ if(count($likelistarray) > 1) {
                                         ?>
                                         </div>
                                         <div class="col-md-12">
-                                        <div class="col-md-10">                             
-                                        <input type="text" name="<?php echo $rowdata['artistic_post_comment_id']; ?>" id="<?php echo "editcomment" . $rowdata['artistic_post_comment_id']; ?>" style="display:none" value="<?php  echo $rowdata['comments']; ?>" onClick="commentedit(this.name)">
+                                        <div class="col-md-10">
+                                        <textarea name="<?php echo $rowdata['artistic_post_comment_id']; ?>" id="<?php echo "editcomment" . $rowdata['artistic_post_comment_id']; ?>" style="display:none" onClick="commentedit(this.name)"><?php  echo $rowdata['comments']; ?></textarea>
                                         </div>
 
                                         <div class="col-md-2 comment-edit-button">
@@ -1551,7 +1556,12 @@ if(count($likelistarray) > 1) {
 
 <div class="comment-details-menu">
                                          <p> <?php 
-                                        echo date('d-M-Y',strtotime($rowdata['created_date'])); echo '</br>'; ?>
+                                      /*   $new_date = date('Y-m-d H:i:s',strtotime($rowdata['created_date']));
+*/
+/*							$new_time =	$this->time_elapsed_string($new_date);
+*/
+//							echo $new_time. '<br>';
+                             echo date('d-M-Y',strtotime($rowdata['created_date'])); echo '</br>';   ?>
                                       </p></div></div>
                                        </div>
                                               
@@ -1868,17 +1878,16 @@ window.onclick = function(event) {
 <script type="text/javascript">
 function post_like(clicked_id)
 {
-    
    $.ajax({
                 type:'POST',
                 url:'<?php echo base_url() . "artistic/like_post" ?>',
                 dataType: 'json',
                  data:'post_id='+clicked_id,
                 success:function(data){ 
+                	console.log(data.like);
+                	console.log(data.likeuser);
                     $('.' + 'likepost' + clicked_id).html(data.like);
-
                     $('.likeusername' + clicked_id).html(data.likeuser);
-                    
                 }
             }); 
 }
@@ -2495,18 +2504,20 @@ $list.on('click', '.remove_thumb', function () {//alert("aaaaa");
 <script language=JavaScript>
 <!--
 function check_length(my_form)
-{
+{ 
 maxLen = 50; // max number of characters allowed
-if (my_form.my_text.value.length >= maxLen) {
+if (my_form.my_text.value.length >= maxLen) { 
 // Alert message if maximum limit is reached. 
 // If required Alert can be removed. 
 var msg = "You have reached your maximum limit of characters allowed";
-alert(msg);
+//alert(msg);
 // Reached the Maximum length so trim the textarea
-  my_form.my_text.value = my_form.my_text.value.substring(0, maxLen);
+  my_form.my_text.value = my_form.my_text.value.substring(0, maxLen); 
+  
  }
 else{ // Maximum length not reached so update the value of my_text counter
   my_form.text_num.value = maxLen - my_form.my_text.value.length;
+  
 }
 }
 //-->
@@ -2535,9 +2546,10 @@ else{ // Maximum length not reached so update the value of my_text counter
                   
        document.getElementById('editpostdata' + abc).style.display='none';
        document.getElementById('editpostbox' + abc).style.display='block';
-       document.getElementById('editpostdetails' + abc).style.display='none';
+       document.getElementById('editpostdetails' + abc).style.display='none' ,'display:inline !important';
        document.getElementById('editpostdetailbox' + abc).style.display='block';
        document.getElementById('editpostsubmit' + abc).style.display='block';
+       
 
         
 }
@@ -2563,8 +2575,10 @@ else{ // Maximum length not reached so update the value of my_text counter
             document.getElementById('editpostdetails' + abc).style.display='block';
             document.getElementById('editpostdetailbox' + abc).style.display='none';
 
-            document.getElementById('editpostsubmit' + abc).style.display='none';
+           document.getElementById('editpostsubmit' + abc).style.display='none';
           
+           
+
               $('#' + 'editpostdata' + abc).html(data.title);
               $('#' + 'editpostdetails' + abc).html(data.description);
 
@@ -2573,6 +2587,7 @@ else{ // Maximum length not reached so update the value of my_text counter
         
 }
 </script>
+
 
 
 <!-- edit post end -->

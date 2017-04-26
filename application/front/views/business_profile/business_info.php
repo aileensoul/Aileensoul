@@ -30,8 +30,6 @@
 
                                 <li class="<?php if($businessdata[0]['business_step'] < '1'){echo "khyati";}?>"><a href="<?php echo base_url('business_profile/image'); ?>">Images</a></li>
 
-                                <li class="<?php if($businessdata[0]['business_step'] < '1'){echo "khyati";}?>"><a href="<?php echo base_url('business_profile/addmore'); ?>">Add more</a></li>
-                                
                             </ul>
                         </div>
                     </div>
@@ -67,7 +65,7 @@
                              $business_address= form_error('business_address'); 
                          ?>
 
-                                <fieldset <?php if($companyname) {  ?> class="error-msg" <?php } ?>>
+                                <fieldset class="full-width" <?php if($companyname) {  ?> class="error-msg" <?php } ?>>
                                     <label>Company Name:<span style="color:red">*</span></label>
                                     <input name="companyname" type="text" id="companyname" placeholder="Enter company Name" value="<?php if($companyname1){ echo $companyname1; } ?>"/>
                                     <?php echo form_error('companyname'); ?>
@@ -164,7 +162,7 @@
                                 </fieldset>
                                 
 
-                                <fieldset class="full-width">
+                                <fieldset>
                                     <label>Pincode:</label>
                                     <input name="pincode"  type="text" id="pincode" placeholder="Enter Pincode" value="<?php if($pincode1){ echo $pincode1; } ?>">
                                      
@@ -184,7 +182,7 @@
 
                                 <fieldset class="hs-submit full-width">
 
-                                    <input type="reset">
+                                   
                                     <input type="submit"  id="next" name="next" value="Next">
                                    
                                     
