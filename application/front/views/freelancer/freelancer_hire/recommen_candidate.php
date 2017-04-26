@@ -350,7 +350,7 @@ if ($freehiredata[0]['designation']) {
                                                 </li>
                                                 <li ><a href="<?php echo base_url('freelancer/freelancer_hire_post'); ?>"> Posts</a>
                                                 </li>
-                                                <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_save')) { ?> class="active" <?php } ?>><a href="<?php echo base_url('freelancer/freelancer_save'); ?>">Saved</a>
+                                                <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_save')) { ?> class="active" <?php } ?>><a href="<?php echo base_url('freelancer/freelancer_save'); ?>">Message</a>
                                                 </li>
                                 </ul>
      
@@ -511,7 +511,7 @@ if ($freehiredata[0]['designation']) {
                                                                         // khayti changes end 6-4                              
                                                                     }
                                                                     ?> 
-                              <a href="<?php echo base_url('chat/abc/' . $row['user_id']); ?>">Message</a>
+                              <a href="<?php echo base_url('chat/abc/' . $row['user_id']); ?>">Saved</a>
 
                              
 
