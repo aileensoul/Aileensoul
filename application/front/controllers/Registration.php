@@ -68,23 +68,23 @@ class Registration extends CI_Controller {
         //form validation rule for registration
 
         $ip = $this->input->ip_address();
-        $this->form_validation->set_rules('uname', 'Username', 'required');
+        // $this->form_validation->set_rules('uname', 'Username', 'required');
       
         $this->form_validation->set_rules('fname', 'Firstname', 'required');
         $this->form_validation->set_rules('lname', 'Lastname', 'required');
         $this->form_validation->set_rules('email', 'Store  email', 'required|valid_email');
         $this->form_validation->set_rules('password', 'Password', 'trim|required');
-        $this->form_validation->set_rules('password2', 'Confirm Password', 'trim|required|matches[password]');
+        // $this->form_validation->set_rules('password2', 'Confirm Password', 'trim|required|matches[password]');
         $this->form_validation->set_rules('datepicker','DOB','required'); 
         $this->form_validation->set_rules('gen', 'Gender', 'required');
      
          
-        $username=$this->input->post('user');
+       //  $username=$this->input->post('user');
        
-       if($username != "Available" || $username == " ")
-       {
-          redirect('registration/index');  
-        }
+       // if($username != "Available" || $username == " ")
+       // {
+       //    redirect('registration/index');  
+       //  }
 
        
         //echo ($this->input->valid_ip($ip)?'Valid':'Not Valid');
@@ -98,7 +98,7 @@ class Registration extends CI_Controller {
          else
          { 
             $data = array(
-                 'user_name' => $this->input->post('uname'),
+               //  'user_name' => $this->input->post('uname'),
                  'first_name' => $this->input->post('fname'),
                  'last_name' => $this->input->post('lname'),
                  'user_email' => $this->input->post('email'),
@@ -127,7 +127,7 @@ class Registration extends CI_Controller {
             $toemail= $this->input->post('email'); 
             $userdata = $this->common->select_data_by_id('user','user_id', $userid, $data = '*', $join_str = array());
                
-            $msg = 'Hey !' . " " . $this->input->post('uname') ."<br/>"; 
+            $msg = 'Hey !' . " " . $toemail ."<br/>"; 
 
             $msg .=  $this->input->post('fname') .$this->input->post('lname'). ',';
 
