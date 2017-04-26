@@ -141,7 +141,7 @@ body {
                 <div class="row">
                      <?php echo $freelancer_hire_search; ?>
                   <div class="col-md-5 col-sm-5">
-                       <div class="pushmenu pushmenu-left">
+                       <div class="">
                             <ul class="">
                                
                                   <li <?php if(($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_hire_post')){?> class="active" <?php } ?>><a href="<?php echo base_url('freelancer/recommen_candidate'); ?>">Home</a>

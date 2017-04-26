@@ -137,7 +137,7 @@ body {
                       
                     <?php echo $freelancer_post_search; ?>
                   <div class="col-md-5 col-sm-5">
-                       <div class="pushmenu pushmenu-left">
+                       <div class=" ">
                             <ul class="">
                                
                                   
