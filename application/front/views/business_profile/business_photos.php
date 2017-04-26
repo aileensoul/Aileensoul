@@ -728,7 +728,7 @@ label.cameraButton input[accept*="camera"] {
                     </a>
                     </li>
 
-                   <li id="<?php echo "insertcount" . $busdata['image_id']; ?>" style="display:block;">
+                   <li id="<?php echo "insertcount" . $busdata['image_id']; ?>" style="visibility:show">
 
                      <?php 
 

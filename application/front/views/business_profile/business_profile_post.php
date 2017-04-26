@@ -1154,7 +1154,7 @@ foreach ($businessprofiledata as $row) {
                                                         <!-- five image start -->
                                                         <div>
                                                             <div id="responsive_buis-images-breakpoints">
-                                                                <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>"><img src="<?php echo base_url(BUSPOSTIMAGE . str_replace(" ", "_", $multiimage['image_name'])) ?>" style=""> </a>
+                                                                <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>"><img src="<?php echo base_url(BUSPOSTIMAGE . str_replace(" ", "_", $multiimage['image_name'])) ?>" style="width: 100%; height: 100%;"> </a>
                                                             </div>
                                                         </div>
 
@@ -1169,7 +1169,7 @@ foreach ($businessprofiledata as $row) {
                                                     <!-- this div view all image start -->
                                                     <div>
                                                         <div id="responsive_buis-images_3-breakpoints" >
-                                                            <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>"><img src="<?php echo base_url(BUSPOSTIMAGE . str_replace(" ", "_", $businessmultiimage[3]['image_name'])) ?>" style=" width: 100%; height: 100%;"> </a></div>
+                                                            <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>"><img src="<?php echo base_url(BUSPOSTIMAGE . str_replace(" ", "_", $businessmultiimage[3]['image_name'])) ?>" style="width: 100%; height: 100%;"> </a></div>
 
 
                                                         <div class="bui_images_view_more" >
@@ -1230,7 +1230,7 @@ foreach ($businessprofiledata as $row) {
                                                         </a>
                                                     </li>
 
-                                                    <li id="<?php echo "insertcount" . $row['business_profile_post_id']; ?>" style="display:block;">
+                                                    <li id="<?php echo "insertcount" . $row['business_profile_post_id']; ?>" style="visibility:show">
         <?php
         $contition_array = array('business_profile_post_id' => $row['business_profile_post_id'], 'status' => '1', 'is_delete' => '0');
         $commnetcount = $this->common->select_data_by_condition('business_profile_post_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');

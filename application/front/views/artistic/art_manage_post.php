@@ -1041,7 +1041,7 @@ responsive image design start -->
                                                      margin-top: 20px;"></i> </div>
 
                         </div>
-                        <div  id="text  class="editor-content" class=" col-md-12 popup-textarea" >
+                        <div  id="text"  class="editor-content col-md-12 popup-textarea" >
                               <textarea name="product_desc" class="description" placeholder="Enter Description">    </textarea>
 
                             <output id="list"></output>
@@ -1458,7 +1458,7 @@ responsive image design start -->
                                                     </a>
                                                 </li>
 
-                                                <li id="<?php echo 'commnetpost' . $row['art_post_id']; ?>" style="display:block">
+                                                <li id="<?php echo 'commnetpost' . $row['art_post_id']; ?>" style="visibility:show">
 
                                                     <?php
                                                     $contition_array = array('art_post_id' => $row['art_post_id'], 'status' => '1', 'is_delete' => '0');

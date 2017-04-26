@@ -2822,7 +2822,7 @@ $followingdatacount = count($followingotherdata);
 //Artistic comment delete end
 // artistics post like start
 
-    public function like_post() {
+     public function like_post() {
 
         $userid = $this->session->userdata('aileenuser');
         $post_id = $_POST["post_id"];
@@ -2869,7 +2869,88 @@ $followingdatacount = count($followingotherdata);
                 $cmtlike .= '</span>';
                 $cmtlike .= '</a>';
                 $cmtlike .= '</li>';
-                echo $cmtlike;
+
+
+                 //popup box start like user name
+
+         $cmtlikeuser .= '<div id=popuplike' . $artdata1[0]['art_post_id'].' class="overlay">';
+         $cmtlikeuser .= '<div class="popup">';
+         $cmtlikeuser .= '<div class="pop_content">';
+
+         $contition_array = array('art_post_id' => $artdata1[0]['art_post_id'], 'status' => '1', 'is_delete' =>'0');
+        $commnetcount = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = ''); 
+
+        $likeuser = $commnetcount[0]['art_like_user'];
+        $countlike = $commnetcount[0]['art_likes_count'] - 1;
+
+        $likelistarray = explode(',', $likeuser);
+
+
+      foreach ($likelistarray as $key => $value) {
+       
+     $art_fname1 =  $this->db->get_where('art_reg',array('user_id' => $value, 'status' => 1))->row()->art_name;
+
+      $art_lname1 =  $this->db->get_where('art_reg',array('user_id' => $value, 'status' => 1))->row()->art_lastname;
+
+      $cmtlikeuser .= '<a href="'.base_url('artistic/art_manage_post/'.$value).'">';
+
+       $cmtlikeuser .= '' . ucwords($art_fname1) . '' . ucwords($art_lname1) . '&nbsp;';
+
+      $cmtlikeuser .= '</a>';
+
+      }
+         $cmtlikeuser .= '<p class="okk"><a class="cnclbtn" href="#">Cancle</a></p>';
+         $cmtlikeuser .= '</div>';
+         $cmtlikeuser .= '</div>';
+         $cmtlikeuser .= '</div>';
+        //popup box end like user name
+
+
+                $cmtlikeuser .= '<a href=#popuplike'. $artdata1[0]['art_post_id'].'>';
+
+
+            $contition_array = array('art_post_id' => $artdata1[0]['art_post_id'], 'status' => '1', 'is_delete' =>'0');
+            $commnetcount = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = ''); 
+
+            $likeuser = $commnetcount[0]['art_like_user'];
+            $countlike = $commnetcount[0]['art_likes_count'] - 1;
+
+            $likelistarray = explode(',', $likeuser);
+
+            $art_fname =  $this->db->get_where('art_reg',array('user_id' => $likelistarray[0], 'status' => 1))->row()->art_name;
+
+            $art_lname =  $this->db->get_where('art_reg',array('user_id' => $likelistarray[0], 'status' => 1))->row()->art_lastname;
+
+            $cmtlikeuser .= '<div class="fl" style=" padding-left: 22px;" >';
+        
+            $cmtlikeuser .= '' . ucwords($art_fname) . '&nbsp;' . ucwords($art_lname) . '&nbsp;';
+
+            $cmtlikeuser .= '</div>';
+
+
+             if(count($likelistarray) > 1) {
+
+             $cmtlikeuser .= '<div class="fl" style="padding-right: 5px;">';
+             $cmtlikeuser .= 'and';
+             $cmtlikeuser .= '</div>';
+
+             $cmtlikeuser .= '<div style="padding-left: 5px;">';
+             $cmtlikeuser .= '' . $countlike . 'others;';
+             $cmtlikeuser .= '</div>';
+
+             }
+                       
+            $cmtlikeuser .= '</a>';
+                
+
+
+
+                 echo json_encode(
+                array("like" => $cmtlike,
+                    "likeuser" => $cmtlikeuser));
+
+
+
             } else {
                 
             }
@@ -2908,12 +2989,89 @@ $followingdatacount = count($followingotherdata);
                 $cmtlike .= '</span>';
                 $cmtlike .= '</a>';
                 $cmtlike .= '</li>';
-                echo $cmtlike;
-            } else {
+
+
+
+         //popup box start like user name
+
+         $cmtlikeuser .= '<div id=popuplike' . $artdata1[0]['art_post_id'].' class="overlay"';
+         $cmtlikeuser .= '<div class="popup">';
+         $cmtlikeuser .= '<div class="pop_content">';
+
+         $contition_array = array('art_post_id' => $artdata1[0]['art_post_id'], 'status' => '1', 'is_delete' =>'0');
+        $commnetcount = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = ''); 
+
+        $likeuser = $commnetcount[0]['art_like_user'];
+        $countlike = $commnetcount[0]['art_likes_count'] - 1;
+
+        $likelistarray = explode(',', $likeuser);
+
+
+      foreach ($likelistarray as $key => $value) {
+       
+     $art_fname1 =  $this->db->get_where('art_reg',array('user_id' => $value, 'status' => 1))->row()->art_name;
+
+      $art_lname1 =  $this->db->get_where('art_reg',array('user_id' => $value, 'status' => 1))->row()->art_lastname;
+
+      $cmtlikeuser .= '<a href="'.base_url('artistic/art_manage_post/'.$value).'">';
+
+       $cmtlikeuser .= '' . ucwords($art_fname1) . '' . ucwords($art_lname1) . '&nbsp;';
+
+      $cmtlikeuser .= '</a>';
+
+      }
+         $cmtlikeuser .= '<p class="okk"><a class="cnclbtn" href="#">Cancle</a></p>';
+         $cmtlikeuser .= '</div>';
+         $cmtlikeuser .= '</div>';
+         $cmtlikeuser .= '</div>';
+        //popup box end like user name
+
+
+            $cmtlikeuser .= '<a href=#popuplike'. $artdata1[0]['art_post_id'].'>';
+
+
+            $contition_array = array('art_post_id' => $artdata1[0]['art_post_id'], 'status' => '1', 'is_delete' =>'0');
+            $commnetcount = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = ''); 
+
+            $likeuser = $commnetcount[0]['art_like_user'];
+            $countlike = $commnetcount[0]['art_likes_count'] - 1;
+
+            $likelistarray = explode(',', $likeuser);
+
+            $art_fname =  $this->db->get_where('art_reg',array('user_id' => $likelistarray[0], 'status' => 1))->row()->art_name;
+
+            $art_lname =  $this->db->get_where('art_reg',array('user_id' => $likelistarray[0], 'status' => 1))->row()->art_lastname;
+
+            $cmtlikeuser .= '<div class="fl" style=" padding-left: 22px;" >';
+        
+            $cmtlikeuser .= '' . ucwords($art_fname) . '&nbsp;' . ucwords($art_lname) . '&nbsp;';
+
+            $cmtlikeuser .= '</div>';
+
+
+             if(count($likelistarray) > 1) {
+
+             $cmtlikeuser .= '<div class="fl" style="padding-right: 5px;">';
+             $cmtlikeuser .= 'and';
+             $cmtlikeuser .= '</div>';
+
+             $cmtlikeuser .= '<div style="padding-left: 5px;">';
+             $cmtlikeuser .= '' . $countlike . 'others;';
+             $cmtlikeuser .= '</div>';
+
+             }
+                       
+            $cmtlikeuser .= '</a>';
                 
-            }
+
+
+                echo json_encode(
+                array("like" => $cmtlike,
+                    "likeuser" => $cmtlikeuser));
+            } 
         }
     }
+
 
 // artistics post  like end
 //artistic comment insert start

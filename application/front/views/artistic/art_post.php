@@ -365,10 +365,9 @@ return false;
   <div class="full-box-module">    
 
                             <div class="profile-boxProfileCard  module">
-                                <div class="profile-boxProfileCard-cover">        <a class="profile-boxProfileCard-bg u-bgUserColor a-block" href="<?php echo site_url('artistic/art_manage_post'); ?>" tabindex="-1"
-                                                                                     aria-hidden="true" rel="noopener">
-                                        <img src="<?php echo base_url(ARTBGIMAGE . $artisticdata[0]['profile_background_main']); ?>" class="bgImage" style="    height: 95px;
-                                             width: 393px; " >
+                                <div class="profile-boxProfileCard-cover">     
+                                   <a class="profile-boxProfileCard-bg u-bgUserColor a-block" href="<?php echo site_url('artistic/art_manage_post'); ?>" tabindex="-1" aria-hidden="true" rel="noopener">
+                                        <img src="<?php echo base_url(ARTBGIMAGE . $artisticdata[0]['profile_background_main']); ?>" class="bgImage" style="height: 95px; width: 393px; " >
                                     </a>
                                 </div>
 
@@ -1079,7 +1078,7 @@ foreach($finalsorting as $row)
   <div class="post-design-desc ">
   <span> 
 
-  <div class="show" id="<?php echo 'editpostdetails' . $row['art_post_id']; ?>" style="display:block; padding-bottom: 10px;">
+  <div class="show" id="<?php echo 'editpostdetails' . $row['art_post_id']; ?>" style="display:block;">
   <?php print text2link($row['art_description']); ?>
   </div>
 
@@ -1333,6 +1332,9 @@ foreach($finalsorting as $row)
 <!-- like user list start -->
 
 <!-- pop up box start-->
+
+<div class="<?php echo "likeusername" . $row['art_post_id']; ?>">
+
 <div id="<?php echo "popuplike" . $row['art_post_id']; ?>" class="overlay">
   <div class="popup">
     
@@ -1416,6 +1418,7 @@ if(count($likelistarray) > 1) {
 </div>
 <?php }?>
 </a>
+</div>
 </div>
 <!-- like user list end -->
 
@@ -1869,9 +1872,12 @@ function post_like(clicked_id)
    $.ajax({
                 type:'POST',
                 url:'<?php echo base_url() . "artistic/like_post" ?>',
+                dataType: 'json',
                  data:'post_id='+clicked_id,
                 success:function(data){ 
-                    $('.' + 'likepost' + clicked_id).html(data);
+                    $('.' + 'likepost' + clicked_id).html(data.like);
+
+                    $('.likeusername' + clicked_id).html(data.likeuser);
                     
                 }
             }); 

@@ -946,7 +946,7 @@ if($status == 0 || $status == " "){?>
     margin-top: 20px;"></i> </div>
 
  </div>
-<div  id="text  class="editor-content" class=" col-md-12 popup-textarea" >
+<div  id="text"  class="editor-content col-md-12 popup-textarea" >
       <textarea name="product_desc" class="description" placeholder="Enter Description"></textarea>
 
       <output id="list"></output>
@@ -1363,7 +1363,7 @@ function text2link($text){
                                       </a>
                         </li>
 
-                         <li id="<?php echo "insertcount" . $row['business_profile_post_id']; ?>" style="display:block;">
+                         <li id="<?php echo "insertcount" . $row['business_profile_post_id']; ?>" style="visibility:show">
                                   <?php 
 
                               $contition_array = array('business_profile_post_id' => $row['business_profile_post_id'], 'status' => '1', 'is_delete' =>'0');

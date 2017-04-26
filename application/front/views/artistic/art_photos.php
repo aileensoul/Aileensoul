@@ -712,7 +712,7 @@ $followingotherdata = $this->data['followingotherdata'] =  $this->common->select
                      <!-- like end -->
                      <!--  end -->
                  
-                    <li id="<?php echo "insertcount" . $artdata['image_id']; ?>" style="display:block;">
+                    <li id="<?php echo "insertcount" . $artdata['image_id']; ?>" style="visibility:show">
 
                      <?php 
 
