@@ -513,8 +513,8 @@
                                                                     if ($jobsave[0]['job_save'] == 1) {
                                                                         ?>
 
-                                                                        <button  class="button" disabled>Applied</button>
-
+                                                                        <!--<button  class="button" disabled>Applied</button>-->
+                                                                        <a href="javascript:void(0);" class="button applied">Applied</a>
                                                                         <?php
                                                                     } else {
                                                                         ?>
@@ -639,8 +639,8 @@
                                                                 if ($jobsave[0]['job_save'] == 1) {
                                                                     ?>
 
-                                                                    <button  class="button" disabled>Applied</button>
-
+                                                                    <!--<button  class="button" disabled>Applied</button>-->
+                                                                    <a href="javascript:void(0);" class="applied button">Applied</a>
                                                                     <?php
                                                                 } else {
                                                                     ?>
@@ -935,6 +935,7 @@
                                 $('.applypost' + abc).html(data);
                                 $('.applypost' + abc).attr('disabled', 'disabled');
                                 $('.applypost' + abc).attr('onclick', 'myFunction()');
+                                $('.applypost' + abc).addClass('applied');
                             }
                         });
                     }

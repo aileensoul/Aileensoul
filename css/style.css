@@ -745,7 +745,7 @@ ul.business_pf_ct_person_detail li b {font-size: 16px; display: inline-block; wi
 .profile-job-post-location-name-rec ul li a{color: #000033;}
 
 .profile-job-details { float:left; padding-left:20px; }
-.profile-job-post-detail .profile-job-post-title .button { margin-right: 4px; margin-left: 4px; padding: 3px 16px;  background-color:#ffffff; text-transform: capitalize; color:#000033; border:2px solid #000033; float: right;}
+.profile-job-post-detail .profile-job-post-title .button { margin-right: 4px; margin-left: 4px; padding: 3px 16px;  background-color:#ffffff; text-transform: capitalize; color:#000033; border:2px solid #000033; float: right; font-size: 14px;}
 .profile-job-post-detail .profile-job-post-title .button:hover { color: #fff; background-color: #000033; }
 .profile-job-post-title-inside .profile-job-post-title { padding: 0px; margin-bottom: 18px; }
 .profile-job-profile-button { background-color:#efefef; padding: 4px 0px; }
@@ -3000,7 +3000,7 @@ follow box*/
         /* right: 0; */
         margin-right: 10px}
 
-.saved{ color: #fff !important; background-color: #000033 !important;  pointer-events: none;}
+.saved, .applied{ color: #fff !important; background-color: #000033 !important;  pointer-events: none;}
 
 .image_profile{height: 120px; float: left;
                width: 120px;
