@@ -2897,6 +2897,9 @@ $followingdatacount = count($followingotherdata);
 
                  //popup box start like user name
 
+
+
+
          $cmtlikeuser .= '<div id=popuplike' . $artdata1[0]['art_post_id'].' class="overlay">';
          $cmtlikeuser .= '<div class="popup">';
          $cmtlikeuser .= '<div class="pop_content">';
@@ -2929,8 +2932,8 @@ $followingdatacount = count($followingotherdata);
          $cmtlikeuser .= '</div>';
         //popup box end like user name
 
-
-                $cmtlikeuser .= '<a href=#popuplike'. $artdata1[0]['art_post_id'].'>';
+         
+            $cmtlikeuser .= '<a href=#popuplike'. $artdata1[0]['art_post_id'].'>';
 
 
             $contition_array = array('art_post_id' => $artdata1[0]['art_post_id'], 'status' => '1', 'is_delete' =>'0');
