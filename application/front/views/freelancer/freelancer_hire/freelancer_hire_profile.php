@@ -264,9 +264,7 @@ function text2link($text){
                                                 <div class="profile-job-profile-button clearfix">
                                                     <div class="profile-job-details">
                                                         <ul>
-                                                            <li>
-                                                                <p> Basic Information</p>
-                                                            </li>
+           <li> <p class="details_all_tital "> Basic Information</p> </li>
                                                           
                                                         </ul>
                                                     </div>
@@ -289,9 +287,7 @@ function text2link($text){
                                                 <div class="profile-job-profile-button clearfix">
                                                  <div class="profile-job-details">
                                                         <ul>
-                                                            <li>
-                                                                <p> Address</p>
-                                                            </li>
+             <li> <p class="details_all_tital "> Address</p> </li>
                                                           
                                                         </ul>
                                                     </div>
@@ -319,9 +315,8 @@ function text2link($text){
                                                 <div class="profile-job-profile-button clearfix">
                                                  <div class="profile-job-details">
                                                         <ul>
-                                                            <li>
-                                                                <p>Professional Information</p>
-                                                            </li>
+          
+          <li><p class="details_all_tital ">Professional Information</p></li>
                                                           
                                                         </ul>
                                                     </div>
