@@ -140,28 +140,13 @@ if($lstusrdata){?>
                <div class="comment" contentEditable="true" name="comments" id="message  smily" style="position: relative;">
             
               </div>
-<div for="smily" style="position: absolute;
+<div for="smily" style="position: absolute;    position: absolute;
     top: 7px;
-    right: 61px;
-    bottom: 0;">
-<div id="notification_li" style="position: absolute;
-    bottom: 5px;">
-    <a href="#" id="notificationLink" style="position: absolute;
-    bottom: 4px;
-    left: -22px;"><i class="em em-blush"></i></a>
-    
-      <div id="notificationContainer" style="display: none;
-    position: relative;margin-bottom: 30px;">
-     
-      <div id="notificationsBody" class="notifications"></div>
-     
-      </div>
+    right: 61px;">
 
-    </div>
 
-</div>
+    <a href=""><i class="em em-blush"></i></a></div>
             </form>
-    
                 <span class="input-group-btn">
         <button class="btn btn-warning btn-sm" id="submit" style="padding: 10px">Send</button>
                 </span>
@@ -216,10 +201,9 @@ if($lstusrdata){?>
 </html>
 
 <script type="text/javascript">
- var dropDownMenu = new Foundation.DropdownMenu($('#smileystatic'), {
-      disableHover: true,
-      clickOpen: true
-    });
+  $(".smily").click(function() {
+    $(".smily").animate({"height" : "350","width":"250"}, 500);
+ });
 </script>
 
 
@@ -470,28 +454,3 @@ function enteruser()
 </script>
 
 <!-- user search list 20-4 end -->
-
-<script type="text/javascript">
-        $(document).ready(function()
-      {
-      $("#notificationLink").click(function()
-      {
-      $("#notificationContainer").fadeToggle(300);
-      $("#notification_count").fadeOut("slow");
-      return false;
-      });
-
-      //Document Click hiding the popup 
-      $(document).click(function()
-      {
-      $("#notificationContainer").hide();
-      });
-
-      //Popup on click
-      $("#notificationContainer").click(function()
-      {
-      return false;
-      });
-
-      });
-</script>
