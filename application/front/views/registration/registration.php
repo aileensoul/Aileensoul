@@ -152,33 +152,38 @@
           </div>
               
           <div class="top-row">
-            <div class="field-wrap">
+            <div class="field-wrap full-width">
              <label class="fname_reg">Email Address <span class="req">*</span></label>
              <input type="text" name="email" id="email" placeholder="" value="<?php if($email){ echo $email; }?>">
               <?php echo form_error('email'); ?>
             </div>
         
-            <div class="field-wrap">
+            <!-- <div class="field-wrap">
                <label class="fname_reg">User Name<span class="req">*</span></label>   
                       <input type="text" name="uname" id="uname" placeholder="" onkeyup="check_if_exists();" onkeypress="return RestrictSpace()">
                       <?php echo form_error('uname'); ?>
                       <input type="hidden" id="user" name="user" >
 
-            </div>
+            </div> -->
           </div>
               
          <div class="top-row">
-            <div class="field-wrap">
+            <div class="field-wrap full-width">
         <label class="fname_reg">Password<span class="req">*</span></label>
-    <input type="password" name="password" id="password" class="showpassword" />
+    <input type="password" name="password" id="password" class="showpassword"  style="position: relative;"  />
                       <?php echo form_error('password'); ?>
+            
+
+                        <label for="password1" style="    position: absolute;
+    top: 14px;
+    right: 35px;" ><img style="height: 20px; width: 20px;" src="<?php echo base_url('images/eye.png'); ?>"></label>
             </div>
         
-            <div class="field-wrap">
+         <!--    <div class="field-wrap">
                 <label class="fname_reg">Confirm Password<span class="req">*</span></label>
    <input type="password" name="password2" id="password2" class="showpassword2" placeholder="" onkeypress="return RestrictSpace()"/>
                 <?php echo form_error('password2'); ?>
-            </div>
+            </div> -->
           </div>
               
           <div class="top-row">
@@ -213,7 +218,7 @@
            <input type="submit" value="Create an Account" name="submit" class="button3 button-block3 " style="background-image: url(partical/images/bg-button.png); background-repeat: no-repeat; background-position: right center ; margin-top:  10px;">
           <div class="or"> <span>or</span></div>
           
-          <button class="button3 button-block3 facebook_ac" style="background-image: url(partical/images/bg-button.png); background-repeat: no-repeat; background-position: right center">Sign Up With Facebook</button>
+          <button class="button3 button-block3 facebook_ac" style="background-color: #3b5998 ;background-repeat: no-repeat; background-position: right center">Sign Up With Facebook</button>
          
           <div class="or">Already on Aileensoul? <a href="<?php echo base_url('login')?>"  style="color: #a0b3b0;
     font-size: 17px;
@@ -310,7 +315,7 @@ $('#datepicker').datetimepicker({
     $(".showpassword").each(function(index,input) {
         var $input = $(input);
         $('<div class="checkbox2 show" style="display: block;">').append(
-            $("<input type='checkbox' class='showpasswordcheckbox' /><h6>Show Password</h6></div> ").click(function() {
+            $("<input type='checkbox' class='showpasswordcheckbox'  id='password1' style='display: none;' /></div> ").click(function() {
                 var change = $(this).is(":checked") ? "text" : "password";
                 var rep = $("<input type='" + change + "' />")
                     .attr("id", $input.attr("id"))

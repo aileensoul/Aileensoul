@@ -570,3 +570,4 @@ input[type="radio"] {
 .error-msg p, label.error { background: #737373; color: #fff !important; padding: 4px 10px !important; position: absolute; right: 8px; z-index: 10; font-size: 12px; }
 
 .error-msg select { border:2px solid #f00; }
+.top-row .full-width{width: 100%; padding-bottom: 38px;      padding-right: 19px;}
