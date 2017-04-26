@@ -2,7 +2,7 @@
 
 class Logins extends CI_Model {
 
-    function check_authentication($user_name, $user_password) {
+    function check_authentication($user_name, $user_password) { 
         $this->db->select('*');
         $this->db->where('user_password',md5($user_password));
        $this->db->where('is_delete','0');
@@ -16,11 +16,11 @@ class Logins extends CI_Model {
 
 
         $result = $this->db->get('user')->result_array();
-//echo '<pre>'; print_r($result); die();
-        if (!empty($result)) {
+
+       if (!empty($result)) {
             // if ((strtolower($result[0]['user_name']) == strtolower($user_name) || $result[0]['user_email'] == $user_name) && $result[0]['user_password'] == md5($user_password)) {
 
-          if ($result[0]['user_email'] == $user_name) && $result[0]['user_password'] == md5($user_password)) {
+           if (($result[0]['user_email'] == $user_name) && $result[0]['user_password'] == md5($user_password)) {
                 return $result;
             } else {
                 return 0;

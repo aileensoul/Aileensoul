@@ -4,6 +4,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+<!--- for dispaly div insted of input type start -->
+<style type="text/css">
+div .comment {  
+  height: 40px;
+  border: 1px solid #ccc;
+}
+</style>
+
+<!--- for dispaly div insted of input type end -->
   <meta charset="utf-8">
   <title>Chat-Example | CodeIgniter</title>
   
@@ -120,11 +130,19 @@ if($lstusrdata){?>
                 <input id="nickname" type="text" class="form-control input-sm" placeholder="Nickname..." />
               </div>
             </div> -->
-            <div class="col-md-9" id="msg_block">
+            <div class="col-md-12" id="msg_block">
               <div class="input-group">
-                <input id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." />
+
+               <!--  <input id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." /> -->
+                <form name="blog">
+               
+               <div class="comment" contentEditable="true" name="comments" id="message">
+            <div class="smily" style="padding: 8px;position: absolute; height: 40px; border: 2px solid red; width: 35px;right: 52px;">ss</div>
+              </div>
+
+            </form>
                 <span class="input-group-btn">
-        <button class="btn btn-warning btn-sm" id="submit">Send</button>
+        <button class="btn btn-warning btn-sm" id="submit" style="padding: 10px">Send</button>
                 </span>
               </div>
             </div>
@@ -146,12 +164,9 @@ if($lstusrdata){?>
         </div>
         <div class="chat-history">
         <ul class="" id="received">
-          
-        </ul>
-
+         </ul>
       </div>
-
-        <div class="panel-footer">
+       <div class="panel-footer">
           <div class="clearfix">
             
             <div class="col-md-9" id="msg_block">
@@ -166,14 +181,26 @@ if($lstusrdata){?>
         </div>
     </div>
  <?php } ?>
+
+ 
     <!-- chat end -->
     </div>
 
  
  
    </div> 
+
+
 </body>
 </html>
+
+<script type="text/javascript">
+  $(".smily").click(function() {
+    $(".smily").animate({"height" : "350","width":"250"}, 500);
+ });
+</script>
+
+
 <script type="text/javascript">
 var request_timestamp = 0;
  
@@ -272,25 +299,14 @@ console.log(formattedDate);
              ' ' + lname + '</span> <i class="fa fa-circle me"></i>';
         html += ' </div>';
 
-
-
-     
-   //   html += ' <span class="chat-img pull-right">';
-   //   html += '   <img src="http://placehold.it/50/FA6F57/fff&text=' + data.nickname.slice(0,2) + '" alt="User Avatar" class="img-circle" />';
-   //   html += ' </span>';
-    //  html += ' <div class="chat-body clearfix">';
-     // html += '   <div class="header">';
-    //  html += '     <small class="text-muted"><span class="glyphicon glyphicon-time"></span>' + parseTimestamp(data.timestamp) + '</small>';
-    //  html += '     <strong class="pull-right primary-font">' + data.nickname + '</strong>';
-   //   html += '   </div>';
+   
       html += '<div class="message other-message float-right">' + data.message + '</div>';
          html += '</li>'; 
 
          $('.' + 'status' + touser).html(data.message);
     }else{
 
- //  var lstfname = '<?php// echo $lstfname; ?>';
- //  var lstlname = '<?php// echo $lstlname; ?>';
+ 
       var timestamp = data.timestamp; // replace your timestamp
 var date = new Date(timestamp * 1000);
 var formattedDate = ('0' + date.getDate()).slice(-2) + '/' + ('0' + (date.getMonth() + 1)).slice(-2) + '/' + date.getFullYear() + ' ' + ('0' + date.getHours()).slice(-2) + ':' + ('0' + date.getMinutes()).slice(-2);
@@ -336,7 +352,9 @@ $('#submit').click(function (e) {
   e.preventDefault();
   
   var $field = $('#message');
-  var data = $field.val();
+  //var data = $field.val();
+  var data = $('#message').html();
+alert(data);
  
   $field.addClass('disabled').attr('disabled', 'disabled');
   sendChat(data, function (){
@@ -376,9 +394,8 @@ $(document).ready(function() {
                 success:function(data){ 
                      $('input').each(function(){
                      });
-        
-      
-         $('#userlist').html(data);
+         
+          $('#userlist').html(data);
            }
             }); 
   // khyati chnages end
@@ -404,7 +421,7 @@ function enteruser()
              
        $.ajax({ 
                 type:'POST',
-                url:'<?php echo base_url() . "chat/user_list" ?>',
+                url:'<?php// echo base_url() . "chat/user_list" ?>',
                  data:'search_user='+val,
             //     dataType: "json",
                    success:function(data){ 

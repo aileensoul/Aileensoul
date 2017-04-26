@@ -11,6 +11,8 @@ class Chat extends MY_Controller {
             redirect('login', 'refresh');
         }
 
+       include('include.php');
+
       }
 
   public function index()
@@ -242,15 +244,31 @@ $this->data['userlist'] = array_merge($return_arraysel,$userlist);
 
   public function abc($id)
   { 
-
-   $this->data["toid"] = $id;
-   
-   // khyati 22-4 changes start
-
+   // khyati 25-4 changes start
 $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
+   
 
-   // khytai changes 22-4 start
+   // last user if $id is null
 
+    $contition_array = array('id !=' => '');
+
+    $search_condition = "(message_from = '$userid' OR message_to = '$userid')";
+
+    $lastchat = $this->common->select_data_by_search('messages', $search_condition,$contition_array, $data = 'messages.message_from,message_to,id', $sortby = 'id', $orderby = 'DESC', $limit = '1', $offset = '', $join_str = '', $groupby = '');
+      
+  if($id){     
+  
+  $toid =  $this->data['toid'] = $id;
+  
+  }elseif($lastchat[0]['message_from'] == $userid){
+     
+  $toid =    $this->data['toid'] = $lastchat[0]['message_to'];
+  }else{
+    
+  $toid =  $this->data['toid'] = $lastchat[0]['message_from'];
+    }
+
+   // khyati 22-4 changes end
 
     $loginuser = $this->common->select_data_by_id('user', 'user_id', $userid, $data = 'first_name,last_name');
     

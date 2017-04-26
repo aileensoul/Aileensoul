@@ -25,7 +25,7 @@ class Login extends CI_Controller {
 
     public function check_login() {
 
-        //echo '<pre>'; print_r($_POST); die();
+                                                            
         $this->form_validation->set_rules('user_name', 'User name', 'required');
         $this->form_validation->set_rules('password', 'Password', 'required');
         if ($this->form_validation->run() == TRUE) {

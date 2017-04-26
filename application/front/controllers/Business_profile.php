@@ -4626,4 +4626,13 @@ $fourdata .= '</div>';
     echo $fourdata;
  }
 
+
+ //postnews page controller start
+ 
+// public function mulfourcomment($postid){
+
+// }
+
+ //postnews page controller end
+
 }
