@@ -712,7 +712,7 @@ $followingotherdata = $this->data['followingotherdata'] =  $this->common->select
                      <!-- like end -->
                      <!--  end -->
                  
-                    <li class="<?php echo "insertcount" . $artdata['image_id']; ?>">
+                    <li id="<?php echo "insertcount" . $artdata['image_id']; ?>" style="display:block;">
 
                      <?php 
 
@@ -902,163 +902,7 @@ $followingotherdata = $this->data['followingotherdata'] =  $this->common->select
 
             <div id="<?php echo "fourcomment" .   $artdata['image_id']; ?>" style="display:none;">
 
-              <div class="<?php echo 'insertcomment1' .$artdata['image_id']; ?>">
 
-                <?php 
-
-           $contition_array = array('post_image_id' =>  $artdata['image_id'], 'is_delete' =>'0');
-
-        $artmulimage1 = $this->common->select_data_by_condition('art_post_image_comment', $contition_array , $data='*', $sortby = 'post_image_comment_id', $orderby = 'ASC', $limit = '', $offset = '', $join_str= array(), $groupby = '');
-
-          if($artmulimage1){
-            foreach($artmulimage1 as $rowdata)
-                  { 
-
-        $artname =  $this->db->get_where('art_reg',array('user_id' => $rowdata['user_id']))->row()->art_name;
-        ?> 
-
-        <div class="all-comment-comment-box">
-
-                        <div class="post-design-pro-comment-img"> 
-                  <?php 
-                 $art_userimage =  $this->db->get_where('art_reg',array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->art_user_image;
-                 ?>
-
-                 <img  src="<?php echo base_url(USERIMAGE . $art_userimage);?>"  alt="">
-                  </div>
-
-                  <div class="comment-name">
-
-                  <b>  <?php echo ucwords($artname); echo '</br>'; ?>
-                  </b>
-                  </div>
-
-                  <div class="comment-details" id= "<?php echo "showcomment2" . $rowdata['post_image_comment_id']; ?>">
-                                        <?php
-                                        
-                                        echo $rowdata['comment']; echo '</br>';
-                                        ?>
-                             </div>
-
-
-                              <!-- edit box start -->
-
-                <div class="col-md-12">
-                                        <div class="col-md-10">
-                                        <input type="text" name="<?php echo $rowdata['post_image_comment_id']; ?>" id="<?php echo "editcomment2" . $rowdata['post_image_comment_id']; ?>" style="display: none;" value="<?php  echo $rowdata['comment']; ?>" onClick="commentedit2(this.name)">
-
-                </div>  <div class="col-md-2 comment-edit-button">
-                                        <button id="<?php echo "editsubmit2" . $rowdata['post_image_comment_id']; ?>" style="display:none" onClick="edit_comment2(<?php echo $rowdata['post_image_comment_id']; ?>)">Comment</button>
-                      </div>
-
-                   </div>
-
-        <!-- edit box end -->
-
-                             <!-- comment like start -->
-                  <div id="<?php echo 'likecomment' . $rowdata['post_image_comment_id']; ?>">
-
-                <a id="<?php echo $rowdata['post_image_comment_id']; ?>"   onClick="comment_like1(this.id)">
-
-               <?php 
-
-               $userid = $this->session->userdata('aileenuser');
-                $contition_array = array('post_image_comment_id' =>  $rowdata['post_image_comment_id'], 'user_id' => $userid, 'is_unlike' => 0);
-
-                $artcommentlike1 = $this->common->select_data_by_condition('art_comment_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-                //echo "<pre>"; print_r($businesscommentlike); 
-               //echo count($businesscommentlike); 
-            if(count($artcommentlike1) == 0)
-            { ?>
-              <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>
-
-             <?php   }
-         else{ ?>
-           <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-          <?php } ?>
-                  <span>
-
-                  <?php 
-
-            $contition_array = array('post_image_comment_id' => $rowdata['post_image_comment_id'], 'is_unlike' =>'0');
-             $mulcountlike =   $this->data['mulcountlike'] = $this->common->select_data_by_condition('art_comment_image_like', $contition_array , $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str= array(), $groupby = '');
-
-                 if(count($mulcountlike) > 0){
-                    echo count($mulcountlike); 
-                        }
-                      ?>
-                
-                  </span>
-                  </a>
-
-                  </div><span role="presentation" aria-hidden="true"> · </span>
-
-<!-- comment like end -->
-
-<!-- comment edit start -->
-
-<?php
-            $userid  = $this->session->userdata('aileenuser');
-              if($rowdata['user_id'] == $userid){ 
-                 ?>
-          <div class="comment-details-menu">
-
-
-    
-
-                                    <div id="<?php echo 'editcommentbox2' . $rowdata['post_image_comment_id']; ?>" style="display:block;">
-                                     <a id="<?php echo $rowdata['post_image_comment_id']; ?>"   onClick="comment_editbox2(this.id)" class="editbox">Edit
-                                      </a>
-                                      </div>
-
-                                      <div id="<?php echo 'editcancle2' . $rowdata['post_image_comment_id']; ?>" style="display:none;">
-                                      <a id="<?php echo $rowdata['post_image_comment_id']; ?>" onClick="comment_editcancle2(this.id)">Cancle
-                                      </a>
-                                      </div>
-
-      </div>
-
-      <?php }?>
-<!-- comment edit end -->
-
-<!-- comment delete start -->
-<?php
-       $userid  = $this->session->userdata('aileenuser');
-
-       $business_userid =  $this->db->get_where('business_profile_post',array('business_profile_post_id' => $rowdata['post_image_id'], 'status' => 1))->row()->user_id;
-
-
-    if($rowdata['user_id'] == $userid ||  $business_userid == $userid){ 
-    ?>
-<span role="presentation" aria-hidden="true"> · </span>
-                                   <div class="comment-details-menu">
-
-                                      
-
-                                      <input type="hidden" name="post_deleteone"  id="post_deleteone" value= "<?php echo $rowdata['post_image_id']; ?>">
-                                      <a id="<?php echo $rowdata['post_image_comment_id']; ?>"   onClick="comment_deleteone(this.id)"> Delete<span class="<?php echo 'insertcomment1' . $rowdata['post_image_comment_id']; ?>">
-                                      </span>
-                                      </a>
-                                      </div>
-
-<?php }?>
-<!-- comment delete end -->
-
- <!-- created date start -->
-
- <span role="presentation" aria-hidden="true"> · </span>
-<div class="comment-details-menu">
-  <p><?php
- echo date('d-M-Y',strtotime($rowdata['created_date'])); echo '</br>'; ?>
-</p></div>
-
- <!-- created date end -->
-
-
-                         </div>
-
-        <?php } }?>
-              </div>
               </div>
 
                 </div>
@@ -1345,17 +1189,30 @@ function mulimg_like(clicked_id)
 <script type="text/javascript">
   function commentall(clicked_id){ 
  
-  
-   var x = document.getElementById('threecomment' + clicked_id);
+  var x = document.getElementById('threecomment'+ clicked_id);
    var y = document.getElementById('fourcomment'+ clicked_id);
-    if (x.style.display === 'block' && y.style.display === 'none') {
-        x.style.display = 'none';
-        y.style.display = 'block';
- 
-    } else {
-        x.style.display = 'block';
-        y.style.display = 'none';
-    }
+   var z = document.getElementById('insertcount'+ clicked_id);
+
+          
+               
+      if(x.style.display === 'block' && y.style.display === 'none') { 
+
+         x.style.display = 'none';
+         y.style.display = 'block';
+         z.style.display = 'none';
+        
+          $.ajax({ 
+         type:'POST',
+         url:'<?php echo base_url() . "artistic/multifourcomment" ?>',
+         data:'art_post_id='+clicked_id,
+                //alert(data);
+                success:function(data){
+          $('#' + 'fourcomment' + clicked_id).html(data);
+
+          }
+            });
+
+ }
 
   }
 </script>
@@ -1369,20 +1226,45 @@ function insert_commentimg(clicked_id)
 {  
      var post_comment = document.getElementById("post_comment" + clicked_id);
  
-   $.ajax({ 
+    var x = document.getElementById('threecomment'+ clicked_id);
+   var y = document.getElementById('fourcomment'+ clicked_id);
+ 
+ if (x.style.display === 'block' && y.style.display === 'none') { 
+       $.ajax({ 
                 type:'POST',
-                url:'<?php echo base_url() . "artistic/mulimg_comment" ?>',
-                 data:'post_image_id='+clicked_id + '&comment='+post_comment.value,
-                  dataType: "json",
+                url:'<?php echo base_url() . "artistic/mulimg_commentthree" ?>',
+                data:'post_image_id='+clicked_id + '&comment='+post_comment.value,
+                dataType: "json",
                    success:function(data){ 
                      $('input').each(function(){
                       $(this).val('');
-                  }); 
-                    $('.' + 'insertcount' + clicked_id).html(data.count);
-                    $('.' + 'insertcomment' + clicked_id).html(data.comment);
-                    
-                }
+                  });
+        
+       //  $('.insertcomment' + clicked_id).html(data);
+         $('#' + 'insertcount' + clicked_id).html(data.count);
+         $('.insertcomment' + clicked_id).html(data.comment);
+
+          }
             }); 
+ 
+      } else { 
+
+        $.ajax({ 
+                type:'POST',
+                url:'<?php echo base_url() . "artistic/mulimg_comment" ?>',
+                data:'post_image_id='+clicked_id + '&comment='+post_comment.value,
+                // dataType: "json",
+                   success:function(data){ 
+                     $('input').each(function(){
+                      $(this).val('');
+                  });
+         $('#' + 'fourcomment' + clicked_id).html(data);
+        // $('#' + 'commnetpost' + clicked_id).html(data.count);
+        //  $('#' + 'fourcomment' + clicked_id).html(data.comment);
+
+          }
+            }); 
+     }
 }
 
 </script>
@@ -1405,21 +1287,45 @@ function insert_commentimg(clicked_id)
       window.preventDuplicateKeyPresses = false;   
                    }, 500);
 
-      $.ajax({ 
+      var x = document.getElementById('threecomment'+ clicked_id);
+   var y = document.getElementById('fourcomment'+ clicked_id);
+ 
+ if (x.style.display === 'block' && y.style.display === 'none') { 
+       $.ajax({ 
                 type:'POST',
-                url:'<?php echo base_url() . "artistic/mulimg_comment" ?>',
-                 data:'post_image_id='+clicked_id + '&comment='+val,
-                   dataType: "json",
-                   success:function(data){
+                url:'<?php echo base_url() . "artistic/mulimg_commentthree" ?>',
+                data:'post_image_id='+clicked_id + '&comment='+val,
+                dataType: "json",
+                   success:function(data){ 
                      $('input').each(function(){
                       $(this).val('');
-                  }); 
- 
-      $('.' + 'insertcount' + clicked_id).html(data.count);
-      $('.' + 'insertcomment' + clicked_id).html(data.comment);
-                    
-                }
+                  });
+        
+       //  $('.insertcomment' + clicked_id).html(data);
+         $('#' + 'insertcount' + clicked_id).html(data.count);
+         $('.insertcomment' + clicked_id).html(data.comment);
+
+          }
             }); 
+ 
+      } else { 
+
+        $.ajax({ 
+                type:'POST',
+                url:'<?php echo base_url() . "artistic/mulimg_comment" ?>',
+                data:'post_image_id='+clicked_id + '&comment='+val,
+                // dataType: "json",
+                   success:function(data){ 
+                     $('input').each(function(){
+                      $(this).val('');
+                  });
+         $('#' + 'fourcomment' + clicked_id).html(data);
+        // $('#' + 'commnetpost' + clicked_id).html(data.count);
+        //  $('#' + 'fourcomment' + clicked_id).html(data.comment);
+
+          }
+            }); 
+     }
       
     }        
   });
@@ -1448,7 +1354,7 @@ function comment_like(clicked_id)
 }
 
 
-function comment_like1(clicked_id)
+function comment_liketwo(clicked_id)
 {
     //alert(clicked_id);
    $.ajax({
@@ -1552,10 +1458,10 @@ function commentedit(abc)
 
 
 <script type="text/javascript">
-function edit_comment2(abc)
+function edit_commenttwo(abc)
 { //alert('editsubmit' + abc);
 
-   var post_comment_edit = document.getElementById("editcomment2" + abc);
+   var post_comment_edit = document.getElementById("editcommenttwo" + abc);
    //alert(post_comment.value);
    //alert(post_comment.value);
    $.ajax({ 
@@ -1567,14 +1473,14 @@ function edit_comment2(abc)
                   //  $('input').each(function(){
                   //     $(this).val('');
                   // }); 
-         document.getElementById('editcomment2' + abc).style.display='none';
-       document.getElementById('showcomment2' + abc).style.display='block';
-       document.getElementById('editsubmit2' + abc).style.display='none';
+         document.getElementById('editcommenttwo' + abc).style.display='none';
+       document.getElementById('showcommenttwo' + abc).style.display='block';
+       document.getElementById('editsubmittwo' + abc).style.display='none';
 
-       document.getElementById('editcommentbox2' + abc).style.display='block';
-        document.getElementById('editcancle2' + abc).style.display='none';
+       document.getElementById('editcommentboxtwo' + abc).style.display='block';
+        document.getElementById('editcancletwo' + abc).style.display='none';
                      //alert('.' + 'showcomment' + abc);
-                    $('#' + 'showcomment2' + abc).html(data);
+                    $('#' + 'showcommenttwo' + abc).html(data);
 
 
                     
@@ -1586,12 +1492,12 @@ function edit_comment2(abc)
 
 <script type="text/javascript">
 
-function commentedit2(abc)
+function commentedittwo(abc)
 { 
   $(document).ready(function() {
-  $('#editcomment2' + abc).keypress(function(e) {
-     if (e.keyCode == 13 && !e.shiftKey) {
-                var val = $('#editcomment2' + abc).val();
+  $('#editcommenttwo' + abc).keypress(function(e) { 
+     if (e.keyCode == 13 && !e.shiftKey) { 
+                var val = $('#editcommenttwo' + abc).val();
                 e.preventDefault();
 
                 if (window.preventDuplicateKeyPresses)
@@ -1610,14 +1516,14 @@ function commentedit2(abc)
                   //  $('input').each(function(){
                   //     $(this).val('');
                   // }); 
-         document.getElementById('editcomment2' + abc).style.display='none';
-       document.getElementById('showcomment2' + abc).style.display='block';
-       document.getElementById('editsubmit2' + abc).style.display='none';
+         document.getElementById('editcommenttwo' + abc).style.display='none';
+       document.getElementById('showcommenttwo' + abc).style.display='block';
+       document.getElementById('editsubmittwo' + abc).style.display='none';
 
-       document.getElementById('editcommentbox2' + abc).style.display='block';
-        document.getElementById('editcancle2' + abc).style.display='none';
+       document.getElementById('editcommentboxtwo' + abc).style.display='block';
+        document.getElementById('editcancletwo' + abc).style.display='none';
                      //alert('.' + 'showcomment' + abc);
-                    $('#' + 'showcomment2' + abc).html(data);
+                    $('#' + 'showcommenttwo' + abc).html(data);
 
                 }
             }); 
@@ -1658,25 +1564,25 @@ function comment_editcancle(clicked_id){
    
 } 
 
-function comment_editbox2(clicked_id){  //alert('editsubmit2' + clicked_id);
-        document.getElementById('editcomment2' + clicked_id).style.display='block';
-        document.getElementById('showcomment2' + clicked_id).style.display='none';
-        document.getElementById('editsubmit2' + clicked_id).style.display='block';
+function comment_editboxtwo(clicked_id){  //alert('editsubmit2' + clicked_id);
+        document.getElementById('editcommenttwo' + clicked_id).style.display='block';
+        document.getElementById('showcommenttwo' + clicked_id).style.display='none';
+        document.getElementById('editsubmittwo' + clicked_id).style.display='block';
 
 
-        document.getElementById('editcommentbox2' + clicked_id).style.display='none';
-        document.getElementById('editcancle2' + clicked_id).style.display='block';
+        document.getElementById('editcommentboxtwo' + clicked_id).style.display='none';
+        document.getElementById('editcancletwo' + clicked_id).style.display='block';
         
 }
 
-function comment_editcancle2(clicked_id){ 
+function comment_editcancletwo(clicked_id){ 
 
-        document.getElementById('editcommentbox2' + clicked_id).style.display='block';
-        document.getElementById('editcancle2' + clicked_id).style.display='none';
+        document.getElementById('editcommentboxtwo' + clicked_id).style.display='block';
+        document.getElementById('editcancletwo' + clicked_id).style.display='none';
 
-        document.getElementById('editcomment2' + clicked_id).style.display='none';
-       document.getElementById('showcomment2' + clicked_id).style.display='block';
-       document.getElementById('editsubmit2' + clicked_id).style.display='none';
+        document.getElementById('editcommenttwo' + clicked_id).style.display='none';
+       document.getElementById('showcommenttwo' + clicked_id).style.display='block';
+       document.getElementById('editsubmittwo' + clicked_id).style.display='none';
    
 } 
 
@@ -1691,38 +1597,40 @@ function comment_delete(clicked_id)
 {
     
      var post_delete = document.getElementById("post_delete");
-     //alert(post_delete.value);
+     //alert('.insertcomment' + post_delete.value);
    $.ajax({
                 type:'POST',
                 url:'<?php echo base_url() . "artistic/mul_delete_comment" ?>',
+                 dataType: "json",
                  data:'post_image_comment_id='+clicked_id + '&post_delete='+post_delete.value,
-                success:function(data){ //alert('.' + 'insertcomment' + clicked_id);
+                success:function(data){// alert(data.comment);
 
-                    $('.' + 'insertcomment' + post_delete.value).html(data);
+                  $('#' + 'insertcount' + post_delete.value).html(data.count);
+                  $('.insertcomment' + post_delete.value).html(data.comment);
                     
                 }
             }); 
 }
 
-function comment_deleteone(clicked_id)
+function comment_deletetwo(clicked_id)
 {
     
-     var post_deleteone = document.getElementById("post_deleteone");
+    var post_delete1 = document.getElementById("post_deletetwo");
      //alert(post_delete.value);
    $.ajax({
                 type:'POST',
-                url:'<?php echo base_url() . "artistic/mul_delete_comment1" ?>',
-                 data:'post_image_comment_id='+clicked_id + '&post_delete='+post_deleteone.value,
-                success:function(data){ //alert('.' + 'insertcomment' + clicked_id);
+                url:'<?php echo base_url() . "artistic/mul_delete_commenttwo" ?>',
+                 data:'post_image_comment_id='+clicked_id + '&post_delete='+post_delete1.value,
+                success:function(data){ alert(data);
 
-                    $('.' + 'insertcomment1' + post_deleteone.value).html(data);
+                    $('.' + 'insertcommenttwo' + post_delete1.value).html(data);
                     
                 }
-            }); 
+            });  
 }
 </script>
 
-<!-- commenmt delete end
+<!-- commenmt delete end -->
 
 <!-- end search validation -->
                         <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>

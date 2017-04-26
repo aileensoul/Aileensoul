@@ -1225,6 +1225,16 @@ class Artistic extends MY_Controller {
 
 
         $updatdata = $this->common->update_data($data, 'art_post', 'art_post_id', $id);
+
+        $data = array(
+            'is_deleted' => 0,
+            'modify_date' => date('Y-m-d', time())
+        );
+
+
+        $updatdata = $this->common->update_data($data, 'post_image', 'post_id', $id);
+
+
     }
 
     public function artistic_contactperson($id) {
@@ -3372,59 +3382,6 @@ $followingdatacount = count($followingotherdata);
 
             $this->data['artistic_data'] = $this->common->select_data_by_condition('art_post', $contition_array, $data, $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
         }
-        // code for search
-        $contition_array = array('status' => '1', 'is_delete' => '0');
-
-
-        $artdata = $this->data['results'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_name,art_lastname,designation,other_skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-
-
-        $return_array = array();
-        //  //echo  $return_array;
-
-        foreach ($artdata as $get) {
-            $return = array();
-            $return = $get;
-
-
-            $return['firstname'] = $get['art_name'] . " " . $get['art_lastname'];
-            unset($return['art_name']);
-            unset($return['art_lastname']);
-
-            array_push($return_array, $return);
-            //echo $returnarray; 
-        }
-
-        // $contition_array = array('status' => '1');
-        // $artpost= $this->data['results'] =  $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-
-        $contition_array = array('status' => '1', 'type' => '2');
-
-        $artpost = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        // echo "<pre>"; print_r($artpost);die();
-
-
-        $uni = array_merge($return_array, $artpost);
-        //   echo count($unique);
-
-
-        foreach ($uni as $key => $value) {
-            foreach ($value as $ke => $val) {
-                if ($val != "") {
-
-
-                    $result[] = $val;
-                }
-            }
-        }
-        // / echo "<pre>"; print_r($result);die();
-        $results = array_unique($result);
-        foreach ($results as $key => $value) {
-            $result1[$key]['label'] = $value;
-            $result1[$key]['value'] = $value;
-        }
-
-        $this->data['demo'] = array_values($result1);
 
         $this->load->view('artistic/art_photos', $this->data);
     }
@@ -3456,62 +3413,7 @@ $followingdatacount = count($followingotherdata);
 
             $this->data['artistic_data'] = $this->common->select_data_by_condition('art_post', $contition_array, $data, $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         }
-        
-        // code for search
-        $contition_array = array('status' => '1', 'is_delete' => '0');
 
-
-        $artdata = $this->data['results'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_name,art_lastname,designation,other_skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-
-
-        $return_array = array();
-        //  //echo  $return_array;
-
-        foreach ($artdata as $get) {
-            $return = array();
-            $return = $get;
-
-
-            $return['firstname'] = $get['art_name'] . " " . $get['art_lastname'];
-            unset($return['art_name']);
-            unset($return['art_lastname']);
-
-            array_push($return_array, $return);
-            //echo $returnarray; 
-        }
-
-        // $contition_array = array('status' => '1');
-        // $artpost= $this->data['results'] =  $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-
-        $contition_array = array('status' => '1', 'type' => '2');
-
-        $artpost = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        // echo "<pre>"; print_r($artpost);die();
-
-
-        $uni = array_merge($return_array, $artpost);
-        //   echo count($unique);
-
-
-        foreach ($uni as $key => $value) {
-            foreach ($value as $ke => $val) {
-                if ($val != "") {
-
-
-                    $result[] = $val;
-                }
-            }
-        }
-        // / echo "<pre>"; print_r($result);die();
-        $results = array_unique($result);
-        foreach ($results as $key => $value) {
-            $result1[$key]['label'] = $value;
-            $result1[$key]['value'] = $value;
-        }
-
-        $this->data['demo'] = array_values($result1);
-
-        
         $this->load->view('artistic/art_videos', $this->data);
     }
 
@@ -3542,61 +3444,6 @@ $followingdatacount = count($followingotherdata);
 
             $this->data['artistic_data'] = $this->common->select_data_by_condition('art_post', $contition_array, $data, $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         }
-        
-        // code for search
-        $contition_array = array('status' => '1', 'is_delete' => '0');
-
-
-        $artdata = $this->data['results'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_name,art_lastname,designation,other_skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-
-
-        $return_array = array();
-        //  //echo  $return_array;
-
-        foreach ($artdata as $get) {
-            $return = array();
-            $return = $get;
-
-
-            $return['firstname'] = $get['art_name'] . " " . $get['art_lastname'];
-            unset($return['art_name']);
-            unset($return['art_lastname']);
-
-            array_push($return_array, $return);
-            //echo $returnarray; 
-        }
-
-        // $contition_array = array('status' => '1');
-        // $artpost= $this->data['results'] =  $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-
-        $contition_array = array('status' => '1', 'type' => '2');
-
-        $artpost = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        // echo "<pre>"; print_r($artpost);die();
-
-
-        $uni = array_merge($return_array, $artpost);
-        //   echo count($unique);
-
-
-        foreach ($uni as $key => $value) {
-            foreach ($value as $ke => $val) {
-                if ($val != "") {
-
-
-                    $result[] = $val;
-                }
-            }
-        }
-        // / echo "<pre>"; print_r($result);die();
-        $results = array_unique($result);
-        foreach ($results as $key => $value) {
-            $result1[$key]['label'] = $value;
-            $result1[$key]['value'] = $value;
-        }
-
-        $this->data['demo'] = array_values($result1);
-
         $this->load->view('artistic/art_audios', $this->data);
     }
 
@@ -3627,60 +3474,6 @@ $followingdatacount = count($followingotherdata);
 
             $this->data['artistic_data'] = $this->common->select_data_by_condition('art_post', $contition_array, $data, $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         }
-        // code for search
-        $contition_array = array('status' => '1', 'is_delete' => '0');
-
-
-        $artdata = $this->data['results'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_name,art_lastname,designation,other_skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-
-
-        $return_array = array();
-        //  //echo  $return_array;
-
-        foreach ($artdata as $get) {
-            $return = array();
-            $return = $get;
-
-
-            $return['firstname'] = $get['art_name'] . " " . $get['art_lastname'];
-            unset($return['art_name']);
-            unset($return['art_lastname']);
-
-            array_push($return_array, $return);
-            //echo $returnarray; 
-        }
-
-        // $contition_array = array('status' => '1');
-        // $artpost= $this->data['results'] =  $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-
-        $contition_array = array('status' => '1', 'type' => '2');
-
-        $artpost = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        // echo "<pre>"; print_r($artpost);die();
-
-
-        $uni = array_merge($return_array, $artpost);
-        //   echo count($unique);
-
-
-        foreach ($uni as $key => $value) {
-            foreach ($value as $ke => $val) {
-                if ($val != "") {
-
-
-                    $result[] = $val;
-                }
-            }
-        }
-        // / echo "<pre>"; print_r($result);die();
-        $results = array_unique($result);
-        foreach ($results as $key => $value) {
-            $result1[$key]['label'] = $value;
-            $result1[$key]['value'] = $value;
-        }
-
-        $this->data['demo'] = array_values($result1);
-
         $this->load->view('artistic/art_pdf', $this->data);
     }
 
@@ -4678,7 +4471,7 @@ $followingdatacount = count($followingotherdata);
 
         // echo '<pre>'; print_r($artmulimage1); die();
 
-        $fourdata = '<div class="insertcommenttwo' . $post_id . '">';
+        $fourdata = '<div class="insertcommenttwo' . $image_id . '">';
 
 
         foreach ($artmulimage1 as $rowdata) {
@@ -4703,7 +4496,7 @@ $followingdatacount = count($followingotherdata);
 
             $fourdata .= '<div class="comment-details" id= "showcommenttwo' . $rowdata['post_image_comment_id'] . '">';
             $fourdata .= '' . $rowdata['comment'] . '</br></div>';
-            $fourdata .= '<input type="text" name="' . $rowdata['post_image_id'] . '" id="editcommenttwo' . $rowdata['post_image_comment_id'] . '" style="display:none" value="' . $rowdata['comment'] . '"  onClick="commentedittwo(this.name)">';
+            $fourdata .= '<input type="text" name="' . $rowdata['post_image_comment_id'] . '" id="editcommenttwo' . $rowdata['post_image_comment_id'] . '" style="display:none" value="' . $rowdata['comment'] . '"  onClick="commentedittwo(this.name)">';
             $fourdata .= '<button id="editsubmittwo' . $rowdata['post_image_comment_id'] . '" style="display:none" onClick="edit_commenttwo(' . $rowdata['post_image_comment_id'] . ')">Comment</button>';
 
             $fourdata .= '<div class="art-comment-menu-design">';
