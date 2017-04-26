@@ -425,11 +425,10 @@
 
                                                             <div class="profile-job-profile-menu">
 
-                                                                <ul>
-
-                                                                    <li><b>Skills</b><span>
+               <ul>
+                 <li><b>Skills</b><span>
             <?php
-            $comma = ",";
+            $comma = " , ";
             $k = 0;
             $aud = $rec['freelancer_post_area'];
             $aud_res = explode(',', $aud);

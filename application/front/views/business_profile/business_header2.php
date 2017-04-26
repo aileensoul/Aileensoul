@@ -134,6 +134,8 @@ body {
     <div class="bg-search">
         <div class="header2">
             <div class="container">
+                <div class="row">
+
                    <?php echo $business_search; ?>
                   <div class="col-md-5 col-sm-5">
                        <div class="pushmenu pushmenu-left">
@@ -163,8 +165,8 @@ body {
                             </ul>
                         </div> 
                     </div>
-                 
-                </div>
+                 </div>
+              </div>
             </div>
         </div>
        </div> 

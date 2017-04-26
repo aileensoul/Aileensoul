@@ -339,7 +339,7 @@ ul.dropdown-menu li a i { padding-right: 8px; }
 .shedule-interview a:hover {  background: #000033; }
 
 
-.freelancer_work_detail ul { margin: 0; padding: 0 0 0 15px; }
+.freelancer_work_detail ul { margin: 0; padding: 0 0 0 28px; }
 .freelancer_work_detail ul li { list-style: none; display: inline-block; margin: 0; padding: 5px; }
 
 
@@ -3850,7 +3850,6 @@ border-bottom: 1px solid #000033;
     font-size: 16px;
     color: #000033;
     font-weight: 600;
-
 }
 
 .job-search-box1 label i{    border-radius: 3px;
@@ -3870,3 +3869,8 @@ input:-moz-placeholder { color:#999; font-size: 15px; }
 
 .select2-container--default .select2-search--inline .select2-search__field{width: 30%;}
 
+/* v 26-4-17 start*/
+
+.display_inline { display: inline !important; }
+
+/* v 26-4-17 end*/

@@ -231,7 +231,7 @@ label.cameraButton input[accept*="camera"] {
                      <div class="col-md-8 col-sm-7">
                         <div class="common-form">
                             <div class="job-saved-box">
-                                <h3>Employer Profile</h3>
+                                <h3>Employer Details</h3>
 
                                 <div class=" fr rec-edit-pro">
                                  <?php 

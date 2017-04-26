@@ -350,52 +350,44 @@
                                                 <div class="profile-job-post-detail clearfix" id="<?php echo "postdata" . $post['post_id']; ?>">
 
                                                     <!-- vishang 14-4 end -->
-                                                    <div class="profile-job-post-title clearfix">
-                                                        <div class="profile-job-profile-button clearfix">
-                                                            <div class="profile-job-details col-md-12">
-                                                                <ul>
-                                                                    <li class="fr">
+                <div class="profile-job-post-title clearfix">
+                  <div class="profile-job-profile-button clearfix">
+                     <div class="profile-job-details col-md-12">
+                          <ul>
+                           <li class="fr">
+                              Created Date : <?php
+                            echo trim(date('d-M-Y', strtotime($post['created_date'])));
+                                   ?>
+                            </li>
+                             <li>
+                              <a href="#" class="display_inline" style="font-size: 19px;font-weight: 600;">
+                              <?php echo ucwords(text2link($post['post_name'])); ?> </a>   </li>
 
-                                                                        Created Date:<?php
-                                                                        echo trim(date('d-M-Y', strtotime($post['created_date'])));
-                                                                        ?>
+                             <li>   
+                               <div class="fr lction">
+                              <?php $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name; ?>
+                                <p><i class="fa fa-map-marker" aria-hidden="true"> <?php echo $cityname; ?></i></p>
+                                 </div>
 
-                                                                    </li>
+                             <a class="display_inline" href="<?php echo base_url('recruiter/rec_profile/' . $post['user_id']); ?>"><?php
+                               $cache_time = $this->db->get_where('recruiter', array('user_id' => $post['user_id']))->row()->re_comp_name;
+                              echo ucwords($cache_time);
+                                 ?></a>
+                             </li>
 
-                                                                    <li>
-                                                                        <a href="#" style="font-size: 19px;font-weight: 600;">
-                                                                            <?php echo ucwords(text2link($post['post_name'])); ?> </a>   </li>
-
-                                                                    <li>   
-
-                                                                        <div class="fr lction">
-                                                                            <?php $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name; ?>
-                                                                            <p><i class="fa fa-map-marker" aria-hidden="true"> <?php echo $cityname; ?></i></p>
-                                                                        </div>
-
-
-                                                                        <a href="<?php echo base_url('recruiter/rec_profile/' . $post['user_id']); ?>"><?php
-                                                                            $cache_time = $this->db->get_where('recruiter', array('user_id' => $post['user_id']))->row()->re_comp_name;
-
-                                                                            echo ucwords($cache_time);
-                                                                            ?></a>
-
-                                                                    </li>
-
-                                                                    <li><a href="<?php echo base_url('recruiter/rec_profile/' . $post['user_id']); ?>"><?php
-                                                                            $cache_time = $this->db->get_where('recruiter', array('user_id' => $post['user_id']))->row()->rec_firstname;
-
-                                                                            echo ucwords($cache_time);
-                                                                            ?></a></li>
-                                                                    <!-- vishang 14-4 end -->    
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                        <div class="profile-job-profile-menu">
-                                                            <ul class="clearfix">
-                                                                <li> <b> Skills</b> <span> 
-                                                                        <?php
-                                                                        $comma = ", ";
+                            <li><a class="display_inline" href="<?php echo base_url('recruiter/rec_profile/' . $post['user_id']); ?>"><?php
+                            $cache_time = $this->db->get_where('recruiter', array('user_id' => $post['user_id']))->row()->rec_firstname;
+                            echo ucwords($cache_time);
+                             ?></a></li>
+                    <!-- vishang 14-4 end -->    
+                </ul>
+             </div>
+          </div>
+                       <div class="profile-job-profile-menu">
+                            <ul class="clearfix">
+                               <li> <b> Skills</b> <span> 
+                                  <?php
+                                   $comma = " , ";
                                                                         $k = 0;
                                                                         $aud = $post['post_skill'];
                                                                         $aud_res = explode(',', $aud);
@@ -494,9 +486,9 @@
                                                         </div>
                                                         <div class="profile-job-profile-button clearfix">
                                                             <div class="profile-job-details col-md-12">
-                                                                <ul><li class="job_all_post last_date">
-                                                                        Last Date:<?php
-                                                                        if ($post['post_last_date'] == '0000-00-00') {
+                      <ul><li class="job_all_post last_date">
+                           Last Date : <?php
+                            if ($post['post_last_date'] == '0000-00-00') {
                                                                             echo '';
                                                                         } else {
                                                                             echo date('d-M-Y', strtotime($post['post_last_date']));
