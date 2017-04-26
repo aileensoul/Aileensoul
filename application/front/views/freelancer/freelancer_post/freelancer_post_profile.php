@@ -257,9 +257,7 @@ function text2link($text) {
                                 <div class="profile-job-profile-button clearfix">
                                     <div class="profile-job-details">
                                         <ul>
-                                            <li>
-                                                <p> Basic Information</p>
-                                            </li>
+         <li><p class="details_all_tital "> Basic Information</p> </li>
 
                                         </ul>
                                     </div>
@@ -290,9 +288,7 @@ if ($freelancerpostdata[0]['freelancer_post_skypeid']) {
                                     <div class="profile-job-profile-button clearfix">
                                         <div class="profile-job-details">
                                             <ul>
-                                                <li>
-                                                    <p> Address</p>
-                                                </li>
+          <li><p class="details_all_tital "> Address</p> </li>
 
                                             </ul>
                                         </div>
@@ -337,9 +333,8 @@ if ($freelancerpostdata[0]['freelancer_post_city']) {
                                     <div class="profile-job-profile-button clearfix">
                                         <div class="profile-job-details">
                                             <ul>
-                                                <li>
-                                                    <p>Professional Information</p>
-                                                </li>
+                                            
+        <li><p class="details_all_tital ">Professional Information</p></li>
 
                                             </ul>
                                         </div>
@@ -391,7 +386,7 @@ if ($freelancerpostdata[0]['freelancer_post_area']) {
                                         <div class="profile-job-details">
                                             <ul>
                                                 <li>
-                                                    <p> Rate</p>
+                          <p class="details_all_tital "> Rate</p>
                                                 </li>
 
                                             </ul>
@@ -450,7 +445,7 @@ if ($freelancerpostdata[0]['freelancer_post_ratestate']) {
                                         <div class="profile-job-details">
                                             <ul>
                                                 <li>
-                                                    <p>Avability</p>
+                    <p class="details_all_tital ">Avability</p>
                                                 </li>
 
                                             </ul>
@@ -478,7 +473,7 @@ if ($freelancerpostdata[0]['freelancer_post_ratestate']) {
                                         <div class="profile-job-details">
                                             <ul>
                                                 <li>
-                                                    <p>Education</p>
+                    <p class="details_all_tital ">Education</p>
                                                 </li>
 
                                             </ul>
@@ -507,9 +502,7 @@ if ($freelancerpostdata[0]['freelancer_post_ratestate']) {
                                 <div class="profile-job-profile-button clearfix">
                                     <div class="profile-job-details">
                                         <ul>
-                                            <li>
-                                                <p>Portfolio</p>
-                                            </li>
+         <li><p class="details_all_tital ">Portfolio</p> </li>
 
                                         </ul>
                                     </div>
