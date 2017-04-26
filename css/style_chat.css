@@ -256,17 +256,17 @@ chat*/
       }
       #notificationContainer 
       {
-      background-color: #fff;
-      border: 1px solid rgba(100, 100, 100, .4);
-      /*-webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);*/
-      overflow: visible;
-      overflow-y: scroll;
-      /*position: absolute;*/
-      /*top: 30px;*/
-      margin-left: -170px;
-      width: 250px;
-      z-index: 3;
-      /*display: none; */
+         background-color: #fff;
+    border: 1px solid rgba(100, 100, 100, .4);
+    /* -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25); */
+    /* overflow: visible; */
+    /* overflow-y: scroll; */
+    /* position: absolute; */
+    /* top: 30px; */
+    margin-left: -170px;
+    width: 250px;
+    z-index: 3;
+    /* display: none; */
       }
       
       #notificationContainer:before {
@@ -308,3 +308,17 @@ chat*/
       }
 
 
+
+#notificationContainer:before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 14px 14px 0 14px;
+    border-color: #fff transparent transparent transparent;
+    bottom: -12px;
+    right: 77px;
+    /* margin-left: 18px; */
+}

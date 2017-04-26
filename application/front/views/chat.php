@@ -151,7 +151,7 @@ if($lstusrdata){?>
     left: -22px;"><i class="em em-blush"></i></a>
     
       <div id="notificationContainer" style="display: none;
-    position: relative;margin-bottom: 30px;">
+    position: relative;margin-bottom: 37px;">
      
       <div id="notificationsBody" class="notifications"></div>
      
