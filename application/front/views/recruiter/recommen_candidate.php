@@ -409,7 +409,7 @@ padding-top: 1px;}
                                                                 <li><b>Location</b> <span>
                                                                         <?php
                                                                         if ($countryname || $cityname) {
-                                                 echo $cityname .','. $countryname; 
+                                                 echo $cityname .', '. $countryname; 
                                                                         } else {
                                                                             echo PROFILENA;
                                                                         }
