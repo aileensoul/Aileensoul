@@ -471,29 +471,12 @@ if($status == 0 || $status == " "){?>
                                                 <div class="profile-job-profile-button clearfix">
                                                  <div class="profile-job-details">
                                                         <ul>
-                                                            <li>
-                                                                <p> ADD MORE </p>
-                                                            </li>
-                                                          
+                                                            
                                                         </ul>
                                                     </div>
                                                 </div>
                                                 <div class="profile-job-profile-menu">
-                                                    <ul class="clearfix">
-                                                        <li> <b> Add More</b> 
-                                                        <span>
-
-                          <?php
-                          if($businessdata1[0]['addmore']){ 
-                                                        ?>
-                <?php echo text2link($businessdata1[0]['addmore']); ?>
-                <?php }else{
-                  echo PROFILENA;
-                  }?>
-                 </span>
-                                                        </li>
                                                     
-                                                    </ul>
                                                 </div>
                                                 </div> 
                                                 </div>
