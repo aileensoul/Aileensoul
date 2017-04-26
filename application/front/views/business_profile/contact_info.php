@@ -96,10 +96,7 @@
                                 <fieldset class="hs-submit full-width">
                                    
 
-                                     <input type="reset">
                                      
-                                    <a href="<?php echo base_url('business_profile/business_information_update'); ?>">Previous</a>
-
                                     <input type="submit"  id="next" name="next" value="Next">
                                     
                                    
