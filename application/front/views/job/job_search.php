@@ -1,11 +1,11 @@
  <?php
                          echo form_open('search/job_search'); ?>
-                            <fieldset class="col-md-5">
+                            <fieldset class="col-md-3">
                             
                                  <input type="text" id="tags" name="skills" placeholder="Find Your job">
                                 </select>
                             </fieldset>
-                            <fieldset class="col-md-5">
+                            <fieldset class="col-md-3">
                               
                               <select class="" name="searchplace[]" id="searchplace" multiple="multiple">
                                 </select>
