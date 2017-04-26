@@ -2717,7 +2717,7 @@ $followingdatacount = count($followingotherdata);
             $cmtinsert .= '<div class="comment-details-menu">';
             $cmtinsert .= '<b>' . $art['created_date'] . '</b></div></div></div>';
             if (count($allcomnt) > 1) {
-                $cntinsert = '<a onclick="commentall(this.id)" id="' . $art['art_post_id'] . '"';
+                $cntinsert = '<a onclick="commentall(this.id)" id="' . $art['art_post_id'] . '">';
                 $cntinsert .= '<i class="fa fa-comment-o" aria-hidden="true">' .
                         count($allcomnt) . '</i>';
             }
@@ -3283,7 +3283,7 @@ $followingdatacount = count($followingotherdata);
             $cmtinsert .= '<div class="comment-details-menu">';
             $cmtinsert .= '<b>' . $art['created_date'] . '</b></div></div></div>';
             if (count($allcomnt) > 1) {
-                $cntinsert = '<a onclick="commentall(this.id)" id="' . $art['art_post_id'] . '"';
+                $cntinsert = '<a onclick="commentall(this.id)" id="' . $art['art_post_id'] . '">';
                 $cntinsert .= '<i class="fa fa-comment-o" aria-hidden="true">' .
                         count($allcomnt) . '</i>';
             }
