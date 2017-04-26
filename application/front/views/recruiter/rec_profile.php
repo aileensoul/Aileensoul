@@ -391,9 +391,7 @@ function text2link($text){
                                                 <div class="profile-job-profile-button clearfix">
                                                     <div class="profile-job-details">
                                                         <ul>
-                                                            <li>
-                                                                <p> Basic Information</p>
-                                                            </li>
+              <li> <p class="details_all_tital "> Basic Information</p></li>
                                                           
                                                         </ul>
                                                     </div>
@@ -448,9 +446,8 @@ function text2link($text){
                                                 <div class="profile-job-profile-button clearfix">
                                                     <div class="profile-job-details">
                                                         <ul>
-                                                            <li>
-                                                                <p>Company Information</p>
-                                                            </li>
+              
+           <li><p class="details_all_tital ">Company Information</p></li>
                                                           
                                                         </ul>
                                                     </div>
@@ -585,9 +582,8 @@ function text2link($text){
                                                       <div class="profile-job-profile-button clearfix">
                                                     <div class="profile-job-details">
                                                         <ul>
-                                                            <li>
-                                                                <p>Company Address</p>
-                                                            </li>
+            
+          <li><p class="details_all_tital ">Company Address</p></li>
                                                           
                                                         </ul>
                                                     </div>
