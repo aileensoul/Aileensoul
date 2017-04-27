@@ -112,10 +112,11 @@ echo $job_header2;
 <div class="container">    
     <div class="upload-img">
 
-
+        <?php if($returnpage == ''){ ?>
         <label class="cameraButton"><i class="fa fa-camera" aria-hidden="true"></i>
             <input type="file" id="upload" name="upload" accept="image/*;capture=camera" onclick="showDiv()">
         </label>
+        <?php }?>
     </div>
     <div class="profile-photo">
         <div class="profile-pho">
@@ -126,7 +127,9 @@ echo $job_header2;
                     <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
                 <?php } ?>
         <!--<a href="#popup-form" class="fancybox" title="Update Profile Picture"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>-->
+                    <?php if($returnpage == ''){ ?>
                 <a href="javascript:void(0);" onclick="updateprofilepopup();"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>
+                    <?php }?>
             </div>
             <!--            <div id="popup-form">
             <?php // echo form_open_multipart(base_url('job/user_image_insert'), array('id' => 'userimage', 'name' => 'userimage', 'class' => 'clearfix')); ?>
@@ -140,10 +143,10 @@ echo $job_header2;
         <?php echo $job_menubar; ?>   
     </div>
     <div class="job-menu-profile">
-        <a  href="<?php echo site_url('job/job_printpreview/' . $job[0]['user_id']); ?>" title="<?php echo $job[0]['fname'] . ' ' . $job[0]['lname']; ?>"><h3 class="profile-head-text"> <?php echo $job[0]['fname'] . ' ' . $job[0]['lname']; ?></h3></a>
+        <a  href="javascript: void(0);" title="<?php echo $job[0]['fname'] . ' ' . $job[0]['lname']; ?>"><h3 class="profile-head-text"> <?php echo $job[0]['fname'] . ' ' . $job[0]['lname']; ?></h3></a>
         <!-- text head start -->
         <div class="profile-text" >
-            <?php
+            <?php if($returnpage == ''){
             if ($job[0]['designation'] == '') {
                 ?>
                             <!--<center><a id="myBtn" title="Designation">Designation</a></center>-->
@@ -152,7 +155,9 @@ echo $job_header2;
                 ?> 
                 <!--<a id="myBtn" title="<?php echo ucwords($job[0]['designation']); ?>"><?php echo ucwords($job[0]['designation']); ?></a>-->
                 <a id="designation" class="designation" title="<?php echo ucwords($job[0]['designation']); ?>"><?php echo ucwords($job[0]['designation']); ?></a>
-            <?php } ?>
+            <?php }
+            
+            } else { echo ucwords($job[0]['designation']); } ?>
             <!-- The Modal -->
             <!--            <div id="myModal" class="modal">
                              Modal content <div class="col-md-2"></div>
