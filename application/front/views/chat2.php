@@ -155,9 +155,8 @@ if($lstusrdata){?>
                <!--  <input id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." /> -->
                 <form name="blog">
                
-               <div class="form-control input-sm" contentEditable="true" name="comments" id="message  smily" style="position: relative; height: 40px;">
-            
-              </div>
+                <div class="comment" contentEditable="true" name="comments" id="message" style="position: relative;">
+                </div>
 <div for="smily" style="position: absolute;
 z-index: 9; 
     top: 7px;
@@ -172,7 +171,13 @@ z-index: 9;
       <div id="notificationContainer" style="display: none;
     position: relative;margin-bottom: 37px;">
      
-      <div id="notificationsBody" class="notifications"></div>
+      <div id="notificationsBody" class="notifications">
+        <?php $i=0; foreach($smiley_table as $key => $value){ ?>
+        
+          <img id="<?php echo $i; ?>" src="<?php echo base_url().'uploads/smileys/' . $value[0]; ?>" height="50" width="50"onClick="followclose(<?php echo $i; ?>)">
+         
+         <?php  $i++; } ?>
+      </div>
      
       </div>
 
@@ -392,7 +397,9 @@ $('#submit').click(function (e) {
   e.preventDefault();
   
   var $field = $('#message');
-  var data = $field.val();
+  //var data = $field.val();
+  var data = $('#message').html();
+  $("#message").html("");
  
   $field.addClass('disabled').attr('disabled', 'disabled');
   sendChat(data, function (){
@@ -519,3 +526,16 @@ function enteruser()
 
       });
 </script>
+
+<!-- script for selact smily for message start-->
+<script type="text/javascript">
+function followclose(clicked_id)
+{ var img = document.getElementById(clicked_id); 
+// alert(img.getAttribute('src')); // foo.jpg
+//alert(img.src); 
+var img = img.src;
+$('#message').append("<img  src=" + img + " height='50' width='50'>"); 
+ 
+}
+</script>
+<!-- script for selact smily for message end-->
