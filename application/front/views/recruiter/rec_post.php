@@ -414,11 +414,11 @@ echo $recruiter_header2;
                      <div class="profile-job-details col-md-12">
                           <ul>
                            <li class="fr">
-                              Created Date :
+                              Created Date :20/4/2017
                             </li>
                              <li>
                               <a href="#" style="font-size: 19px;font-weight: 600;">
-                            Dhaval </a>     </li>
+                            Web Developer </a>     </li>
 
                              <li>   
                                <div class="fr lction">
@@ -426,7 +426,7 @@ echo $recruiter_header2;
                                 <p><i class="fa fa-map-marker" aria-hidden="true"> Location </i></p>
                                  </div>
 
-                             <a class="display_inline" href="#"> Dhaval </a>
+                             <a class="display_inline" href="#"> Company name </a>
                              </li>
 
                             <li><a class="display_inline" href="#"> Dhaval </a></li>
