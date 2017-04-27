@@ -438,7 +438,7 @@ if($status == 0 || $status == " "){?>
             <div class="container">
                 <div class="row">
                    
-                    <div class="col-md-3">
+                    <!-- <div class="col-md-3">
 
   <div  class="add-post-button">
    
@@ -447,7 +447,7 @@ if($status == 0 || $status == " "){?>
   </div>
                                 
                     
-   </div>
+   </div> -->
                      
 
 
@@ -1538,7 +1538,7 @@ if(count($likelistarray) > 1) {
                   </div>
 <div class="comment-name">
 
-                                     <b>  <?php echo $companyname; echo '</br>'; ?>
+                                     <b>  <?php echo ucwords($companyname); echo '</br>'; ?>
 </b>
 </div>
                                         <div class="comment-details" id= "<?php echo "showcomment" . $rowdata['business_profile_post_comment_id']; ?>">
@@ -1549,7 +1549,7 @@ if(count($likelistarray) > 1) {
                                         </div>
  <div class="col-md-12">
                                         <div class="col-md-10">
-                                        <textarea type="text" class="textarea" name="<?php echo $rowdata['business_profile_post_comment_id']; ?>" id="<?php echo "editcomment" . $rowdata['business_profile_post_comment_id']; ?>" style="display:none;height: 3.3em;resize: none;" value="<?php  echo $rowdata['comments']; ?>" onClick="commentedit(this.name)"></textarea></div>
+                                        <textarea type="text" class="textarea" name="<?php echo $rowdata['business_profile_post_comment_id']; ?>" id="<?php echo "editcomment" . $rowdata['business_profile_post_comment_id']; ?>" style="display:none;height: 3.3em;resize: none;" onClick="commentedit(this.name)"><?php  echo $rowdata['comments'];?></textarea></div>
 
                                           <div class="col-md-2 comment-edit-button">
                                         <button id="<?php echo "editsubmit" . $rowdata['business_profile_post_comment_id']; ?>" style="display:none" onClick="edit_comment(<?php echo $rowdata['business_profile_post_comment_id']; ?>)">Comment</button>
@@ -1670,7 +1670,11 @@ if(count($likelistarray) > 1) {
                   
                   <div class="">
                   <div class="col-md-10  inputtype-comment" style="    padding-left: 7px;">
-                  <input type="text" name="<?php echo $row['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $row['business_profile_post_id']; ?>" placeholder="Type Message ..." value= ""  onClick="entercomment(this.name)"></div>
+
+
+                  <textarea type="text" class="textarea" name="<?php echo $row['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $row['business_profile_post_id']; ?>" placeholder="Type Message ..." value= ""  onClick="entercomment(this.name)"></textarea>
+
+                  </div>
                       <?php echo form_error('post_comment'); ?> 
                       <div class="col-md-1 comment-edit-butn">       
                       <button id="<?php echo $row['business_profile_post_id']; ?>" onClick="insert_comment(this.id)">Comment</button></div>
@@ -2037,22 +2041,47 @@ function insert_comment(clicked_id)
     var post_comment = document.getElementById("post_comment" + clicked_id);
    //alert(clicked_id);
    //alert(post_comment.value);
-   $.ajax({ 
-                type:'POST',
-                url:'<?php echo base_url() . "business_profile/insert_comment" ?>',
-                 data:'post_id='+clicked_id + '&comment='+post_comment.value,
-                 dataType: "json",
-                   success:function(data){ 
-                     $('input').each(function(){
-                      $(this).val('');
-                  }); 
-                   
 
-                     $('.' + 'insertcount' + clicked_id).html(data.count);
-                     $('.' + 'insertcomment' + clicked_id).html(data.comment);
-                    
-                }
-            }); 
+
+        var x = document.getElementById('threecomment'+ clicked_id);
+        var y = document.getElementById('fourcomment'+ clicked_id);
+ 
+         if (x.style.display === 'block' && y.style.display === 'none') { 
+               $.ajax({ 
+                        type:'POST',
+                        url:'<?php echo base_url() . "business_profile/insert_commentthree" ?>',
+                        data:'post_id='+clicked_id + '&comment='+val,
+                        dataType: "json",
+                           success:function(data){ 
+                             $('textarea').each(function(){
+                              $(this).val('');
+                          });
+                
+               //  $('.insertcomment' + clicked_id).html(data);
+                 $('#' + 'insertcount' + clicked_id).html(data.count);
+                 $('.insertcomment' + clicked_id).html(data.comment);
+
+                  }
+                    }); 
+         
+              } else { 
+
+                $.ajax({ 
+                        type:'POST',
+                        url:'<?php echo base_url() . "business_profile/insert_comment" ?>',
+                         data:'post_id='+clicked_id + '&comment='+val,
+                        // dataType: "json",
+                           success:function(data){ 
+                             $('textarea').each(function(){
+                              $(this).val('');
+                          });
+                 $('#' + 'fourcomment' + clicked_id).html(data);
+                // $('#' + 'commnetpost' + clicked_id).html(data.count);
+                //  $('#' + 'fourcomment' + clicked_id).html(data.comment);
+
+                  }
+                    }); 
+             }
 }
 </script>
 
@@ -2089,7 +2118,7 @@ function entercomment(clicked_id)
                 data:'post_id='+clicked_id + '&comment='+val,
                 dataType: "json",
                    success:function(data){ 
-                     $('input').each(function(){
+                     $('textarea').each(function(){
                       $(this).val('');
                   });
         
@@ -2108,7 +2137,7 @@ function entercomment(clicked_id)
                  data:'post_id='+clicked_id + '&comment='+val,
                 // dataType: "json",
                    success:function(data){ 
-                     $('input').each(function(){
+                     $('textarea').each(function(){
                       $(this).val('');
                   });
          $('#' + 'fourcomment' + clicked_id).html(data);
@@ -2140,7 +2169,7 @@ function insert_comment1(clicked_id)
                  data:'post_id='+clicked_id + '&comment='+post_comment.value,
                  dataType: "json",
                    success:function(data){ 
-                     $('input').each(function(){
+                     $('textarea').each(function(){
                       $(this).val('');
                   }); 
                     
@@ -2182,7 +2211,7 @@ function entercomment1(clicked_id)
                  data:'post_id='+clicked_id + '&comment='+val,
                  dataType: "json",
                    success:function(data){ 
-                     $('input').each(function(){
+                     $('textarea').each(function(){
                       $(this).val('');
                   }); 
                    
@@ -2216,7 +2245,7 @@ function entercomment1(clicked_id)
                
       if (x.style.display === 'block' && y.style.display === 'none') {
 
-        alert(1);
+        
          x.style.display = 'none';
          y.style.display = 'block';
          z.style.display = 'none';
@@ -2386,14 +2415,14 @@ function comment_editboxtwo(clicked_id){
         
 }
 
-function comment_editcancle2(clicked_id){ 
+function comment_editcancletwo(clicked_id){ 
 
-        document.getElementById('editcommentbox2' + clicked_id).style.display='block';
-        document.getElementById('editcancle2' + clicked_id).style.display='none';
+        document.getElementById('editcommentboxtwo' + clicked_id).style.display='block';
+        document.getElementById('editcancletwo' + clicked_id).style.display='none';
 
-        document.getElementById('editcomment2' + clicked_id).style.display='none';
-       document.getElementById('showcomment2' + clicked_id).style.display='block';
-       document.getElementById('editsubmit2' + clicked_id).style.display='none';
+        document.getElementById('editcommenttwo' + clicked_id).style.display='none';
+       document.getElementById('showcommenttwo' + clicked_id).style.display='block';
+       document.getElementById('editsubmittwo' + clicked_id).style.display='none';
    
 } 
 
@@ -2565,13 +2594,16 @@ function edit_commenttwo(abc)
 
 <script type="text/javascript">
 
-function commentedit2(abc)
-{ 
+function commentedittwo(abc)
+{  
+ 
+ 
   $(document).ready(function() {
-  $('#editcomment2' + abc).keypress(function(e) {
-  
+  $('#editcommenttwo' + abc).keypress(function(e) {
+    
+
       if (e.keyCode == 13 && !e.shiftKey) {
-                var val = $('#editcomment2' + clicked_id).val();
+                var val = $('#editcommenttwo' + abc).val();
                 e.preventDefault();
 
                 if (window.preventDuplicateKeyPresses)
@@ -2588,23 +2620,20 @@ function commentedit2(abc)
                  data:'post_id='+abc + '&comment='+val,
                    success:function(data){ //alert('falguni');
 
-                  //  $('input').each(function(){
-                  //     $(this).val('');
-                  // }); 
-         document.getElementById('editcomment2' + abc).style.display='none';
-       document.getElementById('showcomment2' + abc).style.display='block';
-       document.getElementById('editsubmit2' + abc).style.display='none';
+                  
+         document.getElementById('editcommenttwo' + abc).style.display='none';
+       document.getElementById('showcommenttwo' + abc).style.display='block';
+       document.getElementById('editsubmittwo' + abc).style.display='none';
 
-       document.getElementById('editcommentbox2' + abc).style.display='block';
-        document.getElementById('editcancle2' + abc).style.display='none';
+       document.getElementById('editcommentboxtwo' + abc).style.display='block';
+        document.getElementById('editcancletwo' + abc).style.display='none';
                      //alert('.' + 'showcomment' + abc);
-                    $('#' + 'showcomment2' + abc).html(data);
+                    $('#' + 'showcommenttwo' + abc).html(data);
 
 
                     
                 }
             }); 
-   
       //alert(val);
     }        
   });
