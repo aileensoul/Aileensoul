@@ -52,7 +52,14 @@ label.cameraButton input[accept*="camera"] {
   
   
     <!-- END HEADER -->
-<?php echo $freelancer_hire_header2; ?>
+<?php
+     $returnpage=$_GET['page'];
+    if($returnpage=='freelancer_post'){
+    echo $freelancer_post_header2;
+    }
+    else{
+    echo $freelancer_hire_header2;
+    }?>
 
 
        <body   class="page-container-bg-solid page-boxed">
@@ -121,11 +128,11 @@ label.cameraButton input[accept*="camera"] {
 
     <div class="container">    
       <div class="upload-img">
-      
-        
+      <?php if($returnpage == ''){ ?>
         <label class="cameraButton"><i class="fa fa-camera" aria-hidden="true"></i>
             <input type="file" id="upload" name="upload" accept="image/*;capture=camera" onclick="showDiv()">
         </label>
+      <?php }?>
       </div>
  
                
@@ -139,8 +146,9 @@ label.cameraButton input[accept*="camera"] {
                             <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
                             <?php } ?>
                             <!-- <a href="#popup-form" class="fancybox"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a> -->
+                            <?php if($returnpage == ''){ ?>
                             <a href="javascript:void(0);" onclick="updateprofilepopup();"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>
-
+                            <?php }?>
                         </div>
 
                         
@@ -160,9 +168,11 @@ label.cameraButton input[accept*="camera"] {
 <div class="left-side-menu col-md-2">  </div>
 <div class="right-side-menu col-md-8">  
  <ul class="">
-                                     <li <?php if(($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_hire_profile')){?> class="active" <?php } ?>><a href="<?php echo base_url('freelancer/freelancer_hire_profile'); ?>">Employer Details</a>
+                                     <li <?php if(($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_hire_profile')){?> class="active" <?php } ?>>
+                                          <?php if($returnpage=='freelancer_post') {?><a href="<?php echo base_url('freelancer/freelancer_hire_profile/'.$this->uri->segment(3).'?page=freelancer_post'); ?>">Employer Details</a> <?php } else {?> <a href="<?php echo base_url('freelancer/freelancer_hire_profile'); ?>">Employer Details</a> <?php }?>
                                     </li>
-                                    <li <?php if(($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_save')){?> class="active" <?php } ?>><a href="<?php echo base_url('freelancer/freelancer_hire_post'); ?>">Post</a>
+                                    <li <?php if(($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_save')){?> class="active" <?php } ?>> 
+                                        <?php if ($returnpage=='freelancer_post'){?><a href="<?php echo base_url('freelancer/freelancer_hire_post/'.$this->uri->segment(3).'?page=freelancer_post'); ?>">Post</a><?php } else { ?><a href="<?php echo base_url('freelancer/freelancer_hire_post'); ?>">Post</a><?php }?>
                                     </li>
                                    
                                     
@@ -217,8 +227,9 @@ label.cameraButton input[accept*="camera"] {
                       <a id="designation" class="designation" title="<?php echo ucwords($freehiredata[0]['designation']); ?>"><?php echo ucwords($freehiredata[0]['designation']); ?></a>
                       <?php }?></div>
     <div  class="add-post-button">
-
+        <?php if($returnpage == ''){ ?>
         <a class="btn btn-3 btn-3b" href="<?php echo base_url('freelancer/freelancer_add_post'); ?>"><i class="fa fa-plus" aria-hidden="true"></i>  Add Post</a>
+        <?php }?>
   </div>
                       </div>
                       <!-- The Modal -->

@@ -396,7 +396,7 @@ if ($freepostdata[0]['designation']) {
 <!-- pallavi end 10/04/2017 -->
 
                                                     <div class="job-post-title">
-                                                        <h6><a href="<?php echo base_url('freelancer/freelancer_hire_profile/' . $post['user_id']); ?>" title=" <?php echo text2link($post['post_name']); ?>">
+                                                        <h6><a href="<?php echo base_url('freelancer/freelancer_hire_profile/' . $post['user_id'].'?page=freelancer_post'); ?>" title=" <?php echo text2link($post['post_name']); ?>">
         <?php echo text2link($post['post_name']); ?>
                                                             </a></h6>
                                                     </div>
