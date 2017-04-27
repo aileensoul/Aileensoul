@@ -361,14 +361,14 @@ label.cameraButton input[accept*="camera"] {
 
                         </div>
                         
-                        <div id="popup-form">
+<!--                        <div id="popup-form">
                         <?php echo form_open_multipart(base_url('business_profile/user_image_insert'), array('id' => 'userimage','name' => 'userimage', 'class' => 'clearfix')); ?>
                         <input type="file" name="profilepic" accept="image/gif, image/jpeg, image/png" id="profilepic">
                         <input type="hidden" name="hitext" id="hitext" value="5">
                         <input type="submit" name="cancel5" id="cancel5" value="Cancel">
                         <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save">
                      <?php  echo form_close( );?>
-                </div>
+                </div>-->
 
                 </div>
 
