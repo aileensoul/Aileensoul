@@ -407,7 +407,8 @@ if ($freepostdata[0]['designation']) {
                                                                 <?php
                                                                 $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name;
                                                                 $countryname = $this->db->get_where('countries', array('country_id' => $post['country']))->row()->country_name;
-                                                                if( $cityname != 0 || $countryname != 0)
+                                                                //echo $countryname; die();
+                                                                if($cityname || $countryname)
                                                                 {
                                                                     ?>
                                                                 <p><i class="fa fa-map-marker" aria-hidden="true"><?php echo $cityname . ", " . $countryname; ?></i></p>

@@ -1401,7 +1401,7 @@ $new = array();
         $this->data['postdetail'] = $freedata;
 
 
-
+       // echo "<pre>"; print_r($this->data['postdetail']); die();
 
 
         $contition_array = array('status' => '1', 'is_delete' => '0');
