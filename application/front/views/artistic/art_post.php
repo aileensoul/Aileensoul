@@ -385,12 +385,12 @@ return false;
                                     </div>
                                     <div class="profile-box-user  profile-text-bui-user  fr col-md-9">
                                         <span class="profile-company-name ">
-                                            <a href="<?php echo site_url('artistic/art_manage_post'); ?>"> <?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?></a>
+                                            <a style="margin-left: 4px;" href="<?php echo site_url('artistic/art_manage_post'); ?>"> <?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?></a>
                                         </span>
 
 
                                         <div class="profile-boxProfile-name">
-                                            <a href="<?php echo site_url('artistic/art_manage_post'); ?>">
+                                            <a style="padding-left: 4px;" href="<?php echo site_url('artistic/art_manage_post'); ?>">
                                                 <?php
                                                 if ($artisticdata[0]['designation']) {
                                                     echo ucwords($artisticdata[0]['designation']);
@@ -1997,7 +1997,7 @@ function insert_comment(clicked_id)
             data:'post_id='+clicked_id + '&comment='+post_comment.value,
             dataType: "json",
             success:function(data){ 
-                     $('input').each(function(){
+                     $('textarea').each(function(){
                       $(this).val('');
                   });
          //$('.' + 'insertcomment' + clicked_id).html(data);

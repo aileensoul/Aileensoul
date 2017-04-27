@@ -322,6 +322,7 @@
                     <div class="common-form">
                         <div class="job-saved-box">
                             <h3>Recommended Job</h3>
+                            
                             <div class="contact-frnd-post">
                                 <?php
 
