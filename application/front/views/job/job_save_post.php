@@ -302,7 +302,8 @@
 
                 </ul>
             </div>
-        </div>
+
+      </div>
     </div>
 
     <div class="job-menu-profile">
