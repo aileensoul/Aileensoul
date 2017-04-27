@@ -201,7 +201,7 @@
                                 </fieldset>
 
                                 <fieldset class="full-width">
-                                    <label>Address:<span style="color:red">*</span></label>
+                                    <label>Postal Address:<span style="color:red">*</span></label>
 
                                     <textarea name ="address" id="address" rows="4" cols="50" placeholder="Enter Address" style="resize: none;"><?php
                                         if ($address1) {
@@ -306,7 +306,7 @@
                                 </fieldset>
 
                                 <fieldset class="full-width">
-                                    <label>Address:<span style="color:red">*</span></label>
+                                    <label>Postal Address:<span style="color:red">*</span></label>
 
                                     <textarea name ="address_permenant" id="address_permenant" rows="4" cols="50" placeholder="Enter Address" style="resize: none;"><?php
                                         if ($address1_permenant) {
