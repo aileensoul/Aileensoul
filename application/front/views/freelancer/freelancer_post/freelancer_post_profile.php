@@ -41,7 +41,14 @@
 <!-- END HEAD -->
 <!-- start header -->
 <?php echo $header; ?>
-<?php echo $freelancer_post_header2; ?>
+<?php
+    $returnpage=$_GET['page'];
+    if($returnpage == 'freelancer_hire'){
+    echo  $freelancer_hire_header2;  
+    }
+    else{
+echo $freelancer_post_header2;
+    }?>
 
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
@@ -119,10 +126,11 @@
 <div class="container">    
     <div class="upload-img">
 
-
+        <?php if($returnpage == ''){?>
         <label class="cameraButton"><i class="fa fa-camera" aria-hidden="true"></i>
             <input type="file" id="upload" name="upload" accept="image/*;capture=camera" onclick="showDiv()">
         </label>
+        <?php }?>
     </div>
 
 
@@ -136,8 +144,9 @@
                     <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
                 <?php } ?>
                 <!-- <a href="#popup-form" class="fancybox"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a> -->
+                    <?php if($returnpage == ''){ ?>
                 <a href="javascript:void(0);" onclick="updateprofilepopup();"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>
-
+                    <?php } ?>
 
             </div>
 
@@ -156,11 +165,11 @@
             <div class="left-side-menu col-md-2">  </div>
             <div class="right-side-menu col-md-8">  
                 <ul class="">
-                    <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_post_profile')) { ?> class="active" <?php } ?>><a href="<?php echo base_url('freelancer/freelancer_post_profile'); ?>">Profile</a>
+                    <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_post_profile')) { ?> class="active" <?php } ?>><a href="<?php echo base_url('freelancer/freelancer_post_profile'); ?>">Details</a>
                     </li>
 
 
-<?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_post_profile' || $this->uri->segment(2) == 'freelancer_apply_post' || $this->uri->segment(2) == 'freelancer_save_post' || $this->uri->segment(2) == 'freelancer_applied_post') && ($this->uri->segment(3) == $this->session->userdata('aileenuser') || $this->uri->segment(3) == '')) { ?>
+        <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_post_profile' || $this->uri->segment(2) == 'freelancer_apply_post' || $this->uri->segment(2) == 'freelancer_save_post' || $this->uri->segment(2) == 'freelancer_applied_post') && ($this->uri->segment(3) == $this->session->userdata('aileenuser') || $this->uri->segment(3) == '')) { ?>
 
 
 
@@ -200,7 +209,7 @@
 
 
          <?php 
-                  
+                if($returnpage == ''){
             if ($freelancerpostdata[0]['designation'] == "") {
 
                 ?> <!--<center><a id="myBtn" title="Designation">Designation</a></center>-->
@@ -210,7 +219,7 @@
                 ?> 
                 <!--<a id="myBtn" title="<?php echo ucwords($job[0]['designation']); ?>"><?php echo ucwords($job[0]['designation']); ?></a>-->
                 <a id="designation" class="designation" title="<?php echo ucwords($freelancerpostdata[0]['designation']); ?>"><?php echo ucwords($freelancerpostdata[0]['designation']); ?></a>
-            <?php } ?>
+                <?php }} else { echo ucwords($freelancerpostdata[0]['designation']);} ?>
 
             </div>
         </div>
@@ -241,7 +250,7 @@
     <div class="col-md-7 col-sm-7">
         <div class="common-form">
             <div class="job-saved-box">
-                <h3>Freelancer Profile </h3>
+                <h3>Freelancer Details  </h3>
                 <div class=" fr rec-edit-pro">
 <?php
 
