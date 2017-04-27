@@ -64,7 +64,8 @@ div .comment {
 <!-- loop start -->
 <div id="userlist">
 <?php 
-if(count($userlist) > 0){ foreach($userlist as $user){ ?>
+if(count($userlist) > 0){
+ foreach($userlist as $user){ ?>
  <li class="clearfix">
           <?php        if ($user['user_image']) {?>
    
@@ -137,7 +138,10 @@ if($lstusrdata){?>
                <!--  <input id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." /> -->
                 <form name="blog">
                
-               <div class="comment" contentEditable="true" name="comments" id="message  smily" style="position: relative;">
+              <!--  <div class="comment" contentEditable="true" name="comments" id="message  smily" style="position: relative;"> -->
+
+              <div class="comment" contentEditable="true" name="comments" id="message" style="position: relative;">
+
             
               </div>
 <div for="smily" style="position: absolute;
@@ -153,7 +157,13 @@ if($lstusrdata){?>
       <div id="notificationContainer" style="display: none;
     position: relative;margin-bottom: 37px;">
      
-      <div id="notificationsBody" class="notifications"></div>
+      <div id="notificationsBody" class="notifications">
+        <?php $i=0; foreach($smiley_table as $key => $value){ ?>
+        
+          <img id="<?php echo $i; ?>" src="<?php echo base_url().'uploads/smileys/' . $value[0]; ?>" height="50" width="50"onClick="followclose(<?php echo $i; ?>)">
+         
+         <?php  $i++; } ?>
+      </div>
      
       </div>
 
@@ -174,10 +184,7 @@ if($lstusrdata){?>
  
    <div class="chat">
       <div class="chat-header clearfix">
-
-  
-
-         <div class="chat-about">
+       <div class="chat-about">
           <div class="chat-with">
            </div>
           <div class="chat-num-messages"></div>
@@ -189,7 +196,6 @@ if($lstusrdata){?>
       </div>
        <div class="panel-footer">
           <div class="clearfix">
-            
             <div class="col-md-9" id="msg_block">
               <div class="input-group">
                 <input id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." />
@@ -313,7 +319,7 @@ var date = new Date(timestamp * 1000);
 var formattedDate = ('0' + date.getDate()).slice(-2) + '/' + ('0' + (date.getMonth() + 1)).slice(-2) + '/' + date.getFullYear() + ' ' + ('0' + date.getHours()).slice(-2) + ':' + ('0' + date.getMinutes()).slice(-2);
 console.log(formattedDate);
 //alert(formattedDate);
-  //  alert(timeString);
+  //  alert(data.message);
       var html = ' <li class="clearfix">';
       html += '   <div class="message-data align-right">';
           html += '    <span class="message-data-time" >' + formattedDate + '</span>&nbsp; &nbsp;';
@@ -329,7 +335,7 @@ console.log(formattedDate);
     }else{
 
  
-      var timestamp = data.timestamp; // replace your timestamp
+var timestamp = data.timestamp; // replace your timestamp
 var date = new Date(timestamp * 1000);
 var formattedDate = ('0' + date.getDate()).slice(-2) + '/' + ('0' + (date.getMonth() + 1)).slice(-2) + '/' + date.getFullYear() + ' ' + ('0' + date.getHours()).slice(-2) + ':' + ('0' + date.getMinutes()).slice(-2);
 console.log(formattedDate);
@@ -376,7 +382,8 @@ $('#submit').click(function (e) {
   var $field = $('#message');
   //var data = $field.val();
   var data = $('#message').html();
-alert(data);
+  $("#message").html("");
+  
  
   $field.addClass('disabled').attr('disabled', 'disabled');
   sendChat(data, function (){
@@ -495,3 +502,16 @@ function enteruser()
 
       });
 </script>
+
+<!-- script for selact smily for message start-->
+<script type="text/javascript">
+function followclose(clicked_id)
+{  
+  var img = document.getElementById(clicked_id); 
+// alert(img.getAttribute('src')); // foo.jpg
+//alert(img.src); 
+var img = img.src;
+$('#message').append("<img  src=" + img + " height='50' width='50'>"); 
+ }
+</script>
+<!-- script for selact smily for message end-->

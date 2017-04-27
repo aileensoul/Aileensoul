@@ -7,6 +7,8 @@ class Chat extends MY_Controller {
   public function __construct() {
         parent::__construct();
 
+        $this->load->helper('smiley');
+
         if (!$this->session->userdata('aileenuser')) {
             redirect('login', 'refresh');
         }
@@ -238,6 +240,12 @@ $userlist =  $this->aasort($userlist,"id");
 
 $this->data['userlist'] = array_merge($return_arraysel,$userlist);
     // khyati changes end 20-4
+
+
+// smily start
+$smileys = _get_smiley_array();
+$this->data['smiley_table'] = $smileys;
+// smily end
 
     $this->load->view('chat',$this->data);
   }
@@ -488,6 +496,10 @@ $this->data['userlist'] = array_merge($return_arraysel,$userlist);
    // khytai changes 22-4 end
     
   
+// smily start
+$smileys = _get_smiley_array();
+$this->data['smiley_table'] = $smileys;
+// smily end
    // khytai changes end 22-4
     
     $this->load->view('chat2',$this->data);
