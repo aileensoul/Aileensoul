@@ -2951,7 +2951,7 @@ $cmtinsert .= '<div class="comment-details" id= "showcommenttwo' . $business_pro
 
             $cmtinsert .= '<img  src="' . base_url(USERIMAGE . $business_userimage) . '" alt="">  </div>';
 
-            $cmtinsert .= '<div class="comment-name"><b>' . $company_name . '</b>';
+            $cmtinsert .= '<div class="comment-name"><b>' . ucwords($company_name) . '</b>';
             $cmtinsert .= '</div>';
             $cmtinsert .= '<div class="comment-details" id= "showcomment' . $business_profile['business_profile_post_comment_id'] . '"" >';
             $cmtinsert .= $business_profile['comments'];
@@ -3090,7 +3090,7 @@ $cmtinsert =  '<div class="insertcommenttwo' . $post_id . '">';
 
             $cmtinsert .= '<img  src="' . base_url(USERIMAGE . $business_userimage) . '" alt="">  </div>';
 
-            $cmtinsert .= '<div class="comment-name"><b>' . $company_name . '</b>';
+            $cmtinsert .= '<div class="comment-name"><b>' . ucwords($company_name) . '</b>';
             $cmtinsert .= '</div>';
     $cmtinsert .= '<div class="comment-details" id= "showcommenttwo' . $business_profile['business_profile_post_comment_id'] . '"" >';
             $cmtinsert .= $business_profile['comments'];
@@ -4757,7 +4757,7 @@ $fourdata .= '<img  src="' . base_url(USERIMAGE . $busienss_userimage) . '"  alt
 $fourdata .= '<img src="' . base_url(NOIMAGE) . '" alt="">';
                 } 
 $fourdata .= '</div><div class="comment-name"><b>';
-$fourdata .= '' . $companyname . '</br></div>';
+$fourdata .= '' . ucwords($companyname) . '</br></div>';
 $fourdata .= '<div class="comment-details" id= "showcommenttwo' . $rowdata['business_profile_post_comment_id'] . '">';
 $fourdata .=  '' . $rowdata['comments'] . '</br> </div>';
 $fourdata .= '<div class="col-md-12"><div class="col-md-10">';
@@ -4795,8 +4795,8 @@ $userid  = $this->session->userdata('aileenuser');
 $fourdata .= '<span role="presentation" aria-hidden="true"> · </span>';
 $fourdata .= '<div class="comment-details-menu">';
 
-$fourdata .= '<div id="imgeditcommentboxtwo' . $rowdata['business_profile_post_comment_id'] . '" style="display:block;">';
-$fourdata .=  '<a id="' . $rowdata['business_profile_post_comment_id'] .  '"   onClick="imgcomment_editboxtwo(this.id)" class="editbox">Edit
+$fourdata .= '<div id="editcommentboxtwo' . $rowdata['business_profile_post_comment_id'] . '" style="display:block;">';
+$fourdata .=  '<a id="' . $rowdata['business_profile_post_comment_id'] .  '"   onClick="comment_editboxtwo(this.id)" class="editbox">Edit
                                      </a>
                                      </div>';
 
