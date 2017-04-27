@@ -575,7 +575,7 @@ $followingotherdata = $this->data['followingotherdata'] =  $this->common->select
 
                </div>
 <div class="user-midd-section">
-            <div class="container ">
+            <div class="container "  style="border: 1px solid #efefef;">
                 <div class="row">
 
 
@@ -591,7 +591,7 @@ $followingotherdata = $this->data['followingotherdata'] =  $this->common->select
           </ul>
         </div>
 
-       <div class="col-xs-9" style="padding-left: 0; height: 100%; border-left: 1px solid #ccc">
+       <div class="col-xs-9" style="padding-left: 0;  border-left: 1px solid #ccc">
 
           <!-- Tab panes -->
           <div class="tab-content">
@@ -623,7 +623,7 @@ $followingotherdata = $this->data['followingotherdata'] =  $this->common->select
                   
 
         ?>
-        <img src="<?php echo base_url(ARTPOSTIMAGE. str_replace(" ","_",$data['image_name']))?>" onclick="openModal();currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor" width="600" height="669"/>
+        <img src="<?php echo base_url(ARTPOSTIMAGE. str_replace(" ","_",$data['image_name']))?>" onclick="openModal();currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor" width="280" height="300"/>
 
         <?php
           $i++;

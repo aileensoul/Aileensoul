@@ -477,7 +477,7 @@ $followingotherdata = $this->data['followingotherdata'] =  $this->common->select
 
                </div>
 <div class="user-midd-section">
-            <div class="container ">
+               <div class="container " style="border: 1px solid #efefef;">
                 <div class="row">
 
 
@@ -492,7 +492,7 @@ $followingotherdata = $this->data['followingotherdata'] =  $this->common->select
             <li>    <a href="<?php echo base_url('artistic/art_pdf/'.$artisticdata[0]['user_id']) ?>" data-toggle="tab"><i class="fa fa-file-pdf-o" aria-hidden="true"></i>  Pdf</a></li>
           </ul>
         </div>
-<div class="col-xs-9" style="padding-left: 0; height: 100%; border-left: 1px solid #ccc">
+<div class="col-xs-9" style="padding-left: 0;  border-left: 1px solid #ccc">
 
           <!-- Tab panes -->
           <div class="tab-content">

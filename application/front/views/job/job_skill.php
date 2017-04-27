@@ -99,11 +99,11 @@ $skills = form_error('skills');
 
 
 
-                                <fieldset <?php if ($skills) { ?> class="error-msg" <?php } ?> >
+                                <fieldset class="full-width" <?php if ($skills) { ?> class="error-msg" <?php } ?> >
                                     <label>keyskills<span style="color:red">*</span></label>
 
 
-                                    <select name="skills[]" id ="skils" class="keyskil" multiple="multiple" style="width:300px">
+                                    <select name="skills[]" id ="skils" class="keyskil" multiple="multiple" style="width:100%;">
 <?php foreach ($skill as $ski) { ?>
                                             <option value="<?php echo $ski['skill_id']; ?>"><?php echo $ski['skill']; ?></option>
 <?php } ?>
