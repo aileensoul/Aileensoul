@@ -341,12 +341,11 @@
                                         <div class="profile-box-job-menu  col-md-12">
 
                                             <ul class="">
-                                                <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_hire_profile')) { ?> class="active" <?php } ?>><a href="<?php echo base_url('freelancer/freelancer_hire_profile'); ?>" > Details</a>
-                                                </li>
-                                                <li ><a href="<?php echo base_url('freelancer/freelancer_hire_post'); ?>"> Posts</a>
-                                                </li>
-                                                <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_save')) { ?> class="active" <?php } ?>><a href="<?php echo base_url('freelancer/freelancer_save'); ?>">Message</a>
-                                                </li>
+                                                <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_hire_profile')) { ?> class="active" <?php } ?>><a href="<?php echo base_url('freelancer/freelancer_hire_profile'); ?>" > Details</a></li>
+                                                <li><a href="<?php echo base_url('freelancer/freelancer_hire_post'); ?>">Posts</a></li>
+<!--                                                <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_save')) { ?> class="active" <?php } ?>><a href="<?php echo base_url('freelancer/freelancer_save'); ?>">Message</a>
+                                                </li>-->
+                                                <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_save')) { ?> class="active" <?php } ?>><a href="<?php echo base_url('freelancer/freelancer_save'); ?>">Saved</a></li>
                                             </ul>
 
                                         </div>
@@ -525,6 +524,12 @@
             $contition_array = array('from_id' => $userid, 'to_id' => $row['user_id'], 'save_type' => 2, 'status' => '0');
             $data = $this->common->select_data_by_condition('save', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
             // khayti changes start 6-4
+            ?>
+                                                                    <!--<a href="<?php echo base_url('chat/abc/' . $row['user_id']); ?>">Saved</a>-->
+                                                                    <a href="<?php echo base_url('chat/abc/' . $row['user_id']); ?>">Message</a>
+
+
+                                                                    <?php
             if (!$data) {
                 ?> 
                                                                         <input type="hidden" name="saveuser"  id="saveuser" value= "<?php echo $data[0]['save_id']; ?>">
@@ -540,9 +545,7 @@
                 // khayti changes end 6-4                              
             }
             ?> 
-                                                                    <a href="<?php echo base_url('chat/abc/' . $row['user_id']); ?>">Saved</a>
-
-
+                                                                    
 
 
                                                                 </div>
