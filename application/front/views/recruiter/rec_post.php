@@ -278,14 +278,16 @@ echo $recruiter_header2;
                 <?php 
 
 
-                if ($recdata[0]['recruiter_user_image'] != '') { ?>
-                    <img src="<?php echo base_url(USERIMAGE . $recdata[0]['recruiter_user_image']); ?>" alt="" >
+                if ($postdata[0]['recruiter_user_image'] != '') { ?>
+                    <img src="<?php echo base_url(USERIMAGE . $postdata[0]['recruiter_user_image']); ?>" alt="" >
                 <?php } else { ?>
                     <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
                 <?php } ?>
                <!--  <a href="#popup-form" class="fancybox"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>
  -->
+                <?php if ($returnpage == ' '){?>
                  <a href="javascript:void(0);" onclick="updateprofilepopup();"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>
+                <?php }?>
 
             </div>
 
@@ -320,7 +322,7 @@ echo $recruiter_header2;
                     </li>
 
 
-                    <?php if (($this->uri->segment(1) == 'recruiter') && ($this->uri->segment(2) == 'rec_post' || $this->uri->segment(2) == 'rec_profile' || $this->uri->segment(2) == 'add_post' || $this->uri->segment(2) == 'save_candidate') && ($this->uri->segment(3) == $this->session->userdata('aileenuser') || $this->uri->segment(3) != '')) { ?>
+                    
 
                         <li <?php if ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'rec_post') { ?> class="active" <?php } ?>>
                             <?php if($returnpage == 'job'){ ?>
@@ -330,7 +332,7 @@ echo $recruiter_header2;
                                            <?php }?>
                         </li>
 
-                         <?php } ?>
+                         
                         <?php if (($this->uri->segment(1) == 'recruiter') && ($this->uri->segment(2) == 'rec_post' || $this->uri->segment(2) == 'rec_profile' || $this->uri->segment(2) == 'add_post' || $this->uri->segment(2) == 'save_candidate') && ($this->uri->segment(3) == $this->session->userdata('aileenuser') || $this->uri->segment(3) == '')) { ?>
                         <li <?php if ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'save_candidate') { ?> class="active" <?php } ?>><a href="<?php echo base_url('recruiter/save_candidate'); ?>">Saved </a>
                         </li> 
@@ -346,13 +348,13 @@ echo $recruiter_header2;
         <!-- menubar -->    
     </div>                       
      <div class="job-menu-profile1">
-        <a href="<?php echo site_url('recruiter/rec_profile/' . $postdata[0]['user_id']); ?>" title="<?php echo $postdata[0]['rec_firstname'] . ' ' . $postdata[0]['rec_lastname']; ?>"><h5><?php echo $postdata[0]['rec_firstname'] . ' ' . $recdata[0]['rec_lastname']; ?></h5></a>
+        <a href="<?php echo site_url('recruiter/rec_profile/' . $postdata[0]['user_id']); ?>" title="<?php echo $postdata[0]['rec_firstname'] . ' ' . $postdata[0]['rec_lastname']; ?>"><h5><?php echo $postdata[0]['rec_firstname'] . ' ' . $postdata[0]['rec_lastname']; ?></h5></a>
         <!-- text head start -->
         <div class="profile-text" >
 
           <?php 
                    
-                  
+            if($returnpage == ''){      
             if ($postdata[0]['designation'] == "") {
                
                 ?>
@@ -364,7 +366,7 @@ echo $recruiter_header2;
                 ?> 
                 <!--<a id="myBtn" title="<?php echo ucwords($job[0]['designation']); ?>"><?php echo ucwords($job[0]['designation']); ?></a>-->
                 <a id="designation" class="designation" title="<?php echo ucwords($postdata[0]['designation']); ?>"><?php echo ucwords($postdata[0]['designation']); ?></a>
-            <?php } ?>
+            <?php } } else {  echo ucwords($postdata[0]['designation']);  }?>
 
 
             <!-- The Modal -->
@@ -393,7 +395,9 @@ echo $recruiter_header2;
         </div>
         <div  class="add-post-button">
 <!--   <a href="" class="btn btn-2 btn-2i"><i class="fa fa-plus" aria-hidden="true"></i></a> -->
+            <?php if($returnpage == ''){ ?>
             <a class="btn btn-3 btn-3b" href="<?php echo base_url('recruiter/add_post'); ?>"><i class="fa fa-plus" aria-hidden="true"></i>  Add Post</a>
+            <?php }?>
         </div>
 
         <!-- text head end -->
