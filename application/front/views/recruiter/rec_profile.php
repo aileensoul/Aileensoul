@@ -230,11 +230,11 @@ echo $recruiter_header2;
     <div class="container">    
       <div class="upload-img">
       
-        
+        <?php if($returnpage == ' '){ ?>
       <label class="cameraButton"><i class="fa fa-camera" aria-hidden="true"></i>
             <input type="file" id="upload" name="upload" accept="image/*;capture=camera" onclick="showDiv()">
         </label>
-
+        <?php }?>
       </div>
   
             <div class="profile-photo">
@@ -310,7 +310,7 @@ echo $recruiter_header2;
   </div>  
     <!-- menubar -->                
   <div class="job-menu-profile1 col-md-3">
-                         <a href="<?php echo site_url('recruiter/rec_profile/' . $recruiterdata[0]['user_id']); ?>" title="<?php echo $recdata[0]['rec_firstname'] . ' ' . $recdata[0]['rec_lastname']; ?>"><h5><?php echo $recdata[0]['rec_firstname'] . ' ' . $recdata[0]['rec_lastname']; ?></h5></a>
+                         <a href="javscript: void(0);" title="<?php echo $recdata[0]['rec_firstname'] . ' ' . $recdata[0]['rec_lastname']; ?>"><h5><?php echo $recdata[0]['rec_firstname'] . ' ' . $recdata[0]['rec_lastname']; ?></h5></a>
                             <!-- text head start -->
                     <div class="profile-text" >
                    
