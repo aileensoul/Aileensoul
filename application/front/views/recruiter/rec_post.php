@@ -403,235 +403,94 @@ echo $recruiter_header2;
             <div class="job-saved-box">
 
                 <h3>Post</h3>
-                <div class="contact-frnd-post">
-                    
+              <div class="contact-frnd-post">
+              <div class="job-contact-frnd ">
 
-                        <!-- khyati start -->
+                                                <div class="profile-job-post-detail clearfix">
 
+                                                    <!-- vishang 14-4 end -->
+                <div class="profile-job-post-title clearfix">
+                  <div class="profile-job-profile-button clearfix">
+                     <div class="profile-job-details col-md-12">
+                          <ul>
+                           <li class="fr">
+                              Created Date :
+                            </li>
+                             <li>
+                              <a href="#" style="font-size: 19px;font-weight: 600;">
+                            Dhaval </a>     </li>
 
-                        <?php
+                             <li>   
+                               <div class="fr lction">
+                              
+                                <p><i class="fa fa-map-marker" aria-hidden="true"> Location </i></p>
+                                 </div>
 
-                        function text2link($text) {
-                            $text = preg_replace('/(((f|ht){1}t(p|ps){1}:\/\/)[-a-zA-Z0-9@:%_\+.~#?&\/\/=]+)/i', '<a href="\\1" target="_blank" rel="nofollow">\\1</a>', $text);
-                            $text = preg_replace('/([[:space:]()[{}])(www.[-a-zA-Z0-9@:%_\+.~#?&\/\/=]+)/i', '\\1<a href="http://\\2" target="_blank" rel="nofollow">\\2</a>', $text);
-                            $text = preg_replace('/([_\.0-9a-z-]+@([0-9a-z][0-9a-z-]+\.)+[a-z]{2,3})/i', '<a href="mailto:\\1" rel="nofollow" target="_blank">\\1</a>', $text);
-                            return $text;
-                        }
-                        ?>
+                             <a class="display_inline" href="#"> Dhaval </a>
+                             </li>
 
-                        <?php
-                       
-                            if ($postdata) {
-                                foreach ($postdata as $post) {
-                                    ?>
-                        <div class="job-contact-frnd">
+                            <li><a class="display_inline" href="#"> Dhaval </a></li>
+                    <!-- vishang 14-4 end -->    
+                </ul>
+             </div>
+          </div>
+                       <div class="profile-job-profile-menu">
+                            <ul class="clearfix">
+                               <li> <b> Skills</b> <span> 
+                                                           </span>
+                                                                </li>
 
-                                    <div class="profile-job-post-detail clearfix" id="<?php echo "removepost" . $post['post_id']; ?>">
+                                                                    <li><b>Other Skill</b><span> </span>
+                                                                    </li>
 
+                                                                <li><b>Description</b><span><p>
+                                                                            </p></span>
+                                                                </li>
+                                                                <li><b>Interview Process</b><span>
+                                                                        </span>
+                                                                </li>
+                                                                <!-- vishang 14-4 start -->
+                                                                <li>
+                                                                    <b>Require Experience</b>
+                                                                    <span>
 
-                                        <div class="profile-job-post-title-inside clearfix">
+                                                                        <p>
+                                                                        
+                                                                        </p>  
 
-                                            <!-- pop up box start-->
-                                            <div id="popup1" class="overlay">
-                                                <div class="popup">
-<!-- khati changes 11-4 start -->
-
-                                              <!--       <div class="pop_content">
-                                                        Are you sure want to delete this post?.
-
-                                                        <p class="okk"><a class="okbtn" id="<?php echo $post['post_id']; ?>" onClick="remove_post(this.id)">Yes</a></p>
-
-                                                        <p class="okk"><a class="cnclbtn" href="#">No</a></p>
-
-                                                    </div> -->
-<!-- khati changes 11-4 end -->
-
-
-                                                </div>
-                                            </div>
-                                            <!-- pop up box end-->
-
-                                            <div class="profile-job-post-location-name">
-                                                                <div style="display: inline-block; float: left;">
-                                                                     <div  class="buisness-profile-pic-candidate" style="margin-bottom: 10px; margin-left:0px";>
-
-
-
-                                            <?php
-                                            if ($post['recruiter_user_image']) {
-                                                ?>
-                                                <img src="<?php echo base_url(USERIMAGE . $post['recruiter_user_image']); ?>" alt="<?php echo $post[0]['rec_firstname']. ' ' . $post[0]['rec_lastname']; ?>">
-                                                <?php
-                                            } else {
-                                                ?>
-                                                <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo $post[0]['rec_firstname']. ' ' . $post[0]['rec_lastname']; ?>">
-                                                <?php
-                                            }
-                                            ?>
-                                                                            </div>
-
-                                                                </div>
-                                                                <div class="designation_rec" style="float: left;">
-                                                                  <ul>
-                                                                      <li> <a style="  font-size: 17px;
-    font-weight: 600;" href="<?php echo site_url('recruiter/rec_profile/' . $post[0]['user_id']); ?>" title="<?php echo $post['rec_firstname'] . ' ' . $post['rec_lastname']; ?>">
-                                                                <?php echo $this->db->get_where('recruiter', array('user_id' => $post['user_id']))->row()->rec_firstname . ' ' . $this->db->get_where('recruiter', array('user_id' => $post['user_id']))->row()->rec_lastname; ?>
-  </li>
-                                                                    
-                                                                         <li style="display: block;">
+                                                                    </span>
+                                                                </li>
 
 
                                                                 
-                <a  style="font-size: 18px;" href="<?php echo site_url('recruiter/rec_profile/' . $post[0]['user_id']); ?>" title="<?php echo $post['designation']; ?>">
-                                                                         <?php
-                                                                                if ($post['designation']) {
-                                                                                    ?>
+                                                                
+                                                                    <li><b>Maximum Salary</b><span> </span>
+                                                                    </li>
+                                                                
+                                                                    <li><b>Minimum Salary</b><span>  </span>
+                                                                    </li>
 
-                                                                                    
-                                                                                    <?php echo $post['designation']; ?>
-                                                                                    
-                                                                                    <?php
-                                                                                } else {
-                                                                                    ?>
-                                                                                    
-                                                                                    <?php echo "Designation"; ?>
-                                                                                    
-                                                                                    <?php
-                                                                                }
-                                                                                ?> 
-                                                                                </a>
+                                                                <li><b>No of Position</b><span><?php echo $post['post_position']; ?></span>
+                                                                </li>
+
+
+                                                            </ul>
+                                                        </div>
+                                                        <div class="profile-job-profile-button clearfix">
+                                                            <div class="profile-job-details col-md-12">
+                      <ul><li class="job_all_post last_date">
+                           Last Date :                 </li>
+
+                                                                      
+                                                                        <li class="fr">
+                                                                            
+                                                                                <a class="button">Save</a>
+                                                                 <a  class="button ">Message</a>
 
                                                                         </li>
-                                                                      </ul>
-                                                                </div>
-                                                                
+
                                                             </div>
-                                        </div>
-                                        <div class="profile-job-post-title clearfix">
-                                            <div class="profile-job-profile-button clearfix">
-                                                <div class="profile-job-details">
-                                                    <ul>
-
-
-                                                        <li>
-                                                            <p  title="<?php echo $post['exp_month'] . "Month -" . $post['exp_year'] . " Year Required"; ?>"> <i class="fa fa-lock" aria-hidden="true"></i>
-                                                                <!-- khyati 5-4 changes start -->                                      
-                                                                <?php
-                                                                if ($post['min_year'] != 0 && $post['min_month'] != 0) {
-                                                                    echo "Min   :  " . $post['min_year'] . " year-" . $post['min_month'] . " month &nbsp;  &nbsp; ";
-                                                                } elseif ($post['min_year'] == 0 && $post['min_month'] != 0) {
-                                                                    echo "Min   :   " . $post['min_month'] . " month  &nbsp; &nbsp;  ";
-                                                                } elseif ($post['min_month'] == 0 && $post['min_year'] != 0) {
-                                                                    echo "Min :  " . $post['min_year'] . " year  ";
-                                                                }
-
-
-                                                                if ($post['max_year'] != 0 && $post['max_month'] != 0) {
-                                                                    echo "Max :  " . $post['max_year'] . " year-" . $post['max_month'] . " month &nbsp; &nbsp;  ";
-                                                                } elseif ($post['max_year'] == 0 && $post['max_month'] != 0) {
-                                                                    echo "Max :   " . $post['max_year'] . " year-" . $post['max_month'] . " month  &nbsp; &nbsp; ";
-                                                                } elseif ($post['max_month'] == 0 && $post['max_year'] != 0) {
-                                                                    echo " Max :  " . $post['max_year'] . " year  ";
-                                                                }
-
-                                                                if ($post['max_year'] == 0 && $post['max_month'] == 0 && $post['max_year'] == 0 && $post['max_month'] == 0) {
-                                                                    echo "Experience is not required";
-                                                                }
-// khyati changes end
-                                                                if ($post['fresher'] == 1) {
-                                                                    echo "Fresher can also apply.. !!";
-                                                                }
-                                                                ?></p>
-                                                        </li>
-                                                        <!--  <li>
-                                                             <p><i class="fa fa-map-marker" aria-hidden="true"></i><?php echo $post['city']; ?></p>
-                                                         </li> -->
-                                                        <!-- <li>
-                                                            <p> <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
-                                                            </p>
-                                                        </li> -->
-
-
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="profile-job-profile-menu">
-                                                <ul class="clearfix">
-                                                    <li> <b> Skills </b> <span>
-                                                            <?php
-                                                            $comma = ",";
-                                                            $k = 0;
-                                                            $aud = $post['post_skill'];
-                                                            $aud_res = explode(',', $aud);
-                                                            foreach ($aud_res as $skill) {
-                                                                if ($k != 0) {
-                                                                    echo $comma;
-                                                                }
-                                                                $cache_time = $this->db->get_where('skill', array('skill_id' => $skill))->row()->skill;
-                                                                //$skill1[]= $cache_time;
-
-                                                                echo $cache_time;
-                                                                $k++;
-                                                            }
-                                                            ?>    </span>
-                                                    </li>
-
-                                                    <li> <b>Location</b><span> <?php echo $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name; ?>  </span>
-                                                    </li>
-
-                                                    <li> <b>Job Description</b><span> <?php echo $post['post_description']; ?>   </span>
-                                                    </li>
-                                                    <li><b> Salary  </b> <span> <?php echo $post['min_sal'] . '-' . $post['max_sal'] . ' P.A'; ?> </span></li>
-                                                    <!-- 4 4 changes start -->
-                                                    <li><b> Other skill  </b> <span><?php echo $post['post_description']; ?>    </span></li>
-                                                    <li><b> Fresher can also applys  </b> <span> <?php echo $post['fresher']; ?>   </span></li>
-                                                    <li><b> No of position </b> <span> <?php echo $post['post_position']; ?>   </span></li>
-                                                    <li><b> Interview process </b> <span>  <?php echo $post['interview_process']; ?>  </span></li>
-                                                    <li><b> Last date of apply </b> <span><?php if($post['post_last_date'] != '0000-00-00'){ echo $post['post_last_date']; }else{ echo PROFILENA; } ?>    </span></li>
-                                                    <?php
-                                                    $country = $this->db->get_where('countries', array('country_id' => $post['country']))->row()->country_name;
-                                                    $state = $this->db->get_where('states', array('state_id' => $post['state']))->row()->state_name;
-                                                    $city = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name;
-                                                    ?>            
-                                                    <li><b>Country</b> <span> <?php echo $country; ?>   </span></li>
-                                                    <li><b> State </b> <span> <?php echo $state; ?>   </span></li>
-                                                    <li><b> City </b> <span> <?php echo $city; ?>   </span></li>
-                                                    <!-- 4 4 changes end -->
-
-
-                                                </ul>
-                                            </div>
-                                            <?php if ($post['user_id'] == $userid) { ?>
-                                                <div class="profile-job-profile-button clearfix">
-                                                    <div class="apply-btn">
-
-                                                        <a href="<?php echo base_url('recruiter/edit_post/' . $post['post_id']); ?>" class="button">Edit</a>
-<!-- <a href="#popup1" class="button">Remove </a> -->
- <a href="javascript:void(0);" class="button" onclick="removepopup(<?php echo $post['post_id'] ?>)">Remove</a>
-                                                        <a href="<?php echo base_url('recruiter/view_apply_list/' . $post['post_id']); ?>" class="button">Applied  Candidate : <?php echo count($this->common->select_data_by_id('job_apply', 'post_id', $post['post_id'], $data = '*', $join_str = array())); ?></a>
-                                                    </div>
-                                                </div>
-                                            <?php } ?>
-                                        </div>
-                                    </div>
-                            <!-- khyati end -->
-                        <div class="col-md-1">
-                        </div>
-                    </div>
-                                    <?php
-                                }
-                            } else {
-                                ?>
-                                <div class="text-center rio">
-                                    <h4 class="page-heading  product-listing" style="border:0px;margin-bottom: 11px;">No Post Found.</h4>
-                                </div>
-
-                                <?php
-                            }
-                        
-                        ?>
-                        
-                </div>
+                                                            </div>
             </div>
         </div>
     </div>
