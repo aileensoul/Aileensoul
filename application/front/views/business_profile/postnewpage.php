@@ -837,16 +837,14 @@ return false;
                     </a>
                     </li>
 
-                    <li>
+                    <li id="<?php echo 'commentimgpost' . $busdata['image_id']; ?>">
 
                      <?php 
 
           $contition_array = array('post_image_id' => $busdata['image_id'], 'is_delete' =>'0');
-           $commnetcount = $this->common->select_data_by_condition('bus_post_image_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = ''); 
+           $commnetcount = $this->common->select_data_by_condition('bus_post_image_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = ''); ?>
 
-                  ?>
-
-                    <a onClick="imgcommentall(this.id)" id="<?php echo $busdata['image_id']; ?>">
+  <a onClick="imgcommentall(this.id)" id="<?php echo $busdata['image_id']; ?>">
                     <i class="fa fa-comment-o" aria-hidden="true">
                      <?php 
                     if(count($commnetcount) > 0){
@@ -864,7 +862,7 @@ return false;
 <!-- show comment div start -->
                 <div class="art-all-comment">
 
-                  <div  id=" <?php echo "threeimgcomment" . $busdata['image_id']; ?>" style="display:block">
+                  <div  id="<?php echo "threeimgcomment" . $busdata['image_id']; ?>" style="display:block">
                   <div class="<?php echo 'insertimgcomment' . $busdata['image_id']; ?>">
 
                   <?php 
@@ -962,19 +960,15 @@ return false;
 
 <?php
             $userid  = $this->session->userdata('aileenuser');
-              if($rowdata['user_id'] == $userid){ 
+            if($rowdata['user_id'] == $userid){ 
                  ?>
           <div class="comment-details-menu">
 
-                                    <div id="<?php echo 'imgeditcommentbox' . $rowdata['post_image_comment_id']; ?>" style="display:block;">
-                                     <a id="<?php echo $rowdata['post_image_comment_id']; ?>"   onClick="imgcomment_editbox(this.id)" class="editbox">Edit
-                                      </a>
-                                      </div>
+        <div id="<?php echo 'imgeditcommentbox' . $rowdata['post_image_comment_id']; ?>" style="display:block;">
+         <a id="<?php echo $rowdata['post_image_comment_id']; ?>"   onClick="imgcomment_editbox(this.id)" class="editbox">Edit</a></div>
 
-                                      <div id="<?php echo 'imgeditcancle' . $rowdata['post_image_comment_id']; ?>" style="display:none;">
-                                      <a id="<?php echo $rowdata['post_image_comment_id']; ?>" onClick="imgcomment_editcancle(this.id)">Cancle
-                                      </a>
-                                      </div>
+      <div id="<?php echo 'imgeditcancle' . $rowdata['post_image_comment_id']; ?>" style="display:none;">
+      <a id="<?php echo $rowdata['post_image_comment_id']; ?>" onClick="imgcomment_editcancle(this.id)">Cancle</a></div>
 
       </div>
 
@@ -991,15 +985,10 @@ return false;
     if($rowdata['user_id'] == $userid ||  $business_userid == $userid){ 
     ?>
 <span role="presentation" aria-hidden="true"> · </span>
-                                   <div class="comment-details-menu">
-
-                                      
-
-                                      <input type="hidden" name="imgpost_delete"  id="imgpost_delete" value= "<?php echo $rowdata['post_image_id']; ?>">
-                                      <a id="<?php echo $rowdata['post_image_comment_id']; ?>"   onClick="imgcomment_delete(this.id)"> Delete<span class="<?php echo 'imginsertcomment' . $rowdata['post_image_comment_id']; ?>">
-                                      </span>
-                                      </a>
-                                      </div>
+      <div class="comment-details-menu">
+  <input type="hidden" name="imgpost_delete"  id="imgpost_delete" value= "<?php echo $rowdata['post_image_id']; ?>">
+   <a id="<?php echo $rowdata['post_image_comment_id']; ?>"   onClick="imgcomment_delete(this.id)"> Delete<span class="<?php echo 'imginsertcomment' . $rowdata['post_image_comment_id']; ?>">
+      </span> </a> </div>
 
 <?php }?>
 <!-- comment delete end -->
@@ -1023,166 +1012,12 @@ return false;
 
                   </div>
                   </div>
-
+<!-- 27-4 mulimage comment start -->
             <div id="<?php echo "fourimgcomment" .   $busdata['image_id']; ?>" style="display:none;">
 
-              <div class="<?php echo 'insertcomment1' .$busdata['image_id']; ?>">
-
-                <?php 
-
-           $contition_array = array('post_image_id' =>  $busdata['image_id'], 'is_delete' =>'0');
-
-        $busmulimage1 = $this->common->select_data_by_condition('bus_post_image_comment', $contition_array , $data='*', $sortby = 'post_image_comment_id', $orderby = 'ASC', $limit = '', $offset = '', $join_str= array(), $groupby = '');
-
-          if($busmulimage1){
-            foreach($busmulimage1 as $rowdata)
-                  { 
-
-        $companyname =  $this->db->get_where('business_profile',array('user_id' => $rowdata['user_id']))->row()->company_name;
-        ?> 
-
-        <div class="all-comment-comment-box">
-
-                        <div class="post-design-pro-comment-img"> 
-                  <?php 
-                 $business_userimage =  $this->db->get_where('business_profile',array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->business_user_image;
-                 ?>
-
-                 <img  src="<?php echo base_url(USERIMAGE . $business_userimage);?>"  alt="">
-                  </div>
-
-                  <div class="comment-name">
-
-                  <b>  <?php echo ucwords($companyname); echo '</br>'; ?>
-                  </b>
-                  </div>
-
-                  <div class="comment-details" id= "<?php echo "imgshowcommenttwo" . $rowdata['post_image_comment_id']; ?>" style="display: block;">
-                                        <?php
-                                        
-                                        echo $rowdata['comment']; echo '</br>';
-                                        ?>
-                    </div>
-
-
-        <!-- edit box start -->
-
-                <div class="col-md-12">
-                                        <div class="col-md-10">
-                                        <input type="text" name="<?php echo $rowdata['post_image_comment_id']; ?>" id="<?php echo "imgeditcommenttwo" . $rowdata['post_image_comment_id']; ?>" style="display: none;" value="<?php  echo $rowdata['comment']; ?>" onClick="imgcommentedittwo(this.name)">
-
-                </div>  <div class="col-md-2 comment-edit-button">
-                                        <button id="<?php echo "imgeditsubmittwo" . $rowdata['post_image_comment_id']; ?>" style="display:none" onClick="imgedit_commenttwo(<?php echo $rowdata['post_image_comment_id']; ?>)">Comment</button>
-                      </div>
-
-                   </div>
-
-        <!-- edit box end -->
-
-                    <!-- comment like start -->
-                  <div class="comment-details-menu" id="<?php echo 'imglikecomment1' . $rowdata['post_image_comment_id']; ?>">
-
-                <a id="<?php echo $rowdata['post_image_comment_id']; ?>"   onClick="imgcomment_like1(this.id)">
-
-               <?php 
-
-               $userid = $this->session->userdata('aileenuser');
-                $contition_array = array('post_image_comment_id' =>  $rowdata['post_image_comment_id'], 'user_id' => $userid, 'is_unlike' => 0);
-
-                $businesscommentlike2 = $this->common->select_data_by_condition('bus_comment_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-                //echo "<pre>"; print_r($businesscommentlike); 
-               //echo count($businesscommentlike); 
-            if(count($businesscommentlike2) == 0)
-            { ?>
-              <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>
-
-             <?php   }
-         else{ ?>
-           <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-          <?php } ?>
-                  <span>
-
-                  <?php 
-
-            $contition_array = array('post_image_comment_id' => $rowdata['post_image_comment_id'], 'is_unlike' =>'0');
-             $mulcountlike1 =   $this->data['mulcountlike'] = $this->common->select_data_by_condition('bus_comment_image_like', $contition_array , $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str= array(), $groupby = '');
-
-                 if(count($mulcountlike1) > 0){
-                    echo count($mulcountlike1); 
-                        }
-                      ?>
-                
-                  </span>
-                  </a>
-
-                  </div>
-
-<!--   comment like end -->
-
-<!-- comment edit start -->
-
-<?php
-            $userid  = $this->session->userdata('aileenuser');
-              if($rowdata['user_id'] == $userid){ 
-                 ?>
-          <div class="comment-details-menu">
-
-                                    <div id="<?php echo 'imgeditcommentboxtwo' . $rowdata['post_image_comment_id']; ?>" style="display:block;">
-                                     <a id="<?php echo $rowdata['post_image_comment_id']; ?>"   onClick="imgcomment_editboxtwo(this.id)" class="editbox">Edit
-                                      </a>
-                                      </div>
-
-                                      <div id="<?php echo 'imgeditcancletwo' . $rowdata['post_image_comment_id']; ?>" style="display:none;">
-                                      <a id="<?php echo $rowdata['post_image_comment_id']; ?>" onClick="imgcomment_editcancletwo(this.id)">Cancle
-                                      </a>
-                                      </div>
-
-      </div>
-
-      <?php }?>
-<!-- comment edit end -->
-
-
-<!-- comment delete start -->
-<?php
-       $userid  = $this->session->userdata('aileenuser');
-
-       $business_userid =  $this->db->get_where('business_profile_post',array('business_profile_post_id' => $rowdata['post_image_id'], 'status' => 1))->row()->user_id;
-
-
-    if($rowdata['user_id'] == $userid ||  $business_userid == $userid){ 
-    ?>
-<span role="presentation" aria-hidden="true"> · </span>
-                                   <div class="comment-details-menu">
-
-                                      
-
-                                      <input type="hidden" name="imgpost_delete1"  id="imgpost_delete1" value= "<?php echo $rowdata['post_image_id']; ?>">
-                                      <a id="<?php echo $rowdata['post_image_comment_id']; ?>"   onClick="imgcomment_delete1(this.id)"> Delete<span class="<?php echo 'imginsertcomment1' . $rowdata['post_image_comment_id']; ?>">
-                                      </span>
-                                      </a>
-                                      </div>
-
-<?php }?>
-<!-- comment delete end -->
-
- <!-- created date start -->
-
- <span role="presentation" aria-hidden="true"> · </span>
-<div class="comment-details-menu">
-  <p><?php
- echo date('d-M-Y',strtotime($rowdata['created_date'])); echo '</br>'; ?>
-</p></div>
-
- <!-- created date end -->
-
-
-     </div>
-
-                   
-        <?php } }?>
+             
               </div>
-              </div>
+<!-- 27-4 mulimage comment end -->
 
                 </div>
 
@@ -1251,7 +1086,7 @@ return false;
                 <div class="post-design-like-box col-md-12">
                 <div class="post-design-menu">
                   <ul>
-                    <li class="<?php echo 'likeimgpost' . $busienss_data[0]['business_profile_post_id']; ?>">
+                    <li class="<?php echo 'likepost' . $busienss_data[0]['business_profile_post_id']; ?>">
                     <a id="<?php echo $busienss_data[0]['business_profile_post_id']; ?>"   onClick="post_like(this.id)">
 
             <?php 
@@ -1281,7 +1116,7 @@ return false;
                     </a>
                    </li>
 
-                    <li>
+                    <li id="<?php echo 'commnetpost' . $busienss_data[0]['business_profile_post_id']; ?>">
          <?php 
 
           $contition_array = array('business_profile_post_id' => $busienss_data[0]['business_profile_post_id'], 'status' => '1', 'is_delete' =>'0');
@@ -1393,136 +1228,17 @@ if(count($likelistarray) > 1) {
 <!-- all comment start-->
 
   <div class="art-all-comment col-md-12">
+  <!-- all fourcomment comment start-->
               <div id="<?php echo "fourcomment" . $busienss_data[0]['business_profile_post_id']; ?>" style="display:none;">
+   
+        </div>
 
-                                            <?php 
+  <!-- all fourcomment comment end-->
 
-                       $contition_array = array('business_profile_post_id' =>  $busienss_data[0]['business_profile_post_id'], 'status' =>'1');
-        $busienssdata =   $this->data['busienssdata'] = $this->common->select_data_by_condition('business_profile_post_comment', $contition_array , $data='*', $sortby = 'business_profile_post_comment_id', $orderby = 'ASC', $limit = '', $offset = '', $join_str= array(), $groupby = ''); 
-                                      
-                                        if($busienssdata){
-                                      foreach($busienssdata as $rowdata)
-                                        { 
-
-                 $companyname =  $this->db->get_where('business_profile',array('user_id' => $rowdata['user_id']))->row()->company_name; ?>
-
-<div class="all-comment-comment-box">
- <div class="post-design-pro-comment-img"> 
-                  <?php 
-                 $business_userimage =  $this->db->get_where('business_profile',array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->business_user_image;
-                 ?>
-
-                 <img  src="<?php echo base_url(USERIMAGE . $business_userimage);?>"  alt="">
-                  </div>
-<div class="comment-name">
-                                      <b><?php  echo $companyname; echo '</br>';
-                                        ?>
-                                        </div>
-                                      
-                                        <div class="comment-details" id= "<?php echo "showcomment2" . $rowdata['business_profile_post_comment_id']; ?>">
-                                       <?php  echo $rowdata['comments']; echo '</br>';
-                                       ?>
-                                       </div>
-                                      
- <div class="col-md-12">
-                                        <div class="col-md-10">
-                                        <input type="text" name="<?php echo $rowdata['business_profile_post_comment_id']; ?>" id="<?php echo "editcomment2" . $rowdata['business_profile_post_comment_id']; ?>" style="display:none" value="<?php  echo $rowdata['comments']; ?>" onClick="commentedit2(this.name)">
-</div>  <div class="col-md-2 comment-edit-button">
-                                        <button id="<?php echo "editsubmit2" . $rowdata['business_profile_post_comment_id']; ?>" style="display:none" onClick="edit_comment2(<?php echo $rowdata['business_profile_post_comment_id']; ?>)">Comment</button>
-</div>
-
-</div>
-<div class="art-comment-menu-design"> 
- 
-                                  <div class="comment-details-menu" id="<?php echo 'likecomment' . $rowdata['business_profile_post_comment_id']; ?>">
-                                     
-                            <a id="<?php echo $rowdata['business_profile_post_comment_id']; ?>"   onClick="comment_like(this.id)">
-
-
-                             <?php
-
-             $userid = $this->session->userdata('aileenuser');
-          $contition_array = array('business_profile_post_comment_id' => $rowdata['business_profile_post_comment_id'], 'status' =>'1');
-          $businesscommentlike =   $this->data['businesscommentlike'] = $this->common->select_data_by_condition('business_profile_post_comment', $contition_array , $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str= array(), $groupby = '');
-          $likeuserarray = explode(',', $businesscommentlike[0]['business_comment_like_user']);
-
-                      if(!in_array($userid, $likeuserarray)){
-                        ?>
-                            <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i> 
-                            <?php }else{?>
-
-                            <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-
-                            <?php }?>
-                            <span>
-                                       <?php 
-                                       if($rowdata['business_comment_likes_count'] > 0){
-                                       echo $rowdata['business_comment_likes_count']; 
-                                     }
-                                       ?>
-                                      </span>
-                                      </a>
-</div>
-
-
-<?php
-                    $userid  = $this->session->userdata('aileenuser');
-                      if($rowdata['user_id'] == $userid){ 
-                           ?>
-<span role="presentation" aria-hidden="true"> · </span>
-<div class="comment-details-menu">
-
-                                    <div id="<?php echo 'editcommentbox2' . $rowdata['business_profile_post_comment_id']; ?>" style="display:block;">
-                                     <a id="<?php echo $rowdata['business_profile_post_comment_id']; ?>"   onClick="comment_editbox2(this.id)" class="editbox">Edit
-                                      </a>
-                                      </div>
-
-                                      <div id="<?php echo 'editcancle2' . $rowdata['business_profile_post_comment_id']; ?>" style="display:none;">
-                                      <a id="<?php echo $rowdata['business_profile_post_comment_id']; ?>" onClick="comment_editcancle2(this.id)">Cancle
-                                      </a>
-                                      </div>
-
-                                      </div>
-
-<?php }?>
-
- 
-
- <?php
-       $userid  = $this->session->userdata('aileenuser');
-
-       $business_userid =  $this->db->get_where('business_profile_post',array('business_profile_post_id' => $rowdata['business_profile_post_id'], 'status' => 1))->row()->user_id;
-
-
-          if($rowdata['user_id'] == $userid ||  $business_userid == $userid){ 
-             ?>       
-
-<span role="presentation" aria-hidden="true"> · </span>
-<div class="comment-details-menu">
-
-
-                                     <input type="hidden" name="post_delete"  id="post_delete" value= "<?php echo $rowdata['business_profile_post_id']; ?>">
-                                      <a id="<?php echo $rowdata['business_profile_post_comment_id']; ?>"   onClick="comment_delete(this.id)"> Delete<span class="<?php echo 'insertcomment' . $rowdata['business_profile_post_comment_id']; ?>">
-                                      </span>
-                                      </a>
-</div>
-
-<?php }?>  
-<span role="presentation" aria-hidden="true"> · </span>
-<div class="comment-details-menu">
- <p> <?php
-                                        echo date('d-M-Y',strtotime($rowdata['created_date'])); echo '</br>'; ?>
-</p></div>   </div>
-                                       </div>
-
-                                        <?php    } 
-
-                                           }else{ echo 'No comments Available!!!';} ?>
-                                            </div>
 
                                  <!-- khyati changes start -->
-                                                <div  id="<?php echo "threecomment" . $busienss_data[0]['business_profile_post_id']; ?>" style="display:block">
-                                               <div class="<?php echo 'insertcomment' . $busienss_data[0]['business_profile_post_id']; ?>">
+                   <div  id="<?php echo "threecomment" . $busienss_data[0]['business_profile_post_id']; ?>" style="display:block">
+                       <div class="<?php echo 'insertcomment' . $busienss_data[0]['business_profile_post_id']; ?>">
 
                                                 <?php 
 
@@ -1553,8 +1269,12 @@ if(count($likelistarray) > 1) {
                                         ?>
                                         </div>
  <div class="col-md-12">
+                                        <!-- <div class="col-md-10">
+                                        <input type="text" name="<?php echo $rowdata['business_profile_post_comment_id']; ?>" id="<?php echo "editcomment" . $rowdata['business_profile_post_comment_id']; ?>" style="display:none" value="<?php  echo $rowdata['comments']; ?>" onClick="commentedit(this.name)"></div> -->
+
                                         <div class="col-md-10">
-                                        <input type="text" name="<?php echo $rowdata['business_profile_post_comment_id']; ?>" id="<?php echo "editcomment" . $rowdata['business_profile_post_comment_id']; ?>" style="display:none" value="<?php  echo $rowdata['comments']; ?>" onClick="commentedit(this.name)"></div>
+   <textarea type="text" name="<?php echo $rowdata['business_profile_post_comment_id']; ?>" id="<?php echo "editcomment" . $rowdata['business_profile_post_comment_id']; ?>" style="display:none"  onClick="commentedit(this.name)" class="textarea" ><?php  echo $rowdata['comments']; ?></textarea>
+                                        </div> 
 
                                           <div class="col-md-2 comment-edit-button">
                                         <button id="<?php echo "editsubmit" . $rowdata['business_profile_post_comment_id']; ?>" style="display:none" onClick="edit_comment(<?php echo $rowdata['business_profile_post_comment_id']; ?>)">Comment</button>
@@ -1676,7 +1396,8 @@ if(count($likelistarray) > 1) {
                   
                   <div class="">
                   <div class="col-md-10 inputtype-comment" style="    padding-left: 7px;">
-                  <input type="text" name="<?php echo $busienss_data[0]['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $busienss_data[0]['business_profile_post_id']; ?>" placeholder="Type Message ..." value= "" onClick="entercomment(this.name)"></div>
+                  <!-- <input type="text" name="<?php echo $busienss_data[0]['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $busienss_data[0]['business_profile_post_id']; ?>" placeholder="Type Message ..." value= "" onClick="entercomment(this.name)"> -->
+                    <textarea type="text" name="<?php echo $busienss_data[0]['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $busienss_data[0]['business_profile_post_id']; ?>" placeholder="Type Message ..." value= "" onClick="entercomment(this.name)" class="textarea">  </textarea></div>
                       <?php echo form_error('post_comment'); ?> 
                       <div class="col-md-1 comment-edit-butn">        
                       <button id="<?php echo $busienss_data[0]['business_profile_post_id']; ?>" onClick="insert_comment(this.id)">Comment</button></div>
@@ -1694,19 +1415,9 @@ if(count($likelistarray) > 1) {
 
     </section>
   
-
-
-
-
-
-
-
         <footer>
              <?php echo $footer;  ?>
         </footer>
-
-
-
 
 </body>
 
@@ -1842,10 +1553,10 @@ function insert_comment(clicked_id)
    //alert(post_comment.value);
    $.ajax({ 
                 type:'POST',
-                url:'<?php echo base_url() . "business_profile/insert_comment" ?>',
+                url:'<?php echo base_url() . "business_profile/pninsert_comment" ?>',
                  data:'post_id='+clicked_id + '&comment='+post_comment.value,
                    success:function(data){ 
-                     $('input').each(function(){
+                     $('textarea').each(function(){
                       $(this).val('');
                   }); 
                     $('.' + 'insertcomment' + clicked_id).html(data);
@@ -1868,10 +1579,10 @@ function entercomment(clicked_id)
       var val = $('#post_comment' + clicked_id).val();
       $.ajax({ 
                 type:'POST',
-                url:'<?php echo base_url() . "business_profile/insert_comment" ?>',
+                url:'<?php echo base_url() . "business_profile/pninsert_comment" ?>',
                  data:'post_id='+clicked_id + '&comment='+val,
                    success:function(data){ 
-                     $('input').each(function(){
+                     $('textarea').each(function(){
                       $(this).val('');
                   }); 
                     $('.' + 'insertcomment' + clicked_id).html(data);
@@ -1892,19 +1603,51 @@ function entercomment(clicked_id)
 
 <!-- hide and show data start-->
 <script type="text/javascript">
-  function commentall(clicked_id){ //alert("xyz");
- 
-  //alert(clicked_id);
-   var x = document.getElementById('threecomment' + clicked_id);
+  function commentall(clicked_id){ 
+  
+  
+   var x = document.getElementById('threecomment'+ clicked_id);
    var y = document.getElementById('fourcomment'+ clicked_id);
-    if (x.style.display === 'block' && y.style.display === 'none') {
-        x.style.display = 'none';
-        y.style.display = 'block';
- 
-    } else {
-        x.style.display = 'block';
-        y.style.display = 'none';
-    }
+   var z = document.getElementById('commnetpost'+ clicked_id);
+
+    
+                
+               
+      if (x.style.display === 'block' && y.style.display === 'none') {
+         x.style.display = 'none';
+         y.style.display = 'block';
+         z.style.display = 'none';
+         $.ajax({ 
+                type:'POST',
+                url:'<?php echo base_url() . "business_profile/pnfourcomment" ?>',
+                data:'bus_post_id='+clicked_id,
+                //alert(data);
+                success:function(data){
+          $('#' + 'fourcomment' + clicked_id).html(data);
+
+          }
+            });
+
+ }
+    // } else {
+    //      x.style.display = 'block';
+    //      y.style.display = 'block';
+    //      z.style.display = 'block';
+
+    //      $.ajax({ 
+    //             type:'POST',
+    //             url:'<?php echo base_url() . "business_profile/fourcomment" ?>',
+    //             data:'art_post_id='+clicked_id,
+    //             //alert(data);
+    //             success:function(data){
+    //       $('#' + 'threecomment' + clicked_id).html(data);
+
+    //       }
+    //         });
+    // }
+
+                
+    
 
   }
 </script>
@@ -1916,7 +1659,7 @@ function entercomment(clicked_id)
 <script type="text/javascript">
 function comment_like(clicked_id)
 {
-    //alert(clicked_id);
+    alert(clicked_id);
    $.ajax({
                 type:'POST',
                 url:'<?php echo base_url() . "business_profile/like_comment" ?>',
@@ -1957,6 +1700,7 @@ function comment_delete(clicked_id)
    $.ajax({
                 type:'POST',
                 url:'<?php echo base_url() . "business_profile/delete_comment" ?>',
+                dataType: 'json',
                  data:'post_id='+clicked_id + '&post_delete='+post_delete.value,
                 success:function(data){ //alert('.' + 'insertcomment' + clicked_id);
 
@@ -1964,7 +1708,31 @@ function comment_delete(clicked_id)
        //document.getElementById('showcomment' + clicked_id).style.display='block';
        //document.getElementById('editsubmit' + clicked_id).style.display='none';
 
-                    $('.' + 'insertcomment' + post_delete.value).html(data);
+        $('.' + 'insertcomment' + post_delete.value).html(data.comment);
+        $('#' + 'commnetpost' + post_delete.value).html(data.count);
+                    
+                }
+            }); 
+}
+
+function comment_deletetwo(clicked_id)
+{
+    
+     var post_delete = document.getElementById("post_delete");
+     //alert(post_delete.value);
+   $.ajax({
+                type:'POST',
+                url:'<?php echo base_url() . "business_profile/pndelete_commenttwo" ?>',
+                dataType: 'json',
+                data:'post_id='+clicked_id + '&post_delete='+post_delete.value,
+                success:function(data){ //alert('.' + 'insertcomment' + clicked_id);
+
+                 // document.getElementById('editcomment' + clicked_id).style.display='none';
+       //document.getElementById('showcomment' + clicked_id).style.display='block';
+       //document.getElementById('editsubmit' + clicked_id).style.display='none';
+
+        $('#' + 'fourcomment' + post_delete.value).html(data.comment);
+        $('#' + 'commnetpost' + post_delete.value).html(data.count);
                     
                 }
             }); 
@@ -1977,48 +1745,44 @@ function comment_delete(clicked_id)
 <script type="text/javascript">
     
    function comment_editbox(clicked_id){  
-        document.getElementById('editcomment' + clicked_id).style.display='block';
-        document.getElementById('showcomment' + clicked_id).style.display='none';
-        document.getElementById('editsubmit' + clicked_id).style.display='block';
-
-
-        document.getElementById('editcommentbox' + clicked_id).style.display='none';
-        document.getElementById('editcancle' + clicked_id).style.display='block';
+  
+  document.getElementById('editcomment' + clicked_id).style.display='block';
+  document.getElementById('showcomment' + clicked_id).style.display='none';
+  document.getElementById('editsubmit' + clicked_id).style.display='block';
+  document.getElementById('editcommentbox' + clicked_id).style.display='none';
+  document.getElementById('editcancle' + clicked_id).style.display='block';
         
         
 }
 
 function comment_editcancle(clicked_id){ 
 
-        document.getElementById('editcommentbox' + clicked_id).style.display='block';
-        document.getElementById('editcancle' + clicked_id).style.display='none';
-
-        document.getElementById('editcomment' + clicked_id).style.display='none';
-       document.getElementById('showcomment' + clicked_id).style.display='block';
-       document.getElementById('editsubmit' + clicked_id).style.display='none';
+  document.getElementById('editcommentbox' + clicked_id).style.display='block';
+  document.getElementById('editcancle' + clicked_id).style.display='none';
+  document.getElementById('editcomment' + clicked_id).style.display='none';
+  document.getElementById('showcomment' + clicked_id).style.display='block';
+  document.getElementById('editsubmit' + clicked_id).style.display='none';
    
 } 
 
 
-function comment_editbox2(clicked_id){  
-        document.getElementById('editcomment2' + clicked_id).style.display='block';
-        document.getElementById('showcomment2' + clicked_id).style.display='none';
-        document.getElementById('editsubmit2' + clicked_id).style.display='block';
-
-
-        document.getElementById('editcommentbox2' + clicked_id).style.display='none';
-        document.getElementById('editcancle2' + clicked_id).style.display='block';
+function comment_editboxtwo(clicked_id){  
+  document.getElementById('editcommenttwo' + clicked_id).style.display='block';
+  document.getElementById('showcommenttwo' + clicked_id).style.display='none';
+  document.getElementById('editsubmittwo' + clicked_id).style.display='block';
+  document.getElementById('editcommentboxtwo' + clicked_id).style.display='none';
+  document.getElementById('editcancletwo' + clicked_id).style.display='block';
         
 }
 
-function comment_editcancle2(clicked_id){ 
+function comment_editcancletwo(clicked_id){ 
 
-        document.getElementById('editcommentbox2' + clicked_id).style.display='block';
-        document.getElementById('editcancle2' + clicked_id).style.display='none';
+        document.getElementById('editcommentboxtwo' + clicked_id).style.display='block';
+        document.getElementById('editcancletwo' + clicked_id).style.display='none';
 
-        document.getElementById('editcomment2' + clicked_id).style.display='none';
-       document.getElementById('showcomment2' + clicked_id).style.display='block';
-       document.getElementById('editsubmit2' + clicked_id).style.display='none';
+        document.getElementById('editcommenttwo' + clicked_id).style.display='none';
+       document.getElementById('showcommenttwo' + clicked_id).style.display='block';
+       document.getElementById('editsubmittwo' + clicked_id).style.display='none';
    
 } 
 
@@ -2104,10 +1868,10 @@ function commentedit(abc)
 
 
 <script type="text/javascript">
-function edit_comment2(abc)
+function edit_commenttwo(abc)
 { //alert('editsubmit' + abc);
 
-   var post_comment_edit = document.getElementById("editcomment2" + abc);
+   var post_comment_edit = document.getElementById("editcommenttwo" + abc);
    //alert(post_comment.value);
    //alert(post_comment.value);
    $.ajax({ 
@@ -2119,15 +1883,15 @@ function edit_comment2(abc)
                   //  $('input').each(function(){
                   //     $(this).val('');
                   // }); 
-         document.getElementById('editcomment2' + abc).style.display='none';
-       document.getElementById('showcomment2' + abc).style.display='block';
-       document.getElementById('editsubmit2' + abc).style.display='none';
+         document.getElementById('editcommenttwo' + abc).style.display='none';
+       document.getElementById('showcommenttwo' + abc).style.display='block';
+       document.getElementById('editsubmittwo' + abc).style.display='none';
 
 
-       document.getElementById('editcommentbox2' + abc).style.display='block';
-        document.getElementById('editcancle2' + abc).style.display='none';
+       document.getElementById('editcommentboxtwo' + abc).style.display='block';
+        document.getElementById('editcancletwo' + abc).style.display='none';
                      //alert('.' + 'showcomment' + abc);
-                    $('#' + 'showcomment2' + abc).html(data);
+                    $('#' + 'showcommenttwo' + abc).html(data);
 
 
                     
@@ -2140,12 +1904,12 @@ function edit_comment2(abc)
 
 <script type="text/javascript">
 
-function commentedit2(abc)
+function commentedittwo(abc)
 { 
   $(document).ready(function() {
-  $('#editcomment2' + abc).keypress(function(e) {
+  $('#editcommenttwo' + abc).keypress(function(e) {
     if (e.which == 13) {
-      var val = $('#editcomment2' + abc).val();
+      var val = $('#editcommenttwo' + abc).val();
       
      $.ajax({ 
                 type:'POST',
@@ -2156,14 +1920,14 @@ function commentedit2(abc)
                   //  $('input').each(function(){
                   //     $(this).val('');
                   // }); 
-         document.getElementById('editcomment2' + abc).style.display='none';
-       document.getElementById('showcomment2' + abc).style.display='block';
-       document.getElementById('editsubmit2' + abc).style.display='none';
+         document.getElementById('editcommenttwo' + abc).style.display='none';
+       document.getElementById('showcommenttwo' + abc).style.display='block';
+       document.getElementById('editsubmittwo' + abc).style.display='none';
 
-       document.getElementById('editcommentbox2' + abc).style.display='block';
-        document.getElementById('editcancle2' + abc).style.display='none';
+       document.getElementById('editcommentboxtwo' + abc).style.display='block';
+        document.getElementById('editcancletwo' + abc).style.display='none';
                      //alert('.' + 'showcomment' + abc);
-                    $('#' + 'showcomment2' + abc).html(data);
+                    $('#' + 'showcommenttwo' + abc).html(data);
 
 
                     
@@ -2453,7 +2217,7 @@ function mulimg_like(clicked_id)
 
 
 <!-- insert comment using enter -->
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 
 function insert_commentimg(clicked_id)
 {  
@@ -2461,16 +2225,67 @@ function insert_commentimg(clicked_id)
  
    $.ajax({ 
                 type:'POST',
-                url:'<?php echo base_url() . "business_profile/mulimg_comment" ?>',
+                url:'<?php //echo base_url() . "business_profile/mulimg_comment" ?>',
+                dataType: 'json',
                  data:'post_image_id='+clicked_id + '&comment='+post_comment.value,
                    success:function(data){ 
                      $('input').each(function(){
                       $(this).val('');
                   }); 
-                    $('.' + 'insertimgcomment' + clicked_id).html(data);
+                    $('.' + 'insertimgcomment' + clicked_id).html(data.comment);
+                    $('#' + 'commentimgpost' + clicked_id).html(data.count);
                     
                 }
             }); 
+}
+
+</script> -->
+
+<script type="text/javascript">
+
+function insert_commentimg(clicked_id)
+{  
+     var post_comment = document.getElementById("post_imgcomment" + clicked_id);
+ 
+    var x = document.getElementById('threeimgcomment'+ clicked_id);
+   var y = document.getElementById('fourimgcomment'+ clicked_id);
+ 
+ if (x.style.display === 'block' && y.style.display === 'none') { 
+       $.ajax({ 
+                type:'POST',
+                url:'<?php echo base_url() . "business_profile/pnmulimgcommentthree" ?>',
+                data:'post_image_id='+clicked_id + '&comment='+post_comment.value,
+                dataType: "json",
+                   success:function(data){ 
+                     $('input').each(function(){
+                      $(this).val('');
+                  });
+        
+       //  $('.insertcomment' + clicked_id).html(data);
+         $('.' + 'insertimgcomment' + clicked_id).html(data.comment);
+         $('#' + 'commentimgpost' + clicked_id).html(data.count);
+
+          }
+            }); 
+ 
+      } else { 
+
+        $.ajax({ 
+                type:'POST',
+                url:'<?php echo base_url() . "business_profile/pnmulimg_comment" ?>',
+                data:'post_image_id='+clicked_id + '&comment='+post_comment.value,
+                // dataType: "json",
+                   success:function(data){ 
+                     $('input').each(function(){
+                      $(this).val('');
+                  });
+         $('#' + 'insertcommenttwo' + clicked_id).html(data);
+        // $('#' + 'commnetpost' + clicked_id).html(data.count);
+        //  $('#' + 'fourcomment' + clicked_id).html(data.comment);
+
+          }
+            }); 
+     }
 }
 
 </script>
@@ -2495,18 +2310,47 @@ function entercommentimg(clicked_id)
                     window.preventDuplicateKeyPresses = false;
                 }, 500);
 
-      $.ajax({ 
+      
+
+      var x = document.getElementById('threeimgcomment'+ clicked_id);
+   var y = document.getElementById('fourimgcomment'+ clicked_id);
+ 
+ if (x.style.display === 'block' && y.style.display === 'none') { 
+       $.ajax({ 
                 type:'POST',
-                url:'<?php echo base_url() . "business_profile/mulimg_comment" ?>',
-                 data:'post_image_id='+clicked_id + '&comment='+val,
+                url:'<?php echo base_url() . "business_profile/pnmulimgcommentthree" ?>',
+                data:'post_image_id='+clicked_id + '&comment='+val,
+                dataType: "json",
                    success:function(data){ 
                      $('input').each(function(){
                       $(this).val('');
-                  }); 
-                    $('.' + 'insertimgcomment' + clicked_id).html(data);
-                    
-                }
+                  });
+        
+       //  $('.insertcomment' + clicked_id).html(data);
+         $('.' + 'insertimgcomment' + clicked_id).html(data.comment);
+         $('#' + 'commentimgpost' + clicked_id).html(data.count);
+
+          }
             }); 
+ 
+      } else { 
+
+        $.ajax({ 
+                type:'POST',
+                url:'<?php echo base_url() . "business_profile/pnmulimg_comment" ?>',
+                data:'post_image_id='+clicked_id + '&comment='+val,
+                // dataType: "json",
+                   success:function(data){ 
+                     $('input').each(function(){
+                      $(this).val('');
+                  });
+         $('#' + 'insertcommenttwo' + clicked_id).html(data);
+        // $('#' + 'commnetpost' + clicked_id).html(data.count);
+        //  $('#' + 'fourcomment' + clicked_id).html(data.comment);
+
+          }
+            }); 
+     }
     }        
   });
 });
@@ -2514,21 +2358,54 @@ function entercommentimg(clicked_id)
 }
 </script>
 
-<!-- hide and show data start-->
+<!-- mulkhimage hide and show data start-->
+
 <script type="text/javascript">
-  function imgcommentall(clicked_id){ //alert("xyz");
- 
-  //alert(clicked_id);
-   var x = document.getElementById('threeimgcomment' + clicked_id);
+  function imgcommentall(clicked_id){ 
+  
+  
+   var x = document.getElementById('threeimgcomment'+ clicked_id);
    var y = document.getElementById('fourimgcomment'+ clicked_id);
-    if (x.style.display === 'block' && y.style.display === 'none') {
-        x.style.display = 'none';
-        y.style.display = 'block';
- 
-    } else {
-        x.style.display = 'block';
-        y.style.display = 'none';
-    }
+   var z = document.getElementById('commentimgpost'+ clicked_id);
+
+    
+                
+               
+      if (x.style.display === 'block' && y.style.display === 'none') {
+         x.style.display = 'none';
+         y.style.display = 'block';
+         z.style.display = 'none';
+         $.ajax({ 
+                type:'POST',
+                url:'<?php echo base_url() . "business_profile/pnmulimagefourcomment" ?>',
+                data:'bus_img_id='+clicked_id,
+                //alert(data);
+                success:function(data){
+          $('#' + 'fourimgcomment' + clicked_id).html(data);
+
+          }
+            });
+
+ }
+    // } else {
+    //      x.style.display = 'block';
+    //      y.style.display = 'block';
+    //      z.style.display = 'block';
+
+    //      $.ajax({ 
+    //             type:'POST',
+    //             url:'<?php echo base_url() . "business_profile/fourcomment" ?>',
+    //             data:'art_post_id='+clicked_id,
+    //             //alert(data);
+    //             success:function(data){
+    //       $('#' + 'threecomment' + clicked_id).html(data);
+
+    //       }
+    //         });
+    // }
+
+                
+    
 
   }
 </script>
@@ -2551,12 +2428,12 @@ function imgcomment_like(clicked_id)
 }
 
 
-function imgcomment_like1(clicked_id)
+function imgcomment_liketwo(clicked_id)
 {
     //alert(clicked_id);
    $.ajax({
                 type:'POST',
-                url:'<?php echo base_url() . "business_profile/mulimg_comment_like1" ?>',
+                url:'<?php echo base_url() . "business_profile/mulimg_comment_liketwo" ?>',
                  data:'post_image_comment_id='+clicked_id,
                 success:function(data){ //alert(data);
                     $('#' + 'imglikecomment1' + clicked_id).html(data);
@@ -2793,33 +2670,36 @@ function imgcommentedittwo(abc)
 <script type="text/javascript">
 function imgcomment_delete(clicked_id)
 {
-    
-     var post_delete = document.getElementById("imgpost_delete");
-     //alert(post_delete.value);
-   $.ajax({
+    var post_delete = document.getElementById("imgpost_delete");
+    $.ajax({
                 type:'POST',
                 url:'<?php echo base_url() . "business_profile/mul_delete_comment" ?>',
+                dataType: 'json',
                  data:'post_image_comment_id='+clicked_id + '&post_delete='+post_delete.value,
-                success:function(data){ //alert('.' + 'insertcomment' + clicked_id);
+                success:function(data){ 
+                  // alert(data);
+                  // return false;
+                //alert('.' + 'insertcomment' + clicked_id);
 
-                    $('.' + 'imginsertcomment' + post_delete.value).html(data);
+        $('#' + 'commentimgpost' + post_delete.value).html(data.count);
+        $('.' + 'insertimgcomment' + post_delete.value).html(data.comment);
                     
                 }
             }); 
 }
 
-function imgcomment_delete1(clicked_id)
+function imgcomment_deletetwo(clicked_id)
 {
     
      var post_delete1 = document.getElementById("imgpost_delete1");
      //alert(post_delete.value);
    $.ajax({
                 type:'POST',
-                url:'<?php echo base_url() . "business_profile/mul_delete_comment1" ?>',
+                url:'<?php echo base_url() . "business_profile/mul_delete_commenttwo" ?>',
                  data:'post_image_comment_id='+clicked_id + '&post_delete='+post_delete1.value,
                 success:function(data){ //alert('.' + 'insertcomment' + clicked_id);
 
-                    $('.' + 'imginsertcomment1' + post_delete1.value).html(data);
+                    $('.' + 'insertcommenttwo' + post_delete1.value).html(data);
                     
                 }
             }); 
@@ -2828,3 +2708,12 @@ function imgcomment_delete1(clicked_id)
 
 <!-- commenmt delete end -->
  <!-- multiple images all script like comment end -->
+<script type="text/javascript">
+function h(e) {
+$(e).css({'height':'29px', 'overflow-y':'hidden'}).height(e.scrollHeight);
+}
+$('.textarea').each(function ()
+ {h(this);
+ }).on('input', function () {    h(this);
+                                            });
+</script>
