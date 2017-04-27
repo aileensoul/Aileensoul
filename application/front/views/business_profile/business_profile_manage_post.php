@@ -481,7 +481,7 @@ if($status == 0 || $status == " "){?>
 
 
            <tr>
-           <td class="business_data_td1 "><i class="fa fa-map-marker"></i></td>
+           <td class="business_data_td1 detaile_map"><i class="fa fa-map-marker"></i></td>
            <td class="business_data_td2"><span>
 
            <?php 
@@ -513,7 +513,7 @@ if($status == 0 || $status == " "){?>
 
            <?php }?>
            <tr>
-           <td class="business_data_td1"><i class="fa fa-suitcase"></i></td>
+           <td class="business_data_td1 detaile_map"><i class="fa fa-suitcase"></i></td>
            <td class="business_data_td2"><span><?php echo $businessdata1[0]['details']; ?></span></td>
            </tr>
          </table>
@@ -1561,7 +1561,7 @@ if(count($likelistarray) > 1) {
                       if($rowdata['user_id'] == $userid){ 
                            ?>
 
-<span role="presentation" aria-hidden="true"> � </span>
+<span role="presentation" aria-hidden="true"> · </span>
 <div class="comment-details-menu">
 
                                       <div id="<?php echo 'editcommentbox' . $rowdata['business_profile_post_comment_id']; ?>" style="display:block;">
@@ -1588,7 +1588,7 @@ if(count($likelistarray) > 1) {
 
           if($rowdata['user_id'] == $userid ||  $business_userid == $userid){ 
              ?>                                     
-<span role="presentation" aria-hidden="true"> � </span>
+<span role="presentation" aria-hidden="true"> · </span>
 <div class="comment-details-menu">
 
                                       
@@ -1600,7 +1600,7 @@ if(count($likelistarray) > 1) {
                                       </div>
 
    <?php }?>                                   
-<span role="presentation" aria-hidden="true"> � </span>
+<span role="presentation" aria-hidden="true"> · </span>
 <div class="comment-details-menu">
   <p><?php 
                                         echo date('d-M-Y',strtotime($rowdata['created_date'])); echo '</br>'; ?></p></div>
