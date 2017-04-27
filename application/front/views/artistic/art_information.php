@@ -112,7 +112,7 @@
                                  <fieldset class="hs-submit full-width">
                                    
                                    
-                                    <a href="<?php echo base_url('artistic/art_address'); ?>">Previous</a>
+                                 
                                     
                                     <input type="submit"  id="next" name="next" value="Next">
                                    

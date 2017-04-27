@@ -381,14 +381,14 @@ function text2link($text) {
 
 
                                         <div class="job-post-title">
-                                            <h6><a href="<?php echo base_url('freelancer/freelancer_hire_profile/' . $post['user_id']); ?>" title="<?php echo text2link($post['post_name']); ?>">
+                                            <h6><a href="<?php echo base_url('freelancer/freelancer_hire_profile/' . $post['user_id']); ?>" title="Post Title">
         <?php echo text2link($post['post_name']); ?>
                                                 </a></h6>
                                         </div>
                                         <div class="exper-location">
                                             <ul>
 
-                                                <li>Applied Date-<?php 
+                                                <li>Applied Date : <?php 
                                                 if($post['modify_date'])
                                                     { 
 
