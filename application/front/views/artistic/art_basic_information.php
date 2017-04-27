@@ -89,7 +89,7 @@
                                 
 
                                 <fieldset class="hs-submit full-width">
-                                    <input type="reset">
+                                 
                                     <input type="submit"  id="next" name="next" value="Next">
                                     
                                 </fieldset>
