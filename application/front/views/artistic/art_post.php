@@ -1032,10 +1032,14 @@ foreach($finalsorting as $row)
                           <!-- other user post time name strat-->
 
                         <?php if($row['posted_user_id']){?>
-                        <a href="<?php echo base_url('artistic/art_manage_post/' . $row['posted_user_id']); ?>"><?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?> </a> Posted With 
-                        <a href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>"><?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?></a><span style="font-weight: 400;"> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span>
-
-
+                          <div class="else_post_d">
+                        <a style=" font-size: 18px;
+                         line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; " href="<?php echo base_url('artistic/art_manage_post/' . $row['posted_user_id']); ?>"><?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?> </a><span style="font-weight: 600;"> Posted With 
+                        </span><a style=" font-size: 18px;
+                         line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; " href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>"><?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?></a><span role="presentation" aria-hidden="true" style="color: #91949d; font-size: 14px;"> · </span>
+                                <span style="color: #91949d;
+                                font-size: 14px;"> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span>
+                        </div>
                         <!-- other user post time name end-->
                         <?php }else{?>
 
