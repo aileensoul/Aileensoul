@@ -48,128 +48,34 @@
                         <div class="common-form">
                         <h3>Portfolio</h3>
                         
-                           <?php echo form_open_multipart(base_url('artistic/art_portfolio_insert'), array('id' => 'artportfolio','name' => 'artportfolio','class' => 'clearfix')); ?>
+                          
                              
+                             <form name="artportfolio" method="post" id="artportfolio" 
+                                class="clearfix" onsubmit="return  portfolio_form_submit()"
+                             action="<?php echo base_url('artistic/art_portfolio_insert'); ?>" enctype="multipart/form-data" >
 
                                 <?php
                                  $artportfolio =  form_error('artportfolio');
                                 ?>
-<!-- 
-                                <fieldset>
-                                   <!--  <label>Best of mine:</label> -->
-<!--                                     <input type="file" name="bestofmine" id="bestofmine" placeholder="Enter Best of mine" />
 
-                                    <?php
-                                    if($bestofmine1 != ""){
-                                    ?>
+                                
+                       <input  type="file" name="bestofmine" id="bestofmine" style="display:block;display:none;" />
 
-                                         <?php
-                                                       $allowed =  array('gif','png','jpg');
-                                                       $allowespdf = array('pdf');
-                                                       $allowesvideo = array('mp4','3gp');
-                                                       $allowesaudio = array('mp3');
 
-                                                       $filename = $bestofmine1;
-                                                       
-                                                       $ext = pathinfo($filename, PATHINFO_EXTENSION);
-                                                      
+ <label for="bestofmine" style="cursor: pointer;"><i class="fa fa-plus action-buttons btn-group" aria-hidden="true" style=" margin: 8px; cursor:pointer ; color: #fff;"> </i> Attachment</label> <span style="color: #8c8c8c; font-size: 17px; padding-left: 10px;">(<?php echo $userdata[0]['art_bestofmine']; ?>) </span><span class="file_name"></span>
+ <div class="bestofmine_image" style="color:#f00; display: block;"></div>
+           
+                        <?php if($userdata[0]['art_bestofmine']){?>
+                              <div>
+                              <a href="<?php echo base_url('artistic/creat_pdf1/'.$userdata[0]['art_id']) ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red; padding-left: 8px; padding-top: 10px; padding-bottom: 10px;" aria-hidden="true"></i></a>
+                              </div>
+                              <?php }?>
 
-                                                       if(in_array($ext,$allowed) ) 
-                                                       { 
-                                                         
-                                                          ?>
-                                     <img src="<?php echo base_url(ARTISTICIMAGE.$bestofmine1)?>" style="width:100px;height:100px;">
-                                        <?php }elseif(in_array($ext,$allowespdf))
-                                                       { ?>
-                                     <a href="<?php echo base_url('artistic/creat_pdf1/'.$userdata[0]['art_id']) ?>">PDF</a>
-                                     <?php }
-                                        elseif(in_array($ext,$allowesvideo))
-                                        {  ?> 
+                              <input type="hidden" name="bestmine" id="bestmine" value="<?php echo $bestofmine1; ?>"><span id="bestofmine-error"></span>
 
-                                        <video width="320" height="240" controls>
-                                                          <source src="<?php echo base_url(ARTISTICIMAGE.$bestofmine1); ?>" type="video/mp4">
-                                                          <source src="movie.ogg" type="video/ogg">
-                                                          Your browser does not support the video tag.
-                                                       </video>
-                                                       <?php
-                                                        }elseif(in_array($ext,$allowesaudio)){
-                                                          ?>
-                                                  <audio width="120" height="100" controls>
 
-                                                          <source src="<?php echo base_url(ARTISTICIMAGE.$bestofmine1); ?>" type="audio/mp3">
-                                                          <source src="movie.ogg" type="audio/ogg">
-                                                          Your browser does not support the audio tag.
-                                                      
-                                                  </audio>
-
-                                                         <?php }?>             
-
-                                     <?php }?>
-                                     
-                                    <input type="hidden" name="bestmine" id="bestmine" value="<?php echo $bestofmine1; ?>"><span id="bestofmine-error"></span>
-                                    
-                                </fieldset> -->
- 
-<!--                                 <fieldset>
-                                    <label>Achievement:</label>
-                                    <input name="achievmeant"  type="file" id="achievmeant" placeholder="Enter Achievement" /> 
-
-                                    <?php
-                                    if($achievmeant1 != ""){
-                                    ?>
-                                    
-                                    <?php
-                                                       $allowed =  array('gif','png','jpg');
-                                                       $allowespdf = array('pdf');
-                                                       $allowesvideo = array('mp4','3gp');
-                                                       $allowesaudio = array('mp3'); 
-                                                       $filename = $achievmeant1;
-                                                       
-                                                       $ext = pathinfo($filename, PATHINFO_EXTENSION);
-                                                      
-
-                                                       if(in_array($ext,$allowed) ) 
-                                                       { 
-                                                         
-                                                          ?>
-                                     <img src="<?php echo base_url(ARTISTICIMAGE.$achievmeant1)?>" style="width:100px;height:100px;">
-                                        <?php }elseif(in_array($ext,$allowespdf))
-                                                       { ?>
-                                     <a href="<?php echo base_url('artistic/creat_pdf1/'.$userdata[0]['art_id']) ?>">PDF</a>
-                                     <?php }
-                                        elseif(in_array($ext,$allowesvideo))
-                                        {?> 
-
-                                        <video width="320" height="240" controls>
-                                                          <source src="<?php echo base_url(ARTISTICIMAGE.$achievmeant1); ?>" type="video/mp4">
-                                                          <source src="movie.ogg" type="video/ogg">
-                                                          Your browser does not support the video tag.
-                                                       </video>
-                                                       <?php
-                                                        }elseif(in_array($ext,$allowesaudio)){
-                                                          ?>
-                                                  <audio width="120" height="100" controls>
-
-                                                          <source src="<?php echo base_url(ARTISTICIMAGE.$achievmeant1); ?>" type="audio/mp3">
-                                                          <source src="movie.ogg" type="audio/ogg">
-                                                          Your browser does not support the audio tag.
-                                                      
-                                                  </audio>
-
-                                                         <?php }?>   
-                                    <?php }?>
-
-                                    <input type="hidden" name="archiver" id="archiver" value="<?php echo $achievmeant1; ?>"><span id="achievmeant-error"></span>
-                                  
-                                </fieldset> -->
-                                <div class="action-buttons btn-group ">
-                                                <a href="javascript:void(0);" id="add_field1" ><i class="fa fa-plus" aria-hidden="true"></i></a>
-                                            </div>
-                                            <label>Attachment:</label>
                                 <fieldset class="full-width">
-                                    <!-- <label>Tell me about yourself:</label> -->
-
-                                  
+                                 
                                      <textarea name ="artportfolio" id="artportfolio" rows="4" cols="50" placeholder="Enter Portfolio Detail" style="resize: none;"><?php if($address1){ echo $address1; } ?></textarea>
                                          <?php echo form_error('artportfolio'); ?>
                                  
@@ -180,7 +86,7 @@
                                  <fieldset class="hs-submit full-width">
                                    
                                     
-                                    <input type="submit"  id="submit" name="submit" value="submit">
+                                    <input type="submit"  id="submit" name="submit" value="submit"  onclick="portfolio_valid();">
                                    
                                     
                                 </fieldset>
@@ -218,6 +124,8 @@
 
 </body>
 </html>
+
+
 
   <script type="text/javascript" src="<?php echo site_url('js/jquery-ui.js') ?>"></script>
   <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
@@ -328,107 +236,39 @@ $( "#tags" ).autocomplete({
 
 
 </script>
-
-<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.min.js') ?>"></script>
-<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
-
-
-
-
     <!-- footer end -->
 
 
-    <!-- only pdf insert script strat -->
+    
 
-    <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
+
+<!-- only pdf insert script strat -->
 <script type="text/javascript">
-  
-function imgval(event){ 
-alert("fil");
+  function portfolio_form_submit(){
+    var bestofmine = document.getElementById("bestofmine").value;
+    
+    if(bestofmine == ''){
+      //$(".bestofmine_image").html("Please select at lease one file.");
+        //return false;
+        document.getElementById("artportfolio").submit();
+    }
+    else{
+      var bestofmine_ext = bestofmine.split('.').pop();
+      var allowespdf = ['pdf'];
+      var foundPresentpdf = $.inArray(bestofmine_ext, allowespdf) > -1;
 
-//var fileInput = document.getElementById('test-upload');
-
-var fileInput = document.getElementById("bestmine").files;
-
-for (var i = 0; i < fileInput.length; i++)
-{
-    var vname = fileInput[i].name;
-    var vfirstname = fileInput[0].name;
-    var ext = vfirstname.split('.').pop();
-    var ext1 = vname.split('.').pop(); 
-    var allowespdf = ['pdf'];
-
-
-var foundPresentpdf = $.inArray(ext, allowespdf) > -1;
-
- 
-  
-  if(foundPresentpdf == true)
-  {
-
-      var foundPresent1 = $.inArray(ext1, allowespdf) > -1;
-
-      if(foundPresent1 == true && fileInput.length == 1){
-       }else{
-        $('.biderror .mes').html("<div class='pop_content'>sorry this is not valid file.");
-          $('#bidmodal').modal('show');
-         setInterval('window.location.reload()', 10000);
-       event.preventDefault();
+      if(foundPresentpdf == true)
+      {
+         document.getElementById("artportfolio").submit();
+     }
+     else{
+        $(".bestofmine_image").html("Please select only pdf file.");
         return false;
-          }   
+     }
+    }
+    return false;
   }
-
-}
-  }
- 
-</script>
-<script type="text/javascript">
-  
-$(document).ready(function(){
-  $('.modal-close').on('click',function(){
-      $('.modal-post').hide();
-  });
-});
 
 </script>
 
 
-<!-- only pdf insert script end -->
-
-<!-- <script type="text/javascript">
-
-            //validation for edit email formate form
-
-            jQuery.validator.setDefaults({
-            debug: true,
-            success: "valid"
-             });
-
-
-            $(document).ready(function () {  
-
-                $("#artportfolio").validate({ 
-
-                    rules: {
-
-                        bestmine: {
-
-                            required: true,
-                            accept: "pdf/*"
-                        },
-
-                    },
-
-                //     messages: {
-
-                //         bestmine: {
-
-                //             required: "Pdf Is Required.",
-                            
-                //         },
-                       
-                // },
-
-                });
-                   });
-  </script> -->
