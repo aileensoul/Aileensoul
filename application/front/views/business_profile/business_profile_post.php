@@ -308,12 +308,12 @@ if ($businessdata[0]['business_user_image']) {
                                         </div>
                                         <div class="profile-box-user  profile-text-bui-user  fr col-md-9">
                                             <span class="profile-company-name ">
-                                                <a style="margin-left: 0px;"  href="<?php echo base_url('business_profile/business_profile_manage_post/'); ?> " title="<?php echo ucwords($businessdata[0]['company_name']); ?>"> <?php echo ucwords($businessdata[0]['company_name']); ?></a> </span>
+                                                <a  href="<?php echo base_url('business_profile/business_profile_manage_post/'); ?> " title="<?php echo ucwords($businessdata[0]['company_name']); ?>"> <?php echo ucwords($businessdata[0]['company_name']); ?></a> </span>
 
 <?php $category = $this->db->get_where('industry_type', array('industry_id' => $businessdata[0]['industriyal'], 'status' => 1))->row()->industry_name; ?>
 
                                             <div class="profile-boxProfile-name">
-                                                <a style="padding-left: 0px;" href="<?php echo base_url('business_profile/business_profile_manage_post/'); ?> " title="<?php echo ucwords($businessdata[0]['company_name']); ?>" ><?php echo $category; ?></a></div>
+                                                <a  href="<?php echo base_url('business_profile/business_profile_manage_post/'); ?> " title="<?php echo ucwords($businessdata[0]['company_name']); ?>" ><?php echo $category; ?></a></div>
 
 
 
