@@ -202,10 +202,10 @@ label.cameraButton input[accept*="camera"] {
                 <li <?php if($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'userlist'){?> class="active" <?php } ?>><a href="<?php echo base_url('business_profile/userlist'); ?>">Userlist</a>
                                     </li>
 
-                                    <li <?php if($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'followers'){?> class="active" <?php } ?>><a href="<?php echo base_url('business_profile/followers'); ?>">Followers  (<?php echo (count($businessfollowerdata)); ?>)</a>
+                                    <li <?php if($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'followers'){?> class="active" <?php } ?>><a href="<?php echo base_url('business_profile/followers'); ?>">Followers  <br> (<?php echo (count($businessfollowerdata)); ?>)</a>
                                     </li>
                                     
-                                    <li <?php if($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'following'){?> class="active" <?php } ?>><a href="<?php echo base_url('business_profile/following'); ?>">Following  (<?php echo (count($businessfollowingdata)); ?>)</a>
+                                    <li <?php if($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'following'){?> class="active" <?php } ?>><a href="<?php echo base_url('business_profile/following'); ?>">Following  <br> (<?php echo (count($businessfollowingdata)); ?>)</a>
                                     </li>
 
 

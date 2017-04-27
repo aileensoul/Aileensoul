@@ -781,7 +781,7 @@ text-align: center*/;
     /* height: 8%; */
 
     float: left;
-    padding-left:120px;
+/*    padding-left:120px;*/
     padding-right: 10px; 
     /* margin-top: -19px; */}
 .job-menu-profile h5 { text-transform: capitalize; font-size: 25px; font-weight: 600; }
@@ -2753,7 +2753,8 @@ label.cameraButton input[accept*="camera"] {
     display: none;
 }
 .showmoretxt {
-    font: bold 15px tahoma;
+ font-weight: 600;
+ font-size: 14px;
     text-decoration: none;
 }
 .art-all-comment{    background-color: #e6eaef;
@@ -3712,11 +3713,11 @@ li.fr a{
        margin-top: 14px;
 }
 */
-.user_lst ul li .user_btn button{   border-radius: 3px; width: 100px;
+.user_lst ul li .user_btn button{ margin-top: 10px;  border-radius: 3px; width: 100px;
                                     padding: 8px 0px; margin-bottom: 10px;}
 
 
-.user_lst ul li .user_btn_f button{   border-radius: 3px; width: 100px;
+.user_lst ul li .user_btn_f button{ margin-top: 10px;   border-radius: 3px; width: 100px;
                                       padding: 8px 0px; margin-bottom: 10px;}
 
 .user_lst ul li .user_btn_h button{   border-radius: 3px; width: 100px;
