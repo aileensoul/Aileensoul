@@ -176,7 +176,7 @@ echo $recruiter_header2;
         <div class="col-md-12 cover-pic" style="padding-top: 25px;text-align: center;">
         <button class="btn btn-success  cancel-result" onclick="">Cancel</button>
    
-        <button class="btn btn-success  upload-result set-btn" onclick="myFunction()">upload image</button>
+        <button class="btn btn-success  upload-result set-btn" onclick="myFunction()">Upload Image</button>
 
         <div id="message1" style="display:none;">
            <div id="floatBarsG">
