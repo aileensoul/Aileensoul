@@ -1058,7 +1058,8 @@ class Artistic extends MY_Controller {
     }
 
 // khyati changes start
-    public function art_post_insert($id,$para) {
+    //public function art_post_insert($id,$para) {
+    public function art_post_insert($id='',$para='') {
         //echo $para; die();
         $userid = $this->session->userdata('aileenuser'); 
 
