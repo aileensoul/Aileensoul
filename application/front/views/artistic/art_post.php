@@ -1997,7 +1997,7 @@ function insert_comment(clicked_id)
             data:'post_id='+clicked_id + '&comment='+post_comment.value,
             dataType: "json",
             success:function(data){ 
-                     $('input').each(function(){
+                     $('textarea').each(function(){
                       $(this).val('');
                   });
          //$('.' + 'insertcomment' + clicked_id).html(data);

@@ -1130,16 +1130,17 @@ function text2link($text){
 
 <div class="post-design-desc ">
   <div id="<?php echo 'editpostdata' . $row['business_profile_post_id']; ?>" style="display:block;">
-                          <a  style="margin-bottom: 0px;     font-size: 16px"><?php echo text2link($row['product_name']);?></a>
+                          <a  style="margin-bottom: 0px;   font-weight: 600;  font-size: 16px"><?php echo text2link($row['product_name']);?></a>
                          </div>
 
                          <div id="<?php echo 'editpostbox' . $row['business_profile_post_id']; ?>" style="display:none;">
                          <input type="text" id="<?php echo 'editpostname' . $row['business_profile_post_id']; ?>" name="editpostname" value="<?php echo $row['product_name'];?>">
                          </div>
-<span class="show"> 
+
 
   <div id="<?php echo 'editpostdetails' . $row['business_profile_post_id']; ?>" style="display:block;">
-  <?php print text2link($row['product_description']); ?>
+ <span class="show">  <?php print text2link($row['product_description']); ?>
+   </span>
   </div>
 
   <div id="<?php echo 'editpostdetailbox' . $row['business_profile_post_id']; ?>" style="display:none;">
@@ -1151,7 +1152,6 @@ function text2link($text){
   <button id="<?php echo "editpostsubmit" . $row['business_profile_post_id']; ?>" style="display:none" onClick="edit_postinsert(<?php echo $row['business_profile_post_id']; ?>)">EditPost</button>
   
 
-   </span>
 
 
                      </div> 
@@ -1519,7 +1519,7 @@ if(count($likelistarray) > 1) {
                                         </div>
  <div class="col-md-12">
                                         <div class="col-md-10">
-                                        <input type="text" name="<?php echo $rowdata['business_profile_post_comment_id']; ?>" id="<?php echo "editcomment" . $rowdata['business_profile_post_comment_id']; ?>" style="display:none" value="<?php  echo $rowdata['comments']; ?>" onClick="commentedit(this.name)"></div>
+                                        <textarea type="text" class="textarea" name="<?php echo $rowdata['business_profile_post_comment_id']; ?>" id="<?php echo "editcomment" . $rowdata['business_profile_post_comment_id']; ?>" style="display:none;height: 3.3em;resize: none;" value="<?php  echo $rowdata['comments']; ?>" onClick="commentedit(this.name)"></textarea></div>
 
                                           <div class="col-md-2 comment-edit-button">
                                         <button id="<?php echo "editsubmit" . $rowdata['business_profile_post_comment_id']; ?>" style="display:none" onClick="edit_comment(<?php echo $rowdata['business_profile_post_comment_id']; ?>)">Comment</button>
@@ -3276,3 +3276,28 @@ $(document).ready(function(){
 <!-- post insert developing code end  -->
 
 
+<script>
+    $(function() {
+    var showTotalChar = 200, showChar = "More", hideChar = "Less";
+    $('.show').each(function() {
+    var content = $(this).text();
+    if (content.length > showTotalChar) {
+    var con = content.substr(0, showTotalChar);
+    var hcon = content.substr(showTotalChar, content.length - showTotalChar);
+    var txt = con + '<span class="dots">...</span><span class="morectnt"><span>' + hcon + '</span>&nbsp;&nbsp;<a href="" class="showmoretxt">' + showChar + '</a></span>';
+    $(this).html(txt);
+    }
+    });
+    $(".showmoretxt").click(function() {
+    if ($(this).hasClass("sample")) {
+    $(this).removeClass("sample");
+    $(this).text(showChar);
+    } else {
+    $(this).addClass("sample");
+    $(this).text(hideChar);
+    }
+    $(this).parent().prev().toggle();
+    $(this).prev().toggle();
+    return false;
+    });
+    });</script>
