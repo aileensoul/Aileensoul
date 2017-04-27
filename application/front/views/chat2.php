@@ -38,7 +38,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <img src="<?php echo base_url(USERIMAGE . $user['user_image']); ?>" alt="" height="50px" weight="50px">
 
  <?php  } else { ?>
- <img src="<?php echo base_url(NOIMAGE); ?>" alt="" height="50px" weight="50px">
+ <img src="<?php echo base_url(NOIMAGE); ?>" alt="" height="30px" weight="30px">
  
 <?php  } ?>
           <div class="about">
@@ -174,7 +174,7 @@ z-index: 9;
       <div id="notificationsBody" class="notifications">
         <?php $i=0; foreach($smiley_table as $key => $value){ ?>
         
-          <img id="<?php echo $i; ?>" src="<?php echo base_url().'uploads/smileys/' . $value[0]; ?>" height="50" width="50"onClick="followclose(<?php echo $i; ?>)">
+          <img id="<?php echo $i; ?>" src="<?php echo base_url().'uploads/smileys/' . $value[0]; ?>" height="30" width="30"onClick="followclose(<?php echo $i; ?>)">
          
          <?php  $i++; } ?>
       </div>
@@ -534,7 +534,7 @@ function followclose(clicked_id)
 // alert(img.getAttribute('src')); // foo.jpg
 //alert(img.src); 
 var img = img.src;
-$('#message').append("<img  src=" + img + " height='50' width='50'>"); 
+$('#message').append("<img  src=" + img + " height='28' width='28' style='margin: 7px;'>"); 
  
 }
 </script>

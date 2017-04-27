@@ -142,7 +142,6 @@ if($lstusrdata){?>
 
               <div class="comment" contentEditable="true" name="comments" id="message" style="position: relative;">
 
-            
               </div>
 <div for="smily" style="position: absolute;
     top: 7px;
@@ -160,7 +159,7 @@ if($lstusrdata){?>
       <div id="notificationsBody" class="notifications">
         <?php $i=0; foreach($smiley_table as $key => $value){ ?>
         
-          <img id="<?php echo $i; ?>" src="<?php echo base_url().'uploads/smileys/' . $value[0]; ?>" height="50" width="50"onClick="followclose(<?php echo $i; ?>)">
+          <img id="<?php echo $i; ?>" src="<?php echo base_url().'uploads/smileys/' . $value[0]; ?>" height="30" width="30"onClick="followclose(<?php echo $i; ?>)">
          
          <?php  $i++; } ?>
       </div>
@@ -511,7 +510,7 @@ function followclose(clicked_id)
 // alert(img.getAttribute('src')); // foo.jpg
 //alert(img.src); 
 var img = img.src;
-$('#message').append("<img  src=" + img + " height='50' width='50'>"); 
+$('#message').append("<img  src=" + img + " height='27' width='27' style='    margin: 7px;'>"); 
  }
 </script>
 <!-- script for selact smily for message end-->
