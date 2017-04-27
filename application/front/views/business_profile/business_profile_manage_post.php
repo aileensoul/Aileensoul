@@ -1050,12 +1050,26 @@ function text2link($text){
                     $userid = $this->session->userdata('aileenuser');
 
                  $userimage =  $this->db->get_where('business_profile',array('user_id' => $row['user_id']))->row()->business_user_image; 
+
+                 $userimageposted =  $this->db->get_where('business_profile',array('user_id' => $row['posted_user_id']))->row()->business_user_image;
+
                  ?>
+
+                 <?php if($row['posted_user_id']){?>
+
+                 <?php if($userimage){ ?>
+                    <img src="<?php echo base_url(USERIMAGE .  $userimageposted);?>" name="image_src" id="image_src" />
+                    <?php } else { ?>
+                    <img alt="" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
+                    <?php }?>
+
+                    <?php }else{?>
+
                   <?php if($userimage){ ?>
                     <img src="<?php echo base_url(USERIMAGE .  $userimage);?>" name="image_src" id="image_src" />
                     <?php } else { ?>
                     <img alt="" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
-                    <?php }?>
+                    <?php } }?>
                      </div>
 
 
@@ -1072,10 +1086,26 @@ function text2link($text){
                 
                  $category =  $this->db->get_where('industry_type',array('industry_id' => $categoryid, 'status' => 1))->row()->industry_name;
 
+
+                  $companynameposted =  $this->db->get_where('business_profile',array('user_id' => $row['posted_user_id']))->row()->company_name;
+
+                 $slugnameposted =  $this->db->get_where('business_profile',array('user_id' => $row['posted_user_id'], 'status' => 1))->row()->business_slug;
+
+
                   ?>
+
+ <li>
+
+                  <?php if($row['posted_user_id']){?>
+                  <div class="else_post_d">
+       <div class="post-design-product"><a style=" font-size: 18px;
+                         line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; " href="<?php echo base_url('business_profile/business_profile_manage_post/'.$slugnameposted); ?>"><?php echo ucwords($companynameposted); ?></a> <span style="font-weight: 600;"> Posted With </span> <a style=" font-size: 18px;
+                         line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; " href="<?php echo base_url('business_profile/business_profile_manage_post/'.$slugname); ?>"><?php echo ucwords($companyname); ?></a> <span  style="font-weight: 400;""><?php echo date('d-M-Y',strtotime($row['created_date'])); ?> </span> </div></div></li>
+
+                  <?php }else{?>
                     <li><div class="post-design-product"><a style="    font-size: 18px;
-    line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; " href="<?php echo base_url('business_profile/business_resume/'.$slugname); ?>"><?php echo ucwords($companyname); ?> <span  style="font-weight: 400;""><?php echo date('d-M-Y',strtotime($row['created_date'])); ?> </span> </a></div></li>
-                     
+    line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; " href="<?php echo base_url('business_profile/business_profile_manage_post/'.$slugname); ?>"><?php echo ucwords($companyname); ?> <span  style="font-weight: 400;""><?php echo date('d-M-Y',strtotime($row['created_date'])); ?> </span> </a></div></li>
+                     <?php }?>
 
                         <li> <a style=" color: #000033; font-weight: 400;"> <div class="post-design-product"><a><?php echo ucwords($category); ?> </a></div></li>
                        
