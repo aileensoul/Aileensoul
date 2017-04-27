@@ -991,7 +991,7 @@ responsive image design start -->
 
                 <div class="post-editor col-md-12">
                     <div class="main-text-area col-md-12">
-                        <div class="popup-img col-md-1"> <img  src="<?php echo base_url(USERIMAGE . $businessdata[0]['business_user_image']); ?>"  alt="">
+                        <div class="popup-img col-md-1"> <img  src="<?php echo base_url(USERIMAGE . $artisticdata[0]['art_user_image']); ?>"  alt="">
                         </div>
                         <div id="myBtn3"  class="editor-content col-md-11 popup-text" contenteditable>
                             <span> Post Your Product....</span> 
@@ -1017,7 +1017,7 @@ responsive image design start -->
 
                     <div class="post-editor col-md-12">
 
-                        <?php echo form_open_multipart(base_url('artistic/art_post_insert/' . 'manage'), array('id' => 'artpostform', 'name' => 'artpostform', 'class' => 'clearfix', 'onsubmit' => "imgval(event)")); ?>
+                        <?php echo form_open_multipart(base_url('artistic/art_post_insert/' . 'manage/'.$artisticdata[0]['user_id']), array('id' => 'artpostform', 'name' => 'artpostform', 'class' => 'clearfix', 'onsubmit' => "imgval(event)")); ?>
 
                         <div class="main-text-area col-md-12"  style="border-bottom: 5px solid #ced5df;">
                             <div class="popup-img col-md-1"> <img  src="<?php echo base_url(ARTISTICIMAGE . $artisticdata[0]['art_user_image']); ?>"  alt="">
@@ -1158,26 +1158,46 @@ responsive image design start -->
 
                                             <?php
                                             $userimage = $this->db->get_where('art_reg', array('user_id' => $row['user_id']))->row()->art_user_image;
+                                            $userimageposted = $this->db->get_where('art_reg', array('user_id' => $row['posted_user_id']))->row()->art_user_image;
                                             ?>
 
+                                        <?php if($row['posted_user_id']){?>
+                                        <img src="<?php echo base_url(ARTISTICIMAGE . $userimageposted); ?>" name="image_src" id="image_src" / >
+
+                                        <?php }else{?>
                                             <img src="<?php echo base_url(ARTISTICIMAGE . $userimage); ?>" name="image_src" id="image_src" / >
+
+                                            <?php }?>
                                         </div>
 
 
                                         <div class="post-design-name fl">
                                             <ul>
                                                 <li><span>
-                                                    <?php
-                                                    $firstname = $this->db->get_where('art_reg', array('user_id' => $row['user_id']))->row()->art_name;
-                                                    $lastname = $this->db->get_where('art_reg', array('user_id' => $row['user_id']))->row()->art_lastname;
-                                                    ?>
-                                                        </span>
-                                                    <a style=" font-size: 18px;
-                                                       line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; "  href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>">
-                                                        <?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?><span style="font-weight: 400;"> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span>
-                                                    </a>
-                                                    
-                                                </li>
+                        <?php
+                        $firstname = $this->db->get_where('art_reg', array('user_id' => $row['user_id']))->row()->art_name;
+                         $lastname = $this->db->get_where('art_reg', array('user_id' => $row['user_id']))->row()->art_lastname;
+
+                         $firstnameposted = $this->db->get_where('art_reg', array('user_id' => $row['posted_user_id']))->row()->art_name;
+                         $lastnameposted = $this->db->get_where('art_reg', array('user_id' => $row['posted_user_id']))->row()->art_lastname;
+                        ?>
+                        </span>
+
+                        <!-- other user post time name strat-->
+
+                        <?php if($row['posted_user_id']){?>
+                        <a href="<?php echo base_url('artistic/art_manage_post/' . $row['posted_user_id']); ?>"><?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?> </a> Posted With 
+                        <a href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>"><?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?></a><span style="font-weight: 400;"> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span>
+
+
+                        <!-- other user post time name end-->
+                        <?php }else{?>
+                        <a style=" font-size: 18px;
+                         line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; "  href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>">
+                        <?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?><span style="font-weight: 400;"> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span>
+                        </a>
+                          <?php }?>                          
+                        </li>
                                                 <li>
                                                     <div id="<?php echo 'editpostdata' . $row['art_post_id']; ?>" style="display:block;">
                                                         <a><?php print $row['art_post']; ?></a>

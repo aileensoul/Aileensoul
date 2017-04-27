@@ -983,9 +983,18 @@ foreach($finalsorting as $row)
 
               <?php 
                  $art_userimage =  $this->db->get_where('art_reg',array('user_id' => $row['user_id'], 'status' => 1))->row()->art_user_image;
+
+                 $userimageposted = $this->db->get_where('art_reg', array('user_id' => $row['posted_user_id']))->row()->art_user_image;
                  ?>
 
+                 <?php if($row['posted_user_id']){?>
+                      <img src="<?php echo base_url(ARTISTICIMAGE . $userimageposted); ?>" name="image_src" id="image_src" / >
+
+                        <?php }else{?>
+
                  <img  src="<?php echo base_url(ARTISTICIMAGE . $art_userimage);?>"  alt=""> 
+
+                 <?php }?>
                     </div>
 
 
@@ -995,6 +1004,11 @@ foreach($finalsorting as $row)
                  $firstname =  $this->db->get_where('art_reg',array('user_id' => $row['user_id']))->row()->art_name; 
 
                  $lastname =  $this->db->get_where('art_reg',array('user_id' => $row['user_id']))->row()->art_lastname; 
+
+                  $firstnameposted = $this->db->get_where('art_reg', array('user_id' => $row['posted_user_id']))->row()->art_name;
+                  $lastnameposted = $this->db->get_where('art_reg', array('user_id' => $row['posted_user_id']))->row()->art_lastname;
+
+
                  $userskill =  $this->db->get_where('art_reg',array('user_id' => $row['user_id']))->row()->art_skill; 
 
 
@@ -1013,12 +1027,28 @@ foreach($finalsorting as $row)
                  
 
                         <li>
-                        <div class="post-design-product"><a style="font-size: 16px;
+                        <div class="post-design-product">
+
+                          <!-- other user post time name strat-->
+
+                        <?php if($row['posted_user_id']){?>
+                        <a href="<?php echo base_url('artistic/art_manage_post/' . $row['posted_user_id']); ?>"><?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?> </a> Posted With 
+                        <a href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>"><?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?></a><span style="font-weight: 400;"> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span>
+
+
+                        <!-- other user post time name end-->
+                        <?php }else{?>
+
+
+                        <a style="font-size: 16px;
     line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; " href="<?php echo base_url('artistic/art_manage_post/'.$row['user_id']); ?>"><?php echo ucwords($firstname); print "&nbsp;&nbsp;"; echo ucwords($lastname); ?> <span style="font-weight: 400;"> <?php// echo date('d-M-Y',strtotime($row['created_date'])); ?>
     	
     <?php echo $row['created_date']; ?>
 
-    </span></a> </div></li>
+    </span></a> 
+<?php }?> 
+
+    </div></li>
                         <!-- 
                         <li><div class="post-design-product"><a><?php  //echo $listFinal ; ?> </a></div></li>
                          -->

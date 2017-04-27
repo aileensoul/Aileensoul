@@ -1058,11 +1058,12 @@ class Artistic extends MY_Controller {
     }
 
 // khyati changes start
-    public function art_post_insert($id) {
+    public function art_post_insert($id,$para) {
+        //echo $para; die();
+        $userid = $this->session->userdata('aileenuser'); 
 
-        $userid = $this->session->userdata('aileenuser');
-
-
+       
+        if($para == $userid || $para == ''){ 
         $data = array(
             'art_post' => $this->input->post('my_text'),
             'art_description' => $this->input->post('product_desc'),
@@ -1071,6 +1072,19 @@ class Artistic extends MY_Controller {
             'is_delete' => 0,
             'user_id' => $userid
         );
+       }else{
+
+        $data = array(
+            'art_post' => $this->input->post('my_text'),
+            'art_description' => $this->input->post('product_desc'),
+            'created_date' => date('Y-m-d', time()),
+            'status' => 1,
+            'is_delete' => 0,
+            'user_id' => $para,
+            'posted_user_id' => $userid 
+        );
+
+       }
 
         $insert_id = $this->common->insert_data_getid($data, 'art_post');
         //echo $insert_id; die(); 
@@ -1120,7 +1134,14 @@ class Artistic extends MY_Controller {
             // }
         }
         if ($id == manage) {
+
+
+            if($para == $userid || $para == " "){
             redirect('artistic/art_manage_post', refresh);
+            }else{
+                redirect('artistic/art_manage_post/'.$para, refresh);
+
+            }
         } else {
             redirect('artistic/art_post', refresh);
         }
