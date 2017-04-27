@@ -120,7 +120,7 @@
 <?php echo $header; ?>
 
 
- <script src="<?php echo base_url('assets/js/jquery.js'); ?>"></script> 
+<script src="<?php echo base_url('assets/js/jquery.js'); ?>"></script> 
 <script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script>
 <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
 
@@ -183,8 +183,8 @@
                         ?>
                         <div class="bg-images">
                             <img src="<?php echo WHITEIMAGE; ?>" name="image_src" id="image_src" / ></div>
-<?php }
-?>
+                    <?php }
+                    ?>
 
                 </div>
             </div>
@@ -207,112 +207,113 @@
     <div class="profile-main-pho">
         <div class="user-pic-picture">
             <div class="user-pic">
-<?php $image_ori = $userdata[0]['user_image'];
-if ($image_ori) {
-    ?>
+                <?php
+                $image_ori = $userdata[0]['user_image'];
+                if ($image_ori) {
+                    ?>
                     <img src="<?php echo base_url(USERIMAGE . $userdata[0]['user_image']); ?>" alt="" >
 
 <?php } else { ?>
 
                     <img src="<?php echo base_url(NOIMAGE); ?>" alt="" > 
 <?php } ?>
-                <!--<a href="#popup-form" class="fancybox"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>-->
+            <!--<a href="#popup-form" class="fancybox"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>-->
 
                 <a href="javascript:void(0);" onclick="updateprofilepopup();"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>
 
 
             </div>
         </div>
-<!--        <div id="popup-form">
-<?php // echo form_open_multipart(base_url('dashboard/user_image_insert'), array('id' => 'userimage', 'name' => 'userimage', 'class' => 'clearfix')); ?>
+        <!--        <div id="popup-form">
+<?php // echo form_open_multipart(base_url('dashboard/user_image_insert'), array('id' => 'userimage', 'name' => 'userimage', 'class' => 'clearfix'));  ?>
+        
+                    <input type="file" name="profilepic" accept="image/gif, image/jpeg, image/png" id="profilepic" required>
+        
+                    <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save">
+<?php // form_close()  ?>   </div>
+            </div>-->
+    </div>
+    <div class="main-font-name">
+        <h5 align="center"> <?php echo ucwords($userdata[0]['first_name']) . ' ' . ucwords($userdata[0]['last_name']); ?></h5>
+        <div>
+            <p align="center"><?php echo ucwords($userdata[0]['user_name']) ?></p>  
+        </div>   
 
-            <input type="file" name="profilepic" accept="image/gif, image/jpeg, image/png" id="profilepic" required>
-
-            <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save">
-<?php // form_close() ?>   </div>
-    </div>-->
-</div>
-<div class="main-font-name">
-    <h5 align="center"> <?php echo ucwords($userdata[0]['first_name']) . ' ' . ucwords($userdata[0]['last_name']); ?></h5>
-    <div>
-        <p align="center"><?php echo ucwords($userdata[0]['user_name']) ?></p>  
-    </div>   
-
-    <div class="profile-text1" >
-<?php
-$userid = $this->session->userdata('aileenuser');
-$this->db->select('*');
-$this->db->where('created_date BETWEEN DATE_SUB(NOW(), INTERVAL 1 MONTH) AND NOW()');
-$this->db->where('user_id', $userid);
-$result = $this->db->get('user')->result_array();
-
-
-if ($userdata[0]['user_verify'] == 0 && count($result) > 0) {
-    ?>
-
-            <div class="alert alert-danger">
+        <div class="profile-text1" >
+            <?php
+            $userid = $this->session->userdata('aileenuser');
+            $this->db->select('*');
+            $this->db->where('created_date BETWEEN DATE_SUB(NOW(), INTERVAL 1 MONTH) AND NOW()');
+            $this->db->where('user_id', $userid);
+            $result = $this->db->get('user')->result_array();
 
 
-                <!-- pop up box start-->
-                <div id="popup1" class="overlay">
-                    <div class="popup">
+            if ($userdata[0]['user_verify'] == 0 && count($result) > 0) {
+                ?>
 
-                        <div class="pop_content">
-                            Email send Successfully.
-                            <p class="okk"><a class="okbtn" href="#">Ok</a></p>
+                <div class="alert alert-danger">
+
+
+                    <!-- pop up box start-->
+                    <div id="popup1" class="overlay">
+                        <div class="popup">
+
+                            <div class="pop_content">
+                                Email send Successfully.
+                                <p class="okk"><a class="okbtn" href="#">Ok</a></p>
+                            </div>
+
                         </div>
+                    </div>
+                    <!-- pop up box end-->
 
+
+                    <a onClick="sendmail(this.id)" id="<?php echo $userdata[0]['user_email']; ?>" href="#popup1">
+                        Verify Your E-mail Account
+                    </a>
+
+                </div>
+
+            <?php }
+            ?>
+
+        </div> 
+    </div>
+
+
+    <div class="user-midd-section">
+        <div class="container">
+            <div class="row">
+                <!-- <div class="col-md-2"></div> -->
+                <div class="col-md-12 col-sm-12">
+                    <div class="mid-bar">
+                        <div class="first-mid-bar">
+                            <ul class="clearfix">
+                                <li><a href="<?php echo base_url('job'); ?>">Job Profile</a></li>
+                                <li><a href="<?php echo base_url('recruiter'); ?>">Recruiter Profile</a></li>
+                                <li><a href="<?php echo base_url('freelancer'); ?>">Freelancer Profile</a></li>
+
+                            </ul>
+                        </div>
+                        <div  class="second-mid-bar">
+                            <ul class="clearfix">
+
+                                <li><a href="<?php echo base_url('business_profile'); ?>">Business Profile</a></li>
+                                <li><a href="<?php echo base_url('artistic'); ?>">Artistic Profile</a></li>
+
+                            </ul>
+
+                        </div>
                     </div>
                 </div>
-                <!-- pop up box end-->
-
-
-                <a onClick="sendmail(this.id)" id="<?php echo $userdata[0]['user_email']; ?>" href="#popup1">
-                    Verify Your E-mail Account
-                </a>
+                <!-- 	<div class="col-md-2">
+                        </div> -->
 
             </div>
-
-<?php }
-?>
-
-    </div> 
-</div>
-
-
-<div class="user-midd-section">
-    <div class="container">
-        <div class="row">
-            <!-- <div class="col-md-2"></div> -->
-            <div class="col-md-12 col-sm-12">
-                <div class="mid-bar">
-                    <div class="first-mid-bar">
-                        <ul class="clearfix">
-                            <li><a href="<?php echo base_url('job'); ?>">Job Profile</a></li>
-                            <li><a href="<?php echo base_url('recruiter'); ?>">Recruiter Profile</a></li>
-                            <li><a href="<?php echo base_url('freelancer'); ?>">Freelancer Profile</a></li>
-
-                        </ul>
-                    </div>
-                    <div  class="second-mid-bar">
-                        <ul class="clearfix">
-
-                            <li><a href="<?php echo base_url('business_profile'); ?>">Business Profile</a></li>
-                            <li><a href="<?php echo base_url('artistic'); ?>">Artistic Profile</a></li>
-
-                        </ul>
-
-                    </div>
-                </div>
-            </div>
-            <!-- 	<div class="col-md-2">
-                    </div> -->
-
         </div>
     </div>
-</div>
 </section>
-    
+
 
 <!-- Model Popup Open -->
 <!-- Bid-modal-2  -->
@@ -323,12 +324,12 @@ if ($userdata[0]['user_verify'] == 0 && count($result) > 0) {
             <div class="modal-body">
                 <span class="mes">
                     <div id="popup-form">
-                        <?php echo form_open_multipart(base_url('dashboard/user_image_insert'), array('id' => 'userimage', 'name' => 'userimage', 'class' => 'clearfix')); ?>
+<?php echo form_open_multipart(base_url('dashboard/user_image_insert'), array('id' => 'userimage', 'name' => 'userimage', 'class' => 'clearfix')); ?>
                         <input type="file" name="profilepic" accept="image/gif, image/jpeg, image/png" id="profilepic">
                         <!--<input type="hidden" name="hitext" id="hitext" value="3">-->
                         <!--<input type="submit" name="cancel3" id="cancel3" value="Cancel">-->
                         <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save">
-                        <?php echo form_close(); ?>
+<?php echo form_close(); ?>
                     </div>
                 </span>
             </div>
@@ -337,13 +338,13 @@ if ($userdata[0]['user_verify'] == 0 && count($result) > 0) {
 </div>
 <!-- Bid-modal-2  -->
 <!-- Model Popup Close -->
-    
+
 <!-- end search validation -->
 <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
 <script>
-    function updateprofilepopup(id) {
-        $('#bidmodal-2').modal('show');
-    }
+                    function updateprofilepopup(id) {
+                        $('#bidmodal-2').modal('show');
+                    }
 </script>
 
 <script>
@@ -435,17 +436,12 @@ if ($userdata[0]['user_verify'] == 0 && count($result) > 0) {
     });
 
     $('.cancel-result').on('click', function (ev) {
-
         document.getElementById('row2').style.display = "block";
         document.getElementById('row1').style.display = "none";
         document.getElementById('message1').style.display = "none";
-
     });
-
-//aarati code start
+    //aarati code start
     $('#upload').on('change', function () {
-
-
         var reader = new FileReader();
         //alert(reader);
         reader.onload = function (e) {

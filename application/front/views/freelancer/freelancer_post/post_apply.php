@@ -273,7 +273,7 @@ if ($freepostdata[0]['designation']) {
                                        if ($freepostdata[0]['profile_background'] != '') {
                                            ?>
                                         <!-- box image start -->
-                                        <img src="<?php echo base_url(JOBBGIMAGE . $freepostdata[0]['profile_background']); ?>" class="bgImage" alt="<?php echo  $freepostdata[0]['freelancer_post_fullname'] . ' ' . $freepostdata[0]['freelancer_post_username']; ?>"  style="height: 95px;
+                                        <img src="<?php echo base_url(FREEWORKIMG . $freepostdata[0]['profile_background']); ?>" class="bgImage" alt="<?php echo  $freepostdata[0]['freelancer_post_fullname'] . ' ' . $freepostdata[0]['freelancer_post_username']; ?>"  style="height: 95px;
                                              width: 100%;">
                                         <!-- box image end -->
                                         <?php
