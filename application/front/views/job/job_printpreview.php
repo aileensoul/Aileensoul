@@ -45,7 +45,14 @@ echo $head;
 <?php echo $header; ?>
 <!-- END HEADER -->
 
-<?php echo $job_header2; ?>
+<?php 
+    $returnpage= $_GET['page'];
+    if($returnpage == 'recruiter'){
+        echo $recruiter_header2;
+    }
+    else{
+echo $job_header2;
+    }?>
 <body   class="page-container-bg-solid page-boxed">
 
     <section>
