@@ -263,7 +263,7 @@ chat*/
     /* overflow-y: scroll; */
     /* position: absolute; */
     /* top: 30px; */
-    margin-left: -170px;
+    margin-left: -188px;
     width: 250px;
     z-index: 3;
     /* display: none; */
@@ -315,10 +315,17 @@ chat*/
     position: absolute;
     width: 0;
     height: 0;
-    border-style: solid;
-    border-width: 14px 14px 0 14px;
-    border-color: #fff transparent transparent transparent;
-    bottom: -12px;
-    right: 77px;
-    /* margin-left: 18px; */
+   border-color: rgba(194, 225, 245, 0);
+  border-top-color: #fff;
+   bottom: -19px;
+    right: 63px;
 }
+
+#notificationContainer:after {
+  border-color: rgba(136, 183, 213, 0);
+  border-top-color: #88b7d5;
+  border-width: 30px;
+  margin-left: -30px;
+}
+
+
