@@ -1472,7 +1472,7 @@ if(count($likelistarray) > 1) {
                                         </div>
                                         <div class="col-md-12">
                                         <div class="col-md-10">
-                                        <textarea name="<?php echo $rowdata['artistic_post_comment_id']; ?>" id="<?php echo "editcomment" . $rowdata['artistic_post_comment_id']; ?>" style="display:none" onClick="commentedit(this.name)"><?php  echo $rowdata['comments']; ?></textarea>
+                                        <textarea class="textarea" name="<?php echo $rowdata['artistic_post_comment_id']; ?>" id="<?php echo "editcomment" . $rowdata['artistic_post_comment_id']; ?>" style="display:none" onClick="commentedit(this.name)"><?php  echo $rowdata['comments']; ?></textarea>
                                         </div>
 
                                         <div class="col-md-2 comment-edit-button">
@@ -1595,7 +1595,7 @@ if(count($likelistarray) > 1) {
 
                   <div class="">
                   <div class="col-md-10 inputtype-comment" style="padding-left: 7px !important;">
-                  <textarea type="text" name="<?php echo  $row['art_post_id']; ?>"  id="<?php echo "post_comment" . $row['art_post_id']; ?>" placeholder="Type Comment ..." value= "" onClick="entercomment(this.name)" style="height: 2.3em;"></textarea>
+                  <textarea type="text" class="textarea" name="<?php echo  $row['art_post_id']; ?>"  id="<?php echo "post_comment" . $row['art_post_id']; ?>" placeholder="Type Comment ..." value= "" onClick="entercomment(this.name)" style="height: 2.3em;"></textarea>
                                                  <?php echo form_error('post_comment'); ?>
                                                  </div>
                                                    <div class="col-md-1 comment-edit-butn">   
@@ -2808,7 +2808,7 @@ function followclose(clicked_id)
 </script>
 
 
-
+<!-- 
 <script type="text/javascript">
   var span = $('<span>').css('display','inline-block')
 .css('word-break','break-all').appendTo('body').css('visibility','hidden');
@@ -2830,7 +2830,7 @@ $('textarea').on({
         if(e.which == 13) e.preventDefault();
     }
 });
-</script>
+</script> -->
 
 
 <!-- insert post validtation start -->
@@ -2936,3 +2936,19 @@ $(document).ready(function(){
 </script>
 
 <!-- insert validation end -->
+<!-- 
+textarea js -->
+
+<script type="text/javascript">
+    function h(e) {
+        $(e).css({
+            'height': '29px',
+            'overflow-y': 'hidden'
+        }).height(e.scrollHeight);
+    }
+    $('.textarea').each(function() {
+        h(this);
+    }).on('input', function() {
+        h(this);
+    });
+</script>
