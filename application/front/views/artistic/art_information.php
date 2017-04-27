@@ -64,10 +64,10 @@
                                  ?>
 
 
-                                    <fieldset <?php if($skills) {  ?> class="error-msg" <?php } ?> >
-                                        <label>keyskills<span style="color:red">*</span></label>
+                                    <fieldset class="full-width" <?php if($skills) {  ?> class="error-msg" <?php } ?> >
+                                        <label>Art<span style="color:red">*</span></label>
                                        
-                                          <select name="skills[]" id ="skils" class="keyskil" multiple="multiple" style="width:300px">
+                                          <select name="skills[]" id ="skils" class="keyskil" multiple="multiple" style="width:100%;">
                                        <?php foreach ($skill as $ski) { ?>
                                       <option value="<?php echo $ski['skill_id']; ?>"><?php echo $ski['skill']; ?></option>
                                     <?php } ?>
@@ -78,14 +78,14 @@
 
 
                         <fieldset class="full-width">
-                                <label>Other skill:</label>
+                                <label>Other Art:</label>
                                 <input type="text" class="keyskil" name="other_skill" id="other_skill" placeholder="Enter Other Skill" value="<?php if($otherskill1){ echo $otherskill1; }?>"> 
                                 <?php echo form_error('other_skill'); ?>
                                 </fieldset>
 
 
-                                <fieldset <?php if($artname) {  ?> class="error-msg" <?php } ?>>
-                                    <label>Speciality:<span style="color:red">*</span></label>
+                                <fieldset class="full-width" <?php if($artname) {  ?> class="error-msg" <?php } ?>>
+                                    <label>Speciality In Art:<span style="color:red">*</span></label>
                                     <input name="artname" type="text" id="artname" placeholder="Enter Speciality" value="<?php if($artname1){ echo $artname1; } ?>"/><span id="artname-error"></span>
                                      <?php echo form_error('artname'); ?>
                                 </fieldset>
@@ -112,7 +112,7 @@
                                  <fieldset class="hs-submit full-width">
                                    
                                    
-                                    <a href="<?php echo base_url('artistic/art_address'); ?>">Previous</a>
+                                 
                                     
                                     <input type="submit"  id="next" name="next" value="Next">
                                    

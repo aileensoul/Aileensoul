@@ -385,10 +385,7 @@
 
                                 <div class="job-post-detail clearfix"  id="<?php echo "removeapply" . $post['save_id']?>">
                                     <div class="job-post-title">
-                                        <h6><a href="<?php echo base_url('freelancer/freelancer_hire_profile/' . $post['user_id']); ?>" title="  <?php echo text2link($post['post_name']); ?>
-">
-                                                <?php echo text2link($post['post_name']); ?>
-
+                                        <h6><a href="<?php echo base_url('freelancer/freelancer_hire_profile/' . $post['user_id']); ?>" title="Post Title" >
                                             </a></h6>
                                     </div>
                                     <div class="exper-location">

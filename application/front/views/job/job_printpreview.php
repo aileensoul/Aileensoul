@@ -529,7 +529,7 @@ echo $head;
                                                         if ($job[0]['project_name'] != "" || $job[0]['project_duration'] != "" || $job[0]['project_description'] != "") {
                                                             ?>
                                                             <li>
-            <center><h5> Project And Training</h5></center>
+    <h5 style="text-decoration: underline; text-align: center; margin: 5px;" > Project And Training</h5>
                                                             </li>
                                                             <?php
                                                         }
@@ -569,7 +569,7 @@ echo $head;
                                                         if ($job[0]['training_as'] != "" || $job[0]['training_duration'] != "" || $job[0]['training_organization'] != "") {
                                                             ?>
                                                             <li>
-                   <center><h5>Internship</h5></center>
+     <h5 style="text-decoration: underline; text-align: center; margin: 5px;" >Internship</h5>
                                                             </li>
                                                             <?php
                                                         }

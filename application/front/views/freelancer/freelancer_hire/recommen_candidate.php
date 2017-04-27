@@ -11,28 +11,28 @@
         background-size: cover;
         height: 100vh;
     }*/
-/*    .box {
-        width: 40%;
-        margin: 0 auto;
-        background: rgba(255,255,255,0.2);
-        padding: 35px;
-        border: 2px solid #fff;
-        border-radius: 20px/50px;
-        background-clip: padding-box;
-        text-align: center;
-    }*/
-   /* .overlay {
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: rgba(0, 0, 0, 0.7);
-        transition: opacity 500ms;
-        visibility: hidden;
-        opacity: 0;
-        z-index: 10;
-    }*/
+    /*    .box {
+            width: 40%;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.2);
+            padding: 35px;
+            border: 2px solid #fff;
+            border-radius: 20px/50px;
+            background-clip: padding-box;
+            text-align: center;
+        }*/
+    /* .overlay {
+         position: fixed;
+         top: 0;
+         bottom: 0;
+         left: 0;
+         right: 0;
+         background: rgba(0, 0, 0, 0.7);
+         transition: opacity 500ms;
+         visibility: hidden;
+         opacity: 0;
+         z-index: 10;
+     }*/
     /*.overlay:target {
         visibility: visible;
         opacity: 1;
@@ -50,7 +50,7 @@
     .okk{
         text-align: center;
     }
-     .pop_content .okbtn{
+    .pop_content .okbtn{
         position: absolute;
         transition: all 200ms;
         font-size: 16px;
@@ -63,7 +63,7 @@
         width: 100px; 
         border-radius: 8px;
     }
-      .pop_content .cnclbtn {
+    .pop_content .cnclbtn {
         position: absolute;
         transition: all 200ms;
         font-size: 16px;
@@ -88,21 +88,21 @@
         margin-left: -45px;
         margin-top: 15px;
     }*/
-  .popup .pop_content {
+    .popup .pop_content {
         text-align: center;
         margin-top: 40px;
     }
-      .model_ok_cancel{
+    .model_ok_cancel{
         width:200px !important;
     }
-   /* @media screen and (max-width: 700px){
-        .box{
-            width: 70%;
-        }
-        .popup{
-            width: 70%;
-        }*/
-   /* }*/
+    /* @media screen and (max-width: 700px){
+         .box{
+             width: 70%;
+         }
+         .popup{
+             width: 70%;
+         }*/
+    /* }*/
 </style>
 <!--post save success pop up style end -->
 <!-- END HEADER -->
@@ -191,180 +191,176 @@
         <div class="user-midd-section">
             <div class="container">
                 <div class="row">
-                   
+
                     <div class="col-md-4"><div class="profile-box profile-box-left">
-<!--                            <div class="full-box-module">    
+                            <!--                            <div class="full-box-module">    
+                                                            <div class="profile-boxProfileCard  module">
+                                                                <div class="profile-boxProfileCard-cover">  
+                                                                    <a class="profile-boxProfileCard-bg u-bgUserColor a-block"
+                                                                       href="<?php echo base_url('freelancer/freelancer_hire_profile'); ?>"
+                                                                       tabindex="-1"
+                                                                       aria-hidden="true"
+                                                                       rel="noopener" 
+                                                                       title="<?php echo $freehiredata[0]['fullname'] . " " . $freehiredata[0]['username']; ?>">
+                                                                        
+                            <?php
+                            if ($freehiredata[0]['profile_background'] != '') {
+                                ?>
+                                                                             box image start 
+                                                                            <img src="<?php echo base_url(FREEHIREIMG . $freehiredata[0]['profile_background']); ?>" class="bgImage" alt="<?php echo $freehiredata[0]['fullname'] . " " . $freehiredata[0]['username']; ?>"  style="height: 95px;
+                                                                                 width: 100%;">
+                                                                             box image end 
+                                <?php
+                            } else {
+                                ?>
+                                                                            <img src="<?php echo base_url(WHITEIMAGE); ?>" class="bgImage" alt="<?php echo $freehiredata[0]['fullname'] . " " . $freehiredata[0]['username']; ?>"  style="height: 95px;
+                                                                                 width: 100%;">
+                                <?php
+                            }
+                            ?>
+                                                                        
+                                                                        
+                                                                    </a></div>
+                                                                <div class="profile-box-menu  fr col-md-12">
+                                                                    <div class="left- col-md-2"></div>
+                                                                    <div  class="right-section col-md-10">
+                                                                        <ul>
+                                                                            <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_hire_profile')) { ?> class="active" <?php } ?>><a href="<?php echo base_url('freelancer/freelancer_hire_profile'); ?>" > Profile</a>
+                                                                            </li>
+                                                                            <li ><a href="<?php echo base_url('freelancer/freelancer_hire_post'); ?>"> Posts</a>
+                                                                            </li>
+                                                                            <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_save')) { ?> class="active" <?php } ?>><a href="<?php echo base_url('freelancer/freelancer_save'); ?>">Saved</a>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="profile-boxProfileCard-content">
+                                                                    <div class="buisness-profile-txext ">
+                                                                        <a class="profile-boxProfileCard-avatarLink a-inlineBlock" href="<?php echo base_url('freelancer/freelancer_hire_profile'); ?>""  tabindex="-1" aria-hidden="true" rel="noopener" title="<?php echo $freehiredata[0]['fullname'] . " " . $freehiredata[0]['username']; ?>">
+                            <?php
+                            if ($freehiredata[0]['freelancer_hire_user_image']) {
+                                ?>
+                                                                                    <img src="<?php echo base_url(FREEHIREIMG . $freehiredata[0]['freelancer_hire_user_image']); ?>" alt="<?php echo $freehiredata[0]['fullname'] . " " . $freehiredata[0]['username']; ?>">
+                                <?php
+                            } else {
+                                ?>
+                                                                                    <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo $freehiredata[0]['fullname'] . " " . $freehiredata[0]['username']; ?>">
+                                <?php
+                            }
+                            ?>
+                                                                           
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="profile-box-user">
+                                                                        <span class="profile-box-name ">
+                                                                            <a href="<?php echo base_url('freelancer/freelancer_hire_profile'); ?>" title="<?php echo $freehiredata[0]['fullname'] . " " . $freehiredata[0]['username']; ?>"> <?php echo ucwords($freehiredata[0]['fullname']) . ' ' . ucwords($freehiredata[0]['username']); ?></a>          </span>
+                                                                    </div>
+                                                                    <div class="profile-box-user">
+                                                                        <span class="profile-box-name">
+                                                                        <a style="font-size: 17px;" href="<?php echo base_url('freelancer/freelancer_hire_profile'); ?>" title="<?php echo $freehiredata[0]['fullname'] . " " . $freehiredata[0]['username']; ?>"><?php
+                            if ($freehiredata[0]['designation']) {
+                                echo $freehiredata[0]['designation'];
+                            } else {
+                                echo "Designation";
+                            }
+                            ?></a></span>
+                                                                    </div>
+                                                                    <div id="profile-box-profile-prompt"></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>-->
+
+                            <div class="full-box-module">    
+
                                 <div class="profile-boxProfileCard  module">
-                                    <div class="profile-boxProfileCard-cover">  
-                                        <a class="profile-boxProfileCard-bg u-bgUserColor a-block"
-                                           href="<?php echo base_url('freelancer/freelancer_hire_profile'); ?>"
-                                           tabindex="-1"
-                                           aria-hidden="true"
-                                           rel="noopener" 
-                                           title="<?php echo $freehiredata[0]['fullname']." ".$freehiredata[0]['username'] ; ?>">
-                                            
-                                             <?php
-                                       if ($freehiredata[0]['profile_background'] != '') {
-                                          
-                                           ?>
-                                         box image start 
-                                        <img src="<?php echo base_url(FREEHIREIMG . $freehiredata[0]['profile_background']); ?>" class="bgImage" alt="<?php echo $freehiredata[0]['fullname']." ".$freehiredata[0]['username'] ; ?>"  style="height: 95px;
-                                             width: 100%;">
-                                         box image end 
-                                        <?php
-                                    } else { 
-                                        ?>
-                                        <img src="<?php echo base_url(WHITEIMAGE); ?>" class="bgImage" alt="<?php echo $freehiredata[0]['fullname']." ".$freehiredata[0]['username'] ; ?>"  style="height: 95px;
-                                             width: 100%;">
-                                             <?php
-                                         }
-                                         ?>
-                                            
-                                            
-                                        </a></div>
-                                    <div class="profile-box-menu  fr col-md-12">
-                                        <div class="left- col-md-2"></div>
-                                        <div  class="right-section col-md-10">
-                                            <ul>
-                                                <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_hire_profile')) { ?> class="active" <?php } ?>><a href="<?php echo base_url('freelancer/freelancer_hire_profile'); ?>" > Profile</a>
-                                                </li>
-                                                <li ><a href="<?php echo base_url('freelancer/freelancer_hire_post'); ?>"> Posts</a>
-                                                </li>
-                                                <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_save')) { ?> class="active" <?php } ?>><a href="<?php echo base_url('freelancer/freelancer_save'); ?>">Saved</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="profile-boxProfileCard-content">
-                                        <div class="buisness-profile-txext ">
-                                            <a class="profile-boxProfileCard-avatarLink a-inlineBlock" href="<?php echo base_url('freelancer/freelancer_hire_profile'); ?>""  tabindex="-1" aria-hidden="true" rel="noopener" title="<?php echo $freehiredata[0]['fullname']." ".$freehiredata[0]['username'] ; ?>">
-                                                 <?php
-                                            if ($freehiredata[0]['freelancer_hire_user_image']) {
-                                                
+                                    <div class="profile-boxProfileCard-cover">    <a class="profile-boxProfileCard-bg u-bgUserColor a-block"
+                                                                                     href="<?php echo base_url('freelancer/freelancer_hire_profile'); ?>"
+                                                                                     tabindex="-1"
+                                                                                     aria-hidden="true"
+                                                                                     rel="noopener" 
+                                                                                     title="<?php echo $freehiredata[0]['fullname'] . " " . $freehiredata[0]['username']; ?>">
+
+                                            <?php
+                                            if ($freehiredata[0]['profile_background'] != '') {
                                                 ?>
-                                                <img src="<?php echo base_url(FREEHIREIMG . $freehiredata[0]['freelancer_hire_user_image']); ?>" alt="<?php echo $freehiredata[0]['fullname']." ".$freehiredata[0]['username'] ; ?>">
+                                                <!-- box image start -->
+                                                <img src="<?php echo base_url(FREEHIREIMG . $freehiredata[0]['profile_background']); ?>" class="bgImage" alt="<?php echo $freehiredata[0]['fullname'] . " " . $freehiredata[0]['username']; ?>"  style="height: 95px;
+                                                     width: 100%;">
+                                                <!-- box image end -->
                                                 <?php
                                             } else {
-                                                
                                                 ?>
-                                                <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo $freehiredata[0]['fullname']." ".$freehiredata[0]['username'] ; ?>">
+                                                <img src="<?php echo base_url(WHITEIMAGE); ?>" class="bgImage" alt="<?php echo $freehiredata[0]['fullname'] . " " . $freehiredata[0]['username']; ?>"  style="height: 95px;
+                                                     width: 100%;">
+                                                     <?php
+                                                 }
+                                                 ?>
+
+
+                                        </a>
+                                    </div>
+
+                                    <div class="profile-boxProfileCard-content clearfix">
+                                        <div class="buisness-profile-txext col-md-4">
+                                            <a class="profile-boxProfilebuisness-avatarLink2 a-inlineBlock" href="<?php echo base_url('freelancer/freelancer_hire_profile'); ?>""  tabindex="-1" aria-hidden="true" rel="noopener" title="<?php echo $freehiredata[0]['fullname'] . " " . $freehiredata[0]['username']; ?>">
                                                 <?php
-                                            }
-                                            ?>
-                                               
+                                                if ($freehiredata[0]['freelancer_hire_user_image']) {
+                                                    ?>
+                                                    <img src="<?php echo base_url(USERIMAGE . $freehiredata[0]['freelancer_hire_user_image']); ?>" alt="<?php echo $freehiredata[0]['fullname'] . " " . $freehiredata[0]['username']; ?>"  style="    height: 77px;
+                                                         width: 71px;
+                                                         z-index: 3;
+                                                         position: relative;
+                                                         ">
+                                                         <?php
+                                                     } else {
+                                                         ?>
+                                                    <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo $freehiredata[0]['fullname'] . " " . $freehiredata[0]['username']; ?>">
+                                                    <?php
+                                                }
+                                                ?>
                                             </a>
                                         </div>
-                                        <div class="profile-box-user">
-                                            <span class="profile-box-name ">
-                                                <a href="<?php echo base_url('freelancer/freelancer_hire_profile'); ?>" title="<?php echo $freehiredata[0]['fullname']." ".$freehiredata[0]['username'] ; ?>"> <?php echo ucwords($freehiredata[0]['fullname']) . ' ' . ucwords($freehiredata[0]['username']); ?></a>          </span>
-                                        </div>
-                                        <div class="profile-box-user">
-                                            <span class="profile-box-name">
-                                            <a style="font-size: 17px;" href="<?php echo base_url('freelancer/freelancer_hire_profile'); ?>" title="<?php echo $freehiredata[0]['fullname']." ".$freehiredata[0]['username'] ; ?>"><?php
-if ($freehiredata[0]['designation']) {
-    echo $freehiredata[0]['designation'];
-} else {
-    echo "Designation";
-}
-?></a></span>
-                                        </div>
-                                        <div id="profile-box-profile-prompt"></div>
-                                    </div>
-                                </div>
-                            </div>-->
+                                        <div class="profile-box-user  profile-text-bui-user  fr col-md-9">
+                                            <span class="profile-company-name ">
+                                                <a href="<?php echo base_url('freelancer/freelancer_hire_profile'); ?>" title="<?php echo $freehiredata[0]['fullname'] . " " . $freehiredata[0]['username']; ?>"> <?php echo ucwords($freehiredata[0]['fullname']) . ' ' . ucwords($freehiredata[0]['username']); ?></a>  
+                                            </span>
 
-<div class="full-box-module">    
-      
-      <div class="profile-boxProfileCard  module">
-<div class="profile-boxProfileCard-cover">    <a class="profile-boxProfileCard-bg u-bgUserColor a-block"
-                                           href="<?php echo base_url('freelancer/freelancer_hire_profile'); ?>"
-                                           tabindex="-1"
-                                           aria-hidden="true"
-                                           rel="noopener" 
-                                           title="<?php echo $freehiredata[0]['fullname']." ".$freehiredata[0]['username'] ; ?>">
-                                            
-                                             <?php
-                                       if ($freehiredata[0]['profile_background'] != '') {
-                                          
-                                           ?>
-                                        <!-- box image start -->
-                                        <img src="<?php echo base_url(FREEHIREIMG . $freehiredata[0]['profile_background']); ?>" class="bgImage" alt="<?php echo $freehiredata[0]['fullname']." ".$freehiredata[0]['username'] ; ?>"  style="height: 95px;
-                                             width: 100%;">
-                                        <!-- box image end -->
-                                        <?php
-                                    } else { 
-                                        ?>
-                                        <img src="<?php echo base_url(WHITEIMAGE); ?>" class="bgImage" alt="<?php echo $freehiredata[0]['fullname']." ".$freehiredata[0]['username'] ; ?>"  style="height: 95px;
-                                             width: 100%;">
-                                             <?php
-                                         }
-                                         ?>
-                                            
-                                            
-                                        </a>
- </div>
-  
-    <div class="profile-boxProfileCard-content clearfix">
-<div class="buisness-profile-txext col-md-4">
-         <a class="profile-boxProfilebuisness-avatarLink2 a-inlineBlock" href="<?php echo base_url('freelancer/freelancer_hire_profile'); ?>""  tabindex="-1" aria-hidden="true" rel="noopener" title="<?php echo $freehiredata[0]['fullname']." ".$freehiredata[0]['username'] ; ?>">
-                                                 <?php
-                                            if ($freehiredata[0]['freelancer_hire_user_image']) {
-                                                
-                                                ?>
-                                               <img src="<?php echo base_url(FREEHIREIMG . $freehiredata[0]['freelancer_hire_user_image']); ?>" alt="<?php echo $freehiredata[0]['fullname']." ".$freehiredata[0]['username'] ; ?>"  style="    height: 77px;
-    width: 71px;
-    z-index: 3;
-    position: relative;
-">
-                                                <?php
-                                            } else {
-                                                ?>
-                                                  <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo $freehiredata[0]['fullname']." ".$freehiredata[0]['username'] ; ?>">
-                                                <?php
-                                            }
-                                            ?>
-                                        </a>
-</div>
-<div class="profile-box-user  profile-text-bui-user  fr col-md-9">
-            <span class="profile-company-name ">
-                                           <a href="<?php echo base_url('freelancer/freelancer_hire_profile'); ?>" title="<?php echo $freehiredata[0]['fullname']." ".$freehiredata[0]['username'] ; ?>"> <?php echo ucwords($freehiredata[0]['fullname']) . ' ' . ucwords($freehiredata[0]['username']); ?></a>  
-                                        </span>
-       
-         
-         <div class="profile-boxProfile-name">
-        <a style="font-size: 15px;" href="<?php echo base_url('freelancer/freelancer_hire_profile'); ?>" title="<?php echo $freehiredata[0]['fullname']." ".$freehiredata[0]['username'] ; ?>"><?php
-if ($freehiredata[0]['designation']) {
-    echo $freehiredata[0]['designation'];
-} else {
-    echo "Designation";
-}
-?></a></div>
-     
-     
-    </div>
-   
-          <div class="profile-box-job-menu  col-md-12">
-         
-                                    <ul class="">
-                                           <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_hire_profile')) { ?> class="active" <?php } ?>><a href="<?php echo base_url('freelancer/freelancer_hire_profile'); ?>" > Details</a>
+
+                                            <div class="profile-boxProfile-name">
+                                                <a style="font-size: 15px;" href="<?php echo base_url('freelancer/freelancer_hire_profile'); ?>" title="<?php echo $freehiredata[0]['fullname'] . " " . $freehiredata[0]['username']; ?>"><?php
+                                                    if ($freehiredata[0]['designation']) {
+                                                        echo $freehiredata[0]['designation'];
+                                                    } else {
+                                                        echo "Designation";
+                                                    }
+                                                    ?></a></div>
+
+
+                                        </div>
+
+                                        <div class="profile-box-job-menu  col-md-12">
+
+                                            <ul class="">
+                                                <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_hire_profile')) { ?> class="active" <?php } ?>><a href="<?php echo base_url('freelancer/freelancer_hire_profile'); ?>" > Details</a>
                                                 </li>
                                                 <li ><a href="<?php echo base_url('freelancer/freelancer_hire_post'); ?>"> Posts</a>
                                                 </li>
                                                 <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_save')) { ?> class="active" <?php } ?>><a href="<?php echo base_url('freelancer/freelancer_save'); ?>">Message</a>
                                                 </li>
-                                </ul>
-     
-      </div>
-     
-  </div>
-  </div>
-  </div>
+                                            </ul>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div  class="add-post-button">
                             <a class="btn btn-3 btn-3b" href="<?php echo base_url('freelancer/freelancer_add_post'); ?>"><i class="fa fa-plus" aria-hidden="true"></i>  Add Post</a>
                         </div>
                     </div>
                     <?php
+
                     function text2link($text) {
                         $text = preg_replace('/(((f|ht){1}t(p|ps){1}:\/\/)[-a-zA-Z0-9@:%_\+.~#?&\/\/=]+)/i', '<a href="\\1" target="_blank" rel="nofollow">\\1</a>', $text);
                         $text = preg_replace('/([[:space:]()[{}])(www.[-a-zA-Z0-9@:%_\+.~#?&\/\/=]+)/i', '\\1<a href="http://\\2" target="_blank" rel="nofollow">\\2</a>', $text);
@@ -380,7 +376,7 @@ if ($freehiredata[0]['designation']) {
                                     <div class="job-contact-frnd ">
                                         <!-- body tag inner data start-->
                                         <?php
-                                        // echo "<pre>"; print_r($candidatefreelancer);die();
+// echo "<pre>"; print_r($candidatefreelancer);die();
                                         if ($candidatefreelancer) {
                                             foreach ($candidatefreelancer as $cand_key => $cand_value) {
                                                 foreach ($cand_value as $row) {
@@ -405,24 +401,24 @@ if ($freehiredata[0]['designation']) {
                                                                             <li>
                                                                                 <div  class="buisness-profile-pic-candidate">
                                                                                     <?php
-                                            if ($row['freelancer_post_user_image']) {
-                                                
-                                                ?>
-                                                <img src="<?php echo base_url(FREEWORKIMG . $row['freelancer_post_user_image']); ?>" alt="<?php echo ucwords($row['freelancer_post_fullname']) . ' ' . ucwords($row['freelancer_post_username']); ?>">
-                                                <?php
-                                            } else {
-                                                
-                                                ?>
-                                                <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo ucwords($row['freelancer_post_fullname']) . ' ' . ucwords($row['freelancer_post_username']); ?>">
-                                                <?php
-                                            }
-                                            ?>
-                                                                                    
-                                                                                </div></li>
+                                                                                    if ($row['freelancer_post_user_image']) {
+                                                                                        ?>
+                                                                                        <img src="<?php echo base_url(USERIMAGE . $row['freelancer_post_user_image']); ?>" alt="<?php echo ucwords($row['freelancer_post_fullname']) . ' ' . ucwords($row['freelancer_post_username']); ?>">
+                                                                                        <?php
+                                                                                    } else {
+                                                                                        ?>
+                                                                                        <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo ucwords($row['freelancer_post_fullname']) . ' ' . ucwords($row['freelancer_post_username']); ?>">
+                                                                                        <?php
+                                                                                    }
+                                                                                    ?>
+
+                                                                                </div>
+                                                                            </li>
                                                                             <li>
                                                                                 <a href="<?php echo base_url('freelancer/freelancer_post_profile/' . $row['user_id']); ?>" title="<?php echo ucwords($row['freelancer_post_fullname']) . ' ' . ucwords($row['freelancer_post_username']); ?>"><h4>
-            <?php echo ucwords($row['freelancer_post_fullname']) . ' ' . ucwords($row['freelancer_post_username']); ?></h4>
-                                                                                </a></li>
+                                                                                        <?php echo ucwords($row['freelancer_post_fullname']) . ' ' . ucwords($row['freelancer_post_username']); ?></h4>
+                                                                                </a>
+                                                                            </li>
                                                                         </ul>
                                                                 </div>
                                                             </div>
@@ -430,107 +426,140 @@ if ($freehiredata[0]['designation']) {
                                                             <div class="profile-job-profile-menu">
                                                                 <ul>
                                                                     <li><b>Skills</b><span>
-            <?php
-            $comma = ",";
-            $k = 0;
-            $aud = $row['freelancer_post_area'];
-            $aud_res = explode(',', $aud);
-            foreach ($aud_res as $skill) {
-                if ($k != 0) {
-                    echo $comma;
-                }
-                $cache_time = $this->db->get_where('skill', array('skill_id' => $skill))->row()->skill;
-                if($cache_time){
-                echo $cache_time;}
-                else{
-                    echo PROFILENA;
-                }
-                $k++;
-            }
-            ?>   </span>    
+                                                                            <?php
+                                                                            $comma = ",";
+                                                                            $k = 0;
+                                                                            $aud = $row['freelancer_post_area'];
+                                                                            $aud_res = explode(',', $aud);
+                                                                            foreach ($aud_res as $skill) {
+                                                                                if ($k != 0) {
+                                                                                    echo $comma;
+                                                                                }
+                                                                                $cache_time = $this->db->get_where('skill', array('skill_id' => $skill))->row()->skill;
+                                                                                if ($cache_time) {
+                                                                                    echo $cache_time;
+                                                                                } else {
+                                                                                    echo PROFILENA;
+                                                                                }
+                                                                                $k++;
+                                                                            }
+                                                                            ?>   </span>    
                                                                     </li>
-            
+
                                                                     <li><b>Other Skill</b><span>
-        <?php if ($row['freelancer_post_otherskill']){
-            echo $row['freelancer_post_otherskill'];
-            }else{echo PROFILENA;} ?></span>
-                                                                </li>
-        <?php $cityname = $this->db->get_where('cities', array('city_id' => $row['freelancer_post_city']))->row()->city_name; ?>
-                                                                <li><b>Location</b><span> <?php if($cityname){ echo $cityname;} else{ echo PROFILENA;} ?></span></li>
-                                                                <li><b>Skill Description</b> <span> <p>
-        <?php if($row['freelancer_post_skill_description']) {echo $row['freelancer_post_skill_description'];} else {echo PROFILENA;} ?></p></span>
-                                                                </li>
-                                                                <li><b>Designation</b>
-                                                                    <span><?php if($row['designation']){echo $row['designation'];} else{ echo PROFILENA;} ?></span>
-                                                                </li>
-                                                                <li><b>Avaiability</b><span>
-                                                                    <?php 
-                                                                    if($row['freelancer_post_work_hour'])
-                                                                    { echo $row['freelancer_post_work_hour'] . "  " . "Hours per week "; 
-                                                                } else 
-                                                                {
+                                                                            <?php
+                                                                            if ($row['freelancer_post_otherskill']) {
+                                                                                echo $row['freelancer_post_otherskill'];
+                                                                            } else {
+                                                                                echo PROFILENA;
+                                                                            }
+                                                                            ?></span>
+                                                                    </li>
+                                                                    <?php $cityname = $this->db->get_where('cities', array('city_id' => $row['freelancer_post_city']))->row()->city_name; ?>
+                                                                    <li><b>Location</b><span> <?php
+                                                                            if ($cityname) {
+                                                                                echo $cityname;
+                                                                            } else {
+                                                                                echo PROFILENA;
+                                                                            }
+                                                                            ?></span></li>
+                                                                    <li><b>Skill Description</b> <span> <p>
+                                                                                <?php
+                                                                                if ($row['freelancer_post_skill_description']) {
+                                                                                    echo $row['freelancer_post_skill_description'];
+                                                                                } else {
+                                                                                    echo PROFILENA;
+                                                                                }
+                                                                                ?></p></span>
+                                                                    </li>
+                                                                    <li><b>Designation</b>
+                                                                        <span><?php
+                                                                                if ($row['designation']) {
+                                                                                    echo $row['designation'];
+                                                                                } else {
+                                                                                    echo PROFILENA;
+                                                                                }
+                                                                                ?></span>
+                                                                    </li>
+                                                                    <li><b>Avaiability</b><span>
+                                                                            <?php
+                                                                            if ($row['freelancer_post_work_hour']) {
+                                                                                echo $row['freelancer_post_work_hour'] . "  " . "Hours per week ";
+                                                                            } else {
+                                                                                echo PROFILENA;
+                                                                            }
+                                                                            ?></span>
+                                                                    </li>
+                                                                    <li><b>Rate Hourly</b> <span>
+                                                                            <?php
+                                                                            if ($row['freelancer_post_hourly']) {
+                                                                                $currency = $this->db->get_where('currency', array('currency_id' => $row['freelancer_post_ratestate']))->row()->currency_name;
+                                                                                if ($row['freelancer_post_fixed_rate'] == '1') {
+                                                                                    $rate_type = 'Fixed';
+                                                                                } else {
+                                                                                    $rate_type = 'Hourly';
+                                                                                }
+                                                                                echo $row['freelancer_post_hourly'] . "   " . $currency . "  " . $rate_type;
+                                                                                ;
+                                                                            } else {
+                                                                                echo PROFILENA;
+                                                                            }
+                                                                            ?></span>
+
+                                                                    </li>
+                                                                    <li><b>Total Experience</b>
+                                                                        <span> <?php
+                                                                if ($row['freelancer_post_exp_year'] || $row['freelancer_post_exp_month']) {
+                                                                    echo $row['freelancer_post_exp_year'] . ' ' . $row['freelancer_post_exp_month'];
+                                                                } else {
                                                                     echo PROFILENA;
-                                                                    }?></span>
-                                                                </li>
-                                                                <li><b>Rate Hourly</b> <span>
-                                                                    <?php if ($row['freelancer_post_hourly']){
-                                                                    $currency = $this->db->get_where('currency', array('currency_id' => $row['freelancer_post_ratestate']))->row()->currency_name;
-                                                                    if($row['freelancer_post_fixed_rate'] == '1'){ $rate_type = 'Fixed';}else{ $rate_type = 'Hourly';}
-                                                                    echo $row['freelancer_post_hourly'] . "   " . $currency. "  ".$rate_type;;
                                                                 }
-                                                                else{
-                                                                    echo PROFILENA;
-                                                                }
-                                                                    ?></span>
-                                                                
-                                                                </li>
-                                                                <li><b>Total Experience</b>
-       <span> <?php if ($row['freelancer_post_exp_year'] ||$row['freelancer_post_exp_month'] ){echo $row['freelancer_post_exp_year'] . ' ' . $row['freelancer_post_exp_month'];} else{ echo PROFILENA;} ?></span>
-                                                                </li>
+                                                                            ?></span>
+                                                                    </li>
                                                                 </ul>
                                                             </div>
                                                             <div class="profile-job-profile-button clearfix">
                                                                 <div class="apply-btn fr">
             <?php
             $userid = $this->session->userdata('aileenuser');
-            $contition_array = array('from_id' => $userid, 'to_id' => $row['user_id'],'save_type' => 2,'status'=>'0');
+            $contition_array = array('from_id' => $userid, 'to_id' => $row['user_id'], 'save_type' => 2, 'status' => '0');
             $data = $this->common->select_data_by_condition('save', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
             // khayti changes start 6-4
-            if(!$data) {
+            if (!$data) {
                 ?> 
                                                                         <input type="hidden" name="saveuser"  id="saveuser" value= "<?php echo $data[0]['save_id']; ?>">
                                                                         <!-- pallavi changes 15-4 -->
                                                                         <a id="<?php echo $row['user_id']; ?>" onClick="savepopup(<?php echo$row['user_id']; ?>)" href="javascript:void(0);" class="<?php echo 'saveduser' . $row['user_id']; ?>">Save</a>
                                                                         <!-- pallavi changes end 15-4 -->
                                                                        <!--  <a id="<?php echo $row['user_id']; ?>" onClick="save_user(this.id)" href="#popup1" class="<?php echo 'saveduser' . $row['user_id']; ?>">Save User</a> -->
-                                                                        <?php
-                                                                    } else {
-                                                                        ?>
+                <?php
+            } else {
+                ?>
                                                                         <a class="saved" href="javascript:void(0);" onclick="return false">Saved</a> 
-                                                                        <?php
-                                                                        // khayti changes end 6-4                              
-                                                                    }
-                                                                    ?> 
-                              <a href="<?php echo base_url('chat/abc/' . $row['user_id']); ?>">Saved</a>
+                <?php
+                // khayti changes end 6-4                              
+            }
+            ?> 
+                                                                    <a href="<?php echo base_url('chat/abc/' . $row['user_id']); ?>">Saved</a>
 
-                             
 
-                             
+
+
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-        <?php
-        }
-    }
-} else {
-    ?>
+                                                    <?php
+                                                }
+                                            }
+                                        } else {
+                                            ?>
                                             <div class="text-center rio">
                                                 <h4 class="page-heading  product-listing" style="border:0px;margin-bottom: 11px;">No Recommended Freelancer Found.</h4>
                                             </div>
-                                            <?php
-                                        }
-                                        ?>
+    <?php
+}
+?>
                                         <!-- body tag inner data end -->
                                         <div class="col-md-1">
                                         </div>
@@ -544,58 +573,58 @@ if ($freehiredata[0]['designation']) {
 <?php echo $footer; ?>
                     </footer>
                     <!-- pallavi changes 15-4 -->
- <!-- Model Popup Open -->
-                <!-- Bid-modal  -->
-                <div class="modal fade message-box biderror" id="bidmodal" role="dialog">
-                    <div class="modal-dialog modal-lm">
-                        <div class="modal-content">
-                            <button type="button" class="modal-close" data-dismiss="modal">&times;</button>         
-                            <div class="modal-body">
-                                <!--<img class="icon" src="images/dollar-icon.png" alt="" />-->
-                                <span class="mes"></span>
+                    <!-- Model Popup Open -->
+                    <!-- Bid-modal  -->
+                    <div class="modal fade message-box biderror" id="bidmodal" role="dialog">
+                        <div class="modal-dialog modal-lm">
+                            <div class="modal-content">
+                                <button type="button" class="modal-close" data-dismiss="modal">&times;</button>         
+                                <div class="modal-body">
+                                    <!--<img class="icon" src="images/dollar-icon.png" alt="" />-->
+                                    <span class="mes"></span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <!-- Model Popup Close -->
-                <!-- pallavi changes end 15-4 -->
+                    <!-- Model Popup Close -->
+                    <!-- pallavi changes end 15-4 -->
                     </body>
                     </html>
-    <script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
-   <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
-    <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
-    <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+                    <script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
+                    <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
+                    <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
+                    <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
                     <!-- script for skill textbox automatic end (option 2)-->
- <script>
-var data= <?php echo json_encode($demo); ?>;
-//alert(data);
-        
-$(function() {
-    // alert('hi');
-$( "#tags" ).autocomplete({
-     source: function( request, response ) {
-         var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
-         response( $.grep( data, function( item ){
-             return matcher.test( item.label );
-         }) );
-   },
-    minLength: 1,
-    select: function(event, ui) {
-        event.preventDefault();
-        $("#tags").val(ui.item.label);
-        $("#selected-tag").val(ui.item.label);
-        // window.location.href = ui.item.value;
-    }
-    ,
-    focus: function(event, ui) {
-        event.preventDefault();
-        $("#tags").val(ui.item.label);
-    }
-});
-});
-  
-</script>
+                    <script>
+                                                            var data = <?php echo json_encode($demo); ?>;
+                                                            //alert(data);
+
+                                                            $(function () {
+                                                                // alert('hi');
+                                                                $("#tags").autocomplete({
+                                                                    source: function (request, response) {
+                                                                        var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+                                                                        response($.grep(data, function (item) {
+                                                                            return matcher.test(item.label);
+                                                                        }));
+                                                                    },
+                                                                    minLength: 1,
+                                                                    select: function (event, ui) {
+                                                                        event.preventDefault();
+                                                                        $("#tags").val(ui.item.label);
+                                                                        $("#selected-tag").val(ui.item.label);
+                                                                        // window.location.href = ui.item.value;
+                                                                    }
+                                                                    ,
+                                                                    focus: function (event, ui) {
+                                                                        event.preventDefault();
+                                                                        $("#tags").val(ui.item.label);
+                                                                    }
+                                                                });
+                                                            });
+
+                    </script>
                     <script type="text/javascript">
                         function checkvalue() {
                             //alert("hi");
@@ -661,16 +690,16 @@ $( "#tags" ).autocomplete({
                             });
                         }
                     </script>
-<!-- pallavi changes 15-4 -->
+                    <!-- pallavi changes 15-4 -->
                     <!-- save post end -->
- <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
-                     <script>
-                    function savepopup(id) {
-                        
-                        save_user(id);
+                    <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
+                    <script>
+                        function savepopup(id) {
+
+                            save_user(id);
 //                       
-                        $('.biderror .mes').html("<div class='pop_content'>Your post is successfully saved.");
-                        $('#bidmodal').modal('show');
-                    }
+                            $('.biderror .mes').html("<div class='pop_content'>Your post is successfully saved.");
+                            $('#bidmodal').modal('show');
+                        }
                     </script>
                     <!-- pallavi changes end 15-4
