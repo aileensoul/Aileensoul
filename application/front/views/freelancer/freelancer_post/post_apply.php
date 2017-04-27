@@ -402,7 +402,7 @@ if ($freepostdata[0]['designation']) {
                                                     </div>
                                                     <div class="exper-location">
                                                         <ul>
-                                                            <li>Posted-<?php echo date('d-M-Y', strtotime($post['created_date'])); ?></li>
+                                                            <li>Postedv  : <?php echo date('d-M-Y', strtotime($post['created_date'])); ?></li>
                                                             <li>
                                                                 <?php
                                                                 $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name;
