@@ -230,25 +230,27 @@ echo $recruiter_header2;
     <div class="container">    
       <div class="upload-img">
       
-        
+        <?php if($returnpage == ' '){ ?>
       <label class="cameraButton"><i class="fa fa-camera" aria-hidden="true"></i>
             <input type="file" id="upload" name="upload" accept="image/*;capture=camera" onclick="showDiv()">
         </label>
-
+        <?php }?>
       </div>
   
             <div class="profile-photo">
               <div class="profile-pho">
 
                 <div class="user-pic">
-                                <?php if($recdata[0]['recruiter_user_image'] != ''){ ?>
+                                <?php if($recdata[0]['recruiter_user_image'] != '' ){ ?>
                            <img src="<?php echo base_url(USERIMAGE . $recdata[0]['recruiter_user_image']);?>" alt="" >
                             <?php } else { ?>
                             <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
                             <?php } ?>
                             <!-- <a href="#popup-form" class="fancybox"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>
  -->
+                        <?php if($returnpage == ''){ ?>
                          <a href="javascript:void(0);" onclick="updateprofilepopup();"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>
+                        <?php }?>
                         </div>
                        
                         <!-- <div id="popup-form">
@@ -308,17 +310,18 @@ echo $recruiter_header2;
   </div>  
     <!-- menubar -->                
   <div class="job-menu-profile1 col-md-3">
-                         <a href="<?php echo site_url('recruiter/rec_profile/' . $recruiterdata[0]['user_id']); ?>" title="<?php echo $recdata[0]['rec_firstname'] . ' ' . $recdata[0]['rec_lastname']; ?>"><h5><?php echo $recdata[0]['rec_firstname'] . ' ' . $recdata[0]['rec_lastname']; ?></h5></a>
+                         <a href="javscript: void(0);" title="<?php echo $recdata[0]['rec_firstname'] . ' ' . $recdata[0]['rec_lastname']; ?>"><h5><?php echo $recdata[0]['rec_firstname'] . ' ' . $recdata[0]['rec_lastname']; ?></h5></a>
                             <!-- text head start -->
                     <div class="profile-text" >
                    
                      <?php 
-                   
+                if($returnpage == ''){   
                   
             if ($recdata[0]['designation'] == "") {
                
                 ?>
                             <!--<center><a id="myBtn" title="Designation">Designation</a></center>-->
+                        
                 <center><a id="designation" class="designation" title="Designation">Current Work</a></center>
             <?php }
              else {
@@ -326,7 +329,9 @@ echo $recruiter_header2;
                 ?> 
                 <!--<a id="myBtn" title="<?php echo ucwords($job[0]['designation']); ?>"><?php echo ucwords($job[0]['designation']); ?></a>-->
                 <a id="designation" class="designation" title="<?php echo ucwords($recdata[0]['designation']); ?>"><?php echo ucwords($recdata[0]['designation']); ?></a>
-            <?php } ?>
+             <?php }
+             
+             } else {  echo ucwords($recdata[0]['designation']);  }  ?>
 
                     <!-- The Modal -->
             <!--         <div id="myModal" class="modal">
@@ -350,8 +355,9 @@ echo $recruiter_header2;
             </div>
             
   <div  class="add-post-button">
-   
+        <?php if($returnpage == '') {?>
         <a class="btn btn-3 btn-3b" href="<?php echo base_url('recruiter/add_post'); ?>"><i class="fa fa-plus" aria-hidden="true"></i>  Add Post</a>
+        <?php } ?>
   </div>
   </div>
 
