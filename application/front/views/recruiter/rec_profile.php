@@ -230,7 +230,7 @@ echo $recruiter_header2;
     <div class="container">    
       <div class="upload-img">
       
-        <?php if($returnpage == ' '){ ?>
+        <?php if($returnpage == ''){ ?>
       <label class="cameraButton"><i class="fa fa-camera" aria-hidden="true"></i>
             <input type="file" id="upload" name="upload" accept="image/*;capture=camera" onclick="showDiv()">
         </label>
