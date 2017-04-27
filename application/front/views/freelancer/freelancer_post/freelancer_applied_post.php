@@ -568,7 +568,7 @@ function text2link($text) {
                                         </div>
                                         </div>
                                         <div class="profile-job-profile-button clearfix">
-                                          <div class="fl"  style="padding-top: 10px; padding-left: 10px;">
+                                          <div class="fl"  style="padding-top: 13px; padding-left: 10px;">
    Last Date:<?php echo date('d-M-Y', strtotime($post['post_last_date'])); ?>        
                                           </div>
                                             <div class="apply-btn fr">

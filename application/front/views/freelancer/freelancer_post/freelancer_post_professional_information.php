@@ -139,7 +139,8 @@
                             </fieldset>
 
                             <fieldset  class="" <?php if ($experience_year) { ?> class="error-msg" <?php } ?>>
-                                <label>Total experience<span style="color:red">*</span></label>  <select name="experience_year" id="experience_year" class="experience_year col-md-5" style="margin-right: 5px;">
+                                <label>Total experience<span style="color:red">*</span></label>  <select name="experience_year" placeholder="Year" id="experience_year" class="experience_year col-md-5" style="margin-right: 5px;">
+
                                     <option value="" selected option disabled>Year</option>
                                     <option value="0 year"  <?php if ($experience_year1 == "0 year") echo 'selected'; ?>>0</option>
                                     <option value="1 year"  <?php if ($experience_year1 == "1 year") echo 'selected'; ?>>1</option>
@@ -166,7 +167,7 @@
                                 </select>
 
 
-                                <select name="experience_month" id="experience_month" class="experience_month col-md-5" style="margin-right: 5px;">
+                                <select name="experience_month" id="experience_month" placeholder="Month" class="experience_month col-md-5" style="margin-right: 5px;">
                                     <option value="" selected option disabled>Month</option>
                                     <option value="1 month"  <?php if ($experience_month1 == "1 month") echo 'selected'; ?>>1</option>
                                     <option value="2 month"  <?php if ($experience_month1 == "2 month") echo 'selected'; ?>>2</option>

@@ -535,7 +535,7 @@
                                         </ul>
                                     </div></div></div>
                                     <div class="profile-job-profile-button clearfix">
-                                     <div class="fl"  style="padding-top: 10px; padding-left: 10px;">
+                                     <div class="fl"  style="padding-top: 20px; padding-left: 10px;">
                                                                     Last Date for apply : <?php echo date('d-M-Y', strtotime($post['post_last_date'])); ?>
                                                                 </div>
                                             
