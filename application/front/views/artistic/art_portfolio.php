@@ -54,10 +54,10 @@
                                 <?php
                                  $artportfolio =  form_error('artportfolio');
                                 ?>
-
+<!-- 
                                 <fieldset>
                                    <!--  <label>Best of mine:</label> -->
-                                    <input type="file" name="bestofmine" id="bestofmine" placeholder="Enter Best of mine" />
+<!--                                     <input type="file" name="bestofmine" id="bestofmine" placeholder="Enter Best of mine" />
 
                                     <?php
                                     if($bestofmine1 != ""){
@@ -108,8 +108,8 @@
                                      
                                     <input type="hidden" name="bestmine" id="bestmine" value="<?php echo $bestofmine1; ?>"><span id="bestofmine-error"></span>
                                     
-                                </fieldset>
-
+                                </fieldset> -->
+ 
 <!--                                 <fieldset>
                                     <label>Achievement:</label>
                                     <input name="achievmeant"  type="file" id="achievmeant" placeholder="Enter Achievement" /> 
@@ -162,7 +162,10 @@
                                     <input type="hidden" name="archiver" id="archiver" value="<?php echo $achievmeant1; ?>"><span id="achievmeant-error"></span>
                                   
                                 </fieldset> -->
-
+                                <div class="action-buttons btn-group ">
+                                                <a href="javascript:void(0);" id="add_field1" ><i class="fa fa-plus" aria-hidden="true"></i></a>
+                                            </div>
+                                            <label>Attachment:</label>
                                 <fieldset class="full-width">
                                     <!-- <label>Tell me about yourself:</label> -->
 
@@ -176,8 +179,6 @@
 
                                  <fieldset class="hs-submit full-width">
                                    
-                                    <input type="reset">
-                                    <a href="<?php echo base_url('artistic/art_information'); ?>">Previous</a>
                                     
                                     <input type="submit"  id="submit" name="submit" value="submit">
                                    
