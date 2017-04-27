@@ -1136,7 +1136,7 @@ class Artistic extends MY_Controller {
         if ($id == manage) {
 
 
-            if($para == $userid || $para == " "){
+            if($para == $userid || $para == ''){
             redirect('artistic/art_manage_post', refresh);
             }else{
                 redirect('artistic/art_manage_post/'.$para, refresh);

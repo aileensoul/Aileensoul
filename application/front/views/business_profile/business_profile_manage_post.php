@@ -922,7 +922,7 @@ if($status == 0 || $status == " "){?>
   
    <div class="post-editor col-md-12">
    
-    <?php echo form_open_multipart(base_url('business_profile/business_profile_addpost_insert/'.'manage'), array('id' => 'artpostform','name' => 'artpostform', 'class' => 'clearfix', 'onsubmit' => "imgval(event)")); ?>
+    <?php echo form_open_multipart(base_url('business_profile/business_profile_addpost_insert/'.'manage/'.$businessdata1[0]['user_id']), array('id' => 'artpostform','name' => 'artpostform', 'class' => 'clearfix', 'onsubmit' => "imgval(event)")); ?>
 
                                 <div class="main-text-area col-md-12"  style="border-bottom: 5px solid #ced5df;">
                                 <div class="popup-img col-md-1"> <img  src="<?php echo base_url(USERIMAGE . $businessdata1[0]['business_user_image']);?>"  alt="">

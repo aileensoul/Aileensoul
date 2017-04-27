@@ -1127,13 +1127,17 @@ class Business_profile extends MY_Controller {
         $this->load->view('business_profile/business_profile_addpost', $this->data);
     }
 
-    public function business_profile_addpost_insert($id) {
+    public function business_profile_addpost_insert($id, $para) {
 
 
         $userid = $this->session->userdata('aileenuser');
 
+        $contition_array = array('user_id' => $para, 'status' => '1');
+        $this->data['businessdataposted'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'business_slug', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-        $data = array(
+        if($para == $userid || $para == ''){
+
+            $data = array(
             'product_name' => $this->input->post('my_text'),
             'product_description' => $this->input->post('product_desc'),
             'created_date' => date('Y-m-d', time()),
@@ -1142,6 +1146,18 @@ class Business_profile extends MY_Controller {
             'user_id' => $userid
         );
 
+
+        }else{
+        $data = array(
+            'product_name' => $this->input->post('my_text'),
+            'product_description' => $this->input->post('product_desc'),
+            'created_date' => date('Y-m-d', time()),
+            'status' => 1,
+            'is_delete' => 0,
+            'user_id' => $para,
+            'posted_user_id' => $userid 
+        );
+       }
         //echo "<pre>"; print_r($data); die();
         $insert_id = $this->common->insert_data_getid($data, 'business_profile_post');
         //echo $insert_id; die(); 
@@ -1190,7 +1206,13 @@ class Business_profile extends MY_Controller {
         } //die();
 
         if($id == manage){
-        redirect('business_profile//business_profile_manage_post', refresh);
+
+            if($para == $userid || $para == ''){
+        redirect('business_profile/business_profile_manage_post', refresh);
+            }else{
+        redirect('business_profile/business_profile_manage_post/'.$this->data['businessdataposted'][0]['business_slug'], refresh);
+
+            }
         }else{
         redirect('business_profile/business_profile_post', refresh);
 
