@@ -2899,6 +2899,26 @@ $followingdatacount = count($followingotherdata);
 
 
             $updatdata = $this->common->update_data($data, 'art_post', 'art_post_id', $post_id);
+
+
+
+             // insert notification
+
+            $data = array(
+                'not_type' => 5,
+                'not_from_id' => $userid,
+                'not_to_id' => $artdata[0]['user_id'] ,
+                'not_read' => 2,
+                'not_product_id' => $post_id,
+                'not_from' => 3,
+                'not_img' => 0
+            );
+
+            $insert_id = $this->common->insert_data_getid($data, 'notification');
+            // end notoification
+
+
+
             $contition_array = array('art_post_id' => $_POST["post_id"], 'status' => '1');
             $artdata1 = $this->data['artdata1'] = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -3134,6 +3154,10 @@ $followingdatacount = count($followingotherdata);
         $post_id = $_POST["post_id"];
         $post_comment = $_POST["comment"];
 
+        $contition_array = array('art_post_id' => $_POST["post_id"], 'status' => '1');
+        $artdatacomment = $this->data['artdatacomment'] = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+
         $data = array(
             'user_id' => $userid,
             'art_post_id' => $post_id,
@@ -3146,6 +3170,27 @@ $followingdatacount = count($followingotherdata);
 
 
         $insert_id = $this->common->insert_data_getid($data, 'artistic_post_comment');
+
+
+        // insert notification
+        
+            if($artdatacomment[0]['user_id'] == $userid){}
+            else{
+            $data = array(
+                'not_type' => 6,
+                'not_from_id' => $userid,
+                'not_to_id' => $artdatacomment[0]['user_id'],
+                'not_read' => 2,
+                'not_product_id' => $insert_id,
+                'not_from' => 3,
+                'not_img' => 0
+            );
+
+            $insert_id = $this->common->insert_data_getid($data, 'notification');
+           } 
+            // end notoification
+
+
 
         $contition_array = array('art_post_id' => $_POST["post_id"], 'status' => '1');
         $artdata = $this->data['artdata'] = $this->common->select_data_by_condition('artistic_post_comment', $contition_array, $data = '*', $sortby = 'artistic_post_comment_id', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -3245,6 +3290,11 @@ $followingdatacount = count($followingotherdata);
         $post_id = $_POST["post_id"];
         $post_comment = $_POST["comment"];
 
+
+        $contition_array = array('art_post_id' => $_POST["post_id"], 'status' => '1');
+        $artdatacomment = $this->data['artdatacomment'] = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+
         $data = array(
             'user_id' => $userid,
             'art_post_id' => $post_id,
@@ -3257,6 +3307,23 @@ $followingdatacount = count($followingotherdata);
 
 
         $insert_id = $this->common->insert_data_getid($data, 'artistic_post_comment');
+
+        // insert notification
+
+            $data = array(
+                'not_type' => 6,
+                'not_from_id' => $userid,
+                'not_to_id' => $artdatacomment[0]['user_id'] ,
+                'not_read' => 2,
+                'not_product_id' => $insert_id,
+                'not_from' => 3,
+                'not_img' => 0
+            );
+
+            $insert_id = $this->common->insert_data_getid($data, 'notification');
+            // end notoification
+
+
 
         $contition_array = array('art_post_id' => $_POST["post_id"], 'status' => '1');
         $artdata = $this->data['artdata'] = $this->common->select_data_by_condition('artistic_post_comment', $contition_array, $data = '*', $sortby = 'artistic_post_comment_id', $orderby = 'DESC', $limit = '1', $offset = '', $join_str = array(), $groupby = '');
@@ -3563,7 +3630,7 @@ $followingdatacount = count($followingotherdata);
 //multiple images for user start
 
 
-    public function art_photos($id) {
+    public function art_photos($id="") {
 
 
         $userid = $this->session->userdata('aileenuser');
