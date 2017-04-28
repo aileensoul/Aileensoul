@@ -598,7 +598,7 @@ $( "#tags" ).autocomplete({
 
 
             $.ajax({
-                url: "https://www.aileensoul.com/artistic/ajaxpro",
+                 url: "<?php echo base_url() ?>artistic/ajaxpro",
                 type: "POST",
                 data: {"image": resp},
                 success: function (data) {
