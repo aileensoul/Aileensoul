@@ -16,98 +16,7 @@ body {
  * Copyright (c) 2016 İsmail Demirbilek
  * License: MIT
  */
-.tabs-left, .tabs-right {
-  border-bottom: none;
-  padding-top: 2px;
-}
-.tabs-left {
-  /*border-right: 1px solid #ddd;*/
-  padding-top: 15px;
-  height: 100%;
-}
-.tabs-right {
-  border-left: 1px solid #ddd;
-}
-.tabs-left>li, .tabs-right>li {
-  float: none;
-  margin-bottom: 2px;
-}
-.tabs-left>li {
-  margin-right: -1px;
-  padding: 0;
-}
-.tabs-right>li {
-  margin-left: -1px;
-}
-.tabs-left>li.active>a,
-.tabs-left>li.active>a:hover,
-.tabs-left>li.active>a:focus {
-  border-bottom-color: #ddd;
-  border-right-color: transparent;
-}
 
-.tabs-right>li.active>a,
-.tabs-right>li.active>a:hover,
-.tabs-right>li.active>a:focus {
-  border-bottom: 1px solid #ddd;
-  border-left-color: transparent;
-}
-.tabs-left>li>a {
-  /*border-radius: 4px 0 0 4px;*/
-  margin-right: 0;
-  display:block;
-    letter-spacing: 2px;
-    font-size: 18px;
-    font-weight: 600;
-}
-.tabs-right>li>a {
-  border-radius: 0 4px 4px 0;
-  margin-right: 0;
-
-}
-.sideways {
-  margin-top:50px;
-  border: none;
-  position: relative;
-}
-.sideways>li {
-  height: 20px;
-  width: 120px;
-  margin-bottom: 100px;
-}
-.sideways>li>a {
-  border-bottom: 1px solid #ddd;
-  border-right-color: transparent;
-  text-align: center;
-  border-radius: 4px 4px 0px 0px;
-}
-.sideways>li.active>a,
-.sideways>li.active>a:hover,
-.sideways>li.active>a:focus {
-  border-bottom-color: transparent;
-  border-right-color: #ddd;
-  border-left-color: #ddd;
-}
-.sideways.tabs-left {
-  left: -50px;
-}
-.sideways.tabs-right {
-  right: -50px;
-}
-.sideways.tabs-right>li {
-  -webkit-transform: rotate(90deg);
-  -moz-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
-  -o-transform: rotate(90deg);
-  transform: rotate(90deg);
-}
-.sideways.tabs-left>li {
-  -webkit-transform: rotate(-90deg);
-  -moz-transform: rotate(-90deg);
-  -ms-transform: rotate(-90deg);
-  -o-transform: rotate(-90deg);
-  transform: rotate(-90deg);
-}
 .box {
   width: 40%;
   margin: 0 auto;
@@ -479,9 +388,9 @@ $followingotherdata = $this->data['followingotherdata'] =  $this->common->select
                 <div class="row">
 
 
-      <div  class="col-sm-10 border_tag padding_low_data" >
+      <div  class="col-sm-12 border_tag padding_low_data padding_less_right" >
       
-        <div class="col-xs-3 padding_low_data"> <!-- required for floating -->
+        <div class="col-xs-3 padding_low_data padding_les"> <!-- required for floating -->
           <!-- Nav tabs -->
           <ul class="nav nav-tabs tabs-left">
             <li> <a href="<?php echo base_url('artistic/art_photos/'.$artisticdata[0]['user_id']) ?>" data-toggle="tab"><i class="fa fa-camera" aria-hidden="true"></i>   Photos</a></li>
@@ -491,7 +400,7 @@ $followingotherdata = $this->data['followingotherdata'] =  $this->common->select
           </ul>
         </div>
 
-      <div class="col-xs-9" style="padding-left: 0;  border-left: 1px solid #ccc">
+      <div class="col-xs-9 padding_less_right" style="padding-left: 0;  border-left: 1px solid #ccc">
 
           <!-- Tab panes -->
           <div class="tab-content">
