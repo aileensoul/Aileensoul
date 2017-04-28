@@ -2036,6 +2036,13 @@ function insert_comment(clicked_id)
     
   var x = document.getElementById('threecomment'+ clicked_id);
    var y = document.getElementById('fourcomment'+ clicked_id);
+
+if(post_comment.value == ''){ 
+
+    event.preventDefault();
+        return false;
+   }else{
+
  if (x.style.display === 'block' && y.style.display === 'none') { 
  
        $.ajax({ 
@@ -2054,7 +2061,7 @@ function insert_comment(clicked_id)
           }
             }); 
  
-      } else { alert("hii");
+      } else { 
 
         $.ajax({ 
             type:'POST',
@@ -2071,7 +2078,7 @@ function insert_comment(clicked_id)
 
           }
             }); 
-     }                  
+     }   }               
                
 }
 
@@ -2104,6 +2111,12 @@ function entercomment(clicked_id)
                   
    var x = document.getElementById('threecomment'+ clicked_id);
    var y = document.getElementById('fourcomment'+ clicked_id);
+
+   if(val == ''){ 
+
+    event.preventDefault();
+        return false;
+   }else{ 
  
  if (x.style.display === 'block' && y.style.display === 'none') { 
        $.ajax({ 
@@ -2142,6 +2155,7 @@ function entercomment(clicked_id)
             }); 
      }
                 // khyati chnages end
+              }
      
     }        
   });
