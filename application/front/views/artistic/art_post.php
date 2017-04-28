@@ -1,4 +1,4 @@
-
+ 
 
 <!-- start head -->
 
@@ -426,9 +426,12 @@ return false;
  <div class="common-form">
  <h3 class="user_list_head">User List</h3>
    
+
+
 <div class="seeall">
-<a href="">All User</a>
+<a href="<?php echo base_url('artistic/userlist'); ?>">All User</a>
 </div>
+
       
       <div class="profile-boxProfileCard_follow  module">
       <ul>
@@ -779,11 +782,6 @@ $followfrom =  $this->db->get_where('art_reg',array('user_id' => $userid, 'statu
 } } }
 
 ?>
-
-
-<div class="seeall">
-<a href="<?php echo base_url('artistic/userlist'); ?>">All User</a>
-</div>
 
 
 </div>

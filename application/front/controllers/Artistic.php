@@ -967,7 +967,7 @@ class Artistic extends MY_Controller {
         $this->load->view('artistic/art_post', $this->data);
     }
 
-    public function art_manage_post($id) {
+    public function art_manage_post($id="") {
 
         $userid = $this->session->userdata('aileenuser');
         $user_name = $this->session->userdata('user_name');
