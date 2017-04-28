@@ -2915,7 +2915,7 @@ class Job extends MY_Controller {
     //job seeker Job All Post Start
     public function job_all_post() {
         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
-        echo $userid;
+//        echo $userid;
 // job seeker detail
         $contition_array = array('user_id' => $userid, 'is_delete' => 0, 'status' => 1);
         $jobdata = $this->data['jobdata'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
