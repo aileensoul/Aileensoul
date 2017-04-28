@@ -1017,14 +1017,14 @@ responsive image design start -->
 
                     <div class="post-editor col-md-12">
 
-                        <?php echo form_open_multipart(base_url('artistic/art_post_insert/' . 'manage/'.$artisticdata[0]['user_id']), array('id' => 'artpostform', 'name' => 'artpostform', 'class' => 'clearfix', 'onsubmit' => "imgval(event)")); ?>
+                        <?php echo form_open_multipart(base_url('artistic/art_post_insert/' . 'manage/'.$artisticdata[0]['user_id']), array('id' => 'artpostform', 'name' => 'artpostform', 'class' => 'clearfix', 'onsubmit' => "return imgval();")); ?>
 
                         <div class="main-text-area col-md-12"  style="border-bottom: 5px solid #ced5df;">
                             <div class="popup-img col-md-1"> <img  src="<?php echo base_url(ARTISTICIMAGE . $artisticdata[0]['art_user_image']); ?>"  alt="">
                             </div>
                             <div id="myBtn3"  class="editor-content col-md-10 popup-text" >
                                    <!-- <textarea name="product_title" placeholder="Post Your Product...."></textarea>  -->
-                                <textarea id= "test-upload_product" placeholder="Post Your Product...."  onKeyPress=check_length(this.form); onKeyDown=check_length(this.form); 
+                                <textarea id= "test-upload-product" placeholder="Post Your Product...."  onKeyPress=check_length(this.form); onKeyDown=check_length(this.form); 
                                           name=my_text rows=4 cols=30 class="post_product_name"></textarea>
                                 <div style="position: absolute; top: 20px; right: 13px; border: none;">                        
                                 <input size=1 value=50 name=text_num style="width: 52px;" readonly> 
@@ -1042,7 +1042,7 @@ responsive image design start -->
 
                         </div>
                         <div  id="text"  class="editor-content col-md-12 popup-textarea" >
-                              <textarea id="test-upload_des" name="product_desc" class="description" placeholder="Enter Description">    </textarea>
+                              <textarea id="test-upload-des" name="product_desc" class="description" placeholder="Enter Description"></textarea>
 
                             <output id="list"></output>
                         </div>
@@ -3174,20 +3174,21 @@ function post_like(clicked_id)
 
 <script type="text/javascript">
 
-    function imgval(event) {
+    function imgval() {
 
 
 //var fileInput = document.getElementById('test-upload');
 
 
 var fileInput = document.getElementById("test-upload").files;
-var product_name = document.getElementById("test-upload_product").value;
-var product_description = document.getElementById("test-upload_des").value;
-var product_fileInput = document.getElementById("test-upload").value;
-alert(product_name); alert(product_description); alert(product_fileInput);
+var product_name1 = document.getElementById("test-upload-product").value;
+var product_description1 = document.getElementById("test-upload-des").value;
+var product_fileInput1 = document.getElementById("test-upload").value;
+//alert(product_name1); alert(product_description1); alert(product_fileInput1);
 
-if(product_fileInput == '' && product_name == '' && product_description == '')
-  { alert("FALU");
+
+if(product_fileInput1 == '' && product_name1 == '' && product_description1 == '')
+  { 
  
 $('.biderror .mes').html("<div class='pop_content'>This post appears to be blank. Please write or attach (photos, videos, audios, pdf) to post.");
           $('#bidmodal').modal('show');
@@ -3197,7 +3198,7 @@ $('.biderror .mes').html("<div class='pop_content'>This post appears to be blank
         return false;
 
 }else{
-
+   
         for (var i = 0; i < fileInput.length; i++)
         {
             var vname = fileInput[i].name;

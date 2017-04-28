@@ -593,8 +593,7 @@ if (!$businessfollow) {
             </div>
             <div id="myBtn1"  class="editor-content col-md-10 popup-text" >
               <!-- <textarea name="product_title" placeholder="Post Your Product...."></textarea>  -->
-              <textarea id= "test-upload-product" placeholder="Post Your Product...."  onKeyPress=check_length(this.form); onKeyDown=check_length(this.form); name=my_text rows=4 cols=30 class="post_product_name" style="height:  10%;">
-              </textarea>
+              <textarea id= "test-upload-product" placeholder="Post Your Product...."  onKeyPress=check_length(this.form); onKeyDown=check_length(this.form); name=my_text rows=4 cols=30 class="post_product_name" style="height:  10%;"></textarea>
               <div style="display: none;">                        
                 <input size=1 value=50 name=text_num style="width: 52px;" readonly> 
               </div>
@@ -607,8 +606,7 @@ if (!$businessfollow) {
             </div>
           </div>
           <div  id="text"  class="editor-content col-md-12 popup-textarea" >
-            <textarea id="test-upload-des" name="product_desc" class="description" placeholder="Enter Description">
-            </textarea>
+            <textarea id="test-upload-des" name="product_desc" class="description" placeholder="Enter Description"></textarea>
             <output id="list">
             </output>
           </div>
@@ -2094,9 +2092,9 @@ $business_userimage = $this->db->get_where('business_profile', array('user_id' =
     var product_description = document.getElementById("test-upload-des").value;
      var product_fileInput = document.getElementById("test-upload").value;
 
-alert(product_name); alert(product_description); alert(product_fileInput);
+
 if(product_fileInput == '' && product_name == '' && product_description == '')
-  { alert("falguni"); return false;
+  { 
  
 $('.biderror .mes').html("<div class='pop_content'>This post appears to be blank. Please write or attach (photos, videos, audios, pdf) to post.");
           $('#bidmodal').modal('show');
