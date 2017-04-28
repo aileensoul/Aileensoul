@@ -525,7 +525,7 @@ $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
 $freelancerapply1 = $this->data['freelancerapply'] = $this->common->select_data_by_condition('freelancer_apply', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
  if ($freelancerapply1) {
           ?>
-         <button  class="button fr" disabled>Applied</button>
+         <button  class="button_applied fr" disabled>Applied</button>
  <?php
 } else {
 ?>
