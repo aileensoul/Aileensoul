@@ -1763,8 +1763,17 @@ responsive image design start -->
                                         <!-- all comments code end -->
 
                                     </div>
-                                    <?php }?>
+                                    <?php }else{?>
 
+                  <div id="<?php echo "fourcomment" . $row['art_post_id']; ?>" style="display:none">
+                                        </div>
+
+                      <div  id="<?php echo "threecomment" . $row['art_post_id']; ?>" style="display:block">
+
+                       <div class="<?php echo 'insertcomment' . $row['art_post_id']; ?>">
+                       </div>
+                         </div>
+                <?php }?>
                                 </div>
                                 <div class="post-design-commnet-box col-md-12">
 
