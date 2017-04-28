@@ -849,7 +849,7 @@ if ($businesssave) {
                     <?php echo $row['product_description']; ?>
                   </textarea> 
                 </div>
-                <button id="<?php echo "editpostsubmit" . $row['business_profile_post_id']; ?>" style="display:none" onClick="edit_postinsert(<?php echo $row['business_profile_post_id']; ?>)">EditPost
+                <button class="fr" id="<?php echo "editpostsubmit" . $row['business_profile_post_id']; ?>" style="display:none;margin: 5px 0;" onClick="edit_postinsert(<?php echo $row['business_profile_post_id']; ?>)">Save
                 </button>
               </span>
             </div> 
