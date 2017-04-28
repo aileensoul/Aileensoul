@@ -1203,7 +1203,9 @@ responsive image design start -->
                         <?php }else{?>
                         <a style=" font-size: 18px;
                          line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px;display: inline-block; "  href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>">
-                        <?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?><span style="font-weight: 400;"> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span>
+                        <?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?>
+
+                        <span style="font-weight: 400;"> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span>
                         </a>
                           <?php }?>                          
                         </li>
