@@ -395,7 +395,7 @@ responsive image design start -->
             <div class="profile-main-rec-box-menu  col-md-12 padding_les">
 
                 <div class="left-side-menu col-md-1">  </div>
-                <div class="right-side-menu col-md-8">
+                <div class="right-side-menu col-md-7">
                     <ul>
 
 
@@ -463,8 +463,8 @@ responsive image design start -->
                 $userid = $this->session->userdata('aileenuser');
                 if ($artisticdata[0]['user_id'] != $userid) {
                     ?>
-                    <div class="col-md-2 padding_les">
-                        <div class="flw_msg_btn">
+                    <div class="col-md-3 padding_les">
+                        <div class="flw_msg_btn fr">
                             <ul>
 
                                 <li class="<?php echo "fruser" . $artisticdata[0]['art_id']; ?>">
@@ -531,7 +531,8 @@ responsive image design start -->
 
                     <!-- The Modal -->
                     <div id="myModal" class="modal">
-                        <!-- Modal content --><div class="col-md-2"></div>
+                        <!-- Modal content -->
+                        <div class="col-md-2"></div>
                         <div class="modal-content col-md-8">
                             <span class="close">&times;</span>
                             <fieldset></fieldset>
@@ -1026,7 +1027,7 @@ responsive image design start -->
                             </div>
                             <div id="myBtn3"  class="editor-content col-md-10 popup-text" >
                                    <!-- <textarea name="product_title" placeholder="Post Your Product...."></textarea>  -->
-                                <textarea id= "test-upload-product" placeholder="Post Your Product...."  onKeyPress=check_length(this.form); onKeyDown=check_length(this.form); 
+                                <textarea id= "test-upload-product" placeholder="Post Your Art...."  onKeyPress=check_length(this.form); onKeyDown=check_length(this.form); 
                                           name=my_text rows=4 cols=30 class="post_product_name"></textarea>
                                 <div style="position: absolute; top: 20px; right: 13px; border: none;">                        
                                 <input size=1 value=50 name=text_num style="width: 52px;" readonly> 
