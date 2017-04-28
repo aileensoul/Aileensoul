@@ -23,9 +23,9 @@ $(window).scroll(function(){
         $('.header2').removeClass('stkiy');
        }
     });
-  jQuery(".fancybox").fancybox();
+//  jQuery(".fancybox").fancybox();
 
-  jQuery(".fancybox").fancybox();
+//  jQuery(".fancybox").fancybox();
 
 	$("input").change(function(e) {
         for (var i = 0; i < e.originalEvent.srcElement.files.length; i++) { 

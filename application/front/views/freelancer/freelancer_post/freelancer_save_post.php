@@ -554,7 +554,7 @@
                                             if ($jobsave[0]['job_save'] == 1) {
                                                 ?>
 
-                                                <button  class="button" disabled>Applied</button>
+                  <button  class="button_applied" disabled>Applied</button>
 
                                                 <?php
                                             } else {

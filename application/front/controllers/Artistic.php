@@ -1687,8 +1687,8 @@ class Artistic extends MY_Controller {
             if ($update) {
 
 
-                $follow = '<div>';
-                $follow = '<button id="unfollow' . $art_id . '" onClick="unfollowuser(' . $art_id . ')">
+                $follow = '<div id= "unfollowdiv" class="user_btn">';
+                $follow .= '<button id="unfollow' . $art_id . '" onClick="unfollowuser(' . $art_id . ')">
                                Following 
                       </button>';
                 $follow .= '</div>';
@@ -1719,8 +1719,8 @@ class Artistic extends MY_Controller {
 
             if ($insert) {
 
-                $follow = '<div>';
-                $follow = '<button id="unfollow' . $art_id . '" onClick="unfollowuser(' . $art_id . ')">
+                $follow = '<div id= "unfollowdiv" class="user_btn">';
+                $follow .= '<button id="unfollow' . $art_id . '" onClick="unfollowuser(' . $art_id . ')">
                                Following 
                       </button>';
                 $follow .= '</div>';
@@ -1752,7 +1752,7 @@ class Artistic extends MY_Controller {
             if ($update) {
 
 
-                $unfollow = '<div><button id="follow' . $art_id . '" onClick="followuser(' . $art_id . ')">
+                $unfollow = '<div id= "followdiv" class="user_btn"><button id="follow' . $art_id . '" onClick="followuser(' . $art_id . ')">
                                Follow 
                       </button></div>';
 
@@ -1800,7 +1800,7 @@ public function follow_two()
 
 
              $follow = '<div>';
-             $follow = '<button id="unfollow' . $art_id.'" onClick="unfollowuser_two('.$art_id.')">
+             $follow .= '<button id="unfollow' . $art_id.'" onClick="unfollowuser_two('.$art_id.')">
                                Following 
                       </button>';
               $follow .= '</div>';
@@ -1835,7 +1835,7 @@ public function follow_two()
              $follow = '<div>';
            /*  $follow = '<button id="unfollow' . $art_id.'" onClick="unfollowuser('.$art_id.')"><span>Following</span></button>';
               $follow .= '</div>';  */ 
-              $follow = '<button id="unfollow' . $art_id.'" onClick="unfollowuser_two('.$art_id.')"><span>Following</span></button>';
+              $follow .= '<button id="unfollow' . $art_id.'" onClick="unfollowuser_two('.$art_id.')"><span>Following</span></button>';
               $follow .= '</div>'; 
               echo $follow;
        }
