@@ -307,8 +307,8 @@ if ($this->session->flashdata('success')) {
 
     <?php } elseif ($status == 1) { ?>
 
-                                                        <div id= "unfollowdiv" class="user_btn  bg_following">
-                                                            <button id="<?php echo "unfollow" . $user['art_id']; ?>" onClick="unfollowuser(<?php echo $user['art_id']; ?>)">
+                                                        <div id= "unfollowdiv" class="user_btn  ">
+                                                            <button class="bg_following" id="<?php echo "unfollow" . $user['art_id']; ?>" onClick="unfollowuser(<?php echo $user['art_id']; ?>)">
                                                                 Following 
                                                             </button>
                                                         </div>

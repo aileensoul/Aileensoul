@@ -393,8 +393,8 @@ if($status == 0 || $status == " "){?>
     
         if($status[0]['follow_status'] == 1){ ?>
 
-                            <div class="user_btn_f" id= "unfollowdiv">
-                            <button id="<?php echo "unfollow" . $user['follow_to']; ?>" onClick="unfollowuser_list(<?php echo $user['follow_to']; ?>)"><span>Following</span></button>
+                            <div class="user_btn_f " id= "unfollowdiv">
+                            <button class="bg_following" id="<?php echo "unfollow" . $user['follow_to']; ?>" onClick="unfollowuser_list(<?php echo $user['follow_to']; ?>)"><span>Following</span></button>
                            </div>
 <?php } ?>
                              </li>

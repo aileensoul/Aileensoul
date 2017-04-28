@@ -258,7 +258,7 @@ if($status == 0 || $status == " "){?>
 <a id="<?php echo "follow" . $artisticdata[0]['art_id']; ?>" onClick="followuser(<?php echo $artisticdata[0]['art_id']; ?>)">Follow</a>
 </div>
  <?php }elseif($status == 1){ ?>
-<div id= "unfollowdiv">
+<div id= "unfollowdiv ">
 <a id="<?php echo "unfollow" . $artisticdata[0]['art_id']; ?>" onClick="unfollowuser(<?php echo $artisticdata[0]['art_id']; ?>)"> Following</a>
 </div>
 
@@ -413,8 +413,8 @@ if($status == 0 || $status == " "){?>
 
     <?php }else{ ?>
 
-                     <div class="user_btn_f follow_btn_<?php echo $user['follow_from']; ?>" id= "unfollowdiv">
-                            <button id="<?php echo "unfollow" . $user['follow_from']; ?>" onClick="unfollowuser_two(<?php echo $user['follow_from']; ?>)"><span>Following</span></button>
+                     <div class=" user_btn_f follow_btn_<?php echo $user['follow_from']; ?>" id= "unfollowdiv">
+                            <button class="bg_following" id="<?php echo "unfollow" . $user['follow_from']; ?>" onClick="unfollowuser_two(<?php echo $user['follow_from']; ?>)"><span>Following</span></button>
                            </div>   
 
      <?php }?>
