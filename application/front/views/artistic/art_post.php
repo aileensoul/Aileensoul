@@ -819,7 +819,7 @@ $followfrom =  $this->db->get_where('art_reg',array('user_id' => $userid, 'statu
      </div>
     </div>
     <div class="fr">
-     <a href="" class="button">Post</a></div>
+     <a class="button">Post</a></div>
       </div>
 </div>
     <!-- Trigger/Open The Modal -->
@@ -841,7 +841,7 @@ $followfrom =  $this->db->get_where('art_reg',array('user_id' => $userid, 'statu
  </div>
  <div id="myBtn"  class="editor-content col-md-10 popup-text" >
         <!-- <textarea name="product_title" placeholder="Post Your Product...."></textarea>  -->
-         <textarea placeholder="Post Your Art...."  onKeyPress=check_length(this.form); onKeyDown=check_length(this.form); 
+         <textarea id= "test-upload_product" placeholder="Post Your Art...."  onKeyPress=check_length(this.form); onKeyDown=check_length(this.form); 
  name=my_text rows=4 cols=30 class="post_product_name" style="position: relative;"></textarea>
   <div style="position: absolute; top: 20px; right: 13px; border: none;">                        
 <input size=1 value=50 name=text_num style="width: 52px;" readonly> 
@@ -859,7 +859,7 @@ $followfrom =  $this->db->get_where('art_reg',array('user_id' => $userid, 'statu
 
  </div>
 <div  id="text"  class="editor-content col-md-12 popup-textarea" >
-      <textarea name="product_desc" class="description" placeholder="Enter Description"></textarea>
+      <textarea id="test-upload_des" name="product_desc" class="description" placeholder="Enter Description"></textarea>
 
       <output id="list"></output>
 </div>
@@ -2876,6 +2876,23 @@ function imgval(event){
 //var fileInput = document.getElementById('test-upload');
 
 var fileInput = document.getElementById("test-upload").files;
+var product_name = document.getElementById("test-upload_product").value;
+var product_description = document.getElementById("test-upload_des").value;
+var product_fileInput = document.getElementById("test-upload").value;
+
+
+if(product_fileInput == '' && product_name == '' && product_description == '')
+  { 
+ 
+$('.biderror .mes').html("<div class='pop_content'>This post appears to be blank. Please write or attach (photos, videos, audios, pdf) to post.");
+          $('#bidmodal').modal('show');
+         setInterval('window.location.reload()', 10000);
+       // window.location='';
+       event.preventDefault();
+        return false;
+
+}else{
+
 
 for (var i = 0; i < fileInput.length; i++)
 {
@@ -2953,7 +2970,7 @@ var foundPresentpdf = $.inArray(ext, allowespdf) > -1;
           }   
   }
 
-}
+} }
   }
  
 </script>
