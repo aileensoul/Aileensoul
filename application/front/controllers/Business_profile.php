@@ -646,7 +646,10 @@ class Business_profile extends MY_Controller {
     public function image_insert() {
 
         $userid = $this->session->userdata('aileenuser');
-        
+//        echo '<pre>';
+//        print_r($_POST);
+//        print_r($_FILES);
+//        exit;
         if ($this->input->post('next') || $this->input->post('submit')) {
             
             /*if (empty($_FILES['image1']['name'])) {
@@ -692,7 +695,8 @@ class Business_profile extends MY_Controller {
 
             if ($updatdata) {
                 $this->session->set_flashdata('success', 'Image updated successfully');
-                redirect('business_profile/addmore', refresh);
+               // redirect('business_profile/addmore', refresh);
+                redirect('business_profile/business_profile_post', refresh);
             } else {
                 $this->session->flashdata('error', 'Your data not inserted');
                 redirect('business_profile/image', refresh);
