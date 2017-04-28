@@ -2915,14 +2915,18 @@ class Job extends MY_Controller {
     //job seeker Job All Post Start
     public function job_all_post() {
         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
+//        echo $userid;
 // job seeker detail
         $contition_array = array('user_id' => $userid, 'is_delete' => 0, 'status' => 1);
         $jobdata = $this->data['jobdata'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
+        //echo "<pre>"; print_r($jobdata);
 // post detail
         $contition_array = array('is_delete' => 0, 'status' => 1);
+//        echo "<pre>"; print_r($contition_array);die();
         $postdata = $this->data['postdata'] = $this->common->select_data_by_condition('rec_post', $contition_array, $data = '*', $sortby = 'post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
+        //echo "<pre>"; print_r($postdata);
+        
+        //echo $jobdata[0]['ApplyFor'];
         $newarray = array();
         foreach ($postdata as $post) {
             $skill_id = explode(',', $post['post_skill']);
@@ -2931,13 +2935,18 @@ class Job extends MY_Controller {
                 if ($skill == $jobdata[0]['ApplyFor']) {
                     $contition_array = array('post_id' => $post['post_id']);
                     $data = $this->data['data'] = $this->common->select_data_by_condition('rec_post', $contition_array, $data = '*', $sortby = 'post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                   //echo "<pre>"; print_r($data);
+                    if($data[0]['user_id'] != $userid ){
+                       
                     $newarr = $data[0];
                     //$newarray[] = $data;
                     array_push($newarray, $newarr);
+                    }
                 }
             }
         }
-
+        //echo "<pre>"; print_r($newarray);
+//die();
         $this->data['postdetail'] = $newarray;
         // echo "<pre>"; print_r($this->data['postdetail']);die();
         $this->data['falguni'] = 1;
