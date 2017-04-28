@@ -2268,21 +2268,22 @@ border-bottom: 1px solid #000033;
 .post-editor{ height: auto; background-color: #ced5df;     box-shadow: 9px 5px 20px -4px #bfbfbf;  padding: 5px;
               padding-left: 14px;
               padding-right: 15px; 
-              border-radius: 4px; margin-bottom: 10px; border: 1px solid #cccccc;}
+              border-radius: 4px; margin-bottom: 10px; border: 1px solid #cccccc;padding-bottom: 20px;}
 .popup-img img{      border: 2px solid #ffffff;
-                     height: 60px;
-                     width: 51px;
+                     height: 47px;
+                     width: 50px;
                      margin-left: -9px;
-                     margin-top: 8px;
+                     margin-top: 5px;
                      margin-bottom: 5px;
+
 }
 .popup-text span{color: #999999;}
 .popup-text textarea{height: 10%; resize: none;}
 .post-editor .popup-textarea p{color: #999999;}
 .post-editor .popup-text span i{font-size: 25px; color: #0a2c5d; }
 .popup-img{    padding-left: 2px !important; padding-right: 0px;}
-.popup-text{padding: 10px;}
-.main-text-area{background-color: #ffffff; margin: 4px 0px 4px 0px; border-radius: 0px;    padding-left: px !important;}
+.popup-text{padding: 16px;}
+.main-text-area{background-color: #ffffff; margin: 4px 0px 4px 0px; border-radius: 4px;    padding-left: px !important;}
 /* The Modal (background) */
 .modal-post {
     display: none; /* Hidden by default */

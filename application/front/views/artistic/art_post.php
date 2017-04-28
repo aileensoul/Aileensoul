@@ -809,7 +809,7 @@ $followfrom =  $this->db->get_where('art_reg',array('user_id' => $userid, 'statu
                                 <div class="popup-img col-md-1"> <img  src="<?php echo base_url(ARTISTICIMAGE . $artisticdata[0]['art_user_image']);?>"  alt="">
  </div>
  <div id="myBtn"  class="editor-content col-md-11 popup-text" contenteditable>
-        <span> Post Your Art....</span> 
+        <span style="font-size: 23px"> Post Your Art....</span> 
       <!--  <span class="fr">
         <input type="file" id="FileID" style="display:none;">
          <label for="FileID"><i class=" fa fa-camera fa"  style=" margin: 8px; cursor:pointer">  </i>
