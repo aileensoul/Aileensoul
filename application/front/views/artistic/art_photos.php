@@ -3,8 +3,6 @@
 
 
 <!--post save success pop up style strat -->
-<style>
-</style>
 
 <!--post save success pop up style end -->
 
@@ -296,7 +294,7 @@ $followingotherdata = $this->data['followingotherdata'] =  $this->common->select
           </ul>
         </div>
 
-       <div class="col-xs-9  " style="padding-left: 0;  border-left: 1px solid #ccc">
+       <div class="col-xs-9  padding_less_right" style="padding-left: 0;  border-left: 1px solid #ccc">
 
           <!-- Tab panes -->
           <div class="tab-content">
@@ -334,7 +332,7 @@ $followingotherdata = $this->data['followingotherdata'] =  $this->common->select
           $i++;
             } } else{?>
              
-      <div style="margin-left: 280px; margin-top: 20px;">
+      <div style="margin-left: 380px; margin-top: 20px;">
                   <div class="not_avali" >
                                 <img src="<?php echo base_url('images/color_008.png'); ?>"  >
                                <div>
