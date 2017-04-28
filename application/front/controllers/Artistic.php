@@ -3173,11 +3173,13 @@ $followingdatacount = count($followingotherdata);
 
 
         // insert notification
-
+        
+            if($artdatacomment[0]['user_id'] == $userid){}
+            else{
             $data = array(
                 'not_type' => 6,
                 'not_from_id' => $userid,
-                'not_to_id' => $artdatacomment[0]['user_id'] ,
+                'not_to_id' => $artdatacomment[0]['user_id'],
                 'not_read' => 2,
                 'not_product_id' => $insert_id,
                 'not_from' => 3,
@@ -3185,6 +3187,7 @@ $followingdatacount = count($followingotherdata);
             );
 
             $insert_id = $this->common->insert_data_getid($data, 'notification');
+           } 
             // end notoification
 
 
@@ -3291,7 +3294,7 @@ $followingdatacount = count($followingotherdata);
         $contition_array = array('art_post_id' => $_POST["post_id"], 'status' => '1');
         $artdatacomment = $this->data['artdatacomment'] = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-        
+
         $data = array(
             'user_id' => $userid,
             'art_post_id' => $post_id,
@@ -3627,7 +3630,7 @@ $followingdatacount = count($followingotherdata);
 //multiple images for user start
 
 
-    public function art_photos($id) {
+    public function art_photos($id="") {
 
 
         $userid = $this->session->userdata('aileenuser');
