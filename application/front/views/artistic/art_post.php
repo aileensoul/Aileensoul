@@ -924,7 +924,7 @@ foreach($finalsorting as $row)
                    
                 <div class=" ">
                     <div class="post-design-top col-md-12" id= "showpost">  
-                    <div class="post-design-pro-img"> 
+                    <div class="post-design-pro-img col-md-2"> 
 
 
 
@@ -996,7 +996,7 @@ foreach($finalsorting as $row)
                     </div>
 
 
-                      <div class="post-design-name fl">
+                      <div class="post-design-name fl col-md-9">
                       <ul>
                       <?php 
                  $firstname =  $this->db->get_where('art_reg',array('user_id' => $row['user_id']))->row()->art_name; 

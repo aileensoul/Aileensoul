@@ -1154,7 +1154,7 @@ responsive image design start -->
 
 
                                     <div class="post-design-top col-md-12" >  
-                                        <div class="post-design-pro-img"> 
+                                        <div class="post-design-pro-img col-md-2"> 
 
                                             <?php
                                             $userimage = $this->db->get_where('art_reg', array('user_id' => $row['user_id']))->row()->art_user_image;
@@ -1171,7 +1171,7 @@ responsive image design start -->
                                         </div>
 
 
-                                        <div class="post-design-name fl">
+                                        <div class="post-design-name fl col-md-9">
                                             <ul>
                                                 <li><span>
                         <?php
@@ -3184,7 +3184,7 @@ var fileInput = document.getElementById("test-upload").files;
 var product_name = document.getElementById("test-upload_product").value;
 var product_description = document.getElementById("test-upload_des").value;
 var product_fileInput = document.getElementById("test-upload").value;
-
+alert(product_name); alert(product_description); alert(product_fileInput);
 
 if(product_fileInput == '' && product_name == '' && product_description == '')
   { 
@@ -3275,7 +3275,15 @@ $('.biderror .mes').html("<div class='pop_content'>This post appears to be blank
 
 </script>
 
+<script type="text/javascript">
+  
+$(document).ready(function(){
+  $('.modal-close').on('click',function(){
+      $('.modal-post').hide();
+  });
+});
 
+</script>
 
 
 <!-- insert validation end -->
@@ -3335,8 +3343,7 @@ return false;
 
 <!-- zalak script for more decription end -->
 
-<!-- 
-textarea js -->
+<!-- textarea js -->
 
 <script type="text/javascript">
     function h(e) {

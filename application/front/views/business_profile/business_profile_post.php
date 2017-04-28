@@ -674,7 +674,7 @@ if (!in_array($userid, $likeuserarray)) {
       <div class="col-md-12 col-sm-12 post-design-box"  id="<?php echo "removepost" . $row['business_profile_post_id']; ?>">
         <div  class="post_radius_box">  
           <div class="post-design-top col-md-12" >  
-            <div class="post-design-pro-img"> 
+            <div class="post-design-pro-img col-md-2"> 
               <!-- pop up box start-->
               <div id="popup1" class="overlay">
                 <div class="popup">
@@ -731,7 +731,7 @@ $business_userimage = $this->db->get_where('business_profile', array('user_id' =
               <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
               <?php } ?>
             </div>
-            <div class="post-design-name fl">
+            <div class="post-design-name fl col-md-9">
               <ul>
                 <?php
 $companyname = $this->db->get_where('business_profile', array('user_id' => $row['user_id'], 'status' => 1))->row()->company_name;
@@ -2149,5 +2149,12 @@ $('.biderror .mes').html("<div class='pop_content'>This post appears to be blank
   }
 </script>
 <script type="text/javascript">
+  
+$(document).ready(function(){
+  $('.modal-close').on('click',function(){
+      $('.modal-post').hide();
+  });
+});
+
 </script>
 <!-- post insert developing code end  -->

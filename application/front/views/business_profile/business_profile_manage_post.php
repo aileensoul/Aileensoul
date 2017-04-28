@@ -1044,7 +1044,7 @@ function text2link($text){
 
  <div class=" post-design-box">
                     <div class="post-design-top col-md-12" >  
-                    <div class="post-design-pro-img"> 
+                    <div class="post-design-pro-img col-md-2"> 
                     <?php
 
                     $userid = $this->session->userdata('aileenuser');
@@ -1073,7 +1073,7 @@ function text2link($text){
                      </div>
 
 
-                      <div class="post-design-name fl">
+                      <div class="post-design-name fl col-md-9">
                       <ul>
 
                       <?php 
