@@ -318,7 +318,7 @@ echo $recruiter_header2;
                                 </div>
                         </li> -->
                         <li>
-                            <a href="http://35.165.1.109:81/chat/abc/4">Message</a></li>
+                            <a href="<?php echo  base_url('recruiter/recruiter_designation/');?>">Message</a></li>
 
                     </ul>
                 </div>
@@ -327,7 +327,7 @@ echo $recruiter_header2;
   </div>  
     <!-- menubar -->                
   <div class="job-menu-profile1 col-md-3">
-                         <a href="javscript: void(0);" title="<?php echo $recdata[0]['rec_firstname'] . ' ' . $recdata[0]['rec_lastname']; ?>"><h5><?php echo $recdata[0]['rec_firstname'] . ' ' . $recdata[0]['rec_lastname']; ?></h5></a>
+                         <a href="javascript:void(0);" title="<?php echo $recdata[0]['rec_firstname'] . ' ' . $recdata[0]['rec_lastname']; ?>"><h5><?php echo $recdata[0]['rec_firstname'] . ' ' . $recdata[0]['rec_lastname']; ?></h5></a>
                             <!-- text head start -->
                     <div class="profile-text" >
                    
