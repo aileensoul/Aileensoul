@@ -16,7 +16,7 @@ $(window).scroll(function(){
        }
     });
 $(window).scroll(function(){
-      if ($(window).scrollTop() >= 440) {
+      if ($(window).scrollTop() >= 130) {
         $('.header2').addClass('stkiy');
        }
        else {
