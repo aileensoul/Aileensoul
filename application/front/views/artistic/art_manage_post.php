@@ -215,6 +215,8 @@ responsive image design start -->
 
     }
 
+    .post-design-name{padding-left: 0;}
+
     @media screen and (max-width: 700px){
         .box{
             width: 70%;
