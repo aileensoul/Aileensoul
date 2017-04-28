@@ -17,10 +17,10 @@ $(window).scroll(function(){
     });
 $(window).scroll(function(){
       if ($(window).scrollTop() >= 440) {
-        $('.profile-box profile-box-left').addClass('stkiy');
+        $('.header2').addClass('stkiy');
        }
        else {
-        $('.profile-box profile-box-left').removeClass('stkiy');
+        $('.header2').removeClass('stkiy');
        }
     });
   jQuery(".fancybox").fancybox();
