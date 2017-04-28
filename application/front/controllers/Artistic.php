@@ -2733,7 +2733,7 @@ $followingdatacount = count($followingotherdata);
             $cmtinsert .= 'Edit';
             $cmtinsert .= '</a></div>';
             $cmtinsert .= '<div id="editcancle' . $art['artistic_post_comment_id'] . '" style="display:none;">';
-            $cmtinsert .= '<a id="' . $art['artistic_post_comment_id'] . '" onClick="comment_editcancle(this.id)">Cancle  </a></div>';
+            $cmtinsert .= '<a id="' . $art['artistic_post_comment_id'] . '" onClick="comment_editcancle(this.id)">Cancel  </a></div>';
 
             $cmtinsert .= '</div>';
             $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
@@ -2845,7 +2845,7 @@ $followingdatacount = count($followingotherdata);
             $cmtinsert .= 'Edit';
             $cmtinsert .= '</a></div>';
             $cmtinsert .= '<div id="editcancletwo' . $art['artistic_post_comment_id'] . '" style="display:none;">';
-            $cmtinsert .= '<a id="' . $art['artistic_post_comment_id'] . '" onClick="comment_editcancletwo(this.id)">Cancle  </a></div>';
+            $cmtinsert .= '<a id="' . $art['artistic_post_comment_id'] . '" onClick="comment_editcancletwo(this.id)">Cancel  </a></div>';
 
             $cmtinsert .= '</div>';
             $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
@@ -2948,7 +2948,7 @@ $followingdatacount = count($followingotherdata);
       $cmtlikeuser .= '</a>';
 
       }
-         $cmtlikeuser .= '<p class="okk"><a class="cnclbtn" href="#">Cancle</a></p>';
+         $cmtlikeuser .= '<p class="okk"><a class="cnclbtn" href="#">Cancel</a></p>';
          $cmtlikeuser .= '</div>';
          $cmtlikeuser .= '</div>';
          $cmtlikeuser .= '</div>';
@@ -3070,7 +3070,7 @@ $followingdatacount = count($followingotherdata);
       $cmtlikeuser .= '</a>';
 
       }
-         $cmtlikeuser .= '<p class="okk"><a class="cnclbtn" href="#">Cancle</a></p>';
+         $cmtlikeuser .= '<p class="okk"><a class="cnclbtn" href="#">Cancel</a></p>';
          $cmtlikeuser .= '</div>';
          $cmtlikeuser .= '</div>';
          $cmtlikeuser .= '</div>';
@@ -3214,7 +3214,7 @@ $followingdatacount = count($followingotherdata);
             $cmtinsert .= 'Edit';
             $cmtinsert .= '</a></div>';
             $cmtinsert .= '<div id="editcancletwo' . $art['artistic_post_comment_id'] . '" style="display:none;">';
-            $cmtinsert .= '<a id="' . $art['artistic_post_comment_id'] . '" onClick="comment_editcancletwo(this.id)">Cancle  </a></div>';
+            $cmtinsert .= '<a id="' . $art['artistic_post_comment_id'] . '" onClick="comment_editcancletwo(this.id)">Cancel  </a></div>';
 
             $cmtinsert .= '</div>';
             $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
@@ -3329,7 +3329,7 @@ $followingdatacount = count($followingotherdata);
             $cmtinsert .= 'Edit';
             $cmtinsert .= '</a></div>';
             $cmtinsert .= '<div id="editcancle' . $art['artistic_post_comment_id'] . '" style="display:none;">';
-            $cmtinsert .= '<a id="' . $art['artistic_post_comment_id'] . '" onClick="comment_editcancle(this.id)">Cancle  </a></div>';
+            $cmtinsert .= '<a id="' . $art['artistic_post_comment_id'] . '" onClick="comment_editcancle(this.id)">Cancel  </a></div>';
 
             $cmtinsert .= '</div>';
             $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
@@ -3907,7 +3907,7 @@ $followingdatacount = count($followingotherdata);
 
                 $cmtinsert .= '<a id="' . $art_comment['post_image_comment_id'] . '"';
                 $cmtinsert .= 'onClick="comment_editcancle(this.id)">';
-                $cmtinsert .= 'Cancle';
+                $cmtinsert .= 'Cancel';
                 $cmtinsert .= '</a></div>';
 
                 $cmtinsert .= '</div>';
@@ -4042,7 +4042,7 @@ $followingdatacount = count($followingotherdata);
 
                 $cmtinsert .= '<a id="' . $art_comment['post_image_comment_id'] . '"';
                 $cmtinsert .= 'onClick="comment_editcancletwo(this.id)">';
-                $cmtinsert .= 'Cancle';
+                $cmtinsert .= 'Cancel';
                 $cmtinsert .= '</a></div>';
 
                 $cmtinsert .= '</div>';
@@ -4414,7 +4414,7 @@ $followingdatacount = count($followingotherdata);
 
                 $cmtinsert .= '<a id="' . $art_comment['post_image_comment_id'] . '"';
                 $cmtinsert .= 'onClick="comment_editcancle(this.id)">';
-                $cmtinsert .= 'Cancle';
+                $cmtinsert .= 'Cancel';
                 $cmtinsert .= '</a></div>';
 
                 $cmtinsert .= '</div>';
@@ -4543,7 +4543,7 @@ $followingdatacount = count($followingotherdata);
 
                 $cmtinsert .= '<a id="' . $art_comment['post_image_comment_id'] . '"';
                 $cmtinsert .= 'onClick="comment_editcancletwo(this.id)">';
-                $cmtinsert .= 'Cancle';
+                $cmtinsert .= 'Cancel';
                 $cmtinsert .= '</a></div>';
 
                 $cmtinsert .= '</div>';
@@ -4659,7 +4659,7 @@ $followingdatacount = count($followingotherdata);
                     $fourdata .= '<div id="editboxtwo' . $rowdata['artistic_post_comment_id'] . '" style="display:block;">';
                     $fourdata .= '<a id="' . $rowdata['artistic_post_comment_id'] . '"   onClick="comment_editboxtwo(this.id)">Edit</a> </div>';
                     $fourdata .= '<div id="editcancletwo' . $rowdata['artistic_post_comment_id'] . '" style="display:none;">';
-                    $fourdata .= '<a id="' . $rowdata['artistic_post_comment_id'] . '" onClick="comment_editcancletwo(this.id)">Cancle</a></div></div>';
+                    $fourdata .= '<a id="' . $rowdata['artistic_post_comment_id'] . '" onClick="comment_editcancletwo(this.id)">Cancel</a></div></div>';
                 }
                 $userid = $this->session->userdata('aileenuser');
                 $art_userid = $this->db->get_where('art_post', array('art_post_id' => $rowdata['art_post_id'], 'status' => 1))->row()->user_id;
@@ -4758,7 +4758,7 @@ $followingdatacount = count($followingotherdata);
                 $fourdata .= '<div id="editcommentboxtwo' . $rowdata['post_image_comment_id'] . '" style="display:block;">';
                 $fourdata .= '<a id="' . $rowdata['post_image_comment_id'] . '"   onClick="comment_editboxtwo(this.id)">Edit</a> </div>';
                 $fourdata .= '<div id="editcancletwo' . $rowdata['post_image_comment_id'] . '" style="display:none;">';
-                $fourdata .= '<a id="' . $rowdata['post_image_comment_id'] . '" onClick="comment_editcancletwo(this.id)">Cancle</a></div></div>';
+                $fourdata .= '<a id="' . $rowdata['post_image_comment_id'] . '" onClick="comment_editcancletwo(this.id)">Cancel</a></div></div>';
             }
             $userid = $this->session->userdata('aileenuser');
             $art_userid = $this->db->get_where('art_post', array('art_post_id' => $rowdata['art_post_id'], 'status' => 1))->row()->user_id;
