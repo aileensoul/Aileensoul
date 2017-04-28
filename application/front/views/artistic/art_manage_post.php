@@ -1266,11 +1266,11 @@ responsive image design start -->
 
                                                 <div id="<?php echo 'editpostdetailbox' . $row['art_post_id']; ?>" style="display:none;">
 
-                                                    <textarea id="<?php echo 'editpostdesc' . $row['art_post_id']; ?>" name="editpostdesc"><?php echo $row['art_description']; ?>
+                                                    <textarea  style="resize: none;overflow: hidden;" id="<?php echo 'editpostdesc' . $row['art_post_id']; ?>" name="editpostdesc"><?php echo $row['art_description']; ?>
                                                     </textarea> 
                                                 </div>
 
-                                                <button id="<?php echo "editpostsubmit" . $row['art_post_id']; ?>" style="display:none" onClick="edit_postinsert(<?php echo $row['art_post_id']; ?>)">EditPost</button>
+                                                <button class="fr" id="<?php echo "editpostsubmit" . $row['art_post_id']; ?>" style="display:none;margin: 5px 0px;" onClick="edit_postinsert(<?php echo $row['art_post_id']; ?>)">Save Post</button>
 
 
                                             </span></div>
