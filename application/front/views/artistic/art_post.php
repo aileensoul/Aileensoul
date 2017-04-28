@@ -950,7 +950,7 @@ foreach($finalsorting as $row)
 
       <p class="okk"><a class="okbtn" id="<?php echo $row['art_post_id']; ?>" onClick="remove_post(this.id)" href="#">OK</a></p>
 
-      <p class="okk"><a class="cnclbtn" href="#">Cancle</a></p>
+      <p class="okk"><a class="cnclbtn" href="#">Cancel</a></p>
 
     </div>
 
@@ -969,7 +969,7 @@ foreach($finalsorting as $row)
 
       <p class="okk"><a class="okbtn" id="<?php echo $row['art_post_id']; ?>" onClick="del_particular_userpost(this.id)" href="#">OK</a></p>
 
-      <p class="okk"><a class="cnclbtn" href="#">Cancle</a></p>
+      <p class="okk"><a class="cnclbtn" href="#">Cancel</a></p>
 
     </div>
 
@@ -1403,7 +1403,7 @@ $art_lname1 =  $this->db->get_where('art_reg',array('user_id' => $value, 'status
 
 <?php }?>
 
-<p class="okk"><a class="cnclbtn" href="#">Cancle</a></p>
+<p class="okk"><a class="cnclbtn" href="#">Cancel</a></p>
 
     </div>
 
@@ -1560,7 +1560,7 @@ if(count($likelistarray) > 1) {
                                       </div>
 
                                       <div id="<?php echo 'editcancle' . $rowdata['artistic_post_comment_id']; ?>" style="display:none;">
-                                      <a id="<?php echo $rowdata['artistic_post_comment_id']; ?>" onClick="comment_editcancle(this.id)">Cancle
+                                      <a id="<?php echo $rowdata['artistic_post_comment_id']; ?>" onClick="comment_editcancle(this.id)">Cancel
                                       </a>
                                       </div>
                                       

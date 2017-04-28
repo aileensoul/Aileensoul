@@ -95,7 +95,10 @@
                             <div class="common-form">
                                 <h3>Address</h3>
                                 <?php echo form_open(base_url('job/job_address_insert'), array('id' => 'jobseeker_regform', 'name' => 'jobseeker_regform', 'class' => 'clearfix')); ?>
-                                <div><span style="color:red">Fields marked with asterisk (*) are mandatory</span></div>
+                                  <div>
+                                    <span style="color:red"> (*)</span> <span style="color:#7f7f7e">Indicates required field</span>
+                                </div>
+
 
                                 <div class="job_add_head"><span >Present Address</span></div>
 

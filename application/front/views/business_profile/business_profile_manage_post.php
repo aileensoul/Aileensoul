@@ -1449,7 +1449,7 @@ $business_fname1 =  $this->db->get_where('business_profile',array('user_id' => $
 
 <?php }?>
 
-<p class="okk"><a class="cnclbtn" href="#">Cancle</a></p>
+<p class="okk"><a class="cnclbtn" href="#">Cancel</a></p>
 
     </div>
 
@@ -1601,7 +1601,7 @@ if(count($likelistarray) > 1) {
                                       </div>
 
                                       <div id="<?php echo 'editcancle' . $rowdata['business_profile_post_comment_id']; ?>" style="display:none;">
-                                      <a id="<?php echo $rowdata['business_profile_post_comment_id']; ?>" onClick="comment_editcancle(this.id)">Cancle
+                                      <a id="<?php echo $rowdata['business_profile_post_comment_id']; ?>" onClick="comment_editcancle(this.id)">Cancel
                                       </a>
                                       </div>
 
