@@ -1062,9 +1062,10 @@ responsive image design start -->
                             <ul class="editor-header">
 
                                 <li>
+                                <input type="file" class="file" style="display:block;" id="test-upload" style="display:none;" name="postattach[]" multiple>
                                     <label for="test-upload"><i class=" fa fa-camera "  style=" margin: 8px; cursor:pointer"> Photo</i><i class=" fa fa-video-camera"  style=" margin: 8px; cursor:pointer"> Video </i> <i class="fa fa-music "  style=" margin: 8px; cursor:pointer"> Audio </i><i class=" fa fa-file-pdf-o fa-2x"  style=" margin: 8px; cursor:pointer"> PDF </i> </label>
 
-                                    <input type="file" class="file" style="display:block;" id="test-upload" style="display:none;" name="postattach[]" multiple>
+                                    
                                 </li>
                             </ul>
 

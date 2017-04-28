@@ -1,6 +1,8 @@
 <!-- start head -->
 <?php  echo $head; ?>
-
+<style type="text/css">
+  
+</style>
 
 <!--post save success pop up style strat -->
 

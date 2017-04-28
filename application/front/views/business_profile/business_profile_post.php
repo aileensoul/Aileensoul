@@ -627,6 +627,7 @@ if (!$businessfollow) {
             <ul class="editor-header">
               <li>
                 <label for="test-upload">
+                <input type="file" class="file" style="display:block;" id="test-upload" style="display:none;" name="postattach[]" multiple>
                   <i class=" fa fa-camera "  style=" margin: 8px; cursor:pointer"> Photo
                   </i>
                   <i class=" fa fa-video-camera"  style=" margin: 8px; cursor:pointer"> Video 
@@ -636,7 +637,7 @@ if (!$businessfollow) {
                   <i class=" fa fa-file-pdf-o fa-2x"  style=" margin: 8px; cursor:pointer"> PDF 
                   </i> 
                 </label>
-                <input type="file" class="file" style="display:block;" id="test-upload" style="display:none;" name="postattach[]" multiple>
+                
               </li>
             </ul>
           </div>
