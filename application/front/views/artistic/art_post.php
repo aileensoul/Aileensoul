@@ -880,7 +880,7 @@ $followfrom =  $this->db->get_where('art_reg',array('user_id' => $userid, 'statu
 
 </div>
     <div class="fr">
-     <button type="submit"  value="Submit">Submit</button>    </div>
+     <button type="submit"  value="Submit">Post</button>    </div>
      <?php echo form_close(); ?>
       </div>
   </div>
