@@ -1221,8 +1221,8 @@ $business_userimage = $this->db->get_where('business_profile', array('user_id' =
               <?php } ?>
             </div>
             <div class="">
-              <div class="col-md-10  inputtype-comment" style="    padding-left: 7px;">
-                <input type="text" name="<?php echo $row['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $row['business_profile_post_id']; ?>" placeholder="Type Message ..." value= ""  onClick="entercomment(this.name)">
+              <div id="content" class="col-md-10  inputtype-comment" style="padding-left: 7px;">
+                  <textarea style="min-height:37px !important;" name="<?php echo $row['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $row['business_profile_post_id']; ?>" placeholder="Type Message ..." value= ""  onClick="entercomment(this.name)"></textarea>
               </div>
               <?php echo form_error('post_comment'); ?> 
               <div class="col-md-1 comment-edit-butn">       
@@ -1273,6 +1273,15 @@ $business_userimage = $this->db->get_where('business_profile', array('user_id' =
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js">
 </script>
 <!-- script for skill textbox automatic end (option 2)-->
+
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+
+ <script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script>
+<script>
+$('#content').on( 'change keyup keydown paste cut', 'textarea', function (){
+    $(this).height(0).height(this.scrollHeight);
+}).find( 'textarea' ).change();
+</script>
 <script>
   var data = <?php echo json_encode($demo);
   ?>;

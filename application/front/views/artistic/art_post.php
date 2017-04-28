@@ -1513,7 +1513,7 @@ if(count($likelistarray) > 1) {
                                         </div>
                                         <div class="col-md-12">
                                         <div class="col-md-10">
-                                        <textarea  class="textarea" name="<?php echo $rowdata['artistic_post_comment_id']; ?>" id="<?php echo "editcomment" . $rowdata['artistic_post_comment_id']; ?>" style="display:none" onClick="commentedit(this.name)" style="height:50px;" ><?php  echo $rowdata['comments']; ?></textarea>
+                                        <textarea   class="textarea" name="<?php echo $rowdata['artistic_post_comment_id']; ?>" id="<?php echo "editcomment" . $rowdata['artistic_post_comment_id']; ?>" style="display:none;-webkit-min-height: 40px;" onClick="commentedit(this.name)" style="height:50px;" ><?php  echo $rowdata['comments']; ?></textarea>
                                         </div>
 
                                         <div class="col-md-2 comment-edit-button">
