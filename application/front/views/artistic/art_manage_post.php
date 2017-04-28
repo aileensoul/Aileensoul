@@ -1617,7 +1617,12 @@ responsive image design start -->
         <!-- like user list end -->
 
  <!-- <?php }?>  -->
+<?php 
 
+        $contition_array = array('art_post_id' =>  $row['art_post_id'], 'status' =>'1');
+        $artdatacondition =   $this->data['artdata'] = $this->common->select_data_by_condition('artistic_post_comment', $contition_array , $data='*', $sortby = 'artistic_post_comment_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str= array(), $groupby = ''); 
+        if($artdatacondition){
+         ?>
 
 
                                     <div class="art-all-comment col-md-12">
@@ -1645,26 +1650,21 @@ responsive image design start -->
 
                                                         $artlastname = $this->db->get_where('art_reg', array('user_id' => $rowdata['user_id']))->row()->art_lastname;
                                                         ?>
-                                                        <div class="all-comment-comment-box">
-                                                            <div class="post-design-pro-comment-img"> 
-                                                                <?php
-                                                                $art_userimage = $this->db->get_where('art_reg', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->art_user_image;
-                                                                ?>
+     <div class="all-comment-comment-box">
+            <div class="post-design-pro-comment-img"> 
+                            <?php
+                        $art_userimage = $this->db->get_where('art_reg', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->art_user_image; ?>
 
-                                                                <img  src="<?php echo base_url(ARTISTICIMAGE . $art_userimage); ?>"  alt="">
-                                                            </div>
-                                                            <div class="comment-name">
-                                                                <b><?php
-                                                                    echo ucwords($artname);
-                                                                    echo "&nbsp;";
-                                                                    echo ucwords($artlastname);
-                                                                    ?></b><?php echo '</br>'; ?></div>
+            <img  src="<?php echo base_url(ARTISTICIMAGE . $art_userimage); ?>"  alt="">
+            </div>
+                <div class="comment-name">
+                     <b><?php  echo ucwords($artname);
+                            echo "&nbsp;"; echo ucwords($artlastname); ?></b><?php echo '</br>'; ?></div>
 
-                                                            <div class="comment-details" id= "<?php echo "showcomment" . $rowdata['artistic_post_comment_id']; ?>">
-                                                                <?php
-                                                                echo $rowdata['comments'];
-                                                                echo '</br>';
-                                                                ?>
+                    <div class="comment-details" id= "<?php echo "showcomment" . $rowdata['artistic_post_comment_id']; ?>">
+                        <?php
+                        echo $rowdata['comments'];
+                        echo '</br>'; ?>
                                                             </div>
                                                             <div class="col-md-12">
     <div class="col-md-10"> 
@@ -1672,9 +1672,9 @@ responsive image design start -->
     
     </div>
 
-                                                                <div class="col-md-2 comment-edit-button">
-                                                                    <button id="<?php echo "editsubmit" . $rowdata['artistic_post_comment_id']; ?>" style="display:none" onClick="edit_comment(<?php echo $rowdata['artistic_post_comment_id']; ?>)">Comment</button>
-                                                                </div>
+                <div class="col-md-2 comment-edit-button">
+             <button id="<?php echo "editsubmit" . $rowdata['artistic_post_comment_id']; ?>" style="display:none" onClick="edit_comment(<?php echo $rowdata['artistic_post_comment_id']; ?>)">Comment</button>
+                             </div>
 
                                                             </div>
 
@@ -1757,21 +1757,13 @@ responsive image design start -->
                             ?>
                      </p></div></div>
                     </div>
-
-
-
-                                                        <?php
-                                                    }
-                                                }
-                                                ?>
-
-                                            </div>
-                                        </div>
+                    <?php }  } ?>
+           </div> </div>
                                         <!-- khyati changes end -->
                                         <!-- all comments code end -->
 
                                     </div>
-
+                                    <?php }?>
 
                                 </div>
                                 <div class="post-design-commnet-box col-md-12">

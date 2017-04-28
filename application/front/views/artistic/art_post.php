@@ -1459,7 +1459,15 @@ if(count($likelistarray) > 1) {
 </div>
 <!-- like user list end -->
 
+<?php 
+
+        $contition_array = array('art_post_id' =>  $row['art_post_id'], 'status' =>'1');
+        $artdatacondition =   $this->data['artdata'] = $this->common->select_data_by_condition('artistic_post_comment', $contition_array , $data='*', $sortby = 'artistic_post_comment_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str= array(), $groupby = ''); 
+        if($artdatacondition){
+         ?>
+
                 <div class="art-all-comment col-md-12">
+        
                   
 
 <!-- 18-4 all comment start-->
@@ -1611,6 +1619,8 @@ if(count($likelistarray) > 1) {
 
 
                 </div>
+
+                <?php }?>
                 <div class="post-design-commnet-box col-md-12">
                 
 
