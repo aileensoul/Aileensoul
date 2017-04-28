@@ -53,7 +53,9 @@
                         
                             <?php echo form_open(base_url('business_profile/contact_information_insert'), array('id' => 'contactinfo','name' => 'contactinfo','class' => 'clearfix')); ?>
 
-                            <div><span style="color:red">Fields marked with asterisk (*) are mandatory</span></div> 
+                            <div>
+                                    <span style="color:red"> (*)</span> <span style="color:#7f7f7e">Indicates required field</span>
+                                </div>
 
                                 <?php
                                      $contactname =  form_error('contactname');

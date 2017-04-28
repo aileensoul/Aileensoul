@@ -503,7 +503,7 @@
                                                                     $contition_array = array('post_id' => $post['post_id'], 'job_delete' => 0, 'user_id' => $userid);
                                                                     $jobsave = $this->data['jobsave'] = $this->common->select_data_by_condition('job_apply', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-                                                                    if ($jobsave[0]['job_save'] == 1) {
+                                                                    if ($jobsave) {
                                                                         ?>
 
                                                                         <!--<button  class="button" disabled>Applied</button>-->

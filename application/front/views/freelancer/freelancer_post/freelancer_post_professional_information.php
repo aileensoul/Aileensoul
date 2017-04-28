@@ -66,7 +66,10 @@
                             <h3>Proessional Information</h3>
                             <?php echo form_open(base_url('freelancer/freelancer_post_professional_information_insert'), array('id' => 'freelancer_post_professional', 'name' => 'freelancer_post_professional', 'class' => 'clearfix')); ?>
 
-                            <div><span style="color:red">Fields marked with asterisk (*) are mandatory</span></div>
+                           <div>
+                                    <span style="color:red"> (*)</span> <span style="color:#7f7f7e">Indicates required field</span>
+                                </div>
+
 
                             <?php
                             $field = form_error('field');

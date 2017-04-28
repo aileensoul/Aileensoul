@@ -510,7 +510,7 @@
                                                                     $contition_array = array('post_id' => $post['post_id'], 'job_delete' => 0, 'user_id' => $userid);
                                                                     $jobsave = $this->data['jobsave'] = $this->common->select_data_by_condition('job_apply', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-                                                                    if ($jobsave[0]['job_save'] == 1) {
+                                                                    if ($jobsave) {
                                                                         ?>
 
                                                                         <!--<button  class="button" disabled>Applied</button>-->
@@ -726,7 +726,7 @@
                                                                     $contition_array = array('post_id' => $post['post_id'], 'job_delete' => 0, 'user_id' => $userid);
                                                                     $jobsave = $this->data['jobsave'] = $this->common->select_data_by_condition('job_apply', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-                                                                    if ($jobsave[0]['job_save'] == 1) {
+                                                                    if ($jobsave) {
                                                                         ?>
 
                                                                         <!--<button  class="button" disabled>Applied</button>-->
@@ -1008,8 +1008,7 @@
                 <!-- save post end -->
 
                 <!-- apply post start -->
-
-                <script type="text/javascript">
+  <script type="text/javascript">
                     function apply_post(abc, xyz) {
                         //var alldata = document.getElementById("allpost" + abc);
                         var alldata = 'all';
@@ -1032,11 +1031,12 @@
                     }
                 </script>
 
+
                 <!-- apply post end -->
 
 
                 <!-- end search validation -->
-                <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
+               <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
                 <script>
                     function savepopup(id) {
                         save_post(id);
