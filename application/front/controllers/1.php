@@ -3090,23 +3090,42 @@ class Job extends MY_Controller {
         }
     }
 
-   
-
-public function job_applied_post() {
+    //job seeker Apply post at all post page & save post page controller End
+//job seeker view all applied post controller Start
+    public function job_applied_post() {
         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
+// job seeker detail
+        $contition_array = array('user_id' => $userid, 'is_delete' => 0, 'status' => 1);
+        $jobdata = $this->data['jobdata'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
+// post detail
+        $contition_array = array('is_delete' => 0, 'status' => 1);
+        $postdata = $this->data['postdata'] = $this->common->select_data_by_condition('rec_post', $contition_array, $data = '*', $sortby = 'post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        $new_insert_array = array();
+        foreach ($postdata as $post) {
+            $skill_id = explode(',', $post['post_skill']);
+            foreach ($skill_id as $skill) {
+                if ($skill == $jobdata[0]['keyskill'])
+                 {
                     $join_str[0]['table'] = 'job_apply';
                     $join_str[0]['join_table_id'] = 'job_apply.post_id';
                     $join_str[0]['from_table_id'] = 'rec_post.post_id';
                     $join_str[0]['join_type'] = '';
-                    $contition_array = array('job_apply.job_delete' => 0,'rec_post.is_delete' => 0,'job_apply.user_id' => $userid);
-                
-                 $this->data['postdetail'] = $this->common->select_data_by_condition('rec_post', $contition_array, 'rec_post.*,job_apply.app_id,job_apply.user_id as userid', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
-        
-                // echo "<pre>"; print_r($this->data['postdetail']); die();
-              
+                    $contition_array = array('rec_post.post_id' => $post['post_id'], 'job_apply.job_delete' => 0, 'job_apply.user_id' => $userid);
+                    $data = $this->data['data'] = $this->common->select_data_by_condition('rec_post', $contition_array, $data = 'rec_post.*,job_apply.app_id,job_apply.user_id as userid', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
+                    //$newarray[] = $data;
+                    if ($data) {
+                        array_push($new_insert_array, $data[0]);
+                    }
+                }
+            }
+        }
 
-       
+        //$this->data['postdetail'] = $newarray;
+        $this->data['postdetail'] = $new_insert_array;
+
+
+        echo "<pre>"; print_r($this->data['postdetail']); die();
 // code for search
         $contition_array = array('re_status' => '1');
         $results_recruiter = $this->data['results'] = $this->common->select_data_by_condition('recruiter', $contition_array, $data = 're_comp_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
@@ -3116,7 +3135,21 @@ public function job_applied_post() {
         // echo "<pre>"; print_r($results_post);die();
         $contition_array = array('status' => '1', 'type' => '1');
         $skill = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-       
+        // echo "<pre>"; print_r($skill);die();
+        // $return_array = array(); 
+        //        //  //echo  $return_array;
+        //           foreach ($artdata as $get) {
+        //               $return = array();
+        //               $return = $get;
+        //               $return['firstname'] =$get['art_name'] . " " . $get['art_lastname'];
+        //                            unset($return['art_name']);
+        //               unset($return['art_lastname']);
+        //               array_push($return_array, $return);
+        //             //echo $returnarray; 
+        //           }
+        // $contition_array = array('status' => '1');
+        // $artpost= $this->data['results'] =  $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
 
 
 
@@ -3141,11 +3174,16 @@ public function job_applied_post() {
 
 
         $this->data['demo'] = array_values($result1);
-       
+        // echo "<pre>"; print_r($this->data['demo']);die();
+
+
+
+
+
+
 
         $this->load->view('job/job_applied_post', $this->data);
     }
-
 
     //job seeker view all applied post controller End
 //job seeker Delete all Applied & Save post controller Start
