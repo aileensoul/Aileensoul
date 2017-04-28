@@ -467,15 +467,20 @@ padding-top: 1px;}
                                                                 //echo "<pre>"; print_r($data); die();
                                                                 if (!$data) {
                                                                     ?> 
-                                                                    <a href="<?php echo base_url('message/message_chats/' . $row['user_id']); ?>">Message</a>     
-                                                                    <input type="hidden" id="<?php echo 'hideenuser' . $row['user_id']; ?>" value= "<?php echo $data[0]['save_id']; ?>">
-                                                                                <!-- <a id="<?php echo $row['user_id']; ?>" onClick="save_user(this.id)" href="#popup1" class="<?php echo 'saveduser' . $row['user_id']; ?>">Save User</a> -->
-                                                                    <a id="<?php echo $row['user_id']; ?>" onClick="savepopup(<?php echo $row['user_id']; ?>)" href="javascript:void(0);" class="<?php echo 'saveduser' . $row['user_id']; ?>">Save</a>
-                                                                    <?php
-                                                                } else {
-                                                                    ?>
-                                                                    <a href="<?php echo base_url('message/message_chats/' . $row['user_id']); ?>">Message</a>     
-                                                                    <a class="saved">Saved </a> 
+                     <a href="<?php echo base_url('message/message_chats/' . $row['user_id']); ?>">Message</a> 
+
+                     <a href="#">Invite</a>
+
+             <input type="hidden" id="<?php echo 'hideenuser' . $row['user_id']; ?>" value= "<?php echo $data[0]['save_id']; ?>">
+                <!-- <a id="<?php echo $row['user_id']; ?>" onClick="save_user(this.id)" href="#popup1" class="<?php echo 'saveduser' . $row['user_id']; ?>">Save User</a> -->
+              <a id="<?php echo $row['user_id']; ?>" onClick="savepopup(<?php echo $row['user_id']; ?>)" href="javascript:void(0);" class="<?php echo 'saveduser' . $row['user_id']; ?>">Save</a>
+
+                <?php
+            } else {
+                 ?>
+             <a href="<?php echo base_url('message/message_chats/' . $row['user_id']); ?>">Message</a>  
+             <a href="#">Invite</a>   
+              <a class="saved">Saved </a> 
         <?php }
         ?> 
                                                             </div> </div>
