@@ -567,14 +567,14 @@ if (!$businessfollow) {
             <?php } ?>
           </div>
           <div id="myBtn"  class="editor-content col-md-11 popup-text" contenteditable>
-            <span> Post Your Product....
+            <span style="font-size: 23px;"> Post Your Product....
             </span> 
           </div>
         </div>
-        <div class="fr">
+        <!-- <div class="fr">
           <a class="button">Post
           </a>
-        </div>
+        </div> -->
       </div>
     </div>
     <!-- Trigger/Open The Modal -->
