@@ -1504,7 +1504,7 @@ if(count($likelistarray) > 1) {
                                         </div>
                                         <div class="col-md-12">
                                         <div class="col-md-10">
-                                        <textarea class="textarea" name="<?php echo $rowdata['artistic_post_comment_id']; ?>" id="<?php echo "editcomment" . $rowdata['artistic_post_comment_id']; ?>" style="display:none" onClick="commentedit(this.name)"><?php  echo $rowdata['comments']; ?></textarea>
+                                        <textarea  class="textarea" name="<?php echo $rowdata['artistic_post_comment_id']; ?>" id="<?php echo "editcomment" . $rowdata['artistic_post_comment_id']; ?>" style="display:none" onClick="commentedit(this.name)" style="height:50px;" ><?php  echo $rowdata['comments']; ?></textarea>
                                         </div>
 
                                         <div class="col-md-2 comment-edit-button">
@@ -2840,29 +2840,6 @@ function followclose(clicked_id)
 </script>
 
 
-<!-- 
-<script type="text/javascript">
-  var span = $('<span>').css('display','inline-block')
-.css('word-break','break-all').appendTo('body').css('visibility','hidden');
-function initSpan(textarea){
-  span.text(textarea.text())
-      .width(textarea.width())      
-      .css('font',textarea.css('font'));
-}
-$('textarea').on({
-    input: function(){
-      var text = $(this).val();      
-      span.text(text);      
-      $(this).height(text ? span.height() : '1.1em');
-    },
-    focus: function(){
-     initSpan($(this));
-    },
-    keypress: function(e){
-        if(e.which == 13) e.preventDefault();
-    }
-});
-</script> -->
 
 
 <!-- insert post validtation start -->
