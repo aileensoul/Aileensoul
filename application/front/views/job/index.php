@@ -83,7 +83,7 @@
                                 <h3>Basic Information</h3>
 <?php echo form_open(base_url('job/job_basicinfo_insert'), array('id' => 'jobseeker_regform', 'name' => 'jobseeker_regform', 'class' => 'clearfix')); ?>
                                 <div>
-                                    <span style="color:red">Fields marked with asterisk (*) are mandatory</span>
+                                    <span style="color:red"> (*)</span> <span style="color:#7f7f7e">Indicates required field</span>
                                 </div>
 
 <?php
