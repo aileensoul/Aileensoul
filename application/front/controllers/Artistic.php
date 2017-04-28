@@ -2015,7 +2015,7 @@ $followingdatacount = count($followingotherdata);
         $this->load->view('artistic/art_followers', $this->data);
     }
 
-    public function following($id) {
+    public function following($id="") {
 
         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
 

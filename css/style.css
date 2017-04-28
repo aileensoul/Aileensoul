@@ -3726,7 +3726,7 @@ li.fr a{
 .user_lst ul li .user_btn_i button{   border-radius: 3px; width: 100px;
                                       padding: 8px 0px; margin-bottom: 10px;}
 
-
+.user_lst ul li .user_btn_f button:hover{background-color: darkred;}
 
 .select2-container .select2-choices 
 {
@@ -3907,3 +3907,6 @@ input:-moz-placeholder { color:#999; font-size: 15px; }
 
 
 .post-design-name ul li .else_post_d a{display: inline-block;}
+
+
+.bg_following{    background-color: cornflowerblue!important;}
