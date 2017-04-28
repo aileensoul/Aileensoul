@@ -1702,7 +1702,8 @@ $new = array();
 
                 //$savepost = '<div> Saved Post </div>';
                 //$savepost.= '<i class="fa fa-bookmark" aria-hidden="true"></i>';
-                $saveuser .= 'Saved User';
+                //$saveuser .= 'Saved User';
+                $saveuser .= 'Saved';
                 //$savepost .= '</a>';      
                 echo $saveuser;
             }
@@ -1719,7 +1720,8 @@ $new = array();
 
                 //$savepost = '<div> Saved Post </div>';
                 //$savepost.= '<i class="fa fa-bookmark" aria-hidden="true"></i>';
-                $saveuser .= 'Saved user';
+                //$saveuser .= 'Saved user';
+                $saveuser .= 'Saved';
                 //$savepost .= '</a>';      
                 echo $saveuser;
             }
