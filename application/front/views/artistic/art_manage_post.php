@@ -1005,8 +1005,8 @@ responsive image design start -->
                             -->
                         </div>
                     </div>
-                    <div class="fr">
-                        <a class="button">Post</a></div>
+                    <!-- <div class="fr">
+                        <a class="button">Post</a></div> -->
                 </div>
             </div>
 
@@ -1074,7 +1074,7 @@ responsive image design start -->
 
                         </div>
                         <div class="fr">
-                            <button type="submit"  value="Submit">Submit</button>    </div>
+                            <button type="submit"  value="Submit">Post</button>    </div>
                         <?php echo form_close(); ?>
                     </div>
                 </div>
