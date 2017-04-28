@@ -2641,7 +2641,7 @@ class Business_profile extends MY_Controller {
 
                 $cmtinsert .= '<a id="' . $business_profile['business_profile_post_comment_id'] . '"';
                 $cmtinsert .= 'onClick="comment_editcancle(this.id)">';
-                $cmtinsert .= 'Cancle';
+                $cmtinsert .= 'Cancel';
                 $cmtinsert .= '</a></div>';
 
                 $cmtinsert .= '</div>';
@@ -2768,7 +2768,7 @@ $cmtinsert .= '<div class="comment-details" id= "showcommenttwo' . $business_pro
 
                 $cmtinsert .= '<a id="' . $business_profile['business_profile_post_comment_id'] . '"';
                 $cmtinsert .= 'onClick="comment_editcancletwo(this.id)">';
-                $cmtinsert .= 'Cancle';
+                $cmtinsert .= 'Cancel';
                 $cmtinsert .= '</a></div>';
 
                 $cmtinsert .= '</div>';
@@ -3003,7 +3003,7 @@ $cmtinsert .= '<div class="comment-details" id= "showcommenttwo' . $business_pro
 
                 $cmtinsert .= '<a id="' . $business_profile['business_profile_post_comment_id'] . '"';
                 $cmtinsert .= 'onClick="comment_editcancle(this.id)">';
-                $cmtinsert .= 'Cancle';
+                $cmtinsert .= 'Cancel';
                 $cmtinsert .= '</a></div>';
 
                 $cmtinsert .= '</div>';
@@ -3142,7 +3142,7 @@ $cmtinsert =  '<div class="insertcommenttwo' . $post_id . '">';
 
                 $cmtinsert .= '<a id="' . $business_profile['business_profile_post_comment_id'] . '"';
                 $cmtinsert .= 'onClick="comment_editcancletwo(this.id)">';
-                $cmtinsert .= 'Cancle';
+                $cmtinsert .= 'Cancel';
                 $cmtinsert .= '</a></div>';
 
                 $cmtinsert .= '</div>';
@@ -3719,7 +3719,7 @@ public function mulimg_commentthree()
 
                       $cmtinsert .=  '<a id="' . $bus_comment['post_image_comment_id'] . '"';
                       $cmtinsert .= 'onClick="comment_editcancle(this.id)">';
-                      $cmtinsert .=  'Cancle'; 
+                      $cmtinsert .=  'Cancel'; 
                       $cmtinsert .=  '</a></div>';
 
                       $cmtinsert .=  '</div>';
@@ -3862,7 +3862,7 @@ public function mulimg_comment()
 
                       $cmtinsert .=  '<a id="' . $bus_comment['post_image_comment_id'] . '"';
                       $cmtinsert .= 'onClick="comment_editcancle(this.id)">';
-                      $cmtinsert .=  'Cancle'; 
+                      $cmtinsert .=  'Cancel'; 
                       $cmtinsert .=  '</a></div>';
 
                       $cmtinsert .=  '</div>';
@@ -4008,7 +4008,7 @@ public function pnmulimg_comment()
 
                       $cmtinsert .=  '<a id="' . $bus_comment['post_image_comment_id'] . '"';
                       $cmtinsert .= 'onClick="imgcomment_editcancle(this.id)">';
-                      $cmtinsert .=  'Cancle'; 
+                      $cmtinsert .=  'Cancel'; 
                       $cmtinsert .=  '</a></div>';
 
                       $cmtinsert .=  '</div>';
@@ -4146,7 +4146,7 @@ public function pnmulimgcommentthree()
 
                       $cmtinsert .=  '<a id="' . $bus_comment['post_image_comment_id'] . '"';
                       $cmtinsert .= 'onClick="imgcomment_editcancle(this.id)">';
-                      $cmtinsert .=  'Cancle'; 
+                      $cmtinsert .=  'Cancel'; 
                       $cmtinsert .=  '</a></div>';
 
                       $cmtinsert .=  '</div>';
@@ -4549,7 +4549,7 @@ $businesscomment = $this->common->select_data_by_condition('bus_post_image_comme
 
                       $cmtinsert .=  '<a id="' . $bus_comment['post_image_comment_id'] . '"';
                       $cmtinsert .= 'onClick="comment_editcancle(this.id)">';
-                      $cmtinsert .=  'Cancle'; 
+                      $cmtinsert .=  'Cancel'; 
                       $cmtinsert .=  '</a></div>';
 
                       $cmtinsert .=  '</div>';
@@ -4687,7 +4687,7 @@ public function mul_delete_commenttwo()
 
                       $cmtinsert .=  '<a id="' . $bus_comment['post_image_comment_id'] . '"';
                       $cmtinsert .= 'onClick="imgcomment_editcancletwo(this.id)">';
-                      $cmtinsert .=  'Cancle'; 
+                      $cmtinsert .=  'Cancel'; 
                       $cmtinsert .=  '</a></div>';
 
                       $cmtinsert .=  '</div>';
@@ -4802,7 +4802,7 @@ $fourdata .=  '<a id="' . $rowdata['business_profile_post_comment_id'] .  '"   o
                                      </div>';
 
 $fourdata .= '<div id="editcancletwo' . $rowdata['business_profile_post_comment_id'] . '" style="display:none;">';
-$fourdata .= '<a id="' . $rowdata['business_profile_post_comment_id'] . '" onClick="comment_editcancletwo(this.id)">Cancle</a></div></div>';
+$fourdata .= '<a id="' . $rowdata['business_profile_post_comment_id'] . '" onClick="comment_editcancletwo(this.id)">Cancel</a></div></div>';
   }
 
 $userid  = $this->session->userdata('aileenuser');
@@ -4905,7 +4905,7 @@ if(count($mulcountlike1) > 0){
                                       </div>';
 
    $fourdata .= '<div id="editcancletwo' . $rowdata['post_image_comment_id'] . '" style="display:none;">';
- $fourdata .= '<a id="' . $rowdata['post_image_comment_id'] . '" onClick="comment_editcancletwo(this.id)">Cancle </a></div>';
+ $fourdata .= '<a id="' . $rowdata['post_image_comment_id'] . '" onClick="comment_editcancletwo(this.id)">Cancel </a></div>';
 
    $fourdata .=   '</div>';
 
@@ -5015,7 +5015,7 @@ $pnfour  .= '<div class="post-design-pro-comment-img">';
  $pnfour .= '<a id="' . $rowdata['business_profile_post_comment_id'] . '"onClick="comment_editboxtwo(this.id)" class="editbox">Edit</a></div>';
 
  $pnfour .= '<div id="editcancletwo' . $rowdata['business_profile_post_comment_id'] . '" style="display:none;">';
- $pnfour .= '<a id="' . $rowdata['business_profile_post_comment_id'] . '" onClick="comment_editcancletwo(this.id)">Cancle</a>';
+ $pnfour .= '<a id="' . $rowdata['business_profile_post_comment_id'] . '" onClick="comment_editcancletwo(this.id)">Cancel</a>';
  $pnfour .= '</div></div>';
 
   }
@@ -5129,7 +5129,7 @@ $cmtinsert =  '<div class="insertcomment' . $post_id . '">';
 
                 $cmtinsert .= '<a id="' . $business_profile['business_profile_post_comment_id'] . '"';
                 $cmtinsert .= 'onClick="comment_editcancle(this.id)">';
-                $cmtinsert .= 'Cancle';
+                $cmtinsert .= 'Cancel';
                 $cmtinsert .= '</a></div>';
 
                 $cmtinsert .= '</div>';
@@ -5253,7 +5253,7 @@ $cmtinsert .= '<div class="comment-details" id= "showcommenttwo' . $business_pro
 
                 $cmtinsert .= '<a id="' . $business_profile['business_profile_post_comment_id'] . '"';
                 $cmtinsert .= 'onClick="comment_editcancletwo(this.id)">';
-                $cmtinsert .= 'Cancle';
+                $cmtinsert .= 'Cancel';
                 $cmtinsert .= '</a></div>';
 
                 $cmtinsert .= '</div>';
@@ -5379,7 +5379,7 @@ $mulimgfour .= '<a id="' . $rowdata['post_image_comment_id'] . '"   onClick="img
 $mulimgfour .= '<a id="' . $rowdata['post_image_comment_id'] . '"   onClick="imgcomment_editboxtwo(this.id)" class="editbox">Edit</a></div>';
 
  $mulimgfour .= '<div id="imgeditcancletwo' . $rowdata['post_image_comment_id'] . '" style="display:none;">';
- $mulimgfour .= '<a id="' . $rowdata['post_image_comment_id'] . '" onClick="imgcomment_editcancletwo(this.id)">Cancle</a></div>';
+ $mulimgfour .= '<a id="' . $rowdata['post_image_comment_id'] . '" onClick="imgcomment_editcancletwo(this.id)">Cancel</a></div>';
 
  $mulimgfour .= '</div>';
 

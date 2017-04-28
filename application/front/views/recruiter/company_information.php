@@ -38,7 +38,7 @@
 			    <div class="common-form">
                 <h3>Company information</h3>
 				 <?php echo form_open(base_url('recruiter/company_info_store'), array('id' => 'basicinfo','name' => 'basicinfo','class' => 'clearfix')); ?>
-                 <div><span style="color:red">Fields marked with asterisk (*) are mandatory</span></div> 
+                 <div><span style="color:red">(*)</span><span style="color: #7f7f7e">Indicates required field</span></div> 
 				 	
                     <?php
                          $comp_name =  form_error('comp_name');

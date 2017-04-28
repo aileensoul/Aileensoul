@@ -72,11 +72,9 @@
 
 <?php echo form_open_multipart(base_url('job/job_work_exp_insert'), array('id' => 'jobseeker_regform','name' => 'jobseeker_regform','class'=>'clearfix')); ?>
 <div id="London" class="tabcontent1">
-<div>
-
-
-                                <span style="color:red">Fields marked with asterisk (*) are mandatory</span>
-                            </div>
+ <div>
+                                    <span style="color:red"> (*)</span> <span style="color:#7f7f7e">Indicates required field</span>
+                                </div>
 <label for="Fresher">
                                             <input type="radio" id="fresher" name="radio" value="Fresher" checked="checked">
                                             Fresher&nbsp;&nbsp;

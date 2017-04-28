@@ -42,7 +42,7 @@
                      <h3>Basic information</h3>
                  <?php echo form_open(base_url('recruiter/basic_information'), array('id' => 'basicinfo','name' => 'basicinfo','class' => 'clearfix')); ?>
 
-                    <div><span style="color:red">Fields marked with asterisk (*) are mandatory</span></div> 
+                    <div><span style="color:red">(*)</span><span style="color: #7f7f7e">Indicates required field</span></div> 
                                 
                     <fieldset>
                         <label>First Name:<span style="color:red">*</span></label>
