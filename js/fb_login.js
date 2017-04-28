@@ -136,7 +136,8 @@
 
     var GoogleLogin = function () {
         // login Google
-        $('.google_ac_l').live('click', function () {
+        //$('.google_ac_l').live('click', function () {
+          $(".google_ac_l").click(function(){
             gapi.load('auth2', function () {
                 // Retrieve the singleton for the GoogleAuth library and set up the client.
                 auth2 = gapi.auth2.init({
@@ -150,7 +151,8 @@
         });
 
         // register Signup
-        $('.google_ac_r').live('click', function () {
+//        $('.google_ac_r').live('click', function () {
+        $(".google_ac_r").click(function(){
             gapi.load('auth2', function () {
                 // Retrieve the singleton for the GoogleAuth library and set up the client.
                 auth2 = gapi.auth2.init({

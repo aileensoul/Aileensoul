@@ -153,9 +153,9 @@
 
 <div id="busDivCheck" <?php if($business_type1 != 0){ ?>style="display:none" <?php } ?>>
  <fieldset <?php if($subindustrial) {  ?> class="error-msg" <?php } ?> class="half-width">
-                              <?php if($business_type1 == 0) {  ?>         <label id="bustype">Add Here Your Other Business type:<span style="color:red;" >*</span></label> <?php } ?>
-                                    <label> Other Business Type:</label>
-                <input type="text" name="bustype" id="bustype" value="<?php echo $other_business; ?>" style="<?php if($business_type1 != 0) {echo 'display: none'; } ?>">
+                              <?php if($business_type1 == 0) {  ?>        <!-- <label id="bustype">Add Here Your Other Business type:<span style="color:red;" >*</span></label> --> <?php } ?>
+                                    <label> Other Business Type: <span style="color:red;" >*</span></label>
+                                    <input type="text" name="bustype" id="bustype" value="<?php echo $other_business; ?>" style="<?php if($business_type1 != 0) {echo 'display: none'; } ?>" required="">
                                     <?php echo form_error('subindustriyal'); ?>
                                 </fieldset>
                                  </div>
@@ -163,10 +163,10 @@
 
 <div id="indDivCheck" <?php if($industriyal1 != 0){ ?>style="display:none" <?php } ?>>
  <fieldset <?php if($subindustrial) {  ?> class="error-msg" <?php } ?> class="half-width">
-                            <?php if($industriyal1 == 0) {  ?>      <label id="indtype">Add Here Your Other Category type:<span style="color:red">*</span></label> <?php } ?>
-     <label> Other Category:</label>
+                            <?php if($industriyal1 == 0) {  ?>    <!--  <label id="indtype">Add Here Your Other Category type:<span style="color:red">*</span></label> --> <?php } ?>
+     <label> Other Category:<span style="color:red;" >*</span></label>
 <input type="text" name="indtype" id="indtype" value="<?php echo $other_industry; ?>" 
-style="<?php if($industriyal1 != 0) {echo 'display: none'; } ?>">
+style="<?php if($industriyal1 != 0) {echo 'display: none'; } ?>" required="">
                                     <?php echo form_error('subindustriyal'); ?>
                                 </fieldset>
                                 </div>
@@ -326,7 +326,8 @@ function busSelectCheck(nameSelect)
         if(busOptionValue == nameSelect.value){
             document.getElementById("busDivCheck").style.display = "block";
             document.getElementById("bustype").style.display = "block";
-            $("#busDivCheck .half-width label").text('Other Business Type:');
+            //$("#busDivCheck .half-width label").text('Other Business Type:');
+            $("#busDivCheck .half-width label").html('Other Business Type:<span style="color:red;" >*</span>');
         }
         else{
             //document.getElementById("busDivCheck").style.display = "none";
@@ -334,9 +335,11 @@ function busSelectCheck(nameSelect)
             if(industriyal == 0 && business_type == 0){
                // document.getElementById("busDivCheck").style.display = "none";
                $("#busDivCheck .half-width label").text('');
+               $("#bustype-error").remove();
             }
             if(industriyal == 0 && business_type != 0){
                 $("#busDivCheck .half-width label").text('');
+                $("#bustype-error").remove();
             }
         }
     }

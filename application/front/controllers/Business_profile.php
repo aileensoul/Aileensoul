@@ -646,13 +646,14 @@ class Business_profile extends MY_Controller {
     public function image_insert() {
 
         $userid = $this->session->userdata('aileenuser');
-
-        if ($this->input->post('next')) {
-
-
-            if (empty($_FILES['image1']['name'])) {
+        
+        if ($this->input->post('next') || $this->input->post('submit')) {
+            
+            /*if (empty($_FILES['image1']['name'])) {
                 
-            } else {
+            } else { */
+            if(count($_FILES) > 0)
+            {
                 $config['upload_path'] = 'uploads/business_profile_images/';
                 $config['allowed_types'] = 'jpg|jpeg|png|gif';
 
@@ -671,7 +672,7 @@ class Business_profile extends MY_Controller {
                     $picture = '';
                 }
             }
-
+            
             if ($picture) {
 
                 $data = array(
