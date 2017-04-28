@@ -3,303 +3,6 @@
 
 
 <!--post save success pop up style strat -->
-<style>
-body {
-  font-family: Arial, sans-serif;
-  background-size: cover;
-  height: 100vh;
-}
-
-/* The Modal (background) */
-.modal2 {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  padding-top: 100px;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: black;
-}
-
-/* Modal Content */
-.modal-content2 {
-  position: relative;
-  background-color: #fefefe;
-  margin: auto;
-  padding: 0;
-  width: 65%;
-  max-width: 1200px;
-}
-
-
-/* Next & previous buttons */
-.prev,
-.next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  padding: 16px;
-  margin-top: -50px;
-  color: white;
-  font-weight: bold;
-  font-size: 20px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-  -webkit-user-select: none;
-}
-
-/* The Close Button */
-.close2 {
-  color: white;
-  position: absolute;
-  top: 75px;
-  right: 196px;
-  font-size: 35px;
-  font-weight: bold;
-}
-
-.close2:hover,
-.close2:focus {
-  color: #999;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-/* Position the "next button" to the right */
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover,
-.next:hover {
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-/* Number text (1/3 etc) */
-.numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
-}
-
-.caption-container {
-  text-align: center;
-  background-color: black;
-  padding: 2px 16px;
-  color: white;
-}
-
-.demo {
-  opacity: 0.6;
-}
-
-.active,
-.demo:hover {
-  opacity: 1;
-}
-
-
-.hover-shadow:hover {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
-}
-/*!
- * bootstrap-vertical-tabs - v1.2.2
- * https://dbtek.github.io/bootstrap-vertical-tabs
- * 2016-12-02
- * Copyright (c) 2016 İsmail Demirbilek
- * License: MIT
- */
-.tabs-left, .tabs-right {
-  border-bottom: none;
-  padding-top: 2px;
-}
-.tabs-left {
-  /*border-right: 1px solid #ddd;*/
-  padding-top: 15px;
-  height: 100%;
-}
-.tabs-right {
-  border-left: 1px solid #ddd;
-}
-.tabs-left>li, .tabs-right>li {
-  float: none;
-  margin-bottom: 2px;
-}
-.tabs-left>li {
-  margin-right: -1px;
-  padding: 0;
-}
-.tabs-right>li {
-  margin-left: -1px;
-}
-.tabs-left>li.active>a,
-.tabs-left>li.active>a:hover,
-.tabs-left>li.active>a:focus {
-  border-bottom-color: #ddd;
-  border-right-color: transparent;
-}
-
-.tabs-right>li.active>a,
-.tabs-right>li.active>a:hover,
-.tabs-right>li.active>a:focus {
-  border-bottom: 1px solid #ddd;
-  border-left-color: transparent;
-}
-.tabs-left>li>a {
-  /*border-radius: 4px 0 0 4px;*/
-  margin-right: 0;
-  display:block;
-    letter-spacing: 2px;
-    font-size: 18px;
-    font-weight: 600;
-}
-.tabs-right>li>a {
-  border-radius: 0 4px 4px 0;
-  margin-right: 0;
-
-}
-.sideways {
-  margin-top:50px;
-  border: none;
-  position: relative;
-}
-.sideways>li {
-  height: 20px;
-  width: 120px;
-  margin-bottom: 100px;
-}
-.sideways>li>a {
-  border-bottom: 1px solid #ddd;
-  border-right-color: transparent;
-  text-align: center;
-  border-radius: 4px 4px 0px 0px;
-}
-.sideways>li.active>a,
-.sideways>li.active>a:hover,
-.sideways>li.active>a:focus {
-  border-bottom-color: transparent;
-  border-right-color: #ddd;
-  border-left-color: #ddd;
-}
-.sideways.tabs-left {
-  left: -50px;
-}
-.sideways.tabs-right {
-  right: -50px;
-}
-.sideways.tabs-right>li {
-  -webkit-transform: rotate(90deg);
-  -moz-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
-  -o-transform: rotate(90deg);
-  transform: rotate(90deg);
-}
-.sideways.tabs-left>li {
-  -webkit-transform: rotate(-90deg);
-  -moz-transform: rotate(-90deg);
-  -ms-transform: rotate(-90deg);
-  -o-transform: rotate(-90deg);
-  transform: rotate(-90deg);
-}
-.box {
-  width: 40%;
-  margin: 0 auto;
-  background: rgba(255,255,255,0.2);
-  padding: 35px;
-  border: 2px solid #fff;
-  border-radius: 20px/50px;
-  background-clip: padding-box;
-  text-align: center;
-}
-
-
-
-.overlay {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.3);
-  transition: opacity 500ms;
-  visibility: hidden;
-  opacity: 0;
-  z-index: 10;
-}
-.overlay:target {
-  visibility: visible;
-  opacity: 1;
-}
-
-.popup {
-    margin: 70px auto;
-    padding: 20px;
-    background: #fff;
-    border-radius: 5px;
-    width: 30%;
-    height: 200px;
-    position: relative;
-    transition: all 5s ease-in-out;
-}
-
-.okk{
-  text-align: center;
-}
-
-.popup .okbtn {
-  position: absolute;
-    transition: all 200ms;
-    font-size: 18px;
-    font-weight: bold;
-    text-decoration: none;
-    color: #fff;
-    padding: 8px 18px;
-    background-color: darkcyan;
-    left: 25px;
-    margin-top: 15px;
-    width: 100px; 
-    border-radius: 8px;
-}
-
-.popup .cnclbtn {
-  position: absolute;
-    transition: all 200ms;
-    font-size: 18px;
-    font-weight: bold;
-    text-decoration: none;
-    color: #fff;
-    padding: 8px 18px;
-    background-color: darkcyan;
-    right: 25px;
-    margin-top: 15px;
-    width: 100px;
-    border-radius: 8px;
-}
-
-.popup .pop_content {
- text-align: center;
- margin-top: 40px;
-  
-}
-
-@media screen and (max-width: 700px){
-  .box{
-    width: 70%;
-  }
-  .popup{
-    width: 70%;
-  }
-}
-</style>
 
 <!--post save success pop up style end -->
 
@@ -519,7 +222,7 @@ label.cameraButton input[accept*="camera"] {
                        if($artisticdata[0]['user_id'] == $userid)
                        { 
                         ?>
-                                    <li <?php if($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'followers'){?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/followers'); ?>">Followers  (<?php echo (count($followerdata)); ?>)</a>
+                                    <li <?php if($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'followers'){?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/followers'); ?>">Followers <br>  (<?php echo (count($followerdata)); ?>)</a>
                                     </li>
                           <?php }else{
 
@@ -528,14 +231,14 @@ label.cameraButton input[accept*="camera"] {
         $followerotherdata = $this->data['followerotherdata'] =  $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
                               ?> 
-                              <li <?php if($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'followers'){?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/followers/'.$artisticdata[0]['user_id']); ?>">Followers  (<?php echo (count($followerotherdata)); ?>)</a>
+                              <li <?php if($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'followers'){?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/followers/'.$artisticdata[0]['user_id']); ?>">Followers <br>  (<?php echo (count($followerotherdata)); ?>)</a>
                                     </li>
 
                             <?php }?> 
                                     <?php
                             if($artisticdata[0]['user_id'] == $userid){ 
                             ?>        
-                                     <li <?php if($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'following'){?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/following'); ?>">Following  (<?php echo (count($followingdata)); ?>)</a>
+                                     <li <?php if($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'following'){?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/following'); ?>">Following  <br> (<?php echo (count($followingdata)); ?>)</a>
                                     </li>
                                     <?php }else{
 
@@ -543,7 +246,7 @@ $artregid = $artisticdata[0]['art_id'];
 $contition_array = array('follow_from' => $artregid, 'follow_status' =>'1',  'follow_type' =>'1');
 $followingotherdata = $this->data['followingotherdata'] =  $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                                       ?>
-                                  <li <?php if($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'following'){?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/following/'.$artisticdata[0]['user_id']); ?>">Following  (<?php echo (count($followingotherdata)); ?>)</a>
+                                  <li <?php if($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'following'){?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/following/'.$artisticdata[0]['user_id']); ?>">Following <br>  (<?php echo (count($followingotherdata)); ?>)</a>
                                     </li> 
                                   <?php }?>  
 
@@ -579,9 +282,9 @@ $followingotherdata = $this->data['followingotherdata'] =  $this->common->select
                 <div class="row">
 
 
-      <div  class="col-sm-10 border_tag padding_low_data" style="margin: 16px;">
+      <div  class="col-sm-12 border_tag padding_low_data padding_less_right" >
       
-        <div class="col-xs-3 padding_low_data"> <!-- required for floating -->
+        <div class="col-xs-3 padding_low_data padding_les"> <!-- required for floating -->
           <!-- Nav tabs -->
           <ul class="nav nav-tabs tabs-left">
             <li class="active"> <a href="<?php echo base_url('artistic/art_photos/'.$artisticdata[0]['user_id']) ?>" data-toggle="tab"><i class="fa fa-camera" aria-hidden="true"></i>   Photos</a></li>
@@ -591,7 +294,7 @@ $followingotherdata = $this->data['followingotherdata'] =  $this->common->select
           </ul>
         </div>
 
-       <div class="col-xs-9" style="padding-left: 0;  border-left: 1px solid #ccc">
+       <div class="col-xs-9  padding_less_right" style="padding-left: 0;  border-left: 1px solid #ccc">
 
           <!-- Tab panes -->
           <div class="tab-content">
@@ -599,7 +302,7 @@ $followingotherdata = $this->data['followingotherdata'] =  $this->common->select
                             <div class="">
 
                                 <h2 class="add_tag_design"> Photos</h2>
-                                 <div class="contact-frnd-post">
+                                 <div class="contact-frnd-post" style="">
                               
 <!-- khyati changes start -->
                   <div class="pictures">
@@ -627,9 +330,17 @@ $followingotherdata = $this->data['followingotherdata'] =  $this->common->select
 
         <?php
           $i++;
-            } } else{
-            echo "no Images"; 
-              }?>
+            } } else{?>
+             
+      <div style="margin-left: 380px; margin-top: 20px;">
+                  <div class="not_avali" >
+                                <img src="<?php echo base_url('images/color_008.png'); ?>"  >
+                               <div>
+                               <div class="not_text" >Photo not avalible</div>
+                               </div>
+                               </div>
+                               </div>
+               <?php }?>
   
     </div>
 

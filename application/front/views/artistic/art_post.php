@@ -1459,7 +1459,15 @@ if(count($likelistarray) > 1) {
 </div>
 <!-- like user list end -->
 
+<?php 
+
+        $contition_array = array('art_post_id' =>  $row['art_post_id'], 'status' =>'1');
+        $artdatacondition =   $this->data['artdata'] = $this->common->select_data_by_condition('artistic_post_comment', $contition_array , $data='*', $sortby = 'artistic_post_comment_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str= array(), $groupby = ''); 
+        if($artdatacondition){
+         ?>
+
                 <div class="art-all-comment col-md-12">
+        
                   
 
 <!-- 18-4 all comment start-->
@@ -1611,6 +1619,19 @@ if(count($likelistarray) > 1) {
 
 
                 </div>
+
+                <?php } else{?>
+
+
+                  <div id="<?php echo "fourcomment" . $row['art_post_id']; ?>" style="display:none">
+                                        </div>
+
+                      <div  id="<?php echo "threecomment" . $row['art_post_id']; ?>" style="display:block">
+
+                       <div class="<?php echo 'insertcomment' . $row['art_post_id']; ?>">
+                       </div>
+                         </div>
+                <?php }?>
                 <div class="post-design-commnet-box col-md-12">
                 
 
@@ -1627,8 +1648,8 @@ if(count($likelistarray) > 1) {
 
                   <div class="">
                   <div class="col-md-10 inputtype-comment" style="padding-left: 7px !important;">
-                  <textarea type="text" class="textarea" name="<?php echo  $row['art_post_id']; ?>"  id="<?php echo "post_comment" . $row['art_post_id']; ?>" placeholder="Type Comment ..." value= "" onClick="entercomment(this.name)" style="height: 2.3em;"></textarea>
-                                                 <?php echo form_error('post_comment'); ?>
+                  <textarea class="textarea" name="<?php echo  $row['art_post_id']; ?>"  id="<?php echo "post_comment" . $row['art_post_id']; ?>" placeholder="Type Comment ..." value= "" onClick="entercomment(this.name)" style="height: 2.3em;"></textarea>
+                              <?php echo form_error('post_comment'); ?>
                                                  </div>
                                                    <div class="col-md-1 comment-edit-butn">   
                                                  <button id="<?php echo $row['art_post_id']; ?>" onClick="insert_comment(this.id)">Comment</button> </div>
@@ -1640,14 +1661,8 @@ if(count($likelistarray) > 1) {
       </div>
                         </div>
 </div>
-
-                                        <?php
-                                        } }
-                                      
-                                        ?>
-
-
-                    </div>
+<?php } } ?>
+  </div>
     </section>
     <footer>
     <?php echo $footer;  ?>
@@ -2020,7 +2035,6 @@ function insert_comment(clicked_id)
     
   var x = document.getElementById('threecomment'+ clicked_id);
    var y = document.getElementById('fourcomment'+ clicked_id);
- 
  if (x.style.display === 'block' && y.style.display === 'none') { 
  
        $.ajax({ 
@@ -2039,7 +2053,7 @@ function insert_comment(clicked_id)
           }
             }); 
  
-      } else { 
+      } else { alert("hii");
 
         $.ajax({ 
             type:'POST',
@@ -2056,11 +2070,7 @@ function insert_comment(clicked_id)
 
           }
             }); 
-     }
-  
-   
- 
-                    
+     }                  
                
 }
 
@@ -2071,7 +2081,7 @@ function insert_comment(clicked_id)
 function entercomment(clicked_id)
 {
  
-  $(document).ready(function() {
+  //$(document).ready(function() {
   $('#post_comment' + clicked_id).keypress(function(e) {
     
 
@@ -2134,7 +2144,7 @@ function entercomment(clicked_id)
      
     }        
   });
-});
+//});
 
 }
 </script>

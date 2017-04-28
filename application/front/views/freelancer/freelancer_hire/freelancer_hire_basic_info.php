@@ -63,7 +63,7 @@
 
                             <?php echo form_open_multipart(base_url('freelancer_hire/freelancer_hire_basic_info_insert'), array('id' => 'basic_info', 'name' => 'basic_info', 'class' => 'clearfix')); ?>
 
-                            <div><span style="color:red">Fields marked with asterisk (*) are mandatory</span></div>
+                            <div><span style="color:red"> (*) </span> <span style="color: #7f7f7e">Indicates required field </span></div>
 
                             <?php
                             $fname = form_error('fname');
