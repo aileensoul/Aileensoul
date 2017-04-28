@@ -59,14 +59,14 @@
                                 $description = form_error('description');
                                 $postattach = form_error('postattach');
                                 ?>
-                                <fieldset <?php if ($post_name) { ?> class="error-msg" <?php } ?> >
+                                <fieldset class="full-width"<?php if ($post_name) { ?> class=" error-msg" <?php } ?> >
                                     <label class="control-label">Post name:<span style="color:red">*</span></label>
                                     <input name="post_name" type="text" id="post_name" placeholder="Enter Post Name" />
                                     <span id="fullname-error"></span>
                                     <?php echo form_error('post_name'); ?>
                                 </fieldset>
 
-                                <fieldset <?php if ($skills) { ?> class="error-msg" <?php } ?>>
+                                <fieldset class="full-width" <?php if ($skills) { ?> class="error-msg" <?php } ?>>
                                     <label class="control-label">Skills:<span style="color:red">*</span></label>
 
                                     <select class="skill_other" name="skills[]" id="skills" multiple="multiple" >
@@ -79,14 +79,14 @@
                                 </fieldset>
 
 
-                                <fieldset <?php if ($other_skill) { ?> class="error-msg" <?php } ?> >
+                                <fieldset class="full-width" <?php if ($other_skill) { ?> class="error-msg" <?php } ?> >
                                     <label class="control-label">Other Skill:<span style="color:red">*</span></label>
                                     <input name="other_skill" type="text" class="skill_other" id="other_skill" placeholder="Enter Your Skill" />
                                     <span id="fullname-error"></span>
                                     <?php echo form_error('other_skill'); ?>
                                 </fieldset>
                                 <!--  </div> -->
-                                      <fieldset <?php if ($position) { ?> class="error-msg" <?php } ?>>
+                                      <fieldset class="full-width" <?php if ($position) { ?> class="error-msg" <?php } ?>>
                                     <label class="control-label">No of Candidate:<span style="color:red">*</span></label>
                                     <input name="position" type="number" min="1" id="position" value="1" onblur="return full_name();" placeholder="Enter No of Candidate" />
                                     <span id="fullname-error"></span>
@@ -95,7 +95,7 @@
 
 
                                 <fieldset <?php if ($month) { ?> class="error-msg" <?php } ?> class="two-select-box">
-                                    <label class="control-label">Min experience:<span style="color:red">*</span></label>
+                                    <label class="control-label">Minimum experience:<span style="color:red">*</span></label>
                                     <select name="minmonth" class="keyskil">
                                         <option value="">Month</option>
                                         <option value="0">0</option>
@@ -137,7 +137,7 @@
 
 
                                 <fieldset <?php if ($month) { ?> class="error-msg" <?php } ?> class="two-select-box">
-                                    <label class="control-label">Max experience:<span style="color:red">*</span></label>
+                                    <label class="control-label">&nbsp;Maximum experience:<span style="color:red">*</span></label>
                                     <select name="maxmonth" class="keyskil1">
                                         <option value="">Month</option>
                                         <option value="0">0</option>
@@ -258,10 +258,11 @@
 
                                 <fieldset style="padding: 4px 3px;" class="hs-submit">
 
+                                 <a href="javascript:history.back()">Cancel</a>
                                     <!--<input type="reset" >-->
                                     <input type="submit" id="submit" name="submit" value="Post">
                                     <!--<input type="submit" id="Cancel" name="cancel" value="Cancel">-->
-                                    <a href="javascript:history.back()">Cancel</a>
+                                    
 
                                 </fieldset>
 
