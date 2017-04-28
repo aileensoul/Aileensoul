@@ -318,7 +318,7 @@ echo $recruiter_header2;
                                 </div>
                         </li> -->
                         <li>
-                            <a href="<?php echo  base_url('message/message_chats/');?>">Message</a></li>
+                            <a href="<?php echo  base_url('recruiter/recruiter_designation/');?>">Message</a></li>
 
                     </ul>
                 </div>
@@ -327,7 +327,7 @@ echo $recruiter_header2;
   </div>  
     <!-- menubar -->                
   <div class="job-menu-profile1 col-md-3">
-                         <h5><?php echo $recdata[0]['rec_firstname'] . ' ' . $recdata[0]['rec_lastname']; ?></h5>
+                         <a href="javascript:void(0);" title="<?php echo $recdata[0]['rec_firstname'] . ' ' . $recdata[0]['rec_lastname']; ?>"><h5><?php echo $recdata[0]['rec_firstname'] . ' ' . $recdata[0]['rec_lastname']; ?></h5></a>
                             <!-- text head start -->
                     <div class="profile-text" >
                    
