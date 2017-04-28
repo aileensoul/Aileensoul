@@ -1127,7 +1127,7 @@ responsive image design start -->
 
                                                 <p class="okk"><a class="okbtn" id="<?php echo $row['art_post_id']; ?>" onClick="remove_ownpost(this.id)" href="#">OK</a></p>
 
-                                                <p class="okk"><a class="cnclbtn" href="#">Cancle</a></p>
+                                                <p class="okk"><a class="cnclbtn" href="#">Cancel</a></p>
 
                                             </div>
 
@@ -1144,7 +1144,7 @@ responsive image design start -->
 
                                                 <p class="okk"><a class="okbtn" id="<?php echo $row['art_post_id']; ?>" onClick="del_particular_userpost(this.id)" href="#">OK</a></p>
 
-                                                <p class="okk"><a class="cnclbtn" href="#">Cancle</a></p>
+                                                <p class="okk"><a class="cnclbtn" href="#">Cancel</a></p>
 
                                             </div>
 
@@ -1560,7 +1560,7 @@ responsive image design start -->
 
                     <?php } ?>
 
-                 <p class="okk"><a class="cnclbtn" href="#">Cancle</a></p>
+                 <p class="okk"><a class="cnclbtn" href="#">Cancel</a></p>
 
                         </div>
 
@@ -1724,7 +1724,7 @@ responsive image design start -->
                 </div>
 
         <div id="<?php echo 'editcancle' . $rowdata['artistic_post_comment_id']; ?>" style="display:none;">
-        <a id="<?php echo $rowdata['artistic_post_comment_id']; ?>" onClick="comment_editcancle(this.id)">Cancle
+        <a id="<?php echo $rowdata['artistic_post_comment_id']; ?>" onClick="comment_editcancle(this.id)">Cancel
         </a>
         </div>
 
@@ -3187,7 +3187,7 @@ var product_fileInput = document.getElementById("test-upload").value;
 alert(product_name); alert(product_description); alert(product_fileInput);
 
 if(product_fileInput == '' && product_name == '' && product_description == '')
-  { 
+  { alert("FALU");
  
 $('.biderror .mes').html("<div class='pop_content'>This post appears to be blank. Please write or attach (photos, videos, audios, pdf) to post.");
           $('#bidmodal').modal('show');

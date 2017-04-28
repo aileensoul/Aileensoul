@@ -1057,7 +1057,7 @@ function text2link($text){
 
                  <?php if($row['posted_user_id']){?>
 
-                 <?php if($userimage){ ?>
+                 <?php if($userimageposted){ ?>
                     <img src="<?php echo base_url(USERIMAGE .  $userimageposted);?>" name="image_src" id="image_src" />
                     <?php } else { ?>
                     <img alt="" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
@@ -1094,9 +1094,10 @@ function text2link($text){
 
                   ?>
 
- <li>
+ 
 
                   <?php if($row['posted_user_id']){?>
+                  <li>
                   <div class="else_post_d">
        <div class="post-design-product"><a style=" font-size: 18px;
                          line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; " href="<?php echo base_url('business_profile/business_profile_manage_post/'.$slugnameposted); ?>"><?php echo ucwords($companynameposted); ?></a> <span style="font-weight: 600;"> Posted With </span> <a style=" font-size: 18px;

@@ -409,7 +409,7 @@ if (!$businessfollow) {
                         <ul>
                           <li>
                             <div class="post-design-product_follow">
-                              <a href="<?php echo base_url('business_profile/business_profile/' . $userlist['business_slug'] . ''); ?>" title="<?php echo ucwords($userlist['company_name']); ?>">
+                              <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>" title="<?php echo ucwords($userlist['company_name']); ?>">
                                 <h6>
                                   <?php   echo ucwords($userlist['company_name']);
                                      ?>
@@ -419,7 +419,7 @@ if (!$businessfollow) {
                           </li>
                           <li>
                             <div class="post-design-product_follow_main" style="display:block;">
-                              <a href="<?php echo base_url('business_profile/business_profile/' . $userlist['business_slug'] . ''); ?>" title="<?php echo ucwords($userlist['company_name']); ?>">
+                              <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>" title="<?php echo ucwords($userlist['company_name']); ?>">
                                 <p>
                                   <?php  echo $category; ?>
                                 </p>
@@ -586,15 +586,14 @@ if (!$businessfollow) {
         <span class="close1">&times;
         </span>
         <div class="post-editor col-md-12">
-          <?php echo form_open_multipart(base_url('business_profile/business_profile_addpost_insert/'), array('id' => 'artpostform', 'name' => 'artpostform', 'class' => 'clearfix', 'onsubmit' => "imgval(event)")); ?>
+          <?php echo form_open_multipart(base_url('business_profile/business_profile_addpost_insert/'), array('id' => 'artpostform', 'name' => 'artpostform', 'class' => 'clearfix', 'onsubmit' => "return imgval(event)")); ?>
           <div class="main-text-area col-md-12"  style="border-bottom: 5px solid #ced5df;">
             <div class="popup-img col-md-1"> 
-              <img  src="<?php echo base_url(USERIMAGE . $businessdata1[0]['business_user_image']); ?>"  alt="">
+              <img  src="<?php echo base_url(USERIMAGE . $businessdata[0]['business_user_image']); ?>"  alt="">
             </div>
             <div id="myBtn1"  class="editor-content col-md-10 popup-text" >
               <!-- <textarea name="product_title" placeholder="Post Your Product...."></textarea>  -->
-              <textarea id= "test-upload_product" placeholder="Post Your Product...."  onKeyPress=check_length(this.form); onKeyDown=check_length(this.form); 
-                        name=my_text rows=4 cols=30 class="post_product_name" style="height:  10%;">
+              <textarea id= "test-upload-product" placeholder="Post Your Product...."  onKeyPress=check_length(this.form); onKeyDown=check_length(this.form); name=my_text rows=4 cols=30 class="post_product_name" style="height:  10%;">
               </textarea>
               <div style="display: none;">                        
                 <input size=1 value=50 name=text_num style="width: 52px;" readonly> 
@@ -608,7 +607,7 @@ if (!$businessfollow) {
             </div>
           </div>
           <div  id="text"  class="editor-content col-md-12 popup-textarea" >
-            <textarea id="test-upload_des" name="product_desc" class="description" placeholder="Enter Description">
+            <textarea id="test-upload-des" name="product_desc" class="description" placeholder="Enter Description">
             </textarea>
             <output id="list">
             </output>
@@ -715,7 +714,7 @@ if (!in_array($userid, $likeuserarray)) {
                       </a>
                     </p>
                     <p class="okk">
-                      <a class="cnclbtn" href="#">Cancle
+                      <a class="cnclbtn" href="#">Cancel
                       </a>
                     </p>
                   </div>
@@ -724,12 +723,24 @@ if (!in_array($userid, $likeuserarray)) {
               <!-- pop up box end-->
               <?php
 $business_userimage = $this->db->get_where('business_profile', array('user_id' => $row['user_id'], 'status' => 1))->row()->business_user_image;
+ $userimageposted =  $this->db->get_where('business_profile',array('user_id' => $row['posted_user_id']))->row()->business_user_image;
 ?>
+
+              <?php if($row['posted_user_id']){ 
+                ?>
+
+                 <?php if($userimageposted){ ?>
+                    <img src="<?php echo base_url(USERIMAGE .  $userimageposted);?>" name="image_src" id="image_src" />
+                    <?php } else {  ?>
+                    <img alt="" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
+                    <?php }?>
+
+                    <?php }else{?>
               <?php if ($business_userimage) { ?>
               <img  src="<?php echo base_url(USERIMAGE . $business_userimage); ?>"  alt="">
               <?php } else { ?>
               <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
-              <?php } ?>
+              <?php } }?>
             </div>
             <div class="post-design-name fl col-md-9">
               <ul>
@@ -738,9 +749,22 @@ $companyname = $this->db->get_where('business_profile', array('user_id' => $row[
 $slugname = $this->db->get_where('business_profile', array('user_id' => $row['user_id'], 'status' => 1))->row()->business_slug;
 $categoryid = $this->db->get_where('business_profile', array('user_id' => $row['user_id'], 'status' => 1))->row()->industriyal;
 $category = $this->db->get_where('industry_type', array('industry_id' => $categoryid, 'status' => 1))->row()->industry_name;
+
+$companynameposted =  $this->db->get_where('business_profile',array('user_id' => $row['posted_user_id']))->row()->company_name;
+
+$slugnameposted =  $this->db->get_where('business_profile',array('user_id' => $row['posted_user_id'], 'status' => 1))->row()->business_slug;
 ?>
+
                 <li>
                 </li>
+
+                <?php if($row['posted_user_id']){?>
+                  <li>
+                  <div class="else_post_d">
+       <div class="post-design-product"><a style=" font-size: 18px;
+                         line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; " href="<?php echo base_url('business_profile/business_profile_manage_post/'.$slugnameposted); ?>"><?php echo ucwords($companynameposted); ?></a> <span style="font-weight: 600;"> Posted With </span> <a style=" font-size: 18px;
+                         line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; " href="<?php echo base_url('business_profile/business_profile_manage_post/'.$slugname); ?>"><?php echo ucwords($companyname); ?></a> <span  style="font-weight: 400;""><?php echo date('d-M-Y',strtotime($row['created_date'])); ?> </span> </div></div></li>
+                         <?php }else{?>
                 <li>
                   <div class="post-design-product">
                     <a style="font-size: 18px; line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; "  href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>" title="<?php echo ucwords($companyname); ?>";>
@@ -750,7 +774,12 @@ $category = $this->db->get_where('industry_type', array('industry_id' => $catego
                       </span>
                     </a>
                   </div>
+
+
+
                 </li>
+
+                <?php }?>
                 <li>
                 <li>
                   <div class="post-design-product">
@@ -1026,7 +1055,7 @@ $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $
                 </a>
                 <?php } ?>
                 <p class="okk">
-                  <a class="cnclbtn" href="#">Cancle
+                  <a class="cnclbtn" href="#">Cancel
                   </a>
                 </p>
               </div>
@@ -1143,7 +1172,7 @@ if ($rowdata['user_id'] == $userid) {
                         </a>
                       </div>
                       <div id="<?php echo 'editcancle' . $rowdata['business_profile_post_comment_id']; ?>" style="display:none;">
-                        <a id="<?php echo $rowdata['business_profile_post_comment_id']; ?>" onClick="comment_editcancle(this.id)">Cancle
+                        <a id="<?php echo $rowdata['business_profile_post_comment_id']; ?>" onClick="comment_editcancle(this.id)">Cancel
                         </a>
                       </div>
                     </div>
@@ -2059,15 +2088,15 @@ $business_userimage = $this->db->get_where('business_profile', array('user_id' =
 </script>
 <script type="text/javascript">
   function imgval(event){
-    //var fileInput = document.getElementById('test-upload');
+    
     var fileInput = document.getElementById("test-upload").files;
-    var product_name = document.getElementById("test-upload_product").value;
-    var product_description = document.getElementById("test-upload_des").value;
+    var product_name = document.getElementById("test-upload-product").value;
+    var product_description = document.getElementById("test-upload-des").value;
      var product_fileInput = document.getElementById("test-upload").value;
 
-
+alert(product_name); alert(product_description); alert(product_fileInput);
 if(product_fileInput == '' && product_name == '' && product_description == '')
-  { 
+  { alert("falguni"); return false;
  
 $('.biderror .mes').html("<div class='pop_content'>This post appears to be blank. Please write or attach (photos, videos, audios, pdf) to post.");
           $('#bidmodal').modal('show');
