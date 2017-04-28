@@ -2642,8 +2642,9 @@ label.cameraButton input[accept*="camera"] {
 }
 .post-design-name ul li a span{ color: #91949d; font-size: 14px;}
 /*.post-design-name ul li a span:before{content: "\00b7";*/
-.post-design-name ul li a span:before{content: " \00b7 ";}
+.post-design-name ul li .datespan span:before{content: " \00b7 ";}
       .post-design-product  span:before{content: "\00b7";}
+      .datespan{display: inline-block;}
       
      .post-design-product span{padding: 0;}
 
