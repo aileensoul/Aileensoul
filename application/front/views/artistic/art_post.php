@@ -1032,10 +1032,12 @@ foreach($finalsorting as $row)
 
                         <?php if($row['posted_user_id']){?>
                           <div class="else_post_d">
-                        <a style=" font-size: 18px;
+                        <a style=" font-size: 18px;display: inline-block;
                          line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; " href="<?php echo base_url('artistic/art_manage_post/' . $row['posted_user_id']); ?>"><?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?> </a><span style="font-weight: 600;"> Posted With 
                         </span><a style=" font-size: 18px;
                          line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; " href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>"><?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?></a><span role="presentation" aria-hidden="true" style="color: #91949d; font-size: 14px;"> · </span>
+
+
                                 <span style="color: #91949d;
                                 font-size: 14px;"> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span>
                         </div>
@@ -1043,12 +1045,15 @@ foreach($finalsorting as $row)
                         <?php }else{?>
 
 
-                        <a style="font-size: 16px;
-    line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; " href="<?php echo base_url('artistic/art_manage_post/'.$row['user_id']); ?>"><?php echo ucwords($firstname); print "&nbsp;&nbsp;"; echo ucwords($lastname); ?> <span style="font-weight: 400;"> <?php// echo date('d-M-Y',strtotime($row['created_date'])); ?>
+                        <a style="font-size: 16px;display: inline-block;padding-right: 0;
+    line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; " href="<?php echo base_url('artistic/art_manage_post/'.$row['user_id']); ?>"><?php echo ucwords($firstname); print "&nbsp;&nbsp;"; echo ucwords($lastname); ?> </a>
+
+    <div class="datespan">
+    <span style="font-weight: 400;"> <?php// echo date('d-M-Y',strtotime($row['created_date'])); ?>
     	
     <?php echo $row['created_date']; ?>
 
-    </span></a> 
+    </span> </div>
 <?php }?> 
 
     </div></li>
