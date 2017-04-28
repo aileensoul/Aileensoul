@@ -1920,7 +1920,7 @@ $followingdatacount = count($followingotherdata);
        
        }
     }
-    public function followers($id) {
+    public function followers($id="") {
         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
 
         if ($id == $userid || $id == '') {
