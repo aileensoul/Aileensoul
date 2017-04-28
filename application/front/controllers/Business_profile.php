@@ -1019,7 +1019,7 @@ class Business_profile extends MY_Controller {
         $this->load->view('business_profile/business_profile_post', $this->data);
     }
 
-    public function business_profile_manage_post($id) {
+    public function business_profile_manage_post($id="") {
 
         // manage post start
         $userid = $this->session->userdata('aileenuser');

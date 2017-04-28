@@ -1345,7 +1345,7 @@ $new = array();
     }
 
     //Freelancer Job All Post Start
-    public function freelancer_apply_post($id) {
+    public function freelancer_apply_post($id="") {
         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
 
 
@@ -1985,7 +1985,7 @@ $new = array();
         }
     }
 
-    public function freelancer_hire_profile($id) {
+    public function freelancer_hire_profile($id="") {
 
         $userid = $this->session->userdata('aileenuser');
 

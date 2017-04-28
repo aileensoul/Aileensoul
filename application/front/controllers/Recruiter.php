@@ -944,7 +944,7 @@ class Recruiter extends MY_Controller {
         $this->load->view('recruiter/edit_post', $this->data);
     }
 
-    public function rec_profile($id) {
+    public function rec_profile($id="") {
 
         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
 
