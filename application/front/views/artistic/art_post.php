@@ -818,8 +818,8 @@ $followfrom =  $this->db->get_where('art_reg',array('user_id' => $userid, 'statu
        -->
      </div>
     </div>
-    <div class="fr">
-     <a class="button">Post</a></div>
+    <!-- <div class="fr">
+     <a class="button">Post</a></div> -->
       </div>
 </div>
     <!-- Trigger/Open The Modal -->
