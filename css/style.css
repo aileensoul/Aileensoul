@@ -491,7 +491,7 @@ fieldset.full-width { width: 100%; }
 .cover-pic { position: absolute !important; left: 25px; top: 0; z-index: 99; }
 .cover-pic .btn { display: block; }
 .croppie-container .cr-viewport { border-color:#f4f4f4; }
-.upload-img { z-index: 9;  margin-top: -75px !important; }
+.upload-img { z-index: 2;  margin-top: -75px !important; }
 
 
 .profile-photo { position: relative; z-index: 1; }
