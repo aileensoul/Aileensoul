@@ -307,7 +307,7 @@ if ($this->session->flashdata('success')) {
 
     <?php } elseif ($status == 1) { ?>
 
-                                                        <div id= "unfollowdiv" class="user_btn">
+                                                        <div id= "unfollowdiv" class="user_btn  bg_following">
                                                             <button id="<?php echo "unfollow" . $user['art_id']; ?>" onClick="unfollowuser(<?php echo $user['art_id']; ?>)">
                                                                 Following 
                                                             </button>
@@ -692,7 +692,7 @@ $( "#tags" ).autocomplete({
             type: 'POST',
             url: '<?php echo base_url() . "artistic/follow" ?>',
             data: 'follow_to=' + clicked_id,
-            success: function (data) {
+            success: function (data) {  
 
                 $('.' + 'fruser' + clicked_id).html(data);
 
