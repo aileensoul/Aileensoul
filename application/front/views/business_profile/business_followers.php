@@ -205,7 +205,7 @@ if($status == 0 || $status == " "){?>
     </div>
  <?php }elseif($status == 1){ ?>
     <div class="msg_flw_btn_1" id= "unfollowdiv">
-      <button id="<?php echo "unfollow" . $businessdata1[0]['business_profile_id']; ?>" onClick="unfollowuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Following </button>
+      <button  id="<?php echo "unfollow" . $businessdata1[0]['business_profile_id']; ?>" onClick="unfollowuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Following </button>
     </div>
 <?php }?>
      </div> 
@@ -351,7 +351,7 @@ if($status == 0 || $status == " "){?>
                             <?php } ?> 
                             </div>
                             </li>
-                            <li>
+                            <li style="width: 67%">
                              <div class="">
                          <div class="follow-li-text " style="padding: 0;">
                                 <a href="<?php echo base_url('business_profile/business_profile_manage_post/'.$followerslug); ?>"><?php echo ucwords($followername);?></a></div>
@@ -396,7 +396,7 @@ if($status == 0 || $status == " "){?>
     <?php }else{ ?>
 
                      <div class="user_btn_f follow_btn_<?php echo $user['follow_from']; ?>" id= "unfollowdiv">
-                            <button id="<?php echo "unfollow" . $user['follow_from']; ?>" onClick="unfollowuser_two(<?php echo $user['follow_from']; ?>)"><span>Following</span></button>
+                            <button class="bg_following" id="<?php echo "unfollow" . $user['follow_from']; ?>" onClick="unfollowuser_two(<?php echo $user['follow_from']; ?>)"><span>Following</span></button>
                            </div>   
 
      <?php }?>

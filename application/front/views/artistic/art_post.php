@@ -6,101 +6,132 @@
 
 <!--post save success pop up style strat -->
 <style>
-body {
-  font-family: Arial, sans-serif;
-  background-size: cover;
-  height: 100vh;
-}
+    /*body {
+        font-family: Arial, sans-serif;
+        background-size: cover;
+        height: 100vh;
+    }
 
-.box {
-  width: 40%;
-  margin: 0 auto;
-  background: rgba(255,255,255,0.2);
-  padding: 35px;
-  border: 2px solid #fff;
-  border-radius: 20px/50px;
-  background-clip: padding-box;
-  text-align: center;
-}
+    .box {
+        width: 40%;
+        margin: 0 auto;
+        background: rgba(255,255,255,0.2);
+        padding: 35px;
+        border: 2px solid #fff;
+        border-radius: 20px/50px;
+        background-clip: padding-box;
+        text-align: center;
+    }
+
+    .overlay {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.3);
+        transition: opacity 500ms;
+        visibility: hidden;
+        opacity: 0;
+        z-index: 10;
+    }
+    .overlay:target {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .popup {
+        margin: 70px auto;
+        padding: 20px;
+        background: #fff;
+        border-radius: 5px;
+        width: 30%;
+        height: 200px;
+        position: relative;
+        transition: all 5s ease-in-out;
+    }
+    */
+    .okk{
+        text-align: center;
+    }
+
+    /*   .popup .okbtn{
+           position: absolute;
+           transition: all 200ms;
+           font-size: 18px;
+           font-weight: bold;
+           text-decoration: none;
+           color: #fff;
+           padding: 8px 18px;
+           background-color: darkcyan;
+           left: 25px;
+           margin-top: 15px;
+           width: 100px; 
+           border-radius: 8px;
+       }
+    */
+    .pop_content .okbtn{
+        position: absolute;
+        transition: all 200ms;
+        font-size: 16px;
+        text-decoration: none;
+        color: #fff;
+        padding: 8px 18px;
+        background-color: #0A2C5D;
+        left: 170px;
+        margin-top: 8px;
+        width: 100px; 
+        border-radius: 8px;
+    }
+
+    /*  .popup .cnclbtn {
+          position: absolute;
+          transition: all 200ms;
+          font-size: 18px;
+          font-weight: bold;
+          text-decoration: none;
+          color: #fff;
+          padding: 8px 18px;
+          background-color: darkcyan;
+          right: 25px;
+          margin-top: 15px;
+          width: 100px;
+          border-radius: 8px;
+      } */
+    .pop_content .cnclbtn {
+        position: absolute;
+        transition: all 200ms;
+        font-size: 16px;
+        text-decoration: none;
+        color: #fff;
+        padding: 8px 18px;
+        background-color: #0A2C5D;
+        right: 170px;
+        margin-top: 8px;
+        width: 100px;
+        border-radius: 8px;
+    }
+
+    .popup .pop_content {
+        text-align: center;
+        margin-top: 40px;
+
+    }
+    .model_ok_cancel{
+        width:200px !important;
+    }
+
+    /*
+        @media screen and (max-width: 700px){
+            .box{
+                width: 70%;
+            }
+            .popup{
+                width: 70%;
+            }
+        } */
 
 
-
-.overlay {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.3);
-  transition: opacity 500ms;
-  visibility: hidden;
-  opacity: 0;
-  z-index: 10;
-}
-.overlay:target {
-  visibility: visible;
-  opacity: 1;
-}
-
-.popup {
-    margin: 70px auto;
-    padding: 20px;
-    background: #fff;
-    border-radius: 5px;
-    width: 30%;
-    height: 200px;
-    position: relative;
-    transition: all 5s ease-in-out;
-}
-
-.okk{
-  text-align: center;
-}
-
-.popup .okbtn {
-  position: absolute;
-    transition: all 200ms;
-    font-size: 18px;
-    font-weight: bold;
-    text-decoration: none;
-    color: #fff;
-    padding: 8px 18px;
-    background-color: darkcyan;
-    left: 25px;
-    margin-top: 15px;
-    width: 100px; 
-    border-radius: 8px;
-}
-
-.popup .cnclbtn {
-  position: absolute;
-    transition: all 200ms;
-    font-size: 18px;
-    font-weight: bold;
-    text-decoration: none;
-    color: #fff;
-    padding: 8px 18px;
-    background-color: darkcyan;
-    right: 25px;
-    margin-top: 15px;
-    width: 100px;
-    border-radius: 8px;
-}
-
-.popup .pop_content {
- text-align: center;
- margin-top: 40px;
-  
-}
-
-@media screen and (max-width: 700px){
-  .box{
-    width: 70%;
-  }
-  .popup{
-    width: 70%;
-  }
-}
 </style>
 
 <!--post save success pop up style end -->
@@ -942,42 +973,6 @@ foreach($finalsorting as $row)
 </div>
 <!-- pop up box end-->
 
-<!-- pop up box start-->
-<div id="<?php echo "popup2" . $row['art_post_id']; ?>" class="overlay">
-  <div class="popup">
-    
-    <div class="pop_content">
-      Are You Sure want to delete this post?.
-
-      <p class="okk"><a class="okbtn" id="<?php echo $row['art_post_id']; ?>" onClick="remove_post(this.id)" href="#">OK</a></p>
-
-      <p class="okk"><a class="cnclbtn" href="#">Cancel</a></p>
-
-    </div>
-
-  </div>
-</div>
-<!-- pop up box end-->
-
-
-
-<!-- pop up box start-->
-<div id="<?php echo "popup5" . $row['art_post_id']; ?>" class="overlay">
-  <div class="popup">
-    
-    <div class="pop_content">
-      Are You Sure want to delete this post from your profile?.
-
-      <p class="okk"><a class="okbtn" id="<?php echo $row['art_post_id']; ?>" onClick="del_particular_userpost(this.id)" href="#">OK</a></p>
-
-      <p class="okk"><a class="cnclbtn" href="#">Cancel</a></p>
-
-    </div>
-
-  </div>
-</div>
-<!-- pop up box end-->
-
 
 
               <?php 
@@ -1035,7 +1030,7 @@ foreach($finalsorting as $row)
                         <a style=" font-size: 18px;display: inline-block;
                          line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; " href="<?php echo base_url('artistic/art_manage_post/' . $row['posted_user_id']); ?>"><?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?> </a><span style="font-weight: 600;"> Posted With 
                         </span><a style=" font-size: 18px;
-                         line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; " href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>"><?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?></a><span role="presentation" aria-hidden="true" style="color: #91949d; font-size: 14px;"> · </span>
+                         line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; " href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>"><?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?></a>
 
 
                                 <span style="color: #91949d;
@@ -1084,14 +1079,16 @@ foreach($finalsorting as $row)
     $userid  = $this->session->userdata('aileenuser');
     if($row['user_id'] == $userid) {
     ?>
-    <a href="<?php echo "#popup2" . $row['art_post_id']; ?>"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete Post</a>
     
+    <a id="<?php echo $row['art_post_id']; ?>" onClick="deleteownpostmodel(this.id)"><i class="fa fa-trash-o" aria-hidden="true"></i>Delete Post</a>
+
 
      <a id="<?php echo $row['art_post_id']; ?>" onClick="editpost(this.id)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit</a>
 
 
     <?php }else{?>
-    <a href="<?php echo "#popup5" . $row['art_post_id']; ?>"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete Post</a>
+
+    <a id="<?php echo $row['art_post_id']; ?>" onClick="deletepostmodel(this.id)"><i class="fa fa-trash-o" aria-hidden="true"></i>Delete Post</a>
 <!-- 
     <?php
 
@@ -1592,7 +1589,7 @@ if(count($likelistarray) > 1) {
 <span role="presentation" aria-hidden="true"> · </span>
 <div class="comment-details-menu">
                 <input type="hidden" name="post_delete"  id="post_delete" value= "<?php echo $rowdata['art_post_id']; ?>">
-                                      <a id="<?php echo $rowdata['artistic_post_comment_id']; ?>"   onClick="comment_delete(this.id)"> Delete<span class="<?php echo 'insertcomment' . $rowdata['artistic_post_comment_id']; ?>">
+                                      <a id="<?php echo $rowdata['artistic_post_comment_id']; ?>"   onClick="comment_deletemodel(this.id)"> Delete<span class="<?php echo 'insertcomment' . $rowdata['artistic_post_comment_id']; ?>">
                                       </span>
                                       </a>
                                       </div>
@@ -1986,6 +1983,30 @@ function comment_like1(clicked_id)
 
 <!-- comment delete script start -->
 
+
+
+<script type="text/javascript">
+  
+function comment_deletemodel(abc){
+
+
+    $('.biderror .mes').html("<div class='pop_content'>Are you sure want to Delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc +")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+    $('#bidmodal').modal('show');
+}
+
+</script>
+
+<script type="text/javascript">
+  
+function comment_deletetwomodel(abc){
+
+
+    $('.biderror .mes').html("<div class='pop_content'>Are you sure want to Delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deletetwo(" + abc +")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+    $('#bidmodal').modal('show');
+}
+
+</script>
+
 <script type="text/javascript">
 function comment_delete(clicked_id)
 {  
@@ -2161,7 +2182,7 @@ function entercomment(clicked_id)
      }
                 // khyati chnages end
               }
-     
+     e.preventDefault();
     }        
   });
 //});
@@ -2228,13 +2249,20 @@ function comment_editcancletwo(clicked_id){
 <!--comment edit box end-->
 
 <!-- comment edit insert start -->
-
+<script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
 <script type="text/javascript">
 function edit_comment(abc)
 { 
-
+    
    var post_comment_edit = document.getElementById("editcomment" + abc);
-   
+ 
+   if(post_comment_edit.value == ''){ 
+      $('.biderror .mes').html("<div class='pop_content'>Are you sure want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+       $('#bidmodal').modal('show');
+        
+   }else{ 
+  
+
    $.ajax({ 
                 type:'POST',
                 url:'<?php echo base_url() . "artistic/edit_comment_insert" ?>',
@@ -2254,7 +2282,7 @@ function edit_comment(abc)
 
                     
                 }
-            }); 
+            }); }
    
 }
 </script>
@@ -2265,11 +2293,18 @@ function edit_comment(abc)
 function commentedit(abc)
 {
  
-  $(document).ready(function() {
+  //$(document).ready(function() {
   $('#editcomment' + abc).keypress(function(e) {
     if (e.which == 13) {
       var val = $('#editcomment' + abc).val();
       
+      if(val == ''){ 
+
+      $('.biderror .mes').html("<div class='pop_content'>Are you sure want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+       $('#bidmodal').modal('show');
+        
+   }else{ 
+
       $.ajax({ 
                 type:'POST',
                 url:'<?php echo base_url() . "artistic/edit_comment_insert" ?>',
@@ -2288,9 +2323,12 @@ function commentedit(abc)
                 }
             }); 
       //alert(val);
-    }        
+      }
+      e.preventDefault();
+    }  
+
   });
-});
+//});
 
 }
 </script>
@@ -2302,6 +2340,15 @@ function edit_commenttwo(abc)
 
    var post_comment_edit = document.getElementById("editcommenttwo" + abc);
   
+
+  if(post_comment_edit.value == ''){ 
+
+      $('.biderror .mes').html("<div class='pop_content'>Are you sure want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deletetwo(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+       $('#bidmodal').modal('show');
+        
+   }else{ 
+
+
    $.ajax({ 
                 type:'POST',
                 url:'<?php echo base_url() . "artistic/edit_comment_insert" ?>',
@@ -2325,7 +2372,7 @@ function edit_commenttwo(abc)
                     
                 }
             }); 
-   
+   }
 }
 </script>
 
@@ -2335,11 +2382,18 @@ function edit_commenttwo(abc)
 function commentedittwo(abc)
 {
  
-  $(document).ready(function() {
+  //$(document).ready(function() {
   $('#editcommenttwo' + abc).keypress(function(e) {
     if (e.which == 13) {
       var val = $('#editcommenttwo' + abc).val();
       
+
+      if(val == ''){ 
+
+      $('.biderror .mes').html("<div class='pop_content'>Are you sure want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deletetwo(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+       $('#bidmodal').modal('show');
+        
+   }else{ 
       $.ajax({ 
                 type:'POST',
                 url:'<?php echo base_url() . "artistic/edit_comment_insert" ?>',
@@ -2358,9 +2412,11 @@ function commentedittwo(abc)
                 }
             }); 
       //alert(val);
+       }
+        e.preventDefault();
     }        
   });
-});
+//});
 
 }
 </script>
@@ -2683,6 +2739,18 @@ toggle between hiding and showing the dropdown content */
 </script>
 
 <!-- remove save post start -->
+<script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
+
+<script type="text/javascript">
+  
+function deleteownpostmodel(abc){
+
+
+    $('.biderror .mes').html("<div class='pop_content'>Are you sure want to Delete Your post?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='remove_post(" + abc +")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+    $('#bidmodal').modal('show');
+}
+
+</script>
 
 <script type="text/javascript">
    function remove_post(abc)
@@ -2710,9 +2778,18 @@ toggle between hiding and showing the dropdown content */
 <!-- remove particular user post start -->
 
 <script type="text/javascript">
+  
+function deletepostmodel(abc){
+
+
+    $('.biderror .mes').html("<div class='pop_content'>Are you sure want to Delete this post From Your Profile?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='del_particular_userpost(" + abc +")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+    $('#bidmodal').modal('show');
+}
+
+</script>
+<script type="text/javascript">
    function del_particular_userpost(abc)
    {  
-
       $.ajax({ 
                 type:'POST',
                 url:'<?php echo base_url() . "artistic/del_particular_userpost" ?>',
@@ -2727,6 +2804,7 @@ toggle between hiding and showing the dropdown content */
             }); 
         
 }
+
 </script>
 
 <!-- remove particular user post end -->

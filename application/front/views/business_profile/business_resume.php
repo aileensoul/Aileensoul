@@ -437,11 +437,8 @@ if($status == 0 || $status == " "){?>
                                                        
       <li><b>Details Of Your buisness </b> 
       <span>
-      <?php
-
-      echo text2link($businessdata1[0]['details']);
-
-       ?>
+     <p> <?php   echo text2link($businessdata1[0]['details']);
+       ?></p>
       </span>
        </li>
                                                            

@@ -458,79 +458,78 @@ return false;
     
     <div class="col-md-4"><div class="profile-box profile-box-left">
 
-    <div class="full-box-module">    
-
-      
-      <div class="profile-boxProfileCard  module">
-<div class="profile-boxProfileCard-cover">    <a class="profile-boxProfileCard-bg u-bgUserColor a-block"
-      href="<?php echo base_url('business_profile/business_resume'); ?>"
-      tabindex="-1"
-      aria-hidden="true"
-      rel="noopener">
-           <!-- box image start -->
-<img src="<?php echo base_url(BUSBGIMG . $businessdata[0]['profile_background']);?>" class="bgImage"  style="    height: 95px;
-    width: 100%; " >
-<!-- box image end -->
-
-    </a>
-
- </div>
-
-
-  
-    <div class="profile-boxProfileCard-content clearfix">
-
-<div class="buisness-profile-txext col-md-4">
-          <a class="profile-boxProfilebuisness-avatarLink2 a-inlineBlock" href="<?php echo base_url('business_profile/business_resume'); ?>" title="zalak" tabindex="-1" aria-hidden="true" rel="noopener">
-<img  src="<?php echo base_url(USERIMAGE . $businessdata[0]['business_user_image']);?>"  alt="" style="    height: 77px;
-    width: 71px;
-    z-index: 3;
-    position: relative;
-" >
-                           
-          <!-- 
-            <img class="profile-boxProfileCard-avatarImage js-action-profile-avatar" src="images/imgpsh_fullsize (2).jpg" alt="" style="    height: 68px;
-    width: 68px;">
-           --></a>
-
-</div>
-<div class="profile-box-user fr col-md-9">
-         <span class="profile-company-name ">
-         <a href="<?php echo base_url('business_profile/business_resume/'); ?>"> <?php echo ucwords($businessdata[0]['company_name']); ?></a>          </span>
-      <?php  $category =  $this->db->get_where('industry_type',array('industry_id' => $businessdata[0]['industriyal'], 'status' => 1))->row()->industry_name;  ?>
-         
-         <div class="profile-boxProfile-name">
-         <a ><?php echo $category; ?></a></div>
-     
-    </div>
-
-     
-
-
-         <div class="profile-box-bui-menu  col-md-12">
-         
-                                    <ul class="">
-
-                                     
-
-                                   <li <?php if($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_profile_manage_post'){?> class="active" <?php } ?>><a href="<?php echo base_url('business_profile/business_profile_manage_post'); ?>">Dashboard</a>
-                                    </li>
-
-                                   
-                                    <li <?php if($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'followers'){?> class="active" <?php } ?>>
-                                    <a href="<?php echo base_url('business_profile/followers'); ?>">Followers <br> (<?php echo (count($businessfollowerdata)); ?>)</a>
-                                    </li>
-                                    
-                                    <li <?php if($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'following'){?> class="active" <?php } ?>><a href="<?php echo base_url('business_profile/following'); ?>">Following <br> (<?php echo (count($businessfollowingdata)); ?> ) </a>
-                                    </li>
-  
-                                </ul>
-     
-      </div>
-     
-  </div>
-
-  </div></div>
+   <div class="full-box-module">    
+                <div class="profile-boxProfileCard  module">
+                  <div class="profile-boxProfileCard-cover">    
+                    <a class="profile-boxProfileCard-bg u-bgUserColor a-block"
+                       href="<?php echo base_url('business_profile/business_profile_manage_post'); ?>"
+                       tabindex="-1" aria-hidden="true" rel="noopener" title="<?php echo $businessdata[0]['company_name']; ?>">
+                      <!-- box image start -->
+                      <?php if ($businessdata[0]['profile_background'] != '') { ?>
+                      <img src="<?php echo base_url(BUSBGIMG . $businessdata[0]['profile_background']); ?>" class="bgImage" alt="<?php echo $businessdata[0]['company_name']; ?>"  style="height: 95px; width: 100%; ">
+                      <?php
+                        } else {
+                       ?>
+                      <img src="<?php echo base_url(WHITEIMAGE); ?>" class="bgImage" alt="<?php echo $businessdata[0]['company_name']; ?>"  style="height: 95px; width: 100%;">
+                      <?php } ?>
+                    </a>
+                  </div>
+                  <div class="profile-boxProfileCard-content clearfix">
+                    <div class="buisness-profile-txext col-md-4">
+                      <a class="profile-boxProfilebuisness-avatarLink2 a-inlineBlock" href="<?php echo base_url('business_profile/business_profile_manage_post'); ?>" title="<?php echo $businessdata[0]['company_name']; ?>" tabindex="-1" aria-hidden="true" rel="noopener" >
+                        <?php
+if ($businessdata[0]['business_user_image']) {
+?>
+      <img  src="<?php echo base_url(USERIMAGE . $businessdata[0]['business_user_image']); ?>"  alt="<?php echo $businessdata[0]['company_name']; ?>" style="height: 77px; width: 71px; z-index: 3; position: relative; ">
+                        <?php } else { ?>
+                        <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo $businessdata[0]['company_name']; ?>">
+                        <?php } ?>                           
+                        <!-- 
+<img class="profile-boxProfileCard-avatarImage js-action-profile-avatar" src="images/imgpsh_fullsize (2).jpg" alt="" style="    height: 68px;
+width: 68px;">
+-->
+                      </a>
+                    </div>
+                    <div class="profile-box-user  profile-text-bui-user  fr col-md-9">
+                      <span class="profile-company-name ">
+                        <a style="margin-left: 1px;" href="<?php echo base_url('business_profile/business_profile_manage_post/'); ?> " title="<?php echo ucwords($businessdata[0]['company_name']); ?>"> 
+                          <?php echo ucwords($businessdata[0]['company_name']); ?>
+                        </a> 
+                      </span>
+                      <?php $category = $this->db->get_where('industry_type', array('industry_id' => $businessdata[0]['industriyal'], 'status' => 1))->row()->industry_name; ?>
+                      <div class="profile-boxProfile-name">
+                        <a style="padding-left: 1px;" href="<?php echo base_url('business_profile/business_profile_manage_post/'); ?> " title="<?php echo ucwords($businessdata[0]['company_name']); ?>" >
+                         <b> <?php echo $category; ?></b>
+                        </a>
+                      </div>
+                    </div>
+                    <div class="profile-box-bui-menu  col-md-12">
+                      <ul class="">
+                        <li 
+                            <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_profile_manage_post') { ?> class="active" 
+                        <?php } ?>>
+                        <a href="<?php echo base_url('business_profile/business_profile_manage_post'); ?>">Dashboard
+                        </a>
+                        </li>
+                      <li 
+                          <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'followers') { ?> class="active" 
+                      <?php } ?>>
+                      <a href="<?php echo base_url('business_profile/followers'); ?>">Followers 
+                        <br> (<?php echo (count($businessfollowerdata)); ?>)
+                      </a>
+                      </li>
+                    <li 
+                        <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'following') { ?> class="active" 
+                    <?php } ?>>
+                    <a href="<?php echo base_url('business_profile/following'); ?>">Following 
+                      <br> (<?php echo (count($businessfollowingdata)); ?>) 
+                    </a>
+                    </li>
+                  </ul>
+              </div>
+            </div>
+          </div>
+        </div>
 
   
   <div  class="add-post-button">

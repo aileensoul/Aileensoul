@@ -280,7 +280,7 @@ width: 68px;">
                       <?php $category = $this->db->get_where('industry_type', array('industry_id' => $businessdata[0]['industriyal'], 'status' => 1))->row()->industry_name; ?>
                       <div class="profile-boxProfile-name">
                         <a style="padding-left: 1px;" href="<?php echo base_url('business_profile/business_profile_manage_post/'); ?> " title="<?php echo ucwords($businessdata[0]['company_name']); ?>" >
-                         <b> <?php echo $category; ?>Category</b>
+                         <b> <?php echo $category; ?></b>
                         </a>
                       </div>
                     </div>
@@ -296,16 +296,14 @@ width: 68px;">
                           <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'followers') { ?> class="active" 
                       <?php } ?>>
                       <a href="<?php echo base_url('business_profile/followers'); ?>">Followers 
-                        <br> (
-                        <?php echo (count($businessfollowerdata)); ?>)
+                        <br> (<?php echo (count($businessfollowerdata)); ?>)
                       </a>
                       </li>
                     <li 
                         <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'following') { ?> class="active" 
                     <?php } ?>>
                     <a href="<?php echo base_url('business_profile/following'); ?>">Following 
-                      <br> (
-                      <?php echo (count($businessfollowingdata)); ?>) 
+                      <br> (<?php echo (count($businessfollowingdata)); ?>) 
                     </a>
                     </li>
                   </ul>
@@ -762,13 +760,13 @@ $slugnameposted =  $this->db->get_where('business_profile',array('user_id' => $r
                   <div class="else_post_d">
        <div class="post-design-product"><a style=" font-size: 18px;
                          line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; " href="<?php echo base_url('business_profile/business_profile_manage_post/'.$slugnameposted); ?>"><?php echo ucwords($companynameposted); ?></a> <span style="font-weight: 600;"> Posted With </span> <a style=" font-size: 18px;
-                         line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; " href="<?php echo base_url('business_profile/business_profile_manage_post/'.$slugname); ?>"><?php echo ucwords($companyname); ?></a> <span  style="font-weight: 400;""><?php echo date('d-M-Y',strtotime($row['created_date'])); ?> </span> </div></div></li>
+                         line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; " href="<?php echo base_url('business_profile/business_profile_manage_post/'.$slugname); ?>"><?php echo ucwords($companyname); ?></a> <span  style="font-weight: 400; cursor: default;"><?php echo date('d-M-Y',strtotime($row['created_date'])); ?> </span> </div></div></li>
                          <?php }else{?>
                 <li>
                   <div class="post-design-product">
                     <a style="font-size: 18px; line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; "  href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>" title="<?php echo ucwords($companyname); ?>";>
-                      <?php echo ucwords($companyname); ?> 
-                      <span style="font-weight: 400;"> 
+                   <span class="span_main_name">   <?php echo ucwords($companyname); ?></span> 
+                      <span style="font-weight: 400; cursor: default;"> 
                         <?php echo date('d-M-Y', strtotime($row['created_date'])); ?>
                       </span>
                     </a>
@@ -845,11 +843,11 @@ if ($businesssave) {
                   </span>
                 </div>
                 <div id="<?php echo 'editpostdetailbox' . $row['business_profile_post_id']; ?>" style="display:none;">
-                  <textarea id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" name="editpostdesc">
-                    <?php echo $row['product_description']; ?>
-                  </textarea> 
+                 
+
+                  <textarea id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" class="textbuis" name="editpostdesc"><?php echo $row['product_description']; ?></textarea>
                 </div>
-                <button class="fr" id="<?php echo "editpostsubmit" . $row['business_profile_post_id']; ?>" style="display:none;margin: 5px 0;" onClick="edit_postinsert(<?php echo $row['business_profile_post_id']; ?>)">Save
+                <button class="fr" id="<?php echo "editpostsubmit" . $row['business_profile_post_id']; ?>" style="display:none;margin: 5px 0; border-radius: 3px;" onClick="edit_postinsert(<?php echo $row['business_profile_post_id']; ?>)">Save
                 </button>
               </span>
             </div> 
@@ -1114,7 +1112,7 @@ $business_userimage = $this->db->get_where('business_profile', array('user_id' =
                     <?php } ?>
                   </div>
                   <div class="comment-name">
-                    <b>  
+                    <b title=" <?php echo $companyname; ?>">  
                       <?php echo $companyname;
 echo '</br>'; ?>
                     </b>

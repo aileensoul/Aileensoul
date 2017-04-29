@@ -570,7 +570,7 @@ label.cameraButton input[accept*="camera"] {
                   <div class="not_avali" >
                                 <img src="<?php echo base_url('images/020.png'); ?>"  >
                                <div>
-                               <div class="not_text" >Pdf not avalible</div>
+                               <div class="not_text" >PDF not avalible</div>
                                </div>
                                </div>
                                </div>
