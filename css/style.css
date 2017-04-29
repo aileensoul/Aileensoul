@@ -298,7 +298,7 @@ ul.dropdown-menu li a i { padding-right: 8px; }
 
 .panel-body { border:2px solid #ddd; border-top: 0; background-color: #ffffff; }
 .panel-body label, .common-form fieldset label { margin: 0 0 8px; padding: 0; display: block;}
-.two-select-box select { width: 48%; margin-left: 5px; float: left; } /* v 28-4*/
+.two-select-box select { width: 49%; margin-left: 5px; float: left; } /* v 28-4*/
 .common-form input[type=radio], .common-form input[type=checkbox] { width:auto; margin:0 2px; vertical-align:middle; display:inline-block; }
 
 .form-title h3 { background: #000033; color: #fff; padding: 8px 20px;}

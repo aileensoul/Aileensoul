@@ -93,7 +93,7 @@
                             <fieldset class="full-width" <?php if($post_skill) {  ?> class="error-msg" <?php } ?>>
                                 <label>Skills:<span style="color:red">*</span></label>
                                
-                                  <select name="skills[]" id ="skill1" multiple="multiple" style="width:270px " class="skill1">
+                                  <select name="skills[]" id ="skill1" multiple="multiple" style="width:100% " class="skill1">
 
                                  <?php foreach ($skill1 as $skill) { ?>
                                 <option value="<?php echo $skill['skill_id']; ?>"><?php echo $skill['skill']; ?></option>
@@ -104,7 +104,7 @@
                                 </select>
                             </fieldset>
 
-                            <fieldset <?php if($other_skill) {  ?> class="error-msg" <?php } ?> >
+                            <fieldset class="full-width" <?php if($other_skill) {  ?> class="error-msg" <?php } ?> >
                             <label class="control-label">Other Skill:</label>
                             <input name="other_skill" type="text" id="other_skill" placeholder="Enter Your Other Skill" value="<?php echo $freelancerpostdata[0]['post_other_skill']; ?>" />
                                 <span id="fullname-error"></span>
@@ -112,15 +112,56 @@
                         </fieldset>
 
 
-                            <fieldset>
-                                <label>Estimated time of project:</label>
-                                <input name="est_time" type="text" id="est_time" placeholder="Enter Estimated time in month/year" value="<?php echo $freelancerpostdata[0]['post_est_time']?> "/>
+                           <fieldset class="full-width two-select-box"> 
+                                <label>Experience:</label>
+                                
+                                <select name="year" id="year">
+                                    <option value="<?php echo $freelancerpostdata[0]['post_exp_year']?>"><?php echo $freelancerpostdata[0]['post_exp_year']?></option>
+                                    <option value="#">Year</option>
+                                    <option value="1">1 Year</option>
+                                    <option value="2">2 Year</option>
+                                    <option value="3">3 Year</option>
+                                    <option value="4">4 Year</option>
+                                    <option value="5">5 Year</option>
+                                    <option value="6">6 Year</option>
+                                    <option value="7">7 Year</option>
+                                    <option value="8">8 Year</option>
+                                    <option value="9">9 Year</option>
+                                    <option value="10">10 Year</option>
+                                    <option value="11">11 Year</option>
+                                    <option value="12">12 Year</option>
+                                    <option value="13">13 Year</option>
+                                    <option value="14">14 Year</option>
+                                    <option value="15">15 Year</option>
+                                    <option value="16">16 Year</option>
+                                    <option value="17">17 Year</option>
+                                    <option value="18">18 Year</option>
+                                    <option value="19">19 Year</option>
+                                    <option value="20">20 Year</option>
+                                </select>
                                 <span id="fullname-error"></span>
-                                <?php echo form_error('post_name'); ?>
+                                <?php echo form_error('year'); ?>
+
+                                <select name="month" id="month">
+                                    <option value="<?php echo $freelancerpostdata[0]['post_exp_month']?> "><?php echo $freelancerpostdata[0]['post_exp_month']?></option>
+                                    <option value="#">Month</option>
+                                   <option value="1">1 Month</option>
+                                  <option value="2">2 Month</option>
+                                  <option value="3">3 Month</option>
+                                  <option value="4">4 Month</option>
+                                   <option value="5">5 Month</option>
+                                  <option value="6">6 Month</option>
+                               </select>
+                                <?php echo form_error('month'); ?>
+                                
                             </fieldset>
 
+
+
+                            
+
                             <fieldset class="col-md-12">  
-                             <b><h2>Payment : </h2></b>
+                             <b><h2>Payment For Freelancer : </h2></b>
                             </fieldset>
 
                             <fieldset  class="col-md-4" <?php if($rate) {  ?> class="error-msg" <?php } ?> >
@@ -157,46 +198,14 @@
   <?php echo form_error('rating'); ?>
                                </fieldset>
 
-                            <fieldset class="two-select-box"> 
-                                <label>Experience:</label>
-                                <select name="month" id="month">
-                                    <option value="<?php echo $freelancerpostdata[0]['post_exp_month']?> "><?php echo $freelancerpostdata[0]['post_exp_month']?></option>
-                                    <option value="#">Month</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                               </select>
-                                <?php echo form_error('month'); ?>
-                                <select name="year" id="year">
-                                    <option value="<?php echo $freelancerpostdata[0]['post_exp_year']?>"><?php echo $freelancerpostdata[0]['post_exp_year']?></option>
-                                    <option value="#">Year</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                    <option value="9">9</option>
-                                    <option value="10">10</option>
-                                    <option value="11">11</option>
-                                    <option value="12">12</option>
-                                    <option value="13">13</option>
-                                    <option value="14">14</option>
-                                    <option value="15">15</option>
-                                    <option value="16">16</option>
-                                    <option value="17">17</option>
-                                    <option value="18">18</option>
-                                    <option value="19">19</option>
-                                    <option value="20">20</option>
-                                </select>
+                            
+                             <fieldset>
+                                <label>Estimated time of project:</label>
+                                <input name="est_time" type="text" id="est_time" placeholder="Enter Estimated time in month/year" value="<?php echo $freelancerpostdata[0]['post_est_time']?> "/>
                                 <span id="fullname-error"></span>
-                                <?php echo form_error('year'); ?>
+                                <?php echo form_error('post_name'); ?>
                             </fieldset>
+
                             
                          <fieldset <?php if($last_date) {  ?> class="error-msg" <?php } ?>>
                         <label>Last date for apply:<span style="color:red">*</span></label>
