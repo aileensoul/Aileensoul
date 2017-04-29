@@ -1368,13 +1368,17 @@ $new = array();
                 $result = array_intersect($postuserarray, $postskill);
                 if (count($result) > 0) {
                     $contition_array = array('post_id' => $frov['post_id'], 'is_delete' => 0, 'status' => 1);
-
+                    
                     $frepostdata = $this->data['frepostdata'] = $this->common->select_data_by_condition('freelancer_post', $contition_array, $data = '*', $sortby = 'post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
+//                    echo "<pre>";print_r($frepostdata);
+                    if($frepostdata[0]['user_id'] != $userid) {
                     $freedata[] = $frepostdata;
+                    }
                 }
             }
-        } else {
+            
+        } 
+        else {
             $contition_array = array('user_id' => $id, 'is_delete' => 0, 'status' => 1);
             $freelancerdata = $this->data['freelancerdata'] = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
