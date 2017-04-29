@@ -81,7 +81,7 @@
                         <label>Post description :<span style="color:red">*</span></label>
 
                         <textarea name="post_desc" id="post_desc" placeholder="Enter Description"></textarea>
-                      
+                        
                         <?php echo form_error('post_desc'); ?>
                       </fieldset>
 
