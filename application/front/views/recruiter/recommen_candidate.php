@@ -478,9 +478,9 @@ padding-top: 1px;}
                 <?php
             } else {
                  ?>
-             <a href="<?php echo base_url('message/message_chats/' . $row['user_id']); ?>">Message</a>  
-             <a href="#">Invite</a>   
-              <a class="saved">Saved </a> 
+    <a href="<?php echo base_url('message/message_chats/' . $row['user_id']); ?>">Message</a>  
+    <a href="#">Invite</a>   
+    <a class="saved">Saved </a> 
         <?php }
         ?> 
                                                             </div> </div>
