@@ -1800,7 +1800,10 @@ abbr { cursor: help; }
     position: relative;
 }
 .profile-box-user .profile-box-name a{padding-left: 8px; font-size: 19px; color: #000033;}
-.profile-text-bui-user{padding-top: 14px;} 
+.profile-text-bui-user{padding-top: 14px;     white-space: nowrap;
+    /* width: 12em; */
+    overflow: hidden;
+    text-overflow: ellipsis;} 
 
 
 .post-design-product{padding-top: 2px;}
@@ -2774,7 +2777,8 @@ label.cameraButton input[accept*="camera"] {
 .comment-details-menu{ display: inline-block;    font-weight: 400;  padding: 1px 4px 1px 4px; }
 .comment-edit-button button{padding: 10px 14px 10px;}
 .comment-name
-{    font-size: 17px;
+{ width: 90%;   
+  font-size: 17px;
      font-weight: 600;
      display: inline-block;margin-left: 10px; }
 .art-comment-menu-design{    padding: 5px 1px 0px 35px;margin-left: 19px;}
