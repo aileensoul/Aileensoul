@@ -551,8 +551,8 @@ class Recruiter extends MY_Controller {
 
 
             $contition_array = array('rec_post.user_id' => $userid, 'rec_post.is_delete' => 0);
-            $this->data['postdata'] = $this->common->select_data_by_condition('rec_post', $contition_array, $data = '*', $sortby = 'post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
-              // echo "<pre>"; print_r($this->data['postdata']); die();
+            $this->data['postdata'] = $this->common->select_data_by_condition('rec_post', $contition_array, $data = 'rec_post.*,recruiter.rec_firstname,recruiter.re_comp_name,recruiter.rec_lastname', $sortby = 'post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
+              //echo "<pre>"; print_r($this->data['postdata']); die();
 
         } else { //echo "hello"; die();
             
@@ -562,7 +562,7 @@ class Recruiter extends MY_Controller {
             $join_str[0]['join_type'] = '';
 
             $contition_array = array('rec_post.user_id' => $id, 'rec_post.is_delete' => 0);
-            $this->data['postdata'] = $this->common->select_data_by_condition('rec_post', $contition_array, $data = '*', $sortby = 'post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
+            $this->data['postdata'] = $this->common->select_data_by_condition('rec_post', $contition_array, $data = 'rec_post.*,recruiter.rec_firstname,recruiter.re_comp_name,recruiter.rec_lastname', $sortby = 'post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
               // echo "<pre>"; print_r($this->data['postdata']); die();
         }
         
@@ -676,11 +676,13 @@ class Recruiter extends MY_Controller {
     }
 
     public function add_post_store() {
-
+        //echo "string"; die();
+//echo '<pre>'; print_r($_POST); die();
         $userid = $this->session->userdata('aileenuser');
         $skill = $this->input->post('skills');
-
-
+        $date = $this->input->post('last_date');
+          $dob = str_replace('/', '-', $date);
+         // echo  date('Y-m-d h:i:s', strtotime($dob)); die();
         $this->form_validation->set_rules('post_name', 'Post Name', 'required');
         //$this->form_validation->set_rules('skills', 'Skils Name', 'required|regex_match[/^(?![0-9]*$)[a-zA-Z0-9]+$/]');
         //$this->form_validation->set_rules('month', 'Month', 'required');
@@ -692,7 +694,7 @@ class Recruiter extends MY_Controller {
         //$this->form_validation->set_rules('location', 'location', 'required|alpha');
         $this->form_validation->set_rules('country', 'Country', 'required');
         $this->form_validation->set_rules('state', 'State', 'required');
-        $this->form_validation->set_rules('city', 'City', 'required');
+        //$this->form_validation->set_rules('city', 'City', 'required');
         $this->form_validation->set_rules('minsal', 'location', 'regex_match[/^[0-9,]+$/]');
         $this->form_validation->set_rules('maxsal', 'location', 'regex_match[/^[0-9,]+$/]');
         //  $this->form_validation->set_rules('maxmonth', 'Max month', 'required');
@@ -702,14 +704,17 @@ class Recruiter extends MY_Controller {
 
 
         if ($this->form_validation->run() == FALSE) {
+
+             // echo "hi"; die();
             $this->load->view('recruiter/add_post');
         } else {
+            //echo "hello"; die();
             $data = array(
                 'post_name' => $this->input->post('post_name'),
                 'post_description' => $this->input->post('post_desc'),
                 'post_skill' => implode(",", $skill),
                 'post_position' => $this->input->post('position'),
-                'post_last_date' => $this->input->post('last_date'),
+                 'post_last_date' => date('Y-m-d', strtotime($date)),
                 //'post_location ' => $this->input->post('location'),
                 'country' => $this->input->post('country'),
                 'state' => $this->input->post('state'),
@@ -728,7 +733,7 @@ class Recruiter extends MY_Controller {
                 'user_id' => $userid,
                 'status' => 1,
             );
-            // echo "<pre>"; print_r($data); die(); 
+          //  echo "<pre>"; print_r($data); die(); 
             $insert_id = $this->common->insert_data_getid($data, 'rec_post');
 
 
@@ -1684,4 +1689,37 @@ public function ajax_designation() {
         }
     }
 //reactivate accont end    
+
+
+    public function invite_user() {
+        
+         $postid = $_POST['post_id'];
+         $invite_user = $_POST['invited_user']; 
+         
+        $userid = $this->session->userdata('aileenuser');
+      
+        $data = array(
+            'user_id' => $userid,
+            'post_id' => $postid,
+            'invite_user_id' => $invite_user,
+            'profile' => "recruiter"
+            );
+        $insert_id = $this->common->insert_data_getid($data, 'user_invite');
+       
+        if ($insert_id) {
+            $data = array(
+            'not_type' => 4,
+            'not_from_id' => $userid,
+            'not_to_id' => $invite_user,
+            'not_read' => 2,
+            'not_status' => 0,
+            'not_product_id' => $insert_id,
+            'not_from' => 1
+            );
+        $insert_id = $this->common->insert_data_getid($data, 'notification');
+        echo 'invited';
+        } else {
+            echo 'error';
+        }
+    }
 }
