@@ -153,7 +153,34 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
     <!-- <script src="<?php //echo base_url('js/jquery.min.js');  ?>"></script> -->
-    <script>
+ 
+<!-- further and less -->
+<script>
+$(function() {
+var showTotalChar = 170, showChar = "More", hideChar = "less";
+$('.show').each(function() {
+var content = $(this).text();
+if (content.length > showTotalChar) {
+var con = content.substr(0, showTotalChar);
+var hcon = content.substr(showTotalChar, content.length - showTotalChar);
+var txt= con +  '<span class="dots">...</span><span class="morectnt"><span>' + hcon + '</span>&nbsp;&nbsp;<a href="" class="showmoretxt">' + showChar + '</a></span>';
+$(this).html(txt);
+}
+});
+$(".showmoretxt").click(function() {
+if ($(this).hasClass("sample")) {
+$(this).removeClass("sample");
+$(this).text(showChar);
+} else {
+$(this).addClass("sample");
+$(this).text(hideChar);
+}
+$(this).parent().prev().toggle();
+$(this).prev().toggle();
+return false;
+});
+});
+</script>   <script>
       $(document).ready(function()
                         {
         /* Uploading Profile BackGround Image */
@@ -273,7 +300,7 @@ width: 68px;">
                     </div>
                     <div class="profile-box-user  profile-text-bui-user  fr col-md-9">
                       <span class="profile-company-name ">
-                        <a style="margin-left: 1px;" href="<?php echo base_url('business_profile/business_profile_manage_post/'); ?> " title="<?php echo ucwords($businessdata[0]['company_name']); ?>"> 
+                        <a style="margin-left: 3px;" href="<?php echo base_url('business_profile/business_profile_manage_post/'); ?> " title="<?php echo ucwords($businessdata[0]['company_name']); ?>"> 
                           <?php echo ucwords($businessdata[0]['company_name']); ?>
                         </a> 
                       </span>
@@ -836,7 +863,7 @@ if ($businesssave) {
                   <input type="text" id="<?php echo 'editpostname' . $row['business_profile_post_id']; ?>" name="editpostname" value="<?php echo $row['product_name']; ?>">
                 </div>
               </div>                    
-              <span> 
+            
                 <div id="<?php echo 'editpostdetails' . $row['business_profile_post_id']; ?>" style="display:block;">
                   <span class="show"> 
                     <?php print text2link($row['product_description']); ?>
@@ -849,7 +876,7 @@ if ($businesssave) {
                 </div>
                 <button class="fr" id="<?php echo "editpostsubmit" . $row['business_profile_post_id']; ?>" style="display:none;margin: 5px 0; border-radius: 3px;" onClick="edit_postinsert(<?php echo $row['business_profile_post_id']; ?>)">Save
                 </button>
-              </span>
+            
             </div> 
           </div>
           <div class="post-design-mid col-md-12">
@@ -1276,33 +1303,6 @@ $business_userimage = $this->db->get_where('business_profile', array('user_id' =
 
  <script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script>
  
-<!-- further and less -->
-<script>
-$(function() {
-var showTotalChar = 150, showChar = "More", hideChar = "less";
-$('.show').each(function() {
-var content = $(this).text();
-if (content.length > showTotalChar) {
-var con = content.substr(0, showTotalChar);
-var hcon = content.substr(showTotalChar, content.length - showTotalChar);
-var txt= con +  '<span class="dots">...</span><span class="morectnt"><span>' + hcon + '</span>&nbsp;&nbsp;<a href="" class="showmoretxt">' + showChar + '</a></span>';
-$(this).html(txt);
-}
-});
-$(".showmoretxt").click(function() {
-if ($(this).hasClass("sample")) {
-$(this).removeClass("sample");
-$(this).text(showChar);
-} else {
-$(this).addClass("sample");
-$(this).text(hideChar);
-}
-$(this).parent().prev().toggle();
-$(this).prev().toggle();
-return false;
-});
-});
-</script>
 
 <script>
 $('#content').on( 'change keyup keydown paste cut', 'textarea', function (){

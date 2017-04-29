@@ -1133,7 +1133,7 @@ class Business_profile extends MY_Controller {
         $this->load->view('business_profile/business_profile_addpost', $this->data);
     }
 
-    public function business_profile_addpost_insert($id, $para) {
+    public function business_profile_addpost_insert($id="", $para="") {
 
 
         $userid = $this->session->userdata('aileenuser');
