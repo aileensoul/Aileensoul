@@ -298,7 +298,7 @@ ul.dropdown-menu li a i { padding-right: 8px; }
 
 .panel-body { border:2px solid #ddd; border-top: 0; background-color: #ffffff; }
 .panel-body label, .common-form fieldset label { margin: 0 0 8px; padding: 0; display: block;}
-.two-select-box select { width: 49%; margin-left: 5px; float: left; } /* v 28-4*/
+.two-select-box select { width: 48%; margin-left: 5px; float: left; } /* v 28-4*/
 .common-form input[type=radio], .common-form input[type=checkbox] { width:auto; margin:0 2px; vertical-align:middle; display:inline-block; }
 
 .form-title h3 { background: #000033; color: #fff; padding: 8px 20px;}
@@ -1900,9 +1900,9 @@ abbr { cursor: help; }
 }
 .profile-img-set{margin-top: -65px!important;}
 .profile-box-menu-2 ul li{margin: 0px; padding-left: 0px;}
-.profile-box-menu-2 li a:hover{background-color: #000033; color: #ffffff; /*-webkit-transform: scale(1.2);		.profile-box-menu-2 li a:hover{background-color: #000033; color: #ffffff; -webkit-transform: scale(1.2);
-                                       transform: scale(1.2);*/		                               transform: scale(1.2);
-                               /*-webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);		                               -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+.profile-box-menu-2 li a:hover{background-color: #000033; color: #ffffff; /*-webkit-transform: scale(1.2);    .profile-box-menu-2 li a:hover{background-color: #000033; color: #ffffff; -webkit-transform: scale(1.2);
+                                       transform: scale(1.2);*/                                  transform: scale(1.2);
+                               /*-webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);                                  -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
                                transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);*/}
 
 
@@ -3033,8 +3033,8 @@ follow box*/
     padding-left: 10px;     
     padding-right: 12px;
     /* padding-top: 6px; */}
-.business_data_td1 i{    color: #0a2c5d;   font-size: 17px;  display: inline-block;	width: 1.25em;text-align: center;}		
-.detaile_map{position: relative;}		
+.business_data_td1 i{    color: #0a2c5d;   font-size: 17px;  display: inline-block; width: 1.25em;text-align: center;}    
+.detaile_map{position: relative;}   
 .detaile_map i{position: absolute; top: 0;}
 .profile-boxProfileCard  h5{ font-weight: 600;     margin: 0;
                              padding: 3px 6px 4px;
