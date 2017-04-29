@@ -165,7 +165,8 @@ echo $freelancer_post_header2;
             <div class="left-side-menu col-md-2">  </div>
             <div class="right-side-menu col-md-8">  
                 <ul class="">
-                    <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_post_profile')) { ?> class="active" <?php } ?>><a href="<?php echo base_url('freelancer/freelancer_post_profile'); ?>">Details</a>
+                    <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_post_profile')) { ?> class="active" <?php } ?>>
+                        <?php if($returnpage == 'freelancer_hire'){ ?><a href="<?php echo base_url('freelancer/freelancer_post_profile/').$this->uri->segment(3).'?page=freelancer_hire'; ?>">Details</a><?php } else { ?><a href="<?php echo base_url('freelancer/freelancer_post_profile'); ?>">Details</a>}<?php } ?>
                     </li>
 
 
@@ -196,7 +197,7 @@ echo $freelancer_post_header2;
                                 </div>
                         </li> -->
                         <li>
-                            <a href="http://35.165.1.109:81/chat/abc/4">Message</a></li>
+                            <a href="<?php echo base_url('chat/') ; ?>">Message</a></li>
 
                     </ul>
                 </div>
@@ -211,11 +212,13 @@ echo $freelancer_post_header2;
          <?php 
                 if($returnpage == ''){
             if ($freelancerpostdata[0]['designation'] == "") {
+                
 
                 ?> <!--<center><a id="myBtn" title="Designation">Designation</a></center>-->
                 <center><a id="designation" class="designation" title="Designation">Current Work</a></center>
             <?php }
              else {
+                 
                 ?> 
                 <!--<a id="myBtn" title="<?php echo ucwords($job[0]['designation']); ?>"><?php echo ucwords($job[0]['designation']); ?></a>-->
                 <a id="designation" class="designation" title="<?php echo ucwords($freelancerpostdata[0]['designation']); ?>"><?php echo ucwords($freelancerpostdata[0]['designation']); ?></a>
