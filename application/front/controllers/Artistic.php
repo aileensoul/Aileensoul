@@ -46,7 +46,7 @@ class Artistic extends MY_Controller {
                     redirect('artistic/art_post', refresh);
                 }
             } else {
-                $this->load->view('artistic/art_basic_information', $this->data);
+    $this->load->view('artistic/art_basic_information', $this->data);
             }
         }
     }

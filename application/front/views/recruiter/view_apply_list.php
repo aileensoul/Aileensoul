@@ -151,10 +151,9 @@ padding-top: 1px;}
   </div>
     <div class="profile-boxProfileCard-content">
 <div class="buisness-profile-txext ">
-
-          <a class="profile-boxProfileCard-avatarLink a-inlineBlock" href="<?php echo base_url('recruiter/rec_profile'); ?>" title="zalak" tabindex="-1" aria-hidden="true" rel="noopener">
-<img src="<?php echo base_url(USERIMAGE . $recdata[0]['recruiter_user_image']);?>" alt="">
-                        </a></div>   
+<a class="profile-boxProfileCard-avatarLink a-inlineBlock" href="<?php echo base_url('recruiter/rec_profile'); ?>" title="zalak" tabindex="-1" aria-hidden="true" rel="noopener">
+<img src="<?php echo base_url(USERIMAGE . $recdata[0]['recruiter_user_image']);?>" alt=""></a>
+</div>   
           
          <div class="profile-box-user">
          <span class="profile-box-name ">
@@ -201,11 +200,8 @@ if ($user_data) {
     foreach ($uvalue as $row) {
 
 ?>
- 
-
-          <div class="profile-job-post-detail clearfix">
-                  <div class="profile-job-post-title-inside clearfix">
-                                            <div class="profile-job-profile-button clearfix">
+ <div class="profile-job-post-detail clearfix">
+<div class="profile-job-post-title-inside clearfix"> <div class="profile-job-profile-button clearfix">
 
 
     <!-- pop up box start-->
@@ -336,32 +332,35 @@ if ($user_data) {
                                       <div class="apply-btn">
                                                   
 
-                      <?php
-                                                                $userid = $this->session->userdata('aileenuser');
-                                                                $contition_array = array('from_id' => $userid, 'to_id' => $row['user_id'], 'save_type' => 1, 'status' => '0');
-                                                                $data = $this->common->select_data_by_condition('save', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-                                                                //echo "<pre>"; print_r($data); die();
-                    if (!$data) {
-                     ?> 
-                    <a href="<?php echo base_url('message/message_chats/' . $row['user_id']); ?>">Message</a>     
+               <?php
+    $userid = $this->session->userdata('aileenuser');
+    $contition_array = array('from_id' => $userid, 'to_id' => $row['user_id'], 'save_type' => 1, 'status' => '0');
+    $data = $this->common->select_data_by_condition('save', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            
+               if (!$data) { ?> 
+        <a href="<?php echo base_url('message/message_chats/' . $row['user_id']); ?>">Message</a>
+      <div id="invited" onclick="inviteuser()"> Invite</div>          
                     <input type="hidden" id="<?php echo 'hideenuser' . $row['user_id']; ?>" value= "<?php echo $data[0]['save_id']; ?>">
                                                                                 <!-- <a id="<?php echo $row['user_id']; ?>" onClick="save_user(this.id)" href="#popup1" class="<?php echo 'saveduser' . $row['user_id']; ?>">Save User</a> -->
                <a id="<?php echo $row['user_id']; ?>" onClick="savepopup(<?php echo $row['user_id']; ?>)" href="javascript:void(0);" class="<?php echo 'saveduser' . $row['user_id']; ?>">Save</a>
-                                                                    <?php
+     <?php
                                                                 } else {
                                                                     ?>
-                                                                    <a href="<?php echo base_url('message/message_chats/' . $row['user_id']); ?>">Message</a>     
-                                                                    <a class="saved">Saved </a> 
+          <a href="<?php echo base_url('message/message_chats/' . $row['user_id']); ?>">Message</a> 
+         <?php  $contition_array = array('invite_user_id' => $row['user_id'], 'post_id' => $postid);
+        $userdata = $this->common->select_data_by_condition('user_invite', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        if($userdata){ ?>
+          <div id="<?php echo 'invited' . $row['user_id']; ?>" > Invited</div>       
+         <?php }else{ ?>
+              <div id="<?php echo 'invited' . $row['user_id']; ?>" onclick="inviteuser(<?php echo $row['user_id']; ?>)"> Invite</div>       
+      <?php  } ?>
+              <a class="saved">Saved </a> 
         <?php }
-        ?> 
-   
-
- 
+        ?>  
                                                 </div> </div>
                                                 
                                                <!--  <div class="profile-job-profile-button clearfix">
-                                                      
-                                                     </div> -->
+                                                    </div> -->
                                                
                                                
                                              </div>
@@ -633,3 +632,24 @@ return false;
                         $('#bidmodal').modal('show');
                     }
                     </script>
+                    
+                    
+                   <script type="text/javascript">
+    
+   function inviteuser(clicked_id)
+    {  var post_id = "<?php echo $postid; ?>";
+       
+        $.ajax({
+            type: 'POST',
+            url: '<?php echo base_url() . "recruiter/invite_user" ?>',
+            data: 'post_id=' + post_id + '&invited_user=' + clicked_id,
+            success: function (data) { //alert(data);
+                $('#' + 'invited' + clicked_id).html(data);
+
+            }
+        });
+    }
+
+   
+</script>
+<!-- comment like script end -->

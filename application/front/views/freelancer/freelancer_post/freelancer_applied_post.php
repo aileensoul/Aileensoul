@@ -1,8 +1,6 @@
 <!-- start head -->
 <?php echo $head; ?>
 
-
-
 <!--post save success pop up style strat -->
 <style>
    /* body {
@@ -14,15 +12,13 @@
     /*.box {
         width: 40%;
         margin: 0 auto;
-        background: rgba(255,255,255,0.2);
+        background: rgba(255,255,255,0.2          );
         padding: 35px;
         border: 2px solid #fff;
         border-radius: 20px/50px;
         background-clip: padding-box;
         text-align: center;
     }*/
-
-
 
    /* .overlay {
         position: fixed;
@@ -103,11 +99,12 @@
 
 <!--post save success pop up style end -->
 
-
-
 <style type="text/css" media="screen">
+   
     #row2 { overflow: hidden; width: 100%; }
+   
     #row2 img { height: 350px;width: 100%; }
+   
     .upload-img{    float: right;
                     position: relative;
                     margin-top: -135px;
@@ -134,9 +131,6 @@
     label.cameraButton input[accept*="camera"] {
         display: none;
     }
-
-
-
 
 </style>
 <!-- END HEAD -->

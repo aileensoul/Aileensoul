@@ -757,10 +757,10 @@ class Recruiter extends MY_Controller {
 
     public function view_apply_list($id = "") {
 
-//echo $id; die();
+     
         $contition_array = array('post_id' => $id, 'is_delete' => 0);
         $postdata = $this->data['postdata'] = $this->common->select_data_by_condition('job_apply', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-        //echo '<pre>'; print_r($this->data['postdata']); die();
+      //  echo '<pre>'; print_r($this->data['postdata']); die();
         $this->data['postid'] = $id;
 
         foreach ($postdata as $ud) {
@@ -795,7 +795,7 @@ class Recruiter extends MY_Controller {
     }
 
 //invite user  at home page click on applied person controller Start
-    public function save_user($appid = " ", $status = "", $postid = "") {
+    public function save_user($appid = " ", $status = "", $postid = ""){
         $userid = $this->session->userdata('aileenuser');
 
         $postdata = $this->common->select_data_by_id('rec_post', 'post_id', $id, $data = '*', $join_str = array());
@@ -823,8 +823,6 @@ class Recruiter extends MY_Controller {
 
         $insert_id = $this->common->insert_data_getid($data, 'notification');
         // end notoification
-
-
 
         $msg = '<h1>Interview call from recruiter</h1><br/>';
         $msg .= 'Hey !' . $userdata[0]['first_name'] . $userdata[0]['last_name'] . ',';
@@ -1688,8 +1686,6 @@ public function ajax_designation() {
             echo 'error';
         }
     }
-//reactivate accont end    
-
 
     public function invite_user() {
         
@@ -1722,4 +1718,8 @@ public function ajax_designation() {
             echo 'error';
         }
     }
+//reactivate accont end    
+
+
+   
 }

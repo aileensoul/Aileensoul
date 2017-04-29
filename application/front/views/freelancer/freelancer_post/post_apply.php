@@ -495,30 +495,22 @@ if ($freepostdata[0]['designation']) {
                                                                echo "  " . $post['post_exp_month'];
                                                             }
                                                             else
-                                                            {
-                                                                echo PROFILENA;
+                                     {
+                                                               echo PROFILENA;
                                                                 } 
-                                                             ?>-month</span></li>
-                                                            <li><b>Estimate Time</b><span><?php 
-                                                                      if($post['post_est_time'])
-                                                            {
-                                                            echo $post['post_est_time'];
-                                                            }
-                                                            else
-                                                            {
-                                                                echo PROFILENA;
-                                                            } 
-                                                         ?></span></li>
-                                                            <li class="clearfix salary-age">
-                                                               <!--  <div class="pull-right">
-                                                                    Last Date for apply :<?php //echo date('d-M-Y', strtotime($post['post_last_date'])); ?>
-                                                                </div> -->
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    </div></div>
-                                                    <div class="profile-job-profile-button clearfix">
-                                                        <div>
+                         ?>-month</span></li>
+         <li><b>Estimate Time</b><span><?php 
+         if($post['post_est_time']){
+     echo $post['post_est_time'];
+        }else {  echo PROFILENA;  }   ?></span></li>
+     <li class="clearfix salary-age">
+     <!--  <div class="pull-right">
+          Last Date for apply :<?php //echo date('d-M-Y', strtotime($post['post_last_date'])); ?>
+                                    </div> -->
+    </li></ul> </div>  </div></div>
+    
+      <div class="profile-job-profile-button clearfix">
+     <div>
 <?php
 $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
  $contition_array = array('post_id' => $post['post_id'], 'job_delete' => 0, 'user_id' => $userid);
@@ -530,27 +522,28 @@ $freelancerapply1 = $this->data['freelancerapply'] = $this->common->select_data_
 } else {
 ?>
 <div class="fl last_date" style="padding-top: 10px; padding-left: 10px;">
-                                                                    Last Date for apply :<?php echo date('d-M-Y', strtotime($post['post_last_date'])); ?>
-                                                                </div>
+ Last Date for apply :<?php echo date('d-M-Y', strtotime($post['post_last_date'])); ?>
+  </div>
 <div class="fr" style="padding-right: 10px;">
  <input type="hidden" id="<?php echo 'allpost' . $post['post_id']; ?>" value="all">
-                                                <input type="hidden" id="<?php echo 'userid' . $post['post_id']; ?>" value="<?php echo $cache_time; ?>">
+
+ <input type="hidden" id="<?php echo 'userid' . $post['post_id']; ?>" value="<?php echo $post['user_id']; ?>">
  <a class="applypost button" href="javascript:void(0);"  class= "<?php echo 'applypost' . $post['post_id']; ?>  button" onclick="applypopup(<?php echo $post['post_id'] ?>,<?php echo $post['user_id'] ?>)">Apply</a>
                                                           
             <?php
-            $userid = $this->session->userdata('aileenuser');
+$userid = $this->session->userdata('aileenuser');
             
-            $contition_array = array('from_id' => $userid, 'to_id' => $post['user_id'],'save_type' => 2,'status'=> 0);
-            $data = $this->common->select_data_by_condition('save', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-            if ($data) {
+$contition_array = array('from_id' => $userid, 'to_id' => $post['user_id'],'save_type' => 2,'status'=> 0);
+$data = $this->common->select_data_by_condition('save', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            if ($data){
                 ?>
-                                                                    <a class="applypost  button">Saved Post</a>
-                                                                <?php } else { ?>
+       <a class="applypost  button">Saved Post</a>
+    <?php } else { ?>
 <input type="hidden" name="saveuser"  id="saveuser" value= "<?php echo $data[0]['save_id']; ?>"> 
 <a id="<?php echo $post['user_id']; ?>" onClick="savepopup(<?php echo $post['user_id']; ?>)" href="javascript:void(0);" class="<?php echo 'saveduser' . $post['user_id']; ?> applypost button">Save</a>
           <!-- <a id="<?php echo $post['post_id']; ?>" onClick="save_post(this.id)" href="#popup1" class="fr <?php echo 'savedpost' . $post['post_id']; ?> button">
                                                                         Save</a -->
-                                                                <?php } ?>
+                        <?php } ?>
                                                                 <?php
                                                             }
                                                             ?>    
@@ -578,7 +571,7 @@ $freelancerapply1 = $this->data['freelancerapply'] = $this->common->select_data_
 <?php echo $footer; ?>
                 </footer>
   <!-- Bid-modal  -->
-                <div class="modal fade message-box biderror" id="bidmodal" role="dialog">
+  <div class="modal fade message-box biderror" id="bidmodal" role="dialog">
                     <div class="modal-dialog modal-lm">
                         <div class="modal-content">
                             <button type="button" class="modal-close" data-dismiss="modal">&times;</button>         
@@ -694,11 +687,14 @@ $( "#tags" ).autocomplete({
     {
     var alldata = document.getElementById("allpost" + abc);
     var user = document.getElementById("userid" + abc);
+
+
     $.ajax({
     type:'POST',
             url:'<?php echo base_url() . "freelancer/apply_insert" ?>',
             data: 'post_id=' + abc + '&allpost=' + alldata.value + '&userid=' + user.value,
             success:function(data){
+                alert(data);
             $('.' + 'applypost' + abc).html(data);
             }
     });
@@ -715,8 +711,13 @@ $( "#tags" ).autocomplete({
                         $('.biderror .mes').html("<div class='pop_content'>Your post is successfully saved.");
                         $('#bidmodal').modal('show');
                     }
-                     function applypopup(postid, userid) {
-                        $('.biderror .mes').html("<div class='pop_content'>Are you sure want to apply this post?<div class='model_ok_cancel'><a class='okbtn' id=" + postid + " onClick='apply_post(" + postid + "," + userid + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+            function applypopup(postid, userid) {
+
+                // alert(postid);
+                // alert(userid);
+               
+                $('.biderror .mes').html("<div class='pop_content'>Are you sure want to apply this post?<div class='model_ok_cancel'><a class='okbtn' id=" + postid + " onClick='apply_post(" + postid + "," + userid + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
                         $('#bidmodal').modal('show');
                     }
+                   
                     </script>
