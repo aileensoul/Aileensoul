@@ -1721,35 +1721,5 @@ public function ajax_designation() {
 //reactivate accont end    
 
 
-    public function invite_user() {
-        
-         $postid = $_POST['post_id'];
-         $invite_user = $_POST['invited_user']; 
-         
-        $userid = $this->session->userdata('aileenuser');
-      
-        $data = array(
-            'user_id' => $userid,
-            'post_id' => $postid,
-            'invite_user_id' => $invite_user,
-            'profile' => "recruiter"
-            );
-        $insert_id = $this->common->insert_data_getid($data, 'user_invite');
-       
-        if ($insert_id) {
-            $data = array(
-            'not_type' => 4,
-            'not_from_id' => $userid,
-            'not_to_id' => $invite_user,
-            'not_read' => 2,
-            'not_status' => 0,
-            'not_product_id' => $insert_id,
-            'not_from' => 1
-            );
-        $insert_id = $this->common->insert_data_getid($data, 'notification');
-        echo 'invited';
-        } else {
-            echo 'error';
-        }
-    }
+   
 }
