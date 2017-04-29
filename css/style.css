@@ -3910,3 +3910,21 @@ input:-moz-placeholder { color:#999; font-size: 15px; }
 
 
 .bg_following{    background-color: cornflowerblue!important;}
+
+.add_tag_design{text-align: center;
+  padding-bottom: 6px;
+    color: #000033;background-color: #f9f9f9;
+    border-bottom: 1px solid #999;
+  }
+  .not_avali{padding: 20px;
+    height: 200px;
+    width: 200px;
+    position: relative;
+    border: 1px solid #728bc0;}
+    .not_avali img{height: 95%; width: 100%;}
+    .not_text{  bottom: 0;     position: absolute;
+    columns: #000033;
+    color: #728bc0;
+    font-size: 19px;
+    font-weight: 600;
+    left: 18px;}

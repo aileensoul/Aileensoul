@@ -418,7 +418,7 @@ label.cameraButton input[accept*="camera"] {
                        if($artisticdata[0]['user_id'] == $userid)
                        { 
                         ?>
-                                    <li <?php if($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'followers'){?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/followers'); ?>">Followers  (<?php echo (count($followerdata)); ?>)</a>
+                                    <li <?php if($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'followers'){?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/followers'); ?>">Followers  <br> (<?php echo (count($followerdata)); ?>)</a>
                                     </li>
                           <?php }else{
 
@@ -427,14 +427,14 @@ label.cameraButton input[accept*="camera"] {
         $followerotherdata = $this->data['followerotherdata'] =  $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
                               ?> 
-                              <li <?php if($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'followers'){?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/followers/'.$artisticdata[0]['user_id']); ?>">Followers  (<?php echo (count($followerotherdata)); ?>)</a>
+                              <li <?php if($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'followers'){?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/followers/'.$artisticdata[0]['user_id']); ?>">Followers  <br> (<?php echo (count($followerotherdata)); ?>)</a>
                                     </li>
 
                             <?php }?> 
                                     <?php
                             if($artisticdata[0]['user_id'] == $userid){ 
                             ?>        
-                                     <li <?php if($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'following'){?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/following'); ?>">Following  (<?php echo (count($followingdata)); ?>)</a>
+                                     <li <?php if($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'following'){?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/following'); ?>">Following  <br> (<?php echo (count($followingdata)); ?>)</a>
                                     </li>
                                     <?php }else{
 
@@ -442,7 +442,7 @@ $artregid = $artisticdata[0]['art_id'];
 $contition_array = array('follow_from' => $artregid, 'follow_status' =>'1',  'follow_type' =>'1');
 $followingotherdata = $this->data['followingotherdata'] =  $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                                       ?>
-                                  <li <?php if($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'following'){?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/following/'.$artisticdata[0]['user_id']); ?>">Following  (<?php echo (count($followingotherdata)); ?>)</a>
+                                  <li <?php if($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'following'){?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/following/'.$artisticdata[0]['user_id']); ?>">Following  <br>  (<?php echo (count($followingotherdata)); ?>)</a>
                                     </li> 
                                   <?php }?>  
                                  
@@ -485,7 +485,7 @@ $followingotherdata = $this->data['followingotherdata'] =  $this->common->select
                 <div class="row">
 
 
-      <div  class="col-sm-10 border_tag padding_low_data" style="margin: 16px;">
+      <div  class="col-sm-10 border_tag padding_low_data" >
       
         <div class="col-xs-3 padding_low_data"> <!-- required for floating -->
           <!-- Nav tabs -->
@@ -501,11 +501,11 @@ $followingotherdata = $this->data['followingotherdata'] =  $this->common->select
           <!-- Tab panes -->
           <div class="tab-content">
             <div class="tab-pane active" id="home"><div class="common-form">
-                            <div class="">
+                            <div class="" style="padding: 30px;">
 
                                 <h2 class="add_tag_design"> Video</h2>
-                                 <div class="contact-frnd-post">
-                               <div>
+
+                             
 
 
             <?php
@@ -557,16 +557,21 @@ $followingotherdata = $this->data['followingotherdata'] =  $this->common->select
 
       <?php }   }  else{?>
 
-     Video Not Available
+      <div style="margin-left: 280px; margin-top: 20px;">
+                <div class="not_avali" >
+                                <img src="<?php echo base_url('images/010.png'); ?>"  >
+                               <div>
+                                <div class="not_text" >Video not avalible</div>
+                               </div>
+                               </div>
+                               </div>
         <?php }?>
 
            </div>
 </div>
 </div>
 </div></div>
-            <div class="tab-pane" id="profile">Profile Tab.</div>
-            <div class="tab-pane" id="messages">Messages Tab.</div>
-            <div class="tab-pane" id="settings">Settings Tab.</div>
+            
           </div>
         </div>
 
