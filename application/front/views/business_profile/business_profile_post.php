@@ -787,7 +787,8 @@ $slugnameposted =  $this->db->get_where('business_profile',array('user_id' => $r
                   <div class="else_post_d">
        <div class="post-design-product"><a style=" font-size: 18px;
                          line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; " href="<?php echo base_url('business_profile/business_profile_manage_post/'.$slugnameposted); ?>"><?php echo ucwords($companynameposted); ?></a> <span style="font-weight: 600;"> Posted With </span> <a style=" font-size: 18px;
-                         line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; " href="<?php echo base_url('business_profile/business_profile_manage_post/'.$slugname); ?>"><?php echo ucwords($companyname); ?></a> <span  style="font-weight: 400; cursor: default;"><?php echo date('d-M-Y',strtotime($row['created_date'])); ?> </span> </div></div></li>
+                         line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; " href="<?php echo base_url('business_profile/business_profile_manage_post/'.$slugname); ?>"><?php echo ucwords($companyname); ?></a> <span  style="font-weight: 400; cursor: default;"><?php echo date('d-M-Y',strtotime($row['created_date'])); ?> </span> </div></div>
+                         </li>
                          <?php }else{?>
                 <li>
                   <div class="post-design-product">

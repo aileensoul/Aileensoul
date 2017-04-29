@@ -606,7 +606,7 @@ width: 68px;">
 
                           <div  class="">  
 <div class="post-design-top col-md-12" >  
-                    <div class="post-design-pro-img"> 
+                    <div class="post-design-pro-img col-md-2"> 
                     <?php 
                  $business_userimage =  $this->db->get_where('business_profile',array('user_id' => $busienss_data[0]['user_id'], 'status' => 1))->row()->business_user_image;
                  ?>
@@ -615,7 +615,7 @@ width: 68px;">
                     </div>
 
 
-                      <div class="post-design-name fl">
+                      <div class="post-design-name fl col-md-9">
                       <ul>
 
 
@@ -633,7 +633,7 @@ width: 68px;">
                   ?>
 
                         <li><div class="post-design-product"><a style="    font-size: 18px;
-    line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; "  href="<?php echo base_url('business_profile/business_resume/'.$slugname); ?>"><?php echo ucwords($companyname); ?>  <span> <?php echo date('d-M-Y',strtotime($busienss_data[0]['created_date'])); ?></span></a></div></li>
+    line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; "  href="<?php echo base_url('business_profile/business_resume/'.$slugname); ?>"> <span class="span_main_name">  <?php echo ucwords($companyname); ?> </span> <span> <?php echo date('d-M-Y',strtotime($busienss_data[0]['created_date'])); ?></span></a></div></li>
                         
 
                         <li><div class="post-design-product"><a><?php echo ucwords($category); ?></a></div></li>
