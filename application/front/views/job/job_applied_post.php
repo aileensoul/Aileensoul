@@ -359,7 +359,7 @@
                    </li>
 
                     <li>
-                      <a class="display_inline" href="#" style="font-size: 19px;font-weight: 600;">
+                      <a title="Post Title" class="display_inline" href="#" style="font-size: 19px;font-weight: 600; cursor: default;">
                       <?php echo ucwords(text2link($post['post_name'])); ?> </a>   </li>
 
                   <li>   
@@ -367,13 +367,13 @@
                     <?php $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name; ?>
                   <p><i class="fa fa-map-marker" aria-hidden="true"> <?php echo $cityname; ?></i></p>
                         </div>
-                    <a class="display_inline" href="<?php echo base_url('recruiter/rec_profile/' . $post['user_id']); ?>"><?php
+                    <a title="Company Name" class="display_inline" href="<?php echo base_url('recruiter/rec_profile/' . $post['user_id']); ?>"><?php
                      $cache_time = $this->db->get_where('recruiter', array('user_id' => $post['user_id']))->row()->re_comp_name;
                      echo ucwords($cache_time);
                        ?></a>
                    </li>
 
-                  <li><a class="display_inline" href="<?php echo base_url('recruiter/rec_profile/' . $post['user_id']); ?>"><?php
+                  <li><a title="Recruiter Name" class="display_inline" href="<?php echo base_url('recruiter/rec_profile/' . $post['user_id']); ?>"><?php
                    $cache_time = $this->db->get_where('recruiter', array('user_id' => $post['user_id']))->row()->rec_firstname;
                     echo ucwords($cache_time);
                          ?></a>
