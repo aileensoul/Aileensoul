@@ -1775,8 +1775,8 @@ class Business_profile extends MY_Controller {
 
             if ($update) {
 
-                $follow = '<div>';
-                $follow = '<button id="unfollow' . $business_id . '" onClick="unfollowuser(' . $business_id . ')">
+                $follow = '<div id="unfollowdiv" class="user_btn">';
+                $follow .= '<button id="unfollow' . $business_id . '" onClick="unfollowuser(' . $business_id . ')">
                               Following
                       </button>';
                 $follow .= '</div>';
@@ -1805,8 +1805,8 @@ class Business_profile extends MY_Controller {
             $insert_id = $this->common->insert_data_getid($data, 'notification');
             // end notoification
             if ($insert) {
-                $follow = '<div>';
-                $follow = '<button id="unfollow' . $business_id . '" onClick="unfollowuser(' . $business_id . ')">
+                $follow = '<div id="unfollowdiv" class="user_btn">';
+                $follow .= '<button id="unfollow' . $business_id . '" onClick="unfollowuser(' . $business_id . ')">
                                Following
                       </button>';
                 $follow .= '</div>';
@@ -1839,8 +1839,8 @@ class Business_profile extends MY_Controller {
             $update = $this->common->update_data($data, 'follow', 'follow_id', $follow[0]['follow_id']);
             if ($update) {
 
-                $unfollow = '<div>';
-                $unfollow = '<button id="follow' . $business_id . '" onClick="followuser(' . $business_id . ')">
+                $unfollow = '<div id="followdiv " class="user_btn">';
+                $unfollow .= '<button id="follow' . $business_id . '" onClick="followuser(' . $business_id . ')">
                                Follow 
                       </button>';
                 $unfollow .= '</div>';
@@ -2004,7 +2004,7 @@ class Business_profile extends MY_Controller {
         }
     }
     
-    public function followers($id) {
+    public function followers($id="") {
         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
 
         $contition_array = array('user_id' => $userid, 'is_deleted' => 0, 'status' => 1);

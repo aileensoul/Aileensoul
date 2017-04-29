@@ -298,7 +298,7 @@ if($status == 0 || $status == " "){?>
                             <?php }elseif($status == 1){ ?>
 
                                    <div id= "unfollowdiv"  class="user_btn" > 
-           <button id="<?php echo "unfollow" . $user['business_profile_id']; ?>" onClick="unfollowuser(<?php echo $user['business_profile_id']; ?>) ">
+           <button class="bg_following" id="<?php echo "unfollow" . $user['business_profile_id']; ?>" onClick="unfollowuser(<?php echo $user['business_profile_id']; ?>) ">
                                Following 
                             </button></div>
                                 <?php } ?>

@@ -2651,7 +2651,7 @@ label.cameraButton input[accept*="camera"] {
       .post-design-product  span:before{content: "\00b7";}
       .post-design-product .span_main_name:before{content: ""; }
       .datespan{display: inline-block;}
-      .post-design-product .span_main_name{color: #000;}
+      .post-design-product .span_main_name{color: #000; font-size: 18px;}
       .post-design-name{padding-left: 0;}
       
      .post-design-product span{padding: 0;}
@@ -3135,8 +3135,8 @@ follow box*/
 /*manage post*/
 .mange_post_image #responsive_manage-images-breakpoints{
     float: left;
-    height: 200px;
-    width:333px;
+    height: 36%;
+    width:48.8%;
     margin: 4px; display: inline-block;
 }
 .mange_post_image #responsive-manage_images_3-breakpoints{
@@ -4200,7 +4200,7 @@ input:-moz-placeholder { color:#999; font-size: 15px; }
     width: 100px; 
     border-radius: 8px;
 }
-
+ .bg_following:hover{background-color: darkred;}
 .popup .cnclbtn {
   position: absolute;
     transition: all 200ms;
