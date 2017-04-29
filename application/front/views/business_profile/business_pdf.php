@@ -493,13 +493,13 @@ label.cameraButton input[accept*="camera"] {
 
                </div>
 <div class="user-midd-section">
-            <div class="container ">
+           <div class="container "  style="border: 1px solid #efefef;">
                 <div class="row">
 
 
-      <div  class="col-sm-10 border_tag padding_low_data" style="margin: 16px;">
+      <div  class="col-sm-12 border_tag padding_low_data " >
       
-        <div class="col-xs-3 padding_low_data"> <!-- required for floating -->
+        <div class="col-xs-3 padding_low_data padding_les padding_less_right"> <!-- required for floating -->
           <!-- Nav tabs -->
           <ul class="nav nav-tabs tabs-left">
             <li > <a href="<?php echo base_url('business_profile/business_photos/'.$businessdata1[0]['business_slug']) ?>" data-toggle="tab"><i class="fa fa-camera" aria-hidden="true"></i>   Photos</a></li>
@@ -566,7 +566,14 @@ label.cameraButton input[accept*="camera"] {
 
         <?php } } else{?>
 
-        Pdf Not Available
+          <div style="margin-left: 380px; margin-top: 20px;">
+                  <div class="not_avali" >
+                                <img src="<?php echo base_url('images/020.png'); ?>"  >
+                               <div>
+                               <div class="not_text" >Pdf not avalible</div>
+                               </div>
+                               </div>
+                               </div>
         <?php }?>
       
     </div>
