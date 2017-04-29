@@ -37,8 +37,8 @@ echo $head;
 <!-- END HEAD -->
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
-<link rel="stylesheet" href="<?php echo base_url('assets/css/croppie.css'); ?>">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/select2.min.css'); ?>">
+<!--<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />-->
 <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
 <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
 <!-- start header -->
@@ -926,12 +926,15 @@ echo $job_header2;
 
 
                         <!-- script for skill textbox automatic start-->
-                        <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
-                        <script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
-                        <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
-                        <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
-                        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+                         <script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
+                <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
+                <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
+                <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 
+
+                           <script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script>
+                        <link rel="stylesheet" href="<?php echo base_url('assets/css/croppie.css'); ?>">
 
                         <!-- script for skill textbox automatic end (option 2)-->
                         <script>
@@ -1052,7 +1055,7 @@ echo $job_header2;
                         </script>
 
                         <!-- crop image js start--> 
-                        <script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script>
+
                         <!-- crop image js End--> 
                         <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.min.js') ?>"></script>
                         <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
