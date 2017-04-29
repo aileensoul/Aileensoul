@@ -332,7 +332,7 @@ if($status == 0 || $status == " "){?>
                             <?php } ?> 
                             </div>
                             </li>
-                            <li>
+                            <li style="width: 67%">
                              <div class="">
                          <div class="follow-li-text " style="padding: 0;">
 

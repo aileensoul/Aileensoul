@@ -725,6 +725,7 @@ ul.business_pf_ct_person_detail li b {font-size: 16px; display: inline-block; wi
 /* job-post*/
 .profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul { list-style: none; display: block; width: 100%; clear: both; padding:10px 4px 6px; margin-left: 4px; }
 .profile-job-post-detail .profile-job-post-title .profile-job-profile-menu li a {  text-decoration: none; }
+.profile-job-post-detail .profile-job-post-title .profile-job-profile-menu li a:hover{text-decoration-line: underline; color: #000033;}
 .profile-job-post-location-name ul li h6 {font-weight: 600; font-size: 15px;}
 .profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li b {font-weight: 600; width: 32%; float: left; }
 
@@ -2008,7 +2009,7 @@ border-bottom: 1px solid #000033;
 }
 .profile-box-bui-menu li a:hover{background-color: #000033; color: #ffffff;}
 .profile-box-bui-menu li a {
-    margin-right:2px;
+    margin-right:1px;
     display: block;
     color: #000033;
     text-align: center;
@@ -2131,7 +2132,7 @@ border-bottom: 1px solid #000033;
     color: #000033;
     text-align: center;
     padding: 17px 15px 12px 15px;
-    height: 52px;
+    height: 58px;
     text-decoration: none;
     font-size: 14px;
     font-weight: 600;
@@ -2149,8 +2150,8 @@ border-bottom: 1px solid #000033;
 .profile-main-box-buis-menu{margin-left: 20px;}
 .profile-main-box-buis-menu li a:hover {
     box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
-    -webkit-transform: scale(1.1);
-    transform: scale(1.1);
+   /* -webkit-transform: scale(1.1);
+    transform: scale(1.1);*/
     background-color: #000033;
     color: #ffffff;
     border-bottom: 5px solid #000033;}
@@ -2175,7 +2176,7 @@ border-bottom: 1px solid #000033;
 
 .profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li span p {text-align: justify; display: table; margin-bottom: 0px; }
 .profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li {margin-bottom: 5px;}
-
+.profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li span p a{color: #3b5283; text-decoration-line: underline;}
 .buisness-menu {    padding-bottom: 1px;
                     box-shadow: 1px 1px 6px 1px #efefef;
                     width: 100%;
@@ -2648,11 +2649,15 @@ label.cameraButton input[accept*="camera"] {
 /*.post-design-name ul li a span:before{content: "\00b7";*/
 .post-design-name ul li .datespan span:before{content: " \00b7 ";}
       .post-design-product  span:before{content: "\00b7";}
+      .post-design-product .span_main_name:before{content: ""; }
       .datespan{display: inline-block;}
+      .post-design-product .span_main_name{color: #000;}
       .post-design-name{padding-left: 0;}
       
      .post-design-product span{padding: 0;}
-
+.textbuis{    resize: none;
+    height: 42px;
+    margin-top: 10px;}
 .post-design-name ul { font-size: 0; margin: 0; padding: 0; }
 .post-design-name ul li { list-style: none;  padding: 0; margin: 0; position: relative; }
 .post-design-name ul li a {    
@@ -2778,6 +2783,10 @@ label.cameraButton input[accept*="camera"] {
 .comment-edit-button button{padding: 10px 14px 10px;}
 .comment-name
 { width: 90%;   
+      white-space: nowrap;
+    /* width: 12em; */
+    overflow: hidden;
+    text-overflow: ellipsis;
   font-size: 17px;
      font-weight: 600;
      display: inline-block;margin-left: 10px; }
@@ -3926,6 +3935,7 @@ input:-moz-placeholder { color:#999; font-size: 15px; }
   padding-bottom: 6px;
     color: #000033;background-color: #f9f9f9;
     border-bottom: 1px solid #999;
+    text-transform: capitalize;
   }
   .not_avali{padding: 20px;
     height: 200px;
@@ -3963,6 +3973,7 @@ input:-moz-placeholder { color:#999; font-size: 15px; }
 .tabs-left>li.active>a:focus {
   border-bottom-color: #ddd;
   border-right-color: transparent;
+  text-transform:capitalize; 
 }
 
 .tabs-right>li.active>a,
@@ -4219,3 +4230,4 @@ input:-moz-placeholder { color:#999; font-size: 15px; }
     width: 70%;
   }
 }
+textarea {overflow: hidden;}

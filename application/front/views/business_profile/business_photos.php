@@ -361,7 +361,7 @@ label.cameraButton input[accept*="camera"] {
                   
       <div style="margin-left: 380px; margin-top: 20px;">
                   <div class="not_avali" >
-                                <img src="<?php echo base_url('images/color_008.png'); ?>"  >
+                                <img src="<?php echo base_url('images/020-c.png'); ?>"  >
                                <div>
                                <div class="not_text" >Photo not avalible</div>
                                </div>

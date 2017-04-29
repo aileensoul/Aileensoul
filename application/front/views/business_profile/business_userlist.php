@@ -264,7 +264,7 @@ label.cameraButton input[accept*="camera"] {
                             <?php } ?> 
                             </div>
                             </li>
-                            <li>
+                            <li style="width: 67%">
                              <div class="">
                          <div class="follow-li-text " style="padding: 0;">
                                 <a href="<?php echo base_url('business_profile/business_profile_manage_post/'.$user['business_slug']); ?>"><?php echo $user['company_name'];?></a>
@@ -284,7 +284,7 @@ label.cameraButton input[accept*="camera"] {
                             </li>
                             
                             <li class="<?php echo "fruser" . $user['business_profile_id']; ?> fr">
-                                 
+                                  
 <?php  $status  =  $this->db->get_where('follow',array('follow_type' => 2, 'follow_from' => $artdata[0]['business_profile_id'], 'follow_to'=>$user['business_profile_id'] ))->row()->follow_status; 
 
 if($status == 0 || $status == " "){?>

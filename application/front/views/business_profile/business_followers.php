@@ -351,7 +351,7 @@ if($status == 0 || $status == " "){?>
                             <?php } ?> 
                             </div>
                             </li>
-                            <li>
+                            <li style="width: 67%">
                              <div class="">
                          <div class="follow-li-text " style="padding: 0;">
                                 <a href="<?php echo base_url('business_profile/business_profile_manage_post/'.$followerslug); ?>"><?php echo ucwords($followername);?></a></div>
