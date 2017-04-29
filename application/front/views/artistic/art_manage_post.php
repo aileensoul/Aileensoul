@@ -1,8 +1,13 @@
 <!-- start head -->
 <?php echo $head; ?>
+<link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap-3.min.css'); ?>">
+
+<link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+
 <!-- 
+
 responsive image design start -->
 <style>/* Responsive Images in Columns */
     .two-columns {
@@ -153,7 +158,6 @@ responsive image design start -->
 
 <!--post save success pop up style end -->
 
-<link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
 
 <style type="text/css" media="screen">
    
@@ -211,8 +215,8 @@ label.cameraButton input[accept*="camera"] {
 <?php echo $art_header2; ?>
 
 
-<script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script>
-<link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap-3.min.css'); ?>">
+
+
 
 <link rel="stylesheet" type="text/css" href="../css/jquery.jMosaic.css">
 
@@ -1771,13 +1775,11 @@ label.cameraButton input[accept*="camera"] {
 <!-- footer End -->
 <!-- script for skill textbox automatic start (option 2)-->
 <!-- <script src="<?php //echo base_url('js/jquery-ui.min.js');   ?>"></script> -->
-<script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
-<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script> -->
-
+<script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
 <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
-<script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
+  <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
+<script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
-
 
 
 
@@ -2569,12 +2571,12 @@ if(post_comment_edit.value == ''){
     $uploadCrop = $('#upload-demo').croppie({
         enableExif: true,
         viewport: {
-            width: 1000,
-            height: 300,
+            width: 1250,
+            height: 350,
             type: 'square'
         },
         boundary: {
-            width: 1030,
+            width: 1250,
             height: 350
         }
     });
@@ -2587,12 +2589,15 @@ if(post_comment_edit.value == ''){
         }).then(function (resp) {
 
             $.ajax({
-                url: "https://www.aileensoul.com/artistic/ajaxpro",
+                 url: "<?php echo base_url() ?>artistic/ajaxpro",
                 type: "POST",
                 data: {"image": resp},
                 success: function (data) {
                     html = '<img src="' + resp + '" />';
-                    $("#upload-demo-i").html(html);
+                    if (html)
+                    {
+                        window.location.reload();
+                    }
                 }
             });
 
@@ -2601,7 +2606,6 @@ if(post_comment_edit.value == ''){
 
 //aarati code start
     $('#upload').on('change', function () {
-
 
 
         var reader = new FileReader();
@@ -2634,15 +2638,12 @@ if(post_comment_edit.value == ''){
             contentType: false,
             success: function (response) {
 
-
             }
         });
     });
 
 //aarati code end
 </script>
-<!-- cover image end -->
-
 
 
 <script>
@@ -3119,7 +3120,7 @@ function deleteownpostmodel(abc){
 
 
 <!-- end search validation -->
-<script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
+
 <script>
     function updateprofilepopup(id) {
         $('#bidmodal-2').modal('show');
