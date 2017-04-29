@@ -427,7 +427,7 @@ class Artistic extends MY_Controller {
                 $this->data['desc_art1'] = $userdata[0]['art_desc_art'];
                 $this->data['inspire1'] = $userdata[0]['art_inspire'];
                 $this->data['skills1'] = $userdata[0]['art_skill'];
-                $this->data['other'] = $userdata[0]['other_skill'];
+                $this->data['otherskill1'] = $userdata[0]['other_skill'];
             }
         }
 
