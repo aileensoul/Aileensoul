@@ -205,7 +205,8 @@ label.cameraButton input[accept*="camera"] {
                                 </div>
                         </li> -->
                         <li>
-                            <a href="http://35.165.1.109:81/chat/abc/4">Message</a></li>
+                            <a href="<?php echo base_url('message/message_chats/').$this->uri->segment(3) ; ?>">Message</a></li>
+                       
                     </ul>
                 </div>
             </div>
