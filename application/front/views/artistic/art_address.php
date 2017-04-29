@@ -50,8 +50,8 @@
                        
                             <?php echo form_open(base_url('artistic/art_address_insert'), array('id' => 'address','name' => 'address', 'class' => 'clearfix')); ?>
 
-                             <div>
-                                    <span style="color:red"> (*)</span> <span style="color:#7f7f7e">Indicates required field</span>
+                            <div>
+                                   <span style="color:#7f7f7e;padding-left: 8px;">( </span><span style="color:red">*</span><span style="color:#7f7f7e"> )</span> <span style="color:#7f7f7e">Indicates required field</span>
                                 </div>
 
 
@@ -158,10 +158,10 @@
 								
 
 									<fieldset class="full-width">
-									<label>Address:<span style="color:red">*</span></label>
+									<label>Postal Address:<span style="color:red">*</span></label>
 								
 
-                                <textarea name="address"><?php if($address1){ echo $address1; } ?></textarea>
+                                <textarea name="address" style="resize: none;overflow: hidden;min-height: 18%;"><?php if($address1){ echo $address1; } ?></textarea>
                                     <?php echo form_error('address'); ?>
                                     <label id="address-error"></label>
 

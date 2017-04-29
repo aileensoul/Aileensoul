@@ -304,7 +304,7 @@ function text2link($text){
                                                        
                                                         <li> <b>Email </b><span> <?php echo $freelancerhiredata[0]['email'];?></span>
                                                         </li>
-                                                        <li><b> Phone No</b> <span><?php echo $freelancerhiredata[0]['phone'];?></span> </li>
+                                                        <li><b> Phone Number</b> <span><?php echo $freelancerhiredata[0]['phone'];?></span> </li>
                                                              <li> <b>Skype Id </b> <span> <?php echo $freelancerhiredata[0]['skyupid'];?> </span>
                                                         </li> 
                                                     </ul>

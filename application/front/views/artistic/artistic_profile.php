@@ -370,7 +370,7 @@ if ($artisticdata[0]['user_id'] === $userid) {
 
                                         <li> <b>Email </b><span> <?php echo $artisticdata[0]['art_email']; ?> </span>
                                         </li>
-                                        <li><b> PhoneNo</b> <span><?php echo $artisticdata[0]['art_phnno']; ?></span> </li>
+                                        <li><b> Phone Number</b> <span><?php echo $artisticdata[0]['art_phnno']; ?></span> </li>
 
                                     </ul>
                                 </div>
@@ -400,7 +400,7 @@ $this->db->get_where('cities', array('city_id' => $artisticdata[0]['art_city']))
 
                                             <li> <b>Pincode </b><span> <?php echo $artisticdata[0]['art_pincode']; ?></span>
                                             </li>
-                                            <li> <b>Address </b><span> <?php echo $artisticdata[0]['art_address']; ?></span>
+                                            <li> <b>Postal Address </b><span> <?php echo $artisticdata[0]['art_address']; ?></span>
                                             </li>
 
                                         </ul>
@@ -420,7 +420,7 @@ $this->db->get_where('cities', array('city_id' => $artisticdata[0]['art_city']))
                                     <div class="profile-job-profile-menu">
                                         <ul class="clearfix">
 
-                                            <li> <b>KeySkills </b> <span>
+                                            <li> <b>Art </b> <span>
 <?php
 $aud = $artisticdata[0]['art_skill'];
 $aud_res = explode(',', $aud);
@@ -435,7 +435,7 @@ echo $listFinal . ',' . $artisticdata[0]['other_skill'];
                                                 </span>
                                             </li>
 
-                                            <li> <b> Other skills </b> 
+                                            <li> <b> Other Art </b> 
 
                                                     <?php if ($artisticdata[0]['other_skill']) { ?>
 
@@ -453,7 +453,7 @@ echo $listFinal . ',' . $artisticdata[0]['other_skill'];
 <?php } ?>
                                             </li>
 
-                                            <li> <b> Speciality </b> <span> <?php echo $artisticdata[0]['art_yourart']; ?> </span>
+                                            <li> <b> Speciality in Art </b> <span> <?php echo $artisticdata[0]['art_yourart']; ?> </span>
                                             </li>
 
 
@@ -481,7 +481,7 @@ echo $listFinal . ',' . $artisticdata[0]['other_skill'];
                                 <div class="profile-job-profile-menu">
                                     <ul class="clearfix">
 
-                                        <li><b> Best Of Mine</b> <span>
+                                        <li><b>Attachment</b> <span>
                                                 <div class="buisness-profile-pic">
 <?php
 if ($artisticdata[0]['art_bestofmine']) {
@@ -587,7 +587,7 @@ if ($artisticdata[0]['art_bestofmine']) {
                                             </span>
                                             </div>
                                         </li> -->
-                                        <li> <b>Tell me about yourself: </b> <span> <?php echo $artisticdata[0]['art_portfolio']; ?> </span>
+                                        <li> <b>Details of Portfolio </b> <span> <?php echo $artisticdata[0]['art_portfolio']; ?> </span>
                                         </li>
 
                                     </ul>

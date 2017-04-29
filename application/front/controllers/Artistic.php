@@ -3955,14 +3955,15 @@ $followingdatacount = count($followingotherdata);
 
         $userid = $this->session->userdata('aileenuser');
 
-        $artdataimg = $_POST["post_image_id"];
+        $post_image_id = $_POST["post_image_id"];
         $post_comment = $_POST["comment"];
 
 
-        $contition_array = array('post_image_id' => $_POST["post_image_id"], 'is_unlike' => '0');
+        //$contition_array = array('post_image_id' => $_POST["post_image_id"], 'is_unlike' => '0');
+        $contition_array = array('post_image_id' => $_POST["post_image_id"], 'is_delete' => '1');
         $artimg = $this->data['artimg'] = $this->common->select_data_by_condition('art_post_image_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
-
+        
+        
         $data = array(
             'user_id' => $userid,
             'post_image_id' => $post_image_id,
