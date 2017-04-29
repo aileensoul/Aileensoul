@@ -1277,6 +1277,35 @@ $business_userimage = $this->db->get_where('business_profile', array('user_id' =
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 
  <script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script>
+ 
+<!-- further and less -->
+<script>
+$(function() {
+var showTotalChar = 150, showChar = "More", hideChar = "less";
+$('.show').each(function() {
+var content = $(this).text();
+if (content.length > showTotalChar) {
+var con = content.substr(0, showTotalChar);
+var hcon = content.substr(showTotalChar, content.length - showTotalChar);
+var txt= con +  '<span class="dots">...</span><span class="morectnt"><span>' + hcon + '</span>&nbsp;&nbsp;<a href="" class="showmoretxt">' + showChar + '</a></span>';
+$(this).html(txt);
+}
+});
+$(".showmoretxt").click(function() {
+if ($(this).hasClass("sample")) {
+$(this).removeClass("sample");
+$(this).text(showChar);
+} else {
+$(this).addClass("sample");
+$(this).text(hideChar);
+}
+$(this).parent().prev().toggle();
+$(this).prev().toggle();
+return false;
+});
+});
+</script>
+
 <script>
 $('#content').on( 'change keyup keydown paste cut', 'textarea', function (){
     $(this).height(0).height(this.scrollHeight);
@@ -1735,36 +1764,11 @@ $('#content').on( 'change keyup keydown paste cut', 'textarea', function (){
   }
 </script>
 <!-- further and less -->
-<script src="jquery-1.8.2.js">
+<script src="../js/jquery-1.8.2.js">
 </script>
-<script>
-  $(function() {
-    var showTotalChar = 200, showChar = "More", hideChar = "Less";
-    $('.show').each(function() {
-      var content = $(this).text();
-      if (content.length > showTotalChar) {
-        var con = content.substr(0, showTotalChar);
-        var hcon = content.substr(showTotalChar, content.length - showTotalChar);
-        var txt = con + '<span class="dots">...</span><span class="morectnt"><span>' + hcon + '</span>&nbsp;&nbsp;<a href="" class="showmoretxt">' + showChar + '</a></span>';
-        $(this).html(txt);
-      }
-    });
-    $(".showmoretxt").click(function() {
-      if ($(this).hasClass("sample")) {
-        $(this).removeClass("sample");
-        $(this).text(showChar);
-      }
-      else {
-        $(this).addClass("sample");
-        $(this).text(hideChar);
-      }
-      $(this).parent().prev().toggle();
-      $(this).prev().toggle();
-      return false;
-    });
-  }
-   );
-</script>
+
+
+
 <!-- drop down script zalak start -->
 <script>
   /* When the user clicks on the button, 
