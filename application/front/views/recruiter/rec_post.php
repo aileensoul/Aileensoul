@@ -424,7 +424,7 @@ if ($returnpage == 'job') {
                     foreach ($postdata as $post) {
                         ?>
                         <div class="job-contact-frnd ">
-                            <div class="profile-job-post-detail clearfix">
+                            <div class="profile-job-post-detail clearfix" id="<?php echo "removepost" . $post['post_id']; ?>">
                                 <!-- vishang 14-4 end -->
                                 <div class="profile-job-post-title clearfix">
                                     <div class="profile-job-profile-button clearfix">
@@ -438,9 +438,20 @@ if ($returnpage == 'job') {
                                                         <?php echo $post['post_name'] ?> </a>     </li>
                                                 <li>   
                                                     <div class="fr lction">
-                                                        <p><i class="fa fa-map-marker" aria-hidden="true"> 
-                                                            <?php $cityname = $this->db->get_where('cities', array('city_id' => $post['re_comp_city']))->row()->city_name; ?>
-                                                            <?php echo $cityname ?> </i></p>
+                                                    <?php $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name; ?>
+                                                            <?php  
+                                                            if($cityname)
+                                                            { 
+                                                            ?>
+                                                            <p><i class="fa fa-map-marker" aria-hidden="true">
+
+                                                            <?php echo $cityname; ?> 
+                                                            </i></p>
+                                                            
+                                                            <?php
+                                                             }
+
+                                                             else{}?> 
                                                     </div>
                                                     <a class="display_inline" title="Company Name" href="#"> <?php echo $post['re_comp_name']; ?> </a>
                                                 </li>

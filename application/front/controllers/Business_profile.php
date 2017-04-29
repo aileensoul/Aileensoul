@@ -50,7 +50,8 @@ class Business_profile extends MY_Controller {
                 } else if ($userdata[0]['business_step'] == 3) {
                     redirect('business_profile/image', refresh);
                 } else if ($userdata[0]['business_step'] == 4) {
-                    redirect('business_profile/addmore', refresh);
+                    //redirect('business_profile/addmore', refresh);
+                    redirect('business_profile/business_profile_post', refresh);
                 } else if ($userdata[0]['business_step'] == 5) {
                     redirect('business_profile/business_profile_post', refresh);
                 }
@@ -1132,7 +1133,7 @@ class Business_profile extends MY_Controller {
         $this->load->view('business_profile/business_profile_addpost', $this->data);
     }
 
-    public function business_profile_addpost_insert($id, $para) {
+    public function business_profile_addpost_insert($id="", $para="") {
 
 
         $userid = $this->session->userdata('aileenuser');
@@ -2951,6 +2952,8 @@ $cmtinsert .= '<div class="comment-details" id= "showcommenttwo' . $business_pro
             $business_userimage = $this->db->get_where('business_profile', array('user_id' => $business_profile['user_id'], 'status' => 1))->row()->business_user_image;
 
             // $cmtinsert = '<div class="all-comment-comment-box">';
+            
+            $cmtinsert .= '<div class="all-comment-comment-box">';
             $cmtinsert .= '<div class="post-design-pro-comment-img">';
 
 
@@ -3010,7 +3013,7 @@ $cmtinsert .= '<div class="comment-details" id= "showcommenttwo' . $business_pro
                 $cmtinsert .= 'Cancel';
                 $cmtinsert .= '</a></div>';
 
-                $cmtinsert .= '</div>';
+                $cmtinsert .= '</div></div>';
             }
 
 

@@ -268,6 +268,13 @@ $( "#tags" ).autocomplete({
                             },
                         },
 
+                        phoneno: {
+
+                            number: true,
+                            required: true,
+                            
+                        },
+
                     },
 
                     messages: {

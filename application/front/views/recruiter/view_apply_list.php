@@ -313,14 +313,14 @@ if ($user_data) {
 
  
    <li><b>E-mail</b>
-                                                                    <span><?php
-                                                                    echo $p['email'];
-                                                                    ?></span>
-                                                                </li>
+      <span><?php
+       echo $row['email'];
+     ?></span>
+     </li>
 
                                                                 <li><b>Mobile Number</b>
                                                                     <span><?php
-                                                                    echo $p['phnno'];
+                                                                    echo $row['phnno'];
                                                                     ?></span>
                                                                 </li>
 

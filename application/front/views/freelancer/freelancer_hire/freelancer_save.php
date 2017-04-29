@@ -399,10 +399,10 @@
 
                                                                                 <div  class="buisness-profile-pic-candidate">
                                                                                     <?php
-                                            if ($rec[0]['freelancer_post_user_image']) {
+                                            if ($rec['freelancer_post_user_image']) {
                                                 
                                                 ?>
-                                                <img src="<?php echo base_url(FREEWORKIMG . $rec[0]['freelancer_post_user_image']); ?>" alt="<?php echo ucwords($rec['freelancer_post_fullname']) . ' ' . ucwords($row['freelancer_post_username']); ?>">
+                                                <img src="<?php echo base_url(FREEWORKIMG . $rec['freelancer_post_user_image']); ?>" alt="<?php echo ucwords($rec['freelancer_post_fullname']) . ' ' . ucwords($row['freelancer_post_username']); ?>">
                                                 <?php
                                             } else {
                                                 
@@ -414,7 +414,7 @@
                                                                                     
                                                                                 </div></li>
                                                                             <li>
-                                                                                <a href="<?php echo base_url('freelancer/freelancer_post_profile/' . $rec['user_id']); ?>" title="<?php echo ucwords($rec['freelancer_post_fullname']) . ' ' . ucwords($rec['freelancer_post_username']); ?>"><h6>
+                                                                                <a href="<?php echo base_url('freelancer/freelancer_post_profile/' . $rec['user_id'].'?page=freelancer_hire'); ?>" title="<?php echo ucwords($rec['freelancer_post_fullname']) . ' ' . ucwords($rec['freelancer_post_username']); ?>"><h6>
             <?php echo ucwords($rec['freelancer_post_fullname']) . ' ' . ucwords($rec['freelancer_post_username']); ?></h6>
                                                                                 </a></li>
 
