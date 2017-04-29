@@ -175,8 +175,8 @@
 <!-- END HEAD -->
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
-<link rel="stylesheet" href="<?php echo base_url('assets/css/croppie.css'); ?>">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/select2.min.css'); ?>">
+<!--<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />-->
 <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
 <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
 <!-- start header -->
@@ -372,46 +372,40 @@
                             <div class="job-contact-frnd ">
                                 <div class="profile-job-post-detail clearfix" id="<?php echo "postdata" . $post['app_id']; ?>">
 
-                                    <div class="profile-job-post-title clearfix">
-                                        <div class="profile-job-profile-button clearfix">
-                                            <div class="profile-job-details col-md-12">
-                                                <ul>
-                                                    <li class="fr">
+     <div class="profile-job-post-title clearfix">
+        <div class="profile-job-profile-button clearfix">
+             <div class="profile-job-details col-md-12">
+                    <ul>
+                       <li class="fr">
+                         Created Date:<?php
+                    echo trim(date('d-M-Y', strtotime($post['created_date'])));
+                          ?>
+                      </li>
 
-                                                        Created Date:<?php
-                                                        echo trim(date('d-M-Y', strtotime($post['created_date'])));
-                                                        ?>
+                     <li>
+               <a  class="display_inline" href="#" title="Post Title" style="font-size: 19px;font-weight: 600;cursor: default;">
+               <?php echo ucwords(text2link($post['post_name'])); ?> </a>   </li>
 
-                                                    </li>
+            <li>   
+                  <div class="fr lction">
+               <?php $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name; ?>
+               <p><i class="fa fa-map-marker" aria-hidden="true"> <?php echo $cityname; ?></i></p>
+                   </div>
 
-                                                    <li>
-                                                        <a href="#" style="font-size: 19px;font-weight: 600;">
-                                                            <?php echo ucwords(text2link($post['post_name'])); ?> </a>   </li>
+              <a class="display_inline" title="Company Name" href="<?php echo base_url('recruiter/rec_profile/' . $post['user_id']); ?>" ><?php
+                 $cache_time = $this->db->get_where('recruiter', array('user_id' => $post['user_id']))->row()->re_comp_name;
+                 echo ucwords($cache_time);
+              ?></a>
 
-                                                    <li>   
+            </li>
 
-                                                        <div class="fr lction">
-                                                            <?php $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name; ?>
-                                                            <p><i class="fa fa-map-marker" aria-hidden="true"> <?php echo $cityname; ?></i></p>
-                                                        </div>
-
-
-                                                        <a href="<?php echo base_url('recruiter/rec_profile/' . $post['user_id']); ?>"><?php
-                                                            $cache_time = $this->db->get_where('recruiter', array('user_id' => $post['user_id']))->row()->re_comp_name;
-
-                                                            echo ucwords($cache_time);
-                                                            ?></a>
-
-                                                    </li>
-
-                                                    <li><a href="<?php echo base_url('recruiter/rec_profile/' . $post['user_id']); ?>"><?php
-                                                            $cache_time = $this->db->get_where('recruiter', array('user_id' => $post['user_id']))->row()->rec_firstname;
-
-                                                            echo ucwords($cache_time);
-                                                            ?></a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
+            <li><a  class="display_inline" title="Recruiter Name" href="<?php echo base_url('recruiter/rec_profile/' . $post['user_id']); ?>"><?php
+             $cache_time = $this->db->get_where('recruiter', array('user_id' => $post['user_id']))->row()->rec_firstname;
+             echo ucwords($cache_time);
+           ?></a></li>
+       </ul>
+          </div>
+               </div>
                                         <div class="profile-job-profile-menu">
                                             <ul class="clearfix">
                                                 <li> <b> Skills</b> <span> 
@@ -631,43 +625,41 @@
 </html>
 
 <!-- script for skill textbox automatic start-->
-<script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
-<script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
-<script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
-<script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+   <script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
+    <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
+    <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
+    <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+     <script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script>
+     <link rel="stylesheet" href="<?php echo base_url('assets/css/croppie.css'); ?>">
 
 <!-- script for skill textbox automatic end -->
 
 <script>
 
-                                                    var data = <?php echo json_encode($demo); ?>;
+ var data = <?php echo json_encode($demo); ?>;
 //alert(data);
-
-
-                                                    $(function () {
-                                                        // alert('hi');
-                                                        $("#tags").autocomplete({
-                                                            source: function (request, response) {
-                                                                var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
-                                                                response($.grep(data, function (item) {
-                                                                    return matcher.test(item.label);
-                                                                }));
-                                                            },
-                                                            minLength: 1,
-                                                            select: function (event, ui) {
-                                                                event.preventDefault();
-                                                                $("#tags").val(ui.item.label);
-                                                                $("#selected-tag").val(ui.item.label);
+ $(function () {
+   $("#tags").autocomplete({
+     source: function (request, response) {
+     var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+      response($.grep(data, function (item) {
+     return matcher.test(item.label);
+     }));
+    },
+     minLength: 1,
+ select: function (event, ui) {
+ event.preventDefault();
+ $("#tags").val(ui.item.label);
+   $("#selected-tag").val(ui.item.label);
                                                                 // window.location.href = ui.item.value;
-                                                            }
-                                                            ,
-                                                            focus: function (event, ui) {
-                                                                event.preventDefault();
-                                                                $("#tags").val(ui.item.label);
-                                                            }
-                                                        });
-                                                    });
+  } ,
+    focus: function (event, ui) {
+       event.preventDefault();
+       $("#tags").val(ui.item.label);
+           }
+       });
+      });
 
 </script>
 
@@ -755,7 +747,7 @@
 </script>
 
 <!-- crop image js start--> 
-<script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script>
+
 <!-- crop image js End--> 
 <!-- Validation Start -->
 <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.min.js') ?>"></script>

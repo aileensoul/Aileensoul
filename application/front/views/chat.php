@@ -510,7 +510,7 @@ function followclose(clicked_id)
 // alert(img.getAttribute('src')); // foo.jpg
 //alert(img.src); 
 var img = img.src;
-$('#message').append("<img  src=" + img + " height='27' width='27' style='    margin: 7px;'>"); 
+$('#message').append("<img  src=" + img + " height='27' width='27' style='    margin-top: 7px;'>"); 
  }
 </script>
 <!-- script for selact smily for message end-->

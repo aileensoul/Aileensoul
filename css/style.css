@@ -1800,7 +1800,10 @@ abbr { cursor: help; }
     position: relative;
 }
 .profile-box-user .profile-box-name a{padding-left: 8px; font-size: 19px; color: #000033;}
-.profile-text-bui-user{padding-top: 14px;} 
+.profile-text-bui-user{padding-top: 14px;     white-space: nowrap;
+    /* width: 12em; */
+    overflow: hidden;
+    text-overflow: ellipsis;} 
 
 
 .post-design-product{padding-top: 2px;}
@@ -2268,21 +2271,22 @@ border-bottom: 1px solid #000033;
 .post-editor{ height: auto; background-color: #ced5df;     box-shadow: 9px 5px 20px -4px #bfbfbf;  padding: 5px;
               padding-left: 14px;
               padding-right: 15px; 
-              border-radius: 4px; margin-bottom: 10px; border: 1px solid #cccccc;}
+              border-radius: 4px; margin-bottom: 10px; border: 1px solid #cccccc;padding-bottom: 20px;}
 .popup-img img{      border: 2px solid #ffffff;
-                     height: 60px;
-                     width: 51px;
+                     height: 47px;
+                     width: 50px;
                      margin-left: -9px;
-                     margin-top: 8px;
+                     margin-top: 5px;
                      margin-bottom: 5px;
+
 }
 .popup-text span{color: #999999;}
 .popup-text textarea{height: 10%; resize: none;}
 .post-editor .popup-textarea p{color: #999999;}
 .post-editor .popup-text span i{font-size: 25px; color: #0a2c5d; }
 .popup-img{    padding-left: 2px !important; padding-right: 0px;}
-.popup-text{padding: 10px;}
-.main-text-area{background-color: #ffffff; margin: 4px 0px 4px 0px; border-radius: 0px;    padding-left: px !important;}
+.popup-text{padding: 16px;}
+.main-text-area{background-color: #ffffff; margin: 4px 0px 4px 0px; border-radius: 4px;    padding-left: px !important;}
 /* The Modal (background) */
 .modal-post {
     display: none; /* Hidden by default */
@@ -2642,8 +2646,13 @@ label.cameraButton input[accept*="camera"] {
 }
 .post-design-name ul li a span{ color: #91949d; font-size: 14px;}
 /*.post-design-name ul li a span:before{content: "\00b7";*/
-.post-design-name ul li a span:before{content: " \00b7 ";
-}
+.post-design-name ul li .datespan span:before{content: " \00b7 ";}
+      .post-design-product  span:before{content: "\00b7";}
+      .datespan{display: inline-block;}
+      .post-design-name{padding-left: 0;}
+      
+     .post-design-product span{padding: 0;}
+
 .post-design-name ul { font-size: 0; margin: 0; padding: 0; }
 .post-design-name ul li { list-style: none;  padding: 0; margin: 0; position: relative; }
 .post-design-name ul li a {    
@@ -2768,7 +2777,8 @@ label.cameraButton input[accept*="camera"] {
 .comment-details-menu{ display: inline-block;    font-weight: 400;  padding: 1px 4px 1px 4px; }
 .comment-edit-button button{padding: 10px 14px 10px;}
 .comment-name
-{    font-size: 17px;
+{ width: 90%;   
+  font-size: 17px;
      font-weight: 600;
      display: inline-block;margin-left: 10px; }
 .art-comment-menu-design{    padding: 5px 1px 0px 35px;margin-left: 19px;}
@@ -3070,8 +3080,8 @@ follow box*/
 
 #responsive-images-breakpoints{
     float: left;
-    height: 200px;
-    width:345px;
+   height: 40%;
+    width: 48.8%;
     margin: 4px; display: inline-block;
 }
 #responsive-images-breakpoints img{height: 100%; width: 100%;}
@@ -3085,25 +3095,25 @@ follow box*/
 #three_images_art{ width: 100%; height: 35%; padding-right: 3px; }
 #three_images_art img{height: 100%; width: 100%;}
 #responsive-images_2-breakpoints{ float: left;
-                                  height: 200px;
-                                  width:308px;
+                                  height: 38%;
+                                  width:48.8%;
                                   margin: 4px; display: inline-block;}
 #responsive-images_2-breakpoints img{height: 100%; width: 100%;}
 #responsive-images_3-breakpoints{ float: left;
-                                  height: 200px;
+                                  height: 38%;
                                   position: relative;
-                                  width:308px;
+                                  width:48.8%;
                                   margin: 4px; display: inline-block;}
 #responsive-images_3-breakpoints img{height: 100%; width: 100%;}
-.images_view_more{right: 19px;
-                  bottom: 1%;
-                  color: white;
-                  position: absolute;
-                  /* left: 14px; */
-                  width: 308px;
-                  height: 48%;
-                  background: rgba(0, 0, 0, 0.5);
-                  padding: 68px;}
+.images_view_more{    right: 19px;
+    bottom: 1%;
+    color: white;
+    position: absolute;
+    /* left: 14px; */
+    width: 46.8%;
+    height: 48%;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 68px;}
 .images_view_more a{
     position: absolute;
     color: white;

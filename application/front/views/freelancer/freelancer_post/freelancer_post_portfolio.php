@@ -48,8 +48,8 @@
                         <div class="common-form">
                             <h3>Portfolio</h3>
                             <?php echo form_open_multipart(base_url('freelancer/freelancer_post_portfolio_insert'), array('id' => 'freelancer_post_portfolio','name' => 'freelancer_post_portfolio','class' => 'clearfix')); ?>
-                          <div>
-                                    <span style="color:red"> (*)</span> <span style="color:#7f7f7e">Indicates required field</span>
+ <div>
+                                   <span style="color:#7f7f7e;padding-left: 8px;">( </span><span style="color:red">*</span><span style="color:#7f7f7e"> )</span> <span style="color:#7f7f7e">Indicates required field</span>
                                 </div>
 
 

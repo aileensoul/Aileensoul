@@ -205,7 +205,8 @@ label.cameraButton input[accept*="camera"] {
                                 </div>
                         </li> -->
                         <li>
-                            <a href="http://35.165.1.109:81/chat/abc/4">Message</a></li>
+                            <a href="<?php echo base_url('message/message_chats/').$this->uri->segment(3) ; ?>">Message</a></li>
+                       
                     </ul>
                 </div>
             </div>
@@ -214,18 +215,23 @@ label.cameraButton input[accept*="camera"] {
                
         <div class="job-menu-profile1">
        
-                           <h3> <?php echo ucwords($freehiredata[0]['fullname']) . ' '.ucwords($freehiredata[0]['username']); ?></h3>
+                           <h3> <?php echo ucwords($freelancerhiredata[0]['fullname']) . ' '.ucwords($freelancerhiredata[0]['username']); ?></h3>
                            
                            <div class="profile-text">
 
-                     <?php 
-                     if($freehiredata[0]['designation'] == '')
+                     <?php
+                     
+                     if($returnpage == ''){
+                     if($freelancerhiredata[0]['designation'] == '')
                      {
                      ?>
                      <a id="designation" class="designation" title="Designation">Current Work</a>
                      <?php }else{?> 
-                      <a id="designation" class="designation" title="<?php echo ucwords($freehiredata[0]['designation']); ?>"><?php echo ucwords($freehiredata[0]['designation']); ?></a>
-                      <?php }?></div>
+                      <a id="designation" class="designation" title="<?php echo ucwords($freelancerhiredata[0]['designation']); ?>"><?php echo ucwords($freelancerhiredata[0]['designation']); ?></a>
+                     <?php }} else {echo ucwords($freelancerhiredata[0]['designation']);}
+                     ?>
+                      </div>
+                           
     <div  class="add-post-button">
         <?php if($returnpage == ''){ ?>
         <a class="btn btn-3 btn-3b" href="<?php echo base_url('freelancer/freelancer_add_post'); ?>"><i class="fa fa-plus" aria-hidden="true"></i>  Add Post</a>
@@ -304,7 +310,7 @@ function text2link($text){
                                                        
                                                         <li> <b>Email </b><span> <?php echo $freelancerhiredata[0]['email'];?></span>
                                                         </li>
-                                                        <li><b> Phone No</b> <span><?php echo $freelancerhiredata[0]['phone'];?></span> </li>
+                                                        <li><b> Phone Number</b> <span><?php echo $freelancerhiredata[0]['phone'];?></span> </li>
                                                              <li> <b>Skype Id </b> <span> <?php echo $freelancerhiredata[0]['skyupid'];?> </span>
                                                         </li> 
                                                     </ul>

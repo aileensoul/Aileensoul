@@ -2,203 +2,6 @@
 <?php  echo $head; ?>
 
 
-<!--post save success pop up style strat -->
-<style>
-body {
-  font-family: Arial, sans-serif;
-  background-size: cover;
-  height: 100vh;
-}
-/*!
- * bootstrap-vertical-tabs - v1.2.2
- * https://dbtek.github.io/bootstrap-vertical-tabs
- * 2016-12-02
- * Copyright (c) 2016 İsmail Demirbilek
- * License: MIT
- */
-.tabs-left, .tabs-right {
-  border-bottom: none;
-  padding-top: 2px;
-}
-.tabs-left {
-  /*border-right: 1px solid #ddd;*/
-  padding-top: 15px;
-  height: 100%;
-}
-.tabs-right {
-  border-left: 1px solid #ddd;
-}
-.tabs-left>li, .tabs-right>li {
-  float: none;
-  margin-bottom: 2px;
-}
-.tabs-left>li {
-  margin-right: -1px;
-  padding: 0;
-}
-.tabs-right>li {
-  margin-left: -1px;
-}
-.tabs-left>li.active>a,
-.tabs-left>li.active>a:hover,
-.tabs-left>li.active>a:focus {
-  border-bottom-color: #ddd;
-  border-right-color: transparent;
-}
-
-.tabs-right>li.active>a,
-.tabs-right>li.active>a:hover,
-.tabs-right>li.active>a:focus {
-  border-bottom: 1px solid #ddd;
-  border-left-color: transparent;
-}
-.tabs-left>li>a {
-  /*border-radius: 4px 0 0 4px;*/
-  margin-right: 0;
-  display:block;
-    letter-spacing: 2px;
-    font-size: 18px;
-    font-weight: 600;
-}
-.tabs-right>li>a {
-  border-radius: 0 4px 4px 0;
-  margin-right: 0;
-
-}
-.sideways {
-  margin-top:50px;
-  border: none;
-  position: relative;
-}
-.sideways>li {
-  height: 20px;
-  width: 120px;
-  margin-bottom: 100px;
-}
-.sideways>li>a {
-  border-bottom: 1px solid #ddd;
-  border-right-color: transparent;
-  text-align: center;
-  border-radius: 4px 4px 0px 0px;
-}
-.sideways>li.active>a,
-.sideways>li.active>a:hover,
-.sideways>li.active>a:focus {
-  border-bottom-color: transparent;
-  border-right-color: #ddd;
-  border-left-color: #ddd;
-}
-.sideways.tabs-left {
-  left: -50px;
-}
-.sideways.tabs-right {
-  right: -50px;
-}
-.sideways.tabs-right>li {
-  -webkit-transform: rotate(90deg);
-  -moz-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
-  -o-transform: rotate(90deg);
-  transform: rotate(90deg);
-}
-.sideways.tabs-left>li {
-  -webkit-transform: rotate(-90deg);
-  -moz-transform: rotate(-90deg);
-  -ms-transform: rotate(-90deg);
-  -o-transform: rotate(-90deg);
-  transform: rotate(-90deg);
-}
-.box {
-  width: 40%;
-  margin: 0 auto;
-  background: rgba(255,255,255,0.2);
-  padding: 35px;
-  border: 2px solid #fff;
-  border-radius: 20px/50px;
-  background-clip: padding-box;
-  text-align: center;
-}
-
-
-
-.overlay {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.3);
-  transition: opacity 500ms;
-  visibility: hidden;
-  opacity: 0;
-  z-index: 10;
-}
-.overlay:target {
-  visibility: visible;
-  opacity: 1;
-}
-
-.popup {
-    margin: 70px auto;
-    padding: 20px;
-    background: #fff;
-    border-radius: 5px;
-    width: 30%;
-    height: 200px;
-    position: relative;
-    transition: all 5s ease-in-out;
-}
-
-.okk{
-  text-align: center;
-}
-
-.popup .okbtn {
-  position: absolute;
-    transition: all 200ms;
-    font-size: 18px;
-    font-weight: bold;
-    text-decoration: none;
-    color: #fff;
-    padding: 8px 18px;
-    background-color: darkcyan;
-    left: 25px;
-    margin-top: 15px;
-    width: 100px; 
-    border-radius: 8px;
-}
-
-.popup .cnclbtn {
-  position: absolute;
-    transition: all 200ms;
-    font-size: 18px;
-    font-weight: bold;
-    text-decoration: none;
-    color: #fff;
-    padding: 8px 18px;
-    background-color: darkcyan;
-    right: 25px;
-    margin-top: 15px;
-    width: 100px;
-    border-radius: 8px;
-}
-
-.popup .pop_content {
- text-align: center;
- margin-top: 40px;
-  
-}
-
-@media screen and (max-width: 700px){
-  .box{
-    width: 70%;
-  }
-  .popup{
-    width: 70%;
-  }
-}
-</style>
-
 <!--post save success pop up style end -->
 
 
@@ -497,13 +300,13 @@ label.cameraButton input[accept*="camera"] {
 
                </div>
 <div class="user-midd-section">
-            <div class="container ">
+                           <div class="container "  style="border: 1px solid #efefef;">
                 <div class="row">
 
 
-      <div  class="col-sm-10 border_tag padding_low_data" style="margin: 16px;">
+      <div  class="col-sm-12 border_tag padding_low_data padding_less_right" >
       
-        <div class="col-xs-3 padding_low_data"> <!-- required for floating -->
+        <div class="col-xs-3 padding_low_data padding_les"> <!-- required for floating -->
           <!-- Nav tabs -->
           <ul class="nav nav-tabs tabs-left">
             <li> <a href="<?php echo base_url('business_profile/business_photos/'.$businessdata1[0]['business_slug']) ?>" data-toggle="tab"><i class="fa fa-camera" aria-hidden="true"></i>   Photos</a></li>
@@ -573,7 +376,14 @@ label.cameraButton input[accept*="camera"] {
 
       <?php }   }  else{?>
 
-     Video Not Available
+      <div style="margin-left: 380px; margin-top: 20px;">
+                  <div class="not_avali" >
+                                <img src="<?php echo base_url('images/010.png'); ?>"  >
+                               <div>
+                               <div class="not_text" >Video not avalible</div>
+                               </div>
+                               </div>
+                               </div>
         <?php }?>
 
            </tr>

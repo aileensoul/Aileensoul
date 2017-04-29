@@ -809,7 +809,7 @@ $followfrom =  $this->db->get_where('art_reg',array('user_id' => $userid, 'statu
                                 <div class="popup-img col-md-1"> <img  src="<?php echo base_url(ARTISTICIMAGE . $artisticdata[0]['art_user_image']);?>"  alt="">
  </div>
  <div id="myBtn"  class="editor-content col-md-11 popup-text" contenteditable>
-        <span> Post Your Art....</span> 
+        <span style="font-size: 23px"> Post Your Art....</span> 
       <!--  <span class="fr">
         <input type="file" id="FileID" style="display:none;">
          <label for="FileID"><i class=" fa fa-camera fa"  style=" margin: 8px; cursor:pointer">  </i>
@@ -818,8 +818,8 @@ $followfrom =  $this->db->get_where('art_reg',array('user_id' => $userid, 'statu
        -->
      </div>
     </div>
-    <div class="fr">
-     <a class="button">Post</a></div>
+    <!-- <div class="fr">
+     <a class="button">Post</a></div> -->
       </div>
 </div>
     <!-- Trigger/Open The Modal -->
@@ -880,7 +880,7 @@ $followfrom =  $this->db->get_where('art_reg',array('user_id' => $userid, 'statu
 
 </div>
     <div class="fr">
-     <button type="submit"  value="Submit">Submit</button>    </div>
+     <button type="submit"  value="Submit">Post</button>    </div>
      <?php echo form_close(); ?>
       </div>
   </div>
@@ -1032,10 +1032,12 @@ foreach($finalsorting as $row)
 
                         <?php if($row['posted_user_id']){?>
                           <div class="else_post_d">
-                        <a style=" font-size: 18px;
+                        <a style=" font-size: 18px;display: inline-block;
                          line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; " href="<?php echo base_url('artistic/art_manage_post/' . $row['posted_user_id']); ?>"><?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?> </a><span style="font-weight: 600;"> Posted With 
                         </span><a style=" font-size: 18px;
                          line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; " href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>"><?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?></a><span role="presentation" aria-hidden="true" style="color: #91949d; font-size: 14px;"> · </span>
+
+
                                 <span style="color: #91949d;
                                 font-size: 14px;"> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span>
                         </div>
@@ -1043,12 +1045,15 @@ foreach($finalsorting as $row)
                         <?php }else{?>
 
 
-                        <a style="font-size: 16px;
-    line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; " href="<?php echo base_url('artistic/art_manage_post/'.$row['user_id']); ?>"><?php echo ucwords($firstname); print "&nbsp;&nbsp;"; echo ucwords($lastname); ?> <span style="font-weight: 400;"> <?php// echo date('d-M-Y',strtotime($row['created_date'])); ?>
+                        <a style="font-size: 16px;display: inline-block;padding-right: 0;
+    line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; " href="<?php echo base_url('artistic/art_manage_post/'.$row['user_id']); ?>"><?php echo ucwords($firstname); print "&nbsp;&nbsp;"; echo ucwords($lastname); ?> </a>
+
+    <div class="datespan">
+    <span style="font-weight: 400;"> <?php// echo date('d-M-Y',strtotime($row['created_date'])); ?>
     	
     <?php echo $row['created_date']; ?>
 
-    </span></a> 
+    </span> </div>
 <?php }?> 
 
     </div></li>
@@ -1209,7 +1214,7 @@ foreach($finalsorting as $row)
                     ?>
 
               <!-- two image start -->
-                    <div  id="two_images_art" style="width: 345px;">
+                    <div  id="two_images_art" style="width: 48.8%;">
                     <a href="<?php echo base_url('artistic/postnewpage/'.$row['art_post_id']) ?>"><img class="two-columns" src="<?php echo base_url(ARTPOSTIMAGE. str_replace(" ","_",$multiimage['image_name']))?>" > </a>
                     </div>
 
@@ -1513,7 +1518,7 @@ if(count($likelistarray) > 1) {
                                         </div>
                                         <div class="col-md-12">
                                         <div class="col-md-10">
-                                        <textarea  class="textarea" name="<?php echo $rowdata['artistic_post_comment_id']; ?>" id="<?php echo "editcomment" . $rowdata['artistic_post_comment_id']; ?>" style="display:none" onClick="commentedit(this.name)" style="height:50px;" ><?php  echo $rowdata['comments']; ?></textarea>
+                                        <textarea   class="textarea" name="<?php echo $rowdata['artistic_post_comment_id']; ?>" id="<?php echo "editcomment" . $rowdata['artistic_post_comment_id']; ?>" style="display:none;-webkit-min-height: 40px;" onClick="commentedit(this.name)" style="height:50px;" ><?php  echo $rowdata['comments']; ?></textarea>
                                         </div>
 
                                         <div class="col-md-2 comment-edit-button">
@@ -2036,6 +2041,13 @@ function insert_comment(clicked_id)
     
   var x = document.getElementById('threecomment'+ clicked_id);
    var y = document.getElementById('fourcomment'+ clicked_id);
+
+if(post_comment.value == ''){ 
+
+    event.preventDefault();
+        return false;
+   }else{
+
  if (x.style.display === 'block' && y.style.display === 'none') { 
  
        $.ajax({ 
@@ -2054,7 +2066,7 @@ function insert_comment(clicked_id)
           }
             }); 
  
-      } else { alert("hii");
+      } else { 
 
         $.ajax({ 
             type:'POST',
@@ -2071,7 +2083,7 @@ function insert_comment(clicked_id)
 
           }
             }); 
-     }                  
+     }   }               
                
 }
 
@@ -2104,6 +2116,12 @@ function entercomment(clicked_id)
                   
    var x = document.getElementById('threecomment'+ clicked_id);
    var y = document.getElementById('fourcomment'+ clicked_id);
+
+   if(val == ''){ 
+
+    event.preventDefault();
+        return false;
+   }else{ 
  
  if (x.style.display === 'block' && y.style.display === 'none') { 
        $.ajax({ 
@@ -2142,6 +2160,7 @@ function entercomment(clicked_id)
             }); 
      }
                 // khyati chnages end
+              }
      
     }        
   });

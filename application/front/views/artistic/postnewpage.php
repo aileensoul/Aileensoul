@@ -704,11 +704,16 @@
                                             ?>
 
                                             <li><div class="post-design-product">
-                                                    <a style=" font-size: 18px;
-                                                       line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; " 
+                                                    <a style=" font-size: 18px;padding-right: 0;
+                                                       line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px;display: inline-block; " 
                                                        href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>"><?php echo ucwords($firstname);
                                             print "&nbsp;&nbsp;";
-                                            echo ucwords($lastname); ?> <span style="font-weight: 400;"> <?php echo date('d-M-Y', strtotime($art_data[0]['created_date'])); ?></span></a> </div></li>
+                                            echo ucwords($lastname); ?> </a>
+
+
+                                            <span style="font-weight: 400;
+                                                    font-size: 14px;
+                                                    color: #91949d;"> <?php echo date('d-M-Y', strtotime($art_data[0]['created_date'])); ?></span> </div></li>
                                             <!-- 
                                             <li><div class="post-design-product"><a><?php //echo $listFinal ;  ?> </a></div></li>
                                             -->

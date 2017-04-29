@@ -50,9 +50,10 @@
                             <h3>Education Info</h3>
                             <?php echo form_open(base_url('freelancer/freelancer_post_education_insert'), array('id' => 'freelancer_post_education', 'name' => 'freelancer_post_education', 'class' => 'clearfix')); ?>
 
-                          <div>
-                                    <span style="color:red"> (*)</span> <span style="color:#7f7f7e">Indicates required field</span>
+                           <div>
+                                   <span style="color:#7f7f7e;padding-left: 8px;">( </span><span style="color:red">*</span><span style="color:#7f7f7e"> )</span> <span style="color:#7f7f7e">Indicates required field</span>
                                 </div>
+
 
 
                             <?php
@@ -67,7 +68,7 @@
 
 
                             <fieldset <?php if ($degree) { ?> class="error-msg" <?php } ?>>
-                                <label>Degree:<span style="color:red">*</span></label>
+                                <label>Hire Degree:<span style="color:red">*</span></label>
                                 <select name="degree" id="degree">
                                     <option value="">Select your degree</option>
 

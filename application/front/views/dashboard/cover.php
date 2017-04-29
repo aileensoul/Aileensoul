@@ -63,8 +63,11 @@
         color: #fff;
         padding: 12px 30px;
         background-color: darkcyan;
-        margin-left: -45px;
-        margin-top: 15px;
+        margin: 0 auto;
+        left: 0;
+        right: 0;
+        top: 55%;
+
     }
 
     .popup .pop_content {

@@ -280,7 +280,7 @@ width: 68px;">
                       <?php $category = $this->db->get_where('industry_type', array('industry_id' => $businessdata[0]['industriyal'], 'status' => 1))->row()->industry_name; ?>
                       <div class="profile-boxProfile-name">
                         <a style="padding-left: 1px;" href="<?php echo base_url('business_profile/business_profile_manage_post/'); ?> " title="<?php echo ucwords($businessdata[0]['company_name']); ?>" >
-                          <?php echo $category; ?>
+                         <b> <?php echo $category; ?>Category</b>
                         </a>
                       </div>
                     </div>
@@ -567,14 +567,14 @@ if (!$businessfollow) {
             <?php } ?>
           </div>
           <div id="myBtn"  class="editor-content col-md-11 popup-text" contenteditable>
-            <span> Post Your Product....
+            <span style="font-size: 23px;"> Post Your Product....
             </span> 
           </div>
         </div>
-        <div class="fr">
+        <!-- <div class="fr">
           <a class="button">Post
           </a>
-        </div>
+        </div> -->
       </div>
     </div>
     <!-- Trigger/Open The Modal -->
@@ -849,7 +849,7 @@ if ($businesssave) {
                     <?php echo $row['product_description']; ?>
                   </textarea> 
                 </div>
-                <button id="<?php echo "editpostsubmit" . $row['business_profile_post_id']; ?>" style="display:none" onClick="edit_postinsert(<?php echo $row['business_profile_post_id']; ?>)">EditPost
+                <button class="fr" id="<?php echo "editpostsubmit" . $row['business_profile_post_id']; ?>" style="display:none;margin: 5px 0;" onClick="edit_postinsert(<?php echo $row['business_profile_post_id']; ?>)">Save
                 </button>
               </span>
             </div> 
@@ -1221,8 +1221,8 @@ $business_userimage = $this->db->get_where('business_profile', array('user_id' =
               <?php } ?>
             </div>
             <div class="">
-              <div class="col-md-10  inputtype-comment" style="    padding-left: 7px;">
-                <input type="text" name="<?php echo $row['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $row['business_profile_post_id']; ?>" placeholder="Type Message ..." value= ""  onClick="entercomment(this.name)">
+              <div id="content" class="col-md-10  inputtype-comment" style="padding-left: 7px;">
+                  <textarea style="min-height:37px !important;" name="<?php echo $row['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $row['business_profile_post_id']; ?>" placeholder="Type Message ..." value= ""  onClick="entercomment(this.name)"></textarea>
               </div>
               <?php echo form_error('post_comment'); ?> 
               <div class="col-md-1 comment-edit-butn">       
@@ -1273,6 +1273,44 @@ $business_userimage = $this->db->get_where('business_profile', array('user_id' =
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js">
 </script>
 <!-- script for skill textbox automatic end (option 2)-->
+
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+
+ <script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script>
+ 
+<!-- further and less -->
+<script>
+$(function() {
+var showTotalChar = 150, showChar = "More", hideChar = "less";
+$('.show').each(function() {
+var content = $(this).text();
+if (content.length > showTotalChar) {
+var con = content.substr(0, showTotalChar);
+var hcon = content.substr(showTotalChar, content.length - showTotalChar);
+var txt= con +  '<span class="dots">...</span><span class="morectnt"><span>' + hcon + '</span>&nbsp;&nbsp;<a href="" class="showmoretxt">' + showChar + '</a></span>';
+$(this).html(txt);
+}
+});
+$(".showmoretxt").click(function() {
+if ($(this).hasClass("sample")) {
+$(this).removeClass("sample");
+$(this).text(showChar);
+} else {
+$(this).addClass("sample");
+$(this).text(hideChar);
+}
+$(this).parent().prev().toggle();
+$(this).prev().toggle();
+return false;
+});
+});
+</script>
+
+<script>
+$('#content').on( 'change keyup keydown paste cut', 'textarea', function (){
+    $(this).height(0).height(this.scrollHeight);
+}).find( 'textarea' ).change();
+</script>
 <script>
   var data = <?php echo json_encode($demo);
   ?>;
@@ -1726,36 +1764,11 @@ $business_userimage = $this->db->get_where('business_profile', array('user_id' =
   }
 </script>
 <!-- further and less -->
-<script src="jquery-1.8.2.js">
+<script src="../js/jquery-1.8.2.js">
 </script>
-<script>
-  $(function() {
-    var showTotalChar = 200, showChar = "More", hideChar = "Less";
-    $('.show').each(function() {
-      var content = $(this).text();
-      if (content.length > showTotalChar) {
-        var con = content.substr(0, showTotalChar);
-        var hcon = content.substr(showTotalChar, content.length - showTotalChar);
-        var txt = con + '<span class="dots">...</span><span class="morectnt"><span>' + hcon + '</span>&nbsp;&nbsp;<a href="" class="showmoretxt">' + showChar + '</a></span>';
-        $(this).html(txt);
-      }
-    });
-    $(".showmoretxt").click(function() {
-      if ($(this).hasClass("sample")) {
-        $(this).removeClass("sample");
-        $(this).text(showChar);
-      }
-      else {
-        $(this).addClass("sample");
-        $(this).text(hideChar);
-      }
-      $(this).parent().prev().toggle();
-      $(this).prev().toggle();
-      return false;
-    });
-  }
-   );
-</script>
+
+
+
 <!-- drop down script zalak start -->
 <script>
   /* When the user clicks on the button, 

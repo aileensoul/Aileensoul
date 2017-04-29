@@ -3955,14 +3955,15 @@ $followingdatacount = count($followingotherdata);
 
         $userid = $this->session->userdata('aileenuser');
 
-        $artdataimg = $_POST["post_image_id"];
+        $post_image_id = $_POST["post_image_id"];
         $post_comment = $_POST["comment"];
 
 
-        $contition_array = array('post_image_id' => $_POST["post_image_id"], 'is_unlike' => '0');
+        //$contition_array = array('post_image_id' => $_POST["post_image_id"], 'is_unlike' => '0');
+        $contition_array = array('post_image_id' => $_POST["post_image_id"], 'is_delete' => '1');
         $artimg = $this->data['artimg'] = $this->common->select_data_by_condition('art_post_image_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
-
+        
+        
         $data = array(
             'user_id' => $userid,
             'post_image_id' => $post_image_id,
@@ -4268,10 +4269,13 @@ $followingdatacount = count($followingotherdata);
         $likecommentuser = $this->data['likecommentuser'] = $this->common->select_data_by_condition('art_comment_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
 
-        $contition_array = array('post_image_id' => $likecommentuser["post_image_id"], 'is_unlike' => '0');
-        $artimg = $this->data['artimg'] = $this->common->select_data_by_condition('art_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        $contition_array = array('artistic_post_comment_id' => $likecommentuser[0]["post_image_comment_id"]);
+        $artimglike = $this->data['artimglike'] = $this->common->select_data_by_condition('artistic_post_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-        
+
+       $contition_array = array('art_post_id' => $artimglike[0]["art_post_id"]);
+        $artimglikepost = $this->data['artimglikepost'] = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
         if (!$likecommentuser) {
 
             $data = array(
@@ -4287,11 +4291,11 @@ $followingdatacount = count($followingotherdata);
 
              // insert notification
 
-            if($artimg[0]['user_id'] == $userid){}else{
+            if($artimglikepost[0]['user_id'] == $userid){}else{ 
             $data = array(
                 'not_type' => 5,
                 'not_from_id' => $userid,
-                'not_to_id' => $artimg[0]['user_id'] ,
+                'not_to_id' => $artimglikepost[0]['user_id'] ,
                 'not_read' => 2,
                 'not_product_id' => $insertdata,
                 'not_from' => 3,
@@ -4399,6 +4403,17 @@ $followingdatacount = count($followingotherdata);
 
         $likecommentuser = $this->data['likecommentuser'] = $this->common->select_data_by_condition('art_comment_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
+      $likecommentuser = $this->data['likecommentuser'] = $this->common->select_data_by_condition('art_comment_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+
+        $contition_array = array('artistic_post_comment_id' => $likecommentuser[0]["post_image_comment_id"]);
+        $artimglike = $this->data['artimglike'] = $this->common->select_data_by_condition('artistic_post_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+
+       $contition_array = array('art_post_id' => $artimglike[0]["art_post_id"]);
+        $artimglikepost = $this->data['artimglikepost'] = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+
         if (!$likecommentuser) {
 
             $data = array(
@@ -4410,6 +4425,24 @@ $followingdatacount = count($followingotherdata);
 //echo "<pre>"; print_r($data); die();
 
             $insertdata = $this->common->insert_data_getid($data, 'art_comment_image_like');
+
+
+            // insert notification
+
+            if($artimglikepost[0]['user_id'] == $userid){}else{
+            $data = array(
+                'not_type' => 5,
+                'not_from_id' => $userid,
+                'not_to_id' => $artimglikepost[0]['user_id'] ,
+                'not_read' => 2,
+                'not_product_id' => $insertdata,
+                'not_from' => 3,
+                'not_img' => 4
+            );
+
+            $insert_id = $this->common->insert_data_getid($data, 'notification');
+            }
+            // end notoification
 
             $contition_array = array('post_image_comment_id' => $_POST["post_image_comment_id"], 'is_unlike' => '0');
             $bdatacm = $this->data['bdatacm'] = $this->common->select_data_by_condition('art_comment_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');

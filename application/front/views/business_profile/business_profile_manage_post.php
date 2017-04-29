@@ -899,7 +899,7 @@ if($status == 0 || $status == " "){?>
                                 <?php } ?>
  </div>
  <div id="myBtn1"  class="editor-content col-md-11 popup-text" contenteditable>
-        <span> Post Your Product....</span> 
+        <span style="font-size: 23px;"> Post Your Product....</span> 
       <!--  <span class="fr">
         <input type="file" id="FileID" style="display:none;">
          <label for="FileID"><i class=" fa fa-camera fa"  style=" margin: 8px; cursor:pointer">  </i>
@@ -908,8 +908,8 @@ if($status == 0 || $status == " "){?>
        -->
      </div>
     </div>
-    <div class="fr">
-     <a class="button">Post</a></div>
+    <!-- <div class="fr">
+     <a class="button">Post</a></div> -->
       </div>
 </div>
 
@@ -1181,7 +1181,7 @@ function text2link($text){
   </textarea> 
   </div>
 
-  <button id="<?php echo "editpostsubmit" . $row['business_profile_post_id']; ?>" style="display:none" onClick="edit_postinsert(<?php echo $row['business_profile_post_id']; ?>)">EditPost</button>
+  <button class="fr" id="<?php echo "editpostsubmit" . $row['business_profile_post_id']; ?>" style="display:none;margin: 5px 0;" onClick="edit_postinsert(<?php echo $row['business_profile_post_id']; ?>)">Save</button>
   
 
 

@@ -215,6 +215,8 @@ responsive image design start -->
 
     }
 
+    .post-design-name{padding-left: 0;}
+
     @media screen and (max-width: 700px){
         .box{
             width: 70%;
@@ -393,7 +395,7 @@ responsive image design start -->
             <div class="profile-main-rec-box-menu  col-md-12 padding_les">
 
                 <div class="left-side-menu col-md-1">  </div>
-                <div class="right-side-menu col-md-8">
+                <div class="right-side-menu col-md-7">
                     <ul>
 
 
@@ -461,8 +463,8 @@ responsive image design start -->
                 $userid = $this->session->userdata('aileenuser');
                 if ($artisticdata[0]['user_id'] != $userid) {
                     ?>
-                    <div class="col-md-2 padding_les">
-                        <div class="flw_msg_btn">
+                    <div class="col-md-3 padding_les">
+                        <div class="flw_msg_btn fr">
                             <ul>
 
                                 <li class="<?php echo "fruser" . $artisticdata[0]['art_id']; ?>">
@@ -529,7 +531,8 @@ responsive image design start -->
 
                     <!-- The Modal -->
                     <div id="myModal" class="modal">
-                        <!-- Modal content --><div class="col-md-2"></div>
+                        <!-- Modal content -->
+                        <div class="col-md-2"></div>
                         <div class="modal-content col-md-8">
                             <span class="close">&times;</span>
                             <fieldset></fieldset>
@@ -994,7 +997,7 @@ responsive image design start -->
                         <div class="popup-img col-md-1"> <img  src="<?php echo base_url(USERIMAGE . $artisticdata[0]['art_user_image']); ?>"  alt="">
                         </div>
                         <div id="myBtn3"  class="editor-content col-md-11 popup-text" contenteditable>
-                            <span> Post Your Product....</span> 
+                            <span style="font-size: 23px;"> Post Your Art....</span> 
                           <!--  <span class="fr">
                             <input type="file" id="FileID" style="display:none;">
                              <label for="FileID"><i class=" fa fa-camera fa"  style=" margin: 8px; cursor:pointer">  </i>
@@ -1003,8 +1006,8 @@ responsive image design start -->
                             -->
                         </div>
                     </div>
-                    <div class="fr">
-                        <a class="button">Post</a></div>
+                    <!-- <div class="fr">
+                        <a class="button">Post</a></div> -->
                 </div>
             </div>
 
@@ -1024,10 +1027,10 @@ responsive image design start -->
                             </div>
                             <div id="myBtn3"  class="editor-content col-md-10 popup-text" >
                                    <!-- <textarea name="product_title" placeholder="Post Your Product...."></textarea>  -->
-                                <textarea id= "test-upload-product" placeholder="Post Your Product...."  onKeyPress=check_length(this.form); onKeyDown=check_length(this.form); 
+                                <textarea id= "test-upload-product" placeholder="Post Your Art...."  onKeyPress=check_length(this.form); onKeyDown=check_length(this.form); 
                                           name=my_text rows=4 cols=30 class="post_product_name"></textarea>
-                                <div style="position: absolute; top: 20px; right: 13px; border: none;">                        
-                                <input size=1 value=50 name=text_num style="width: 52px;" readonly> 
+                                <div style="position: absolute; top: 21px; right: 19px; border: none;">                        
+                                <input size=1 value=50 name=text_num style="    width: 30px; padding: 5px; height: 30px;" readonly> 
                                </div>
 
                             </div>
@@ -1072,7 +1075,7 @@ responsive image design start -->
 
                         </div>
                         <div class="fr">
-                            <button type="submit"  value="Submit">Submit</button>    </div>
+                            <button type="submit"  value="Submit">Post</button>    </div>
                         <?php echo form_close(); ?>
                     </div>
                 </div>
@@ -1200,9 +1203,15 @@ responsive image design start -->
                         <!-- other user post time name end-->
                         <?php }else{?>
                         <a style=" font-size: 18px;
-                         line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; "  href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>">
-                        <?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?><span style="font-weight: 400;"> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span>
+                         line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px;display: inline-block;padding-right: 0;"  href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>">
+                        <?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?>
+
                         </a>
+                        <div class="datespan">
+                        <span style="font-weight: 400;
+                                                    font-size: 14px;
+                                                    color: #91949d;""> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span></div>
+                        
                           <?php }?>                          
                         </li>
                                                 <li>
@@ -1266,11 +1275,11 @@ responsive image design start -->
 
                                                 <div id="<?php echo 'editpostdetailbox' . $row['art_post_id']; ?>" style="display:none;">
 
-                                                    <textarea id="<?php echo 'editpostdesc' . $row['art_post_id']; ?>" name="editpostdesc"><?php echo $row['art_description']; ?>
+                                                    <textarea  style="resize: none;overflow: hidden;min-height:15% !important;" id="<?php echo 'editpostdesc' . $row['art_post_id']; ?>" name="editpostdesc"><?php echo $row['art_description']; ?>
                                                     </textarea> 
                                                 </div>
 
-                                                <button id="<?php echo "editpostsubmit" . $row['art_post_id']; ?>" style="display:none" onClick="edit_postinsert(<?php echo $row['art_post_id']; ?>)">EditPost</button>
+                                                <button class="fr" id="<?php echo "editpostsubmit" . $row['art_post_id']; ?>" style="display:none;margin: 5px 0px;" onClick="edit_postinsert(<?php echo $row['art_post_id']; ?>)">Save</button>
 
 
                                             </span></div>
@@ -3145,30 +3154,6 @@ function post_like(clicked_id)
     }
 </script>
 
-
-<script type="text/javascript">
-    var span = $('<span>').css('display', 'inline-block')
-            .css('word-break', 'break-all').appendTo('body').css('visibility', 'hidden');
-    function initSpan(textarea) {
-        span.text(textarea.text())
-                .width(textarea.width())
-                .css('font', textarea.css('font'));
-    }
-    $('textarea').on({
-        input: function () {
-            var text = $(this).val();
-            span.text(text);
-            $(this).height(text ? span.height() : '1.1em');
-        },
-        focus: function () {
-            initSpan($(this));
-        },
-        keypress: function (e) {
-            if (e.which == 13)
-                e.preventDefault();
-        }
-    });
-</script>
 
 
 <!-- insert post validtation start -->
