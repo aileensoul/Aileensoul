@@ -216,75 +216,80 @@ responsive image design start -->
 
     <section>
         <div class="container">
-            <!--- select thaya pachhi ave ae -->
-            <div class="row" id="row1" style="display:none;">
-                <div class="col-md-12 text-center">
-                    <div id="upload-demo" style="width:1030px"></div>
-                </div>
-                <div class="col-md-12" style="padding-top: 25px;text-align: center;">
-                    <button class="btn btn-success upload-result cancel-result" onclick="" >Cancel</button>
-
-                    <button class="btn btn-success set-btn upload-result cancel-result" onclick="myFunction()">Upload Image</button>
-
-                    <div id="message1" style="display:none;">
-                        <div id="floatBarsG">
-                            <div id="floatBarsG_1" class="floatBarsG"></div>
-                            <div id="floatBarsG_2" class="floatBarsG"></div>
-                            <div id="floatBarsG_3" class="floatBarsG"></div>
-                            <div id="floatBarsG_4" class="floatBarsG"></div>
-                            <div id="floatBarsG_5" class="floatBarsG"></div>
-                            <div id="floatBarsG_6" class="floatBarsG"></div>
-                            <div id="floatBarsG_7" class="floatBarsG"></div>
-                            <div id="floatBarsG_8" class="floatBarsG"></div>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="col-md-12"  style="visibility: hidden; ">
-                    <div id="upload-demo-i" style="background:#e1e1e1;width:1030px;padding:30px;height:300px;margin-top:30px"></div>
-                </div>
-            </div>
-
-            <!--- select thaya pachhi ave ae end-->
-
-
-
-            <!--- select thai ne ave ae pelaj -->
-            <div class="container">
-                <div class="row" id="row2">
-                    <?php
-                    $userid = $this->session->userdata('aileenuser');
-                    $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
-                    $image = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'profile_background', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
-                    $image_ori = $image[0]['profile_background'];
-                    if ($image_ori) {
-                        ?>
-                        <div class="bg-images">
-                            <img src="<?php echo $image[0]['profile_background']; ?>" name="image_src" id="image_src" / >
-                            <?php
-                        } else {
-                            echo " ";
-                        }
-                        ?>
-
-                    </div>
-                </div>
-            </div>
+            
+      <div class="row" id="row1" style="display:none;">
+        <div class="col-md-12 text-center">
+        <div id="upload-demo" style="width:100%"></div>
         </div>
+        <div class="col-md-12 cover-pic" style="padding-top: 25px;text-align: center;">
+            <button class="btn btn-success upload-result cancel-result" onclick="" >Cancel</button>
+    
+        <button class="btn btn-success set-btn upload-result cancel-result" onclick="myFunction()">Upload Image</button>
+     
+        <div id="message1" style="display:none;">
+     <div class="loader"><div id="floatBarsG">
+  <div id="floatBarsG_1" class="floatBarsG"></div>
+  <div id="floatBarsG_2" class="floatBarsG"></div>
+  <div id="floatBarsG_3" class="floatBarsG"></div>
+  <div id="floatBarsG_4" class="floatBarsG"></div>
+  <div id="floatBarsG_5" class="floatBarsG"></div>
+  <div id="floatBarsG_6" class="floatBarsG"></div>
+  <div id="floatBarsG_7" class="floatBarsG"></div>
+  <div id="floatBarsG_8" class="floatBarsG"></div>
+</div>
+</div>
+        </div>
+        </div>
+        <div class="col-md-12"  style="visibility: hidden; ">
+        <div id="upload-demo-i" style="background:#e1e1e1;width:100%;padding:30px;height:1px;margin-top:30px"></div>
+        </div>
+      </div>
+
+     
+<div class="container">
+  <div class="row" id="row2">
+        <?php
+        $userid  = $this->session->userdata('aileenuser');
+            $contition_array = array( 'user_id' => $userid, 'is_delete' => '0' , 'status' => '1');
+            $image = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'profile_background', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+          
+            $image_ori=$image[0]['profile_background'];
+           if($image_ori)
+           {
+            ?>
+            <div class="bg-images">
+            <img src="<?php echo base_url(ARTBGIMAGE . $artisticdata[0]['profile_background']);?>" name="image_src" id="image_src" / ></div>
+              <?php
+           }
+           else
+           { ?>
+         <div class="bg-images">
+            <img src="<?php echo base_url(WHITEIMAGE); ?>" name="image_src" id="image_src" / ></div>
+      <?php     }
+          
+            ?>
+
+    </div>
+    </div>
+</div>
     </div>   
+<div class="container"> 
 
-    <div class="container">    
-        <div class="upload-img">
+    <?php
+    $userid = $this->session->userdata('aileenuser');
+    if($artisticdata[0]['user_id'] == $userid){ 
+    ?>   
+      <div class="upload-img">
+      
+        
+        <label class="cameraButton"><i class="fa fa-camera" aria-hidden="true"></i>
+            <input type="file" id="upload" name="upload" accept="image/*;capture=camera" onclick="showDiv()">
+        </label>
 
+                
+            </div>
 
-            <label class="cameraButton">Take a picture
-                <input type="file" id="upload" name="upload" accept="image/*;capture=camera" onclick="showDiv()">
-            </label>
-
-            <!--- select thai ne ave ae pelaj puru -->
-
-        </div>
+            <?php }?>
 
         <div class="profile-photo">
             <div class="profile-pho">
