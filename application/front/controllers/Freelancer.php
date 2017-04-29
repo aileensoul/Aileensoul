@@ -1692,7 +1692,8 @@ $updatedata = $this->common->update_data($data, 'freelancer_apply', 'app_id', $a
 
     public function freelancer_apply_list($id) {
         $userid = $this->session->userdata('aileenuser');
-
+         
+        $this->data['postid'] = $id;
 
         $contition_array = array('post_id' => $id, 'is_delete' => 0);
         $this->data['applydata'] = $this->common->select_data_by_condition('freelancer_apply', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -2550,6 +2551,38 @@ $this->load->view('freelancer/freelancer_hire/freelancer_save', $this->data);
         } else {
 
             redirect('freelancer/reactivate', refresh);
+        }
+    }
+    
+    public function free_invite_user() {
+        
+         $postid = $_POST['post_id'];
+         $invite_user = $_POST['invited_user']; 
+         
+        $userid = $this->session->userdata('aileenuser');
+      
+        $data = array(
+            'user_id' => $userid,
+            'post_id' => $postid,
+            'invite_user_id' => $invite_user,
+            'profile' => "freelancer"
+            );
+        $insert_id = $this->common->insert_data_getid($data, 'user_invite');
+       
+        if ($insert_id) {
+            $data = array(
+            'not_type' => 4,
+            'not_from_id' => $userid,
+            'not_to_id' => $invite_user,
+            'not_read' => 2,
+            'not_status' => 0,
+            'not_product_id' => $insert_id,
+            'not_from' => 5 
+            );
+        $insert_id = $this->common->insert_data_getid($data, 'notification');
+        echo 'invited';
+        } else {
+            echo 'error';
         }
     }
 
