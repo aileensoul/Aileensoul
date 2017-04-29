@@ -348,68 +348,59 @@
                             <div class="job-contact-frnd ">
                                 <div class="profile-job-post-detail clearfix" id="<?php echo "removeapply" . $post['app_id']; ?>">
 
-                                    <div class="profile-job-post-title clearfix">
-                                        <div class="profile-job-profile-button clearfix">
-                                            <div class="profile-job-details col-md-12">
-                                                <ul>
-                                                    <li class="fr">
+    <div class="profile-job-post-title clearfix">
+       <div class="profile-job-profile-button clearfix">
+          <div class="profile-job-details col-md-12">
+               <ul>
+                  <li class="fr">
+                    Created Date:<?php
+                      echo trim(date('d-M-Y', strtotime($post['created_date'])));
+                         ?>
+                   </li>
 
-                                                        Created Date:<?php
-                                                        echo trim(date('d-M-Y', strtotime($post['created_date'])));
-                                                        ?>
+                    <li>
+                      <a class="display_inline" href="#" style="font-size: 19px;font-weight: 600;">
+                      <?php echo ucwords(text2link($post['post_name'])); ?> </a>   </li>
 
-                                                    </li>
+                  <li>   
+                       <div class="fr lction">
+                    <?php $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name; ?>
+                  <p><i class="fa fa-map-marker" aria-hidden="true"> <?php echo $cityname; ?></i></p>
+                        </div>
+                    <a class="display_inline" href="<?php echo base_url('recruiter/rec_profile/' . $post['user_id']); ?>"><?php
+                     $cache_time = $this->db->get_where('recruiter', array('user_id' => $post['user_id']))->row()->re_comp_name;
+                     echo ucwords($cache_time);
+                       ?></a>
+                   </li>
 
-                                                    <li>
-                                                        <a href="#" style="font-size: 19px;font-weight: 600;">
-                                                            <?php echo ucwords(text2link($post['post_name'])); ?> </a>   </li>
+                  <li><a class="display_inline" href="<?php echo base_url('recruiter/rec_profile/' . $post['user_id']); ?>"><?php
+                   $cache_time = $this->db->get_where('recruiter', array('user_id' => $post['user_id']))->row()->rec_firstname;
+                    echo ucwords($cache_time);
+                         ?></a>
+                  </li>
+           </ul>
+                </div>
+                      </div>
 
-                                                    <li>   
-
-                                                        <div class="fr lction">
-                                                            <?php $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name; ?>
-                                                            <p><i class="fa fa-map-marker" aria-hidden="true"> <?php echo $cityname; ?></i></p>
-                                                        </div>
-
-
-                                                        <a href="<?php echo base_url('recruiter/rec_profile/' . $post['user_id']); ?>"><?php
-                                                            $cache_time = $this->db->get_where('recruiter', array('user_id' => $post['user_id']))->row()->re_comp_name;
-
-                                                            echo ucwords($cache_time);
-                                                            ?></a>
-
-                                                    </li>
-
-                                                    <li><a href="<?php echo base_url('recruiter/rec_profile/' . $post['user_id']); ?>"><?php
-                                                            $cache_time = $this->db->get_where('recruiter', array('user_id' => $post['user_id']))->row()->rec_firstname;
-
-                                                            echo ucwords($cache_time);
-                                                            ?></a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="profile-job-profile-menu">
-                                            <ul class="clearfix">
-                                                <li> <b> Skills</b> <span> 
-                                                        <?php
-                                                        $comma = ", ";
-                                                        $k = 0;
-                                                        $aud = $post['post_skill'];
-                                                        $aud_res = explode(',', $aud);
-                                                        foreach ($aud_res as $skill) {
-                                                            if ($k != 0) {
-                                                                echo $comma;
-                                                            }
-                                                            $cache_time = $this->db->get_where('skill', array('skill_id' => $skill))->row()->skill;
-
-
-                                                            echo $cache_time;
-                                                            $k++;
-                                                        }
-                                                        ?>       
-                                                    </span>
-                                                </li>
+             <div class="profile-job-profile-menu">
+                     <ul class="clearfix">
+                          <li> <b> Skills</b> <span> 
+                          <?php
+                         $comma = ", ";
+                         $k = 0;
+                         $aud = $post['post_skill'];
+                         $aud_res = explode(',', $aud);
+                        foreach ($aud_res as $skill) {
+                       if ($k != 0) {
+                         echo $comma;
+                         }
+                      $cache_time = $this->db->get_where('skill', array('skill_id' => $skill))->row()->skill;
+                        echo $cache_time;
+                          $k++;
+                           }
+                            ?>       
+                         </span>
+                    </li>
 
 
                                                 <?php if ($post['other_skill']) { ?>
