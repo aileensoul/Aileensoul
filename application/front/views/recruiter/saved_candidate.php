@@ -533,7 +533,7 @@
                                                                 <li> <b> Total Experience</b>
                                                                 <span>
 
-                                                                      <?php if ($row['experience_year'] ||$row['experience_month'] ){echo $row['experience_year'] . ' ' . $row['experience_month'];} else{ echo PROFILENA;} ?>
+                                                                      <?php if ($rec['experience_year'] ||$rec['experience_month'] ){echo $rec['experience_year'] . ' ' . $rec['experience_month'];} else{ echo PROFILENA;} ?>
                                                                  </span>
 
                                                                 </li>
@@ -592,9 +592,9 @@
  
                                                               <li><b>E-mail</b><span>
                                                                     <?php
-                                                                    if($row['email'])
+                                                                    if($rec['email'])
                                                                     {
-                                                                    echo $row['email'];
+                                                                    echo $rec['email'];
                                                                     }
                                                                     else
                                                                         {echo PROFILENA; }
@@ -603,9 +603,9 @@
 
                                                                 <li><b>Mobile Number</b><span>
                                                                     <?php
-                                                                     if($row['phnno'])
+                                                                     if($rec['phnno'])
                                                                     {
-                                                                          echo $row['phnno'];
+                                                                          echo $rec['phnno'];
                                                                     }
                                                                     else{
                                                                         echo PROFILENA;
