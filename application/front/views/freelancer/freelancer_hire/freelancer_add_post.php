@@ -115,14 +115,14 @@
               <?php echo form_error('fields_req'); ?>
                   </fieldset>
 
-                  <fieldset  <?php if($skills) {  ?> class="error-msg" <?php } ?>>
+                  <fieldset class="full-width" <?php if($skills) {  ?> class="error-msg" <?php } ?>>
                         <label>Skills of requirements:<span style="color:red">*</span></label>
                          <select class="keyskil" name="skills[]" id="skills" multiple="multiple" style="cursor: default;"></select>
                         <span id="fullname-error"></span>
                         <?php echo form_error('skills'); ?>
                        </fieldset>
 
-                        <fieldset <?php if($other_skill) {  ?> class="error-msg" <?php } ?> >
+                        <fieldset class="full-width" <?php if($other_skill) {  ?> class="error-msg" <?php } ?> >
                             <label class="control-label">Other Skill:<!-- <span style="color:red">*</span> --></label>
                             <input name="other_skill" class="keyskil"  type="text" id="other_skill" placeholder="Enter Your Other Skill" />
                                 <span id="fullname-error"></span>
@@ -130,15 +130,54 @@
                         </fieldset>
 
 
-                    <fieldset class="full-width" <?php if($est_time) {  ?> class="error-msg" <?php } ?>>
-                        <label>Estimated time of project:</label>
-                        <input name="est_time" type="text" id="est_time" placeholder="Enter Estimated time in month/year" /><span id="fullname-error"></span>
-                        <?php echo form_error('est_time'); ?>
-                         </fieldset>
+                    <fieldset class="full-width two-select-box" <?php if($month) {  ?> class="error-msg" <?php } ?> class="two-select-box"> 
+                     <label>Experience:</label>
+
+                          <select name="year">
+                            <option value="">Year</option>
+                            <option value="1">1 Year</option>
+                            <option value="2">2 Year</option>
+                            <option value="3">3 Year</option>
+                            <option value="4">4 Year</option>
+                            <option value="5">5 Year</option>
+                            <option value="6">6 Year</option>
+                            <option value="7">7 Year</option>
+                            <option value="8">8 Year</option>
+                            <option value="9">9 Year</option>
+                            <option value="10">10 Year</option>
+                            <option value="11">11 Year</option>
+                            <option value="12">12 Year</option>
+                            <option value="13">13 Year</option>
+                            <option value="14">14 Year</option>
+                            <option value="15">15 Year</option>
+                            <option value="16">16 Year</option>
+                            <option value="17">17 Year</option>
+                            <option value="18">18 Year</option>
+                            <option value="19">19 Year</option>
+                            <option value="20">20 Year</option>
+                            </select>
+                            <span id="fullname-error"></span>
+                            <?php echo form_error('year'); ?>
+
+                            <select name="month" id="month">
+                            <option value="">Month</option>
+                            <option value="1">1 Month</option>
+                            <option value="2">2 Month</option>
+                            <option value="3">3 Month</option>
+                            <option value="4">4 Month</option>
+                            <option value="5">5 Month</option>
+                            <option value="6">6 Month</option>
+                               </select>
+                                <?php echo form_error('month'); ?>
+                            
+                    </fieldset>
+
+
+                    
 
                        
                         <fieldset class="col-md-12">  
-                        <b><h2>Payment : </h2></b>
+                        <b><h2>Payment For Freelancer : </h2></b>
                          </fieldset>
                          
                           <fieldset class="col-md-4" <?php if($rate) {  ?> class="error-msg" <?php } ?> >
@@ -171,46 +210,11 @@
 
 
 
-
-
-                         <fieldset <?php if($month) {  ?> class="error-msg" <?php } ?> class="two-select-box"> 
-                     <label>Experience:</label>
-                            <select name="month" id="month">
-                            <option value="">Month</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                               </select>
-                                <?php echo form_error('month'); ?>
-                            <select name="year">
-                            <option value="">Year</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                            <option value="11">11</option>
-                            <option value="12">12</option>
-                            <option value="13">13</option>
-                            <option value="14">14</option>
-                            <option value="15">15</option>
-                            <option value="16">16</option>
-                            <option value="17">17</option>
-                            <option value="18">18</option>
-                            <option value="19">19</option>
-                            <option value="20">20</option>
-                            </select>
-                            <span id="fullname-error"></span>
-                            <?php echo form_error('year'); ?>
-                    </fieldset>
+                         <fieldset <?php if($est_time) {  ?> class="error-msg" <?php } ?>>
+                        <label>Estimated time of project:</label>
+                        <input name="est_time" type="text" id="est_time" placeholder="Enter Estimated time in month/year" /><span id="fullname-error"></span>
+                        <?php echo form_error('est_time'); ?>
+                         </fieldset>                        
 
                    
                     <fieldset <?php if($last_date) {  ?> class="error-msg" <?php } ?>>

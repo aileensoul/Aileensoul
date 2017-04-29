@@ -2784,7 +2784,7 @@ $followingdatacount = count($followingotherdata);
             $cmtinsert .= 'value= "' . $art['art_post_id'] . '">';
 
             $cmtinsert .= '<a id="' . $art['artistic_post_comment_id'] . '"';
-            $cmtinsert .= 'onClick="comment_delete(this.id)">';
+            $cmtinsert .= 'onClick="comment_deletemodel(this.id)">';
             $cmtinsert .= 'Delete';
             $cmtinsert .= '</a></div>';
             $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
@@ -2893,7 +2893,7 @@ $followingdatacount = count($followingotherdata);
             $cmtinsert .= 'value= "' . $art['art_post_id'] . '">';
 
             $cmtinsert .= '<a id="' . $art['artistic_post_comment_id'] . '"';
-            $cmtinsert .= 'onClick="comment_deletetwo(this.id)">';
+            $cmtinsert .= 'onClick="comment_deletetwomodel(this.id)">';
             $cmtinsert .= 'Delete';
             $cmtinsert .= '</a></div>';
             $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
@@ -3312,7 +3312,7 @@ $followingdatacount = count($followingotherdata);
             $cmtinsert .= 'value= "' . $art['art_post_id'] . '">';
 
             $cmtinsert .= '<a id="' . $art['artistic_post_comment_id'] . '"';
-            $cmtinsert .= 'onClick="comment_deletetwo(this.id)">';
+            $cmtinsert .= 'onClick="comment_deletetwomodel(this.id)">';
             $cmtinsert .= 'Delete';
             $cmtinsert .= '</a></div>';
             $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
@@ -3452,7 +3452,7 @@ $followingdatacount = count($followingotherdata);
             $cmtinsert .= 'value= "' . $art['art_post_id'] . '">';
 
             $cmtinsert .= '<a id="' . $art['artistic_post_comment_id'] . '"';
-            $cmtinsert .= 'onClick="comment_delete(this.id)">';
+            $cmtinsert .= 'onClick="comment_deletemodel(this.id)">';
             $cmtinsert .= 'Delete';
             $cmtinsert .= '</a></div>';
             $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
@@ -4089,7 +4089,7 @@ $followingdatacount = count($followingotherdata);
                 $cmtinsert .= 'id="post_delete"';
                 $cmtinsert .= 'value= "' . $art_comment['post_image_id'] . '">';
                 $cmtinsert .= '<a id="' . $art_comment['post_image_comment_id'] . '"';
-                $cmtinsert .= 'onClick="comment_delete(this.id)">';
+                $cmtinsert .= 'onClick="comment_deletemodel(this.id)">';
                 $cmtinsert .= 'Delete';
                 $cmtinsert .= '</a></div>';
             }
@@ -4245,7 +4245,7 @@ $followingdatacount = count($followingotherdata);
                 $cmtinsert .= 'id="post_deletetwo"';
                 $cmtinsert .= 'value= "' . $art_comment['post_image_id'] . '">';
                 $cmtinsert .= '<a id="' . $art_comment['post_image_comment_id'] . '"';
-                $cmtinsert .= 'onClick="comment_deletetwo(this.id)">';
+                $cmtinsert .= 'onClick="comment_deletetwomodel(this.id)">';
                 $cmtinsert .= 'Delete';
                 $cmtinsert .= '</a></div>';
             }
@@ -4673,7 +4673,7 @@ $followingdatacount = count($followingotherdata);
                 $cmtinsert .= 'id="post_delete"';
                 $cmtinsert .= 'value= "' . $art_comment['post_image_id'] . '">';
                 $cmtinsert .= '<a id="' . $art_comment['post_image_comment_id'] . '"';
-                $cmtinsert .= 'onClick="comment_delete(this.id)">';
+                $cmtinsert .= 'onClick="comment_deletemodel(this.id)">';
                 $cmtinsert .= 'Delete';
                 $cmtinsert .= '</a></div>';
             }
@@ -4802,7 +4802,7 @@ $followingdatacount = count($followingotherdata);
                 $cmtinsert .= 'id="post_deletetwo"';
                 $cmtinsert .= 'value= "' . $art_comment['post_image_id'] . '">';
                 $cmtinsert .= '<a id="' . $art_comment['post_image_comment_id'] . '"';
-                $cmtinsert .= 'onClick="comment_deletetwo(this.id)">';
+                $cmtinsert .= 'onClick="comment_deletetwomodel(this.id)">';
                 $cmtinsert .= 'Delete';
                 $cmtinsert .= '</a></div>';
             }
@@ -4906,7 +4906,7 @@ $followingdatacount = count($followingotherdata);
 
                     $fourdata .= '<input type="hidden" name="post_delete"  id="post_delete2" value= "' . $rowdata['art_post_id'] . '">';
                     $fourdata .= '<a id="' . $rowdata['artistic_post_comment_id'] . '"';
-                    $fourdata .= 'onClick="comment_deletetwo(this.id)"> Delete <span class="insertcomment' . $rowdata['artistic_post_comment_id'] . '">';
+                    $fourdata .= 'onClick="comment_deletetwomodel(this.id)"> Delete <span class="insertcomment' . $rowdata['artistic_post_comment_id'] . '">';
                     $fourdata .= '</span> </a> </div>';
                 }
                 $fourdata .= '<span role="presentation" aria-hidden="true"> · </span>';
@@ -5005,7 +5005,7 @@ $followingdatacount = count($followingotherdata);
 
                 $fourdata .= '<input type="hidden" name="post_deletetwo"  id="post_deletetwo" value= "' . $rowdata['post_image_id'] . '">';
                 $fourdata .= '<a id="' . $rowdata['post_image_comment_id'] . '"';
-                $fourdata .= 'onClick="comment_deletetwo(this.id)"> Delete <span class="insertcommenttwo' . $rowdata['post_image_comment_id'] . '">';
+                $fourdata .= 'onClick="comment_deletetwomodel(this.id)"> Delete <span class="insertcommenttwo' . $rowdata['post_image_comment_id'] . '">';
                 $fourdata .= '</span> </a> </div>';
             }
             $fourdata .= '<span role="presentation" aria-hidden="true"> · </span>';

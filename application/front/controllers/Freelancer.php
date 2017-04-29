@@ -870,9 +870,11 @@ class Freelancer extends MY_Controller {
 
 //freelancer Portfolio page controller End
 
-    public function freelancer_hire_post() {
+    public function freelancer_hire_post($id) {
+        
+        
         $userid = $this->session->userdata('aileenuser');
-
+        if($id == ''){
         // code change by pallavi 14-4-2017
         $join_str[0]['table'] = 'freelancer_hire_reg';
         $join_str[0]['join_table_id'] = 'freelancer_hire_reg.user_id';
@@ -885,6 +887,21 @@ class Freelancer extends MY_Controller {
 
 
         $postdata = $this->data['freelancerpostdata'] = $this->common->select_data_by_condition('freelancer_post', $contition_array, $data, $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
+        }
+        else{
+            $userid=$id;
+            //echo $userid; 
+         $join_str[0]['table'] = 'freelancer_hire_reg';
+        $join_str[0]['join_table_id'] = 'freelancer_hire_reg.user_id';
+        $join_str[0]['from_table_id'] = 'freelancer_post.user_id';
+        $join_str[0]['join_type'] = '';
+            
+             $contition_array = array('freelancer_post.is_delete'=> '0','freelancer_hire_reg.user_id' => $userid, 'freelancer_hire_reg.status' => '1');
+
+
+
+        $postdata = $this->data['freelancerpostdata'] = $this->common->select_data_by_condition('freelancer_post', $contition_array, $data, $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
+        }
 
          // echo "<pre>"; print_r($this->data['freelancerpostdata'] );die();
 
