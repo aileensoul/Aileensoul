@@ -214,18 +214,23 @@ label.cameraButton input[accept*="camera"] {
                
         <div class="job-menu-profile1">
        
-                           <h3> <?php echo ucwords($freehiredata[0]['fullname']) . ' '.ucwords($freehiredata[0]['username']); ?></h3>
+                           <h3> <?php echo ucwords($freelancerhiredata[0]['fullname']) . ' '.ucwords($freelancerhiredata[0]['username']); ?></h3>
                            
                            <div class="profile-text">
 
-                     <?php 
-                     if($freehiredata[0]['designation'] == '')
+                     <?php
+                     
+                     if($returnpage == ''){
+                     if($freelancerhiredata[0]['designation'] == '')
                      {
                      ?>
                      <a id="designation" class="designation" title="Designation">Current Work</a>
                      <?php }else{?> 
-                      <a id="designation" class="designation" title="<?php echo ucwords($freehiredata[0]['designation']); ?>"><?php echo ucwords($freehiredata[0]['designation']); ?></a>
-                      <?php }?></div>
+                      <a id="designation" class="designation" title="<?php echo ucwords($freelancerhiredata[0]['designation']); ?>"><?php echo ucwords($freelancerhiredata[0]['designation']); ?></a>
+                     <?php }} else {echo ucwords($freelancerhiredata[0]['designation']);}
+                     ?>
+                      </div>
+                           
     <div  class="add-post-button">
         <?php if($returnpage == ''){ ?>
         <a class="btn btn-3 btn-3b" href="<?php echo base_url('freelancer/freelancer_add_post'); ?>"><i class="fa fa-plus" aria-hidden="true"></i>  Add Post</a>
