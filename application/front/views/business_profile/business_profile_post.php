@@ -808,7 +808,7 @@ $slugnameposted =  $this->db->get_where('business_profile',array('user_id' => $r
                 <li>
                 <li>
                   <div class="post-design-product">
-                    <a href="javascript:void(0);" style=" color: #000033; font-weight: 400;" title="<?php echo ucwords($companyname); ?>">
+                    <a href="javascript:void(0);" style=" color: #000033; font-weight: 400; cursor: default;" title="Category">
                       <?php echo ucwords($category); ?>
                     </a>
                   </div>
@@ -861,7 +861,7 @@ if ($businesssave) {
                   </a>
                 </div>
                 <div id="<?php echo 'editpostbox' . $row['business_profile_post_id']; ?>" style="display:none;">
-                  <input type="text" id="<?php echo 'editpostname' . $row['business_profile_post_id']; ?>" name="editpostname" value="<?php echo $row['product_name']; ?>">
+                  <input type="text" id="<?php echo 'editpostname' . $row['business_profile_post_id']; ?>" name="editpostname" placeholder="Product Name" value="<?php echo $row['product_name']; ?>">
                 </div>
               </div>                    
             
@@ -873,7 +873,7 @@ if ($businesssave) {
                 <div id="<?php echo 'editpostdetailbox' . $row['business_profile_post_id']; ?>" style="display:none;">
                  
 
-                  <textarea id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" class="textbuis" name="editpostdesc"><?php echo $row['product_description']; ?></textarea>
+                  <textarea id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" placeholder="Product Description" class="textbuis" name="editpostdesc"><?php echo $row['product_description']; ?></textarea>
                 </div>
                 <button class="fr" id="<?php echo "editpostsubmit" . $row['business_profile_post_id']; ?>" style="display:none;margin: 5px 0; border-radius: 3px;" onClick="edit_postinsert(<?php echo $row['business_profile_post_id']; ?>)">Save
                 </button>

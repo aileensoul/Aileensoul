@@ -680,10 +680,10 @@ width: 68px;">
   </div>
 </div>
 
-              <div class="post-design-desc show">
-                  <div> <a style="margin-bottom: 0px;     font-size: 16px"><?php echo $busienss_data[0]['product_name']; ?></a></div> 
+              <div class="post-design-desc ">
+                  <div> <a style="margin-bottom: 0px;     font-size: 16px"><?php echo $busienss_data[0]['product_name']; ?></a></div> <span class="show">
 <?php  echo $busienss_data[0]['product_description'];  ?>
-
+</span>
 
                      </div> 
                 </div>
@@ -1982,7 +1982,7 @@ window.onclick = function(event) {
 <script src="jquery-1.8.2.js"></script>
 <script>
 $(function() {
-var showTotalChar = 270, showChar = "Further", hideChar = "less";
+var showTotalChar = 180, showChar = "more", hideChar = "less";
 $('.show').each(function() {
 var content = $(this).text();
 if (content.length > showTotalChar) {
