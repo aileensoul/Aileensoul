@@ -68,7 +68,7 @@
 
 
                             <fieldset <?php if ($degree) { ?> class="error-msg" <?php } ?>>
-                                <label>Degree:<span style="color:red">*</span></label>
+                                <label>Hire Degree:<span style="color:red">*</span></label>
                                 <select name="degree" id="degree">
                                     <option value="">Select your degree</option>
 
