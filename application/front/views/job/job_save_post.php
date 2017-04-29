@@ -385,7 +385,7 @@
                                                     </li>
 
                                                     <li>
-                                                        <a href="#" style="font-size: 19px;font-weight: 600;">
+                                                        <a href="#" title="Post Title" style="font-size: 19px;font-weight: 600;cursor: default;">
                                                             <?php echo ucwords(text2link($post['post_name'])); ?> </a>   </li>
 
                                                     <li>   
@@ -396,7 +396,7 @@
                                                         </div>
 
 
-                                                        <a href="<?php echo base_url('recruiter/rec_profile/' . $post['user_id']); ?>"><?php
+                                                        <a title="Company Name" href="<?php echo base_url('recruiter/rec_profile/' . $post['user_id']); ?>" ><?php
                                                             $cache_time = $this->db->get_where('recruiter', array('user_id' => $post['user_id']))->row()->re_comp_name;
 
                                                             echo ucwords($cache_time);
@@ -404,7 +404,7 @@
 
                                                     </li>
 
-                                                    <li><a href="<?php echo base_url('recruiter/rec_profile/' . $post['user_id']); ?>"><?php
+                                                    <li><a title="Recruiter Name" href="<?php echo base_url('recruiter/rec_profile/' . $post['user_id']); ?>"><?php
                                                             $cache_time = $this->db->get_where('recruiter', array('user_id' => $post['user_id']))->row()->rec_firstname;
 
                                                             echo ucwords($cache_time);

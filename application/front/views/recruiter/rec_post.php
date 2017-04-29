@@ -434,7 +434,7 @@ if ($returnpage == 'job') {
                                                     Created Date : <?php echo date('d/m/Y',strtotime($post['created_date'])); ?>
                                                 </li>
                                                 <li>
-                                                    <a href="#" style="font-size: 19px;font-weight: 600;">
+                                                    <a href="#" title="Post Title"  style="font-size: 19px;font-weight: 600;cursor:default;">
                                                         <?php echo $post['post_name'] ?> </a>     </li>
                                                 <li>   
                                                     <div class="fr lction">
@@ -442,9 +442,9 @@ if ($returnpage == 'job') {
                                                             <?php $cityname = $this->db->get_where('cities', array('city_id' => $post['re_comp_city']))->row()->city_name; ?>
                                                             <?php echo $cityname ?> </i></p>
                                                     </div>
-                                                    <a class="display_inline" href="#"> <?php echo $post['re_comp_name']; ?> </a>
+                                                    <a class="display_inline" title="Company Name" href="#"> <?php echo $post['re_comp_name']; ?> </a>
                                                 </li>
-                                                <li><a class="display_inline" href="#"> <?php echo $post['rec_firstname']; ?> </a></li>
+                                                <li><a class="display_inline" title="Recruiter Name" href="#"> <?php echo $post['rec_firstname']; ?> </a></li>
                                                 <!-- vishang 14-4 end -->    
                                             </ul>
                                         </div>
