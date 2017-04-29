@@ -151,10 +151,9 @@ padding-top: 1px;}
   </div>
     <div class="profile-boxProfileCard-content">
 <div class="buisness-profile-txext ">
-
-          <a class="profile-boxProfileCard-avatarLink a-inlineBlock" href="<?php echo base_url('recruiter/rec_profile'); ?>" title="zalak" tabindex="-1" aria-hidden="true" rel="noopener">
-<img src="<?php echo base_url(USERIMAGE . $recdata[0]['recruiter_user_image']);?>" alt="">
-                        </a></div>   
+<a class="profile-boxProfileCard-avatarLink a-inlineBlock" href="<?php echo base_url('recruiter/rec_profile'); ?>" title="zalak" tabindex="-1" aria-hidden="true" rel="noopener">
+<img src="<?php echo base_url(USERIMAGE . $recdata[0]['recruiter_user_image']);?>" alt=""></a>
+</div>   
           
          <div class="profile-box-user">
          <span class="profile-box-name ">
@@ -201,11 +200,8 @@ if ($user_data) {
     foreach ($uvalue as $row) {
 
 ?>
- 
-
-          <div class="profile-job-post-detail clearfix">
-                  <div class="profile-job-post-title-inside clearfix">
-                                            <div class="profile-job-profile-button clearfix">
+ <div class="profile-job-post-detail clearfix">
+<div class="profile-job-post-title-inside clearfix"> <div class="profile-job-profile-button clearfix">
 
 
     <!-- pop up box start-->

@@ -705,27 +705,28 @@ padding-top: 1px;}
                     </script>
                     <!-- Cover Image upload Start--> 
                     <!-- save post start -->
-                    <script type="text/javascript">
-                        function save_user(abc)
+            <script type="text/javascript">
+                  function save_user(abc)
                         {
-                            var saveid = document.getElementById("hideenuser" + abc);
-                            $.ajax({
-                                type: 'POST',
-                                url: '<?php echo base_url() . "recruiter/save_search_user" ?>',
-                                data: 'user_id=' + abc + '&save_id=' + saveid.value,
-                                success: function (data) {
-                                    $('.' + 'saveduser' + abc).html(data).addClass('saved');
+           var saveid = document.getElementById("hideenuser" + abc);
+                $.ajax({
+        type: 'POST',
+        url: '<?php echo base_url() . "recruiter/save_search_user" ?>',
+        data: 'user_id=' + abc + '&save_id=' + saveid.value,
+        success: function (data) {
+    $('.' + 'saveduser' + abc).html(data).addClass('saved');
                                 }
                             });
                         }
                     </script>
                     <!-- save post end-->
-                    <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
+<script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
+                   
                     <script>
                         function savepopup(id) {
                             save_user(id);
-//                       
-                            $('.biderror .mes').html("<div class='pop_content'>Your post is successfully saved.");
-                            $('#bidmodal').modal('show');
+                      
+            $('.biderror .mes').html("<div class='pop_content'>Your post is successfully saved.");
+            $('#bidmodal').modal('show');
                         }
                     </script>
