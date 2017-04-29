@@ -1214,7 +1214,7 @@ foreach($finalsorting as $row)
                     ?>
 
               <!-- two image start -->
-                    <div  id="two_images_art" style="width: 345px;">
+                    <div  id="two_images_art" style="width: 48.8%;">
                     <a href="<?php echo base_url('artistic/postnewpage/'.$row['art_post_id']) ?>"><img class="two-columns" src="<?php echo base_url(ARTPOSTIMAGE. str_replace(" ","_",$multiimage['image_name']))?>" > </a>
                     </div>
 

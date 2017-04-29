@@ -1029,8 +1029,8 @@ responsive image design start -->
                                    <!-- <textarea name="product_title" placeholder="Post Your Product...."></textarea>  -->
                                 <textarea id= "test-upload-product" placeholder="Post Your Art...."  onKeyPress=check_length(this.form); onKeyDown=check_length(this.form); 
                                           name=my_text rows=4 cols=30 class="post_product_name"></textarea>
-                                <div style="position: absolute; top: 20px; right: 13px; border: none;">                        
-                                <input size=1 value=50 name=text_num style="width: 52px;" readonly> 
+                                <div style="position: absolute; top: 21px; right: 19px; border: none;">                        
+                                <input size=1 value=50 name=text_num style="    width: 30px; padding: 5px; height: 30px;" readonly> 
                                </div>
 
                             </div>
@@ -3154,30 +3154,6 @@ function post_like(clicked_id)
     }
 </script>
 
-
-<script type="text/javascript">
-    var span = $('<span>').css('display', 'inline-block')
-            .css('word-break', 'break-all').appendTo('body').css('visibility', 'hidden');
-    function initSpan(textarea) {
-        span.text(textarea.text())
-                .width(textarea.width())
-                .css('font', textarea.css('font'));
-    }
-    $('textarea').on({
-        input: function () {
-            var text = $(this).val();
-            span.text(text);
-            $(this).height(text ? span.height() : '1.1em');
-        },
-        focus: function () {
-            initSpan($(this));
-        },
-        keypress: function (e) {
-            if (e.which == 13)
-                e.preventDefault();
-        }
-    });
-</script>
 
 
 <!-- insert post validtation start -->
