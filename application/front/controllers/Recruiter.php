@@ -544,11 +544,10 @@ class Recruiter extends MY_Controller {
         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
 
         if ($id == $userid || $id == '') { //echo "hii"; die();
-           
             $join_str[0]['table'] = 'recruiter';
-             $join_str[0]['join_table_id'] = 'recruiter.user_id';
-             $join_str[0]['from_table_id'] = 'rec_post.user_id';
-             $join_str[0]['join_type'] = '';
+            $join_str[0]['join_table_id'] = 'recruiter.user_id';
+            $join_str[0]['from_table_id'] = 'rec_post.user_id';
+            $join_str[0]['join_type'] = '';
 
 
             $contition_array = array('rec_post.user_id' => $userid, 'rec_post.is_delete' => 0);
@@ -556,40 +555,27 @@ class Recruiter extends MY_Controller {
               // echo "<pre>"; print_r($this->data['postdata']); die();
 
         } else { //echo "hello"; die();
-             $join_str[0]['table'] = 'recruiter';
-             $join_str[0]['join_table_id'] = 'recruiter.user_id';
-             $join_str[0]['from_table_id'] = 'rec_post.user_id';
-             $join_str[0]['join_type'] = '';
-
+            
+            $join_str[0]['table'] = 'recruiter';
+            $join_str[0]['join_table_id'] = 'recruiter.user_id';
+            $join_str[0]['from_table_id'] = 'rec_post.user_id';
+            $join_str[0]['join_type'] = '';
 
             $contition_array = array('rec_post.user_id' => $id, 'rec_post.is_delete' => 0);
             $this->data['postdata'] = $this->common->select_data_by_condition('rec_post', $contition_array, $data = '*', $sortby = 'post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
               // echo "<pre>"; print_r($this->data['postdata']); die();
         }
-
-
+        
+       
         $contition_array = array('status' => '1', 'is_delete' => '0');
-
-
         $recdata = $this->data['results'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'other_skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-
         $contition_array = array('status' => '1');
-
         $jobdata = $this->data['results'] = $this->common->select_data_by_condition('job_add_workexp', $contition_array, $data = 'jobtitle', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-
-
         $contition_array = array('status' => '1');
-
         $degreedata = $this->data['results'] = $this->common->select_data_by_condition('degree', $contition_array, $data = 'degree_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-
-
         $contition_array = array('status' => '1');
-
         $streamdata = $this->data['results'] = $this->common->select_data_by_condition('stream', $contition_array, $data = 'stream_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-
-
         $contition_array = array('status' => '1', 'type' => '1');
-
         $skill = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
         // echo "<pre>"; print_r($artpost);die();
 
