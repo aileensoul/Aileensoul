@@ -21,117 +21,11 @@ responsive image design start -->
     }
 </style>
 <!-- responsive image end -->
-<!--post save success pop up style strat -->
 <style>
-    body {
+    /*body {
         font-family: Arial, sans-serif;
         background-size: cover;
         height: 100vh;
-    }
-
-    /* The Close Button */
-    .close2 {
-        color: white;
-        position: absolute;
-        top: 75px;
-        right: 196px;
-        font-size: 35px;
-        font-weight: bold;
-    }
-
-    .close2:hover,
-    .close2:focus {
-        color: #999;
-        text-decoration: none;
-        cursor: pointer;
-    }
-
-
-
-    .row > .column {
-        padding: 0 8px;
-    }
-
-    .row:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
-
-    .column {
-        float: left;
-
-    }
-
-    /* The Modal (background) */
-    .modal2 {
-        display: none;
-        position: fixed;
-        z-index: 1;
-        padding-top: 100px;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        background-color: black;
-    }
-
-    /* Modal Content */
-    .modal-content2 {
-        position: relative;
-        background-color: #fefefe;
-        margin: auto;
-        padding: 0;
-        width: 65%;
-        max-width: 1200px;
-    }
-
-
-    /* Next & previous buttons */
-    .prev,
-    .next {
-        cursor: pointer;
-        position: absolute;
-        top: 50%;
-        width: auto;
-        padding: 16px;
-        margin-top: -50px;
-        color: white;
-        font-weight: bold;
-        font-size: 20px;
-        transition: 0.6s ease;
-        border-radius: 0 3px 3px 0;
-        user-select: none;
-        -webkit-user-select: none;
-    }
-
-    /* Position the "next button" to the right */
-    .next {
-        right: 0;
-        border-radius: 3px 0 0 3px;
-    }
-
-    /* On hover, add a black background color with a little bit see-through */
-    .prev:hover,
-    .next:hover {
-        background-color: rgba(0, 0, 0, 0.8);
-    }
-
-    /* Number text (1/3 etc) */
-    .numbertext {
-        color: #f2f2f2;
-        font-size: 12px;
-        padding: 8px 12px;
-        position: absolute;
-        top: 0;
-    }
-
-    .caption-container {
-        text-align: center;
-        background-color: black;
-        padding: 2px 16px;
-        color: white;
     }
 
     .box {
@@ -144,8 +38,6 @@ responsive image design start -->
         background-clip: padding-box;
         text-align: center;
     }
-
-
 
     .overlay {
         position: fixed;
@@ -174,37 +66,64 @@ responsive image design start -->
         position: relative;
         transition: all 5s ease-in-out;
     }
-
+    */
     .okk{
         text-align: center;
     }
 
-    .popup .okbtn {
+    /*   .popup .okbtn{
+           position: absolute;
+           transition: all 200ms;
+           font-size: 18px;
+           font-weight: bold;
+           text-decoration: none;
+           color: #fff;
+           padding: 8px 18px;
+           background-color: darkcyan;
+           left: 25px;
+           margin-top: 15px;
+           width: 100px; 
+           border-radius: 8px;
+       }
+    */
+    .pop_content .okbtn{
         position: absolute;
         transition: all 200ms;
-        font-size: 18px;
-        font-weight: bold;
+        font-size: 16px;
         text-decoration: none;
         color: #fff;
         padding: 8px 18px;
-        background-color: darkcyan;
-        left: 25px;
-        margin-top: 15px;
+        background-color: #0A2C5D;
+        left: 170px;
+        margin-top: 8px;
         width: 100px; 
         border-radius: 8px;
     }
 
-    .popup .cnclbtn {
+    /*  .popup .cnclbtn {
+          position: absolute;
+          transition: all 200ms;
+          font-size: 18px;
+          font-weight: bold;
+          text-decoration: none;
+          color: #fff;
+          padding: 8px 18px;
+          background-color: darkcyan;
+          right: 25px;
+          margin-top: 15px;
+          width: 100px;
+          border-radius: 8px;
+      } */
+    .pop_content .cnclbtn {
         position: absolute;
         transition: all 200ms;
-        font-size: 18px;
-        font-weight: bold;
+        font-size: 16px;
         text-decoration: none;
         color: #fff;
         padding: 8px 18px;
-        background-color: darkcyan;
-        right: 25px;
-        margin-top: 15px;
+        background-color: #0A2C5D;
+        right: 170px;
+        margin-top: 8px;
         width: 100px;
         border-radius: 8px;
     }
@@ -214,18 +133,23 @@ responsive image design start -->
         margin-top: 40px;
 
     }
-
-    .post-design-name{padding-left: 0;}
-
-    @media screen and (max-width: 700px){
-        .box{
-            width: 70%;
-        }
-        .popup{
-            width: 70%;
-        }
+    .model_ok_cancel{
+        width:200px !important;
     }
+
+    /*
+        @media screen and (max-width: 700px){
+            .box{
+                width: 70%;
+            }
+            .popup{
+                width: 70%;
+            }
+        } */
+
+
 </style>
+
 
 <!--post save success pop up style end -->
 
@@ -1121,42 +1045,7 @@ responsive image design start -->
                                     </div>
                                     <!-- pop up box end-->
 
-
-                                    <!-- pop up box start-->
-                                    <div id="<?php echo "popup2" . $row['art_post_id']; ?>" class="overlay">
-                                        <div class="popup">
-
-                                            <div class="pop_content">
-                                                Are You Sure want to delete this post?.
-
-                                                <p class="okk"><a class="okbtn" id="<?php echo $row['art_post_id']; ?>" onClick="remove_ownpost(this.id)" href="#">OK</a></p>
-
-                                                <p class="okk"><a class="cnclbtn" href="#">Cancel</a></p>
-
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <!-- pop up box end-->
-
-                                    <!-- pop up box start-->
-                                    <div id="<?php echo "popup5" . $row['art_post_id']; ?>" class="overlay">
-                                        <div class="popup">
-
-                                            <div class="pop_content">
-                                                Are You Sure want to delete this post from your profile?.
-
-                                                <p class="okk"><a class="okbtn" id="<?php echo $row['art_post_id']; ?>" onClick="del_particular_userpost(this.id)" href="#">OK</a></p>
-
-                                                <p class="okk"><a class="cnclbtn" href="#">Cancel</a></p>
-
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <!-- pop up box end-->
-
-
+                                   
                                     <div class="post-design-top col-md-12" >  
                                         <div class="post-design-pro-img col-md-2"> 
 
@@ -1235,9 +1124,7 @@ responsive image design start -->
                                                 if ($row['user_id'] == $userid) {
                                                     ?>
 
-
-                                                    <a href="<?php echo "#popup2" . $row['art_post_id']; ?>"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete Post</a>
-
+    <a id="<?php echo $row['art_post_id']; ?>" onClick="deleteownpostmodel(this.id)"><i class="fa fa-trash-o" aria-hidden="true"></i>Delete Post</a>
                                                     <a id="<?php echo $row['art_post_id']; ?>" onClick="editpost(this.id)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit</a>
 
                                                 <?php } else { ?>
@@ -1752,7 +1639,7 @@ responsive image design start -->
             <span role="presentation" aria-hidden="true"> · </span>
             <div class="comment-details-menu">
              <input type="hidden" name="post_delete"  id="post_delete" value= "<?php echo $rowdata['art_post_id']; ?>">
-            <a id="<?php echo $rowdata['artistic_post_comment_id']; ?>"   onClick="comment_delete(this.id)"> Delete<span class="<?php echo 'insertcomment' . $rowdata['artistic_post_comment_id']; ?>">
+            <a id="<?php echo $rowdata['artistic_post_comment_id']; ?>"   onClick="comment_deletemodel(this.id)"> Delete<span class="<?php echo 'insertcomment' . $rowdata['artistic_post_comment_id']; ?>">
                                      </span>
                     </a>
                  </div>
@@ -2122,6 +2009,31 @@ function post_like(clicked_id)
 
 <!-- comment delete script start -->
 
+
+
+<script type="text/javascript">
+  
+function comment_deletemodel(abc){
+
+
+    $('.biderror .mes').html("<div class='pop_content'>Are you sure want to Delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc +")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+    $('#bidmodal').modal('show');
+}
+
+</script>
+
+<script type="text/javascript">
+  
+function comment_deletetwomodel(abc){
+
+
+    $('.biderror .mes').html("<div class='pop_content'>Are you sure want to Delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deletetwo(" + abc +")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+    $('#bidmodal').modal('show');
+}
+
+</script>
+
+
 <script type="text/javascript">
     function comment_delete(clicked_id)
     {
@@ -2177,6 +2089,14 @@ function post_like(clicked_id)
         var x = document.getElementById('threecomment' + clicked_id);
         var y = document.getElementById('fourcomment' + clicked_id);
 
+
+ if(post_comment.value == ''){ 
+
+        event.preventDefault();
+        return false;
+   }else{
+
+
         if (x.style.display === 'block' && y.style.display === 'none') {
 
         $.ajax({
@@ -2210,11 +2130,7 @@ function post_like(clicked_id)
 
                 }
                 });
-                }
-
-
-
-
+                }  }
 
         }
 
@@ -2242,9 +2158,18 @@ function post_like(clicked_id)
                 }, 500);
                 // khyati chnages  start
 
-                var x = document.getElementById('threecomment' + clicked_id);
-                var y = document.getElementById('fourcomment' + clicked_id);
-                if (x.style.display === 'block' && y.style.display === 'none') {
+            var x = document.getElementById('threecomment' + clicked_id);
+            var y = document.getElementById('fourcomment' + clicked_id);
+
+
+    if(val == ''){ 
+
+    event.preventDefault();
+        return false;
+   }else{ 
+
+
+    if (x.style.display === 'block' && y.style.display === 'none') {
         $.ajax({
         type: 'POST',
                 url: '<?php echo base_url() . "artistic/insert_commentthree" ?>',
@@ -2276,9 +2201,9 @@ function post_like(clicked_id)
 
                 }
                 });
-                }
+                }  }
         // khyati chnages end
-
+            e.preventDefault();
         }
         });
         //});
@@ -2341,12 +2266,18 @@ function post_like(clicked_id)
 <!--comment edit box end-->
 
 <!-- comment edit insert start -->
-
+<script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
 <script type="text/javascript">
     function edit_comment(abc)
     {
 
         var post_comment_edit = document.getElementById("editcomment" + abc);
+
+    if(post_comment_edit.value == ''){ 
+      $('.biderror .mes').html("<div class='pop_content'>Are you sure want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+       $('#bidmodal').modal('show');
+        
+   }else{ 
 
         $.ajax({
             type: 'POST',
@@ -2368,7 +2299,7 @@ function post_like(clicked_id)
 
             }
         });
-
+      }
     }
 </script>
 
@@ -2407,8 +2338,6 @@ function post_like(clicked_id)
 
         // $(document).ready(function () {
             $('#editcomment' + abc).keypress(function (e) {
-                // if (e.which == 13) {
-                //     var val = $('#editcomment' + abc).val();
 
                     if (e.keyCode == 13 && !e.shiftKey) {
                     var val = $('#editcomment' + abc).val();
@@ -2421,6 +2350,13 @@ function post_like(clicked_id)
                     window.setTimeout(function () {
                         window.preventDuplicateKeyPresses = false;
                     }, 500);
+
+        if(val == ''){ 
+
+      $('.biderror .mes').html("<div class='pop_content'>Are you sure want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+       $('#bidmodal').modal('show');
+        
+   }else{ 
 
                     $.ajax({
                         type: 'POST',
@@ -2438,7 +2374,7 @@ function post_like(clicked_id)
 
                             $('#' + 'showcomment' + abc).html(data);
                         }
-                    });
+                    }); }
                     //alert(val);
                 }
             });
@@ -2452,6 +2388,13 @@ function post_like(clicked_id)
     {
 
         var post_comment_edit = document.getElementById("editcommenttwo" + abc);
+
+if(post_comment_edit.value == ''){ 
+
+      $('.biderror .mes').html("<div class='pop_content'>Are you sure want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deletetwo(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+       $('#bidmodal').modal('show');
+        
+   }else{ 
 
         $.ajax({
             type: 'POST',
@@ -2475,7 +2418,7 @@ function post_like(clicked_id)
 
 
             }
-        });
+        });  }
 
     }
 </script>
@@ -2491,7 +2434,7 @@ function post_like(clicked_id)
                 // if (e.which == 13) {
                 //     var val = $('#editcommenttwo' + abc).val();
 
-                    if (e.keyCode == 13 && !e.shiftKey) {
+                if (e.keyCode == 13 && !e.shiftKey) {
                 var val = $('#editcommenttwo' + abc).val();
                 e.preventDefault();
 
@@ -2503,7 +2446,12 @@ function post_like(clicked_id)
                     window.preventDuplicateKeyPresses = false;
                 }, 500);
 
+ if(val == ''){ 
 
+      $('.biderror .mes').html("<div class='pop_content'>Are you sure want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deletetwo(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+       $('#bidmodal').modal('show');
+        
+   }else{ 
                     $.ajax({
                         type: 'POST',
                         url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
@@ -2520,9 +2468,9 @@ function post_like(clicked_id)
 
                             $('#' + 'showcommenttwo' + abc).html(data);
                         }
-                    });
+                    });  }
                     //alert(val);
-                }
+                }  e.preventDefault();
             });
         //});
 
@@ -2844,6 +2792,20 @@ function post_like(clicked_id)
 
 
 <!-- remove save post start -->
+
+
+<script type="text/javascript">
+  
+function deleteownpostmodel(abc){
+
+
+    $('.biderror .mes').html("<div class='pop_content'>Are you sure want to Delete Your post?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='remove_ownpost(" + abc +")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+    $('#bidmodal').modal('show');
+}
+
+</script>
+
+
 
 <script type="text/javascript">
     function remove_ownpost(abc)
