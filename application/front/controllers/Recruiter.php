@@ -752,10 +752,10 @@ class Recruiter extends MY_Controller {
 
     public function view_apply_list($id = "") {
 
-//echo $id; die();
+     
         $contition_array = array('post_id' => $id, 'is_delete' => 0);
         $postdata = $this->data['postdata'] = $this->common->select_data_by_condition('job_apply', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-        //echo '<pre>'; print_r($this->data['postdata']); die();
+      //  echo '<pre>'; print_r($this->data['postdata']); die();
         $this->data['postid'] = $id;
 
         foreach ($postdata as $ud) {
@@ -790,7 +790,7 @@ class Recruiter extends MY_Controller {
     }
 
 //invite user  at home page click on applied person controller Start
-    public function save_user($appid = " ", $status = "", $postid = "") {
+    public function save_user($appid = " ", $status = "", $postid = ""){
         $userid = $this->session->userdata('aileenuser');
 
         $postdata = $this->common->select_data_by_id('rec_post', 'post_id', $id, $data = '*', $join_str = array());
@@ -818,8 +818,6 @@ class Recruiter extends MY_Controller {
 
         $insert_id = $this->common->insert_data_getid($data, 'notification');
         // end notoification
-
-
 
         $msg = '<h1>Interview call from recruiter</h1><br/>';
         $msg .= 'Hey !' . $userdata[0]['first_name'] . $userdata[0]['last_name'] . ',';
@@ -1679,6 +1677,38 @@ public function ajax_designation() {
         $updatedata = $this->common->update_data($data, 'recruiter', 'user_id', $userid);
         if ($updatedata) {
             echo 'ok';
+        } else {
+            echo 'error';
+        }
+    }
+
+    public function invite_user() {
+        
+         $postid = $_POST['post_id'];
+         $invite_user = $_POST['invited_user']; 
+         
+        $userid = $this->session->userdata('aileenuser');
+      
+        $data = array(
+            'user_id' => $userid,
+            'post_id' => $postid,
+            'invite_user_id' => $invite_user,
+            'profile' => "recruiter"
+            );
+        $insert_id = $this->common->insert_data_getid($data, 'user_invite');
+       
+        if ($insert_id) {
+            $data = array(
+            'not_type' => 4,
+            'not_from_id' => $userid,
+            'not_to_id' => $invite_user,
+            'not_read' => 2,
+            'not_status' => 0,
+            'not_product_id' => $insert_id,
+            'not_from' => 1
+            );
+        $insert_id = $this->common->insert_data_getid($data, 'notification');
+        echo 'invited';
         } else {
             echo 'error';
         }
