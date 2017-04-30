@@ -426,8 +426,9 @@ if($status == 0 || $status == " "){?>
                             
                             
                          </div>
-                                                        <?php } ?>
+                                                        
                                   </div>
+                                  <?php } ?>
                                         <div class="col-md-1">
                                         </div>
                                     </div>
