@@ -891,10 +891,10 @@ class Freelancer extends MY_Controller {
         else{
             $userid=$id;
             //echo $userid; 
-         $join_str[0]['table'] = 'freelancer_hire_reg';
-        $join_str[0]['join_table_id'] = 'freelancer_hire_reg.user_id';
-        $join_str[0]['from_table_id'] = 'freelancer_post.user_id';
-        $join_str[0]['join_type'] = '';
+          $join_str[0]['table'] = 'freelancer_hire_reg';
+          $join_str[0]['join_table_id'] = 'freelancer_hire_reg.user_id';
+          $join_str[0]['from_table_id'] = 'freelancer_post.user_id';
+          $join_str[0]['join_type'] = '';
             
              $contition_array = array('freelancer_post.is_delete'=> '0','freelancer_hire_reg.user_id' => $userid, 'freelancer_hire_reg.status' => '1');
 
@@ -1211,10 +1211,13 @@ $new = array();
                 $contition_array = array('freelancer_post_reg_id' => $frcan['freelancer_post_reg_id'], 'is_delete' => 0, 'status' => 1);
 
                 $workcandidate = $this->data['workcandidate'] = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = '*', $sortby = 'freelancer_post_reg_id', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
+//                echo "<pre>"; print_r($workcandidate);
+                    if($workcandidate[0]['user_id'] != $userid){
                 $freecandidate[] = $workcandidate;
+                    }
             }
         }
+//        die();
 
         $this->data['candidatefreelancer'] = $freecandidate;
         // echo "<pre>"; print_r($this->data['candidatefreelancer']); die();
