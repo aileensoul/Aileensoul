@@ -481,8 +481,8 @@ echo $freelancer_hire_header2;} ?>
                                                                 <?php if($post['post_description']){echo text2link($post['post_description']);}else{echo PROFILENA;} ?>  </span>
                                                         </li>
                <li> <b>Total Experiance</b> <span> <?php if($post['post_exp_month'] ||  $post['post_exp_year']){
-               echo $post['post_exp_month']; ?> month&nbsp;&nbsp;<?php echo $post['post_exp_year'];}
-                else{echo PROFILENA;} ?> year</span> </li>
+            echo $post['post_exp_year'];   ?> year&nbsp;&nbsp;<?php  echo $post['post_exp_month'];}
+                else{echo PROFILENA;} ?> month </span> </li>
 
                                                     </ul>
                                                 </div>
