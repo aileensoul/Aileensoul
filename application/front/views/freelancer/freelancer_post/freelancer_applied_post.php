@@ -265,7 +265,8 @@
             <div class="left-side-menu col-md-2">  </div>
             <div class="right-side-menu col-md-9">  
                 <ul class="">
-                    <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_post_profile')) { ?> class="active" <?php } ?>><a href="<?php echo base_url('freelancer/freelancer_post_profile'); ?>">Profile</a>
+                    <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_post_profile')) { ?> class="active" <?php } ?>><a href="<?php echo base_url('freelancer/freelancer_post_profile'); ?>">
+Details</a>
                     </li>
 
 
