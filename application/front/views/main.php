@@ -173,7 +173,12 @@
                                                                 <label class="login_label">
                                                                     Password<span class="req">*</span>
                                                                 </label>
-                                                                <input type="password" name="password" id="password" class="showpassword" />
+                                                                <input type="password" name="password" id="password" class="showpassword" style="position: relative;" />
+                                                            
+                                                                <label for="password1">
+                                                                    
+                                                                </label>
+
                                                             </div>
                                                             <!-- <div class="checkbox2 show" style="display: block;">
                                              
@@ -327,7 +332,7 @@
         $(".showpassword").each(function (index, input) {
             var $input = $(input);
             $('<div class="checkbox2 show" style="display: block;">').append(
-                    $("<input type='checkbox' class='showpasswordcheckbox' /><h6>Show Password</h6></div> ").click(function () {
+                    $("<input type='checkbox' class='showpasswordcheckbox' id='password1' /></div> ").click(function () {
                 var change = $(this).is(":checked") ? "text" : "password";
                 var rep = $("<input type='" + change + "' />")
                         .attr("id", $input.attr("id"))
