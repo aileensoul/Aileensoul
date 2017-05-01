@@ -1703,7 +1703,6 @@ $updatedata = $this->common->update_data($data, 'freelancer_apply', 'app_id', $a
 
     public function save_user() {
 
-       // echo "hi"; die();
         $userid = $this->session->userdata('aileenuser');
 
         $id = $_POST['user_id'];
@@ -2577,7 +2576,7 @@ $this->load->view('freelancer/freelancer_hire/freelancer_save', $this->data);
             'not_read' => 2,
             'not_status' => 0,
             'not_product_id' => $insert_id,
-            'not_from' => 5 
+            'not_from' => 4 
             );
         $insert_id = $this->common->insert_data_getid($data, 'notification');
         echo 'invited';
