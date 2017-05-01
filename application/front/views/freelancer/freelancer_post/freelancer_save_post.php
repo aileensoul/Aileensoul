@@ -385,13 +385,14 @@
 
                                 <div class="job-post-detail clearfix"  id="<?php echo "removeapply" . $post['save_id']?>">
                                     <div class="job-post-title">
-                                        <h6><a href="<?php echo base_url('freelancer/freelancer_hire_profile/' . $post['user_id']); ?>" title="Post Title" >
-                                            </a></h6>
+                                        <h4><a href="<?php echo base_url('freelancer/freelancer_hire_profile/' . $post['user_id']); ?>" title="Post Title" >
+                                            </a></h4>
+                                         <a href="#">Jay</a>
                                     </div>
                                     <div class="exper-location">
                                         <ul>
 
-                                          <li>Posted-<?php echo date('d-M-Y', strtotime($post['created_date'])); ?></li>
+                                          <li>Posted : <?php echo date('d-M-Y', strtotime($post['created_date'])); ?></li>
 
                                             <li>
 
@@ -401,17 +402,14 @@
                            if( $cityname != 0 || $countryname != 0)
                                                                 {
                                                                     ?>
+               <p><i class="fa fa-map-marker" aria-hidden="true"><?php echo $cityname . ", " . $countryname; ?></i></p>
 
-                                                                <p><i class="fa fa-map-marker" aria-hidden="true"><?php echo $cityname . ", " . $countryname; ?></i></p>
-
-                                                                <?php }
-                                                                else
-                                                                {
-
-                                                                }
-                                                                ?>
-
-                                                            </li>
+                  <?php }
+                else
+               {
+                   }
+                 ?>
+            </li>
                                         </ul>
                                     </div>
                                      <div class="profile-job-post-detail clearfix" style="border: none;" >
@@ -419,31 +417,30 @@
 
                                                         <div class="profile-job-profile-menu">
 
-                                        <ul>
-                                             <li><b>Skills</b> <span>
-                                                                    <?php
-                                                                    $comma = ",";
-                                                                    $k = 0;
-                                                                    $aud = $post['post_skill'];
-                                                                    $aud_res = explode(',', $aud);
-                                                                    foreach ($aud_res as $skill) {
-                                                                        if ($k != 0) {
-                                                                            echo $comma;
-                                                                        }
-                                                                        $cache_time = $this->db->get_where('skill', array('skill_id' => $skill))->row()->skill;
+                  <ul>
+                    <li><b>Skills</b> <span>
+                 <?php
+                    $comma = ", ";
+                     $k = 0;
+                     $aud = $post['post_skill'];
+                    $aud_res = explode(',', $aud);
+                   foreach ($aud_res as $skill) {
+                 if ($k != 0) {
+                   echo $comma;
+                  }
+                $cache_time = $this->db->get_where('skill', array('skill_id' => $skill))->row()->skill;
+                echo $cache_time;
+                  $k++;
+                }
+                  ?>       
+               </span></li>
 
+            <?php $field = $this->db->get_where('category', array('category_id' => $post['post_field_req']))->row()->category_name; ?>
 
-                                                                        echo $cache_time;
-                                                                        $k++;
-                                                                    }
-                                                                    ?>       
-                                                                </span></li>
-                                                            <?php $field = $this->db->get_where('category', array('category_id' => $post['post_field_req']))->row()->category_name; ?>
-                                                            <li><b>Field</b> <span><?php 
-                                                            if($field)
-                                                            {
-
-                                                            echo $field;
+        <li><b>Field</b> <span><?php 
+             if($field)
+            {
+               echo $field;
                                                             }
                                                             else
                                                             {

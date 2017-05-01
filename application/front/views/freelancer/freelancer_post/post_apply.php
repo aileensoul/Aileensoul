@@ -370,11 +370,11 @@ if ($freepostdata[0]['designation']) {
                                                 ?>
                                                 <div class="job-post-detail clearfix">
                                                     <!-- pop up box start-->
-                                                    <div id="popup1" class="overlay">
-                                                        <div class="popup">
-                                                            <div class="pop_content">
-                                                                Your Post is Successfully Saved.
-                                                                <p class="okk"><a class="okbtn" href="#">Ok</a></p>
+                               <div id="popup1" class="overlay">
+                                       <div class="popup">
+                                        <div class="pop_content">
+                                         Your Post is Successfully Saved.
+                                 <p class="okk"><a class="okbtn" href="#">Ok</a></p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -395,29 +395,33 @@ if ($freepostdata[0]['designation']) {
 <!-- pop up box end-->
 <!-- pallavi end 10/04/2017 -->
 
-                                                    <div class="job-post-title">
-                                                        <h6><a href="<?php echo base_url('freelancer/freelancer_hire_profile/' . $post['user_id'].'?page=freelancer_post'); ?>" title=" <?php echo text2link($post['post_name']); ?>">
+            <div class="job-post-title">
+          <h4><a href="<?php echo base_url('freelancer/freelancer_hire_profile/' . $post['user_id'].'?page=freelancer_post'); ?>" title=" <?php echo text2link($post['post_name']); ?>">
         <?php echo text2link($post['post_name']); ?>
-                                                            </a></h6>
-                                                    </div>
-                                                    <div class="exper-location">
-                                                        <ul>
-                                                            <li>Posted Date  : <?php echo date('d-M-Y', strtotime($post['created_date'])); ?></li>
-                                                            <li>
-                                                                <?php
-                                                                $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name;
-                                                                $countryname = $this->db->get_where('countries', array('country_id' => $post['country']))->row()->country_name;
-                                                                //echo $countryname; die();
-                                                                if($cityname || $countryname)
-                                                                {
-                                                                    ?>
-                                                                <p><i class="fa fa-map-marker" aria-hidden="true"><?php echo $cityname . ", " . $countryname; ?></i></p>
-                                                                <?php }
-                                                                else
-                                                                {
-                                                                }
-                                                                ?>
-                                                            </li>
+              </a></h4>
+              <a href="#">Jay</a>
+             </div>
+
+         <div class="exper-location">
+               <ul>
+               <li>Posted Date  : <?php echo date('d-M-Y', strtotime($post['created_date'])); ?></li>
+   
+               <li class="fr">
+                  <?php
+                  $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name;
+                  $countryname = $this->db->get_where('countries', array('country_id' => $post['country']))->row()->country_name;
+   
+                          //echo $countryname; die();
+                   if($cityname || $countryname)
+                  {
+                        ?>
+               <p><i class="fa fa-map-marker" aria-hidden="true"> <?php echo $cityname . ", " . $countryname; ?></i></p>
+                  <?php }
+                         else
+                  {
+                          }
+                      ?>
+               </li>
                                                         </ul>
                                                     </div>
                                                     <div class="profile-job-post-detail clearfix">

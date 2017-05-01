@@ -885,8 +885,8 @@ class Freelancer extends MY_Controller {
         $contition_array = array('freelancer_post.is_delete'=> '0','freelancer_hire_reg.user_id' => $userid, 'freelancer_hire_reg.status' => '1');
 
 
-$data='freelancer_post.post_name,freelancer_post.post_est_time,freelancer_post.post_skill,freelancer_post.post_other_skill,freelancer_post.post_rate,freelancer_post.post_last_date,freelancer_post.post_description,freelancer_post.user_id,freelancer_post.created_date,freelancer_post.post_currency,freelancer_post.post_rating_type,freelancer_post.country,freelancer_post.city,freelancer_post.post_exp_month,freelancer_post.post_exp_year';
-        $postdata = $this->data['freelancerpostdata'] = $this->common->select_data_by_condition('freelancer_post', $contition_array, $data, $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
+$data='freelancer_post.post_id,freelancer_post.post_name,freelancer_post.post_est_time,freelancer_post.post_skill,freelancer_post.post_other_skill,freelancer_post.post_rate,freelancer_post.post_last_date,freelancer_post.post_description,freelancer_post.user_id,freelancer_post.created_date,freelancer_post.post_currency,freelancer_post.post_rating_type,freelancer_post.country,freelancer_post.city,freelancer_post.post_exp_month,freelancer_post.post_exp_year,freelancer_hire_reg.username,freelancer_hire_reg.fullname,freelancer_hire_reg.designation';
+        $postdata = $this->data['freelancerpostdata'] = $this->common->select_data_by_condition('freelancer_post', $contition_array, $data, $sortby = 'freelancer_post.created_date', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
        // echo "<pre>";print_r($postdata);die();
         
         }
@@ -1123,16 +1123,16 @@ $new = array();
         $this->form_validation->set_rules('post_desc', 'Post description', 'required');
         $this->form_validation->set_rules('fields_req', 'Field required', 'required');
 
-        $this->form_validation->set_rules('est_time', 'Estimated time', 'required');
+       // $this->form_validation->set_rules('est_time', 'Estimated time', 'required');
         $this->form_validation->set_rules('rate', 'Rate', 'required');
         $this->form_validation->set_rules('currency', 'Currency', 'required');
-        $this->form_validation->set_rules('rating', 'Rating', 'required');
-        $this->form_validation->set_rules('month', 'Month', 'required');
-        $this->form_validation->set_rules('year', 'Year', 'required');
+       // $this->form_validation->set_rules('rating', 'Rating', 'required');
+       // $this->form_validation->set_rules('month', 'Month', 'required');
+       // $this->form_validation->set_rules('year', 'Year', 'required');
         //$this->form_validation->set_rules('location', 'Location', 'required');
         $this->form_validation->set_rules('country', 'Country', 'required');
-        $this->form_validation->set_rules('city', 'City', 'required');
-        $this->form_validation->set_rules('last_date', 'Last date', 'required');
+      //  $this->form_validation->set_rules('city', 'City', 'required');
+       // $this->form_validation->set_rules('last_date', 'Last date', 'required');
 
 
         if ($this->form_validation->run() == FALSE) {
@@ -1154,6 +1154,11 @@ $new = array();
         } else {
               $datereplace=$this->input->post('last_date');
              $lastdate=str_replace('/', '-',$datereplace);
+             $ratetype=$this->input->post('rating');
+             echo $ratetype;
+             // echo $lastdate;die(
+             if($ratetype==0){$ratetype=1;}
+             //echo $ratetype;die();
              // echo $lastdate;die();   
             $data = array(
                 'post_name' => $this->input->post('post_name'),
@@ -1164,7 +1169,7 @@ $new = array();
                 'post_est_time' => $this->input->post('est_time'),
                 'post_rate' => $this->input->post('rate'),
                 'post_currency' => $this->input->post('currency'),
-                'post_rating_type' => $this->input->post('rating'),
+                'post_rating_type' => $ratetype,
                 'post_exp_month' => $this->input->post('month'),
                 'post_exp_year' => $this->input->post('year'),
                 'post_last_date' => $lastdate,
@@ -1268,7 +1273,8 @@ $new = array();
         $this->load->view('freelancer/freelancer_hire/recommen_candidate', $this->data);
     }
 
-    public function freelancer_edit_post($id) {  //echo "falguni"; die();
+    public function freelancer_edit_post($id) {  
+       // echo $id; die();
         $userid = $this->session->userdata('aileenuser');
 
 

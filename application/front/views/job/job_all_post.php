@@ -655,7 +655,7 @@
                                                                     <?php } else { ?>       
 
                                                                                                                                                                                                                                                             <!--<a id="<?php echo $post['post_id']; ?>" onClick="save_post(this.id)" href="#popup1" class="<?php echo 'savedpost' . $post['post_id']; ?> button">Save</a>-->
-                                                                        <a onClick="savepopup(<?php echo $post['post_id']; ?>)" href="javascript:void(0);" class="<?php echo 'savedpost' . $post['post_id']; ?> button">Save</a>
+                              <a onClick="savepopup(<?php echo $post['post_id']; ?>)" href="javascript:void(0);" class="<?php echo 'savedpost' . $post['post_id']; ?> button">Save</a>
                                                                     <?php } ?>
                                                                     <?php
                                                                 }

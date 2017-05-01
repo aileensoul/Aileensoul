@@ -320,7 +320,7 @@
                 <?php
                 if ($freehiredata[0]['designation'] == '') {
                     ?>
-                    <center><a id="designation" class="designation" title="Designation">Current Work</a></center>
+                    <a id="designation" class="designation" title="Designation">Current Work</a>
                 <?php } else { ?> 
                     <a id="designation" class="designation" title="<?php echo ucwords($freehiredata[0]['designation']); ?>"><?php echo ucwords($freehiredata[0]['designation']); ?></a>                <?php } ?></div>
             <div  class="add-post-button">
@@ -390,23 +390,21 @@
 
 
 
-                                                        <div class="profile-job-post-title-inside clearfix">
-                                                            <div class="profile-job-profile-button clearfix">
-                                                                <div class="profile-job-post-location-name-rec">
-                                                                    <ul>
-                                                                        <ul>
-                                                                            <li>
-
-                                                                                <div  class="buisness-profile-pic-candidate">
-                                                                                    <?php
-                                            if ($rec['freelancer_post_user_image']) {
-                                                
-                                                ?>
-                                                <img src="<?php echo base_url(FREEWORKIMG . $rec['freelancer_post_user_image']); ?>" alt="<?php echo ucwords($rec['freelancer_post_fullname']) . ' ' . ucwords($row['freelancer_post_username']); ?>">
+           <div class="profile-job-post-title-inside clearfix">
+             <div class="profile-job-profile-button clearfix">
+               <div class="profile-job-post-location-name-rec">
+                  <ul>
+                       <ul>
+                           <li>
+                              <div  class="buisness-profile-pic-candidate">
+                              <?php
+                                if ($rec['freelancer_post_user_image']) {
+                                ?>
+                               <img src="<?php echo base_url(FREEWORKIMG . $rec['freelancer_post_user_image']); ?>" alt="<?php echo ucwords($rec['freelancer_post_fullname']) . ' ' . ucwords($row['freelancer_post_username']); ?>">
                                                 <?php
                                             } else {
                                                 
-                                                ?>
+                                      ?>
                                                 <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo ucwords($rec['freelancer_post_fullname']) . ' ' . ucwords($rec['freelancer_post_username']); ?>">
                                                 <?php
                                             }

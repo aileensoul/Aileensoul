@@ -424,8 +424,8 @@ echo $freelancer_hire_header2;} ?>
                                                 <div class="profile-job-profile-button clearfix">
                                                     <div class="freelancer_work_detail">
                <ul>
-
-                  <li>Hourly   : <?php if($post['post_rate']){
+                   <?php if($post['post_rating_type'] == 1){ ?>
+                   <li>Hourly   :<?php } else {?><li>Fixed   :<?php }?> <?php if($post['post_rate']){
                      echo $post['post_rate'];
                      echo "&nbsp";
                      echo $this->db->get_where('currency', array('currency_id' => $post['post_currency']))->row()->currency_name;}
@@ -468,6 +468,8 @@ echo $freelancer_hire_header2;} ?>
                                                         $countryname = $this->db->get_where('countries', array('country_id' => $post['country']))->row()->country_name;
                                                         $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name;
                                                         ?>
+                                                        <li> <b> Other Skill </b> <span><?php if ($post_other_skill){echo $post_other_skill;}else{echo PROFILENA;} ?></span>
+                                                        </li>
                                                         <li> <b> Country </b> <span><?php if ($countryname){echo $countryname;}else{echo PROFILENA;} ?></span>
                                                         </li>
                                                         <li>
@@ -481,8 +483,8 @@ echo $freelancer_hire_header2;} ?>
                                                                 <?php if($post['post_description']){echo text2link($post['post_description']);}else{echo PROFILENA;} ?>  </span>
                                                         </li>
                <li> <b>Total Experiance</b> <span> <?php if($post['post_exp_month'] ||  $post['post_exp_year']){
-               echo $post['post_exp_month']; ?> month&nbsp;&nbsp;<?php echo $post['post_exp_year'];}
-                else{echo PROFILENA;} ?> year</span> </li>
+            echo $post['post_exp_year'];   ?> year&nbsp;&nbsp;<?php  echo $post['post_exp_month'];}
+                else{echo PROFILENA;} ?> month </span> </li>
 
                                                     </ul>
                                                 </div>
