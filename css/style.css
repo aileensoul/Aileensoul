@@ -2078,6 +2078,13 @@ border-bottom: 1px solid #000033;
     padding: 0;
     overflow: hidden;
 }
+.flw_msg_btn ul {
+    list-style-type: none;
+    line-height: 18px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
 
 .profile-main-rec-box-menu li {
     float: left;
@@ -2085,7 +2092,12 @@ border-bottom: 1px solid #000033;
     /*   border-right: 1px solid #000000;*/
 
 }
+.flw_msg_btn ul li {
+    float: left;
+    margin-bottom: 0px;
+    /*   border-right: 1px solid #000000;*/
 
+}
 /*.profile-main-box-menu li:last-child {
     border-right: none;
 }
@@ -3557,7 +3569,7 @@ footer .footer-menu li a:hover{
 
 
 .flw_msg_btn ul li a{    width: 90px;
-                         padding: 8px 0px; -moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+                         padding: 8px 20px; -moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
                          -webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
                          box-shadow:inset 0px 1px 0px 0px #ffffff;
                          background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f9f9f9), color-stop(1, #b8b8b8));
@@ -3762,7 +3774,7 @@ li.fr a{
 .user_lst ul li .user_btn_i button{   border-radius: 3px; width: 100px;
                                       padding: 8px 0px; margin-bottom: 10px;}
 
-.user_lst ul li .user_btn_f button:hover{background-color: darkred;}
+.user_lst ul li .user_btn_f button:hover{background-color: darkred!important;}
 
 .select2-container .select2-choices 
 {
