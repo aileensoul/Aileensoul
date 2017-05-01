@@ -724,7 +724,7 @@ ul.business_pf_ct_person_detail li b {font-size: 16px; display: inline-block; wi
 .second-mid-bar ul li a { margin-left: 100px; width: 100% } 
 /* job-post*/
 .profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul { list-style: none; display: block; width: 100%; clear: both; padding:10px 4px 6px; margin-left: 4px; }
-.profile-job-post-detail .profile-job-post-title .profile-job-profile-menu li a {  text-decoration: none; }
+.profile-job-post-detail .profile-job-post-title .profile-job-profile-menu li a {  text-decoration: none; font-weight: 600; }
 .profile-job-post-detail .profile-job-post-title .profile-job-profile-menu li a:hover{text-decoration-line: underline; color: #000033;}
 .profile-job-post-location-name ul li h6 {font-weight: 600; font-size: 15px;}
 .profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li b {font-weight: 600; width: 32%; float: left; }

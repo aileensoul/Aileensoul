@@ -427,7 +427,7 @@ class Artistic extends MY_Controller {
                 $this->data['desc_art1'] = $userdata[0]['art_desc_art'];
                 $this->data['inspire1'] = $userdata[0]['art_inspire'];
                 $this->data['skills1'] = $userdata[0]['art_skill'];
-                $this->data['other'] = $userdata[0]['other_skill'];
+                $this->data['otherskill1'] = $userdata[0]['other_skill'];
             }
         }
 
@@ -697,7 +697,7 @@ class Artistic extends MY_Controller {
 
         if ($updatdata) {
             $this->session->set_flashdata('success', 'Portfolio updated successfully');
-            redirect('artistic/art_post', refresh);
+            redirect('artistic/artistic_profile', refresh);
         } else {
             $this->session->flashdata('error', 'Your data not inserted');
             redirect('artistic/art_portfolio', refresh);
@@ -3602,9 +3602,9 @@ $followingdatacount = count($followingotherdata);
 
             //echo "<pre>"; print_r($artdata); die();
             if ($this->data['artdata'][0]['art_post']) {
-                $editpost = '<div>';
+                $editpost = '<div><a>';
                 $editpost .= $artdata[0]['art_post'] . "<br>";
-                $editpost .= '</div>';
+                $editpost .= '</a></div>';
             }
             if ($this->data['artdata'][0]['art_description']) {
 
