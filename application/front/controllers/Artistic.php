@@ -546,7 +546,7 @@ class Artistic extends MY_Controller {
             if ($step == 4 || ($step >= 1 && $step <= 4) || $step > 4) {
                 $this->data['bestofmine1'] = $userdata[0]['art_bestofmine'];
                 $this->data['achievmeant1'] = $userdata[0]['art_achievement'];
-                $this->data['address1'] = $userdata[0]['art_portfolio'];
+                $this->data['art_portfolio1'] = $userdata[0]['art_portfolio'];
             }
         }
 
@@ -606,12 +606,95 @@ class Artistic extends MY_Controller {
         $this->load->view('artistic/art_portfolio', $this->data);
     }
 
+    // public function art_portfolio_insert() {
+
+
+    //     $userid = $this->session->userdata('aileenuser');
+       
+    //     //echo "<pre>"; print_r($_POST); die();
+
+    //     //best of mine image upload code start
+
+    //     $contition_array = array('user_id' => $userid);
+    //     $art_reg_data = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_bestofmine', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+    //     $art_bestofmine = $art_reg_data[0]['art_bestofmine']; 
+
+    //     if ($art_bestofmine != '') {
+    //         $art_pdf_path = 'uploads/art_images/';
+    //         $art_pdf = $art_pdf_path . $art_bestofmine;
+    //         if (isset($art_pdf)) {
+    //             unlink($art_pdf);
+    //         }
+    //     }
+
+
+    //     $config['upload_path'] = 'uploads/art_images/';
+    //     $config['allowed_types'] = 'pdf';
+
+    //     $config['file_name'] = $_FILES['bestofmine']['name'];
+    //     $config['upload_max_filesize'] = '40M';
+
+    //     //Load upload library and initialize configuration
+    //     $this->load->library('upload', $config);
+    //     $this->upload->initialize($config);
+
+    //     if ($this->upload->do_upload('bestofmine')) {
+
+    //         $uploadData = $this->upload->data();
+
+    //         $picture = $uploadData['file_name'];
+    //     } else {
+
+    //         $picture = '';
+    //     }
+    //     //best of mine image upload code End
+    //     // //Achievement image upload code start
+    //     // $config['upload_path'] = 'uploads/art_images/';
+    //     // $config['allowed_types'] = 'jpg|jpeg|png|gif|mp4|3gp|pdf|mp3';
+
+    //     // $config['file_name'] = $_FILES['achievmeant']['name'];
+    //     // $config['upload_max_filesize'] = '40M';
+    //     // //Load upload library and initialize configuration
+    //     // $this->load->library('upload', $config);
+    //     // $this->upload->initialize($config);
+
+    //     // if ($this->upload->do_upload('achievmeant')) {
+    //     //     $uploadData = $this->upload->data();
+    //     //     $picture_achiev = $uploadData['file_name'];
+    //     // } else {
+    //     //     $picture_achiev = '';
+    //     // }
+    //     // //Achievement image upload code End
+
+       
+    //         $data = array(
+               
+    //             'art_bestofmine' => $picture,
+    //             'art_portfolio' => $_POST('artportfolio'),
+    //             'modified_date' => date('Y-m-d', time()),
+    //             'art_step' => 4
+    //         );
+    //    echo "<pre>"; print_r($data); die();
+
+    //     $updatdata = $this->common->update_data($data, 'art_reg', 'user_id', $userid);
+
+    //     if ($updatdata) {
+    //         $this->session->set_flashdata('success', 'Portfolio updated successfully');
+    //         redirect('artistic/artistic_profile', refresh);
+    //     } else {
+    //         $this->session->flashdata('error', 'Your data not inserted');
+    //         redirect('artistic/art_portfolio', refresh);
+    //     }
+    // }
+
+
     public function art_portfolio_insert() {
 
 
         $userid = $this->session->userdata('aileenuser');
-        $bestmine = $this->input->post('bestmine');
-        $achi = $this->input->post('archiver');
+       echo $artportfolio = $_POST['artportfolio']; 
+      echo  $artportfolio = $_FILES['bestofmine']; die();
 
         //best of mine image upload code start
 
@@ -648,64 +731,16 @@ class Artistic extends MY_Controller {
 
             $picture = '';
         }
-        //best of mine image upload code End
-        // //Achievement image upload code start
-        // $config['upload_path'] = 'uploads/art_images/';
-        // $config['allowed_types'] = 'jpg|jpeg|png|gif|mp4|3gp|pdf|mp3';
-
-        // $config['file_name'] = $_FILES['achievmeant']['name'];
-        // $config['upload_max_filesize'] = '40M';
-        // //Load upload library and initialize configuration
-        // $this->load->library('upload', $config);
-        // $this->upload->initialize($config);
-
-        // if ($this->upload->do_upload('achievmeant')) {
-        //     $uploadData = $this->upload->data();
-        //     $picture_achiev = $uploadData['file_name'];
-        // } else {
-        //     $picture_achiev = '';
-        // }
-        // //Achievement image upload code End
-
-        if ($picture && $picture_achiev) {
-
-
+    
+       
             $data = array(
-                'art_achievement' => $picture_achiev,
+               
                 'art_bestofmine' => $picture,
-                'art_portfolio' => $this->input->post('artportfolio'),
+                'art_portfolio' => $_POST('artportfolio'),
                 'modified_date' => date('Y-m-d', time()),
                 'art_step' => 4
             );
-        } elseif ($picture) {
-
-            $data = array(
-                'art_achievement' => $this->input->post('archiver'),
-                'art_bestofmine' => $picture,
-                'art_portfolio' => $this->input->post('artportfolio'),
-                'modified_date' => date('Y-m-d', time()),
-                'art_step' => 4
-            );
-        } elseif ($picture_achiev) {
-
-            $data = array(
-                'art_achievement' => $picture_achiev,
-                'art_bestofmine' => $this->input->post('bestmine'),
-                'art_portfolio' => $this->input->post('artportfolio'),
-                'modified_date' => date('Y-m-d', time()),
-                'art_step' => 4
-            );
-        } else {
-
-            $data = array(
-                'art_achievement' => $this->input->post('archiver'),
-                'art_bestofmine' => $this->input->post('bestmine'),
-                'art_portfolio' => $this->input->post('artportfolio'),
-                'modified_date' => date('Y-m-d', time()),
-                'art_step' => 4
-            );
-        }
-
+       echo "<pre>"; print_r($data); die();
 
         $updatdata = $this->common->update_data($data, 'art_reg', 'user_id', $userid);
 

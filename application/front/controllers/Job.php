@@ -3110,7 +3110,7 @@ public function job_applied_post() {
                     $join_str[0]['join_type'] = '';
                     $contition_array = array('job_apply.job_delete' => 0,'rec_post.is_delete' => 0,'job_apply.user_id' => $userid);
                 
-                 $this->data['postdetail'] = $this->common->select_data_by_condition('rec_post', $contition_array, 'rec_post.*,job_apply.app_id,job_apply.user_id as userid', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
+                 $this->data['postdetail'] = $this->common->select_data_by_condition('rec_post', $contition_array, 'rec_post.*,job_apply.app_id,job_apply.user_id as userid', $sortby = 'app_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
         
                 // echo "<pre>"; print_r($this->data['postdetail']); die();
               
@@ -3183,15 +3183,15 @@ public function job_applied_post() {
         $userid = $this->session->userdata('aileenuser');
 
         $contition_array = array('post_id' => $id, 'user_id' => $userid, 'is_delete' => 0);
-        $userdata = $this->common->select_data_by_condition('job_apply', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
+        $userdata = $this->common->select_data_by_condition('job_apply', $contition_array, $data = '*', $sortby = 'post_id', $orderby = 'asc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+//echo '<pre>'; print_r($userdata); die();
 
         $app_id = $userdata[0]['app_id'];
 
         if ($userdata) {
 
             $contition_array = array('job_delete' => 1);
-            $jobdata = $this->common->select_data_by_condition('job_apply', $contition_array = array(), $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            $jobdata = $this->common->select_data_by_condition('job_apply', $contition_array = array(), $data = '*', $sortby = 'post_id', $orderby = 'asc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
 
 
@@ -3245,7 +3245,7 @@ public function job_applied_post() {
         $join_str[0]['join_type'] = '';
 
         $contition_array = array('job_apply.job_delete' => 0, 'job_apply.user_id' => $userid, 'job_apply.job_save' => 2);
-        $postdetail = $this->data['postdetail'] = $this->common->select_data_by_condition('rec_post', $contition_array, $data = 'rec_post.*,job_apply.app_id,job_apply.user_id as userid', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
+        $postdetail = $this->data['postdetail'] = $this->common->select_data_by_condition('rec_post', $contition_array, $data = 'rec_post.*,job_apply.app_id,job_apply.user_id as userid', $sortby = 'app_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 
 // code for search
         $contition_array = array('re_status' => '1');
