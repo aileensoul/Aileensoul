@@ -4271,3 +4271,7 @@ textarea {overflow: hidden;}
     resize: none;
     margin-top: 10px;
 }
+
+/*v 1-5-17 start */
+.fullwidth_experience select { width: 49%; }
+/* v  1-5-17 end*/
