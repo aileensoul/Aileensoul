@@ -392,14 +392,14 @@
                <p><i class="fa fa-map-marker" aria-hidden="true"> <?php echo $cityname; ?></i></p>
                    </div>
 
-              <a class="display_inline" title="Company Name" href="<?php echo base_url('recruiter/rec_profile/' . $post['user_id']); ?>" ><?php
+              <a class="display_inline" title="Company Name" href="<?php echo base_url('recruiter/rec_profile/' . $post['user_id'].'?page=job'); ?>" ><?php
                  $cache_time = $this->db->get_where('recruiter', array('user_id' => $post['user_id']))->row()->re_comp_name;
                  echo ucwords($cache_time);
               ?></a>
 
             </li>
 
-            <li><a  class="display_inline" title="Recruiter Name" href="<?php echo base_url('recruiter/rec_profile/' . $post['user_id']); ?>"><?php
+            <li><a  class="display_inline" title="Recruiter Name" href="<?php echo base_url('recruiter/rec_profile/' . $post['user_id'].'?page=job'); ?>"><?php
              $cache_time = $this->db->get_where('recruiter', array('user_id' => $post['user_id']))->row()->rec_firstname;
              echo ucwords($cache_time);
            ?></a></li>
