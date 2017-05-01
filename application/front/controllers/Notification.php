@@ -228,20 +228,75 @@ $this->load->view('notification/index', $this->data);
 }
 //recruiter post for notification start
 
-    public function recruiter_post($id){ //echo "falguni"; die();
+    public function recruiter_post($id){
+     //echo "falguni"; die(); 
+      //echo $id; die();
       $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
 
-        
 
-           $this->data['recdata'] = $this->common->select_data_by_id('recruiter','user_id', $id, $data = '*', $join_str = array());
+       $join_str[0]['table'] = 'recruiter';
+            $join_str[0]['join_table_id'] = 'recruiter.user_id';
+            $join_str[0]['from_table_id'] = 'rec_post.user_id';
+            $join_str[0]['join_type'] = '';
 
-      $contition_array = array('post_id' => $id ,  'is_delete' => 0);
-      $this->data['postdata'] =  $this->common->select_data_by_condition('rec_post', $contition_array, $data = '*', $sortby = 'post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
+            $contition_array = array('rec_post.user_id' => $userid, 'rec_post.is_delete' => 0,'rec_post.post_id' => $id);
+            $this->data['postdata'] = $this->common->select_data_by_condition('rec_post', $contition_array, $data = 'rec_post.*,recruiter.rec_firstname,recruiter.re_comp_name,recruiter.rec_lastname', $sortby = 'post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
+
+           // echo "<pre>"; print_r($this->data['postdata']); die();
        
-      $this->load->view('notification/rec_post' , $this->data); 
+      $this->load->view('notification/rec_post1' , $this->data); 
   }
 // recruiter post for notifiaction end 
+
+
+   public function rec_profile($id="") {
+
+        $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
+
+        if ($id == $userid || $id == '') {
+            $this->data['recdata'] = $this->common->select_data_by_id('recruiter', 'user_id', $userid, $data = '*', $join_str = array());
+        } else {
+            $this->data['recdata'] = $this->common->select_data_by_id('recruiter', 'user_id', $id, $data = '*', $join_str = array());
+        }
+//echo '<pre>'; print_r( $this->data['recdata']); die();
+
+        $this->load->view('notification/rec_profile', $this->data);
+    }
+
+ public function rec_post($id) { 
+        //echo "falguni"; die();
+        $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
+
+        if ($id == $userid || $id == '') {
+            //echo "hii"; die();
+            $join_str[0]['table'] = 'recruiter';
+            $join_str[0]['join_table_id'] = 'recruiter.user_id';
+            $join_str[0]['from_table_id'] = 'rec_post.user_id';
+            $join_str[0]['join_type'] = '';
+
+
+            $contition_array = array('rec_post.user_id' => $userid, 'rec_post.is_delete' => 0);
+            $this->data['postdata'] = $this->common->select_data_by_condition('rec_post', $contition_array, $data = 'rec_post.*,recruiter.rec_firstname,recruiter.re_comp_name,recruiter.rec_lastname', $sortby = 'post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
+             // echo "<pre>"; print_r($this->data['postdata']); die();
+
+        } else { 
+            //echo "hello"; die();
+            
+            $join_str[0]['table'] = 'recruiter';
+            $join_str[0]['join_table_id'] = 'recruiter.user_id';
+            $join_str[0]['from_table_id'] = 'rec_post.user_id';
+            $join_str[0]['join_type'] = '';
+
+            $contition_array = array('rec_post.user_id' => $id, 'rec_post.is_delete' => 0);
+            $this->data['postdata'] = $this->common->select_data_by_condition('rec_post', $contition_array, $data = 'rec_post.*,recruiter.rec_firstname,recruiter.re_comp_name,recruiter.rec_lastname', $sortby = 'post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
+             // echo "<pre>"; print_r($this->data['postdata']); die();
+        }
+        
+       
+        $this->load->view('notification/rec_post', $this->data);
+    }
+
   
 //artistic display post from notifiacation  start 
 

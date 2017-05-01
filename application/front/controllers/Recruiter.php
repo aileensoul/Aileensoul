@@ -25,6 +25,7 @@ class Recruiter extends MY_Controller {
         $artdata = $this->common->select_data_by_condition('recruiter', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         if ($artdata) {
 
+
             $this->load->view('recruiter/reactivate', $this->data);
         } else {
             $userid = $this->session->userdata('aileenuser');
@@ -539,10 +540,12 @@ class Recruiter extends MY_Controller {
         }
     }
 
-    public function rec_post($id) { //echo "falguni"; die();
+    public function rec_post($id) { 
+        //echo "falguni"; die();
         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
 
-        if ($id == $userid || $id == '') { //echo "hii"; die();
+        if ($id == $userid || $id == '') {
+            //echo "hii"; die();
             $join_str[0]['table'] = 'recruiter';
             $join_str[0]['join_table_id'] = 'recruiter.user_id';
             $join_str[0]['from_table_id'] = 'rec_post.user_id';
@@ -551,9 +554,10 @@ class Recruiter extends MY_Controller {
 
             $contition_array = array('rec_post.user_id' => $userid, 'rec_post.is_delete' => 0);
             $this->data['postdata'] = $this->common->select_data_by_condition('rec_post', $contition_array, $data = 'rec_post.*,recruiter.rec_firstname,recruiter.re_comp_name,recruiter.rec_lastname', $sortby = 'post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
-              //echo "<pre>"; print_r($this->data['postdata']); die();
+             // echo "<pre>"; print_r($this->data['postdata']); die();
 
-        } else { //echo "hello"; die();
+        } else { 
+            //echo "hello"; die();
             
             $join_str[0]['table'] = 'recruiter';
             $join_str[0]['join_table_id'] = 'recruiter.user_id';
@@ -562,7 +566,7 @@ class Recruiter extends MY_Controller {
 
             $contition_array = array('rec_post.user_id' => $id, 'rec_post.is_delete' => 0);
             $this->data['postdata'] = $this->common->select_data_by_condition('rec_post', $contition_array, $data = 'rec_post.*,recruiter.rec_firstname,recruiter.re_comp_name,recruiter.rec_lastname', $sortby = 'post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
-              // echo "<pre>"; print_r($this->data['postdata']); die();
+             // echo "<pre>"; print_r($this->data['postdata']); die();
         }
         
        
