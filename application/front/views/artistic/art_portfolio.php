@@ -8,6 +8,10 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
     <!-- END HEADER -->
+    <style type="text/css">
+      .full-width img{display: none;}
+    </style>
+
     <body class="page-container-bg-solid page-boxed">
 
       <section>
