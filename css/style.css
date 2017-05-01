@@ -4258,3 +4258,16 @@ input:-moz-placeholder { color:#999; font-size: 15px; }
   }
 }
 textarea {overflow: hidden;}
+
+.editable_text{
+  background: white;
+    border: 2px solid #cacaca;
+    outline: none;
+    padding: 8px 15px;
+    color: #000;
+    font-size: 14px;
+    font-weight: 400;
+    border-radius: 4px;
+    resize: none;
+    margin-top: 10px;
+}
