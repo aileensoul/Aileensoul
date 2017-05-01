@@ -21,7 +21,7 @@ a:hover { text-decoration: none; color: #000; }
 a:focus { outline: none; text-decoration: none;  }
 [contenteditable]:active,
 [contenteditable]:focus{
-    border:none;
+   /* border:none;*/
     outline:none;
 }
 .marquee-main {
