@@ -754,7 +754,7 @@ ul.business_pf_ct_person_detail li b {font-size: 16px; display: inline-block; wi
 .profile-job-details p { color: #000033; }
 .profile-job-details p  i{ /* margin-right: 10px; */ margin-left: 10px; }
 
-
+.profile-job-details li{list-style: none;}
 /* job */
 .job-contact-frnd .profile-job-post-detail { background-color:#ffffff; border: 1px solid #bfbfbf; border-radius: 4px; margin-bottom: 15px; }
 
