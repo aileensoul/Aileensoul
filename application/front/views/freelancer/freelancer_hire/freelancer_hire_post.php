@@ -468,6 +468,8 @@ echo $freelancer_hire_header2;} ?>
                                                         $countryname = $this->db->get_where('countries', array('country_id' => $post['country']))->row()->country_name;
                                                         $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name;
                                                         ?>
+                                                        <li> <b> Other Skill </b> <span><?php if ($post_other_skill){echo $post_other_skill;}else{echo PROFILENA;} ?></span>
+                                                        </li>
                                                         <li> <b> Country </b> <span><?php if ($countryname){echo $countryname;}else{echo PROFILENA;} ?></span>
                                                         </li>
                                                         <li>
