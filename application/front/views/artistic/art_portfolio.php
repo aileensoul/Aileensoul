@@ -54,9 +54,8 @@
                         
                           
                              
-                             <form name="artportfolio" method="post" id="artportfolio" 
-                                class="clearfix" onsubmit="return  portfolio_form_submit()"
-                             action="<?php echo base_url('artistic/art_portfolio_insert'); ?>" enctype="multipart/form-data" >
+                  <form name="artportfolio" method="post" id="artportfolio" 
+                    class="clearfix" onsubmit="return  portfolio_form_submit()" enctype="multipart/form-data" >
 
                                 <?php
                                  $artportfolio =  form_error('artportfolio');
@@ -88,7 +87,7 @@
 
                                 <fieldset class="full-width">
                                  
-                                     <textarea name ="artportfolio" id="artportfolio" rows="4" cols="50" placeholder="Enter Portfolio Detail" style="resize: none;"><?php if($address1){ echo $address1; } ?></textarea>
+                              <div contenteditable="true" name ="artportfolio" id="artportfolio" rows="4" cols="50" placeholder="Enter Portfolio Detail" style="resize: none;"><?php if($art_portfolio1){ echo $art_portfolio1; } ?></div>
                                          <?php echo form_error('artportfolio'); ?>
                                  
                                 </fieldset>
@@ -256,13 +255,30 @@ $( "#tags" ).autocomplete({
 
 <!-- only pdf insert script strat -->
 <script type="text/javascript">
-  function portfolio_form_submit(){
+  function portfolio_form_submit(){ 
+
+    //var artportfolio = document.getElementById("artportfolio").value;
     var bestofmine = document.getElementById("bestofmine").value;
-    
-    if(bestofmine == ''){
+
+    // start khyati code
+  var $field = $('#artportfolio');
+  //var data = $field.val();
+  var artportfolio = $('#artportfolio').html();
+  alert(artportfolio);
+// end khyati code  
+    if(bestofmine == ''){ 
       //$(".bestofmine_image").html("Please select at lease one file.");
         //return false;
-        document.getElementById("artportfolio").submit();
+        // document.getElementById("artportfolio").submit();
+
+        $.ajax({
+                type:'POST',
+                url:'<?php echo base_url() . "artistic/art_portfolio_insert" ?>',
+                 data:'bestofmine='+bestofmine + '&artportfolio='+artportfolio,
+                success:function(data){ 
+                    
+                }
+            }); 
     }
     else{
       var bestofmine_ext = bestofmine.split('.').pop();
@@ -270,8 +286,20 @@ $( "#tags" ).autocomplete({
       var foundPresentpdf = $.inArray(bestofmine_ext, allowespdf) > -1;
 
       if(foundPresentpdf == true)
-      {
-         document.getElementById("artportfolio").submit();
+      { 
+
+          var artportfolio = document.getElementById("artportfolio").value;
+          var bestofmine = document.getElementById("bestofmine").value;
+   
+        $.ajax({
+                type:'POST',
+                url:'<?php echo base_url() . "artistic/art_portfolio_insert" ?>',
+                 data:'bestofmine='+bestofmine + '&artportfolio='+artportfolio,
+                success:function(data){ 
+                    
+                }
+            }); 
+        // document.getElementById("artportfolio").submit();
      }
      else{
         $(".bestofmine_image").html("Please select only pdf file.");
