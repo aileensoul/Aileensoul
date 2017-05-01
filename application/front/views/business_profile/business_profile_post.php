@@ -785,19 +785,20 @@ $slugnameposted =  $this->db->get_where('business_profile',array('user_id' => $r
                 <?php if($row['posted_user_id']){?>
                   <li>
                   <div class="else_post_d">
-       <div class="post-design-product"><a style=" font-size: 18px;
-                         line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; " href="<?php echo base_url('business_profile/business_profile_manage_post/'.$slugnameposted); ?>"><?php echo ucwords($companynameposted); ?></a> <span style="font-weight: 600;"> Posted With </span> <a style=" font-size: 18px;
+       <div class="post-design-product">
+       <div><a style=" max-width: 26%; width: auto;  font-size: 18px;  display: inline-block; line-height: 24px; font-weight: 600;  color: #000033;  margin-bottom: 4px; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; " href="<?php echo base_url('business_profile/business_profile_manage_post/'.$slugnameposted); ?>"><?php echo ucwords($companynameposted); ?></a>
+       </div> <span style="font-weight: 600;"> Posted With </span> <a style=" font-size: 18px;
                          line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; " href="<?php echo base_url('business_profile/business_profile_manage_post/'.$slugname); ?>"><?php echo ucwords($companyname); ?></a> <span  style="font-weight: 400; cursor: default;"><?php echo date('d-M-Y',strtotime($row['created_date'])); ?> </span> </div></div>
                          </li>
                          <?php }else{?>
                 <li>
-                  <div class="post-design-product">
-                    <a style="font-size: 18px; line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; "  href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>" title="<?php echo ucwords($companyname); ?>";>
-                   <span class="span_main_name">   <?php echo ucwords($companyname); ?></span> 
-                      <span style="font-weight: 400; cursor: default;"> 
+                 <div class="post-design-product">
+                    <a style=" max-width: 26%; width: auto; font-size: 18px;  display: inline-block; font-weight: 600;  color: #000033;   text-overflow: ellipsis; overflow: hidden; white-space: nowrap; "   href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>" title="<?php echo ucwords($companyname); ?>";>
+                  <?php echo ucwords($companyname); ?>  </a>
+                     <div class="datespan">  <span style="font-weight: 400; cursor: default;"> 
                         <?php echo date('d-M-Y', strtotime($row['created_date'])); ?>
-                      </span>
-                    </a>
+                      </span></div>
+                  
                   </div>
 
 
@@ -1155,7 +1156,7 @@ echo '</br>';
                   </div>
                   <div class="col-md-12">
                     <div class="col-md-10">
-                      <input type="text" name="<?php echo $rowdata['business_profile_post_comment_id']; ?>" id="<?php echo "editcomment" . $rowdata['business_profile_post_comment_id']; ?>" style="display:none" value="<?php echo $rowdata['comments']; ?>" onClick="commentedit(this.name)">
+                   <div contenteditable="true" class="editable_text" name="<?php echo $rowdata['business_profile_post_comment_id']; ?>" id="<?php echo "editcomment" . $rowdata['business_profile_post_comment_id']; ?>" style="display:none; margin-top: 0px!important;"   onClick="commentedit(this.name)"><?php echo $rowdata['comments']; ?></div>
                     </div>
                     <div class="col-md-2 comment-edit-button">
                       <button id="<?php echo "editsubmit" . $rowdata['business_profile_post_comment_id']; ?>" style="display:none" onClick="edit_comment(<?php echo $rowdata['business_profile_post_comment_id']; ?>)">Comment
@@ -1250,7 +1251,7 @@ $business_userimage = $this->db->get_where('business_profile', array('user_id' =
             </div>
             <div class="">
               <div id="content" class="col-md-10  inputtype-comment" style="padding-left: 7px;">
-                  <textarea style="min-height:37px !important;" name="<?php echo $row['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $row['business_profile_post_id']; ?>" placeholder="Type Message ..." value= ""  onClick="entercomment(this.name)"></textarea>
+                  <div contenteditable="true" style="min-height:37px !important; margin-top: 0px!important" class="editable_text" name="<?php echo $row['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $row['business_profile_post_id']; ?>" placeholder="Type Message ..." value= ""  onClick="entercomment(this.name)"></div>
               </div>
               <?php echo form_error('post_comment'); ?> 
               <div class="col-md-1 comment-edit-butn">       
@@ -1400,13 +1401,20 @@ $('#content').on( 'change keyup keydown paste cut', 'textarea', function (){
     var post_comment = document.getElementById("post_comment" + clicked_id);
     //alert(clicked_id);
     //alert(post_comment.value);
+    // start khyati code
+  var $field = $('#post_comment' + clicked_id);
+  //var data = $field.val();
+  var post_comment = $('#post_comment' + clicked_id).html();
+// end khyati code
+  
+$('#post_comment' + clicked_id).html("");
     $.ajax({
       type:'POST',
-      url:'<?php echo base_url() . "business_profile/insert_comment" ?>',
-      data:'post_id=' + clicked_id + '&comment=' + post_comment.value,
+      url:'<?php echo base_url() . "business_profile/insert_commentthree" ?>',
+      data:'post_id=' + clicked_id + '&comment=' + post_comment,
       dataType: "json",
       success:function(data){
-        $('input').each(function(){
+        $('div').each(function(){
           $(this).val('');
         });
         $('#' + 'insertcount' + clicked_id).html(data.count);
@@ -1419,10 +1427,19 @@ $('#content').on( 'change keyup keydown paste cut', 'textarea', function (){
 <script type="text/javascript">
   function entercomment(clicked_id)
   {
+    var $field = $('#post_comment' + clicked_id);
     $(document).ready(function() {
       $('#post_comment' + clicked_id).keypress(function(e) {
         if (e.keyCode == 13 && !e.shiftKey) {
-          var val = $('#post_comment' + clicked_id).val();
+          //var val = $('#post_comment' + clicked_id).val();
+             // start khyati code
+  
+  //var data = $field.val();
+  var post_comment = $('#post_comment' + clicked_id).html();
+// end khyati code
+  
+$('#post_comment' + clicked_id).html("");
+
           e.preventDefault();
           if (window.preventDuplicateKeyPresses)
             return;
@@ -1437,7 +1454,7 @@ $('#content').on( 'change keyup keydown paste cut', 'textarea', function (){
             $.ajax({
               type:'POST',
               url:'<?php echo base_url() . "business_profile/insert_commentthree" ?>',
-              data:'post_id=' + clicked_id + '&comment=' + val,
+              data:'post_id=' + clicked_id + '&comment=' + post_comment,
               dataType: "json",
               success:function(data){
                 $('input').each(function(){
@@ -1468,6 +1485,7 @@ $('#content').on( 'change keyup keydown paste cut', 'textarea', function (){
           }
           // khyati chnages end
           //alert(val);
+          e.preventDefault();
         }
       });
     });
@@ -1618,10 +1636,20 @@ $('#content').on( 'change keyup keydown paste cut', 'textarea', function (){
     var post_comment_edit = document.getElementById("editcomment" + abc);
     //alert(post_comment.value);
     //alert(post_comment.value);
+// start khyati code
+  var $field = $('#editcomment' + abc);
+  //var data = $field.val();
+  var post_comment_edit = $('#editcomment' + abc).html();
+// end khyati code
+  
+ 
+ $('#editcomment' + abc).html("");
+
+
     $.ajax({
       type:'POST',
       url:'<?php echo base_url() . "business_profile/edit_comment_insert" ?>',
-      data:'post_id=' + abc + '&comment=' + post_comment_edit.value,
+      data:'post_id=' + abc + '&comment=' + post_comment_edit,
       success:function(data){
         //alert('falguni');
         //  $('input').each(function(){
