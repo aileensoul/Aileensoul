@@ -101,7 +101,6 @@ $join_str = array(array(
 $data = array('notification.*',' job_apply.*',' user.user_id', 'user.first_name', 'user.user_image','user.last_name');
 
 $this->data['work_post'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'app_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = 'not_from_id');
-//echo '<pre>'; print_r($this->data['free_post']); die();
 // freelancer post notification end
 
 //artistic notification start
@@ -156,7 +155,7 @@ $join_str = array(array(
         'join_table_id' => 'notification.not_from_id',
         'from_table_id' => 'user.user_id')
 );
-$data = array('notification.*',' art_post.*',' user.user_id', 'user.first_name', 'user.user_image','user.last_name');
+$data = array('notification.*','art_post.*',' user.user_id', 'user.first_name', 'user.user_image','user.last_name');
 
 $this->data['artlike'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'art_post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = 'not_from_id');
 
@@ -360,6 +359,149 @@ public function art_post($id){
             $this->load->view('notification/business_post',$this->data);
         }
     //business _profile notification post end 
+        
+        public function select_req() 
+{
+        $userid = $this->session->userdata('aileenuser');
+       
+            $contition_array = array('not_read' => 2,'not_to_id'=> $userid);
+            $result = $this->common->select_data_by_condition('notification', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            
+         //echo '<pre>'; print_r($result); 
+           $count = count($result); 
+           echo $count;
+}
+
+public function update_req()
+{
+        $userid = $this->session->userdata('aileenuser');
+        
+       //echo "<pre>"; print_r($data); die();
+
+          $contition_array = array('not_read' => 2,'not_to_id'=> $userid);
+            $result = $this->common->select_data_by_condition('notification', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+            $data = array(
+                'not_read' => 1
+                 ); 
+            // echo "<pre>"; print_r($result);die();
+
+            foreach($result as $cnt)
+            {     $updatedata =   $this->common->update_data($data,'notification','not_id',$cnt['not_id']);                     
+                                               
+            }
+           
+         //echo '<pre>'; print_r($result); 
+           $count = count($updatedata); 
+           echo $count;
+
+}
+
+
+public function recnot($id=" ")
+{
+        $userid = $this->session->userdata('aileenuser');
+        
+       //echo "<pre>"; print_r($data); die();
+
+          $contition_array = array('not_read' => 2,'not_to_id'=> $userid);
+        $result = $this->common->select_data_by_condition('notification', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+            $data = array(
+                'not_read' => 1
+                 ); 
+            // echo "<pre>"; print_r($result);die();
+
+            foreach($result as $cnt)
+            {     $updatedata =   $this->common->update_data($data,'notification','not_id',$cnt['not_id']);                     
+                                               
+            }
+           
+         //echo '<pre>'; print_r($result); 
+           $count = count($updatedata); 
+           echo $count;
+
+}
+
+//artistic display post from notifiacation  start
+
+
+//Notification count select & update for apply,save,like,comment,contact and follow start
+public function select_notification() 
+{ //echo "hello"; die();
+        $userid = $this->session->userdata('aileenuser');
+    $contition_array = array('not_read' => 2,'not_to_id'=> $userid, 'not_type !=' => 1, 'not_type !=' => 2);
+            $result = $this->common->select_data_by_condition('notification', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            
+         //echo '<pre>'; print_r($result); 
+           $count = count($result); 
+           echo $count;
+}
+
+
+public function update_notification()
+{
+        $userid = $this->session->userdata('aileenuser');
+        
+       //echo "<pre>"; print_r($data); die();
+
+         $contition_array = array('not_read' => 2,'not_to_id'=> $userid, 'not_type !=' => 1, 'not_type !=' => 2);
+            $result = $this->common->select_data_by_condition('notification', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+            $data = array(
+                'not_read' => 1
+                 ); 
+            // echo "<pre>"; print_r($result);die();
+
+            foreach($result as $cnt)
+            {     $updatedata =   $this->common->update_data($data,'notification','not_id',$cnt['not_id']);                     
+                                               
+            }
+           
+         //echo '<pre>'; print_r($result); 
+           $count = count($updatedata); 
+           echo $count;
+
+}
+//Notification count select & update for apply,save,like,comment,contact and follow End
+
+//Notification count select & update for Message start
+public function select_msg_noti() 
+{ //echo "hello"; die();
+        $userid = $this->session->userdata('aileenuser');
+    $contition_array = array('not_read' => 2,'not_to_id'=> $userid, 'not_type' => 2);
+            $result = $this->common->select_data_by_condition('notification', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            
+         //echo '<pre>'; print_r($result); 
+           $count = count($result); 
+           echo $count;
+}
+
+
+public function update_msg_noti()
+{
+        $userid = $this->session->userdata('aileenuser');
+        
+       //echo "<pre>"; print_r($data); die();
+
+         $contition_array = array('not_read' => 2,'not_to_id'=> $userid, 'not_type' => 2);
+            $result = $this->common->select_data_by_condition('notification', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+            $data = array(
+                'not_read' => 1
+                 ); 
+            // echo "<pre>"; print_r($result);die();
+
+            foreach($result as $cnt)
+            {     $updatedata =   $this->common->update_data($data,'notification','not_id',$cnt['not_id']); 
+             }
+           
+         //echo '<pre>'; print_r($result); 
+           $count = count($updatedata); 
+           echo $count;
+
+}
+//Notification count select & update for Message End
         
         
 }

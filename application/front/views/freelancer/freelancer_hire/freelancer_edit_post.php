@@ -118,7 +118,7 @@
                         </fieldset>
 
 
-                           <fieldset class="full-width two-select-box"> 
+              <fieldset class="full-width two-select-box fullwidth_experience"> 
                                 <label>Experience:</label>
                                 
                                 <select name="year" id="year">

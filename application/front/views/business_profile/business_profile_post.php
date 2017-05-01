@@ -306,7 +306,7 @@ width: 68px;">
                       </span>
                       <?php $category = $this->db->get_where('industry_type', array('industry_id' => $businessdata[0]['industriyal'], 'status' => 1))->row()->industry_name; ?>
                       <div class="profile-boxProfile-name">
-                        <a style="padding-left: 3px;" href="<?php echo base_url('business_profile/business_profile_manage_post/'); ?> " title="<?php echo ucwords($businessdata[0]['company_name']); ?>" >
+                        <a style="padding-left: 1px;" href="<?php echo base_url('business_profile/business_profile_manage_post/'); ?> " title="<?php echo ucwords($businessdata[0]['company_name']); ?>" >
                          <b> <?php echo $category; ?></b>
                         </a>
                       </div>
@@ -785,20 +785,19 @@ $slugnameposted =  $this->db->get_where('business_profile',array('user_id' => $r
                 <?php if($row['posted_user_id']){?>
                   <li>
                   <div class="else_post_d">
-       <div class="post-design-product">
-       <div><a style=" max-width: 26%; width: auto;  font-size: 18px;  display: inline-block; line-height: 24px; font-weight: 600;  color: #000033;  margin-bottom: 4px; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; " href="<?php echo base_url('business_profile/business_profile_manage_post/'.$slugnameposted); ?>"><?php echo ucwords($companynameposted); ?></a>
-       </div> <span style="font-weight: 600;"> Posted With </span> <a style=" font-size: 18px;
+       <div class="post-design-product"><a style=" font-size: 18px;
+                         line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; " href="<?php echo base_url('business_profile/business_profile_manage_post/'.$slugnameposted); ?>"><?php echo ucwords($companynameposted); ?></a> <span style="font-weight: 600;"> Posted With </span> <a style=" font-size: 18px;
                          line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; " href="<?php echo base_url('business_profile/business_profile_manage_post/'.$slugname); ?>"><?php echo ucwords($companyname); ?></a> <span  style="font-weight: 400; cursor: default;"><?php echo date('d-M-Y',strtotime($row['created_date'])); ?> </span> </div></div>
                          </li>
                          <?php }else{?>
                 <li>
                   <div class="post-design-product">
-                    <a style=" max-width: 26%; width: auto; font-size: 18px;  display: inline-block; font-weight: 600;  color: #000033;   text-overflow: ellipsis; overflow: hidden; white-space: nowrap; "   href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>" title="<?php echo ucwords($companyname); ?>";>
-                  <?php echo ucwords($companyname); ?>  </a>
-                     <div class="datespan">  <span style="font-weight: 400; cursor: default;"> 
+                    <a style="font-size: 18px; line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; "  href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>" title="<?php echo ucwords($companyname); ?>";>
+                   <span class="span_main_name">   <?php echo ucwords($companyname); ?></span> 
+                      <span style="font-weight: 400; cursor: default;"> 
                         <?php echo date('d-M-Y', strtotime($row['created_date'])); ?>
-                      </span></div>
-                  
+                      </span>
+                    </a>
                   </div>
 
 
@@ -854,14 +853,14 @@ if ($businesssave) {
                 <?php } ?>
               </div>
             </div>
-            <div class="post-design-desc " >
+            <div class="post-design-desc ">
               <div >
-                <div id="<?php echo 'editpostdata' . $row['business_profile_post_id']; ?>" style="display:block; width: 79%;">
+                <div id="<?php echo 'editpostdata' . $row['business_profile_post_id']; ?>" style="display:block;">
                   <a style="margin-bottom: 0px;     font-size: 16px">
                     <?php echo text2link($row['product_name']); ?>
                   </a>
                 </div>
-                <div id="<?php echo 'editpostbox' . $row['business_profile_post_id']; ?>" style="display:none; width: 79%;">
+                <div id="<?php echo 'editpostbox' . $row['business_profile_post_id']; ?>" style="display:none;">
                   <input type="text" id="<?php echo 'editpostname' . $row['business_profile_post_id']; ?>" name="editpostname" placeholder="Product Name" value="<?php echo $row['product_name']; ?>">
                 </div>
               </div>                    
@@ -871,12 +870,14 @@ if ($businesssave) {
                     <?php print text2link($row['product_description']); ?>
                   </span>
                 </div>
-                <div id="<?php echo 'editpostdetailbox' . $row['business_profile_post_id']; ?>" style="display:none; width: 79%;">
+                <div id="<?php echo 'editpostdetailbox' . $row['business_profile_post_id']; ?>" style="display:none;">
                  
 
-                  <div contenteditable="true" id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" placeholder="Product Description" class="textbuis  editable_text"  name="editpostdesc"><?php echo $row['product_description']; ?></div>
+                  <!-- <textarea id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" placeholder="Product Description" class="textbuis" name="editpostdesc"><?php echo $row['product_description']; ?></textarea>
+ -->
+<div contenteditable="true" id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" placeholder="Product Description" class="textbuis  editable_text"  name="editpostdesc"><?php echo $row['product_description']; ?></div>                  
                 </div>
-                <button class="fr" id="<?php echo "editpostsubmit" . $row['business_profile_post_id']; ?>" style="display:none;margin: 5px 0; border-radius: 3px; margin-right: 142px;" onClick="edit_postinsert(<?php echo $row['business_profile_post_id']; ?>)">Save
+                <button class="fr" id="<?php echo "editpostsubmit" . $row['business_profile_post_id']; ?>" style="display:none;margin: 5px 0; border-radius: 3px;" onClick="edit_postinsert(<?php echo $row['business_profile_post_id']; ?>)">Save
                 </button>
             
             </div> 
@@ -1892,10 +1893,18 @@ $('#content').on( 'change keyup keydown paste cut', 'textarea', function (){
   {
     var editpostname = document.getElementById("editpostname" + abc);
     var editpostdetails = document.getElementById("editpostdesc" + abc);
+// start khyati code
+  var $field = $('#editpostdesc' + abc);
+  //var data = $field.val();
+  var editpostdetails = $('#editpostdesc' + abc).html();
+// end khyati code
+  
+ 
+ // $('#editpostdesc' + abc).html("");
     $.ajax({
       type:'POST',
       url:'<?php echo base_url() . "business_profile/edit_post_insert" ?>',
-      data:'business_profile_post_id=' + abc + '&product_name=' + editpostname.value + '&product_description=' + editpostdetails.value,
+      data:'business_profile_post_id=' + abc + '&product_name=' + editpostname.value + '&product_description=' + editpostdetails,
       dataType: "json",
       success:function(data){
         document.getElementById('editpostdata' + abc).style.display = 'block';
@@ -2199,12 +2208,3 @@ $(document).ready(function(){
 
 </script>
 <!-- post insert developing code end  -->
-<script type="text/javascript">
-$('textarea').on('keydown', function(e){
-    if(e.which == 13) {e.preventDefault();}
-}).on('input', function(){
-    $(this).height(1);
-    var totalHeight = $(this).prop('scrollHeight') - parseInt($(this).css('padding-top')) - parseInt($(this).css('padding-bottom'));
-    $(this).height(totalHeight);
-});
-</script>

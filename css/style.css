@@ -21,7 +21,7 @@ a:hover { text-decoration: none; color: #000; }
 a:focus { outline: none; text-decoration: none;  }
 [contenteditable]:active,
 [contenteditable]:focus{
-    border:none;
+   /* border:none;*/
     outline:none;
 }
 .marquee-main {
@@ -4271,3 +4271,7 @@ textarea {overflow: hidden;}
     resize: none;
     margin-top: 10px;
 }
+
+/*v 1-5-17 start */
+.fullwidth_experience select { width: 49%; }
+/* v  1-5-17 end*/
