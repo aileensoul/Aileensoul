@@ -375,10 +375,11 @@ function text2link($text) {
                                         <!-- pop up box end-->
 
 
-                                        <div class="job-post-title">
-                                            <h6><a href="<?php echo base_url('freelancer/freelancer_hire_profile/' . $post['user_id']); ?>" title="Post Title">
+            <div class="job-post-title">
+              <h4><a href="<?php echo base_url('freelancer/freelancer_hire_profile/' . $post['user_id']); ?>" title="Post Title">
         <?php echo text2link($post['post_name']); ?>
-                                                </a></h6>
+                   </a></h4>
+                   <a href="#"> jay</a>
                                         </div>
                                         <div class="exper-location">
                                             <ul>
@@ -399,23 +400,21 @@ function text2link($text) {
                                                 </li>
                                                     <li>
 
-                                                                <?php
-                                                                $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name;
-                                                                $countryname = $this->db->get_where('countries', array('country_id' => $post['country']))->row()->country_name;
-                                                                if( $cityname != 0 || $countryname != 0)
-                                                                {
-                                                                    ?>
+                             <?php
+                    $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name;
+                   $countryname = $this->db->get_where('countries', array('country_id' => $post['country']))->row()->country_name;
+                   if( $cityname != 0 || $countryname != 0)
+                  {  
+                    ?>
 
-                                                                <p><i class="fa fa-map-marker" aria-hidden="true"><?php echo $cityname . ", " . $countryname; ?></i></p>
+              <p><i class="fa fa-map-marker" aria-hidden="true"><?php echo $cityname . ", " . $countryname; ?></i></p>
 
-                                                                <?php }
-                                                                else
-                                                                {
-
-                                                                }
-                                                                ?>
-
-                                                            </li>
+                <?php }
+             else
+                {
+                   }
+                ?>
+           </li>
 
 
                                                     <li>
