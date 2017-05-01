@@ -32,7 +32,6 @@ class Recruiter extends MY_Controller {
             $recrdata = $this->common->select_data_by_condition('recruiter', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
 
-
             if ($recrdata[0]['re_step'] == 1) {
                 redirect('recruiter/company_info_form', refresh);
             } else if ($recrdata[0]['re_step'] == 2) {

@@ -203,7 +203,7 @@
               <!--<a href="<?php echo base_url('chat/abc/' . $row['user_id']); ?>">Saved</a>-->
            <a href="<?php echo base_url('chat/abc/' . $row['user_id']); ?>">Message</a>
 
-             <a href="#">Invite </a>
+            <div id="<?php echo 'invited' . $row['user_id']; ?>" onclick="inviteuser(<?php echo $row['user_id']; ?>)"> Invite</div>
    
           <?php
             if (!$data) {
@@ -216,7 +216,8 @@
                 <?php
             } else {
                 ?>
-         <a class="saved" href="javascript:void(0);" onclick="return false">Saved</a> 
+         <a class="saved" href="javascript:void(0);" onclick="return false">Saved</a>
+         <div id="invited" onclick="inviteuser()"> Invite</div>
                 <?php
                 // khayti changes end 6-4                              
             }
@@ -257,6 +258,25 @@
     <!-- BEGIN FOOTER -->
     <!-- BEGIN INNER FOOTER -->
     <?php echo $footer; ?>
+    
+    <script type="text/javascript">
+    
+   function inviteuser(clicked_id)
+    {  var post_id = "<?php echo $postid; ?>";
+       
+        $.ajax({
+            type: 'POST',
+            url: '<?php echo base_url() . "freelancer/free_invite_user" ?>',
+            data: 'post_id=' + post_id + '&invited_user=' + clicked_id,
+            success: function (data) { //alert(data);
+                $('#' + 'invited' + clicked_id).html(data);
+
+            }
+        });
+    }
+
+   
+</script>
     <!-- end footer -->
  
 

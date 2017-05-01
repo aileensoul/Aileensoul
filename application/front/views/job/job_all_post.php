@@ -249,7 +249,7 @@
                                         aria-hidden="true"
                                         rel="noopener">
                                         <?php
-                                                                                      if ($jobdata[0]['profile_background'] != '') {
+                                         if ($jobdata[0]['profile_background'] != '') {
                                                                                           ?>
                                             <!-- box image start -->
                                             <img src="<?php echo base_url(JOBBGIMAGE . $jobdata[0]['profile_background']); ?>" class="bgImage" alt="<?php echo $jobdata[0]['fname']; ?>"  style="height: 95px;

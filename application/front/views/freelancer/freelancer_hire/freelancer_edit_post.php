@@ -21,7 +21,8 @@
         <div class="user-midd-section">
             <div class="container">
                 <div class="row">
-                    <?php echo $freelancer_hire_left; ?>
+                    <!-- <?php echo $freelancer_hire_left; ?> -->
+                    <div class="col-md-3"></div>
                     <div class="col-md-7 col-sm-8">
 
 
@@ -42,7 +43,12 @@
                     
                  <?php echo form_open(base_url('freelancer/freelancer_edit_post_insert/'.$freelancerpostdata[0]['post_id']), array('id' => 'postinfo','name' => 'postinfo','class' => 'clearfix')); ?>
 
-                    <div><span style="color:red">Fields marked with asterisk (*) are mandatory</span></div> 
+                    <!-- <div><span style="color:red">Fields marked with asterisk (*) are mandatory</span></div>  -->
+
+                                <div>
+                                   <span style="color:#7f7f7e;padding-left: 8px;">( </span><span style="color:red">*</span><span style="color:#7f7f7e"> )</span> 
+                                   <span style="color:#7f7f7e">Indicates required field</span>
+                                </div> 
 
                             <fieldset class="full-width">
                                 <label>Post name:<span style="color:red">*</span></label>
@@ -112,7 +118,7 @@
                         </fieldset>
 
 
-                           <fieldset class="full-width two-select-box"> 
+              <fieldset class="full-width two-select-box fullwidth_experience"> 
                                 <label>Experience:</label>
                                 
                                 <select name="year" id="year">
@@ -290,7 +296,8 @@
 
                             <fieldset class="hs-submit full-width">
 
-                                <input type="reset">
+                                <!-- <input type="reset"> -->
+                                <a href="#">Cancel</a>
                                 <input type="submit" id="submit" name="submit" value="save">
                                 
                             </fieldset>
