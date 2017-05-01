@@ -297,7 +297,7 @@
                             <fieldset class="hs-submit full-width">
 
                                 <!-- <input type="reset"> -->
-                                <a href="#">Cancel</a>
+                                <a href="javascript:history.back()">Cancel</a>
                                 <input type="submit" id="submit" name="submit" value="save">
                                 
                             </fieldset>
