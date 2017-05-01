@@ -424,8 +424,8 @@ echo $freelancer_hire_header2;} ?>
                                                 <div class="profile-job-profile-button clearfix">
                                                     <div class="freelancer_work_detail">
                <ul>
-
-                  <li>Hourly   : <?php if($post['post_rate']){
+                   <?php if($post['post_rating_type'] == 1){ ?>
+                   <li>Hourly   :<?php } else {?><li>Fixed   :<?php }?> <?php if($post['post_rate']){
                      echo $post['post_rate'];
                      echo "&nbsp";
                      echo $this->db->get_where('currency', array('currency_id' => $post['post_currency']))->row()->currency_name;}
