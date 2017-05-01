@@ -87,7 +87,7 @@
 
                                 <fieldset class="full-width">
                                  
-                              <div contenteditable="true" name ="artportfolio" id="artportfolio" rows="4" cols="50" placeholder="Enter Portfolio Detail" style="resize: none;"><?php if($art_portfolio1){ echo $art_portfolio1; } ?></div>
+                              <div contenteditable="true" name ="artportfolio" id="artportfolio123" rows="4" cols="50" placeholder="Enter Portfolio Detail" style="resize: none;"><?php if($art_portfolio1){ echo $art_portfolio1; } ?></div>
                                          <?php echo form_error('artportfolio'); ?>
                                  
                                 </fieldset>
@@ -255,16 +255,19 @@ $( "#tags" ).autocomplete({
 
 <!-- only pdf insert script strat -->
 <script type="text/javascript">
-  function portfolio_form_submit(){ 
 
+
+  function portfolio_form_submit(){ 
+    var formData = new FormData($(this)[0]);
+    //alert(formData);
     //var artportfolio = document.getElementById("artportfolio").value;
     var bestofmine = document.getElementById("bestofmine").value;
 
     // start khyati code
-  var $field = $('#artportfolio');
+  var $field = $('#artportfolio123');
   //var data = $field.val();
-  var artportfolio = $('#artportfolio').html();
-  alert(artportfolio);
+  var artportfolio = $('#artportfolio123').html();
+ 
 // end khyati code  
     if(bestofmine == ''){ 
       //$(".bestofmine_image").html("Please select at lease one file.");
@@ -288,7 +291,9 @@ $( "#tags" ).autocomplete({
       if(foundPresentpdf == true)
       { 
 
-          var artportfolio = document.getElementById("artportfolio").value;
+         var $field = $('#artportfolio123');
+         //var data = $field.val();
+       var artportfolio = $('#artportfolio123').html();
           var bestofmine = document.getElementById("bestofmine").value;
    
         $.ajax({
@@ -308,7 +313,7 @@ $( "#tags" ).autocomplete({
     }
     return false;
   }
-
+ 
 </script>
 
 <script type="text/javascript">

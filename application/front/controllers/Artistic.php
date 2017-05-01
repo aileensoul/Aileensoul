@@ -693,8 +693,8 @@ class Artistic extends MY_Controller {
 
 
         $userid = $this->session->userdata('aileenuser');
-       echo $artportfolio = $_POST['artportfolio']; 
-      echo  $artportfolio = $_FILES['bestofmine']; die();
+      $artportfolio = $_POST['artportfolio']; 
+        $bestofmine = $_POST['bestofmine']; 
 
         //best of mine image upload code start
 
@@ -736,11 +736,11 @@ class Artistic extends MY_Controller {
             $data = array(
                
                 'art_bestofmine' => $picture,
-                'art_portfolio' => $_POST('artportfolio'),
+                'art_portfolio' => $artportfolio,
                 'modified_date' => date('Y-m-d', time()),
                 'art_step' => 4
             );
-       echo "<pre>"; print_r($data); die();
+       //echo "<pre>"; print_r($data); die();
 
         $updatdata = $this->common->update_data($data, 'art_reg', 'user_id', $userid);
 
@@ -5091,5 +5091,6 @@ $followingdatacount = count($followingotherdata);
         echo 'ok';
 
  }
+
 
 }
