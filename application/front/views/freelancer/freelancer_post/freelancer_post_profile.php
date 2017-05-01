@@ -166,7 +166,7 @@ echo $freelancer_post_header2;
             <div class="right-side-menu col-md-8">  
                 <ul class="">
                     <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_post_profile')) { ?> class="active" <?php } ?>>
-                        <?php if($returnpage == 'freelancer_hire'){ ?><a href="<?php echo base_url('freelancer/freelancer_post_profile/').$this->uri->segment(3).'?page=freelancer_hire'; ?>">Details</a><?php } else { ?><a href="<?php echo base_url('freelancer/freelancer_post_profile'); ?>">Details</a>}<?php } ?>
+                        <?php if($returnpage == 'freelancer_hire'){ ?><a href="<?php echo base_url('freelancer/freelancer_post_profile/').$this->uri->segment(3).'?page=freelancer_hire'; ?>">Details</a><?php } else { ?><a href="<?php echo base_url('freelancer/freelancer_post_profile'); ?>">Details</a><?php } ?>
                     </li>
 
 
@@ -554,8 +554,8 @@ if ($freelancerpostdata[0]['freelancer_post_portfolio_attachment'] != "") {
 <?php
 if ($freelancerpostdata[0]['freelancer_post_portfolio']) {
     ?>
-                                            <li> <b>Description</b> <span>
-    <?php echo text2link($freelancerpostdata[0]['freelancer_post_portfolio']); ?> </span>
+                                            <li> <b>Description</b> <span><p>
+    <?php echo text2link($freelancerpostdata[0]['freelancer_post_portfolio']); ?> </p></span>
                                             </li>
     <?php
 }
