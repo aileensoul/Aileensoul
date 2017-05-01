@@ -2,12 +2,21 @@
 <?php echo $head; ?>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
 <!--post save success pop up style strat -->
+<!-- start details -->
+<style type="text/css">
+#edit{
+        min-height: 30px;
+        padding: 5px;
+        overflow: hidden;
+        cursor: text;
+        background: #BBB;
+        border: 5px solid;
+        border-radius: 10px;
+        width:300px;
+        text-align: left;
+}</style>
 <style>
-  body {
-    font-family: Arial, sans-serif;
-    background-size: cover;
-    height: 100vh;
-  }
+
   .box {
     width: 40%;
     margin: 0 auto;
@@ -577,8 +586,15 @@ if (!$businessfollow) {
             </ul>
           </div>
           <!-- follower list end  -->
+              
         </div>
       </div>
+ <div id="edit" name="edit" >Type some text and press enter...</div>
+                
+                <br>
+            
+              <div id="result"></div>   
+
     </div>
     <!-- popup start -->
     <div class="col-md-7 col-sm-7 all-form-content">
@@ -1156,7 +1172,7 @@ echo '</br>';
                   </div>
                   <div class="col-md-12">
                     <div class="col-md-10">
-                   <div contenteditable="true" class="editable_text" name="<?php echo $rowdata['business_profile_post_comment_id']; ?>" id="<?php echo "editcomment" . $rowdata['business_profile_post_comment_id']; ?>" style="display:none; margin-top: 0px!important;"   onClick="commentedit(this.name)"><?php echo $rowdata['comments']; ?></div>
+                   <div contenteditable="true" class="editable_text" name="<?php echo $rowdata['business_profile_post_comment_id']; ?>" id="<?php echo "editcomment" . $rowdata['business_profile_post_comment_id']; ?>" style="display:none; margin-top: 0px!important;" value="<?php echo $rowdata['comments']; ?>" onClick="commentedit(this.name)"></div>
                     </div>
                     <div class="col-md-2 comment-edit-button">
                       <button id="<?php echo "editsubmit" . $rowdata['business_profile_post_comment_id']; ?>" style="display:none" onClick="edit_comment(<?php echo $rowdata['business_profile_post_comment_id']; ?>)">Comment
@@ -1427,13 +1443,12 @@ $('#post_comment' + clicked_id).html("");
 <script type="text/javascript">
   function entercomment(clicked_id)
   {
-    var $field = $('#post_comment' + clicked_id);
     $(document).ready(function() {
       $('#post_comment' + clicked_id).keypress(function(e) {
         if (e.keyCode == 13 && !e.shiftKey) {
-          //var val = $('#post_comment' + clicked_id).val();
+          var val = $('#post_comment' + clicked_id).val();
              // start khyati code
-  
+  var $field = $('#post_comment' + clicked_id);
   //var data = $field.val();
   var post_comment = $('#post_comment' + clicked_id).html();
 // end khyati code
@@ -1454,7 +1469,7 @@ $('#post_comment' + clicked_id).html("");
             $.ajax({
               type:'POST',
               url:'<?php echo base_url() . "business_profile/insert_commentthree" ?>',
-              data:'post_id=' + clicked_id + '&comment=' + post_comment,
+              data:'post_id=' + clicked_id + '&comment=' + val,
               dataType: "json",
               success:function(data){
                 $('input').each(function(){
@@ -1485,7 +1500,6 @@ $('#post_comment' + clicked_id).html("");
           }
           // khyati chnages end
           //alert(val);
-          e.preventDefault();
         }
       });
     });
@@ -1637,19 +1651,19 @@ $('#post_comment' + clicked_id).html("");
     //alert(post_comment.value);
     //alert(post_comment.value);
 // start khyati code
-  var $field = $('#editcomment' + abc);
+  var $field = $('#editpostdesc' + abc);
   //var data = $field.val();
-  var post_comment_edit = $('#editcomment' + abc).html();
+  var editpostdetails = $('#editpostdesc' + abc).html();
 // end khyati code
   
  
- $('#editcomment' + abc).html("");
+ // $('#editpostdesc' + abc).html("");
 
 
     $.ajax({
       type:'POST',
       url:'<?php echo base_url() . "business_profile/edit_comment_insert" ?>',
-      data:'post_id=' + abc + '&comment=' + post_comment_edit,
+      data:'post_id=' + abc + '&comment=' + post_comment_edit.value,
       success:function(data){
         //alert('falguni');
         //  $('input').each(function(){
@@ -2236,3 +2250,29 @@ $(document).ready(function(){
 
 </script>
 <!-- post insert developing code end  -->
+
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function($) {
+              $("#post_comment83").click(function(){
+          $(this).prop("contentEditable", true);
+          $(this).html("");
+        });
+
+        $( "#post_comment83" ).keypress(function( event ) {
+          if ( event.which == 13 && event.shiftKey != 1) {
+             event.preventDefault();
+             var sel = $("#post_comment83");
+             var txt = sel.html(); alert(txt);
+             $("#result").html(txt);
+             sel.html("Type some text and press enter...")
+             sel.blur();
+          }
+        });     $(".scroll").click(function(event){   
+        event.preventDefault();
+        $('html,body').animate({scrollTop:$(this.hash).offset().top},1200);
+      });
+            
+    });
+  </script>
