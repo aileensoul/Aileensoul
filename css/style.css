@@ -2668,7 +2668,7 @@ label.cameraButton input[accept*="camera"] {
       
      .post-design-product span{padding: 0;}
 .textbuis{    resize: none;
-    height: 42px;
+
     margin-top: 10px;}
 .post-design-name ul { font-size: 0; margin: 0; padding: 0; }
 .post-design-name ul li { list-style: none;  padding: 0; margin: 0; position: relative; }
@@ -3535,9 +3535,7 @@ follow box*/
 /* vishang end */
 
 
-footer{
-    padding: 15px 0px;
-}
+   
 
 footer .copyright p{
     text-transform: capitalize;
