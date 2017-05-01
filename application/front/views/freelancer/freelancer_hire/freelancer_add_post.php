@@ -56,9 +56,14 @@
                            <?php echo form_open(base_url('freelancer/freelancer_add_post_insert'), array('id' => 'postinfo','name' => 'postinfo','class' => 'clearfix')); ?>
                             <div>
                                   <h4> Project Description</h4></div>
-                        <div><span style="color:red">Fields marked with asterisk (*) are mandatory</span></div> 
-                            
 
+                        <!-- <div><span style="color:red">Fields marked with asterisk (*) are mandatory</span></div> --> 
+                            
+                          <div>
+                                   <span style="color:#7f7f7e;padding-left: 8px;">( </span><span style="color:red">*</span><span style="color:#7f7f7e"> )</span> 
+                                   <span style="color:#7f7f7e">Indicates required field</span>
+                                </div>
+                          
 
                             <?php
                          $post_name =  form_error('post_name');
