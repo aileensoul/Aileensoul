@@ -615,6 +615,20 @@ class Artistic extends MY_Controller {
 
         //best of mine image upload code start
 
+        $contition_array = array('user_id' => $userid);
+        $art_reg_data = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_bestofmine', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+        $art_bestofmine = $art_reg_data[0]['art_bestofmine']; 
+
+        if ($art_bestofmine != '') {
+            $art_pdf_path = 'uploads/art_images/';
+            $art_pdf = $art_pdf_path . $art_bestofmine;
+            if (isset($art_pdf)) {
+                unlink($art_pdf);
+            }
+        }
+
+
         $config['upload_path'] = 'uploads/art_images/';
         $config['allowed_types'] = 'pdf';
 
@@ -5016,5 +5030,31 @@ $followingdatacount = count($followingotherdata);
 
         echo $fourdata;
     }
+
+
+ public function deletepdf() {
+        
+      $userid = $this->session->userdata('aileenuser');
+      $contition_array = array('user_id' => $userid);
+        $art_reg_data = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_bestofmine', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+        $art_bestofmine = $art_reg_data[0]['art_bestofmine']; 
+
+        if ($art_bestofmine != '') {
+            $art_pdf_path = 'uploads/art_images/';
+            $art_pdf = $art_pdf_path . $art_bestofmine;
+            if (isset($art_pdf)) {
+                unlink($art_pdf);
+            }
+        }
+
+        $data = array(
+            'art_bestofmine' => ''
+        );
+
+        $update = $this->common->update_data($data, 'art_reg', 'user_id', $userid);
+        echo 'ok';
+
+ }
 
 }

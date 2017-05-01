@@ -59,15 +59,23 @@
                                 ?>
 
                                 
-                       <input  type="file" name="bestofmine" id="bestofmine" style="display:block;display:none;" />
+                       <input  type="file" name="bestofmine" id="bestofmine" style="display:block;display:none;"/>
 
+                      
 
- <label for="bestofmine" style="cursor: pointer;"><i class="fa fa-plus action-buttons btn-group" aria-hidden="true" style=" margin: 8px; cursor:pointer ; color: #fff;"> </i> Attachment</label> <span style="color: #8c8c8c; font-size: 17px; padding-left: 10px;">(<?php echo $userdata[0]['art_bestofmine']; ?>) </span><span class="file_name"></span>
+ <label for="bestofmine" style="cursor: pointer;"><i class="fa fa-plus action-buttons btn-group" aria-hidden="true" style=" margin: 8px; cursor:pointer ; color: #fff;"> </i> Attachment</label> 
+ 
+
+ <span id ="filename" style="color: #8c8c8c; font-size: 17px; padding-left: 10px;visibility:show;"><?php echo $userdata[0]['art_bestofmine']; ?></span><span class="file_name"></span>
+ 
  <div class="bestofmine_image" style="color:#f00; display: block;"></div>
            
                         <?php if($userdata[0]['art_bestofmine']){?>
-                              <div>
-                              <a href="<?php echo base_url('artistic/creat_pdf1/'.$userdata[0]['art_id']) ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red; padding-left: 8px; padding-top: 10px; padding-bottom: 10px;" aria-hidden="true"></i></a>
+                              <div style="visibility:show;" id ="pdffile">
+                              <a href="<?php echo base_url('artistic/creat_pdf1/'.$userdata[0]['art_id']) ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red; padding-left: 8px; padding-top: 10px; padding-bottom: 10px; position: relative;" aria-hidden="true"></i></a>
+
+                              <a style="position: absolute; cursor:pointer;" onclick="delpdf();"><i class="fa fa-times" aria-hidden="true"></i></a>
+
                               </div>
                               <?php }?>
 
@@ -271,4 +279,41 @@ $( "#tags" ).autocomplete({
 
 </script>
 
+<script type="text/javascript">
+  function delpdf(){
+     $.ajax({ 
+        type:'POST',
+        url:'<?php echo base_url() . "artistic/deletepdf" ?>',
+        success:function(data){ 
+          // alert(data);
+          // return false;
+       //document.getElementById('filename').style.visiblity="hidden";
+    //   document.getElementById("pdffile").style.visibility = "hidden";
+        $("#filename").text('');
+        $("#pdffile").hide();
 
+          }
+            }); 
+  }
+  </script>
+
+<script type="text/javascript">
+
+
+document.getElementById('bestofmine').onchange = uploadOnChange;
+    
+function uploadOnChange() {
+    var filename = null;
+    var filename = this.value;
+     var lastIndex = filename.lastIndexOf("\\");
+    if (lastIndex >= 0) {
+        filename = filename.substring(lastIndex + 1);
+    } 
+    
+    //document.getElementById('filename').value = filename;
+  //document.getElementById('filename').style.visiblity='display';
+  $("#filename").text(filename);
+  //$("#filename").text(filename);
+
+   }
+</script>
