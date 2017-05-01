@@ -273,7 +273,9 @@ if ($returnpage == 'job') {
         <div class="profile-pho">
 
             <div class="user-pic">
-                <?php if($postdata[0]['recruiter_user_image'] != '' ){ ?>
+              <?php 
+             
+              if($postdata[0]['recruiter_user_image'] != '' ){ ?>
                            <img src="<?php echo base_url(USERIMAGE . $postdata[0]['recruiter_user_image']);?>" alt="" >
                             <?php } else { ?>
                             <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
