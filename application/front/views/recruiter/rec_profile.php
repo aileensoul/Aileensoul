@@ -342,7 +342,7 @@ body {
                 ?>
                             <!--<center><a id="myBtn" title="Designation">Designation</a></center>-->
                         
-                <center><a id="designation" class="designation" title="Designation">Current Work</a></center>
+                <center><a id="designation" class="designation" title="Designation">Designation</a></center>
             <?php }
              else {
                
