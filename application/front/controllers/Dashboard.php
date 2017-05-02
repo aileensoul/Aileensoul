@@ -159,7 +159,7 @@ echo '<img src="' . $this->data['userdata'][0]['profile_background'] . '" />';
 
 
 public function image()
-    {  
+    { 
              $userid = $this->session->userdata('aileenuser');
 
                 $config['upload_path'] = 'uploads/user_bg';

@@ -1,5 +1,5 @@
 /* font-family: 'FontAwesome'; */
-body { position: relative; font-size: 16px; color: #000; padding: 0; background-color: #fbfbfb; margin: 0; line-height: 22px;  font-family: 'Lato', sans-serif; }
+body { position: relative; font-size: 16px; color: #000; padding: 0; background-color: #f2f2f4; margin: 0; line-height: 22px;  font-family: 'Lato', sans-serif; }
 
 p { margin: 0; padding: 0; }
 
@@ -4278,6 +4278,7 @@ textarea {overflow: hidden;}
 
 /*v 1-5-17 start */
 .fullwidth_experience select { width: 49%; }
+.rec_menubox ul { width: 278px; }
 /* v  1-5-17 end*/
 
 

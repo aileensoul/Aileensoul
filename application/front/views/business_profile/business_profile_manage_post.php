@@ -2371,12 +2371,10 @@
                             // document.getElementById('editcomment' + clicked_id).style.display='none';
                             //document.getElementById('showcomment' + clicked_id).style.display='block';
                             //document.getElementById('editsubmit' + clicked_id).style.display='none';
-
                             $('.' + 'insertcomment' + post_delete.value).html(data.comment);
-
                             $('#' + 'insertcount' + post_delete.value).html(data.count);
-
-
+                            
+                            $('.post-design-commnet-box').show();
                         }
                     });
                 }
@@ -2393,22 +2391,14 @@
                         data: 'post_id=' + clicked_id + '&post_delete=' + post_delete1.value,
                         dataType: "json",
                         success: function (data) { //alert('.' + 'insertcomment' + clicked_id);
-
                             $('.' + 'insertcommenttwo' + post_delete1.value).html(data.comment);
-
                             $('#' + 'insertcount' + post_delete1.value).html(data.count);
-
-
+                            
+                            $('.post-design-commnet-box').show();
                         }
                     });
                 }
-
             </script>
-
-
-
-
-
             <!--comment delete script end -->
 
             <!-- comment edit box start-->
@@ -2421,6 +2411,8 @@
 
                     document.getElementById('editcommentbox' + clicked_id).style.display = 'none';
                     document.getElementById('editcancle' + clicked_id).style.display = 'block';
+                    
+                    $('.post-design-commnet-box').hide();
 
                 }
 
@@ -2432,7 +2424,8 @@
                     document.getElementById('editcomment' + clicked_id).style.display = 'none';
                     document.getElementById('showcomment' + clicked_id).style.display = 'block';
                     document.getElementById('editsubmit' + clicked_id).style.display = 'none';
-
+                    
+                    $('.post-design-commnet-box').show();
                 }
 
                 function comment_editboxtwo(clicked_id) {
@@ -2443,7 +2436,7 @@
                     document.getElementById('editsubmittwo' + clicked_id).style.display = 'block';
                     document.getElementById('editcommentboxtwo' + clicked_id).style.display = 'none';
                     document.getElementById('editcancletwo' + clicked_id).style.display = 'block';
-                    
+                    $('.post-design-commnet-box').hide();
 //                    document.getElementById('editcomment' + clicked_id).style.display = 'block';
 //                    document.getElementById('showcomment' + clicked_id).style.display = 'none';
 //                    document.getElementById('editsubmit' + clicked_id).style.display = 'block';
@@ -2453,14 +2446,12 @@
                 }
 
                 function comment_editcancletwo(clicked_id) {
-
                     document.getElementById('editcommentboxtwo' + clicked_id).style.display = 'block';
                     document.getElementById('editcancletwo' + clicked_id).style.display = 'none';
-
                     document.getElementById('editcommenttwo' + clicked_id).style.display = 'none';
                     document.getElementById('showcommenttwo' + clicked_id).style.display = 'block';
                     document.getElementById('editsubmittwo' + clicked_id).style.display = 'none';
-
+                    $('.post-design-commnet-box').show();
                 }
 
                 function comment_editbox3(clicked_id) { //alert(clicked_id); alert('editcomment' + clicked_id); alert('showcomment' + clicked_id); alert('editsubmit' + clicked_id); 
@@ -2470,6 +2461,7 @@
 
                     document.getElementById('editcommentbox3' + clicked_id).style.display = 'none';
                     document.getElementById('editcancle3' + clicked_id).style.display = 'block';
+                    $('.post-design-commnet-box').hide();
 
                 }
 
@@ -2481,6 +2473,8 @@
                     document.getElementById('editcomment3' + clicked_id).style.display = 'none';
                     document.getElementById('showcomment3' + clicked_id).style.display = 'block';
                     document.getElementById('editsubmit3' + clicked_id).style.display = 'none';
+                    
+                    $('.post-design-commnet-box').show();
 
                 }
 
@@ -2491,6 +2485,8 @@
 
                     document.getElementById('editcommentbox4' + clicked_id).style.display = 'none';
                     document.getElementById('editcancle4' + clicked_id).style.display = 'block';
+                    
+                    $('.post-design-commnet-box').hide();
 
                 }
 
@@ -2502,6 +2498,8 @@
                     document.getElementById('editcomment4' + clicked_id).style.display = 'none';
                     document.getElementById('showcomment4' + clicked_id).style.display = 'block';
                     document.getElementById('editsubmit4' + clicked_id).style.display = 'none';
+                    
+                    $('.post-design-commnet-box').show();
 
                 }
 
@@ -2549,12 +2547,8 @@
 
                 function commentedit(abc)
                 {
-
-
                     $(document).ready(function () {
                         $('#editcomment' + abc).keypress(function (e) {
-
-
                             if (e.keyCode == 13 && !e.shiftKey) {
                                 var val = $('#editcomment' + abc).val();
                                 e.preventDefault();
@@ -2665,6 +2659,7 @@
                                         document.getElementById('editcommentboxtwo' + abc).style.display = 'block';
                                         document.getElementById('editcancletwo' + abc).style.display = 'none';
                                         //alert('.' + 'showcomment' + abc);
+                                        
                                         $('#' + 'showcommenttwo' + abc).html(data);
 
 
