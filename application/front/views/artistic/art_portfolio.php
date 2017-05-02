@@ -274,7 +274,7 @@ $( "#tags" ).autocomplete({
                 url:'<?php echo base_url() . "artistic/art_portfolio_insert" ?>',
                  data:'artportfolio='+artportfolio,
                 success:function(data){ 
-                    
+                   window.location= "<?php echo base_url() ?>artistic/art_post";  
                 }
             }); 
     }
@@ -309,7 +309,7 @@ $( "#tags" ).autocomplete({
                 url:'<?php echo base_url() . "artistic/art_portfolio_insert" ?>',
                  data:'artportfolio='+artportfolio,
                 success:function(data){ 
-                  //window.location= "<?php echo base_url() ?>artistic/art_post";  
+                  window.location= "<?php echo base_url() ?>artistic/art_post";  
                 }
             }); 
    

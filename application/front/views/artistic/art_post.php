@@ -1517,7 +1517,7 @@ if(count($likelistarray) > 1) {
                                         </div>
                                         <div class="col-md-12">
                                         <div class="col-md-10">
-                                        <div contenteditable=""   class="textarea" name="<?php echo $rowdata['artistic_post_comment_id']; ?>" id="<?php echo "editcomment" . $rowdata['artistic_post_comment_id']; ?>" style="display:none;-webkit-min-height: 40px;" onClick="commentedit(<?php echo $rowdata['artistic_post_comment_id']; ?>)" style="height:50px;" ><?php  echo $rowdata['comments']; ?></div>
+                                        <div contenteditable=""   class="editable_text" name="<?php echo $rowdata['artistic_post_comment_id']; ?>" id="<?php echo "editcomment" . $rowdata['artistic_post_comment_id']; ?>" style="display:none;-webkit-min-height: 40px;" onClick="commentedit(<?php echo $rowdata['artistic_post_comment_id']; ?>)" style="height:50px;" ><?php  echo $rowdata['comments']; ?></div>
                                         </div>
 
                                         <div class="col-md-2 comment-edit-button">
@@ -2059,13 +2059,21 @@ function comment_deletetwo(clicked_id)
 
 function insert_comment(clicked_id)
 {  
-     var post_comment = document.getElementById("post_comment" + clicked_id);
+     //var post_comment = document.getElementById("post_comment" + clicked_id);
 
+
+// start khyati code
+  var $field = $('#post_comment' + clicked_id);
+  //var data = $field.val();
+  var post_comment = $('#post_comment' + clicked_id).html();
+// end khyati code
+
+$('#post_comment' + clicked_id).html("");
     
   var x = document.getElementById('threecomment'+ clicked_id);
    var y = document.getElementById('fourcomment'+ clicked_id);
 
-if(post_comment.value == ''){ 
+if(post_comment == ''){ 
 
     event.preventDefault();
         return false;
@@ -2076,12 +2084,10 @@ if(post_comment.value == ''){
        $.ajax({ 
             type:'POST',
             url:'<?php echo base_url() . "artistic/insert_commentthree" ?>',
-            data:'post_id='+clicked_id + '&comment='+post_comment.value,
+            data:'post_id='+clicked_id + '&comment='+post_comment,
             dataType: "json",
             success:function(data){ 
-                     $('textarea').each(function(){
-                      $(this).val('');
-                  });
+                     
          //$('.' + 'insertcomment' + clicked_id).html(data);
         $('#' + 'commnetpost' + clicked_id).html(data.count);
          $('.insertcomment' + clicked_id).html(data.comment);
@@ -2094,12 +2100,10 @@ if(post_comment.value == ''){
         $.ajax({ 
             type:'POST',
             url:'<?php echo base_url() . "artistic/insert_comment" ?>',
-            data:'post_id='+clicked_id + '&comment='+post_comment.value,
+            data:'post_id='+clicked_id + '&comment='+post_comment,
            // dataType: "json",
                    success:function(data){ 
-                     $('textarea').each(function(){
-                      $(this).val('');
-                  });
+                    
          $('#' + 'fourcomment' + clicked_id).html(data);
        //  $('#' + 'commnetpost' + clicked_id).html(data.count);
        //  $('#' + 'fourcomment' + clicked_id).html(data.comment);
@@ -3097,7 +3101,7 @@ $(document).ready(function(){
 textarea js -->
 <script type="text/javascript">
  function contentedit(clicked_id){
-      alert(clicked_id);
+      
 
 //var $field = $('#post_comment' + clicked_id);
   //var data = $field.val();
@@ -3124,14 +3128,20 @@ textarea js -->
 
           var x = document.getElementById('threecomment' + clicked_id);
           var y = document.getElementById('fourcomment' + clicked_id);
-      
- if (x.style.display === 'block' && y.style.display === 'none') {   alert(clicked_id);
+   
+
+   if(txt == ''){ 
+
+    event.preventDefault();
+        return false;
+   }else{   
+ if (x.style.display === 'block' && y.style.display === 'none') {  
        $.ajax({ 
                 type:'POST',
                 url:'<?php echo base_url() . "artistic/insert_commentthree" ?>',
                  data:'post_id='+clicked_id + '&comment='+txt,
                  dataType: "json",
-                   success:function(data){ alert("hii");  alert(data.comment); 
+                   success:function(data){ 
         
        //  $('.insertcomment' + clicked_id).html(data);
          $('#' + 'commnetpost' + clicked_id).html(data.count);
@@ -3147,14 +3157,15 @@ textarea js -->
                 url:'<?php echo base_url() . "artistic/insert_comment" ?>',
                  data:'post_id='+clicked_id + '&comment='+txt,
                 // dataType: "json",
-                   success:function(data){ alert("hii");  alert(data.comment); 
+                   success:function(data){ 
          $('#' + 'fourcomment' + clicked_id).html(data);
         // $('#' + 'commnetpost' + clicked_id).html(data.count);
         //  $('#' + 'fourcomment' + clicked_id).html(data.comment);
 
           }
             }); 
-     }
+     } 
+   }
 
           }
         });     $(".scroll").click(function(event){   

@@ -380,7 +380,14 @@ function text2link($text) {
               <h4><a href="<?php echo base_url('freelancer/freelancer_hire_profile/' . $post['user_id']); ?>" title="Post Title">
         <?php echo text2link($post['post_name']); ?>
                    </a></h4>
-                   <a href="#"> jay</a>
+                <?php
+                $firstname = $this->db->get_where('freelancer_post_reg', array('user_id' => $post['user_id']))->row()->freelancer_post_fullname;
+                
+                $lastname = $this->db->get_where('freelancer_post_reg', array('user_id' => $post['user_id']))->row()->freelancer_post_username;
+                    ?>
+
+
+                   <a href="<?php echo base_url('freelancer/freelancer_hire_profile/' . $post['user_id'].'?page=freelancer_post'); ?>" title="<?php echo ucwords($firstname); ?>&nbsp;<?php echo ucwords($lastname); ?>"><?php echo ucwords($firstname); ?>&nbsp;<?php echo ucwords($lastname); ?></a>
                                         </div>
                                         <div class="exper-location">
                                             <ul>
