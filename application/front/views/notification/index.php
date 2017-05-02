@@ -179,7 +179,7 @@
 
 <?php foreach($work_not as $art){ 
     if($art['not_from'] == 5){
-
+        
      $id =   $this->db->get_where('job_reg',array('user_id' => $art['user_id']))->row()->job_id; if($id){?>
  <li> 
     <div class="notification-pic" >
