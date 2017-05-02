@@ -1703,9 +1703,22 @@ $updatedata = $this->common->update_data($data, 'freelancer_apply', 'app_id', $a
         $userid = $this->session->userdata('aileenuser');
          
         $this->data['postid'] = $id;
+// khyati chnages start
+        $join_str[0]['table'] = 'freelancer_apply';
+        $join_str[0]['join_table_id'] = 'freelancer_apply.user_id';
+        $join_str[0]['from_table_id'] = 'freelancer_post_reg.user_id';
+        $join_str[0]['join_type'] = '';
 
-        $contition_array = array('post_id' => $id, 'is_delete' => 0);
-        $this->data['applydata'] = $this->common->select_data_by_condition('freelancer_apply', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+       $contition_array = array('freelancer_apply.post_id' => $id, 'freelancer_apply.is_delete' => 0);
+
+
+
+        $postdata = $this->data['postdata'] = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data, $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
+
+        //echo '<pre>'; print_r($postdata); die();
+// khyati chnages end
+
 
         $this->load->view('freelancer/freelancer_hire/freelancer_apply_list', $this->data);
     }

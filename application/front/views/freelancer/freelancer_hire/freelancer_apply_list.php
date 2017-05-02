@@ -50,9 +50,9 @@
                                         <!-- body tag inner data start-->
                                         <?php
 // echo "<pre>"; print_r($candidatefreelancer);die();
-                                        if ($applydata) {
-                                            foreach ($applydata as $cand_key => $cand_value) {
-                                                foreach ($cand_value as $row) {
+                                        if ($postdata) {
+                                            foreach ($postdata as $row) {
+                                                
                                                     // echo "<pre>"; print_r($row);die();
                                                     ?> 
              <div class="profile-job-post-detail clearfix">
@@ -227,7 +227,7 @@
             </div>
           </div>
                                                     <?php
-                                                }
+                                                
                                             }
                                         } else {
                                             ?>
