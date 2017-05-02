@@ -2090,10 +2090,6 @@ $this->load->view('freelancer/freelancer_hire/freelancer_save', $this->data);
             $this->data['freelancerpostdata'] = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         }
 
-
-
-
-
         $contition_array = array('status' => '1', 'is_delete' => '0');
 
         $freelancer_postdata = $this->data['results'] = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = 'designation,freelancer_post_otherskill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);

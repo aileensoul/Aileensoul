@@ -691,10 +691,10 @@ class Artistic extends MY_Controller {
 
     public function art_portfolio_insert() {
 
-
+echo "<pre>"; print_r($_FILES);
         $userid = $this->session->userdata('aileenuser');
       $artportfolio = $_POST['artportfolio']; 
-        $bestofmine = $_POST['bestofmine']; 
+       // $bestofmine = $_POST['bestofmine']; 
 
         //best of mine image upload code start
 
@@ -1491,7 +1491,7 @@ class Artistic extends MY_Controller {
 
             $contition_array = array('user_id' => $userid, 'status' => '1');
             $this->data['artisticdata'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-        } else {
+        } else { 
 
             $contition_array = array('user_id' => $id, 'status' => '1');
             $this->data['artisticdata'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');

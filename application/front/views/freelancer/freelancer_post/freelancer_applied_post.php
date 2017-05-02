@@ -288,7 +288,8 @@ Details</a>
             </div>
         </div>
         <div class="job-menu-profile1">
-            <h3 > <?php echo ucwords($freepostdata[0]['freelancer_post_fullname']) . ' ' . ucwords($freepostdata[0]['freelancer_post_username']); ?></h3>
+         <h3 > <?php echo ucwords($freepostdata[0]['freelancer_post_fullname']) . ' ' . ucwords($freepostdata[0]['freelancer_post_username']); ?></h3>
+         
             <div class="profile-text">
 
                  <?php 
@@ -296,7 +297,7 @@ Details</a>
             if ($freepostdata[0]['designation'] == "") {
 
                 ?> <!--<center><a id="myBtn" title="Designation">Designation</a></center>-->
-                <center><a id="designation" class="designation" title="Designation">Current Work</a></center>
+                <a id="designation" class="designation" title="Designation">Designation</a>
             <?php }
              else {
                 ?> 
