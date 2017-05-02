@@ -650,7 +650,7 @@
     <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
      <script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script>
-    <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
+    
 
 
 
@@ -872,8 +872,7 @@ $( "#tags" ).autocomplete({
     }
 </script>
 
-
-<script>
+<script type="text/javascript">
 
 <!-- remove save post start -->
 
@@ -900,16 +899,29 @@ $( "#tags" ).autocomplete({
     });
     }
 
-      function apply_post(abc)
+      function apply_post1(abc,xyz)
     {
-    var alldata = document.getElementById("allpost" + abc);
-    var user = document.getElementById("userid" + abc);
+        alert(455);
+    // var alldata = document.getElementById("allpost" + abc);
+    // var user = document.getElementById("userid" + abc);
+            var alldata = 'all';
+            var user = <?php echo $aileenuser_id; ?>;
+            var appid = xyz;
+
     $.ajax({
     type:'POST',
             url:'<?php echo base_url() . "freelancer/apply_insert" ?>',
             data: 'post_id=' + abc + '&allpost=' + alldata.value + '&userid=' + user.value,
             success:function(data){
-            $('.' + 'applypost' + abc).html(data);
+                  $('#' + 'removeapply' + abc).html(data);
+                $('#' + 'removeapply' + abc).parent().removeClass();
+            var numItems = $('.contact-frnd-post .job-contact-frnd').length;
+                if (numItems == '0') {
+                    var nodataHtml = "<div class='text-center rio'><h4 class='page-heading  product-listing' style='border:0px;margin-bottom: 11px;'>No Saved Freelancer Found.</h4></div>";
+
+                 $('.contact-frnd-post').html(nodataHtml);
+
+}
             }
     });
     }
@@ -987,7 +999,7 @@ $( "#tags" ).autocomplete({
                 <
 
         <!-- apply post end-->
-
+<script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
 <script>
     function removepopup(id) {
          //alert(id); return false;
@@ -995,7 +1007,8 @@ $( "#tags" ).autocomplete({
         $('#bidmodal').modal('show');
     }
        function applypopup(postid, userid) {
-                        $('.biderror .mes').html("<div class='pop_content'>Are you sure want to apply this post?<div class='model_ok_cancel'><a class='okbtn' id=" + postid + " onClick='apply_post(" + postid + "," + userid + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+           // alert("hello");
+                        $('.biderror .mes').html("<div class='pop_content'>Are you sure want to apply this post?<div class='model_ok_cancel'><a class='okbtn' id=" + postid + " onclick='apply_post1(" + postid + "," + userid + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
                         $('#bidmodal').modal('show');
                     }
 </script>
