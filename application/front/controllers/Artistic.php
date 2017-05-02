@@ -2786,7 +2786,7 @@ $followingdatacount = count($followingotherdata);
             $cmtinsert .= '<div class="post-design-pro-comment-img">';
 
 
-            $cmtinsert .= '<img  src="' . base_url(USERIMAGE . $art_userimage) . '" alt="">  </div>';
+            $cmtinsert .= '<img  src="' . base_url(ARTISTICIMAGE . $art_userimage) . '" alt="">  </div>';
 
             $cmtinsert .= '<div class="comment-name"><b>' . ucwords($artname) .'&nbsp;' . ucwords($artlastname) .'</b>';
             $cmtinsert .= '</div>';
@@ -2897,7 +2897,7 @@ $followingdatacount = count($followingotherdata);
             $cmtinsert .= '<div class="post-design-pro-comment-img">';
 
 
-            $cmtinsert .= '<img  src="' . base_url(USERIMAGE . $art_userimage) . '" alt="">  </div>';
+            $cmtinsert .= '<img  src="' . base_url(ARTISTICIMAGE . $art_userimage) . '" alt="">  </div>';
 
             $cmtinsert .= '<div class="comment-name"><b>' . ucwords($artname) .'&nbsp;'.ucwords($artlastname). '</b>';
             $cmtinsert .= '</div>';
@@ -3314,7 +3314,7 @@ $followingdatacount = count($followingotherdata);
             $cmtinsert .= '<div class="post-design-pro-comment-img">';
 
 
-            $cmtinsert .= '<img  src="' . base_url(USERIMAGE . $art_userimage) . '" alt="">  </div>';
+            $cmtinsert .= '<img  src="' . base_url(ARTISTICIMAGE . $art_userimage) . '" alt="">  </div>';
 
             $cmtinsert .= '<div class="comment-name"><b>' . ucwords($artname) .'&nbsp;' . ucwords($artlastname).'</b>';
             $cmtinsert .= '</div>';
@@ -3416,17 +3416,17 @@ $followingdatacount = count($followingotherdata);
         
             if($artdatacomment[0]['user_id'] == $userid){}
             else{
-            $data = array(
+            $notificationdata = array(
                 'not_type' => 6,
                 'not_from_id' => $userid,
-                'not_to_id' => $artdatacomment[0]['user_id'] ,
+                'not_to_id' => $artdatacomment[0]['user_id'],
                 'not_read' => 2,
                 'not_product_id' => $insert_id,
                 'not_from' => 3,
                 'not_img' => 0
             );
-
-            $insert_id = $this->common->insert_data_getid($data, 'notification');
+           //echo "<pre>"; print_r($notificationdata); 
+            $insert_id_notification = $this->common->insert_data_getid($notificationdata, 'notification');
           }
             // end notoification
 
@@ -3435,6 +3435,7 @@ $followingdatacount = count($followingotherdata);
         $contition_array = array('art_post_id' => $_POST["post_id"], 'status' => '1');
         $artdata = $this->data['artdata'] = $this->common->select_data_by_condition('artistic_post_comment', $contition_array, $data = '*', $sortby = 'artistic_post_comment_id', $orderby = 'DESC', $limit = '1', $offset = '', $join_str = array(), $groupby = '');
 
+        //echo "<pre>"; print_r($artdata); die();
         // all count of commnet 
 
         $contition_array = array('art_post_id' => $_POST["post_id"], 'status' => '1');
@@ -3455,7 +3456,7 @@ $followingdatacount = count($followingotherdata);
             $cmtinsert .= '<div class="post-design-pro-comment-img">';
 
 
-            $cmtinsert .= '<img  src="' . base_url(USERIMAGE . $art_userimage) . '" alt="">  </div>';
+            $cmtinsert .= '<img  src="' . base_url(ARTISTICIMAGE . $art_userimage) . '" alt="">  </div>';
 
             $cmtinsert .= '<div class="comment-name"><b>' . ucwords($artname) .'&nbsp;'. ucwords($artlastname). '</b>';
             $cmtinsert .= '</div>';
@@ -3463,9 +3464,9 @@ $followingdatacount = count($followingotherdata);
             $cmtinsert .= $art['comments'];
             $cmtinsert .= '</div>';
 
-            $cmtinsert .= '<textarea  name="' . $art['artistic_post_comment_id'] . '" id="editcomment' . $art['artistic_post_comment_id'] . '" style="display:none" onClick="commentedit(this.name)">';
+            $cmtinsert .= '<div contenteditable="" class="textarea"  name="' . $art['artistic_post_comment_id'] . '" id="editcomment' . $art['artistic_post_comment_id'] . '" style="display:none" onClick="commentedit(this.name)">';
             $cmtinsert .= '' . $art['comments'] . '';
-            $cmtinsert .= '</textarea>';
+            $cmtinsert .= '</div>';
 
             $cmtinsert .= '<button id="editsubmit' . $art['artistic_post_comment_id'] . '" style="display:none" onClick="edit_comment(' . $art['artistic_post_comment_id'] . ')">Comment</button><div class="art-comment-menu-design"> <div class="comment-details-menu" id="likecomment1' . $art['artistic_post_comment_id'] . '">';
 
@@ -4073,7 +4074,7 @@ $followingdatacount = count($followingotherdata);
 
             //$cmtinsert = '<div class="all-comment-comment-box">';
             $cmtinsert .= '<div class="post-design-pro-comment-img">';
-            $cmtinsert .= '<img  src="' . base_url(USERIMAGE . $art_userimage) . '" alt="">  </div>';
+            $cmtinsert .= '<img  src="' . base_url(ARTISTICIMAGE . $art_userimage) . '" alt="">  </div>';
 
             $cmtinsert .= '<div class="comment-name"><b>' . $art_name . '</b>';
             $cmtinsert .= '</div>';
@@ -4229,7 +4230,7 @@ $followingdatacount = count($followingotherdata);
 
             //$cmtinsert = '<div class="all-comment-comment-box">';
             $cmtinsert .= '<div class="post-design-pro-comment-img">';
-            $cmtinsert .= '<img  src="' . base_url(USERIMAGE . $art_userimage) . '" alt="">  </div>';
+            $cmtinsert .= '<img  src="' . base_url(ARTISTICIMAGE . $art_userimage) . '" alt="">  </div>';
 
             $cmtinsert .= '<div class="comment-name"><b>' . $art_name . '</b>';
             $cmtinsert .= '</div>';
@@ -4657,7 +4658,7 @@ $followingdatacount = count($followingotherdata);
 
             //$cmtinsert = '<div class="all-comment-comment-box">';
             $cmtinsert .= '<div class="post-design-pro-comment-img">';
-            $cmtinsert .= '<img  src="' . base_url(USERIMAGE . $art_userimage) . '" alt="">  </div>';
+            $cmtinsert .= '<img  src="' . base_url(ARTISTICIMAGE . $art_userimage) . '" alt="">  </div>';
 
             $cmtinsert .= '<div class="comment-name"><b>' . $art_name . '</b>';
             $cmtinsert .= '</div>';
@@ -4786,7 +4787,7 @@ $followingdatacount = count($followingotherdata);
 
             //$cmtinsert = '<div class="all-comment-comment-box">';
             $cmtinsert .= '<div class="post-design-pro-comment-img">';
-            $cmtinsert .= '<img  src="' . base_url(USERIMAGE . $art_userimage) . '" alt="">  </div>';
+            $cmtinsert .= '<img  src="' . base_url(ARTISTICIMAGE . $art_userimage) . '" alt="">  </div>';
 
             $cmtinsert .= '<div class="comment-name"><b>' . $art_name . '</b>';
             $cmtinsert .= '</div>';
