@@ -96,84 +96,93 @@
 
                                 <fieldset <?php if ($month) { ?> class="error-msg" <?php } ?> class="two-select-box">
                                     <label class="control-label">Minimum experience:<span style="color:red">*</span></label>
-                                    <select name="minmonth" class="keyskil">
-                                        <option value="">Month</option>
-                                        <option value="0">0</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                    </select>
+
 
                                     <select name="minyear" class="keyskil">
                                         <option value="">Year</option>
-                                        <option value="0">0</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                        <option value="10">10</option>
-                                        <option value="11">11</option>
-                                        <option value="12">12</option>
-                                        <option value="13">13</option>
-                                        <option value="14">14</option>
-                                        <option value="15">15</option>
-                                        <option value="16">16</option>
-                                        <option value="17">17</option>
-                                        <option value="18">18</option>
-                                        <option value="19">19</option>
-                                        <option value="20">20</option>
+                                        <option value="0">0 Year</option>
+                                        <option value="1">1 Year</option>
+                                        <option value="2">2 Year</option>
+                                        <option value="3">3 Year</option>
+                                        <option value="4">4 Year</option>
+                                        <option value="5">5 Year</option>
+                                        <option value="6">6 Year</option>
+                                        <option value="7">7 Year</option>
+                                        <option value="8">8 Year</option>
+                                        <option value="9">9 Year</option>
+                                        <option value="10">10 Year</option>
+                                        <option value="11">11 Year</option>
+                                        <option value="12">12 Year</option>
+                                        <option value="13">13 Year</option>
+                                        <option value="14">14 Year</option>
+                                        <option value="15">15 Year</option>
+                                        <option value="16">16 Year</option>
+                                        <option value="17">17 Year</option>
+                                        <option value="18">18 Year</option>
+                                        <option value="19">19 Year</option>
+                                        <option value="20">20 Year</option>
                                     </select>
+                                    
+                                    <select name="minmonth" class="keyskil">
+                                        <option value="">Month</option>
+                                        <option value="0">0 Month</option>
+                                        <option value="1">1 Month</option>
+                                        <option value="2">2 Month</option>
+                                        <option value="3">3 Month</option>
+                                        <option value="4">4 Month</option>
+                                        <option value="5">5 Month</option>
+                                        <option value="6">6 Month</option>
+                                    </select>
+                                     
                                     <span id="fullname-error"></span>
                                     <?php echo form_error('month'); ?> &nbsp;&nbsp; <?php echo form_error('year'); ?>
+
                                 </fieldset>
 
 
                                 <fieldset <?php if ($month) { ?> class="error-msg" <?php } ?> class="two-select-box">
                                     <label class="control-label">&nbsp;Maximum experience:<span style="color:red">*</span></label>
-                                    <select name="maxmonth" class="keyskil1">
-                                        <option value="">Month</option>
-                                        <option value="0">0</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
+
+
+                                      <select name="maxyear" class="keyskil1">
+                                        <option value="">Year</option>
+                                        <option value="0">0 Year</option>
+                                        <option value="1">1 Year</option>
+                                        <option value="2">2 Year</option>
+                                        <option value="3">3 Year</option>
+                                        <option value="4">4 Year</option>
+                                        <option value="5">5 Year</option>
+                                        <option value="6">6 Year</option>
+                                        <option value="7">7 Year</option>
+                                        <option value="8">8 Year</option>
+                                        <option value="9">9 Year</option>
+                                        <option value="10">10 Year</option>
+                                        <option value="11">11 Year </option>
+                                        <option value="12">12 Year </option>
+                                        <option value="13">13 Year </option>
+                                        <option value="14">14 Year </option>
+                                        <option value="15">15 Year </option>
+                                        <option value="16">16 Year </option>
+                                        <option value="17">17 Year </option>
+                                        <option value="18">18 Year </option>
+                                        <option value="19">19 Year </option>
+                                        <option value="20">20 Year </option>
                                     </select>
 
-                                    <select name="maxyear" class="keyskil1">
-                                        <option value="">Year</option>
-                                        <option value="0">0</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                        <option value="10">10</option>
-                                        <option value="11">11</option>
-                                        <option value="12">12</option>
-                                        <option value="13">13</option>
-                                        <option value="14">14</option>
-                                        <option value="15">15</option>
-                                        <option value="16">16</option>
-                                        <option value="17">17</option>
-                                        <option value="18">18</option>
-                                        <option value="19">19</option>
-                                        <option value="20">20</option>
+                                      
+
+                                    <select name="maxmonth" class="keyskil1">
+                                        <option value="">Month</option>
+                                        <option value="0">0 Month</option>
+                                        <option value="1">1 Month</option>
+                                        <option value="2">2 Month</option>
+                                        <option value="3">3 Month</option>
+                                        <option value="4">4 Month</option>
+                                        <option value="5">5 Month</option>
+                                        <option value="6">6 Month</option>
                                     </select>
-                                    <span id="fullname-error"></span>
+
+                                   <span id="fullname-error"></span>
                                     <?php echo form_error('month'); ?> &nbsp;&nbsp; <?php echo form_error('year'); ?>
                                 </fieldset>
 
