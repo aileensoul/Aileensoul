@@ -25,7 +25,6 @@ $userid = $this->session->userdata('aileenuser');
 // 1-5 notification start
 // recruiter notfication start
 
- 
 $contition_array = array('notification.not_type' => 3, 'notification.not_to_id' => $userid, 'notification.not_read' => 1,'notification.not_from' => 2,'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
 $join_str = array(array(
         'join_type' => '',
@@ -38,13 +37,9 @@ $join_str = array(array(
         'join_table_id' => 'notification.not_from_id',
         'from_table_id' => 'user.user_id')
 );
-
 $data = array('notification.*','job_apply.*','user.user_id', 'user.first_name','user.user_image','user.last_name');
-
 $this->data['rec_not'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'app_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = 'not_from_id');
-
 // recruiter notification end
-
 // job notfication start 
 
 $contition_array = array('notification.not_type' => 4, 'notification.not_to_id' => $userid, 'notification.not_read' => 1,'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
@@ -65,7 +60,7 @@ $this->data['job_not'] = $this->common->select_data_by_condition('notification',
 
 // job notification end
 
- // freelancer hire  notification start
+// freelancer hire  notification start
  $contition_array = array('notification.not_type' => 3,'notification.not_from' => 6,  'notification.not_to_id' => $userid, 'notification.not_read' => 1,'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
 
 $join_str = array(
@@ -80,15 +75,11 @@ $join_str = array(
         'join_table_id' => 'notification.not_from_id',
         'from_table_id' => 'user.user_id')
       );
-
-
 $data = array('notification.*','freelancer_apply.*','user.user_id', 'user.first_name','user.user_image','user.last_name');
 
 $this->data['hire_not'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'app_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = 'not_from_id');
  // freelancer hire notification end
-
 // freelancer post notification start
-
 $contition_array = array('notification.not_type' => 4, 'notification.not_from' => 4,  'notification.not_to_id' => $userid, 'notification.not_read' => 1,'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
 $join_str = array(array(
         'join_type' => '',
@@ -105,11 +96,10 @@ $data = array('notification.*',' job_apply.*',' user.user_id', 'user.first_name'
 
 $this->data['work_post'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'app_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = 'not_from_id');
 // freelancer post notification end
-
 //artistic notification start
 // follow notification start
- 
- $contition_array = array('notification.not_type' => 8,'notification.not_from' => 3,  'notification.not_to_id' => $userid, 'notification.not_read' => 1,'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
+
+$contition_array = array('notification.not_type' => 8,'notification.not_from' => 3,  'notification.not_to_id' => $userid, 'notification.not_read' => 1,'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
 $join_str = array(array(
         'join_type' => '',
         'table' => 'follow',
@@ -126,9 +116,8 @@ $data = array('notification.*',' follow.*',' user.user_id', 'user.first_name', '
 $this->data['artfollow'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'follow_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = 'not_from_id');
 //echo '<pre>'; print_r($this->data['artfollow']); die();
 // follow notification end
-
 // comment notification start
- 
+
 $contition_array = array('notification.not_type' => 6,'notification.not_from' => 3,  'notification.not_to_id' => $userid, 'notification.not_read' => 1,'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
 $join_str = array(array(
         'join_type' => '',
@@ -142,10 +131,8 @@ $join_str = array(array(
         'from_table_id' => 'user.user_id')
 );
 $data = array('notification.*',' artistic_post_comment.*',' user.user_id', 'user.first_name', 'user.user_image','user.last_name');
-
 $this->data['artcommnet'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'artistic_post_comment_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = 'not_from_id');
 // comment notification end
-
 // like notification start
  $contition_array = array('notification.not_type' => 5,'notification.not_from' => 3,  'notification.not_to_id' => $userid, 'notification.not_read' => 1,'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
 $join_str = array(array(
@@ -160,16 +147,13 @@ $join_str = array(array(
         'from_table_id' => 'user.user_id')
 );
 $data = array('notification.*','art_post.*',' user.user_id', 'user.first_name', 'user.user_image','user.last_name');
-
 $this->data['artlike'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'art_post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = 'not_from_id');
-
 // like notification end
 // artistic notification end
-
 // business profile notification start
 // follow notification start
  
- $contition_array = array('notification.not_type' => 8,'notification.not_from' => 6,  'notification.not_to_id' => $userid, 'notification.not_read' => 1,'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
+$contition_array = array('notification.not_type' => 8,'notification.not_from' => 6,  'notification.not_to_id' => $userid, 'notification.not_read' => 1,'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
 $join_str = array(array(
         'join_type' => '',
         'table' => 'follow',
@@ -225,16 +209,13 @@ $data = array('notification.*',' business_profile_post.*',' user.user_id', 'user
 $this->data['buslike'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'business_profile_post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = 'not_from_id');
 //echo '<pre>'; print_r($this->data['buslike']); die();
 // like notification end
-
 // business profile notification end
 // 1-5 notification end
-
-
 $this->load->view('notification/index', $this->data);
 }
 //recruiter post for notification start
 
-    public function recruiter_post($id){
+public function recruiter_post($id){
     // echo "falguni"; 
      // echo $id; die();
       $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
@@ -512,52 +493,12 @@ public function update_msg_noti()
         
  public function freelancer_hire_post($id) {
         
-        
         $userid = $this->session->userdata('aileenuser');
         
-        $contition_array = array('is_delete'=> '0','post_id' => '1', 'status' => '1');
+        $contition_array = array('is_delete'=> '0','post_id' => $id, 'status' => '1');
      
         $postdata = $this->data['freelancerpostdata'] = $this->common->select_data_by_condition('freelancer_post', $contition_array, $data, $sortby = 'freelancer_post.created_date', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
-       // echo "<pre>"; print_r($postdata); die();
-        
-      
-//        // code change by pallavi 14-4-2017
-//        $join_str[0]['table'] = 'freelancer_hire_reg';
-//        $join_str[0]['join_table_id'] = 'freelancer_hire_reg.user_id';
-//        $join_str[0]['from_table_id'] = 'freelancer_post.user_id';
-//        $join_str[0]['join_type'] = '';
-//
-//
-//        $contition_array = array('freelancer_post.is_delete'=> '0','freelancer_post.post_id' => $id, 'freelancer_hire_reg.status' => '1');
-//
-//
-//$data='freelancer_post.post_id,freelancer_post.post_name,freelancer_post.post_est_time,freelancer_post.post_skill,freelancer_post.post_other_skill,freelancer_post.post_rate,freelancer_post.post_last_date,freelancer_post.post_description,freelancer_post.user_id,freelancer_post.created_date,freelancer_post.post_currency,freelancer_post.post_rating_type,freelancer_post.country,freelancer_post.city,freelancer_post.post_exp_month,freelancer_post.post_exp_year,freelancer_hire_reg.username,freelancer_hire_reg.fullname,freelancer_hire_reg.designation,freelancer_hire_reg.freelancer_hire_user_image';
-//        $postdata = $this->data['freelancerpostdata'] = $this->common->select_data_by_condition('freelancer_post', $contition_array, $data, $sortby = 'freelancer_post.created_date', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
-//        echo "<pre>";print_r($postdata);die();
-        
-        
-      
-
-         // echo "<pre>"; print_r($this->data['freelancerpostdata'] );die();
-
-
-
-        // code end by pallavi 14-4-2017 
-
-
-        // old code
-        // $contition_array = array('user_id' => $userid, 'status' => '1');
-        // $this->data['freelancerdata'] = $this->common->select_data_by_condition('freelancer_hire_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
-
-        // $contition_array = array('is_delete' => 0);
-        // $this->data['freelancerpostdata'] = $this->common->select_data_by_condition('freelancer_post', $contition_array, $data = '*', $sortby = 'post_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
-        // echo "<pre>"; print_r($this->data['freelancerpostdata'] );die();
-        // old end code
-
-
-
-        $this->load->view('Notification/freelancer_hire_post', $this->data);
+     //  echo "<pre>"; print_r($postdata); die();
+         $this->load->view('Notification/freelancer_hire_post', $this->data);
     }       
 }

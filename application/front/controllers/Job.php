@@ -2594,7 +2594,7 @@ class Job extends MY_Controller {
     //job seeker CARRIER controller end
     //job seeker PRINTDATA controller Start
     public function job_printpreview($id="") {
-
+      
         $userid = $this->session->userdata('aileenuser');
 
         if ($id == $userid || $id == '') {

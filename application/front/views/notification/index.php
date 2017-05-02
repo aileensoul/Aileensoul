@@ -220,7 +220,7 @@
    <img src="<?php echo base_url(USERIMAGE . $work['user_image']);?>" >
   </div>
     <div class="notification-data-inside">
-    <a href="<?php echo base_url('notification/recruiter_post/' . $work['post_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Freelancer hire</i></font></b><b>" . "  " .  $job['first_name'] . ' ' . $job['last_name'] . "</b> invited you for an interview"; ?></h6></a>
+    <a href="<?php echo base_url('notification/freelancer_hire_post/' . $work['post_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Freelancer hire</i></font></b><b>" . "  " .  $work['first_name'] . ' ' . $work['last_name'] . "</b> invited you for an interview"; ?></h6></a>
     <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
         <?php echo $this->common->time_elapsed_string($work['message_create_date'], $full = false);?>
     </div>

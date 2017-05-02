@@ -1,5 +1,5 @@
-<!-- menubar -->
-                          <div class="profile-main-rec-box-menu  col-md-12 ">
+<!-- menubar --> 
+ <div class="profile-main-rec-box-menu  col-md-12 ">
 
 <div class="left-side-menu col-md-2">  </div>
 <div class="right-side-menu col-md-6">  
@@ -34,10 +34,10 @@
                                 </div>
                         </li> -->
                         
-                        <li> <a href="#">Invite</a> </li>
+                       <?php if($this->uri->segment(3) != $userid ){ ?>
                         <li> <a href="#">Save</a> </li>
-                        <li> <a href="http://35.165.1.109:81/chat/abc/4">Message</a> </li>
-
+                       <li> <a href="<?php echo base_url('chat/abc/' . $this->uri->segment(3)); ?>">Message</a> </li>
+                       <?php } ?>
                     </ul>
                 </div>
             </div>
