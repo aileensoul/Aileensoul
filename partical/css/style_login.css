@@ -551,7 +551,7 @@ input[type="radio"] {
 
  }
  .checkbox2{display: inline-block; width: 45%;}
- .checkbox2 input[type="checkbox"]{height: 15px; width: 15px; float: left;}
+ .checkbox2 input[type="checkbox"]{height: 15px; width: 15px; float: left;cursor: pointer;}
   .checkbox2 h6{color:#a0b3b0;font-size: 15px;
    font-weight: 600;}
    .error-msg p, label.error {
