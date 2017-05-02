@@ -308,7 +308,7 @@
                 $userid = $this->session->userdata('aileenuser');
                 if ($businessdata1[0]['user_id'] != $userid) {
                     ?>
-                    <div class="msg_flw_btn_2">
+                  <!--   <div class="msg_flw_btn_2">
                         <div  class="fr msg_flw_btn">
 
                             <div class="<?php echo "fr" . $businessdata1[0]['business_profile_id']; ?>">
@@ -340,7 +340,7 @@
 
 
 
-                    </div>
+                    </div> -->
                 <?php } ?>
             </div>
             <!-- PICKUP -->
@@ -348,7 +348,7 @@
 
                 <div class="left-side-menu col-md-1" style="width: 13%;">   </div>
 
-                <div class="profile-main-box-buis-menu  col-md-9">  
+                <div class="profile-main-box-buis-menu  col-md-7">  
                     <ul class="">
 
 
@@ -414,8 +414,44 @@
                     </ul>
 
                 </div>
-                <div class="col-md-2"></div>
-            </div>
+
+                <div class="col-md-3 padding_les">
+                        <div class="flw_msg_btn fr">
+                            <ul>
+<li>
+    <div class="<?php echo "fr" . $businessdata1[0]['business_profile_id']; ?>">
+
+                                <?php
+                                $userid = $this->session->userdata('aileenuser');
+
+                                $contition_array = array('user_id' => $userid, 'status' => '1');
+
+                                $bup_id = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+                                $status = $this->db->get_where('follow', array('follow_type' => 2, 'follow_from' => $bup_id[0]['business_profile_id'], 'follow_to' => $businessdata1[0]['business_profile_id']))->row()->follow_status;
+                                //echo "<pre>"; print_r($status); die();
+
+                                if ($status == 0 || $status == " ") {
+                                    ?>
+                                    <div class="msg_flw_btn_1" id= "followdiv">
+                                        <button  id="<?php echo "follow" . $businessdata1[0]['business_profile_id']; ?>" onClick="followuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Follow</button>
+                                    </div>
+                                <?php } elseif ($status == 1) { ?>
+                                    <div class="msg_flw_btn_1" id= "unfollowdiv">
+                                        <button id="<?php echo "unfollow" . $businessdata1[0]['business_profile_id']; ?>" onClick="unfollowuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Following </button>
+                                    </div>
+                                <?php } ?>
+                            </div>         
+
+
+                                </li>
+
+                                <li>
+                                      <a href="<?php echo base_url('chat/abc/' . $businessdata1[0]['user_id']); ?>">Message</a></li>
+
+                            </ul>
+                        </div>
+                    </div></div>
 
             <!-- pickup -->
         </div>
@@ -1160,8 +1196,14 @@
 
                                         <div id="<?php echo 'editpostdetailbox' . $row['business_profile_post_id']; ?>" style="display:none;">
 
-                                            <textarea id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" name="editpostdesc"><?php echo $row['product_description']; ?>
+                                            <!-- <textarea id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" name="editpostdesc"><?php echo $row['product_description']; ?>
                                             </textarea> 
+ -->
+<div  contenteditable="true" id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" placeholder="Product Description" class="textbuis  editable_text"  name="editpostdesc"><?php echo $row['product_description']; ?></div>
+
+<!-- 
+<div contenteditable="true"  id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" placeholder="Product Description" class="textbuis  editable_text"  name="editpostdesc"><?php echo $row['product_description']; ?></div>  -->
+
                                         </div>
 
                                         <button class="fr" id="<?php echo "editpostsubmit" . $row['business_profile_post_id']; ?>" style="display:none;margin: 5px 0;" onClick="edit_postinsert(<?php echo $row['business_profile_post_id']; ?>)">Save</button>
@@ -2900,10 +2942,23 @@
                     var editpostname = document.getElementById("editpostname" + abc);
                     var editpostdetails = document.getElementById("editpostdesc" + abc);
 
+
+
+                    // start khyati code
+  var $field = $('#editpostname' + abc);
+  //var data = $field.val();
+  var editpostdetails = $('#editpostdesc' + abc).html();
+// end khyati code
+  
+ 
+ // $('#editpostdesc' + abc).html("");
+
+
+
                     $.ajax({
                         type: 'POST',
                         url: '<?php echo base_url() . "business_profile/edit_post_insert" ?>',
-                        data: 'business_profile_post_id=' + abc + '&product_name=' + editpostname.value + '&product_description=' + editpostdetails.value,
+                        data: 'business_profile_post_id=' + abc + '&product_name=' + editpostname.value + '&product_description=' + editpostdetails,
                         dataType: "json",
                         success: function (data) {
 
