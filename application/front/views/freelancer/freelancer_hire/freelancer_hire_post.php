@@ -315,8 +315,8 @@ echo $freelancer_hire_header2;} ?>
         </div>
 
 
-        <div class="job-menu-profile">
-            <h5 > <?php echo ucwords($freelancerpostdata[0]['fullname']) . ' ' . ucwords($freelancerpostdata[0]['username']); ?></h5>
+        <div class="job-menu-profile1">
+            <h3> <?php echo ucwords($freehiredata[0]['fullname']) . ' ' . ucwords($freehiredata[0]['username']); ?></h3>
 
 
             <div class="profile-text">
@@ -325,7 +325,8 @@ echo $freelancer_hire_header2;} ?>
                 if ($freehiredata[0]['designation'] == '') {
                     ?>
                    <!--  <a id="myBtn" title="<?php echo ucwords($freelancerpostdata[0]['fullname']) . ' ' . ucwords($freelancerpostdata[0]['username']); ?>">Designation</a> -->
-                    <center><a id="designation" class="designation" title="Designation">Current Work</a></center>
+                    <a id="designation" class="designation" title="Designation">Designation</a>
+
                 <?php } else { ?> 
                     <!-- <a id="myBtn" title="<?php echo ucwords($freelancerpostdata[0]['fullname']) . ' ' . ucwords($freelancerpostdata[0]['username']); ?>"><?php echo ucwords($freelancerpostdata[0]['designation']); ?></a> -->
                     <a id="designation" class="designation" title="<?php echo ucwords($freelancerpostdata[0]['designation']); ?>"><?php echo ucwords($freelancerpostdata[0]['designation']); ?></a>

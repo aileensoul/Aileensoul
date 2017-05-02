@@ -320,7 +320,8 @@
                 <?php
                 if ($freehiredata[0]['designation'] == '') {
                     ?>
-                    <a id="designation" class="designation" title="Designation">Current Work</a>
+                    <a id="designation" class="designation" title="Designation">Designation</a>
+                    
                 <?php } else { ?> 
                     <a id="designation" class="designation" title="<?php echo ucwords($freehiredata[0]['designation']); ?>"><?php echo ucwords($freehiredata[0]['designation']); ?></a>                <?php } ?></div>
             <div  class="add-post-button">
