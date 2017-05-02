@@ -385,8 +385,16 @@
 
                                 <div class="job-post-detail clearfix"  id="<?php echo "removeapply" . $post['save_id']?>">
                                     <div class="job-post-title">
-                                        <h4><a href="<?php echo base_url('freelancer/freelancer_hire_profile/' . $post['user_id']); ?>" title="Post Title" >Web developer. </a></h4>
-                                         <a href="#">Jay</a>
+                                        <h4><a href="<?php echo base_url('freelancer/freelancer_hire_profile/' . $post['user_id'].'?page=freelancer_post'); ?>" title=" <?php echo text2link($post['post_name']); ?>">
+        <?php echo text2link($post['post_name']); ?>
+              </a></h4>
+                <?php
+                $firstname = $this->db->get_where('freelancer_post_reg', array('user_id' => $post['user_id']))->row()->freelancer_post_fullname;
+                $lastname = $this->db->get_where('freelancer_post_reg', array('user_id' => $post['user_id']))->row()->freelancer_post_username;
+                    ?>
+
+
+                                         <a href="<?php echo base_url('freelancer/freelancer_hire_profile/' . $post['user_id'].'?page=freelancer_post'); ?>" title="<?php echo ucwords($firstname); ?>&nbsp;<?php echo ucwords($lastname); ?>"><?php echo ucwords($firstname); ?>&nbsp;<?php echo ucwords($lastname); ?></a>
                                     </div>
                                     <div class="exper-location">
                                         <ul>
