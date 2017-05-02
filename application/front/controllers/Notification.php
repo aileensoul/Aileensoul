@@ -124,6 +124,7 @@ $join_str = array(array(
 $data = array('notification.*',' follow.*',' user.user_id', 'user.first_name', 'user.user_image','user.last_name');
 
 $this->data['artfollow'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'follow_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = 'not_from_id');
+//echo '<pre>'; print_r($this->data['artfollow']); die();
 // follow notification end
 
 // comment notification start
@@ -203,7 +204,7 @@ $join_str = array(array(
 $data = array('notification.*','business_profile_post_comment.*','user.user_id','user.first_name','user.user_image','user.last_name');
 
 $this->data['buscommnet'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'business_profile_post_comment_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = 'not_from_id');
-
+//echo '<pre>'; print_r($this->data['buscommnet']); 
 // comment notification end
 
 // like notification start
@@ -222,6 +223,7 @@ $join_str = array(array(
 $data = array('notification.*',' business_profile_post.*',' user.user_id', 'user.first_name', 'user.user_image','user.last_name');
 
 $this->data['buslike'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'business_profile_post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = 'not_from_id');
+//echo '<pre>'; print_r($this->data['buslike']); die();
 // like notification end
 
 // business profile notification end
@@ -233,8 +235,8 @@ $this->load->view('notification/index', $this->data);
 //recruiter post for notification start
 
     public function recruiter_post($id){
-     //echo "falguni"; die(); 
-      //echo $id; die();
+    // echo "falguni"; 
+     // echo $id; die();
       $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
 
 
@@ -244,10 +246,10 @@ $this->load->view('notification/index', $this->data);
             $join_str[0]['join_type'] = '';
 
 
-            $contition_array = array('rec_post.user_id' => $userid, 'rec_post.is_delete' => 0,'rec_post.post_id' => $id);
+            $contition_array = array('rec_post.is_delete' => 0,'rec_post.post_id' => $id);
             $this->data['postdata'] = $this->common->select_data_by_condition('rec_post', $contition_array, $data = 'rec_post.*,recruiter.rec_firstname,recruiter.re_comp_name,recruiter.rec_lastname', $sortby = 'post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 
-           // echo "<pre>"; print_r($this->data['postdata']); die();
+            //echo "<pre>"; print_r($this->data['postdata']); die();
        
       $this->load->view('notification/rec_post1' , $this->data); 
   }
