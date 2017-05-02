@@ -22,7 +22,7 @@ class MY_Controller extends CI_Controller {
         
     }
 
-   public  function time_elapsed_string($datetime, $full = false) {
+   public  function time_elapsed_string($datetime, $full = false) { 
     $now = new DateTime;
     $ago = new DateTime($datetime);
     $diff = $now->diff($ago);
@@ -48,6 +48,6 @@ class MY_Controller extends CI_Controller {
     }
 
     if (!$full) $string = array_slice($string, 0, 1);
-    return $string ? implode(', ', $string) . ' ago' : 'just now';
+    return $string ? implode(', ', $string) . ' ago' : 'just now'; 
 }
 }

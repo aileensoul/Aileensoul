@@ -20,7 +20,7 @@ class Notification extends MY_Controller {
     //     $this->load->view('Notification/index', $this->data);
     // }
 public function index(){  
-
+    
 $userid = $this->session->userdata('aileenuser');
 // 1-5 notification start
 // recruiter notfication start
