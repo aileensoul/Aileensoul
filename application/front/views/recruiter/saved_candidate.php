@@ -344,7 +344,7 @@
                
                 ?>
                             <!--<center><a id="myBtn" title="Designation">Designation</a></center>-->
-                <center><a id="designation" class="designation" title="Designation">Current Work</a></center>
+                <a id="designation" class="designation" title="Designation">Designation</a>
             <?php }
              else {
                // echo "hello";
@@ -403,14 +403,14 @@
  <div class="job-contact-frnd ">
                                     <div class="profile-job-post-detail clearfix" id="<?php echo "removeuser" . $userdata[0]['save_id']; ?>">
 
-                                        <div class="profile-job-post-title-inside clearfix">
+                     <div class="profile-job-post-title-inside clearfix">
                                            <!--  <div class="profile-job-post-location-name"> --> 
 
-                                                  <div class="profile-job-profile-button clearfix"> 
+                <div class="profile-job-profile-button clearfix"> 
 
                                                 <!-- pop up box start-->
                                                 <!-- <div id="popup1" class="overlay">
-                                                    <div class="popup">
+                                                    <div class="popup">-->
 <!-- khati changes 11-4 start -->
                                                      <!--    <div class="pop_content">
                                                             Are You Sure want to delete this user?.
@@ -426,48 +426,46 @@
                                                 </div>  -->
                                                 <!-- pop up box end-->
 
-                                             <div class="profile-job-post-location-name-rec">
-                                                                <div style="display: inline-block; float: left;">
+                  <div class="profile-job-post-location-name-rec">
+                 <div style="display: inline-block; float: left;">
 <div  class="buisness-profile-pic-candidate" style=" margin-top: 5px;">
                                 <!-- <rash code 12-4 start> -->
 
-                                         <?php
-                                            if ($rec['job_user_image']) {
-                                                ?>
-                                                <img src="<?php echo base_url(USERIMAGE . $rec['job_user_image']); ?>" alt="<?php echo $rec[0]['fname']. ' ' . $rec[0]['lname']; ?>">
-                                                <?php
-                                            } else {
-                                                ?>
-                                                <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo $rec[0]['fname']. ' ' . $rec[0]['lname']; ?>">
-                                                <?php
-                                            }
-                                            ?>
+                  <?php
+                 if ($rec['job_user_image']) {
+                    ?>
+                <img src="<?php echo base_url(USERIMAGE . $rec['job_user_image']); ?>" alt="<?php echo $rec[0]['fname']. ' ' . $rec[0]['lname']; ?>">
+                     <?php
+                       } else {
+                          ?>
+                <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo $rec[0]['fname']. ' ' . $rec[0]['lname']; ?>">
+                       <?php
+                      }
+                   ?>
 
-                                <!-- <rash code 12-4 end> -->
+                <!-- <rash code 12-4 end> -->
 
                                  </div>
                                 </div>
 
-                                                                </div>
-                                                                <div class="designation_rec_1" style="float: left;">
-                                                                  <ul>
+                               </div>
+                                <div class="designation_rec_1" style="float: left;">
+                              <ul>
                                                                       <li> 
     <a style="font-size: 18px;    font-weight: 600;" href="<?php echo base_url('job/job_printpreview/' . $rec['job_id']); ?>" title="<?php echo $rec[0]['fname']. ' ' . $rec[0]['lname']; ?>">
         <?php echo $this->db->get_where('job_reg', array('user_id' => $rec['to_id']))->row()->fname . ' ' . $this->db->get_where('job_reg', array('user_id' => $rec['to_id']))->row()->lname; ?></a>
   </li>
-                                                                     <li style="display: block;">
+   
+          <li style="display: block;">
 
                 <a  style="font-size: 16px;" href="<?php echo base_url('job/job_printpreview/' . $rec['user_id']); ?>" title=" <?php echo $rec['designation']; ?>">
-                                                                         <?php
-                                                                                if ($rec['designation']) {
-                                                                                    ?>
-
-                                                                                    
-                                                                                    <?php echo $rec['designation']; ?>
-                                                                                    
-                                                                                    <?php
-                                                                                } else {
-                                                                                    ?>
+                 <?php
+               if ($rec['designation']) {
+                    ?>
+              <?php echo $rec['designation']; ?>
+                <?php
+                 } else {
+                ?>
                                                                                     
                                                                                     <?php echo "Designation"; ?>
                                                                                     
@@ -502,22 +500,20 @@
 
                                          <li> <b> Skill</b> <span>
                                                         <?php
-                                                                $comma = ", ";
-                                                                $k = 0;
-                                                                $aud = $rec['keyskill'];
-                                                                $aud_res = explode(',', $aud);
-                                                                foreach ($aud_res as $skill) {
-                                                                    if ($k != 0) {
-                                                                        echo $comma;
-                                                                    }
-                                                                    $cache_time = $this->db->get_where('skill', array('skill_id' => $skill))->row()->skill;
-
-
-                                                                    echo $cache_time;
-                                                                    $k++;
-                                                                }
-                                                                ?>    </span>
-                                                        </li>
+                    $comma = ", ";
+                    $k = 0;
+                    $aud = $rec['keyskill'];
+                    $aud_res = explode(',', $aud);
+                    foreach ($aud_res as $skill) {
+                    if ($k != 0) {
+                       echo $comma;
+                      }
+                    $cache_time = $this->db->get_where('skill', array('skill_id' => $skill))->row()->skill;
+                     echo $cache_time;
+                     $k++;
+                        }
+                     ?>    </span>
+                   </li>
                                                       
 
  <?php
@@ -543,9 +539,8 @@
                                                                 $cityname = $this->db->get_where('cities', array('city_id' => $rec['city_id']))->row()->city_name;
                                                                 ?>
 
-                                                                  <li><b>Location</b> <span>
-
-                                                                  <?php if($countryname || $cityname )
+                <li><b>Location</b> <span>
+             <?php if($countryname || $cityname )
                   { 
                      
 
@@ -554,10 +549,9 @@
                 else
                     { echo PROFILENA;} ?>
                      </span></li>
-
-                                                                      <li> <b> Degree </b><span>
-                                                                    <?php
-                                                                    $cache_time = $this->db->get_where('degree', array('degree_id' => $rec['degree']))->row()->degree_name;
+              <li> <b> Degree </b><span>
+                 <?php
+                 $cache_time = $this->db->get_where('degree', array('degree_id' => $rec['degree']))->row()->degree_name;
                                                                     
 
                                                                      if($cache_time)
@@ -666,7 +660,7 @@
             </div>
         </div>
     </div>
-</div> --> -->
+</div> --> 
 <!-- Model Popup Close -->
   <div class="modal fade message-box" id="bidmodal-2" role="dialog">
     <div class="modal-dialog modal-lm">

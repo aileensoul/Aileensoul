@@ -3396,7 +3396,7 @@ $followingdatacount = count($followingotherdata);
 
 
         $contition_array = array('art_post_id' => $_POST["post_id"], 'status' => '1');
-        $artdatacommentid = $this->data['artdatacommentid'] = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        $artdatacomment = $this->data['artdatacomment'] = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
 
         $data = array(
@@ -3419,13 +3419,13 @@ $followingdatacount = count($followingotherdata);
             $data = array(
                 'not_type' => 6,
                 'not_from_id' => $userid,
-                'not_to_id' => $artdatacommentid[0]['user_id'] ,
+                'not_to_id' => $artdatacomment[0]['user_id'] ,
                 'not_read' => 2,
                 'not_product_id' => $insert_id,
                 'not_from' => 3,
                 'not_img' => 0
             );
-            echo "<pre>"; print_r($data); die();
+
             $insert_id = $this->common->insert_data_getid($data, 'notification');
           }
             // end notoification
