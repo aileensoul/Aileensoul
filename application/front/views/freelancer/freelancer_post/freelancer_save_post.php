@@ -385,8 +385,7 @@
 
                                 <div class="job-post-detail clearfix"  id="<?php echo "removeapply" . $post['save_id']?>">
                                     <div class="job-post-title">
-                                        <h4><a href="<?php echo base_url('freelancer/freelancer_hire_profile/' . $post['user_id']); ?>" title="Post Title" >
-                                            </a></h4>
+                                        <h4><a href="<?php echo base_url('freelancer/freelancer_hire_profile/' . $post['user_id']); ?>" title="Post Title" >Web developer. </a></h4>
                                          <a href="#">Jay</a>
                                     </div>
                                     <div class="exper-location">
