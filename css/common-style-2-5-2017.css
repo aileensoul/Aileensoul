@@ -9417,10 +9417,7 @@ button.close {
 .stkiy{     position: fixed;
     top: 53px;
     /* width: 290px; */
-    z-index: 9;
-    width: 93%;
-  }
-
+    z-index: 9;}
 
 /*Retina graphics!*/
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5),

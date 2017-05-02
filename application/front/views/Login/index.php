@@ -125,7 +125,7 @@
                         <div class="login_filed">
                             <div class="field-wrap">
                                 <label class="login_label">
-                                    Email Address or Username<span class="req">*</span>
+                                    Email Address<span class="req">*</span>
                                 </label>
                                 <input id="user_name"  type="text" name="user_name" autocomplete="off"/>
                             </div>
@@ -134,7 +134,7 @@
                                 <label class="login_label">
                                     Password<span class="req">*</span>
                                 </label>
-                                <input type="password" id="password" name="password" class="showpassword"  style="position: relative;" />
+                                <input type="password" id="password" name="password" class="showpassword"  style="position: relative;padding-right: 8%;" />
 
                                 
   <label for="password1" style="position: absolute;
