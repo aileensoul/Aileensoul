@@ -691,9 +691,10 @@ class Artistic extends MY_Controller {
 
     public function art_portfolio_insert() {
 
-echo "<pre>"; print_r($_FILES);
+        
+
         $userid = $this->session->userdata('aileenuser');
-      $artportfolio = $_POST['artportfolio']; 
+        $artportfolio = $_POST['artportfolio']; 
        // $bestofmine = $_POST['bestofmine']; 
 
         //best of mine image upload code start
@@ -715,14 +716,14 @@ echo "<pre>"; print_r($_FILES);
         $config['upload_path'] = 'uploads/art_images/';
         $config['allowed_types'] = 'pdf';
 
-        $config['file_name'] = $_FILES['bestofmine']['name'];
+        $config['file_name'] = $_FILES['image']['name'];
         $config['upload_max_filesize'] = '40M';
 
         //Load upload library and initialize configuration
         $this->load->library('upload', $config);
         $this->upload->initialize($config);
 
-        if ($this->upload->do_upload('bestofmine')) {
+        if ($this->upload->do_upload('image')) {
 
             $uploadData = $this->upload->data();
 
@@ -740,7 +741,7 @@ echo "<pre>"; print_r($_FILES);
                 'modified_date' => date('Y-m-d', time()),
                 'art_step' => 4
             );
-       //echo "<pre>"; print_r($data); die();
+        echo "<pre>"; print_r($data); die();
 
         $updatdata = $this->common->update_data($data, 'art_reg', 'user_id', $userid);
 
