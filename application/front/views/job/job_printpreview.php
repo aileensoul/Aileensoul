@@ -920,21 +920,34 @@ echo $job_header2;
                             </div>
                         </div>
                         <!-- Model Popup Close -->
+                        <!-- Bid-modal  -->
+                    <div class="modal fade message-box biderror" id="bidmodal" role="dialog">
+                        <div class="modal-dialog modal-lm">
+                            <div class="modal-content">
+                                <button type="button" class="modal-close" data-dismiss="modal">&times;</button>         
+                                <div class="modal-body">
+                                    <!--<img class="icon" src="images/dollar-icon.png" alt="" />-->
+                                    <span class="mes"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Model Popup Close -->
                         </body>
 
                         </html>
 
 
                         <!-- script for skill textbox automatic start-->
-                         <script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
+                <script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
                 <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
                 <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
                 <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 
 
-                           <script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script>
-                        <link rel="stylesheet" href="<?php echo base_url('assets/css/croppie.css'); ?>">
+                <script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script>
+                <link rel="stylesheet" href="<?php echo base_url('assets/css/croppie.css'); ?>">
 
                         <!-- script for skill textbox automatic end (option 2)-->
                         <script>
@@ -1269,3 +1282,28 @@ echo $job_header2;
                                 $("a.designation").click(divClicked);
                             });
                         </script>
+                        
+                        <!-- save post start -->
+            <script type="text/javascript">
+                  function save_user(abc)
+                        {
+           var saveid = document.getElementById("hideenuser" + abc);
+                $.ajax({
+        type: 'POST',
+        url: '<?php echo base_url() . "recruiter/save_search_user" ?>',
+        data: 'user_id=' + abc + '&save_id=' + saveid.value,
+        success: function (data) {
+    $('.' + 'saveduser' + abc).html(data).addClass('saved');
+                                }
+                            });
+                        }
+                    </script>
+                    <!-- save post end-->
+                        <script>
+                        function savepopup(id) {
+                            save_user(id);
+                      
+            $('.biderror .mes').html("<div class='pop_content'>Your post is successfully saved.");
+            $('#bidmodal').modal('show');
+                        }
+                    </script>

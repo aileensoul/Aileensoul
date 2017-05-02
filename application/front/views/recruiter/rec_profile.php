@@ -313,16 +313,9 @@ body {
    <div class="col-md-2">
                 <div class="flw_msg_btn fr">
                     <ul>
-
-                        <!-- <li class="fruser2">
-
-                                <div id="unfollowdiv">
-                                    <a id="unfollow2" onclick="unfollowuser(2)"> Following</a>
-                                </div>
-                        </li> -->
-                        <li>
-                            <a href="<?php echo  base_url('recruiter/recruiter_designation/');?>">Message</a></li>
-
+                 <?php if($this->uri->segment(3) != $userid ){ ?>
+                       <li> <a href="<?php echo base_url('chat/abc/' . $this->uri->segment(3)); ?>">Message</a> </li>
+                        <?php } ?>
                     </ul>
                 </div>
             </div>
