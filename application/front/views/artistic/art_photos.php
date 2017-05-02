@@ -1211,7 +1211,7 @@ foreach ($databus1 as $artdata) {
                 url: '<?php echo base_url() . "artistic/mulimg_commentthree" ?>',
                 data: 'post_image_id=' + clicked_id + '&comment=' + post_comment.value,
                 dataType: "json",
-                success: function (data) {
+                success: function (data) { 
                     $('input').each(function () {
                         $(this).val('');
                     });
@@ -1271,7 +1271,7 @@ foreach ($databus1 as $artdata) {
                         url: '<?php echo base_url() . "artistic/mulimg_commentthree" ?>',
                         data: 'post_image_id=' + clicked_id + '&comment=' + val,
                         dataType: "json",
-                        success: function (data) {
+                        success: function (data) { 
                             $('input').each(function () {
                                 $(this).val('');
                             });
