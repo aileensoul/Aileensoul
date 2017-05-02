@@ -170,7 +170,7 @@
    <img src="<?php echo base_url(USERIMAGE . $art['user_image']);?>" >
   </div>
     <div class="notification-data-inside">
-    <a href="<?php echo base_url('job/job_printpreview/' . $id); ?>"><h6><?php echo "HI.. !  <font color='yellow'><b><i>Freelancer work</i></font></b><b>" . "  " .  $art['first_name'] . ' ' . $art['last_name'] . "</b> Aplied on your post"; ?></h6></a>
+    <a href="<?php echo base_url('freelancer/freelancer_post_profile/' . $art['not_from_id']); ?>"><h6><?php echo "HI.. !  <font color='yellow'><b><i>Freelancer work</i></font></b><b>" . "  " .  $art['first_name'] . ' ' . $art['last_name'] . "</b> Aplied on your post"; ?></h6></a>
     <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i><?php echo date('d M ',strtotime($job['message_create_date'])); ?></div>
     </div>
     
