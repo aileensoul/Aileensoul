@@ -508,5 +508,54 @@ public function update_msg_noti()
 }
 //Notification count select & update for Message End
         
+ public function freelancer_hire_post($id) {
         
+        
+        $userid = $this->session->userdata('aileenuser');
+        
+        $contition_array = array('is_delete'=> '0','post_id' => '1', 'status' => '1');
+     
+        $postdata = $this->data['freelancerpostdata'] = $this->common->select_data_by_condition('freelancer_post', $contition_array, $data, $sortby = 'freelancer_post.created_date', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
+       // echo "<pre>"; print_r($postdata); die();
+        
+      
+//        // code change by pallavi 14-4-2017
+//        $join_str[0]['table'] = 'freelancer_hire_reg';
+//        $join_str[0]['join_table_id'] = 'freelancer_hire_reg.user_id';
+//        $join_str[0]['from_table_id'] = 'freelancer_post.user_id';
+//        $join_str[0]['join_type'] = '';
+//
+//
+//        $contition_array = array('freelancer_post.is_delete'=> '0','freelancer_post.post_id' => $id, 'freelancer_hire_reg.status' => '1');
+//
+//
+//$data='freelancer_post.post_id,freelancer_post.post_name,freelancer_post.post_est_time,freelancer_post.post_skill,freelancer_post.post_other_skill,freelancer_post.post_rate,freelancer_post.post_last_date,freelancer_post.post_description,freelancer_post.user_id,freelancer_post.created_date,freelancer_post.post_currency,freelancer_post.post_rating_type,freelancer_post.country,freelancer_post.city,freelancer_post.post_exp_month,freelancer_post.post_exp_year,freelancer_hire_reg.username,freelancer_hire_reg.fullname,freelancer_hire_reg.designation,freelancer_hire_reg.freelancer_hire_user_image';
+//        $postdata = $this->data['freelancerpostdata'] = $this->common->select_data_by_condition('freelancer_post', $contition_array, $data, $sortby = 'freelancer_post.created_date', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
+//        echo "<pre>";print_r($postdata);die();
+        
+        
+      
+
+         // echo "<pre>"; print_r($this->data['freelancerpostdata'] );die();
+
+
+
+        // code end by pallavi 14-4-2017 
+
+
+        // old code
+        // $contition_array = array('user_id' => $userid, 'status' => '1');
+        // $this->data['freelancerdata'] = $this->common->select_data_by_condition('freelancer_hire_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+
+        // $contition_array = array('is_delete' => 0);
+        // $this->data['freelancerpostdata'] = $this->common->select_data_by_condition('freelancer_post', $contition_array, $data = '*', $sortby = 'post_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+        // echo "<pre>"; print_r($this->data['freelancerpostdata'] );die();
+        // old end code
+
+
+
+        $this->load->view('Notification/freelancer_hire_post', $this->data);
+    }       
 }
