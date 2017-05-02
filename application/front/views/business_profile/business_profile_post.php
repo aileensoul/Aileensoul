@@ -822,7 +822,7 @@ $slugnameposted =  $this->db->get_where('business_profile',array('user_id' => $r
                 </li>
 
                 <?php }?>
-                <li>
+                
                 <li>
                   <div class="post-design-product">
                     <a href="javascript:void(0);" style=" color: #000033; font-weight: 400; cursor: default;" title="Category">
@@ -871,7 +871,7 @@ if ($businesssave) {
               </div>
             </div>
             <div class="post-design-desc ">
-              <div >
+              <div>
                 <div id="<?php echo 'editpostdata' . $row['business_profile_post_id']; ?>" style="display:block;">
                   <a style="margin-bottom: 0px;     font-size: 16px">
                     <?php echo text2link($row['product_name']); ?>
@@ -1071,7 +1071,6 @@ $commnetcount = $this->common->select_data_by_condition('business_profile_post_c
                       <?php
 if (count($commnetcount) > 0) {
 echo count($commnetcount);
-} else {
 }
 ?>
                     </i> 

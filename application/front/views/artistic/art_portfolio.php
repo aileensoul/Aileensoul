@@ -249,10 +249,6 @@ $( "#tags" ).autocomplete({
 </script>
     <!-- footer end -->
 
-
-    
-
-
 <!-- only pdf insert script strat -->
 <script type="text/javascript">
 
@@ -270,14 +266,13 @@ $( "#tags" ).autocomplete({
  
 // end khyati code  
     if(bestofmine == ''){ 
-      //$(".bestofmine_image").html("Please select at lease one file.");
-        //return false;
+     
         // document.getElementById("artportfolio").submit();
 
         $.ajax({
                 type:'POST',
                 url:'<?php echo base_url() . "artistic/art_portfolio_insert" ?>',
-                 data:'bestofmine='+bestofmine + '&artportfolio='+artportfolio,
+                 data:'artportfolio='+artportfolio,
                 success:function(data){ 
                     
                 }
@@ -291,9 +286,8 @@ $( "#tags" ).autocomplete({
       if(foundPresentpdf == true)
       { 
 
-         var $field = $('#artportfolio123');
-         //var data = $field.val();
-       var artportfolio = $('#artportfolio123').html();
+          var $field = $('#artportfolio123');
+          var artportfolio = $('#artportfolio123').html();
           var bestofmine = document.getElementById("bestofmine").value;
    
         $.ajax({
