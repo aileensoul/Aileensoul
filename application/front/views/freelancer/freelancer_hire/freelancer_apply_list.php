@@ -203,7 +203,7 @@
               <!--<a href="<?php echo base_url('chat/abc/' . $row['user_id']); ?>">Saved</a>-->
            <a href="<?php echo base_url('chat/abc/' . $row['user_id']); ?>">Message</a>
 
-            <div id="<?php echo 'invited' . $row['user_id']; ?>" onclick="inviteuser(<?php echo $row['user_id']; ?>)"> Invite</div>
+            <div class="button" id="<?php echo 'invited' . $row['user_id']; ?>" onclick="inviteuser(<?php echo $row['user_id']; ?>)"> Invite</div>
    
           <?php
             if (!$data) {
@@ -217,7 +217,7 @@
             } else {
                 ?>
          <a class="saved" href="javascript:void(0);" onclick="return false">Saved</a>
-         <div id="invited" onclick="inviteuser()"> Invite</div>
+         <div class="button" id="invited" onclick="inviteuser()"> Invite</div>
                 <?php
                 // khayti changes end 6-4                              
             }
