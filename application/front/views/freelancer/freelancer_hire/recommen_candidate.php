@@ -496,12 +496,11 @@
              if ($row['freelancer_post_hourly']) {
              $currency = $this->db->get_where('currency', array('currency_id' => $row['freelancer_post_ratestate']))->row()->currency_name;
              if ($row['freelancer_post_fixed_rate'] == '1') {
-                 $rate_type = 'Fixed';
+                 echo $row['freelancer_post_hourly'] . "   " . $currency . "  (Also work on fixed Rate) " ;
                } else {
-           $rate_type = 'Hourly';
+           echo $row['freelancer_post_hourly'] . "   " . $currency . "  " . $rate_type;
                  }
-        echo $row['freelancer_post_hourly'] . "   " . $currency . "  " . $rate_type;
-              ;
+
               } else {
                echo PROFILENA;
                  }
