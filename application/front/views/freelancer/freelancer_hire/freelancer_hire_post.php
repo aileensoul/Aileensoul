@@ -404,7 +404,7 @@ echo $freelancer_hire_header2;} ?>
                                                    <!--  </div>
                                                 </div> -->
                                                 <!-- pop up box end-->
-                  <div class="profile-job-post-title clearfix" style="margin-bottom: 0px;">
+                  <div class="profile-job-post-title clearfix" style="margin-bottom:0px">
                   <div class="profile-job-profile-button clearfix">
                      <div class="profile-job-details col-md-12">
                           <ul>
@@ -488,44 +488,15 @@ echo $freelancer_hire_header2;} ?>
                                                                         ?>
                                                                     </li>
 
-                                                                    <?php
-                                                                    $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
-
-                                                                    $contition_array = array('post_id' => $post['post_id'], 'job_delete' => 0, 'user_id' => $userid);
-                                                                    $jobsave = $this->data['jobsave'] = $this->common->select_data_by_condition('job_apply', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
-                                                                    if ($jobsave) {
-                                                                        ?>
-
-                                                                        <!--<button  class="button" disabled>Applied</button>-->
-                                                                        <a href="javascript:void(0);" class="button applied">Applied</a>
-                                                                        <?php
-                                                                    } else {
-                                                                        ?>
-                                                                        <li class="fr"> 
-
-                                                                                                                                                                                                            <!--<a href="<?php echo '#popup5' . $post['post_id']; ?>"  class= "<?php echo 'applypost' . $post['post_id']; ?>  button">Apply</a>-->
-                                                                            <a href="javascript:void(0);"  class= "<?php echo 'applypost' . $post['post_id']; ?>  button" onclick="applypopup(<?php echo $post['post_id'] ?>,<?php echo $post['user_id'] ?>)">Apply</a>
-
-                                                                        </li>
-                                                                        <li class="fr">
-                                                                            <?php
-                                                                            $userid = $this->session->userdata('aileenuser');
-                                                                            $contition_array = array('user_id' => $userid, 'job_save' => '2', 'post_id ' => $post['post_id'], 'job_delete' => '0');
-                                                                            $jobsave = $this->data['jobsave'] = $this->common->select_data_by_condition('job_apply', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
-                                                                            if ($jobsave) {
-                                                                                ?>
-                                                                                <a class="button saved">Saved</a>
-                                                                            <?php } else { ?>       
-
-                                                                                                                                                                                                                                                                    <!--<a id="<?php echo $post['post_id']; ?>" onClick="save_post(this.id)" href="#popup1" class="<?php echo 'savedpost' . $post['post_id']; ?> button">Save</a>-->
-                                                                                <a id="<?php echo $post['post_id']; ?>" onClick="savepopup(<?php echo $post['post_id']; ?>)" href="javascript:void(0);" class="<?php echo 'savedpost' . $post['post_id']; ?> button">Save</a>
-                                                                            <?php } ?>
-                                                                        </li>
-                                                                        <?php
-                                                                    }
-                                                                    ?>
+                                                                   
+                                                                                                         <li>
+                                                                       <a href="javascript:void(0);" class="button" onclick="removepopup(4)">Remove</a>
+                                                                   </li>  
+                                                                    <li>
+                                                                       <a class="button" >Edit </a>
+                                                                   </li>                   
+                                                                   <li class=fr><a class="button" >Applied person :1</a>
+                                                                   </li>      
 
                                                             </div>
 
