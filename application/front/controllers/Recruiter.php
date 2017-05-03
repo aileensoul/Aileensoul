@@ -787,9 +787,6 @@ class Recruiter extends MY_Controller {
       
        $userdata = $this->data['userdata'] =  $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str , $groupby = 'job_id');
 
-
-       // echo "<pre>"; print_r($userdata); die();
-
             $udata[] = $this->data['userdata'];
         }
 
@@ -811,8 +808,7 @@ class Recruiter extends MY_Controller {
             'status' => $status,
             'modify_date' => date('y-m-d h:i:s')
         );
-
-
+          
         $updatedata = $this->common->update_data($data, 'job_apply', 'app_id', $appid);
 
         // insert notification

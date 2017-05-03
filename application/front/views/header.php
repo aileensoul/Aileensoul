@@ -76,23 +76,22 @@ $(window).load(function(){
 
     function addmsg(type, msg)
     {
-
+         //   alert(msg);
 
         //$('#notification_count').html(msg);
 
         // alert(msg);
         if (msg == 0)
         {
-            $("#notification_count").remove();
-
-            // //alert("hi");
+            $("#notification_count").html('');
+  //     alert("hi");
 
         } else
         {
             $('#notification_count').html(msg);
             $('#notification_count').css('background-color', '#FF4500');
 
-            //alert("welcome");
+           // alert("welcome");
         }
 
 

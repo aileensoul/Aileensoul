@@ -1937,7 +1937,6 @@ $this->load->view('freelancer/freelancer_hire/freelancer_save', $this->data);
                 'modified_date' => date('Y-m-d', time())
             );
 
-
             $updatdata = $this->common->update_data($data, 'freelancer_hire_reg', 'user_id', $userid);
            // echo "<pre>"; print_r($updatdata);die();
 
