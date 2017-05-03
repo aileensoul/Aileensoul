@@ -87,7 +87,7 @@
 
                                 <fieldset class="full-width">
                                  
-                              <div contenteditable="true" name ="artportfolio" id="artportfolio123" rows="4" cols="50" placeholder="Enter Portfolio Detail" style="resize: none;"><?php if($art_portfolio1){ echo $art_portfolio1; } ?></div>
+                              <div class="editable_text" contenteditable="true" name ="artportfolio" id="artportfolio123" rows="4" cols="50" placeholder="Enter Portfolio Detail" style="resize: none;"><?php if($art_portfolio1){ echo $art_portfolio1; } ?></div>
                                          <?php echo form_error('artportfolio'); ?>
                                  
                                 </fieldset>
