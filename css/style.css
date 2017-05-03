@@ -2820,7 +2820,7 @@ label.cameraButton input[accept*="camera"] {
                               border-radius: 3px;
                               letter-spacing: 0px;
                               margin-left: -11px;}
-.comment-details{ padding-left: 51px;  font-weight: 400; word-break:break-word;word-break: break-all;}
+.comment-details{ padding-left: 51px; padding-right: 10px;  font-weight: 400; word-break:break-word;word-break: break-all;}
 .inputtype-comment textarea{  resize:none;
                               overflow:hidden;
                               font-size:18px;
@@ -4283,8 +4283,13 @@ textarea {overflow: hidden;}
 /* v  1-5-17 end*/
 
 /* v 3-5-17 start*/
-.invite_border {  border: 1px solid #000033 !important; }
- 
+.invite_border {  border: 1px solid #000033 !important; margin-right: 10px!important; float: none!important; }
+.back_post_btn { background-color: #000033; color: #fff; padding: 10px 17px; border:1px solid #000033; border-radius: 25px;} 
+.back_post_btn i { display: none; }
+.back_post_btn:hover { background-color:;  }
+.back_post_btn:hover>i{ display: inline; font-size: 20px; transition: 20s; }
+
+
 
 /* v 3-5-17 end*/
 

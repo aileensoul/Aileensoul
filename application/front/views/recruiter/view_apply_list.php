@@ -116,7 +116,9 @@ padding-top: 1px;}
                 <div class="row">
 
     
-    <div class="col-md-4"><div class="profile-box profile-box-left">
+    <div class="col-md-4">
+
+    <!-- <div class="profile-box profile-box-left">
 <div class="full-box-module">    
       
       <div class="profile-boxProfileCard  module">
@@ -125,12 +127,12 @@ padding-top: 1px;}
       href="<?php echo base_url('recruiter/rec_profile'); ?>"
       tabindex="-1"
       aria-hidden="true"
-      rel="noopener">
+      rel="noopener"> -->
      <!-- box image start -->
-<img src="<?php echo base_url(RECBGIMAGE . $recdata[0]['profile_background']);?>" class="bgImage"  style="    height: 95px;
-    width: 100%; " >
+<!-- <img src="<?php echo base_url(RECBGIMAGE . $recdata[0]['profile_background']);?>" class="bgImage"  style="    height: 95px;
+    width: 100%; " > -->
 <!-- box image end -->
-    </a></div>
+    <!-- </a></div>
 <div class="profile-box-menu  fr col-md-12">
 <div class="left- col-md-2"></div>
   <div  class="right-section col-md-10">
@@ -175,11 +177,20 @@ padding-top: 1px;}
    </div>
 
   </div>
-</div>
-  <div  class="add-post-button">
+</div> -->
+  <!-- <div  class="add-post-button">
    
         <a class="btn btn-3 btn-3b" href="<?php echo base_url('recruiter/add_post'); ?>"><i class="fa fa-plus" aria-hidden="true"></i>  Add Post</a>
-  </div>
+  </div> -->
+
+   <div class="add-post-button">
+     
+ <a href="#" class="back_post_btn"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>
+    <span>&nbsp;Back To Post</span></a>
+
+   </div>
+
+
   </div>
 
 
@@ -337,6 +348,17 @@ if ($user_data) {
     $contition_array = array('from_id' => $userid, 'to_id' => $row['user_id'], 'save_type' => 1, 'status' => '0');
     $data = $this->common->select_data_by_condition('save', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = ''); ?>
             <a href="<?php echo base_url('message/message_chats/' . $row['user_id']); ?>">Message</a>
+
+            <?php  $contition_array = array('invite_user_id' => $row['user_id'], 'post_id' => $postid);
+        $userdata = $this->common->select_data_by_condition('user_invite', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        if($userdata){ ?>
+          <div class="button invite_border" id="<?php echo 'invited' . $row['user_id']; ?>" > Invited</div>       
+         <?php }else{ ?>
+              <div class="button invite_border" id="<?php echo 'invited' . $row['user_id']; ?>" onclick="inviteuser(<?php echo $row['user_id']; ?>)"> Invite</div>       
+ <?php  } ?>
+
+
+
        <?php if (!$data) { ?> 
 <!--       <div id="invited" onclick="inviteuser()"> Invite</div>          
        <input type="hidden" id="<?php echo 'hideenuser' . $row['user_id']; ?>" value= "<?php echo $data[0]['save_id']; ?>">-->
@@ -344,15 +366,9 @@ if ($user_data) {
      <?php } else { ?>
        <a class="saved">Saved </a> 
         <?php }
-        ?>  
+         
        
-        <?php  $contition_array = array('invite_user_id' => $row['user_id'], 'post_id' => $postid);
-        $userdata = $this->common->select_data_by_condition('user_invite', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-        if($userdata){ ?>
-          <div class="button invite_border" id="<?php echo 'invited' . $row['user_id']; ?>" > Invited</div>       
-         <?php }else{ ?>
-              <div class="button invite_border" id="<?php echo 'invited' . $row['user_id']; ?>" onclick="inviteuser(<?php echo $row['user_id']; ?>)"> Invite</div>       
- <?php  }} ?>
+        } ?>
                                                 </div> </div>
                                                 
                                                <!--  <div class="profile-job-profile-button clearfix">
