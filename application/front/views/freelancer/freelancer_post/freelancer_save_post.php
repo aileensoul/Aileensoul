@@ -477,6 +477,7 @@
                                                                    
                                                                                             
                                           <li class=fr>
+                                          <a href="javascript:void(0);" class="button" onclick="removepopup(<?php echo  $post['save_id']?>)">Remove</a>
                                           <?php
 $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
  $contition_array = array('post_id' => $post['post_id'], 'job_delete' => 0, 'user_id' => $userid);
@@ -492,23 +493,11 @@ $freelancerapply1 = $this->data['freelancerapply'] = $this->common->select_data_
  <input type="hidden" id="<?php echo 'userid' . $post['post_id']; ?>" value="<?php echo $post['user_id']; ?>">
                 <a class="applypost button" href="javascript:void(0);"  class= "<?php echo 'applypost' . $post['post_id']; ?>  button" onclick="applypopup(<?php echo $post['post_id'] ?>,<?php echo $post['user_id'] ?>)">Apply</a>
                                                                     </li> 
-                <li>
-                <?php
-$userid = $this->session->userdata('aileenuser');
-            
-$contition_array = array('from_id' => $userid, 'to_id' => $post['user_id'],'save_type' => 2,'status'=> 0);
-$data = $this->common->select_data_by_condition('save', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-            if ($data){
-                ?>
-       <a class="applypost  button">Saved Post</a>
-    <?php } else { ?>
-                <input type="hidden" name="saveuser"  id="saveuser" value= "<?php echo $data[0]['save_id']; ?>"> 
-<a id="<?php echo $post['user_id']; ?>" onClick="savepopup(<?php echo $post['user_id']; ?>)" href="javascript:void(0);" class="<?php echo 'saveduser' . $post['user_id']; ?> applypost button">Save</a>
 
                 <?php }?>
-                <?php }?>
+                
 
-                                                                   </li>                        
+                                                           </li>                        
 
                                                             </div>
 
