@@ -501,10 +501,10 @@ if ($returnpage == 'job') {
                                                     <p><?php if($post['min_year'] !='0' || $post['min_year'] ==''){ echo $post['min_year'].' Year '; } ?> <?php if($post['min_month'] !='0' || $post['min_month'] ==''){ echo $post['min_month']. ' Month'; } ?></p>  
                                                 </span>
                                             </li>
-                                            <li><b>Maximum Salary</b><span><?php echo $post['min_sal']; ?></span>
+                                            <li><b>Minimum Salary</b><span><?php echo $post['min_sal']; ?></span>
                                             </li>
 
-                                            <li><b>Minimum Salary</b><span><?php echo $post['max_sal']; ?></span>
+                                            <li><b>Maximum Salary</b><span><?php echo $post['max_sal']; ?></span>
                                             </li>
 
                                             <li><b>No of Position</b><span><?php echo $post['post_position']; ?></span>
@@ -633,10 +633,10 @@ if ($returnpage == 'job') {
                                                     <p><?php if($post['min_year'] !='0' || $post['min_year'] ==''){ echo $post['min_year'].' Year '; } ?> <?php if($post['min_month'] !='0' || $post['min_month'] ==''){ echo $post['min_month']. ' Month'; } ?></p>  
                                                 </span>
                                             </li>
-                                            <li><b>Maximum Salary</b><span><?php echo $post['min_sal']; ?></span>
+                                            <li><b>Minimum Salary</b><span><?php echo $post['min_sal']; ?></span>
                                             </li>
 
-                                            <li><b>Minimum Salary</b><span><?php echo $post['max_sal']; ?></span>
+                                            <li><b>Maximum Salary</b><span><?php echo $post['max_sal']; ?></span>
                                             </li>
 
                                             <li><b>No of Position</b><span><?php echo $post['post_position']; ?></span>
