@@ -894,7 +894,7 @@ foreach ($databus1 as $artdata) {
 
       <div class="col-md-12">
             <div class="col-md-10">
-              <div contenteditable=""   class="editable_text" name="<?php echo $rowdata['post_image_comment_id']; ?>" id="<?php echo "editcomment" . $rowdata['post_image_comment_id']; ?>" style="display: none;"  onKeyup="commentedit(<?php echo $rowdata['post_image_comment_id']; ?>)"><?php echo $rowdata['comment']; ?></div>
+              <div contenteditable=""   class="editable_text" name="<?php echo $rowdata['post_image_comment_id']; ?>" id="<?php echo "editcomment" . $rowdata['post_image_comment_id']; ?>" style="display: none;"  onClick="commentedit(<?php echo $rowdata['post_image_comment_id']; ?>)"><?php echo $rowdata['comment']; ?></div>
                  </div> 
           <div class="col-md-2 comment-edit-button">
           <button id="<?php echo "editsubmit" . $rowdata['post_image_comment_id']; ?>" style="display:none" onClick="edit_comment(<?php echo $rowdata['post_image_comment_id']; ?>)">Comment</button>
