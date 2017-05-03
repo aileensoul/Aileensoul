@@ -122,7 +122,7 @@
                                 <label>Experience:</label>
                                 
                                 <select name="year" id="year">
-                                    <option value="<?php echo $freelancerpostdata[0]['post_exp_year']?>"><?php echo $freelancerpostdata[0]['post_exp_year']?></option>
+                                    <option value="<?php echo $freelancerpostdata[0]['post_exp_year']?>"><?php echo $freelancerpostdata[0]['post_exp_year']." Year"?></option>
                                     <option value="#">Year</option>
                                     <option value="1">1 Year</option>
                                     <option value="2">2 Year</option>
@@ -149,7 +149,7 @@
                                 <?php echo form_error('year'); ?>
 
                                 <select name="month" id="month">
-                                    <option value="<?php echo $freelancerpostdata[0]['post_exp_month']?> "><?php echo $freelancerpostdata[0]['post_exp_month']?></option>
+                                    <option value="<?php echo $freelancerpostdata[0]['post_exp_month']?> "><?php echo $freelancerpostdata[0]['post_exp_month']." Month"?></option>
                                     <option value="#">Month</option>
                                    <option value="1">1 Month</option>
                                   <option value="2">2 Month</option>
