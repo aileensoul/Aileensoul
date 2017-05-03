@@ -60,7 +60,7 @@
                                 $postattach = form_error('postattach');
                                 ?>
                                 <fieldset class="full-width"<?php if ($post_name) { ?> class=" error-msg" <?php } ?> >
-                                    <label class="control-label">Post name:<span style="color:red">*</span></label>
+                                    <label class="control-label">Post Title:<span style="color:red">*</span></label>
                                     <input name="post_name" type="text" id="post_name" placeholder="Enter Post Name" />
                                     <span id="fullname-error"></span>
                                     <?php echo form_error('post_name'); ?>
@@ -87,7 +87,7 @@
                                 </fieldset>
                                 <!--  </div> -->
                                       <fieldset class="full-width" <?php if ($position) { ?> class="error-msg" <?php } ?>>
-                                    <label class="control-label">No of Candidate:<span style="color:red">*</span></label>
+                                    <label class="control-label">No of Position:<span style="color:red">*</span></label>
                                     <input name="position" type="number" min="1" id="position" value="1" onblur="return full_name();" placeholder="Enter No of Candidate" />
                                     <span id="fullname-error"></span>
                                     <?php echo form_error('position'); ?>        
@@ -192,7 +192,7 @@
 
                           
                                 <fieldset class="form-group full-width">
-                                    <label class="control-label">Post description:<span style="color:red">*</span></label>
+                                    <label class="control-label">Job description:<span style="color:red">*</span></label>
 
 
                                     <textarea name="post_desc" id="post_desc" rows="4" cols="50"  placeholder="Enter Post Description" style="resize: none;"></textarea>

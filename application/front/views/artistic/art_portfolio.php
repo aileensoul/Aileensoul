@@ -253,8 +253,8 @@ $( "#tags" ).autocomplete({
 <script type="text/javascript">
 
 
-  function portfolio_form_submit(){ 
-    var formData = new FormData($(this)[0]);
+  function portfolio_form_submit(){  
+    
     //alert(formData);
     //var artportfolio = document.getElementById("artportfolio").value;
     var bestofmine = document.getElementById("bestofmine").value;
@@ -278,7 +278,7 @@ $( "#tags" ).autocomplete({
                 }
             }); 
     }
-    else{
+    else{ 
       var bestofmine_ext = bestofmine.split('.').pop();
       var allowespdf = ['pdf'];
       var foundPresentpdf = $.inArray(bestofmine_ext, allowespdf) > -1;
