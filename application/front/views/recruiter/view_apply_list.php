@@ -331,9 +331,9 @@ if ($user_data) {
                                                  <div class="profile-job-profile-button clearfix">
                                       <div class="apply-btn">
                                                   
-
-               <?php
-    $userid = $this->session->userdata('aileenuser');
+ <?php $userid = $this->session->userdata('aileenuser');
+ if($userid == $row['user_id']){ 
+             
     $contition_array = array('from_id' => $userid, 'to_id' => $row['user_id'], 'save_type' => 1, 'status' => '0');
     $data = $this->common->select_data_by_condition('save', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = ''); ?>
             <a href="<?php echo base_url('message/message_chats/' . $row['user_id']); ?>">Message</a>
@@ -349,10 +349,10 @@ if ($user_data) {
         <?php  $contition_array = array('invite_user_id' => $row['user_id'], 'post_id' => $postid);
         $userdata = $this->common->select_data_by_condition('user_invite', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         if($userdata){ ?>
-          <div id="<?php echo 'invited' . $row['user_id']; ?>" > Invited</div>       
+          <div class="button" id="<?php echo 'invited' . $row['user_id']; ?>" > Invited</div>       
          <?php }else{ ?>
-              <div id="<?php echo 'invited' . $row['user_id']; ?>" onclick="inviteuser(<?php echo $row['user_id']; ?>)"> Invite</div>       
-      <?php  } ?>
+              <div class="button" id="<?php echo 'invited' . $row['user_id']; ?>" onclick="inviteuser(<?php echo $row['user_id']; ?>)"> Invite</div>       
+ <?php  }} ?>
                                                 </div> </div>
                                                 
                                                <!--  <div class="profile-job-profile-button clearfix">

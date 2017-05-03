@@ -201,10 +201,10 @@
             // khayti changes start 6-4
             ?>
               <!--<a href="<?php echo base_url('chat/abc/' . $row['user_id']); ?>">Saved</a>-->
-           <a href="<?php echo base_url('chat/abc/' . $row['user_id']); ?>">Message</a>
-
-          <?php
-            if (!$data) {
+           
+          <?php if($userid != $row['user_id']){ ?>
+       <a href="<?php echo base_url('chat/abc/' . $row['user_id']); ?>">Message</a>
+        <?php    if (!$data) {
                 ?> 
          <input type="hidden" name="saveuser"  id="saveuser" value= "<?php echo $data[0]['save_id']; ?>">
         <!-- pallavi changes 15-4 -->
@@ -227,7 +227,7 @@
           <div class="button" id="<?php echo 'invited' . $row['user_id']; ?>" > Invited</div>       
          <?php }else{ ?>
               <div class="button" id="<?php echo 'invited' . $row['user_id']; ?>" onclick="inviteuser(<?php echo $row['user_id']; ?>)"> Invite</div>
-      <?php  } ?>
+          <?php  } }?>
                  </div>
               </div>
             </div>
