@@ -534,8 +534,7 @@ $freelancerapply1 = $this->data['freelancerapply'] = $this->common->select_data_
          <button  class="button_applied fr" disabled>Applied</button>
  <?php
 } else {
-?>
-<input type="hidden" id="<?php echo 'allpost' . $post['post_id']; ?>" value="all">
+?><input type="hidden" id="<?php echo 'allpost' . $post['post_id']; ?>" value="all">
 
  <input type="hidden" id="<?php echo 'userid' . $post['post_id']; ?>" value="<?php echo $post['user_id']; ?>">
                 <a class="applypost button" href="javascript:void(0);"  class= "<?php echo 'applypost' . $post['post_id']; ?>  button" onclick="applypopup(<?php echo $post['post_id'] ?>,<?php echo $post['user_id'] ?>)">Apply</a>
@@ -550,10 +549,7 @@ $data = $this->common->select_data_by_condition('save', $contition_array, $data 
                 ?>
        <a class="applypost  button">Saved Post</a>
     <?php } else { ?>
-                <input type="hidden" name="saveuser"  id="saveuser" value= "<?php echo $data[0]['save_id']; ?>"> 
-<a id="<?php echo $post['user_id']; ?>" onClick="savepopup(<?php echo $post['user_id']; ?>)" href="javascript:void(0);" class="<?php echo 'saveduser' . $post['user_id']; ?> applypost button">Save</a>
-
-                <?php }?>
+                <a id="<?php echo $post['user_id']; ?>" onClick="savepopup(<?php echo $post['user_id']; ?>)" href="javascript:void(0);" class="<?php echo 'saveduser' . $post['user_id']; ?> applypost button">Save</a>
                 <?php }?>
 
                                                                    </li>                        
@@ -712,7 +708,7 @@ $( "#tags" ).autocomplete({
             url:'<?php echo base_url() . "freelancer/apply_insert" ?>',
             data: 'post_id=' + abc + '&allpost=' + alldata.value + '&userid=' + user.value,
             success:function(data){
-                //alert(data);
+                alert(data);
             $('.' + 'applypost' + abc).html(data);
             }
     });
