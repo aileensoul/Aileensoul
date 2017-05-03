@@ -2432,6 +2432,13 @@
                 function comment_editboxtwo(clicked_id) {
 //                    alert(clicked_id);
 //                    return false;
+                    
+                    $('textarea[id^=editcommenttwo]').css('display', 'none');
+                    $('div[id^=showcommenttwo]').css('display', 'block');
+                    $('button[id^=editsubmittwo]').css('display', 'none');
+                    $('div[id^=editcommentboxtwo]').css('display', 'block');
+                    $('div[id^=editcancletwo]').css('display', 'none');
+
                     document.getElementById('editcommenttwo' + clicked_id).style.display = 'block';
                     document.getElementById('showcommenttwo' + clicked_id).style.display = 'none';
                     document.getElementById('editsubmittwo' + clicked_id).style.display = 'block';
@@ -2534,7 +2541,7 @@
                             document.getElementById('editcancle' + abc).style.display = 'none';
                             //alert('.' + 'showcomment' + abc);
                             $('#' + 'showcomment' + abc).html(data);
-
+                            $('.post-design-commnet-box').show();
 
 
                         }
@@ -2577,7 +2584,7 @@
                                         document.getElementById('editcancle' + abc).style.display = 'none';
                                         //alert('.' + 'showcomment' + abc);
                                         $('#' + 'showcomment' + abc).html(data);
-
+                                        $('.post-design-commnet-box').show();
 
 
                                     }
@@ -2614,7 +2621,7 @@
                             document.getElementById('editcancletwo' + abc).style.display = 'none';
                             //alert('.' + 'showcomment' + abc);
                             $('#' + 'showcommenttwo' + abc).html(data);
-
+                            $('.post-design-commnet-box').show();
 
 
                         }
@@ -2662,7 +2669,7 @@
                                         //alert('.' + 'showcomment' + abc);
 
                                         $('#' + 'showcommenttwo' + abc).html(data);
-
+                                        $('.post-design-commnet-box').show();
 
 
                                     }
@@ -2699,7 +2706,7 @@
                             document.getElementById('editcancle3' + abc).style.display = 'none';
                             //alert('.' + 'showcomment' + abc);
                             $('#' + 'showcomment3' + abc).html(data);
-
+                            $('.post-design-commnet-box').show();
 
 
                         }

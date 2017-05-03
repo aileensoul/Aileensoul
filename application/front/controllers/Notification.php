@@ -23,7 +23,7 @@ public function index(){
     
 $userid = $this->session->userdata('aileenuser');
 // 1-5 notification start
-// recruiter notfication start
+// recruiter notfication start 
 
 $contition_array = array('notification.not_type' => 3, 'notification.not_to_id' => $userid, 'notification.not_read' => 1,'notification.not_from' => 2,'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
 $join_str = array(array(
