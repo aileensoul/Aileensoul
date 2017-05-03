@@ -1,3 +1,4 @@
+<!-- business_profile_manage_post.php -->
 <!-- start head -->
 <?php echo $head; ?>
 
@@ -1122,18 +1123,12 @@
                                             <?php if ($row['posted_user_id']) { ?>
                                                 <li>
                                                     <div class="else_post_d">
-                                                        <div class="post-design-product"><a style=" font-size: 18px;
-                                                                                            line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; " href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugnameposted); ?>"><?php echo ucwords($companynameposted); ?></a> <span style="font-weight: 600;"> Posted With </span> <a style=" font-size: 18px;
+                                                        <div class="post-design-product"><a style=" font-size: 18px; line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; " href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugnameposted); ?>"><?php echo ucwords($companynameposted); ?></a> <span style="font-weight: 600;"> Posted With </span> <a style=" font-size: 18px;
                                                                                             line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; " href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>"><?php echo ucwords($companyname); ?></a> <span  style="font-weight: 400;""><?php echo date('d-M-Y', strtotime($row['created_date'])); ?> </span> </div></div></li>
 
-<<<<<<< HEAD
+
                                             <?php } else { ?>
-                                                <li><div class="post-design-product"><a style="    font-size: 18px;
-=======
-    <?php } else { ?>
-                                                <li><div class="post-design-product"><a style="font-size: 18px;
->>>>>>> 56e4464c470f67775e7cd3f4535f2e02ad7798e2
-                                                                                        line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; " href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>"><?php echo ucwords($companyname); ?> <span  style="font-weight: 400;""><?php echo date('d-M-Y', strtotime($row['created_date'])); ?> </span> </a></div></li>
+                                                <li><div class="post-design-product"><a style="font-size: 18px; line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; " href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>"><?php echo ucwords($companyname); ?> <span  style="font-weight: 400;""><?php echo date('d-M-Y', strtotime($row['created_date'])); ?> </span> </a></div></li>
                                                                                     <?php } ?>
 
                                             <li> <a style=" color: #000033; font-weight: 400;"> <div class="post-design-product"><a><?php echo ucwords($category); ?></a> </div></a></li>
@@ -1717,11 +1712,10 @@
                             </div>
 
                         </div>
-<<<<<<< HEAD
+
                     <?php } ?>
-=======
-              <?php } ?>
->>>>>>> 56e4464c470f67775e7cd3f4535f2e02ad7798e2
+
+             
                 </div>
                 <!-- business_profile _manage_post end -->
 
