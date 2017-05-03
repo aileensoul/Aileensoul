@@ -370,7 +370,8 @@
 <script type="text/javascript">
 $('#datepicker').datetimepicker({
   //yearOffset:222,
-  startDate: "2013/02/14",
+   minDate: 0,
+  //startDate: "2013/02/14",
   lang:'ch',
   timepicker:false,
   format:'d/m/Y',

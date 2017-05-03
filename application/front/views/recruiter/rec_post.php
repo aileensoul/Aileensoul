@@ -646,7 +646,7 @@ if ($returnpage == 'job') {
                                     <div class="profile-job-profile-button clearfix">
                                         <div class="profile-job-details col-md-12">
                                             <ul><li class="job_all_post last_date">
-                                                    Last Date : <?php if($post['post_last_date'] != '0000-00-00'){ echo $post['post_last_date']; } ?></li>
+                                                    Last Date : <?php echo date('d/m/Y',strtotime($post['post_last_date'])); ?></li>
                                                 <li class="fr">
 <!--                                                    <a class="button">Save</a>
                                                     <a  class="button ">Message</a>-->

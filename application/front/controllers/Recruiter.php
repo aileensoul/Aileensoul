@@ -683,8 +683,9 @@ class Recruiter extends MY_Controller {
 //echo '<pre>'; print_r($_POST); die();
         $userid = $this->session->userdata('aileenuser');
         $skill = $this->input->post('skills');
-        $date = $this->input->post('last_date');
-          $dob = str_replace('/', '-', $date);
+           $bod = $this->input->post('last_date');
+                $bod = str_replace('/', '-', $bod);
+       
          // echo  date('Y-m-d h:i:s', strtotime($dob)); die();
         $this->form_validation->set_rules('post_name', 'Post Name', 'required');
         //$this->form_validation->set_rules('skills', 'Skils Name', 'required|regex_match[/^(?![0-9]*$)[a-zA-Z0-9]+$/]');
@@ -717,7 +718,8 @@ class Recruiter extends MY_Controller {
                 'post_description' => $this->input->post('post_desc'),
                 'post_skill' => implode(",", $skill),
                 'post_position' => $this->input->post('position'),
-                 'post_last_date' => date('Y-m-d', strtotime($date)),
+                 
+                 'post_last_date' => date('Y-m-d', strtotime($bod)),
                 //'post_location ' => $this->input->post('location'),
                 'country' => $this->input->post('country'),
                 'state' => $this->input->post('state'),
