@@ -251,6 +251,7 @@ if (count($nation) > 0) {
 <script type="text/javascript">
     $('#datepicker').datetimepicker({
         //yearOffset:222,
+       
         startDate: "2013/02/14",
         lang: 'ch',
         timepicker: false,
@@ -259,6 +260,7 @@ if (count($nation) > 0) {
                 //minDate:'-1970/01/02', // yesterday is minimum date
                 //maxDate:'+1970/01/02' // and tommorow is maximum date calendar
     });
+
 </script>
 <!-- Calender Js End-->
 <!-- script for skill textbox automatic end -->
