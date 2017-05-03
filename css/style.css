@@ -4274,6 +4274,7 @@ textarea {overflow: hidden;}
     border-radius: 4px;
     resize: none;
     margin-top: 10px;
+    word-break:break-all;
 }
 
 /*v 1-5-17 start */
