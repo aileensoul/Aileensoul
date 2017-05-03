@@ -420,26 +420,46 @@ echo $freelancer_hire_header2;} ?>
                              <li>   
                                <div class="fr lction">
                               <?php $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name; ?>
-                                <p><i class="fa fa-map-marker" aria-hidden="true"> <?php echo $cityname; ?></i></p>
+                              <?php $countryname = $this->db->get_where('countries', array('country_id' => $post['country']))->row()->country_name; ?>
+
+                                <p><i class="fa fa-map-marker" aria-hidden="true">  <?php echo $cityname.","; ?><?php echo $countryname; ?></i></p>
                                  </div>
 
-                             
+                             <?php
+                $firstname = $this->db->get_where('freelancer_hire_reg', array('user_id' => $post['user_id']))->row()->fullname;
+                $lastname = $this->db->get_where('freelancer_hire_reg', array('user_id' => $post['user_id']))->row()->username;
+                    ?>
 
-                            <li><a class="display_inline" title="Recruiter Name" href="<?php echo base_url('recruiter/rec_profile/' . $post['user_id'].'?page=job'); ?>"><?php
-                            $cache_time = $this->db->get_where('recruiter', array('user_id' => $post['user_id']))->row()->rec_firstname;
-                            echo ucwords($cache_time);
-                             ?></a></li>
+                            <li><a class="display_inline" title="<?php echo ucwords($firstname); ?>&nbsp;<?php echo ucwords($lastname); ?>" href="<?php echo base_url('freelancer/freelancer_hire_profile/' . $post['user_id']); ?>"><?php echo ucwords($firstname); ?>&nbsp;<?php echo ucwords($lastname); ?>
+                            </a></li>
                     <!-- vishang 14-4 end -->    
                 </ul>
              </div>
           </div>
                        <div class="profile-job-profile-menu">
                             <ul class="clearfix">
-                              <li> <b> Field</b> <span> 
+                              <li> <b> Field</b> <span><?php echo $this->db->get_where('category', array('category_id' => $post['post_field_req']))->row()->category_name;?>
                               
                                                                     </span>
                                                                 </li>
                                <li> <b> Skills</b> <span> 
+                               <?php
+                  $comma = " , ";
+                  $k = 0;
+                                                                $aud = $post['post_skill'];
+                                                                $aud_res = explode(',', $aud);
+                                                                foreach ($aud_res as $skill) {
+                                                                    if ($k != 0) {
+                                                                        echo $comma;
+                                                                    }
+                                                                    $cache_time = $this->db->get_where('skill', array('skill_id' => $skill))->row()->skill;
+
+                                                                    if($cache_time){
+                                                                    echo $cache_time;}
+                                                                    else{echo PROFILENA;}
+                                                                    $k++;
+                                                                }
+                                                                ?>     
                               
                                                                     </span>
                                                                 </li>
@@ -452,16 +472,26 @@ echo $freelancer_hire_header2;} ?>
                                                                     <li><b>Other Skill</b><span><?php echo "-"; ?></span></li><?php } ?>
 
                                                                 <li><b>Post Description</b><span><p>
-                                                                            <?php echo text2link($post['post_description']); ?> </p></span>
+                                                                            <?php if($post['post_description']){echo text2link($post['post_description']);}else{echo PROFILENA;} ?> </p></span>
                                                                 </li>
                                                                 <li><b>Rate</b><span>
-                                                                        <?php echo $post['interview_process']; ?></span>
+                                                                        <?php if($post['post_rate']){
+                     echo $post['post_rate'];
+                     echo "&nbsp";
+                     echo $this->db->get_where('currency', array('currency_id' => $post['post_currency']))->row()->currency_name; echo "&nbsp";
+                      if($post['post_rating_type'] == 1){
+                        echo "Hourly";
+                      }else{echo "Fixed";}}
+                     else{ echo PROFILENA;}
+                        ?></span>
                                                                 </li>
                                                                 <!-- vishang 14-4 start -->
                                                                 <li>
                                                                     <b>Require Experience</b>
                                                                     <span>
-
+                                                                        <?php if($post['post_exp_month'] ||  $post['post_exp_year']){
+            echo $post['post_exp_year'];   ?> year&nbsp;&nbsp;<?php  echo $post['post_exp_month'];}
+                else{echo PROFILENA;} ?> month
                                                                     </span>
                                                                 </li>
 
@@ -470,7 +500,7 @@ echo $freelancer_hire_header2;} ?>
 
                                                                
                                                                 
-                                                                <li><b>Estimate Time</b><span> </span>
+                                                                <li><b>Estimate Time</b><span> <?php if($post['post_est_time']) {echo $post['post_est_time'];} else{echo PROFILENA; } ?></span>
                                                                 </li>
 
 
@@ -479,23 +509,17 @@ echo $freelancer_hire_header2;} ?>
                                                         <div class="profile-job-profile-button clearfix">
                                                             <div class="profile-job-details col-md-12">
                       <ul><li class="job_all_post last_date">
-                           Last Date : <?php
-                            if ($post['post_last_date'] == '0000-00-00') {
-                                                                            echo '';
-                                                                        } else {
-                                                                            echo date('d-M-Y', strtotime($post['post_last_date']));
-                                                                        }
-                                                                        ?>
-                                                                    </li>
+                           Last Date : <?php if($post['post_last_date']){echo date('d-M-Y', strtotime($post['post_last_date']));} else{echo PROFILENA;} ?>                                                          </li>
 
                                                                    
                                                                                                          <li>
-                                                                       <a href="javascript:void(0);" class="button" onclick="removepopup(4)">Remove</a>
+                    <a href="javascript:void(0);" class="button" onclick="removepopup(<?php echo  $post['post_id']?>)">Remove</a>
                                                                    </li>  
                                                                     <li>
-                                                                       <a class="button" >Edit </a>
+                <a class="button" href="<?php echo base_url('freelancer/freelancer_edit_post/' . $post['post_id']); ?>" >Edit </a>
                                                                    </li>                   
-                                                                   <li class=fr><a class="button" >Applied person :1</a>
+                                          <li class=fr>
+                <a class="button" href="<?php echo base_url('freelancer/freelancer_apply_list/' . $post['post_id']); ?>" >Applied person :<?php echo count($this->common->select_data_by_id('freelancer_apply', 'post_id', $post['post_id'], $data = '*', $join_str = array())); ?></a>
                                                                    </li>      
 
                                                             </div>
@@ -893,7 +917,7 @@ $( "#tags" ).autocomplete({
 
                        var numItems = $('.contact-frnd-post .job-contact-frnd').length;
                 if (numItems == '0') {
-                    var nodataHtml = "<div class='text-center rio'><h4 class='page-heading  product-listing' style='border:0px;margin-bottom: 11px;'>No Applied Job.</h4></div>";
+                    var nodataHtml = "<div class='text-center rio'><h4 class='page-heading  product-listing' style='border:0px;margin-bottom: 11px;'>No Post Found.</h4></div>";
 
                  $('.contact-frnd-post').html(nodataHtml);
 

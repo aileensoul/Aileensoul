@@ -4293,3 +4293,5 @@ textarea {overflow: hidden;}
 
 
 .profile-job-details ul li{list-style: none;}
+
+fieldset .add_post_btn{min-width: 120px;padding:8px 30px 8px;}

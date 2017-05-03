@@ -894,7 +894,7 @@ foreach ($databus1 as $artdata) {
 
       <div class="col-md-12">
             <div class="col-md-10">
-              <div contenteditable=""   class="editable_text" name="<?php echo $rowdata['post_image_comment_id']; ?>" id="<?php echo "editcomment" . $rowdata['post_image_comment_id']; ?>" style="display: none;"  onClick="commentedit(this.name)"><?php echo $rowdata['comment']; ?></div>
+              <div contenteditable=""   class="editable_text" name="<?php echo $rowdata['post_image_comment_id']; ?>" id="<?php echo "editcomment" . $rowdata['post_image_comment_id']; ?>" style="display: none;"  onClick="commentedit(<?php echo $rowdata['post_image_comment_id']; ?>)"><?php echo $rowdata['comment']; ?></div>
                  </div> 
           <div class="col-md-2 comment-edit-button">
           <button id="<?php echo "editsubmit" . $rowdata['post_image_comment_id']; ?>" style="display:none" onClick="edit_comment(<?php echo $rowdata['post_image_comment_id']; ?>)">Comment</button>
@@ -1528,6 +1528,14 @@ event.preventDefault();
   var post_comment_edit = $('#editcomment' + abc).html();
 // end khyati code
 
+
+if(post_comment_edit == ''){ 
+      $('.biderror .mes').html("<div class='pop_content'>Are you sure want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+       $('#bidmodal').modal('show');
+        
+   }else{ 
+
+
         $.ajax({
             type: 'POST',
             url: '<?php echo base_url() . "artistic/mul_edit_com_insert" ?>',
@@ -1550,45 +1558,45 @@ event.preventDefault();
 
             }
         });
+     }
         //window.location.reload();
     }
 </script>
 
 
 <script type="text/javascript">
-
-function commentedit(abc)
-{
- 
-  //$(document).ready(function() {
-  $('#editcomment' + abc).keypress(function(e) {
-    if (event.which == 13 && event.shiftKey != 1) {
-      //var val = $('#editcomment' + abc).val();
+ function commentedit(abc){
       
+        $("#editcomment" + abc).click(function(){
+          $(this).prop("contentEditable", true);
+          $(this).html("");
+        });
 
 
-      // start khyati code
-  var $field = $('#editcomment' + abc);
-  //var data = $field.val();
-  var editpostdetails = $('#editcomment' + abc).html();
-// end khyati code
+        $("#editcomment" + abc).keypress(function(event) { //alert(post_comment);
+          if (event.which == 13 && event.shiftKey != 1) { //alert(post_comment);
+             event.preventDefault();
+             var sel = $("#editcomment" + abc);
+             var txt = sel.html();
 
+             $('#editcomment' + abc).html("");
+            
 
-
-      if(editpostdetails == ''){ 
-
-      $('.biderror .mes').html("<div class='pop_content'>Are you sure want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+      
+   if (txt == '') {  
+       $('.biderror .mes').html("<div class='pop_content'>Are you sure want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
        $('#bidmodal').modal('show');
-        
-   }else{ 
+ 
+      } else { 
 
-      $.ajax({ 
+        $.ajax({ 
                 type:'POST',
                 url:'<?php echo base_url() . "artistic/mul_edit_com_insert" ?>',
                 data: 'post_image_comment_id=' + abc + '&comment=' + val,
+                // dataType: "json",
                    success:function(data){ 
 
-                  
+
          document.getElementById('editcomment' + abc).style.display = 'none';
          document.getElementById('showcomment' + abc).style.display = 'block';
         document.getElementById('editsubmit' + abc).style.display = 'none';
@@ -1596,33 +1604,47 @@ function commentedit(abc)
         document.getElementById('editcommentbox' + abc).style.display = 'block';
         document.getElementById('editcancle' + abc).style.display = 'none';
                             //alert('.' + 'showcomment' + abc);
-             $('#' + 'showcomment' + abc).html(data);  
-                }
+             $('#' + 'showcomment' + abc).html(data); 
+          }
             }); 
-      //alert(val);
-      }
-      e.preventDefault();
-    }  
+     } 
+   
 
-  });
-//});
+          }
+        });     $(".scroll").click(function(event){   
+        event.preventDefault();
+        $('html,body').animate({scrollTop:$(this.hash).offset().top},1200);
+      });
+            
+   // });
 
-}
-</script>
+  }
+  </script>
 
 
 
 <script type="text/javascript">
-    function edit_commenttwo(abc)
-    { //alert('editsubmit' + abc);
+function edit_commenttwo(abc)
+{ //alert('editsubmit' + abc);
 
-        var post_comment_edit = document.getElementById("editcommenttwo" + abc);
-        //alert(post_comment.value);
-        //alert(post_comment.value);
+    //var post_comment_edit = document.getElementById("editcommenttwo" + abc);
+
+        // start khyati code
+  var $field = $('#editcommenttwo' + abc);
+  //var data = $field.val();
+  var post_comment_edit = $('#editcommenttwo' + abc).html();
+// end khyati code
+
+if(post_comment_edit == ''){ 
+      $('.biderror .mes').html("<div class='pop_content'>Are you sure want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deletetwo(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+       $('#bidmodal').modal('show');
+        
+   }else{ 
+
         $.ajax({
             type: 'POST',
             url: '<?php echo base_url() . "artistic/mul_edit_com_insert" ?>',
-            data: 'post_image_comment_id=' + abc + '&comment=' + post_comment_edit.value,
+            data: 'post_image_comment_id=' + abc + '&comment=' + post_comment_edit,
             success: function (data) { //alert('falguni');
 
                 //  $('input').each(function(){
@@ -1640,28 +1662,37 @@ function commentedit(abc)
 
 
             }
-        });
+        }); }
 
     }
 </script>
 
 <script type="text/javascript">
 
-    function commentedittwo(abc)
-    {
-        $(document).ready(function () {
-            $('#editcommenttwo' + abc).keypress(function (e) {
-                if (e.keyCode == 13 && !e.shiftKey) {
-                    var val = $('#editcommenttwo' + abc).val();
+function commentedittwo(abc)
+{
+       
+        $("#editcommenttwo" + abc).click(function(){
+          $(this).prop("contentEditable", true);
+          $(this).html("");
+        });
+
+            $('#editcommenttwo' + abc).keypress(function (event) {
+                if (event.which == 13 && event.shiftKey != 1) {
+                   
                     e.preventDefault();
+                    var sel = $("#editcomment" + abc);
+                    var txt = sel.html();
 
-                    if (window.preventDuplicateKeyPresses)
-                        return;
+                   $('#editcommenttwo' + abc).html("");
 
-                    window.preventDuplicateKeyPresses = true;
-                    window.setTimeout(function () {
-                        window.preventDuplicateKeyPresses = false;
-                    }, 500);
+
+        if (txt == '') {  
+       $('.biderror .mes').html("<div class='pop_content'>Are you sure want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deletetwo(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+       $('#bidmodal').modal('show');
+ 
+      } else {
+
                     $.ajax({
                         type: 'POST',
                         url: '<?php echo base_url() . "artistic/mul_edit_com_insert" ?>',
@@ -1681,12 +1712,16 @@ function commentedit(abc)
                             $('#' + 'showcommenttwo' + abc).html(data);
 
                         }
-                    });
+                    }); }
 
                     //alert(val);
                 }
             });
-        });
+            $(".scroll").click(function(event){   
+        event.preventDefault();
+        $('html,body').animate({scrollTop:$(this.hash).offset().top},1200);
+      });
+       
 
     }
 </script>
@@ -1790,7 +1825,7 @@ function comment_deletetwomodel(abc){
     }
 
     function comment_deletetwo(clicked_id)
-    { alert(clicked_id);
+    { 
 
         var post_deleteone = document.getElementById("post_deletetwo" + clicked_id);
        
@@ -1798,7 +1833,7 @@ function comment_deletetwomodel(abc){
             type: 'POST',
             url: '<?php echo base_url() . "artistic/mul_delete_commenttwo" ?>',
             data: 'post_image_comment_id=' + clicked_id + '&post_delete=' + post_deleteone.value,
-            success: function (data) { alert(data);
+            success: function (data) { 
                
 
                 $('#' + 'fourcomment' + post_deleteone.value).html(data);
