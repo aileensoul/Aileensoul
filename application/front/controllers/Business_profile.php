@@ -2814,7 +2814,6 @@ class Business_profile extends MY_Controller {
     public function like_post() {
 
         $userid = $this->session->userdata('aileenuser');
-
         $post_id = $_POST["post_id"];
 
         $contition_array = array('business_profile_post_id' => $_POST["post_id"], 'status' => '1');
@@ -2859,7 +2858,69 @@ class Business_profile extends MY_Controller {
                 $cmtlike .= '</span>';
                 $cmtlike .= '</a>';
                 $cmtlike .= '</li>';
-                echo $cmtlike;
+                //echo $cmtlike;
+                //popup box start like user name
+                $cmtlikeuser .= '<div id=popuplike' . $businessprofiledata1[0]['business_profile_post_id'] . ' class="overlay">';
+                $cmtlikeuser .= '<div class="popup">';
+                $cmtlikeuser .= '<div class="pop_content">';
+
+                $contition_array = array('business_profile_post_id' => $businessprofiledata1['business_profile_post_id'], 'status' => '1', 'is_delete' => '0');
+                $commnetcount = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+                $likeuser = $commnetcount[0]['business_like_user'];
+                $countlike = $commnetcount[0]['business_likes_count'] - 1;
+
+                $likelistarray = explode(',', $likeuser);
+
+                foreach ($likelistarray as $key => $value) {
+                    $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $value, 'status' => 1))->row()->company_name;
+                    $cmtlikeuser .= '<a href="' . base_url('business_profile/business_resume/' . $value) . '">';
+                    $cmtlikeuser .= '' . ucwords($business_fname1) . '&nbsp;';
+                    $cmtlikeuser .= '</a>';
+                }
+
+                $cmtlikeuser .= '<p class="okk"><a class="cnclbtn" href="#">Cancel</a></p>';
+                $cmtlikeuser .= '</div>';
+                $cmtlikeuser .= '</div>';
+                $cmtlikeuser .= '</div>';
+//popup box end like user name
+
+                $cmtlikeuser .= '<a href=#popuplike' . $businessprofiledata1[0]['business_profile_post_id'] . '>';
+
+
+                $contition_array = array('business_profile_post_id' => $businessprofiledata1[0]['business_profile_post_id'], 'status' => '1', 'is_delete' => '0');
+                $commnetcount = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+                $likeuser = $commnetcount[0]['business_like_user'];
+                $countlike = $commnetcount[0]['business_likes_count'] - 1;
+
+                $likelistarray = explode(',', $likeuser);
+
+                $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $likelistarray[0], 'status' => 1))->row()->company_name;
+
+                $cmtlikeuser .= '<div class="fl" style=" padding-left: 22px;" >';
+
+                $cmtlikeuser .= '' . ucwords($business_fname1) . '&nbsp;';
+
+                $cmtlikeuser .= '</div>';
+
+
+                if (count($likelistarray) > 1) {
+
+                    $cmtlikeuser .= '<div class="fl" style="padding-right: 5px;">';
+                    $cmtlikeuser .= 'and';
+                    $cmtlikeuser .= '</div>';
+
+                    $cmtlikeuser .= '<div style="padding-left: 5px;">';
+                    $cmtlikeuser .= '' . $countlike . ' others';
+                    $cmtlikeuser .= '</div>';
+                }
+
+                $cmtlikeuser .= '</a>';
+
+                echo json_encode(
+                        array("like" => $cmtlike,
+                            "likeuser" => $cmtlikeuser));
             } else {
                 
             }
@@ -2895,11 +2956,76 @@ class Business_profile extends MY_Controller {
                 $cmtlike .= '</span>';
                 $cmtlike .= '</a>';
                 $cmtlike .= '</li>';
-                echo $cmtlike;
+//echo $cmtlike;
+//popup box start like user name
+                //popup box start like user name
+                $cmtlikeuser .= '<div id=popuplike' . $businessprofiledata1[0]['business_profile_post_id'] . ' class="overlay">';
+                $cmtlikeuser .= '<div class="popup">';
+                $cmtlikeuser .= '<div class="pop_content">';
+
+                $contition_array = array('business_profile_post_id' => $businessprofiledata1['business_profile_post_id'], 'status' => '1', 'is_delete' => '0');
+                $commnetcount = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+                $likeuser = $commnetcount[0]['business_like_user'];
+                $countlike = $commnetcount[0]['business_likes_count'] - 1;
+
+                $likelistarray = explode(',', $likeuser);
+
+                foreach ($likelistarray as $key => $value) {
+                    $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $value, 'status' => 1))->row()->company_name;
+                    $cmtlikeuser .= '<a href="' . base_url('business_profile/business_resume/' . $value) . '">';
+                    $cmtlikeuser .= '' . ucwords($business_fname1) . '&nbsp;';
+                    $cmtlikeuser .= '</a>';
+                }
+
+                $cmtlikeuser .= '<p class="okk"><a class="cnclbtn" href="#">Cancel</a></p>';
+                $cmtlikeuser .= '</div>';
+                $cmtlikeuser .= '</div>';
+                $cmtlikeuser .= '</div>';
+//popup box end like user name
+
+                $cmtlikeuser .= '<a href=#popuplike' . $businessprofiledata1[0]['business_profile_post_id'] . '>';
+
+
+                $contition_array = array('business_profile_post_id' => $businessprofiledata1[0]['business_profile_post_id'], 'status' => '1', 'is_delete' => '0');
+                $commnetcount = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+                $likeuser = $commnetcount[0]['business_like_user'];
+                $countlike = $commnetcount[0]['business_likes_count'] - 1;
+
+                $likelistarray = explode(',', $likeuser);
+
+                $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $value, 'status' => 1))->row()->company_name;
+
+                $cmtlikeuser .= '<div class="fl" style=" padding-left: 22px;" >';
+
+                $cmtlikeuser .= '' . ucwords($business_fname1) . '&nbsp;';
+
+                $cmtlikeuser .= '</div>';
+
+
+                if (count($likelistarray) > 1) {
+
+                    $cmtlikeuser .= '<div class="fl" style="padding-right: 5px;">';
+                    $cmtlikeuser .= 'and';
+                    $cmtlikeuser .= '</div>';
+
+                    $cmtlikeuser .= '<div style="padding-left: 5px;">';
+                    $cmtlikeuser .= '' . $countlike . ' others';
+                    $cmtlikeuser .= '</div>';
+                }
+
+                $cmtlikeuser .= '</a>';
+
+                echo json_encode(
+                        array("like" => $cmtlike,
+                            "likeuser" => $cmtlikeuser));
             } else {
                 
             }
         }
+
+//jsondata
     }
 
 // business_profile post  like end
@@ -2927,7 +3053,7 @@ class Business_profile extends MY_Controller {
 
         $contition_array = array('business_profile_post_id' => $_POST["post_id"], 'status' => '1');
         $businessprofiledata = $this->data['businessprofiledata'] = $this->common->select_data_by_condition('business_profile_post_comment', $contition_array, $data = '*', $sortby = 'business_profile_post_comment_id', $orderby = 'DESC', $limit = '1', $offset = '', $join_str = array(), $groupby = '');
-        //echo "<pre>"; print_r($businessprofiledata); die();
+//echo "<pre>"; print_r($businessprofiledata); die();
 
         $contition_array = array('business_profile_post_id' => $_POST["post_id"], 'status' => '1');
         $buscmtcnt = $this->common->select_data_by_condition('business_profile_post_comment', $contition_array, $data = '*', $sortby = 'business_profile_post_comment_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');

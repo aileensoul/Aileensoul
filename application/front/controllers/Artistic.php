@@ -46,7 +46,7 @@ class Artistic extends MY_Controller {
                     redirect('artistic/art_post', refresh);
                 }
             } else {
-    $this->load->view('artistic/art_basic_information', $this->data);
+                $this->load->view('artistic/art_basic_information', $this->data);
             }
         }
     }
@@ -607,19 +607,12 @@ class Artistic extends MY_Controller {
     }
 
     // public function art_portfolio_insert() {
-
-
     //     $userid = $this->session->userdata('aileenuser');
-       
     //     //echo "<pre>"; print_r($_POST); die();
-
     //     //best of mine image upload code start
-
     //     $contition_array = array('user_id' => $userid);
     //     $art_reg_data = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_bestofmine', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
     //     $art_bestofmine = $art_reg_data[0]['art_bestofmine']; 
-
     //     if ($art_bestofmine != '') {
     //         $art_pdf_path = 'uploads/art_images/';
     //         $art_pdf = $art_pdf_path . $art_bestofmine;
@@ -627,38 +620,28 @@ class Artistic extends MY_Controller {
     //             unlink($art_pdf);
     //         }
     //     }
-
-
     //     $config['upload_path'] = 'uploads/art_images/';
     //     $config['allowed_types'] = 'pdf';
-
     //     $config['file_name'] = $_FILES['bestofmine']['name'];
     //     $config['upload_max_filesize'] = '40M';
-
     //     //Load upload library and initialize configuration
     //     $this->load->library('upload', $config);
     //     $this->upload->initialize($config);
-
     //     if ($this->upload->do_upload('bestofmine')) {
-
     //         $uploadData = $this->upload->data();
-
     //         $picture = $uploadData['file_name'];
     //     } else {
-
     //         $picture = '';
     //     }
     //     //best of mine image upload code End
     //     // //Achievement image upload code start
     //     // $config['upload_path'] = 'uploads/art_images/';
     //     // $config['allowed_types'] = 'jpg|jpeg|png|gif|mp4|3gp|pdf|mp3';
-
     //     // $config['file_name'] = $_FILES['achievmeant']['name'];
     //     // $config['upload_max_filesize'] = '40M';
     //     // //Load upload library and initialize configuration
     //     // $this->load->library('upload', $config);
     //     // $this->upload->initialize($config);
-
     //     // if ($this->upload->do_upload('achievmeant')) {
     //     //     $uploadData = $this->upload->data();
     //     //     $picture_achiev = $uploadData['file_name'];
@@ -666,19 +649,14 @@ class Artistic extends MY_Controller {
     //     //     $picture_achiev = '';
     //     // }
     //     // //Achievement image upload code End
-
-       
     //         $data = array(
-               
     //             'art_bestofmine' => $picture,
     //             'art_portfolio' => $_POST('artportfolio'),
     //             'modified_date' => date('Y-m-d', time()),
     //             'art_step' => 4
     //         );
     //    echo "<pre>"; print_r($data); die();
-
     //     $updatdata = $this->common->update_data($data, 'art_reg', 'user_id', $userid);
-
     //     if ($updatdata) {
     //         $this->session->set_flashdata('success', 'Portfolio updated successfully');
     //         redirect('artistic/artistic_profile', refresh);
@@ -693,15 +671,15 @@ class Artistic extends MY_Controller {
 
 
         $userid = $this->session->userdata('aileenuser');
-      $artportfolio = $_POST['artportfolio']; 
-        $bestofmine = $_POST['bestofmine']; 
+        $artportfolio = $_POST['artportfolio'];
+        $bestofmine = $_POST['bestofmine'];
 
         //best of mine image upload code start
 
         $contition_array = array('user_id' => $userid);
         $art_reg_data = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_bestofmine', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-        $art_bestofmine = $art_reg_data[0]['art_bestofmine']; 
+        $art_bestofmine = $art_reg_data[0]['art_bestofmine'];
 
         if ($art_bestofmine != '') {
             $art_pdf_path = 'uploads/art_images/';
@@ -731,16 +709,15 @@ class Artistic extends MY_Controller {
 
             $picture = '';
         }
-    
-       
-            $data = array(
-               
-                'art_bestofmine' => $picture,
-                'art_portfolio' => $artportfolio,
-                'modified_date' => date('Y-m-d', time()),
-                'art_step' => 4
-            );
-       //echo "<pre>"; print_r($data); die();
+
+
+        $data = array(
+            'art_bestofmine' => $picture,
+            'art_portfolio' => $artportfolio,
+            'modified_date' => date('Y-m-d', time()),
+            'art_step' => 4
+        );
+        //echo "<pre>"; print_r($data); die();
 
         $updatdata = $this->common->update_data($data, 'art_reg', 'user_id', $userid);
 
@@ -945,7 +922,7 @@ class Artistic extends MY_Controller {
         //$i =0;
         foreach ($qbc as $key => $row) {
             $post[$key] = $row['art_post_id'];
-          //  $qbc[$i]['created_date'] = $this->time_elapsed_string(date('Y-m-d H:i:s', strtotime($row['created_date'])));
+            //  $qbc[$i]['created_date'] = $this->time_elapsed_string(date('Y-m-d H:i:s', strtotime($row['created_date'])));
             //$i++;
         }
 
@@ -1016,7 +993,7 @@ class Artistic extends MY_Controller {
         $this->load->view('artistic/art_post', $this->data);
     }
 
-    public function art_manage_post($id="") {
+    public function art_manage_post($id = "") {
 
         $userid = $this->session->userdata('aileenuser');
         $user_name = $this->session->userdata('user_name');
@@ -1108,33 +1085,32 @@ class Artistic extends MY_Controller {
 
 // khyati changes start
     //public function art_post_insert($id,$para) {
-    public function art_post_insert($id='',$para='') {
+    public function art_post_insert($id = '', $para = '') {
         //echo $para; die();
-        $userid = $this->session->userdata('aileenuser'); 
+        $userid = $this->session->userdata('aileenuser');
 
-       
-        if($para == $userid || $para == ''){ 
-        $data = array(
-            'art_post' => $this->input->post('my_text'),
-            'art_description' => $this->input->post('product_desc'),
-            'created_date' => date('Y-m-d', time()),
-            'status' => 1,
-            'is_delete' => 0,
-            'user_id' => $userid
-        );
-       }else{
 
-        $data = array(
-            'art_post' => $this->input->post('my_text'),
-            'art_description' => $this->input->post('product_desc'),
-            'created_date' => date('Y-m-d', time()),
-            'status' => 1,
-            'is_delete' => 0,
-            'user_id' => $para,
-            'posted_user_id' => $userid 
-        );
+        if ($para == $userid || $para == '') {
+            $data = array(
+                'art_post' => $this->input->post('my_text'),
+                'art_description' => $this->input->post('product_desc'),
+                'created_date' => date('Y-m-d', time()),
+                'status' => 1,
+                'is_delete' => 0,
+                'user_id' => $userid
+            );
+        } else {
 
-       }
+            $data = array(
+                'art_post' => $this->input->post('my_text'),
+                'art_description' => $this->input->post('product_desc'),
+                'created_date' => date('Y-m-d', time()),
+                'status' => 1,
+                'is_delete' => 0,
+                'user_id' => $para,
+                'posted_user_id' => $userid
+            );
+        }
 
         $insert_id = $this->common->insert_data_getid($data, 'art_post');
         //echo $insert_id; die(); 
@@ -1186,11 +1162,10 @@ class Artistic extends MY_Controller {
         if ($id == manage) {
 
 
-            if($para == $userid || $para == ''){
-            redirect('artistic/art_manage_post', refresh);
-            }else{
-                redirect('artistic/art_manage_post/'.$para, refresh);
-
+            if ($para == $userid || $para == '') {
+                redirect('artistic/art_manage_post', refresh);
+            } else {
+                redirect('artistic/art_manage_post/' . $para, refresh);
             }
         } else {
             redirect('artistic/art_post', refresh);
@@ -1310,8 +1285,6 @@ class Artistic extends MY_Controller {
 
 
         $updatdata = $this->common->update_data($data, 'post_image', 'post_id', $id);
-
-
     }
 
     public function artistic_contactperson($id) {
@@ -1809,167 +1782,163 @@ class Artistic extends MY_Controller {
             }
         }
     }
-public function follow_two()
-    {  
-          $userid = $this->session->userdata('aileenuser');
 
-        $art_id =  $_POST["follow_to"]; 
+    public function follow_two() {
+        $userid = $this->session->userdata('aileenuser');
 
-       $artdata =    $this->common->select_data_by_id('art_reg', 'user_id', $userid, $data = '*');
-    
-    $contition_array = array('follow_type' => 1, 'follow_from' => $artdata[0]['art_id'], 'follow_to' => $art_id);
-             $follow =  $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-           //  echo "<pre>"; print_r($follow); die();
-        
-     if($follow){ 
-       $data = array(
-            'follow_type' => 1,
-            'follow_from' => $artdata[0]['art_id'],
-            'follow_to' => $art_id,
-            'follow_status' => 1,
+        $art_id = $_POST["follow_to"];
+
+        $artdata = $this->common->select_data_by_id('art_reg', 'user_id', $userid, $data = '*');
+
+        $contition_array = array('follow_type' => 1, 'follow_from' => $artdata[0]['art_id'], 'follow_to' => $art_id);
+        $follow = $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        //  echo "<pre>"; print_r($follow); die();
+
+        if ($follow) {
+            $data = array(
+                'follow_type' => 1,
+                'follow_from' => $artdata[0]['art_id'],
+                'follow_to' => $art_id,
+                'follow_status' => 1,
             );
-       $update = $this->common->update_data($data,'follow','follow_id',$follow[0]['follow_id']);
+            $update = $this->common->update_data($data, 'follow', 'follow_id', $follow[0]['follow_id']);
 
-       // insert notification
+            // insert notification
 
-           $data = array(
+            $data = array(
                 'not_type' => 8,
                 'not_from_id' => $artdata[0]['art_id'],
                 'not_to_id' => $art_id,
                 'not_read' => 2,
                 'not_product_id' => $follow[0]['follow_id'],
                 'not_from' => 3
-                ); 
-          
-        $insert_id =  $this->common->insert_data_getid($data,'notification'); 
-        // end notoification
+            );
+
+            $insert_id = $this->common->insert_data_getid($data, 'notification');
+            // end notoification
 
 
-       if($update){
+            if ($update) {
 
 
-             $follow = '<div>';
-             $follow .= '<button id="unfollow' . $art_id.'" onClick="unfollowuser_two('.$art_id.')">
+                $follow = '<div>';
+                $follow .= '<button id="unfollow' . $art_id . '" onClick="unfollowuser_two(' . $art_id . ')">
                                Following 
                       </button>';
-              $follow .= '</div>';
-              echo $follow;
-
-       }
-       }else{ 
-        $data = array(
-            'follow_type' => 1,
-            'follow_from' => $artdata[0]['art_id'],
-            'follow_to' => $art_id,
-            'follow_status' => 1,
+                $follow .= '</div>';
+                echo $follow;
+            }
+        } else {
+            $data = array(
+                'follow_type' => 1,
+                'follow_from' => $artdata[0]['art_id'],
+                'follow_to' => $art_id,
+                'follow_status' => 1,
             );
-       $insert =   $this->common->insert_data_getid($data,'follow'); 
-      
-      // insert notification
+            $insert = $this->common->insert_data_getid($data, 'follow');
 
-           $data = array(
+            // insert notification
+
+            $data = array(
                 'not_type' => 8,
                 'not_from_id' => $artdata[0]['art_id'],
-                'not_to_id' =>$art_id,
+                'not_to_id' => $art_id,
                 'not_read' => 2,
                 'not_product_id' => $insert,
                 'not_from' => 3
-                ); 
-             
-        $insert_id =  $this->common->insert_data_getid($data,'notification'); 
-        // end notoification
-
-       if($insert){
-
-             $follow = '<div>';
-           /*  $follow = '<button id="unfollow' . $art_id.'" onClick="unfollowuser('.$art_id.')"><span>Following</span></button>';
-              $follow .= '</div>';  */ 
-              $follow .= '<button id="unfollow' . $art_id.'" onClick="unfollowuser_two('.$art_id.')"><span>Following</span></button>';
-              $follow .= '</div>'; 
-              echo $follow;
-       }
-     }
-    }
-
-     public function unfollow_two()
-    {
-          $userid = $this->session->userdata('aileenuser');
-
-          $art_id =  $_POST["follow_to"]; 
-
- $artdata = $this->common->select_data_by_id('art_reg', 'user_id', $userid, $data = '*');
-
-$contition_array = array('follow_type' => 1, 'follow_from' => $artdata[0]['art_id'], 'follow_to' => $art_id);
-            
-             $follow =  $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
-        
-     if($follow){
-       $data = array(
-            'follow_type' => 1,
-            'follow_from' => $artdata[0]['art_id'],
-            'follow_to' => $art_id,
-            'follow_status' => 0,
             );
-       $update = $this->common->update_data($data,'follow','follow_id',$follow[0]['follow_id']);
-       if($update){
-         
-             
-           /*  $unfollow = '<div><button id="follow' . $art_id.'" onClick="followuser('.$art_id.')">
-                               Follow 
-                      </button></div>'; */
-        $unfollow = '<button id="unfollowdiv" onClick="followuser_two('.$art_id.')">
-                               Follow 
-                      </button>'; 
-             
-              echo $unfollow;
-       }
-       }
+
+            $insert_id = $this->common->insert_data_getid($data, 'notification');
+            // end notoification
+
+            if ($insert) {
+
+                $follow = '<div>';
+                /*  $follow = '<button id="unfollow' . $art_id.'" onClick="unfollowuser('.$art_id.')"><span>Following</span></button>';
+                  $follow .= '</div>'; */
+                $follow .= '<button id="unfollow' . $art_id . '" onClick="unfollowuser_two(' . $art_id . ')"><span>Following</span></button>';
+                $follow .= '</div>';
+                echo $follow;
+            }
+        }
     }
 
+    public function unfollow_two() {
+        $userid = $this->session->userdata('aileenuser');
 
-public function unfollow_following()
-    {
-          $userid = $this->session->userdata('aileenuser');
+        $art_id = $_POST["follow_to"];
 
-          $art_id =  $_POST["follow_to"]; 
+        $artdata = $this->common->select_data_by_id('art_reg', 'user_id', $userid, $data = '*');
 
- $artdata = $this->common->select_data_by_id('art_reg', 'user_id', $userid, $data = '*');
+        $contition_array = array('follow_type' => 1, 'follow_from' => $artdata[0]['art_id'], 'follow_to' => $art_id);
 
-$contition_array = array('follow_type' => 1, 'follow_from' => $artdata[0]['art_id'], 'follow_to' => $art_id);
-            
-  $follow =  $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        $follow = $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-        
-     if($follow){ //echo "falguni"; die();
-       $data = array(
-            'follow_type' => 1,
-            'follow_from' => $artdata[0]['art_id'],
-            'follow_to' => $art_id,
-            'follow_status' => 0,
+
+        if ($follow) {
+            $data = array(
+                'follow_type' => 1,
+                'follow_from' => $artdata[0]['art_id'],
+                'follow_to' => $art_id,
+                'follow_status' => 0,
             );
-       $update = $this->common->update_data($data,'follow','follow_id',$follow[0]['follow_id']);
+            $update = $this->common->update_data($data, 'follow', 'follow_id', $follow[0]['follow_id']);
+            if ($update) {
 
 
-       if($update){
-         
-           
+                /*  $unfollow = '<div><button id="follow' . $art_id.'" onClick="followuser('.$art_id.')">
+                  Follow
+                  </button></div>'; */
+                $unfollow = '<button id="unfollowdiv" onClick="followuser_two(' . $art_id . ')">
+                               Follow 
+                      </button>';
 
- 
-$contition_array = array('follow_from' => $artdata[0]['art_id'], 'follow_status' =>'1',  'follow_type' =>'1');
-$followingotherdata = $this->data['followingotherdata'] =  $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
-$followingdatacount = count($followingotherdata);
-
-             $unfollow = '<div>(';
-             $unfollow .= ''.$followingdatacount.'';
-             $unfollow .= ')</div>';
-              echo $unfollow;
-       }
-       
-       }
+                echo $unfollow;
+            }
+        }
     }
-    public function followers($id="") {
+
+    public function unfollow_following() {
+        $userid = $this->session->userdata('aileenuser');
+
+        $art_id = $_POST["follow_to"];
+
+        $artdata = $this->common->select_data_by_id('art_reg', 'user_id', $userid, $data = '*');
+
+        $contition_array = array('follow_type' => 1, 'follow_from' => $artdata[0]['art_id'], 'follow_to' => $art_id);
+
+        $follow = $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+
+        if ($follow) { //echo "falguni"; die();
+            $data = array(
+                'follow_type' => 1,
+                'follow_from' => $artdata[0]['art_id'],
+                'follow_to' => $art_id,
+                'follow_status' => 0,
+            );
+            $update = $this->common->update_data($data, 'follow', 'follow_id', $follow[0]['follow_id']);
+
+
+            if ($update) {
+
+
+
+
+                $contition_array = array('follow_from' => $artdata[0]['art_id'], 'follow_status' => '1', 'follow_type' => '1');
+                $followingotherdata = $this->data['followingotherdata'] = $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+                $followingdatacount = count($followingotherdata);
+
+                $unfollow = '<div>(';
+                $unfollow .= '' . $followingdatacount . '';
+                $unfollow .= ')</div>';
+                echo $unfollow;
+            }
+        }
+    }
+
+    public function followers($id = "") {
         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
 
         if ($id == $userid || $id == '') {
@@ -2064,7 +2033,7 @@ $followingdatacount = count($followingotherdata);
         $this->load->view('artistic/art_followers', $this->data);
     }
 
-    public function following($id="") {
+    public function following($id = "") {
 
         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
 
@@ -2550,18 +2519,20 @@ $followingdatacount = count($followingotherdata);
             $updatdata = $this->common->update_data($data, 'artistic_post_comment', 'artistic_post_comment_id', $post_id);
             // insert notification
 
-            if($artdata[0]['user_id'] == $userid){}else{
-            $data = array(
-                'not_type' => 5,
-                'not_from_id' => $userid,
-                'not_to_id' => $artdata[0]['user_id'] ,
-                'not_read' => 2,
-                'not_product_id' => $post_id,
-                'not_from' => 3,
-                'not_img' => 2
-            );
+            if ($artdata[0]['user_id'] == $userid) {
+                
+            } else {
+                $data = array(
+                    'not_type' => 5,
+                    'not_from_id' => $userid,
+                    'not_to_id' => $artdata[0]['user_id'],
+                    'not_read' => 2,
+                    'not_product_id' => $post_id,
+                    'not_from' => 3,
+                    'not_img' => 2
+                );
 
-            $insert_id = $this->common->insert_data_getid($data, 'notification');
+                $insert_id = $this->common->insert_data_getid($data, 'notification');
             }
             // end notoification
 
@@ -2658,18 +2629,20 @@ $followingdatacount = count($followingotherdata);
 
             // insert notification
 
-            if($artdata[0]['user_id'] == $userid){}else{
-            $data = array(
-                'not_type' => 5,
-                'not_from_id' => $userid,
-                'not_to_id' => $artdata[0]['user_id'] ,
-                'not_read' => 2,
-                'not_product_id' => $post_id,
-                'not_from' => 3,
-                'not_img' => 2
-            );
+            if ($artdata[0]['user_id'] == $userid) {
+                
+            } else {
+                $data = array(
+                    'not_type' => 5,
+                    'not_from_id' => $userid,
+                    'not_to_id' => $artdata[0]['user_id'],
+                    'not_read' => 2,
+                    'not_product_id' => $post_id,
+                    'not_from' => 3,
+                    'not_img' => 2
+                );
 
-            $insert_id = $this->common->insert_data_getid($data, 'notification');
+                $insert_id = $this->common->insert_data_getid($data, 'notification');
             }
             // end notoification
 
@@ -2762,7 +2735,7 @@ $followingdatacount = count($followingotherdata);
 
             $artname = $this->db->get_where('art_reg', array('user_id' => $art['user_id'], 'status' => 1))->row()->art_name;
 
-             $artlastname =  $this->db->get_where('art_reg',array('user_id' => $art['user_id']))->row()->art_lastname;
+            $artlastname = $this->db->get_where('art_reg', array('user_id' => $art['user_id']))->row()->art_lastname;
 
 
             $art_userimage = $this->db->get_where('art_reg', array('user_id' => $art['user_id'], 'status' => 1))->row()->art_user_image;
@@ -2773,7 +2746,7 @@ $followingdatacount = count($followingotherdata);
 
             $cmtinsert .= '<img  src="' . base_url(USERIMAGE . $art_userimage) . '" alt="">  </div>';
 
-            $cmtinsert .= '<div class="comment-name"><b>' . ucwords($artname) .'&nbsp;' . ucwords($artlastname) .'</b>';
+            $cmtinsert .= '<div class="comment-name"><b>' . ucwords($artname) . '&nbsp;' . ucwords($artlastname) . '</b>';
             $cmtinsert .= '</div>';
             $cmtinsert .= '<div class="comment-details" id= "showcomment' . $art['artistic_post_comment_id'] . '"" >';
             $cmtinsert .= $art['comments'];
@@ -2872,7 +2845,7 @@ $followingdatacount = count($followingotherdata);
 
             $artname = $this->db->get_where('art_reg', array('user_id' => $art['user_id'], 'status' => 1))->row()->art_name;
 
-             $artlastname =  $this->db->get_where('art_reg',array('user_id' => $art['user_id']))->row()->art_lastname;
+            $artlastname = $this->db->get_where('art_reg', array('user_id' => $art['user_id']))->row()->art_lastname;
 
 
 
@@ -2884,7 +2857,7 @@ $followingdatacount = count($followingotherdata);
 
             $cmtinsert .= '<img  src="' . base_url(USERIMAGE . $art_userimage) . '" alt="">  </div>';
 
-            $cmtinsert .= '<div class="comment-name"><b>' . ucwords($artname) .'&nbsp;'.ucwords($artlastname). '</b>';
+            $cmtinsert .= '<div class="comment-name"><b>' . ucwords($artname) . '&nbsp;' . ucwords($artlastname) . '</b>';
             $cmtinsert .= '</div>';
             $cmtinsert .= '<div class="comment-details" id= "showcommenttwo' . $art['artistic_post_comment_id'] . '"" >';
             $cmtinsert .= $art['comments'];
@@ -2955,7 +2928,7 @@ $followingdatacount = count($followingotherdata);
 //Artistic comment delete end
 // artistics post like start
 
-     public function like_post() {
+    public function like_post() {
 
         $userid = $this->session->userdata('aileenuser');
         $post_id = $_POST["post_id"];
@@ -2989,20 +2962,22 @@ $followingdatacount = count($followingotherdata);
 
 
 
-             // insert notification
+            // insert notification
 
-            if($artdata[0]['user_id'] == $userid){}else{
-            $data = array(
-                'not_type' => 5,
-                'not_from_id' => $userid,
-                'not_to_id' => $artdata[0]['user_id'] ,
-                'not_read' => 2,
-                'not_product_id' => $post_id,
-                'not_from' => 3,
-                'not_img' => 0
-            );
+            if ($artdata[0]['user_id'] == $userid) {
+                
+            } else {
+                $data = array(
+                    'not_type' => 5,
+                    'not_from_id' => $userid,
+                    'not_to_id' => $artdata[0]['user_id'],
+                    'not_read' => 2,
+                    'not_product_id' => $post_id,
+                    'not_from' => 3,
+                    'not_img' => 0
+                );
 
-            $insert_id = $this->common->insert_data_getid($data, 'notification');
+                $insert_id = $this->common->insert_data_getid($data, 'notification');
             }
             // end notoification
 
@@ -3026,90 +3001,80 @@ $followingdatacount = count($followingotherdata);
                 $cmtlike .= '</li>';
 
 
-                 //popup box start like user name
+                //popup box start like user name
+                $cmtlikeuser .= '<div id=popuplike' . $artdata1[0]['art_post_id'] . ' class="overlay">';
+                $cmtlikeuser .= '<div class="popup">';
+                $cmtlikeuser .= '<div class="pop_content">';
+
+                $contition_array = array('art_post_id' => $artdata1[0]['art_post_id'], 'status' => '1', 'is_delete' => '0');
+                $commnetcount = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+                $likeuser = $commnetcount[0]['art_like_user'];
+                $countlike = $commnetcount[0]['art_likes_count'] - 1;
+
+                $likelistarray = explode(',', $likeuser);
+
+
+                foreach ($likelistarray as $key => $value) {
+
+                    $art_fname1 = $this->db->get_where('art_reg', array('user_id' => $value, 'status' => 1))->row()->art_name;
+
+                    $art_lname1 = $this->db->get_where('art_reg', array('user_id' => $value, 'status' => 1))->row()->art_lastname;
+
+                    $cmtlikeuser .= '<a href="' . base_url('artistic/art_manage_post/' . $value) . '">';
+
+                    $cmtlikeuser .= '' . ucwords($art_fname1) . '' . ucwords($art_lname1) . '&nbsp;';
+
+                    $cmtlikeuser .= '</a>';
+                }
+                $cmtlikeuser .= '<p class="okk"><a class="cnclbtn" href="#">Cancel</a></p>';
+                $cmtlikeuser .= '</div>';
+                $cmtlikeuser .= '</div>';
+                $cmtlikeuser .= '</div>';
+                //popup box end like user name
+
+
+                $cmtlikeuser .= '<a href=#popuplike' . $artdata1[0]['art_post_id'] . '>';
+
+                $contition_array = array('art_post_id' => $artdata1[0]['art_post_id'], 'status' => '1', 'is_delete' => '0');
+                $commnetcount = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+                $likeuser = $commnetcount[0]['art_like_user'];
+                $countlike = $commnetcount[0]['art_likes_count'] - 1;
+
+                $likelistarray = explode(',', $likeuser);
+
+                $art_fname = $this->db->get_where('art_reg', array('user_id' => $likelistarray[0], 'status' => 1))->row()->art_name;
+
+                $art_lname = $this->db->get_where('art_reg', array('user_id' => $likelistarray[0], 'status' => 1))->row()->art_lastname;
+
+                $cmtlikeuser .= '<div class="fl" style=" padding-left: 22px;" >';
+
+                $cmtlikeuser .= '' . ucwords($art_fname) . '&nbsp;' . ucwords($art_lname) . '&nbsp;';
+
+                $cmtlikeuser .= '</div>';
+
+
+                if (count($likelistarray) > 1) {
+
+                    $cmtlikeuser .= '<div class="fl" style="padding-right: 5px;">';
+                    $cmtlikeuser .= 'and';
+                    $cmtlikeuser .= '</div>';
+
+                    $cmtlikeuser .= '<div style="padding-left: 5px;">';
+                    $cmtlikeuser .= '' . $countlike . ' others';
+                    $cmtlikeuser .= '</div>';
+                }
+
+                $cmtlikeuser .= '</a>';
 
 
 
 
-         $cmtlikeuser .= '<div id=popuplike' . $artdata1[0]['art_post_id'].' class="overlay">';
-         $cmtlikeuser .= '<div class="popup">';
-         $cmtlikeuser .= '<div class="pop_content">';
-
-         $contition_array = array('art_post_id' => $artdata1[0]['art_post_id'], 'status' => '1', 'is_delete' =>'0');
-        $commnetcount = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = ''); 
-
-        $likeuser = $commnetcount[0]['art_like_user'];
-        $countlike = $commnetcount[0]['art_likes_count'] - 1;
-
-        $likelistarray = explode(',', $likeuser);
-
-
-      foreach ($likelistarray as $key => $value) {
-       
-     $art_fname1 =  $this->db->get_where('art_reg',array('user_id' => $value, 'status' => 1))->row()->art_name;
-
-      $art_lname1 =  $this->db->get_where('art_reg',array('user_id' => $value, 'status' => 1))->row()->art_lastname;
-
-      $cmtlikeuser .= '<a href="'.base_url('artistic/art_manage_post/'.$value).'">';
-
-       $cmtlikeuser .= '' . ucwords($art_fname1) . '' . ucwords($art_lname1) . '&nbsp;';
-
-      $cmtlikeuser .= '</a>';
-
-      }
-         $cmtlikeuser .= '<p class="okk"><a class="cnclbtn" href="#">Cancel</a></p>';
-         $cmtlikeuser .= '</div>';
-         $cmtlikeuser .= '</div>';
-         $cmtlikeuser .= '</div>';
-        //popup box end like user name
-
-         
-            $cmtlikeuser .= '<a href=#popuplike'. $artdata1[0]['art_post_id'].'>';
-
-
-            $contition_array = array('art_post_id' => $artdata1[0]['art_post_id'], 'status' => '1', 'is_delete' =>'0');
-            $commnetcount = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = ''); 
-
-            $likeuser = $commnetcount[0]['art_like_user'];
-            $countlike = $commnetcount[0]['art_likes_count'] - 1;
-
-            $likelistarray = explode(',', $likeuser);
-
-            $art_fname =  $this->db->get_where('art_reg',array('user_id' => $likelistarray[0], 'status' => 1))->row()->art_name;
-
-            $art_lname =  $this->db->get_where('art_reg',array('user_id' => $likelistarray[0], 'status' => 1))->row()->art_lastname;
-
-            $cmtlikeuser .= '<div class="fl" style=" padding-left: 22px;" >';
-        
-            $cmtlikeuser .= '' . ucwords($art_fname) . '&nbsp;' . ucwords($art_lname) . '&nbsp;';
-
-            $cmtlikeuser .= '</div>';
-
-
-             if(count($likelistarray) > 1) {
-
-             $cmtlikeuser .= '<div class="fl" style="padding-right: 5px;">';
-             $cmtlikeuser .= 'and';
-             $cmtlikeuser .= '</div>';
-
-             $cmtlikeuser .= '<div style="padding-left: 5px;">';
-             $cmtlikeuser .= '' . $countlike . ' others';
-             $cmtlikeuser .= '</div>';
-
-             }
-                       
-            $cmtlikeuser .= '</a>';
-                
-
-
-
-                 echo json_encode(
-                array("like" => $cmtlike,
-                    "likeuser" => $cmtlikeuser));
-
-
-
-            } 
+                echo json_encode(
+                        array("like" => $cmtlike,
+                            "likeuser" => $cmtlikeuser));
+            }
         } else {
 
             $contition_array = array('art_post_id' => $_POST["post_id"], 'status' => '1');
@@ -3151,87 +3116,84 @@ $followingdatacount = count($followingotherdata);
 
 
 
-         //popup box start like user name
+                //popup box start like user name
 
-         $cmtlikeuser .= '<div id=popuplike' . $artdata1[0]['art_post_id'].' class="overlay"';
-         $cmtlikeuser .= '<div class="popup">';
-         $cmtlikeuser .= '<div class="pop_content2">';
+                $cmtlikeuser .= '<div id=popuplike' . $artdata1[0]['art_post_id'] . ' class="overlay"';
+                $cmtlikeuser .= '<div class="popup">';
+                $cmtlikeuser .= '<div class="pop_content2">';
 
-         $contition_array = array('art_post_id' => $artdata1[0]['art_post_id'], 'status' => '1', 'is_delete' =>'0');
-        $commnetcount = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = ''); 
+                $contition_array = array('art_post_id' => $artdata1[0]['art_post_id'], 'status' => '1', 'is_delete' => '0');
+                $commnetcount = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-        $likeuser = $commnetcount[0]['art_like_user'];
-        $countlike = $commnetcount[0]['art_likes_count'] - 1;
+                $likeuser = $commnetcount[0]['art_like_user'];
+                $countlike = $commnetcount[0]['art_likes_count'] - 1;
 
-        $likelistarray = explode(',', $likeuser);
-
-
-      foreach ($likelistarray as $key => $value) {
-       
-     $art_fname1 =  $this->db->get_where('art_reg',array('user_id' => $value, 'status' => 1))->row()->art_name;
-
-      $art_lname1 =  $this->db->get_where('art_reg',array('user_id' => $value, 'status' => 1))->row()->art_lastname;
-
-      $cmtlikeuser .= '<a href="'.base_url('artistic/art_manage_post/'.$value).'">';
-
-       $cmtlikeuser .= '' . ucwords($art_fname1) . '' . ucwords($art_lname1) . '&nbsp;';
-
-      $cmtlikeuser .= '</a>';
-
-      }
-         $cmtlikeuser .= '<p class="okk"><a class="cnclbtn" href="#">Cancel</a></p>';
-         $cmtlikeuser .= '</div>';
-         $cmtlikeuser .= '</div>';
-         $cmtlikeuser .= '</div>';
-        //popup box end like user name
+                $likelistarray = explode(',', $likeuser);
 
 
-            $cmtlikeuser .= '<a href=#popuplike'. $artdata1[0]['art_post_id'].'>';
+                foreach ($likelistarray as $key => $value) {
+
+                    $art_fname1 = $this->db->get_where('art_reg', array('user_id' => $value, 'status' => 1))->row()->art_name;
+
+                    $art_lname1 = $this->db->get_where('art_reg', array('user_id' => $value, 'status' => 1))->row()->art_lastname;
+
+                    $cmtlikeuser .= '<a href="' . base_url('artistic/art_manage_post/' . $value) . '">';
+
+                    $cmtlikeuser .= '' . ucwords($art_fname1) . '' . ucwords($art_lname1) . '&nbsp;';
+
+                    $cmtlikeuser .= '</a>';
+                }
+                $cmtlikeuser .= '<p class="okk"><a class="cnclbtn" href="#">Cancel</a></p>';
+                $cmtlikeuser .= '</div>';
+                $cmtlikeuser .= '</div>';
+                $cmtlikeuser .= '</div>';
+                //popup box end like user name
 
 
-            $contition_array = array('art_post_id' => $artdata1[0]['art_post_id'], 'status' => '1', 'is_delete' =>'0');
-            $commnetcount = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = ''); 
-
-            $likeuser = $commnetcount[0]['art_like_user'];
-            $countlike = $commnetcount[0]['art_likes_count'] - 1;
-
-            $likelistarray = explode(',', $likeuser);
-
-            $art_fname12 =  $this->db->get_where('art_reg',array('user_id' => $likelistarray[0], 'status' => 1))->row()->art_name;
+                $cmtlikeuser .= '<a href=#popuplike' . $artdata1[0]['art_post_id'] . '>';
 
 
-            $art_lname12 =  $this->db->get_where('art_reg',array('user_id' => $likelistarray[0], 'status' => 1))->row()->art_lastname;
+                $contition_array = array('art_post_id' => $artdata1[0]['art_post_id'], 'status' => '1', 'is_delete' => '0');
+                $commnetcount = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-            $cmtlikeuser .= '<div class="fl" style=" padding-left: 22px;" >';
-        
-            $cmtlikeuser .= '' . ucwords($art_fname12) . '&nbsp;' . ucwords($art_lname12) . '&nbsp;';
+                $likeuser = $commnetcount[0]['art_like_user'];
+                $countlike = $commnetcount[0]['art_likes_count'] - 1;
 
-            $cmtlikeuser .= '</div>';
+                $likelistarray = explode(',', $likeuser);
+
+                $art_fname12 = $this->db->get_where('art_reg', array('user_id' => $likelistarray[0], 'status' => 1))->row()->art_name;
 
 
-             if(count($likelistarray) > 1) {
+                $art_lname12 = $this->db->get_where('art_reg', array('user_id' => $likelistarray[0], 'status' => 1))->row()->art_lastname;
 
-             $cmtlikeuser .= '<div class="fl" style="padding-right: 5px;">';
-             $cmtlikeuser .= 'and';
-             $cmtlikeuser .= '</div>';
+                $cmtlikeuser .= '<div class="fl" style=" padding-left: 22px;" >';
 
-             $cmtlikeuser .= '<div style="padding-left: 5px;">';
-             $cmtlikeuser .= '' . $countlike . 'others';
-             $cmtlikeuser .= '</div>';
+                $cmtlikeuser .= '' . ucwords($art_fname12) . '&nbsp;' . ucwords($art_lname12) . '&nbsp;';
 
-             }
-                       
-            $cmtlikeuser .= '</a>';
-                
+                $cmtlikeuser .= '</div>';
+
+
+                if (count($likelistarray) > 1) {
+
+                    $cmtlikeuser .= '<div class="fl" style="padding-right: 5px;">';
+                    $cmtlikeuser .= 'and';
+                    $cmtlikeuser .= '</div>';
+
+                    $cmtlikeuser .= '<div style="padding-left: 5px;">';
+                    $cmtlikeuser .= '' . $countlike . 'others';
+                    $cmtlikeuser .= '</div>';
+                }
+
+                $cmtlikeuser .= '</a>';
+
 
 
                 echo json_encode(
-                array("like" => $cmtlike,
-                    "likeuser" => $cmtlikeuser));
-            } 
+                        array("like" => $cmtlike,
+                            "likeuser" => $cmtlikeuser));
+            }
         }
     }
-
 
 // artistics post  like end
 //artistic comment insert start
@@ -3262,9 +3224,10 @@ $followingdatacount = count($followingotherdata);
 
 
         // insert notification
-        
-            if($artdatacomment[0]['user_id'] == $userid){}
-            else{
+
+        if ($artdatacomment[0]['user_id'] == $userid) {
+            
+        } else {
             $data = array(
                 'not_type' => 6,
                 'not_from_id' => $userid,
@@ -3276,8 +3239,8 @@ $followingdatacount = count($followingotherdata);
             );
 
             $insert_id = $this->common->insert_data_getid($data, 'notification');
-           } 
-            // end notoification
+        }
+        // end notoification
 
 
 
@@ -3290,7 +3253,7 @@ $followingdatacount = count($followingotherdata);
 
             $artname = $this->db->get_where('art_reg', array('user_id' => $art['user_id'], 'status' => 1))->row()->art_name;
 
-             $artlastname =  $this->db->get_where('art_reg',array('user_id' => $art['user_id']))->row()->art_lastname;
+            $artlastname = $this->db->get_where('art_reg', array('user_id' => $art['user_id']))->row()->art_lastname;
 
 
             $art_userimage = $this->db->get_where('art_reg', array('user_id' => $art['user_id'], 'status' => 1))->row()->art_user_image;
@@ -3301,7 +3264,7 @@ $followingdatacount = count($followingotherdata);
 
             $cmtinsert .= '<img  src="' . base_url(USERIMAGE . $art_userimage) . '" alt="">  </div>';
 
-            $cmtinsert .= '<div class="comment-name"><b>' . ucwords($artname) .'&nbsp;' . ucwords($artlastname).'</b>';
+            $cmtinsert .= '<div class="comment-name"><b>' . ucwords($artname) . '&nbsp;' . ucwords($artlastname) . '</b>';
             $cmtinsert .= '</div>';
             $cmtinsert .= '<div class="comment-details" id= "showcommenttwo' . $art['artistic_post_comment_id'] . '"" >';
             $cmtinsert .= $art['comments'];
@@ -3398,13 +3361,14 @@ $followingdatacount = count($followingotherdata);
         $insert_id = $this->common->insert_data_getid($data, 'artistic_post_comment');
 
         // insert notification
-        
-            if($artdatacomment[0]['user_id'] == $userid){}
-            else{
+
+        if ($artdatacomment[0]['user_id'] == $userid) {
+            
+        } else {
             $data = array(
                 'not_type' => 6,
                 'not_from_id' => $userid,
-                'not_to_id' => $artdatacomment[0]['user_id'] ,
+                'not_to_id' => $artdatacomment[0]['user_id'],
                 'not_read' => 2,
                 'not_product_id' => $insert_id,
                 'not_from' => 3,
@@ -3412,8 +3376,8 @@ $followingdatacount = count($followingotherdata);
             );
 
             $insert_id = $this->common->insert_data_getid($data, 'notification');
-          }
-            // end notoification
+        }
+        // end notoification
 
 
 
@@ -3431,7 +3395,7 @@ $followingdatacount = count($followingotherdata);
 
             $artname = $this->db->get_where('art_reg', array('user_id' => $art['user_id'], 'status' => 1))->row()->art_name;
 
-             $artlastname =  $this->db->get_where('art_reg',array('user_id' => $art['user_id']))->row()->art_lastname;
+            $artlastname = $this->db->get_where('art_reg', array('user_id' => $art['user_id']))->row()->art_lastname;
 
 
             $art_userimage = $this->db->get_where('art_reg', array('user_id' => $art['user_id'], 'status' => 1))->row()->art_user_image;
@@ -3442,7 +3406,7 @@ $followingdatacount = count($followingotherdata);
 
             $cmtinsert .= '<img  src="' . base_url(USERIMAGE . $art_userimage) . '" alt="">  </div>';
 
-            $cmtinsert .= '<div class="comment-name"><b>' . ucwords($artname) .'&nbsp;'. ucwords($artlastname). '</b>';
+            $cmtinsert .= '<div class="comment-name"><b>' . ucwords($artname) . '&nbsp;' . ucwords($artlastname) . '</b>';
             $cmtinsert .= '</div>';
             $cmtinsert .= '<div class="comment-details" id= "showcomment' . $art['artistic_post_comment_id'] . '"" >';
             $cmtinsert .= $art['comments'];
@@ -3722,7 +3686,7 @@ $followingdatacount = count($followingotherdata);
 //multiple images for user start
 
 
-    public function art_photos($id="") {
+    public function art_photos($id = "") {
 
 
         $userid = $this->session->userdata('aileenuser');
@@ -3893,20 +3857,22 @@ $followingdatacount = count($followingotherdata);
             $insertdata = $this->common->insert_data_getid($data, 'art_post_image_like');
 
 
-             // insert notification
+            // insert notification
 
-            if($likepostid[0]['user_id'] == $userid){}else{
-            $data = array(
-                'not_type' => 5,
-                'not_from_id' => $userid,
-                'not_to_id' => $likepostid[0]['user_id'] ,
-                'not_read' => 2,
-                'not_product_id' => $insert_id,
-                'not_from' => 3,
-                'not_img' => 1
-            );
+            if ($likepostid[0]['user_id'] == $userid) {
+                
+            } else {
+                $data = array(
+                    'not_type' => 5,
+                    'not_from_id' => $userid,
+                    'not_to_id' => $likepostid[0]['user_id'],
+                    'not_read' => 2,
+                    'not_product_id' => $insert_id,
+                    'not_from' => 3,
+                    'not_img' => 1
+                );
 
-            $insert_id = $this->common->insert_data_getid($data, 'notification');
+                $insert_id = $this->common->insert_data_getid($data, 'notification');
             }
             // end notoification
 
@@ -4011,8 +3977,8 @@ $followingdatacount = count($followingotherdata);
         //$contition_array = array('post_image_id' => $_POST["post_image_id"], 'is_unlike' => '0');
         $contition_array = array('post_image_id' => $_POST["post_image_id"], 'is_delete' => '1');
         $artimg = $this->data['artimg'] = $this->common->select_data_by_condition('art_post_image_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-        
-        
+
+
         $data = array(
             'user_id' => $userid,
             'post_image_id' => $post_image_id,
@@ -4024,11 +3990,13 @@ $followingdatacount = count($followingotherdata);
 
         // insert notification
 
-            if($artimg[0]['user_id'] == $userid){}else{
+        if ($artimg[0]['user_id'] == $userid) {
+            
+        } else {
             $data = array(
                 'not_type' => 6,
                 'not_from_id' => $userid,
-                'not_to_id' => $artimg[0]['user_id'] ,
+                'not_to_id' => $artimg[0]['user_id'],
                 'not_read' => 2,
                 'not_product_id' => $insert_id,
                 'not_from' => 3,
@@ -4036,8 +4004,8 @@ $followingdatacount = count($followingotherdata);
             );
 
             $insert_id = $this->common->insert_data_getid($data, 'notification');
-            }
-            // end notoification
+        }
+        // end notoification
 
         $contition_array = array('post_image_id' => $post_image_id, 'is_delete' => '0');
         $artcomment = $this->common->select_data_by_condition('art_post_image_comment', $contition_array, $data = '*', $sortby = 'post_image_comment_id', $orderby = 'DESC', $limit = '1', $offset = '', $join_str = array(), $groupby = '');
@@ -4184,13 +4152,15 @@ $followingdatacount = count($followingotherdata);
         );
         $insert_id = $this->common->insert_data_getid($data, 'art_post_image_comment');
 
-         // insert notification
+        // insert notification
 
-            if($artimg[0]['user_id'] == $userid){}else{
+        if ($artimg[0]['user_id'] == $userid) {
+            
+        } else {
             $data = array(
                 'not_type' => 6,
                 'not_from_id' => $userid,
-                'not_to_id' => $artimg[0]['user_id'] ,
+                'not_to_id' => $artimg[0]['user_id'],
                 'not_read' => 2,
                 'not_product_id' => $insert_id,
                 'not_from' => 3,
@@ -4198,8 +4168,8 @@ $followingdatacount = count($followingotherdata);
             );
 
             $insert_id = $this->common->insert_data_getid($data, 'notification');
-            }
-            // end notoification
+        }
+        // end notoification
 
         $contition_array = array('post_image_id' => $post_image_id, 'is_delete' => '0');
         $artcomment = $this->common->select_data_by_condition('art_post_image_comment', $contition_array, $data = '*', $sortby = 'post_image_comment_id', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -4322,7 +4292,7 @@ $followingdatacount = count($followingotherdata);
         $artimglike = $this->data['artimglike'] = $this->common->select_data_by_condition('artistic_post_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
 
-       $contition_array = array('art_post_id' => $artimglike[0]["art_post_id"]);
+        $contition_array = array('art_post_id' => $artimglike[0]["art_post_id"]);
         $artimglikepost = $this->data['artimglikepost'] = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
         if (!$likecommentuser) {
@@ -4338,20 +4308,22 @@ $followingdatacount = count($followingotherdata);
             $insertdata = $this->common->insert_data_getid($data, 'art_comment_image_like');
 
 
-             // insert notification
+            // insert notification
 
-            if($artimglikepost[0]['user_id'] == $userid){}else{ 
-            $data = array(
-                'not_type' => 5,
-                'not_from_id' => $userid,
-                'not_to_id' => $artimglikepost[0]['user_id'] ,
-                'not_read' => 2,
-                'not_product_id' => $insertdata,
-                'not_from' => 3,
-                'not_img' => 4
-            );
+            if ($artimglikepost[0]['user_id'] == $userid) {
+                
+            } else {
+                $data = array(
+                    'not_type' => 5,
+                    'not_from_id' => $userid,
+                    'not_to_id' => $artimglikepost[0]['user_id'],
+                    'not_read' => 2,
+                    'not_product_id' => $insertdata,
+                    'not_from' => 3,
+                    'not_img' => 4
+                );
 
-            $insert_id = $this->common->insert_data_getid($data, 'notification');
+                $insert_id = $this->common->insert_data_getid($data, 'notification');
             }
             // end notoification
 
@@ -4452,14 +4424,14 @@ $followingdatacount = count($followingotherdata);
 
         $likecommentuser = $this->data['likecommentuser'] = $this->common->select_data_by_condition('art_comment_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-      $likecommentuser = $this->data['likecommentuser'] = $this->common->select_data_by_condition('art_comment_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        $likecommentuser = $this->data['likecommentuser'] = $this->common->select_data_by_condition('art_comment_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
 
         $contition_array = array('artistic_post_comment_id' => $likecommentuser[0]["post_image_comment_id"]);
         $artimglike = $this->data['artimglike'] = $this->common->select_data_by_condition('artistic_post_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
 
-       $contition_array = array('art_post_id' => $artimglike[0]["art_post_id"]);
+        $contition_array = array('art_post_id' => $artimglike[0]["art_post_id"]);
         $artimglikepost = $this->data['artimglikepost'] = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
 
@@ -4478,18 +4450,20 @@ $followingdatacount = count($followingotherdata);
 
             // insert notification
 
-            if($artimglikepost[0]['user_id'] == $userid){}else{
-            $data = array(
-                'not_type' => 5,
-                'not_from_id' => $userid,
-                'not_to_id' => $artimglikepost[0]['user_id'] ,
-                'not_read' => 2,
-                'not_product_id' => $insertdata,
-                'not_from' => 3,
-                'not_img' => 4
-            );
+            if ($artimglikepost[0]['user_id'] == $userid) {
+                
+            } else {
+                $data = array(
+                    'not_type' => 5,
+                    'not_from_id' => $userid,
+                    'not_to_id' => $artimglikepost[0]['user_id'],
+                    'not_read' => 2,
+                    'not_product_id' => $insertdata,
+                    'not_from' => 3,
+                    'not_img' => 4
+                );
 
-            $insert_id = $this->common->insert_data_getid($data, 'notification');
+                $insert_id = $this->common->insert_data_getid($data, 'notification');
             }
             // end notoification
 
@@ -5066,14 +5040,13 @@ $followingdatacount = count($followingotherdata);
         echo $fourdata;
     }
 
+    public function deletepdf() {
 
- public function deletepdf() {
-        
-      $userid = $this->session->userdata('aileenuser');
-      $contition_array = array('user_id' => $userid);
+        $userid = $this->session->userdata('aileenuser');
+        $contition_array = array('user_id' => $userid);
         $art_reg_data = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_bestofmine', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-        $art_bestofmine = $art_reg_data[0]['art_bestofmine']; 
+        $art_bestofmine = $art_reg_data[0]['art_bestofmine'];
 
         if ($art_bestofmine != '') {
             $art_pdf_path = 'uploads/art_images/';
@@ -5089,8 +5062,6 @@ $followingdatacount = count($followingotherdata);
 
         $update = $this->common->update_data($data, 'art_reg', 'user_id', $userid);
         echo 'ok';
-
- }
-
+    }
 
 }
