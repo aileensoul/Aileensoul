@@ -76,24 +76,18 @@ $(window).load(function(){
 
     function addmsg(type, msg)
     {
-         //   alert(msg);
-
-        //$('#notification_count').html(msg);
-
-        // alert(msg);
+        
         if (msg == 0)
         {
             $("#notification_count").html('');
-  //     alert("hi");
+  
 
         } else
         {
             $('#notification_count').html(msg);
             $('#notification_count').css('background-color', '#FF4500');
 
-           // alert("welcome");
         }
-
 
     }
 
@@ -149,14 +143,9 @@ $(window).load(function(){
 
     function addmsg1(type, msg)
     {
-
-
-        //$('#notification_count').html(msg);
-
-        //alert(msg);
         if (msg == 0)
         {
-            $("#message_count").remove();
+            $("#message_count").html('');
 
         } else
         {
@@ -836,8 +825,6 @@ if (isset($userdata[0]['first_name'])) {
         }
     </script>
     <!-- script for update all read notification end -->
-
-
 <!-- <script>
 /* When the user clicks on the button, 
 toggle between hiding and showing the dropdown content */
