@@ -318,18 +318,18 @@ if ($user_data) {
      ?></span>
      </li>
 
-                                                                <li><b>Mobile Number</b>
-                                                                    <span><?php
-                                                                    echo $row['phnno'];
-                                                                    ?></span>
-                                                                </li>
+               <li><b>Mobile Number</b>
+                      <span><?php
+                   echo $row['phnno'];
+                     ?></span>
+               </li>
 
 
-                                                        </ul>
-                                                    </div>
+               </ul>
+             </div>
                                               
-                                                 <div class="profile-job-profile-button clearfix">
-                                      <div class="apply-btn">
+                  <div class="profile-job-profile-button clearfix">
+                                     <div class="apply-btn fr">
                                                   
  <?php $userid = $this->session->userdata('aileenuser');
  if($userid != $row['user_id']){ 
@@ -349,9 +349,9 @@ if ($user_data) {
         <?php  $contition_array = array('invite_user_id' => $row['user_id'], 'post_id' => $postid);
         $userdata = $this->common->select_data_by_condition('user_invite', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         if($userdata){ ?>
-          <div class="button" id="<?php echo 'invited' . $row['user_id']; ?>" > Invited</div>       
+          <div class="button invite_border" id="<?php echo 'invited' . $row['user_id']; ?>" > Invited</div>       
          <?php }else{ ?>
-              <div class="button" id="<?php echo 'invited' . $row['user_id']; ?>" onclick="inviteuser(<?php echo $row['user_id']; ?>)"> Invite</div>       
+              <div class="button invite_border" id="<?php echo 'invited' . $row['user_id']; ?>" onclick="inviteuser(<?php echo $row['user_id']; ?>)"> Invite</div>       
  <?php  }} ?>
                                                 </div> </div>
                                                 
