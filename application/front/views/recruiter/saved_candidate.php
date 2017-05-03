@@ -452,7 +452,7 @@
                                 <div class="designation_rec_1" style="float: left;">
                               <ul>
                                                                       <li> 
-    <a style="font-size: 18px;    font-weight: 600;" href="<?php echo base_url('job/job_printpreview/' . $rec['job_id']); ?>" title="<?php echo $rec[0]['fname']. ' ' . $rec[0]['lname']; ?>">
+    <a style="font-size: 18px;    font-weight: 600;" href="<?php echo base_url('job/job_printpreview/' . $rec['user_id'].'?page=recruiter'); ?>" title="<?php echo $rec[0]['fname']. ' ' . $rec[0]['lname']; ?>">
         <?php echo $this->db->get_where('job_reg', array('user_id' => $rec['to_id']))->row()->fname . ' ' . $this->db->get_where('job_reg', array('user_id' => $rec['to_id']))->row()->lname; ?></a>
   </li>
    

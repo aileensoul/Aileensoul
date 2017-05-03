@@ -329,8 +329,8 @@ padding-top: 1px;}
                                                                 <div class="designation_rec" style="float: left;">
                                                                     <ul>
                                                                         <li>
-                                                                            <a style="  font-size: 19px;
-                                                                               font-weight: 600;" href="<?php echo base_url('job/job_printpreview/' . $row['user_id'].'?page=recruiter'); ?>" title=" <?php echo $row['fname'] . ' ' . $row['lname']; ?>">
+      <a style="  font-size: 19px;
+         font-weight: 600;" href="<?php echo base_url('job/job_printpreview/' . $row['user_id'].'?page=recruiter'); ?>" title=" <?php echo $row['fname'] . ' ' . $row['lname']; ?>">
                                                                                 <?php echo ucwords($row['fname']) . ' ' . ucwords($row['lname']); ?></a>
                                                                         </li>
                                                                         <li style="display: block;">
