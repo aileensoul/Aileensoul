@@ -504,14 +504,7 @@ if ($returnpage == 'job') {
      <p>
      <?php 
 
-//      if($post['fresher'] == 1)
-// {
-//     echo "hi";
-// }
-// else
-// {
-//     echo "hello";
-// }
+
   if(($post['min_year'] !='0' || $post['min_month'] !='0' || $post['max_month'] !='0' || $post['max_year'] !='0') && ($post['fresher'] == 1))
      { 
  echo $post['min_year'].'.'.$post['min_month'] . ' Year - '.$post['max_year'] .'.'.$post['max_month'] . ' Year'." , ". "Fresher can also apply.";
