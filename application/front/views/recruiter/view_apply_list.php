@@ -332,7 +332,7 @@ if ($user_data) {
                                       <div class="apply-btn">
                                                   
  <?php $userid = $this->session->userdata('aileenuser');
- if($userid == $row['user_id']){ 
+ if($userid != $row['user_id']){ 
              
     $contition_array = array('from_id' => $userid, 'to_id' => $row['user_id'], 'save_type' => 1, 'status' => '0');
     $data = $this->common->select_data_by_condition('save', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = ''); ?>
