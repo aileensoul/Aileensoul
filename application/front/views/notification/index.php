@@ -17,7 +17,7 @@
     <!-- END HEADER -->
 
 
-       <div class="user-midd-section">
+        <div class="user-midd-section">
             <div class="container">
                 <div class="row">
                     <div class="col-md-1 col-sm-1">

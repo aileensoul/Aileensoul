@@ -197,8 +197,12 @@ echo $freelancer_post_header2;
                                 </div>
                         </li> -->
                         <li>
-                            <a href="<?php echo base_url('chat/') ; ?>">Message</a></li>
-
+                            
+                            <input type="hidden" id="<?php echo 'hideenuser' . $this->uri->segment(3); ?>" value= "<?php echo $this->uri->segment(3); ?>">
+                  
+   <a id="<?php echo $this->uri->segment(3); ?>" onClick="savepopup(<?php echo $this->uri->segment(3); ?>)" href="javascript:void(0);" class="<?php echo 'saveduser' . $this->uri->segment(3); ?>">
+                      Save</a> 
+                   <a href="<?php echo base_url('chat/') ; ?>">Message</a></li>
                     </ul>
                 </div>
             </div>

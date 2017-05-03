@@ -339,7 +339,7 @@ if ($user_data) {
             
                if (!$data) { ?> 
         <a href="<?php echo base_url('message/message_chats/' . $row['user_id']); ?>">Message</a>
-      <div id="invited" onclick="inviteuser()"> Invite</div>          
+                   <div id="<?php echo 'invited' . $row['user_id']; ?>" onclick="inviteuser(<?php echo $row['user_id']; ?>)"> Invite</div>           
                     <input type="hidden" id="<?php echo 'hideenuser' . $row['user_id']; ?>" value= "<?php echo $data[0]['save_id']; ?>">
                                                                                 <!-- <a id="<?php echo $row['user_id']; ?>" onClick="save_user(this.id)" href="#popup1" class="<?php echo 'saveduser' . $row['user_id']; ?>">Save User</a> -->
                <a id="<?php echo $row['user_id']; ?>" onClick="savepopup(<?php echo $row['user_id']; ?>)" href="javascript:void(0);" class="<?php echo 'saveduser' . $row['user_id']; ?>">Save</a>
