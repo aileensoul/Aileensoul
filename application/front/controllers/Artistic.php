@@ -4025,9 +4025,13 @@ $followingdatacount = count($followingotherdata);
 
 
         //$contition_array = array('post_image_id' => $_POST["post_image_id"], 'is_unlike' => '0');
-        $contition_array = array('post_image_id' => $_POST["post_image_id"], 'is_delete' => '1');
-        $artimg = $this->data['artimg'] = $this->common->select_data_by_condition('art_post_image_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-        
+        $contition_array = array('image_id' => $_POST["post_image_id"], 'is_deleted' => '1');
+        $artimg = $this->data['artimg'] = $this->common->select_data_by_condition('post_image', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+        $contition_array = array('art_post_id' => $artimg[0]["post_id"], 'is_delete' => 0);
+        $artpostid = $this->data['artpostid'] = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+         //echo "<pre>"; print_r($artpostid); die();
         
         $data = array(
             'user_id' => $userid,
@@ -4040,18 +4044,18 @@ $followingdatacount = count($followingotherdata);
 
         // insert notification
 
-            if($artimg[0]['user_id'] == $userid){}else{
-            $data = array(
+            if($artpostid[0]['user_id'] == $userid){}else{ 
+            $datanotification = array(
                 'not_type' => 6,
                 'not_from_id' => $userid,
-                'not_to_id' => $artimg[0]['user_id'] ,
+                'not_to_id' => $artpostid[0]['user_id'] ,
                 'not_read' => 2,
                 'not_product_id' => $insert_id,
                 'not_from' => 3,
                 'not_img' => 1
             );
-
-            $insert_id = $this->common->insert_data_getid($data, 'notification');
+            echo "<pre>"; print_r($datanotification); die();
+            $insert_id_notification = $this->common->insert_data_getid($datanotification, 'notification');
             }
             // end notoification
 
@@ -4151,7 +4155,7 @@ $followingdatacount = count($followingotherdata);
 
 
                 $cmtinsert .= '<input type="hidden" name="post_delete"';
-                $cmtinsert .= 'id="post_delete"';
+                $cmtinsert .= 'id="post_delete' . $art_comment['post_image_comment_id'] . '"';
                 $cmtinsert .= 'value= "' . $art_comment['post_image_id'] . '">';
                 $cmtinsert .= '<a id="' . $art_comment['post_image_comment_id'] . '"';
                 $cmtinsert .= 'onClick="comment_deletemodel(this.id)">';
@@ -4187,8 +4191,11 @@ $followingdatacount = count($followingotherdata);
         $post_comment = $_POST["comment"];
 
 
-        $contition_array = array('post_image_id' => $_POST["post_image_id"], 'is_unlike' => '0');
-        $artimg = $this->data['artimg'] = $this->common->select_data_by_condition('art_post_image_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+       $contition_array = array('image_id' => $_POST["post_image_id"], 'is_deleted' => '1');
+        $artimg = $this->data['artimg'] = $this->common->select_data_by_condition('post_image', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+        $contition_array = array('art_post_id' => $artimg[0]["post_id"], 'is_delete' => 0);
+        $artpostid = $this->data['artpostid'] = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
 
         $data = array(
@@ -4202,18 +4209,18 @@ $followingdatacount = count($followingotherdata);
 
          // insert notification
 
-            if($artimg[0]['user_id'] == $userid){}else{
-            $data = array(
+            if($artpostid[0]['user_id'] == $userid){}else{
+            $datanotification = array(
                 'not_type' => 6,
                 'not_from_id' => $userid,
-                'not_to_id' => $artimg[0]['user_id'] ,
+                'not_to_id' => $artpostid[0]['user_id'] ,
                 'not_read' => 2,
                 'not_product_id' => $insert_id,
                 'not_from' => 3,
                 'not_img' => 1
             );
 
-            $insert_id = $this->common->insert_data_getid($data, 'notification');
+            $insert_id_notification = $this->common->insert_data_getid($datanotification, 'notification');
             }
             // end notoification
 
@@ -4307,7 +4314,7 @@ $followingdatacount = count($followingotherdata);
 
 
                 $cmtinsert .= '<input type="hidden" name="post_deletetwo"';
-                $cmtinsert .= 'id="post_deletetwo"';
+                $cmtinsert .= 'id="post_deletetwo' . $art_comment['post_image_comment_id'] . '"';
                 $cmtinsert .= 'value= "' . $art_comment['post_image_id'] . '">';
                 $cmtinsert .= '<a id="' . $art_comment['post_image_comment_id'] . '"';
                 $cmtinsert .= 'onClick="comment_deletetwomodel(this.id)">';
@@ -4735,7 +4742,7 @@ $followingdatacount = count($followingotherdata);
 
 
                 $cmtinsert .= '<input type="hidden" name="post_delete"';
-                $cmtinsert .= 'id="post_delete"';
+                $cmtinsert .= 'id="post_delete' . $art_comment['post_image_comment_id'] . '"';
                 $cmtinsert .= 'value= "' . $art_comment['post_image_id'] . '">';
                 $cmtinsert .= '<a id="' . $art_comment['post_image_comment_id'] . '"';
                 $cmtinsert .= 'onClick="comment_deletemodel(this.id)">';
@@ -4749,7 +4756,7 @@ $followingdatacount = count($followingotherdata);
 
             if (count($artcont) > 1) {
                 // comment aount variable start
-                $cmtcount = '<a onClick="commentall(this.id)" id="' . $post_image_id . '">';
+                $cmtcount = '<a onClick="commentall(this.id)" id="' . $art_comment['post_image_id'] . '">';
                 $cmtcount .= '<i class="fa fa-comment-o" aria-hidden="true">';
                 $cmtcount .= ' ' . count($artcont) . '';
                 $cmtcount .= '</i></a>';
@@ -4778,7 +4785,7 @@ $followingdatacount = count($followingotherdata);
         $contition_array = array('post_image_id' => $post_delete, 'is_delete' => '0');
         $artcomment = $this->common->select_data_by_condition('art_post_image_comment', $contition_array, $data = '*', $sortby = 'post_image_comment_id', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-        //echo "<pre>"; print_r($businesscomment); die();
+       // echo "<pre>"; print_r($artcomment); die();
         foreach ($artcomment as $art_comment) {
 
             $art_name = $this->db->get_where('art_reg', array('user_id' => $art_comment['user_id']))->row()->art_name;
@@ -4864,7 +4871,7 @@ $followingdatacount = count($followingotherdata);
 
 
                 $cmtinsert .= '<input type="hidden" name="post_deletetwo"';
-                $cmtinsert .= 'id="post_deletetwo"';
+                $cmtinsert .= 'id="post_deletetwo' . $art_comment['post_image_comment_id'] . '"';
                 $cmtinsert .= 'value= "' . $art_comment['post_image_id'] . '">';
                 $cmtinsert .= '<a id="' . $art_comment['post_image_comment_id'] . '"';
                 $cmtinsert .= 'onClick="comment_deletetwomodel(this.id)">';
@@ -5068,7 +5075,7 @@ $followingdatacount = count($followingotherdata);
                 $fourdata .= '<div class="comment-details-menu">';
 
 
-                $fourdata .= '<input type="hidden" name="post_deletetwo"  id="post_deletetwo" value= "' . $rowdata['post_image_id'] . '">';
+                $fourdata .= '<input type="hidden" name="post_deletetwo"  id="post_deletetwo' . $rowdata['post_image_comment_id'] . '" value= "' . $rowdata['post_image_id'] . '">';
                 $fourdata .= '<a id="' . $rowdata['post_image_comment_id'] . '"';
                 $fourdata .= 'onClick="comment_deletetwomodel(this.id)"> Delete <span class="insertcommenttwo' . $rowdata['post_image_comment_id'] . '">';
                 $fourdata .= '</span> </a> </div>';
