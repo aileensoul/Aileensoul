@@ -444,14 +444,17 @@ if ($returnpage == 'job') {
                                                         <?php echo $post['post_name'] ?> </a>     </li>
                                                 <li>   
                                                     <div class="fr lction">
-                                                    <?php $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name; ?>
+                                                    <?php $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name;
+
+
+                                                     $countryname = $this->db->get_where('countries', array('country_id' => $post['country']))->row()->country_name; ?>
                                                             <?php  
-                                                            if($cityname)
+                                                            if($cityname || $countryname)
                                                             { 
                                                             ?>
                                                             <p><i class="fa fa-map-marker" aria-hidden="true">
 
-                                                            <?php echo $cityname; ?> 
+                                                            <?php  echo $cityname .', '. $countryname; ?> 
                                                             </i></p>
                                                             
                                                             <?php
@@ -490,22 +493,45 @@ if ($returnpage == 'job') {
                                             </li>
                                             <li><b>Other Skill</b><span> <?php if($post['other_skill'] != ''){ echo $post['other_skill']; } else{ echo PROFILENA;} ?></span>
                                             </li>
-                                            <li><b>Description</b><span><p><?php echo $post['post_description']; ?></p></span>
+                                            <li><b>Job Description</b><span><p><?php echo $post['post_description']; ?></p></span>
                                             </li>
                                             <li><b>Interview Process</b><span><?php echo $post['interview_process']; ?></span>
                                             </li>
                                             <!-- vishang 14-4 start -->
                                             <li>
-                                                <b>Require Experience</b>
+                                                <b>Required Experience</b>
                                                 <span>
-                                                    <p><?php if($post['min_year'] !='0' || $post['min_year'] ==''){ echo $post['min_year'].' Year '; } ?> <?php if($post['min_month'] !='0' || $post['min_month'] ==''){ echo $post['min_month']. ' Month'; } ?></p>  
+     <p>
+     <?php 
+
+//      if($post['fresher'] == 1)
+// {
+//     echo "hi";
+// }
+// else
+// {
+//     echo "hello";
+// }
+  if(($post['min_year'] !='0' || $post['min_month'] !='0' || $post['max_month'] !='0' || $post['max_year'] !='0') && ($post['fresher'] == 1))
+     { 
+ echo $post['min_year'].'.'.$post['min_month'] . ' Year - '.$post['max_year'] .'.'.$post['max_month'] . ' Year'." , ". "Fresher can also apply.";
+     } 
+    else
+    {
+  echo $post['min_year'].'.'.$post['min_month'] . ' Year - '.$post['max_year'] .'.'.$post['max_month'] . ' Year';
+         
+    }
+
+ ?> 
+    
+    </p>  
                                                 </span>
                                             </li>
-                                            <li><b>Minimum Salary</b><span><?php echo $post['min_sal']; ?></span>
+                                            <li><b>Salary</b><span><?php echo $post['min_sal']." - ".$post['max_sal']; ?></span>
                                             </li>
 
-                                            <li><b>Maximum Salary</b><span><?php echo $post['max_sal']; ?></span>
-                                            </li>
+                                           <!--  <li><b>Maximum Salary</b><span><?php echo $post['max_sal']; ?></span>
+                                            </li> -->
 
                                             <li><b>No of Position</b><span><?php echo $post['post_position']; ?></span>
                                             </li>
@@ -575,15 +601,18 @@ if ($returnpage == 'job') {
                                                     <a href="#" title="Post Title"  style="font-size: 19px;font-weight: 600;cursor:default;">
                                                         <?php echo $post['post_name'] ?> </a>     </li>
                                                 <li>   
-                                                    <div class="fr lction">
-                                                    <?php $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name; ?>
+                                                  <div class="fr lction">
+                                                    <?php $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name;
+
+
+                                                     $countryname = $this->db->get_where('countries', array('country_id' => $post['country']))->row()->country_name; ?>
                                                             <?php  
-                                                            if($cityname)
+                                                            if($cityname || $countryname)
                                                             { 
                                                             ?>
                                                             <p><i class="fa fa-map-marker" aria-hidden="true">
 
-                                                            <?php echo $cityname; ?> 
+                                                            <?php  echo $cityname .', '. $countryname; ?> 
                                                             </i></p>
                                                             
                                                             <?php
@@ -591,7 +620,7 @@ if ($returnpage == 'job') {
 
                                                              else{}?> 
                                                     </div>
-                                                    <a class="display_inline" title="Company Name" href="#"> <?php echo $post['re_comp_name']; ?> </a>
+                                                      <a class="display_inline" title="Company Name" href="#"> <?php echo $post['re_comp_name']; ?> </a>
                                                 </li>
                                                 <li><a class="display_inline" title="Recruiter Name" href="#"> <?php echo $post['rec_firstname']; ?> </a></li>
                                                 <!-- vishang 14-4 end -->    
@@ -622,23 +651,40 @@ if ($returnpage == 'job') {
                                             </li>
                                             <li><b>Other Skill</b><span> <?php if($post['other_skill'] != ''){ echo $post['other_skill']; } else{ echo PROFILENA;} ?></span>
                                             </li>
-                                            <li><b>Description</b><span><p><?php echo $post['post_description']; ?></p></span>
+                                            <li><b>Job Description</b><span><p><?php echo $post['post_description']; ?></p></span>
                                             </li>
                                             <li><b>Interview Process</b><span><?php echo $post['interview_process']; ?></span>
                                             </li>
                                             <!-- vishang 14-4 start -->
                                             <li>
-                                                <b>Require Experience</b>
+                                                <b>Required Experience</b>
                                                 <span>
-                                                    <p><?php if($post['min_year'] !='0' || $post['min_year'] ==''){ echo $post['min_year'].' Year '; } ?> <?php if($post['min_month'] !='0' || $post['min_month'] ==''){ echo $post['min_month']. ' Month'; } ?></p>  
+                                                    <p><?php 
+
+
+
+
+      if(($post['min_year'] !='0' || $post['min_month'] !='0' || $post['max_month'] !='0' || $post['max_year'] !='0') && ($post['fresher'] == 1))
+     { 
+        echo $post['min_year'].'.'.$post['min_month'] . ' Year - '.$post['max_year'] .'.'.$post['max_month'] . ' Year'." , ". "Fresher can also apply.";
+     } 
+    else
+    {
+  echo $post['min_year'].'.'.$post['min_month'] . ' Year - '.$post['max_year'] .'.'.$post['max_month'] . ' Year';
+         
+    }
+
+ ?> 
+    </p>  
                                                 </span>
                                             </li>
-                                            <li><b>Minimum Salary</b><span><?php echo $post['min_sal']; ?></span>
+                                             <li><b>Salary</b><span><?php echo $post['min_sal']." - ".$post['max_sal']; ?></span>
                                             </li>
+                                            
 
-                                            <li><b>Maximum Salary</b><span><?php echo $post['max_sal']; ?></span>
+                                           <!--  <li><b>Maximum Salary</b><span><?php echo $post['max_sal']; ?></span>
                                             </li>
-
+ -->
                                             <li><b>No of Position</b><span><?php echo $post['post_position']; ?></span>
                                             </li>
                                         </ul>
