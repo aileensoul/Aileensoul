@@ -331,32 +331,28 @@ if ($user_data) {
                                                  <div class="profile-job-profile-button clearfix">
                                       <div class="apply-btn">
                                                   
-
-               <?php
-    $userid = $this->session->userdata('aileenuser');
+ <?php $userid = $this->session->userdata('aileenuser');
+ if($userid == $row['user_id']){ 
+             
     $contition_array = array('from_id' => $userid, 'to_id' => $row['user_id'], 'save_type' => 1, 'status' => '0');
-    $data = $this->common->select_data_by_condition('save', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-            
-               if (!$data) { ?> 
-        <a href="<?php echo base_url('message/message_chats/' . $row['user_id']); ?>">Message</a>
-                   <div id="<?php echo 'invited' . $row['user_id']; ?>" onclick="inviteuser(<?php echo $row['user_id']; ?>)"> Invite</div>           
-                    <input type="hidden" id="<?php echo 'hideenuser' . $row['user_id']; ?>" value= "<?php echo $data[0]['save_id']; ?>">
-                                                                                <!-- <a id="<?php echo $row['user_id']; ?>" onClick="save_user(this.id)" href="#popup1" class="<?php echo 'saveduser' . $row['user_id']; ?>">Save User</a> -->
-               <a id="<?php echo $row['user_id']; ?>" onClick="savepopup(<?php echo $row['user_id']; ?>)" href="javascript:void(0);" class="<?php echo 'saveduser' . $row['user_id']; ?>">Save</a>
-     <?php
-                                                                } else {
-                                                                    ?>
-          <a href="<?php echo base_url('message/message_chats/' . $row['user_id']); ?>">Message</a> 
-         <?php  $contition_array = array('invite_user_id' => $row['user_id'], 'post_id' => $postid);
-        $userdata = $this->common->select_data_by_condition('user_invite', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-        if($userdata){ ?>
-          <div id="<?php echo 'invited' . $row['user_id']; ?>" > Invited</div>       
-         <?php }else{ ?>
-              <div id="<?php echo 'invited' . $row['user_id']; ?>" onclick="inviteuser(<?php echo $row['user_id']; ?>)"> Invite</div>       
-      <?php  } ?>
-              <a class="saved">Saved </a> 
+    $data = $this->common->select_data_by_condition('save', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = ''); ?>
+            <a href="<?php echo base_url('message/message_chats/' . $row['user_id']); ?>">Message</a>
+       <?php if (!$data) { ?> 
+<!--       <div id="invited" onclick="inviteuser()"> Invite</div>          
+       <input type="hidden" id="<?php echo 'hideenuser' . $row['user_id']; ?>" value= "<?php echo $data[0]['save_id']; ?>">-->
+       <a id="<?php echo $row['user_id']; ?>" onClick="savepopup(<?php echo $row['user_id']; ?>)" href="javascript:void(0);" class="<?php echo 'saveduser' . $row['user_id']; ?>">Save</a>
+     <?php } else { ?>
+       <a class="saved">Saved </a> 
         <?php }
         ?>  
+       
+        <?php  $contition_array = array('invite_user_id' => $row['user_id'], 'post_id' => $postid);
+        $userdata = $this->common->select_data_by_condition('user_invite', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        if($userdata){ ?>
+          <div class="button" id="<?php echo 'invited' . $row['user_id']; ?>" > Invited</div>       
+         <?php }else{ ?>
+              <div class="button" id="<?php echo 'invited' . $row['user_id']; ?>" onclick="inviteuser(<?php echo $row['user_id']; ?>)"> Invite</div>       
+ <?php  }} ?>
                                                 </div> </div>
                                                 
                                                <!--  <div class="profile-job-profile-button clearfix">

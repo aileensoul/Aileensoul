@@ -201,12 +201,10 @@
             // khayti changes start 6-4
             ?>
               <!--<a href="<?php echo base_url('chat/abc/' . $row['user_id']); ?>">Saved</a>-->
-           <a href="<?php echo base_url('chat/abc/' . $row['user_id']); ?>">Message</a>
-
-            <div class="button" id="<?php echo 'invited' . $row['user_id']; ?>" onclick="inviteuser(<?php echo $row['user_id']; ?>)"> Invite</div>
-   
-          <?php
-            if (!$data) {
+           
+          <?php if($userid != $row['user_id']){ ?>
+       <a href="<?php echo base_url('chat/abc/' . $row['user_id']); ?>">Message</a>
+        <?php    if (!$data) {
                 ?> 
          <input type="hidden" name="saveuser"  id="saveuser" value= "<?php echo $data[0]['save_id']; ?>">
         <!-- pallavi changes 15-4 -->
@@ -218,11 +216,19 @@
             } else {
                 ?>
          <a class="saved" href="javascript:void(0);" onclick="return false">Saved</a>
-         <div class="button" id="invited" onclick="inviteuser()"> Invite</div>
+         
                 <?php
                 // khayti changes end 6-4                              
             }
             ?> 
+         
+         <?php  $contition_array = array('invite_user_id' => $row['user_id'], 'post_id' => $postid, 'profile' => 'freelancer');
+        $userdata = $this->common->select_data_by_condition('user_invite', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        if($userdata){ ?>
+          <div class="button" id="<?php echo 'invited' . $row['user_id']; ?>" > Invited</div>       
+         <?php }else{ ?>
+              <div class="button" id="<?php echo 'invited' . $row['user_id']; ?>" onclick="inviteuser(<?php echo $row['user_id']; ?>)"> Invite</div>
+          <?php  } }?>
                  </div>
               </div>
             </div>
