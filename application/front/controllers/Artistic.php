@@ -1724,6 +1724,10 @@ class Artistic extends MY_Controller {
         $follow = $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         //  echo "<pre>"; print_r($follow); die();
 
+        $contition_array = array('art_id' => $art_id, 'status' => 1, 'is_delete' => 0);
+        $followuserid = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+
         if ($follow) {
             $data = array(
                 'follow_type' => 1,
@@ -1737,8 +1741,8 @@ class Artistic extends MY_Controller {
 
             $data = array(
                 'not_type' => 8,
-                'not_from_id' => $artdata[0]['art_id'],
-                'not_to_id' => $art_id,
+                'not_from_id' => $userid,
+                'not_to_id' => $followuserid[0]['user_id'],
                 'not_read' => 2,
                 'not_product_id' => $follow[0]['follow_id'],
                 'not_from' => 3
@@ -5034,7 +5038,12 @@ $followingdatacount = count($followingotherdata);
 
             $fourdata .= '<div class="comment-details" id= "showcommenttwo' . $rowdata['post_image_comment_id'] . '">';
             $fourdata .= '' . $rowdata['comment'] . '</br></div>';
-            $fourdata .= '<input type="text" name="' . $rowdata['post_image_comment_id'] . '" id="editcommenttwo' . $rowdata['post_image_comment_id'] . '" style="display:none" value="' . $rowdata['comment'] . '"  onClick="commentedittwo(this.name)">';
+
+            $fourdata .= '<div contenteditable="" class="editable_text" name="' . $rowdata['post_image_comment_id'] . '" id="editcommenttwo' . $rowdata['post_image_comment_id'] . '" style="display:none"  onClick="commentedittwo(this.name)">';
+
+            $fourdata .= '' . $rowdata['comment'] . '';
+            $fourdata .= '</div>';
+
             $fourdata .= '<button id="editsubmittwo' . $rowdata['post_image_comment_id'] . '" style="display:none" onClick="edit_commenttwo(' . $rowdata['post_image_comment_id'] . ')">Comment</button>';
 
             $fourdata .= '<div class="art-comment-menu-design">';
