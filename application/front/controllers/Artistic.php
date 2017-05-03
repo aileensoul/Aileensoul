@@ -669,10 +669,16 @@ class Artistic extends MY_Controller {
 
     public function art_portfolio_insert() {
 
+        
 
         $userid = $this->session->userdata('aileenuser');
+<<<<<<< HEAD
         $artportfolio = $_POST['artportfolio'];
         $bestofmine = $_POST['bestofmine'];
+=======
+        $artportfolio = $_POST['artportfolio']; 
+       // $bestofmine = $_POST['bestofmine']; 
+>>>>>>> 56e4464c470f67775e7cd3f4535f2e02ad7798e2
 
         //best of mine image upload code start
 
@@ -693,14 +699,14 @@ class Artistic extends MY_Controller {
         $config['upload_path'] = 'uploads/art_images/';
         $config['allowed_types'] = 'pdf';
 
-        $config['file_name'] = $_FILES['bestofmine']['name'];
+        $config['file_name'] = $_FILES['image']['name'];
         $config['upload_max_filesize'] = '40M';
 
         //Load upload library and initialize configuration
         $this->load->library('upload', $config);
         $this->upload->initialize($config);
 
-        if ($this->upload->do_upload('bestofmine')) {
+        if ($this->upload->do_upload('image')) {
 
             $uploadData = $this->upload->data();
 
@@ -709,6 +715,7 @@ class Artistic extends MY_Controller {
 
             $picture = '';
         }
+<<<<<<< HEAD
 
 
         $data = array(
@@ -718,6 +725,18 @@ class Artistic extends MY_Controller {
             'art_step' => 4
         );
         //echo "<pre>"; print_r($data); die();
+=======
+    
+       
+            $data = array(
+               
+                'art_bestofmine' => $picture,
+                'art_portfolio' => $artportfolio,
+                'modified_date' => date('Y-m-d', time()),
+                'art_step' => 4
+            );
+        echo "<pre>"; print_r($data); die();
+>>>>>>> 56e4464c470f67775e7cd3f4535f2e02ad7798e2
 
         $updatdata = $this->common->update_data($data, 'art_reg', 'user_id', $userid);
 
@@ -1464,7 +1483,7 @@ class Artistic extends MY_Controller {
 
             $contition_array = array('user_id' => $userid, 'status' => '1');
             $this->data['artisticdata'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-        } else {
+        } else { 
 
             $contition_array = array('user_id' => $id, 'status' => '1');
             $this->data['artisticdata'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');

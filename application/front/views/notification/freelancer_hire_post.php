@@ -152,12 +152,6 @@ label.cameraButton input[accept*="camera"] {
 <!-- start header -->
 <?php echo $header; ?>
 
-<?php  $returnpage=$_GET['page'];
-if($returnpage=='freelancer_post'){
-echo $freelancer_post_header2;
-}
-else{
-echo $freelancer_hire_header2;} ?>
 
 
 
@@ -198,41 +192,20 @@ echo $freelancer_hire_header2;} ?>
             </div>
 
 
-            <div class="container">
-                <div class="row" id="row2">
-                    <?php
-                    $userid = $this->session->userdata('aileenuser');
-                    $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
-                    $image = $this->common->select_data_by_condition('freelancer_hire_reg', $contition_array, $data = 'profile_background', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-                    // echo "<pre>";print_r($image);
-                    $image_ori = $image[0]['profile_background'];
-                    if ($image_ori) {
-                        ?>
-                        <div class="bg-images">
-                            <img src="<?php echo base_url(FREEHIREIMG . $image[0]['profile_background']); ?>" name="image_src" id="image_src" / ></div>
-                        <?php
-                    } else {
-                        ?>
-                        <div class="bg-images">
-                            <img src="<?php echo WHITEIMAGE; ?>" name="image_src" id="image_src" / ></div>
-                    <?php }
-                    ?>
-
-                </div>
-            </div>
+            
         </div>
     </div>
 </div>   
 
 <div class="container">    
-    <div class="upload-img">
+<!--    <div class="upload-img">
 
 <?php if($returnpage==''){ ?>
         <label class="cameraButton"><i class="fa fa-camera" aria-hidden="true"></i>
             <input type="file" id="upload" name="upload" accept="image/*;capture=camera" onclick="showDiv()">
         </label>
 <?php }?>
-    </div>
+    </div>-->
 
 
 
@@ -241,101 +214,16 @@ echo $freelancer_hire_header2;} ?>
 
 
     <div class="profile-photo">
-        <div class="profile-pho">
+               
 
-            <div class="user-pic">
-                <?php if ($freelancerpostdata[0]['freelancer_hire_user_image'] != '') { ?>
-                    <img src="<?php echo base_url(USERIMAGE . $freelancerpostdata[0]['freelancer_hire_user_image']); ?>" alt="" >
-                <?php } else { ?>
-                    <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
-                <?php } ?>
-                <!-- <a href="#popup-form" class="fancybox"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a> -->
-                    <?php if($returnpage==''){ ?>
-                <a href="javascript:void(0);" onclick="updateprofilepopup();"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>
-                    <?php } ?>
-            </div>
-
-            <!-- <div id="popup-form">
-                <?php //echo form_open_multipart(base_url('freelancer/user_image_insert'), array('id' => 'userimage', 'name' => 'userimage', 'class' => 'clearfix')); ?>
-                <input type="file" name="profilepic" accept="image/gif, image/jpeg, image/png" id="profilepic">
-                <input type="hidden" name="hitext" id="hitext" value="2">
-                <input type="submit" name="cancel1" id="cancel1" value="Cancel">
-                <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save">
-                </form>
-            </div> -->
-
-        </div>
-        <div class="profile-main-rec-box-menu  col-md-12 ">
-
-            <div class="left-side-menu col-md-2">  </div>
-            <div class="right-side-menu col-md-8 " style="padding-left: 0px;">  
-                <ul class="">                          
-                    <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_hire_profile')) { ?> class="active" <?php } ?>>
-                        <?php if($returnpage=='freelancer_post') {?><a href="<?php echo base_url('freelancer/freelancer_hire_profile/'.$this->uri->segment(3).'?page=freelancer_post'); ?>">Employer Details</a> <?php } else {?> <a href="<?php echo base_url('freelancer/freelancer_hire_profile'); ?>">Employer Details</a> <?php }?>
-                    </li>
+        <div class="job-menu-profile">
+            <h5 > <?php echo ucwords($freelancerpostdata[0]['fullname']) . ' ' . ucwords($freelancerpostdata[0]['username']); ?></h5>
 
 
-                <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_hire_post')) { ?> class="active" <?php } ?>>
-                    <?php if ($returnpage=='freelancer_post'){ ?><a href="<?php echo base_url('freelancer/freelancer_hire_post/'.$this->uri->segment(3).'?page=freelancer_post'); ?>"> Post</a> <?php } else {?> <a href="<?php echo base_url('freelancer/freelancer_hire_post'); ?>"> Post</a> <?php }?>
-                        </li>
-
-
-                    <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_hire_post' || $this->uri->segment(2) == 'freelancer_hire_profile' || $this->uri->segment(2) == 'freelancer_add_post' || $this->uri->segment(2) == 'freelancer_save') && ($this->uri->segment(3) == $this->session->userdata('aileenuser') || $this->uri->segment(3) == '')) { ?>
-
-
-
-                        
-                        </li>
-                        <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_save')) { ?> class="active" <?php } ?>><a href="<?php echo base_url('freelancer/freelancer_save'); ?>">Saved Freelancer</a>
-                        </li>
-
-
-
-                    <?php } ?>
-
-
-                </ul>
-            </div>
-    
-            <div class="col-md-2">
-                <div class="flw_msg_btn fr">
-                    <ul>
-                        <!-- <li class="fruser2">
-
-                                <div id="unfollowdiv">
-                                    <a id="unfollow2" onclick="unfollowuser(2)"> Following</a>
-                                </div>
-                        </li> -->
-                        <li>
-                            <a href="<?php echo base_url('message/message_chats/').$this->uri->segment(3); ?>">Message</a></li>
-                    </ul>
-                </div>
-            </div>
-
-        </div>
-
-
-        <div class="job-menu-profile1">
-            <h3> <?php echo ucwords($freehiredata[0]['fullname']) . ' ' . ucwords($freehiredata[0]['username']); ?></h3>
-
-
-            <div class="profile-text">
-                <?php
-                    if($returnpage==''){
-                if ($freehiredata[0]['designation'] == '') {
-                    ?>
-                   <!--  <a id="myBtn" title="<?php echo ucwords($freelancerpostdata[0]['fullname']) . ' ' . ucwords($freelancerpostdata[0]['username']); ?>">Designation</a> -->
-                    <a id="designation" class="designation" title="Designation">Designation</a>
-
-                <?php } else { ?> 
-                    <!-- <a id="myBtn" title="<?php echo ucwords($freelancerpostdata[0]['fullname']) . ' ' . ucwords($freelancerpostdata[0]['username']); ?>"><?php echo ucwords($freelancerpostdata[0]['designation']); ?></a> -->
-                    <a id="designation" class="designation" title="<?php echo ucwords($freelancerpostdata[0]['designation']); ?>"><?php echo ucwords($freelancerpostdata[0]['designation']); ?></a>
-                    <?php } }else {echo ucwords($freelancerpostdata[0]['designation']); }?></div>
+           
 
             <div  class="add-post-button">
-                <?php if($returnpage==''){ ?>
-                <a class="btn btn-3 btn-3b" href="<?php echo base_url('freelancer/freelancer_add_post'); ?>"><i class="fa fa-plus" aria-hidden="true"></i>  Add Post</a>
-                <?php }?>
+                
             </div> 
         </div>
         <!-- The Modal -->
@@ -492,7 +380,7 @@ echo $freelancer_hire_header2;} ?>
                                                 <div class="profile-job-profile-button clearfix">
 
 
-                          <div class="apply-btn">
+<!--                          <div class="apply-btn">
 
                       <a href="javascript:void(0);" class="button" onclick="removepopup(<?php echo  $post['post_id']?>)">Remove</a>
                                        
@@ -500,10 +388,10 @@ echo $freelancer_hire_header2;} ?>
 
                         <a class="button" href="<?php echo base_url('freelancer/freelancer_apply_list/' . $post['post_id']); ?>">Applied person :<?php echo count($this->common->select_data_by_id('freelancer_apply', 'post_id', $post['post_id'], $data = '*', $join_str = array())); ?></a>
                    
-                        <!--  <a href="<?php echo '#popup3' . $post['post_id']; ?>">Remove</a> -->
+                          <a href="<?php echo '#popup3' . $post['post_id']; ?>">Remove</a> 
 
 
-                                                    </div>
+                                                    </div>-->
 
                                                 </div>
                                             </div>

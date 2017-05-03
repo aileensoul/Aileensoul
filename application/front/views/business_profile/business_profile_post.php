@@ -589,7 +589,7 @@ if (!$businessfollow) {
               
         </div>
       </div>
- <div id="edit" name="edit" >Type some text and press enter...</div>
+
                 
                 <br>
             
@@ -822,7 +822,7 @@ $slugnameposted =  $this->db->get_where('business_profile',array('user_id' => $r
                 </li>
 
                 <?php }?>
-                <li>
+                
                 <li>
                   <div class="post-design-product">
                     <a href="javascript:void(0);" style=" color: #000033; font-weight: 400; cursor: default;" title="Category">
@@ -871,7 +871,7 @@ if ($businesssave) {
               </div>
             </div>
             <div class="post-design-desc ">
-              <div >
+              <div>
                 <div id="<?php echo 'editpostdata' . $row['business_profile_post_id']; ?>" style="display:block;">
                   <a style="margin-bottom: 0px;     font-size: 16px">
                     <?php echo text2link($row['product_name']); ?>
@@ -1071,7 +1071,6 @@ $commnetcount = $this->common->select_data_by_condition('business_profile_post_c
                       <?php
 if (count($commnetcount) > 0) {
 echo count($commnetcount);
-} else {
 }
 ?>
                     </i> 
@@ -1172,6 +1171,8 @@ echo '</br>';
                   </div>
                   <div class="col-md-12">
                     <div class="col-md-10">
+
+
                    <div contenteditable="true" class="editable_text" name="<?php echo $rowdata['business_profile_post_comment_id']; ?>" id="<?php echo "editcomment" . $rowdata['business_profile_post_comment_id']; ?>" style="display:none; margin-top: 0px!important;" value="<?php echo $rowdata['comments']; ?>" onClick="commentedit(this.name)"></div>
                     </div>
                     <div class="col-md-2 comment-edit-button">
@@ -1267,7 +1268,7 @@ $business_userimage = $this->db->get_where('business_profile', array('user_id' =
             </div>
             <div class="">
               <div id="content" class="col-md-10  inputtype-comment" style="padding-left: 7px;">
-                  <div contenteditable="true" style="min-height:37px !important; margin-top: 0px!important" class="editable_text" name="<?php echo $row['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $row['business_profile_post_id']; ?>" placeholder="Type Message ..." value= ""  onClick="entercomment(this.name)"></div>
+                 <div contenteditable="true" style="min-height:37px !important; margin-top: 0px!important" class="editable_text" name="<?php echo $row['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $row['business_profile_post_id']; ?>" placeholder="Type Message ..." value= ""  onClick="contentedit(<?php echo $row['business_profile_post_id']; ?>)"></div>
               </div>
               <?php echo form_error('post_comment'); ?> 
               <div class="col-md-1 comment-edit-butn">       
@@ -1445,7 +1446,7 @@ $('#post_comment' + clicked_id).html("");
   {
     $(document).ready(function() {
       $('#post_comment' + clicked_id).keypress(function(e) {
-        if (e.keyCode == 13 && !e.shiftKey) {
+        if (event.which == 13 && event.shiftKey != 1) {
           var val = $('#post_comment' + clicked_id).val();
              // start khyati code
   var $field = $('#post_comment' + clicked_id);
@@ -1651,9 +1652,9 @@ $('#post_comment' + clicked_id).html("");
     //alert(post_comment.value);
     //alert(post_comment.value);
 // start khyati code
-  var $field = $('#editpostdesc' + abc);
+  var $field = $('#editcomment' + abc);
   //var data = $field.val();
-  var editpostdetails = $('#editpostdesc' + abc).html();
+  var post_comment_edit = $('#editcomment' + abc).html();
 // end khyati code
   
  
@@ -1663,7 +1664,7 @@ $('#post_comment' + clicked_id).html("");
     $.ajax({
       type:'POST',
       url:'<?php echo base_url() . "business_profile/edit_comment_insert" ?>',
-      data:'post_id=' + abc + '&comment=' + post_comment_edit.value,
+      data:'post_id=' + abc + '&comment=' + post_comment_edit,
       success:function(data){
         //alert('falguni');
         //  $('input').each(function(){
@@ -2254,25 +2255,75 @@ $(document).ready(function(){
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 <script type="text/javascript">
-    $(document).ready(function($) {
-              $("#post_comment83").click(function(){
+ function contentedit(clicked_id){
+      //alert(clicked_id);
+
+//var $field = $('#post_comment' + clicked_id);
+  //var data = $field.val();
+ // var post_comment = $('#post_comment' + clicked_id).html();
+
+    //$(document).ready(function($) {
+              $("#post_comment" +clicked_id).click(function(){
           $(this).prop("contentEditable", true);
           $(this).html("");
         });
 
-        $( "#post_comment83" ).keypress(function( event ) {
-          if ( event.which == 13 && event.shiftKey != 1) {
+
+        $( "#post_comment" +clicked_id).keypress(function( event ) { //alert(post_comment);
+          if ( event.which == 13 && event.shiftKey != 1) { //alert(post_comment);
              event.preventDefault();
-             var sel = $("#post_comment83");
-             var txt = sel.html(); alert(txt);
-             $("#result").html(txt);
-             sel.html("Type some text and press enter...")
-             sel.blur();
+             var sel = $("#post_comment" +clicked_id);
+             var txt = sel.html();
+
+             $('#post_comment' + clicked_id).html("");
+             // $("#result").html(txt);
+             // sel.html("")
+             // sel.blur();
+
+
+          var x = document.getElementById('threecomment' + clicked_id);
+          var y = document.getElementById('fourcomment' + clicked_id);
+          if (x.style.display === 'block' && y.style.display === 'none') {
+            $.ajax({
+              type:'POST',
+              url:'<?php echo base_url() . "business_profile/insert_commentthree" ?>',
+              data:'post_id=' + clicked_id + '&comment=' + txt,
+              dataType: "json",
+              success:function(data){
+                $('input').each(function(){
+                  $(this).val('');
+                });
+                //  $('.insertcomment' + clicked_id).html(data);
+                $('#' + 'insertcount' + clicked_id).html(data.count);
+                $('.insertcomment' + clicked_id).html(data.comment);
+              }
+            });
+          }
+          else {
+            $.ajax({
+              type:'POST',
+              url:'<?php echo base_url() . "business_profile/insert_comment" ?>',
+              data:'post_id=' + clicked_id + '&comment=' + val,
+              // dataType: "json",
+              success:function(data){
+                $('input').each(function(){
+                  $(this).val('');
+                }
+                               );
+                $('#' + 'fourcomment' + clicked_id).html(data);
+                // $('#' + 'commnetpost' + clicked_id).html(data.count);
+                //  $('#' + 'fourcomment' + clicked_id).html(data.comment);
+              }
+            });
+          }
+
           }
         });     $(".scroll").click(function(event){   
         event.preventDefault();
         $('html,body').animate({scrollTop:$(this.hash).offset().top},1200);
       });
             
-    });
+   // });
+
+  }
   </script>

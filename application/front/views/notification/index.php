@@ -1,5 +1,6 @@
 <!-- start head -->
-<?php echo $head; ?>
+<?php 
+     echo $head; ?>
     <!-- END HEAD -->
     <!-- start header -->
 <?php echo $header; ?>
@@ -54,7 +55,9 @@
   </div>
     <div class="notification-data-inside">
     <a href="<?php echo base_url('notification/recruiter_post/' . $job['post_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Recruiter</i></font></b><b>" . "  " .  $job['first_name'] . ' ' . $job['last_name'] . "</b> invited you for an interview"; ?></h6></a>
-    <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i><?php echo date('d M ',strtotime($job['message_create_date'])); ?></div>
+    <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
+        <?php echo $this->common->time_elapsed_string($job['message_create_date'], $full = false);?>
+    </div>
     </div>
     
 </li>
@@ -68,12 +71,12 @@
   </div>
     <div class="notification-data-inside">
    <a href="<?php echo base_url('artistic/artistic_profile/' . $art['user_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Artistic</i></font></b><b>" . "  " .  $art['first_name'] . ' ' . $art['last_name'] . "</b> started to following you"; ?></h6></a>
-    <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i><?php echo date('d M ',strtotime($art['message_create_date'])); ?></div>
+    <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
+        <?php echo $this->common->time_elapsed_string($art['message_create_date'], $full = false);?>
     </div>
-    
-  
-</li>
-<?php } }?>
+    </div>
+ </li>
+             <?php  } }?>
 
 <?php foreach($artcommnet as $art){ 
     if($art['not_from'] == 3){?>
@@ -83,7 +86,9 @@
   </div>
     <div class="notification-data-inside">
     <a href="<?php echo base_url('artistic/postnewpage/' .$art['art_post_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Artistic</i></font></b><b>" . "  " .  $art['first_name'] . ' ' . $art['last_name'] . "</b> commneted on your post"; ?></h6></a>
-    <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i><?php echo date('d M ',strtotime($job['message_create_date'])); ?></div>
+    <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
+        <?php echo $this->common->time_elapsed_string($art['message_create_date'], $full = false);?>
+    </div>
     </div>
   
 </li>
@@ -97,7 +102,9 @@
   </div>
     <div class="notification-data-inside">
     <a href="<?php echo base_url('artistic/postnewpage/' . $art['art_post_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Artistic</i></font></b><b>" . "  " .  $art['first_name'] . ' ' . $art['last_name'] . "</b> liked on your post"; ?></h6></a>
-    <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i><?php echo date('d M ',strtotime($art['message_create_date'])); ?></div>
+    <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
+         <?php echo $this->common->time_elapsed_string($art['message_create_date'], $full = false);?>
+    </div>
     </div>
     
     
@@ -112,25 +119,30 @@
    <img src="<?php echo base_url(USERIMAGE . $art['user_image']);?>" >
   </div>
     <div class="notification-data-inside">
-    <a href="<?php echo base_url('notification/business_post/' . $bus['user_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Business</i></font></b><b>" . "  " .  $bus['first_name'] . ' ' . $bus['last_name'] . "</b> commneted on your post"; ?></h6></a>
-    <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i><?php echo date('d M ',strtotime($job['message_create_date'])); ?></div>
+    <a href="<?php echo base_url('business_profile/postnewpage/' . $bus['business_profile_post_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Business</i></font></b><b>" . "  " .  $bus['first_name'] . ' ' . $bus['last_name'] . "</b> commneted on your post"; ?></h6></a>
+    <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
+        <?php echo $this->common->time_elapsed_string($bus['message_create_date'], $full = false);?>
+    </div>
     </div>
     
 </li>
 <?php } }?>
 
 <?php foreach($busifollow as $bus){ 
-    if($bus['not_from'] == 6){?>
+    if($bus['not_from'] == 6){
+       $id = $this->db->get_where('business_profile',array('user_id' => $bus['not_from_id']))->row()->business_slug; if($id){?>
  <li> 
     <div class="notification-pic" >
    <img src="<?php echo base_url(USERIMAGE . $bus['user_image']);?>" >
   </div>
     <div class="notification-data-inside">
-    <a href="<?php echo base_url('business_profile/business_resume/' . $bus['user_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Businessman</i></font></b><b>" . "  " .  $bus['first_name'] . ' ' . $bus['last_name'] . "</b> started to following you"; ?></h6></a>
-    <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i><?php echo date('d M ',strtotime($job['message_create_date'])); ?></div>
+    <a href="<?php echo base_url('business_profile/business_resume/' . $id); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Businessman</i></font></b><b>" . "  " .  $bus['first_name'] . ' ' . $bus['last_name'] . "</b> started to following you"; ?></h6></a>
+    <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
+        <?php echo $this->common->time_elapsed_string($bus['message_create_date'], $full = false);?>
+    </div>
     </div> 
 </li>
-<?php } }?>
+    <?php } }}?>
 
 <?php foreach($buslike as $bus){ 
     if($bus['not_from'] == 6){?>
@@ -139,25 +151,14 @@
    <img src="<?php echo base_url(USERIMAGE . $bus['user_image']);?>" >
   </div>
     <div class="notification-data-inside">
-    <a href="<?php echo base_url('notification/art_post/' . $bus['user_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Businessman</i></font></b><b>" . "  " .  $bus['first_name'] . ' ' . $bus['last_name'] . "</b> liked on your post"; ?></h6></a>
-    <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i><?php echo date('d M ',strtotime($bus['message_create_date'])); ?></div>
+    <a href="<?php echo base_url('business_profile/postnewpage/' . $bus['business_profile_post_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Businessman</i></font></b><b>" . "  " .  $bus['first_name'] . ' ' . $bus['last_name'] . "</b> liked on your post"; ?></h6></a>
+    <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
+       <?php echo $this->common->time_elapsed_string($bus['message_create_date'], $full = false);?>
+    </div>
     </div>
 </li>
 <?php } }?>
 
-
-<?php foreach($buscontact as $bus){ 
-    if($bus['not_from'] == 6){?>
- <li> 
-    <div class="notification-pic" >
-   <img src="<?php echo base_url(USERIMAGE . $bus['user_image']);?>" >
-  </div>
-    <div class="notification-data-inside">
-    <a href="<?php echo base_url('business_profile/business_resume/' . $bus['user_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Businessman</i></font></b><b>" . "  " .  $bus['first_name'] . ' ' . $bus['last_name'] . "</b>  want to conatct you.."; ?></h6></a>
-    <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i><?php echo date('d M ',strtotime($job['message_create_date'])); ?></div>
-    </div>
-</li>
-<?php } }?>
 
 <?php foreach($rec_not as $art){ 
     if($art['not_from'] == 2){
@@ -168,8 +169,10 @@
    <img src="<?php echo base_url(USERIMAGE . $art['user_image']);?>" >
   </div>
     <div class="notification-data-inside">
-    <a href="<?php echo base_url('job/job_printpreview/' . $id); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Job seeker</i></font></b><b>" . "  " .  $art['first_name'] . ' ' . $art['last_name'] . "</b> Aplied on your post"; ?></h6></a>
-    <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i><?php echo date('d M ',strtotime($job['message_create_date'])); ?></div>
+    <a href="<?php echo base_url('job/job_printpreview/' . $art['not_from_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Job seeker</i></font></b><b>" . "  " .  $art['first_name'] . ' ' . $art['last_name'] . "</b> Aplied on your post"; ?></h6></a>
+    <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
+        <?php echo $this->common->time_elapsed_string($art['message_create_date'], $full = false);?>
+    </div>
     </div>
     
 </li>
@@ -184,8 +187,10 @@
    <img src="<?php echo base_url(USERIMAGE . $art['user_image']);?>" >
   </div>
     <div class="notification-data-inside">
-    <a href="<?php echo base_url('job/job_printpreview/' . $id); ?>"><h6><?php echo "HI.. !  <font color='yellow'><b><i>Freelancer work</i></font></b><b>" . "  " .  $art['first_name'] . ' ' . $art['last_name'] . "</b> Aplied on your post"; ?></h6></a>
-    <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i><?php echo date('d M ',strtotime($job['message_create_date'])); ?></div>
+    <a href="<?php echo base_url('freelancer/freelancer_post_profile/' . $art['not_from_id']); ?>"><h6><?php echo "HI.. !  <font color='yellow'><b><i>Freelancer work</i></font></b><b>" . "  " .  $art['first_name'] . ' ' . $art['last_name'] . "</b> Aplied on your post"; ?></h6></a>
+    <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
+        <?php echo $this->common->time_elapsed_string($art['message_create_date'], $full = false);?>
+    </div>
     </div>
     
 </li>
@@ -193,7 +198,7 @@
 
 <?php foreach($work_not as $art){ 
     if($art['not_from'] == 5){
-
+        
      $id =   $this->db->get_where('job_reg',array('user_id' => $art['user_id']))->row()->job_id; if($id){?>
  <li> 
     <div class="notification-pic" >
@@ -201,7 +206,9 @@
   </div>
     <div class="notification-data-inside">
     <a href="<?php echo base_url('job/job_printpreview/' . $id); ?>"><h6><?php echo "HI.. !  <font color='black'><b><i>Freelance Hire</i></font></b><b>" . "  " .  $art['first_name'] . ' ' . $art['last_name'] . "</b> Aplied on your post"; ?></h6></a>
-    <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i><?php echo date('d M ',strtotime($job['message_create_date'])); ?></div>
+    <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
+        <?php echo $this->common->time_elapsed_string($art['message_create_date'], $full = false);?>
+    </div>
     </div>
 </li>
 <?php }} }?>
@@ -214,7 +221,9 @@
   </div>
     <div class="notification-data-inside">
     <a href="<?php echo base_url('notification/recruiter_post/' . $work['post_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Freelancer hire</i></font></b><b>" . "  " .  $job['first_name'] . ' ' . $job['last_name'] . "</b> invited you for an interview"; ?></h6></a>
-    <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i><?php echo date('d M ',strtotime($work['message_create_date'])); ?></div>
+    <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
+        <?php echo $this->common->time_elapsed_string($work['message_create_date'], $full = false);?>
+    </div>
     </div>
 </li>
 <?php }} ?>

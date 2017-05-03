@@ -225,7 +225,8 @@ label.cameraButton input[accept*="camera"] {
                      if($freelancerhiredata[0]['designation'] == '')
                      {
                      ?>
-                     <a id="designation" class="designation" title="Designation">Current Work</a>
+                     <a id="designation" class="designation" title="Designation">Designation</a>
+
                      <?php }else{?> 
                       <a id="designation" class="designation" title="<?php echo ucwords($freelancerhiredata[0]['designation']); ?>"><?php echo ucwords($freelancerhiredata[0]['designation']); ?></a>
                      <?php }} else {echo ucwords($freelancerhiredata[0]['designation']);}

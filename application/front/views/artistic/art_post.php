@@ -1062,7 +1062,7 @@ foreach($finalsorting as $row)
                          </div>
 
                          <div id="<?php echo 'editpostbox' . $row['art_post_id']; ?>" style="display:none;">
-                         <input type="text" id="<?php echo 'editpostname' . $row['art_post_id']; ?>" name="editpostname" value="<?php echo $row['art_post'];?>">
+                         <input type="text" id="<?php echo 'editpostname' . $row['art_post_id']; ?>" name="editpostname" value="<?php echo $row['art_post'];?>" style="width: 88%; margin-bottom: 10px;">
                          </div>
 
                           </li>
@@ -1123,11 +1123,13 @@ foreach($finalsorting as $row)
 
   <div id="<?php echo 'editpostdetailbox' . $row['art_post_id']; ?>" style="display:none;">
 
-  <textarea id="<?php echo 'editpostdesc' . $row['art_post_id']; ?>" name="editpostdesc"><?php echo $row['art_description'];?>
-  </textarea> 
+<!--   <textarea id="<?php echo 'editpostdesc' . $row['art_post_id']; ?>" name="editpostdesc"><?php echo $row['art_description'];?></textarea>  -->
+  <div contenteditable="true"  id="<?php echo 'editpostdesc' . $row['art_post_id']; ?>" class="textbuis  editable_text" name="editpostdesc" style="width: 75%; margin-bottom: 10px;"><?php echo $row['art_description'];?></div>
+
+
   </div>
 
-  <button id="<?php echo "editpostsubmit" . $row['art_post_id']; ?>" style="display:none" onClick="edit_postinsert(<?php echo $row['art_post_id']; ?>)">Save</button>
+  <button id="<?php echo "editpostsubmit" . $row['art_post_id']; ?>" style="display:none" onClick="edit_postinsert(<?php echo $row['art_post_id']; ?>)" class="fr" style="margin-right: 176px; border-radius: 3px;" >Save</button>
   
   
 
@@ -1515,7 +1517,7 @@ if(count($likelistarray) > 1) {
                                         </div>
                                         <div class="col-md-12">
                                         <div class="col-md-10">
-                                        <textarea   class="textarea" name="<?php echo $rowdata['artistic_post_comment_id']; ?>" id="<?php echo "editcomment" . $rowdata['artistic_post_comment_id']; ?>" style="display:none;-webkit-min-height: 40px;" onClick="commentedit(this.name)" style="height:50px;" ><?php  echo $rowdata['comments']; ?></textarea>
+                                        <div contenteditable=""   class="textarea" name="<?php echo $rowdata['artistic_post_comment_id']; ?>" id="<?php echo "editcomment" . $rowdata['artistic_post_comment_id']; ?>" style="display:none;-webkit-min-height: 40px;" onClick="commentedit(<?php echo $rowdata['artistic_post_comment_id']; ?>)" style="height:50px;" ><?php  echo $rowdata['comments']; ?></div>
                                         </div>
 
                                         <div class="col-md-2 comment-edit-button">
@@ -1651,7 +1653,7 @@ if(count($likelistarray) > 1) {
 
                   <div class="">
                   <div class="col-md-10 inputtype-comment" style="padding-left: 7px !important;">
-                  <textarea class="textarea" name="<?php echo  $row['art_post_id']; ?>"  id="<?php echo "post_comment" . $row['art_post_id']; ?>" placeholder="Type Comment ..." value= "" onClick="entercomment(this.name)" style="height: 2.3em;"></textarea>
+                  <div contenteditable="true" name="<?php echo  $row['art_post_id']; ?>"  id="<?php echo "post_comment" . $row['art_post_id']; ?>" placeholder="Type Comment ..." class="editable_text" onClick="contentedit(<?php echo  $row['art_post_id']; ?>)"  ></div>
                               <?php echo form_error('post_comment'); ?>
                                                  </div>
                                                    <div class="col-md-1 comment-edit-butn">   
@@ -2254,9 +2256,15 @@ function comment_editcancletwo(clicked_id){
 function edit_comment(abc)
 { 
     
-   var post_comment_edit = document.getElementById("editcomment" + abc);
+  // var post_comment_edit = document.getElementById("editcomment" + abc);
+    // start khyati code
+  var $field = $('#editcomment' + abc);
+  //var data = $field.val();
+  var editpostdetails = $('#editcomment' + abc).html();
+// end khyati code
+
  
-   if(post_comment_edit.value == ''){ 
+   if(editpostdetails == ''){ 
       $('.biderror .mes').html("<div class='pop_content'>Are you sure want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
        $('#bidmodal').modal('show');
         
@@ -2266,7 +2274,7 @@ function edit_comment(abc)
    $.ajax({ 
                 type:'POST',
                 url:'<?php echo base_url() . "artistic/edit_comment_insert" ?>',
-                 data:'post_id='+abc + '&comment='+post_comment_edit.value,
+                 data:'post_id='+abc + '&comment='+editpostdetails,
                    success:function(data){ 
 
                   
@@ -2295,10 +2303,20 @@ function commentedit(abc)
  
   //$(document).ready(function() {
   $('#editcomment' + abc).keypress(function(e) {
-    if (e.which == 13) {
-      var val = $('#editcomment' + abc).val();
+    if (event.which == 13 && event.shiftKey != 1) {
+      //var val = $('#editcomment' + abc).val();
       
-      if(val == ''){ 
+
+
+      // start khyati code
+  var $field = $('#editcomment' + abc);
+  //var data = $field.val();
+  var editpostdetails = $('#editcomment' + abc).html();
+// end khyati code
+
+
+
+      if(editpostdetails == ''){ 
 
       $('.biderror .mes').html("<div class='pop_content'>Are you sure want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
        $('#bidmodal').modal('show');
@@ -2308,7 +2326,7 @@ function commentedit(abc)
       $.ajax({ 
                 type:'POST',
                 url:'<?php echo base_url() . "artistic/edit_comment_insert" ?>',
-                 data:'post_id='+abc + '&comment='+val,
+                 data:'post_id='+abc + '&comment='+editpostdetails,
                    success:function(data){ 
 
                   
@@ -2680,11 +2698,16 @@ else{ // Maximum length not reached so update the value of my_text counter
 
     var editpostname = document.getElementById("editpostname" + abc);
     var editpostdetails = document.getElementById("editpostdesc" + abc);
-
+// start khyati code
+  var $field = $('#editpostdesc' + abc);
+  //var data = $field.val();
+  var editpostdetails = $('#editpostdesc' + abc).html();
+// end khyati code
+  
       $.ajax({ 
                 type:'POST',
                 url:'<?php echo base_url() . "artistic/edit_post_insert" ?>',
-                data:'art_post_id='+abc + '&art_post='+editpostname.value + '&art_description='+editpostdetails.value,
+                data:'art_post_id='+abc + '&art_post='+editpostname.value + '&art_description='+editpostdetails,
                 dataType: "json",
                    success:function(data){ 
                 
@@ -3072,17 +3095,74 @@ $(document).ready(function(){
 <!-- insert validation end -->
 <!-- 
 textarea js -->
-
 <script type="text/javascript">
-    function h(e) {
-        $(e).css({
-            'height': '29px',
-            'overflow-y': 'hidden'
-        }).height(e.scrollHeight);
-    }
-    $('.textarea').each(function() {
-        h(this);
-    }).on('input', function() {
-        h(this);
-    });
-</script>
+ function contentedit(clicked_id){
+      alert(clicked_id);
+
+//var $field = $('#post_comment' + clicked_id);
+  //var data = $field.val();
+ // var post_comment = $('#post_comment' + clicked_id).html();
+
+    //$(document).ready(function($) {
+              $("#post_comment" +clicked_id).click(function(){
+          $(this).prop("contentEditable", true);
+          $(this).html("");
+        });
+
+
+        $( "#post_comment" +clicked_id).keypress(function( event ) { //alert(post_comment);
+          if ( event.which == 13 && event.shiftKey != 1) { //alert(post_comment);
+             event.preventDefault();
+             var sel = $("#post_comment" +clicked_id);
+             var txt = sel.html();
+
+             $('#post_comment' + clicked_id).html("");
+             // $("#result").html(txt);
+             // sel.html("")
+             // sel.blur();
+            //alert('.insertcomment' + clicked_id);
+
+          var x = document.getElementById('threecomment' + clicked_id);
+          var y = document.getElementById('fourcomment' + clicked_id);
+      
+ if (x.style.display === 'block' && y.style.display === 'none') {   alert(clicked_id);
+       $.ajax({ 
+                type:'POST',
+                url:'<?php echo base_url() . "artistic/insert_commentthree" ?>',
+                 data:'post_id='+clicked_id + '&comment='+txt,
+                 dataType: "json",
+                   success:function(data){ alert("hii");  alert(data.comment); 
+        
+       //  $('.insertcomment' + clicked_id).html(data);
+         $('#' + 'commnetpost' + clicked_id).html(data.count);
+         $('.insertcomment' + clicked_id).html(data.comment);
+
+          }
+            }); 
+ 
+      } else { 
+
+        $.ajax({ 
+                type:'POST',
+                url:'<?php echo base_url() . "artistic/insert_comment" ?>',
+                 data:'post_id='+clicked_id + '&comment='+txt,
+                // dataType: "json",
+                   success:function(data){ alert("hii");  alert(data.comment); 
+         $('#' + 'fourcomment' + clicked_id).html(data);
+        // $('#' + 'commnetpost' + clicked_id).html(data.count);
+        //  $('#' + 'fourcomment' + clicked_id).html(data.comment);
+
+          }
+            }); 
+     }
+
+          }
+        });     $(".scroll").click(function(event){   
+        event.preventDefault();
+        $('html,body').animate({scrollTop:$(this.hash).offset().top},1200);
+      });
+            
+   // });
+
+  }
+  </script>

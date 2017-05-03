@@ -249,10 +249,6 @@ $( "#tags" ).autocomplete({
 </script>
     <!-- footer end -->
 
-
-    
-
-
 <!-- only pdf insert script strat -->
 <script type="text/javascript">
 
@@ -270,14 +266,13 @@ $( "#tags" ).autocomplete({
  
 // end khyati code  
     if(bestofmine == ''){ 
-      //$(".bestofmine_image").html("Please select at lease one file.");
-        //return false;
+     
         // document.getElementById("artportfolio").submit();
 
         $.ajax({
                 type:'POST',
                 url:'<?php echo base_url() . "artistic/art_portfolio_insert" ?>',
-                 data:'bestofmine='+bestofmine + '&artportfolio='+artportfolio,
+                 data:'artportfolio='+artportfolio,
                 success:function(data){ 
                     
                 }
@@ -291,19 +286,34 @@ $( "#tags" ).autocomplete({
       if(foundPresentpdf == true)
       { 
 
-         var $field = $('#artportfolio123');
-         //var data = $field.val();
-       var artportfolio = $('#artportfolio123').html();
-          var bestofmine = document.getElementById("bestofmine").value;
-   
+        var fd = new FormData();
+        fd.append("image", $("#bestofmine")[0].files[0]);
+
+        files = this.files;
+
+        $.ajax({
+
+            url: "<?php echo base_url(); ?>artistic/art_portfolio_insert",
+            type: "POST",
+            data: fd,
+            processData: false,
+            contentType: false,
+            success: function (response) {
+                //alert(response);
+
+            }
+        }); 
+
         $.ajax({
                 type:'POST',
                 url:'<?php echo base_url() . "artistic/art_portfolio_insert" ?>',
-                 data:'bestofmine='+bestofmine + '&artportfolio='+artportfolio,
+                 data:'artportfolio='+artportfolio,
                 success:function(data){ 
-                    
+                  //window.location= "<?php echo base_url() ?>artistic/art_post";  
                 }
             }); 
+   
+        
         // document.getElementById("artportfolio").submit();
      }
      else{
@@ -353,4 +363,43 @@ function uploadOnChange() {
   //$("#filename").text(filename);
 
    }
+   
+   
+//    $('#bestofmine').on('change', function () {
+
+//         var fd = new FormData();
+//         fd.append("image", $("#bestofmine")[0].files[0]);
+
+//         files = this.files;
+// //        size = files[0].size;
+// //
+// //        //alert(size);
+// //
+// //        if (size > 4194304)
+// //        {
+// //            //show an alert to the user
+// //            alert("Allowed file size exceeded. (Max. 4 MB)")
+// //
+// //            document.getElementById('row1').style.display = "none";
+// //            document.getElementById('row2').style.display = "block";
+// //
+// //            // window.location.href = "https://www.aileensoul.com/dashboard"
+// //            //reset file upload control
+// //            return false;
+// //        }
+
+//         $.ajax({
+
+//             url: "<?php echo base_url(); ?>artistic/art_portfolio_insert",
+//             type: "POST",
+//             data: fd,
+//             processData: false,
+//             contentType: false,
+//             success: function (response) {
+//                 //alert(response);
+
+//             }
+//         });
+//     });
+
 </script>
