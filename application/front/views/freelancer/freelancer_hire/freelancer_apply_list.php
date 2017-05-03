@@ -225,9 +225,9 @@
          <?php  $contition_array = array('invite_user_id' => $row['user_id'], 'post_id' => $postid, 'profile' => 'freelancer');
         $userdata = $this->common->select_data_by_condition('user_invite', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         if($userdata){ ?>
-          <div class="button" id="<?php echo 'invited' . $row['user_id']; ?>" > Invited</div>       
+          <div class="button invite_border" id="<?php echo 'invited' . $row['user_id']; ?>" > Invited</div>       
          <?php }else{ ?>
-              <div class="button" id="<?php echo 'invited' . $row['user_id']; ?>" onclick="inviteuser(<?php echo $row['user_id']; ?>)"> Invite</div>
+              <div class="button invite_border" id="<?php echo 'invited' . $row['user_id']; ?>" onclick="inviteuser(<?php echo $row['user_id']; ?>)"> Invite</div>
           <?php  } }?>
                  </div>
               </div>

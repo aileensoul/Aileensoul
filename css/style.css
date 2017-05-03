@@ -4282,7 +4282,11 @@ textarea {overflow: hidden;}
 .rec_menubox ul { width: 278px; }
 /* v  1-5-17 end*/
 
+/* v 3-5-17 start*/
+.invite_border {  border: 1px solid #000033 !important; }
+ 
 
+/* v 3-5-17 end*/
 
 
 
