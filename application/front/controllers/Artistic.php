@@ -1747,7 +1747,7 @@ class Artistic extends MY_Controller {
                 'not_product_id' => $follow[0]['follow_id'],
                 'not_from' => 3
             );
-
+//echo '<pre>'; print_r($data); die();
             $insert_id = $this->common->insert_data_getid($data, 'notification');
             // end notoification
 
