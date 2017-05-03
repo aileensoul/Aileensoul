@@ -1775,8 +1775,8 @@ class Artistic extends MY_Controller {
 
             $data = array(
                 'not_type' => 8,
-                'not_from_id' => $artdata[0]['art_id'],
-                'not_to_id' => $art_id,
+                'not_from_id' => $userid,
+                'not_to_id' => $followuserid[0]['user_id'],
                 'not_read' => 2,
                 'not_product_id' => $insert,
                 'not_from' => 3
