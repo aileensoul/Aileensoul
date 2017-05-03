@@ -204,9 +204,11 @@ label.cameraButton input[accept*="camera"] {
                                     <a id="unfollow2" onclick="unfollowuser(2)"> Following</a>
                                 </div>
                         </li> -->
-                        <li>
-                            <a href="<?php echo base_url('message/message_chats/').$this->uri->segment(3) ; ?>">Message</a></li>
+                        <?php $userid = $this->session->userdata('aileenuser');
+                        if($userid != $this->uri->segment(3)){ ?>
+                        <li> <a href="<?php echo base_url('chat/abc/' . $this->uri->segment(3)); ?>">Message</a> </li>
                        
+                        <?php } ?>
                     </ul>
                 </div>
             </div>

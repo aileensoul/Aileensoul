@@ -1037,7 +1037,7 @@ responsive image design start -->
                                                      margin-top: 20px;"></i> </div>
 
                         </div>
-                        <div  id="text  class="editor-content" class=" col-md-12 popup-textarea" >
+                        <div  id="text"  class="editor-contentcol-md-12 popup-textarea">
                               <textarea name="product_desc" class="description" placeholder="Enter Description">    </textarea>
 
                             <output id="list"></output>

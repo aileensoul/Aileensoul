@@ -433,8 +433,11 @@ label.cameraButton input[accept*="camera"] {
                                 </li>
 
                                 <li>
-                                    <a href="<?php echo base_url('chat/abc/' . $artisticdata[0]['user_id']); ?>">Message</a></li>
-
+                                    
+<?php $userid = $this->session->userdata('aileenuser');
+                        if($userid != $artisticdata[0]['user_id']){ ?>
+                        <li> <a href="<?php echo base_url('chat/abc/' . $this->uri->segment(3)); ?>">Message</a> </li>
+                       <?php } ?>
                             </ul>
                         </div>
                     </div>

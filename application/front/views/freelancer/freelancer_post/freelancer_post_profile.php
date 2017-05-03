@@ -197,23 +197,22 @@ echo $freelancer_post_header2;
    $userid = $this->session->userdata('aileenuser');
    $contition_array = array('from_id' => $userid, 'to_id' => $this->uri->segment(3), 'save_type' => 2, 'status' => '0');
    $data = $this->common->select_data_by_condition('save', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-  
-    if (!$data) {
-                                                                    ?> 
+  if($userid != $this->uri->segment(3)){ 
+    if (!$data) { ?> 
                         <li> 
                             <input type="hidden" id="<?php echo 'hideenuser' . $this->uri->segment(3); ?>" value= "<?php echo $this->uri->segment(3); ?>">
                     <a id="<?php echo $this->uri->segment(3); ?>" onClick="savepopup(<?php echo $this->uri->segment(3); ?>)" href="javascript:void(0);" class="<?php echo 'saveduser' . $this->uri->segment(3); ?>">
                         Save
                     </a> 
-                        </li>
-                                                                <?php } else{ ?>
+                        </li> <?php } else{ ?>
                         <li> 
                            <a class="saved">Saved </a> 
-                        </li>
-                                                                <?php } ?>
-                 <li>
+                        </li> <?php 
+                                                                } ?>
+                      <li>
            <a href="<?php echo base_url('chat/abc/' . $this->uri->segment(3)); ?>">Message</a>
                  </li>
+  <?php } ?>
                     </ul>
                 </div>
             </div>
