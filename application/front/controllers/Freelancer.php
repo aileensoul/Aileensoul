@@ -1739,11 +1739,9 @@ $updatedata = $this->common->update_data($data, 'freelancer_apply', 'app_id', $a
                 'status' => 0
             );
 
-
             $updatedata = $this->common->update_data($data, 'save', 'save_id', $save_id);
 
             if ($updatedata) {
-
                 //$savepost = '<div> Saved Post </div>';
                 //$savepost.= '<i class="fa fa-bookmark" aria-hidden="true"></i>';
                 //$saveuser .= 'Saved User';
@@ -1785,11 +1783,8 @@ $updatedata = $this->common->update_data($data, 'freelancer_apply', 'app_id', $a
         $join_str[0]['join_type'] = '';
 
 
-        $contition_array = array('save.status'=> '0','freelancer_post_reg.is_delete' => 0, 'freelancer_post_reg.status' => 1, 'save.from_id' => $userid, 'save.save_type' => 2);
-
-
-
-        $postdata = $this->data['postdata'] = $this->common->select_data_by_condition('save', $contition_array, $data, $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
+   $contition_array = array('save.status'=> '0','freelancer_post_reg.is_delete' => 0, 'freelancer_post_reg.status' => 1, 'save.from_id' => $userid, 'save.save_type' => 2);
+   $postdata = $this->data['postdata'] = $this->common->select_data_by_condition('save', $contition_array, $data, $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 
       // code end by pallavi 14-4-2017
 
@@ -1797,10 +1792,7 @@ $updatedata = $this->common->update_data($data, 'freelancer_apply', 'app_id', $a
         //
 // code for search
         $contition_array = array('status' => '1', 'is_delete' => '0');
-
         $field = $this->data['results'] = $this->common->select_data_by_condition('category', $contition_array, $data = 'category_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-
-
         $contition_array = array('status' => '1', 'is_delete' => '0');
 
         $freelancer_postdata = $this->data['results'] = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = 'freelancer_post_otherskill,designation', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
@@ -1886,12 +1878,8 @@ $this->load->view('freelancer/freelancer_hire/freelancer_save', $this->data);
             $result1[$key]['value']=$value;
           }
 
-         
-         $this->data['demo']= array_values($result1);
-
-
-
-        $this->load->view('freelancer/freelancer_post/freelancer_save_post', $this->data);
+    $this->data['demo']= array_values($result1);
+    $this->load->view('freelancer/freelancer_post/freelancer_save_post', $this->data);
     }
 
 //Freelancer Save Post Controller End
