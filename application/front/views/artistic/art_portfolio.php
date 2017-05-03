@@ -265,7 +265,7 @@ $( "#tags" ).autocomplete({
   var artportfolio = $('#artportfolio123').html();
  
 // end khyati code  
-    if(bestofmine == ''){ alert("hii");
+    if(bestofmine == ''){ 
      
         // document.getElementById("artportfolio").submit();
 
