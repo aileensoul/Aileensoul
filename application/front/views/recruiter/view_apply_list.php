@@ -227,7 +227,7 @@ if ($user_data) {
                                                                   <ul>
                                                                       <li>
                                                                       <a style="  font-size: 19px;
-    font-weight: 600;" href="<?php echo base_url('job/job_printpreview/' . $row['user_id']); ?>">
+    font-weight: 600;" href="<?php echo base_url('job/job_printpreview/' . $row['user_id'].'?page=recruiter'); ?>">
                                                                             <?php echo ucwords($row['fname']) . ' ' . ucwords($row['lname']); ?></a>
                                                                       </li>
                                                                       <li>

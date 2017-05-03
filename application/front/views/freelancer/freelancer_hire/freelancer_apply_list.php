@@ -210,6 +210,7 @@
         <!-- pallavi changes 15-4 -->
         <a id="<?php echo $row['user_id']; ?>" onClick="savepopup(<?php echo$row['user_id']; ?>)" href="javascript:void(0);" class="<?php echo 'saveduser' . $row['user_id']; ?>">Save</a>
           <!-- pallavi changes end 15-4 -->
+
          <!--  <a id="<?php echo $row['user_id']; ?>" onClick="save_user(this.id)" href="#popup1" class="<?php echo 'saveduser' . $row['user_id']; ?>">Save User</a> -->
                 <?php
             } else {
@@ -268,13 +269,15 @@
     <script type="text/javascript">
     
    function inviteuser(clicked_id)
-    {  var post_id = "<?php echo $postid; ?>";
-       
+    {  
+
+      var post_id = "<?php echo $postid; ?>";
+//alert(post_id);
         $.ajax({
             type: 'POST',
             url: '<?php echo base_url() . "freelancer/free_invite_user" ?>',
             data: 'post_id=' + post_id + '&invited_user=' + clicked_id,
-            success: function (data) { //alert(data);
+            success: function (data) { alert(data);
                 $('#' + 'invited' + clicked_id).html(data);
 
             }
