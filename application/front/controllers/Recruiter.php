@@ -540,7 +540,7 @@ class Recruiter extends MY_Controller {
         }
     }
 
-    public function rec_post($id) { 
+    public function rec_post($id="") { 
         //echo "falguni"; die();
         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
 
