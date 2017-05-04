@@ -443,13 +443,12 @@
                                     <?php } ?>
                                 </div>         
 
-
                             </li>
 
                             <li>
                                 <a href="<?php echo base_url('chat/abc/' . $businessdata1[0]['user_id']); ?>">Message</a></li>
 
-                        </ul>
+                        </ul>   
                     </div>
                 </div></div>
 
