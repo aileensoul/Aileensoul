@@ -211,7 +211,7 @@
                       
                 <fieldset class="full-width">
                       <label>Last date for apply: <!-- <span style="color:red">*</span> --></label>
-                      <input type="text" name="last_date" placeholder="Enter last date for apply" id="datepicker" value="<?php echo $postdata[0]['post_last_date']; ?>"  placeholder="Enter text">
+                      <input type="text" name="last_date" placeholder="Enter last date for apply" id="datepicker" value="<?php echo date('d/m/Y',strtotime($postdata[0]['post_last_date'])); ?>" placeholder="Enter text">
                       <?php echo form_error('last_date'); ?> 
                 </fieldset>
 
@@ -630,13 +630,13 @@ window.onclick = function(event) {
 <script type="text/javascript">
 $('#datepicker').datetimepicker({
   //yearOffset:222,
-  startDate: "2013/02/14",
+  minDate: 0,
+  //startDate: "2013/02/14",
   lang:'ch',
   timepicker:false,
   format:'d/m/Y',
   formatDate:'Y/m/d'
-  //minDate:'-1970/01/02', // yesterday is minimum date
-  //maxDate:'+1970/01/02' // and tommorow is maximum date calendar
+  
 });
 </script>
 <!-- Calender Js End

@@ -274,11 +274,8 @@
 
                                 <div class="profile-boxProfileCard  module">
                                     <div class="profile-boxProfileCard-cover">    <a class="profile-boxProfileCard-bg u-bgUserColor a-block"
-                                                                                     href="<?php echo base_url('freelancer/freelancer_hire_profile'); ?>"
-                                                                                     tabindex="-1"
-                                                                                     aria-hidden="true"
-                                                                                     rel="noopener" 
-                                                                                     title="<?php echo $freehiredata[0]['fullname'] . " " . $freehiredata[0]['username']; ?>">
+                                      href="<?php echo base_url('freelancer/freelancer_hire_profile'); ?>"  tabindex="-1" aria-hidden="true" rel="noopener" 
+                                             title="<?php echo $freehiredata[0]['fullname'] . " " . $freehiredata[0]['username']; ?>">
 
                                             <?php
                                             if ($freehiredata[0]['profile_background'] != '') {
@@ -527,7 +524,10 @@
             // khayti changes start 6-4
             ?>
               <!--<a href="<?php echo base_url('chat/abc/' . $row['user_id']); ?>">Saved</a>-->
-           <a href="<?php echo base_url('chat/abc/' . $row['user_id']); ?>">Message</a>
+            <?php   
+            
+            if($userid != $row['user_id']){ ?>
+          <a href="<?php echo base_url('chat/abc/' . $row['user_id']); ?>">Message</a>
 
           <?php
             if (!$data) {
@@ -543,7 +543,7 @@
          <a class="saved" href="javascript:void(0);" onclick="return false">Saved</a> 
                 <?php
                 // khayti changes end 6-4                              
-            }
+            } }
             ?> 
                  </div>
               </div>

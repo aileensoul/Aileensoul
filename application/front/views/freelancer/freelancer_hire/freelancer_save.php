@@ -493,7 +493,7 @@
                                                                 </span>
                                                                 </li>
                                                                 <li><b>Total Experience</b><span>
-        <?php if($rec['freelancer_post_exp_year'] || $row['freelancer_post_exp_month']) {echo $rec['freelancer_post_exp_year'] . ' ' . $row['freelancer_post_exp_month'];}else{echo PROFILENA;} ?></span>
+        <?php if($rec['freelancer_post_exp_year'] || $row['freelancer_post_exp_month']) {echo $rec['freelancer_post_exp_year'] . ' ' . $rec['freelancer_post_exp_month'];}else{echo PROFILENA;} ?></span>
                                                                 </li>
                                                                 </ul>
                                                             </div>
@@ -502,14 +502,12 @@
                                                                 <div class="apply-btn fr">
 
             
-                                                                       
-                                                                       
-                                                                       
-                           
 
-                                                                    <a href="<?php echo base_url('message/message_chats/' . $row['user_id']); ?>">Message</a>
+                                                                 <?php  $userid = $this->session->userdata('aileenuser');
+                                                                 if($userid != $row['user_id']){ ?>
+                                                                   <a href="<?php echo base_url('chat/abc/' . $rec['user_id']); ?>">Message</a>
                                                                     <a href="javascript:void(0);" class="button" onclick="removepopup(<?php echo  $rec['save_id']?>)">Remove</a>
-
+                                                                 <?php } ?>
                                                                    <!--  <a href="<?php //echo '#popup3' . $rec['save_id']; ?>">Remove Candidate</a> -->
 
                                                                 </div>

@@ -254,7 +254,9 @@ echo $job_header2;
                                             </span>
                                         </li>
 
-                                        <li> <b>Date Of Birth </b><span><?php echo date('d-M-Y', strtotime($job[0]['dob'])); ?></span>
+                                        <li> <b>Date Of Birth </b><span>
+                                            <?php echo date('d/m/Y',strtotime($job[0]['dob'])); ?>
+                                        </span>
                                         </li>
 
                                         <li> <b>Gender </b><span><?php echo $job[0]['gender']; ?></span>

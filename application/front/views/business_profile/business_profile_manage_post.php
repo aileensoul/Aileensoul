@@ -2,7 +2,7 @@
 <?php echo $head; ?>
 
 
-
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <!--post save success pop up style strat -->
 <style>
     .okk{
@@ -474,18 +474,15 @@
 
                                     <?php
                                     $userid = $this->session->userdata('aileenuser');
-
                                     $contition_array = array('user_id' => $userid, 'status' => '1');
-
                                     $bup_id = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
                                     $status = $this->db->get_where('follow', array('follow_type' => 2, 'follow_from' => $bup_id[0]['business_profile_id'], 'follow_to' => $businessdata1[0]['business_profile_id']))->row()->follow_status;
                                     //echo "<pre>"; print_r($status); die();
 
                                   
-$logslug = $this->db->get_where('business_profile', array('user_id' => $userid))->row()->business_slug;
-                                   if($logslug != $this->uri->segment(3)){
-                                    if ($status == 0 || $status == " ") {
+                        $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))->row()->business_slug;
+                             if(($logslug != $this->uri->segment(3)) && ($this->uri->segment(3) == " ")){
+                                  if ($status == 0 || $status == " ") {
                                         ?>
                                         <div class="msg_flw_btn_1" id= "followdiv">
                                             <button  id="<?php echo "follow" . $businessdata1[0]['business_profile_id']; ?>" onClick="followuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Follow</button>
@@ -978,7 +975,7 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
                                     <img alt=""  src="<?php echo base_url(NOIMAGE); ?>" alt="" />
                                 <?php } ?>
                             </div>
-                            <div id="myBtn1"  class="editor-content col-md-11 popup-text" contenteditable>
+                            <div id="myBtn1"  class="editor-content col-md-11 popup-text"  contenteditable>
                                 <span style="font-size: 23px;"> Post Your Product....</span> 
                               <!--  <span class="fr">
                                 <input type="file" id="FileID" style="display:none;">
@@ -1177,15 +1174,20 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
                                             <?php if ($row['posted_user_id']) { ?>
                                                 <li>
                                                     <div class="else_post_d">
-                                                        <div class="post-design-product"><a style=" font-size: 18px; line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; " href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugnameposted); ?>"><?php echo ucwords($companynameposted); ?></a> <span style="font-weight: 600;"> Posted With </span> <a style=" font-size: 18px;
-                                                                                                                                                                                                                line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; " href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>"><?php echo ucwords($companyname); ?></a> <span  style="font-weight: 400;""><?php echo date('d-M-Y', strtotime($row['created_date'])); ?> </span> </div></div></li>
+                                                        <div class="post-design-product" title="<?php echo ucwords($companynameposted); ?>" style=" max-width: 26%; width: auto; font-size: 18px;  display: inline-block; font-weight: 600;  color: #000033;   text-overflow: ellipsis; overflow: hidden; white-space: nowrap;  " href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugnameposted); ?>"><?php echo ucwords($companynameposted); ?></a> <span style="font-weight: 600;"> Posted With </span> <a style=" font-size: 18px; line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; " href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>"><?php echo ucwords($companyname); ?></a> <span  style="font-weight: 400;""><?php echo date('d-M-Y', strtotime($row['created_date'])); ?> </span> </div></div></li>
 
 
                                             <?php } else { ?>
-                                                <li><div class="post-design-product"><a style="font-size: 18px; line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; " href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>"><?php echo ucwords($companyname); ?> <span  style="font-weight: 400;""><?php echo date('d-M-Y', strtotime($row['created_date'])); ?> </span> </a></div></li>
+                                                <li><div class="post-design-product"><a title="<?php echo ucwords($companyname); ?> " style="max-width: 26%; width: auto; font-size: 18px;  display: inline-block; font-weight: 600;  color: #000033;   text-overflow: ellipsis; overflow: hidden; white-space: nowrap; " href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>"><?php echo ucwords($companyname); ?> </a>
+
+                                                     <div class="datespan"> 
+                                                     <span  style="font-weight: 400;""><?php echo date('d-M-Y', strtotime($row['created_date'])); ?> </span> 
+                                                     </div>
+
+                                                </div></li>
                                             <?php } ?>
 
-                                            <li> <a style=" color: #000033; font-weight: 400;"> <div class="post-design-product"><a><?php echo ucwords($category); ?></a> </div></a></li>
+                                            <li><div class="post-design-product"> <a title="Category" style="cursor: default; color: #000033; font-weight: 400;"> <?php echo ucwords($category); ?></a> </div></li>
 
                                             <li>
 
@@ -1239,7 +1241,7 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
                                         </div>
 
                                         <div id="<?php echo 'editpostbox' . $row['business_profile_post_id']; ?>" style="display:none;">
-                                            <input type="text" id="<?php echo 'editpostname' . $row['business_profile_post_id']; ?>" name="editpostname" value="<?php echo $row['product_name']; ?>">
+                                            <input type="text" id="<?php echo 'editpostname' . $row['business_profile_post_id']; ?>" name="editpostname" placeholder="Product Name" value="<?php echo $row['product_name']; ?>">
                                         </div>
 
 
@@ -1253,7 +1255,7 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
                                                                                                                         <!-- <textarea id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" name="editpostdesc"><?php echo $row['product_description']; ?>
                                                                                                                         </textarea> 
                                             -->
-                                            <div  contenteditable="true" id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" placeholder="Product Description" class="textbuis  editable_text"  name="editpostdesc"><?php echo $row['product_description']; ?></div>
+                                            <div  contenteditable="true" id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" placeholder="Product Description" class="textbuis  editable_text" placeholder="Description of Your Product"  name="editpostdesc"><?php echo $row['product_description']; ?></div>
 
                                             <!-- 
                                             <div contenteditable="true"  id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" placeholder="Product Description" class="textbuis  editable_text"  name="editpostdesc"><?php echo $row['product_description']; ?></div>  -->
@@ -1311,7 +1313,7 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
 
                                                 <!-- one video start -->
                                                 <div>
-                                                    <video width="320" height="240" controls>
+                                                    <video width="100%" height="240" controls>
                                                         <source src="<?php echo base_url(BUSPOSTIMAGE . str_replace(" ", "_", $businessmultiimage[0]['image_name'])) ?>" type="video/mp4">
                                                         <source src="movie.ogg" type="video/ogg">
                                                         Your browser does not support the video tag.
@@ -1638,7 +1640,7 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
                                                         <div class="edit-comment-box">
                                                             <div class="inputtype-edit-comment">
                                                                 <!--<textarea type="text" class="textarea" name="<?php echo $rowdata['business_profile_post_comment_id']; ?>" id="<?php echo "editcomment" . $rowdata['business_profile_post_comment_id']; ?>" style="display:none;resize: none;" onClick="commentedit(this.name)"><?php echo $rowdata['comments']; ?></textarea>-->
-                                                                <div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="<?php echo $rowdata['business_profile_post_comment_id']; ?>"  id="<?php echo "editcomment" . $rowdata['business_profile_post_comment_id']; ?>" placeholder="Type Message ..." value= ""  onkeyup="commentedit(<?php echo $rowdata['business_profile_post_comment_id']; ?>)"><?php echo $rowdata['comments']; ?></div>
+                                                                <div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="<?php echo $rowdata['business_profile_post_comment_id']; ?>"  id="<?php echo "editcomment" . $rowdata['business_profile_post_comment_id']; ?>" placeholder="Enter Your Comment " value= ""  onkeyup="commentedit(<?php echo $rowdata['business_profile_post_comment_id']; ?>)"><?php echo $rowdata['comments']; ?></div>
                                                                 <span class="comment-edit-button"><button id="<?php echo "editsubmit" . $rowdata['business_profile_post_comment_id']; ?>" style="display:none" onClick="edit_comment(<?php echo $rowdata['business_profile_post_comment_id']; ?>)">Save</button></span>
                                                             </div>
                                                         </div>
@@ -1757,7 +1759,7 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
                                                                                 </div>-->
                                         <div id="content" class="col-md-10  inputtype-comment" style="padding-left: 7px;">
                                             <!--<div contenteditable="true" style="min-height:40px !important; margin-top: 0px!important" class="editable_text" name="<?php echo $row['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $row['business_profile_post_id']; ?>" placeholder="Type Message ..."  onClick="contentedit(<?php echo $row['business_profile_post_id']; ?>)"></div>-->
-                                            <div contenteditable="true" style="min-height:40px !important; margin-top: 0px!important" class="editable_text" name="<?php echo $row['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $row['business_profile_post_id']; ?>" placeholder="Type Message ..."  onClick="entercomment(<?php echo $row['business_profile_post_id']; ?>)"></div>
+                                            <div contenteditable="true" style="min-height:40px !important; margin-top: 0px!important" class="editable_text" name="<?php echo $row['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $row['business_profile_post_id']; ?>" placeholder="Enter Your Comment " onClick="entercomment(<?php echo $row['business_profile_post_id']; ?>)"></div>
                                         </div>
                                         <?php echo form_error('post_comment'); ?> 
                                         <div class="col-md-1 comment-edit-butn">       
@@ -2635,7 +2637,7 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
 //                    alert(clicked_id);
 //                    return false;
 
-                    $('textarea[id^=editcommenttwo]').css('display', 'none');
+                    $('div[id^=editcommenttwo]').css('display', 'none');
                     $('div[id^=showcommenttwo]').css('display', 'block');
                     $('button[id^=editsubmittwo]').css('display', 'none');
                     $('div[id^=editcommentboxtwo]').css('display', 'block');
@@ -2754,6 +2756,9 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
 
                     var sel = $("#editcomment" + abc);
                     var txt = sel.html();
+                    if(txt == '' || txt == '<br>'){
+                        return false;
+                    }
 //                    alert(txt);
 //                    return false;
                     $.ajax({
@@ -2833,6 +2838,9 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
                             event.preventDefault();
                             var sel = $("#editcomment" + abc);
                             var txt = sel.html();
+                            if(txt == '' || txt =='<br>'){
+                                return false;
+                            }
                             //$('#editcomment' + abc).html("");
 
                             if (window.preventDuplicateKeyPresses)
@@ -2901,7 +2909,9 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
 
                     var sel = $("#editcommenttwo" + abc);
                     var txt = sel.html();
-
+                    if(txt == '' || txt == '<br>'){
+                        return false;
+                    }
                     $.ajax({
                         type: 'POST',
                         url: '<?php echo base_url() . "business_profile/edit_comment_insert" ?>',
@@ -2986,6 +2996,10 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
 
                             var sel = $("#editcommenttwo" + abc);
                             var txt = sel.html();
+                            
+                            if(txt == '' || txt == '<br>'){
+                                return false;
+                            }
 
                             //$('#editcommenttwo' + abc).html("");
 
@@ -3271,16 +3285,11 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
             <script type="text/javascript">
                 function editpost(abc)
                 {
-
-
-
                     document.getElementById('editpostdata' + abc).style.display = 'none';
                     document.getElementById('editpostbox' + abc).style.display = 'block';
                     document.getElementById('editpostdetails' + abc).style.display = 'none';
                     document.getElementById('editpostdetailbox' + abc).style.display = 'block';
                     document.getElementById('editpostsubmit' + abc).style.display = 'block';
-
-
                 }
             </script>
 
@@ -3321,35 +3330,23 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
 
                             $('#' + 'editpostdata' + abc).html(data.title);
                             $('#' + 'editpostdetails' + abc).html(data.description);
-
                         }
                     });
-
                 }
             </script>
-
-
             <!-- edit post end -->
-
-
             <!-- remove save post start -->
-
             <script type="text/javascript">
                 function remove_post(abc)
                 {
-
                     $.ajax({
                         type: 'POST',
                         url: '<?php echo base_url() . "business_profile/business_profile_delete" ?>',
                         data: 'save_id=' + abc,
                         success: function (data) {
-
                             $('#' + 'removepostdata' + abc).html(data);
-
-
                         }
                     });
-
                 }
             </script>
 
@@ -3766,10 +3763,10 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
                 .likeuser_list{
                     background-color: #ccc;
                     float: left;
-                    margin-left: 8px;
-                    margin-right: 6px;
+                    margin: 0px 6px 5px 9px;
                     padding: 5px;
                     width: 47%;
+                    font-size: 14px;
                 }
 
 

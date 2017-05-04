@@ -1703,17 +1703,10 @@ class Artistic extends MY_Controller {
         $this->data['demo'] = array_values($result1);
 
 
-
-
-
-
-
-
-
         $this->load->view('artistic/artistic_userlist', $this->data);
     }
 
-    public function follow() {
+    public function follow() { 
         $userid = $this->session->userdata('aileenuser');
 
         $art_id = $_POST["follow_to"];

@@ -540,7 +540,7 @@ class Recruiter extends MY_Controller {
         }
     }
 
-    public function rec_post($id) { 
+    public function rec_post($id="") { 
         //echo "falguni"; die();
         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
 
@@ -865,8 +865,9 @@ class Recruiter extends MY_Controller {
         //echo "<pre>";print_r($this->data['city']);echo "</pre>";die();
 
 
-        $this->data['postdata'] = $this->common->select_data_by_id('rec_post', 'post_id', $id, $data = '*', $join_str = array());
-
+    $this->data['postdata'] = $this->common->select_data_by_id('rec_post', 'post_id', $id, $data = '*', $join_str = array());
+       //  echo date('d/m/Y',strtotime($post[0]['post_last_date'])); 
+//echo '<pre>'; print_r($this->data['postdata']); die();
         $skildata = explode(',', $this->data['postdata'][0]['post_skill']);
         $this->data['selectdata'] = $skildata;
 
@@ -876,6 +877,9 @@ class Recruiter extends MY_Controller {
     public function update_post($id = "") { //echo '<pre>'; print_r($_POST); die();
         $skill = $this->input->post('skills');
 //echo $skill; die();
+          $bod = $this->input->post('last_date');
+                $bod = str_replace('/', '-', $bod);
+
         $userid = $this->session->userdata('aileenuser');
         //$skill=$this->input->post('skills');
         $this->form_validation->set_rules('post_name', 'Post Name', 'required');
@@ -904,7 +908,7 @@ class Recruiter extends MY_Controller {
             'post_description' => $this->input->post('post_desc'),
             'post_skill' => implode(",", $skill),
             'post_position' => $this->input->post('position'),
-            'post_last_date' => $this->input->post('last_date'),
+             'post_last_date' => date('Y-m-d', strtotime($bod)),
             'country' => $this->input->post('country'),
             'state' => $this->input->post('state'),
             'city' => $this->input->post('city'),

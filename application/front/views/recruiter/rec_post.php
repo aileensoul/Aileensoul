@@ -443,7 +443,7 @@ if ($returnpage == 'job') {
                                                     <a href="#" title="Post Title"  style="font-size: 19px;font-weight: 600;cursor:default;">
                                                         <?php echo $post['post_name'] ?> </a>     </li>
                                                 <li>   
-                                                    <div class="fr lction">
+                                                       <div class="fr lction">
                                                     <?php $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name;
 
 
@@ -462,7 +462,17 @@ if ($returnpage == 'job') {
 
                                                              else{}?> 
                                                     </div>
-                                                    <a class="display_inline" title="Company Name" href="#"> <?php echo $post['re_comp_name']; ?> </a>
+
+
+
+
+                                                    <a class="display_inline" title="Company Name" href="#">
+
+      
+                                                     <?php   $out = strlen($post['re_comp_name']) > 20 ? substr($post['re_comp_name'],0,20)."..." : $post['re_comp_name'];
+
+                                                                 
+                                                            echo $out;?> </a>
                                                 </li>
                                                 <li><a class="display_inline" title="Recruiter Name" href="#"> <?php echo $post['rec_firstname']; ?> </a></li>
                                                 <!-- vishang 14-4 end -->    
@@ -580,6 +590,9 @@ if ($returnpage == 'job') {
                     {
                     foreach ($postdata as $post) {
                         ?>
+
+                       
+                    
                         <div class="job-contact-frnd ">
                             <div class="profile-job-post-detail clearfix" id="<?php echo "removepost" . $post['post_id']; ?>">
                                 <!-- vishang 14-4 end -->
@@ -613,7 +626,12 @@ if ($returnpage == 'job') {
 
                                                              else{}?> 
                                                     </div>
-                                                      <a class="display_inline" title="Company Name" href="#"> <?php echo $post['re_comp_name']; ?> </a>
+                                                      <a class="display_inline" title="Company Name" href="#"> <?php 
+                                                          $out = strlen($post['re_comp_name']) > 20 ? substr($post['re_comp_name'],0,20)."..." : $post['re_comp_name'];
+
+                                                                 
+                                                            echo $out;
+                                                     ?> </a>
                                                 </li>
                                                 <li><a class="display_inline" title="Recruiter Name" href="#"> <?php echo $post['rec_firstname']; ?> </a></li>
                                                 <!-- vishang 14-4 end -->    

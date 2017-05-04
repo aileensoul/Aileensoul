@@ -407,7 +407,7 @@
                                                                 </li>
                                <li> <b> Skills</b> <span> 
                                <?php
-                  $comma = " , ";
+                  $comma = ", ";
                   $k = 0;
                                                                 $aud = $post['post_skill'];
                                                                 $aud_res = explode(',', $aud);

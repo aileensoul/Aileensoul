@@ -233,26 +233,23 @@ if ($user_data) {
                                                                      <div  class="buisness-profile-pic-candidate"><img src="<?php echo base_url(USERIMAGE . $row['job_user_image']); ?>" alt="" >
                                                                             </div>
 
-                                                                </div>
-                                                                <div class="designation_rec" style="float: left;">
-                                                                  <ul>
-                                                                      <li>
-                                                                      <a style="  font-size: 19px;
+                     </div>
+               <div class="designation_rec" style="float: left;">
+                     <ul>
+                         <li>
+                             <a style="  font-size: 19px;
     font-weight: 600;" href="<?php echo base_url('job/job_printpreview/' . $row['user_id'].'?page=recruiter'); ?>">
-                                                                            <?php echo ucwords($row['fname']) . ' ' . ucwords($row['lname']); ?></a>
-                                                                      </li>
-                                                                      <li>
-                                                                      <a  style="font-size: 19px;" href="<?php echo base_url('job/job_printpreview/' . $row['user_id']); ?>">
-                                                                         <?php
-                                                                                if ($row['designation']) {
-                                                                                    ?>
-
-                                                                                    
-                                                                                    <?php echo $row['designation']; ?>
-                                                                                    
-                                                                                    <?php
-                                                                                } else {
-                                                                                    ?>
+                <?php echo ucwords($row['fname']) . ' ' . ucwords($row['lname']); ?></a>
+                          </li>
+                         <li class="show">
+                   <a  style="font-size: 19px;" href="<?php echo base_url('job/job_printpreview/' . $row['user_id']); ?>">
+                      <?php
+                   if ($row['designation']) {
+                       ?>
+                   <?php echo $row['designation']; ?>
+                    <?php
+                } else {
+                       ?>
                                                                                     
                                                                                     <?php echo "Designation"; ?>
                                                                                     
@@ -352,7 +349,7 @@ if ($user_data) {
             <?php  $contition_array = array('invite_user_id' => $row['user_id'], 'post_id' => $postid);
         $userdata = $this->common->select_data_by_condition('user_invite', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         if($userdata){ ?>
-          <div class="button invite_border" id="<?php echo 'invited' . $row['user_id']; ?>" > Invited</div>       
+          <div class="button invited" id="<?php echo 'invited' . $row['user_id']; ?>" > Invited</div>       
          <?php }else{ ?>
               <div class="button invite_border" id="<?php echo 'invited' . $row['user_id']; ?>" onclick="inviteuser(<?php echo $row['user_id']; ?>)"> Invite</div>       
  <?php  } ?>
