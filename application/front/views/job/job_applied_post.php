@@ -383,7 +383,7 @@
                      $cache_time1 = $this->db->get_where('recruiter', array('user_id' => $post['user_id']))->row()->re_comp_name;
 
 
-                        $out = strlen($cache_time1) > 20 ? substr($cache_time1,0,20)."..." : $cache_time1;       
+                        $out = strlen($cache_time1) > 40 ? substr($cache_time1,0,40)."..." : $cache_time1;       
                     echo $out;
                     
                        ?></a>

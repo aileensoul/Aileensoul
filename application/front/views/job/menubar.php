@@ -1,6 +1,7 @@
 <!-- menubar --> 
 <?php
- $returnpage= $_GET['page'];?>
+ $returnpage= $_GET['page'];
+ $userid = $this->session->userdata('aileenuser');?>
  <div class="profile-main-rec-box-menu  col-md-12 ">
 
 <div class="left-side-menu col-md-2">  </div>
@@ -44,15 +45,19 @@
                                 </div>
                         </li> -->
                         
-                       <?php if($this->uri->segment(3) != $userid ){ ?>
+                       <?php 
+                       //echo $this->uri->segment(3);
+                       //echo $userid; die();
+
+                       if(($this->uri->segment(3) != $userid) && ($this->uri->segment(3) == " ")){ ?>
                          
                          <?php
-                                                                $userid = $this->session->userdata('aileenuser');
-                                                                $contition_array = array('from_id' => $userid, 'to_id' => $this->uri->segment(3), 'save_type' => 1, 'status' => '0');
-                                                                $data = $this->common->select_data_by_condition('save', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+              
+            $contition_array = array('from_id' => $userid, 'to_id' => $this->uri->segment(3), 'save_type' => 1, 'status' => '0');
+             $data = $this->common->select_data_by_condition('save', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                                                                 //echo "<pre>"; print_r($data); die();
-                                                                if (!$data) {
-                                                                    ?> 
+             if (!$data) {
+          ?> 
                         <li> 
                             <input type="hidden" id="<?php echo 'hideenuser' . $this->uri->segment(3); ?>" value= "<?php echo $this->uri->segment(3); ?>">
                     <a id="<?php echo $this->uri->segment(3); ?>" onClick="savepopup(<?php echo $this->uri->segment(3); ?>)" href="javascript:void(0);" class="<?php echo 'saveduser' . $this->uri->segment(3); ?>">

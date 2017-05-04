@@ -181,6 +181,25 @@ label.cameraButton input[accept*="camera"] {
                   
 
                     <h4 class="profile-head-text"><a href="<?php echo base_url('artistic/art_manage_post/'.$artisticdata[0]['user_id'].''); ?>"> <?php echo ucwords($artisticdata[0]['art_name']); ?><?php echo ucwords($artisticdata[0]['art_lastname']); ?></a></h4>
+
+                    <?php
+                    if ($artisticdata[0]['designation'] == '') {
+                        ?>
+
+                        <?php if ($artisticdata[0]['user_id'] == $userid) { ?>
+                            <a id="myBtn">Designation</a>
+                        <?php } ?>
+
+                    <?php } else { ?> 
+
+                        <?php if ($artisticdata[0]['user_id'] == $userid) { ?>
+                            <a id="myBtn"><?php echo ucwords($artisticdata[0]['designation']); ?></a>
+                        <?php } else { ?>
+                            <a><?php echo ucwords($artisticdata[0]['designation']); ?></a>
+                        <?php } ?>
+
+                    <?php } ?>
+
   
               </div>
                 <!-- PICKUP -->

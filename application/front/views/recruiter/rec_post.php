@@ -469,7 +469,7 @@ if ($returnpage == 'job') {
                                                     <a class="display_inline" title="<?php echo $post['re_comp_name']?>" href="#">
 
       
-                                                     <?php   $out = strlen($post['re_comp_name']) > 20 ? substr($post['re_comp_name'],0,20)."..." : $post['re_comp_name'];
+                                                     <?php   $out = strlen($post['re_comp_name']) > 40 ? substr($post['re_comp_name'],0,40)."..." : $post['re_comp_name'];
 
                                                                  
                                                             echo $out;?> </a>
@@ -627,7 +627,7 @@ if ($returnpage == 'job') {
                                                              else{}?> 
                                                     </div>
                                                       <a class="display_inline" title="<?php echo $post['re_comp_name'];?>" href="#"> <?php 
-                                                          $out = strlen($post['re_comp_name']) > 20? substr($post['re_comp_name'],0,20)."..." : $post['re_comp_name'];
+                                                          $out = strlen($post['re_comp_name']) > 40? substr($post['re_comp_name'],0,40)."..." : $post['re_comp_name'];
 
                                                                  
                                                             echo $out;

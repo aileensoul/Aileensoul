@@ -313,7 +313,7 @@ body {
    <div class="col-md-2">
                 <div class="flw_msg_btn fr">
                     <ul>
-                 <?php if($this->uri->segment(3) != $userid ){ ?>
+                 <?php if(($this->uri->segment(3) != $userid) && ($this->uri->segment(3) == " ")){ ?>
                        <li> <a href="<?php echo base_url('chat/abc/' . $this->uri->segment(3)); ?>">Message</a> </li>
                         <?php } ?>
                     </ul>
