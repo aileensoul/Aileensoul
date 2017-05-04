@@ -613,15 +613,12 @@
                                             </div>
                                             <div class="profile-job-profile-button clearfix">
                                                 <div class="apply-btn fr" >
-
-                                                    <a href="<?php echo base_url('message/message_chats/' . $rec['user_id']) ?>">Message</a>
-
-
-
-
-                                                    <!--<a href="#popup1" class="button">Remove Candidate </a>-->
+                                     <?php $userid = $this->session->userdata('aileenuser');
+                                     if($userid != $rec['user_id']){ ?>
+                                             <a href="<?php echo base_url('chat/abc/' . $rec['user_id']); ?>">Message</a>
+                                       <!--<a href="#popup1" class="button">Remove Candidate </a>-->
                                                     <a href="javascript:void(0);" class="button" onclick="removepopup(<?php echo $rec['save_id'] ?>)">Remove</a>
-
+                                     <?php } ?>
 
                                                 </div>
 
@@ -632,16 +629,12 @@
                                 } ?>
                          </div>
                            <?php  }
-                        } else {
-                            ?>
+                        } else { ?>
                             <div class="text-center rio">
                                 <h4 class="page-heading  product-listing" style="border:0px;margin-bottom: 11px;">No Saved Candidate Found.</h4>
                             </div>
-                            <?php
-                        }
-                        ?>
-                   
-                </div>
+                            <?php } ?>
+                        </div>
 
             </div>
         </div>
