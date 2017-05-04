@@ -49,7 +49,9 @@
                        //echo $this->uri->segment(3);
                        //echo $userid; die();
 
-                       if(($this->uri->segment(3) != $userid) && ($this->uri->segment(3) == " ")){ ?>
+        if($this->uri->segment(3) != ""){ 
+            if($this->uri->segment(3) != $userid){
+                ?>
                          
                          <?php
               
@@ -70,7 +72,7 @@
                         </li>
                                                                 <?php } ?>
                        <li> <a href="<?php echo base_url('chat/abc/' . $this->uri->segment(3)); ?>">Message</a> </li>
-                       <?php } ?>
+                       <?php } }?>
                     </ul>
                 </div>
             </div>
