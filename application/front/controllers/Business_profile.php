@@ -5458,20 +5458,22 @@ class Business_profile extends MY_Controller {
     public function likeuserlist() {
         $post_id = $_POST['post_id'];
 
-        $contition_array = array('business_profile_post_id' => $row['business_profile_post_id'], 'status' => '1', 'is_delete' => '0');
+        $contition_array = array('business_profile_post_id' => $post_id, 'status' => '1', 'is_delete' => '0');
         $commnetcount = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
+        
         $likeuser = $commnetcount[0]['business_like_user'];
         $countlike = $commnetcount[0]['business_likes_count'] - 1;
 
         $likelistarray = explode(',', $likeuser);
-
+        echo '<div class="likeduser">';
+        echo '<div class="likeduser-title">User List</div>';
         foreach ($likelistarray as $key => $value) {
             $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $value, 'status' => 1))->row()->company_name;
-            echo '<a href="'.base_url('business_profile/business_resume/' . $value).'">';
+            echo '<div class="likeuser_list"><a href="'.base_url('business_profile/business_resume/' . $value).'">';
             echo ucwords($business_fname1);
-            echo '</a>';
+            echo '</a></div>';
         }
+        echo '<div>';
     }
 
 }
