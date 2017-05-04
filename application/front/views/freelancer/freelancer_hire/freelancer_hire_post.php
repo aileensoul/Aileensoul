@@ -311,13 +311,13 @@ echo $freelancer_hire_header2;} ?>
 
 
         <div class="job-menu-profile1">
-            <h3> <?php echo ucwords($freehiredata[0]['fullname']) . ' ' . ucwords($freehiredata[0]['username']); ?></h3>
+            <h3> <?php echo ucwords($freelancerpostdata[0]['fullname']) . ' ' . ucwords($freelancerpostdata[0]['username']); ?></h3>
 
 
             <div class="profile-text">
                 <?php
                     if($returnpage==''){
-                if ($freehiredata[0]['designation'] == '') {
+                if ($freelancerpostdata[0]['designation'] == '') {
                     ?>
                    <!--  <a id="myBtn" title="<?php echo ucwords($freelancerpostdata[0]['fullname']) . ' ' . ucwords($freelancerpostdata[0]['username']); ?>">Designation</a> -->
                     <a id="designation" class="designation" title="Designation">Designation</a>
@@ -425,8 +425,15 @@ echo $freelancer_hire_header2;} ?>
                 $lastname = $this->db->get_where('freelancer_hire_reg', array('user_id' => $post['user_id']))->row()->username;
                     ?>
 
-                            <li><a class="display_inline" title="<?php echo ucwords($firstname); ?>&nbsp;<?php echo ucwords($lastname); ?>" href="<?php echo base_url('freelancer/freelancer_hire_profile/' . $post['user_id']); ?>"><?php echo ucwords($firstname); ?>&nbsp;<?php echo ucwords($lastname); ?>
-                            </a></li>
+                            <li>
+                            <?php if($returnpage=='freelancer_post') {?>
+                            <a class="display_inline" title="<?php echo ucwords($firstname); ?>&nbsp;<?php echo ucwords($lastname); ?>" href="<?php echo base_url('freelancer/freelancer_hire_profile/' . $post['user_id'].'?page=freelancer_post'); ?>"><?php echo ucwords($firstname); ?>&nbsp;<?php echo ucwords($lastname); ?>
+                            </a>
+                            <?php }  else {?>
+                            <a class="display_inline" title="<?php echo ucwords($firstname); ?>&nbsp;<?php echo ucwords($lastname); ?>" href="<?php echo base_url('freelancer/freelancer_hire_profile/' . $post['user_id']); ?>"><?php echo ucwords($firstname); ?>&nbsp;<?php echo ucwords($lastname); ?>
+                            </a>
+                            <?php }?>
+                            </li>
                     <!-- vishang 14-4 end -->    
                 </ul>
              </div>
@@ -482,7 +489,7 @@ echo $freelancer_hire_header2;} ?>
                                                                 </li>
                                                                 <!-- vishang 14-4 start -->
                                                                 <li>
-                                                                    <b>Require Experience</b>
+                                                                    <b>Required Experience</b>
                                                                     <span>
                                                                         <?php if($post['post_exp_month'] ||  $post['post_exp_year']){
             echo $post['post_exp_year'];   ?> year&nbsp;&nbsp;<?php  echo $post['post_exp_month'];}
@@ -495,7 +502,7 @@ echo $freelancer_hire_header2;} ?>
 
                                                                
                                                                 
-                                                                <li><b>Estimate Time</b><span> <?php if($post['post_est_time']) {echo $post['post_est_time'];} else{echo PROFILENA; } ?></span>
+                                                                <li><b>Estimated Time</b><span> <?php if($post['post_est_time']) {echo $post['post_est_time'];} else{echo PROFILENA; } ?></span>
                                                                 </li>
 
 

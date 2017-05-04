@@ -871,9 +871,10 @@ class Freelancer extends MY_Controller {
 //freelancer Portfolio page controller End
 
     public function freelancer_hire_post($id) {
-        
+        //echo $id."userid is:";
         
         $userid = $this->session->userdata('aileenuser');
+        //echo $userid;die();
         if($id == ''){
         // code change by pallavi 14-4-2017
         $join_str[0]['table'] = 'freelancer_hire_reg';
@@ -901,7 +902,7 @@ $data='freelancer_post.post_id,freelancer_post.post_name,freelancer_post.post_fi
              $contition_array = array('freelancer_post.is_delete'=> '0','freelancer_hire_reg.user_id' => $userid, 'freelancer_hire_reg.status' => '1');
 
 
-$data='freelancer_post.post_name,freelancer_post.post_est_time,freelancer_post.post_skill,freelancer_post.post_other_skill,freelancer_post.post_rate,freelancer_post.post_last_date,freelancer_post.post_description,freelancer_post.user_id,freelancer_post.created_date,freelancer_post.post_currency,freelancer_post.post_rating_type,freelancer_post.country,freelancer_post.city,freelancer_post.post_exp_month,freelancer_post.post_exp_year';
+$data='freelancer_post.post_id,freelancer_post.post_name,freelancer_post.post_field_req,freelancer_post.post_est_time,freelancer_post.post_skill,freelancer_post.post_other_skill,freelancer_post.post_rate,freelancer_post.post_last_date,freelancer_post.post_description,freelancer_post.user_id,freelancer_post.created_date,freelancer_post.post_currency,freelancer_post.post_rating_type,freelancer_post.country,freelancer_post.city,freelancer_post.post_exp_month,freelancer_post.post_exp_year,freelancer_hire_reg.username,freelancer_hire_reg.fullname,freelancer_hire_reg.designation,freelancer_hire_reg.freelancer_hire_user_image';
         $postdata = $this->data['freelancerpostdata'] = $this->common->select_data_by_condition('freelancer_post', $contition_array, $data, $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
       // echo "<pre>";print_r($postdata);die();
         }
@@ -2004,9 +2005,9 @@ $this->load->view('freelancer/freelancer_hire/freelancer_save', $this->data);
     }
 
     public function freelancer_hire_profile($id="") {
-
+        //echo $id."userid is:";
         $userid = $this->session->userdata('aileenuser');
-
+        //echo $userid;die();
         if ($id == $userid || $id == '') {
 
             $contition_array = array('user_id' => $userid, 'status' => '1');
