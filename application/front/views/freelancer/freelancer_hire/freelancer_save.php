@@ -420,8 +420,8 @@
           <?php echo ucwords($rec['freelancer_post_fullname']) . ' ' . ucwords($rec['freelancer_post_username']); ?></h6>
                </a></li>
 
-               <li style="display: block;">
-                <?php if($rec['designation']){echo $rec['designation'];}else{echo PROFILENA;} ?> </li>
+               <li style="display: block;"> <a href="#">
+                <?php if($rec['designation']){echo $rec['designation'];}else{echo PROFILENA;} ?> </a> </li>
             
             </ul>
              </div>
