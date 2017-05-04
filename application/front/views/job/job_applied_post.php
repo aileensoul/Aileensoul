@@ -352,12 +352,9 @@
        <div class="profile-job-profile-button clearfix">
           <div class="profile-job-details col-md-12">
                <ul>
-                  <li class="fr">
-                    Created Date:<?php
-                      echo trim(date('d-M-Y', strtotime($post['created_date'])));
-                         ?>
-                   </li>
-
+                   <li class="fr">
+                                                    Created Date : <?php echo date('d/m/Y',strtotime($post['created_date'])); ?>
+                                                </li>
                     <li>
                       <a title="Post Title" class="display_inline" href="#" style="font-size: 19px;font-weight: 600; cursor: default;">
                       <?php echo ucwords(text2link($post['post_name'])); ?> </a>   </li>
@@ -463,15 +460,8 @@
                                         <div class="profile-job-profile-button clearfix">
                                             <div class="profile-job-details col-md-12">
                                                 <ul>
-                                                    <li class="job_all_post last_date">
-                                                        Last Date:<?php
-                                                        if ($post['post_last_date'] == '0000-00-00') {
-                                                            echo '';
-                                                        } else {
-                                                            echo date('d-M-Y', strtotime($post['post_last_date']));
-                                                        }
-                                                        ?>
-                                                    </li>
+                                                     <li class="job_all_post last_date">
+                                                    Last Date : <?php echo date('d/m/Y',strtotime($post['post_last_date'])); ?></li>
 
                                                     <?php
                                                     $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
