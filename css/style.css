@@ -2108,6 +2108,16 @@ border-bottom: 1px solid #000033;
 
 }
 .flw_msg_btn{}
+.post-design-name ul li .post_dot{    max-width: 80%;
+    width: auto;
+    font-size: 18px;
+    display: inline-block;
+    font-weight: 600;
+    color: #000033;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;    line-height: 14px;
+  margin-bottom: 0px;}
 /*.profile-main-box-menu li:last-child {
     border-right: none;
 }
@@ -3771,8 +3781,6 @@ li.fr a{
 
 .user_lst ul li .user_btn_i button{ margin-top: 10px;   border-radius: 3px; width: 100px;
                                       padding: 8px 0px; margin-bottom: 10px;}
-
-.user_lst ul li .user_btn_f button:hover{background-color: darkred!important;}
 
 .select2-container .select2-choices 
 {
