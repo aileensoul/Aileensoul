@@ -1043,12 +1043,6 @@ label.cameraButton input[accept*="camera"] {
                             <div class="profile-job-post-detail clearfix"  id="<?php echo "removepost" . $row['art_post_id']; ?>">
                                 <div class=" post-design-box">
 
-
-
-
-
-
-
                                     <!-- pop up box start-->
                                     <div id="popup1" class="overlay">
                                         <div class="popup">

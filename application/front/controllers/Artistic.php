@@ -4102,7 +4102,7 @@ $followingdatacount = count($followingotherdata);
             $cmtinsert .= '<div class="comment-details" id= "showcomment' . $art_comment['post_image_comment_id'] . '"" >';
             $cmtinsert .= $art_comment['comment'];
             $cmtinsert .= '</div>';
-            $cmtinsert .= '<div contenteditable="" class="editable_text" name="' . $art_comment['post_image_comment_id'] . '" id="editcomment' . $art_comment['post_image_comment_id'] . '"style="display:none;" onClick="commentedit(this.name)">';
+            $cmtinsert .= '<div contenteditable="" class="editable_text" name="' . $art_comment['post_image_comment_id'] . '" id="editcomment' . $art_comment['post_image_comment_id'] . '"style="display:none;" onkeyup="commentedit(' . $art_comment['post_image_comment_id'] . ')">';
 
             $cmtinsert .= '' . $art_comment['comment'] . '';
             $cmtinsert .= '</div>';
@@ -4264,7 +4264,7 @@ $followingdatacount = count($followingotherdata);
             $cmtinsert .= '<div class="comment-details" id= "showcommenttwo' . $art_comment['post_image_comment_id'] . '"" >';
             $cmtinsert .= $art_comment['comment'];
             $cmtinsert .= '</div>';
-            $cmtinsert .= '<div contenteditable=""   class="editable_text" name="' . $art_comment['post_image_comment_id'] . '" id="editcommenttwo' . $art_comment['post_image_comment_id'] . '"style="display:none;" onClick="commentedittwo(this.name)">';
+            $cmtinsert .= '<div contenteditable=""   class="editable_text" name="' . $art_comment['post_image_comment_id'] . '" id="editcommenttwo' . $art_comment['post_image_comment_id'] . '"style="display:none;" onkeyup="commentedittwo('.$art_comment['post_image_comment_id'].')">';
 
             $cmtinsert .= '' . $art_comment['comment'] . '';
             $cmtinsert .= '</div>';
@@ -4744,7 +4744,7 @@ $followingdatacount = count($followingotherdata);
             $cmtinsert .= '<div class="comment-details" id= "showcomment' . $art_comment['post_image_comment_id'] . '"" >';
             $cmtinsert .= $art_comment['comment'];
             $cmtinsert .= '</div>';
-            $cmtinsert .= '<div contenteditable=""   class="editable_text" name="' . $art_comment['post_image_comment_id'] . '" id="editcomment' . $art_comment['post_image_comment_id'] . '"style="display:none;" onClick="commentedit(this.name)">';
+            $cmtinsert .= '<div contenteditable=""   class="editable_text" name="' . $art_comment['post_image_comment_id'] . '" id="editcomment' . $art_comment['post_image_comment_id'] . '"style="display:none;" onkeyup="commentedit(' . $art_comment['post_image_comment_id'] . ')">';
 
             $cmtinsert .= '' . $art_comment['comment'] . '';
             $cmtinsert .= '</div>';
@@ -4876,7 +4876,7 @@ $followingdatacount = count($followingotherdata);
             $cmtinsert .= '<div class="comment-details" id= "showcommenttwo' . $art_comment['post_image_comment_id'] . '"" >';
             $cmtinsert .= $art_comment['comment'];
             $cmtinsert .= '</div>';
-            $cmtinsert .= '<div contenteditable="" class="editable_text" name="' . $art_comment['post_image_comment_id'] . '" id="editcommenttwo' . $art_comment['post_image_comment_id'] . '"style="display:none;" onClick="commentedittwo(this.name)">';
+            $cmtinsert .= '<div contenteditable="" class="editable_text" name="' . $art_comment['post_image_comment_id'] . '" id="editcommenttwo' . $art_comment['post_image_comment_id'] . '"style="display:none;" onkeyup="commentedittwo(' . $art_comment['post_image_comment_id'] . ')">';
 
             $cmtinsert .= '' . $art_comment['comment'] . '';
             $cmtinsert .= '</div>';
@@ -5112,7 +5112,7 @@ $followingdatacount = count($followingotherdata);
             $fourdata .= '<div class="comment-details" id= "showcommenttwo' . $rowdata['post_image_comment_id'] . '">';
             $fourdata .= '' . $rowdata['comment'] . '</br></div>';
 
-            $fourdata .= '<div contenteditable="" class="editable_text" name="' . $rowdata['post_image_comment_id'] . '" id="editcommenttwo' . $rowdata['post_image_comment_id'] . '" style="display:none"  onClick="commentedittwo(this.name)">';
+            $fourdata .= '<div contenteditable="" class="editable_text" name="' . $rowdata['post_image_comment_id'] . '" id="editcommenttwo' . $rowdata['post_image_comment_id'] . '" style="display:none"  onClick="commentedittwo(' . $rowdata['post_image_comment_id'] . ')">';
 
             $fourdata .= '' . $rowdata['comment'] . '';
             $fourdata .= '</div>';

@@ -600,6 +600,26 @@ if ($artisticdata[0]['user_id'] == $userid) {
                 <h4 class="profile-head-text"><a href="<?php echo base_url('artistic/art_manage_post/' . $artisticdata[0]['user_id'] . ''); ?>"> <?php echo ucwords($artisticdata[0]['art_name']); ?><?php echo ucwords($artisticdata[0]['art_lastname']); ?></a></h4>
 
 
+                <?php
+                    if ($artisticdata[0]['designation'] == '') {
+                        ?>
+
+                        <?php if ($artisticdata[0]['user_id'] == $userid) { ?>
+                            <a id="myBtn">Designation</a>
+                        <?php } ?>
+
+                    <?php } else { ?> 
+
+                        <?php if ($artisticdata[0]['user_id'] == $userid) { ?>
+                            <a id="myBtn"><?php echo ucwords($artisticdata[0]['designation']); ?></a>
+                        <?php } else { ?>
+                            <a><?php echo ucwords($artisticdata[0]['designation']); ?></a>
+                        <?php } ?>
+
+                    <?php } ?>
+
+
+
             </div>
             <!-- PICKUP -->
             <!-- menubar --><div class="buisness-data-menu  col-md-12 ">
@@ -894,7 +914,7 @@ foreach ($databus1 as $artdata) {
 
       <div class="col-md-12">
             <div class="col-md-10">
-              <div contenteditable=""   class="editable_text" name="<?php echo $rowdata['post_image_comment_id']; ?>" id="<?php echo "editcomment" . $rowdata['post_image_comment_id']; ?>" style="display: none;"  onClick="commentedit(<?php echo $rowdata['post_image_comment_id']; ?>)"><?php echo $rowdata['comment']; ?></div>
+              <div contenteditable="" class="editable_text" name="<?php echo $rowdata['post_image_comment_id']; ?>" id="<?php echo "editcomment" . $rowdata['post_image_comment_id']; ?>" style="display: none;" onkeyup="commentedit(<?php echo $rowdata['post_image_comment_id']; ?>)"><?php echo $rowdata['comment']; ?></div>
                  </div> 
           <div class="col-md-2 comment-edit-button">
           <button id="<?php echo "editsubmit" . $rowdata['post_image_comment_id']; ?>" style="display:none" onClick="edit_comment(<?php echo $rowdata['post_image_comment_id']; ?>)">Comment</button>
@@ -1565,7 +1585,7 @@ if(post_comment_edit == ''){
 
 
 <script type="text/javascript">
- function commentedit(abc){
+ function commentedit(abc){ 
       
         $("#editcomment" + abc).click(function(){
           $(this).prop("contentEditable", true);
@@ -1579,7 +1599,7 @@ if(post_comment_edit == ''){
              var sel = $("#editcomment" + abc);
              var txt = sel.html();
 
-             $('#editcomment' + abc).html("");
+             
             
 
       
@@ -1592,11 +1612,12 @@ if(post_comment_edit == ''){
         $.ajax({ 
                 type:'POST',
                 url:'<?php echo base_url() . "artistic/mul_edit_com_insert" ?>',
-                data: 'post_image_comment_id=' + abc + '&comment=' + val,
+                data: 'post_image_comment_id=' + abc + '&comment=' + txt,
                 // dataType: "json",
                    success:function(data){ 
 
-
+                $('#editcomment' + abc).html("");
+                
          document.getElementById('editcomment' + abc).style.display = 'none';
          document.getElementById('showcomment' + abc).style.display = 'block';
         document.getElementById('editsubmit' + abc).style.display = 'none';
