@@ -4290,6 +4290,40 @@ textarea {overflow: hidden;}
 
 /* vishang 4-5-17 */
 .invited { background-color: #000033!important; margin-left: 0px!important; font-weight: bold; letter-spacing: 2px; margin-right: 10px!important; color: #fff!important;   float: none !important; }
+ 
+ .back { width: 50%; 
+ position: relative; 
+ background-color: #fff;
+ color: #000033;
+ border: 1px solid #aaa; 
+  border-radius: 21px; }
+
+
+.but1{ 
+  padding: 15px 20px 15px 2px;  
+  overflow:hidden; 
+  margin-left: 16px;
+  text-align: center;
+
+}
+
+.but1:before {
+  font-family: FontAwesome;
+  content:"\f177";
+  font-size: 18px;
+  position: absolute;
+  top: 15px;
+  margin-left: 10px;
+  left: -3%;
+  visibility: hidden;
+  transition: all 200ms ease;
+}
+
+.but1:hover:before {
+  left: 7px;
+  visibility: visible;
+}
+
 
 /* vishang 4-5-17 */
 

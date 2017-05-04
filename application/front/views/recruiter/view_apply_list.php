@@ -185,8 +185,11 @@ padding-top: 1px;}
 
    <div class="add-post-button">
      
- <a href="#" class="back_post_btn"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>
-    <span>&nbsp;Back To Post</span></a>
+      <a href="#"><div class="back">
+        <div class="but1">
+             Back To Post
+        </div>
+   </div></a>
 
    </div>
 

@@ -11,7 +11,7 @@
         <div class="user-midd-section">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-3 col-sm-4">
+                    <div class="col-md-4 col-sm-4">
                         <!-- <div class="left-side-bar">
                            <ul>
                                   <li><a href="<?php echo base_url('freelancer_hire_edit/freelancer_hire_profile'); ?>">Freelancer hire Profile</a>
@@ -25,6 +25,18 @@
                                     </li>
                                 </ul>
                         </div> -->
+
+
+                    <div class="add-post-button">
+     
+                        <a href="#"><div class="back">
+                          <div class="but1">
+                               Back To Post
+                          </div>
+                     </div></a>
+
+                   </div>
+
                     </div>
                     <!-- <div class="col-md-6 col-sm-8"> -->
 
