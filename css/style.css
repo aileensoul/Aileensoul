@@ -2854,8 +2854,10 @@ label.cameraButton input[accept*="camera"] {
                               width:79%;
                               float: left;
                               margin-right: 4px;
-                              
+           
+
 }
+.inputtype-comment{margin-bottom: 10px;}
 .all-comment-comment-box span{color: #999999;}
 /*education new design*/
 .tabordion {
@@ -4277,7 +4279,7 @@ textarea {overflow: hidden;}
     font-weight: 400;
     border-radius: 4px;
     resize: none;
- 
+
     word-break:break-all;
 }
 

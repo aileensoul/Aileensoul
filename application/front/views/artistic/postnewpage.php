@@ -518,64 +518,13 @@
                 <div class="row">
 
                     <div class="profile-box profile-box-left col-md-4">
-<!--                        <div class="full-box-module">
-                            <div class="profile-boxProfileCard  module">
-                                <div class="profile-boxProfileCard-cover">
-                                    <a class="profile-boxProfileCard-bg u-bgUserColor a-block" href="<?php echo site_url('artistic/art_manage_post'); ?>" tabindex="-1"
-                                       aria-hidden="true" rel="noopener">
-                                        <img src="<?php echo base_url(ARTBGIMAGE . $artisticdata[0]['profile_background_main']); ?>" class="bgImage" style="    height: 95px;
-                                             width: 393px; " >
-                                    </a></div>
-                                <div class="profile-box-menu-2 fr col-md-12">
-                                    <div class="left- col-md-2"></div>
-                                    <div  class="right-section col-md-10">
-                                        <ul class="">                           
-                                            <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'art_savepost') { ?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/art_savepost'); ?>"> Dashboard</a>
-                                            </li>
 
-                                            <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'followers') { ?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/followers'); ?>">Followers <br>(<?php echo (count($followerdata)); ?>)</a>
-                                            </li>
-
-                                            <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'following') { ?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/following'); ?>">Following<br>(<?php echo (count($followingdata)); ?>)</a>
-                                            </li>
-
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="profile-boxProfileCard-content">
-                                    <div class="buisness-profile-txext ">
-                                        <a class="profile-boxProfileCard-avatarLink a-inlineBlock" href="<?php echo site_url('artistic/art_manage_post'); ?>" title="zalak" tabindex="-1" aria-hidden="true" rel="noopener">
-                                             box image start 
-                                            <img src="<?php echo base_url(ARTISTICIMAGE . $artisticdata[0]['art_user_image']); ?>" class="bgImage"  style="" >
-                                             box image end 
-                                        </a>
-                                    </div>
-                                    <div class="profile-box-user">
-                                        <span class="profile-box-name ">
-                                            <a href="<?php echo site_url('artistic/art_manage_post'); ?>"> <?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?></a>
-                                        </span>
-                                        <div class="profile-boxProfile-name">
-                                            <a href="<?php echo site_url('artistic/art_manage_post'); ?>">
-                                                <?php
-                                                if ($artisticdata[0]['designation']) {
-                                                    echo ucwords($artisticdata[0]['designation']);
-                                                } else {
-                                                    echo "Designation";
-                                                }
-                                                ?></a></div>
-
-                                    </div>
-                                    <div id="profile-box-profile-prompt"></div>
-                                </div>
-                            </div>
-                        </div>-->
-                                                <div class="full-box-module">    
+                              <div class="full-box-module">    
 
                             <div class="profile-boxProfileCard  module">
-                                <div class="profile-boxProfileCard-cover">        <a class="profile-boxProfileCard-bg u-bgUserColor a-block" href="<?php echo site_url('artistic/art_manage_post'); ?>" tabindex="-1"
-                                                                                     aria-hidden="true" rel="noopener">
-                                        <img src="<?php echo base_url(ARTBGIMAGE . $artisticdata[0]['profile_background_main']); ?>" class="bgImage" style="    height: 95px;
-                                             width: 393px; " >
+                                <div class="profile-boxProfileCard-cover">     
+                                   <a class="profile-boxProfileCard-bg u-bgUserColor a-block" href="<?php echo site_url('artistic/art_manage_post'); ?>" tabindex="-1" aria-hidden="true" rel="noopener">
+                                        <img src="<?php echo base_url(ARTBGIMAGE . $artisticdata[0]['profile_background_main']); ?>" class="bgImage" style="height: 95px; width: 393px; " >
                                     </a>
                                 </div>
 
@@ -593,12 +542,12 @@
                                     </div>
                                     <div class="profile-box-user  profile-text-bui-user  fr col-md-9">
                                         <span class="profile-company-name ">
-                                            <a href="<?php echo site_url('artistic/art_manage_post'); ?>"> <?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?></a>
+                                            <a style="margin-left: 8px;" href="<?php echo site_url('artistic/art_manage_post'); ?>"> <?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?></a>
                                         </span>
 
 
                                         <div class="profile-boxProfile-name">
-                                            <a href="<?php echo site_url('artistic/art_manage_post'); ?>">
+                                            <a style="padding-left: 7px;" href="<?php echo site_url('artistic/art_manage_post'); ?>">
                                                 <?php
                                                 if ($artisticdata[0]['designation']) {
                                                     echo ucwords($artisticdata[0]['designation']);
@@ -628,7 +577,6 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                     <!-- cover pic end -->
                     <?php
@@ -681,13 +629,13 @@
 
                             <div class=" ">
                                 <div class="post-design-top col-md-12" >  
-                                    <div class="post-design-pro-img"> 
+                                    <div class="post-design-pro-img col-md-2"> 
                                         <?php
                                         $art_userimage = $this->db->get_where('art_reg', array('user_id' => $art_data[0]['user_id'], 'status' => 1))->row()->art_user_image;
                                         ?>
                                         <img  src="<?php echo base_url(ARTISTICIMAGE . $art_userimage); ?>"  alt=""> 
                                     </div>
-                                    <div class="post-design-name fl">
+                                    <div class="post-design-name fl col-md-10">
                                         <ul>
                                             <?php
                                             $firstname = $this->db->get_where('art_reg', array('user_id' => $art_data[0]['user_id']))->row()->art_name;
@@ -704,16 +652,17 @@
                                             ?>
 
                                             <li><div class="post-design-product">
-                                                    <a style=" font-size: 18px;padding-right: 0;
-                                                       line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px;display: inline-block; " 
+                                                    <a class="post_dot" 
                                                        href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>"><?php echo ucwords($firstname);
                                             print "&nbsp;&nbsp;";
                                             echo ucwords($lastname); ?> </a>
 
 
-                                            <span style="font-weight: 400;
+                                         <div class="datespan">
+                        <span style="font-weight: 400;
                                                     font-size: 14px;
-                                                    color: #91949d;"> <?php echo date('d-M-Y', strtotime($art_data[0]['created_date'])); ?></span> </div></li>
+                                                    color: #91949d;""> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span></div>
+                        </div></li>
                                             <!-- 
                                             <li><div class="post-design-product"><a><?php //echo $listFinal ;  ?> </a></div></li>
                                             -->
@@ -756,16 +705,17 @@
 <?php } ?>
                                         </div>
                                     </div>
-                                    <div class="post-design-desc show">
+                                    <div class="post-design-desc">
                                         <span> 
-                                            <div id="<?php echo 'editpostdetails' . $art_data[0]['art_post_id']; ?>" style="display:block;">
-<?php print text2link($art_data[0]['art_description']); ?>
+                                            <div id="<?php echo 'editpostdetails' . $art_data[0]['art_post_id']; ?>" style="display:block; margin-bottom: 10px;"><span class="show">
+<?php print text2link($art_data[0]['art_description']); ?></span>
                                             </div>
                                             <div id="<?php echo 'editpostdetailbox' . $art_data[0]['art_post_id']; ?>" style="display:none;">
-                                                <textarea id="<?php echo 'editpostdesc' . $art_data[0]['art_post_id']; ?>" name="editpostdesc"><?php echo $row['art_description']; ?>
-                                                </textarea> 
+                                                <div  style="
+"  contenteditable="true" id="<?php echo 'editpostdesc' . $art_data[0]['art_post_id']; ?>" name="editpostdesc" class="editable_text " ><?php echo $row['art_description']; ?>
+                                                </div> 
                                             </div>
-                                            <button id="<?php echo "editpostsubmit" . $art_data[0]['art_post_id']; ?>" style="display:none" onClick="edit_postinsert(<?php echo $art_data[0]['art_post_id']; ?>)">EditPost</button>
+                                            <button class="fr" id="<?php echo "editpostsubmit" . $art_data[0]['art_post_id']; ?>" style="display:none; margin: 5px 0px; " onClick="edit_postinsert(<?php echo $art_data[0]['art_post_id']; ?>)">Save</button>
 
                                         </span>
                                     </div> 
@@ -1983,7 +1933,7 @@ $art_userimage = $this->db->get_where('art_reg', array('user_id' => $art_data[0]
                         <!-- further and less -->
                         <script>
                             $(function() {
-                            var showTotalChar = 150, showChar = "Further", hideChar = "less";
+                            var showTotalChar = 150, showChar = "more", hideChar = "less";
                             $('.show').each(function() {
                             var content = $(this).text();
                             if (content.length > showTotalChar) {
@@ -2081,10 +2031,20 @@ $art_userimage = $this->db->get_where('art_reg', array('user_id' => $art_data[0]
                             {
                             var editpostname = document.getElementById("editpostname" + abc);
                             var editpostdetails = document.getElementById("editpostdesc" + abc);
+
+// start khyati code
+  var $field = $('#editpostdesc' + abc);
+  //var data = $field.val();
+  var editpostdetails = $('#editpostdesc' + abc).html();
+// end khyati code
+  
+
+
+
                             $.ajax({
                             type:'POST',
                                     url:'<?php echo base_url() . "artistic/edit_post_insert" ?>',
-                                    data:'art_post_id=' + abc + '&art_post=' + editpostname.value + '&art_description=' + editpostdetails.value,
+                                    data:'art_post_id=' + abc + '&art_post=' + editpostname.value + '&art_description=' + editpostdetails,
                                     dataType: "json",
                                     success:function(data){
 
@@ -2466,33 +2426,7 @@ $art_userimage = $this->db->get_where('art_reg', array('user_id' => $art_data[0]
                             }
                         </script>
                         <!-- further and less -->
-                        <script src="jquery-1.8.2.js"></script>
-                        <script>
-                            $(function() {
-                            var showTotalChar = 270, showChar = "Further", hideChar = "less";
-                            $('.show').each(function() {
-                            var content = $(this).text();
-                            if (content.length > showTotalChar) {
-                            var con = content.substr(0, showTotalChar);
-                            var hcon = content.substr(showTotalChar, content.length - showTotalChar);
-                            var txt = con + '<span class="dots">...</span><span class="morectnt"><span>' + hcon + '</span>&nbsp;&nbsp;<a href="" class="showmoretxt">' + showChar + '</a></span>';
-                            $(this).html(txt);
-                            }
-                            });
-                            $(".showmoretxt").click(function() {
-                            if ($(this).hasClass("sample")) {
-                            $(this).removeClass("sample");
-                            $(this).text(showChar);
-                            } else {
-                            $(this).addClass("sample");
-                            $(this).text(hideChar);
-                            }
-                            $(this).parent().prev().toggle();
-                            $(this).prev().toggle();
-                            return false;
-                            });
-                            });
-                        </script>
+                       
                         <!-- drop down script zalak start -->
                         <script>
                             /* When the user clicks on the button, 
