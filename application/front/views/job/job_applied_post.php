@@ -381,7 +381,11 @@
                                                     </div>
                     <a title="Company Name" class="display_inline" href="<?php echo base_url('recruiter/rec_profile/' . $post['user_id'].'?page=job'); ?>"><?php
                      $cache_time = $this->db->get_where('recruiter', array('user_id' => $post['user_id']))->row()->re_comp_name;
-                     echo ucwords($cache_time);
+
+
+                        $out = strlen($cache_time) > 20 ? substr($cache_time,0,20)."..." : $cache_time;       
+                    echo $out;
+                    
                        ?></a>
                    </li>
 
