@@ -85,7 +85,7 @@
                          <fieldset class="full-width">
                         <label>Post description :<span style="color:red">*</span></label>
 
-                        <textarea style="resize: none;height: 30%;" name="post_desc" id="post_desc" placeholder="Enter Description"></textarea>
+                        <textarea style="resize: none;height: 22%;overflow: auto;" name="post_desc" id="post_desc" placeholder="Enter Description"></textarea>
                         
                         <?php echo form_error('post_desc'); ?>
                       </fieldset>
