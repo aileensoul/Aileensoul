@@ -393,7 +393,7 @@
                 $lastname = $this->db->get_where('freelancer_hire_reg', array('user_id' => $post['user_id']))->row()->username;
                     ?>
 
-                            <li><a class="display_inline" title="<?php echo ucwords($firstname); ?>&nbsp;<?php echo ucwords($lastname); ?>" href="<?php echo base_url('freelancer/freelancer_hire_profile/' . $post['user_id']); ?>"><?php echo ucwords($firstname); ?>&nbsp;<?php echo ucwords($lastname); ?>
+                            <li><a class="display_inline" title="<?php echo ucwords($firstname); ?>&nbsp;<?php echo ucwords($lastname); ?>" href="<?php echo base_url('freelancer/freelancer_hire_profile/' . $post['user_id'].'?page=freelancer_post'); ?>"><?php echo ucwords($firstname); ?>&nbsp;<?php echo ucwords($lastname); ?>
                             </a></li>
                     <!-- vishang 14-4 end -->    
                 </ul>
@@ -428,8 +428,8 @@
                                                                 </li>
 
 
-                                                                <?php if ($post['other_skill']) { ?>
-                                                                    <li><b>Other Skill</b><span><?php echo $post['other_skill']; ?></span>
+                                                                <?php if ($post['post_other_skill']) { ?>
+                                                                    <li><b>Other Skill</b><span><?php echo $post['post_other_skill']; ?></span>
                                                                     </li>
                                                                 <?php } else { ?>
                                                                     <li><b>Other Skill</b><span><?php echo "-"; ?></span></li><?php } ?>
@@ -450,7 +450,7 @@
                                                                 </li>
                                                                 <!-- vishang 14-4 start -->
                                                                 <li>
-                                                                    <b>Require Experience</b>
+                                                                    <b>Required Experience</b>
                                                                     <span>
                                                                         <?php if($post['post_exp_month'] ||  $post['post_exp_year']){
             echo $post['post_exp_year'];   ?> year&nbsp;&nbsp;<?php  echo $post['post_exp_month'];}
@@ -463,7 +463,7 @@
 
                                                                
                                                                 
-                                                                <li><b>Estimate Time</b><span> <?php if($post['post_est_time']) {echo $post['post_est_time'];} else{echo PROFILENA; } ?></span>
+                                                                <li><b>Estimated Time</b><span> <?php if($post['post_est_time']) {echo $post['post_est_time'];} else{echo PROFILENA; } ?></span>
                                                                 </li>
 
 
