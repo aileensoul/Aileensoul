@@ -343,17 +343,11 @@ if ($returnpage == 'job') {
 
             <div class="col-md-2">
                 <div class="flw_msg_btn fr">
-                    <ul>
-
-                        <!-- <li class="fruser2">
-
-                                <div id="unfollowdiv">
-                                    <a id="unfollow2" onclick="unfollowuser(2)"> Following</a>
-                                </div>
-                        </li> -->
-                        <li>
-                            <a href="http://35.165.1.109:81/chat/abc/4">Message</a></li>
-
+                   <ul>
+                    <?php
+                    if($this->uri->segment(3) != ""){ ?>
+                       <li> <a href="<?php echo base_url('chat/abc/' . $this->uri->segment(3)); ?>">Message</a> </li>
+                        <?php } ?>
                     </ul>
                 </div>
             </div>
