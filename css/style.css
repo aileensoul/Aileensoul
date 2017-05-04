@@ -4089,6 +4089,7 @@ input:-moz-placeholder { color:#999; font-size: 15px; }
   height: 100%;
   overflow: auto;
   background-color: black;
+  overflow: hidden !important;
 }
 
 /* Modal Content */
@@ -4107,7 +4108,7 @@ input:-moz-placeholder { color:#999; font-size: 15px; }
 .next {
   cursor: pointer;
   position: absolute;
-  top: 50%;
+  top: 220px !important;
   width: auto;
   padding: 16px;
   margin-top: -50px;
