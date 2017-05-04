@@ -978,7 +978,7 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
                                     <img alt=""  src="<?php echo base_url(NOIMAGE); ?>" alt="" />
                                 <?php } ?>
                             </div>
-                            <div id="myBtn1"  class="editor-content col-md-11 popup-text" contenteditable>
+                            <div id="myBtn1"  class="editor-content col-md-11 popup-text"  contenteditable>
                                 <span style="font-size: 23px;"> Post Your Product....</span> 
                               <!--  <span class="fr">
                                 <input type="file" id="FileID" style="display:none;">
@@ -1239,7 +1239,7 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
                                         </div>
 
                                         <div id="<?php echo 'editpostbox' . $row['business_profile_post_id']; ?>" style="display:none;">
-                                            <input type="text" id="<?php echo 'editpostname' . $row['business_profile_post_id']; ?>" name="editpostname" value="<?php echo $row['product_name']; ?>">
+                                            <input type="text" id="<?php echo 'editpostname' . $row['business_profile_post_id']; ?>" name="editpostname" placeholder="Product Name" value="<?php echo $row['product_name']; ?>">
                                         </div>
 
 
@@ -1253,7 +1253,7 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
                                                                                                                         <!-- <textarea id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" name="editpostdesc"><?php echo $row['product_description']; ?>
                                                                                                                         </textarea> 
                                             -->
-                                            <div  contenteditable="true" id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" placeholder="Product Description" class="textbuis  editable_text"  name="editpostdesc"><?php echo $row['product_description']; ?></div>
+                                            <div  contenteditable="true" id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" placeholder="Product Description" class="textbuis  editable_text" placeholder="Description of Your Product"  name="editpostdesc"><?php echo $row['product_description']; ?></div>
 
                                             <!-- 
                                             <div contenteditable="true"  id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" placeholder="Product Description" class="textbuis  editable_text"  name="editpostdesc"><?php echo $row['product_description']; ?></div>  -->
@@ -1638,7 +1638,7 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
                                                         <div class="edit-comment-box">
                                                             <div class="inputtype-edit-comment">
                                                                 <!--<textarea type="text" class="textarea" name="<?php echo $rowdata['business_profile_post_comment_id']; ?>" id="<?php echo "editcomment" . $rowdata['business_profile_post_comment_id']; ?>" style="display:none;resize: none;" onClick="commentedit(this.name)"><?php echo $rowdata['comments']; ?></textarea>-->
-                                                                <div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="<?php echo $rowdata['business_profile_post_comment_id']; ?>"  id="<?php echo "editcomment" . $rowdata['business_profile_post_comment_id']; ?>" placeholder="Type Message ..." value= ""  onkeyup="commentedit(<?php echo $rowdata['business_profile_post_comment_id']; ?>)"><?php echo $rowdata['comments']; ?></div>
+                                                                <div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="<?php echo $rowdata['business_profile_post_comment_id']; ?>"  id="<?php echo "editcomment" . $rowdata['business_profile_post_comment_id']; ?>" placeholder="Enter Your Comment " value= ""  onkeyup="commentedit(<?php echo $rowdata['business_profile_post_comment_id']; ?>)"><?php echo $rowdata['comments']; ?></div>
                                                                 <span class="comment-edit-button"><button id="<?php echo "editsubmit" . $rowdata['business_profile_post_comment_id']; ?>" style="display:none" onClick="edit_comment(<?php echo $rowdata['business_profile_post_comment_id']; ?>)">Save</button></span>
                                                             </div>
                                                         </div>
@@ -1757,7 +1757,7 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
                                                                                 </div>-->
                                         <div id="content" class="col-md-10  inputtype-comment" style="padding-left: 7px;">
                                             <!--<div contenteditable="true" style="min-height:40px !important; margin-top: 0px!important" class="editable_text" name="<?php echo $row['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $row['business_profile_post_id']; ?>" placeholder="Type Message ..."  onClick="contentedit(<?php echo $row['business_profile_post_id']; ?>)"></div>-->
-                                            <div contenteditable="true" style="min-height:40px !important; margin-top: 0px!important" class="editable_text" name="<?php echo $row['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $row['business_profile_post_id']; ?>" placeholder="Type Message ..."  onClick="entercomment(<?php echo $row['business_profile_post_id']; ?>)"></div>
+                                            <div contenteditable="true" style="min-height:40px !important; margin-top: 0px!important" class="editable_text" name="<?php echo $row['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $row['business_profile_post_id']; ?>" placeholder="Enter Your Comment " onClick="entercomment(<?php echo $row['business_profile_post_id']; ?>)"></div>
                                         </div>
                                         <?php echo form_error('post_comment'); ?> 
                                         <div class="col-md-1 comment-edit-butn">       

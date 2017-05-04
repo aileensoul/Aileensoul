@@ -43,6 +43,10 @@ a:focus { outline: none; text-decoration: none;  }
     -webkit-animation: marquee-main 5s linear infinite alternate;
     animation: marquee-main 5s linear infinite alternate;
 }
+[contenteditable=true]:empty:before{
+  content: attr(placeholder);
+  display: block; /* For Firefox */
+}
 /* Move it (define the animation) */
 @-moz-keyframes marquee-main {
     0%   { -moz-transform: translateX(70%); }
@@ -3770,10 +3774,10 @@ li.fr a{
 .user_lst ul li .user_btn_f button{ margin-top: 10px;   border-radius: 3px; width: 100px;
                                       padding: 8px 0px; margin-bottom: 10px;}
 
-.user_lst ul li .user_btn_h button{   border-radius: 3px; width: 100px;
+.user_lst ul li .user_btn_h button{ margin-top: 10px;  border-radius: 3px; width: 100px;
                                       padding: 8px 0px; margin-bottom: 10px;}
 
-.user_lst ul li .user_btn_i button{   border-radius: 3px; width: 100px;
+.user_lst ul li .user_btn_i button{ margin-top: 10px;   border-radius: 3px; width: 100px;
                                       padding: 8px 0px; margin-bottom: 10px;}
 
 .user_lst ul li .user_btn_f button:hover{background-color: darkred!important;}
