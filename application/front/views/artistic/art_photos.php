@@ -1384,7 +1384,7 @@ event.preventDefault();
                 url: '<?php echo base_url() . "artistic/mulimg_comment" ?>',
                 data: 'post_image_id=' + clicked_id + '&comment=' + post_comment,
                 // dataType: "json",
-                success: function (data) {
+                success: function (data) { 
                     
                    $('#post_comment' + clicked_id).html("");
 
@@ -1506,7 +1506,7 @@ event.preventDefault();
             url: '<?php echo base_url() . "artistic/mulimg_comment_like1" ?>',
             data: 'post_image_comment_id=' + clicked_id,
             success: function (data) { //alert(data);
-                $('#' + 'likecomment1' + clicked_id).html(data);
+                $('#' + 'likecommentone' + clicked_id).html(data);
 
             }
         });
@@ -1807,7 +1807,7 @@ function comment_deletetwomodel(abc){
 <script type="text/javascript">
     function comment_delete(clicked_id)
     {
-
+       
         var post_delete = document.getElementById("post_delete" + clicked_id);
         //alert('.insertcomment' + post_delete.value);
         $.ajax({
