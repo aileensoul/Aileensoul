@@ -68,7 +68,7 @@
 									 <?php echo form_error('professional_info'); ?> 
 									 
 								</fieldset>
-								<fieldset class="hs-submit full-width">
+								<fieldset style="margin-top: 4%"" class="hs-submit full-width">
                                     
 
                                     
