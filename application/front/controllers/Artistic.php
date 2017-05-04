@@ -1976,7 +1976,20 @@ $followingdatacount = count($followingotherdata);
              $unfollow = '<div>(';
              $unfollow .= ''.$followingdatacount.'';
              $unfollow .= ')</div>';
-              echo $unfollow;
+             
+
+             if(count($followingotherdata) == 0){
+              $notfound = '<div>'; 
+             $notfound .= '<div class="text-center rio">';
+             $notfound = '<h4 class="page-heading  product-listing" style="border:0px;margin-bottom: 11px;">No Following Found.</h4>';
+             $notfound .= '</div></div>';
+            }
+
+              echo json_encode(
+                array("unfollow" => $unfollow,
+                    "notfound" => $notfound,
+                    "notcount" => $followingdatacount,
+                    ));
        }
        
        }

@@ -351,6 +351,7 @@ if($status == 0 || $status == " "){?>
                                 <h3>Followers</h3>
                                  <div class="contact-frnd-post">
                               
+                                <?php if(count($userlist) > 0){ ?>
                         <?php foreach ($userlist as $user) { ?>
 
                             
@@ -429,7 +430,15 @@ if($status == 0 || $status == " "){?>
                          </div>
                                                        
                                   </div>
-                                   <?php } ?>
+                                   <?php }  ?>
+
+                                   <?php }else{?>
+
+                            <div class="text-center rio">
+                            <h4 class="page-heading  product-listing" style="border:0px;margin-bottom: 11px;">No Followers Found.</h4>
+                           </div>
+
+                                   <?php }?>
                                         <div class="col-md-1">
                                         </div>
                                     </div>

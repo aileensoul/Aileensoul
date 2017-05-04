@@ -205,7 +205,7 @@ label.cameraButton input[accept*="camera"] {
                                    <?php
                             if($artisticdata[0]['user_id'] == $userid){ 
                             ?>      
-                                     <li <?php if($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'following'){?> class="active" <?php } ?>><a style="padding: 12px 15px 2px 15px" href="<?php echo base_url('artistic/following/'.$artisticdata[0]['user_id']); ?>">Following <br> (<?php echo (count($followingdata)); ?>)</a>
+                                     <li <?php if($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'following'){?> class="active" <?php } ?>><a style="padding: 12px 15px 2px 15px" href="<?php echo base_url('artistic/following/'.$artisticdata[0]['user_id']); ?>">Following <br> <div class= "frusercount">(<?php echo (count($followingdata)); ?>)</div></a>
                                     </li>
                                     <?php }else{
 
@@ -213,7 +213,7 @@ $artregid = $artisticdata[0]['art_id'];
 $contition_array = array('follow_from' => $artregid, 'follow_status' =>'1',  'follow_type' =>'1');
 $followingotherdata = $this->data['followingotherdata'] =  $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                                       ?>
-                                  <li <?php if($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'following'){?> class="active" <?php } ?>><a style="padding: 12px 15px 2px 15px" href="<?php echo base_url('artistic/following/'.$artisticdata[0]['user_id']); ?>">Following  <br>(<?php echo (count($followingotherdata)); ?>)</a>
+                                  <li <?php if($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'following'){?> class="active" <?php } ?>><a style="padding: 12px 15px 2px 15px" href="<?php echo base_url('artistic/following/'.$artisticdata[0]['user_id']); ?>">Following  <br><div class= "frusercount">(<?php echo (count($followingotherdata)); ?>)</div></a>
                                     </li> 
                                   <?php }?>  
 
@@ -345,13 +345,14 @@ if($status == 0 || $status == " "){?>
                                 <h3>Following</h3>
                                  <div class="contact-frnd-post">
                               
+                              <?php if(count($userlist ) > 0){?>
                         <?php foreach ($userlist as $user) { ?>
 
                             <?php
                                 $art_name =  $this->db->get_where('art_reg',array('art_id' => $user['follow_to']))->row()->art_name;
                                 $art_id =  $this->db->get_where('art_reg',array('art_id' => $user['follow_to']))->row()->user_id;
                              ?>  
-                                  <div class="job-contact-frnd " id="<?php echo "removefollow" . $user['follow_to']; ?>">
+                                  <div class="job-contact-frnd" id="<?php echo "removefollow" . $user['follow_to']; ?>">
 
                                         <div class="profile-job-post-detail clearfix">
                                             <div class="profile-job-post-title-inside clearfix">
@@ -443,6 +444,13 @@ if($status == 0 || $status == " "){?>
                                                        
                                   </div>
                                    <?php } ?>
+                                   <?php }else{?>
+
+                            <div class="text-center rio">
+                            <h4 class="page-heading  product-listing" style="border:0px;margin-bottom: 11px;">No Following Found.</h4>
+                        </div>
+
+                                   <?php }?>
                                         <div class="col-md-1">
                                         </div>
                                     </div>
@@ -935,12 +943,15 @@ function unfollowuser_list(clicked_id)
    $.ajax({
                 type:'POST',
                 url:'<?php echo base_url() . "artistic/unfollow_following" ?>',
+                dataType: 'json',
                  data:'follow_to='+clicked_id,
                 success:function(data){ 
-
-               $('.' + 'frusercount').html(data);
-
-                    
+               $('.' + 'frusercount').html(data.unfollow);
+               if(data.notcount == 0){
+                 $('.' + 'contact-frnd-post').html(data.notfound);
+               }else{ 
+               $('#' + 'removefollow' + clicked_id).html(data.notfound);
+                 }   
                 }
             }); 
 }
