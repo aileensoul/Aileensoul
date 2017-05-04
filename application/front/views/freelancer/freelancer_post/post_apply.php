@@ -548,7 +548,7 @@ $contition_array = array('from_id' => $userid, 'to_id' => $post['user_id'],'save
 $data = $this->common->select_data_by_condition('save', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
             if ($data){
                 ?>
-       <a class="applypost  button">Saved Post</a>
+       <a class="applypost  button">Saved</a>
     <?php } else { ?>
                 <input type="hidden" name="saveuser"  id="saveuser" value= "<?php echo $data[0]['save_id']; ?>"> 
 <a id="<?php echo $post['user_id']; ?>" onClick="savepopup(<?php echo $post['user_id']; ?>)" href="javascript:void(0);" class="<?php echo 'saveduser' . $post['user_id']; ?> applypost button">Save</a>

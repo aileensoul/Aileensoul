@@ -1,5 +1,8 @@
 <div class="col-md-7 col-sm-7">
                         <div class="job-search-box1 clearfix">
+
+                        	
+                        
                        <?php
                          echo form_open('search/freelancer_post_search'); ?>
                             <fieldset class="col-md-3">

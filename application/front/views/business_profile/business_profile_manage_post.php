@@ -3774,3 +3774,7 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
 
 
             </style>
+
+
+
+<script>

@@ -4070,7 +4070,7 @@ $followingdatacount = count($followingotherdata);
                 'not_from' => 3,
                 'not_img' => 4
             );
-            echo "<pre>"; print_r($datanotification); die();
+            //echo "<pre>"; print_r($datanotification); die();
             $insert_id_notification = $this->common->insert_data_getid($datanotification, 'notification');
             }
             // end notoification
