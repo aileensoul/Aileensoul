@@ -481,7 +481,7 @@ echo $freelancer_hire_header2;} ?>
                      echo $post['post_rate'];
                      echo "&nbsp";
                      echo $this->db->get_where('currency', array('currency_id' => $post['post_currency']))->row()->currency_name; echo "&nbsp";
-                      if($post['post_rating_type'] == 1){
+                      if($post['post_rating_type'] == 0){
                         echo "Hourly";
                       }else{echo "Fixed";}}
                      else{ echo PROFILENA;}
