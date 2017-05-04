@@ -4295,7 +4295,7 @@ textarea {overflow: hidden;}
 
 
 /* vishang 4-5-17 */
-.invited { background-color: #000033!important; color: #fff!important;   float: none !important; }
+.invited { background-color: #000033!important; margin-left: 0px!important; font-weight: bold; letter-spacing: 2px; margin-right: 10px!important; color: #fff!important;   float: none !important; }
 
 /* vishang 4-5-17 */
 
