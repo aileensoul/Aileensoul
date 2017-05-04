@@ -335,10 +335,8 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
         </div>
        </div>
         
-  
   </div>
 
-    
         <div class="user-midd-section">
             <div class="container">
                 <div class="row">
