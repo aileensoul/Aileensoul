@@ -1027,7 +1027,7 @@ foreach($finalsorting as $row)
 
                         <?php if($row['posted_user_id']){?>
                           <div class="else_post_d">
-                        <a class="post_dot"  href="<?php echo base_url('artistic/art_manage_post/' . $row['posted_user_id']); ?>"><?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?> </a><span style="font-weight: 600;"> Posted With 
+                        <a class="post_dot" title="<?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?>" href="<?php echo base_url('artistic/art_manage_post/' . $row['posted_user_id']); ?>"><?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?> </a><span style="font-weight: 600;"> Posted With 
                         </span><a  class="post_dot" href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>"><?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?></a>
 
 
@@ -1038,7 +1038,7 @@ foreach($finalsorting as $row)
                         <?php }else{?>
 
 
-                        <a class="post_dot" href="<?php echo base_url('artistic/art_manage_post/'.$row['user_id']); ?>"><?php echo ucwords($firstname); print "&nbsp;&nbsp;"; echo ucwords($lastname); ?> </a>
+                        <a title="<?php echo ucwords($firstname); print "&nbsp;&nbsp;"; echo ucwords($lastname); ?>" class="post_dot" href="<?php echo base_url('artistic/art_manage_post/'.$row['user_id']); ?>"><?php echo ucwords($firstname); print "&nbsp;&nbsp;"; echo ucwords($lastname); ?> </a>
 
     <div class="datespan">
     <span style="font-weight: 400;"> <?php// echo date('d-M-Y',strtotime($row['created_date'])); ?>

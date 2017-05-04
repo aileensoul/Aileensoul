@@ -632,8 +632,9 @@ width: 68px;">
 
                   ?>
 
-                        <li><div class="post-design-product"><a style="    font-size: 18px;
-    line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; "  href="<?php echo base_url('business_profile/business_resume/'.$slugname); ?>"> <span class="span_main_name">  <?php echo ucwords($companyname); ?> </span> <span> <?php echo date('d-M-Y',strtotime($busienss_data[0]['created_date'])); ?></span></a></div></li>
+                        <li><div class="post-design-product"><a class="post_dot" href="<?php echo base_url('business_profile/business_resume/'.$slugname); ?>"> <span class="span_main_name">  <?php echo ucwords($companyname); ?> </span> </a>
+
+                        <span> <?php echo date('d-M-Y',strtotime($busienss_data[0]['created_date'])); ?></span></div></li>
                         
 
                         <li><div class="post-design-product"><a><?php echo ucwords($category); ?></a></div></li>
