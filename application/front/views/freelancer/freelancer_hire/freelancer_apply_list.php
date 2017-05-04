@@ -84,7 +84,7 @@
                     <div class="profile-job-post-location-name-rec">
                   
 
-                 <div style="display: inline-block; float: left;">
+             <div style="display: inline-block; float: left;">
                      <div  class="buisness-profile-pic-candidate">
                                    <?php
                                 if ($row['freelancer_post_user_image']) {
@@ -104,8 +104,8 @@
              <div class="designation_rec" style="float: left;">
           <ul>
                <li>        
-             <a href="<?php echo base_url('freelancer/freelancer_post_profile/' . $row['user_id'].'?page=freelancer_hire'); ?>" title="<?php echo ucwords($row['freelancer_post_fullname']) . ' ' . ucwords($row['freelancer_post_username']); ?>"><h4>
-              <?php echo ucwords($row['freelancer_post_fullname']) . ' ' . ucwords($row['freelancer_post_username']); ?></h4>
+             <a href="<?php echo base_url('freelancer/freelancer_post_profile/' . $row['user_id'].'?page=freelancer_hire'); ?>" title="<?php echo ucwords($row['freelancer_post_fullname']) . ' ' . ucwords($row['freelancer_post_username']); ?>"><h6>
+              <?php echo ucwords($row['freelancer_post_fullname']) . ' ' . ucwords($row['freelancer_post_username']); ?></h6>
             </a>
           </li>
 
@@ -233,9 +233,9 @@
  <?php  $contition_array = array('invite_user_id' => $row['user_id'], 'post_id' => $postid, 'profile' => 'freelancer');
         $userdata = $this->common->select_data_by_condition('user_invite', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         if($userdata){ ?>
-          <div class="button invited" id="<?php echo 'invited' . $row['user_id']; ?>" > Invited</div>       
+          <a href="javascript:void(0);" class="button invited" id="<?php echo 'invited' . $row['user_id']; ?>" > Invited</a>       
          <?php }else{ ?>
-              <div class="button invite_border" id="<?php echo 'invited' . $row['user_id']; ?>" onclick="inviteuser(<?php echo $row['user_id']; ?>)"> Invite</div>
+              <a href="javascript:void(0);" class="button invite_border" id="<?php echo 'invited' . $row['user_id']; ?>" onclick="inviteuser(<?php echo $row['user_id']; ?>)"> Invite</a>
           <?php  } ?>
 
 

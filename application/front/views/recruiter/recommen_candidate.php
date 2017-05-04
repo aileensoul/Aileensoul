@@ -298,69 +298,72 @@ padding-top: 1px;}
                                             foreach ($candidatejob as $row) {
                                                 ?>
                                                 <div class="profile-job-post-detail clearfix">
-                                                    <div class="profile-job-post-title-inside clearfix">
-                                                        <div class="profile-job-profile-button clearfix">
+      <div class="profile-job-post-title-inside clearfix">
+          <div class="profile-job-profile-button clearfix">
                                                             <!-- pop up box start-->
-                                                            <div id="popup1" class="overlay">
-                                                                <div class="popup">
-                                                                    <div class="pop_content">
-                                                                        Your User is Successfully Saved.
-                                                                        <p class="okk"><a class="okbtn" href="#">Ok</a></p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
+               <div id="popup1" class="overlay">
+                 <div class="popup">
+                  <div class="pop_content">
+                     Your User is Successfully Saved.
+                  <p class="okk"><a class="okbtn" href="#">Ok</a></p>
+                   </div>
+                    </div>
+                      </div>
                                                             <!-- pop up box end-->
-                                                            <div class="profile-job-post-location-name-rec">
-                                                                <div style="display: inline-block; float: left;">
-                                                                    <div  class="buisness-profile-pic-candidate">
-                                                                        <?php
-                                                                        if ($row['job_user_image']) {
-                                                                            ?>
-                                                                            <img src="<?php echo base_url(USERIMAGE . $row['job_user_image']); ?>" alt="<?php echo $row[0]['fname'] . ' ' . $row[0]['lname']; ?>">
-                                                                            <?php
-                                                                        } else {
-                                                                            ?>
-                                                                            <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo $row[0]['fname'] . ' ' . $row[0]['lname']; ?>">
-                                                                            <?php
-                                                                        }
-                                                                        ?>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="designation_rec" style="float: left;">
-                                                                    <ul>
-                                                                        <li>
+     <div class="profile-job-post-location-name-rec">
+          <div style="display: inline-block; float: left;">
+             <div  class="buisness-profile-pic-candidate">
+               <?php
+                if ($row['job_user_image']) {
+               ?>
+            <img src="<?php echo base_url(USERIMAGE . $row['job_user_image']); ?>" alt="<?php echo $row[0]['fname'] . ' ' . $row[0]['lname']; ?>">
+             <?php
+            } else {
+              ?>
+           <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo $row[0]['fname'] . ' ' . $row[0]['lname']; ?>">
+             <?php
+                }
+               ?>
+           </div>
+       </div>
+   
+       <div class="designation_rec" style="float: left;">
+          <ul>
+       <li>
       <a style="  font-size: 19px;
          font-weight: 600;" href="<?php echo base_url('job/job_printpreview/' . $row['user_id'].'?page=recruiter'); ?>" title=" <?php echo $row['fname'] . ' ' . $row['lname']; ?>">
-                                                                                <?php echo ucwords($row['fname']) . ' ' . ucwords($row['lname']); ?></a>
-                                                                        </li>
-                                                                        <li style="display: block;">
-                                                                            <a  style="font-size: 16px;" href="<?php echo base_url('job/job_printpreview/' . $row['user_id'].'?page=recruiter'); ?>" title="<?php echo $row['designation']; ?>">
-                                                                                <?php
-                                                                                if ($row['designation']) {
-                                                                                    ?>
-                                                                                    <?php echo $row['designation']; ?>
-                                                                                    <?php
-                                                                                } else {
-                                                                                    ?>
-                                                                                    <?php echo "Designation"; ?>
-                                                                                    <?php
-                                                                                }
-                                                                                ?> 
-                                                                            </a>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="profile-job-post-title clearfix">
-                                                        <div class="profile-job-profile-menu">
-                                                            <ul>
-                                                                <?php
-                                                                if ($row['keyskill']) {
-                                                                    ?>
-                                                                    <li><b>Skills</b>
-                                                                        <span>
+       <?php echo ucwords($row['fname']) . ' ' . ucwords($row['lname']); ?></a>
+      </li>
+      
+      <li style="display: block;">
+        <a  style="font-size: 16px;" href="<?php echo base_url('job/job_printpreview/' . $row['user_id'].'?page=recruiter'); ?>" title="<?php echo $row['designation']; ?>">
+            <?php
+              if ($row['designation']) {
+             ?>
+            <?php echo $row['designation']; ?>
+               <?php
+           } else {
+                  ?>
+            <?php echo "Designation"; ?>
+                <?php
+               }
+                   ?> 
+           </a>
+       </li>
+    </ul>
+      </div>
+     </div>
+       </div>
+         </div>
+    
+         <div class="profile-job-post-title clearfix">
+             <div class="profile-job-profile-menu">
+                <ul>
+                     <?php
+                  if ($row['keyskill']) {
+                        ?>
+                <li><b>Skills</b>
+                       <span>
                                                                             <?php
                                                                             $comma = ",";
                                                                             $k = 0;
