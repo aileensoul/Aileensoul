@@ -2635,7 +2635,7 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
 //                    alert(clicked_id);
 //                    return false;
 
-                    $('textarea[id^=editcommenttwo]').css('display', 'none');
+                    $('div[id^=editcommenttwo]').css('display', 'none');
                     $('div[id^=showcommenttwo]').css('display', 'block');
                     $('button[id^=editsubmittwo]').css('display', 'none');
                     $('div[id^=editcommentboxtwo]').css('display', 'block');
@@ -3271,16 +3271,11 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
             <script type="text/javascript">
                 function editpost(abc)
                 {
-
-
-
                     document.getElementById('editpostdata' + abc).style.display = 'none';
                     document.getElementById('editpostbox' + abc).style.display = 'block';
                     document.getElementById('editpostdetails' + abc).style.display = 'none';
                     document.getElementById('editpostdetailbox' + abc).style.display = 'block';
                     document.getElementById('editpostsubmit' + abc).style.display = 'block';
-
-
                 }
             </script>
 
@@ -3321,35 +3316,23 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
 
                             $('#' + 'editpostdata' + abc).html(data.title);
                             $('#' + 'editpostdetails' + abc).html(data.description);
-
                         }
                     });
-
                 }
             </script>
-
-
             <!-- edit post end -->
-
-
             <!-- remove save post start -->
-
             <script type="text/javascript">
                 function remove_post(abc)
                 {
-
                     $.ajax({
                         type: 'POST',
                         url: '<?php echo base_url() . "business_profile/business_profile_delete" ?>',
                         data: 'save_id=' + abc,
                         success: function (data) {
-
                             $('#' + 'removepostdata' + abc).html(data);
-
-
                         }
                     });
-
                 }
             </script>
 
@@ -3766,10 +3749,10 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
                 .likeuser_list{
                     background-color: #ccc;
                     float: left;
-                    margin-left: 8px;
-                    margin-right: 6px;
+                    margin: 0px 6px 5px 9px;
                     padding: 5px;
                     width: 47%;
+                    font-size: 14px;
                 }
 
 
