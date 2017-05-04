@@ -403,9 +403,19 @@ function text2link($text) {
                      <div class="profile-job-details col-md-12">
                           <ul>
                            <li class="fr">
-                              Created Date : <?php
-                            echo trim(date('d-M-Y', strtotime($post['created_date'])));
-                                   ?>
+                              Applied Date : <?php 
+                                                if($post['modify_date'])
+                                                    { 
+
+                                                    echo date('d-M-Y', strtotime($post['modify_date'])); 
+                                                    }
+                                                    else
+                                                    {
+                                                    
+
+                                                    echo date('d-M-Y', strtotime($post['created_date'])); 
+                                                    }
+                                                    ?>
                             </li>
                              <li>
                               <a href="#" title="Post Title" class="display_inline" style="font-size: 19px;font-weight: 600;cursor: default;">
@@ -508,36 +518,10 @@ function text2link($text) {
                                                                    
                                                                                             
                                           <li class=fr>
-                                          <?php
-$this->data['userid'] = $userid = $this->session->userdata('aileenuser');
- $contition_array = array('post_id' => $post['post_id'], 'job_delete' => 0, 'user_id' => $userid);
-$freelancerapply1 = $this->data['freelancerapply'] = $this->common->select_data_by_condition('freelancer_apply', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
- if ($freelancerapply1) {
-          ?>
-         <a href="javascript:void(0);" class="button applied">Applied</a>
- <?php
-} else {
-?>
-<input type="hidden" id="<?php echo 'allpost' . $post['post_id']; ?>" value="all">
 
- <input type="hidden" id="<?php echo 'userid' . $post['post_id']; ?>" value="<?php echo $post['user_id']; ?>">
-                <a class="applypost button" href="javascript:void(0);"  class= "<?php echo 'applypost' . $post['post_id']; ?>  button" onclick="applypopup(<?php echo $post['post_id'] ?>,<?php echo $post['user_id'] ?>)">Apply</a>
-                                                                    </li> 
-                <li>
-                <?php
-$userid = $this->session->userdata('aileenuser');
-            
-$contition_array = array('from_id' => $userid, 'to_id' => $post['user_id'],'save_type' => 2,'status'=> 0);
-$data = $this->common->select_data_by_condition('save', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-            if ($data){
-                ?>
-       <a class="applypost  button">Saved Post</a>
-    <?php } else { ?>
-                <input type="hidden" name="saveuser"  id="saveuser" value= "<?php echo $data[0]['save_id']; ?>"> 
-<a id="<?php echo $post['user_id']; ?>" onClick="savepopup(<?php echo $post['user_id']; ?>)" href="javascript:void(0);" class="<?php echo 'saveduser' . $post['user_id']; ?> applypost button">Save</a>
+<a href="javascript:void(0);" class="button fr" onclick="removepopup(<?php echo  $post['app_id'];?>)">Remove</a>
 
-                <?php }?>
-                <?php }?>
+                                          
 
                                                                    </li>                        
 

@@ -5,11 +5,63 @@
 
 <!--post save success pop up style strat -->
 <style>
-    body {
-        font-family: Arial, sans-serif;
-        background-size: cover;
-        height: 100vh;
+    .okk{
+        text-align: center;
     }
+
+    .pop_content .okbtn{
+        position: absolute;
+        transition: all 200ms;
+        font-size: 16px;
+        text-decoration: none;
+        color: #fff;
+        padding: 8px 18px;
+        background-color: #0A2C5D;
+        left: 170px;
+        margin-top: 8px;
+        width: 100px; 
+        border-radius: 8px;
+    }
+
+
+    .pop_content .cnclbtn {
+        position: absolute;
+        transition: all 200ms;
+        font-size: 16px;
+        text-decoration: none;
+        color: #fff;
+        padding: 8px 18px;
+        background-color: #0A2C5D;
+        right: 170px;
+        margin-top: 8px;
+        width: 100px;
+        border-radius: 8px;
+    }
+
+    .popup .pop_content {
+        text-align: center;
+        margin-top: 40px;
+
+    }
+    .model_ok_cancel{
+        width:200px !important;
+    }
+
+    /*
+        @media screen and (max-width: 700px){
+            .box{
+                width: 70%;
+            }
+            .popup{
+                width: 70%;
+            }
+        } */
+
+
+</style>
+
+<!--post save success pop up style strat -->
+<style>
 
     .box {
         width: 40%;
@@ -107,7 +159,6 @@
 
 <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/3.3.0/select2.css'); ?>">
-<link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
 <link href="<?php echo base_url() ?>css/fileinput.css" media="all" rel="stylesheet" type="text/css"/>
 <link href="<?php echo base_url() ?>js/themes/explorer/theme.css" media="all" rel="stylesheet" type="text/css"/>
 <script src="<?php echo base_url() ?>js/jquery-2.0.3.min.js" type="text/javascript"></script>
@@ -119,7 +170,7 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
 <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
 
-<!-- <link rel="stylesheet" href="<?php //echo base_url('assets/css/croppie.css');                  ?>">
+<!-- <link rel="stylesheet" href="<?php //echo base_url('assets/css/croppie.css');                    ?>">
 --><style type="text/css" media="screen">
     #row2 { overflow: hidden; width: 100%; }
     #row2 img { height: 350px;width: 100%; } 
@@ -264,7 +315,7 @@
                     $userid = $this->session->userdata('aileenuser');
                     if ($businessdata1[0]['user_id'] == $userid) {
                         ?>
-                                                                                                <!-- <a href="#popup-form" class="fancybox"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a> -->
+                                                                                                        <!-- <a href="#popup-form" class="fancybox"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a> -->
 
                         <a href="javascript:void(0);" onclick="updateprofilepopup();"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>
 
@@ -325,13 +376,13 @@
 
                     if ($status == 0 || $status == " ") {
                         ?>
-                                                                                              <div class="msg_flw_btn_1" id= "followdiv">
-                                                                                                  <button  id="<?php echo "follow" . $businessdata1[0]['business_profile_id']; ?>" onClick="followuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Follow</button>
-                                                                                              </div>
+                                                                                                      <div class="msg_flw_btn_1" id= "followdiv">
+                                                                                                          <button  id="<?php echo "follow" . $businessdata1[0]['business_profile_id']; ?>" onClick="followuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Follow</button>
+                                                                                                      </div>
                     <?php } elseif ($status == 1) { ?>
-                                                                                              <div class="msg_flw_btn_1" id= "unfollowdiv">
-                                                                                                  <button id="<?php echo "unfollow" . $businessdata1[0]['business_profile_id']; ?>" onClick="unfollowuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Following </button>
-                                                                                              </div>
+                                                                                                      <div class="msg_flw_btn_1" id= "unfollowdiv">
+                                                                                                          <button id="<?php echo "unfollow" . $businessdata1[0]['business_profile_id']; ?>" onClick="unfollowuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Following </button>
+                                                                                                      </div>
                     <?php } ?>
                               </div> 
                               <a href="<?php echo base_url('chat/abc/' . $businessdata1[0]['user_id']); ?>">Message</a>
@@ -364,8 +415,8 @@
                         if ($businessdata1[0]['user_id'] == $userid) {
                             ?> 
 
-                                                                                                 <!--  <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_profile_save_post') { ?> class="active" <?php } ?>><a href="<?php echo base_url('business_profile/business_profile_save_post'); ?>">Saved Post</a>
-                                                                                                        </li> -->
+                                                                                                         <!--  <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_profile_save_post') { ?> class="active" <?php } ?>><a href="<?php echo base_url('business_profile/business_profile_save_post'); ?>">Saved Post</a>
+                                                                                                                </li> -->
 
                             <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'userlist') { ?> class="active" <?php } ?>><a href="<?php echo base_url('business_profile/userlist'); ?>">Userlist</a>
                             </li>
@@ -1150,7 +1201,7 @@
                                                 <a id="<?php echo $row['business_profile_post_id']; ?>" onClick="editpost(this.id)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit</a>
 
                                             <?php } else { ?>
-                                                                                                                                            <!-- <a href="<?php //echo "#popup5" . $row['business_profile_post_id'];                  ?>"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete Post</a> -->
+                                                                                                                                                            <!-- <a href="<?php //echo "#popup5" . $row['business_profile_post_id'];                    ?>"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete Post</a> -->
 
 
                                                 <!-- <?php
@@ -1160,13 +1211,13 @@
 
                                                 if ($businesssave) {
                                                     ?>
-                                                                                                                
-                                                                                                                   <a><i class="fa fa-bookmark" aria-hidden="true"></i>Saved Post</a>
-                                                                                                                
+                                                                                                                        
+                                                                                                                           <a><i class="fa fa-bookmark" aria-hidden="true"></i>Saved Post</a>
+                                                                                                                        
                                                 <?php } else { ?>
-                                                                                                                
-                                                                                                                   <a id="<?php echo $row['business_profile_post_id']; ?>" onClick="save_post(this.id)" href="#popup1" class="<?php echo 'savedpost' . $row['business_profile_post_id']; ?>"><i class="fa fa-bookmark" aria-hidden="true"></i>  Save Post</a> 
-                                                                                                                
+                                                                                                                        
+                                                                                                                           <a id="<?php echo $row['business_profile_post_id']; ?>" onClick="save_post(this.id)" href="#popup1" class="<?php echo 'savedpost' . $row['business_profile_post_id']; ?>"><i class="fa fa-bookmark" aria-hidden="true"></i>  Save Post</a> 
+                                                                                                                        
                                                 <?php } ?> -->
 
                                                 <a href="<?php echo base_url('business_profile/business_profile_contactperson/' . $row['user_id'] . ''); ?>"><i class="fa fa-user" aria-hidden="true"></i> Contact Person</a>
@@ -1194,8 +1245,8 @@
 
                                         <div id="<?php echo 'editpostdetailbox' . $row['business_profile_post_id']; ?>" style="display:none;">
 
-                                                                                                    <!-- <textarea id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" name="editpostdesc"><?php echo $row['product_description']; ?>
-                                                                                                    </textarea> 
+                                                                                                            <!-- <textarea id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" name="editpostdesc"><?php echo $row['product_description']; ?>
+                                                                                                            </textarea> 
                                             -->
                                             <div  contenteditable="true" id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" placeholder="Product Description" class="textbuis  editable_text"  name="editpostdesc"><?php echo $row['product_description']; ?></div>
 
@@ -1478,7 +1529,8 @@
                                     </div>
                                     <!-- pop up box end-->
                                     <div style="padding-top: 6px; padding-bottom: 6px;">
-                                        <a  href="<?php echo "#popuplike" . $row['business_profile_post_id']; ?>">
+                                        <!--<a  href="<?php echo "#popuplike" . $row['business_profile_post_id']; ?>">-->
+                                        <a href="javascript:void(0);"  onclick="likeuserlist(<?php echo $row['business_profile_post_id']; ?>);">
                                             <?php
                                             $contition_array = array('business_profile_post_id' => $row['business_profile_post_id'], 'status' => '1', 'is_delete' => '0');
                                             $commnetcount = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -1566,7 +1618,7 @@
                                                         <div class="comment-details" id= "<?php echo "showcomment" . $rowdata['business_profile_post_comment_id']; ?>">
                                                             <?php
                                                             echo text2link($rowdata['comments']);
-                                                            echo '</br>';
+                                                            //  echo '</br>';
                                                             ?>
                                                         </div>
                                                         <!--                                                        <div class="col-md-12">
@@ -1768,6 +1820,20 @@
             </div>
             <!-- Model Popup Close -->
 
+            <!-- Bid-modal-2  -->
+            <div class="modal fade message-box" id="likeusermodal" role="dialog">
+                <div class="modal-dialog modal-lm">
+                    <div class="modal-content">
+                        <button type="button" class="modal-close" data-dismiss="modal">&times;</button>       
+                        <div class="modal-body">
+                            <span class="mes">
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Model Popup Close -->
+
             </body>
 
             </html>
@@ -1924,9 +1990,6 @@
                     document.getElementById("upload-demo").style.visibility = "hidden";
                     document.getElementById("upload-demo-i").style.visibility = "hidden";
                     document.getElementById('message1').style.display = "block";
-
-
-
                 }
 
 
@@ -2479,7 +2542,14 @@
             <!--comment like script end -->
 
             <script type="text/javascript">
-                function comment_delete(clicked_id)
+
+                function comment_delete(clicked_id) {
+                    $('.biderror .mes').html("<div class='pop_content'>Are you sure want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='comment_deleted(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+                    $('#bidmodal').modal('show');
+                }
+
+
+                function comment_deleted(clicked_id)
                 {
 
                     var post_delete = document.getElementById("post_delete");
@@ -2501,8 +2571,14 @@
                     });
                 }
 
-
                 function comment_deletetwo(clicked_id)
+                {
+
+                    $('.biderror .mes').html("<div class='pop_content'>Are you sure want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='comment_deletedtwo(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+                    $('#bidmodal').modal('show');
+                }
+
+                function comment_deletedtwo(clicked_id)
                 {
 
                     var post_delete1 = document.getElementById("post_deletetwo");
@@ -3651,5 +3727,23 @@
 
                     // });
 
+                }
+            </script>
+            <script type="text/javascript">
+                function likeuserlist(post_id) {
+
+                    $.ajax({
+                        type: 'POST',
+                        url: '<?php echo base_url() . "business_profile/likeuserlist" ?>',
+                        data: 'post_id=' + post_id,
+                        dataType: "html",
+                        success: function (data) {
+                            var html_data = data; 
+                            $('.biderror .mes').html(html_data);
+                            $('#likeusermodal').modal('show');
+                        }
+                    });
+
+                    
                 }
             </script>

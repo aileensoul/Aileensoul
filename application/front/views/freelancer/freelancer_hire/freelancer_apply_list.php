@@ -204,13 +204,26 @@
            
           <?php if($userid != $row['user_id']){ ?>
        <a href="<?php echo base_url('chat/abc/' . $row['user_id']); ?>">Message</a>
+
+ <?php  $contition_array = array('invite_user_id' => $row['user_id'], 'post_id' => $postid, 'profile' => 'freelancer');
+        $userdata = $this->common->select_data_by_condition('user_invite', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        if($userdata){ ?>
+          <div class="button invite_border" id="<?php echo 'invited' . $row['user_id']; ?>" > Invited</div>       
+         <?php }else{ ?>
+              <div class="button invite_border" id="<?php echo 'invited' . $row['user_id']; ?>" onclick="inviteuser(<?php echo $row['user_id']; ?>)"> Invite</div>
+          <?php  } ?>
+
+
+
+
+
+
         <?php    if (!$data) {
                 ?> 
          <input type="hidden" name="saveuser"  id="saveuser" value= "<?php echo $data[0]['save_id']; ?>">
         <!-- pallavi changes 15-4 -->
         <a id="<?php echo $row['user_id']; ?>" onClick="savepopup(<?php echo$row['user_id']; ?>)" href="javascript:void(0);" class="<?php echo 'saveduser' . $row['user_id']; ?>">Save</a>
           <!-- pallavi changes end 15-4 -->
-
          <!--  <a id="<?php echo $row['user_id']; ?>" onClick="save_user(this.id)" href="#popup1" class="<?php echo 'saveduser' . $row['user_id']; ?>">Save User</a> -->
                 <?php
             } else {
@@ -218,17 +231,11 @@
          <a class="saved" href="javascript:void(0);" onclick="return false">Saved</a>
          
                 <?php
-                // khayti changes end 6-4                              
+                                          
             }
-            ?> 
+          
          
-         <?php  $contition_array = array('invite_user_id' => $row['user_id'], 'post_id' => $postid, 'profile' => 'freelancer');
-        $userdata = $this->common->select_data_by_condition('user_invite', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-        if($userdata){ ?>
-          <div class="button invite_border" id="<?php echo 'invited' . $row['user_id']; ?>" > Invited</div>       
-         <?php }else{ ?>
-              <div class="button invite_border" id="<?php echo 'invited' . $row['user_id']; ?>" onclick="inviteuser(<?php echo $row['user_id']; ?>)"> Invite</div>
-          <?php  } }?>
+         }?>
                  </div>
               </div>
             </div>
