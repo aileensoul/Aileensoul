@@ -241,7 +241,7 @@ if ($user_data) {
     font-weight: 600;" href="<?php echo base_url('job/job_printpreview/' . $row['user_id'].'?page=recruiter'); ?>">
                 <?php echo ucwords($row['fname']) . ' ' . ucwords($row['lname']); ?></a>
                           </li>
-                         <li>
+                         <li class="show">
                    <a  style="font-size: 19px;" href="<?php echo base_url('job/job_printpreview/' . $row['user_id']); ?>">
                       <?php
                    if ($row['designation']) {
