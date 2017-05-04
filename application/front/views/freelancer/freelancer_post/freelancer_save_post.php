@@ -428,8 +428,8 @@
                                                                 </li>
 
 
-                                                                <?php if ($post['other_skill']) { ?>
-                                                                    <li><b>Other Skill</b><span><?php echo $post['other_skill']; ?></span>
+                                                                <?php if ($post['post_other_skill']) { ?>
+                                                                    <li><b>Other Skill</b><span><?php echo $post['post_other_skill']; ?></span>
                                                                     </li>
                                                                 <?php } else { ?>
                                                                     <li><b>Other Skill</b><span><?php echo "-"; ?></span></li><?php } ?>
