@@ -402,7 +402,7 @@ if ($freehiredata[0]['designation']) {
                                                                                     
                                                                                 </div></li>
                                                                             <li>
-                                                                                <a href="<?php echo base_url('freelancer/freelancer_post_profile/' . $row['user_id']); ?>" title="<?php echo ucwords($row['freelancer_post_fullname']) . ' ' . ucwords($row['freelancer_post_username']); ?>"><h6>
+          <a href="<?php echo base_url('freelancer/freelancer_post_profile/' . $row['user_id'].'?page=freelancer_hire'); ?>" title="<?php echo ucwords($row['freelancer_post_fullname']) . ' ' . ucwords($row['freelancer_post_username']); ?>"><h6>
             <?php echo ucwords($row['freelancer_post_fullname']) . ' ' . ucwords($row['freelancer_post_username']); ?></h6>
                                                                                 </a></li>
 
@@ -465,13 +465,17 @@ if ($freehiredata[0]['designation']) {
                                                                     echo PROFILENA;
                                                                     }?></span>
                                                                 </li>
-                                                                <li><b>Rate</b> <span>
-                                                                    <?php if ($row['freelancer_post_hourly']){
-                                                                    $currency = $this->db->get_where('currency', array('currency_id' => $row['freelancer_post_ratestate']))->row()->currency_name;
-                                                                    if($row['freelancer_post_fixed_rate'] == '1'){ $rate_type = 'Fixed';}else{ $rate_type = 'Hourly';}
-                                                                    echo $row['freelancer_post_hourly'] . "   " . $currency. "  ".$rate_type;;
-                                                                }
-                                                                else{
+                                                                <li><b>Rate Hourly</b> <span>
+                          <?php if ($row['freelancer_post_hourly']){
+                              $currency = $this->db->get_where('currency', array('currency_id' => $row['freelancer_post_ratestate']))->row()->currency_name;
+
+                                      if($row['freelancer_post_fixed_rate'] == '1'){ 
+                                        echo $row['freelancer_post_hourly'] . "   " . $currency. " (Also work on fixed Rate)";}
+                                        else{ 
+                                            echo $row['freelancer_post_hourly'] . "   " . $currency;
+                                        }
+                                          }
+                                                    else{
                                                                     echo PROFILENA;
                                                                 }
                                                                     ?></span>
