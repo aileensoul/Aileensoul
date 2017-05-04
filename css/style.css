@@ -3793,34 +3793,34 @@ li.fr a{
 
 
 .user_lst ul li .user_btn_f button {width:6em}
-.user_lst ul li .user_btn_f button:hover span {display:none}
+/*.user_lst ul li .user_btn_f button:hover span {display:none}*/
 /*.user_lst ul li .user_btn_f button:hover:before {content:"Unfollow";} */
 
 
-.user_btn_i button:after{
+/*.user_btn_i button:after{
     content: ''
 }
 .user_btn_i:hover button:after {
     content: '';
-}
+}*/
 
 .user_btn_h button:after{
     content: 'Following'
 }
-.user_btn_h:hover button:after {
+/*.user_btn_h:hover button:after {
     content: 'Unfollow';
 }
-
-.user_btn_f button:after{
+*/
+/*.user_btn_f button:after{
     content: ''
-}
-.user_btn_f:hover button:after {
+}*/
+/*.user_btn_f:hover button:after {
     content: 'Unfollow';
-}
-
+}*/
+/*
 .user_btn_f:hover button:before{
     content: ''
-}
+}*/
 
 /* 21-4-2017 @nkit */
 
