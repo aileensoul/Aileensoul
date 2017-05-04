@@ -342,7 +342,7 @@
 
 </html>
 <script src="<?php echo base_url('js/jquery.js'); ?>"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js">
+
     <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
     
     
@@ -369,101 +369,9 @@ $('#datepicker').datetimepicker({
 </script>
 <!-- Calender Js End-->
 
-<!-- Field Validation Js Start -->
-<!--<script type="text/javascript" src="<?php echo base_url('js/jquery-1.11.1.min.js'); ?>"></script>-->
-<!--<script type="text/javascript" src="<?php echo base_url('js/jquery.validate1.15.0..min.js'); ?>"></script>-->
-<!--<script type="text/javascript" src="<?php echo base_url('js/additional-methods1.15.0.min.js'); ?>"></script>-->
-
-<!-- Field Validation Js End -->
-
-<!-- javascript validation start -->
-   <script type="text/javascript">
-
-           
-
-            $(document).ready(function () { 
-
-                $("#postinfo").validate({
-
-                  ignore: '*:not([name])',
-
-                    rules: {
-
-                        post_name: {
-
-                            required: true,
-                           
-                        },
-
-                         'skills[]': {
-                            
-                          require_from_group: [1, ".keyskil"] 
-                          //required:true 
-                        }, 
-
-                        other_skill: {
-                            
-                           require_from_group: [1, ".keyskil"]
-                            // required:true 
-                        },
-                       
-                      
-                       post_desc: {
-
-                            required: true,
-                           
-                        },
-                        last_date:{
-                          required:true,
-                        },
-                        currency:{
-                          required:true,
-                        }
-                      
-                    },
-
-                    messages: {
-
-                        post_name: {
-
-                            required: "Post name Is Required.",
-                            
-                        },
-
-                       'skills[]': {
-
-                            require_from_group: "You must either fill out 'Keyskills' or 'Other Skills'"
-
-                        },
-
-                        other_skill: {
-
-                            require_from_group: "You must either fill out 'Keyskills' or 'Other Skills'"
-                        },
-                        
-                        post_desc: {
-
-                            required: "Post Description  Is Required.",
-                            
-                        },
-                       last_date:{
-                         required:"Last Date of apply is required.",
-                       },
-                       currency:{
-                        required:"Please select currency type",
-                       }
-
-                    },
-
-                });
-                   });
-</script>
-<!-- javascript validation End -->
-<!-- 
-<rash code 7-4 start> -->
 
 
- <script>
+<script>
 
 var data= <?php echo json_encode($demo); ?>;
 //alert(data);
@@ -508,6 +416,119 @@ function checkvalue(){
   }
 }
 </script>
+
+
+<!-- Field Validation Js Start -->
+<!-- <script type="text/javascript" src="<?php echo base_url('js/jquery-1.11.1.min.js'); ?>"></script> -->
+<script type="text/javascript" src="<?php echo base_url('js/jquery.validate1.15.0..min.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('js/additional-methods1.15.0.min.js'); ?>"></script> 
+
+<!-- Field Validation Js End -->
+
+<!-- javascript validation start -->
+   <script type="text/javascript">
+
+           
+
+            $(document).ready(function () { 
+
+                $("#postinfo").validate({
+
+                  ignore: '*:not([name])',
+
+                    rules: {
+
+                        post_name: {
+
+                            required: true,
+                           
+                        },
+
+                         'skills[]': {
+                            
+                          require_from_group: [1, ".keyskil"] 
+                          //required:true 
+                        }, 
+
+                        other_skill: {
+                            
+                           require_from_group: [1, ".keyskil"]
+                            // required:true 
+                        },
+                        fields_req:{
+                            required:true,
+                        },
+                      
+                       post_desc: {
+
+                            required: true,
+                           
+                        },
+                        last_date:{
+                          required:true,
+                        },
+                        currency:{
+                          required:true,
+                        },
+                        rate:{
+                          required:true,
+                        },
+                        country:{
+                          required:true,
+                        }
+                      
+                    },
+
+                    messages: {
+
+                        post_name: {
+
+                            required: "Post name Is Required.",
+                            
+                        },
+
+                       'skills[]': {
+
+                            require_from_group: "You must either fill out 'Keyskills' or 'Other Skills'"
+
+                        },
+
+                        other_skill: {
+
+                            require_from_group: "You must either fill out 'Keyskills' or 'Other Skills'"
+                        },
+                        fields_req:{
+                          required:"Please Select Field of Requirement",
+                        },
+                        
+                        post_desc: {
+
+                            required: "Post Description  Is Required.",
+                            
+                        },
+                       last_date:{
+                         required:"Last Date of apply is required.",
+                       },
+                       currency:{
+                        required:"Please select currency type",
+                       },
+                       rate:{
+                        required:"Rate is Required",
+                       },
+                       country:{
+                        required:"Please Select Country"
+                       }
+
+                    },
+
+                });
+                   });
+</script>
+<!-- javascript validation End -->
+<!-- 
+<rash code 7-4 start> -->
+
+
  
  <!-- <rash code 7-4 end>  -->
 
