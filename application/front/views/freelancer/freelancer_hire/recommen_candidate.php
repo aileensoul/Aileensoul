@@ -527,7 +527,10 @@
             // khayti changes start 6-4
             ?>
               <!--<a href="<?php echo base_url('chat/abc/' . $row['user_id']); ?>">Saved</a>-->
-           <a href="<?php echo base_url('chat/abc/' . $row['user_id']); ?>">Message</a>
+            <?php   
+            
+            if($userid != $row['user_id']){ ?>
+          <a href="<?php echo base_url('chat/abc/' . $row['user_id']); ?>">Message</a>
 
           <?php
             if (!$data) {
@@ -543,7 +546,7 @@
          <a class="saved" href="javascript:void(0);" onclick="return false">Saved</a> 
                 <?php
                 // khayti changes end 6-4                              
-            }
+            } }
             ?> 
                  </div>
               </div>
