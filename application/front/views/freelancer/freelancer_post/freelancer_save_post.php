@@ -835,7 +835,7 @@ $( "#tags" ).autocomplete({
     // var alldata = document.getElementById("allpost" + abc);
     // var user = document.getElementById("userid" + abc);
             var alldata = 'all';
-            var user = <?php echo $aileenuser_id; ?>;
+            var user = abc;
             var appid = xyz;
 
     $.ajax({
