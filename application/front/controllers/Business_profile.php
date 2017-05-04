@@ -1,4 +1,5 @@
 <?php
+
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
@@ -2905,7 +2906,7 @@ class Business_profile extends MY_Controller {
                 $countlike = $commnetcount[0]['business_likes_count'] - 1;
 
                 $likelistarray = explode(',', $likeuser);
-                
+
                 $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $likelistarray[0], 'status' => 1))->row()->company_name;
 
                 $cmtlikeuser .= '<div class="fl" style=" padding-left: 22px;" >';
@@ -2999,13 +3000,13 @@ class Business_profile extends MY_Controller {
 
                 $contition_array = array('business_profile_post_id' => $businessprofiledata2[0]['business_profile_post_id'], 'status' => '1', 'is_delete' => '0');
                 $commnetcount = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-                
-                
+
+
                 $likeuser = $commnetcount[0]['business_like_user'];
                 $countlike = $commnetcount[0]['business_likes_count'] - 1;
 
                 $likelistarray = explode(',', $likeuser);
-                
+
                 $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $likelistarray[0], 'status' => 1))->row()->company_name;
 
                 $cmtlikeuser .= '<div class="fl" style=" padding-left: 22px;" >';
@@ -5453,4 +5454,24 @@ class Business_profile extends MY_Controller {
     }
 
     //postnews page controller end
+
+    public function likeuserlist() {
+        $post_id = $_POST['post_id'];
+
+        $contition_array = array('business_profile_post_id' => $row['business_profile_post_id'], 'status' => '1', 'is_delete' => '0');
+        $commnetcount = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+        $likeuser = $commnetcount[0]['business_like_user'];
+        $countlike = $commnetcount[0]['business_likes_count'] - 1;
+
+        $likelistarray = explode(',', $likeuser);
+
+        foreach ($likelistarray as $key => $value) {
+            $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $value, 'status' => 1))->row()->company_name;
+            echo '<a href="'.base_url('business_profile/business_resume/' . $value).'">';
+            echo ucwords($business_fname1);
+            echo '</a>';
+        }
+    }
+
 }
