@@ -1981,7 +1981,7 @@ $followingdatacount = count($followingotherdata);
              if(count($followingotherdata) == 0){
               $notfound = '<div>'; 
              $notfound .= '<div class="text-center rio">';
-             $notfound = '<h4 class="page-heading  product-listing" style="border:0px;margin-bottom: 11px;">No Following Found.</h4>';
+             $notfound .= '<h4 class="page-heading  product-listing" style="border:0px;margin-bottom: 11px;">No Following Found.</h4>';
              $notfound .= '</div></div>';
             }
 
