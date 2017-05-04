@@ -2570,7 +2570,7 @@ $followingdatacount = count($followingotherdata);
                 'not_read' => 2,
                 'not_product_id' => $post_id,
                 'not_from' => 3,
-                'not_img' => 2
+                'not_img' => 3
             );
 
             $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -2678,7 +2678,7 @@ $followingdatacount = count($followingotherdata);
                 'not_read' => 2,
                 'not_product_id' => $post_id,
                 'not_from' => 3,
-                'not_img' => 2
+                'not_img' => 3
             );
 
             $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -3011,7 +3011,7 @@ $followingdatacount = count($followingotherdata);
                 'not_read' => 2,
                 'not_product_id' => $post_id,
                 'not_from' => 3,
-                'not_img' => 0
+                'not_img' => 2
             );
 
             $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -3284,7 +3284,7 @@ $followingdatacount = count($followingotherdata);
                 'not_read' => 2,
                 'not_product_id' => $insert_id,
                 'not_from' => 3,
-                'not_img' => 0
+                'not_img' => 1
             );
 
             $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -3420,7 +3420,7 @@ $followingdatacount = count($followingotherdata);
                 'not_read' => 2,
                 'not_product_id' => $insert_id,
                 'not_from' => 3,
-                'not_img' => 0
+                'not_img' => 1
             );
            //echo "<pre>"; print_r($notificationdata); 
             $insert_id_notification = $this->common->insert_data_getid($notificationdata, 'notification');
@@ -3916,7 +3916,7 @@ $followingdatacount = count($followingotherdata);
                 'not_read' => 2,
                 'not_product_id' => $insert_id,
                 'not_from' => 3,
-                'not_img' => 1
+                'not_img' => 5
             );
 
             $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -3985,6 +3985,25 @@ $followingdatacount = count($followingotherdata);
 
                 $updatdata = $this->common->update_data($data, 'art_post_image_like', 'post_image_id', $post_image);
 
+
+                // insert notification
+
+            if($likepostid[0]['user_id'] == $userid){}else{
+            $data = array(
+                'not_type' => 5,
+                'not_from_id' => $userid,
+                'not_to_id' => $likepostid[0]['user_id'] ,
+                'not_read' => 2,
+                'not_product_id' => $post_image_id,
+                'not_from' => 3,
+                'not_img' => 5
+            );
+
+            $insert_id = $this->common->insert_data_getid($data, 'notification');
+            }
+            // end notoification
+
+
                 $contition_array = array('post_image_id' => $_POST["post_image_id"], 'is_unlike' => '0');
                 $bdata2 = $this->data['bdata2'] = $this->common->select_data_by_condition('art_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -4049,7 +4068,7 @@ $followingdatacount = count($followingotherdata);
                 'not_read' => 2,
                 'not_product_id' => $insert_id,
                 'not_from' => 3,
-                'not_img' => 1
+                'not_img' => 4
             );
             echo "<pre>"; print_r($datanotification); die();
             $insert_id_notification = $this->common->insert_data_getid($datanotification, 'notification');
@@ -4217,7 +4236,7 @@ $followingdatacount = count($followingotherdata);
                 'not_read' => 2,
                 'not_product_id' => $insert_id,
                 'not_from' => 3,
-                'not_img' => 1
+                'not_img' => 4
             );
 
             $insert_id_notification = $this->common->insert_data_getid($datanotification, 'notification');
@@ -4377,7 +4396,7 @@ $followingdatacount = count($followingotherdata);
                 'not_read' => 2,
                 'not_product_id' => $insertdata,
                 'not_from' => 3,
-                'not_img' => 4
+                'not_img' => 6
             );
             //echo "<pre>"; print_r($data); die();
             $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -4462,7 +4481,7 @@ $followingdatacount = count($followingotherdata);
                 'not_read' => 2,
                 'not_product_id' => $post_image_comment_id,
                 'not_from' => 3,
-                'not_img' => 4
+                'not_img' => 6
             );
             //echo "<pre>"; print_r($data); die();
             $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -4539,7 +4558,7 @@ $followingdatacount = count($followingotherdata);
                 'not_read' => 2,
                 'not_product_id' => $insertdata,
                 'not_from' => 3,
-                'not_img' => 4
+                'not_img' => 6
             );
 
             $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -4623,7 +4642,7 @@ $followingdatacount = count($followingotherdata);
                 'not_read' => 2,
                 'not_product_id' => $post_image_comment_id,
                 'not_from' => 3,
-                'not_img' => 4
+                'not_img' => 6
             );
 
             $insert_id = $this->common->insert_data_getid($data, 'notification');
