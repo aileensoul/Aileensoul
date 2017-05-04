@@ -386,11 +386,26 @@
                <a  class="display_inline" href="#" title="Post Title" style="font-size: 19px;font-weight: 600;cursor: default;">
                <?php echo ucwords(text2link($post['post_name'])); ?> </a>   </li>
 
-            <li>   
-                  <div class="fr lction">
-               <?php $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name; ?>
-               <p><i class="fa fa-map-marker" aria-hidden="true"> <?php echo $cityname; ?></i></p>
-                   </div>
+             <li>   
+                                                    <div class="fr lction">
+                                                    <?php $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name;
+
+
+                                                     $countryname = $this->db->get_where('countries', array('country_id' => $post['country']))->row()->country_name; ?>
+                                                            <?php  
+                                                            if($cityname || $countryname)
+                                                            { 
+                                                            ?>
+                                                            <p><i class="fa fa-map-marker" aria-hidden="true">
+
+                                                            <?php  echo $cityname .', '. $countryname; ?> 
+                                                            </i></p>
+                                                            
+                                                            <?php
+                                                             }
+
+                                                             else{}?> 
+                                                    </div>
 
               <a class="display_inline" title="Company Name" href="<?php echo base_url('recruiter/rec_profile/' . $post['user_id'].'?page=job'); ?>" ><?php
                  $cache_time = $this->db->get_where('recruiter', array('user_id' => $post['user_id']))->row()->re_comp_name;
@@ -435,67 +450,37 @@
                                                 <?php } else { ?>
                                                     <li><b>Other Skill</b><span><?php echo "-"; ?></span></li><?php } ?>
 
-                                                <li><b>Description</b><span><p>
+                                                <li><b>Job Description</b><span><p>
                                                             <?php echo text2link($post['post_description']); ?> </p></span>
                                                 </li>
                                                 <li><b>Interview Process</b><span>
                                                         <?php echo $post['interview_process']; ?></span>
                                                 </li>
-                                                <li>
-                                                    <b>Require Experience</b>
-                                                    <span>
+                                                   <li>
+                                                <b>Required Experience</b>
+                                                <span>
+                                                    <p><?php 
 
-                                                        <p>
-                                                            <?php
-                                                            if ($post['min_year'] != 0 && $post['min_month'] != 0) {
-                                                                echo "Min :" . $post['min_year'] . " Year-" . $post['min_month'] . " Month";
-                                                            } elseif ($post['min_year'] == 0 && $post['min_month'] != 0) {
-                                                                echo "Min :" . $post['min_month'] . " Month";
-                                                            } elseif ($post['min_month'] == 0 && $post['min_year'] != 0) {
-                                                                echo "Min :" . $post['min_year'] . " Year";
-                                                            }
-                                                            echo ',';
-                                                            ?>
 
-                                                            <?php
-                                                            if ($post['max_year'] != 0 && $post['max_month'] != 0) {
-                                                                echo "Max : " . $post['max_year'] . " Year-" . $post['max_month'] . " Month";
-                                                            } elseif ($post['max_year'] == 0 && $post['max_month'] != 0) {
-                                                                echo "Max : " . $post['max_year'] . " Year-" . $post['max_month'] . " Month";
-                                                            } elseif ($post['max_month'] == 0 && $post['max_year'] != 0) {
-                                                                echo " Max : " . $post['max_year'] . " Year <br>";
-                                                            }
-                                                            ?>
 
-                                                            <?php
-                                                            if ($post['max_year'] == 0 && $post['max_month'] == 0 && $post['max_year'] == 0 && $post['max_month'] == 0) {
-                                                                echo '<br>';
-                                                                echo "Experience is not required";
-                                                            }
-// khyati changes end
-                                                            if ($post['fresher'] == 1) {
-                                                                echo '<br>';
-                                                                echo "Fresher can also apply.. !!";
-                                                            }
-                                                            ?>
-                                                        </p>  
 
-                                                    </span>
-                                                </li>
+      if(($post['min_year'] !='0' || $post['min_month'] !='0' || $post['max_month'] !='0' || $post['max_year'] !='0') && ($post['fresher'] == 1))
+     { 
+        echo $post['min_year'].'.'.$post['min_month'] . ' Year - '.$post['max_year'] .'.'.$post['max_month'] . ' Year'." , ". "Fresher can also apply.";
+     } 
+    else
+    {
+  echo $post['min_year'].'.'.$post['min_month'] . ' Year - '.$post['max_year'] .'.'.$post['max_month'] . ' Year';
+         
+    }
 
-                                                <?php if ($post['min_sal']) { ?>
-                                                    <li><b>Minimum Salary</b><span><?php echo $post['min_sal']; ?></span>
-                                                    </li>
-                                                <?php } else { ?>
-                                                    <li><b>Minimum Salary</b><span><?php echo "-"; ?></span>
-                                                    </li><?php } ?>
+ ?> 
+    </p>  
+                                                </span>
+                                            </li>
 
-                                                <?php if ($post['max_sal']) { ?>
-                                                    <li><b>Maximum Salary</b><span><?php echo $post['max_sal']; ?></span>
-                                                    </li>
-                                                <?php } else { ?>
-                                                    <li><b>Maximum Salary</b><span><?php echo "-"; ?></span>
-                                                    </li><?php } ?>
+                                                <li><b>Salary</b><span><?php echo $post['min_sal']." - ".$post['max_sal']; ?></span>
+                                            </li>
 
                                                 <li><b>No of Position</b><span><?php echo $post['post_position']; ?></span>
                                                 </li>

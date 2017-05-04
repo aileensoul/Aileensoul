@@ -193,11 +193,26 @@ echo $freelancer_post_header2;
                      
                         <li>
                             
- <input type="hidden" id="<?php echo 'hideenuser' . $this->uri->segment(3); ?>" value= "<?php echo $this->uri->segment(3); ?>">
-                  
-   <a id="<?php echo $this->uri->segment(3); ?>" onClick="savepopup(<?php echo $this->uri->segment(3); ?>)" href="javascript:void(0);" class="<?php echo 'saveduser' . $this->uri->segment(3); ?>">
-                      Save</a> 
-                   <a href="<?php echo base_url('chat/') ; ?>">Message</a></li>
+ <?php 
+   $userid = $this->session->userdata('aileenuser');
+   $contition_array = array('from_id' => $userid, 'to_id' => $this->uri->segment(3), 'save_type' => 2, 'status' => '0');
+   $data = $this->common->select_data_by_condition('save', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+  if($userid != $this->uri->segment(3)){ 
+    if (!$data) { ?> 
+                        <li> 
+                            <input type="hidden" id="<?php echo 'hideenuser' . $this->uri->segment(3); ?>" value= "<?php echo $this->uri->segment(3); ?>">
+                    <a id="<?php echo $this->uri->segment(3); ?>" onClick="savepopup(<?php echo $this->uri->segment(3); ?>)" href="javascript:void(0);" class="<?php echo 'saveduser' . $this->uri->segment(3); ?>">
+                        Save
+                    </a> 
+                        </li> <?php } else{ ?>
+                        <li> 
+                           <a class="saved">Saved </a> 
+                        </li> <?php 
+                                                                } ?>
+                      <li>
+           <a href="<?php echo base_url('chat/abc/' . $this->uri->segment(3)); ?>">Message</a>
+                 </li>
+  <?php } ?>
                     </ul>
                 </div>
             </div>
@@ -917,4 +932,31 @@ if ($freelancerpostdata[0]['freelancer_post_portfolio']) {
                                 $("a.designation").click(divClicked);
                             });
                         </script>
+                        
+                        <!-- save post start -->
+                    <script type="text/javascript">
+                        function save_user(abc)
+                        {
+                            var saveid = document.getElementById("saveuser");
+                            $.ajax({
+                                type: 'POST',
+                                url: '<?php echo base_url() . "freelancer/save_user" ?>',
+                                data: 'user_id=' + abc + 'save_id=' + saveid.value,
+                                success: function (data) {
+                                    $('.' + 'saveduser' + abc).html(data).addClass('saved');
+                                }
+                            });
+                        }
+                    </script>
+                    <!-- pallavi changes 15-4 -->
+                        
+                   <script>
+                        function savepopup(id) {
+
+                            save_user(id);
+//                       
+                            $('.biderror .mes').html("<div class='pop_content'>Your post is successfully saved.");
+                            $('#bidmodal').modal('show');
+                        }
+                    </script>
 

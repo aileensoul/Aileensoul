@@ -300,19 +300,14 @@ echo $freelancer_hire_header2;} ?>
             <div class="col-md-2">
                 <div class="flw_msg_btn fr">
                     <ul>
-                        <!-- <li class="fruser2">
-
-                                <div id="unfollowdiv">
-                                    <a id="unfollow2" onclick="unfollowuser(2)"> Following</a>
-                                </div>
-                        </li> -->
-                        <li>
-                            <a href="<?php echo base_url('message/message_chats/').$this->uri->segment(3); ?>">Message</a></li>
+     <?php $userid = $this->session->userdata('aileenuser');
+                        if($userid != $this->uri->segment(3)){ ?>
+                        <li> <a href="<?php echo base_url('chat/abc/' . $this->uri->segment(3)); ?>">Message</a> </li>
+                       <?php } ?>
                     </ul>
                 </div>
             </div>
-
-        </div>
+      </div>
 
 
         <div class="job-menu-profile1">
