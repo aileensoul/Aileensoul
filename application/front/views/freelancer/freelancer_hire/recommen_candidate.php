@@ -274,11 +274,8 @@
 
                                 <div class="profile-boxProfileCard  module">
                                     <div class="profile-boxProfileCard-cover">    <a class="profile-boxProfileCard-bg u-bgUserColor a-block"
-                                                                                     href="<?php echo base_url('freelancer/freelancer_hire_profile'); ?>"
-                                                                                     tabindex="-1"
-                                                                                     aria-hidden="true"
-                                                                                     rel="noopener" 
-                                                                                     title="<?php echo $freehiredata[0]['fullname'] . " " . $freehiredata[0]['username']; ?>">
+                                      href="<?php echo base_url('freelancer/freelancer_hire_profile'); ?>"  tabindex="-1" aria-hidden="true" rel="noopener" 
+                                             title="<?php echo $freehiredata[0]['fullname'] . " " . $freehiredata[0]['username']; ?>">
 
                                             <?php
                                             if ($freehiredata[0]['profile_background'] != '') {

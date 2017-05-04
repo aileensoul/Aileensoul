@@ -7,7 +7,17 @@
  *
  * Licensed under the BSD 3-Clause
  * https://github.com/kartik-v/bootstrap-fileinput/blob/master/LICENSE.md
+
+
  */
+
+$(function(){
+    $(".file-preview").hide();
+    $(".input-group-btn").on("click", function(){
+        $(".file-preview").show();
+    });
+});
+
 (function (factory) {
     "use strict";
     //noinspection JSUnresolvedVariable
@@ -44,7 +54,7 @@
         '<param name="autoPlay" value="false" />\n' +
         '<param name="autoStart" value="false" />\n' +
         '<param name="quality" value="high" />\n',
-        DEFAULT_PREVIEW: '<div class="file-preview-other">\n' +
+        DEFAULT_PREVIEW: '<div class="file-preview-other" style="display="none">\n' +
         '<span class="{previewFileIconClass}">{previewFileIcon}</span>\n' +
         '</div>',
         MODAL_ID: 'kvFileinputModal',
@@ -395,14 +405,14 @@
                 '    <div class="file-footer-caption" title="{caption}">{caption}<br>{size}</div>\n' +
                 '    {progress} {actions}\n' +
                 '</div>';
-         tActions = //'<div class="file-upload-indicator" title="{indicatorTitle}">{indicator}</div>\n' +
-               '{drag}\n' +
-              // '<div class="file-actions">\n' +
-               // '    <div class="file-footer-buttons">\n' +
-              //  '        {upload} {delete} {zoom} {other}' +
-              //  '    </div>\n' +
-              // '    <div class="clearfix"></div>\n' +
-             '</div>';
+            tActions = '<div class="file-upload-indicator" title="{indicatorTitle}">{indicator}</div>\n' +
+                '{drag}\n' +
+                '<div class="file-actions">\n' +
+                '    <div class="file-footer-buttons">\n' +
+                '        {upload} {delete} {zoom} {other}' +
+                '    </div>\n' +
+                '    <div class="clearfix"></div>\n' +
+                '</div>';
             //noinspection HtmlUnknownAttribute
             tActionDelete = '<button type="button" class="kv-file-remove {removeClass}" ' +
                 'title="{removeTitle}" {dataUrl}{dataKey}>{removeIcon}</button>\n';
@@ -545,14 +555,14 @@
                     uploadIcon: '<i class="glyphicon glyphicon-upload text-info"></i>',
                     uploadClass: 'btn btn-xs btn-default',
                     uploadTitle: 'Upload file',
-                   // zoomIcon: '<i class="glyphicon glyphicon-zoom-in"></i>',
+                    zoomIcon: '<i class="glyphicon glyphicon-zoom-in"></i>',
                     zoomClass: 'btn btn-xs btn-default',
                     zoomTitle: 'View Details',
                     dragIcon: '<i class="glyphicon glyphicon-menu-hamburger"></i>',
                     dragClass: 'text-info',
                     dragTitle: 'Move / Rearrange',
                     dragSettings: {},
-                   // indicatorNew: '<i class="glyphicon glyphicon-hand-down text-warning"></i>',
+                    indicatorNew: '<i class="glyphicon glyphicon-hand-down text-warning"></i>',
                     indicatorSuccess: '<i class="glyphicon glyphicon-ok-sign text-success"></i>',
                     indicatorError: '<i class="glyphicon glyphicon-exclamation-sign text-danger"></i>',
                     indicatorLoading: '<i class="glyphicon glyphicon-hand-up text-muted"></i>',
@@ -2563,7 +2573,7 @@
             }
             var icon = 'indicator' + status, msg = icon + 'Title',
                 css = 'file-preview-' + status.toLowerCase(),
-                $indicator = $thumb.find('.'),
+                $indicator = $thumb.find('.file-upload-indicator'),
                 config = self.fileActionSettings;
             $thumb.removeClass('file-preview-success file-preview-error file-preview-loading');
             if (status === 'Error') {
