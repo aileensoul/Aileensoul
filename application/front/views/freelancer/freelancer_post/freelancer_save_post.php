@@ -450,7 +450,7 @@
                                                                 </li>
                                                                 <!-- vishang 14-4 start -->
                                                                 <li>
-                                                                    <b>Require Experience</b>
+                                                                    <b>Required Experience</b>
                                                                     <span>
                                                                         <?php if($post['post_exp_month'] ||  $post['post_exp_year']){
             echo $post['post_exp_year'];   ?> year&nbsp;&nbsp;<?php  echo $post['post_exp_month'];}
@@ -463,7 +463,7 @@
 
                                                                
                                                                 
-                                                                <li><b>Estimate Time</b><span> <?php if($post['post_est_time']) {echo $post['post_est_time'];} else{echo PROFILENA; } ?></span>
+                                                                <li><b>Estimated Time</b><span> <?php if($post['post_est_time']) {echo $post['post_est_time'];} else{echo PROFILENA; } ?></span>
                                                                 </li>
 
 
