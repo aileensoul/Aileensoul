@@ -4283,7 +4283,7 @@ textarea {overflow: hidden;}
 /* v  1-5-17 end*/
 
 /* v 3-5-17 start*/
-.invite_border {  border: 1px solid #000033 !important; margin-right: 10px!important; float: none!important; }
+.invite_border {  border: 1px solid #000033 !important; margin-right: 10px!important; float: none!important; padding: 4px 20px !important; }
 .back_post_btn { background-color: #000033; color: #fff; padding: 10px 17px; border:1px solid #000033; border-radius: 25px;} 
 .back_post_btn i { display: none; }
 .back_post_btn:hover { background-color:;  }
@@ -4294,7 +4294,10 @@ textarea {overflow: hidden;}
 /* v 3-5-17 end*/
 
 
+/* vishang 4-5-17 */
+.invited { background-color: #000033!important; color: #fff!important;   float: none !important; }
 
+/* vishang 4-5-17 */
 
 
 .profile-job-details ul li{list-style: none;}
