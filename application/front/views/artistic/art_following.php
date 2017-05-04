@@ -246,11 +246,11 @@ $followingotherdata = $this->data['followingotherdata'] =  $this->common->select
 if($status == 0 || $status == " "){?>
 
  <div id= "followdiv">
-<a id="<?php echo "follow" . $artisticdata[0]['art_id']; ?>" onClick="followuser(<?php echo $artisticdata[0]['art_id']; ?>)">Follow</a>
+<button id="<?php echo "follow" . $artisticdata[0]['art_id']; ?>" onClick="followuser(<?php echo $artisticdata[0]['art_id']; ?>)">Follow</button>
 </div>
  <?php }elseif($status == 1){ ?>
 <div id= "unfollowdiv">
-<a id="<?php echo "unfollow" . $artisticdata[0]['art_id']; ?>" onClick="unfollowuser(<?php echo $artisticdata[0]['art_id']; ?>)"> Following</a>
+<button id="<?php echo "unfollow" . $artisticdata[0]['art_id']; ?>" onClick="unfollowuser(<?php echo $artisticdata[0]['art_id']; ?>)"> Following</button>
 </div>
 
 

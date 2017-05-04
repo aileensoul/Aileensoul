@@ -82,10 +82,10 @@
              <div class="profile-job-post-title-inside clearfix">
                  <div class="profile-job-profile-button clearfix">
                     <div class="profile-job-post-location-name-rec">
-                       <ul>
-                           <ul>
-                              <li>
-                                <div  class="buisness-profile-pic-candidate">
+                  
+
+                 <div style="display: inline-block; float: left;">
+                     <div  class="buisness-profile-pic-candidate">
                                    <?php
                                 if ($row['freelancer_post_user_image']) {
                               ?>
@@ -98,14 +98,27 @@
                     }
                      ?>
             </div>
-              </li>
+           </div>
 
-               <li>
+              
+             <div class="designation_rec" style="float: left;">
+          <ul>
+               <li>        
              <a href="<?php echo base_url('freelancer/freelancer_post_profile/' . $row['user_id'].'?page=freelancer_hire'); ?>" title="<?php echo ucwords($row['freelancer_post_fullname']) . ' ' . ucwords($row['freelancer_post_username']); ?>"><h4>
               <?php echo ucwords($row['freelancer_post_fullname']) . ' ' . ucwords($row['freelancer_post_username']); ?></h4>
             </a>
           </li>
+
+          <li style="display: block;" ><a href="#" title="" > <?php
+                 if ($row['designation']) {
+                  echo $row['designation'];
+                } else {
+                  echo PROFILENA;
+                   }
+                ?> </a></li>
        </ul>
+           </div>
+
         </div>
          </div>
           </div>  <div class="profile-job-post-title clearfix">
@@ -157,7 +170,7 @@
              }
             ?></p></span>
          </li>
-              <li><b>Designation</b>
+             <!--  <li><b>Designation</b>
                <span><?php
                  if ($row['designation']) {
                   echo $row['designation'];
@@ -165,7 +178,7 @@
                   echo PROFILENA;
                    }
                 ?></span>
-              </li>
+              </li> --> 
    
              <li><b>Avaiability</b><span>
               <?php

@@ -887,7 +887,7 @@ class Freelancer extends MY_Controller {
 
 
 $data='freelancer_post.post_id,freelancer_post.post_name,freelancer_post.post_field_req,freelancer_post.post_est_time,freelancer_post.post_skill,freelancer_post.post_other_skill,freelancer_post.post_rate,freelancer_post.post_last_date,freelancer_post.post_description,freelancer_post.user_id,freelancer_post.created_date,freelancer_post.post_currency,freelancer_post.post_rating_type,freelancer_post.country,freelancer_post.city,freelancer_post.post_exp_month,freelancer_post.post_exp_year,freelancer_hire_reg.username,freelancer_hire_reg.fullname,freelancer_hire_reg.designation,freelancer_hire_reg.freelancer_hire_user_image';
-        $postdata = $this->data['freelancerpostdata'] = $this->common->select_data_by_condition('freelancer_post', $contition_array, $data, $sortby = 'freelancer_post.created_date', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
+        $postdata = $this->data['freelancerpostdata'] = $this->common->select_data_by_condition('freelancer_post', $contition_array, $data, $sortby = 'freelancer_post.post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
        // echo "<pre>";print_r($postdata);die();
         
         }
@@ -903,7 +903,7 @@ $data='freelancer_post.post_id,freelancer_post.post_name,freelancer_post.post_fi
 
 
 $data='freelancer_post.post_id,freelancer_post.post_name,freelancer_post.post_field_req,freelancer_post.post_est_time,freelancer_post.post_skill,freelancer_post.post_other_skill,freelancer_post.post_rate,freelancer_post.post_last_date,freelancer_post.post_description,freelancer_post.user_id,freelancer_post.created_date,freelancer_post.post_currency,freelancer_post.post_rating_type,freelancer_post.country,freelancer_post.city,freelancer_post.post_exp_month,freelancer_post.post_exp_year,freelancer_hire_reg.username,freelancer_hire_reg.fullname,freelancer_hire_reg.designation,freelancer_hire_reg.freelancer_hire_user_image';
-        $postdata = $this->data['freelancerpostdata'] = $this->common->select_data_by_condition('freelancer_post', $contition_array, $data, $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
+        $postdata = $this->data['freelancerpostdata'] = $this->common->select_data_by_condition('freelancer_post', $contition_array, $data, $sortby = 'freelancer_post.post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
       // echo "<pre>";print_r($postdata);die();
         }
 
@@ -1155,10 +1155,6 @@ $new = array();
         } else {
               $datereplace=$this->input->post('last_date');
              $lastdate=str_replace('/', '-',$datereplace);
-             $ratetype=$this->input->post('rating');
-             echo $ratetype;
-             // echo $lastdate;die(
-             if($ratetype==0){$ratetype=1;}
              //echo $ratetype;die();
              // echo $lastdate;die();   
             $data = array(
@@ -1170,7 +1166,7 @@ $new = array();
                 'post_est_time' => $this->input->post('est_time'),
                 'post_rate' => $this->input->post('rate'),
                 'post_currency' => $this->input->post('currency'),
-                'post_rating_type' => $ratetype,
+                'post_rating_type' => $this->input->post('rating'),
                 'post_exp_month' => $this->input->post('month'),
                 'post_exp_year' => $this->input->post('year'),
                 'post_last_date' => $lastdate,

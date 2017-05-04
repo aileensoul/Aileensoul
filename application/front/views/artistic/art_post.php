@@ -2840,7 +2840,7 @@ function deletepostmodel(abc){
 function followuser(clicked_id)
 {  
      
-        $("#fad" + clicked_id).fadeOut(4000);
+        $("#fad" + clicked_id).fadeOut(6000);
    
   
    $.ajax({

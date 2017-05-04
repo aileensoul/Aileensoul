@@ -481,7 +481,7 @@ echo $freelancer_hire_header2;} ?>
                      echo $post['post_rate'];
                      echo "&nbsp";
                      echo $this->db->get_where('currency', array('currency_id' => $post['post_currency']))->row()->currency_name; echo "&nbsp";
-                      if($post['post_rating_type'] == 1){
+                      if($post['post_rating_type'] == 0){
                         echo "Hourly";
                       }else{echo "Fixed";}}
                      else{ echo PROFILENA;}
@@ -515,13 +515,50 @@ echo $freelancer_hire_header2;} ?>
 
                                                                    
                                                                                                          <li>
-                    <a href="javascript:void(0);" class="button" onclick="removepopup(<?php echo  $post['post_id']?>)">Remove</a>
+                    <?php if($returnpage==''){?><a href="javascript:void(0);" class="button" onclick="removepopup(<?php echo  $post['post_id']?>)">Remove</a>
                                                                    </li>  
                                                                     <li>
                 <a class="button" href="<?php echo base_url('freelancer/freelancer_edit_post/' . $post['post_id']); ?>" >Edit </a>
                                                                    </li>                   
                                           <li class=fr>
                 <a class="button" href="<?php echo base_url('freelancer/freelancer_apply_list/' . $post['post_id']); ?>" >Applied person :<?php echo count($this->common->select_data_by_id('freelancer_apply', 'post_id', $post['post_id'], $data = '*', $join_str = array())); ?></a>
+                <?php } else {?>
+                <?php
+$this->data['userid'] = $userid = $this->session->userdata('aileenuser');
+ $contition_array = array('post_id' => $post['post_id'], 'job_delete' => 0, 'user_id' => $userid);
+$freelancerapply1 = $this->data['freelancerapply'] = $this->common->select_data_by_condition('freelancer_apply', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+ if ($freelancerapply1) {
+          ?>
+        <a href="javascript:void(0);" class="button applied">Applied</a>
+ <?php
+} else {
+?>
+<input type="hidden" id="<?php echo 'allpost' . $post['post_id']; ?>" value="all">
+
+ <input type="hidden" id="<?php echo 'userid' . $post['post_id']; ?>" value="<?php echo $post['user_id']; ?>">
+                <a class="applypost button" href="javascript:void(0);"  class= "<?php echo 'applypost' . $post['post_id']; ?>  button" onclick="applypopup(<?php echo $post['post_id'] ?>,<?php echo $post['user_id'] ?>)">Apply</a>
+                                                                    </li> 
+                <li>
+                <?php
+$userid = $this->session->userdata('aileenuser');
+            
+$contition_array = array('from_id' => $userid, 'to_id' => $post['user_id'],'save_type' => 2,'status'=> 0);
+$data = $this->common->select_data_by_condition('save', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            if ($data){
+                ?>
+       <a class="applypost  button">Saved</a>
+    <?php } else { ?>
+                <input type="hidden" name="saveuser"  id="saveuser" value= "<?php echo $data[0]['save_id']; ?>"> 
+<a id="<?php echo $post['user_id']; ?>" onClick="savepopup(<?php echo $post['user_id']; ?>)" href="javascript:void(0);" class="<?php echo 'saveduser' . $post['user_id']; ?> applypost button">Save</a>
+
+                <?php }?>
+                <?php }?>
+
+                                                                   </li>                        
+
+
+
+                <?php }?>
                                                                    </li>      
 
                                                             </div>
@@ -934,7 +971,24 @@ $( "#tags" ).autocomplete({
 
         <!-- remove own post end -->
 
-        
+         <script>
+                    function savepopup(id) {
+                        //alert(id);
+                        save_post(id);
+//                       
+                        $('.biderror .mes').html("<div class='pop_content'>Your post is successfully saved.");
+                        $('#bidmodal').modal('show');
+                    }
+            function applypopup(postid, userid) {
+
+                // alert(postid);
+                // alert(userid);
+               
+                $('.biderror .mes').html("<div class='pop_content'>Are you sure want to apply this post?<div class='model_ok_cancel'><a class='okbtn' id=" + postid + " onClick='apply_post(" + postid + "," + userid + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+                        $('#bidmodal').modal('show');
+                    }
+                   
+                    </script>
 <script>
     function removepopup(id) {
         
@@ -942,6 +996,24 @@ $( "#tags" ).autocomplete({
         $('#bidmodal').modal('show');
     }
 </script>
+<script type="text/javascript">
+    function apply_post(abc)
+    {
+    var alldata = document.getElementById("allpost" + abc);
+    var user = document.getElementById("userid" + abc);
+
+
+    $.ajax({
+    type:'POST',
+            url:'<?php echo base_url() . "freelancer/apply_insert" ?>',
+            data: 'post_id=' + abc + '&allpost=' + alldata.value + '&userid=' + user.value,
+            success:function(data){
+                //alert(data);
+            $('.' + 'applypost' + abc).html(data);
+            }
+    });
+    }
+                        </script>
  <script>
                             function divClicked() {
                                 var divHtml = $(this).html();

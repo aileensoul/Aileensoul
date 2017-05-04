@@ -1749,7 +1749,7 @@ class Artistic extends MY_Controller {
 
 
                 $follow = '<div id= "unfollowdiv" class="user_btn">';
-                $follow .= '<button id="unfollow' . $art_id . '" onClick="unfollowuser(' . $art_id . ')">
+                $follow .= '<button class="bg_following" id="unfollow' . $art_id . '" onClick="unfollowuser(' . $art_id . ')">
                                Following 
                       </button>';
                 $follow .= '</div>';
@@ -1781,7 +1781,7 @@ class Artistic extends MY_Controller {
             if ($insert) {
 
                 $follow = '<div id= "unfollowdiv" class="user_btn">';
-                $follow .= '<button id="unfollow' . $art_id . '" onClick="unfollowuser(' . $art_id . ')">
+                $follow .= '<button class="bg_following" id="unfollow' . $art_id . '" onClick="unfollowuser(' . $art_id . ')">
                                Following 
                       </button>';
                 $follow .= '</div>';
@@ -1860,10 +1860,10 @@ public function follow_two()
        if($update){
 
 
-             $follow = '<div>';
-             $follow .= '<button id="unfollow' . $art_id.'" onClick="unfollowuser_two('.$art_id.')">
+             $follow = '<div class=" user_btn_f follow_btn_'. $art_id.'" id= "unfollowdiv">';
+             $follow .= '<button class="bg_following" id="unfollow' . $art_id.'" onClick="unfollowuser_two('.$art_id.')"><span>
                                Following 
-                      </button>';
+                      </span></button>';
               $follow .= '</div>';
               echo $follow;
 
