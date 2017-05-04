@@ -938,7 +938,7 @@ function followuser_two(clicked_id)
 function unfollowuser_list(clicked_id)
 { 
   
-   $('#' + 'removefollow' + clicked_id).fadeOut(2000);
+   
 
    $.ajax({
                 type:'POST',
@@ -950,7 +950,7 @@ function unfollowuser_list(clicked_id)
                if(data.notcount == 0){
                  $('.' + 'contact-frnd-post').html(data.notfound);
                }else{ 
-               $('#' + 'removefollow' + clicked_id).html(data.notfound);
+              $('#' + 'removefollow' + clicked_id).fadeOut(4000);
                  }   
                 }
             }); 
