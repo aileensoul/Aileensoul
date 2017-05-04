@@ -394,10 +394,9 @@
            <div class="profile-job-post-title-inside clearfix">
              <div class="profile-job-profile-button clearfix">
                <div class="profile-job-post-location-name-rec">
-                  <ul>
-                       <ul>
-                           <li>
-                              <div  class="buisness-profile-pic-candidate">
+                  
+         <div style="display: inline-block; float: left;">
+            <div  class="buisness-profile-pic-candidate">
                               <?php
                                 if ($rec['freelancer_post_user_image']) {
                                 ?>
@@ -410,19 +409,30 @@
                                                 <?php
                                             }
                                             ?>
-                                                                                    
-                                                                                </div></li>
-                                                                            <li>
-                                                                                <a href="<?php echo base_url('freelancer/freelancer_post_profile/' . $rec['user_id'].'?page=freelancer_hire'); ?>" title="<?php echo ucwords($rec['freelancer_post_fullname']) . ' ' . ucwords($rec['freelancer_post_username']); ?>"><h6>
-            <?php echo ucwords($rec['freelancer_post_fullname']) . ' ' . ucwords($rec['freelancer_post_username']); ?></h6>
-                                                                                </a></li>
+              </div>
+             </div>
+            
+            <div class="designation_rec" style="float: left;">
+          <ul>
 
-                                                                        </ul>
-                                                                </div>
-                                                            </div>
-                                                        </div>  <div class="profile-job-post-title clearfix">
+             <li>
+           <a href="<?php echo base_url('freelancer/freelancer_post_profile/' . $rec['user_id'].'?page=freelancer_hire'); ?>" title="<?php echo ucwords($rec['freelancer_post_fullname']) . ' ' . ucwords($rec['freelancer_post_username']); ?>"><h6>
+          <?php echo ucwords($rec['freelancer_post_fullname']) . ' ' . ucwords($rec['freelancer_post_username']); ?></h6>
+               </a></li>
 
-                                                            <div class="profile-job-profile-menu">
+               <li style="display: block;">
+                <?php if($rec['designation']){echo $rec['designation'];}else{echo PROFILENA;} ?> </li>
+            
+            </ul>
+             </div>
+
+          </div>
+         </div>
+        </div>  
+
+        <div class="profile-job-post-title clearfix">
+
+         <div class="profile-job-profile-menu">
 
                <ul>
                  <li><b>Skills</b><span>
@@ -467,14 +477,16 @@
         <?php if($rec['freelancer_post_skill_description']){
             echo $rec['freelancer_post_skill_description'];}
             else{echo PROFILENA;} ?></p></span>
-                                                                </li>
-                                                                <li><b>Designation</b><span>
-                                                                    <?php if($rec['designation']){echo $rec['designation'];}else{echo PROFILENA;} ?></span>
-                                                                </li>
-                                                                <li><b>Avaiability</b><span>
-                                                                    <?php  
-                                                                    if($rec['freelancer_post_work_hour'])
-                                                                    { echo $rec['freelancer_post_work_hour'] . "  " . "Hours per week "; 
+        </li>
+    
+          <!-- <li><b>Designation</b><span>
+           <?php if($rec['designation']){echo $rec['designation'];}else{echo PROFILENA;} ?></span>
+          </li> -->
+    
+           <li><b>Avaiability</b><span>
+              <?php  
+             if($rec['freelancer_post_work_hour'])
+             { echo $rec['freelancer_post_work_hour'] . "  " . "Hours per week "; 
                                                                 } else 
                                                                 {
                                                                     echo PROFILENA;
