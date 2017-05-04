@@ -421,11 +421,11 @@ label.cameraButton input[accept*="camera"] {
                                         ?>
 
                                         <div id= "followdiv">
-                                            <a id="<?php echo "follow" . $artisticdata[0]['art_id']; ?>" onClick="followuser(<?php echo $artisticdata[0]['art_id']; ?>)">Follow</a>
+                                            <button id="<?php echo "follow" . $artisticdata[0]['art_id']; ?>" onClick="followuser(<?php echo $artisticdata[0]['art_id']; ?>)">Follow</button>
                                         </div>
                                     <?php } elseif ($status == 1) { ?>
                                         <div id= "unfollowdiv">
-                                            <a id="<?php echo "unfollow" . $artisticdata[0]['art_id']; ?>" onClick="unfollowuser(<?php echo $artisticdata[0]['art_id']; ?>)"> Following</a>
+                                            <button id="<?php echo "unfollow" . $artisticdata[0]['art_id']; ?>" onClick="unfollowuser(<?php echo $artisticdata[0]['art_id']; ?>)"> Following</button>
                                         </div>
 
 
@@ -1092,18 +1092,16 @@ label.cameraButton input[accept*="camera"] {
                         <?php if($row['posted_user_id']){?>
 
                         <div class="else_post_d">
-                        <a style=" font-size: 18px;
-                         line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; " href="<?php echo base_url('artistic/art_manage_post/' . $row['posted_user_id']); ?>"><?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?> </a><span style="font-weight: 600;"> Posted With 
-                        </span><a style=" font-size: 18px;
-                         line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; " href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>"><?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?></a><span role="presentation" aria-hidden="true" style="color: #91949d; font-size: 14px;"> · </span>
+                        <a  class="post_dot" href="<?php echo base_url('artistic/art_manage_post/' . $row['posted_user_id']); ?>"><?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?> </a><span style="font-weight: 600;"> Posted With 
+                        </span><a class="post_dot"  href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>"><?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?></a><span role="presentation" aria-hidden="true" style="color: #91949d; font-size: 14px;"> · </span>
                                 <span style="color: #91949d;
                                 font-size: 14px;"> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span>
                         </div>
 
                         <!-- other user post time name end-->
                         <?php }else{?>
-                        <a style=" font-size: 18px;
-                         line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px;display: inline-block;padding-right: 0;"  href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>">
+
+                        <a   class="post_dot"   href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>">
                         <?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?>
 
                         </a>
@@ -1173,8 +1171,8 @@ label.cameraButton input[accept*="camera"] {
 
                                                 <div id="<?php echo 'editpostdetailbox' . $row['art_post_id']; ?>" style="display:none;">
 
-                                                    <textarea  style="resize: none;overflow: hidden;min-height:15% !important;" id="<?php echo 'editpostdesc' . $row['art_post_id']; ?>" name="editpostdesc"><?php echo $row['art_description']; ?>
-                                                    </textarea> 
+                                                    <div contenteditable="" class="editable_text"  id="<?php echo 'editpostdesc' . $row['art_post_id']; ?>" name="editpostdesc"><?php echo $row['art_description']; ?>
+                                                    </div> 
                                                 </div>
 
                                                 <button class="fr" id="<?php echo "editpostsubmit" . $row['art_post_id']; ?>" style="display:none;margin: 5px 0px;" onClick="edit_postinsert(<?php echo $row['art_post_id']; ?>)">Save</button>
@@ -2889,10 +2887,19 @@ function deleteownpostmodel(abc){
         var editpostname = document.getElementById("editpostname" + abc);
         var editpostdetails = document.getElementById("editpostdesc" + abc);
 
+
+// start khyati code
+  var $field = $('#editpostdesc' + abc);
+  //var data = $field.val();
+  var editpostdetails = $('#editpostdesc' + abc).html();
+// end khyati code
+  
+
+
         $.ajax({
             type: 'POST',
             url: '<?php echo base_url() . "artistic/edit_post_insert" ?>',
-            data: 'art_post_id=' + abc + '&art_post=' + editpostname.value + '&art_description=' + editpostdetails.value,
+            data: 'art_post_id=' + abc + '&art_post=' + editpostname.value + '&art_description=' + editpostdetails,
             dataType: "json",
             success: function (data) {
 

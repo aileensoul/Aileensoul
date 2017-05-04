@@ -450,7 +450,7 @@
                                                                 </li>
                                                                 <!-- vishang 14-4 start -->
                                                                 <li>
-                                                                    <b>Require Experience</b>
+                                                                    <b>Required Experience</b>
                                                                     <span>
                                                                         <?php if($post['post_exp_month'] ||  $post['post_exp_year']){
             echo $post['post_exp_year'];   ?> year&nbsp;&nbsp;<?php  echo $post['post_exp_month'];}
@@ -463,7 +463,7 @@
 
                                                                
                                                                 
-                                                                <li><b>Estimate Time</b><span> <?php if($post['post_est_time']) {echo $post['post_est_time'];} else{echo PROFILENA; } ?></span>
+                                                                <li><b>Estimated Time</b><span> <?php if($post['post_est_time']) {echo $post['post_est_time'];} else{echo PROFILENA; } ?></span>
                                                                 </li>
 
 
@@ -484,7 +484,7 @@ $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
 $freelancerapply1 = $this->data['freelancerapply'] = $this->common->select_data_by_condition('freelancer_apply', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
  if ($freelancerapply1) {
           ?>
-         <button  class="button_applied fr" disabled>Applied</button>
+         <a href="javascript:void(0);" class="button applied">Applied</a>
  <?php
 } else {
 ?>

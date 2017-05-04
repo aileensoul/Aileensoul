@@ -1027,10 +1027,8 @@ foreach($finalsorting as $row)
 
                         <?php if($row['posted_user_id']){?>
                           <div class="else_post_d">
-                        <a style=" font-size: 18px;display: inline-block;
-                         line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; " href="<?php echo base_url('artistic/art_manage_post/' . $row['posted_user_id']); ?>"><?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?> </a><span style="font-weight: 600;"> Posted With 
-                        </span><a style=" font-size: 18px;
-                         line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; " href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>"><?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?></a>
+                        <a class="post_dot"  href="<?php echo base_url('artistic/art_manage_post/' . $row['posted_user_id']); ?>"><?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?> </a><span style="font-weight: 600;"> Posted With 
+                        </span><a  class="post_dot" href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>"><?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?></a>
 
 
                                 <span style="color: #91949d;
@@ -1040,8 +1038,7 @@ foreach($finalsorting as $row)
                         <?php }else{?>
 
 
-                        <a style="font-size: 16px;display: inline-block;padding-right: 0;
-    line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; " href="<?php echo base_url('artistic/art_manage_post/'.$row['user_id']); ?>"><?php echo ucwords($firstname); print "&nbsp;&nbsp;"; echo ucwords($lastname); ?> </a>
+                        <a class="post_dot" href="<?php echo base_url('artistic/art_manage_post/'.$row['user_id']); ?>"><?php echo ucwords($firstname); print "&nbsp;&nbsp;"; echo ucwords($lastname); ?> </a>
 
     <div class="datespan">
     <span style="font-weight: 400;"> <?php// echo date('d-M-Y',strtotime($row['created_date'])); ?>
@@ -2843,7 +2840,7 @@ function deletepostmodel(abc){
 function followuser(clicked_id)
 {  
      
-        $("#fad" + clicked_id).fadeOut(4000);
+        $("#fad" + clicked_id).fadeOut(6000);
    
   
    $.ajax({

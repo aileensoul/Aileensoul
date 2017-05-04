@@ -382,10 +382,11 @@
 
                                                              else{}?> 
                                                     </div>
-                                                
+                                                <?php
+                               $cache_time1 = $this->db->get_where('recruiter', array('user_id' => $post['user_id']))->row()->re_comp_name; ?>
 
                              <a class="display_inline"    href="<?php echo base_url('recruiter/rec_profile/' . $post['user_id'].'?page=job'); ?>" title="<?php echo $cache_time1;?>"><?php
-                               $cache_time1 = $this->db->get_where('recruiter', array('user_id' => $post['user_id']))->row()->re_comp_name;
+                               
                               $out = strlen($cache_time1) > 40 ? substr($cache_time1,0,40)."..." : $cache_time1;       
                     echo $out;
                                  ?></a>
