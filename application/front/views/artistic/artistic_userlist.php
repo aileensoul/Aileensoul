@@ -299,19 +299,19 @@ if ($this->session->flashdata('success')) {
     if ($status == 0 || $status == " ") {
         ?>
 
-                                                        <div id= "followdiv" class="user_btn">
-                                                            <button id="<?php echo "follow" . $user['art_id']; ?>" onClick="followuser(<?php echo $user['art_id']; ?>)"> 
-                                                                Follow 
-                                                            </button>
-                                                        </div>
+             <div id= "followdiv" class="user_btn">
+            <button id="<?php echo "follow" . $user['art_id']; ?>" onClick="followuser(<?php echo $user['art_id']; ?>)"> 
+             Follow 
+             </button>
+             </div>
 
     <?php } elseif ($status == 1) { ?>
 
-                                                        <div id= "unfollowdiv" class="user_btn  ">
-                                                            <button class="bg_following" id="<?php echo "unfollow" . $user['art_id']; ?>" onClick="unfollowuser(<?php echo $user['art_id']; ?>)">
-                                                                Following 
-                                                            </button>
-                                                        </div>
+     <div id= "unfollowdiv" class="user_btn ">
+        <button class="bg_following" id="<?php echo "unfollow" . $user['art_id']; ?>" onClick="unfollowuser(<?php echo $user['art_id']; ?>)">
+             Following 
+            </button>
+         </div>
     <?php } ?>
 
                                                 </li>

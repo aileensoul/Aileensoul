@@ -255,11 +255,11 @@ $followingotherdata = $this->data['followingotherdata'] =  $this->common->select
 if($status == 0 || $status == " "){?>
 
  <div id= "followdiv">
-<a id="<?php echo "follow" . $artisticdata[0]['art_id']; ?>" onClick="followuser(<?php echo $artisticdata[0]['art_id']; ?>)">Follow</a>
+<button id="<?php echo "follow" . $artisticdata[0]['art_id']; ?>" onClick="followuser(<?php echo $artisticdata[0]['art_id']; ?>)">Follow</button>
 </div>
  <?php }elseif($status == 1){ ?>
-<div id= "unfollowdiv ">
-<a id="<?php echo "unfollow" . $artisticdata[0]['art_id']; ?>" onClick="unfollowuser(<?php echo $artisticdata[0]['art_id']; ?>)"> Following</a>
+<div id= "unfollowdiv">
+<button id="<?php echo "unfollow" . $artisticdata[0]['art_id']; ?>" onClick="unfollowuser(<?php echo $artisticdata[0]['art_id']; ?>)"> Following</button>
 </div>
 
 
@@ -376,7 +376,7 @@ if($status == 0 || $status == " "){?>
                             </li>
                             <li>
                              <div class="">
-                         <div class="follow-li-text ">
+                         <div class="follow-li-text">
 
                          <?php 
                  $followername =  $this->db->get_where('art_reg',array('art_id' => $user['follow_from']))->row()->art_name; ?>
@@ -388,7 +388,8 @@ if($status == 0 || $status == " "){?>
                             </li>
                             
 
-                             <li class="fr">
+                             
+                             <li class="fr" id ="<?php echo "frfollow" . $user['follow_from']; ?>">
 
                               <?php
                  
@@ -426,8 +427,9 @@ if($status == 0 || $status == " "){?>
                             </div>
                             
                          </div>
-                                                        <?php } ?>
+                                                       
                                   </div>
+                                   <?php } ?>
                                         <div class="col-md-1">
                                         </div>
                                     </div>
@@ -865,11 +867,12 @@ function followuser_two(clicked_id)
                   //alert(data);
                   // return false;
                //$('.' + 'fruser_list' + clicked_id).html(data);
-               $('.' + 'follow_btn_' + clicked_id).html(data);
-               $('.' + 'follow_btn_' + clicked_id).removeClass('user_btn');
-               $('.' + 'follow_btn_' + clicked_id).addClass('user_btn_h');
-               $('#unfollow' + clicked_id).html('');
-                    
+               //$('.' + 'follow_btn_' + clicked_id).html(data);
+               //$('.' + 'follow_btn_' + clicked_id).removeClass('user_btn');
+               //$('.' + 'follow_btn_' + clicked_id).addClass('user_btn_h');
+               //$('#unfollow' + clicked_id).html('');
+                  
+                   $('#' + 'frfollow' + clicked_id).html(data);  
                 }
             }); 
 }
