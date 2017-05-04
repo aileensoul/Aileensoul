@@ -2754,6 +2754,9 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
 
                     var sel = $("#editcomment" + abc);
                     var txt = sel.html();
+                    if(txt == '' || txt == '<br>'){
+                        return false;
+                    }
 //                    alert(txt);
 //                    return false;
                     $.ajax({
@@ -2833,6 +2836,9 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
                             event.preventDefault();
                             var sel = $("#editcomment" + abc);
                             var txt = sel.html();
+                            if(txt == '' || txt =='<br>'){
+                                return false;
+                            }
                             //$('#editcomment' + abc).html("");
 
                             if (window.preventDuplicateKeyPresses)
@@ -2901,7 +2907,9 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
 
                     var sel = $("#editcommenttwo" + abc);
                     var txt = sel.html();
-
+                    if(txt == '' || txt == '<br>'){
+                        return false;
+                    }
                     $.ajax({
                         type: 'POST',
                         url: '<?php echo base_url() . "business_profile/edit_comment_insert" ?>',
@@ -2986,6 +2994,10 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
 
                             var sel = $("#editcommenttwo" + abc);
                             var txt = sel.html();
+                            
+                            if(txt == '' || txt == '<br>'){
+                                return false;
+                            }
 
                             //$('#editcommenttwo' + abc).html("");
 
