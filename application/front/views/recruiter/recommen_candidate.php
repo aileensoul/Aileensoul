@@ -465,9 +465,11 @@ padding-top: 1px;}
                                                                 $contition_array = array('from_id' => $userid, 'to_id' => $row['user_id'], 'save_type' => 1, 'status' => '0');
                                                                 $data = $this->common->select_data_by_condition('save', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                                                                 //echo "<pre>"; print_r($data); die();
+                                                        if($userid != $row['user_id']){       
                                                                 if (!$data) {
                                                                     ?> 
-                     <a href="<?php echo base_url('message/message_chats/' . $row['user_id']); ?>">Message</a> 
+                     
+                      <a href="<?php echo base_url('chat/abc/' . $row['user_id']); ?>">Message</a> 
 
 <!--                     <a href="#">Invite</a>-->
 
@@ -478,10 +480,10 @@ padding-top: 1px;}
                 <?php
             } else {
                  ?>
-    <a href="<?php echo base_url('message/message_chats/' . $row['user_id']); ?>">Message</a>  
+    <a href="<?php echo base_url('chat/abc/' . $row['user_id']); ?>">Message</a> 
 <!--    <a href="#">Invite</a>   -->
     <a class="saved">Saved </a> 
-        <?php }
+                                                        <?php } }
         ?> 
                                                             </div> </div>
                                                         <!--  <div class="profile-job-profile-button clearfix">

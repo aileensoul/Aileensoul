@@ -303,23 +303,26 @@ if($status == 0 || $status == " "){?>
      $status  =  $this->db->get_where('follow',array('follow_type' => 2, 'follow_from' => $bup_id[0]['business_profile_id'], 'follow_to'=>$businessdata1[0]['business_profile_id'] ))->row()->follow_status; 
     //echo "<pre>"; print_r($status); die();
 
-if($status == 0 || $status == " "){?>
-  <div class="msg_flw_btn_1" id= "followdiv">
-      <button  id="<?php echo "follow" . $businessdata1[0]['business_profile_id']; ?>" onClick="followuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Follow</button>
-    </div>
- <?php }elseif($status == 1){ ?>
-    <div class="msg_flw_btn_1" id= "unfollowdiv">
-      <button id="<?php echo "unfollow" . $businessdata1[0]['business_profile_id']; ?>" onClick="unfollowuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Following </button>
-    </div>
-<?php }?>
-     </div> 
-                                
+$logslug = $this->db->get_where('business_profile', array('user_id' => $userid))->row()->business_slug;
+                                   if($logslug != $this->uri->segment(3)){
+                                    if ($status == 0 || $status == " ") {
+                                        ?>
+                                        <div class="msg_flw_btn_1" id= "followdiv">
+                                            <button  id="<?php echo "follow" . $businessdata1[0]['business_profile_id']; ?>" onClick="followuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Follow</button>
+                                        </div>
+                                    <?php } elseif ($status == 1) { ?>
+                                        <div class="msg_flw_btn_1" id= "unfollowdiv">
+                                            <button id="<?php echo "unfollow" . $businessdata1[0]['business_profile_id']; ?>" onClick="unfollowuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Following </button>
+                                        </div>
+                                    <?php } ?>
+                                </div>         
 
 
-                                </li>
+                            </li>
 
-                                <li>
-                                    <a href="<?php echo base_url('chat/abc/'.$businessdata1[0]['user_id']); ?>">Message</a></li>
+                            <li>
+                                <a href="<?php echo base_url('chat/abc/' . $businessdata1[0]['user_id']); ?>">Message</a></li>
+                                   <?php } ?>
 
                             </ul>
                         </div>
@@ -332,10 +335,8 @@ if($status == 0 || $status == " "){?>
         </div>
        </div>
         
-  
   </div>
 
-    
         <div class="user-midd-section">
             <div class="container">
                 <div class="row">

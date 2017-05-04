@@ -5,63 +5,11 @@
 
 <!--post save success pop up style strat -->
 <style>
-    .okk{
-        text-align: center;
+    body {
+        font-family: Arial, sans-serif;
+        background-size: cover;
+        height: 100vh;
     }
-
-    .pop_content .okbtn{
-        position: absolute;
-        transition: all 200ms;
-        font-size: 16px;
-        text-decoration: none;
-        color: #fff;
-        padding: 8px 18px;
-        background-color: #0A2C5D;
-        left: 170px;
-        margin-top: 8px;
-        width: 100px; 
-        border-radius: 8px;
-    }
-
-
-    .pop_content .cnclbtn {
-        position: absolute;
-        transition: all 200ms;
-        font-size: 16px;
-        text-decoration: none;
-        color: #fff;
-        padding: 8px 18px;
-        background-color: #0A2C5D;
-        right: 170px;
-        margin-top: 8px;
-        width: 100px;
-        border-radius: 8px;
-    }
-
-    .popup .pop_content {
-        text-align: center;
-        margin-top: 40px;
-
-    }
-    .model_ok_cancel{
-        width:200px !important;
-    }
-
-    /*
-        @media screen and (max-width: 700px){
-            .box{
-                width: 70%;
-            }
-            .popup{
-                width: 70%;
-            }
-        } */
-
-
-</style>
-
-<!--post save success pop up style strat -->
-<style>
 
     .box {
         width: 40%;
@@ -159,6 +107,7 @@
 
 <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/3.3.0/select2.css'); ?>">
+<link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
 <link href="<?php echo base_url() ?>css/fileinput.css" media="all" rel="stylesheet" type="text/css"/>
 <link href="<?php echo base_url() ?>js/themes/explorer/theme.css" media="all" rel="stylesheet" type="text/css"/>
 <script src="<?php echo base_url() ?>js/jquery-2.0.3.min.js" type="text/javascript"></script>
@@ -170,7 +119,7 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
 <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
 
-<!-- <link rel="stylesheet" href="<?php //echo base_url('assets/css/croppie.css');                       ?>">
+<!-- <link rel="stylesheet" href="<?php //echo base_url('assets/css/croppie.css');     ?>">
 --><style type="text/css" media="screen">
     #row2 { overflow: hidden; width: 100%; }
     #row2 img { height: 350px;width: 100%; } 
@@ -315,7 +264,7 @@
                     $userid = $this->session->userdata('aileenuser');
                     if ($businessdata1[0]['user_id'] == $userid) {
                         ?>
-                                                                                                                    <!-- <a href="#popup-form" class="fancybox"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a> -->
+                                            <!-- <a href="#popup-form" class="fancybox"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a> -->
 
                         <a href="javascript:void(0);" onclick="updateprofilepopup();"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>
 
@@ -376,13 +325,13 @@
 
                     if ($status == 0 || $status == " ") {
                         ?>
-                                                                                                                  <div class="msg_flw_btn_1" id= "followdiv">
-                                                                                                                      <button  id="<?php echo "follow" . $businessdata1[0]['business_profile_id']; ?>" onClick="followuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Follow</button>
-                                                                                                                  </div>
+                                          <div class="msg_flw_btn_1" id= "followdiv">
+                                              <button  id="<?php echo "follow" . $businessdata1[0]['business_profile_id']; ?>" onClick="followuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Follow</button>
+                                          </div>
                     <?php } elseif ($status == 1) { ?>
-                                                                                                                  <div class="msg_flw_btn_1" id= "unfollowdiv">
-                                                                                                                      <button id="<?php echo "unfollow" . $businessdata1[0]['business_profile_id']; ?>" onClick="unfollowuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Following </button>
-                                                                                                                  </div>
+                                          <div class="msg_flw_btn_1" id= "unfollowdiv">
+                                              <button id="<?php echo "unfollow" . $businessdata1[0]['business_profile_id']; ?>" onClick="unfollowuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Following </button>
+                                          </div>
                     <?php } ?>
                               </div> 
                               <a href="<?php echo base_url('chat/abc/' . $businessdata1[0]['user_id']); ?>">Message</a>
@@ -415,8 +364,8 @@
                         if ($businessdata1[0]['user_id'] == $userid) {
                             ?> 
 
-                                                                                                                     <!--  <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_profile_save_post') { ?> class="active" <?php } ?>><a href="<?php echo base_url('business_profile/business_profile_save_post'); ?>">Saved Post</a>
-                                                                                                                            </li> -->
+                                             <!--  <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_profile_save_post') { ?> class="active" <?php } ?>><a href="<?php echo base_url('business_profile/business_profile_save_post'); ?>">Saved Post</a>
+                                                    </li> -->
 
                             <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'userlist') { ?> class="active" <?php } ?>><a href="<?php echo base_url('business_profile/userlist'); ?>">Userlist</a>
                             </li>
@@ -482,9 +431,6 @@
                                     $status = $this->db->get_where('follow', array('follow_type' => 2, 'follow_from' => $bup_id[0]['business_profile_id'], 'follow_to' => $businessdata1[0]['business_profile_id']))->row()->follow_status;
                                     //echo "<pre>"; print_r($status); die();
 
-                                  
-$logslug = $this->db->get_where('business_profile', array('user_id' => $userid))->row()->business_slug;
-                                   if($logslug != $this->uri->segment(3)){
                                     if ($status == 0 || $status == " ") {
                                         ?>
                                         <div class="msg_flw_btn_1" id= "followdiv">
@@ -502,9 +448,8 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
 
                             <li>
                                 <a href="<?php echo base_url('chat/abc/' . $businessdata1[0]['user_id']); ?>">Message</a></li>
-                                   <?php } ?>
 
-                        </ul>   
+                        </ul>
                     </div>
                 </div></div>
 
@@ -1178,12 +1123,12 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
                                                 <li>
                                                     <div class="else_post_d">
                                                         <div class="post-design-product"><a style=" font-size: 18px; line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; " href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugnameposted); ?>"><?php echo ucwords($companynameposted); ?></a> <span style="font-weight: 600;"> Posted With </span> <a style=" font-size: 18px;
-                                                                                                                                                                                                                line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; " href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>"><?php echo ucwords($companyname); ?></a> <span  style="font-weight: 400;""><?php echo date('d-M-Y', strtotime($row['created_date'])); ?> </span> </div></div></li>
+                                                                                            line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; " href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>"><?php echo ucwords($companyname); ?></a> <span  style="font-weight: 400;""><?php echo date('d-M-Y', strtotime($row['created_date'])); ?> </span> </div></div></li>
 
 
                                             <?php } else { ?>
                                                 <li><div class="post-design-product"><a style="font-size: 18px; line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; " href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>"><?php echo ucwords($companyname); ?> <span  style="font-weight: 400;""><?php echo date('d-M-Y', strtotime($row['created_date'])); ?> </span> </a></div></li>
-                                            <?php } ?>
+                                                                                    <?php } ?>
 
                                             <li> <a style=" color: #000033; font-weight: 400;"> <div class="post-design-product"><a><?php echo ucwords($category); ?></a> </div></a></li>
 
@@ -1206,7 +1151,7 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
                                                 <a id="<?php echo $row['business_profile_post_id']; ?>" onClick="editpost(this.id)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit</a>
 
                                             <?php } else { ?>
-                                                                                                                                                                                    <!-- <a href="<?php //echo "#popup5" . $row['business_profile_post_id'];                       ?>"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete Post</a> -->
+                                    <!-- <a href="<?php //echo "#popup5" . $row['business_profile_post_id'];     ?>"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete Post</a> -->
 
 
                                                 <!-- <?php
@@ -1216,13 +1161,13 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
 
                                                 if ($businesssave) {
                                                     ?>
-                                                                                                                                    
-                                                                                                                                       <a><i class="fa fa-bookmark" aria-hidden="true"></i>Saved Post</a>
-                                                                                                                                    
+                                                            
+                                                               <a><i class="fa fa-bookmark" aria-hidden="true"></i>Saved Post</a>
+                                                            
                                                 <?php } else { ?>
-                                                                                                                                    
-                                                                                                                                       <a id="<?php echo $row['business_profile_post_id']; ?>" onClick="save_post(this.id)" href="#popup1" class="<?php echo 'savedpost' . $row['business_profile_post_id']; ?>"><i class="fa fa-bookmark" aria-hidden="true"></i>  Save Post</a> 
-                                                                                                                                    
+                                                            
+                                                               <a id="<?php echo $row['business_profile_post_id']; ?>" onClick="save_post(this.id)" href="#popup1" class="<?php echo 'savedpost' . $row['business_profile_post_id']; ?>"><i class="fa fa-bookmark" aria-hidden="true"></i>  Save Post</a> 
+                                                            
                                                 <?php } ?> -->
 
                                                 <a href="<?php echo base_url('business_profile/business_profile_contactperson/' . $row['user_id'] . ''); ?>"><i class="fa fa-user" aria-hidden="true"></i> Contact Person</a>
@@ -1250,8 +1195,8 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
 
                                         <div id="<?php echo 'editpostdetailbox' . $row['business_profile_post_id']; ?>" style="display:none;">
 
-                                                                                                                        <!-- <textarea id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" name="editpostdesc"><?php echo $row['product_description']; ?>
-                                                                                                                        </textarea> 
+                                                <!-- <textarea id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" name="editpostdesc"><?php echo $row['product_description']; ?>
+                                                </textarea> 
                                             -->
                                             <div  contenteditable="true" id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" placeholder="Product Description" class="textbuis  editable_text"  name="editpostdesc"><?php echo $row['product_description']; ?></div>
 
@@ -1534,8 +1479,7 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
                                     </div>
                                     <!-- pop up box end-->
                                     <div style="padding-top: 6px; padding-bottom: 6px;">
-                                        <!--<a  href="<?php echo "#popuplike" . $row['business_profile_post_id']; ?>">-->
-                                        <a href="javascript:void(0);"  onclick="likeuserlist(<?php echo $row['business_profile_post_id']; ?>);">
+                                        <a  href="<?php echo "#popuplike" . $row['business_profile_post_id']; ?>">
                                             <?php
                                             $contition_array = array('business_profile_post_id' => $row['business_profile_post_id'], 'status' => '1', 'is_delete' => '0');
                                             $commnetcount = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -1623,7 +1567,7 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
                                                         <div class="comment-details" id= "<?php echo "showcomment" . $rowdata['business_profile_post_comment_id']; ?>">
                                                             <?php
                                                             echo text2link($rowdata['comments']);
-                                                            //  echo '</br>';
+                                                            echo '</br>';
                                                             ?>
                                                         </div>
                                                         <!--                                                        <div class="col-md-12">
@@ -1637,9 +1581,8 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
                                                                                                                 </div>-->
                                                         <div class="edit-comment-box">
                                                             <div class="inputtype-edit-comment">
-                                                                <!--<textarea type="text" class="textarea" name="<?php echo $rowdata['business_profile_post_comment_id']; ?>" id="<?php echo "editcomment" . $rowdata['business_profile_post_comment_id']; ?>" style="display:none;resize: none;" onClick="commentedit(this.name)"><?php echo $rowdata['comments']; ?></textarea>-->
-                                                                <div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="<?php echo $rowdata['business_profile_post_comment_id']; ?>"  id="<?php echo "editcomment" . $rowdata['business_profile_post_comment_id']; ?>" placeholder="Type Message ..." value= ""  onkeyup="commentedit(<?php echo $rowdata['business_profile_post_comment_id']; ?>)"><?php echo $rowdata['comments']; ?></div>
-                                                                <span class="comment-edit-button"><button id="<?php echo "editsubmit" . $rowdata['business_profile_post_comment_id']; ?>" style="display:none" onClick="edit_comment(<?php echo $rowdata['business_profile_post_comment_id']; ?>)">Save</button></span>
+                                                                <textarea type="text" class="textarea" name="<?php echo $rowdata['business_profile_post_comment_id']; ?>" id="<?php echo "editcomment" . $rowdata['business_profile_post_comment_id']; ?>" style="display:none;resize: none;" onClick="commentedit(this.name)"><?php echo $rowdata['comments']; ?></textarea>
+                                                                <span class="comment-edit-button"><button id="<?php echo "editsubmit" . $rowdata['business_profile_post_comment_id']; ?>" style="display:none" onClick="edit_comment(<?php echo $rowdata['business_profile_post_comment_id']; ?>)">Comment</button></span>
                                                             </div>
                                                         </div>
                                                         <div class="art-comment-menu-design"> 
@@ -1752,12 +1695,11 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
 
 
                                     <div class="">
-                                        <!--                                        <div class="col-md-10  inputtype-comment" style="    padding-left: 7px;">
-                                                                                        <textarea type="text" class="textarea" name="<?php echo $row['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $row['business_profile_post_id']; ?>" placeholder="Type Message ..." value= ""  onClick="entercomment(this.name)"></textarea>
-                                                                                </div>-->
-                                        <div id="content" class="col-md-10  inputtype-comment" style="padding-left: 7px;">
-                                            <!--<div contenteditable="true" style="min-height:40px !important; margin-top: 0px!important" class="editable_text" name="<?php echo $row['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $row['business_profile_post_id']; ?>" placeholder="Type Message ..."  onClick="contentedit(<?php echo $row['business_profile_post_id']; ?>)"></div>-->
-                                            <div contenteditable="true" style="min-height:40px !important; margin-top: 0px!important" class="editable_text" name="<?php echo $row['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $row['business_profile_post_id']; ?>" placeholder="Type Message ..."  onClick="entercomment(<?php echo $row['business_profile_post_id']; ?>)"></div>
+                                        <div class="col-md-10  inputtype-comment" style="    padding-left: 7px;">
+
+
+                                            <textarea type="text" class="textarea" name="<?php echo $row['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $row['business_profile_post_id']; ?>" placeholder="Type Message ..." value= ""  onClick="entercomment(this.name)"></textarea>
+
                                         </div>
                                         <?php echo form_error('post_comment'); ?> 
                                         <div class="col-md-1 comment-edit-butn">       
@@ -1772,7 +1714,7 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
 
                     <?php } ?>
 
-
+             
                 </div>
                 <!-- business_profile _manage_post end -->
 
@@ -1825,20 +1767,6 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
             </div>
             <!-- Model Popup Close -->
 
-            <!-- Bid-modal-2  -->
-            <div class="modal fade message-box" id="likeusermodal" role="dialog">
-                <div class="modal-dialog modal-lm">
-                    <div class="modal-content">
-                        <button type="button" class="modal-close" data-dismiss="modal">&times;</button>       
-                        <div class="modal-body">
-                            <span class="mes">
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Model Popup Close -->
-
             </body>
 
             </html>
@@ -1867,33 +1795,33 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
 
             <script>
 
-                                                var data = <?php echo json_encode($demo); ?>;
-                                                // alert(data);
+                                            var data = <?php echo json_encode($demo); ?>;
+                                            // alert(data);
 
 
-                                                $(function () {
-                                                    // alert('hi');
-                                                    $("#tags").autocomplete({
-                                                        source: function (request, response) {
-                                                            var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
-                                                            response($.grep(data, function (item) {
-                                                                return matcher.test(item.label);
-                                                            }));
-                                                        },
-                                                        minLength: 1,
-                                                        select: function (event, ui) {
-                                                            event.preventDefault();
-                                                            $("#tags").val(ui.item.label);
-                                                            $("#selected-tag").val(ui.item.label);
-                                                            // window.location.href = ui.item.value;
-                                                        }
-                                                        ,
-                                                        focus: function (event, ui) {
-                                                            event.preventDefault();
-                                                            $("#tags").val(ui.item.label);
-                                                        }
-                                                    });
+                                            $(function () {
+                                                // alert('hi');
+                                                $("#tags").autocomplete({
+                                                    source: function (request, response) {
+                                                        var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+                                                        response($.grep(data, function (item) {
+                                                            return matcher.test(item.label);
+                                                        }));
+                                                    },
+                                                    minLength: 1,
+                                                    select: function (event, ui) {
+                                                        event.preventDefault();
+                                                        $("#tags").val(ui.item.label);
+                                                        $("#selected-tag").val(ui.item.label);
+                                                        // window.location.href = ui.item.value;
+                                                    }
+                                                    ,
+                                                    focus: function (event, ui) {
+                                                        event.preventDefault();
+                                                        $("#tags").val(ui.item.label);
+                                                    }
                                                 });
+                                            });
 
             </script>
 
@@ -1995,6 +1923,9 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
                     document.getElementById("upload-demo").style.visibility = "hidden";
                     document.getElementById("upload-demo-i").style.visibility = "hidden";
                     document.getElementById('message1').style.display = "block";
+
+
+
                 }
 
 
@@ -2135,22 +2066,12 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
             <!-- comment insert script start -->
 
             <script type="text/javascript">
-
                 function insert_comment(clicked_id)
                 {
+                    var post_comment = document.getElementById("post_comment" + clicked_id);
+                    //alert(clicked_id);
+                    //alert(post_comment.value);
 
-                    $("#post_comment" + clicked_id).click(function () {
-                        $(this).prop("contentEditable", true);
-                        $(this).html("");
-                    });
-
-                    var sel = $("#post_comment" + clicked_id);
-                    var txt = sel.html();
-                    if (txt == '') {
-                        return false;
-                    }
-
-                    $('#post_comment' + clicked_id).html("");
 
                     var x = document.getElementById('threecomment' + clicked_id);
                     var y = document.getElementById('fourcomment' + clicked_id);
@@ -2159,12 +2080,14 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
                         $.ajax({
                             type: 'POST',
                             url: '<?php echo base_url() . "business_profile/insert_commentthree" ?>',
-                            data: 'post_id=' + clicked_id + '&comment=' + txt,
+                            data: 'post_id=' + clicked_id + '&comment=' + post_comment.value,
                             dataType: "json",
                             success: function (data) {
                                 $('textarea').each(function () {
                                     $(this).val('');
                                 });
+
+                                //  $('.insertcomment' + clicked_id).html(data);
                                 $('#' + 'insertcount' + clicked_id).html(data.count);
                                 $('.insertcomment' + clicked_id).html(data.comment);
 
@@ -2176,60 +2099,24 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
                         $.ajax({
                             type: 'POST',
                             url: '<?php echo base_url() . "business_profile/insert_comment" ?>',
-                            data: 'post_id=' + clicked_id + '&comment=' + txt,
+                            data: 'post_id=' + clicked_id + '&comment=' + post_comment.value,
                             dataType: "json",
                             success: function (data) {
                                 $('textarea').each(function () {
                                     $(this).val('');
                                 });
+                                //alert('#' + 'fourcomment' + clicked_id);
+                                //$('#' + 'fourcomment' + clicked_id).html(data);
+//                                $('#' + 'commnetpost' + clicked_id).html(data.count);
+//                                $('#' + 'fourcomment' + clicked_id).html(data.comment);
+
                                 $('#' + 'insertcount' + clicked_id).html(data.count);
                                 $('#' + 'fourcomment' + clicked_id).html(data.comment);
+
                             }
                         });
                     }
                 }
-
-
-//                function insert_comment(clicked_id)
-//                {
-//                    var post_comment = document.getElementById("post_comment" + clicked_id);
-//                    var x = document.getElementById('threecomment' + clicked_id);
-//                    var y = document.getElementById('fourcomment' + clicked_id);
-//
-//                    if (x.style.display === 'block' && y.style.display === 'none') {
-//                        $.ajax({
-//                            type: 'POST',
-//                            url: '<?php echo base_url() . "business_profile/insert_commentthree" ?>',
-//                            data: 'post_id=' + clicked_id + '&comment=' + post_comment.value,
-//                            dataType: "json",
-//                            success: function (data) {
-//                                $('textarea').each(function () {
-//                                    $(this).val('');
-//                                });
-//                                $('#' + 'insertcount' + clicked_id).html(data.count);
-//                                $('.insertcomment' + clicked_id).html(data.comment);
-//
-//                            }
-//                        });
-//
-//                    } else {
-//
-//                        $.ajax({
-//                            type: 'POST',
-//                            url: '<?php echo base_url() . "business_profile/insert_comment" ?>',
-//                            data: 'post_id=' + clicked_id + '&comment=' + post_comment.value,
-//                            dataType: "json",
-//                            success: function (data) {
-//                                $('textarea').each(function () {
-//                                    $(this).val('');
-//                                });
-//                                $('#' + 'insertcount' + clicked_id).html(data.count);
-//                                $('#' + 'fourcomment' + clicked_id).html(data.comment);
-//
-//                            }
-//                        });
-//                    }
-//                }
             </script>
 
             <!-- insert comment using enter -->
@@ -2237,145 +2124,69 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
 
                 function entercomment(clicked_id)
                 {
-//                    $(document).ready(function () {
 
-                    $("#post_comment" + clicked_id).click(function () {
-                        $(this).prop("contentEditable", true);
-                        //$(this).html("");
-                    });
+                    $(document).ready(function () {
+                        $('#post_comment' + clicked_id).keypress(function (e) {
 
-                    $('#post_comment' + clicked_id).keypress(function (e) {
+                            if (e.keyCode == 13 && !e.shiftKey) {
+                                var post_comment_data = $('#post_comment' + clicked_id).val();
+                                e.preventDefault();
 
-                        if (e.keyCode == 13 && !e.shiftKey) {
-                            e.preventDefault();
-                            var sel = $("#post_comment" + clicked_id);
-                            var txt = sel.html();
-                            if (txt == '') {
-                                return false;
+                                if (window.preventDuplicateKeyPresses)
+                                    return;
+
+                                window.preventDuplicateKeyPresses = true;
+                                window.setTimeout(function () {
+                                    window.preventDuplicateKeyPresses = false;
+                                }, 500);
+
+                                // khyati chnages  start
+
+                                var x = document.getElementById('threecomment' + clicked_id);
+                                var y = document.getElementById('fourcomment' + clicked_id);
+
+                                if (x.style.display === 'block' && y.style.display === 'none') {
+                                    $.ajax({
+                                        type: 'POST',
+                                        url: '<?php echo base_url() . "business_profile/insert_commentthree" ?>',
+                                        data: 'post_id=' + clicked_id + '&comment=' + post_comment_data,
+                                        dataType: "json",
+                                        success: function (data) {
+                                            $('textarea').each(function () {
+                                                $(this).val('');
+                                            });
+
+                                            //  $('.insertcomment' + clicked_id).html(data);
+                                            $('#' + 'insertcount' + clicked_id).html(data.count);
+                                            $('.insertcomment' + clicked_id).html(data.comment);
+
+                                        }
+                                    });
+
+                                } else {
+                                    $.ajax({
+                                        type: 'POST',
+                                        url: '<?php echo base_url() . "business_profile/insert_comment" ?>',
+                                        data: 'post_id=' + clicked_id + '&comment=' + post_comment_data,
+                                        dataType: "json",
+                                        success: function (data) {
+                                            $('textarea').each(function () {
+                                                $(this).val('');
+                                            });
+                                            //$('#' + 'fourcomment' + clicked_id).html(data);
+                                            $('#' + 'insertcount' + clicked_id).html(data.count);
+                                            $('#' + 'fourcomment' + clicked_id).html(data.comment);
+
+                                        }
+                                    });
+                                }
+                                // khyati chnages end
+                                //alert(val);
                             }
-
-                            $('#post_comment' + clicked_id).html("");
-
-                            if (window.preventDuplicateKeyPresses)
-                                return;
-
-                            window.preventDuplicateKeyPresses = true;
-                            window.setTimeout(function () {
-                                window.preventDuplicateKeyPresses = false;
-                            }, 500);
-
-                            // khyati chnages  start
-
-                            var x = document.getElementById('threecomment' + clicked_id);
-                            var y = document.getElementById('fourcomment' + clicked_id);
-
-                            if (x.style.display === 'block' && y.style.display === 'none') {
-                                $.ajax({
-                                    type: 'POST',
-                                    url: '<?php echo base_url() . "business_profile/insert_commentthree" ?>',
-                                    data: 'post_id=' + clicked_id + '&comment=' + txt,
-                                    dataType: "json",
-                                    success: function (data) {
-                                        $('textarea').each(function () {
-                                            $(this).val('');
-                                        });
-
-                                        //  $('.insertcomment' + clicked_id).html(data);
-                                        $('#' + 'insertcount' + clicked_id).html(data.count);
-                                        $('.insertcomment' + clicked_id).html(data.comment);
-
-                                    }
-                                });
-
-                            } else {
-                                $.ajax({
-                                    type: 'POST',
-                                    url: '<?php echo base_url() . "business_profile/insert_comment" ?>',
-                                    data: 'post_id=' + clicked_id + '&comment=' + txt,
-                                    dataType: "json",
-                                    success: function (data) {
-                                        $('textarea').each(function () {
-                                            $(this).val('');
-                                        });
-                                        //$('#' + 'fourcomment' + clicked_id).html(data);
-                                        $('#' + 'insertcount' + clicked_id).html(data.count);
-                                        $('#' + 'fourcomment' + clicked_id).html(data.comment);
-
-                                    }
-                                });
-                            }
-                            // khyati chnages end
-                            //alert(val);
-                        }
+                        });
                     });
-                    $(".scroll").click(function (event) {
-                        event.preventDefault();
-                        $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1200);
-                    });
-                    //  });
 
                 }
-
-//                function entercomment(clicked_id)
-//                {
-//                    $(document).ready(function () {
-//                        $('#post_comment' + clicked_id).keypress(function (e) {
-//                            if (e.keyCode == 13 && !e.shiftKey) {
-//                                var $field = $('#post_comment' + clicked_id);
-//                                var post_comment_data = $('#post_comment' + clicked_id).html();
-//                                e.preventDefault();
-//
-//                                if (window.preventDuplicateKeyPresses)
-//                                    return;
-//
-//                                window.preventDuplicateKeyPresses = true;
-//                                window.setTimeout(function () {
-//                                    window.preventDuplicateKeyPresses = false;
-//                                }, 500);
-//
-//                                var x = document.getElementById('threecomment' + clicked_id);
-//                                var y = document.getElementById('fourcomment' + clicked_id);
-//
-//                                if (x.style.display === 'block' && y.style.display === 'none') {
-//                                    $.ajax({
-//                                        type: 'POST',
-//                                        url: '<?php echo base_url() . "business_profile/insert_commentthree" ?>',
-//                                        data: 'post_id=' + clicked_id + '&comment=' + post_comment_data,
-//                                        dataType: "json",
-//                                        success: function (data) {
-//                                            $('textarea').each(function () {
-//                                                $(this).val('');
-//                                            });
-//
-//                                            $('#' + 'insertcount' + clicked_id).html(data.count);
-//                                            $('.insertcomment' + clicked_id).html(data.comment);
-//
-//                                        }
-//                                    });
-//
-//                                } else {
-//                                    $.ajax({
-//                                        type: 'POST',
-//                                        url: '<?php echo base_url() . "business_profile/insert_comment" ?>',
-//                                        data: 'post_id=' + clicked_id + '&comment=' + post_comment_data,
-//                                        dataType: "json",
-//                                        success: function (data) {
-//                                            $('textarea').each(function () {
-//                                                $(this).val('');
-//                                            });
-//                                            $('#' + 'insertcount' + clicked_id).html(data.count);
-//                                            $('#' + 'fourcomment' + clicked_id).html(data.comment);
-//
-//                                        }
-//                                    });
-//                                }
-//                            }
-//                        });
-//                    });
-//
-//                }  
-
-
             </script>
 
 
@@ -2547,14 +2358,7 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
             <!--comment like script end -->
 
             <script type="text/javascript">
-
-                function comment_delete(clicked_id) {
-                    $('.biderror .mes').html("<div class='pop_content'>Are you sure want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='comment_deleted(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-                    $('#bidmodal').modal('show');
-                }
-
-
-                function comment_deleted(clicked_id)
+                function comment_delete(clicked_id)
                 {
 
                     var post_delete = document.getElementById("post_delete");
@@ -2576,14 +2380,8 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
                     });
                 }
 
+
                 function comment_deletetwo(clicked_id)
-                {
-
-                    $('.biderror .mes').html("<div class='pop_content'>Are you sure want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='comment_deletedtwo(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-                    $('#bidmodal').modal('show');
-                }
-
-                function comment_deletedtwo(clicked_id)
                 {
 
                     var post_delete1 = document.getElementById("post_deletetwo");
@@ -2608,9 +2406,9 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
             <script type="text/javascript">
 
                 function comment_editbox(clicked_id) { //alert(clicked_id); alert('editcomment' + clicked_id); alert('showcomment' + clicked_id); alert('editsubmit' + clicked_id); 
-                    document.getElementById('editcomment' + clicked_id).style.display = 'inline-block';
+                    document.getElementById('editcomment' + clicked_id).style.display = 'block';
                     document.getElementById('showcomment' + clicked_id).style.display = 'none';
-                    document.getElementById('editsubmit' + clicked_id).style.display = 'inline-block';
+                    document.getElementById('editsubmit' + clicked_id).style.display = 'block';
 
                     document.getElementById('editcommentbox' + clicked_id).style.display = 'none';
                     document.getElementById('editcancle' + clicked_id).style.display = 'block';
@@ -2634,16 +2432,9 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
                 function comment_editboxtwo(clicked_id) {
 //                    alert(clicked_id);
 //                    return false;
-
-                    $('div[id^=editcommenttwo]').css('display', 'none');
-                    $('div[id^=showcommenttwo]').css('display', 'block');
-                    $('button[id^=editsubmittwo]').css('display', 'none');
-                    $('div[id^=editcommentboxtwo]').css('display', 'block');
-                    $('div[id^=editcancletwo]').css('display', 'none');
-
-                    document.getElementById('editcommenttwo' + clicked_id).style.display = 'inline-block';
+                    document.getElementById('editcommenttwo' + clicked_id).style.display = 'block';
                     document.getElementById('showcommenttwo' + clicked_id).style.display = 'none';
-                    document.getElementById('editsubmittwo' + clicked_id).style.display = 'inline-block';
+                    document.getElementById('editsubmittwo' + clicked_id).style.display = 'block';
                     document.getElementById('editcommentboxtwo' + clicked_id).style.display = 'none';
                     document.getElementById('editcancletwo' + clicked_id).style.display = 'block';
                     $('.post-design-commnet-box').hide();
@@ -2720,215 +2511,113 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
             <!-- comment edit insert start -->
 
             <script type="text/javascript">
-//                function edit_comment(abc)
-//                { 
-//                    var post_comment_edit = document.getElementById("editcomment" + abc);
-//                    $.ajax({
-//                        type: 'POST',
-//                        url: '<?php echo base_url() . "business_profile/edit_comment_insert" ?>',
-//                        data: 'post_id=' + abc + '&comment=' + post_comment_edit.value,
-//                        success: function (data) { //alert('falguni');
-//
-//                            document.getElementById('editcomment' + abc).style.display = 'none';
-//                            document.getElementById('showcomment' + abc).style.display = 'block';
-//                            document.getElementById('editsubmit' + abc).style.display = 'none';
-//
-//                            document.getElementById('editcommentbox' + abc).style.display = 'block';
-//                            document.getElementById('editcancle' + abc).style.display = 'none';
-//                            $('#' + 'showcomment' + abc).html(data);
-//                            $('.post-design-commnet-box').show();
-//
-//
-//                        }
-//                    });
-//                }
-
                 function edit_comment(abc)
-                {
-                    //var post_comment_edit = document.getElementById("editcomment" + abc);
+                { //alert('editsubmit' + abc);
 
-                    $("#editcomment" + abc).click(function () {
-                        $(this).prop("contentEditable", true);
-                        //     $(this).html("");
-                    });
-
-                    var sel = $("#editcomment" + abc);
-                    var txt = sel.html();
-                    if(txt == '' || txt == '<br>'){
-                        return false;
-                    }
-//                    alert(txt);
-//                    return false;
+                    var post_comment_edit = document.getElementById("editcomment" + abc);
+                    //alert(post_comment.value);
+                    //alert(post_comment.value);
                     $.ajax({
                         type: 'POST',
                         url: '<?php echo base_url() . "business_profile/edit_comment_insert" ?>',
-                        data: 'post_id=' + abc + '&comment=' + txt,
+                        data: 'post_id=' + abc + '&comment=' + post_comment_edit.value,
                         success: function (data) { //alert('falguni');
 
+                            //  $('input').each(function(){
+                            //     $(this).val('');
+                            // }); 
                             document.getElementById('editcomment' + abc).style.display = 'none';
                             document.getElementById('showcomment' + abc).style.display = 'block';
                             document.getElementById('editsubmit' + abc).style.display = 'none';
 
                             document.getElementById('editcommentbox' + abc).style.display = 'block';
                             document.getElementById('editcancle' + abc).style.display = 'none';
+                            //alert('.' + 'showcomment' + abc);
                             $('#' + 'showcomment' + abc).html(data);
-                            $('.post-design-commnet-box').show();
+
 
 
                         }
                     });
-                    $(".scroll").click(function (event) {
-                        event.preventDefault();
-                        $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1200);
-                    });
-
+                    //window.location.reload();
                 }
             </script>
 
 
             <script type="text/javascript">
-
-//                function commentedit(abc)
-//                {
-//                    $(document).ready(function () {
-//                        $('#editcomment' + abc).keypress(function (e) {
-//                            if (e.keyCode == 13 && !e.shiftKey) {
-//                                var val = $('#editcomment' + abc).val();
-//                                e.preventDefault();
-//                                if (window.preventDuplicateKeyPresses)
-//                                    return;
-//                                window.preventDuplicateKeyPresses = true;
-//                                window.setTimeout(function () {
-//                                    window.preventDuplicateKeyPresses = false;
-//                                }, 500);
-//                                $.ajax({
-//                                    type: 'POST',
-//                                    url: '<?php echo base_url() . "business_profile/edit_comment_insert" ?>',
-//                                    data: 'post_id=' + abc + '&comment=' + val,
-//                                    success: function (data) { //alert('falguni');
-//                                        document.getElementById('editcomment' + abc).style.display = 'none';
-//                                        document.getElementById('showcomment' + abc).style.display = 'block';
-//                                        document.getElementById('editsubmit' + abc).style.display = 'none';
-//                                        document.getElementById('editcommentbox' + abc).style.display = 'block';
-//                                        document.getElementById('editcancle' + abc).style.display = 'none';
-//                                        $('#' + 'showcomment' + abc).html(data);
-//                                        $('.post-design-commnet-box').show();
-//                                    }
-//                                });
-//                            }
-//                        });
-//                    });
-//                }
-
 
                 function commentedit(abc)
                 {
-//                    alert(1212121);
-//                    return false;
-                    //$(document).ready(function () {
+                    $(document).ready(function () {
+                        $('#editcomment' + abc).keypress(function (e) {
+                            if (e.keyCode == 13 && !e.shiftKey) {
+                                var val = $('#editcomment' + abc).val();
+                                e.preventDefault();
 
-                    $("#editcomment" + abc).click(function () {
-                        $(this).prop("contentEditable", true);
-                        //$(this).html("");
-                    });
-                    $('#editcomment' + abc).keypress(function (event) {
-                        if (event.which == 13 && event.shiftKey != 1) {
-                            event.preventDefault();
-                            var sel = $("#editcomment" + abc);
-                            var txt = sel.html();
-                            if(txt == '' || txt =='<br>'){
-                                return false;
+                                if (window.preventDuplicateKeyPresses)
+                                    return;
+
+                                window.preventDuplicateKeyPresses = true;
+                                window.setTimeout(function () {
+                                    window.preventDuplicateKeyPresses = false;
+                                }, 500);
+
+                                $.ajax({
+                                    type: 'POST',
+                                    url: '<?php echo base_url() . "business_profile/edit_comment_insert" ?>',
+                                    data: 'post_id=' + abc + '&comment=' + val,
+                                    success: function (data) { //alert('falguni');
+
+
+                                        document.getElementById('editcomment' + abc).style.display = 'none';
+                                        document.getElementById('showcomment' + abc).style.display = 'block';
+                                        document.getElementById('editsubmit' + abc).style.display = 'none';
+
+                                        document.getElementById('editcommentbox' + abc).style.display = 'block';
+                                        document.getElementById('editcancle' + abc).style.display = 'none';
+                                        //alert('.' + 'showcomment' + abc);
+                                        $('#' + 'showcomment' + abc).html(data);
+
+
+
+                                    }
+                                });
+                                //alert(val);
                             }
-                            //$('#editcomment' + abc).html("");
+                        });
+                    });
 
-                            if (window.preventDuplicateKeyPresses)
-                                return;
-                            window.preventDuplicateKeyPresses = true;
-                            window.setTimeout(function () {
-                                window.preventDuplicateKeyPresses = false;
-                            }, 500);
-                            $.ajax({
-                                type: 'POST',
-                                url: '<?php echo base_url() . "business_profile/edit_comment_insert" ?>',
-                                data: 'post_id=' + abc + '&comment=' + txt,
-                                success: function (data) { //alert('falguni');
-                                    document.getElementById('editcomment' + abc).style.display = 'none';
-                                    document.getElementById('showcomment' + abc).style.display = 'block';
-                                    document.getElementById('editsubmit' + abc).style.display = 'none';
-                                    document.getElementById('editcommentbox' + abc).style.display = 'block';
-                                    document.getElementById('editcancle' + abc).style.display = 'none';
-                                    $('#' + 'showcomment' + abc).html(data);
-                                    $('.post-design-commnet-box').show();
-                                }
-                            });
-                        }
-                    });
-                    $(".scroll").click(function (event) {
-                        event.preventDefault();
-                        $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1200);
-                    });
-                    //});
                 }
-
-
             </script>
 
             <script type="text/javascript">
-//                function edit_commenttwo(abc)
-//                { 
-//                    var post_comment_edit = document.getElementById("editcommenttwo" + abc);
-//                    $.ajax({
-//                        type: 'POST',
-//                        url: '<?php echo base_url() . "business_profile/edit_comment_insert" ?>',
-//                        data: 'post_id=' + abc + '&comment=' + post_comment_edit.value,
-//                        success: function (data) { //alert('falguni');
-//
-//                            document.getElementById('editcommenttwo' + abc).style.display = 'none';
-//                            document.getElementById('showcommenttwo' + abc).style.display = 'block';
-//                            document.getElementById('editsubmittwo' + abc).style.display = 'none';
-//
-//                            document.getElementById('editcommentboxtwo' + abc).style.display = 'block';
-//                            document.getElementById('editcancletwo' + abc).style.display = 'none';
-//                            $('#' + 'showcommenttwo' + abc).html(data);
-//                            $('.post-design-commnet-box').show();
-//                        }
-//                    });
-//
-//                }
-
                 function edit_commenttwo(abc)
-                {
-                    //var post_comment_edit = document.getElementById("editcommenttwo" + abc);
+                { //alert('editsubmit' + abc);
 
-                    $("#editcommenttwo" + abc).click(function () {
-                        $(this).prop("contentEditable", true);
-                        //$(this).html("");
-                    });
-
-                    var sel = $("#editcommenttwo" + abc);
-                    var txt = sel.html();
-                    if(txt == '' || txt == '<br>'){
-                        return false;
-                    }
+                    var post_comment_edit = document.getElementById("editcommenttwo" + abc);
+                    //alert(post_comment.value);
+                    //alert(post_comment.value);
                     $.ajax({
                         type: 'POST',
                         url: '<?php echo base_url() . "business_profile/edit_comment_insert" ?>',
-                        data: 'post_id=' + abc + '&comment=' + txt,
+                        data: 'post_id=' + abc + '&comment=' + post_comment_edit.value,
                         success: function (data) { //alert('falguni');
 
+                            //  $('input').each(function(){
+                            //     $(this).val('');
+                            // }); 
                             document.getElementById('editcommenttwo' + abc).style.display = 'none';
                             document.getElementById('showcommenttwo' + abc).style.display = 'block';
                             document.getElementById('editsubmittwo' + abc).style.display = 'none';
 
                             document.getElementById('editcommentboxtwo' + abc).style.display = 'block';
                             document.getElementById('editcancletwo' + abc).style.display = 'none';
+                            //alert('.' + 'showcomment' + abc);
                             $('#' + 'showcommenttwo' + abc).html(data);
-                            $('.post-design-commnet-box').show();
+
+
+
                         }
-                    });
-                    $(".scroll").click(function (event) {
-                        event.preventDefault();
-                        $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1200);
                     });
 
                 }
@@ -2937,105 +2626,50 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
 
             <script type="text/javascript">
 
-//                function commentedittwo(abc)
-//                {
-//                    $(document).ready(function () {
-//                        $('#editcommenttwo' + abc).keypress(function (e) {
-//                            if (e.keyCode == 13 && !e.shiftKey) {
-//                                var val = $('#editcommenttwo' + abc).val();
-//                                e.preventDefault();
-//
-//                                if (window.preventDuplicateKeyPresses)
-//                                    return;
-//
-//                                window.preventDuplicateKeyPresses = true;
-//                                window.setTimeout(function () {
-//                                    window.preventDuplicateKeyPresses = false;
-//                                }, 500);
-//
-//                                $.ajax({
-//                                    type: 'POST',
-//                                    url: '<?php echo base_url() . "business_profile/edit_comment_insert" ?>',
-//                                    data: 'post_id=' + abc + '&comment=' + val,
-//                                    success: function (data) { //alert('falguni');
-//
-//
-//                                        document.getElementById('editcommenttwo' + abc).style.display = 'none';
-//                                        document.getElementById('showcommenttwo' + abc).style.display = 'block';
-//                                        document.getElementById('editsubmittwo' + abc).style.display = 'none';
-//
-//                                        document.getElementById('editcommentboxtwo' + abc).style.display = 'block';
-//                                        document.getElementById('editcancletwo' + abc).style.display = 'none';
-//                                        //alert('.' + 'showcomment' + abc);
-//
-//                                        $('#' + 'showcommenttwo' + abc).html(data);
-//                                        $('.post-design-commnet-box').show();
-//
-//
-//                                    }
-//                                });
-//                            }
-//                        });
-//                    });
-//
-//                }
-
                 function commentedittwo(abc)
                 {
-                    //$(document).ready(function () {
-                    $("#editcommenttwo" + abc).click(function () {
-                        $(this).prop("contentEditable", true);
-                        //$(this).html("");
-                    });
 
-                    $('#editcommenttwo' + abc).keypress(function (event) {
-                        if (event.which == 13 && event.shiftKey != 1) {
-                            event.preventDefault();
 
-                            var sel = $("#editcommenttwo" + abc);
-                            var txt = sel.html();
-                            
-                            if(txt == '' || txt == '<br>'){
-                                return false;
+                    $(document).ready(function () {
+                        $('#editcommenttwo' + abc).keypress(function (e) {
+
+
+                            if (e.keyCode == 13 && !e.shiftKey) {
+                                var val = $('#editcommenttwo' + abc).val();
+                                e.preventDefault();
+
+                                if (window.preventDuplicateKeyPresses)
+                                    return;
+
+                                window.preventDuplicateKeyPresses = true;
+                                window.setTimeout(function () {
+                                    window.preventDuplicateKeyPresses = false;
+                                }, 500);
+
+                                $.ajax({
+                                    type: 'POST',
+                                    url: '<?php echo base_url() . "business_profile/edit_comment_insert" ?>',
+                                    data: 'post_id=' + abc + '&comment=' + val,
+                                    success: function (data) { //alert('falguni');
+
+
+                                        document.getElementById('editcommenttwo' + abc).style.display = 'none';
+                                        document.getElementById('showcommenttwo' + abc).style.display = 'block';
+                                        document.getElementById('editsubmittwo' + abc).style.display = 'none';
+
+                                        document.getElementById('editcommentboxtwo' + abc).style.display = 'block';
+                                        document.getElementById('editcancletwo' + abc).style.display = 'none';
+                                        //alert('.' + 'showcomment' + abc);
+
+                                        $('#' + 'showcommenttwo' + abc).html(data);
+
+
+
+                                    }
+                                });
+                                //alert(val);
                             }
-
-                            //$('#editcommenttwo' + abc).html("");
-
-                            if (window.preventDuplicateKeyPresses)
-                                return;
-
-                            window.preventDuplicateKeyPresses = true;
-                            window.setTimeout(function () {
-                                window.preventDuplicateKeyPresses = false;
-                            }, 500);
-
-                            $.ajax({
-                                type: 'POST',
-                                url: '<?php echo base_url() . "business_profile/edit_comment_insert" ?>',
-                                data: 'post_id=' + abc + '&comment=' + txt,
-                                success: function (data) { //alert('falguni');
-
-
-                                    document.getElementById('editcommenttwo' + abc).style.display = 'none';
-                                    document.getElementById('showcommenttwo' + abc).style.display = 'block';
-                                    document.getElementById('editsubmittwo' + abc).style.display = 'none';
-
-                                    document.getElementById('editcommentboxtwo' + abc).style.display = 'block';
-                                    document.getElementById('editcancletwo' + abc).style.display = 'none';
-                                    //alert('.' + 'showcomment' + abc);
-
-                                    $('#' + 'showcommenttwo' + abc).html(data);
-                                    $('.post-design-commnet-box').show();
-
-
-                                }
-                            });
-                        }
-                    });
-                    //});
-                    $(".scroll").click(function (event) {
-                        event.preventDefault();
-                        $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1200);
+                        });
                     });
 
                 }
@@ -3065,7 +2699,7 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
                             document.getElementById('editcancle3' + abc).style.display = 'none';
                             //alert('.' + 'showcomment' + abc);
                             $('#' + 'showcomment3' + abc).html(data);
-                            $('.post-design-commnet-box').show();
+
 
 
                         }
@@ -3283,11 +2917,16 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
             <script type="text/javascript">
                 function editpost(abc)
                 {
+
+
+
                     document.getElementById('editpostdata' + abc).style.display = 'none';
                     document.getElementById('editpostbox' + abc).style.display = 'block';
                     document.getElementById('editpostdetails' + abc).style.display = 'none';
                     document.getElementById('editpostdetailbox' + abc).style.display = 'block';
                     document.getElementById('editpostsubmit' + abc).style.display = 'block';
+
+
                 }
             </script>
 
@@ -3328,23 +2967,35 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
 
                             $('#' + 'editpostdata' + abc).html(data.title);
                             $('#' + 'editpostdetails' + abc).html(data.description);
+
                         }
                     });
+
                 }
             </script>
+
+
             <!-- edit post end -->
+
+
             <!-- remove save post start -->
+
             <script type="text/javascript">
                 function remove_post(abc)
                 {
+
                     $.ajax({
                         type: 'POST',
                         url: '<?php echo base_url() . "business_profile/business_profile_delete" ?>',
                         data: 'save_id=' + abc,
                         success: function (data) {
+
                             $('#' + 'removepostdata' + abc).html(data);
+
+
                         }
                     });
+
                 }
             </script>
 
@@ -3656,116 +3307,3 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
                     }
                 }
             </script>
-            <script type="text/javascript">
-                function contentedit(clicked_id) {
-                    //alert(clicked_id);
-
-//var $field = $('#post_comment' + clicked_id);
-                    //var data = $field.val();
-                    // var post_comment = $('#post_comment' + clicked_id).html();
-
-                    //$(document).ready(function($) {
-                    $("#post_comment" + clicked_id).click(function () {
-                        $(this).prop("contentEditable", true);
-                        $(this).html("");
-                    });
-
-
-                    $("#post_comment" + clicked_id).keypress(function (event) { //alert(post_comment);
-                        if (event.which == 13 && event.shiftKey != 1) { //alert(post_comment);
-                            event.preventDefault();
-                            var sel = $("#post_comment" + clicked_id);
-                            var txt = sel.html();
-
-                            $('#post_comment' + clicked_id).html("");
-                            // $("#result").html(txt);
-                            // sel.html("")
-                            // sel.blur();
-
-
-                            var x = document.getElementById('threecomment' + clicked_id);
-                            var y = document.getElementById('fourcomment' + clicked_id);
-                            if (x.style.display === 'block' && y.style.display === 'none') {
-                                $.ajax({
-                                    type: 'POST',
-                                    url: '<?php echo base_url() . "business_profile/insert_commentthree" ?>',
-                                    data: 'post_id=' + clicked_id + '&comment=' + txt,
-                                    dataType: "json",
-                                    success: function (data) {
-                                        $('input').each(function () {
-                                            $(this).val('');
-                                        });
-                                        //  $('.insertcomment' + clicked_id).html(data);
-                                        $('#' + 'insertcount' + clicked_id).html(data.count);
-                                        $('.insertcomment' + clicked_id).html(data.comment);
-                                    }
-                                });
-                            } else {
-                                $.ajax({
-                                    type: 'POST',
-                                    url: '<?php echo base_url() . "business_profile/insert_comment" ?>',
-                                    data: 'post_id=' + clicked_id + '&comment=' + val,
-                                    // dataType: "json",
-                                    success: function (data) {
-                                        $('input').each(function () {
-                                            $(this).val('');
-                                        }
-                                        );
-                                        $('#' + 'fourcomment' + clicked_id).html(data);
-                                        // $('#' + 'commnetpost' + clicked_id).html(data.count);
-                                        //  $('#' + 'fourcomment' + clicked_id).html(data.comment);
-                                    }
-                                });
-                            }
-
-                        }
-                    });
-                    $(".scroll").click(function (event) {
-                        event.preventDefault();
-                        $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1200);
-                    });
-
-                    // });
-
-                }
-            </script>
-            <script type="text/javascript">
-                function likeuserlist(post_id) {
-
-                    $.ajax({
-                        type: 'POST',
-                        url: '<?php echo base_url() . "business_profile/likeuserlist" ?>',
-                        data: 'post_id=' + post_id,
-                        dataType: "html",
-                        success: function (data) {
-                            var html_data = data;
-                            $('#likeusermodal .mes').html(html_data);
-                            $('#likeusermodal').modal('show');
-                        }
-                    });
-
-
-                }
-            </script>
-
-            <style type="text/css">
-                .likeduser{
-                    width: 100%;
-                    background-color: #00002D;
-                }
-                .likeduser-title{
-                    color: #fff;
-                    margin-bottom: 5px;
-                    padding: 7px;
-                }
-                .likeuser_list{
-                    background-color: #ccc;
-                    float: left;
-                    margin: 0px 6px 5px 9px;
-                    padding: 5px;
-                    width: 47%;
-                    font-size: 14px;
-                }
-
-
-            </style>

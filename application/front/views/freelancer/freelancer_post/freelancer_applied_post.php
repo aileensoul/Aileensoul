@@ -968,7 +968,7 @@ $( "#tags" ).autocomplete({
                                 viewableText.click(divClicked);
 
                                 $.ajax({
-                                    url: "<?php echo base_url(); ?>recruiter/ajax_designation",
+                                    url: "<?php echo base_url(); ?>freelancer/designation",
                                     type: "POST",
                                     data: {"designation": html},
                                     success: function (response) {
