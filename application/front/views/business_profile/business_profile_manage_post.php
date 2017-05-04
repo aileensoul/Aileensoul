@@ -482,6 +482,9 @@
                                     $status = $this->db->get_where('follow', array('follow_type' => 2, 'follow_from' => $bup_id[0]['business_profile_id'], 'follow_to' => $businessdata1[0]['business_profile_id']))->row()->follow_status;
                                     //echo "<pre>"; print_r($status); die();
 
+                                  
+$logslug = $this->db->get_where('business_profile', array('user_id' => $userid))->row()->business_slug;
+                                   if($logslug != $this->uri->segment(3)){
                                     if ($status == 0 || $status == " ") {
                                         ?>
                                         <div class="msg_flw_btn_1" id= "followdiv">
@@ -499,8 +502,9 @@
 
                             <li>
                                 <a href="<?php echo base_url('chat/abc/' . $businessdata1[0]['user_id']); ?>">Message</a></li>
+                                   <?php } ?>
 
-                        </ul>
+                        </ul>   
                     </div>
                 </div></div>
 
