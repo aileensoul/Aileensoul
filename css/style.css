@@ -2103,9 +2103,11 @@ border-bottom: 1px solid #000033;
 .flw_msg_btn ul li {
     float: left;
     margin-bottom: 0px;
+    padding-left: 0px;
     /*   border-right: 1px solid #000000;*/
 
 }
+.flw_msg_btn{}
 /*.profile-main-box-menu li:last-child {
     border-right: none;
 }
@@ -3576,7 +3578,7 @@ footer .footer-menu li a:hover{
 .flw_msg_btn{margin-top: 4px;}
 .flw_msg_btn ul li a{   letter-spacing: 1px;
     width: 90px;
-    padding: 8px 10px; background: rgb(44,83,158); /* Old browsers */
+    padding: 8px 11px; background: rgb(44,83,158); /* Old browsers */
 background: -moz-linear-gradient(top, rgba(44,83,158,1) 0%, rgba(44,83,158,1) 100%); /* FF3.6-15 */
 background: -webkit-linear-gradient(top, rgba(44,83,158,1) 0%,rgba(44,83,158,1) 100%); /* Chrome10-25,Safari5.1-6 */
 background: linear-gradient(to bottom, rgba(44,83,158,1) 0%,rgba(44,83,158,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
@@ -4295,13 +4297,16 @@ textarea {overflow: hidden;}
  position: relative; 
  background-color: #fff;
  color: #000033;
- border: 1px solid #aaa; 
+ border: 2px solid #aaa; 
   border-radius: 21px; }
 
 
 .but1{ 
-  padding: 15px 20px 15px 2px;  
+  padding: 17px 20px 17px 2px;  
   overflow:hidden; 
+  font-size: 17px;
+  font-weight: bold;
+  letter-spacing: 0.2px;
   margin-left: 16px;
   text-align: center;
 
@@ -4313,7 +4318,7 @@ textarea {overflow: hidden;}
   font-size: 18px;
   position: absolute;
   top: 15px;
-  margin-left: 10px;
+  margin-left: 5px;
   left: -3%;
   visibility: hidden;
   transition: all 200ms ease;
