@@ -23,7 +23,7 @@
 				<div class="row">
 					 <div class="col-md-2"></div>
           <div class="col-md-8">
- 					<div class="common-form">
+ 					<div class="common-form about_btm">
                             <h3>ABOUT US:</h3>
         
                    <form id="feedbackform " class="clearfix" method="post" enctype="multipart/form-data" >

@@ -478,7 +478,8 @@ ul.sub-menu li a i { padding-right: 5px; }
 
 .footer-main{background-color: #ffffff;}
 
-
+footer{position: absolute; width: 100%;
+bottom: 0;}
 input[type="radio"] {
  height: auto;  
  width: auto;
