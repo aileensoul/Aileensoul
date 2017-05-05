@@ -713,14 +713,7 @@ $( "#tags" ).autocomplete({
             data: 'post_id=' + abc + '&allpost=' + alldata.value + '&userid=' + user.value,
             success:function(data){
                 //alert(data);
-            // $('.' + 'applypost' + abc).html(data);
-            // $('.' +'applypost' + abc).addClass('applied');
-            $('.'+'saveduser' + abc).hide();
-                                $('.'+'applypost' + abc).html(data);
-                                $('.'+'applypost' + abc).attr('disabled', 'disabled');
-                                $('.'+'applypost' + abc).attr('onclick', 'myFunction()');
-                                $('.'+'applypost' + abc).addClass('applied');
-
+            $('.' + 'applypost' + abc).html(data);
             }
     });
     }

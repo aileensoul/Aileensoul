@@ -824,7 +824,7 @@ $( "#tags" ).autocomplete({
 
     function remove_post(abc)
     {
-         alert(abc);     
+        // alert(abc);     
     $.ajax({
     type:'POST',
             url:'<?php echo base_url() . "freelancer/remove_save" ?>',
@@ -860,8 +860,9 @@ $( "#tags" ).autocomplete({
             url:'<?php echo base_url() . "freelancer/apply_insert" ?>',
             data: 'post_id=' + abc + '&allpost=' + alldata.value + '&userid=' + user.value,
             success:function(data){
-                  $('#' + 'removeapply' + abc).html(data);
                 $('#' + 'removeapply' + abc).parent().removeClass();
+                  $('#' + 'removeapply' + abc).html(data);
+                
             var numItems = $('.contact-frnd-post .job-contact-frnd').length;
                 if (numItems == '0') {
                     var nodataHtml = "<div class='text-center rio'><h4 class='page-heading  product-listing' style='border:0px;margin-bottom: 11px;'>No Saved Freelancer Found.</h4></div>";
