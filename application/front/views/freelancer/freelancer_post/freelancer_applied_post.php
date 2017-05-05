@@ -409,12 +409,7 @@ function text2link($text) {
 
                                                     echo date('d-M-Y', strtotime($post['modify_date'])); 
                                                     }
-                                                    else
-                                                    {
                                                     
-
-                                                    echo date('d-M-Y', strtotime($post['created_date'])); 
-                                                    }
                                                     ?>
                             </li>
                              <li>
