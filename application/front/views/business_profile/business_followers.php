@@ -289,6 +289,12 @@ if($status == 0 || $status == " "){?>
                                 </ul>
 
 </div>
+
+
+     <?php 
+       $userid = $this->session->userdata('aileenuser');
+
+        if($businessdata1[0]['user_id'] != $userid){?>
       <div class="col-md-3 padding_les">
                         <div class="flw_msg_btn fr">
                             <ul>
@@ -332,6 +338,7 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
                             </ul>
                         </div>
                     </div>
+                    <?php }?>
 </div>
 
               <!-- pickup -->
