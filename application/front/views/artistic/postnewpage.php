@@ -2534,7 +2534,7 @@ $art_userimage = $this->db->get_where('art_reg', array('user_id' => $art_data[0]
                                             $('.' + 'likeimgpost' + clicked_id).html(data);
                                                         }                                     });
                                                                 }
-           <                                            /script>
+           </script>
            <!--images like script end -->
            <!-- insert comment using enter -->
            <script type="text/javascript">
@@ -2552,7 +2552,7 @@ $art_userimage = $this->db->get_where('art_reg', array('user_id' => $art_data[0]
                       $(this).val('');
                   }); 
 
-        $('.' + 'insertimgcomment' + clicked_i                                                    d).html(data.comme                                                    nt);
+        $('.' + 'insertimgcomment' + clicked_id).html(data.comment);
     }
         }); 
         }
@@ -2590,7 +2590,7 @@ $.ajax({
         });
                                      });
         }
-        </scrip                                                            t>
+        </script>
                         <!-- hide and show data start-->
 <script type="text/javascript">
         function imgcommentall(clicked_id){ //alert("xyz");
@@ -2610,7 +2610,7 @@ x.style.display = 'block';
 </script>
 <!-- hide and show data end-->
         <!-- comment like script start -->
-    <script type="text/j a vascript">
+    <script type="text/javascript">
         function imgcomment_like(clicked_id)
 {
         //alert(clicked_id);
@@ -2635,7 +2635,7 @@ x.style.display = 'block';
                  }
                  }); 
         }
-    </                                                                            script>
+    </script>
      <!-- comment like script end -->
     <!-- comment edit box start-->
     <script type="text/javascript">
@@ -2655,9 +2655,8 @@ x.style.display = 'block';
         document.getElementById('imgeditcomment' + clicked_id).style.display='none';
        document.getElementById('imgshowcomment' + clicked_id).style.display='block';
        document.getElementById('imgeditsubmit' + clicked_id).style.display='none';
-   
-                                                                                        } 
-                                                                                        function imgcomment                                                                                _e                                                                                ditboxtwo(clicked_id){  //alert('editsubmit2' + clicked_id);
+     } 
+   function imgcomment_editboxtwo(clicked_id){  //alert('editsubmit2' + clicked_id);
         document.getElementById('imgeditcommenttwo' + clicked_id).style.display='block';
         document.getElementById('imgshowcommenttwo' + clicked_id).style.display='none';
         document.getElementById('imgeditsubmittwo' + clicked_id).style.display='block';

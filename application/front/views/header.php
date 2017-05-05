@@ -496,8 +496,7 @@ $(window).load(function(){
                                                         </div>
 
                                                     </li>
-<?php } } ?>
-                                                    <!--4-->  
+<?php } } ?>         <!--4-->  
 
                                                     <?php
                                                     foreach($artlike as $art){

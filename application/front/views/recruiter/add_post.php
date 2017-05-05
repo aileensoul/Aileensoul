@@ -256,7 +256,7 @@
 
                                 <fieldset <?php if ($maxsal) { ?> class="error-msg" <?php } ?>>
                                     <label class="control-label">Max salary:(Per Year)</label>
-                                    <input name="maxsal" type="text" id="maxsal" onblur="checkvalue11();"  placeholder="Enter Maximum salary" /><span id="fullname-error"></span>
+                                    <input name="maxsal" type="text" id="maxsal" onblur='CheckValue11()'  placeholder="Enter Maximum salary" /><span id="fullname-error"></span>
 <?php echo form_error('maxsal'); ?>
                                 </fieldset>
 
@@ -822,15 +822,14 @@ $('#datepicker').datetimepicker({
 //select2 autocomplete End for Location
 </script>
 <script>
-
-    
-
-         function CheckValue11(){
-        var firstBox = $('#minsal').val();
+var CheckValue11 = function() { 
+   var firstBox = $('#minsal').val();
         var secondBox = $('#maxsal').val();
-            if (firstBox > secondBox){
+        
+            if (firstBox < secondBox){
                 alert('box 1 cannot be greater than box 2');
                 return false;
             }
-        }
+}
+       
         </script>
