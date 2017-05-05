@@ -1,4 +1,4 @@
-<!-- start head -->
+  <!-- start head -->
 <?php  echo $head; ?>
     <!-- END HEAD -->
     <!-- start header -->
@@ -88,7 +88,7 @@
                                     <label class="control-label">Minimum experience:<span style="color:red">*</span></label>
 
 
-                                    <select name="minyear" class="keyskil">
+                                    <select style="cursor:pointer;" name="minyear" class="keyskil">
                                         <option value="">Year</option>
                                         <option value="0">0 Year</option>
                                         <option value="1">1 Year</option>
@@ -113,7 +113,7 @@
                                         <option value="20">20 Year</option>
                                     </select>
                                     
-                                    <select name="minmonth" class="keyskil">
+                                    <select style="cursor:pointer;" name="minmonth" class="keyskil">
                                         <option value="">Month</option>
                                         <option value="0">0 Month</option>
                                         <option value="1">1 Month</option>
@@ -134,7 +134,7 @@
                                     <label class="control-label">&nbsp;Maximum experience:<span style="color:red">*</span></label>
 
 
-                                      <select name="maxyear" class="keyskil1">
+                                      <select style="cursor:pointer;" name="maxyear" class="keyskil1">
                                         <option value="">Year</option>
                                         <option value="0">0 Year</option>
                                         <option value="1">1 Year</option>
@@ -161,8 +161,8 @@
 
                                       
 
-                                    <select name="maxmonth" class="keyskil1">
-                                        <option value="">Month</option>
+                                    <select style="cursor:pointer;" name="maxmonth" class="keyskil1">
+                                        <option  value="">Month</option>
                                         <option value="0">0 Month</option>
                                         <option value="1">1 Month</option>
                                         <option value="2">2 Month</option>
@@ -181,13 +181,13 @@
                                 if($postdata[0]['fresher'])
                                 {
                           ?>
-                          <input style="width: 6%; height: 15px; " type="checkbox" name="fresher" value="1" style="width: 5%;" checked>Fresher can also apply..!
+                          <input  style="width: 6%;cursor:pointer; height: 15px; " type="checkbox" name="fresher" value="1" style="width: 5%;" checked>Fresher can also apply..!
                         <?php 
                              }
                              else
                              {
                           ?>
-                          <input type="checkbox" name="fresher" value="1" style="width: 5%;" >Fresher can also apply..!
+                          <input type="checkbox" style="cursor:pointer;" name="fresher" value="1" style="width: 5%;" >Fresher can also apply..!
                           <?php 
                         }
                         ?>
@@ -213,13 +213,7 @@
                      
                       <?php echo form_error('interview'); ?> 
                 </fieldset>
-                      
-                <fieldset class="half-width">
-                      <label>Last date for apply: <!-- <span style="color:red">*</span> --></label>
-                      <input type="text" name="last_date" placeholder="Enter last date for apply" id="datepicker" value="<?php echo date('d/m/Y',strtotime($postdata[0]['post_last_date'])); ?>" placeholder="Enter text">
-                      <?php echo form_error('last_date'); ?> 
-                </fieldset>
-
+               
                
 
                 <fieldset class="half-width" <?php if($country) {  ?> class="error-msg" <?php } ?>>
@@ -229,7 +223,7 @@
                                       <?php 
                  $countryname =  $this->db->get_where('countries',array('country_id' => $postdata[0]['country']))->row()->country_name; ?>
 
-                                     <select name="country" id="country">
+                                     <select style="cursor:pointer;" name="country" id="country">
                                     <option value="<?php echo $postdata[0]['country'] ;?>"><?php echo $countryname ;?></option>
                                     <?php
                                     if(count($countries) > 0){
@@ -251,7 +245,7 @@
 
                          <fieldset  class="half-width" <?php if($state) {  ?> class="error-msg" <?php } ?>>
                                     <label>State:<span style="color:red">*</span></label>
-                                     <select name="state" id="state">
+                                     <select style="cursor:pointer;" name="state" id="state">
                                     <?php
                                            if($postdata[0]['state'])
 
@@ -311,6 +305,14 @@
                                     </select>
                                     <?php echo form_error('city'); ?>
                         </fieldset>
+
+                               
+                <fieldset class="half-width">
+                      <label>Last date for apply: <!-- <span style="color:red">*</span> --></label>
+                      <input style="cursor:pointer;" type="text" name="last_date" placeholder="Enter last date for apply" id="datepicker" value="<?php echo date('d/m/Y',strtotime($postdata[0]['post_last_date'])); ?>" placeholder="Enter text">
+                      <?php echo form_error('last_date'); ?> 
+                </fieldset>
+
 
                   <fieldset class="half-width" <?php if($minsal) {  ?> class="error-msg" <?php } ?>>
                             <label class="control-label">Min salary:(Per Year)<!-- <span style="color:red">*</span> --></label>
