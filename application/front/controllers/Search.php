@@ -2049,12 +2049,12 @@ $contition_array = array('is_delete' => '0', 'status' =>'1');
              $join_str[0]['from_table_id'] = 'rec_post.user_id';
              $join_str[0]['join_type'] = '';
 
-             $data='rec_post.post_name,rec_post.post_description,rec_post.post_skill,rec_post.post_position,rec_post.post_last_date,rec_post.min_month,rec_post.min_year,rec_post.min_sal,rec_post.max_sal,rec_post.other_skill,rec_post.user_id,rec_post.post_id';
+             $data='rec_post.post_name,rec_post.post_description,rec_post.post_skill,rec_post.post_position,rec_post.post_last_date,rec_post.min_month,rec_post.min_year,rec_post.min_sal,rec_post.max_sal,rec_post.other_skill,rec_post.user_id,rec_post.post_id,rec_post.country,rec_post.city,rec_post.interview_process';
 
               $search_condition = "(rec_post.post_name LIKE '%$search_job%' or rec_post.max_sal LIKE '%$search_job%' or rec_post.min_sal LIKE '%$search_job%' or  recruiter.re_comp_name LIKE '%$search_job%' or recruiter.rec_firstname LIKE '%$search_job%' or recruiter.rec_lastname LIKE '%$search_job%' or rec_post.other_skill LIKE '%$search_job%' )";
           
          $results=$recpostdata['data'] = $this->common->select_data_by_search('rec_post', $search_condition, $contition_array = array(), $data , $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
-            // echo "<pre>"; print_r($results);die();
+           //echo "<pre>"; print_r($results);die();
 
 
       //     $search_condition = "(rec_firstname LIKE '%$search_job%' or rec_lastname LIKE '%$search_job%')";
