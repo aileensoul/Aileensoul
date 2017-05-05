@@ -122,6 +122,7 @@ class Freelancer extends MY_Controller {
 
         $this->form_validation->set_rules('firstname', 'Full Name', 'required');
         $this->form_validation->set_rules('lastname', 'Last Name', 'required');
+        $this->form_validation->set_rules('phoneno', 'Phone Nunmber Required', 'required');
 
         $this->form_validation->set_rules('email', 'EmailId', 'required|valid_email');
         
@@ -164,6 +165,8 @@ class Freelancer extends MY_Controller {
                     'user_id' => $userid,
                     'modify_date' => date('Y-m-d', time())
                 );
+
+
 
                 $updatedata = $this->common->update_data($data, 'freelancer_post_reg', 'user_id', $userid);
 
@@ -721,21 +724,21 @@ class Freelancer extends MY_Controller {
 
 
 
-        if ($this->input->post('next')) {
+        // if ($this->input->post('next')) {
 
-            $this->form_validation->set_rules('degree', 'Degree', 'required');
-            $this->form_validation->set_rules('stream', 'Stream', 'required');
-            $this->form_validation->set_rules('university', 'University', 'required');
-            $this->form_validation->set_rules('college', 'Collage', 'required');
-            $this->form_validation->set_rules('percentage', 'Percentage', 'required');
-            $this->form_validation->set_rules('passingyear', 'Passing Year', 'required');
-
-
+        //     $this->form_validation->set_rules('degree', 'Degree', 'required');
+        //     $this->form_validation->set_rules('stream', 'Stream', 'required');
+        //     $this->form_validation->set_rules('university', 'University', 'required');
+        //     $this->form_validation->set_rules('college', 'Collage', 'required');
+        //     $this->form_validation->set_rules('percentage', 'Percentage', 'required');
+        //     $this->form_validation->set_rules('passingyear', 'Passing Year', 'required');
 
 
-            if ($this->form_validation->run() == FALSE) {
-                $this->load->view('freelancer/freelancer_post/freelancer_post_education');
-            } else {
+
+
+        //     if ($this->form_validation->run() == FALSE) {
+        //         $this->load->view('freelancer/freelancer_post/freelancer_post_education');
+        //     } else {
 
                 $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
 
@@ -782,8 +785,8 @@ class Freelancer extends MY_Controller {
                     $this->session->flashdata('error', 'Your data not inserted');
                     redirect('freelancer/freelancer_post_education', refresh);
                 }
-            }
-        }
+            
+        
     }
 
 //freelancer education page controller End

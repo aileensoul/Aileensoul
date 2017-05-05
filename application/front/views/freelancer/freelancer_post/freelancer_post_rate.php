@@ -60,7 +60,7 @@
 
                             <fieldset <?php if ($hourly) { ?> class="error-msg" <?php } ?>>
                                 <label>Hourly:</label>
-                                <input type="text" name="hourly" placeholder="Enter hourly"  value="<?php if ($hourly1) {
+                                <input type="text" name="hourly" placeholder="Enter hourly Rate"  value="<?php if ($hourly1) {
                                     echo $hourly1;
                                 } ?>">
                                     <?php echo form_error('hourly'); ?>
