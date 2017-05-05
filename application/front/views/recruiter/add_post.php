@@ -95,10 +95,10 @@
 
 
                                 <fieldset <?php if ($month) { ?> class="error-msg" <?php } ?> class="two-select-box">
-                                    <label class="control-label">Minimum experience:<span style="color:red">*</span></label>
+                                    <label style="cursor:pointer;" class="control-label">Minimum experience:<span style="color:red">*</span></label>
 
 
-                                    <select name="minyear" class="keyskil">
+                                    <select name="minyear" style="cursor:pointer;" class="keyskil">
                                         <option value="">Year</option>
                                         <option value="0">0 Year</option>
                                         <option value="1">1 Year</option>
@@ -123,7 +123,7 @@
                                         <option value="20">20 Year</option>
                                     </select>
                                     
-                                    <select name="minmonth" class="keyskil">
+                                    <select name="minmonth"  style="cursor:pointer;" class="keyskil">
                                         <option value="">Month</option>
                                         <option value="0">0 Month</option>
                                         <option value="1">1 Month</option>
@@ -141,10 +141,10 @@
 
 
                                 <fieldset <?php if ($month) { ?> class="error-msg" <?php } ?> class="two-select-box">
-                                    <label class="control-label">&nbsp;Maximum experience:<span style="color:red">*</span></label>
+                                    <label style="cursor:pointer;" class="control-label">&nbsp;Maximum experience:<span style="color:red">*</span></label>
 
 
-                                      <select name="maxyear" class="keyskil1">
+                                      <select name="maxyear" style="cursor:pointer;" class="keyskil1">
                                         <option value="">Year</option>
                                         <option value="0">0 Year</option>
                                         <option value="1">1 Year</option>
@@ -171,7 +171,7 @@
 
                                       
 
-                                    <select name="maxmonth" class="keyskil1">
+                                    <select name="maxmonth" style="cursor:pointer;" class="keyskil1">
                                         <option value="">Month</option>
                                         <option value="0">0 Month</option>
                                         <option value="1">1 Month</option>
@@ -186,8 +186,8 @@
                                     <?php echo form_error('month'); ?> &nbsp;&nbsp; <?php echo form_error('year'); ?>
                                 </fieldset>
 
-                                <fieldset class="form-group full-width">
-                                    <input type="checkbox" name="fresher" value="1"> Fresher can also apply..!
+                                <fieldset style="cursor:pointer;" class="form-group full-width">
+                                    <input  type="checkbox" name="fresher" value="1"> Fresher can also apply..!
                                 </fieldset>
 
                           
@@ -211,8 +211,8 @@
                                 </fieldset>
 
                                 <fieldset <?php if ($country) { ?> class="error-msg" <?php } ?>>
-                                    <label>Country:<span style="color:red">*</span></label>
-                                    <select name="country" id="country">
+                                    <label >Country:<span style="color:red">*</span></label>
+                                    <select style="cursor:pointer;" name="country" id="country">
                                         <option value="">Select Country</option>
                                         <?php
                                         if (count($countries) > 0) {
@@ -228,7 +228,7 @@
 
                                 <fieldset <?php if ($state) { ?> class="error-msg" <?php } ?>>
                                     <label>State:<span style="color:red">*</span></label>
-                                    <select name="state" id="state">
+                                    <select style="cursor:pointer;" name="state" id="state">
                                         <option value="">Select country first</option>
                                     </select>
 <?php echo form_error('state'); ?> 
@@ -236,7 +236,7 @@
 
                                 <fieldset <?php if ($city) { ?> class="error-msg" <?php } ?>>
                                     <label>City:</label>
-                                    <select name="city" id="city">
+                                    <select style="cursor:pointer;" name="city" id="city">
                                         <option value="">Select state first</option>
                                     </select>
 
