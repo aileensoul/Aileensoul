@@ -79,7 +79,8 @@
              <?php  } }?>
 
 <?php foreach($artcommnet as $art){ 
-    if($art['not_from'] == 3){?>
+    if($art['not_from'] == 3){
+    if($art['not_img'] == 1){?>
  <li> 
     <div class="notification-pic" >
    <img src="<?php echo base_url(USERIMAGE . $art['user_image']);?>" >
@@ -90,12 +91,24 @@
         <?php echo $this->common->time_elapsed_string($art['message_create_date'], $full = false);?>
     </div>
     </div>
-  
-</li>
-<?php } }?>
+    </li>
+    <?php }else{ ?>
+        <li> 
+    <div class="notification-pic" >
+   <img src="<?php echo base_url(USERIMAGE . $art['user_image']);?>" >
+  </div>
+    <div class="notification-data-inside">
+    <a href="<?php echo base_url('artistic/postnewpage/' .$art['art_post_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Artistic</i></font></b><b>" . "  " .  $art['first_name'] . ' ' . $art['last_name'] . "</b> commneted on your image"; ?></h6></a>
+    <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
+        <?php echo $this->common->time_elapsed_string($art['message_create_date'], $full = false);?>
+    </div>
+    </div>
+     </li>
+    <?php } }}?>
 
 <?php foreach($artlike as $art){ 
-    if($art['not_from'] == 3){?>
+    if($art['not_from'] == 3){
+     if($art['not_img'] == 2){   ?>
  <li> 
     <div class="notification-pic" >
    <img src="<?php echo base_url(USERIMAGE . $art['user_image']);?>" >
@@ -106,14 +119,36 @@
          <?php echo $this->common->time_elapsed_string($art['message_create_date'], $full = false);?>
     </div>
     </div>
-    
-    
-</li>
-<?php } }?>
-
+   </li>
+     <?php }elseif($art['not_img'] == 5){?>
+   <li> 
+    <div class="notification-pic" >
+   <img src="<?php echo base_url(USERIMAGE . $art['user_image']);?>" >
+  </div>
+    <div class="notification-data-inside">
+    <a href="<?php echo base_url('artistic/postnewpage/' . $art['art_post_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Artistic</i></font></b><b>" . "  " .  $art['first_name'] . ' ' . $art['last_name'] . "</b> liked on your image"; ?></h6></a>
+    <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
+         <?php echo $this->common->time_elapsed_string($art['message_create_date'], $full = false);?>
+    </div>
+    </div>
+   </li>
+   <?php }else{ ?>
+   <li> 
+    <div class="notification-pic" >
+   <img src="<?php echo base_url(USERIMAGE . $art['user_image']);?>" >
+  </div>
+    <div class="notification-data-inside">
+    <a href="<?php echo base_url('artistic/postnewpage/' . $art['art_post_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Artistic</i></font></b><b>" . "  " .  $art['first_name'] . ' ' . $art['last_name'] . "</b> liked on your comment"; ?></h6></a>
+    <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
+         <?php echo $this->common->time_elapsed_string($art['message_create_date'], $full = false);?>
+    </div>
+    </div>
+   </li>
+   <?php } } }?>
 
 <?php foreach($buscommnet as $bus){ 
-    if($bus['not_from'] == 6){?>
+    if($bus['not_from'] == 6){
+    if($bus['not_img'] == 1){    ?>
  <li> 
     <div class="notification-pic" >
    <img src="<?php echo base_url(USERIMAGE . $art['user_image']);?>" >
@@ -126,7 +161,21 @@
     </div>
     
 </li>
-<?php } }?>
+    <?php }else{?> 
+        
+        <li> 
+    <div class="notification-pic" >
+   <img src="<?php echo base_url(USERIMAGE . $art['user_image']);?>" >
+  </div>
+    <div class="notification-data-inside">
+    <a href="<?php echo base_url('business_profile/postnewpage/' . $bus['business_profile_post_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Business</i></font></b><b>" . "  " .  $bus['first_name'] . ' ' . $bus['last_name'] . "</b> commneted on your image"; ?></h6></a>
+    <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
+        <?php echo $this->common->time_elapsed_string($bus['message_create_date'], $full = false);?>
+    </div>
+    </div>
+    
+</li>
+        <?php } } }?>
 
 <?php foreach($busifollow as $bus){ 
     if($bus['not_from'] == 6){
@@ -145,7 +194,8 @@
     <?php } }}?>
 
 <?php foreach($buslike as $bus){ 
-    if($bus['not_from'] == 6){?>
+    if($bus['not_from'] == 6){
+    if($bus['not_img'] == 2){   ?>
  <li> 
     <div class="notification-pic" >
    <img src="<?php echo base_url(USERIMAGE . $bus['user_image']);?>" >
@@ -157,7 +207,31 @@
     </div>
     </div>
 </li>
-<?php } }?>
+    <?php }elseif($art['not_img'] == 5){?>
+ <li> 
+    <div class="notification-pic" >
+   <img src="<?php echo base_url(USERIMAGE . $bus['user_image']);?>" >
+  </div>
+    <div class="notification-data-inside">
+    <a href="<?php echo base_url('business_profile/postnewpage/' . $bus['business_profile_post_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Businessman</i></font></b><b>" . "  " .  $bus['first_name'] . ' ' . $bus['last_name'] . "</b> liked on your image"; ?></h6></a>
+    <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
+       <?php echo $this->common->time_elapsed_string($bus['message_create_date'], $full = false);?>
+    </div>
+    </div>
+</li>
+<?php }else{ ?>
+ <li> 
+    <div class="notification-pic" >
+   <img src="<?php echo base_url(USERIMAGE . $bus['user_image']);?>" >
+  </div>
+    <div class="notification-data-inside">
+    <a href="<?php echo base_url('business_profile/postnewpage/' . $bus['business_profile_post_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Businessman</i></font></b><b>" . "  " .  $bus['first_name'] . ' ' . $bus['last_name'] . "</b> liked on your comment"; ?></h6></a>
+    <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
+       <?php echo $this->common->time_elapsed_string($bus['message_create_date'], $full = false);?>
+    </div>
+    </div>
+</li>
+<?php }} }?>
 
 
 <?php foreach($rec_not as $art){ 
@@ -198,8 +272,7 @@
 
 <?php foreach($work_not as $art){ 
     if($art['not_from'] == 5){
-        
-     $id =   $this->db->get_where('job_reg',array('user_id' => $art['user_id']))->row()->job_id; if($id){?>
+  $id = $this->db->get_where('job_reg',array('user_id' => $art['user_id']))->row()->job_id; if($id){?>
  <li> 
     <div class="notification-pic" >
    <img src="<?php echo base_url(USERIMAGE . $art['user_image']);?>" >
