@@ -86,7 +86,7 @@
    <img src="<?php echo base_url(USERIMAGE . $art['user_image']);?>" >
   </div>
     <div class="notification-data-inside">
-    <a href="<?php echo base_url('artistic/postnewpage/' .$art['art_post_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Artistic</i></font></b><b>" . "  " .  $art['first_name'] . ' ' . $art['last_name'] . "</b> commneted on your post"; ?></h6></a>
+    <a href="<?php echo base_url('artistic/postnewpage/not/' .$art['art_post_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Artistic</i></font></b><b>" . "  " .  $art['first_name'] . ' ' . $art['last_name'] . "</b> commneted on your post"; ?></h6></a>
     <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
         <?php echo $this->common->time_elapsed_string($art['message_create_date'], $full = false);?>
     </div>
@@ -98,7 +98,7 @@
    <img src="<?php echo base_url(USERIMAGE . $art['user_image']);?>" >
   </div>
     <div class="notification-data-inside">
-    <a href="<?php echo base_url('artistic/postnewpage/' .$art['art_post_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Artistic</i></font></b><b>" . "  " .  $art['first_name'] . ' ' . $art['last_name'] . "</b> commneted on your image"; ?></h6></a>
+    <a href="<?php echo base_url('artistic/postnewpage/not/' .$art['art_post_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Artistic</i></font></b><b>" . "  " .  $art['first_name'] . ' ' . $art['last_name'] . "</b> commneted on your image"; ?></h6></a>
     <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
         <?php echo $this->common->time_elapsed_string($art['message_create_date'], $full = false);?>
     </div>
@@ -114,7 +114,7 @@
    <img src="<?php echo base_url(USERIMAGE . $art['user_image']);?>" >
   </div>
     <div class="notification-data-inside">
-    <a href="<?php echo base_url('artistic/postnewpage/' . $art['art_post_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Artistic</i></font></b><b>" . "  " .  $art['first_name'] . ' ' . $art['last_name'] . "</b> liked on your post"; ?></h6></a>
+    <a href="<?php echo base_url('artistic/postnewpage/not/' . $art['art_post_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Artistic</i></font></b><b>" . "  " .  $art['first_name'] . ' ' . $art['last_name'] . "</b> liked on your post"; ?></h6></a>
     <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
          <?php echo $this->common->time_elapsed_string($art['message_create_date'], $full = false);?>
     </div>
@@ -126,7 +126,7 @@
    <img src="<?php echo base_url(USERIMAGE . $art['user_image']);?>" >
   </div>
     <div class="notification-data-inside">
-    <a href="<?php echo base_url('artistic/postnewpage/' . $art['art_post_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Artistic</i></font></b><b>" . "  " .  $art['first_name'] . ' ' . $art['last_name'] . "</b> liked on your image"; ?></h6></a>
+    <a href="<?php echo base_url('artistic/postnewpage/not/' . $art['art_post_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Artistic</i></font></b><b>" . "  " .  $art['first_name'] . ' ' . $art['last_name'] . "</b> liked on your image"; ?></h6></a>
     <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
          <?php echo $this->common->time_elapsed_string($art['message_create_date'], $full = false);?>
     </div>
@@ -138,7 +138,7 @@
    <img src="<?php echo base_url(USERIMAGE . $art['user_image']);?>" >
   </div>
     <div class="notification-data-inside">
-    <a href="<?php echo base_url('artistic/postnewpage/' . $art['art_post_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Artistic</i></font></b><b>" . "  " .  $art['first_name'] . ' ' . $art['last_name'] . "</b> liked on your comment"; ?></h6></a>
+    <a href="<?php echo base_url('artistic/postnewpage/not/' . $art['art_post_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Artistic</i></font></b><b>" . "  " .  $art['first_name'] . ' ' . $art['last_name'] . "</b> liked on your comment"; ?></h6></a>
     <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
          <?php echo $this->common->time_elapsed_string($art['message_create_date'], $full = false);?>
     </div>
@@ -306,8 +306,7 @@
 </div>
 </div>  
 
-</div>
-                    </div>
+</div>           </div>
                     <!-- END PAGE TITLE -->
                 </div>
             </div>
