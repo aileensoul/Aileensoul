@@ -3930,14 +3930,14 @@ class Business_profile extends MY_Controller {
         $userid = $this->session->userdata('aileenuser');
 
         $post_image_id = $_POST["post_image_id"];
-        $post_comment = $_POST["comment"];
+        $post_comment = $_POST["comment"]; 
 
 
 
         $contition_array = array('image_id' => $_POST["post_image_id"], 'is_deleted' => '1');
         $busimg = $this->data['busimg'] = $this->common->select_data_by_condition('post_image', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-        $contition_array = array('busienss_profile_post_id' => $busimg[0]["post_id"], 'is_delete' => 0);
+        $contition_array = array('business_profile_post_id' => $busimg[0]["post_id"], 'is_delete' => 0);
         $buspostid = $this->data['buspostid'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
 
@@ -3997,13 +3997,17 @@ class Business_profile extends MY_Controller {
             $cmtinsert .= '<div class="comment-details" id= "showcomment' . $bus_comment['post_image_comment_id'] . '"" >';
             $cmtinsert .= $bus_comment['comment'];
             $cmtinsert .= '</div>';
-            $cmtinsert .= '<input type="text" name="' . $bus_comment['post_image_comment_id'] . '" id="editcomment' . $bus_comment['post_image_comment_id'] . '"style="display:none;" value="' . $bus_comment['comment'] . ' " onClick="commentedit(' . $bus_comment['post_image_comment_id'] . ')">';
+            $cmtinsert .= '<div contenteditable="true" class="editable_text" name="' . $bus_comment['post_image_comment_id'] . '" id="editcomment' . $bus_comment['post_image_comment_id'] . '"style="display:none;" onClick="commentedit(' . $bus_comment['post_image_comment_id'] . ')">';
+            $cmtinsert .= $bus_comment['comment'];
+            $cmtinsert .= '</div>';
+
+
             //$cmtinsert .= '<input type="text" name="' . $bus_comment['post_image_comment_id'] . '" id="editcomment' . $bus_comment['post_image_comment_id'] . '"style="display:none;" value="' . $bus_comment['comment'] . ' " onClick="commentedit(this.name)">';
 
             $cmtinsert .= '<button id="editsubmit' . $bus_comment['post_image_comment_id'] . '" style="display:none;" onClick="edit_comment(' . $bus_comment['post_image_comment_id'] . ')">Save</button><div class="art-comment-menu-design"> <div class="comment-details-menu" id="likecomment' . $bus_comment['post_image_comment_id'] . '">';
 
             $cmtinsert .= '<a id="' . $bus_comment['post_image_comment_id'] . '"';
-            $cmtinsert .= 'onClick="comment_like(this.id)">';
+            $cmtinsert .= 'onClick="imgcomment_like(this.id)">';
 
             $contition_array = array('post_image_comment_id' => $bus_comment['post_image_comment_id'], 'user_id' => $userid, 'is_unlike' => 0);
 
@@ -4163,12 +4167,12 @@ class Business_profile extends MY_Controller {
             $cmtinsert .= $bus_comment['comment'];
             $cmtinsert .= '</div>';
             //$cmtinsert .= '<input type="text" name="' . $bus_comment['post_image_comment_id'] . '" id="editcomment' . $bus_comment['post_image_comment_id'] . '"style="display:none;" value="' . $bus_comment['comment'] . ' " onClick="commentedit(this.name)">';
-            $cmtinsert .= '<div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="' . $bus_comment['post_image_comment_id'] . '"  id="editcomment' . $bus_comment['post_image_comment_id'] . '" placeholder="Type Message ..." value= ""  onkeyup="commentedit(' . $bus_comment['post_image_comment_id'] . ')">' . $bus_comment['comment'] . '</div>';
+            $cmtinsert .= '<div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="' . $bus_comment['post_image_comment_id'] . '"  id="editcomment' . $bus_comment['post_image_comment_id'] . '" placeholder="Type Message ..." value= ""  onkeyup="commentedittwo(' . $bus_comment['post_image_comment_id'] . ')">' . $bus_comment['comment'] . '</div>';
 
-            $cmtinsert .= '<button id="editsubmit' . $bus_comment['post_image_comment_id'] . '" style="display:none;" onClick="edit_comment(' . $bus_comment['post_image_comment_id'] . ')">Comment</button><div class="art-comment-menu-design"> <div class="comment-details-menu" id="likecomment' . $bus_comment['post_image_comment_id'] . '">';
+            $cmtinsert .= '<button id="editsubmit' . $bus_comment['post_image_comment_id'] . '" style="display:none;" onClick="edit_commenttwo(' . $bus_comment['post_image_comment_id'] . ')">Save</button><div class="art-comment-menu-design"> <div class="comment-details-menu" id="likecomment' . $bus_comment['post_image_comment_id'] . '">';
 
             $cmtinsert .= '<a id="' . $bus_comment['post_image_comment_id'] . '"';
-            $cmtinsert .= 'onClick="comment_like(this.id)">';
+            $cmtinsert .= 'onClick="imgcomment_liketwo(this.id)">';
 
             $contition_array = array('post_image_comment_id' => $bus_comment['post_image_comment_id'], 'user_id' => $userid, 'is_unlike' => 0);
 
@@ -4605,7 +4609,12 @@ class Business_profile extends MY_Controller {
                 );
 
 
-                $updatdata = $this->common->update_data($data, 'bus_comment_image_like', 'post_image_comment_id', $post_image_comment_id);
+            $where = array('post_image_comment_id' => $post_image_comment_id , 'user_id' => $userid);
+              $this->db->where($where);
+             $updatdata = $this->db->update('bus_comment_image_like ', $data); 
+
+
+                //$updatdata = $this->common->update_data($data, 'bus_comment_image_like', 'post_image_comment_id', $post_image_comment_id);
 
                 $contition_array = array('post_image_comment_id' => $post_image_comment_id, 'is_unlike' => '0');
                 $bdata2 = $this->data['bdata2'] = $this->common->select_data_by_condition('bus_comment_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -4916,12 +4925,15 @@ class Business_profile extends MY_Controller {
             $cmtinsert .= '<div class="comment-details" id= "showcomment' . $bus_comment['post_image_comment_id'] . '"" >';
             $cmtinsert .= $bus_comment['comment'];
             $cmtinsert .= '</div>';
-            $cmtinsert .= '<input type="text" name="' . $bus_comment['post_image_comment_id'] . '" id="editcomment' . $bus_comment['post_image_comment_id'] . '"style="display:none;" value="' . $bus_comment['comment'] . ' " onClick="commentedit(' . $bus_comment['post_image_comment_id'] . ')">';
+            $cmtinsert .= '<div contenteditable="true" class="editable_text" name="' . $bus_comment['post_image_comment_id'] . '" id="editcomment' . $bus_comment['post_image_comment_id'] . '"style="display:none;"  onClick="commentedit(' . $bus_comment['post_image_comment_id'] . ')">';
+
+            $cmtinsert .= $bus_comment['comment'];
+            $cmtinsert .= '</div>';
 
             $cmtinsert .= '<button id="editsubmit' . $bus_comment['post_image_comment_id'] . '" style="display:none;" onClick="edit_comment(' . $bus_comment['post_image_comment_id'] . ')">Save</button><div class="art-comment-menu-design"> <div class="comment-details-menu" id="likecomment' . $bus_comment['post_image_comment_id'] . '">';
 
             $cmtinsert .= '<a id="' . $bus_comment['post_image_comment_id'] . '"';
-            $cmtinsert .= 'onClick="comment_like(this.id)">';
+            $cmtinsert .= 'onClick="imgcomment_like(this.id)">';
 
             $contition_array = array('post_image_comment_id' => $bus_comment['post_image_comment_id'], 'user_id' => $userid, 'is_unlike' => 0);
 
@@ -5047,8 +5059,8 @@ class Business_profile extends MY_Controller {
 
             $cmtinsert .= '<div class="edit-comment-box"><div class="inputtype-edit-comment">';
             //$cmtinsert .= '<textarea type="text" class="textarea" name="' . $business_profile['business_profile_post_comment_id'] . '" id="editcomment' . $business_profile['business_profile_post_comment_id'] . '" style="display:none;resize: none;" onClick="commentedit(this.name)">' . $business_profile['comments'] . '</textarea>';
-            $cmtinsert .= '<div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="' . $business_profile['business_profile_post_comment_id'] . '"  id="editcomment' . $business_profile['business_profile_post_comment_id'] . '" placeholder="Type Message ..." value= ""  onkeyup="commentedit(' . $business_profile['business_profile_post_comment_id'] . ')">' . $business_profile['comments'] . '</div>';
-            $cmtinsert .= '<span class="comment-edit-button"><button id="editsubmit' . $business_profile['business_profile_post_comment_id'] . '" style="display:none" onClick="edit_comment(' . $business_profile['business_profile_post_comment_id'] . ')">Save</button></span>';
+            $cmtinsert .= '<div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="' . $business_profile['business_profile_post_comment_id'] . '"  id="editcomment' . $business_profile['business_profile_post_comment_id'] . '" placeholder="Type Message ..." value= ""  onkeyup="commentedittwo(' . $business_profile['business_profile_post_comment_id'] . ')">' . $business_profile['comments'] . '</div>';
+            $cmtinsert .= '<span class="comment-edit-button"><button id="editsubmit' . $business_profile['business_profile_post_comment_id'] . '" style="display:none" onClick="edit_commenttwo(' . $business_profile['business_profile_post_comment_id'] . ')">Save</button></span>';
             $cmtinsert .= '</div></div>';
 
 //            $cmtinsert .= '<input type="text" name="' . $bus_comment['post_image_comment_id'] . '" id="imgeditcommenttwo' . $bus_comment['post_image_comment_id'] . '"style="display:none;" value="' . $bus_comment['comment'] . ' " onClick="imgcommentedittwo(this.name)">';
@@ -5274,14 +5286,16 @@ class Business_profile extends MY_Controller {
                 $fourdata .= '' . $rowdata['comment'] . '</br> </div>';
 
                 $fourdata .= '<div class="col-md-12"><div class="col-md-10">';
-                $fourdata .= '<input type="text" name="' . $rowdata['post_image_comment_id'] . '" id="editcommenttwo' . $rowdata['post_image_comment_id'] . '" style="display: none;" value="' . $rowdata['comment'] . '" onClick="commentedittwo(' . $rowdata['post_image_comment_id'] . ')">';
+
+                $fourdata .= '<div contenteditable="true" class="editable_text" name="' . $rowdata['post_image_comment_id'] . '" id="editcommenttwo' . $rowdata['post_image_comment_id'] . '" style="display: none;"  onClick="commentedittwo(' . $rowdata['post_image_comment_id'] . ')">';
+                 $fourdata .= '' . $rowdata['comment'] . '</div>';
 
                 $fourdata .= '</div>  <div class="col-md-2 comment-edit-button">';
                 $fourdata .= '<button id="editsubmittwo' . $rowdata['post_image_comment_id'] . '" style="display:none" onClick="edit_commenttwo(' . $rowdata['post_image_comment_id'] . ')">Save</button></div> </div>';
 
                 $fourdata .= '<div class="comment-details-menu" id="likecomment1' . $rowdata['post_image_comment_id'] . '">';
 
-                $fourdata .= '<a id="' . $rowdata['post_image_comment_id'] . '"   onClick="comment_like1(this.id)">';
+                $fourdata .= '<a id="' . $rowdata['post_image_comment_id'] . '"   onClick="imgcomment_liketwo(this.id)">';
 
                 $userid = $this->session->userdata('aileenuser');
                 $contition_array = array('post_image_comment_id' => $rowdata['post_image_comment_id'], 'user_id' => $userid, 'is_unlike' => 0);
