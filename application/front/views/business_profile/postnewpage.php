@@ -532,11 +532,9 @@ width: 68px;">
         </div>
 
   
-  <div  class="add-post-button">
-   
-      
+<!--  <div  class="add-post-button">
         <a class="btn btn-3 btn-3b"href="<?php echo base_url('recruiter'); ?>"><i class="fa fa-plus" aria-hidden="true"></i> Recruiter</a>
-  </div>
+  </div>-->
    
 </div>
 </div>
@@ -1528,16 +1526,14 @@ $('#searchplace').select2({
 <script type="text/javascript">
 function post_like(clicked_id)
 {
-    //alert(clicked_id);
    $.ajax({
-                type:'POST',
-                url:'<?php echo base_url() . "business_profile/like_post" ?>',
-                 data:'post_id='+clicked_id,
-                success:function(data){ //alert('.' + 'likepost' + clicked_id);
-                    $('.' + 'likepost' + clicked_id).html(data);
-                    
-                }
-            }); 
+        type:'POST',
+        url:'<?php echo base_url() . "business_profile/like_post" ?>',
+        data:'post_id='+clicked_id,
+        success:function(data){ //alert('.' + 'likepost' + clicked_id);
+            $('.' + 'likepost' + clicked_id).html(data);
+        }
+    }); 
 }
 </script>
 
