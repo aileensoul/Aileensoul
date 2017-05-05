@@ -989,7 +989,7 @@ $data='freelancer_post.post_id,freelancer_post.post_name,freelancer_post.post_fi
         $this->data['freelancerdata'] = $this->common->select_data_by_condition('freelancer_hire_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
 
-        // <rash code 7-4 start> 
+        //code for search 
         $contition_array = array('status' => '1', 'is_delete' => '0');
 
         $field = $this->data['results'] = $this->common->select_data_by_condition('category', $contition_array, $data = 'category_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
@@ -1028,7 +1028,7 @@ $data='freelancer_post.post_id,freelancer_post.post_name,freelancer_post.post_fi
          $this->data['demo']= array_values($result1);
 
 
-// <rash code 7-4 end>
+// code for search end
 
         $this->load->view('freelancer/freelancer_hire/freelancer_add_post', $this->data);
     }
@@ -1305,6 +1305,48 @@ $new = array();
 
         $skildata = explode(',', $this->data['freelancerpostdata'][0]['post_skill']);
         $this->data['selectdata'] = $skildata;
+
+
+//code for search 
+        $contition_array = array('status' => '1', 'is_delete' => '0');
+
+        $field = $this->data['results'] = $this->common->select_data_by_condition('category', $contition_array, $data = 'category_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+
+        $contition_array = array('status' => '1', 'is_delete' => '0');
+
+        $freelancer_postdata = $this->data['results'] = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = 'freelancer_post_otherskill,designation', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        // echo "<pre>"; print_r($results_recruiter);die();
+
+        $contition_array = array('status' => '1', 'type' => '1');
+
+        $skill = $this->data['skill'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        $unique = array_merge($field, $skill, $freelancer_postdata);
+        // echo count($unique);
+        // $this->data['demo']=$unique;
+
+
+        foreach ($unique as $key => $value) {
+            foreach ($value as $ke => $val) {
+                if ($val != "") {
+
+
+                    $result[] = $val;
+                }
+            }
+        }
+
+        foreach($result as $key =>$value){
+            $result1[$key]['label']=$value;
+            $result1[$key]['value']=$value;
+          }
+
+         
+         $this->data['demo']= array_values($result1);
+
+
+
 
 
         $this->load->view('freelancer/freelancer_hire/freelancer_edit_post', $this->data);

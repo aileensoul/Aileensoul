@@ -479,7 +479,7 @@
                                                 </span>
                                             </li>
 
-                                                <li><b>Salary</b><span><?php echo $post['min_sal']." - ".$post['max_sal']; ?></span>
+     <li><b>Salary</b><span title="Min - Max" ><?php echo $post['min_sal']." - ".$post['max_sal']; ?></span>
                                             </li>
 
                                                 <li><b>No of Position</b><span><?php echo $post['post_position']; ?></span>

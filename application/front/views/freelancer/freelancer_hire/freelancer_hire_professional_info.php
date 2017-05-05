@@ -64,11 +64,11 @@
                             	<fieldset class="full-width">
 									<label>Professional Info:<span style="color:red">*</span></label>
 									
-									<textarea name ="professional_info" id="professional_info" rows="4" cols="50" placeholder="Enter Professional Information" style="resize: none;"><?php if($professional_info1){ echo $professional_info1; } ?></textarea>
+									<textarea name ="professional_info" id="professional_info" rows="6" cols="50" placeholder="Enter Professional Information" style="resize: none;overflow: auto;"><?php if($professional_info1){ echo $professional_info1; } ?></textarea>
 									 <?php echo form_error('professional_info'); ?> 
 									 
 								</fieldset>
-								<fieldset class="hs-submit full-width">
+								<fieldset style="margin-top: 4%"" class="hs-submit full-width">
                                     
 
                                     

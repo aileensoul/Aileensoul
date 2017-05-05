@@ -427,7 +427,7 @@ if($status == 0 || $status == " "){?>
     <?php }else{ ?>
 
                      <div class="user_btn_f follow_btn_<?php echo $user['follow_to']; ?>" id= "unfollowdiv">
-                            <button id="<?php echo "unfollow" . $user['follow_to']; ?>" onClick="unfollowuser_two(<?php echo $user['follow_to']; ?>)"><span>Following</span></button>
+                            <button class="bg_following" id="<?php echo "unfollow" . $user['follow_to']; ?>" onClick="unfollowuser_two(<?php echo $user['follow_to']; ?>)"><span>Following</span></button>
                            </div>   
 
      <?php }?>
@@ -938,7 +938,7 @@ function followuser_two(clicked_id)
 function unfollowuser_list(clicked_id)
 { 
   
-   $('#' + 'removefollow' + clicked_id).fadeOut(2000);
+   
 
    $.ajax({
                 type:'POST',
@@ -950,7 +950,7 @@ function unfollowuser_list(clicked_id)
                if(data.notcount == 0){
                  $('.' + 'contact-frnd-post').html(data.notfound);
                }else{ 
-               $('#' + 'removefollow' + clicked_id).html(data.notfound);
+              $('#' + 'removefollow' + clicked_id).fadeOut(4000);
                  }   
                 }
             }); 

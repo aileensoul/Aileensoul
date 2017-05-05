@@ -2836,7 +2836,7 @@ label.cameraButton input[accept*="camera"] {
                               border-radius: 3px;
                               letter-spacing: 0px;
                               margin-left: -11px;}
-.comment-details{ padding-left: 51px; padding-right: 10px;  font-weight: 400; word-break:break-word;word-break: break-all;}
+.comment-details{ padding-left: 51px; padding-right: 10px;  font-weight: 400;word-break: break-word;}
 .inputtype-comment textarea{  resize:none;
                               overflow:hidden;
                               font-size:18px;
@@ -4089,6 +4089,7 @@ input:-moz-placeholder { color:#999; font-size: 15px; }
   height: 100%;
   overflow: auto;
   background-color: black;
+  overflow: hidden !important;
 }
 
 /* Modal Content */
@@ -4107,7 +4108,7 @@ input:-moz-placeholder { color:#999; font-size: 15px; }
 .next {
   cursor: pointer;
   position: absolute;
-  top: 50%;
+  top: 220px !important;
   width: auto;
   padding: 16px;
   margin-top: -50px;
@@ -4280,7 +4281,7 @@ textarea {overflow: hidden;}
     border-radius: 4px;
     resize: none;
 
-    word-break:break-all;
+    word-break: break-word;
 }
 
 /*v 1-5-17 start */
