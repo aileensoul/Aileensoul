@@ -1993,7 +1993,7 @@ $contition_array = array('is_delete' => '0', 'status' =>'1');
 
 
       if($this->input->post('skills') == ""){ //echo "hrllo"; echo  $search_place; die();//echo  $search_place; die();
-           $contition_array = array(' city' => $search_place[0], 're_status' =>'1');
+           $contition_array = array(' city' => $search_place[0], 're_status' =>'1','recruiter.user_id !=' => $userid);
             
              $join_str[0]['table'] = 'recruiter';
              $join_str[0]['join_table_id'] = 'recruiter.user_id';
@@ -2015,7 +2015,7 @@ $contition_array = array('is_delete' => '0', 'status' =>'1');
           
          $skilldata=$artdata['data'] = $this->common->select_data_by_search('skill', $search_condition, $contition_array = array(), $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str=array(), $groupby = '');
            // echo "<pre>"; print_r($artdata['data']); 
-          $contition_array = array('status'=>'1');
+          $contition_array = array('status'=>'1','rec_post.user_id !=' => $userid);
          $recdata=$userdata['data'] = $this->common->select_data_by_condition('rec_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
           // echo "<pre>"; print_r($recdata); 
 
@@ -2050,11 +2050,13 @@ $contition_array = array('is_delete' => '0', 'status' =>'1');
              $join_str[0]['from_table_id'] = 'rec_post.user_id';
              $join_str[0]['join_type'] = '';
 
+              $contition_array = array('recruiter.user_id !=' => $userid);
+
              $data='rec_post.post_name,rec_post.post_description,rec_post.post_skill,rec_post.post_position,rec_post.post_last_date,rec_post.min_month,rec_post.min_year,rec_post.min_sal,rec_post.max_sal,rec_post.other_skill,rec_post.user_id,rec_post.post_id,rec_post.country,rec_post.city,rec_post.interview_process';
 
               $search_condition = "(rec_post.post_name LIKE '%$search_job%' or rec_post.max_sal LIKE '%$search_job%' or rec_post.min_sal LIKE '%$search_job%' or  recruiter.re_comp_name LIKE '%$search_job%' or recruiter.rec_firstname LIKE '%$search_job%' or recruiter.rec_lastname LIKE '%$search_job%' or rec_post.other_skill LIKE '%$search_job%' )";
           
-         $results=$recpostdata['data'] = $this->common->select_data_by_search('rec_post', $search_condition, $contition_array = array(), $data , $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
+         $results=$recpostdata['data'] = $this->common->select_data_by_search('rec_post', $search_condition, $contition_array, $data , $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
            //echo "<pre>"; print_r($results);die();
 
 
@@ -2118,7 +2120,7 @@ $contition_array = array('is_delete' => '0', 'status' =>'1');
           
          $skilldata=$artdata['data'] = $this->common->select_data_by_search('skill', $search_condition, $contition_array = array(), $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str=array(), $groupby = '');
            // echo "<pre>"; print_r($artdata['data']); 
-          $contition_array = array('status'=>'1', 'city' => $search_place[0] );
+          $contition_array = array('status'=>'1', 'city' => $search_place[0] ,'rec_post.user_id !=' => $userid);
 
 
          $recdata=$userdata['data'] = $this->common->select_data_by_condition('rec_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -2156,6 +2158,8 @@ $contition_array = array('is_delete' => '0', 'status' =>'1');
              $join_str[0]['join_table_id'] = 'recruiter.user_id';
              $join_str[0]['from_table_id'] = 'rec_post.user_id';
              $join_str[0]['join_type'] = '';
+
+              $contition_array = array('recruiter.user_id !=' => $userid);
 
              $data='rec_post.post_name,rec_post.post_description,rec_post.post_skill,rec_post.post_position,rec_post.post_last_date,rec_post.min_month,rec_post.min_year,rec_post.min_sal,rec_post.max_sal,rec_post.other_skill,rec_post.user_id';
 
@@ -2214,7 +2218,8 @@ $contition_array = array('is_delete' => '0', 'status' =>'1');
 
 
 // code for search
-         $contition_array = array('re_status' => '1');
+         $contition_array = array('re_status' => '1',);
+         
 
          $results_recruiter= $this->data['results'] =  $this->common->select_data_by_condition('recruiter', $contition_array, $data = 're_comp_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
          // echo "<pre>"; print_r($results_recruiter);die();
