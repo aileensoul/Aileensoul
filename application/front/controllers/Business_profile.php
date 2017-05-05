@@ -4071,7 +4071,7 @@ class Business_profile extends MY_Controller {
 
 
                 $cmtinsert .= '<input type="hidden" name="post_delete"';
-                $cmtinsert .= 'id="post_delete"';
+                $cmtinsert .= 'id="post_delete' . $bus_comment['post_image_comment_id'] . '"';
                 $cmtinsert .= 'value= "' . $bus_comment['post_image_id'] . '">';
                 $cmtinsert .= '<a id="' . $bus_comment['post_image_comment_id'] . '"';
                 $cmtinsert .= 'onClick="comment_delete(this.id)">';
@@ -4235,8 +4235,8 @@ class Business_profile extends MY_Controller {
                 $cmtinsert .= '<div class="comment-details-menu">';
 
 
-                $cmtinsert .= '<input type="hidden" name="post_delete"';
-                $cmtinsert .= 'id="post_delete"';
+                $cmtinsert .= '<input type="hidden" name="post_deletetwo"';
+                $cmtinsert .= 'id="post_deletetwo' . $bus_comment['post_image_comment_id'] . '"';
                 $cmtinsert .= 'value= "' . $bus_comment['post_image_id'] . '">';
                 $cmtinsert .= '<a id="' . $bus_comment['post_image_comment_id'] . '"';
                 $cmtinsert .= 'onClick="comment_delete(this.id)">';
@@ -4541,14 +4541,14 @@ class Business_profile extends MY_Controller {
 
 
 
-        $contition_array = array('business_profile_post_comment_id' => $post_image_comment_id);
-        $busimglike = $this->data['busimglike'] = $this->common->select_data_by_condition('business_profile_post_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
+         $contition_array = array('business_profile_post_comment_id' => $post_image_comment_id);
+         $busimglike = $this->data['busimglike'] = $this->common->select_data_by_condition('business_profile_post_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+//echo "<pre>"; print_r($busimglike); die();
        
 
-       $contition_array = array('business_profile_post_id' => $busimglike[0]["business_profile_post_id"]);
-        $busimglikepost = $this->data['busimglikepost'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
+        $contition_array = array('business_profile_post_id' => $busimglike[0]['business_profile_post_id']);
+         $busimglikepost = $this->data['busimglikepost'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+//echo "<pre>"; print_r($busimglikepost); die();
 
         if (!$likecommentuser) {
 
@@ -4566,7 +4566,7 @@ class Business_profile extends MY_Controller {
             // insert notification
 
             if($busimglikepost[0]['user_id'] == $userid){}else{ 
-            $data = array(
+            $datanotification = array(
                 'not_type' => 5,
                 'not_from_id' => $userid,
                 'not_to_id' => $busimglikepost[0]['user_id'] ,
@@ -4575,8 +4575,8 @@ class Business_profile extends MY_Controller {
                 'not_from' => 3,
                 'not_img' => 6
             );
-            //echo "<pre>"; print_r($data); die();
-            $insert_id = $this->common->insert_data_getid($data, 'notification');
+            //echo "<pre>"; print_r($datanotification); die();
+            $insert_id = $this->common->insert_data_getid($datanotification, 'notification');
             }
             // end notoification
 
@@ -4890,7 +4890,7 @@ class Business_profile extends MY_Controller {
     public function mul_delete_comment() {
         $userid = $this->session->userdata('aileenuser');
         $post_image_comment_id = $_POST["post_image_comment_id"];
-        $post_delete = $_POST["post_delete"];
+       $post_delete = $_POST["post_delete"]; 
         $data = array(
             'is_delete' => 1,
             'modify_date' => date('y-m-d h:i:s')
@@ -4907,7 +4907,7 @@ class Business_profile extends MY_Controller {
         $contition_array = array('post_image_id' => $post_delete, 'is_delete' => '0');
         $buscmtcnt = $this->common->select_data_by_condition('bus_post_image_comment', $contition_array, $data = '*', $sortby = 'post_image_comment_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-        //echo "<pre>"; print_r($businesscomment); die();
+        //echo "<pre>"; print_r($buscmtcnt); die();
         foreach ($businesscomment as $bus_comment) {
 
 
@@ -4915,7 +4915,7 @@ class Business_profile extends MY_Controller {
 
             $business_userimage = $this->db->get_where('business_profile', array('user_id' => $bus_comment['user_id'], 'status' => 1))->row()->business_user_image;
 
-            //$cmtinsert = '<div class="all-comment-comment-box">';
+            $cmtinsert .= '<div class="all-comment-comment-box">';
             $cmtinsert .= '<div class="post-design-pro-comment-img">';
             $cmtinsert .= '<img  src="' . base_url(USERIMAGE . $business_userimage) . '" alt="">  </div>';
 
@@ -4996,20 +4996,20 @@ class Business_profile extends MY_Controller {
                 $cmtinsert .= '<div class="comment-details-menu">';
 
 
-                $cmtinsert .= '<input type="hidden" name="imgpost_delete"';
-                $cmtinsert .= 'id="imgpost_delete"';
+                $cmtinsert .= '<input type="hidden" name="post_delete"';
+                $cmtinsert .= 'id="post_delete' . $bus_comment['post_image_comment_id'] . '"';
                 $cmtinsert .= 'value= "' . $bus_comment['post_image_id'] . '">';
                 $cmtinsert .= '<a id="' . $bus_comment['post_image_comment_id'] . '"';
-                $cmtinsert .= 'onClick="imgcomment_delete(this.id)">';
+                $cmtinsert .= 'onClick="comment_delete(this.id)">';
                 $cmtinsert .= 'Delete';
-                $cmtinsert .= '</a></div>';
+                $cmtinsert .= '</a></div></div>';
             }
 
             $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
             $cmtinsert .= '<div class="comment-details-menu">';
             $cmtinsert .= '<p>' . $bus_comment['created_date'] . '</p></div></div>';
 
-            $cmtcount = '<a onClick="imgcommentall(this.id)" id="' . $post_delete . '">';
+            $cmtcount = '<a onClick="imgcommentall(this.id)" id="' . $bus_comment['post_image_id'] . '">';
             $cmtcount .= '<i class="fa fa-comment-o" aria-hidden="true">';
             $cmtcount .= ' ' . count($buscmtcnt) . '';
             $cmtcount .= '</i></a>';
@@ -5131,11 +5131,11 @@ class Business_profile extends MY_Controller {
                 $cmtinsert .= '<div class="comment-details-menu">';
 
 
-                $cmtinsert .= '<input type="hidden" name="imgpost_delete1"';
-                $cmtinsert .= 'id="imgpost_delete1"';
+                $cmtinsert .= '<input type="hidden" name="post_deletetwo"';
+                $cmtinsert .= 'id="post_deletetwo' . $bus_comment['post_image_comment_id'] . '"';
                 $cmtinsert .= 'value= "' . $bus_comment['post_image_id'] . '">';
                 $cmtinsert .= '<a id="' . $bus_comment['post_image_comment_id'] . '"';
-                $cmtinsert .= 'onClick="imgcomment_deletetwo(this.id)">';
+                $cmtinsert .= 'onClick="comment_deletetwo(this.id)">';
                 $cmtinsert .= 'Delete';
                 $cmtinsert .= '</a></div>';
             }
@@ -5346,7 +5346,7 @@ class Business_profile extends MY_Controller {
 
 
                     $fourdata .= '<input type="hidden" name="post_deletetwo"';
-                    $fourdata .= 'id="post_deletetwo" value= "' . $rowdata['post_image_id'] . '">';
+                    $fourdata .= 'id="post_deletetwo' . $rowdata['post_image_comment_id'] . '" value= "' . $rowdata['post_image_id'] . '">';
                     $fourdata .= '<a id="' . $rowdata['post_image_comment_id'] . '"   onClick="comment_deletetwo(this.id)"> Delete<span class="insertcomment1' . $rowdata['post_image_comment_id'] . '">';
                     $fourdata .= '</span></a></div>';
                 }

@@ -24,6 +24,9 @@ responsive image design start -->
         max-width: 100%;
         display: inline-block;
     }
+    [contenteditable=true]:empty:before{content: attr(placeholder);
+    display: block;
+    color: #cacaca;}
 </style>
 <!-- responsive image end -->
 <style>
@@ -1116,13 +1119,13 @@ label.cameraButton input[accept*="camera"] {
                           <?php }?>                          
                         </li>
                                                 <li>
-                                                    <div id="<?php echo 'editpostdata' . $row['art_post_id']; ?>" style="display:block;">
+                                                <!--     <div id="<?php echo 'editpostdata' . $row['art_post_id']; ?>" style="display:block;">
                                                         <a><?php print $row['art_post']; ?></a>
                                                     </div>
 
-                                                    <div id="<?php echo 'editpostbox' . $row['art_post_id']; ?>" style="display:none;">
-                                                        <input type="text" id="<?php echo 'editpostname' . $row['art_post_id']; ?>" name="editpostname" value="<?php echo $row['art_post']; ?>">
-                                                    </div>
+                                                    <div id="<?php echo 'editpostbox' . $row['art_post_id']; ?>" style="display:none; margin-bottom: 10px;">
+                                                        <input type="text" id="<?php echo 'editpostname' . $row['art_post_id']; ?>" name="editpostname" palceholder="Art name" value="<?php echo $row['art_post']; ?>">
+                                                    </div> -->
                                                 </li>
 
                                             </ul> 
@@ -1167,14 +1170,20 @@ label.cameraButton input[accept*="camera"] {
 
                                         <div class="post-design-desc ">
                                             <span> 
+ <div id="<?php echo 'editpostdata' . $row['art_post_id']; ?>" style="display:block;">
+                                                        <a><?php print $row['art_post']; ?></a>
+                                                    </div>
 
+                                                    <div id="<?php echo 'editpostbox' . $row['art_post_id']; ?>" style="display:none; margin-bottom: 10px;">
+                                                        <input type="text" id="<?php echo 'editpostname' . $row['art_post_id']; ?>" name="editpostname" placeholder="Art name" value="<?php echo $row['art_post']; ?>">
+                                                    </div>
                  <div  id="<?php echo 'editpostdetails' . $row['art_post_id']; ?>" style="display:block;">
                 <span class="show"><?php print $row['art_description']; ?></span>
                                                 </div>
-
+  
                                                 <div id="<?php echo 'editpostdetailbox' . $row['art_post_id']; ?>" style="display:none;">
 
-                                                    <div contenteditable="" class="editable_text"  id="<?php echo 'editpostdesc' . $row['art_post_id']; ?>" name="editpostdesc"><?php echo $row['art_description']; ?>
+                                                    <div contenteditable="true" class="editable_text"  id="<?php echo 'editpostdesc' . $row['art_post_id']; ?>" placeholder="Art Description" name="editpostdesc"><?php echo $row['art_description']; ?>
                                                     </div> 
                                                 </div>
 

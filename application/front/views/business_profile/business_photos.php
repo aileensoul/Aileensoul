@@ -577,7 +577,7 @@ label.cameraButton input[accept*="camera"] {
 
                   ?>
 
-                    <a onClick="commentall(this.id)" id="<?php echo $busdata['image_id']; ?>">
+                    <a onClick="imgcommentall(this.id)" id="<?php echo $busdata['image_id']; ?>">
                     <i class="fa fa-comment-o" aria-hidden="true">
                      <?php 
                     if(count($commnetcount) > 0){
@@ -726,7 +726,7 @@ label.cameraButton input[accept*="camera"] {
 
                                       
 
-                                      <input type="hidden" name="post_delete"  id="post_delete" value= "<?php echo $rowdata['post_image_id']; ?>">
+                                      <input type="hidden" name="post_delete"  id="<?php echo 'post_delete' . $rowdata['post_image_comment_id']; ?>" value= "<?php echo $rowdata['post_image_id']; ?>">
                                       <a id="<?php echo $rowdata['post_image_comment_id']; ?>"   onClick="comment_delete(this.id)"> Delete<span class="<?php echo 'insertcomment' . $rowdata['post_image_comment_id']; ?>">
                                       </span>
                                       </a>
@@ -1114,7 +1114,7 @@ function entercommentimg(clicked_id)
 
 <!-- hide and show data start-->
 <script type="text/javascript">
-  function commentall(clicked_id){ 
+  function imgcommentall(clicked_id){ 
  
   var x = document.getElementById('threecomment'+ clicked_id);
    var y = document.getElementById('fourcomment'+ clicked_id);
@@ -1495,14 +1495,14 @@ function comment_delete(clicked_id) {
 function comment_deleted(clicked_id)
 {
     
-     var post_delete = document.getElementById("post_delete");
-     //alert(post_delete.value);
+     var post_delete = document.getElementById("post_delete"+clicked_id);
+     
    $.ajax({
                 type:'POST',
                 url:'<?php echo base_url() . "business_profile/mul_delete_comment" ?>',
                 dataType: "json",
                 data:'post_image_comment_id='+clicked_id + '&post_delete='+post_delete.value,
-                success:function(data){ //alert('.' + 'insertcomment' + clicked_id);
+                success:function(data){ //alert(data.count); alert(data.comment);
 
                     // $('.' + 'insertcomment' + post_delete.value).html(data);
          $('#' + 'insertcount' + post_delete.value).html(data.count);
@@ -1522,7 +1522,7 @@ function comment_deletetwo(clicked_id) {
 function comment_deletedtwo(clicked_id)
 {
     
-     var post_delete1 = document.getElementById("post_deletetwo");
+     var post_delete1 = document.getElementById("post_deletetwo"+clicked_id);
      //alert(post_delete.value);
    $.ajax({
                 type:'POST',
