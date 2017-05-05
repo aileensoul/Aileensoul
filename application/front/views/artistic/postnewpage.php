@@ -442,73 +442,72 @@
         </style>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <script>
-            $(document).ready(function()
+            $(document).ready(function ()
             {
-            /* Uploading Profile BackGround Image */
-            $('body').on('change', '#bgphotoimg', function()
-            {
-            $("#bgimageform").ajaxForm({target: '#timelineBackground',
-                    beforeSubmit:function(){},
-                    success:function(){
-                    $("#timelineShade").hide();
-                    $("#bgimageform").hide();
-                    },
-                    error:function(){
-                    } }).submit();
-            });
-            /* Banner position drag */
-            $("body").on('mouseover', '.headerimage', function ()
-            {
-            var y1 = $('#timelineBackground').height();
-            var y2 = $('.headerimage').height();
-            $(this).draggable({
-            scroll: false,
-                    axis: "y",
-                    drag: function(event, ui) {
-                    if (ui.position.top >= 0)
-                    {
-                    ui.position.top = 0;
-                    }
-                    else if (ui.position.top <= y1 - y2)
-                    {
-                    ui.position.top = y1 - y2;
-                    }
-                    },
-                    stop: function(event, ui)
-                    {
-                    }
-            });
-            });
-            /* Bannert Position Save*/
-            $("body").on('click', '.bgSave', function ()
-            {
-            var id = $(this).attr("id");
-            var p = $("#timelineBGload").attr("style");
-            var Y = p.split("top:");
-            var Z = Y[1].split(";");
-            var dataString = 'position=' + Z[0];
-            $.ajax({
-            type: "POST",
-                    url: "<?php echo base_url('artistic/image_saveBG_ajax'); ?>",
-                    data: dataString,
-                    cache: false,
-                    beforeSend: function(){ },
-                    success: function(html)
-                    {
-                    if (html)
-                    {
-                    window.location.reload();
-                    $(".bgImage").fadeOut('slow');
-                    $(".bgSave").fadeOut('slow');
-                    $("#timelineShade").fadeIn("slow");
-                    $("#timelineBGload").removeClass("headerimage");
-                    $("#timelineBGload").css({'margin-top':html});
+                /* Uploading Profile BackGround Image */
+                $('body').on('change', '#bgphotoimg', function ()
+                {
+                    $("#bgimageform").ajaxForm({target: '#timelineBackground',
+                        beforeSubmit: function () {},
+                        success: function () {
+                            $("#timelineShade").hide();
+                            $("#bgimageform").hide();
+                        },
+                        error: function () {
+                        }}).submit();
+                });
+                /* Banner position drag */
+                $("body").on('mouseover', '.headerimage', function ()
+                {
+                    var y1 = $('#timelineBackground').height();
+                    var y2 = $('.headerimage').height();
+                    $(this).draggable({
+                        scroll: false,
+                        axis: "y",
+                        drag: function (event, ui) {
+                            if (ui.position.top >= 0)
+                            {
+                                ui.position.top = 0;
+                            } else if (ui.position.top <= y1 - y2)
+                            {
+                                ui.position.top = y1 - y2;
+                            }
+                        },
+                        stop: function (event, ui)
+                        {
+                        }
+                    });
+                });
+                /* Bannert Position Save*/
+                $("body").on('click', '.bgSave', function ()
+                {
+                    var id = $(this).attr("id");
+                    var p = $("#timelineBGload").attr("style");
+                    var Y = p.split("top:");
+                    var Z = Y[1].split(";");
+                    var dataString = 'position=' + Z[0];
+                    $.ajax({
+                        type: "POST",
+                        url: "<?php echo base_url('artistic/image_saveBG_ajax'); ?>",
+                        data: dataString,
+                        cache: false,
+                        beforeSend: function () { },
+                        success: function (html)
+                        {
+                            if (html)
+                            {
+                                window.location.reload();
+                                $(".bgImage").fadeOut('slow');
+                                $(".bgSave").fadeOut('slow');
+                                $("#timelineShade").fadeIn("slow");
+                                $("#timelineBGload").removeClass("headerimage");
+                                $("#timelineBGload").css({'margin-top': html});
+                                return false;
+                            }
+                        }
+                    });
                     return false;
-                    }
-                    }
-            });
-            return false;
-            });
+                });
             });
         </script>
     </head>
@@ -519,11 +518,11 @@
 
                     <div class="profile-box profile-box-left col-md-4">
 
-                              <div class="full-box-module">    
+                        <div class="full-box-module">    
 
                             <div class="profile-boxProfileCard  module">
                                 <div class="profile-boxProfileCard-cover">     
-                                   <a class="profile-boxProfileCard-bg u-bgUserColor a-block" href="<?php echo site_url('artistic/art_manage_post'); ?>" tabindex="-1" aria-hidden="true" rel="noopener">
+                                    <a class="profile-boxProfileCard-bg u-bgUserColor a-block" href="<?php echo site_url('artistic/art_manage_post'); ?>" tabindex="-1" aria-hidden="true" rel="noopener">
                                         <img src="<?php echo base_url(ARTBGIMAGE . $artisticdata[0]['profile_background_main']); ?>" class="bgImage" style="height: 95px; width: 393px; " >
                                     </a>
                                 </div>
@@ -653,18 +652,20 @@
 
                                             <li><div class="post-design-product">
                                                     <a class="post_dot" 
-                                                       href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>"><?php echo ucwords($firstname);
-                                            print "&nbsp;&nbsp;";
-                                            echo ucwords($lastname); ?> </a>
+                                                       href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>"><?php
+                                                           echo ucwords($firstname);
+                                                           print "&nbsp;&nbsp;";
+                                                           echo ucwords($lastname);
+                                                           ?> </a>
 
 
-                                         <div class="datespan">
-                        <span style="font-weight: 400;
-                                                    font-size: 14px;
-                                                    color: #91949d;""> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span></div>
-                        </div></li>
+                                                    <div class="datespan">
+                                                        <span style="font-weight: 400;
+                                                              font-size: 14px;
+                                                              color: #91949d;""> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span></div>
+                                                </div></li>
                                             <!-- 
-                                            <li><div class="post-design-product"><a><?php //echo $listFinal ;  ?> </a></div></li>
+                                            <li><div class="post-design-product"><a><?php //echo $listFinal ;   ?> </a></div></li>
                                             -->
                                             <li> 
                                                 <div id="<?php echo 'editpostdata' . $art_data[0]['art_post_id']; ?>" style="display:block;">
@@ -712,7 +713,7 @@
                                             </div>
                                             <div id="<?php echo 'editpostdetailbox' . $art_data[0]['art_post_id']; ?>" style="display:none;">
                                                 <div  style="
-"  contenteditable="true" id="<?php echo 'editpostdesc' . $art_data[0]['art_post_id']; ?>" name="editpostdesc" class="editable_text " ><?php echo $row['art_description']; ?>
+                                                      "  contenteditable="true" id="<?php echo 'editpostdesc' . $art_data[0]['art_post_id']; ?>" name="editpostdesc" class="editable_text " ><?php echo $row['art_description']; ?>
                                                 </div> 
                                             </div>
                                             <button class="fr" id="<?php echo "editpostsubmit" . $art_data[0]['art_post_id']; ?>" style="display:none; margin: 5px 0px; " onClick="edit_postinsert(<?php echo $art_data[0]['art_post_id']; ?>)">Save</button>
@@ -747,10 +748,11 @@
                                                 ?>
 
                                                 <div id="basic-responsive-image" style="height: 50%; width: 100%; margin-bottom: 10px;">
-                                                    <img src="<?php echo base_url(ARTPOSTIMAGE . str_replace(" ", "_", $data['image_name'])) ?>" style="width: 100%; height: 100%;" onclick="openModal(); currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
+                                                    <img src="<?php echo base_url(ARTPOSTIMAGE . str_replace(" ", "_", $data['image_name'])) ?>" style="width: 100%; height: 100%;" onclick="openModal();
+                                                                    currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
                                                 </div>
 
-                                            <?php } elseif (in_array($ext, $allowesvideo)) { ?>
+    <?php } elseif (in_array($ext, $allowesvideo)) { ?>
                                                 <!-- one video start -->
                                                 <div>
                                                     <video style="height: 50%; width: 100%; margin-bottom: 10px;"controls>
@@ -760,7 +762,7 @@
                                                     </video>
                                                 </div>
                                                 <!-- one video end -->
-                                            <?php } elseif (in_array($ext, $allowesaudio)) { ?>
+    <?php } elseif (in_array($ext, $allowesaudio)) { ?>
                                                 <!-- one audio start -->
                                                 <div>
                                                     <audio style="height: 50%; width: 100%; margin-bottom: 10px;" controls>
@@ -772,8 +774,9 @@
                                                 </div>
                                                 <!-- one audio end -->
                                             <?php } ?>
-                                            <?php $i++;
-                                        } ?>
+    <?php $i++;
+}
+?>
                                     </div>
                                     <!-- done  end-->
 
@@ -814,16 +817,16 @@
                                                                             if ($activedata) {
                                                                                 ?>
                                                                                 <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-                                                                            <?php } else { ?>
+                                                                                <?php } else { ?>
                                                                                 <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>
-                                                                            <?php } ?>
+                                                                                <?php } ?>
                                                                             <span class="<?php echo 'likeimage' . $artdata['image_id']; ?>"> <?php
-                                                                        $contition_array = array('post_image_id' => $artdata['image_id'], 'is_unlike' => 0);
-                                                                        $likecount = $this->common->select_data_by_condition('art_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-                                                                        if ($likecount) {
-                                                                            echo count($likecount);
-                                                                        }
-                                                                            ?>
+                                                                                $contition_array = array('post_image_id' => $artdata['image_id'], 'is_unlike' => 0);
+                                                                                $likecount = $this->common->select_data_by_condition('art_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                                                                if ($likecount) {
+                                                                                    echo count($likecount);
+                                                                                }
+                                                                                ?>
                                                                             </span>
                                                                         </a>
                                                                     </li>
@@ -859,21 +862,22 @@
                                                                             ?>
                                                                             <div class="all-comment-comment-box">
                                                                                 <div class="post-design-pro-comment-img"> 
-                                                                                    <?php
-                                                                                    $art_userimage = $this->db->get_where('art_reg', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->art_user_image;
-                                                                                    ?>
+            <?php
+            $art_userimage = $this->db->get_where('art_reg', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->art_user_image;
+            ?>
                                                                                     <img  src="<?php echo base_url(USERIMAGE . $art_userimage); ?>"  alt="">
                                                                                 </div>
                                                                                 <div class="comment-name">
                                                                                     <b>  <?php echo ucwords($artname);
-                                                                        echo '</br>'; ?>
+            echo '</br>';
+            ?>
                                                                                     </b>
                                                                                 </div>
                                                                                 <div class="comment-details" id= "<?php echo "imgshowcomment" . $rowdata['post_image_comment_id']; ?>">
-                                                                                    <?php
-                                                                                    echo $rowdata['comment'];
-                                                                                    echo '</br>';
-                                                                                    ?>
+            <?php
+            echo $rowdata['comment'];
+            echo '</br>';
+            ?>
                                                                                 </div>
                                                                                 <!-- edit box start -->
                                                                                 <div class="col-md-12">
@@ -896,8 +900,8 @@
                                                                                         if (count($artcommentlike1) == 0) {
                                                                                             ?>
                                                                                             <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>
-                                                                                        <?php } else {
-                                                                                            ?>
+                                                                                            <?php } else {
+                                                                                                ?>
                                                                                             <i class="fa fa-thumbs-up" aria-hidden="true"></i>
                                                                                             <?php } ?>
                                                                                         <span>
@@ -914,10 +918,10 @@
                                                                                 </div>
                                                                                 <!--   comment like end -->
                                                                                 <!-- comment edit start -->
-                                                                                <?php
-                                                                                $userid = $this->session->userdata('aileenuser');
-                                                                                if ($rowdata['user_id'] == $userid) {
-                                                                                    ?>
+            <?php
+            $userid = $this->session->userdata('aileenuser');
+            if ($rowdata['user_id'] == $userid) {
+                ?>
                                                                                     <div class="comment-details-menu">
                                                                                         <div id="<?php echo 'imgeditcommentbox' . $rowdata['post_image_comment_id']; ?>" style="display:block;">
                                                                                             <a id="<?php echo $rowdata['post_image_comment_id']; ?>"   onClick="imgcomment_editbox(this.id)" class="editbox">Edit
@@ -928,7 +932,7 @@
                                                                                             </a>
                                                                                         </div>
                                                                                     </div>
-            <?php } ?>
+                                                                                <?php } ?>
                                                                                 <!-- comment edit end -->
                                                                                 <!-- comment delete start -->
                                                                                 <?php
@@ -950,14 +954,15 @@
                                                                                 <span role="presentation" aria-hidden="true"> · </span>
                                                                                 <div class="comment-details-menu">
                                                                                     <p><?php echo date('d-M-Y', strtotime($rowdata['created_date']));
-            echo '</br>'; ?>
+            echo '</br>';
+            ?>
                                                                                     </p></div>
                                                                                 <!-- created date end -->
                                                                             </div>
-                                                                        <?php
-                                                                        }
-                                                                    }
-                                                                    ?>
+            <?php
+        }
+    }
+    ?>
                                                                 </div>
                                                             </div>
                                                             <div id="<?php echo "fourimgcomment" . $artdata['image_id']; ?>" style="display:none;">
@@ -971,21 +976,22 @@
                                                                             ?> 
                                                                             <div class="all-comment-comment-box">
                                                                                 <div class="post-design-pro-comment-img"> 
-                                                                                    <?php
-                                                                                    $art_userimage = $this->db->get_where('art_reg', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->art_user_image;
-                                                                                    ?>
+            <?php
+            $art_userimage = $this->db->get_where('art_reg', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->art_user_image;
+            ?>
                                                                                     <img  src="<?php echo base_url(USERIMAGE . $art_userimage); ?>"  alt="">
                                                                                 </div>
                                                                                 <div class="comment-name">
                                                                                     <b>  <?php echo ucwords($artname);
-                                                                                    echo '</br>'; ?>
+                                                                            echo '</br>';
+            ?>
                                                                                     </b>
                                                                                 </div>
                                                                                 <div class="comment-details" id= "<?php echo "imgshowcommenttwo" . $rowdata['post_image_comment_id']; ?>" style="display: block;">
-                                                                                    <?php
-                                                                                    echo $rowdata['comment'];
-                                                                                    echo '</br>';
-                                                                                    ?>
+            <?php
+            echo $rowdata['comment'];
+            echo '</br>';
+            ?>
                                                                                 </div>
                                                                                 <!-- edit box start -->
                                                                                 <div class="col-md-12">
@@ -1008,8 +1014,8 @@
                                                                                         if (count($artcommentlike2) == 0) {
                                                                                             ?>
                                                                                             <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>
-                                                                                        <?php } else {
-                                                                                            ?>
+                                                                                            <?php } else {
+                                                                                                ?>
                                                                                             <i class="fa fa-thumbs-up" aria-hidden="true"></i>
                                                                                             <?php } ?>
                                                                                         <span>
@@ -1026,10 +1032,10 @@
                                                                                 </div>
                                                                                 <!--   comment like end -->
                                                                                 <!-- comment edit start -->
-                                                                                <?php
-                                                                                $userid = $this->session->userdata('aileenuser');
-                                                                                if ($rowdata['user_id'] == $userid) {
-                                                                                    ?>
+            <?php
+            $userid = $this->session->userdata('aileenuser');
+            if ($rowdata['user_id'] == $userid) {
+                ?>
                                                                                     <div class="comment-details-menu">
                                                                                         <div id="<?php echo 'imgeditcommentboxtwo' . $rowdata['post_image_comment_id']; ?>" style="display:block;">
                                                                                             <a id="<?php echo $rowdata['post_image_comment_id']; ?>"   onClick="imgcomment_editboxtwo(this.id)" class="editbox">Edit
@@ -1043,11 +1049,11 @@
                                                                                 <?php } ?>
                                                                                 <!-- comment edit end -->
                                                                                 <!-- comment delete start -->
-                                                                                <?php
-                                                                                $userid = $this->session->userdata('aileenuser');
-                                                                                $art_userid = $this->db->get_where('art_post', array('art_post_id' => $rowdata['post_image_id'], 'status' => 1))->row()->user_id;
-                                                                                if ($rowdata['user_id'] == $userid || $art_userid == $userid) {
-                                                                                    ?>
+            <?php
+            $userid = $this->session->userdata('aileenuser');
+            $art_userid = $this->db->get_where('art_post', array('art_post_id' => $rowdata['post_image_id'], 'status' => 1))->row()->user_id;
+            if ($rowdata['user_id'] == $userid || $art_userid == $userid) {
+                ?>
                                                                                     <span role="presentation" aria-hidden="true"> · </span>
                                                                                     <div class="comment-details-menu">
                                                                                         <input type="hidden" name="imgpost_delete1"  id="imgpost_delete1" value= "<?php echo $rowdata['post_image_id']; ?>">
@@ -1055,19 +1061,21 @@
                                                                                             </span>
                                                                                         </a>
                                                                                     </div>
-            <?php } ?>
+                                                                                        <?php } ?>
                                                                                 <!-- comment delete end -->
                                                                                 <!-- created date start -->
                                                                                 <span role="presentation" aria-hidden="true"> · </span>
                                                                                 <div class="comment-details-menu">
                                                                                     <p><?php echo date('d-M-Y', strtotime($rowdata['created_date']));
-            echo '</br>'; ?>
+                                                                            echo '</br>';
+                                                                                        ?>
                                                                                     </p></div>
                                                                                 <!-- created date end -->
                                                                             </div>
 
         <?php }
-    } ?>
+    }
+    ?>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1077,10 +1085,10 @@
 
                                                             <div class="post-design-proo-img"> 
 
-                                                                <?php
-                                                                $userid = $this->session->userdata('aileenuser');
-                                                                $art_userimage = $this->db->get_where('art_reg', array('user_id' => $userid, 'status' => 1))->row()->art_user_image;
-                                                                ?>
+    <?php
+    $userid = $this->session->userdata('aileenuser');
+    $art_userimage = $this->db->get_where('art_reg', array('user_id' => $userid, 'status' => 1))->row()->art_user_image;
+    ?>
                                                                 <img src="<?php echo base_url(USERIMAGE . $art_userimage); ?>" alt="">
                                                             </div>
                                                             <div class="">
@@ -1103,7 +1111,7 @@
 ?>
                                             <!-- slider image rotation end  -->
 
-                                            <a class="prev" style="left: 10" onclick="plusSlides( - 1)">&#10094;</a>
+                                            <a class="prev" style="left: 10" onclick="plusSlides(-1)">&#10094;</a>
                                             <a class="next" onclick="plusSlides(1)">&#10095;</a>
                                             <div class="caption-container">
                                                 <p id="caption"></p>
@@ -1131,13 +1139,13 @@
                                                         <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>
                                                         <?php } else { ?> 
                                                         <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-                                                        <?php } ?>
+<?php } ?>
                                                     <span>
-                                                        <?php
-                                                        if ($art_data[0]['art_likes_count'] > 0) {
-                                                            echo $art_data[0]['art_likes_count'];
-                                                        }
-                                                        ?>
+                                                <?php
+                                                if ($art_data[0]['art_likes_count'] > 0) {
+                                                    echo $art_data[0]['art_likes_count'];
+                                                }
+                                                ?>
                                                     </span>
                                                 </a>
                                             </li>
@@ -1147,13 +1155,13 @@
                                                         $commnetcount = $this->common->select_data_by_condition('artistic_post_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                                                         ?>
                                                 <a  onClick="commentall(this.id)" id="<?php echo $art_data[0]['art_post_id']; ?>"><i class="fa fa-comment-o" aria-hidden="true"> 
-                                                        <?php
-                                                        if (count($commnetcount) > 0) {
-                                                            echo count($commnetcount);
-                                                        } else {
-                                                            
-                                                        }
-                                                        ?>
+<?php
+if (count($commnetcount) > 0) {
+    echo count($commnetcount);
+} else {
+    
+}
+?>
                                                     </i> 
                                                 </a>
                                             </li>
@@ -1204,10 +1212,12 @@
                                         $art_lname = $this->db->get_where('art_reg', array('user_id' => $likelistarray[0], 'status' => 1))->row()->art_lastname;
                                         ?>
                                         <div class="fl" style=" padding-left: 22px;" >
-                                            <?php echo ucwords($art_fname);
+                                            <?php
+                                            echo ucwords($art_fname);
                                             echo "&nbsp;";
                                             echo ucwords($art_lname);
-                                            echo "&nbsp;"; ?>
+                                            echo "&nbsp;";
+                                            ?>
                                         </div>
 <?php
 if (count($likelistarray) > 1) {
@@ -1215,7 +1225,8 @@ if (count($likelistarray) > 1) {
                                             <div class="fl" style="padding-right: 5px;">
     <?php echo "and"; ?>
     <?php echo $countlike;
-    echo "others"; ?> 
+    echo "others";
+    ?> 
                                             </div>
                                                 <?php } ?>
                                     </a>
@@ -1245,9 +1256,10 @@ if (count($likelistarray) > 1) {
                                                                 <b><?php echo $artname; ?></b><?php echo '</br>';
                                                                 ?></div>
                                                             <div class="comment-details" id= "<?php echo "showcomment2" . $rowdata['artistic_post_comment_id']; ?>">
-        <?php echo text2link($rowdata['comments']);
-        echo '</br>';
-        ?>
+                                                                        <?php
+                                                                        echo text2link($rowdata['comments']);
+                                                                        echo '</br>';
+                                                                        ?>
                                                             </div>
 
                                                             <input type="text" name="<?php echo $rowdata['artistic_post_comment_id']; ?>" id="<?php echo "editcomment2" . $rowdata['artistic_post_comment_id']; ?>" style="display:none" value="<?php echo $rowdata['comments']; ?>" onClick="commentedit2(this.name)">
@@ -1265,17 +1277,17 @@ if (count($likelistarray) > 1) {
                                                                         if (!in_array($userid, $likeuserarray)) {
                                                                             ?>
                                                                             <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>
-                                                                            <?php } else {
-                                                                                ?>
+        <?php } else {
+            ?>
                                                                             <i class="fa fa-thumbs-up" aria-hidden="true"></i>
                                                                 <?php }
                                                                 ?>
                                                                         <span>
-                                                                <?php
-                                                                if ($rowdata['artistic_comment_likes_count'] > 0) {
-                                                                    echo $rowdata['artistic_comment_likes_count'];
-                                                                }
-                                                                ?>
+        <?php
+        if ($rowdata['artistic_comment_likes_count'] > 0) {
+            echo $rowdata['artistic_comment_likes_count'];
+        }
+        ?>
                                                                         </span>
                                                                     </a>
                                                                 </div>
@@ -1296,11 +1308,11 @@ if (count($likelistarray) > 1) {
                                                                     </div>
         <?php } ?>
 
-        <?php
-        $userid = $this->session->userdata('aileenuser');
-        $art_userid = $this->db->get_where('art_post', array('art_post_id' => $rowdata['art_post_id'], 'status' => 1))->row()->user_id;
-        if ($rowdata['user_id'] == $userid || $art_userid == $userid) {
-            ?>      
+                                                                <?php
+                                                                $userid = $this->session->userdata('aileenuser');
+                                                                $art_userid = $this->db->get_where('art_post', array('art_post_id' => $rowdata['art_post_id'], 'status' => 1))->row()->user_id;
+                                                                if ($rowdata['user_id'] == $userid || $art_userid == $userid) {
+                                                                    ?>      
                                                                     <span role="presentation" aria-hidden="true"> · </span>
                                                                     <div class="comment-details-menu">                             
                                                                         <input type="hidden" name="post_delete"  id="post_delete2" value= "<?php echo $rowdata['art_post_id']; ?>">
@@ -1313,11 +1325,12 @@ if (count($likelistarray) > 1) {
                                                                 <div class="comment-details-menu">  <p>
 
         <?php echo date('d-M-Y', strtotime($rowdata['created_date']));
-        echo '</br>'; ?></p></div>
+        echo '</br>';
+        ?></p></div>
                                                             </div>
                                                         </div>
 
-                                                    <?php
+                                                        <?php
                                                     }
                                                 } else {
                                                     echo 'No comments Available!!!';
@@ -1330,14 +1343,14 @@ if (count($likelistarray) > 1) {
                                         <!-- khyati changes start -->
                                         <div  id="<?php echo "threecomment" . $art_data[0]['art_post_id']; ?>" style="display:block">
                                             <div class="<?php echo 'insertcomment' . $art_data[0]['art_post_id']; ?>">
-                                                        <?php
-                                                        $contition_array = array('art_post_id' => $art_data[0]['art_post_id'], 'status' => '1');
-                                                        $artdata = $this->data['artdata'] = $this->common->select_data_by_condition('artistic_post_comment', $contition_array, $data = '*', $sortby = 'artistic_post_comment_id', $orderby = 'DESC', $limit = '1', $offset = '', $join_str = array(), $groupby = '');
+<?php
+$contition_array = array('art_post_id' => $art_data[0]['art_post_id'], 'status' => '1');
+$artdata = $this->data['artdata'] = $this->common->select_data_by_condition('artistic_post_comment', $contition_array, $data = '*', $sortby = 'artistic_post_comment_id', $orderby = 'DESC', $limit = '1', $offset = '', $join_str = array(), $groupby = '');
 
-                                                        if ($artdata) {
-                                                            foreach ($artdata as $rowdata) {
-                                                                $artname = $this->db->get_where('art_reg', array('user_id' => $rowdata['user_id']))->row()->art_name;
-                                                                ?>
+if ($artdata) {
+    foreach ($artdata as $rowdata) {
+        $artname = $this->db->get_where('art_reg', array('user_id' => $rowdata['user_id']))->row()->art_name;
+        ?>
                                                         <div class="all-comment-comment-box">
                                                             <div class="post-design-pro-comment-img"> 
         <?php
@@ -1420,12 +1433,13 @@ if (count($likelistarray) > 1) {
                                                                 <span role="presentation" aria-hidden="true"> · </span>
                                                                 <div class="comment-details-menu">
                                                                     <p> <?php echo date('d-M-Y', strtotime($rowdata['created_date']));
-        echo '</br>'; ?>
+        echo '</br>';
+        ?>
                                                                     </p></div></div>
                                                         </div>
 
 
-                                                <?php
+                                                    <?php
                                                 }
                                             }
                                             ?>
@@ -1476,93 +1490,97 @@ $art_userimage = $this->db->get_where('art_reg', array('user_id' => $art_data[0]
 
                         <script type="text/javascript">
                                                     //For blocks or images of size, you can use $(document).ready
-                                                    $(document).ready(function() {
-                                                    $('.blocks').jMosaic({items_type: "li", margin: 0});
-                                                    $('.pictures').jMosaic({min_row_height: 150, margin: 3, is_first_big: true});
+                                                    $(document).ready(function () {
+                                                        $('.blocks').jMosaic({items_type: "li", margin: 0});
+                                                        $('.pictures').jMosaic({min_row_height: 150, margin: 3, is_first_big: true});
                                                     });
                                                     //If this image without attribute WIDTH or HEIGH, you can use $(window).load
-                                                    $(window).load(function() {
-                                                    //$('.pictures').jMosaic({min_row_height: 150, margin: 3, is_first_big: true});
+                                                    $(window).load(function () {
+                                                        //$('.pictures').jMosaic({min_row_height: 150, margin: 3, is_first_big: true});
                                                     });
                                                     //You can update on $(window).resize
-                                                    $(window).resize(function() {
-                                                    //$('.pictures').jMosaic({min_row_height: 150, margin: 3, is_first_big: true});
-                                                    //$('.blocks').jMosaic({items_type: "li", margin: 0});
+                                                    $(window).resize(function () {
+                                                        //$('.pictures').jMosaic({min_row_height: 150, margin: 3, is_first_big: true});
+                                                        //$('.blocks').jMosaic({items_type: "li", margin: 0});
                                                     });
                         </script>
                         <script>
-                            function openModal() {alert("hi");
-                            document.getElementById('myModal1').style.display = "block";
+                            function openModal() {
+                                document.getElementById('myModal1').style.display = "block";
                             }
                             function closeModal() {
-                            document.getElementById('myModal1').style.display = "none";
+                                document.getElementById('myModal1').style.display = "none";
                             }
                             var slideIndex = 1;
                             showSlides(slideIndex);
                             function plusSlides(n) {
-                            showSlides(slideIndex += n);
+                                showSlides(slideIndex += n);
                             }
                             function currentSlide(n) {
-                            showSlides(slideIndex = n);
+                                showSlides(slideIndex = n);
                             }
                             function showSlides(n) {
-                            var i;
-                            var slides = document.getElementsByClassName("mySlides");
-                            var dots = document.getElementsByClassName("demo");
-                            var captionText = document.getElementById("caption");
-                            if (n > slides.length) {slideIndex = 1}
-                            if (n < 1) {slideIndex = slides.length}
-                            for (i = 0; i < slides.length; i++) {
-                            slides[i].style.display = "none";
-                            }
-                            for (i = 0; i < dots.length; i++) {
-                            dots[i].className = dots[i].className.replace(" active", "");
-                            }
-                            slides[slideIndex - 1].style.display = "block";
-                            dots[slideIndex - 1].className += " active";
-                            captionText.innerHTML = dots[slideIndex - 1].alt;
+                                var i;
+                                var slides = document.getElementsByClassName("mySlides");
+                                var dots = document.getElementsByClassName("demo");
+                                var captionText = document.getElementById("caption");
+                                if (n > slides.length) {
+                                    slideIndex = 1
+                                }
+                                if (n < 1) {
+                                    slideIndex = slides.length
+                                }
+                                for (i = 0; i < slides.length; i++) {
+                                    slides[i].style.display = "none";
+                                }
+                                for (i = 0; i < dots.length; i++) {
+                                    dots[i].className = dots[i].className.replace(" active", "");
+                                }
+                                slides[slideIndex - 1].style.display = "block";
+                                dots[slideIndex - 1].className += " active";
+                                captionText.innerHTML = dots[slideIndex - 1].alt;
                             }
                         </script>
                         <script>
                             //select2 autocomplete start for skill
                             $('#searchskills').select2({
 
-                            placeholder: 'Find Your Skills',
-                                    ajax:{
+                                placeholder: 'Find Your Skills',
+                                ajax: {
 
                                     url: "<?php echo base_url(); ?>artistic/keyskill",
-                                            dataType: 'json',
-                                            delay: 250,
-                                            processResults: function (data) {
+                                    dataType: 'json',
+                                    delay: 250,
+                                    processResults: function (data) {
 
-                                            return {
+                                        return {
 
                                             results: data
-                                            };
-                                            },
-                                            cache: true
-                                    }
+                                        };
+                                    },
+                                    cache: true
+                                }
                             });
                             //select2 autocomplete End for skill
                             //select2 autocomplete start for Location
                             $('#searchplace').select2({
 
-                            placeholder: 'Find Your Location',
-                                    maximumSelectionLength: 1,
-                                    ajax:{
+                                placeholder: 'Find Your Location',
+                                maximumSelectionLength: 1,
+                                ajax: {
 
                                     url: "<?php echo base_url(); ?>artistic/location",
-                                            dataType: 'json',
-                                            delay: 250,
-                                            processResults: function (data) {
+                                    dataType: 'json',
+                                    delay: 250,
+                                    processResults: function (data) {
 
-                                            return {
+                                        return {
 
                                             results: data
-                                            };
-                                            },
-                                            cache: true
-                                    }
+                                        };
+                                    },
+                                    cache: true
+                                }
                             });
                             //select2 autocomplete End for Location
                         </script>
@@ -1575,18 +1593,18 @@ $art_userimage = $this->db->get_where('art_reg', array('user_id' => $art_data[0]
                             // Get the <span> element that closes the modal
                             var span = document.getElementsByClassName("close")[0];
                             // When the user clicks the button, open the modal 
-                            btn.onclick = function() {
-                            modal.style.display = "block";
+                            btn.onclick = function () {
+                                modal.style.display = "block";
                             }
                             // When the user clicks on <span> (x), close the modal
-                            span.onclick = function() {
-                            modal.style.display = "none";
+                            span.onclick = function () {
+                                modal.style.display = "none";
                             }
                             // When the user clicks anywhere outside of the modal, close it
-                            window.onclick = function(event) {
-                            if (event.target == modal) {
-                            modal.style.display = "none";
-                            }
+                            window.onclick = function (event) {
+                                if (event.target == modal) {
+                                    modal.style.display = "none";
+                                }
                             }
                         </script>
 
@@ -1596,44 +1614,44 @@ $art_userimage = $this->db->get_where('art_reg', array('user_id' => $art_data[0]
                         <script type="text/javascript">
                             //validation for edit email formate form
                             $(document).ready(function () {
-                            $("#artpostform").validate({
-                            rules: {
-                            postname: {
-                            required: true,
-                            },
-                                    // skills: {
-                                    //   require_from_group: [1, ".skill-group"]
-                                    //     //required: true,
-                                    // },
-                                    // other_skill: {
-                                    //     require_from_group: [1, ".skill-group"]
-                                    //     //required: true,
-                                    // },
-                                    description: {
-                                    required: true,
-                                    },
-                                    // postattach: {
-                                    //      required: true,
+                                $("#artpostform").validate({
+                                    rules: {
+                                        postname: {
+                                            required: true,
+                                        },
+                                        // skills: {
+                                        //   require_from_group: [1, ".skill-group"]
+                                        //     //required: true,
+                                        // },
+                                        // other_skill: {
+                                        //     require_from_group: [1, ".skill-group"]
+                                        //     //required: true,
+                                        // },
+                                        description: {
+                                            required: true,
+                                        },
+                                        // postattach: {
+                                        //      required: true,
 
-                                    //  },
-                            },
+                                        //  },
+                                    },
                                     messages: {
-                                    postname: {
-                                    required: "Post name Is Required.",
-                                    },
-                                            // skills: {
-                                            //     required: "Skill Is Required.",
+                                        postname: {
+                                            required: "Post name Is Required.",
+                                        },
+                                        // skills: {
+                                        //     required: "Skill Is Required.",
 
-                                            // },
-                                            description: {
+                                        // },
+                                        description: {
                                             required: "Description is required",
-                                            },
-                                            // postattach: {
-                                            //     required: "Attachment Is Required.",
+                                        },
+                                        // postattach: {
+                                        //     required: "Attachment Is Required.",
 
-                                            // },
+                                        // },
                                     },
-                            });
+                                });
                             });
                         </script>
                         <!-- javascript validation End -->
@@ -1642,14 +1660,14 @@ $art_userimage = $this->db->get_where('art_reg', array('user_id' => $art_data[0]
                             function post_like(clicked_id)
                             {
 
-                            $.ajax({
-                            type:'POST',
-                                    url:'<?php echo base_url() . "artistic/like_post" ?>',
-                                    data:'post_id=' + clicked_id,
-                                    success:function(data){
-                                    $('.' + 'likepost' + clicked_id).html(data);
+                                $.ajax({
+                                    type: 'POST',
+                                    url: '<?php echo base_url() . "artistic/like_post" ?>',
+                                    data: 'post_id=' + clicked_id,
+                                    success: function (data) {
+                                        $('.' + 'likepost' + clicked_id).html(data);
                                     }
-                            });
+                                });
                             }
                         </script>
                         <!--post like script end -->
@@ -1658,28 +1676,28 @@ $art_userimage = $this->db->get_where('art_reg', array('user_id' => $art_data[0]
                             function comment_like(clicked_id)
                             {
 
-                            $.ajax({
-                            type:'POST',
-                                    url:'<?php echo base_url() . "artistic/like_comment" ?>',
-                                    data:'post_id=' + clicked_id,
-                                    success:function(data){
-                                    $('#' + 'likecomment' + clicked_id).html(data);
+                                $.ajax({
+                                    type: 'POST',
+                                    url: '<?php echo base_url() . "artistic/like_comment" ?>',
+                                    data: 'post_id=' + clicked_id,
+                                    success: function (data) {
+                                        $('#' + 'likecomment' + clicked_id).html(data);
                                     }
-                            });
+                                });
                             }
                         </script>
                         <script type="text/javascript">
                             function comment_like1(clicked_id)
                             {
 
-                            $.ajax({
-                            type:'POST',
-                                    url:'<?php echo base_url() . "artistic/like_comment1" ?>',
-                                    data:'post_id=' + clicked_id,
-                                    success:function(data){
-                                    $('#' + 'likecomment1' + clicked_id).html(data);
+                                $.ajax({
+                                    type: 'POST',
+                                    url: '<?php echo base_url() . "artistic/like_comment1" ?>',
+                                    data: 'post_id=' + clicked_id,
+                                    success: function (data) {
+                                        $('#' + 'likecomment1' + clicked_id).html(data);
                                     }
-                            });
+                                });
                             }
                         </script>
                         <!--comment like script end -->
@@ -1688,29 +1706,29 @@ $art_userimage = $this->db->get_where('art_reg', array('user_id' => $art_data[0]
                             function comment_delete(clicked_id)
                             {
 
-                            var post_delete = document.getElementById("post_delete");
-                            $.ajax({
-                            type:'POST',
-                                    url:'<?php echo base_url() . "artistic/delete_comment" ?>',
-                                    data:'post_id=' + clicked_id + '&post_delete=' + post_delete.value,
-                                    success:function(data){
+                                var post_delete = document.getElementById("post_delete");
+                                $.ajax({
+                                    type: 'POST',
+                                    url: '<?php echo base_url() . "artistic/delete_comment" ?>',
+                                    data: 'post_id=' + clicked_id + '&post_delete=' + post_delete.value,
+                                    success: function (data) {
 
-                                    $('.' + 'insertcomment' + post_delete.value).html(data);
+                                        $('.' + 'insertcomment' + post_delete.value).html(data);
                                     }
-                            });
+                                });
                             }
                             function comment_delete2(clicked_id)
                             {
 
-                            var post_delete = document.getElementById("post_delete2");
-                            $.ajax({
-                            type:'POST',
-                                    url:'<?php echo base_url() . "artistic/delete_comment" ?>',
-                                    data:'post_id=' + clicked_id + '&post_delete=' + post_delete.value,
-                                    success:function(data){
-                                    $('.' + 'insertcomment2' + post_delete.value).html(data);
+                                var post_delete = document.getElementById("post_delete2");
+                                $.ajax({
+                                    type: 'POST',
+                                    url: '<?php echo base_url() . "artistic/delete_comment" ?>',
+                                    data: 'post_id=' + clicked_id + '&post_delete=' + post_delete.value,
+                                    success: function (data) {
+                                        $('.' + 'insertcomment2' + post_delete.value).html(data);
                                     }
-                            });
+                                });
                             }
                         </script>
                         <!--comment delete script end -->
@@ -1718,18 +1736,18 @@ $art_userimage = $this->db->get_where('art_reg', array('user_id' => $art_data[0]
                         <script type="text/javascript">
                             function insert_comment(clicked_id)
                             {
-                            var post_comment = document.getElementById("post_comment" + clicked_id);
-                            $.ajax({
-                            type:'POST',
-                                    url:'<?php echo base_url() . "artistic/insert_comment" ?>',
-                                    data:'post_id=' + clicked_id + '&comment=' + post_comment.value,
-                                    success:function(data){
-                                    $('input').each(function(){
-                                    $(this).val('');
-                                    });
-                                    $('.' + 'insertcomment' + clicked_id).html(data);
+                                var post_comment = document.getElementById("post_comment" + clicked_id);
+                                $.ajax({
+                                    type: 'POST',
+                                    url: '<?php echo base_url() . "artistic/insert_comment" ?>',
+                                    data: 'post_id=' + clicked_id + '&comment=' + post_comment.value,
+                                    success: function (data) {
+                                        $('input').each(function () {
+                                            $(this).val('');
+                                        });
+                                        $('.' + 'insertcomment' + clicked_id).html(data);
                                     }
-                            });
+                                });
                             }
                         </script>
                         <!-- insert comment using enter -->
@@ -1737,25 +1755,25 @@ $art_userimage = $this->db->get_where('art_reg', array('user_id' => $art_data[0]
                             function entercomment(clicked_id)
                             {
 
-                            $(document).ready(function() {
-                            $('#post_comment' + clicked_id).keypress(function(e) {
-                            if (e.which == 13) {
-                            var val = $('#post_comment' + clicked_id).val();
-                            $.ajax({
-                            type:'POST',
-                                    url:'<?php echo base_url() . "artistic/insert_comment" ?>',
-                                    data:'post_id=' + clicked_id + '&comment=' + val,
-                                    success:function(data){
-                                    $('input').each(function(){
-                                    $(this).val('');
+                                $(document).ready(function () {
+                                    $('#post_comment' + clicked_id).keypress(function (e) {
+                                        if (e.which == 13) {
+                                            var val = $('#post_comment' + clicked_id).val();
+                                            $.ajax({
+                                                type: 'POST',
+                                                url: '<?php echo base_url() . "artistic/insert_comment" ?>',
+                                                data: 'post_id=' + clicked_id + '&comment=' + val,
+                                                success: function (data) {
+                                                    $('input').each(function () {
+                                                        $(this).val('');
+                                                    });
+                                                    $('.' + 'insertcomment' + clicked_id).html(data);
+                                                }
+                                            });
+                                            //alert(val);
+                                        }
                                     });
-                                    $('.' + 'insertcomment' + clicked_id).html(data);
-                                    }
-                            });
-                            //alert(val);
-                            }
-                            });
-                            });
+                                });
                             }
                         </script>
                         <!--comment insert script end -->
@@ -1763,34 +1781,34 @@ $art_userimage = $this->db->get_where('art_reg', array('user_id' => $art_data[0]
                         <!-- comment edit box start-->
                         <script type="text/javascript">
 
-                            function comment_editbox(clicked_id){
-                            document.getElementById('editcomment' + clicked_id).style.display = 'block';
-                            document.getElementById('showcomment' + clicked_id).style.display = 'none';
-                            document.getElementById('editsubmit' + clicked_id).style.display = 'block';
-                            document.getElementById('editbox' + clicked_id).style.display = 'none';
-                            document.getElementById('editcancle' + clicked_id).style.display = 'block';
+                            function comment_editbox(clicked_id) {
+                                document.getElementById('editcomment' + clicked_id).style.display = 'block';
+                                document.getElementById('showcomment' + clicked_id).style.display = 'none';
+                                document.getElementById('editsubmit' + clicked_id).style.display = 'block';
+                                document.getElementById('editbox' + clicked_id).style.display = 'none';
+                                document.getElementById('editcancle' + clicked_id).style.display = 'block';
                             }
-                            function comment_editcancle(clicked_id){
-                            document.getElementById('editbox' + clicked_id).style.display = 'block';
-                            document.getElementById('editcancle' + clicked_id).style.display = 'none';
-                            document.getElementById('editcomment' + clicked_id).style.display = 'none';
-                            document.getElementById('showcomment' + clicked_id).style.display = 'block';
-                            document.getElementById('editsubmit' + clicked_id).style.display = 'none';
+                            function comment_editcancle(clicked_id) {
+                                document.getElementById('editbox' + clicked_id).style.display = 'block';
+                                document.getElementById('editcancle' + clicked_id).style.display = 'none';
+                                document.getElementById('editcomment' + clicked_id).style.display = 'none';
+                                document.getElementById('showcomment' + clicked_id).style.display = 'block';
+                                document.getElementById('editsubmit' + clicked_id).style.display = 'none';
                             }
-                            function comment_editbox2(clicked_id){
-                            document.getElementById('editcomment2' + clicked_id).style.display = 'block';
-                            document.getElementById('showcomment2' + clicked_id).style.display = 'none';
-                            document.getElementById('editsubmit2' + clicked_id).style.display = 'block';
-                            document.getElementById('editbox2' + clicked_id).style.display = 'none';
-                            document.getElementById('editcancle2' + clicked_id).style.display = 'block';
+                            function comment_editbox2(clicked_id) {
+                                document.getElementById('editcomment2' + clicked_id).style.display = 'block';
+                                document.getElementById('showcomment2' + clicked_id).style.display = 'none';
+                                document.getElementById('editsubmit2' + clicked_id).style.display = 'block';
+                                document.getElementById('editbox2' + clicked_id).style.display = 'none';
+                                document.getElementById('editcancle2' + clicked_id).style.display = 'block';
                             }
-                            function comment_editcancle2(clicked_id){
+                            function comment_editcancle2(clicked_id) {
 
-                            document.getElementById('editbox2' + clicked_id).style.display = 'block';
-                            document.getElementById('editcancle2' + clicked_id).style.display = 'none';
-                            document.getElementById('editcomment2' + clicked_id).style.display = 'none';
-                            document.getElementById('showcomment2' + clicked_id).style.display = 'block';
-                            document.getElementById('editsubmit2' + clicked_id).style.display = 'none';
+                                document.getElementById('editbox2' + clicked_id).style.display = 'block';
+                                document.getElementById('editcancle2' + clicked_id).style.display = 'none';
+                                document.getElementById('editcomment2' + clicked_id).style.display = 'none';
+                                document.getElementById('showcomment2' + clicked_id).style.display = 'block';
+                                document.getElementById('editsubmit2' + clicked_id).style.display = 'none';
                             }
                         </script>
                         <!--comment edit box end-->
@@ -1798,91 +1816,91 @@ $art_userimage = $this->db->get_where('art_reg', array('user_id' => $art_data[0]
                             function commentedit(abc)
                             {
 
-                            $(document).ready(function() {
-                            $('#editcomment' + abc).keypress(function(e) {
-                            if (e.which == 13) {
-                            var val = $('#editcomment' + abc).val();
-                            $.ajax({
-                            type:'POST',
-                                    url:'<?php echo base_url() . "artistic/edit_comment_insert" ?>',
-                                    data:'post_id=' + abc + '&comment=' + val,
-                                    success:function(data){
+                                $(document).ready(function () {
+                                    $('#editcomment' + abc).keypress(function (e) {
+                                        if (e.which == 13) {
+                                            var val = $('#editcomment' + abc).val();
+                                            $.ajax({
+                                                type: 'POST',
+                                                url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
+                                                data: 'post_id=' + abc + '&comment=' + val,
+                                                success: function (data) {
 
-                                    document.getElementById('editcomment' + abc).style.display = 'none';
-                                    document.getElementById('showcomment' + abc).style.display = 'block';
-                                    document.getElementById('editsubmit' + abc).style.display = 'none';
-                                    document.getElementById('editbox' + abc).style.display = 'block';
-                                    document.getElementById('editcancle' + abc).style.display = 'none';
-                                    $('#' + 'showcomment' + abc).html(data);
-                                    }
-                            });
-                            //alert(val);
-                            }
-                            });
-                            });
+                                                    document.getElementById('editcomment' + abc).style.display = 'none';
+                                                    document.getElementById('showcomment' + abc).style.display = 'block';
+                                                    document.getElementById('editsubmit' + abc).style.display = 'none';
+                                                    document.getElementById('editbox' + abc).style.display = 'block';
+                                                    document.getElementById('editcancle' + abc).style.display = 'none';
+                                                    $('#' + 'showcomment' + abc).html(data);
+                                                }
+                                            });
+                                            //alert(val);
+                                        }
+                                    });
+                                });
                             }
                         </script>
                         <script type="text/javascript">
                             function edit_comment2(abc)
                             {
-                            var post_comment_edit = document.getElementById("editcomment2" + abc);
-                            $.ajax({
-                            type:'POST',
-                                    url:'<?php echo base_url() . "artistic/edit_comment_insert" ?>',
-                                    data:'post_id=' + abc + '&comment=' + post_comment_edit.value,
-                                    success:function(data){
+                                var post_comment_edit = document.getElementById("editcomment2" + abc);
+                                $.ajax({
+                                    type: 'POST',
+                                    url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
+                                    data: 'post_id=' + abc + '&comment=' + post_comment_edit.value,
+                                    success: function (data) {
 
-                                    document.getElementById('editcomment2' + abc).style.display = 'none';
-                                    document.getElementById('showcomment2' + abc).style.display = 'block';
-                                    document.getElementById('editsubmit2' + abc).style.display = 'none';
-                                    document.getElementById('editbox2' + abc).style.display = 'block';
-                                    document.getElementById('editcancle2' + abc).style.display = 'none';
-                                    $('#' + 'showcomment2' + abc).html(data);
+                                        document.getElementById('editcomment2' + abc).style.display = 'none';
+                                        document.getElementById('showcomment2' + abc).style.display = 'block';
+                                        document.getElementById('editsubmit2' + abc).style.display = 'none';
+                                        document.getElementById('editbox2' + abc).style.display = 'block';
+                                        document.getElementById('editcancle2' + abc).style.display = 'none';
+                                        $('#' + 'showcomment2' + abc).html(data);
                                     }
-                            });
+                                });
                             }
                         </script>
                         <script type="text/javascript">
                             function commentedit2(abc)
                             {
 
-                            $(document).ready(function() {
-                            $('#editcomment2' + abc).keypress(function(e) {
-                            if (e.which == 13) {
-                            var val = $('#editcomment2' + abc).val();
-                            $.ajax({
-                            type:'POST',
-                                    url:'<?php echo base_url() . "artistic/edit_comment_insert" ?>',
-                                    data:'post_id=' + abc + '&comment=' + val,
-                                    success:function(data){
+                                $(document).ready(function () {
+                                    $('#editcomment2' + abc).keypress(function (e) {
+                                        if (e.which == 13) {
+                                            var val = $('#editcomment2' + abc).val();
+                                            $.ajax({
+                                                type: 'POST',
+                                                url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
+                                                data: 'post_id=' + abc + '&comment=' + val,
+                                                success: function (data) {
 
-                                    document.getElementById('editcomment2' + abc).style.display = 'none';
-                                    document.getElementById('showcomment2' + abc).style.display = 'block';
-                                    document.getElementById('editsubmit2' + abc).style.display = 'none';
-                                    document.getElementById('editbox2' + abc).style.display = 'block';
-                                    document.getElementById('editcancle2' + abc).style.display = 'none';
-                                    $('#' + 'showcomment2' + abc).html(data);
-                                    }
-                            });
-                            //alert(val);
-                            }
-                            });
-                            });
+                                                    document.getElementById('editcomment2' + abc).style.display = 'none';
+                                                    document.getElementById('showcomment2' + abc).style.display = 'block';
+                                                    document.getElementById('editsubmit2' + abc).style.display = 'none';
+                                                    document.getElementById('editbox2' + abc).style.display = 'block';
+                                                    document.getElementById('editcancle2' + abc).style.display = 'none';
+                                                    $('#' + 'showcomment2' + abc).html(data);
+                                                }
+                                            });
+                                            //alert(val);
+                                        }
+                                    });
+                                });
                             }
                         </script>
                         <!--comment edit insert script end -->
                         <!-- hide and show data start-->
                         <script type="text/javascript">
-                            function commentall(clicked_id){
-                            var x = document.getElementById('threecomment' + clicked_id);
-                            var y = document.getElementById('fourcomment' + clicked_id);
-                            if (x.style.display === 'block' && y.style.display === 'none') {
-                            x.style.display = 'none';
-                            y.style.display = 'block';
-                            } else {
-                            x.style.display = 'block';
-                            y.style.display = 'none';
-                            }
+                            function commentall(clicked_id) {
+                                var x = document.getElementById('threecomment' + clicked_id);
+                                var y = document.getElementById('fourcomment' + clicked_id);
+                                if (x.style.display === 'block' && y.style.display === 'none') {
+                                    x.style.display = 'none';
+                                    y.style.display = 'block';
+                                } else {
+                                    x.style.display = 'block';
+                                    y.style.display = 'none';
+                                }
                             }
                         </script>
                         <!-- hide and show data end-->
@@ -1895,18 +1913,18 @@ $art_userimage = $this->db->get_where('art_reg', array('user_id' => $art_data[0]
                             // Get the <span> element that closes the modal
                             var span = document.getElementsByClassName("close1")[0];
                             // When the user clicks the button, open the modal 
-                            btn.onclick = function() {
-                            modal.style.display = "block";
+                            btn.onclick = function () {
+                                modal.style.display = "block";
                             }
                             // When the user clicks on <span> (x), close the modal
-                            span.onclick = function() {
-                            modal.style.display = "none";
+                            span.onclick = function () {
+                                modal.style.display = "none";
                             }
                             // When the user clicks anywhere outside of the modal, close it
-                            window.onclick = function(event) {
-                            if (event.target == modal) {
-                            modal.style.display = "none";
-                            }
+                            window.onclick = function (event) {
+                                if (event.target == modal) {
+                                    modal.style.display = "none";
+                                }
                             }
                         </script>
                         <!-- popup form end-->
@@ -1914,47 +1932,47 @@ $art_userimage = $this->db->get_where('art_reg', array('user_id' => $art_data[0]
                             /* When the user clicks on the button, 
                              toggle between hiding and showing the dropdown content */
                             function myFunction(clicked_id) {
-                            document.getElementById('myDropdown' + clicked_id).classList.toggle("show");
+                                document.getElementById('myDropdown' + clicked_id).classList.toggle("show");
                             }
                             // Close the dropdown if the user clicks outside of it
-                            window.onclick = function(event) {
-                            if (!event.target.matches('.dropbtn1')) {
-                            var dropdowns = document.getElementsByClassName("dropdown-content1");
-                            var i;
-                            for (i = 0; i < dropdowns.length; i++) {
-                            var openDropdown = dropdowns[i];
-                            if (openDropdown.classList.contains('show')) {
-                            openDropdown.classList.remove('show');
-                            }
-                            }
-                            }
+                            window.onclick = function (event) {
+                                if (!event.target.matches('.dropbtn1')) {
+                                    var dropdowns = document.getElementsByClassName("dropdown-content1");
+                                    var i;
+                                    for (i = 0; i < dropdowns.length; i++) {
+                                        var openDropdown = dropdowns[i];
+                                        if (openDropdown.classList.contains('show')) {
+                                            openDropdown.classList.remove('show');
+                                        }
+                                    }
+                                }
                             }
                         </script>
                         <!-- further and less -->
                         <script>
-                            $(function() {
-                            var showTotalChar = 150, showChar = "more", hideChar = "less";
-                            $('.show').each(function() {
-                            var content = $(this).text();
-                            if (content.length > showTotalChar) {
-                            var con = content.substr(0, showTotalChar);
-                            var hcon = content.substr(showTotalChar, content.length - showTotalChar);
-                            var txt = con + '<span class="dots">...</span><span class="morectnt"><span>' + hcon + '</span>&nbsp;&nbsp;<a href="" class="showmoretxt">' + showChar + '</a></span>';
-                            $(this).html(txt);
-                            }
-                            });
-                            $(".showmoretxt").click(function() {
-                            if ($(this).hasClass("sample")) {
-                            $(this).removeClass("sample");
-                            $(this).text(showChar);
-                            } else {
-                            $(this).addClass("sample");
-                            $(this).text(hideChar);
-                            }
-                            $(this).parent().prev().toggle();
-                            $(this).prev().toggle();
-                            return false;
-                            });
+                            $(function () {
+                                var showTotalChar = 150, showChar = "more", hideChar = "less";
+                                $('.show').each(function () {
+                                    var content = $(this).text();
+                                    if (content.length > showTotalChar) {
+                                        var con = content.substr(0, showTotalChar);
+                                        var hcon = content.substr(showTotalChar, content.length - showTotalChar);
+                                        var txt = con + '<span class="dots">...</span><span class="morectnt"><span>' + hcon + '</span>&nbsp;&nbsp;<a href="" class="showmoretxt">' + showChar + '</a></span>';
+                                        $(this).html(txt);
+                                    }
+                                });
+                                $(".showmoretxt").click(function () {
+                                    if ($(this).hasClass("sample")) {
+                                        $(this).removeClass("sample");
+                                        $(this).text(showChar);
+                                    } else {
+                                        $(this).addClass("sample");
+                                        $(this).text(hideChar);
+                                    }
+                                    $(this).parent().prev().toggle();
+                                    $(this).prev().toggle();
+                                    return false;
+                                });
                             });
                         </script>
                         <!-- multi image add post khyati start -->
@@ -1966,50 +1984,51 @@ $art_userimage = $this->db->get_where('art_reg', array('user_id' => $art_data[0]
                                     maxUpload = 10;
                             // READ FILE + CREATE IMAGE
                             function read(f) {//alert("aa");
-                            return function(e) {
-                            var base64 = e.target.result;
-                            var $img = $('<img/>', {
-                            src: base64,
-                                    title: encodeURIComponent(f.name), //( escape() is deprecated! )
-                                    "class": "thumb"
-                            });
-                            var $thumbParent = $("<span/>", {html:$img, "class":"thumbParent"}).append('<span class="remove_thumb"/>');
-                            thumbsArray.push(base64); // Push base64 image into array or whatever.
-                            $list.append($thumbParent);
-                            };
+                                return function (e) {
+                                    var base64 = e.target.result;
+                                    var $img = $('<img/>', {
+                                        src: base64,
+                                        title: encodeURIComponent(f.name), //( escape() is deprecated! )
+                                        "class": "thumb"
+                                    });
+                                    var $thumbParent = $("<span/>", {html: $img, "class": "thumbParent"}).append('<span class="remove_thumb"/>');
+                                    thumbsArray.push(base64); // Push base64 image into array or whatever.
+                                    $list.append($thumbParent);
+                                };
                             }
                             // HANDLE FILE/S UPLOAD
                             function handleFileSelect(e) {//alert("aaa");
-                            e.preventDefault(); // Needed?
-                            var files = e.target.files;
-                            var len = files.length;
-                            if (len > maxUpload || thumbsArray.length >= maxUpload){
-                            return alert("Sorry you can upload only 5 images");
+                                e.preventDefault(); // Needed?
+                                var files = e.target.files;
+                                var len = files.length;
+                                if (len > maxUpload || thumbsArray.length >= maxUpload) {
+                                    return alert("Sorry you can upload only 5 images");
+                                }
+                                for (var i = 0; i < len; i++) {
+                                    var f = files[i];
+                                    if (!f.type.match('image.*'))
+                                        continue; // Only images allowed    
+                                    var reader = new FileReader();
+                                    reader.onload = read(f); // Call read() function
+                                    reader.readAsDataURL(f);
+                                }
                             }
-                            for (var i = 0; i < len; i++) {
-                            var f = files[i];
-                            if (!f.type.match('image.*')) continue; // Only images allowed    
-                            var reader = new FileReader();
-                            reader.onload = read(f); // Call read() function
-                            reader.readAsDataURL(f);
-                            }
-                            }
-                            $fileUpload.change(function(e) {//alert("aaaa");
-                            handleFileSelect(e);
+                            $fileUpload.change(function (e) {//alert("aaaa");
+                                handleFileSelect(e);
                             });
                             $list.on('click', '.remove_thumb', function () {//alert("aaaaa");
-                            var $removeBtns = $('.remove_thumb'); // Get all of them in collection
-                            var idx = $removeBtns.index(this); // Exact Index-from-collection
-                            $(this).closest('span.thumbParent').remove(); // Remove tumbnail parent
-                            thumbsArray.splice(idx, 1); // Remove from array
+                                var $removeBtns = $('.remove_thumb'); // Get all of them in collection
+                                var idx = $removeBtns.index(this); // Exact Index-from-collection
+                                $(this).closest('span.thumbParent').remove(); // Remove tumbnail parent
+                                thumbsArray.splice(idx, 1); // Remove from array
                             });
                         </script>
                         <!-- multi image add post khyati end -->
                         <!-- success message remove after some second start -->
                         <script language="javascript" type="text/javascript">
                             $(document).ready(function () {
-                            $('.alert-danger').delay(3000).hide('700');
-                            $('.alert-success').delay(3000).hide('700');
+                                $('.alert-danger').delay(3000).hide('700');
+                                $('.alert-success').delay(3000).hide('700');
                             });
                         </script>
                         <!-- success message remove after some second end -->
@@ -2019,44 +2038,44 @@ $art_userimage = $this->db->get_where('art_reg', array('user_id' => $art_data[0]
                             {
 
 
-                            document.getElementById('editpostdata' + abc).style.display = 'none';
-                            document.getElementById('editpostbox' + abc).style.display = 'block';
-                            document.getElementById('editpostdetails' + abc).style.display = 'none';
-                            document.getElementById('editpostdetailbox' + abc).style.display = 'block';
-                            document.getElementById('editpostsubmit' + abc).style.display = 'block';
+                                document.getElementById('editpostdata' + abc).style.display = 'none';
+                                document.getElementById('editpostbox' + abc).style.display = 'block';
+                                document.getElementById('editpostdetails' + abc).style.display = 'none';
+                                document.getElementById('editpostdetailbox' + abc).style.display = 'block';
+                                document.getElementById('editpostsubmit' + abc).style.display = 'block';
                             }
                         </script>
                         <script type="text/javascript">
                             function edit_postinsert(abc)
                             {
-                            var editpostname = document.getElementById("editpostname" + abc);
-                            var editpostdetails = document.getElementById("editpostdesc" + abc);
+                                var editpostname = document.getElementById("editpostname" + abc);
+                                var editpostdetails = document.getElementById("editpostdesc" + abc);
 
 // start khyati code
-  var $field = $('#editpostdesc' + abc);
-  //var data = $field.val();
-  var editpostdetails = $('#editpostdesc' + abc).html();
+                                var $field = $('#editpostdesc' + abc);
+                                //var data = $field.val();
+                                var editpostdetails = $('#editpostdesc' + abc).html();
 // end khyati code
-  
 
 
 
-                            $.ajax({
-                            type:'POST',
-                                    url:'<?php echo base_url() . "artistic/edit_post_insert" ?>',
-                                    data:'art_post_id=' + abc + '&art_post=' + editpostname.value + '&art_description=' + editpostdetails,
+
+                                $.ajax({
+                                    type: 'POST',
+                                    url: '<?php echo base_url() . "artistic/edit_post_insert" ?>',
+                                    data: 'art_post_id=' + abc + '&art_post=' + editpostname.value + '&art_description=' + editpostdetails,
                                     dataType: "json",
-                                    success:function(data){
+                                    success: function (data) {
 
-                                    document.getElementById('editpostdata' + abc).style.display = 'block';
-                                    document.getElementById('editpostbox' + abc).style.display = 'none';
-                                    document.getElementById('editpostdetails' + abc).style.display = 'block';
-                                    document.getElementById('editpostdetailbox' + abc).style.display = 'none';
-                                    document.getElementById('editpostsubmit' + abc).style.display = 'none';
-                                    $('#' + 'editpostdata' + abc).html(data.title);
-                                    $('#' + 'editpostdetails' + abc).html(data.description);
+                                        document.getElementById('editpostdata' + abc).style.display = 'block';
+                                        document.getElementById('editpostbox' + abc).style.display = 'none';
+                                        document.getElementById('editpostdetails' + abc).style.display = 'block';
+                                        document.getElementById('editpostdetailbox' + abc).style.display = 'none';
+                                        document.getElementById('editpostsubmit' + abc).style.display = 'none';
+                                        $('#' + 'editpostdata' + abc).html(data.title);
+                                        $('#' + 'editpostdetails' + abc).html(data.description);
                                     }
-                            });
+                                });
                             }
                         </script>
                         <!-- edit post end -->
@@ -2064,16 +2083,16 @@ $art_userimage = $this->db->get_where('art_reg', array('user_id' => $art_data[0]
                         <script type="text/javascript">
                             function remove_post(abc)
                             {
-                            $.ajax({
-                            type:'POST',
-                                    url:'<?php echo base_url() . "artistic/art_deletepost" ?>',
-                                    data:'art_post_id=' + abc,
+                                $.ajax({
+                                    type: 'POST',
+                                    url: '<?php echo base_url() . "artistic/art_deletepost" ?>',
+                                    data: 'art_post_id=' + abc,
                                     //alert(data);
-                                    success:function(data){
+                                    success: function (data) {
 
-                                    $('#' + 'removepost' + abc).html(data);
+                                        $('#' + 'removepost' + abc).html(data);
                                     }
-                            });
+                                });
                             }
                         </script>
                         <!-- remove save post end -->
@@ -2081,50 +2100,54 @@ $art_userimage = $this->db->get_where('art_reg', array('user_id' => $art_data[0]
                         <script type="text/javascript">
                             function del_particular_userpost(abc)
                             {
-                            $.ajax({
-                            type:'POST',
-                                    url:'<?php echo base_url() . "artistic/del_particular_userpost" ?>',
-                                    data:'art_post_id=' + abc,
+                                $.ajax({
+                                    type: 'POST',
+                                    url: '<?php echo base_url() . "artistic/del_particular_userpost" ?>',
+                                    data: 'art_post_id=' + abc,
                                     //alert(data);
-                                    success:function(data){
+                                    success: function (data) {
 
-                                    $('#' + 'removepost' + abc).html(data);
+                                        $('#' + 'removepost' + abc).html(data);
                                     }
-                            });
+                                });
                             }
                         </script>
                         <!-- remove particular user post end -->
                         <script>
                             function openModal() {
-                            document.getElementById('myModal1').style.display = "block";
+                                document.getElementById('myModal1').style.display = "block";
                             }
                             function closeModal() {
-                            document.getElementById('myModal1').style.display = "none";
+                                document.getElementById('myModal1').style.display = "none";
                             }
                             var slideIndex = 1;
                             showSlides(slideIndex);
                             function plusSlides(n) {
-                            showSlides(slideIndex += n);
+                                showSlides(slideIndex += n);
                             }
                             function currentSlide(n) {
-                            showSlides(slideIndex = n);
+                                showSlides(slideIndex = n);
                             }
                             function showSlides(n) {
-                            var i;
-                            var slides = document.getElementsByClassName("mySlides");
-                            var dots = document.getElementsByClassName("demo");
-                            var captionText = document.getElementById("caption");
-                            if (n > slides.length) {slideIndex = 1}
-                            if (n < 1) {slideIndex = slides.length}
-                            for (i = 0; i < slides.length; i++) {
-                            slides[i].style.display = "none";
-                            }
-                            for (i = 0; i < dots.length; i++) {
-                            dots[i].className = dots[i].className.replace(" active", "");
-                            }
-                            slides[slideIndex - 1].style.display = "block";
-                            dots[slideIndex - 1].className += " active";
-                            captionText.innerHTML = dots[slideIndex - 1].alt;
+                                var i;
+                                var slides = document.getElementsByClassName("mySlides");
+                                var dots = document.getElementsByClassName("demo");
+                                var captionText = document.getElementById("caption");
+                                if (n > slides.length) {
+                                    slideIndex = 1
+                                }
+                                if (n < 1) {
+                                    slideIndex = slides.length
+                                }
+                                for (i = 0; i < slides.length; i++) {
+                                    slides[i].style.display = "none";
+                                }
+                                for (i = 0; i < dots.length; i++) {
+                                    dots[i].className = dots[i].className.replace(" active", "");
+                                }
+                                slides[slideIndex - 1].style.display = "block";
+                                dots[slideIndex - 1].className += " active";
+                                captionText.innerHTML = dots[slideIndex - 1].alt;
                             }
                         </script>
                         <!-- script for skill textbox automatic end (option 2)-->
@@ -2132,22 +2155,22 @@ $art_userimage = $this->db->get_where('art_reg', array('user_id' => $art_data[0]
                             //select2 autocomplete start for Location
                             $('#searchplace').select2({
 
-                            placeholder: 'Find Your Location',
-                                    maximumSelectionLength: 1,
-                                    ajax:{
+                                placeholder: 'Find Your Location',
+                                maximumSelectionLength: 1,
+                                ajax: {
 
                                     url: "<?php echo base_url(); ?>business_profile/location",
-                                            dataType: 'json',
-                                            delay: 250,
-                                            processResults: function (data) {
+                                    dataType: 'json',
+                                    delay: 250,
+                                    processResults: function (data) {
 
-                                            return {
+                                        return {
                                             //alert(data);
                                             results: data
-                                            };
-                                            },
-                                            cache: true
-                                    }
+                                        };
+                                    },
+                                    cache: true
+                                }
                             });
                         </script>
                         <!-- like comment script start -->
@@ -2155,15 +2178,15 @@ $art_userimage = $this->db->get_where('art_reg', array('user_id' => $art_data[0]
                         <script type="text/javascript">
                             function post_like(clicked_id)
                             {
-                            //alert(clicked_id);
-                            $.ajax({
-                            type:'POST',
-                                    url:'<?php echo base_url() . "artistic/like_post" ?>',
-                                    data:'post_id=' + clicked_id,
-                                    success:function(data){ //alert('.' + 'likepost' + clicked_id);
-                                    $('.' + 'likepost' + clicked_id).html(data);
+                                //alert(clicked_id);
+                                $.ajax({
+                                    type: 'POST',
+                                    url: '<?php echo base_url() . "artistic/like_post" ?>',
+                                    data: 'post_id=' + clicked_id,
+                                    success: function (data) { //alert('.' + 'likepost' + clicked_id);
+                                        $('.' + 'likepost' + clicked_id).html(data);
                                     }
-                            });
+                                });
                             }
                         </script>
                         <!--post like script end -->
@@ -2171,20 +2194,20 @@ $art_userimage = $this->db->get_where('art_reg', array('user_id' => $art_data[0]
                         <script type="text/javascript">
                             function insert_comment(clicked_id)
                             {
-                            var post_comment = document.getElementById("post_comment" + clicked_id);
-                            //alert(clicked_id);
-                            //alert(post_comment.value);
-                            $.ajax({
-                            type:'POST',
-                                    url:'<?php echo base_url() . "artistic/insert_comment" ?>',
-                                    data:'post_id=' + clicked_id + '&comment=' + post_comment.value,
-                                    success:function(data){
-                                    $('input').each(function(){
-                                    $(this).val('');
-                                    });
-                                    $('.' + 'insertcomment' + clicked_id).html(data);
+                                var post_comment = document.getElementById("post_comment" + clicked_id);
+                                //alert(clicked_id);
+                                //alert(post_comment.value);
+                                $.ajax({
+                                    type: 'POST',
+                                    url: '<?php echo base_url() . "artistic/insert_comment" ?>',
+                                    data: 'post_id=' + clicked_id + '&comment=' + post_comment.value,
+                                    success: function (data) {
+                                        $('input').each(function () {
+                                            $(this).val('');
+                                        });
+                                        $('.' + 'insertcomment' + clicked_id).html(data);
                                     }
-                            });
+                                });
                             }
                         </script>
                         <!-- insert comment using enter -->
@@ -2192,42 +2215,42 @@ $art_userimage = $this->db->get_where('art_reg', array('user_id' => $art_data[0]
                             function entercomment(clicked_id)
                             {
 
-                            $(document).ready(function() {
-                            $('#post_comment' + clicked_id).keypress(function(e) {
-                            if (e.which == 13) {
-                            var val = $('#post_comment' + clicked_id).val();
-                            $.ajax({
-                            type:'POST',
-                                    url:'<?php echo base_url() . "artistic/insert_comment" ?>',
-                                    data:'post_id=' + clicked_id + '&comment=' + val,
-                                    success:function(data){
-                                    $('input').each(function(){
-                                    $(this).val('');
+                                $(document).ready(function () {
+                                    $('#post_comment' + clicked_id).keypress(function (e) {
+                                        if (e.which == 13) {
+                                            var val = $('#post_comment' + clicked_id).val();
+                                            $.ajax({
+                                                type: 'POST',
+                                                url: '<?php echo base_url() . "artistic/insert_comment" ?>',
+                                                data: 'post_id=' + clicked_id + '&comment=' + val,
+                                                success: function (data) {
+                                                    $('input').each(function () {
+                                                        $(this).val('');
+                                                    });
+                                                    $('.' + 'insertcomment' + clicked_id).html(data);
+                                                }
+                                            });
+                                            //alert(val);
+                                        }
                                     });
-                                    $('.' + 'insertcomment' + clicked_id).html(data);
-                                    }
-                            });
-                            //alert(val);
-                            }
-                            });
-                            });
+                                });
                             }
                         </script>
                         <!--comment insert script end -->
                         <!-- hide and show data start-->
                         <script type="text/javascript">
-                            function commentall(clicked_id){ //alert("xyz");
+                            function commentall(clicked_id) { //alert("xyz");
 
-                            //alert(clicked_id);
-                            var x = document.getElementById('threecomment' + clicked_id);
-                            var y = document.getElementById('fourcomment' + clicked_id);
-                            if (x.style.display === 'block' && y.style.display === 'none') {
-                            x.style.display = 'none';
-                            y.style.display = 'block';
-                            } else {
-                            x.style.display = 'block';
-                            y.style.display = 'none';
-                            }
+                                //alert(clicked_id);
+                                var x = document.getElementById('threecomment' + clicked_id);
+                                var y = document.getElementById('fourcomment' + clicked_id);
+                                if (x.style.display === 'block' && y.style.display === 'none') {
+                                    x.style.display = 'none';
+                                    y.style.display = 'block';
+                                } else {
+                                    x.style.display = 'block';
+                                    y.style.display = 'none';
+                                }
                             }
                         </script>
                         <!-- hide and show data end-->
@@ -2235,61 +2258,61 @@ $art_userimage = $this->db->get_where('art_reg', array('user_id' => $art_data[0]
                         <script type="text/javascript">
                             function comment_like(clicked_id)
                             {
-                            //alert(clicked_id);
-                            $.ajax({
-                            type:'POST',
-                                    url:'<?php echo base_url() . "artistic/like_comment" ?>',
-                                    data:'post_id=' + clicked_id,
-                                    success:function(data){ //alert('.' + 'likepost' + clicked_id);
-                                    $('#' + 'likecomment' + clicked_id).html(data);
+                                //alert(clicked_id);
+                                $.ajax({
+                                    type: 'POST',
+                                    url: '<?php echo base_url() . "artistic/like_comment" ?>',
+                                    data: 'post_id=' + clicked_id,
+                                    success: function (data) { //alert('.' + 'likepost' + clicked_id);
+                                        $('#' + 'likecomment' + clicked_id).html(data);
                                     }
-                            });
+                                });
                             }
                         </script>
                         <script type="text/javascript">
                             function comment_like1(clicked_id)
                             {
-                            //alert(clicked_id);
-                            $.ajax({
-                            type:'POST',
-                                    url:'<?php echo base_url() . "artistic/like_comment1" ?>',
-                                    data:'post_id=' + clicked_id,
-                                    success:function(data){ //alert('.' + 'likepost' + clicked_id);
-                                    $('#' + 'likecomment1' + clicked_id).html(data);
+                                //alert(clicked_id);
+                                $.ajax({
+                                    type: 'POST',
+                                    url: '<?php echo base_url() . "artistic/like_comment1" ?>',
+                                    data: 'post_id=' + clicked_id,
+                                    success: function (data) { //alert('.' + 'likepost' + clicked_id);
+                                        $('#' + 'likecomment1' + clicked_id).html(data);
                                     }
-                            });
+                                });
                             }
                         </script>
                         <!-- comment edit box start-->
                         <script type="text/javascript">
 
-                            function comment_editbox(clicked_id){
-                            document.getElementById('editcomment' + clicked_id).style.display = 'block';
-                            document.getElementById('showcomment' + clicked_id).style.display = 'none';
-                            document.getElementById('editsubmit' + clicked_id).style.display = 'block';
-                            document.getElementById('editcommentbox' + clicked_id).style.display = 'none';
-                            document.getElementById('editcancle' + clicked_id).style.display = 'block';
+                            function comment_editbox(clicked_id) {
+                                document.getElementById('editcomment' + clicked_id).style.display = 'block';
+                                document.getElementById('showcomment' + clicked_id).style.display = 'none';
+                                document.getElementById('editsubmit' + clicked_id).style.display = 'block';
+                                document.getElementById('editcommentbox' + clicked_id).style.display = 'none';
+                                document.getElementById('editcancle' + clicked_id).style.display = 'block';
                             }
-                            function comment_editcancle(clicked_id){
-                            document.getElementById('editcommentbox' + clicked_id).style.display = 'block';
-                            document.getElementById('editcancle' + clicked_id).style.display = 'none';
-                            document.getElementById('editcomment' + clicked_id).style.display = 'none';
-                            document.getElementById('showcomment' + clicked_id).style.display = 'block';
-                            document.getElementById('editsubmit' + clicked_id).style.display = 'none';
+                            function comment_editcancle(clicked_id) {
+                                document.getElementById('editcommentbox' + clicked_id).style.display = 'block';
+                                document.getElementById('editcancle' + clicked_id).style.display = 'none';
+                                document.getElementById('editcomment' + clicked_id).style.display = 'none';
+                                document.getElementById('showcomment' + clicked_id).style.display = 'block';
+                                document.getElementById('editsubmit' + clicked_id).style.display = 'none';
                             }
-                            function comment_editbox2(clicked_id){
-                            document.getElementById('editcomment2' + clicked_id).style.display = 'block';
-                            document.getElementById('showcomment2' + clicked_id).style.display = 'none';
-                            document.getElementById('editsubmit2' + clicked_id).style.display = 'block';
-                            document.getElementById('editcommentbox2' + clicked_id).style.display = 'none';
-                            document.getElementById('editcancle2' + clicked_id).style.display = 'block';
+                            function comment_editbox2(clicked_id) {
+                                document.getElementById('editcomment2' + clicked_id).style.display = 'block';
+                                document.getElementById('showcomment2' + clicked_id).style.display = 'none';
+                                document.getElementById('editsubmit2' + clicked_id).style.display = 'block';
+                                document.getElementById('editcommentbox2' + clicked_id).style.display = 'none';
+                                document.getElementById('editcancle2' + clicked_id).style.display = 'block';
                             }
-                            function comment_editcancle2(clicked_id){
-                            document.getElementById('editcommentbox2' + clicked_id).style.display = 'block';
-                            document.getElementById('editcancle2' + clicked_id).style.display = 'none';
-                            document.getElementById('editcomment2' + clicked_id).style.display = 'none';
-                            document.getElementById('showcomment2' + clicked_id).style.display = 'block';
-                            document.getElementById('editsubmit2' + clicked_id).style.display = 'none';
+                            function comment_editcancle2(clicked_id) {
+                                document.getElementById('editcommentbox2' + clicked_id).style.display = 'block';
+                                document.getElementById('editcancle2' + clicked_id).style.display = 'none';
+                                document.getElementById('editcomment2' + clicked_id).style.display = 'none';
+                                document.getElementById('showcomment2' + clicked_id).style.display = 'block';
+                                document.getElementById('editsubmit2' + clicked_id).style.display = 'none';
                             }
                         </script>
                         <!--comment edit box end-->
@@ -2297,22 +2320,22 @@ $art_userimage = $this->db->get_where('art_reg', array('user_id' => $art_data[0]
                         <script type="text/javascript">
                             function edit_comment(abc)
                             {
-                            var post_comment_edit = document.getElementById("editcomment" + abc);
-                            $.ajax({
-                            type:'POST',
-                                    url:'<?php echo base_url() . "artistic/edit_comment_insert" ?>',
-                                    data:'post_id=' + abc + '&comment=' + post_comment_edit.value,
-                                    success:function(data){
+                                var post_comment_edit = document.getElementById("editcomment" + abc);
+                                $.ajax({
+                                    type: 'POST',
+                                    url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
+                                    data: 'post_id=' + abc + '&comment=' + post_comment_edit.value,
+                                    success: function (data) {
 
-                                    document.getElementById('editcomment' + abc).style.display = 'none';
-                                    document.getElementById('showcomment' + abc).style.display = 'block';
-                                    document.getElementById('editsubmit' + abc).style.display = 'none';
-                                    document.getElementById('editcommentbox' + abc).style.display = 'block';
-                                    document.getElementById('editcancle' + abc).style.display = 'none';
-                                    $('#' + 'showcomment' + abc).html(data);
+                                        document.getElementById('editcomment' + abc).style.display = 'none';
+                                        document.getElementById('showcomment' + abc).style.display = 'block';
+                                        document.getElementById('editsubmit' + abc).style.display = 'none';
+                                        document.getElementById('editcommentbox' + abc).style.display = 'block';
+                                        document.getElementById('editcancle' + abc).style.display = 'none';
+                                        $('#' + 'showcomment' + abc).html(data);
                                     }
-                            });
-                            //window.location.reload();
+                                });
+                                //window.location.reload();
                             }
                         </script>
                         <script type="text/javascript">
@@ -2320,84 +2343,84 @@ $art_userimage = $this->db->get_where('art_reg', array('user_id' => $art_data[0]
                             {
 
 
-                            $(document).ready(function() {
-                            $('#editcomment' + abc).keypress(function(e) {
-                            if (e.which == 13) {
-                            var val = $('#editcomment' + abc).val();
-                            $.ajax({
-                            type:'POST',
-                                    url:'<?php echo base_url() . "artistic/edit_comment_insert" ?>',
-                                    data:'post_id=' + abc + '&comment=' + val,
-                                    success:function(data){ //alert('falguni');
+                                $(document).ready(function () {
+                                    $('#editcomment' + abc).keypress(function (e) {
+                                        if (e.which == 13) {
+                                            var val = $('#editcomment' + abc).val();
+                                            $.ajax({
+                                                type: 'POST',
+                                                url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
+                                                data: 'post_id=' + abc + '&comment=' + val,
+                                                success: function (data) { //alert('falguni');
 
-                                    document.getElementById('editcomment' + abc).style.display = 'none';
-                                    document.getElementById('showcomment' + abc).style.display = 'block';
-                                    document.getElementById('editsubmit' + abc).style.display = 'none';
-                                    document.getElementById('editcommentbox' + abc).style.display = 'block';
-                                    document.getElementById('editcancle' + abc).style.display = 'none';
-                                    //alert('.' + 'showcomment' + abc);
-                                    $('#' + 'showcomment' + abc).html(data);
-                                    }
-                            });
-                            //alert(val);
-                            }
-                            });
-                            });
+                                                    document.getElementById('editcomment' + abc).style.display = 'none';
+                                                    document.getElementById('showcomment' + abc).style.display = 'block';
+                                                    document.getElementById('editsubmit' + abc).style.display = 'none';
+                                                    document.getElementById('editcommentbox' + abc).style.display = 'block';
+                                                    document.getElementById('editcancle' + abc).style.display = 'none';
+                                                    //alert('.' + 'showcomment' + abc);
+                                                    $('#' + 'showcomment' + abc).html(data);
+                                                }
+                                            });
+                                            //alert(val);
+                                        }
+                                    });
+                                });
                             }
                         </script>
                         <script type="text/javascript">
                             function edit_comment2(abc)
                             { //alert('editsubmit' + abc);
-                            var post_comment_edit = document.getElementById("editcomment2" + abc);
-                            //alert(post_comment.value);
-                            //alert(post_comment.value);
-                            $.ajax({
-                            type:'POST',
-                                    url:'<?php echo base_url() . "artistic/edit_comment_insert" ?>',
-                                    data:'post_id=' + abc + '&comment=' + post_comment_edit.value,
-                                    success:function(data){ //alert('falguni');
-                                    //  $('input').each(function(){
-                                    //     $(this).val('');
-                                    // }); 
-                                    document.getElementById('editcomment2' + abc).style.display = 'none';
-                                    document.getElementById('showcomment2' + abc).style.display = 'block';
-                                    document.getElementById('editsubmit2' + abc).style.display = 'none';
-                                    document.getElementById('editcommentbox2' + abc).style.display = 'block';
-                                    document.getElementById('editcancle2' + abc).style.display = 'none';
-                                    //alert('.' + 'showcomment' + abc);
-                                    $('#' + 'showcomment2' + abc).html(data);
+                                var post_comment_edit = document.getElementById("editcomment2" + abc);
+                                //alert(post_comment.value);
+                                //alert(post_comment.value);
+                                $.ajax({
+                                    type: 'POST',
+                                    url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
+                                    data: 'post_id=' + abc + '&comment=' + post_comment_edit.value,
+                                    success: function (data) { //alert('falguni');
+                                        //  $('input').each(function(){
+                                        //     $(this).val('');
+                                        // }); 
+                                        document.getElementById('editcomment2' + abc).style.display = 'none';
+                                        document.getElementById('showcomment2' + abc).style.display = 'block';
+                                        document.getElementById('editsubmit2' + abc).style.display = 'none';
+                                        document.getElementById('editcommentbox2' + abc).style.display = 'block';
+                                        document.getElementById('editcancle2' + abc).style.display = 'none';
+                                        //alert('.' + 'showcomment' + abc);
+                                        $('#' + 'showcomment2' + abc).html(data);
                                     }
-                            });
+                                });
                             }
                         </script>
                         <script type="text/javascript">
                             function commentedit2(abc)
                             {
-                            $(document).ready(function() {
-                            $('#editcomment2' + abc).keypress(function(e) {
-                            if (e.which == 13) {
-                            var val = $('#editcomment2' + abc).val();
-                            $.ajax({
-                            type:'POST',
-                                    url:'<?php echo base_url() . "artistic/edit_comment_insert" ?>',
-                                    data:'post_id=' + abc + '&comment=' + val,
-                                    success:function(data){ //alert('falguni');
-                                    //  $('input').each(function(){
-                                    //     $(this).val('');
-                                    // }); 
-                                    document.getElementById('editcomment2' + abc).style.display = 'none';
-                                    document.getElementById('showcomment2' + abc).style.display = 'block';
-                                    document.getElementById('editsubmit2' + abc).style.display = 'none';
-                                    document.getElementById('editcommentbox2' + abc).style.display = 'block';
-                                    document.getElementById('editcancle2' + abc).style.display = 'none';
-                                    //alert('.' + 'showcomment' + abc);
-                                    $('#' + 'showcomment2' + abc).html(data);
-                                    }
-                            });
-                            //alert(val);
-                            }
-                            });
-                            });
+                                $(document).ready(function () {
+                                    $('#editcomment2' + abc).keypress(function (e) {
+                                        if (e.which == 13) {
+                                            var val = $('#editcomment2' + abc).val();
+                                            $.ajax({
+                                                type: 'POST',
+                                                url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
+                                                data: 'post_id=' + abc + '&comment=' + val,
+                                                success: function (data) { //alert('falguni');
+                                                    //  $('input').each(function(){
+                                                    //     $(this).val('');
+                                                    // }); 
+                                                    document.getElementById('editcomment2' + abc).style.display = 'none';
+                                                    document.getElementById('showcomment2' + abc).style.display = 'block';
+                                                    document.getElementById('editsubmit2' + abc).style.display = 'none';
+                                                    document.getElementById('editcommentbox2' + abc).style.display = 'block';
+                                                    document.getElementById('editcancle2' + abc).style.display = 'none';
+                                                    //alert('.' + 'showcomment' + abc);
+                                                    $('#' + 'showcomment2' + abc).html(data);
+                                                }
+                                            });
+                                            //alert(val);
+                                        }
+                                    });
+                                });
                             }
                         </script>
                         <!--comment edit insert script end -->
@@ -2411,41 +2434,41 @@ $art_userimage = $this->db->get_where('art_reg', array('user_id' => $art_data[0]
                             // Get the <span> element that closes the modal
                             var span = document.getElementsByClassName("close1")[0];
                             // When the user clicks the button, open the modal 
-                            btn.onclick = function() {
-                            modal.style.display = "block";
+                            btn.onclick = function () {
+                                modal.style.display = "block";
                             }
                             // When the user clicks on <span> (x), close the modal
-                            span.onclick = function() {
-                            modal.style.display = "none";
+                            span.onclick = function () {
+                                modal.style.display = "none";
                             }
                             // When the user clicks anywhere outside of the modal, close it
-                            window.onclick = function(event) {
-                            if (event.target == modal) {
-                            modal.style.display = "none";
-                            }
+                            window.onclick = function (event) {
+                                if (event.target == modal) {
+                                    modal.style.display = "none";
+                                }
                             }
                         </script>
                         <!-- further and less -->
-                       
+
                         <!-- drop down script zalak start -->
                         <script>
                             /* When the user clicks on the button, 
                              toggle between hiding and showing the dropdown content */
                             function myFunction(clicked_id) {
-                            document.getElementById('myDropdown' + clicked_id).classList.toggle("show");
+                                document.getElementById('myDropdown' + clicked_id).classList.toggle("show");
                             }
                             // Close the dropdown if the user clicks outside of it
-                            window.onclick = function(event) {
-                            if (!event.target.matches('.dropbtn1')) {
-                            var dropdowns = document.getElementsByClassName("dropdown-content1");
-                            var i;
-                            for (i = 0; i < dropdowns.length; i++) {
-                            var openDropdown = dropdowns[i];
-                            if (openDropdown.classList.contains('show')) {
-                            openDropdown.classList.remove('show');
-                            }
-                            }
-                            }
+                            window.onclick = function (event) {
+                                if (!event.target.matches('.dropbtn1')) {
+                                    var dropdowns = document.getElementsByClassName("dropdown-content1");
+                                    var i;
+                                    for (i = 0; i < dropdowns.length; i++) {
+                                        var openDropdown = dropdowns[i];
+                                        if (openDropdown.classList.contains('show')) {
+                                            openDropdown.classList.remove('show');
+                                        }
+                                    }
+                                }
                             }
                         </script>
                         <!-- drop down script zalak end -->
@@ -2458,383 +2481,379 @@ $art_userimage = $this->db->get_where('art_reg', array('user_id' => $art_data[0]
                                     maxUpload = 5;
                             // READ FILE + CREATE IMAGE
                             function read(f) {//alert("aa");
-                            return function(e) {
-                            var base64 = e.target.result;
-                            var $img = $('<img/>', {
-                            src: base64,
-                                    title: encodeURIComponent(f.name), //( escape() is deprecated! )
-                                    "class": "thumb"
-                            });
-                            var $thumbParent = $("<span/>", {html:$img, "class":"thumbParent"}).append('<span class="remove_thumb"/>');
-                            thumbsArray.push(base64); // Push base64 image into array or whatever.
-                            $list.append($thumbParent);
-                            };
+                                return function (e) {
+                                    var base64 = e.target.result;
+                                    var $img = $('<img/>', {
+                                        src: base64,
+                                        title: encodeURIComponent(f.name), //( escape() is deprecated! )
+                                        "class": "thumb"
+                                    });
+                                    var $thumbParent = $("<span/>", {html: $img, "class": "thumbParent"}).append('<span class="remove_thumb"/>');
+                                    thumbsArray.push(base64); // Push base64 image into array or whatever.
+                                    $list.append($thumbParent);
+                                };
                             }
                             // HANDLE FILE/S UPLOAD
                             function handleFileSelect(e) {//alert("aaa");
-                            e.preventDefault(); // Needed?
-                            var files = e.target.files;
-                            var len = files.length;
-                            if (len > maxUpload || thumbsArray.length >= maxUpload){
-                            return alert("Sorry you can upload only 5 images");
+                                e.preventDefault(); // Needed?
+                                var files = e.target.files;
+                                var len = files.length;
+                                if (len > maxUpload || thumbsArray.length >= maxUpload) {
+                                    return alert("Sorry you can upload only 5 images");
+                                }
+                                for (var i = 0; i < len; i++) {
+                                    var f = files[i];
+                                    if (!f.type.match('image.*'))
+                                        continue; // Only images allowed    
+                                    var reader = new FileReader();
+                                    reader.onload = read(f); // Call read() function
+                                    reader.readAsDataURL(f);
+                                }
                             }
-                            for (var i = 0; i < len; i++) {
-                            var f = files[i];
-                            if (!f.type.match('image.*')) continue; // Only images allowed    
-                            var reader = new FileReader();
-                            reader.onload = read(f); // Call read() function
-                            reader.readAsDataURL(f);
-                            }
-                            }
-                            $fileUpload.change(function(e) {alert("aaaa");
-                            handleFileSelect(e);
+                            $fileUpload.change(function (e) {
+                                alert("aaaa");
+                                handleFileSelect(e);
                             });
                             $list.on('click', '.remove_thumb', function () {//alert("aaaaa");
-                            var $removeBtns = $('.remove_thumb'); // Get all of them in collection
-                            var idx = $removeBtns.index(this); // Exact Index-from-collection
-                            $(this).closest('span.thumbParent').remove(); // Remove tumbnail parent
-                            thumbsArray.splice(idx, 1); // Remove from array
+                                var $removeBtns = $('.remove_thumb'); // Get all of them in collection
+                                var idx = $removeBtns.index(this); // Exact Index-from-collection
+                                $(this).closest('span.thumbParent').remove(); // Remove tumbnail parent
+                                thumbsArray.splice(idx, 1); // Remove from array
                             });
                         </script>
                         <!-- multi image add post khyati end -->
                         <script language=JavaScript>
 <!--
                             function check_length(my_form)
-                                    {
-                                    maxLen = 50; // max number of characters allowed
-                                    if (my_form.my_text.value.length >= maxLen) {
+                            {
+                                maxLen = 50; // max number of characters allowed
+                                if (my_form.my_text.value.length >= maxLen) {
 // Alert message if maximum limit is reached. 
 // If required Alert can be removed. 
                                     var msg = "You have reached your maximum limit of characters allowed";
                                     alert(msg);
 // Reached the Maximum length so trim the textarea
                                     my_form.my_text.value = my_form.my_text.value.substring(0, maxLen);
-                                    }
-    else{ // Maximum length not reached so update the value of my_text counter
-        my_form.text_num.value = maxLen - my_form.my_text.value.length;
-                                    }
-                                    }
+                                } else { // Maximum length not reached so update the value of my_text counter
+                                    my_form.text_num.value = maxLen - my_form.my_text.value.length;
+                                }
+                            }
                             //-->
-</script>
-<!--- khyati change end                                 -->
+                        </script>
+<!--- khyati change end             -->
 
 
-<!-- multiple images all script like comment start -->
+<!-- multiple images all scriptlike comment start -->
 
-<!-- images like script start -->
-    <script type="text/javascript">
-        function mulimg_like(clicked_id)
-        {
-        //alert(clicked_id);
-                                    $.ajax({
-                                    type:'POST',
-    url:'<?php echo base_url() . "artistic/mulimg_like" ?>',
-        data:'post_image_id=' + clicked_id,
-                                            success:function(data){
-                                            $('.' + 'likeimgpost' + clicked_id).html(data);
-                                                        }                                     });
-                                                                }
-           </script>
-           <!--images like script end -->
-           <!-- insert comment using enter -->
-           <script type="text/javascript">
-           function insert_commentimg(clicked_id)
-                                   {
-                                       var  post_comment  =  document.getElementById("post_imgcomment" +  clicked_id);
+<!-- image                            s like script start -->
+                        <script type="text/javascript">
+                                                    function mulimg_like(clicked_id)
+                                                    {
+                                                        //alert(clicked_id);
+                                                        $.ajax({
+                                                            type: 'POST',
+                                                            url: '<?php echo base_url() . "artistic/mulimg_like" ?>',
+                                                            data: 'post_image_id=' + clicked_id,
+                                                            success: function (data) {
+                                                                $('.' + 'likeimgpost' + clicked_id).html(data);
+                                                            }});
+                                                    }
+                            </script>
+           <!--images lik                                e script end -->
+           <!-- insert comment                                using enter -->
+                            <script type="text/javascript">
+                                    function insert_commentimg(clicked_id)
+                                    {
+                                        var post_comment = document.getElementById("post_imgcomment" + clicked_id);
 
-                               $.ajax({
-                               type:'POST',
-        url:'<?php echo base_url() . "artistic/mulimg_comment" ?>',
-                                       data:'post_image_id=' + clicked_id + '&comment=' + post_comment.value,
-                                       dataType: "json",
-                                       success:function(data){ 
-        $('input').each(function(){
-                      $(this).val('');
-                  }); 
+                                        $.ajax({
+                                            type: 'POST',
+                                            url: '<?php echo base_url() . "artistic/mulimg_comment" ?>',
+                                            data: 'post_image_id=' + clicked_id + '&comment=' + post_comment.value,
+                                            dataType: "json",
+                                            success: function (data) {
+                                                $('input').each(function () {
+                                                    $(this).val('');
+                                                });
 
-        $('.' + 'insertimgcomment' + clicked_id).html(data.comment);
-    }
-        }); 
-        }
-</script>
-    <script type="text/javascript">
+                                                $('.' + 'insertimgcomment' + clicked_id).html(data.comment);
+                                            }
+                                        });
+                                    }
+                                </script>
+                            <script type="text/javascript">
 
         function entercommentimg(clicked_id)
         {
-        //alert(clicked_id);
-                                               $(document).ready(function() {
-        $('#post_imgcomment' + clicked_id).keypress(function(e) {
-        if (e.keyCode == 13 && !e.shiftKey) {
-     var val = $('#post_imgcomment' + clicked_id).val();
-        e.preventDefault();
-        if (window.preventDuplicateKeyPresses)
-        return;
-        window.preventDuplicateKeyPresses = true;
-        window.setTimeout(function () {
-        window.preventDuplicateKeyPresses = false;
-}, 500);
-$.ajax({
-        type:'POST',
-        url:'<?php echo base_url() . "artistic/mulimg_comment" ?>',
-    data:'post_image_id=' + clicked_id + '&comment=' + val,
-        dataType: "json",
-        success:function(data){
-        $('input').each(function(){
-        $(this).val('');
-                                }); 
-        $('.' + 'insertimgcomment' + clicked_id).html(data.comment);
-    
-                                                           }
-        }); 
-    }        
-        });
-                                     });
-        }
+            //alert(clicked_id);
+            $(document).ready(function () {
+                $('#post_imgcomment' + clicked_id).keypress(function (e) {
+                    if (e.keyCode == 13 && !e.shiftKey) {
+                        var val = $('#post_imgcomment' + clicked_id).val();
+                        e.preventDefault();
+                        if (window.preventDuplicateKeyPresses)
+                            return;
+                        window.preventDuplicateKeyPresses = true;
+                        window.setTimeout(function () {
+                            window.preventDuplicateKeyPresses = false;
+                        }, 500);
+                        $.ajax({
+                            type: 'POST',
+                            url: '<?php echo base_url() . "artistic/mulimg_comment" ?>',
+                            data: 'post_image_id=' + clicked_id + '&comment=' + val,
+                            dataType: "json",
+                            success: function (data) {
+                                $('input').each(function () {
+                                    $(this).val('');
+                                });
+                                        $('.' + 'insertimgcomment' + clicked_id).html(data.comment);
+
+                                                              }
+                                                });
+                                              }
+                                        });
+                                                             });
+                                        }
         </script>
                         <!-- hide and show data start-->
-<script type="text/javascript">
-        function imgcommentall(clicked_id){ //alert("xyz");
+                                        <script type="text/javascript">
+    function imgcommentall(clicked_id) { //alert("xyz")                                                ;
 
-    //alert('threeimgcomment' + clicked_id);
-    //alert('fourimgcomment' + clicked_id);
+        //alert('threeimgcomment' + clicked_id);
+        //alert('fourimgcomment' + clicked_id);
         var x = document.getElementById('threeimgcomment' + clicked_id);
         var y = document.getElementById('fourimgcomment' + clicked_id);
-    if (x.style.display === 'block' && y.style.display ==='none') {
-                x.style.display = 'none';
-                            y.style.display = 'block';
-} else {
-x.style.display = 'block';
-    y.style.display = 'none';
-        }
-}
-</script>
+        if (x.style.display === 'block' && y.style.display === 'none') {
+            x.style.display = 'none';
+                                                        y.style.display = 'block';
+                                                        } else {
+            x.style.display = 'block';
+                                                  y.style.display = 'none';
+                                                         }
+    }
+                                                                                    </script>
 <!-- hide and show data end-->
         <!-- comment like script start -->
-    <script type="text/javascript">
-        function imgcomment_like(clicked_id)
-{
-        //alert(clicked_id);
-    $.ajax({
-        type:'POST',
-    url:'<?php echo base_url() . "artistic/mulimg_comment_like" ?>',
-    data:'post_image_comment_id=' + clicked_id,
-        success:function(data){ //alert(data);
-    $('#' + 'imglikecomment' + clicked_id).html(data);
-    }
-        }); 
-                                    }
-        function imgcomment_like1(clicked_id)
-        {
-        //alert(clicked_id);
-    $.ajax({
-        type:'POST',
-                                                                                                                       url:'<?php echo base_url() . "artistic/mulimg_comment_like1" ?>',
-                                                                                                                       data:'post_image_comment_id=' + clicked_id,
-                                 success:function(data){ //alert(data);
-                                 $('#' + 'imglikecomment1' + clicked_id).html(data);
-                 }
-                 }); 
-        }
-    </script>
-     <!-- comment like script end -->
+                                                <script type="text/javascript">
+                                                        function imgcomment_like(clicked_id)
+                                                        {
+                                                            //alert(clicked_id);
+                                                            $.ajax({
+                                                                type: 'POST',
+                                                                url: '<?php echo base_url() . "artistic/mulimg_comment_like" ?>',
+                                                                data: 'post_image_comment_id=' + clicked_id,
+                                                                success: function (data) { //alert(data);
+                                                                    $('#' + 'imglikecomment' + clicked_id).html(data);
+                                                                }
+                                                            });
+                                                        }
+                                                        function imgcomment_like1(clicked_id)
+                                                        {
+                                                            //alert(clicked_id);
+                                                            $.ajax({
+                                                                type: 'POST',
+                                                                url: '<?php echo base_url() . "artistic/mulimg_comment_like1" ?>',
+                                                                data: 'post_image_comment_id=' + clicked_id,
+                                                                success: function (data) { //alert(data);
+                                                                    $('#' + 'imglikecomment1' + clicked_id).html(data);
+                                                                }
+                                                            });
+                                                        }
+                                                    </script>
+     <!-- comment like sc                                                        ript end -->
     <!-- comment edit box start-->
-    <script type="text/javascript">
-        
-    function imgcomment_editbox(clicked_id){
-    document.getElementById('imgeditcomment' + clicked_i d ).style.display = 'block';
-        document.getElementById('imgshowcomment' + clicked_id).style.display = 'none';
-                                                                                                                                document.getElementById('imgeditsubmit' + clicked_id).style.display = 'block';
-                                                                                                                                document.getElement                                                                                By                                                             Id('imgeditcommentbox' + clicked_id).style.display='none';
-        document.getElementById('imgeditcancle' + clicked_id).style.display='block';
-        
-        
-    }
-    function imgcomment_editcancle(clicked_id){ 
-     document.getElementById('imgeditcommentbox' + clicked_id).style.display='block';
-    document.getElementById('imgeditcancle' + clicked_id).style.display='none';
-        document.getElementById('imgeditcomment' + clicked_id).style.display='none';
-       document.getElementById('imgshowcomment' + clicked_id).style.display='block';
-       document.getElementById('imgeditsubmit' + clicked_id).style.display='none';
-     } 
-   function imgcomment_editboxtwo(clicked_id){  //alert('editsubmit2' + clicked_id);
-        document.getElementById('imgeditcommenttwo' + clicked_id).style.display='block';
-        document.getElementById('imgshowcommenttwo' + clicked_id).style.display='none';
-        document.getElementById('imgeditsubmittwo' + clicked_id).style.display='block';
-        document.getElementById('imgeditcommentboxtwo' + clicked_id).style.display='none';
-        document.getElementById('imgeditcancletwo' + clicked_id).style.displ                                                                                ay='block';
-        
-                                                                                                                                             }
-                                                                                        function imgcomment_editcancletwo(clicked_id){ 
-        document.getElementById('imgeditcommentboxtwo' + clicked_id).style.display='block';
-        document.getElementById('imgeditcancletwo' + clicked_id).style.display='none';
-        document.getElementById('imgeditcommenttwo' + clicked_id).style.display='none';
-       document.getElementById('imgshowcommenttwo' + clicked_id).style.display='block';
-       document.getElementById('imgeditsubmittwo' + clicked_id).style.display='none';
-   
-                                                                                        } 
+                                                    <script type="text/javascript">
+
+        function imgcomment_editbox(clicked_id) {
+            document.getElementById('imgeditcomment' + clicked_id).style.display = 'block';
+            document.getElementById('imgshowcomment' + clicked_id).style.display = 'none';
+            document.getElementById('imgeditsubmit' + clicked_id).style.display = 'block';
+            document.getElementById('imgeditcommentbox' + clicked_id).style.display = 'none';
+            document.getElementById('imgeditcancle' + clicked_id).style.display = 'block';
+
+
+        }
+                                                            function imgcomment_editcancle(clicked_id) {
+            document.getElementById('imgeditcommentbox' + clicked_id).style.display = 'block';
+            document.getElementById('imgeditcancle' + clicked_id).style.display = 'none';
+            document.getElementById('imgeditcomment' + clicked_id).style.display = 'none';
+            document.getElementById('imgshowcomment' + clicked_id).style.display = 'block';
+            document.getElementById('imgeditsubmit' + clicked_id).style.display = 'none';
+                                                            }
+                                                            function imgcomment_editboxtwo(clicked_id) {  //alert('editsubmit2' + clicked_id);
+            document.getElementById('imgeditcommenttwo' + clicked_id).style.display = 'block';
+            document.getElementById('imgshowcommenttwo' + clicked_id).style.display = 'none';
+            document.getElementById('imgeditsubmittwo' + clicked_id).style.display = 'block';
+            document.getElementById('imgeditcommentboxtwo' + clicked_id).style.display = 'none';
+            document.getElementById('imgeditcancletwo' + clicked_id).style.display = 'block';
+
+                                                            }
+        function imgcomment_editcancletwo(clicked_id) {
+            document.getElementById('imgeditcommentboxtwo' + clicked_id).style.display = 'block';
+            document.getElementById('imgeditcancletwo' + clicked_id).style.display = 'none';
+            document.getElementById('imgeditcommenttwo' + clicked_id).style.display = 'none';
+            document.getElementById('imgshowcommenttwo' + clicked_id).style.display = 'block';
+            document.getElementById('imgeditsubmittwo' + clicked_id).style.display = 'none';
+
+                                                            }
 </script>
 <!-- comment edit box end -->
 <!-- comment edit insert start -->
-                                                                                        <script type="text/javascript">
-                                                                                                                                        function imgedit_comment(abc)
-                                                                                                                                        { //alert('editsubmit' + abc);
-                                                                                                                                        var post_comment_edit = document.getElementById("imgeditcomment" + abc);
-                                                                                                                                        //alert(post_comment.value);
-                                                                                                                                        //alert(post_comment.value);
-    $.ajax({
-        type:'POST',
-    url:'<?php echo base_url() . "artistic/mul_edit_com_insert" ?>',
-        data:'post_image_comment_id=' + abc + '&comment=' + post_comment_edit.value,
-    success:function(data){ //alert('falguni');
-                                                                                                                                                //  $('input').each(function(){
-                                                                                                                                                //     $(this).val('');
-                                                                                                                                                // }); 
-                                                                                                                                                document.getElementById('imgeditcomment' + abc).style.display = 'none';
-                                                                                                                                                document.getElementById('imgshowcomment' + abc).style.display = 'block';
-                                                                                                                                                document.getElementById('imgeditsubmit' + abc).style.display = 'none';
-    document.getElementById('imgeditcommentbox' + abc).style.display = 'block';
-    document.getElementById('imgeditcancle' + abc).style.display = 'none';
-                                                                                                                                                //alert('.' + 'showcomment' + abc);
-                                                                                                                                                $('#' + 'imgshowcomment' + abc).html(data);
-                 }
-                 }); 
-                 //window.location.reload();
-                 }
-                 </script>
-                                                        <script type="text/javascript">
-                 function imgcommentedit(abc)
-                                                        {
-
-
-                                                                                                                                                        $(document).ready(function() {
-                                                                                                                                                $('#imgeditcomment' + abc).keypress(function(e) {
-
-                                                                                                                                                if (e.keyCode == 13 && !e.shiftKey) {
-                                                                                                                                                var val = $('#imgeditcomment' + abc).val();
-                                                                                                                                                e.preventDefault();
-                                                                                                                                                if (window.preventDuplicateKeyPresses)
-    return;
-    window.preventDuplicateKeyPresses = true;
-        window.setTimeout(function () {
-    window.preventDuplicateKeyPresses = false;
-        }, 500);
-                                                        
-                                                        $.ajax({
-                                                                                                                                                        type:'POST',
-                                                                                                                                                        url:'<?php echo base_url() . "artistic/mul_edit_com_insert" ?>',
-                                                                                                                                                        data:'post_image_comment_id=' + abc + '&comment=' + val,
-                                                                                                                                                        success:function(data){ //alert('falguni');
-
-                                                                                                                                                        document.getElementById('imgeditcomment' + abc).style.display = 'none';
-                                                                                                                                                        document.getElementById('imgshowcomment' + abc).style.display = 'block';
-                                                                                                                                                        document.getElementById('imgeditsubmit' + abc).style.display = 'none';
-                                                                                                                                                        document.getElementById('imgeditcommentbox' + abc).style.display = 'block';
-                                                                                                                                                        document.getElementById('imgeditcancle' + abc).style.display = 'none';
-                                                                                                                                                        //alert('.' + 'showcomment' + abc);
-                                                                                                                                                        $('#' + 'imgshowcomment' + abc).html(data);
-                                                                }
-                                                                }); 
-                                                                //alert(val);
-                                                            }        
-                                                            });
-                                                            });
-                                                                }
-                                                                </script>
-                                                                <script type="text/javascript">
-                                                                function imgedit_commenttwo(abc)
+                                                            <script type="text/javascript">
+                                                                function imgedit_comment(abc)
                                                                 { //alert('editsubmit' + abc);
-                                                                                                                                                                var post_comment_edit = document.getElementById("imgeditcommenttwo" + abc);
-                                                                                                                                                        //alert(post_comment.value);
-                                                                                                                                                        //alert(post_comment.value);
-                                                                                                                                                        $.ajax({
-                                                                                                                                                        type:'POST',
-                                                                                                                                                                url:'<?php echo base_url() . "artistic/mul_edit_com_insert" ?>',
-                                                                                                                                                                data:'post_image_comment_id=' + abc + '&comment=' + post_comment_edit.value,
-                                                                                                                                                                success:function(data){ //alert('falguni');
-                                                                                                                                                                //  $('input').each(function(){
-                                                                                                                                                                //     $(this).val('');
-                                                                                                                                                                // }); 
-                                                                                                                                                                document.getElementById('imgeditcommenttwo' + abc).style.display = 'none';
-                                                                                                                                                                document.getElementById('imgshowcommenttwo' + abc).style.display = 'block';
-                                                                                                                                                                document.getElementById('imgeditsubmittwo' + abc).style.display = 'none';
-                                                                                                                                                                document.getElementById('imgeditcommentboxtwo' + abc).style.display = 'block';
-                                                                                                                                                                document.getElementById('imgeditcancletwo' + abc).style.display = 'none';
-                                                                                                                                                                //alert('.' + 'showcomment' + abc);
-                                                                                                                                                                $('#' + 'imgshowcommenttwo' + abc).html(data);
-    }
-                        }); 
-                        
-                        }
-    </script>
-    <script type="text/javascript">
-                        function imgcommentedittwo(abc)
-                        {
-                                                                                                                                                                        $(document).ready(function() {
-                                                                                                                                                                $('#imgeditcommenttwo' + abc).keypress(function(e) {
-                                                                                                                                                                if (e.keyCode == 13 && !e.shiftKey) {
-                                                                                                                                                                var val = $('#imgeditcommenttwo' + abc).val();
-                                                                                                                                                                e.preventDefault();
-                                                                                                                                                                if (window.preventDuplicateKeyPresses)
-                                                                                                                                                                        return;
-                                                                                                                                                                window.preventDuplicateKeyPresses = true;
-                                                                                                                                                                window.setTimeout(function () {
-                                                                                                                                                                window.preventDuplicateKeyPresses = false;
-                                                    }, 500);
-                                                    $.ajax({
-                                                                                                                                                                        type:'POST',
-                                                                                                                                                                        url:'<?php echo base_url() . "artistic/mul_edit_com_insert" ?>',
-                                                                                                                                                                        data:'post_image_comment_id=' + abc + '&comment=' + val,
-                                                                                                                                                                        success:function(data){ //alert('falguni');
-                                                                                                                                                                        //  $('input').each(function(){
-                                                                                                                                                                        //     $(this).val('');
-                                                                                                                                                                        // }); 
-                                                                                                                                                                        document.getElementById('imgeditcommenttwo' + abc).style.display = 'none';
-                                                                                                                                                                        document.getElementById('imgshowcommenttwo' + abc).style.display = 'block';
-                                                                                                                                                                        document.getElementById('imgeditsubmittwo' + abc).style.display = 'none';
-                                                                                                                                                                        document.getElementById('imgeditcommentboxtwo' + abc).style.display = 'block';
-                                                                                                                                                                        document.getElementById('imgeditcancletwo' + abc).style.display = 'none';
-                                                                                                                                                                        //alert('.' + 'showcomment' + abc);
-                                                                                                                                                                        $('#' + 'imgshowcommenttwo' + abc).html(data);
-                            }
-                            }); 
-                                    
-                                    //alert(val);
-                                    }        
-                                    });
-                                    });
-                                            }
+                                                                    var post_comment_edit = document.getElementById("imgeditcomment" + abc);
+                                                                    //alert(post_comment.value);
+                                                                    //alert(post_comment.value);
+                                                                    $.ajax({
+                                                                        type: 'POST',
+                                                                        url: '<?php echo base_url() . "artistic/mul_edit_com_insert" ?>',
+                                                                        data: 'post_image_comment_id=' + abc + '&comment=' + post_comment_edit.value,
+                                                                        success: function (data) { //alert('falguni');
+                                                                            //  $('input').each(function(){
+                                                                            //     $(this).val('');
+                                                                            // }); 
+                                                                            document.getElementById('imgeditcomment' + abc).style.display = 'none';
+                                                                            document.getElementById('imgshowcomment' + abc).style.display = 'block';
+                                                                            document.getElementById('imgeditsubmit' + abc).style.display = 'none';
+                                                                            document.getElementById('imgeditcommentbox' + abc).style.display = 'block';
+                                                                            document.getElementById('imgeditcancle' + abc).style.display = 'none';
+                                                                            //alert('.' + 'showcomment' + abc);
+                                                                            $('#' + 'imgshowcomment' + abc).html(data);
+                                                                        }
+                                                                    });
+                                                                    //window.location.reload();
+                                                                }
+                                                                    </script>
+                                                                <script type="text/javascript">
+                                                                        function imgcommentedit(abc)
+                                                                        {
+
+
+                                                                            $(document).ready(function () {
+                                                                                $('#imgeditcomment' + abc).keypress(function (e) {
+
+                                                                                    if (e.keyCode == 13 && !e.shiftKey) {
+                                                                                        var val = $('#imgeditcomment' + abc).val();
+                                                                                        e.preventDefault();
+                                                                                        if (window.preventDuplicateKeyPresses)
+                                                                                            return;
+                                                                                        window.preventDuplicateKeyPresses = true;
+                                                                                        window.setTimeout(function () {
+                                                                                            window.preventDuplicateKeyPresses = false;
+                                                                            }, 500);
+
+                                                                                        $.ajax({
+                                                                                            type: 'POST',
+                                                                                            url: '<?php echo base_url() . "artistic/mul_edit_com_insert" ?>',
+                                                                                            data: 'post_image_comment_id=' + abc + '&comment=' + val,
+                                                                                            success: function (data) { //alert('falguni');
+
+                                                                                                document.getElementById('imgeditcomment' + abc).style.display = 'none';
+                                                                                                document.getElementById('imgshowcomment' + abc).style.display = 'block';
+                                                                                                document.getElementById('imgeditsubmit' + abc).style.display = 'none';
+                                                                                                document.getElementById('imgeditcommentbox' + abc).style.display = 'block';
+                                                                                                document.getElementById('imgeditcancle' + abc).style.display = 'none';
+                                                                                                //alert('.' + 'showcomment' + abc);
+                                                                                                $('#' + 'imgshowcomment' + abc).html(data);
+                                                                                            }
+                                                                                        });
+                                                                                        //alert(val);
+                                                                                    }
+                                                                                });
+                                                                            });
+                                                                        }
+                                                                        </script>
+                                                                        <script type="text/javascript">
+                                                                            function imgedit_commenttwo(abc)
+                                                                            { //alert('editsubmit' + abc);
+                                                                                var post_comment_edit = document.getElementById("imgeditcommenttwo" + abc);
+                                                                                //alert(post_comment.value);
+                                                                                //alert(post_comment.value);
+                                                                                $.ajax({
+                                                                                    type: 'POST',
+                                                                                    url: '<?php echo base_url() . "artistic/mul_edit_com_insert" ?>',
+                                                                                    data: 'post_image_comment_id=' + abc + '&comment=' + post_comment_edit.value,
+                                                                                    success: function (data) { //alert('falguni');
+                                                                                        //  $('input').each(function(){
+                                                                                        //     $(this).val('');
+                                                                                        // }); 
+                                                                                        document.getElementById('imgeditcommenttwo' + abc).style.display = 'none';
+                                                                                        document.getElementById('imgshowcommenttwo' + abc).style.display = 'block';
+                                                                                        document.getElementById('imgeditsubmittwo' + abc).style.display = 'none';
+                                                                                        document.getElementById('imgeditcommentboxtwo' + abc).style.display = 'block';
+                                                                                        document.getElementById('imgeditcancletwo' + abc).style.display = 'none';
+                                                                                        //alert('.' + 'showcomment' + abc);
+                                                                                        $('#' + 'imgshowcommenttwo' + abc).html(data);
+                                                                                    }
+                                                                        });
+
+                                                                            }
+                                                                            </script>
+                                                                            <script type="text/javascript">
+        function imgcommentedittwo(abc)
+        {
+            $(document).ready(function () {
+                $('#imgeditcommenttwo' + abc).keypress(function (e) {
+                    if (e.keyCode == 13 && !e.shiftKey) {
+                        var val = $('#imgeditcommenttwo' + abc).val();
+                        e.preventDefault();
+                        if (window.preventDuplicateKeyPresses)
+                            return;
+                        window.preventDuplicateKeyPresses = true;
+                        window.setTimeout(function () {
+                            window.preventDuplicateKeyPresses = false;
+                        }, 500);
+                        $.ajax({
+                            type: 'POST',
+                            url: '<?php echo base_url() . "artistic/mul_edit_com_insert" ?>',
+                            data: 'post_image_comment_id=' + abc + '&comment=' + val,
+                            success: function (data) { //alert('falguni');
+                                //  $('input').each(function(){
+                                //     $(this).val('');
+                                // }); 
+                                document.getElementById('imgeditcommenttwo' + abc).style.display = 'none';
+                                document.getElementById('imgshowcommenttwo' + abc).style.display = 'block';
+                                document.getElementById('imgeditsubmittwo' + abc).style.display = 'none';
+                                document.getElementById('imgeditcommentboxtwo' + abc).style.display = 'block';
+                                document.getElementById('imgeditcancletwo' + abc).style.display = 'none';
+                                //alert('.' + 'showcomment' + abc);
+                                $('#' + 'imgshowcommenttwo' + abc).html(data);
+                            } }  ); 
+                          
+        } }); }); }
 </script>
 <!-- comment edit insert end -->
 <!-- comment delete start -->
-                                            <script type="text/javascript">
-                                            function imgcomment_delete(clicked_id)
-                                            {
+                                                                                        <script type="text/javascript">
+                                                                                            function imgcomment_delete(clicked_id)
+                                                                                            {
 
-                                                                                                                                                                                var post_delete = document.getElementById("imgpost_delete");
-                                                                                                                                                                        //alert(post_delete.value);
-                                                                                                                                                                        $.ajax({
-                                                                                                                                                                        type:'POST',
-                                                                                                                                                                                url:'<?php echo base_url() . "artistic/mul_delete_comment" ?>',
-                                                                                                                                                                                data:'post_image_comment_id=' + clicked_id + '&post_delete=' + post_delete.value,
-                                                                                                                                                                                success:function(data){ //alert('.' + 'insertcomment' + clicked_id);
-                                                                                                                                                                                $('.' + 'insertimgcomment' + post_delete.value).html(data);
-                        }
-                            }); 
-                            }
-                        function imgcomment_delete1(clicked_id)
-                        {
+                                                                                                var post_delete = document.getElementById("imgpost_delete");
+                                                                                                //alert(post_delete.value);
+                                                                                                $.ajax({
+                                                                                                    type: 'POST',
+                                                                                                    url: '<?php echo base_url() . "artistic/mul_delete_comment" ?>',
+                                                                                                    data: 'post_image_comment_id=' + clicked_id + '&post_delete=' + post_delete.value,
+                                                                                                    success: function (data) { //alert('.' + 'insertcomment' + clicked_id);
+                                                                                                        $('.' + 'insertimgcomment' + post_delete.value).html(data);
+                                                                                                    }
+                                                                                                });
+                                                                                            }
+                                                                                            function imgcomment_delete1(clicked_id)
+                                                                                            {
 
-                                                                                                                                                                                        var post_delete1 = document.getElementById("imgpost_delete1");
-                                                                                                                                                                                //alert(post_delete.value);
-                                                                                                                                                                                $.ajax({
-                                                                                                                                                                                type:'POST',
-                                                                                                                                                                                        url:'<?php echo base_url() . "artistic/mul_delete_comment1" ?>',
-                                                                                                                                                                                        data:'post_image_comment_id=' + clicked_id + '&post_delete=' + post_delete1.value,
-                                                                                                                                                                                        success:function(data){ //alert('.' + 'insertcomment' + clicked_id);
-                                                                                                                                                                                        $('.' + 'insertimgcomment' + post_delete1.value).html(data);
-                                            }
-                                            }); 
-                                            }
-                                            </script>
-                                                                                                                    <!-- commenmt delete end -->
-                                                                                                                    <!-- multiple images all script like comment end -->
+                                                                                                var post_delete1 = document.getElementById("imgpost_delete1");
+                                                                                                //alert(post_delete.value);
+                                                                                                $.ajax({
+                                                                                                    type: 'POST',
+                                                                                                    url: '<?php echo base_url() . "artistic/mul_delete_comment1" ?>',
+                                                                                                    data: 'post_image_comment_id=' + clicked_id + '&post_delete=' + post_delete1.value,
+                                                                                                    success: function (data) { //alert('.' + 'insertcomment' + clicked_id);
+                                                                                                        $('.' + 'insertimgcomment' + post_delete1.value).html(data);
+                                                                                                    }
+                                                                                                });
+                                                                                            }
+                                                                                            </script>
+                                                                                            <!-- commenmt delete end -->
+                                                                                            <!-- multiple images all script like comment end -->

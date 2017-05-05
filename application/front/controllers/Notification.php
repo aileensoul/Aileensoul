@@ -505,4 +505,9 @@ public function update_msg_noti()
      //  echo "<pre>"; print_r($postdata); die();
          $this->load->view('Notification/freelancer_hire_post', $this->data);
     }       
+    
+    public function post_img($id) {
+        
+        $this->load->view('notification/image');
+    }
 }

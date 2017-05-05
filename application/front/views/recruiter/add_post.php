@@ -302,11 +302,6 @@
 
 <script>
 
-
-
-
-
-
 </script>
 
 <script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
@@ -824,12 +819,10 @@ $('#datepicker').datetimepicker({
 <script>
 var CheckValue11 = function() { 
    var firstBox = $('#minsal').val();
-        var secondBox = $('#maxsal').val();
-        
-            if (firstBox < secondBox){
-                alert('box 1 cannot be greater than box 2');
-                return false;
-            }
-}
-       
-        </script>
+   var secondBox = $('#maxsal').val();
+  if (firstBox < secondBox){
+  alert('box 1 cannot be greater than box 2');
+  return false;
+    }
+   }   
+  </script>
