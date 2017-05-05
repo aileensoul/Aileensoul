@@ -396,7 +396,7 @@
                             $cache_time = $this->db->get_where('recruiter', array('user_id' => $post['user_id']))->row()->rec_firstname;
 
                             $cache_time1 = $this->db->get_where('recruiter', array('user_id' => $post['user_id']))->row()->rec_lastname;
-                            echo ucwords($cache_time)." ".ucwords($cache_time1);
+                            echo ucwords($cache_time)."  ".ucwords($cache_time1);
                              ?></a></li>
                     <!-- vishang 14-4 end -->    
                 </ul>
