@@ -4288,7 +4288,7 @@ textarea {overflow: hidden;}
     font-weight: 400;
     border-radius: 4px;
     resize: none;
-
+word-break: break-all;
     word-break: break-word;
 }
 
@@ -4359,3 +4359,4 @@ fieldset .add_post_btnc{min-width: 120px;padding:8px 30px 10px;}
 fieldset .add_post_btns{min-width: 120px;padding:8px 30px 8px;}
 .ful_dot{width: auto;max-width: 20%; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;}
 .select2-container-multi .select2-choices .select2-search-field input{height:33px}
+.about_us_text{text-align: justify; letter-spacing: 1px;}
