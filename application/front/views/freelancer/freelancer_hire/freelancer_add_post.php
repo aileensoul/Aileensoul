@@ -83,7 +83,7 @@
                         </fieldset>
 
                          <fieldset class="full-width">
-                        <label>Post description :<span style="color:red">*</span></label>
+                        <label>Post Description :<span style="color:red">*</span></label>
 
                         <textarea style="resize: none;height: 22%;overflow: auto;" name="post_desc" id="post_desc" placeholder="Enter Description"></textarea>
                         
@@ -91,7 +91,7 @@
                       </fieldset>
 
                        <fieldset class="full-width" <?php if($fields_req) {  ?> class="error-msg" <?php } ?>>
-                  <label>Fields Of Requirmeant:<span style="color:red">*</span></label>
+                  <label>Fields Of Requirement:<span style="color:red">*</span></label>
                    <select name="fields_req" id="fields_req">
                   <option value="">Select Fields of Requirement</option>
                   <?php
@@ -121,7 +121,7 @@
                   </fieldset>
 
                   <fieldset class="full-width" <?php if($skills) {  ?> class="error-msg" <?php } ?>>
-                        <label>Skills of requirements:<span style="color:red">*</span></label>
+                        <label>Skills of Requirements:<span style="color:red">*</span></label>
                          <select class="keyskil" name="skills[]" id="skills" multiple="multiple" style="cursor: default;"></select>
                         <span id="fullname-error"></span>
                         <?php echo form_error('skills'); ?>
@@ -166,6 +166,7 @@
 
                             <select name="month" id="month">
                             <option value="">Month</option>
+                            <option value="1">0 Month</option>
                             <option value="1">1 Month</option>
                             <option value="2">2 Month</option>
                             <option value="3">3 Month</option>

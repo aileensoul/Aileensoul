@@ -2865,6 +2865,29 @@ class Business_profile extends MY_Controller {
 
 
             $updatdata = $this->common->update_data($data, 'business_profile_post', 'business_profile_post_id', $post_id);
+
+
+            // insert notification
+
+            if($businessprofiledata[0]['user_id'] == $userid){ }else{ 
+            $datalike = array(
+                'not_type' => 5,
+                'not_from_id' => $userid,
+                'not_to_id' => $businessprofiledata[0]['user_id'] ,
+                'not_read' => 2,
+                'not_product_id' => $post_id,
+                'not_from' => 6,
+                'not_img' => 2
+            );
+            //echo "<pre>"; print_r($data); die();
+
+            $insert_id = $this->common->insert_data_getid($datalike, 'notification');
+            }
+            // end notoification
+
+
+
+
             $contition_array = array('business_profile_post_id' => $_POST["post_id"], 'status' => '1');
             $businessprofiledata1 = $this->data['businessprofiledata1'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -3070,6 +3093,10 @@ class Business_profile extends MY_Controller {
         $post_id = $_POST["post_id"];
         $post_comment = $_POST["comment"];
 
+
+        $contition_array = array('business_profile_post_id' => $_POST["post_id"], 'status' => '1');
+        $busdatacomment = $this->data['busdatacomment'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
         $data = array(
             'user_id' => $userid,
             'business_profile_post_id' => $post_id,
@@ -3082,6 +3109,28 @@ class Business_profile extends MY_Controller {
 
 
         $insert_id = $this->common->insert_data_getid($data, 'business_profile_post_comment');
+
+
+
+        // insert notification
+        
+            if($busdatacomment[0]['user_id'] == $userid){}
+            else{
+            $notificationdata = array(
+                'not_type' => 6,
+                'not_from_id' => $userid,
+                'not_to_id' => $busdatacomment[0]['user_id'],
+                'not_read' => 2,
+                'not_product_id' => $insert_id,
+                'not_from' => 6,
+                'not_img' => 1
+            );
+           //echo "<pre>"; print_r($notificationdata); 
+            $insert_id_notification = $this->common->insert_data_getid($notificationdata, 'notification');
+          }
+            // end notoification
+
+
 
         $contition_array = array('business_profile_post_id' => $_POST["post_id"], 'status' => '1');
         $businessprofiledata = $this->data['businessprofiledata'] = $this->common->select_data_by_condition('business_profile_post_comment', $contition_array, $data = '*', $sortby = 'business_profile_post_comment_id', $orderby = 'DESC', $limit = '1', $offset = '', $join_str = array(), $groupby = '');
@@ -3216,6 +3265,13 @@ class Business_profile extends MY_Controller {
         $post_id = $_POST["post_id"];
         $post_comment = $_POST["comment"];
 
+
+
+        $contition_array = array('business_profile_post_id' => $_POST["post_id"], 'status' => '1');
+        $busdatacomment = $this->data['busdatacomment'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+
+
         $data = array(
             'user_id' => $userid,
             'business_profile_post_id' => $post_id,
@@ -3228,6 +3284,27 @@ class Business_profile extends MY_Controller {
 
 
         $insert_id = $this->common->insert_data_getid($data, 'business_profile_post_comment');
+
+
+        // // insert notification
+        
+        //     if($busdatacomment[0]['user_id'] == $userid){}
+        //     else{
+        //     $notificationdata = array(
+        //         'not_type' => 6,
+        //         'not_from_id' => $userid,
+        //         'not_to_id' => $busdatacomment[0]['user_id'],
+        //         'not_read' => 2,
+        //         'not_product_id' => $insert_id,
+        //         'not_from' => 6,
+        //         'not_img' => 1
+        //     );
+        //    //echo "<pre>"; print_r($notificationdata); 
+        //     $insert_id_notification = $this->common->insert_data_getid($notificationdata, 'notification');
+        //   }
+        //     // end notoification
+
+
 
         $contition_array = array('business_profile_post_id' => $_POST["post_id"], 'status' => '1');
         $businessprofiledata = $this->data['businessprofiledata'] = $this->common->select_data_by_condition('business_profile_post_comment', $contition_array, $data = '*', $sortby = 'business_profile_post_comment_id', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
