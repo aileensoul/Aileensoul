@@ -2314,17 +2314,16 @@ border-bottom: 1px solid #000033;
 .post-editor{ height: auto; background-color: #ced5df;     box-shadow: 9px 5px 20px -4px #bfbfbf;  padding: 5px;
               padding-left: 14px;
               padding-right: 15px; 
-              border-radius: 4px; margin-bottom: 10px; border: 1px solid #cccccc;padding-bottom: 20px;}
-.popup-img img{      border: 2px solid #ffffff;
-                     height: 47px;
-                     width: 50px;
-                     margin-left: -9px;
-                     margin-top: 5px;
-                     margin-bottom: 5px;
-
+              border-radius: 4px; margin-bottom: 10px; border: 1px solid #cccccc;}
+.popup-img img{       border: 2px solid #ffffff;
+    height: 50px;
+    width: 50px;
+    margin-left: 14px;
+    margin-top: 13px;
+    margin-bottom: 5px;
 }
 .popup-text span{color: #999999;}
-.popup-text textarea{height: 10%; resize: none;}
+.popup-text textarea{height: 8%; width: 100%; resize: none;}
 .post-editor .popup-textarea p{color: #999999;}
 .post-editor .popup-text span i{font-size: 25px; color: #0a2c5d; }
 .popup-img{    padding-left: 2px !important; padding-right: 0px;}
@@ -3122,7 +3121,7 @@ follow box*/
 .post_img_mul1{    background-color: rgba(0, 0, 0, .2);
                    bottom: 0;
                    color: #fff;
-                   font-size: 35px;
+                   font-size: 35px;popup-social-icon
                    font-weight: normal;
                    height: 167px;
                    width: 177px;
@@ -3138,7 +3137,7 @@ follow box*/
 .post_img_mul2 a{color: white !important; font-size: 18px;}
 .post_img_mul2 a:hover{text-decoration: underline;}
 
-
+.popup-social-icon{border-radius: 3px;}
 .post-editor .popup-social-icon ul li i:hover{padding: 5px;background: #c3c3c3;border-radius: 5px;font-size: 20px;}
 .job_add_head_pro{text-align: center;
                   font-size: 20px;
