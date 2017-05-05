@@ -207,8 +207,11 @@ ul.sub-menu li a i { padding-right: 5px; }
 .midd-section h2 { font-size: 36px; margin-bottom: 30px; }
 .freelancer-midd { padding: 70px 0 135px; 
                    height: 84%; }
-.freelancer-midd .title-section { padding-bottom:114px; }
 
+ .about_btm{margin-top: 15%;}                  
+.freelancer-midd .title-section { padding-bottom:114px; }
+footer{position: absolute; width: 100%;
+bottom: 0;}
 .footer-bottom{
     position: absolute;
     right: 0;
@@ -774,7 +777,7 @@ ul.business_pf_ct_person_detail li b {font-size: 16px; display: inline-block; wi
 .profile-text {  color:#aba2a2; font-size:18px;  padding-top: 0; }
 .profile-text p { font-weight: 400 !important; font-size: 22px;padding-right: 28px; color: #000; }
 .profile-head-text {font-size: 25px; font-weight: 600;}
-.profile-head-text a {font-size: 32px;    text-shadow: 0px 10px 26px rgba(230, 230, 230,0.4), 0px 8px 7px rgba(0,0,0,0.1), 0px 11px 14px rgba(230,230,230,0.9) }
+.profile-head-text a {font-size: 23px; word-break: break-word;  word-break: break-all; text-shadow: 0px 10px 26px rgba(230, 230, 230,0.4), 0px 8px 7px rgba(0,0,0,0.1), 0px 11px 14px rgba(230,230,230,0.9) }
 .main-font-name h5{ font-weight:600; margin-top: 14px; font-size: 35px;}
 .main-font-name p {font-size: 25px; margin-top: 12px;}  
 
@@ -790,7 +793,7 @@ text-align: center*/;
     /* height: 8%; */
 
     float: left;
-/*    padding-left:120px;*/
+  padding-left:35px;
     padding-right: 10px; 
     /* margin-top: -19px; */}
 .job-menu-profile h5 { text-transform: capitalize; font-size: 25px; font-weight: 600; }
@@ -1686,6 +1689,7 @@ abbr { cursor: help; }
 .profile-job-post-title-inside .profile-job-profile-button  .job-all-post-lastdate-date{padding-left: 10px;}
 
 /* profile box*/
+.follow-li-text {white-space: nowrap;}
 .follow-li-text a{    overflow: hidden;
     display: block;
     text-overflow: ellipsis;
@@ -4288,7 +4292,7 @@ textarea {overflow: hidden;}
     font-weight: 400;
     border-radius: 4px;
     resize: none;
-
+word-break: break-all;
     word-break: break-word;
 }
 
@@ -4359,3 +4363,4 @@ fieldset .add_post_btnc{min-width: 120px;padding:8px 30px 10px;}
 fieldset .add_post_btns{min-width: 120px;padding:8px 30px 8px;}
 .ful_dot{width: auto;max-width: 20%; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;}
 .select2-container-multi .select2-choices .select2-search-field input{height:33px}
+.about_us_text{text-align: justify; letter-spacing: 1px;}

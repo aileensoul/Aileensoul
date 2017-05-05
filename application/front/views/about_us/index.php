@@ -8,9 +8,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-4 col-sm-5">
-						<div class="logo">
-						<a href="<?php echo base_url(); ?>"><img src="../images/logo-white.png"></a></div>
-					</div>
+						<div class="logo"><a href="<?php echo base_url('dashboard') ?>"><img src="<?php echo base_url('images/logo-white.png'); ?>"></a></div>
 					<div class="col-md-8 col-sm-7">
 						
 					</div>
@@ -25,36 +23,15 @@
 				<div class="row">
 					 <div class="col-md-2"></div>
           <div class="col-md-8">
- 					<div class="common-form">
-                            <h3>Send Us Feedback</h3>
+ 					<div class="common-form about_btm">
+                            <h3>ABOUT US:</h3>
         
-                   <form id="feedbackform " class="clearfix" method="post" enctype="multipart/form-data" action="<?php echo base_url('feedback/feedback_insert'); ?>">
+                   <form id="feedbackform " class="clearfix" method="post" enctype="multipart/form-data" >
      
-	
-                <fieldset >
-                   <label>Enter Your E-mail<span style="color:red">*</span></label>
-                   <input type="text"  name="contact_email" id="contact_email" placeholder="Enter  Email"> <span id="contact_email-error"> </span>
-                 
-              </fieldset>
-               <br>
-               <br><br><br>
-            <fieldset>
-                   <label>Subject<span style="color:red">*</span></label>
-                   <input type="text" name="contact_subject" id="contact_subject" placeholder="Enter Subject"> <span id="contact_subject-error"> </span>
-            
-              </fieldset>
-
-            <fieldset class="full-width">
-                   <label>Description<span style="color:red">*</span></label>
-                   <textarea name="contact_message" class="description " id="contact_message"  style="height: 25%;" ></textarea>
-                    <span id="contact_subject-error"> </span>
-            
-              </fieldset>
-         <fieldset class="hs-submit full-width">
-                                    <input type="submit"  id="submit" name="submit" value="submit">
-                                   
-            </fieldset>
-
+			<div class="about_us_text">
+			
+			Aileensoul is dedicated purely towards providing relentless and free platform to everyone.
+			 We provide a diversified platform for every kind of person. You can hire, recruit, and find a job of your preference in your required field. You can also find freelancing work from our site. Aileensoul targets every kind of population be it a person from artistic field or a person working in a contemporary setup. Beginning from hiring a housemaid to hiring an employ for your business, Aileensoul has it all. Any person looking for any kind of job or wants to showcase his/her artistic talent are free to create their profile. We want the gap that exists between the employer and employee to be fulfilled and hence creating a vast platform for employment as well as different services. </div>
         </form>
     </div>
 		</div>
@@ -65,20 +42,7 @@
 	</section>
 	<footer class="">
 		<div class="footer text-center">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-						<div class="footer-logo">
-							<a href="index.html"><img src="images/logo-white.png"></a>
-						</div>
-						<ul>
-							<li> Ahmedabad-380015</li>
-							<li><a href="mailto:AileenSoul@gmail.com">AileenSoul@gmail.com</a></li>
-							<li><?php echo $cnt[0]['site_email']; ?></li>
-						</ul>
-					</div>
-				</div>
-			</div>
+			
 		</div>
 		<div class="copyright">
 			<div class="container">
