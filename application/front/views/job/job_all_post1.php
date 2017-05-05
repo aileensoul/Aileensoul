@@ -397,11 +397,12 @@
 
                                                                     </li>
 
-                                                                    <li><a href="<?php echo base_url('recruiter/rec_profile/' . $post['user_id']); ?>"><?php
-                                                                            $cache_time = $this->db->get_where('recruiter', array('user_id' => $post['user_id']))->row()->rec_firstname;
+                            <li><a href="<?php echo base_url('recruiter/rec_profile/' . $post['user_id']); ?>"><?php
+                          $cache_time = $this->db->get_where('recruiter', array('user_id' => $post['user_id']))->row()->rec_firstname;
 
-                                                                            echo ucwords($cache_time);
-                                                                            ?></a></li>
+                              $cache_time1 = $this->db->get_where('recruiter', array('user_id' => $post['user_id']))->row()->rec_lastname;
+             echo ucwords($cache_time)."".ucwords($cache_time1);
+                            ?></a></li>
                                                                     <!-- vishang 14-4 end -->    
                                                                 </ul>
                                                             </div>
@@ -551,20 +552,21 @@
                                                     Created Date : <?php echo date('d/m/Y',strtotime($post['created_date'])); ?>
                                                 </li>
 
-                                                                    <li>
-                                                                        <a href="#" style="font-size: 19px;font-weight: 600;">
-                                                                            <?php echo ucwords(text2link($post['post_name'])); ?> </a>   </li>
+                                                   <li>
+                                              <a href="#" style="font-size: 19px;font-weight: 600;">
+                                              <?php echo ucwords(text2link($post['post_name'])); ?> </a>   </li>
 
                                                                     <li>   
 
-                                            <div class="fr lction">
+                                              <div class="fr lction">
                                                     <?php $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name;
 
 
                                                      $countryname = $this->db->get_where('countries', array('country_id' => $post['country']))->row()->country_name; ?>
                                                             <?php  
                                                             if($cityname || $countryname)
-                                                            { 
+                                                            {
+                                                           // echo "hi"; 
                                                             ?>
                                                             <p><i class="fa fa-map-marker" aria-hidden="true">
 
@@ -574,9 +576,10 @@
                                                             <?php
                                                              }
 
-                                                             else{}?> 
+                                                             else{
+                                                              //echo "hello";
+                                                              }?> 
                                                     </div>
-
 
 
 
@@ -591,10 +594,10 @@
                                  </a>
                                     </li>
 
-                                                                    <li><a href="<?php echo base_url('recruiter/rec_profile/' . $post['user_id']); ?>"><?php
-                                                                            $cache_time = $this->db->get_where('recruiter', array('user_id' => $post['user_id']))->row()->rec_firstname;
-
-                                                                            echo ucwords($cache_time);
+                                         <li><a href="<?php echo base_url('recruiter/rec_profile/' . $post['user_id']); ?>"><?php
+                                        $cache_time = $this->db->get_where('recruiter', array('user_id' => $post['user_id']))->row()->rec_firstname;
+                                         $cache_time1 = $this->db->get_where('recruiter', array('user_id' => $post['user_id']))->row()->rec_lastname;
+                                           echo ucwords($cache_time)."  ".ucwords($cache_time1);
                                                                             ?></a></li>
                                                                     <!-- vishang 14-4 end -->    
                                                                 </ul>
