@@ -250,13 +250,13 @@
 
                                 <fieldset <?php if ($minsal) { ?> class="error-msg" <?php } ?>>
                                     <label class="control-label">Min salary:(Per Year)<!-- <span style="color:red">*</span> --></label>
-                                    <input name="minsal" type="text" id="minsal" onblur="return full_name();" placeholder="Enter Minimum salary" /><span id="fullname-error"></span>
+                                    <input name="minsal" type="text" id="minsal" placeholder="Enter Minimum salary" /><span id="fullname-error"></span>
 <?php echo form_error('minsal'); ?>
                                 </fieldset>
 
                                 <fieldset <?php if ($maxsal) { ?> class="error-msg" <?php } ?>>
                                     <label class="control-label">Max salary:(Per Year)</label>
-                                    <input name="maxsal" type="text" id="maxsal" onblur="return full_name();" placeholder="Enter Maximum salary" /><span id="fullname-error"></span>
+                                    <input name="maxsal" type="text" id="maxsal" onblur='CheckValue11()'  placeholder="Enter Maximum salary" /><span id="fullname-error"></span>
 <?php echo form_error('maxsal'); ?>
                                 </fieldset>
 
@@ -821,3 +821,15 @@ $('#datepicker').datetimepicker({
     });
 //select2 autocomplete End for Location
 </script>
+<script>
+var CheckValue11 = function() { 
+   var firstBox = $('#minsal').val();
+        var secondBox = $('#maxsal').val();
+        
+            if (firstBox < secondBox){
+                alert('box 1 cannot be greater than box 2');
+                return false;
+            }
+}
+       
+        </script>

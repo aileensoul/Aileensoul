@@ -149,6 +149,10 @@ $join_str = array(array(
 $data = array('notification.*','art_post.*',' user.user_id', 'user.first_name', 'user.user_image','user.last_name');
 $this->data['artlike'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'art_post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = 'not_from_id');
 // like notification end
+//echo '<pre>'; 
+//print_r($this->data['artcommnet']); 
+//print_r($this->data['artlike']); 
+//die();
 // artistic notification end
 // business profile notification start
 // follow notification start

@@ -76,11 +76,11 @@ $(window).load(function(){
 
     function addmsg(type, msg)
     {
-        
+
         if (msg == 0)
         {
             $("#notification_count").html('');
-  
+
 
         } else
         {
@@ -398,246 +398,362 @@ $(window).load(function(){
 
                                                     </li>
 
-<!--1-->
+                                                    <!--1-->
                                                     <?php
                                                     foreach ($job_not as $job) {
-                                                        if ($job['not_from'] == 1) {
-                                                            ?> ?>
-                                                            <li> 
-                                                                <div class="notification-database">
-                                                                    <div class="notification-pic" >
-                                                                        <img src="<?php echo base_url(USERIMAGE . $job['user_image']); ?>" >
-                                                                    </div>
-                                                                    <div class="notification-data-inside">
-                                                                        <a href="<?php echo base_url('notification/recruiter_post/' . $job['post_id']); ?>"><h6><?php echo "HI.. !  <font color='blue'><b><i> Rectuiter</i></font></b><b>" . "  " . $job['first_name'] . ' ' . $job['last_name'] . "</b> invited you for an interview"; ?></h6></a>
-                                                                        <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
-                                                                            <?php echo $this->common->time_elapsed_string($job['message_create_date'], $full = false);?>
-                                                                        </div>
-                                                                    </div>
-
+                                                    if ($job['not_from'] == 1) {
+                                                    ?> ?>
+                                                    <li> 
+                                                        <div class="notification-database">
+                                                            <div class="notification-pic" >
+                                                                <img src="<?php echo base_url(USERIMAGE . $job['user_image']); ?>" >
+                                                            </div>
+                                                            <div class="notification-data-inside">
+                                                                <a href="<?php echo base_url('notification/recruiter_post/' . $job['post_id']); ?>"><h6><?php echo "HI.. !  <font color='blue'><b><i> Rectuiter</i></font></b><b>" . "  " . $job['first_name'] . ' ' . $job['last_name'] . "</b> invited you for an interview"; ?></h6></a>
+                                                                <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
+                                                                    <?php echo $this->common->time_elapsed_string($job['message_create_date'], $full = false); ?>
                                                                 </div>
+                                                            </div>
 
-                                                            </li>
-                                                        <?php
-                                                        }
+                                                        </div>
+
+                                                    </li>
+                                                    <?php
+                                                    }
                                                     }
                                                     ?>
-        <!--2-->                                                    
-                                                            <?php
+                                                    <!--2-->                                                    
+                                                    <?php
                                                     foreach ($artfollow as $art) {
-                                                        if ($art['not_from'] == 3) {
-                                                            ?> ?>
-                                                            <li> 
-                                                                <div class="notification-database">
-                                                                    <div class="notification-pic" >
-                                                                        <img src="<?php echo base_url(USERIMAGE . $art['user_image']);?>" >
-                                                                    </div>
-                                                                    <div class="notification-data-inside">
-                                                                        <a href="<?php echo base_url('artistic/artistic_profile/' . $art['user_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Artistic</i></font></b><b>" . "  " .  $art['first_name'] . ' ' . $art['last_name'] . "</b> started to following you"; ?></h6></a>
-                                                                        <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
-                                                                            <?php echo $this->common->time_elapsed_string($art['message_create_date'], $full = false);?>
-                                                                        </div>
-                                                                    </div>
-
+                                                    if ($art['not_from'] == 3) {
+                                                    ?> ?>
+                                                    <li> 
+                                                        <div class="notification-database">
+                                                            <div class="notification-pic" >
+                                                                <img src="<?php echo base_url(USERIMAGE . $art['user_image']); ?>" >
+                                                            </div>
+                                                            <div class="notification-data-inside">
+                                                                <a href="<?php echo base_url('artistic/artistic_profile/' . $art['user_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Artistic</i></font></b><b>" . "  " . $art['first_name'] . ' ' . $art['last_name'] . "</b> started to following you"; ?></h6></a>
+                                                                <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
+                                                                    <?php echo $this->common->time_elapsed_string($art['message_create_date'], $full = false); ?>
                                                                 </div>
+                                                            </div>
 
-                                                            </li>
-                                                        <?php
-                                                        }
+                                                        </div>
+
+                                                    </li>
+                                                    <?php
+                                                    }
                                                     }
                                                     ?>
-                                                            
-                                                             <!--3-->                                                    
-                                                            <?php
+
+                                                    <!--3-->                                                    
+                                                    <?php
                                                     foreach($artcommnet as $art) {
-                                                        if ($art['not_from'] == 3) {
-                                                            ?> ?>
-                                                            <li> 
-                                                                <div class="notification-database">
-                                                                    <div class="notification-pic" >
-                                                                        <img src="<?php echo base_url(USERIMAGE . $art['user_image']);?>" >
-                                                                    </div>
-                                                                    <div class="notification-data-inside">
-                                                                        <a href="<?php echo base_url('artistic/postnewpage/' .$art['art_post_id']); ?>">
-                                                                            <h6>
-                                                      <?php echo "HI.. !  <font color='#4e6db1'><b><i> Artistic</i></font></b><b>" . "  " .  $art['first_name'] . ' ' . $art['last_name'] . "</b> commneted on your post"; ?>
-                                                                            </h6>
-                                                                        </a>
-                                                                        <div>
-                                                                            <i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
-                                                                               <?php echo $this->common->time_elapsed_string($art['message_create_date'], $full = false);?>
-                                                                        </div>
-                                                                    </div>
-
-                                                                </div>
-
-                                                            </li>
-                                                        <?php
-                                                        }
-                                                    }
+                                              $art_not_from = $art['not_from'];
+                                                    $art_not_img = $art['not_img'];          
+                                                  if($art_not_from == '3' && $art_not_img == '1'){
                                                     ?>
-                                                    <!--4-->                                                    
-                                                            <?php foreach($artlike as $art) {
-                                                        if ($art['not_from'] == 3) {
-                                                            ?> ?>
-                                                            <li> 
-                                                                <div class="notification-database">
-                                                                    <div class="notification-pic" >
-                                                                        <img src="<?php echo base_url(USERIMAGE . $art['user_image']);?>" >
-                                                                    </div>
-                                                                    <div class="notification-data-inside">
-                                                                        <a href="<?php echo base_url('artistic/postnewpage/' .$art['art_post_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Artistic</i></font></b><b>" . "  " .  $art['first_name'] . ' ' . $art['last_name'] . "</b> commneted on your post"; ?></h6></a>
-                                                                        <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
-                                                                             <?php echo $this->common->time_elapsed_string($art['message_create_date'], $full = false);?>
-                                                                        </div>
-                                                                    </div> </div> </li>
-                                                        <?php
-                                                        }}?>
-                                                       
-                                               <!--5-->                                                    
-                                                            <?php foreach($buscommnet as $bus) {
-                                                        if ($bus['not_from'] == 6) {
-                                                            ?> ?>
-                                                            <li> 
-                                                                <div class="notification-database">
-                                                                    <div class="notification-pic" >
-                                                                        <img src="<?php echo base_url(USERIMAGE . $bus['user_image']);?>" >
-                                                                    </div>
-                                                                    <div class="notification-data-inside">
-                                                                        <a href="<?php echo base_url('notification/business_post/' . $bus['user_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Business</i></font></b><b>" . "  " .  $bus['first_name'] . ' ' . $bus['last_name'] . "</b> commneted on your post"; ?></h6></a>
-                                                                        <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
-                                                                           <?php echo $this->common->time_elapsed_string($bus['message_create_date'], $full = false);?>
-                                                                        </div>
-                                                                    </div> </div> </li>
-                                                        <?php
-                                                        }}?>   
-                                                       
-                                              <!--6-->                                                    
-                                                            <?php foreach($busifollow as $bus) {
-                                                        if ($bus['not_from'] == 6) {
-                                                            ?> 
-                                                            <li> 
-                                                                <div class="notification-database">
-                                                                    <div class="notification-pic" >
-                                                                        <img src="<?php echo base_url(USERIMAGE . $bus['user_image']);?>" >
-                                                                    </div>
-                                                                    <div class="notification-data-inside">
-                                                                        <a href="<?php echo base_url('business_profile/business_resume/' . $bus['user_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Businessman</i></font></b><b>" . "  " .  $bus['first_name'] . ' ' . $bus['last_name'] . "</b> started to following you"; ?></h6></a>
-                                                                        <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
-                                                                            <?php echo $this->common->time_elapsed_string($bus['message_create_date'], $full = false);?>
-                                                                        </div>
-                                                                    </div> </div> </li>
-                                                        <?php
-                                                        }}?>
-                                                                    
-                                                                    <!--7-->                                                    
-                                                            <?php foreach($buslike as $bus) {
-                                                        if ($bus['not_from'] == 6) {
-                                                            ?> ?>
-                                                            <li> 
-                                                                <div class="notification-database">
-                                                                    <div class="notification-pic" >
-                                                                        <img src="<?php echo base_url(USERIMAGE . $bus['user_image']);?>" >
-                                                                    </div>
-                                                                    <div class="notification-data-inside">
-                                                                        <a href="<?php echo base_url('notification/art_post/' . $bus['user_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Businessman</i></font></b><b>" . "  " .  $bus['first_name'] . ' ' . $bus['last_name'] . "</b> liked on your post"; ?></h6></a>
-                                                                        <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
-                                                                            <?php echo $this->common->time_elapsed_string($bus['message_create_date'], $full = false);?>
-                                                                        </div>
-                                                                    </div> </div> </li>
-                                                        <?php
-                                                        }}?>
-                                                                    
-                                                                     <!--8-->                                                    
-                                                            <?php foreach($buslike as $bus) {
-                                                        if ($art['not_from'] == 6) {
-                                                            ?> ?>
-                                                            <li> 
-                                                                <div class="notification-database">
-                                                                    <div class="notification-pic" >
-                                                                        <img src="<?php echo base_url(USERIMAGE . $bus['user_image']);?>" >
-                                                                    </div>
-                                                                    <div class="notification-data-inside">
-                                                                        <a href="<?php echo base_url('notification/art_post/' . $bus['user_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Businessman</i></font></b><b>" . "  " .  $bus['first_name'] . ' ' . $bus['last_name'] . "</b> liked on your post"; ?></h6></a>
-                                                                        <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
-                                                                            <?php echo $this->common->time_elapsed_string($bus['message_create_date'], $full = false);?>
-                                                                        </div>
-                                                                    </div> </div> </li>
-                                                        <?php
-                                                        }}?>
-                                                     
-                                                                    <!--9-->                                                    
-                                                            <?php foreach($rec_not as $art) {
-                                                        if ($art['not_from'] == 2) {
-                                                            ?> ?>
-                                                            <li> 
-                                                                <div class="notification-database">
-                                                                    <div class="notification-pic" >
-                                                                        <img src="<?php echo base_url(USERIMAGE . $art['user_image']);?>" >
-                                                                    </div>
-                                                                    <div class="notification-data-inside">
-                                                                        <a href="<?php echo base_url('job/job_printpreview/' . $id); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Job seeker</i></font></b><b>" . "  " .  $art['first_name'] . ' ' . $art['last_name'] . "</b> Aplied on your post"; ?></h6></a>
-                                                                        <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
-                                                                            <?php echo $this->common->time_elapsed_string($art['message_create_date'], $full = false);?>
-                                                                        </div>
-                                                                    </div> </div> </li>
-                                                        <?php
-                                                        }}?>
-                                                                    
-                                                      <!--10-->                                                    
-                                                            <?php foreach($hire_not as $art) {
-                                                         if($art['not_from'] == 6){
-                                                            ?> ?>
-                                                            <li> 
-                                                                <div class="notification-database">
-                                                                    <div class="notification-pic" >
-                                                                        <img src="<?php echo base_url(USERIMAGE . $art['user_image']);?>" >
-                                                                    </div>
-                                                                    <div class="notification-data-inside">
-                                                                        <a href="<?php echo base_url('job/job_printpreview/' . $id); ?>"><h6><?php echo "HI.. !  <font color='yellow'><b><i>Freelancer work</i></font></b><b>" . "  " .  $art['first_name'] . ' ' . $art['last_name'] . "</b> Aplied on your post"; ?></h6></a> 
-                                                                        <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
-                                                                                  <?php echo $this->common->time_elapsed_string($art['message_create_date'], $full = false);?>
-                                                                        </div>
-                                                                    </div> </div> </li>
-                                                        <?php
-                                                        }}?> 
-                                                              <!--11-->                                                    
-                                                            <?php foreach($work_not as $art) {
-                                                         if($art['not_from'] == 5){
-                                                            ?> ?>
-                                                            <li> 
-                                                                <div class="notification-database">
-                                                                    <div class="notification-pic" >
-                                                                        <img src="<?php echo base_url(USERIMAGE . $art['user_image']);?>" >
-                                                                    </div>
-                                                                    <div class="notification-data-inside">
-                                                                        <a href="<?php echo base_url('job/job_printpreview/' . $id); ?>"><h6><?php echo "HI.. !  <font color='black'><b><i>Freelance Hire</i></font></b><b>" . "  " .  $art['first_name'] . ' ' . $art['last_name'] . "</b> Aplied on your post"; ?></h6></a>
-                                                                        <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
-                                                                                  <?php echo $this->common->time_elapsed_string($art['message_create_date'], $full = false);?>
-                                                                        </div>
-                                                                    </div> </div> </li>
-                                                        <?php
-                                                        }}?>
-                                                
-                                                 <!--12--> 
-                                                <?php foreach($work_post as $work) {
-                                                         if($work['not_from'] == 4){
-                                                            ?> ?>
-                                                            <li> 
-                                                                <div class="notification-database">
-                                                                    <div class="notification-pic" >
-                                                                        <img src="<?php echo base_url(USERIMAGE . $work['user_image']);?>" >
-                                                                    </div>
-                                                                    <div class="notification-data-inside">
-                                                                        <a href="<?php echo base_url('notification/recruiter_post/' . $work['post_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Freelancer hire</i></font></b><b>" . "  " .  $work['first_name'] . ' ' . $work['last_name'] . "</b> invited you for an interview"; ?></h6></a>
-                                                                        <div>
-                                                                            <i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
-                                                                                  <?php echo $this->common->time_elapsed_string($work['message_create_date'], $full = false);?>
-                                                                        </div>
-                                                                    </div> </div> </li>
-                                                        <?php
-                                                        }}?>                   
-                                                       </div>  
+                                                    <li> 
+                                                        <div class="notification-database">
+                                                            <div class="notification-pic" >
+                                                                <img src="<?php echo base_url(USERIMAGE . $art['user_image']); ?>" >
+                                                            </div>
+                                                            <div class="notification-data-inside">
+                                                                <a href="<?php echo base_url('artistic/postnewpage/' .$art['art_post_id']); ?>">
+                                                                    <h6>
+<?php echo "HI.. !  <font color='#4e6db1'><b><i> Artistic</i></font></b><b>" . "  " . $art['first_name'] . ' ' . $art['last_name'] . "</b> commneted on your post"; ?>
+                                                                    </h6>
+                                                                </a>
+                                                                <div>
+                                                                    <i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
+<?php echo $this->common->time_elapsed_string($art['message_create_date'], $full = false); ?>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
+                                                    </li>
+<?php }else{ ?>
+
+                                                    <li> 
+                                                        <div class="notification-database">
+                                                            <div class="notification-pic" >
+                                                                <img src="<?php echo base_url(USERIMAGE . $art['user_image']); ?>" >
+                                                            </div>
+                                                            <div class="notification-data-inside">
+                                                                <a href="<?php echo base_url('artistic/postnewpage/' .$art['art_post_id']); ?>">
+                                                                    <h6>
+<?php echo "HI.. !  <font color='#4e6db1'><b><i> Artistic</i></font></b><b>" . "  " . $art['first_name'] . ' ' . $art['last_name'] . "</b> commneted on your image"; ?>
+                                                                    </h6>
+                                                                </a>
+                                                                <div>
+                                                                    <i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
+<?php echo $this->common->time_elapsed_string($art['message_create_date'], $full = false); ?>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
+                                                    </li>
+<?php } } ?>         <!--4-->  
+
+                                                    <?php
+                                                    foreach($artlike as $art){
+                                                     $art_not_from = $art['not_from'];
+                                                    $art_not_img = $art['not_img'];
+
+                                                    if($art_not_from == '3' && $art_not_img == '2'){
+                                                    ?>
+                                                    <li> 
+                                                        <div class="notification-database">
+                                                            <div class="notification-pic" >
+                                                                <img src="<?php echo base_url(USERIMAGE . $art['user_image']); ?>" >
+                                                            </div>
+                                                            <div class="notification-data-inside">
+                                                                <a href="<?php echo base_url('artistic/postnewpage/' .$art['art_post_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Artistic</i></font></b><b>" . "  " . $art['first_name'] . ' ' . $art['last_name'] . "</b> liked on your post"; ?></h6></a>
+                                                                <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
+<?php echo $this->common->time_elapsed_string($art['message_create_date'], $full = false); ?>
+                                                                </div>
+                                                            </div> </div> </li>
+                                                    <?php
+                                                    }
+                                                    elseif($art_not_from == '3' && $art_not_img == '5'){
+                                                    ?>
+                                                    <li> <?php echo $art_not_img; ?>
+                                                        <div class="notification-database">
+                                                            <div class="notification-pic" >
+                                                                <img src="<?php echo base_url(USERIMAGE . $art['user_image']); ?>" >
+                                                            </div>
+                                                            <div class="notification-data-inside">
+                                                                <a href="<?php echo base_url('artistic/postnewpage/' .$art['art_post_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Artistic</i></font></b><b>" . "  " . $art['first_name'] . ' ' . $art['last_name'] . "</b> liked on your image"; ?></h6></a>
+                                                                <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
+<?php echo $this->common->time_elapsed_string($art['message_create_date'], $full = false); ?>
+                                                                </div>
+                                                            </div> </div> </li>       
+                                                    <?php }else{ ?>
+                                                     <li> <?php echo $art_not_img; ?>
+                                                        <div class="notification-database">
+                                                            <div class="notification-pic" >
+                                                                <img src="<?php echo base_url(USERIMAGE . $art['user_image']); ?>" >
+                                                            </div>
+                                                            <div class="notification-data-inside">
+                                                                <a href="<?php echo base_url('artistic/postnewpage/' .$art['art_post_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Artistic</i></font></b><b>" . "  " . $art['first_name'] . ' ' . $art['last_name'] . "</b> liked on your comment"; ?></h6></a>
+                                                                <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
+<?php echo $this->common->time_elapsed_string($art['message_create_date'], $full = false); ?>
+                                                                </div>
+                                                            </div> </div> </li>
+                                                    <?php                 } }
+
+                                                    ?>
+
+                                                    <?php /* foreach($artlike as $art) { 
+                                                      if ($art['not_from'] == '3') {
+                                                      $art_not_img = $art['not_img'];
+                                                      if($art_not_img == '2'){?>
+                                                      <li> <?php echo $art_not_img; ?>
+                                                      <div class="notification-database">
+                                                      <div class="notification-pic" >
+                                                      <img src="<?php echo base_url(USERIMAGE . $art['user_image']);?>" >
+                                                      </div>
+                                                      <div class="notification-data-inside">
+                                                      <a href="<?php echo base_url('artistic/postnewpage/' .$art['art_post_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Artistic</i></font></b><b>" . "  " .  $art['first_name'] . ' ' . $art['last_name'] . "</b> commneted on your post"; ?></h6></a>
+                                                      <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
+                                                      <?php echo $this->common->time_elapsed_string($art['message_create_date'], $full = false);?>
+                                                      </div>
+                                                      </div> </div> </li>
+                                                      <?php}
+                                                      else if($art_not_img == '5'){?>
+                                                      <li> <?php echo $art_not_img; ?>
+                                                      <div class="notification-database">
+                                                      <div class="notification-pic" >
+                                                      <img src="<?php echo base_url(USERIMAGE . $art['user_image']);?>" >
+                                                      </div>
+                                                      <div class="notification-data-inside">
+                                                      <a href="<?php echo base_url('artistic/postnewpage/' .$art['art_post_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Artistic</i></font></b><b>" . "  " .  $art['first_name'] . ' ' . $art['last_name'] . "</b> commneted on your image"; ?></h6></a>
+                                                      <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
+                                                      <?php echo $this->common->time_elapsed_string($art['message_create_date'], $full = false);?>
+                                                      </div>
+                                                      </div> </div> </li>
+                                                      <?php }
+                                                      else{?>
+                                                      <li>
+                                                      <div class="notification-database">
+                                                      <div class="notification-pic" >
+                                                      <img src="<?php echo base_url(USERIMAGE . $art['user_image']);?>" >
+                                                      </div>
+                                                      <div class="notification-data-inside">
+                                                      <a href="<?php echo base_url('artistic/postnewpage/' .$art['art_post_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Artistic</i></font></b><b>" . "  " .  $art['first_name'] . ' ' . $art['last_name'] . "</b> commneted on your image"; ?></h6></a>
+                                                      <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
+                                                      <?php echo $this->common->time_elapsed_string($art['message_create_date'], $full = false);?>
+                                                      </div>
+                                                      </div> </div> </li>
+                                                      <?php }}} */ ?>
+
+                                                    <!--5-->                                                    
+                                                    <?php
+                                                    foreach($buscommnet as $bus) {
+                                                    if ($bus['not_from'] == 6) {
+                                                    if($bus['not_img'] == 1){
+                                                    ?> 
+                                                    <li> 
+                                                        <div class="notification-database">
+                                                            <div class="notification-pic" >
+                                                                <img src="<?php echo base_url(USERIMAGE . $bus['user_image']); ?>" >
+                                                            </div>
+                                                            <div class="notification-data-inside">
+                                                                <a href="<?php echo base_url('notification/business_post/' . $bus['user_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Business</i></font></b><b>" . "  " . $bus['first_name'] . ' ' . $bus['last_name'] . "</b> commneted on your post"; ?></h6></a>
+                                                                <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
+                                                    <?php echo $this->common->time_elapsed_string($bus['message_create_date'], $full = false); ?>
+                                                                </div>
+                                                            </div> </div> </li>
+<?php }else{ ?>
+                                                    <li> 
+                                                        <div class="notification-database">
+                                                            <div class="notification-pic" >
+                                                                <img src="<?php echo base_url(USERIMAGE . $bus['user_image']); ?>" >
+                                                            </div>
+                                                            <div class="notification-data-inside">
+                                                                <a href="<?php echo base_url('notification/business_post/' . $bus['user_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Business</i></font></b><b>" . "  " . $bus['first_name'] . ' ' . $bus['last_name'] . "</b> commneted on your image"; ?></h6></a>
+                                                                <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
+                                                    <?php echo $this->common->time_elapsed_string($bus['message_create_date'], $full = false); ?>
+                                                                </div>
+                                                            </div> </div> </li>
+                                                    <?php }}} ?>   
+
+                                                    <!--6-->                                                    
+<?php
+foreach($busifollow as $bus) {
+if ($bus['not_from'] == 6) {
+?> 
+                                                    <li> 
+                                                        <div class="notification-database">
+                                                            <div class="notification-pic" >
+                                                                <img src="<?php echo base_url(USERIMAGE . $bus['user_image']); ?>" >
+                                                            </div>
+                                                            <div class="notification-data-inside">
+                                                                <a href="<?php echo base_url('business_profile/business_resume/' . $bus['user_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Businessman</i></font></b><b>" . "  " . $bus['first_name'] . ' ' . $bus['last_name'] . "</b> started to following you"; ?></h6></a>
+                                                                <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
+                                                    <?php echo $this->common->time_elapsed_string($bus['message_create_date'], $full = false); ?>
+                                                                </div>
+                                                            </div> </div> </li>
+                                                    <?php }} ?>
+
+                                                    <!--7-->                                                    
+<?php
+foreach($buslike as $bus) {
+if ($bus['not_from'] == 6) {
+if($bus['not_img'] == 1){
+?>  
+                                                    <li> 
+                                                        <div class="notification-database">
+                                                            <div class="notification-pic" >
+                                                                <img src="<?php echo base_url(USERIMAGE . $bus['user_image']); ?>" >
+                                                            </div>
+                                                            <div class="notification-data-inside">
+                                                                <a href="<?php echo base_url('notification/art_post/' . $bus['user_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Businessman</i></font></b><b>" . "  " . $bus['first_name'] . ' ' . $bus['last_name'] . "</b> liked on your post"; ?></h6></a>
+                                                                <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
+<?php echo $this->common->time_elapsed_string($bus['message_create_date'], $full = false); ?>
+                                                                </div>
+                                                            </div> </div> </li>
+<?php }elseif($bus['not_img'] == 5){ ?>
+                                                    <li> 
+                                                        <div class="notification-database">
+                                                            <div class="notification-pic" >
+                                                                <img src="<?php echo base_url(USERIMAGE . $bus['user_image']); ?>" >
+                                                            </div>
+                                                            <div class="notification-data-inside">
+                                                                <a href="<?php echo base_url('notification/art_post/' . $bus['user_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Businessman</i></font></b><b>" . "  " . $bus['first_name'] . ' ' . $bus['last_name'] . "</b> liked on your image"; ?></h6></a>
+                                                                <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
+<?php echo $this->common->time_elapsed_string($bus['message_create_date'], $full = false); ?>
+                                                                </div>
+                                                            </div> </div> </li>
+<?php }else{ ?>
+                                                    <li> 
+                                                        <div class="notification-database">
+                                                            <div class="notification-pic" >
+                                                                <img src="<?php echo base_url(USERIMAGE . $bus['user_image']); ?>" >
+                                                            </div>
+                                                            <div class="notification-data-inside">
+                                                                <a href="<?php echo base_url('notification/art_post/' . $bus['user_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Businessman</i></font></b><b>" . "  " . $bus['first_name'] . ' ' . $bus['last_name'] . "</b> liked on your image"; ?></h6></a>
+                                                                <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
+                                                    <?php echo $this->common->time_elapsed_string($bus['message_create_date'], $full = false); ?>
+                                                                </div>
+                                                            </div> </div> </li>
+                                                    <?php }}} ?>
+
+                                                    <!--9-->                                                    
+<?php
+foreach($rec_not as $art) {
+if ($art['not_from'] == 2) {
+?> ?>
+                                                    <li> 
+                                                        <div class="notification-database">
+                                                            <div class="notification-pic" >
+                                                                <img src="<?php echo base_url(USERIMAGE . $art['user_image']); ?>" >
+                                                            </div>
+                                                            <div class="notification-data-inside">
+                                                                <a href="<?php echo base_url('job/job_printpreview/' . $id); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Job seeker</i></font></b><b>" . "  " . $art['first_name'] . ' ' . $art['last_name'] . "</b> Aplied on your post"; ?></h6></a>
+                                                                <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
+                                                    <?php echo $this->common->time_elapsed_string($art['message_create_date'], $full = false); ?>
+                                                                </div>
+                                                            </div> </div> </li>
+                                                    <?php }} ?>
+
+                                                    <!--10-->                                                    
+<?php
+foreach($hire_not as $art) {
+if($art['not_from'] == 6){
+?> ?>
+                                                    <li> 
+                                                        <div class="notification-database">
+                                                            <div class="notification-pic" >
+                                                                <img src="<?php echo base_url(USERIMAGE . $art['user_image']); ?>" >
+                                                            </div>
+                                                            <div class="notification-data-inside">
+                                                                <a href="<?php echo base_url('job/job_printpreview/' . $id); ?>"><h6><?php echo "HI.. !  <font color='yellow'><b><i>Freelancer work</i></font></b><b>" . "  " . $art['first_name'] . ' ' . $art['last_name'] . "</b> Aplied on your post"; ?></h6></a> 
+                                                                <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
+                                                    <?php echo $this->common->time_elapsed_string($art['message_create_date'], $full = false); ?>
+                                                                </div>
+                                                            </div> </div> </li>
+<?php }} ?> 
+                                                    <!--11-->                                                    
+<?php
+foreach($work_not as $art) {
+if($art['not_from'] == 5){
+?> ?>
+                                                    <li> 
+                                                        <div class="notification-database">
+                                                            <div class="notification-pic" >
+                                                                <img src="<?php echo base_url(USERIMAGE . $art['user_image']); ?>" >
+                                                            </div>
+                                                            <div class="notification-data-inside">
+                                                                <a href="<?php echo base_url('job/job_printpreview/' . $id); ?>"><h6><?php echo "HI.. !  <font color='black'><b><i>Freelance Hire</i></font></b><b>" . "  " . $art['first_name'] . ' ' . $art['last_name'] . "</b> Aplied on your post"; ?></h6></a>
+                                                                <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
+                                                    <?php echo $this->common->time_elapsed_string($art['message_create_date'], $full = false); ?>
+                                                                </div>
+                                                            </div> </div> </li>
+                                                    <?php }} ?>
+
+                                                    <!--12--> 
+<?php
+foreach($work_post as $work) {
+if($work['not_from'] == 4){
+?> ?>
+                                                    <li> 
+                                                        <div class="notification-database">
+                                                            <div class="notification-pic" >
+                                                                <img src="<?php echo base_url(USERIMAGE . $work['user_image']); ?>" >
+                                                            </div>
+                                                            <div class="notification-data-inside">
+                                                                <a href="<?php echo base_url('notification/recruiter_post/' . $work['post_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Freelancer hire</i></font></b><b>" . "  " . $work['first_name'] . ' ' . $work['last_name'] . "</b> invited you for an interview"; ?></h6></a>
+                                                                <div>
+                                                                    <i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
+<?php echo $this->common->time_elapsed_string($work['message_create_date'], $full = false); ?>
+                                                                </div>
+                                                            </div> </div> </li>
+<?php }} ?>                   
+                                            </div>  
 
                                         </div>
                                         <div id="notificationFooter"><a href="<?php echo base_url('notification'); ?>">See All</a></div>
@@ -648,7 +764,7 @@ $(window).load(function(){
                                     $userid = $this->session->userdata('aileenuser');
                                     ?>
 
-                            <!-- <li><a href="<?php //echo base_url('message/message_chat/')    ?>">Message <i class="fa fa-commenting" aria-hidden="true"></i></a></li> -->
+                            <!-- <li><a href="<?php //echo base_url('message/message_chat/')     ?>">Message <i class="fa fa-commenting" aria-hidden="true"></i></a></li> -->
                                 <li id="Inbox_link">
 <?php if ($message_count) { ?>
                                                <!--  <span class="badge bg-theme"><?php echo $message_count; ?></span> -->
@@ -681,34 +797,34 @@ $(window).load(function(){
 
 <?php foreach ($user_message as $msg) { ?>
 
-                                                            <a href="<?php echo base_url('chat/' . $msg['not_from_id']); ?>" class="clearfix">
-                                                                <li> 
-                                                                    <div class="notification-database">
-                                                                        <div class="notification-pic" >
-                                                                            <img src="<?php echo base_url(USERIMAGE . $msg['user_image']); ?>" >
-                                                                        </div>
-                                                                        <div class="notification-data-inside">
-                                                                            <h6><?php echo ucwords($msg['first_name']) . " " . ucwords($msg['last_name']); ?></h6>
-                                                                            <div >
-                                                                                <?php
-                                                                                $contition_array = array('message.message_from' => $msg['not_from_id'], 'message.message_to' => $userid);
+                                                        <a href="<?php echo base_url('chat/' . $msg['not_from_id']); ?>" class="clearfix">
+                                                            <li> 
+                                                                <div class="notification-database">
+                                                                    <div class="notification-pic" >
+                                                                        <img src="<?php echo base_url(USERIMAGE . $msg['user_image']); ?>" >
+                                                                    </div>
+                                                                    <div class="notification-data-inside">
+                                                                        <h6><?php echo ucwords($msg['first_name']) . " " . ucwords($msg['last_name']); ?></h6>
+                                                                        <div >
+                                                                            <?php
+                                                                            $contition_array = array('message.message_from' => $msg['not_from_id'], 'message.message_to' => $userid);
 
 
-                                                                                $data = array(' message.*');
+                                                                            $data = array(' message.*');
 //$data = array('notification.*');
-                                                                                $messages = $this->common->select_data_by_condition('message', $contition_array, $data, $sortby = 'message_id', $orderby = 'desc', $limit = '', $offset = '', $join_str = "", $groupby = '');
+                                                                            $messages = $this->common->select_data_by_condition('message', $contition_array, $data, $sortby = 'message_id', $orderby = 'desc', $limit = '', $offset = '', $join_str = "", $groupby = '');
 //echo '<pre>'; print_r($messages); die();
-                                                                                echo $messages[0]['message'];
-                                                                                ?>
+                                                                            echo $messages[0]['message'];
+                                                                            ?>
 
-                                                                            </div>
-                                                                            <div ><?php echo date('d M ', strtotime($msg['message_create_date'])); ?></div>
                                                                         </div>
-
+                                                                        <div ><?php echo date('d M ', strtotime($msg['message_create_date'])); ?></div>
                                                                     </div>
 
-                                                                </li>
-                                                            </a>
+                                                                </div>
+
+                                                            </li>
+                                                        </a>
 <?php } ?>
                                                     </ul>
                                                 </div>  
@@ -718,7 +834,7 @@ $(window).load(function(){
                                         </div>
                                 </li>
 
-                           <!--  <li><a href="<?php //echo base_url('friendrequest')    ?>">Friend Request <i class="fa fa-user" aria-hidden="true"></i></a></li> -->
+                           <!--  <li><a href="<?php //echo base_url('friendrequest')     ?>">Friend Request <i class="fa fa-user" aria-hidden="true"></i></a></li> -->
 
                                 <!-- BEGIN USER LOGIN DROPDOWN -->
                                 <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
@@ -726,17 +842,17 @@ $(window).load(function(){
 
                                     <a class="dropbtn" href="javascript:void(0)" type="button" id="menu1" data-toggle="dropdown" >
                                         <!-- <div id="hi" class="notifications"> -->
-                                            <?php if ($userdata[0]['user_image'] != '') { ?>
-                                            <img alt="" class="img-circle" src="<?php echo base_url(USERIMAGE . $userdata[0]['user_image']); ?>" height="50" width="50" alt="Smiley face" />
+<?php if ($userdata[0]['user_image'] != '') { ?>
+                                        <img alt="" class="img-circle" src="<?php echo base_url(USERIMAGE . $userdata[0]['user_image']); ?>" height="50" width="50" alt="Smiley face" />
                                             <?php } else { ?>
-                                            <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" height="50" width="50" alt="Smiley face" />
-<?php } ?>
+                                        <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" height="50" width="50" alt="Smiley face" />
+                                            <?php } ?>
 
                                         <span class="username username-hide-on-mobile"> <?php
-if (isset($userdata[0]['first_name'])) {
-    echo $userdata[0]['first_name'];
-}
-?> </span>
+                                            if (isset($userdata[0]['first_name'])) {
+                                            echo $userdata[0]['first_name'];
+                                            }
+                                            ?> </span>
                                         <i class="fa fa-angle-down" ></i>
                                     </a>
 
@@ -752,10 +868,10 @@ if (isset($userdata[0]['first_name'])) {
                                                 <i class="fa fa-exchange" aria-hidden="true"></i> Change password </a>
                                         </li>
                                         <li class="logout">
-                                           <a href="<?php echo base_url('dashboard/logout')    ?>">
-                                           <i class="fa fa-power-off" aria-hidden="true"></i> Logout</a> 
+                                            <a href="<?php echo base_url('dashboard/logout') ?>">
+                                                <i class="fa fa-power-off" aria-hidden="true"></i> Logout</a> 
 
-<!--                                            Logout-->
+                                            <!--                                            Logout-->
                                         </li>
 
                                     </ul>
@@ -850,7 +966,7 @@ window.onclick = function(event) {
     -->
 
     <!-- Extra js if not work then add Start-->
-    <!-- <script type="text/javascript" src="<?php //echo base_url('js/jquery.min-notification.js');    ?>"></script> -->
+    <!-- <script type="text/javascript" src="<?php //echo base_url('js/jquery.min-notification.js');     ?>"></script> -->
     <!-- Extra js if not work then add End-->
 
 
