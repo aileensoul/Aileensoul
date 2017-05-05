@@ -1111,6 +1111,14 @@ class Business_profile extends MY_Controller {
 
 
         $updatdata = $this->common->update_data($data, 'business_profile_post', 'business_profile_post_id', $id);
+
+        $dataimage = array(
+            'is_deleted' => 0,
+            'modify_date' => date('Y-m-d', time())
+        );
+
+        //echo "<pre>"; print_r($dataimage); die();
+        $updatdata = $this->common->update_data($dataimage, 'post_image', 'post_id', $id);
     }
 
     public function business_profile_addpost() {
