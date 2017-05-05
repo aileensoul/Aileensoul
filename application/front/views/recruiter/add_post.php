@@ -829,7 +829,7 @@ $('#datepicker').datetimepicker({
 //select2 autocomplete End for Location
 </script>
 <script>
-var CheckValue11 = function() { 
+var CheckValue11 = function() { //alert('hi');
    var firstBox = $('#minsal').val();
         var secondBox = $('#maxsal').val();
         
