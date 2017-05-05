@@ -737,7 +737,7 @@ $unique=array_merge($business_post,$business_profile);
         'join_table_id' => 'job_reg.user_id',
         'from_table_id' => 'job_add_workexp.user_id')
 ); 
-      $contition_array = array('job_reg.city_id' => $search_place[0], 'job_reg.status' =>'1');
+      $contition_array = array('job_reg.city_id' => $search_place[0], 'job_reg.status' =>'1','job_reg.user_id !=' => $userid);
       
         $unique= $this->data['results'] =  $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str , $groupby = '');
 
@@ -768,7 +768,7 @@ $unique=array_merge($business_post,$business_profile);
         'join_table_id' => 'job_reg.user_id',
         'from_table_id' => 'job_add_workexp.user_id')
 ); 
-            $contition_array = array('job_reg.status'=>'1' );
+            $contition_array = array('job_reg.status'=>'1','job_reg.user_id !=' => $userid );
            $jobdata=$userdata['data'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
             // echo "<pre>"; print_r($jobdata); die();
 
@@ -807,7 +807,7 @@ $unique=array_merge($business_post,$business_profile);
         'from_table_id' => 'job_add_workexp.user_id')
 );
          
-         $contition_array1 = array('job_add_edu.pass_year'=>$rec_search);
+         $contition_array1 = array('job_add_edu.pass_year'=>$rec_search,'job_reg.user_id !=' => $userid);
 
          $yeardata=$userdata['data'] = $this->common->select_data_by_condition('job_reg', $contition_array1, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str , $groupby = '');
          
@@ -825,7 +825,7 @@ $unique=array_merge($business_post,$business_profile);
         'from_table_id' => 'job_add_workexp.user_id')
 );
 
-          $contition_array2 = array('job_reg.gender'=>$rec_search);
+          $contition_array2 = array('job_reg.gender'=>$rec_search,'job_reg.user_id !=' => $userid);
 
          $genderdata=$userdata['data'] = $this->common->select_data_by_condition('job_reg', $contition_array2, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -843,8 +843,9 @@ $unique=array_merge($business_post,$business_profile);
         'from_table_id' => 'job_add_workexp.user_id')
 );
            $search_condition = "(job_add_workexp.jobtitle LIKE '%$rec_search%' or job_add_workexp.experience_year LIKE '%$rec_search%' or job_add_workexp.experience_month LIKE '%$rec_search%')";
+               $contition_array = array('job_reg.user_id !=' => $userid);
           
-          $results1=$jobprofiledata['data'] = $this->common->select_data_by_search('job_reg', $search_condition, $contition_array = array(), $data , $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
+          $results1=$jobprofiledata['data'] = $this->common->select_data_by_search('job_reg', $search_condition, $contition_array, $data , $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
         // echo "<pre>"; print_r($results1); die();
 
           
@@ -861,7 +862,7 @@ $unique=array_merge($business_post,$business_profile);
         'from_table_id' => 'job_add_workexp.user_id')
 );
         
-          $contition_array = array('job_reg.designation'=>$rec_search);
+          $contition_array = array('job_reg.designation'=>$rec_search,'job_reg.user_id !=' => $userid);
   
           $jobdata=$userdata['data'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -878,7 +879,7 @@ $unique=array_merge($business_post,$business_profile);
         'from_table_id' => 'job_add_workexp.user_id')
 );
 
-          $contition_array = array('job_reg.other_skill'=>$rec_search);
+          $contition_array = array('job_reg.other_skill'=>$rec_search,'job_reg.user_id !=' => $userid);
   
           $jobdata=$userdata['data'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         // echo "<pre>"; print_r($designationdata); die();
@@ -901,7 +902,7 @@ $unique=array_merge($business_post,$business_profile);
         'from_table_id' => 'job_add_workexp.user_id')
 );
 
-          $contition_array = array('job_add_edu.stream' => $recsearch1);
+          $contition_array = array('job_add_edu.stream' => $recsearch1,'job_reg.user_id !=' => $userid);
 
 
         $yeardata=$userdata['data'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str , $groupby = '');
@@ -929,7 +930,7 @@ $unique=array_merge($business_post,$business_profile);
         'from_table_id' => 'job_add_workexp.user_id')
 );
 
-           $contition_array = array('job_add_edu.degree' => $recsearch);
+           $contition_array = array('job_add_edu.degree' => $recsearch,'job_reg.user_id !=' => $userid);
 
 
         $yeardata=$userdata['data'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str , $groupby = '');
@@ -997,7 +998,7 @@ $unique=array_merge($business_post,$business_profile);
         'join_table_id' => 'job_reg.user_id',
         'from_table_id' => 'job_add_workexp.user_id')
 ); 
-            $contition_array = array('job_reg.status'=>'1', 'job_reg.city_id' => $search_place[0] );
+            $contition_array = array('job_reg.status'=>'1', 'job_reg.city_id' => $search_place[0] ,'job_reg.user_id !=' => $userid);
            $jobdata=$userdata['data'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str , $groupby = '');
             // echo "<pre>"; print_r($recdata); die();
 
@@ -1039,7 +1040,7 @@ $unique=array_merge($business_post,$business_profile);
         'from_table_id' => 'job_add_workexp.user_id')
 );
          
-         $contition_array1 = array('job_add_edu.pass_year'=>$rec_search);
+         $contition_array1 = array('job_add_edu.pass_year'=>$rec_search,'job_reg.user_id !=' => $userid);
 
          $adddata=$userdata['data'] = $this->common->select_data_by_condition('job_reg', $contition_array1, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str , $groupby = '');
          
@@ -1056,7 +1057,7 @@ $unique=array_merge($business_post,$business_profile);
         'join_table_id' => 'job_reg.user_id',
         'from_table_id' => 'job_add_workexp.user_id')
 );
-           $contition_array = array('job_reg.designation'=>$recsearch1);
+           $contition_array = array('job_reg.designation'=>$recsearch1,'job_reg.user_id !=' => $userid);
   
           $jobdata=$userdata['data'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
          // echo "<pre>"; print_r($designationdata);
@@ -1073,7 +1074,7 @@ $unique=array_merge($business_post,$business_profile);
         'from_table_id' => 'job_add_workexp.user_id')
 );
 
-           $contition_array = array('job_reg.other_skill'=>$rec_search);
+           $contition_array = array('job_reg.other_skill'=>$rec_search,'job_reg.user_id !=' => $userid);
   
           $jobdata=$userdata['data'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -1090,7 +1091,7 @@ $unique=array_merge($business_post,$business_profile);
         'join_table_id' => 'job_reg.user_id',
         'from_table_id' => 'job_add_workexp.user_id')
 );
-          $contition_array2 = array('job_reg.gender'=>$rec_search,  'job_reg.city_id' => $search_place[0] );
+          $contition_array2 = array('job_reg.gender'=>$rec_search,  'job_reg.city_id' => $search_place[0],'job_reg.user_id !=' => $userid );
 
          $genderdata=$userdata['data'] = $this->common->select_data_by_condition('job_reg', $contition_array2, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -1111,7 +1112,7 @@ $unique=array_merge($business_post,$business_profile);
 );
             
               $search_condition = "(job_add_workexp.jobtitle LIKE '%$rec_search%' or job_add_workexp.experience_year LIKE '%$rec_search%' or job_add_workexp.experience_month LIKE '%$rec_search%')";
-               $contition_array = array('job_add_workexp.city_id' => $search_place[0] );
+               $contition_array = array('job_add_workexp.city_id' => $search_place[0] ,'job_reg.user_id !=' => $userid);
           
           $results1=$jobprofiledata['data'] = $this->common->select_data_by_search('job_reg', $search_condition, $contition_array, $data , $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
        //echo "<pre>"; print_r($results1); die();
@@ -1134,7 +1135,7 @@ $unique=array_merge($business_post,$business_profile);
         'from_table_id' => 'job_add_workexp.user_id')
 );
 
-          $contition_array = array('job_add_edu.stream' => $recsearch1);
+          $contition_array = array('job_add_edu.stream' => $recsearch1,'job_reg.user_id !=' => $userid);
 
 
         $adddata=$userdata['data'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str , $groupby = '');
@@ -1161,7 +1162,7 @@ $unique=array_merge($business_post,$business_profile);
         'join_table_id' => 'job_reg.user_id',
         'from_table_id' => 'job_add_workexp.user_id')
 );
-           $contition_array = array('job_add_edu.degree' => $recsearch);
+           $contition_array = array('job_add_edu.degree' => $recsearch,'job_reg.user_id !=' => $userid);
 
 
         $adddata=$userdata['data'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str , $groupby = '');
