@@ -366,6 +366,8 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
 
                                 <h3> Followers</h3>
                                  <div class="contact-frnd-post">
+
+                                 <?php if(count($userlist) > 0){ ?>
                               
                         <?php foreach ($userlist as $user) { ?>
                                   <div class="job-contact-frnd ">
@@ -412,7 +414,7 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
                                <!--  category end -->
                             </li>
                             
-                            <li class="fr">
+                            <li class="fr" id ="<?php echo "frfollow" . $user['follow_from']; ?>">
 
                               <?php
                  
@@ -453,6 +455,16 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
                          </div>
                                                         <?php } ?>
                                   </div>
+
+
+                                  <?php }else{?>
+
+                            <div class="text-center rio">
+                            <h4 class="page-heading  product-listing" style="border:0px;margin-bottom: 11px;">No Followers Found.</h4>
+                           </div>
+
+                                   <?php }?>
+                                 
                                         <div class="col-md-1">
                                         </div>
                                     </div>
@@ -771,10 +783,11 @@ function followuser_two(clicked_id)
                   // return false;
                //$('.' + 'fruser_list' + clicked_id).html(data);
 
-               $('.' + 'follow_btn_' + clicked_id).html(data);
-               $('.' + 'follow_btn_' + clicked_id).removeClass('user_btn');
-               $('.' + 'follow_btn_' + clicked_id).addClass('user_btn_h');
-               $('#unfollow' + clicked_id).html('');
+               // $('.' + 'follow_btn_' + clicked_id).html(data);
+               // $('.' + 'follow_btn_' + clicked_id).removeClass('user_btn');
+               // $('.' + 'follow_btn_' + clicked_id).addClass('user_btn_h');
+               // $('#unfollow' + clicked_id).html('');
+               $('#' + 'frfollow' + clicked_id).html(data);
                     
                 }
             }); 

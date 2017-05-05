@@ -2735,13 +2735,14 @@
 <script type="text/javascript">
     function followuser(clicked_id)
     {
-        $("#fad" + clicked_id).fadeOut(4000);
+       
         $.ajax({
             type: 'POST',
             url: '<?php echo base_url() . "business_profile/follow" ?>',
             data: 'follow_to=' + clicked_id,
             success: function (data) {
-                $('.' + 'fr' + clicked_id).html(data);
+                $('.' + 'fr' + clicked_id).html(data); 
+                 $("#fad" + clicked_id).fadeOut(6000);
             }
         });
     }
@@ -2749,7 +2750,7 @@
 <script type="text/javascript">
     function followclose(clicked_id)
     {
-        $("#fad" + clicked_id).fadeOut(3000);
+        $("#fad" + clicked_id).fadeOut(4000);
     }
 </script>
 <!--follow like script end -->
