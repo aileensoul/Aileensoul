@@ -416,7 +416,8 @@
 
             <li><a  class="display_inline" title="Recruiter Name" href="<?php echo base_url('recruiter/rec_profile/' . $post['user_id'].'?page=job'); ?>"><?php
              $cache_time = $this->db->get_where('recruiter', array('user_id' => $post['user_id']))->row()->rec_firstname;
-             echo ucwords($cache_time);
+              $cache_time1 = $this->db->get_where('recruiter', array('user_id' => $post['user_id']))->row()->rec_lastname;
+             echo ucwords($cache_time)."".ucwords($cache_time1);
            ?></a></li>
        </ul>
           </div>
