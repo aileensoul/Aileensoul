@@ -4541,14 +4541,14 @@ class Business_profile extends MY_Controller {
 
 
 
-        $contition_array = array('business_profile_post_comment_id' => $post_image_comment_id);
-        $busimglike = $this->data['busimglike'] = $this->common->select_data_by_condition('business_profile_post_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
+         $contition_array = array('business_profile_post_comment_id' => $post_image_comment_id);
+         $busimglike = $this->data['busimglike'] = $this->common->select_data_by_condition('business_profile_post_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+//echo "<pre>"; print_r($busimglike); die();
        
 
-       $contition_array = array('business_profile_post_id' => $busimglike[0]["business_profile_post_id"]);
-        $busimglikepost = $this->data['busimglikepost'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
+        $contition_array = array('business_profile_post_id' => $busimglike[0]['business_profile_post_id']);
+         $busimglikepost = $this->data['busimglikepost'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+//echo "<pre>"; print_r($busimglikepost); die();
 
         if (!$likecommentuser) {
 
@@ -4566,7 +4566,7 @@ class Business_profile extends MY_Controller {
             // insert notification
 
             if($busimglikepost[0]['user_id'] == $userid){}else{ 
-            $data = array(
+            $datanotification = array(
                 'not_type' => 5,
                 'not_from_id' => $userid,
                 'not_to_id' => $busimglikepost[0]['user_id'] ,
@@ -4575,8 +4575,8 @@ class Business_profile extends MY_Controller {
                 'not_from' => 3,
                 'not_img' => 6
             );
-            //echo "<pre>"; print_r($data); die();
-            $insert_id = $this->common->insert_data_getid($data, 'notification');
+            //echo "<pre>"; print_r($datanotification); die();
+            $insert_id = $this->common->insert_data_getid($datanotification, 'notification');
             }
             // end notoification
 
