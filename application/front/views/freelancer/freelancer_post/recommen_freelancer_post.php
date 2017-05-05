@@ -535,7 +535,7 @@ $data = $this->common->select_data_by_condition('save', $contition_array, $data 
 
 
                                                 </div>
-                                                </div>
+                                                
                                                 <div class="col-md-1">
                                                 </div>
                                            
