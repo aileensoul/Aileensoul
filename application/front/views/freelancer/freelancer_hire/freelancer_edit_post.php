@@ -129,7 +129,7 @@
                                 
                                 <select name="year" id="year">
                                     <option value="<?php echo $freelancerpostdata[0]['post_exp_year']?>"><?php echo $freelancerpostdata[0]['post_exp_year']." Year"?></option>
-                                    <option >Year</option>
+                                    <option>Year</option>
                                     <option value="1">1 Year</option>
                                     <option value="2">2 Year</option>
                                     <option value="3">3 Year</option>
@@ -155,9 +155,7 @@
                                 <?php echo form_error('year'); ?>
 
                                 <select name="month" id="month">
-                                <?php if($freelancerpostdata[0]['post_exp_month']){?>
                                     <option value="<?php echo $freelancerpostdata[0]['post_exp_month']?> "><?php echo $freelancerpostdata[0]['post_exp_month']." Month"?></option>
-                                    <?php }?>
                                     <option >Month</option>
                                     <option value="0">0 Month</option>
                                    <option value="1">1 Month</option>

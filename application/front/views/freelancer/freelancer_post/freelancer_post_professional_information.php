@@ -112,7 +112,7 @@
                                 <label>What is your skills ? :<span style="color:red">*</span></label>
 
 
-                                <select name="skills[]" id ="skill1" class="keyskil " multiple="multiple" style="width:100%;" >
+                                <select name="skills[]" id ="skill1" class="keyskil" multiple="multiple" style="width:100%;" >
 
                                     <?php foreach ($skill1 as $skill) { ?>
                                         <option value="<?php echo $skill['skill_id']; ?>"><?php echo $skill['skill']; ?></option>
@@ -173,6 +173,7 @@
 
                                 <select name="experience_month" id="experience_month" placeholder="Month" class="experience_month col-md-5" style="margin-right: 5px;">
                                     <option value="" selected option disabled>Month</option>
+                                    <option value="0 month"  <?php if ($experience_month1 == "0 month") echo 'selected'; ?>>0 Month</option>
                                     <option value="1 month"  <?php if ($experience_month1 == "1 month") echo 'selected'; ?>>1 Month</option>
                                     <option value="2 month"  <?php if ($experience_month1 == "2 month") echo 'selected'; ?>>2 Month</option>
                                     <option value="3 month"  <?php if ($experience_month1 == "3 month") echo 'selected'; ?>>3 Month</option>
@@ -246,6 +247,7 @@
         $("#freelancer_post_professional").validate({
 
             ignore: '*:not([name])',
+          //  ignore: ":hidden",
 
             rules: {
 
@@ -302,13 +304,13 @@
 
                 'skills[]': {
 
-                    require_from_group: "You must either fill out 'Keyskills' or 'Other Skills'"
+                    require_from_group: "You must either fill out 'skills' or 'Other Skills'"
 
                 },
 
                 otherskill: {
 
-                    require_from_group: "You must either fill out 'Keyskills' or 'Other Skills'"
+                    require_from_group: "You must either fill out 'skills' or 'Other Skills'"
                 },
 
                 skill_description: {

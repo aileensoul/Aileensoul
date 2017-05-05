@@ -50,10 +50,10 @@
                             <h3>Education Info</h3>
                             <?php echo form_open(base_url('freelancer/freelancer_post_education_insert'), array('id' => 'freelancer_post_education', 'name' => 'freelancer_post_education', 'class' => 'clearfix')); ?>
 
-                           <div>
+                           <!-- <div>
                                    <span style="color:#7f7f7e;padding-left: 8px;">( </span><span style="color:red">*</span><span style="color:#7f7f7e"> )</span> <span style="color:#7f7f7e">Indicates required field</span>
                                 </div>
-
+ -->
 
 
                             <?php
@@ -68,7 +68,7 @@
 
 
                             <fieldset <?php if ($degree) { ?> class="error-msg" <?php } ?>>
-                                <label>Higher Degree:<span style="color:red">*</span></label>
+                                <label>Higher Degree:<!-- <span style="color:red">*</span> --></label>
                                 <select name="degree" id="degree">
                                     <option value="">Select your degree</option>
 
@@ -95,7 +95,7 @@
                             </fieldset>
 
                             <fieldset <?php if ($stream) { ?> class="error-msg" <?php } ?>>
-                                <label>Stream:<span style="color:red">*</span></label>
+                                <label>Stream:<!-- <span style="color:red">*</span> --></label>
                                 <select name="stream" id="stream">
                                     <?php
                                     foreach ($stream_data as $cnt) {
@@ -116,7 +116,7 @@
                             </fieldset>
 
                             <fieldset <?php if ($univercity) { ?> class="error-msg" <?php } ?>>
-                                <label>University:<span style="color:red">*</span></label>
+                                <label>University:<!-- <span style="color:red">*</span> --></label>
                                 <select name="university" id="university" >
                                     <option value="" selected option disabled>Select your University</option>
 <?php
@@ -142,7 +142,7 @@ if (count($university_data) > 0) {
                             </fieldset>
 
                             <fieldset <?php if ($college) { ?> class="error-msg" <?php } ?>>
-                                <label>College:<span style="color:red">*</span></label>
+                                <label>College:<!-- <span style="color:red">*</span> --></label>
                                 <input type="text" name="college" id="college" placeholder="Enter college"  value="<?php if ($college1) {
                                         echo $college1;
                                     } ?>">
@@ -150,7 +150,7 @@ if (count($university_data) > 0) {
                             </fieldset>
 
                             <fieldset <?php if ($percentage) { ?> class="error-msg" <?php } ?>>
-                                <label>Percentage:<span style="color:red">*</span></label>
+                                <label>Percentage:<!-- <span style="color:red">*</span> --></label>
                                 <input type="text" name="percentage" placeholder="Enter percentage" value="<?php if ($percentage1) {
     echo $percentage1;
 } ?>">
@@ -158,7 +158,7 @@ if (count($university_data) > 0) {
                             </fieldset>
 
                             <fieldset <?php if ($passingyear) { ?> class="error-msg" <?php } ?>>
-                                <label>Year of passing:<span style="color:red">*</span></label>
+                                <label>Year of passing:<!-- <span style="color:red">*</span> --></label>
                                 <select name="passingyear">
                                     <option value="" selected option disabled>Select your Passing year</option>
                                     <?php
@@ -244,7 +244,7 @@ if (count($university_data) > 0) {
     </script>
 
 
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
 
         //validation for edit email formate form
 
@@ -332,5 +332,5 @@ if (count($university_data) > 0) {
             });
         });
     </script>
-
+ -->
 

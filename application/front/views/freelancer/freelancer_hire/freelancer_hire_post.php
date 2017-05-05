@@ -492,8 +492,8 @@ echo $freelancer_hire_header2;} ?>
                                                                     <b>Required Experience</b>
                                                                     <span>
                                                                         <?php if($post['post_exp_month'] ||  $post['post_exp_year']){
-            echo $post['post_exp_year'];   ?> year&nbsp;&nbsp;<?php  echo $post['post_exp_month'];}
-                else{echo PROFILENA;} ?> month
+            echo $post['post_exp_year'];   ?> year&nbsp;&nbsp;<?php  echo $post['post_exp_month'] ." month";}
+                else{echo PROFILENA;} ?> 
                                                                     </span>
                                                                 </li>
 
@@ -546,7 +546,7 @@ $contition_array = array('from_id' => $userid, 'to_id' => $post['user_id'],'save
 $data = $this->common->select_data_by_condition('save', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
             if ($data){
                 ?>
-       <a class="applypost  button">Saved</a>
+       <a class="saved  button">Saved</a>
     <?php } else { ?>
                 <input type="hidden" name="saveuser"  id="saveuser" value= "<?php echo $data[0]['save_id']; ?>"> 
 <a id="<?php echo $post['user_id']; ?>" onClick="savepopup(<?php echo $post['user_id']; ?>)" href="javascript:void(0);" class="<?php echo 'saveduser' . $post['user_id']; ?> applypost button">Save</a>
