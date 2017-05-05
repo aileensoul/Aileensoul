@@ -515,7 +515,7 @@ $freelancerapply1 = $this->data['freelancerapply'] = $this->common->select_data_
                                             </div>
                                 <?php
                         } ?>
-                        </div>
+                     
 
 
                     </div>

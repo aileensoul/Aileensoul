@@ -1755,7 +1755,7 @@ class Business_profile extends MY_Controller {
             if ($update) {
 
                 $follow = '<div id="unfollowdiv" class="user_btn">';
-                $follow .= '<button id="unfollow' . $business_id . '" onClick="unfollowuser(' . $business_id . ')">
+                $follow .= '<button class= "bg_following" id="unfollow' . $business_id . '" onClick="unfollowuser(' . $business_id . ')">
                               Following
                       </button>';
                 $follow .= '</div>';
@@ -1866,8 +1866,8 @@ class Business_profile extends MY_Controller {
 
             if ($update) {
 
-                $follow = '<div>';
-                $follow = '<button id="unfollow' . $business_id . '" onClick="unfollowuser_two(' . $business_id . ')">
+                $follow = '<div class="user_btn_f follow_btn_' .$business_id.'" id="unfollowdiv">';
+                $follow .= '<button class="bg_following" id="unfollow' . $business_id . '" onClick="unfollowuser_two(' . $business_id . ')">
                               Following
                       </button>';
                 $follow .= '</div>';
@@ -1896,11 +1896,11 @@ class Business_profile extends MY_Controller {
             $insert_id = $this->common->insert_data_getid($data, 'notification');
             // end notoification
             if ($insert) {
-                $follow = '<div>';
+                $follow = '<div class="user_btn_f follow_btn_' .$business_id.'" id="unfollowdiv">';
                 // $follow = '<button id="unfollow' . $business_id . '" onClick="unfollowuser(' . $business_id . ')">
                 //                Following
                 //       </button>';
-                $follow = '<button id="unfollow' . $business_id . '" onClick="unfollowuser_two(' . $business_id . ')"><span>Following</span></button>';
+                $follow .= '<button class="bg_following" id="unfollow' . $business_id . '" onClick="unfollowuser_two(' . $business_id . ')"><span>Following</span></button>';
                 $follow .= '</div>';
                 echo $follow;
             }
@@ -1977,7 +1977,20 @@ class Business_profile extends MY_Controller {
                 $unfollow = '<div>(';
                 $unfollow .= '' . $followingdatacount . '';
                 $unfollow .= ')</div>';
-                echo $unfollow;
+
+
+                if(count($followingotherdata) == 0){
+              $notfound = '<div>'; 
+             $notfound .= '<div class="text-center rio">';
+             $notfound .= '<h4 class="page-heading  product-listing" style="border:0px;margin-bottom: 11px;">No Following Found.</h4>';
+             $notfound .= '</div></div>';
+               }
+
+              echo json_encode(
+                array("unfollow" => $unfollow,
+                    "notfound" => $notfound,
+                    "notcount" => $followingdatacount,
+                    ));
             }
         }
     }

@@ -466,6 +466,10 @@
 
                 </div>
 
+                <?php 
+                $userid = $this->session->userdata('aileenuser');
+
+                if($businessdata1[0]['user_id'] != $userid){?>
                 <div class="col-md-3 padding_les">
                     <div class="flw_msg_btn fr">
                         <ul>
@@ -506,7 +510,11 @@
 
                         </ul>   
                     </div>
-                </div></div>
+                </div>
+                <?php }?>
+
+
+                </div>
 
             <!-- pickup -->
         </div>

@@ -356,6 +356,7 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
                                 <h3> Following</h3>
                                  <div class="contact-frnd-post">
                               
+                              <?php if(count($userlist ) > 0){?>
                         <?php foreach ($userlist as $user) { ?>
                                   <div class="job-contact-frnd" id="<?php echo "removefollow" . $user['follow_to']; ?>">
 
@@ -470,6 +471,14 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
                                                         
                                   </div>
                                   <?php } ?>
+
+                                  <?php }else{?>
+
+                            <div class="text-center rio">
+                            <h4 class="page-heading  product-listing" style="border:0px;margin-bottom: 11px;">No Following Found.</h4>
+                        </div>
+
+                                   <?php }?>
                                         <div class="col-md-1">
                                         </div>
                                     </div>
@@ -831,17 +840,22 @@ function followuser_two(clicked_id)
 function unfollowuser_list(clicked_id)
 { 
   
-   $('#' + 'removefollow' + clicked_id).fadeOut(2000);
+  
 
    $.ajax({
                 type:'POST',
                 url:'<?php echo base_url() . "business_profile/unfollow_following" ?>',
+                dataType: 'json',
                  data:'follow_to='+clicked_id,
                 success:function(data){ 
 
-               $('.' + 'frusercount').html(data);
-
-                    
+                $('.' + 'frusercount').html(data.unfollow);
+               if(data.notcount == 0){
+                 $('.' + 'contact-frnd-post').html(data.notfound);
+               }else{ 
+              $('#' + 'removefollow' + clicked_id).fadeOut(4000);
+                 }   
+     
                 }
             }); 
 }
