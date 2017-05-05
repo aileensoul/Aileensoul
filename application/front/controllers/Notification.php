@@ -504,10 +504,46 @@ public function update_msg_noti()
         $postdata = $this->data['freelancerpostdata'] = $this->common->select_data_by_condition('freelancer_post', $contition_array, $data, $sortby = 'freelancer_post.created_date', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
      //  echo "<pre>"; print_r($postdata); die();
          $this->load->view('Notification/freelancer_hire_post', $this->data);
-    }       
+    } 
     
-    public function post_img($id) {
-        
-        $this->load->view('notification/image');
+//    public function art_post_like($id){
+//        $userid = $this->session->userdata('aileenuser');
+//        $contition_array = array('user_id' => $userid, 'status' => '1');
+//        $this->data['artisticdata'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+//        $contition_array = array('art_post_id' => $id, 'status' => '1');
+//        $this->data['art_data'] = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+//        $this->load->view('notification/art_like', $this->data);
+//    }
+//    
+//    public function bus_post_like($id){
+//        $userid = $this->session->userdata('aileenuser');
+//        $contition_array = array('user_id' => $userid, 'status' => '1');
+//        $this->data['artisticdata'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+//        $contition_array = array('art_post_id' => $id, 'status' => '1');
+//        $this->data['art_data'] = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+//        $this->load->view('notification/art_like', $this->data);
+//    }
+    
+    public function art_post_img($id) {
+         $userid = $this->session->userdata('aileenuser');
+        $contition_array = array('user_id' => $userid, 'status' => '1');
+        $this->data['artisticdata'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+        $contition_array = array('art_post_id' => $id, 'status' => '1');
+        $this->data['art_data'] = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+        $this->load->view('notification/art_image', $this->data);
     }
+    
+    public function bus_post_img($id){
+         $userid = $this->session->userdata('aileenuser');
+        $contition_array = array('user_id' => $userid, 'status' => '1');
+        $this->data['businessdata'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+        $contition_array = array('business_profile_post_id' => $id, 'status' => '1');
+        $this->data['busienss_data'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        $this->load->view('notification/bus_image', $this->data);
+    }
+    
+    
 }

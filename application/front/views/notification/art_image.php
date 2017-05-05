@@ -748,9 +748,9 @@
                                                 ?>
 
                                                 <div id="basic-responsive-image" style="height: 50%; width: 100%; margin-bottom: 10px;">
-                                                    <img src="<?php echo base_url(ARTPOSTIMAGE . str_replace(" ", "_", $data['image_name'])) ?>" style="width: 100%; height: 100%;" onclick="openModal();
-                                                                    currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
-<!--                                                    <img src="<?php //echo base_url(ARTPOSTIMAGE . str_replace(" ", "_", $data['image_name'])) ?>" style="width: 100%; height: 100%;"  class="hover-shadow cursor">-->
+<!--                                                    <img src="<?php //echo base_url(ARTPOSTIMAGE . str_replace(" ", "_", $data['image_name'])) ?>" style="width: 100%; height: 100%;" onclick="openModal();
+                                                                    currentSlide(<?php// echo $i; ?>)" class="hover-shadow cursor">-->
+                                                    <img src="<?php echo base_url(ARTPOSTIMAGE . str_replace(" ", "_", $data['image_name'])) ?>" style="width: 100%; height: 100%;"  class="hover-shadow cursor">
                                                 </div>
 
     <?php } elseif (in_array($ext, $allowesvideo)) { ?>
@@ -1506,9 +1506,9 @@ $art_userimage = $this->db->get_where('art_reg', array('user_id' => $art_data[0]
                                                     });
                         </script>
                         <script>
-                            function openModal() {
+                           // function openModal() {
                                 document.getElementById('myModal1').style.display = "block";
-                            }
+                         //   }
                             function closeModal() {
                                 document.getElementById('myModal1').style.display = "none";
                             }
@@ -1517,9 +1517,9 @@ $art_userimage = $this->db->get_where('art_reg', array('user_id' => $art_data[0]
                             function plusSlides(n) {
                                 showSlides(slideIndex += n);
                             }
-                            function currentSlide(n) {
-                                showSlides(slideIndex = n);
-                            }
+                           // function currentSlide(n) {
+                                showSlides(slideIndex = 1);
+                           // }
                             function showSlides(n) {
                                 var i;
                                 var slides = document.getElementsByClassName("mySlides");
