@@ -1693,8 +1693,10 @@ abbr { cursor: help; }
 .follow-li-text a{    overflow: hidden;
     display: block;
     text-overflow: ellipsis;
-    max-width: 90%;
-    width: auto; }
+    max-width: 97%;
+    min-width: 30%;
+    white-space: nowrap;
+       }
 .win10-wrapper .profile-box {
     display: none
 }

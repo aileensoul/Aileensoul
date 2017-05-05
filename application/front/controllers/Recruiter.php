@@ -1447,6 +1447,8 @@ class Recruiter extends MY_Controller {
 
         $userid = $this->session->userdata('aileenuser');
 
+        //echo $userid; die();
+
         $contition_array = array('user_id' => $userid, 'is_delete' => 0, 'status' => 1);
         $recruiterdata = $this->data['recruiterdata'] = $this->common->select_data_by_condition('rec_post', $contition_array, $data = '*', $sortby = 'post_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         //echo "<pre>"; print_r($this->data['recruiterdata']); die();
@@ -1473,10 +1475,12 @@ class Recruiter extends MY_Controller {
                 'join_table_id' => 'job_reg.user_id',
                 'from_table_id' => 'job_add_workexp.user_id')
         );
+         $contition_array = array('job_reg.user_id !=' => $userid);
 
-        $candidate = $this->data['candidate'] = $this->common->select_data_by_condition('job_reg', $contition_array = array(), $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
+    
+        $candidate = $this->data['candidate'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 
-      //   echo "<pre>"; print_r($candidate); die();
+     // echo "<pre>"; print_r($candidate); die();
         // echo "<pre>"; print_r($candidate1); die();
         //  $contition_array = array('status' => '1');
         // $candidate = $this->data['edudata'] = $this->common->select_data_by_condition('job_add_edu', $contition_array, $data='*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');

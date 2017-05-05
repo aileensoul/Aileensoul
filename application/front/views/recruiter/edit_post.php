@@ -1,4 +1,4 @@
-<!-- start head -->
+  <!-- start head -->
 <?php  echo $head; ?>
     <!-- END HEAD -->
     <!-- start header -->
@@ -84,105 +84,110 @@
                         <span id="fullname-error"></span>
                         <?php echo form_error('other_skill'); ?>
                     </fieldset>
-                   <fieldset <?php if($month) {  ?> class="error-msg" <?php } ?> class="two-select-box full-width" style="    height: 12%;">
-                            <label class="control-label">Min experience:<span style="color:red">*</span></label>
-                            <select name="minmonth" class="keyskil" style="margin-right: 10px;
-    width: 48%;">
-                            <option value="" selected option disabled>Month</option>
-                            <option value="0" <?php if($postdata[0]['min_month']=="0") echo 'selected';?>>0</option>
-                            <option value="1"  <?php if($postdata[0]['min_month']=="1") echo 'selected';?>>1</option>
-                            <option value="2"  <?php if($postdata[0]['min_month']=="2") echo 'selected';?>>2</option>
-                            <option value="3"  <?php if($postdata[0]['min_month']=="3") echo 'selected';?>>3</option>
-                            <option value="4"  <?php if($postdata[0]['min_month']=="4") echo 'selected';?>>4</option>
-                            <option value="5"  <?php if($postdata[0]['min_month']=="5") echo 'selected';?>>5</option>
-                            <option value="6"  <?php if($postdata[0]['min_month']=="6") echo 'selected';?>>6</option>
-                               </select>
-                             
-                            <select name="minyear" class="keyskil">
-                            <option value="" selected option disabled>Year</option>
-                            <option value="0"  <?php if($postdata[0]['min_year']=="0") echo 'selected';?>>0</option>
-                            <option value="1" <?php if($postdata[0]['min_year']=="1") echo 'selected';?>>1</option>
-                            <option value="2" <?php if($postdata[0]['min_year']=="2") echo 'selected';?>>2</option>
-                            <option value="3" <?php if($postdata[0]['min_year']=="3") echo 'selected';?>>3</option>
-                            <option value="4" <?php if($postdata[0]['min_year']=="4") echo 'selected';?>>4</option>
-                            <option value="5" <?php if($postdata[0]['min_year']=="5") echo 'selected';?>>5</option>
-                            <option value="6" <?php if($postdata[0]['min_year']=="6") echo 'selected';?>>6</option>
-                            <option value="7" <?php if($postdata[0]['min_year']=="7") echo 'selected';?>>7</option>
-                            <option value="8" <?php if($postdata[0]['min_year']=="8") echo 'selected';?>>8</option>
-                            <option value="9" <?php if($postdata[0]['min_year']=="9") echo 'selected';?>>9</option>
-                            <option value="10" <?php if($postdata[0]['min_year']=="10") echo 'selected';?>>10</option>
-                            <option value="11" <?php if($postdata[0]['min_year']=="11") echo 'selected';?>>11</option>
-                            <option value="12" <?php if($postdata[0]['min_year']=="12") echo 'selected';?>>12</option>
-                            <option value="13" <?php if($postdata[0]['min_year']=="13") echo 'selected';?>>13</option>
-                            <option value="14" <?php if($postdata[0]['min_year']=="14") echo 'selected';?>>14</option>
-                            <option value="15" <?php if($postdata[0]['min_year']=="15") echo 'selected';?>>15</option>
-                            <option value="16" <?php if($postdata[0]['min_year']=="16") echo 'selected';?>>16</option>
-                            <option value="17" <?php if($postdata[0]['min_year']=="17") echo 'selected';?>>17</option>
-                            <option value="18" <?php if($postdata[0]['min_year']=="18") echo 'selected';?>>18</option>
-                            <option value="19" <?php if($postdata[0]['min_year']=="19") echo 'selected';?>>19</option>
-                            <option value="20" <?php if($postdata[0]['min_year']=="20") echo 'selected';?>>20</option>
-                            </select>
-                            <span id="fullname-error"></span>
-                            <?php echo form_error('month'); ?> &nbsp;&nbsp; <?php echo form_error('year'); ?>
-                        </fieldset>
+                   <fieldset <?php if ($month) { ?> class="error-msg" <?php } ?> class="two-select-box">
+                                    <label class="control-label">Minimum experience:<span style="color:red">*</span></label>
 
 
-                        <fieldset <?php if($month) {  ?> class="error-msg" <?php } ?> class="two-select-box full-width">
-                            <label class="control-label">Max experience:<span style="color:red">*</span></label>
-                            <select name="maxmonth" class="keyskil1" style="margin-right: 10px;
-    width: 48%;">
+                                    <select style="cursor:pointer;" name="minyear" class="keyskil">
+                                        <option value="">Year</option>
+                                        <option value="0">0 Year</option>
+                                        <option value="1">1 Year</option>
+                                        <option value="2">2 Year</option>
+                                        <option value="3">3 Year</option>
+                                        <option value="4">4 Year</option>
+                                        <option value="5">5 Year</option>
+                                        <option value="6">6 Year</option>
+                                        <option value="7">7 Year</option>
+                                        <option value="8">8 Year</option>
+                                        <option value="9">9 Year</option>
+                                        <option value="10">10 Year</option>
+                                        <option value="11">11 Year</option>
+                                        <option value="12">12 Year</option>
+                                        <option value="13">13 Year</option>
+                                        <option value="14">14 Year</option>
+                                        <option value="15">15 Year</option>
+                                        <option value="16">16 Year</option>
+                                        <option value="17">17 Year</option>
+                                        <option value="18">18 Year</option>
+                                        <option value="19">19 Year</option>
+                                        <option value="20">20 Year</option>
+                                    </select>
+                                    
+                                    <select style="cursor:pointer;" name="minmonth" class="keyskil">
+                                        <option value="">Month</option>
+                                        <option value="0">0 Month</option>
+                                        <option value="1">1 Month</option>
+                                        <option value="2">2 Month</option>
+                                        <option value="3">3 Month</option>
+                                        <option value="4">4 Month</option>
+                                        <option value="5">5 Month</option>
+                                        <option value="6">6 Month</option>
+                                    </select>
+                                     
+                                    <span id="fullname-error"></span>
+                                    <?php echo form_error('month'); ?> &nbsp;&nbsp; <?php echo form_error('year'); ?>
 
-                            <option value="" selected option disabled>Month</option>
-                            <option value="0" <?php if($postdata[0]['max_month']=="0") echo 'selected';?>>0</option>
-                             <option value="1" <?php if($postdata[0]['max_month']=="1") echo 'selected';?>>1</option>
-                            <option value="2" <?php if($postdata[0]['max_month']=="2") echo 'selected';?>>2</option>
-                            <option value="3" <?php if($postdata[0]['max_month']=="3") echo 'selected';?>>3</option>
-                            <option value="4" <?php if($postdata[0]['max_month']=="4") echo 'selected';?>>4</option>
-                            <option value="5" <?php if($postdata[0]['max_month']=="5") echo 'selected';?>>5</option>
-                            <option value="6" <?php if($postdata[0]['max_month']=="6") echo 'selected';?>>6</option>
-                               </select>
-                             
-                            <select name="maxyear" class="keyskil1">
-                            <option value=""  selected option disabled>Year</option>
-                            <option value="0" <?php if($postdata[0]['max_year']=="0") echo 'selected';?>>0</option>
-                            <option value="1" <?php if($postdata[0]['max_year']=="1") echo 'selected';?>>1</option>
-                            <option value="2" <?php if($postdata[0]['max_year']=="2") echo 'selected';?>>2</option>
-                            <option value="3" <?php if($postdata[0]['max_year']=="3") echo 'selected';?>>3</option>
-                            <option value="4" <?php if($postdata[0]['max_year']=="4") echo 'selected';?>>4</option>
-                            <option value="5" <?php if($postdata[0]['max_year']=="5") echo 'selected';?>>5</option>
-                            <option value="6" <?php if($postdata[0]['max_year']=="6") echo 'selected';?>>6</option>
-                            <option value="7" <?php if($postdata[0]['max_year']=="7") echo 'selected';?>>7</option>
-                            <option value="8" <?php if($postdata[0]['max_year']=="8") echo 'selected';?>>8</option>
-                            <option value="9" <?php if($postdata[0]['max_year']=="9") echo 'selected';?>>9</option>
-                            <option value="10" <?php if($postdata[0]['max_year']=="10") echo 'selected';?>>10</option>
-                            <option value="11" <?php if($postdata[0]['max_year']=="11") echo 'selected';?>>11</option>
-                            <option value="12" <?php if($postdata[0]['max_year']=="12") echo 'selected';?>>12</option>
-                            <option value="13" <?php if($postdata[0]['max_year']=="13") echo 'selected';?>>13</option>
-                            <option value="14" <?php if($postdata[0]['max_year']=="14") echo 'selected';?>>14</option>
-                            <option value="15" <?php if($postdata[0]['max_year']=="15") echo 'selected';?>>15</option>
-                            <option value="16" <?php if($postdata[0]['max_year']=="16") echo 'selected';?>>16</option>
-                            <option value="17" <?php if($postdata[0]['max_year']=="17") echo 'selected';?>>17</option>
-                            <option value="18" <?php if($postdata[0]['max_year']=="18") echo 'selected';?>>18</option>
-                            <option value="19" <?php if($postdata[0]['max_year']=="19") echo 'selected';?>>19</option>
-                            <option value="20" <?php if($postdata[0]['max_year']=="20") echo 'selected';?>>20</option>
-                            </select>
-                            <span id="fullname-error"></span>
-                            <?php echo form_error('month'); ?> &nbsp;&nbsp; <?php echo form_error('year'); ?>
-                        </fieldset>
+                                </fieldset>
 
+
+                                <fieldset <?php if ($month) { ?> class="error-msg" <?php } ?> class="two-select-box">
+                                    <label class="control-label">&nbsp;Maximum experience:<span style="color:red">*</span></label>
+
+
+                                      <select style="cursor:pointer;" name="maxyear" class="keyskil1">
+                                        <option value="">Year</option>
+                                        <option value="0">0 Year</option>
+                                        <option value="1">1 Year</option>
+                                        <option value="2">2 Year</option>
+                                        <option value="3">3 Year</option>
+                                        <option value="4">4 Year</option>
+                                        <option value="5">5 Year</option>
+                                        <option value="6">6 Year</option>
+                                        <option value="7">7 Year</option>
+                                        <option value="8">8 Year</option>
+                                        <option value="9">9 Year</option>
+                                        <option value="10">10 Year</option>
+                                        <option value="11">11 Year </option>
+                                        <option value="12">12 Year </option>
+                                        <option value="13">13 Year </option>
+                                        <option value="14">14 Year </option>
+                                        <option value="15">15 Year </option>
+                                        <option value="16">16 Year </option>
+                                        <option value="17">17 Year </option>
+                                        <option value="18">18 Year </option>
+                                        <option value="19">19 Year </option>
+                                        <option value="20">20 Year </option>
+                                    </select>
+
+                                      
+
+                                    <select style="cursor:pointer;" name="maxmonth" class="keyskil1">
+                                        <option  value="">Month</option>
+                                        <option value="0">0 Month</option>
+                                        <option value="1">1 Month</option>
+                                        <option value="2">2 Month</option>
+                                        <option value="3">3 Month</option>
+                                        <option value="4">4 Month</option>
+                                        <option value="5">5 Month</option>
+                                        <option value="6">6 Month</option>
+                                    </select>
+
+                                   <span id="fullname-error"></span>
+                                    <?php echo form_error('month'); ?> &nbsp;&nbsp; <?php echo form_error('year'); ?>
+                                </fieldset>
                         <fieldset class="form-group full-width" style="margin-top: -19px;
     margin-bottom: 2px;">
                           <?php
                                 if($postdata[0]['fresher'])
                                 {
                           ?>
-                          <input style="width: 6%; height: 15px; " type="checkbox" name="fresher" value="1" style="width: 5%;" checked>Fresher can also apply..!
+                          <input  style="width: 6%;cursor:pointer; height: 15px; " type="checkbox" name="fresher" value="1" style="width: 5%;" checked>Fresher can also apply..!
                         <?php 
                              }
                              else
                              {
                           ?>
-                          <input type="checkbox" name="fresher" value="1" style="width: 5%;" >Fresher can also apply..!
+                          <input type="checkbox" style="cursor:pointer;" name="fresher" value="1" style="width: 5%;" >Fresher can also apply..!
                           <?php 
                         }
                         ?>
@@ -208,23 +213,17 @@
                      
                       <?php echo form_error('interview'); ?> 
                 </fieldset>
-                      
-                <fieldset class="full-width">
-                      <label>Last date for apply: <!-- <span style="color:red">*</span> --></label>
-                      <input type="text" name="last_date" placeholder="Enter last date for apply" id="datepicker" value="<?php echo date('d/m/Y',strtotime($postdata[0]['post_last_date'])); ?>" placeholder="Enter text">
-                      <?php echo form_error('last_date'); ?> 
-                </fieldset>
-
+               
                
 
-                <fieldset class="full-width" <?php if($country) {  ?> class="error-msg" <?php } ?>>
+                <fieldset class="half-width" <?php if($country) {  ?> class="error-msg" <?php } ?>>
                                     <label>Country:<span style="color:red">*</span></label>
                                      
 
                                       <?php 
                  $countryname =  $this->db->get_where('countries',array('country_id' => $postdata[0]['country']))->row()->country_name; ?>
 
-                                     <select name="country" id="country">
+                                     <select style="cursor:pointer;" name="country" id="country">
                                     <option value="<?php echo $postdata[0]['country'] ;?>"><?php echo $countryname ;?></option>
                                     <?php
                                     if(count($countries) > 0){
@@ -244,9 +243,9 @@
                          <?php 
                  $statename =  $this->db->get_where('states',array('state_id' => $postdata[0]['state']))->row()->state_name; ?>
 
-                         <fieldset  class="full-width" <?php if($state) {  ?> class="error-msg" <?php } ?>>
+                         <fieldset  class="half-width" <?php if($state) {  ?> class="error-msg" <?php } ?>>
                                     <label>State:<span style="color:red">*</span></label>
-                                     <select name="state" id="state">
+                                     <select style="cursor:pointer;" name="state" id="state">
                                     <?php
                                            if($postdata[0]['state'])
 
@@ -276,7 +275,7 @@
                   <?php 
                  $cityname =  $this->db->get_where('cities',array('city_id' => $postdata[0]['city']))->row()->city_name; ?>
 
-                        <fieldset class="full-width" <?php if($city) {  ?> class="error-msg" <?php } ?>>
+                        <fieldset class="half-width" <?php if($city) {  ?> class="error-msg" <?php } ?>>
                                     <label>City:</label>
                                     <select name="city" id="city">
                                       <?php
@@ -307,13 +306,21 @@
                                     <?php echo form_error('city'); ?>
                         </fieldset>
 
-                  <fieldset class="full-width" <?php if($minsal) {  ?> class="error-msg" <?php } ?>>
+                               
+                <fieldset class="half-width">
+                      <label>Last date for apply: <!-- <span style="color:red">*</span> --></label>
+                      <input style="cursor:pointer;" type="text" name="last_date" placeholder="Enter last date for apply" id="datepicker" value="<?php echo date('d/m/Y',strtotime($postdata[0]['post_last_date'])); ?>" placeholder="Enter text">
+                      <?php echo form_error('last_date'); ?> 
+                </fieldset>
+
+
+                  <fieldset class="half-width" <?php if($minsal) {  ?> class="error-msg" <?php } ?>>
                             <label class="control-label">Min salary:(Per Year)<!-- <span style="color:red">*</span> --></label>
                             <input name="minsal" type="text" id="minsal" value="<?php echo $postdata[0]['min_sal']; ?>" onblur="return full_name();" placeholder="Enter Minimum Salary" /><span id="fullname-error"></span>
                             <?php echo form_error('minsal'); ?>
                         </fieldset>
 
-                         <fieldset class="full-width" <?php if($maxsal) {  ?> class="error-msg" <?php } ?>>
+                         <fieldset class="half-width" <?php if($maxsal) {  ?> class="error-msg" <?php } ?>>
                             <label class="control-label">Max salary:(Per Year)<!-- <span style="color:red">*</span> --></label>
                             <input name="maxsal" type="text" id="maxsal" value="<?php echo $postdata[0]['max_sal']; ?>" onblur="return full_name();" placeholder="Enter Maximum Salary" /><span id="fullname-error"></span>
                             <?php echo form_error('maxsal'); ?>

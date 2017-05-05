@@ -10,6 +10,13 @@
  * Licensed under the BSD 3-Clause
  * https://github.com/kartik-v/bootstrap-fileinput/blob/master/LICENSE.md
  */
+ .remove-{         bottom: 69px;
+    position: absolute;
+    z-index: 5;
+    /* background: black; */
+    color: white;
+    border-radius: 100%;
+    left: 175px;}
 .file-loading {
     top: 0;
     right: 0;
@@ -85,10 +92,10 @@
 }
 
 .file-preview {
-    border-radius: 5px;
+ /*   border-radius: 5px;*/
  /*   border: 1px solid #ddd;*/
-    padding: 5px;
-    width: 100%;
+    /*padding: 5px;*/
+   /* width: 100%;*/
     margin-bottom: 5px;
 }
 
