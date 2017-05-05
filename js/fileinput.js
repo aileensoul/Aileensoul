@@ -368,7 +368,7 @@ $(function(){
                 '    <div class="kv-fileinput-error"></div>\n' +
                 '    </div>\n' +
                 '</div>';
-            tClose = '<div class="close fileinput-remove">&times;</div>\n';
+            tClose = '<div></div>\n';
             tFileIcon = '<i class="glyphicon glyphicon-file kv-caption-icon"></i>';
             tCaption = '<div tabindex="500" class="form-control file-caption {class}">\n' +
                 '   <div class="file-caption-name"></div>\n' +
@@ -402,14 +402,15 @@ $(function(){
                 '</div>';
             tSize = ' <samp>({sizeText})</samp>';
             tFooter = '<div class="file-thumbnail-footer">\n' +
-                '    <div class="file-footer-caption" title="{caption}">{caption}<br>{size}</div>\n' +
+                '    <div class="file-footer-caption" title="{caption}">{caption}<br>{size}</div>  \n' +
                 '    {progress} {actions}\n' +
                 '</div>';
-            tActions = '<div class="file-upload-indicator" title="{indicatorTitle}">{indicator}</div>\n' +
+            tActions = '<div></div>\n' +
                 '{drag}\n' +
                 '<div class="file-actions">\n' +
-                '    <div class="file-footer-buttons">\n' +
-                '        {upload} {delete} {zoom} {other}' +
+                '    <div class="file-footer-buttons">\n'
+
+                '   \n' 
                 '    </div>\n' +
                 '    <div class="clearfix"></div>\n' +
                 '</div>';
@@ -421,11 +422,11 @@ $(function(){
             tActionZoom = '<button type="button" class="kv-file-zoom {zoomClass}" ' +
                 'title="{zoomTitle}">{zoomIcon}</button>';
             tActionDrag = '<span class="file-drag-handle {dragClass}" title="{dragTitle}">{dragIcon}</span>';
-            tTagBef = '<div class="file-preview-frame {frameClass}" id="{previewId}" data-fileindex="{fileindex}"' +
+            tTagBef = '  <div class="file-preview-frame {frameClass}" id="{previewId}" data-fileindex="{fileindex}"' +
                 ' data-template="{template}"';
-            tTagBef1 = tTagBef + '><div class="kv-file-content">\n';
+            tTagBef1 = tTagBef + '><div class="remove-  "> <i class="fa fa-trash" aria-hidden="true"></i></div> <div class="kv-file-content">\n';
             tTagBef2 = tTagBef + ' title="{caption}"><div class="kv-file-content">\n';
-            tTagAft = '</div>{footer}\n</div>\n';
+            tTagAft = '</div>{footer}\n</div> \n';
             tGeneric = '{content}\n';
             tHtml = '<div class="kv-preview-data file-preview-html" title="{caption}" ' + $h.STYLE_SETTING +
                 '>{data}</div>\n';
@@ -491,7 +492,7 @@ $(function(){
                 allowedPreviewTypes: ['image', 'html', 'text', 'video', 'audio', 'flash', 'pdf', 'object'],
                 previewTemplates: {},
                 previewSettings: {
-                    image: {width: "auto", height: "160px"},
+                    image: {width: "100px", height: "100px"},
                     html: {width: "213px", height: "160px"},
                     text: {width: "213px", height: "160px"},
                     video: {width: "213px", height: "160px"},
@@ -549,20 +550,20 @@ $(function(){
                     showUpload: true,
                     showZoom: true,
                     showDrag: true,
-                    removeIcon: '<i class="glyphicon glyphicon-trash text-danger"></i>',
+                    removeIcon: '<i class="fa fa-trash" aria-hidden="true"></i>',
                     removeClass: 'btn btn-xs btn-default',
                     removeTitle: 'Remove file',
                     uploadIcon: '<i class="glyphicon glyphicon-upload text-info"></i>',
                     uploadClass: 'btn btn-xs btn-default',
                     uploadTitle: 'Upload file',
-                    zoomIcon: '<i class="glyphicon glyphicon-zoom-in"></i>',
+                    zoomIcon: '<i class="fa fa-trash" aria-hidden="true"></i>',
                     zoomClass: 'btn btn-xs btn-default',
                     zoomTitle: 'View Details',
                     dragIcon: '<i class="glyphicon glyphicon-menu-hamburger"></i>',
                     dragClass: 'text-info',
                     dragTitle: 'Move / Rearrange',
                     dragSettings: {},
-                    indicatorNew: '<i class="glyphicon glyphicon-hand-down text-warning"></i>',
+              //      indicatorNew: '<i class="glyphicon glyphicon-hand-down text-warning"></i>',
                     indicatorSuccess: '<i class="glyphicon glyphicon-ok-sign text-success"></i>',
                     indicatorError: '<i class="glyphicon glyphicon-exclamation-sign text-danger"></i>',
                     indicatorLoading: '<i class="glyphicon glyphicon-hand-up text-muted"></i>',
@@ -3252,7 +3253,7 @@ $(function(){
             self._raise('filedisabled');
             self.$element.attr('disabled', 'disabled');
             self.$container.find(".kv-fileinput-caption").addClass("file-caption-disabled");
-            self.$container.find(".btn-file, .fileinput-remove, .fileinput-upload, .file-preview-frame button").attr(
+            self.$container.find(".btn-file, .fileinput-upload, .file-preview-frame button").attr(
                 "disabled",
                 true);
             self._initDragDrop();
@@ -3265,7 +3266,7 @@ $(function(){
             self.$element.removeAttr('disabled');
             self.$container.find(".kv-fileinput-caption").removeClass("file-caption-disabled");
             self.$container.find(
-                ".btn-file, .fileinput-remove, .fileinput-upload, .file-preview-frame button").removeAttr("disabled");
+                ".btn-file,  .fileinput-upload, .file-preview-frame button").removeAttr("disabled");
             self._initDragDrop();
             return self.$element;
         },

@@ -1422,6 +1422,8 @@ $new = array();
 
         if ($id == $userid || $id == '') {
 
+           // echo "hi"; die();
+
             $contition_array = array('user_id' => $userid, 'is_delete' => 0, 'status' => 1);
             $freelancerdata = $this->data['freelancerdata'] = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -1450,6 +1452,7 @@ $new = array();
             
         } 
         else {
+            //echo "heloo"; die();
             $contition_array = array('user_id' => $id, 'is_delete' => 0, 'status' => 1);
             $freelancerdata = $this->data['freelancerdata'] = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 

@@ -10,6 +10,15 @@
  * Licensed under the BSD 3-Clause
  * https://github.com/kartik-v/bootstrap-fileinput/blob/master/LICENSE.md
  */
+ .remove-{             bottom: 2%;
+    right: 3%;
+    position: absolute;
+    z-index: 5;
+    /* background: black; */
+    color: white;
+    border-radius: 100%;
+    }
+.remove-  i{font-size: 17px !important;}
 .file-loading {
     top: 0;
     right: 0;
@@ -85,10 +94,10 @@
 }
 
 .file-preview {
-    border-radius: 5px;
+ /*   border-radius: 5px;*/
  /*   border: 1px solid #ddd;*/
-    padding: 5px;
-    width: 100%;
+    /*padding: 5px;*/
+   /* width: 100%;*/
     margin-bottom: 5px;
 }
 
@@ -99,7 +108,7 @@
     margin: 8px;
     border: 1px solid #ddd;
     box-shadow: 1px 1px 5px 0 #a2958a;
-    padding: 6px;
+    padding: 7px 5px;
     float: left;
     text-align: center;
 }
@@ -109,17 +118,23 @@
 }
 
 .krajee-default.file-preview-frame .kv-file-content {
-    height: 170px;
+  
 }
 ..krajee-default.file-preview-frame .kv-file-content img{height: 100%; width: 100%;}
 
 .krajee-default.file-preview-frame .file-thumbnail-footer {
+
+    width: 110px;
+    overflow: hidden;
 /*    height: 70px;*/
 }
+
 
 .krajee-default .file-preview-image {
     vertical-align: middle;
     image-orientation: from-image;
+    width: 100%;
+    height: 100%;
 }
 
 .krajee-default .file-preview-text {
@@ -190,13 +205,14 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    width: 160px;
+    width: 110px;
     text-align: center;
    /* padding-top: 4px;
-   */ font-size: 11px;
+   */ font-size: 8px;
+      line-height: 10px;
     color: #777;
-   /* margin: 5px auto;
-*/}
+    margin: 5px auto;
+}
 
 .krajee-default .file-preview-error {
     opacity: 0.65;
@@ -450,3 +466,4 @@
     width: 100%;
     height: 100%;
 }
+
