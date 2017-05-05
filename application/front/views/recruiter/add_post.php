@@ -403,6 +403,7 @@ $('#datepicker').datetimepicker({
                     required: true
                 },
 
+
                 'skills[]': {
 
                     require_from_group: [1, ".skill_other"]
@@ -478,6 +479,8 @@ $('#datepicker').datetimepicker({
                     required: true
                             // required:true 
                 },
+                  maxsal: {greaterThan: '#minsal'},
+
 
             },
 
@@ -558,6 +561,10 @@ $('#datepicker').datetimepicker({
 
                     required: "Last date  Is Required."
                 },
+
+                maxsal:{
+                     required: "min salary not greater than maximum salary."
+                }
 
             }
 
@@ -822,7 +829,7 @@ $('#datepicker').datetimepicker({
 //select2 autocomplete End for Location
 </script>
 <script>
-var CheckValue11 = function() { 
+var CheckValue11 = function() { //alert('hi');
    var firstBox = $('#minsal').val();
         var secondBox = $('#maxsal').val();
         

@@ -396,12 +396,11 @@ function text2link($text) {
                                                 </div>
                                                 <div class="col-md-1">
                                                 </div>
-                                            </div>
-                                        <?php 
-                                        ?>  
-                                    <?php } ?>
+                                           
+                                         </div>
+                                    
                                     <!-- @nk!t 7-4-2017 start -->
-                                <?php } else {
+                                <?php   }  }} else {
                                     ?>
                                     <div class="text-center rio">
                                         <h1 class="page-heading  product-listing" style="border:0px;margin-bottom: 11px;">Oops No Data Found.</h1>
@@ -413,8 +412,8 @@ function text2link($text) {
                                     <?php }
                                 ?> 
                                 <!-- @nk!t 7-4-2017 end -->
-                            </div>
-
+                          
+ </div>
 
                         </div>
                     </div>
