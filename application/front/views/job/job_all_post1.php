@@ -322,7 +322,7 @@
                 <div class="col-md-7 col-sm-7 all-form-content">
                     <div class="common-form">
                         <div class="job-saved-box">
-                            <h3>Recommended Job</h3>
+                            <h3>Search Results</h3>
                             <div class="contact-frnd-post">
                                 <?php
 
