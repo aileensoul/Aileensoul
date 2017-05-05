@@ -46,6 +46,9 @@
                     
                  <?php echo form_open(base_url('freelancer/freelancer_edit_post_insert/'.$freelancerpostdata[0]['post_id']), array('id' => 'postinfo','name' => 'postinfo','class' => 'clearfix')); ?>
 
+                  <div>
+                                  <h4> Project Description</h4></div>
+
                     <!-- <div><span style="color:red">Fields marked with asterisk (*) are mandatory</span></div>  -->
 
                                 <div>
@@ -54,7 +57,7 @@
                                 </div> 
 
                             <fieldset class="full-width">
-                                <label>Post name:<span style="color:red">*</span></label>
+                                <label>Post Title:<span style="color:red">*</span></label>
                                 <input name="post_name" type="text" id="post_name" placeholder="Enter Post Name" value="<?php echo $freelancerpostdata[0]['post_name']?> "/>
                                 <span id="fullname-error"></span>                        
                                 <?php echo form_error('post_name'); ?>
@@ -71,7 +74,7 @@
 
 
                            <fieldset class="full-width" <?php if($fields_req) {  ?> class="error-msg" <?php } ?>>
-                  <label>Fields Of Requirmeant:<span style="color:red">*</span></label>
+                  <label>Fields Of Requirement:<span style="color:red">*</span></label>
                    <select name="fields_req" id="fields_req">
                  <?php  
                                             if(count($category) > 0){ 
@@ -100,7 +103,7 @@
                             </fieldset>
 
                             <fieldset class="full-width" <?php if($post_skill) {  ?> class="error-msg" <?php } ?>>
-                                <label>Skills:<span style="color:red">*</span></label>
+                                <label>Skills of Requirements:<span style="color:red">*</span></label>
                                
                                   <select name="skills[]" id ="skill1" multiple="multiple" style="width:100% " class="skill1">
 
@@ -126,7 +129,7 @@
                                 
                                 <select name="year" id="year">
                                     <option value="<?php echo $freelancerpostdata[0]['post_exp_year']?>"><?php echo $freelancerpostdata[0]['post_exp_year']." Year"?></option>
-                                    <option value="#">Year</option>
+                                    <option >Year</option>
                                     <option value="1">1 Year</option>
                                     <option value="2">2 Year</option>
                                     <option value="3">3 Year</option>
@@ -152,8 +155,11 @@
                                 <?php echo form_error('year'); ?>
 
                                 <select name="month" id="month">
+                                <?php if($freelancerpostdata[0]['post_exp_month']){?>
                                     <option value="<?php echo $freelancerpostdata[0]['post_exp_month']?> "><?php echo $freelancerpostdata[0]['post_exp_month']." Month"?></option>
-                                    <option value="#">Month</option>
+                                    <?php }?>
+                                    <option >Month</option>
+                                    <option value="0">0 Month</option>
                                    <option value="1">1 Month</option>
                                   <option value="2">2 Month</option>
                                   <option value="3">3 Month</option>
@@ -304,7 +310,7 @@
 
                                 <!-- <input type="reset"> -->
                                 <a href="javascript:history.back()">Cancel</a>
-                                <input type="submit" id="submit" name="submit" value="save">
+                                <input type="submit" id="submit" name="submit" value="Post">
                                 
                             </fieldset>
                             </div>
