@@ -2836,7 +2836,7 @@ label.cameraButton input[accept*="camera"] {
                               border-radius: 3px;
                               letter-spacing: 0px;
                               margin-left: -11px;}
-.comment-details{ padding-left: 51px; padding-right: 10px;  font-weight: 400;word-break: break-word;}
+.comment-details{ padding-left: 51px; padding-right: 10px;  font-weight: 400;word-break: break-word; word-break: break-all;}
 .inputtype-comment textarea{  resize:none;
                               overflow:hidden;
                               font-size:18px;
