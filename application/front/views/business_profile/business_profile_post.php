@@ -399,12 +399,12 @@
                                     </div>
                                 </div>
                             </div>
-                            <div  class="add-post-button">
+<!--                            <div  class="add-post-button">
                                 <a class="btn btn-3 btn-3b" href="<?php echo base_url('recruiter'); ?>">
                                     <i class="fa fa-plus" aria-hidden="true">
                                     </i> Recruiter
                                 </a>
-                            </div>
+                            </div>-->
                             <div class="full-box-module_follow">
                                 <!-- follower list start  -->  
                                 <div class="common-form">
