@@ -3286,23 +3286,23 @@ class Business_profile extends MY_Controller {
         $insert_id = $this->common->insert_data_getid($data, 'business_profile_post_comment');
 
 
-        // // insert notification
+        // insert notification
         
-        //     if($busdatacomment[0]['user_id'] == $userid){}
-        //     else{
-        //     $notificationdata = array(
-        //         'not_type' => 6,
-        //         'not_from_id' => $userid,
-        //         'not_to_id' => $busdatacomment[0]['user_id'],
-        //         'not_read' => 2,
-        //         'not_product_id' => $insert_id,
-        //         'not_from' => 6,
-        //         'not_img' => 1
-        //     );
-        //    //echo "<pre>"; print_r($notificationdata); 
-        //     $insert_id_notification = $this->common->insert_data_getid($notificationdata, 'notification');
-        //   }
-        //     // end notoification
+            if($busdatacomment[0]['user_id'] == $userid){}
+            else{
+            $notificationdata = array(
+                'not_type' => 6,
+                'not_from_id' => $userid,
+                'not_to_id' => $busdatacomment[0]['user_id'],
+                'not_read' => 2,
+                'not_product_id' => $insert_id,
+                'not_from' => 6,
+                'not_img' => 1
+            );
+           //echo "<pre>"; print_r($notificationdata); 
+            $insert_id_notification = $this->common->insert_data_getid($notificationdata, 'notification');
+          }
+            // end notoification
 
 
 
