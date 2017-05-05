@@ -1,7 +1,7 @@
 <!-- start head -->
 <?php echo $head; ?>
 
-
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/demo.css'); ?>">
 <!--post save success pop up style strat -->
 <style>
     /*body {
@@ -350,8 +350,8 @@
 
                                                 <div class="profile-job-post-detail clearfix" id="<?php echo "postdata" . $post['post_id']; ?>">
 
-                                                    <!-- vishang 14-4 end -->
-                                                    <div class="profile-job-post-title clearfix">
+                                                    
+                                                    <div class="profile-job-post-title clearfix search">
                                                         <div class="profile-job-profile-button clearfix">
                                                             <div class="profile-job-details col-md-12">
                                                                 <ul>
@@ -465,15 +465,14 @@
     </p>  
                                                 </span>
                                             </li>
-                                                                <!-- vishang 14-4 end -->
-
+                                                                
                                                                    <li><b>Salary</b><span><?php echo $post['min_sal']." - ".$post['max_sal']; ?></span>
                                                                    </li>
                                             
                                                                 <li><b>No of Position</b><span><?php echo $post['post_position']; ?></span>
                                                                 </li>
 
-
+                                                                 <input type="hidden" name="search" id="search" value="<?php echo $keyword; ?>">
                                                             </ul>
                                                         </div>
                                                         <div class="profile-job-profile-button clearfix">
@@ -544,7 +543,7 @@
                                                 <div class="profile-job-post-detail clearfix" id="<?php echo "postdata" . $post['post_id']; ?>">
 
                                                     <!-- vishang 14-4 end -->
-                                                    <div class="profile-job-post-title clearfix">
+                                                    <div class="profile-job-post-title clearfix search">
                                                         <div class="profile-job-profile-button clearfix">
                                                             <div class="profile-job-details col-md-12">
                                                                 <ul>
@@ -566,7 +565,7 @@
                                                             <?php  
                                                             if($cityname || $countryname)
                                                             {
-                                                           // echo "hi"; 
+                                                            
                                                             ?>
                                                             <p><i class="fa fa-map-marker" aria-hidden="true">
 
@@ -577,7 +576,7 @@
                                                              }
 
                                                              else{
-                                                              //echo "hello";
+                                                              
                                                               }?> 
                                                     </div>
 
@@ -599,7 +598,7 @@
                                          $cache_time1 = $this->db->get_where('recruiter', array('user_id' => $post['user_id']))->row()->rec_lastname;
                                            echo ucwords($cache_time)."  ".ucwords($cache_time1);
                                                                             ?></a></li>
-                                                                    <!-- vishang 14-4 end -->    
+                                                                     
                                                                 </ul>
                                                             </div>
                                                         </div>
@@ -638,7 +637,7 @@
                                                                 <li><b>Interview Process</b><span>
                                                                         <?php echo $post['interview_process']; ?></span>
                                                                 </li>
-                                                                <!-- vishang 14-4 start -->
+                                                               
 <li>
                                                 <b>Required Experience</b>
                                                 <span>
@@ -662,13 +661,12 @@
                                                 </span>
                                             </li>
 
-                                                                <!-- vishang 14-4 end -->
-
+                                                              
                                                                 <li><b>Salary</b><span><?php echo $post['min_sal']." - ".$post['max_sal']; ?></span>
                                                                    </li>
                                                                 <li><b>No of Position</b><span><?php echo $post['post_position']; ?></span>
                                                                 </li>
-
+ <input type="hidden" name="search" id="search" value="<?php echo $keyword; ?>">
 
                                                             </ul>
                                                         </div>
@@ -694,22 +692,22 @@
                                                                         <li class="fr"> 
 
                                                                                                                                                                                             <!--<a href="<?php echo '#popup5' . $post['post_id']; ?>"  class= "<?php echo 'applypost' . $post['post_id']; ?>  button">Apply</a>-->
-                                                                            <a href="javascript:void(0);"  class= "<?php echo 'applypost' . $post['post_id']; ?>  button" onclick="applypopup(<?php echo $post['post_id'] ?>,<?php echo $post['user_id'] ?>)">Apply</a>
+              <a href="javascript:void(0);"  class= "<?php echo 'applypost' . $post['post_id']; ?>  button" onclick="applypopup(<?php echo $post['post_id'] ?>,<?php echo $post['user_id'] ?>)">Apply</a>
 
-                                                                        </li>
-                                                                        <li class="fr">
-                                                                            <?php
-                                                                            $userid = $this->session->userdata('aileenuser');
-                                                                            $contition_array = array('user_id' => $userid, 'job_save' => '2', 'post_id ' => $post['post_id'], 'job_delete' => '0');
-                                                                            $jobsave = $this->data['jobsave'] = $this->common->select_data_by_condition('job_apply', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                        </li>
+                 <li class="fr">
+                      <?php
+                        $userid = $this->session->userdata('aileenuser');
+                    $contition_array = array('user_id' => $userid, 'job_save' => '2', 'post_id ' => $post['post_id'], 'job_delete' => '0');
+                  $jobsave = $this->data['jobsave'] = $this->common->select_data_by_condition('job_apply', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-                                                                            if ($jobsave) {
-                                                                                ?>
-                                                                                <a class="button saved">Saved</a>
-                                                                            <?php } else { ?>       
+                       if ($jobsave) {
+                       ?>
+                       <a class="button saved">Saved</a>
+                  <?php } else { ?>       
 
                                                                                                                                                                                                                                                 <!--<a id="<?php echo $post['post_id']; ?>" onClick="save_post(this.id)" href="#popup1" class="<?php echo 'savedpost' . $post['post_id']; ?> button">Save</a>-->
-                                                                                <a id="<?php echo $post['post_id']; ?>" onClick="savepopup(<?php echo $post['post_id']; ?>)" href="javascript:void(0);" class="<?php echo 'savedpost' . $post['post_id']; ?> button">Save</a>
+              <a id="<?php echo $post['post_id']; ?>" onClick="savepopup(<?php echo $post['post_id']; ?>)" href="javascript:void(0);" class="<?php echo 'savedpost' . $post['post_id']; ?> button">Save</a>
                                                                             <?php } ?>
                                                                         </li>
                                                                         <?php
@@ -765,39 +763,23 @@
                 <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 
+                
+                <script src="<?php echo base_url('js/jquery.highlite.js'); ?>"></script>
+
+<script type="text/javascript">
+    var text = document.getElementById("search").value;
+//alert(text);
+
+    $(".search").highlite({
+
+        text: text
+
+
+
+    });
+</script>
                 <!-- script for skill textbox automatic end -->
-                <script>
-
-                                                                            var data = <?php echo json_encode($demo); ?>;
-                                                                            //alert(data);
-
-
-                                                                            $(function () {
-                                                                                // alert('hi');
-                                                                                $("#tags").autocomplete({
-                                                                                    source: function (request, response) {
-                                                                                        var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
-                                                                                        response($.grep(data, function (item) {
-                                                                                            return matcher.test(item.label);
-                                                                                        }));
-                                                                                    },
-                                                                                    minLength: 1,
-                                                                                    select: function (event, ui) {
-                                                                                        event.preventDefault();
-                                                                                        $("#tags").val(ui.item.label);
-                                                                                        $("#selected-tag").val(ui.item.label);
-                                                                                        // window.location.href = ui.item.value;
-                                                                                    }
-                                                                                    ,
-                                                                                    focus: function (event, ui) {
-                                                                                        event.preventDefault();
-                                                                                        $("#tags").val(ui.item.label);
-                                                                                    }
-                                                                                });
-                                                                            });
-
-                </script>
-                <script>
+                                <script>
                     //select2 autocomplete start for skill
                     $('#searchskills').select2({
 
@@ -859,7 +841,37 @@
 
                     });
                 </script>
+<script>
 
+var data= <?php echo json_encode($demo); ?>;
+//alert(data);
+
+        
+$(function() {
+    //alert('data');
+$( "#tags" ).autocomplete({
+     source: function( request, response ) {
+         var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
+         response( $.grep( data, function( item ){
+             return matcher.test( item.label );
+         }) );
+   },
+    minLength: 1,
+    select: function(event, ui) {
+        event.preventDefault();
+        $("#tags").val(ui.item.label);
+        $("#selected-tag").val(ui.item.label);
+        // window.location.href = ui.item.value;
+    }
+    ,
+    focus: function(event, ui) {
+        event.preventDefault();
+        $("#tags").val(ui.item.label);
+    }
+});
+});
+  
+</script>
 
 
                 <!-- popup form edit start -->
