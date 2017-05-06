@@ -3873,7 +3873,7 @@ class Business_profile extends MY_Controller {
                 'not_from_id' => $userid,
                 'not_to_id' => $likepostid[0]['user_id'] ,
                 'not_read' => 2,
-                'not_product_id' => $insertdata,
+                'not_product_id' => $post_image,
                 'not_from' => 6,
                 'not_img' => 5
             );
@@ -4660,8 +4660,8 @@ class Business_profile extends MY_Controller {
                 'not_from_id' => $userid,
                 'not_to_id' => $busimglikepost[0]['user_id'] ,
                 'not_read' => 2,
-                'not_product_id' => $insertdata,
-                'not_from' => 3,
+                'not_product_id' => $post_image_comment_id,
+                'not_from' => 6,
                 'not_img' => 6
             );
             //echo "<pre>"; print_r($datanotification); die();
@@ -4745,6 +4745,25 @@ class Business_profile extends MY_Controller {
              // insert notification
 
             if($busimglikepost[0]['user_id'] == $userid){}else{ 
+
+
+        $contition_array = array('not_type' => 5, 'not_from_id' => $userid, 'not_to_id' => $busimglikepost[0]['user_id'], 'not_product_id' => $post_image_comment_id, 'not_from' => 6, 'not_img' => 6);
+        $busnotification = $this->common->select_data_by_condition('notification', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+              if($busnotification[0]['not_read'] ==  2){}
+                elseif($busnotification[0]['not_read'] ==  1){
+
+                    $datalike = array(
+                    'not_read' => 2 
+                    );
+
+                $where = array('not_type' => 5, 'not_from_id' => $userid, 'not_to_id' => $busimglikepost[0]['user_id'], 'not_product_id' => $post_image_comment_id, 'not_from' => 6, 'not_img' => 6);
+                $this->db->where($where);
+                $updatdata = $this->db->update('notification', $datalike);
+
+                }
+
+                 else{
+
             $data = array(
                 'not_type' => 5,
                 'not_from_id' => $userid,
@@ -4757,6 +4776,7 @@ class Business_profile extends MY_Controller {
             //echo "<pre>"; print_r($data); die();
             $insert_id = $this->common->insert_data_getid($data, 'notification');
             }
+          }
             // end notoification 
 
 
@@ -4823,7 +4843,7 @@ class Business_profile extends MY_Controller {
                 'not_from_id' => $userid,
                 'not_to_id' => $busimglikepost[0]['user_id'] ,
                 'not_read' => 2,
-                'not_product_id' => $insertdata,
+                'not_product_id' => $post_image_comment_id,
                 'not_from' => 6,
                 'not_img' => 6
             );
@@ -4904,6 +4924,23 @@ class Business_profile extends MY_Controller {
              // insert notification
 
             if($artimglike[0]['user_id'] == $userid){}else{
+
+                $contition_array = array('not_type' => 5, 'not_from_id' => $userid, 'not_to_id' => $businessprofiledata[0]['user_id'], 'not_product_id' => $post_id, 'not_from' => 6, 'not_img' => 2);
+        $busnotification = $this->common->select_data_by_condition('notification', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+              if($busnotification[0]['not_read'] ==  2){}
+                elseif($busnotification[0]['not_read'] ==  1){
+
+                    $datalike = array(
+                    'not_read' => 2 
+                    );
+
+                $where = array('not_type' => 5, 'not_from_id' => $userid, 'not_to_id' => $businessprofiledata[0]['user_id'], 'not_product_id' => $post_id, 'not_from' => 6, 'not_img' => 2);
+                $this->db->where($where);
+                $updatdata = $this->db->update('notification', $datalike);
+
+                }
+
+                 else{
             $data = array(
                 'not_type' => 5,
                 'not_from_id' => $userid,
