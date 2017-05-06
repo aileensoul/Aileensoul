@@ -135,7 +135,7 @@
                         </fieldset>
 
 
-                    <fieldset class="full-width two-select-box" <?php if($month) {  ?> class="error-msg" <?php } ?> class="two-select-box"> 
+                    <fieldset class="full-width two-select-box fullwidth_experience" <?php if($month) {  ?> class="error-msg" <?php } ?> class="two-select-box"> 
                      <label>Experience:</label>
 
                           <select name="year">
@@ -164,7 +164,7 @@
                             <span id="fullname-error"></span>
                             <?php echo form_error('year'); ?>
 
-                            <select name="month" id="month">
+                            <select style="margin-left: 10px;" name="month" id="month">
                             <option value="">Month</option>
                             <option value="1">0 Month</option>
                             <option value="1">1 Month</option>
@@ -186,7 +186,7 @@
                         <b><h2>Payment For Freelancer : </h2></b>
                          </fieldset>
                          
-                          <fieldset class="col-md-4" <?php if($rate) {  ?> class="error-msg" <?php } ?> >
+                          <fieldset style="padding-left: 8px;" class="col-md-4" <?php if($rate) {  ?> class="error-msg" <?php } ?> >
                             <label class="control-label">Rate:<span style="color:red">*</span></label>
                             <input name="rate" type="number" id="rate" placeholder="Enter Your rate" />
                                 <span id="fullname-error"></span>
