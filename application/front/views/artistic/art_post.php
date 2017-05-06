@@ -1033,7 +1033,7 @@
                                                                    ?> </a>
 
                                                                 <div class="datespan">
-                                                                    <span style="font-weight: 400;"> <?php // echo date('d-M-Y',strtotime($row['created_date']));                                         ?>
+                                                                    <span style="font-weight: 400;"> <?php // echo date('d-M-Y',strtotime($row['created_date']));                                          ?>
 
                                                                         <?php echo $row['created_date']; ?>
 
@@ -1042,7 +1042,7 @@
 
                                                         </div></li>
                                                     <!-- 
-                                                    <li><div class="post-design-product"><a><?php //echo $listFinal ;                                         ?> </a></div></li>
+                                                    <li><div class="post-design-product"><a><?php //echo $listFinal ;                                          ?> </a></div></li>
                                                     -->
 
                                                     <li>
@@ -1110,7 +1110,7 @@
 
                                                     <div id="<?php echo 'editpostdetailbox' . $row['art_post_id']; ?>" style="display:none;">
 
-                                                                                                                                                                                                                                                                                                                                <!--   <textarea id="<?php echo 'editpostdesc' . $row['art_post_id']; ?>" name="editpostdesc"><?php echo $row['art_description']; ?></textarea>  -->
+                                                                                                                                                                                                                                                                                                                                        <!--   <textarea id="<?php echo 'editpostdesc' . $row['art_post_id']; ?>" name="editpostdesc"><?php echo $row['art_description']; ?></textarea>  -->
                                                         <div contenteditable="true"  id="<?php echo 'editpostdesc' . $row['art_post_id']; ?>" class="textbuis  editable_text" name="editpostdesc" style="width: 75%; margin-bottom: 10px;"><?php echo $row['art_description']; ?></div>
 
 
@@ -1440,10 +1440,10 @@
                                         <!-- like user list end -->
 
                                         <?php
-                                        $contition_array = array('art_post_id' => $row['art_post_id'], 'status' => '1');
-                                        $artdatacondition = $this->data['artdata'] = $this->common->select_data_by_condition('artistic_post_comment', $contition_array, $data = '*', $sortby = 'artistic_post_comment_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-                                        if ($artdatacondition) {
-                                            ?>
+//                                        $contition_array = array('art_post_id' => $row['art_post_id'], 'status' => '1');
+//                                        $artdatacondition = $this->data['artdata'] = $this->common->select_data_by_condition('artistic_post_comment', $contition_array, $data = '*', $sortby = 'artistic_post_comment_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+//                                        if ($artdatacondition) {
+//                                            ?>
 
                                             <div class="art-all-comment col-md-12">
                                                 <!-- 18-4 all comment start-->
@@ -1606,7 +1606,7 @@
 
                                             </div>
 
-                                        <?php } ?>
+                                        <?php //  } ?>
                                         <div class="post-design-commnet-box col-md-12">
                                             <?php
                                             $userid = $this->session->userdata('aileenuser');
@@ -2054,63 +2054,109 @@
                     <!-- insert comment using enter -->
                     <script type="text/javascript">
 
+//                        function insert_comment(clicked_id)
+//                        {
+//                            var $field = $('#post_comment' + clicked_id);
+//                            var post_comment = $('#post_comment' + clicked_id).html();
+//                            
+//                            $('#post_comment' + clicked_id).html("");
+//
+//                            var x = document.getElementById('threecomment' + clicked_id);
+//                            var y = document.getElementById('fourcomment' + clicked_id);
+//
+//                            if (post_comment == '') {
+//
+//                                event.preventDefault();
+//                                return false;
+//                            } else {
+//
+//                                if (x.style.display === 'block' && y.style.display === 'none') {
+//
+//                                    $.ajax({
+//                                        type: 'POST',
+//                                        url: '<?php echo base_url() . "artistic/insert_commentthree" ?>',
+//                                        data: 'post_id=' + clicked_id + '&comment=' + post_comment,
+//                                        dataType: "json",
+//                                        success: function (data) {
+//
+//                                            //$('.' + 'insertcomment' + clicked_id).html(data);
+//                                            $('#' + 'insertcount' + clicked_id).html(data.count);
+//                                            $('.insertcomment' + clicked_id).html(data.comment);
+//
+//                                        }
+//                                    });
+//
+//                                } else {
+//
+//                                    $.ajax({
+//                                        type: 'POST',
+//                                        url: '<?php echo base_url() . "artistic/insert_comment" ?>',
+//                                        data: 'post_id=' + clicked_id + '&comment=' + post_comment,
+//                                        dataType: "json",
+//                                        success: function (data) {
+//                                            $('textarea').each(function () {
+//                                                $(this).val('');
+//                                            });
+//                                            $('#' + 'insertcount' + clicked_id).html(data.count);
+//                                            $('#' + 'fourcomment' + clicked_id).html(data.comment);
+//                                        }
+//                                    });
+//
+//                                }
+//                            }
+//
+//                        }
+
                         function insert_comment(clicked_id)
                         {
-                            //var post_comment = document.getElementById("post_comment" + clicked_id);
+                            $("#post_comment" + clicked_id).click(function () {
+                                $(this).prop("contentEditable", true);
+                                $(this).html("");
+                            });
 
-
-                            // start khyati code
-                            var $field = $('#post_comment' + clicked_id);
-                            //var data = $field.val();
-                            var post_comment = $('#post_comment' + clicked_id).html();
-                            // end khyati code
+                            var sel = $("#post_comment" + clicked_id);
+                            var txt = sel.html();
+                            if (txt == '') {
+                                return false;
+                            }
 
                             $('#post_comment' + clicked_id).html("");
 
                             var x = document.getElementById('threecomment' + clicked_id);
                             var y = document.getElementById('fourcomment' + clicked_id);
+                            
+                            if (x.style.display === 'block' && y.style.display === 'none') {
+                                $.ajax({
+                                    type: 'POST',
+                                    url: '<?php echo base_url() . "artistic/insert_commentthree" ?>',
+                                    data: 'post_id=' + clicked_id + '&comment=' + txt,
+                                    dataType: "json",
+                                    success: function (data) {
+                                        $('textarea').each(function () {
+                                            $(this).val('');
+                                        });
+                                        $('#' + 'insertcount' + clicked_id).html(data.count);
+                                        $('.insertcomment' + clicked_id).html(data.comment);
 
-                            if (post_comment == '') {
+                                    }
+                                });
 
-                                event.preventDefault();
-                                return false;
                             } else {
 
-                                if (x.style.display === 'block' && y.style.display === 'none') {
-
-                                    $.ajax({
-                                        type: 'POST',
-                                        url: '<?php echo base_url() . "artistic/insert_commentthree" ?>',
-                                        data: 'post_id=' + clicked_id + '&comment=' + post_comment,
-                                        dataType: "json",
-                                        success: function (data) {
-
-                                            //$('.' + 'insertcomment' + clicked_id).html(data);
-                                            $('#' + 'insertcount' + clicked_id).html(data.count);
-                                            $('.insertcomment' + clicked_id).html(data.comment);
-
-                                        }
-                                    });
-
-                                } else {
-
-                                    $.ajax({
-                                        type: 'POST',
-                                        url: '<?php echo base_url() . "artistic/insert_comment" ?>',
-                                        data: 'post_id=' + clicked_id + '&comment=' + post_comment,
-                                        dataType: "json",
-                                        success: function (data) {
-                                            $('textarea').each(function () {
-                                                $(this).val('');
-                                            });
-                                            $('#' + 'insertcount' + clicked_id).html(data.count);
-                                            $('#' + 'fourcomment' + clicked_id).html(data.comment);
-                                        }
-                                    });
-
-                                }
+                                $.ajax({
+                                    type: 'POST',
+                                    url: '<?php echo base_url() . "artistic/insert_comment" ?>',
+                                    data: 'post_id=' + clicked_id + '&comment=' + txt,
+                                    dataType: "json",
+                                    success: function (data) {
+                                        $('textarea').each(function () {
+                                            $(this).val('');
+                                        });
+                                        $('#' + 'insertcount' + clicked_id).html(data.count);
+                                        $('#' + 'fourcomment' + clicked_id).html(data.comment);
+                                    }
+                                });
                             }
-
                         }
 
                     </script>
@@ -2181,7 +2227,7 @@
 
 
                         function entercomment(clicked_id)
-                        {
+                        {   
                             $("#post_comment" + clicked_id).click(function () {
                                 $(this).prop("contentEditable", true);
                             });
@@ -2195,7 +2241,6 @@
                                     if (txt == '') {
                                         return false;
                                     }
-
                                     $('#post_comment' + clicked_id).html("");
 
                                     if (window.preventDuplicateKeyPresses)
@@ -2205,10 +2250,12 @@
                                     window.setTimeout(function () {
                                         window.preventDuplicateKeyPresses = false;
                                     }, 500);
-
+                                    
                                     var x = document.getElementById('threecomment' + clicked_id);
                                     var y = document.getElementById('fourcomment' + clicked_id);
-
+                                    
+                                    
+                                    
                                     if (x.style.display === 'block' && y.style.display === 'none') {
                                         $.ajax({
                                             type: 'POST',
@@ -2276,7 +2323,8 @@
                         }
 
                         function comment_editboxtwo(clicked_id) {
-
+//                            alert('editcommentboxtwo' + clicked_id);
+//                            return false;
                             $('div[id^=editcommenttwo]').css('display', 'none');
                             $('div[id^=showcommenttwo]').css('display', 'block');
                             $('button[id^=editsubmittwo]').css('display', 'none');
