@@ -2775,7 +2775,7 @@ class Artistic extends MY_Controller {
 //            $cmtinsert .= '' . $art['comments'] . '';
 //            $cmtinsert .= '</textarea>';
 
-                $cmtinsert .= '<div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="' . $business_profile['business_profile_post_comment_id'] . '"  id="editcomment' . $business_profile['business_profile_post_comment_id'] . '" placeholder="Type Message ..." value= ""  onkeyup="commentedit(' . $business_profile['business_profile_post_comment_id'] . ')">' . $business_profile['comments'] . '</div>';
+                $cmtinsert .= '<div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="' . $art['artistic_post_comment_id'] . '"  id="editcomment' . $art['artistic_post_comment_id'] . '" placeholder="Type Message ..." value= ""  onkeyup="commentedit(' . $art['artistic_post_comment_id'] . ')">' . $art['comments'] . '</div>';
                 $cmtinsert .= '<span class="comment-edit-button"><button id="editsubmit' . $art['artistic_post_comment_id'] . '" style="display:none" onClick="edit_comment(' . $art['artistic_post_comment_id'] . ')">Save</button></span>';
                 $cmtinsert .= '</div></div>';
 
@@ -2809,7 +2809,7 @@ class Artistic extends MY_Controller {
                 if ($art['user_id'] == $userid) {
                     $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
                     $cmtinsert .= '<div class="comment-details-menu">';
-                    $cmtinsert .= '<div id="editbox' . $art['artistic_post_comment_id'] . '" style="display:block;">';
+                    $cmtinsert .= '<div id="editcommentbox' . $art['artistic_post_comment_id'] . '" style="display:block;">';
                     $cmtinsert .= '<a id="' . $art['artistic_post_comment_id'] . '"';
                     $cmtinsert .= 'onClick="comment_editbox(this.id)">';
                     $cmtinsert .= 'Edit';
@@ -2821,7 +2821,7 @@ class Artistic extends MY_Controller {
 
                 $userid = $this->session->userdata('aileenuser');
                 $art_userid = $this->db->get_where('art_post', array('art_post_id' => $art['art_post_id'], 'status' => 1))->row()->user_id;
-                if ($business_profile['user_id'] == $userid || $art_userid == $userid) {
+                if ($art['user_id'] == $userid || $art_userid == $userid) {
 
                     $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
                     $cmtinsert .= '<div class="comment-details-menu">';
@@ -2860,7 +2860,6 @@ class Artistic extends MY_Controller {
         $data = array(
             'status' => 0,
         );
-
 
         $updatdata = $this->common->update_data($data, 'artistic_post_comment', 'artistic_post_comment_id', $post_id);
 
@@ -2951,7 +2950,7 @@ class Artistic extends MY_Controller {
                     $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
                     $cmtinsert .= '<div class="comment-details-menu">';
                     $cmtinsert .= '<input type="hidden" name="post_delete"';
-                    $cmtinsert .= 'id="post_delete2"';
+                    $cmtinsert .= 'id="post_deletetwo"';
                     $cmtinsert .= 'value= "' . $art['art_post_id'] . '">';
 
                     $cmtinsert .= '<a id="' . $art['artistic_post_comment_id'] . '"';
@@ -3346,7 +3345,7 @@ class Artistic extends MY_Controller {
                 $cmtinsert .= '<div class="comment-details-menu">';
 
 
-                $cmtinsert .= '<div id="editboxtwo' . $art['artistic_post_comment_id'] . '" style="display:block;">';
+                $cmtinsert .= '<div id="editcommentboxtwo' . $art['artistic_post_comment_id'] . '" style="display:block;">';
                 $cmtinsert .= '<a id="' . $art['artistic_post_comment_id'] . '"';
                 $cmtinsert .= 'onClick="comment_editboxtwo(this.id)">';
                 $cmtinsert .= 'Edit';
@@ -3365,8 +3364,8 @@ class Artistic extends MY_Controller {
                 $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
                 $cmtinsert .= '<div class="comment-details-menu">';
 
-                $cmtinsert .= '<input type="hidden" name="post_delete"';
-                $cmtinsert .= 'id="post_delete2"';
+                $cmtinsert .= '<input type="hidden" name="post_deletetwo"';
+                $cmtinsert .= 'id="post_deletetwo"';
                 $cmtinsert .= 'value= "' . $art['art_post_id'] . '">';
 
                 $cmtinsert .= '<a id="' . $art['artistic_post_comment_id'] . '"';
@@ -3377,6 +3376,15 @@ class Artistic extends MY_Controller {
             $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
             $cmtinsert .= '<div class="comment-details-menu">';
             $cmtinsert .= '<p>' . $art['created_date'] . '</p></div></div></div>';
+            
+            
+            // comment aount variable start
+            $idpost = $art['art_post_id'];
+            $cmtcount = '<a onClick="commentall(this.id)" id="' . $idpost . '">';
+            $cmtcount .= '<i class="fa fa-comment-o" aria-hidden="true">';
+            $cmtcount .= ' ' . count($artdata) . '';
+            $cmtcount .= '</i></a>';
+
         }
         //echo $cmtinsert;
         echo json_encode(
@@ -3395,8 +3403,7 @@ class Artistic extends MY_Controller {
 
         $contition_array = array('art_post_id' => $_POST["post_id"], 'status' => '1');
         $artdatacomment = $this->data['artdatacomment'] = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
-
+        
         $data = array(
             'user_id' => $userid,
             'art_post_id' => $post_id,
@@ -3463,7 +3470,7 @@ class Artistic extends MY_Controller {
             $cmtinsert .= $art['comments'];
             $cmtinsert .= '</div>';
             $cmtinsert .= '<div class="edit-comment-box"><div class="inputtype-edit-comment">';
-            $cmtinsert .= '<div contenteditable="" class="textarea"  name="' . $art['artistic_post_comment_id'] . '" id="editcomment' . $art['artistic_post_comment_id'] . '" style="display:none" onkeyup="commentedit(' . $art['artistic_post_comment_id'] . ')">';
+            $cmtinsert .= '<div contenteditable="true" class="editable_text"  name="' . $art['artistic_post_comment_id'] . '" id="editcomment' . $art['artistic_post_comment_id'] . '" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" onkeyup="commentedit(' . $art['artistic_post_comment_id'] . ')">';
             $cmtinsert .= '' . $art['comments'] . '';
             $cmtinsert .= '</div>';
             $cmtinsert .= '<span class="comment-edit-button"><button id="editsubmit' . $art['artistic_post_comment_id'] . '" style="display:none" onClick="edit_comment(' . $art['artistic_post_comment_id'] . ')">Save</button></span>';
@@ -4115,7 +4122,7 @@ class Artistic extends MY_Controller {
             $cmtinsert .= '<div class="comment-details" id= "showcomment' . $art_comment['post_image_comment_id'] . '"" >';
             $cmtinsert .= $art_comment['comment'];
             $cmtinsert .= '</div>';
-            $cmtinsert .= '<div contenteditable="" class="editable_text" name="' . $art_comment['post_image_comment_id'] . '" id="editcomment' . $art_comment['post_image_comment_id'] . '"style="display:none;" onkeyup="commentedit(' . $art_comment['post_image_comment_id'] . ')">';
+            $cmtinsert .= '<div contenteditable="true" class="editable_text" name="' . $art_comment['post_image_comment_id'] . '" id="editcomment' . $art_comment['post_image_comment_id'] . '"style="display:none;" onkeyup="commentedit(' . $art_comment['post_image_comment_id'] . ')">';
 
             $cmtinsert .= '' . $art_comment['comment'] . '';
             $cmtinsert .= '</div>';
@@ -4279,7 +4286,7 @@ class Artistic extends MY_Controller {
             $cmtinsert .= '<div class="comment-details" id= "showcommenttwo' . $art_comment['post_image_comment_id'] . '"" >';
             $cmtinsert .= $art_comment['comment'];
             $cmtinsert .= '</div>';
-            $cmtinsert .= '<div contenteditable=""   class="editable_text" name="' . $art_comment['post_image_comment_id'] . '" id="editcommenttwo' . $art_comment['post_image_comment_id'] . '"style="display:none;" onkeyup="commentedittwo(' . $art_comment['post_image_comment_id'] . ')">';
+            $cmtinsert .= '<div contenteditable="true"   class="editable_text" name="' . $art_comment['post_image_comment_id'] . '" id="editcommenttwo' . $art_comment['post_image_comment_id'] . '"style="display:none;" onkeyup="commentedittwo(' . $art_comment['post_image_comment_id'] . ')">';
 
             $cmtinsert .= '' . $art_comment['comment'] . '';
             $cmtinsert .= '</div>';
@@ -4767,7 +4774,7 @@ class Artistic extends MY_Controller {
             $cmtinsert .= '<div class="comment-details" id= "showcomment' . $art_comment['post_image_comment_id'] . '">';
             $cmtinsert .= $art_comment['comment'];
             $cmtinsert .= '</div>';
-            $cmtinsert .= '<div contenteditable=""   class="editable_text" name="' . $art_comment['post_image_comment_id'] . '" id="editcomment' . $art_comment['post_image_comment_id'] . '"style="display:none;" onkeyup="commentedit(' . $art_comment['post_image_comment_id'] . ')">';
+            $cmtinsert .= '<div contenteditable="true"   class="editable_text" name="' . $art_comment['post_image_comment_id'] . '" id="editcomment' . $art_comment['post_image_comment_id'] . '"style="display:none;" onkeyup="commentedit(' . $art_comment['post_image_comment_id'] . ')">';
 
             $cmtinsert .= '' . $art_comment['comment'] . '';
             $cmtinsert .= '</div>';
@@ -4899,7 +4906,7 @@ class Artistic extends MY_Controller {
             $cmtinsert .= '<div class="comment-details" id= "showcommenttwo' . $art_comment['post_image_comment_id'] . '">';
             $cmtinsert .= $art_comment['comment'];
             $cmtinsert .= '</div>';
-            $cmtinsert .= '<div contenteditable="" class="editable_text" name="' . $art_comment['post_image_comment_id'] . '" id="editcommenttwo' . $art_comment['post_image_comment_id'] . '"style="display:none;" onkeyup="commentedittwo(' . $art_comment['post_image_comment_id'] . ')">';
+            $cmtinsert .= '<div contenteditable="true" class="editable_text" name="' . $art_comment['post_image_comment_id'] . '" id="editcommenttwo' . $art_comment['post_image_comment_id'] . '"style="display:none;" onkeyup="commentedittwo(' . $art_comment['post_image_comment_id'] . ')">';
 
             $cmtinsert .= '' . $art_comment['comment'] . '';
             $cmtinsert .= '</div>';
@@ -5071,7 +5078,8 @@ class Artistic extends MY_Controller {
                     $fourdata .= '<div class="comment-details-menu">';
                     $fourdata .= '<input type="hidden" name="post_delete"  id="post_deletetwo" value= "' . $rowdata['art_post_id'] . '">';
                     $fourdata .= '<a id="' . $rowdata['artistic_post_comment_id'] . '"';
-                    $fourdata .= 'onClick="comment_deletetwo(this.id)"> Delete <span class="insertcommenttwo' . $rowdata['artistic_post_comment_id'] . '">';
+                    //$fourdata .= 'onClick="comment_deletetwo(this.id)"> Delete <span class="insertcommenttwo' . $rowdata['artistic_post_comment_id'] . '">';
+                    $fourdata .= 'onClick="comment_deletetwo(this.id)"> Delete';
                     $fourdata .= '</span> </a> </div>';
                 }
                 $fourdata .= '<span role="presentation" aria-hidden="true"> · </span>';
@@ -5128,7 +5136,7 @@ class Artistic extends MY_Controller {
             $fourdata .= '<div class="comment-details" id= "showcommenttwo' . $rowdata['post_image_comment_id'] . '">';
             $fourdata .= '' . $rowdata['comment'] . '</br></div>';
 
-            $fourdata .= '<div contenteditable="" class="editable_text" name="' . $rowdata['post_image_comment_id'] . '" id="editcommenttwo' . $rowdata['post_image_comment_id'] . '" style="display:none"  onClick="commentedittwo(' . $rowdata['post_image_comment_id'] . ')">';
+            $fourdata .= '<div contenteditable="true" class="editable_text" name="' . $rowdata['post_image_comment_id'] . '" id="editcommenttwo' . $rowdata['post_image_comment_id'] . '" style="display:none"  onClick="commentedittwo(' . $rowdata['post_image_comment_id'] . ')">';
 
             $fourdata .= '' . $rowdata['comment'] . '';
             $fourdata .= '</div>';
@@ -5182,7 +5190,8 @@ class Artistic extends MY_Controller {
 
                 $fourdata .= '<input type="hidden" name="post_deletetwo"  id="post_deletetwo' . $rowdata['post_image_comment_id'] . '" value= "' . $rowdata['post_image_id'] . '">';
                 $fourdata .= '<a id="' . $rowdata['post_image_comment_id'] . '"';
-                $fourdata .= 'onClick="comment_deletetwo(this.id)"> Delete <span class="insertcommenttwo' . $rowdata['post_image_comment_id'] . '">';
+                //$fourdata .= 'onClick="comment_deletetwo(this.id)"> Delete <span class="insertcommenttwo' . $rowdata['post_image_comment_id'] . '">';
+                $fourdata .= 'onClick="comment_deletetwo(this.id)"> Delete';
                 $fourdata .= '</span> </a> </div>';
             }
             $fourdata .= '<span role="presentation" aria-hidden="true"> · </span>';

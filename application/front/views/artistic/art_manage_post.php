@@ -5,6 +5,7 @@
 <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="<?php echo base_url('assets/css/croppie.css'); ?>">
 
 <!-- 
 
@@ -175,7 +176,7 @@ responsive image design start -->
    label.cameraButton {
   display: inline-block;
   margin: 1em 0;
-cursor: pointer;
+  cursor: pointer;
   /* Styles to make it look like a button */
   padding: 0.5em;
   border: 2px solid #666;
@@ -226,17 +227,16 @@ label.cameraButton input[accept*="camera"] {
 <!-- END HEADER -->
 <body   class="page-container-bg-solid page-boxed">
 
-    <section>
-        <div class="container">
+         <div class="container">
             
       <div class="row" id="row1" style="display:none;">
         <div class="col-md-12 text-center">
         <div id="upload-demo" style="width:100%"></div>
         </div>
         <div class="col-md-12 cover-pic" style="padding-top: 25px;text-align: center;">
-            <button class="btn btn-success upload-result cancel-result" onclick="" >Cancel</button>
+            <button class="btn btn-success cancel-result" onclick="" >Cancel</button>
     
-        <button class="btn btn-success set-btn upload-result cancel-result" onclick="myFunction()">Upload Image</button>
+        <button class="btn btn-success set-btn upload-result" onclick="myFunction()">Upload Image</button>
      
         <div id="message1" style="display:none;">
      <div class="loader"><div id="floatBarsG">
@@ -284,8 +284,10 @@ label.cameraButton input[accept*="camera"] {
     </div>
     </div>
 </div>
-    </div>   
-<div class="container"> 
+  </div>
+  </div>   
+
+    <div class="container"> 
 
     <?php
     $userid = $this->session->userdata('aileenuser');
@@ -2554,103 +2556,108 @@ if(post_comment_edit.value == ''){
 
 <!-- cover image start -->
 <script>
-    function myFunction() {
-        document.getElementById("upload-demo").style.visibility = "hidden";
-        document.getElementById("upload-demo-i").style.visibility = "hidden";
-        document.getElementById('message1').style.display = "block";
+function myFunction() {
+   document.getElementById("upload-demo").style.visibility = "hidden";
+   document.getElementById("upload-demo-i").style.visibility = "hidden";
+   document.getElementById('message1').style.display = "block";
 
-        setTimeout(function () {
-            location.reload(1);
-        }, 5000);
+   //setTimeout(function () { location.reload(1); }, 5000);
+   
+   }
+  
 
-    }
-
-
-    function showDiv() {
-        document.getElementById('row1').style.display = "block";
-        document.getElementById('row2').style.display = "none";
-    }
+   function showDiv() {
+   document.getElementById('row1').style.display = "block";
+   document.getElementById('row2').style.display = "none";
+}
 </script>
 
-
-
 <script type="text/javascript">
-    $uploadCrop = $('#upload-demo').croppie({
-        enableExif: true,
-        viewport: {
-            width: 1250,
-            height: 350,
-            type: 'square'
-        },
-        boundary: {
-            width: 1250,
-            height: 350
-        }
+$uploadCrop = $('#upload-demo').croppie({
+    enableExif: true,
+    viewport: {
+        width: 1250,
+        height: 350,
+        type: 'square'
+    },
+    boundary: {
+        width: 1250,
+        height: 350
+    }
+});
+
+
+$('.upload-result').on('click', function (ev) {
+  $uploadCrop.croppie('result', {
+    type: 'canvas',
+    size: 'viewport'
+  }).then(function (resp) {
+
+    $.ajax({
+     url: "<?php echo base_url() ?>artistic/ajaxpro",
+      type: "POST",
+      data: {"image":resp},
+      success: function (data) {
+        html = '<img src="' + resp + '" />';
+        if(html)
+         {
+       window.location.reload();
+         }
+      }
     });
 
+  });
+});
 
-    $('.upload-result').on('click', function (ev) {
-        $uploadCrop.croppie('result', {
-            type: 'canvas',
-            size: 'viewport'
-        }).then(function (resp) {
+$('.cancel-result').on('click', function (ev) {
 
-            $.ajax({
-                 url: "<?php echo base_url() ?>artistic/ajaxpro",
-                type: "POST",
-                data: {"image": resp},
-                success: function (data) {
-                    html = '<img src="' + resp + '" />';
-                    if (html)
-                    {
-                        window.location.reload();
-                    }
-                }
-            });
+        document.getElementById('row2').style.display = "block";
+        document.getElementById('row1').style.display = "none";
+        document.getElementById('message1').style.display = "none";
 
-        });
     });
 
 //aarati code start
-    $('#upload').on('change', function () {
+$('#upload').on('change', function () { 
+  
+  var reader = new FileReader();
+  
+    reader.onload = function (e) {
+      $uploadCrop.croppie('bind', {
+        url: e.target.result
+      }).then(function(){
+        console.log('jQuery bind complete');
+      });
+      
+    }
+    reader.readAsDataURL(this.files[0]);
 
+    
 
-        var reader = new FileReader();
+});
 
-        reader.onload = function (e) {
-            $uploadCrop.croppie('bind', {
-                url: e.target.result
-            }).then(function () {
-                console.log('jQuery bind complete');
-            });
+$('#upload').on('change', function () { 
+  
+  var fd = new FormData();
+ fd.append( "image", $("#upload")[0].files[0]);
+
+    $.ajax({
+
+        url: "<?php echo base_url(); ?>artistic/image",
+        type: "POST",
+        data: fd,
+        processData: false,
+        contentType: false,
+        success:function(response){
+         
 
         }
-        reader.readAsDataURL(this.files[0]);
-
-
-
-    });
-
-    $('#upload').on('change', function () {
-
-        var fd = new FormData();
-        fd.append("image", $("#upload")[0].files[0]);
-
-        $.ajax({
-
-            url: "<?php echo base_url(); ?>artistic/image",
-            type: "POST",
-            data: fd,
-            processData: false,
-            contentType: false,
-            success: function (response) {
-
-            }
-        });
-    });
+      });
+  });
 
 //aarati code end
 </script>
+<!-- cover image end -->
 
 
 <script>

@@ -2921,7 +2921,7 @@ class Job extends MY_Controller {
         $jobdata = $this->data['jobdata'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         //echo "<pre>"; print_r($jobdata);
 // post detail
-        $contition_array = array('is_delete' => 0, 'status' => 1);
+        $contition_array = array('is_delete' => 0, 'status' => 1 ,'user_id !=' => $userid);
 //        echo "<pre>"; print_r($contition_array);die();
         $postdata = $this->data['postdata'] = $this->common->select_data_by_condition('rec_post', $contition_array, $data = '*', $sortby = 'post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         //echo "<pre>"; print_r($postdata);
@@ -3190,13 +3190,13 @@ public function job_applied_post() {
 
         if ($userdata) {
 
-            $contition_array = array('job_delete' => 1);
+            $contition_array = array('job_delete' => 0);
             $jobdata = $this->common->select_data_by_condition('job_apply', $contition_array = array(), $data = '*', $sortby = 'post_id', $orderby = 'asc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
 
 
             $data = array(
-                'job_delete' => 0,
+                'job_delete' => 1,
                 'job_save' => 2
             );
 
@@ -3216,7 +3216,7 @@ public function job_applied_post() {
                 'status' => 1,
                 'created_date' => date('Y-m-d h:i:s', time()),
                 'is_delete' => 0,
-                'job_delete' => 0,
+                'job_delete' => 1,
                 'job_save' => 2
             );
 
@@ -3244,7 +3244,7 @@ public function job_applied_post() {
         $join_str[0]['from_table_id'] = 'rec_post.post_id';
         $join_str[0]['join_type'] = '';
 
-        $contition_array = array('job_apply.job_delete' => 0, 'job_apply.user_id' => $userid, 'job_apply.job_save' => 2);
+        $contition_array = array('job_apply.job_delete' => 1, 'job_apply.user_id' => $userid, 'job_apply.job_save' => 2);
         $postdetail = $this->data['postdetail'] = $this->common->select_data_by_condition('rec_post', $contition_array, $data = 'rec_post.*,job_apply.app_id,job_apply.user_id as userid', $sortby = 'app_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 
 // code for search

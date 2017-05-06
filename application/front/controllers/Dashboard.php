@@ -15,15 +15,13 @@ class Dashboard extends MY_Controller {
     }
 
     public function index($id = " ") {
-   //   echo '<pre>'; print_r($this->session->all_userdata()); die();
-$this->load->library('form_validation');
-         //$userid = $this->session->userdata('aileensoul_front');
-       $userid = $this->session->userdata('aileenuser'); 
+        //   echo '<pre>'; print_r($this->session->all_userdata()); die();
+        $this->load->library('form_validation');
+        //$userid = $this->session->userdata('aileensoul_front');
+        $userid = $this->session->userdata('aileenuser'); 
         // echo $userid; die();
         $this->data['userdata'] = $this->common->select_data_by_id('user', 'user_id', $userid, $data = '*', $join_str = array());
         //echo '<pre>'; print_r($this->data['userdata']); die();
-
-
         $this->load->view('dashboard/cover', $this->data);
     }
 

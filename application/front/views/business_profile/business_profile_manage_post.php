@@ -221,29 +221,31 @@
 <body   class="page-container-bg-solid page-boxed">
 
     <section>
+   <!-- coer image start-->
         <div class="container">
-            <!--- select thaya pachhi ave ae -->
+
             <div class="row" id="row1" style="display:none;">
                 <div class="col-md-12 text-center">
                     <div id="upload-demo" style="width:100%"></div>
                 </div>
                 <div class="col-md-12 cover-pic" style="padding-top: 25px;text-align: center;">
-                    <button class="btn btn-success  cancel-result">Cancel</button>
+                    <button class="btn btn-success  cancel-result" onclick="">Cancel</button>
 
-                    <button class="btn btn-success set-btn upload-result" onclick="myFunction()">Upload Image</button>
+                    <button class="btn btn-success upload-result fr" onclick="myFunction()">Upload Image</button>
 
                     <div id="message1" style="display:none;">
-                        <div id="floatBarsG">
-                            <div id="floatBarsG_1" class="floatBarsG"></div>
-                            <div id="floatBarsG_2" class="floatBarsG"></div>
-                            <div id="floatBarsG_3" class="floatBarsG"></div>
-                            <div id="floatBarsG_4" class="floatBarsG"></div>
-                            <div id="floatBarsG_5" class="floatBarsG"></div>
-                            <div id="floatBarsG_6" class="floatBarsG"></div>
-                            <div id="floatBarsG_7" class="floatBarsG"></div>
-                            <div id="floatBarsG_8" class="floatBarsG"></div>
+                        <div class="loader">
+                            <div id="floatBarsG">
+                                <div id="floatBarsG_1" class="floatBarsG"></div>
+                                <div id="floatBarsG_2" class="floatBarsG"></div>
+                                <div id="floatBarsG_3" class="floatBarsG"></div>
+                                <div id="floatBarsG_4" class="floatBarsG"></div>
+                                <div id="floatBarsG_5" class="floatBarsG"></div>
+                                <div id="floatBarsG_6" class="floatBarsG"></div>
+                                <div id="floatBarsG_7" class="floatBarsG"></div>
+                                <div id="floatBarsG_8" class="floatBarsG"></div>
+                            </div>
                         </div>
-
                     </div>
                 </div>
                 <div class="col-md-12"  style="visibility: hidden; ">
@@ -251,9 +253,9 @@
                 </div>
             </div>
 
-            <!--- select thaya pachhi ave ae end-->
 
-            <!--- select thai ne ave ae pelaj -->
+
+
             <div class="container">
                 <div class="row" id="row2">
                     <?php
@@ -274,32 +276,27 @@
                     <?php }
                     ?>
 
+
                 </div>
             </div>
         </div>
-    </div>
-</div>   
-
-<div class="container">
-
-
-    <?php
+       
+<?php
     $userid = $this->session->userdata('aileenuser');
     if ($businessdata1[0]['user_id'] == $userid) {
-        ?>    
-        <div class="upload-img">
+        ?>
+<div class="container">    
+    <div class="upload-img">
 
 
-            <label class="cameraButton"><i class="fa fa-camera" aria-hidden="true"></i>
-                <input type="file" id="upload" name="upload" accept="image/*;capture=camera" onclick="showDiv()">
-            </label>
-
-
-            <!--- select thai ne ave ae pelaj puru -->
-
-        </div>
-
+        <label class="cameraButton"><i class="fa fa-camera" aria-hidden="true"></i>
+            <input type="file" id="upload" name="upload" accept="image/*;capture=camera" onclick="showDiv()">
+        </label>
+    </div>
+</div>
     <?php } ?>
+        <!-- coer image end-->
+    
     <div class="profile-photo">
         <div class="buisness-menu">
             <div class="profile-pho-bui">
@@ -2017,125 +2014,6 @@
             <!-- tabing script end -->
             <!-- footer end -->
 
-
-            <!-- cover image start -->
-            <script>
-                function myFunction() {
-                    document.getElementById("upload-demo").style.visibility = "hidden";
-                    document.getElementById("upload-demo-i").style.visibility = "hidden";
-                    document.getElementById('message1').style.display = "block";
-                }
-
-
-                function showDiv() {
-                    document.getElementById('row1').style.display = "block";
-                    document.getElementById('row2').style.display = "none";
-                }
-            </script>
-
-
-            <script type="text/javascript">
-                $uploadCrop = $('#upload-demo').croppie({
-                    enableExif: true,
-                    viewport: {
-                        width: 1250,
-                        height: 350,
-                        type: 'square'
-                    },
-                    boundary: {
-                        width: 1250,
-                        height: 350
-                    }
-                });
-
-
-
-                $('.upload-result').on('click', function (ev) {
-                    $uploadCrop.croppie('result', {
-                        type: 'canvas',
-                        size: 'viewport'
-                    }).then(function (resp) {
-
-                        $.ajax({
-                            url: "https://www.aileensoul.com/business_profile/ajaxpro",
-                            type: "POST",
-                            data: {"image": resp},
-                            success: function (data) {
-                                html = '<img src="' + resp + '" />';
-                                if (html)
-                                {
-                                    window.location.reload();
-                                }
-
-                            }
-                        });
-
-                    });
-                });
-
-                //aarati code start
-                $('#upload').on('change', function () {
-
-
-
-                    var reader = new FileReader();
-
-                    reader.onload = function (e) {
-                        $uploadCrop.croppie('bind', {
-                            url: e.target.result
-                        }).then(function () {
-                            console.log('jQuery bind complete');
-                        });
-
-                    }
-                    reader.readAsDataURL(this.files[0]);
-
-
-
-                });
-
-                $('#upload').on('change', function () {
-
-                    var fd = new FormData();
-                    fd.append("image", $("#upload")[0].files[0]);
-
-                    files = this.files;
-                    size = files[0].size;
-
-
-
-                    if (size > 4194304)
-                    {
-                        //show an alert to the user
-                        alert("Allowed file size exceeded. (Max. 4 MB)")
-
-                        document.getElementById('row1').style.display = "none";
-                        document.getElementById('row2').style.display = "block";
-
-
-                        //reset file upload control
-                        return false;
-                    }
-
-                    $.ajax({
-
-                        url: "<?php echo base_url(); ?>business_profile/imagedata",
-                        type: "POST",
-                        data: fd,
-                        processData: false,
-                        contentType: false,
-                        success: function (response) {
-
-
-                        }
-                    });
-                });
-
-                //aarati code end
-            </script>
-            <!-- cover image end -->
-
-
             <!-- like comment ajax data start-->
 
             <!-- post like script start -->
@@ -3817,5 +3695,128 @@
                 }
 
             </style>
+            
+       <!-- cover image start -->
+            <script>
+                function myFunction() {
+                    document.getElementById("upload-demo").style.visibility = "hidden";
+                    document.getElementById("upload-demo-i").style.visibility = "hidden";
+                    document.getElementById('message1').style.display = "block";
+                }
+
+
+                function showDiv() {
+                    document.getElementById('row1').style.display = "block";
+                    document.getElementById('row2').style.display = "none";
+                }
+            </script>
+
+
+            <script type="text/javascript">
+                $uploadCrop = $('#upload-demo').croppie({
+                    enableExif: true,
+                    viewport: {
+                        width: 1250,
+                        height: 350,
+                        type: 'square'
+                    },
+                    boundary: {
+                        width: 1250,
+                        height: 350
+                    }
+                });
+
+
+
+                $('.upload-result').on('click', function (ev) {
+                    $uploadCrop.croppie('result', {
+                        type: 'canvas',
+                        size: 'viewport'
+                    }).then(function (resp) {
+
+                        $.ajax({
+                            url: "<?php echo base_url() ?>business_profile/ajaxpro",
+                            type: "POST",
+                            data: {"image": resp},
+                            success: function (data) {
+                                html = '<img src="' + resp + '" />';
+                                if (html)
+                                {
+                                    window.location.reload();
+                                }
+
+                            }
+                        });
+
+                    });
+                });
+                
+                $('.cancel-result').on('click', function (ev) {
+        document.getElementById('row2').style.display = "block";
+        document.getElementById('row1').style.display = "none";
+        document.getElementById('message1').style.display = "none";
+    });
+
+                //aarati code start
+                $('#upload').on('change', function () {
+
+
+
+                    var reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        $uploadCrop.croppie('bind', {
+                            url: e.target.result
+                        }).then(function () {
+                            console.log('jQuery bind complete');
+                        });
+
+                    }
+                    reader.readAsDataURL(this.files[0]);
+
+
+
+                });
+
+                $('#upload').on('change', function () {
+
+                    var fd = new FormData();
+                    fd.append("image", $("#upload")[0].files[0]);
+
+                    files = this.files;
+                    size = files[0].size;
+
+
+
+                    if (size > 4194304)
+                    {
+                        //show an alert to the user
+                        alert("Allowed file size exceeded. (Max. 4 MB)")
+
+                        document.getElementById('row1').style.display = "none";
+                        document.getElementById('row2').style.display = "block";
+
+
+                        //reset file upload control
+                        return false;
+                    }
+
+                    $.ajax({
+
+                        url: "<?php echo base_url(); ?>business_profile/imagedata",
+                        type: "POST",
+                        data: fd,
+                        processData: false,
+                        contentType: false,
+                        success: function (response) {
+
+
+                        }
+                    });
+                });
+
+                //aarati code end
+            </script>
+            <!-- cover image end -->
 
 

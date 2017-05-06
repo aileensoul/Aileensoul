@@ -889,6 +889,14 @@ $( "#tags" ).autocomplete({
 
         });
     });
+    
+    $('.cancel-result').on('click', function (ev) {
+
+        document.getElementById('row2').style.display = "block";
+        document.getElementById('row1').style.display = "none";
+        document.getElementById('message1').style.display = "none";
+
+    });
 
 //aarati code start
     $('#upload').on('change', function () {

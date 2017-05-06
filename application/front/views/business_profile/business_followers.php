@@ -51,9 +51,9 @@ label.cameraButton input[accept*="camera"] {
         <div id="upload-demo" style="width:100%"></div>
         </div>
         <div class="col-md-12 cover-pic" style="padding-top: 25px;text-align: center;">
-            <button class="btn btn-success upload-result cancel-result" onclick="" >Cancel</button>
+            <button class="btn btn-success cancel-result" onclick="" >Cancel</button>
     
-        <button class="btn btn-success upload-result cancel-result" onclick="myFunction()">Upload Image</button>
+        <button class="btn btn-success upload-result" onclick="myFunction()">Upload Image</button>
 
         <div id="message1" style="display:none;">
            <div class="">
@@ -127,7 +127,7 @@ label.cameraButton input[accept*="camera"] {
                         <?php if($businessdata1[0]['business_user_image'] != ''){ ?>
                            <img src="<?php echo base_url(USERIMAGE . $businessdata1[0]['business_user_image']);?>" alt="" >
                             <?php } else { ?>
-                            <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
+                            <img alt=""  src="<?php echo base_url(NOIMAGE); ?>" alt="" />
                             <?php } ?>
 
 
@@ -398,7 +398,7 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
                                 <?php if($followerimage != ''){ ?>
                            <img src="<?php echo base_url(USERIMAGE . $followerimage);?>" height="50px" width="50px" alt="" >
                             <?php } else { ?>
-                            <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
+                            <img alt="" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
                             <?php } ?> 
                             </div>
                             </li>
@@ -652,7 +652,7 @@ $('.upload-result').on('click', function (ev) {
   }).then(function (resp) {
 
     $.ajax({
-      url: "https://www.aileensoul.com/business_profile/ajaxpro",
+      url: "<?php echo base_url() ?>business_profile/ajaxpro",
       type: "POST",
       data: {"image":resp},
       success: function (data) {
@@ -666,6 +666,12 @@ $('.upload-result').on('click', function (ev) {
 
   });
 });
+
+$('.cancel-result').on('click', function (ev) {
+        document.getElementById('row2').style.display = "block";
+        document.getElementById('row1').style.display = "none";
+        document.getElementById('message1').style.display = "none";
+    });
 
 //aarati code start
 $('#upload').on('change', function () { 
