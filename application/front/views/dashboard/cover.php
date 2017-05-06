@@ -130,12 +130,13 @@
   <!-- <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap-3.min.css'); ?>"> -->
 <link rel="stylesheet" href="<?php echo base_url('assets/css/croppie.css'); ?>" />
 <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
-<!-- END HEADER -->
+<!--END HEADER -->
 
 
 <body   class="page-container-bg-solid page-boxed">
 
     <section>
+        <!-- coer image start-->
         <div class="container">
 
             <div class="row" id="row1" style="display:none;">
@@ -192,8 +193,7 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>   
+       
 
 <div class="container">    
     <div class="upload-img">
@@ -204,8 +204,9 @@
         </label>
     </div>
 </div>
+       
+        <!-- coer image end-->
 
-</div>
 <div class="profile-photo">
     <div class="profile-main-pho">
         <div class="user-pic-picture">
