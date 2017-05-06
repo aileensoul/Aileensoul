@@ -368,7 +368,7 @@ if($status == 0 || $status == " "){?>
                             <?php } ?> 
                             </div>
                             </li>
-                            <li>
+                            <li style="width: 67%">
                              <div class="">
                          <div class="follow-li-text ">
                                 <a href="<?php echo base_url('artistic/art_manage_post/'.$art_id); ?>"><?php echo $art_name; ?></a></div>

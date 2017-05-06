@@ -1708,7 +1708,7 @@ label.cameraButton input[accept*="camera"] {
 
                                     <div class="">
                                         <div class="col-md-10 inputtype-comment" style="padding-left: 7px;">
-                                            <textarea type="text" class="textarea" name="<?php echo $row['art_post_id']; ?>"  id="<?php echo "post_comment" . $row['art_post_id']; ?>" placeholder="Type Comment ..." value= "" onClick="entercomment(this.name)"></textarea>
+                                            <div contenteditable="true" class="editable_text" type="text" class="textarea" name="<?php echo $row['art_post_id']; ?>"  id="<?php echo "post_comment" . $row['art_post_id']; ?>" placeholder="Type Comment ..." value= "" onClick="entercomment(this.name)"></div>
         <?php echo form_error('post_comment'); ?>
                                         </div>
                                         <div class="col-md-1 comment-edit-butn">   
