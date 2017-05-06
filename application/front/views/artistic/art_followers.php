@@ -362,7 +362,7 @@ if($status == 0 || $status == " "){?>
                                                 <div class="profile-job-post-location-name">
                                                     <div class="user_lst"><ul>
 
-                            <li class="fl">
+                            <li class="fl" style="padding-left: 0px;">
                             <div class="follow-img">
 
                             <?php 
@@ -371,7 +371,11 @@ if($status == 0 || $status == " "){?>
                                   <?php if($followerusername != ''){ ?>
                             <img src="<?php echo base_url(ARTISTICIMAGE . $followerusername);?>" height="50px" width="50px" alt="" >
                             <?php } else { ?>
-                            <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
+<<<<<<< HEAD
+                            <img alt=""  src="<?php echo base_url(NOIMAGE); ?>" alt="" />
+=======
+                            <img alt="" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
+>>>>>>> 16be45fbefe760d24da5807a182434c39cc126de
                             <?php } ?> 
                             </div>
                             </li>
@@ -380,12 +384,13 @@ if($status == 0 || $status == " "){?>
                          <div class="follow-li-text">
 
                          <?php 
-                 $followername =  $this->db->get_where('art_reg',array('art_id' => $user['follow_from']))->row()->art_name; ?>
+                 $followername =  $this->db->get_where('art_reg',array('art_id' => $user['follow_from']))->row()->art_name;
+                 $art_lastname =  $this->db->get_where('art_reg',array('art_id' => $user['follow_from']))->row()->art_lastname;  ?>
 
                  <?php 
                  $followerid =  $this->db->get_where('art_reg',array('art_id' => $user['follow_from']))->row()->user_id; ?>
 
-                                <a href="<?php echo base_url('artistic/art_manage_post/'.$followerid); ?>"><?php echo $followername;?></a></div>
+                                <a href="<?php echo base_url('artistic/art_manage_post/'.$followerid); ?>"><?php echo ucwords($followername); echo "&nbsp;"; echo ucwords($art_lastname);?></a></div>
                             </li>
                             
 

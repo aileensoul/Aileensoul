@@ -489,11 +489,9 @@ label.cameraButton input[accept*="camera"] {
                   
       <div style="position: relative;">
                 
-                               </div>
-              <?php  }?>
-  
-    </div>
-<div class="not_text" style=" top: 70;     position: absolute;
+
+
+                <!-- <div class="not_text" style=" top: 70;     position: absolute;
     columns: #000033;
     color: #728bc0;
     font-size: 19px;
@@ -505,7 +503,12 @@ label.cameraButton input[accept*="camera"] {
        left: 19px;
     top: 184px;
 
-">Photo not avalible</span></div>
+">Photo not avalible</span></div> -->
+                               </div>
+              <?php  }?>
+  
+    </div>
+
      
 
 <!-- silder start -->
