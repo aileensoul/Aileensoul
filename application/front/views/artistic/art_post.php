@@ -1037,7 +1037,7 @@
                                                                        ?> </a>
 
                                                                     <div class="datespan">
-                                                                        <span style="font-weight: 400;"> <?php // echo date('d-M-Y',strtotime($row['created_date']));                             ?>
+                                                                        <span style="font-weight: 400;"> <?php // echo date('d-M-Y',strtotime($row['created_date']));                              ?>
 
                                                                             <?php echo $row['created_date']; ?>
 
@@ -1046,7 +1046,7 @@
 
                                                             </div></li>
                                                         <!-- 
-                                                        <li><div class="post-design-product"><a><?php //echo $listFinal ;                             ?> </a></div></li>
+                                                        <li><div class="post-design-product"><a><?php //echo $listFinal ;                              ?> </a></div></li>
                                                         -->
 
                                                         <li>
@@ -1090,12 +1090,12 @@
 
                                                             if ($artsave) {
                                                                 ?>
-                                                                                                                                                                            
-                                                                                                                                                                               <a><i class="fa fa-bookmark" aria-hidden="true"></i>Saved Post</a>
-                                                                                                                                                                            
+                                                                                                                                                                                
+                                                                                                                                                                                   <a><i class="fa fa-bookmark" aria-hidden="true"></i>Saved Post</a>
+                                                                                                                                                                                
                                                             <?php } else { ?>
-                                                                                                                                                                            
-                                                                                                                                                                             <a id="<?php echo $row['art_post_id']; ?>" onClick="save_post(this.id)" href="#popup1" class="<?php echo 'savedpost' . $row['art_post_id']; ?>"><i class="fa fa-bookmark" aria-hidden="true"></i>Save Post</a>
+                                                                                                                                                                                
+                                                                                                                                                                                 <a id="<?php echo $row['art_post_id']; ?>" onClick="save_post(this.id)" href="#popup1" class="<?php echo 'savedpost' . $row['art_post_id']; ?>"><i class="fa fa-bookmark" aria-hidden="true"></i>Save Post</a>
                                                             <?php } ?> -->
 
 
@@ -1114,7 +1114,7 @@
 
                                                         <div id="<?php echo 'editpostdetailbox' . $row['art_post_id']; ?>" style="display:none;">
 
-                                                                                                                                                                                                                                <!--   <textarea id="<?php echo 'editpostdesc' . $row['art_post_id']; ?>" name="editpostdesc"><?php echo $row['art_description']; ?></textarea>  -->
+                                                                                                                                                                                                                                        <!--   <textarea id="<?php echo 'editpostdesc' . $row['art_post_id']; ?>" name="editpostdesc"><?php echo $row['art_description']; ?></textarea>  -->
                                                             <div contenteditable="true"  id="<?php echo 'editpostdesc' . $row['art_post_id']; ?>" class="textbuis  editable_text" name="editpostdesc" style="width: 75%; margin-bottom: 10px;"><?php echo $row['art_description']; ?></div>
 
 
@@ -1340,19 +1340,10 @@
                                                             $contition_array = array('art_post_id' => $row['art_post_id'], 'status' => '1', 'is_delete' => '0');
                                                             $commnetcount = $this->common->select_data_by_condition('artistic_post_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                                                             ?>
-
-
-                                                            <?php if (count($commnetcount) > 1) { ?>
-                                                                <a  onClick="commentall(this.id)" id="<?php echo $row['art_post_id']; ?>">
-                                                                    <i class="fa fa-comment-o" aria-hidden="true">
-                                                                        <?php echo count($commnetcount); ?>
-                                                                    </i>  
-                                                                    <?php
-                                                                } else {
-                                                                    
-                                                                }
-                                                                ?>
-
+                                                            <a  onClick="commentall(this.id)" id="<?php echo $row['art_post_id']; ?>">
+                                                                <i class="fa fa-comment-o" aria-hidden="true">
+                                                                    <?php echo count($commnetcount); ?>
+                                                                </i>  
                                                             </a>
                                                         </li>
                                                     </ul>
