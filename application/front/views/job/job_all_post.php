@@ -285,7 +285,7 @@
                                             ?>
                                         </a>
                                     </div>
-                                    <div class="profile-box-user  profile-text-bui-user  fr col-md-9">
+   <div class="profile-box-user  profile-text-bui-user  fr col-sm-10  col-md-9">
                                         <span class="profile-company-name ">
                                             <a  style="font-weight: 600;" href="<?php echo site_url('job/job_printpreview/' . $jobdata[0]['user_id']); ?>">  <?php echo $jobdata[0]['fname'] . ' ' . $jobdata[0]['lname']; ?></a>
                                         </span>
