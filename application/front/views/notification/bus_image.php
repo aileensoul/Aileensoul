@@ -719,7 +719,8 @@ width: 68px;">
 
             
                 <div id="two_images_bui" >
-                <img src="<?php echo base_url(BUSPOSTIMAGE. str_replace(" ","_",$data['image_name']))?>" style="width: 100%; height: 100%;" onclick="openModal();currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
+<!--                <img src="<?php echo base_url(BUSPOSTIMAGE. str_replace(" ","_",$data['image_name']))?>" style="width: 100%; height: 100%;" onclick="openModal();currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">-->
+                 <img src="<?php echo base_url(BUSPOSTIMAGE. str_replace(" ","_",$data['image_name']))?>" style="width: 100%; height: 100%;"  class="hover-shadow cursor">
                 </div>
           
 
@@ -1433,9 +1434,9 @@ if(count($likelistarray) > 1) {
     </script>
 
 <script>
-function openModal() {
+//function openModal() {
   document.getElementById('myModal1').style.display = "block";
-}
+//}
 
 function closeModal() {
   document.getElementById('myModal1').style.display = "none";
@@ -1448,9 +1449,9 @@ function plusSlides(n) {
   showSlides(slideIndex += n);
 }
 
-function currentSlide(n) {
+//function currentSlide(n) {
   showSlides(slideIndex = n);
-}
+//}
 
 function showSlides(n) {
   var i;
@@ -1530,11 +1531,9 @@ function post_like(clicked_id)
 
 <script type="text/javascript">
 function insert_comment(clicked_id)
-{
+{  
     var post_comment = document.getElementById("post_comment" + clicked_id);
-   //alert(clicked_id);
-   //alert(post_comment.value);
-   $.ajax({ 
+     $.ajax({ 
                 type:'POST',
                 url:'<?php echo base_url() . "business_profile/pninsert_comment" ?>',
                  data:'post_id='+clicked_id + '&comment='+post_comment.value,
@@ -1543,10 +1542,9 @@ function insert_comment(clicked_id)
                       $(this).val('');
                   }); 
                     $('.' + 'insertcomment' + clicked_id).html(data);
-                    
-                }
+                   }
             }); 
-}
+      }
 </script>
 
 
@@ -1579,7 +1577,6 @@ function entercomment(clicked_id)
 
 }
 </script>
-
 
 <!--comment insert script end -->
 

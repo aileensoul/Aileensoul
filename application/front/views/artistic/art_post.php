@@ -395,7 +395,7 @@
                             <div class="profile-boxProfileCard  module">
                                 <div class="profile-boxProfileCard-cover">     
                                     <a class="profile-boxProfileCard-bg u-bgUserColor a-block" href="<?php echo site_url('artistic/art_manage_post'); ?>" tabindex="-1" aria-hidden="true" rel="noopener">
-                                        <img src="<?php echo base_url(ARTBGIMAGE . $artisticdata[0]['profile_background_main']); ?>" class="bgImage" style="height: 95px; width: 393px; " >
+                                        <img src="<?php echo base_url(ARTBGIMAGE . $artisticdata[0]['profile_background']); ?>" class="bgImage" style="height: 95px; width: 393px; " >
                                     </a>
                                 </div>
 

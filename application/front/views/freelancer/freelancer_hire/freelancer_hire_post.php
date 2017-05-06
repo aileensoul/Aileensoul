@@ -168,6 +168,7 @@ echo $freelancer_hire_header2;} ?>
 <body   class="page-container-bg-solid page-boxed">
 
     <section>
+        <!-- cover image start-->
         <div class="container">
             <div class="row" id="row1" style="display:none;">
                 <div class="col-md-12 text-center">
@@ -221,8 +222,7 @@ echo $freelancer_hire_header2;} ?>
                 </div>
             </div>
         </div>
-    </div>
-</div>   
+      
 
 <div class="container">    
     <div class="upload-img">
@@ -234,7 +234,7 @@ echo $freelancer_hire_header2;} ?>
 <?php }?>
     </div>
 
-
+<!-- cover image end-->
 
 
 
