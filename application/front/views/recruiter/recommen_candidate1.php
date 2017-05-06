@@ -250,47 +250,55 @@
                                                             </div>
                                                         </div>
                                                     <div class="profile-job-post-title-inside clearfix">
-                                                        <div class="profile-job-profile-button clearfix">
-                                                            <div class="profile-job-post-location-name-rec">
-                                                                <ul>
-                                                                    <ul>
-                                                                        <li>
+           <div class="profile-job-profile-button clearfix">
+             <div class="profile-job-post-location-name-rec">
 
-                                                                            <div  class="buisness-profile-pic-candidate "><img src="<?php echo base_url(USERIMAGE . $p['job_user_image']); ?>" alt="" >
-                                                                            </div>
-                                                                        </li>
 
-                                                                        <li class="">
-                                                                            <a href="<?php echo base_url('job/job_printpreview/' . $p['user_id']); ?>">
-                                                                                <?php echo ucwords($p['fname']) . ' ' . ucwords($p['lname']); ?>
-                                                                                <?php
-                                                                                if ($p['designation']) {
-                                                                                    ?>
+               <div style="display: inline-block; float: left;">
+             
+                <div  class="buisness-profile-pic-candidate ">
+                <img src="<?php echo base_url(USERIMAGE . $p['job_user_image']); ?>" alt="" >
+                      </div>
+                  </div> 
 
-                                                                                    (
-                                                                                    <?php echo $p['designation']; ?>
-                                                                                    )
-                                                                                    <?php
-                                                                                } else {
-                                                                                    ?>
-                                                                                    (
-                                                                                    <?php echo "Designation"; ?>
-                                                                                    )
-                                                                                    <?php
-                                                                                }
-                                                                                ?>
-                                                                            </a></li>
 
-                                                                    </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="profile-job-post-title clearfix search1">
+            <div class="designation_rec" style="float: left;">
+                <ul>
+                         
+
+                     <li>
+                   <a style=" font-size: 19px;
+         font-weight: 600;" href="<?php echo base_url('job/job_printpreview/' . $p['user_id']); ?>">
+                   <?php echo ucwords($p['fname']) . ' ' . ucwords($p['lname']); ?>
+                      <?php
+                  if ($p['designation']) {
+                          ?>
+                      (<?php echo $p['designation']; ?>)
+                                                     
+                   <?php
+                    } else {
+                     ?>
+                  ( <?php echo "Designation"; ?>)
+                 <?php
+                    }
+                  ?>
+                 </a></li>
+
+            <li style="display: block;"><a href="#"> Designation  </a>  </li>
+            
+          </ul>
+        </div>
+
+      </div>
+       </div>
+       </div>
+
+        <div class="profile-job-post-title clearfix search1">
 
                                                         <div class="profile-job-profile-menu  search ">
 
-                                                            <ul>
-                                                                <li><b>E-mail</b><span>
+                 <ul>
+                <li><b>E-mail</b><span>
                                                                     <?php
                                                                     echo $p['email'];
                                                                     ?></span>
@@ -388,7 +396,7 @@
                                                         </div>
 
                                                         <div class="profile-job-profile-button clearfix">
-                                                            <div class="apply-btn">
+             <div class="apply-btn fr">
 
 
                                                                 <?php
