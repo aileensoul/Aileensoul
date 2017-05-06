@@ -4953,6 +4953,7 @@ class Business_profile extends MY_Controller {
 
             $insert_id = $this->common->insert_data_getid($data, 'notification');
             }
+          }
             // end notoification
 
 
