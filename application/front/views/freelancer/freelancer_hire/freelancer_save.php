@@ -1,7 +1,7 @@
 <!--start head -->
 <?php echo $head; ?>
 
-
+<script src="<?php echo base_url('js/jquery.min.js'); ?>"></script>
 
 <!--post save success pop up style strat -->
 <style>
@@ -758,7 +758,7 @@ $( "#tags" ).autocomplete({
 
 
 <!-- cover image start -->
-<script>
+<script type="text/javascript">
     function myFunction() {
         document.getElementById("upload-demo").style.visibility = "hidden";
         document.getElementById("upload-demo-i").style.visibility = "hidden";
