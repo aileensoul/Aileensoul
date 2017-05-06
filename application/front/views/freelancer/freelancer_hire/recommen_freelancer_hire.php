@@ -285,15 +285,7 @@
                                             </span>
 
 
-                                            <div class="profile-boxProfile-name">
-                                                <a style="font-size: 15px;" href="<?php echo base_url('freelancer/freelancer_hire_profile'); ?>" title="<?php echo $freehiredata[0]['fullname'] . " " . $freehiredata[0]['username']; ?>"><?php
-                                                    if ($freehiredata[0]['designation']) {
-                                                        echo $freehiredata[0]['designation'];
-                                                    } else {
-                                                        echo "Designation";
-                                                    }
-                                                    ?></a></div>
-
+                                           
 
                                         </div>
 
@@ -386,10 +378,13 @@
                                             ?>
                                                                                     
                                                                                 </div></li>
+                                                                                
                                                                             <li>
           <a href="<?php echo base_url('freelancer/freelancer_post_profile/' . $row['user_id'].'?page=freelancer_hire'); ?>" title="<?php echo ucwords($row['freelancer_post_fullname']) . ' ' . ucwords($row['freelancer_post_username']); ?>"><h6>
             <?php echo ucwords($row['freelancer_post_fullname']) . ' ' . ucwords($row['freelancer_post_username']); ?></h6>
                                                                                 </a></li>
+
+
 
                                                                         </ul>
                                                                 </div>
@@ -438,9 +433,7 @@
                                                                 <li><b>Skill Description</b> <span> <p>
         <?php if($row['freelancer_post_skill_description']) {echo $row['freelancer_post_skill_description'];} else {echo PROFILENA;} ?></p></span>
                                                                 </li>
-                                                                <li><b>Designation</b>
-                                                                    <span><?php if($row['designation']){echo $row['designation'];} else{ echo PROFILENA;} ?></span>
-                                                                </li>
+                                                                
                                                                 <li><b>Avaiability</b><span>
                                                                     <?php 
                                                                     if($row['freelancer_post_work_hour'])
