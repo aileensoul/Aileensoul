@@ -298,18 +298,7 @@
                                                         <div class="profile-job-profile-menu  search ">
 
                  <ul>
-                <li><b>E-mail</b><span>
-                                                                    <?php
-                                                                    echo $p['email'];
-                                                                    ?></span>
-                                                                </li>
-
-                                                                <li><b>Mobile Number</b>
-                                                                 <span>   <?php
-                                                                    echo $p['phnno'];
-                                                                    ?></span>
-                                                                </li>
-
+              
                                                                 <?php
                                                                 if ($p['keyskill']) {
                                                                     ?>
@@ -343,10 +332,21 @@
                                                                     <li><b>Other Skill</b>
                                                                        <span> <?php echo $p['other_skill']; ?></span>
                                                                     </li>
+
+
+                                                                
                                                                     <?php
                                                                 }
                                                                 ?>
+                                                                <li> <b> Total Experience </b>
+                                                                <span><?php echo $p['experience_year']; ?>  <?php echo $p['experience_month']; ?> 
+</span>
+                                                                </li>
 
+
+                                                                <li><b>Location</b> 
+
+       <span> <?php echo $countryname; ?> <?php echo $cityname; ?></span></li>
 
 
                                                                 <li> <b> Degree </b>
@@ -370,19 +370,22 @@
                                                                 $cityname = $this->db->get_where('cities', array('city_id' => $p['city_id']))->row()->city_name;
                                                                 ?>
 
-                                                                <li><b>Location</b> 
-
-       <span> <?php echo $countryname; ?> <?php echo $cityname; ?></span></li>
 
 
 
 
 
-                                                                <li> <b> Total Experience </b>
-                                                                <span><?php echo $p['experience_year']; ?>  <?php echo $p['experience_month']; ?> 
-</span>
+                                                                  <li><b>E-mail</b><span>
+                                                                    <?php
+                                                                    echo $p['email'];
+                                                                    ?></span>
                                                                 </li>
 
+                                                                <li><b>Mobile Number</b>
+                                                                 <span>   <?php
+                                                                    echo $p['phnno'];
+                                                                    ?></span>
+                                                                </li>
 
 
 
