@@ -3017,7 +3017,7 @@
                     $.ajax({
                         type: 'POST',
                         url: '<?php echo base_url() . "business_profile/insert_comment" ?>',
-                        data: 'post_id=' + clicked_id + '&comment=' + val,
+                        data: 'post_id=' + clicked_id + '&comment=' + txt,
                         // dataType: "json",
                         success: function (data) {
                             $('input').each(function () {
