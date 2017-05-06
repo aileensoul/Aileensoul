@@ -2106,7 +2106,7 @@ $this->load->view('freelancer/freelancer_hire/freelancer_save', $this->data);
 
 //Remove save candidate controller Start
     public function remove_save() {
-        //echo "hi"; die();
+        //echo "hi"; 
 
         $id = $_POST['save_id'];
         $userid = $this->session->userdata('aileenuser');
@@ -2118,7 +2118,7 @@ $this->load->view('freelancer/freelancer_hire/freelancer_save', $this->data);
         );
 
         $updatedata = $this->common->update_data($data, 'save', 'save_id', $id);
-        // echo "<pre>"; print_r($updatedata);die();
+         //echo "<pre>"; print_r($updatedata);die();
     }
 
 //Remove save candidate controller End

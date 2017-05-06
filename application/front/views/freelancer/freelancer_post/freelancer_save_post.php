@@ -150,7 +150,7 @@
 
 <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
 
-<link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap-3.min.css'); ?>">
+<link rel="stylesheet" href="<?php echo base_url('css/bootstrap.min.css'); ?>">
 <link rel="stylesheet" href="<?php echo base_url('assets/css/croppie.css'); ?>">
 <!-- END HEADER -->
 
@@ -345,9 +345,25 @@
                         if($postdetail){
                         foreach ($postdetail as $post) {
 
-                            ?> 
+
+
+$this->data['userid'] = $userid = $this->session->userdata('aileenuser');
+ $contition_array = array('post_id' => $post['post_id'], 'job_delete' => 0, 'user_id' => $userid);
+$freelancerapply1 = $this->data['freelancerapply'] = $this->common->select_data_by_condition('freelancer_apply', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+ if ($freelancerapply1) {
+          ?>
+         <!-- <div class="text-center rio">
+                                                <h4 class="page-heading  product-listing" style="border:0px;margin-bottom: 11px;">No Saved Posts Found.</h4>
+                                            </div> <?php //die();?>
+ --> <?php
+} else {
+?>
+
+                
+
+                            
                             <div class="job-contact-frnd ">
-                                        <div class="profile-job-post-detail clearfix" id="<?php echo "removeapply" . $post['post_id']; ?>">
+                                        <div class="profile-job-post-detail clearfix" id="<?php echo "removeapply" . $post['save_id']; ?>">
                                             <div class="profile-job-post-title-inside clearfix">
 
 
@@ -484,7 +500,7 @@ $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
 $freelancerapply1 = $this->data['freelancerapply'] = $this->common->select_data_by_condition('freelancer_apply', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
  if ($freelancerapply1) {
           ?>
-         <a href="javascript:void(0);" class="button applied">Applied</a>
+         <!-- <a href="javascript:void(0);" class="button applied">Applied</a> -->
  <?php
 } else {
 ?>
@@ -508,13 +524,13 @@ $freelancerapply1 = $this->data['freelancerapply'] = $this->common->select_data_
 
 
                                                 </div>
-                        <?php } }else{
+                        <?php } } }else{
                             ?>
                                 <div class="text-center rio">
                                                 <h4 class="page-heading  product-listing" style="border:0px;margin-bottom: 11px;">No Saved Posts Found.</h4>
                                             </div>
                                 <?php
-                        } ?>
+                        }  ?>
                      
 
 
@@ -808,15 +824,16 @@ $( "#tags" ).autocomplete({
 
     function remove_post(abc)
     {
-        // alert(abc); 
-    
+        // alert(abc);     
     $.ajax({
     type:'POST',
             url:'<?php echo base_url() . "freelancer/remove_save" ?>',
             data:'save_id=' + abc,
             success:function(data){
-                $('#' + 'removeapply' + abc).html(data);
+                //alert(data);
                 $('#' + 'removeapply' + abc).parent().removeClass();
+                $('#' + 'removeapply' + abc).html(data);
+                
                 var numItems = $('.contact-frnd-post .job-contact-frnd').length;
                 if (numItems == '0') {
                     var nodataHtml = "<div class='text-center rio'><h4 class='page-heading  product-listing' style='border:0px;margin-bottom: 11px;'>No Saved Freelancer Found.</h4></div>";
@@ -831,7 +848,7 @@ $( "#tags" ).autocomplete({
 
       function apply_post1(abc,xyz)
     {
-        alert(455);
+        //alert(455);
     // var alldata = document.getElementById("allpost" + abc);
     // var user = document.getElementById("userid" + abc);
             var alldata = 'all';
@@ -843,8 +860,9 @@ $( "#tags" ).autocomplete({
             url:'<?php echo base_url() . "freelancer/apply_insert" ?>',
             data: 'post_id=' + abc + '&allpost=' + alldata.value + '&userid=' + user.value,
             success:function(data){
-                  $('#' + 'removeapply' + abc).html(data);
                 $('#' + 'removeapply' + abc).parent().removeClass();
+                  $('#' + 'removeapply' + abc).html(data);
+                
             var numItems = $('.contact-frnd-post .job-contact-frnd').length;
                 if (numItems == '0') {
                     var nodataHtml = "<div class='text-center rio'><h4 class='page-heading  product-listing' style='border:0px;margin-bottom: 11px;'>No Saved Freelancer Found.</h4></div>";
