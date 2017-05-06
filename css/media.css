@@ -157,8 +157,7 @@
 /*vishang 6-5-17 start */
 @media only screen and (min-width: 1024px) 
 {
-    .buisness-profile-txext 
-    {   max-width: 25% !important; }
+    .buisness-profile-txext {   max-width: 25% !important; }
 
     .profile-box-job-menu ul { float: left; margin-left: 27%; }
     .profile-box-job-menu ul li { padding-left: 0px; }
