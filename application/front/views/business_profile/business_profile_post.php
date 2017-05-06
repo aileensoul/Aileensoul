@@ -715,8 +715,8 @@
                                 </div>
                                 <div  id="text"  class="editor-content col-md-12 popup-textarea" >
                                     <textarea id="test-upload-des" name="product_desc" class="description" placeholder="Enter Description"></textarea>
-                                    <output id="list">
-                                    </output>
+                                    <!-- <output id="list">
+                                    </output> -->
                                 </div>
                                 <div class="print_privew_post">
                                 </div>
