@@ -418,12 +418,16 @@ ul.cv-btn li { margin: 0; padding: 0; list-style: none; display: inline-block; }
 ul.cv-btn li a { background: #363636; border-radius: 4px; color: #fff;  padding: 10px 25px 12px; display: inline-block; font-size: 18px; }
 ul.cv-btn li a:hover { background: #000033; }
 ul.cv-btn li a i { padding-right: 6px; }
-
+.contact_form{    border: 5px solid white;
+    border-bottom: none;}
 /* ART INFO */
 .common-form h3 { background: #000033; margin: 0; padding: 6px 15px 8px;  color: #fff; font-size: 20px; line-height: 28px; }
 .common-form form { border: 2px solid #ddd; border-top: 0; padding: 10px;     background-color: white;}
 fieldset.full-width { width: 100%; }
-
+.common-form .cntact-ss{    border: none!important;
+    border-top: 0!important;
+    padding: 0px!important;
+    background-color: white;}
 .hs-submit { float: right; text-align: right; }
 .hs-submit input { min-width: 150px; width:auto; text-align: center; font-size: 18px; margin-top: 10px; border-color: #000033; text-transform:capitalize; }
 .hs-submit input[type=reset] { border-color: #000033; color: #000033; padding: 8px 12px 11px; }
@@ -559,11 +563,11 @@ ul.business_profile_post_btn li a:hover { background:#000033; color:#fff; }
 .business_profile_comment_post a { margin-left:10px; padding:3px 16px 5px; font-size:14px; }
 .business_profile_comment_post p { font-size:14px; }
 
-.business_pf_ct_person_form { border:2px solid #cacaca; padding:10px; border-radius:4px;  }
-.business_pf_ct_person_form h3 { background:#000033; padding:12px; margin:-11px -11px 20px; color:#fff; }
+.business_pf_ct_person_form {padding-bottom: 0px; background-color: white; border:2px solid #cacaca; padding:10px; border-radius:4px; padding-bottom: 0px; }
+.business_pf_ct_person_form h3 { background:#000033; padding:12px;  color:#fff; }
 
 ul.business_pf_ct_person_detail, ul.artistic_pf_ct_person_detail { margin:0; background:#f8f8f8; padding:8px 15px; margin:15px 0; }
-ul.business_pf_ct_person_detail li, ul.artistic_pf_ct_person_detail { list-style:none; padding:0; }
+ul.business_pf_ct_person_detail li, ul.artistic_pf_ct_person_detail { list-style:none; padding:0; margin-top: 0px; }
 ul.business_pf_ct_person_detail li b {font-size: 16px; display: inline-block; width: 30%;}
 #notificationLink { position:relative; z-index:1; }
 #notificationLink span {    
@@ -1670,10 +1674,10 @@ abbr { cursor: help; }
 
 
 .follow-img {height:60px; margin-bottom: 14px; width: 60px;}
-.profile-job-post-location-name ul li .follow-img img{border-radius: 100%; height:100%; width:100%; margin-bottom: 10px;}
+.profile-job-post-location-name ul li .follow-img img{/*border-radius: 100%;*/ height:100%; width:100%; margin-bottom: 10px;}
 .profile-job-post-location-name ul li .follow-li-text{    font-size: 18px;
                                                           color: #ffffff;
-                                                          padding: 16px 2px 20px;
+                                                          padding:7px 0px 0px;
                                                           font-weight: 400;}
 .follow-box ul li .Frnd_req-pic{height:100px; width:100px;  margin-left: 10px;margin-top: 6px;  border-radius: 100%;  }
 .follow-box ul li .Frnd_req-pic img{    border-radius: 100%;
@@ -2316,8 +2320,8 @@ border-bottom: 1px solid #000033;
               border-radius: 4px; margin-bottom: 10px; border: 1px solid #cccccc;}
 .popup-img img{       border: 2px solid #ffffff;
     height: 50px;
-    width: 50px;
-    margin-left: 14px;
+    width: 50px;/*
+    margin-left: 14px;*/
     margin-top: 13px;
     margin-bottom: 5px;
 }
@@ -4303,6 +4307,7 @@ word-break: break-all;
 /*v 1-5-17 start */
 .fullwidth_experience select { width: 49%; }
 .rec_menubox ul { width: 278px; }
+.fullwidth_experienc{margin-left: 0px;}
 /* v  1-5-17 end*/
 
 /* v 3-5-17 start*/

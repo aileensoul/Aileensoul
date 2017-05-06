@@ -351,6 +351,8 @@ if($status == 0 || $status == " "){?>
                             <?php
                                 $art_name =  $this->db->get_where('art_reg',array('art_id' => $user['follow_to']))->row()->art_name;
                                 $art_id =  $this->db->get_where('art_reg',array('art_id' => $user['follow_to']))->row()->user_id;
+
+                                 $art_lastname =  $this->db->get_where('art_reg',array('art_id' => $user['follow_to']))->row()->art_lastname;
                              ?>  
                                   <div class="job-contact-frnd" id="<?php echo "removefollow" . $user['follow_to']; ?>">
 
@@ -359,19 +361,19 @@ if($status == 0 || $status == " "){?>
                                                 <div class="profile-job-post-location-name">
                                                     <div class="user_lst"><ul>
 
-                            <li class="fl">
+                            <li class="fl" style="padding-left: 0px;">
                             <div class="follow-img">
                                  <?php if($this->db->get_where('art_reg',array('art_id' => $user['follow_to']))->row()->art_user_image != ''){ ?>
                            <img src="<?php echo base_url(ARTISTICIMAGE . $this->db->get_where('art_reg',array('art_id' => $user['follow_to']))->row()->art_user_image);?>" height="50px" width="50px" alt="" >
                             <?php } else { ?>
-                            <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
+                            <img alt=""  src="<?php echo base_url(NOIMAGE); ?>" alt="" />
                             <?php } ?> 
                             </div>
                             </li>
                             <li style="width: 67%">
                              <div class="">
                          <div class="follow-li-text ">
-                                <a href="<?php echo base_url('artistic/art_manage_post/'.$art_id); ?>"><?php echo $art_name; ?></a></div>
+                                <a href="<?php echo base_url('artistic/art_manage_post/'.$art_id); ?>"><?php echo ucwords($art_name); echo "&nbsp;"; echo ucwords($art_lastname); ?></a></div>
                             </li>
                               <?php
 

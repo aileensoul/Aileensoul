@@ -3,7 +3,7 @@
     <!-- END HEAD -->
     <!-- start header -->
 <?php echo $header; ?>
-
+<?php echo $art_header2; ?>
     <!-- END HEADER -->
     <body class="page-container-bg-solid page-boxed">
 
@@ -15,14 +15,6 @@
                     <div class="col-md-3 col-sm-4">
                         <div class="left-side-bar">
                            <ul>
-                                 <li><a href="<?php echo base_url('artistic/artistic_profile'); ?>">Artistic Profile</a>
-                                    </li>
-                                    <li><a href="<?php echo base_url('artistic/art_post'); ?>">Home</a>
-                                    </li>
-                                   <li><a href="<?php echo base_url('artistic/art_savepost'); ?>">Saved Post</a>
-                                    </li>
-                                    <li><a href="<?php echo base_url('artistic/art_manage_post'); ?>">Manage Post</a>
-                                    </li>
                                  
                                  
                                 </ul>
@@ -51,18 +43,17 @@
                             <div> 
                                
                             <div class="business_pf_ct_person_form clearfix">
-                            
-                            <h3>Contact Person</h3>
-                            <?php echo form_open_multipart(base_url('artistic/artistic_contactperson_query/'.$contactperson[0]['user_id']), array('id' => 'contactperson','name' => 'contactperson','class' => 'clearfix')); ?>
+                            <div class="common-form contact_form" >                            <h3>Contact Person</h3>
+                            <?php echo form_open_multipart(base_url('artistic/artistic_contactperson_query/'.$contactperson[0]['user_id']), array('id' => 'contactperson','name' => 'contactperson','class' => 'clearfix cntact-ss')); ?>
                              <ul class="artistic_pf_ct_person_detail">
-                                    <li><b>Contact Person: </b><span><?php echo $contactperson[0]['art_name'];?></span></li>
+                                    <li style="padding-top: 7px;"><b>Contact Person: </b><span><?php echo $contactperson[0]['art_name'];?></span></li>
                                     <li><b>Email Id: </b><?php echo $contactperson[0]['art_email'];?></li>
                                     <li><b >Phone No: </b><span><?php echo $contactperson[0]['art_phnno'];?></span></li>
                                 </ul>
 
                                 <div class="business_pf_ct_ clearfix">
 
-                             <div class="buisness-contact-head"> <h2>Inquiry</h2></div>
+                             <div class="buisness-contact-head"> <h4>Send your inquiry</h4></div>
 
                             
 
@@ -77,12 +68,12 @@
                                 
                                 <fieldset class="full-width">
                                     <label>Details</label>
-                                    <textarea name="msg" id="msg" placeholder="Enter Details"></textarea>
+                                    <textarea name="msg" id="msg" placeholder="Enter Details" style="height: 20%; resize: none;"></textarea>
                                    
                                     <?php echo form_error('msg'); ?><br/>
                                 </fieldset>
                                 <fieldset class="full-width hs-submit">
-                                    <button type="submit" value="Send">Send</button>
+                                    <button type="submit" value="Send" style="margin-right: 0px;">Send</button>
                                 </fieldset>
                                 </div>
                            <?php echo form_close(); ?>
