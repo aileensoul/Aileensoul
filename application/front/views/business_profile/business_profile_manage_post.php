@@ -1208,7 +1208,7 @@
                                         </ul> 
                                     </div>  
                                     <div class="dropdown2">
-                                        <a onClick="myFunction(<?php echo $row['business_profile_post_id']; ?>)" class="dropbtn2 dropbtn2 fa fa-ellipsis-v"></a>
+                                        <a onClick="myFunction1(<?php echo $row['business_profile_post_id']; ?>)" class="dropbtn2 dropbtn2 fa fa-ellipsis-v"></a>
                                         <div id="<?php echo "myDropdown" . $row['business_profile_post_id']; ?>" class="dropdown-content2">
 
 
