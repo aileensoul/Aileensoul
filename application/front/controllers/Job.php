@@ -2921,7 +2921,7 @@ class Job extends MY_Controller {
         $jobdata = $this->data['jobdata'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         //echo "<pre>"; print_r($jobdata);
 // post detail
-        $contition_array = array('is_delete' => 0, 'status' => 1);
+        $contition_array = array('is_delete' => 0, 'status' => 1 ,'user_id !=' => $userid);
 //        echo "<pre>"; print_r($contition_array);die();
         $postdata = $this->data['postdata'] = $this->common->select_data_by_condition('rec_post', $contition_array, $data = '*', $sortby = 'post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         //echo "<pre>"; print_r($postdata);
