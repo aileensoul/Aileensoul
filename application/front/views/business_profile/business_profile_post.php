@@ -695,7 +695,7 @@
                             </span>
                             <div class="post-editor col-md-12">
                                 <?php echo form_open_multipart(base_url('business_profile/business_profile_addpost_insert/'), array('id' => 'artpostform', 'name' => 'artpostform', 'class' => 'clearfix', 'onsubmit' => "return imgval(event)")); ?>
-                                <div class="main-text-area col-md-12"  style="border-bottom: 5px solid #ced5df;">
+                                <div class="main-text-area col-md-12" >
                                     <div class="popup-img col-md-1"> 
                                         <img  src="<?php echo base_url(USERIMAGE . $businessdata[0]['business_user_image']); ?>"  alt="">
                                     </div>
@@ -708,11 +708,12 @@
                                     </div>
                                     <!--   <span class="fr">
                         <input type="file" id="files" name="postattach[]" multiple style="display:block;">  </span> -->
-                                    <div class="col-md-1">
-                                        <i class=" fa fa-camera" style="margin: 0px; font-size: 27px; cursor: pointer; /* margin-right: -38px; */ margin-top: 20px;">
+                                    <div class="col-md-1 padding-left" style="padding-left: 0px;">
+                                        <i class=" fa fa-camera" style="margin: 0px; font-size: 27px; cursor: pointer; /* margin-right: -38px; */ margin-top: 25px;">
                                         </i> 
                                     </div>
                                 </div>
+                                <div class="row"></div>
                                 <div  id="text"  class="editor-content col-md-12 popup-textarea" >
                                     <textarea id="test-upload-des" name="product_desc" class="description" placeholder="Enter Description"></textarea>
                                     <output id="list">
@@ -880,9 +881,11 @@
                                                     <?php } else { ?>
                                                         <li>
                                                             <div class="post-design-product">
-                                                                <a style=" max-width: 26%; width: auto; font-size: 18px;  display: inline-block; font-weight: 600;  color: #000033;   text-overflow: ellipsis; overflow: hidden; white-space: nowrap; "   href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>" title="<?php echo ucwords($companyname); ?>";>
+                                                                <a class="post_dot"  href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>" title="<?php echo ucwords($companyname); ?>";>
                                                                     <?php echo ucwords($companyname); ?>  </a>
-                                                                <div class="datespan">  <span style="font-weight: 400; cursor: default;"> 
+                                                                <div class="datespan">  <span style="font-weight: 400;
+                                                    font-size: 14px;
+                                                    color: #91949d; cursor: default;"> 
                                                                         <?php echo date('d-M-Y', strtotime($row['created_date'])); ?>
                                                                     </span></div>
 
