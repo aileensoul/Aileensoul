@@ -233,15 +233,22 @@ if ($returnpage == 'job') {
                 <div class="row" id="row2">
                     <?php
                     $userid = $this->session->userdata('aileenuser');
-                    $contition_array = array('user_id' => $userid, 'is_delete' => '0', 're_status' => '1');
+                    if($this->uri->segment(3) == $userid){
+                    $user_id = $userid;
+                  }elseif($this->uri->segment(3) == ""){
+                     $user_id = $userid;
+                    }else{
+                $user_id = $this->uri->segment(3);
+                   }  
+                    $contition_array = array('user_id' => $user_id, 'is_delete' => '0', 're_status' => '1');
                     $image = $this->common->select_data_by_condition('recruiter', $contition_array, $data = 'profile_background', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-//echo "<pre>";print_r($image);
-                    $image_ori = $image[0]['profile_background'];
+
+                  $image_ori = $image[0]['profile_background'];
                     if ($image_ori) {
                         ?>
 
                         <div class="bg-images">
-                            <img src="<?php echo base_url(RECBGIMAGE . $recdata[0]['profile_background']); ?>" name="image_src" id="image_src" / ></div>
+                            <img src="<?php echo base_url(RECBGIMAGE . $image[0]['profile_background']); ?>" name="image_src" id="image_src" / ></div>
                         <?php
                     } else {
                         ?>
