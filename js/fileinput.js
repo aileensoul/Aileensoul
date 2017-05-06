@@ -368,7 +368,7 @@ $(function(){
                 '    <div class="kv-fileinput-error"></div>\n' +
                 '    </div>\n' +
                 '</div>';
-            tClose = '<div class="close fileinput-remove">&times;</div>\n';
+            tClose = '<div></div>\n';
             tFileIcon = '<i class="glyphicon glyphicon-file kv-caption-icon"></i>';
             tCaption = '<div tabindex="500" class="form-control file-caption {class}">\n' +
                 '   <div class="file-caption-name"></div>\n' +
@@ -422,9 +422,9 @@ $(function(){
             tActionZoom = '<button type="button" class="kv-file-zoom {zoomClass}" ' +
                 'title="{zoomTitle}">{zoomIcon}</button>';
             tActionDrag = '<span class="file-drag-handle {dragClass}" title="{dragTitle}">{dragIcon}</span>';
-            tTagBef = '  <div class="remove-  "> <i class="fa fa-trash" aria-hidden="true"></i></div><div class="file-preview-frame {frameClass}" id="{previewId}" data-fileindex="{fileindex}"' +
+            tTagBef = '  <div class="file-preview-frame {frameClass}" id="{previewId}" data-fileindex="{fileindex}"' +
                 ' data-template="{template}"';
-            tTagBef1 = tTagBef + '><div class="kv-file-content">\n';
+            tTagBef1 = tTagBef + '><div class="remove-  "> <i class="fa fa-trash" aria-hidden="true"></i></div> <div class="kv-file-content">\n';
             tTagBef2 = tTagBef + ' title="{caption}"><div class="kv-file-content">\n';
             tTagAft = '</div>{footer}\n</div> \n';
             tGeneric = '{content}\n';
@@ -492,7 +492,7 @@ $(function(){
                 allowedPreviewTypes: ['image', 'html', 'text', 'video', 'audio', 'flash', 'pdf', 'object'],
                 previewTemplates: {},
                 previewSettings: {
-                    image: {width: "auto", height: "160px"},
+                    image: {width: "100px", height: "100px"},
                     html: {width: "213px", height: "160px"},
                     text: {width: "213px", height: "160px"},
                     video: {width: "213px", height: "160px"},
@@ -3253,7 +3253,7 @@ $(function(){
             self._raise('filedisabled');
             self.$element.attr('disabled', 'disabled');
             self.$container.find(".kv-fileinput-caption").addClass("file-caption-disabled");
-            self.$container.find(".btn-file, .fileinput-remove, .fileinput-upload, .file-preview-frame button").attr(
+            self.$container.find(".btn-file, .fileinput-upload, .file-preview-frame button").attr(
                 "disabled",
                 true);
             self._initDragDrop();
@@ -3266,7 +3266,7 @@ $(function(){
             self.$element.removeAttr('disabled');
             self.$container.find(".kv-fileinput-caption").removeClass("file-caption-disabled");
             self.$container.find(
-                ".btn-file, .fileinput-remove, .fileinput-upload, .file-preview-frame button").removeAttr("disabled");
+                ".btn-file,  .fileinput-upload, .file-preview-frame button").removeAttr("disabled");
             self._initDragDrop();
             return self.$element;
         },

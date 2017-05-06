@@ -20,8 +20,8 @@
         <div class="user-midd-section">
             <div class="container">
                 <div class="row">
-                  <div class="col-md-4"> </div>
-                    <div class="col-md-6 col-sm-8">
+                  <div class="col-md-3"> </div>
+                    <div class="col-md-7 col-sm-7">
                      
                     <div class="common-form">
                     <h3>Edit Post</h3>

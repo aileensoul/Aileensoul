@@ -2,7 +2,7 @@
 <?php
  $returnpage= $_GET['page'];
  $userid = $this->session->userdata('aileenuser');?>
- <div class="profile-main-rec-box-menu  col-md-12 ">
+ <div class="profile-main-rec-box-menu col-sm-12 col-md-12 col-lg-12 ">
 
 <div class="left-side-menu col-md-2">  </div>
 <div class="right-side-menu col-md-6">  

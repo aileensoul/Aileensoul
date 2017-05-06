@@ -500,7 +500,7 @@ $(window).load(function(){
 
                                                     <?php
                                                     foreach($artlike as $art){
-                                                     $art_not_from = $art['not_from'];
+                                                    $art_not_from = $art['not_from'];
                                                     $art_not_img = $art['not_img'];
 
                                                     if($art_not_from == '3' && $art_not_img == '2'){
@@ -547,7 +547,10 @@ $(window).load(function(){
 
                                                     ?>
 
-                                                    <?php /* foreach($artlike as $art) { 
+                                                    <?php 
+                                                    
+                                                    
+           /* foreach($artlike as $art) { 
                                                       if ($art['not_from'] == '3') {
                                                       $art_not_img = $art['not_img'];
                                                       if($art_not_img == '2'){?>
@@ -563,7 +566,7 @@ $(window).load(function(){
                                                       </div>
                                                       </div> </div> </li>
                                                       <?php}
-                                                      else if($art_not_img == '5'){?>
+                                                      else if($art_not_img == '5'){ ?>
                                                       <li> <?php echo $art_not_img; ?>
                                                       <div class="notification-database">
                                                       <div class="notification-pic" >
@@ -593,9 +596,10 @@ $(window).load(function(){
                                                     <!--5-->                                                    
                                                     <?php
                                                     foreach($buscommnet as $bus) {
-                                                    if ($bus['not_from'] == 6) {
-                                                    if($bus['not_img'] == 1){
-                                                    ?> 
+                                                   $bus_not_from = $bus['not_from'];
+                                                    $bus_not_img = $bus['not_img'];
+
+                                                    if($bus_not_from == '6' && $bus_not_img == '1'){ ?>
                                                     <li> 
                                                         <div class="notification-database">
                                                             <div class="notification-pic" >
@@ -619,7 +623,7 @@ $(window).load(function(){
                                                     <?php echo $this->common->time_elapsed_string($bus['message_create_date'], $full = false); ?>
                                                                 </div>
                                                             </div> </div> </li>
-                                                    <?php }}} ?>   
+                                                    <?php }} ?>   
 
                                                     <!--6-->                                                    
 <?php
@@ -642,9 +646,10 @@ if ($bus['not_from'] == 6) {
                                                     <!--7-->                                                    
 <?php
 foreach($buslike as $bus) {
-if ($bus['not_from'] == 6) {
-if($bus['not_img'] == 1){
-?>  
+$bus_not_from = $bus['not_from'];
+$bus_not_img = $bus['not_img'];
+
+if($bus_not_from == '6' && $bus_not_img == '2'){ ?> 
                                                     <li> 
                                                         <div class="notification-database">
                                                             <div class="notification-pic" >
@@ -656,7 +661,7 @@ if($bus['not_img'] == 1){
 <?php echo $this->common->time_elapsed_string($bus['message_create_date'], $full = false); ?>
                                                                 </div>
                                                             </div> </div> </li>
-<?php }elseif($bus['not_img'] == 5){ ?>
+<?php }elseif($bus_not_from == '6' && $bus_not_img == '5'){ ?>
                                                     <li> 
                                                         <div class="notification-database">
                                                             <div class="notification-pic" >
@@ -675,12 +680,12 @@ if($bus['not_img'] == 1){
                                                                 <img src="<?php echo base_url(USERIMAGE . $bus['user_image']); ?>" >
                                                             </div>
                                                             <div class="notification-data-inside">
-                                                                <a href="<?php echo base_url('notification/art_post/' . $bus['user_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Businessman</i></font></b><b>" . "  " . $bus['first_name'] . ' ' . $bus['last_name'] . "</b> liked on your image"; ?></h6></a>
+                                                                <a href="<?php echo base_url('notification/art_post/' . $bus['user_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Businessman</i></font></b><b>" . "  " . $bus['first_name'] . ' ' . $bus['last_name'] . "</b> liked on your comment"; ?></h6></a>
                                                                 <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
                                                     <?php echo $this->common->time_elapsed_string($bus['message_create_date'], $full = false); ?>
                                                                 </div>
                                                             </div> </div> </li>
-                                                    <?php }}} ?>
+                                                    <?php }} ?>
 
                                                     <!--9-->                                                    
 <?php
