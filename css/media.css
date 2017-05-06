@@ -153,3 +153,11 @@
 {
 	
 }
+
+/*vishang 6-5-17 start */
+@media only screen and (min-width: 1024px) 
+{
+    .buisness-profile-txext { max-width: 24%; }
+    .profile-box-job-menu ul { float: left; margin-left: 14%; }
+}
+  /* vishang end*/

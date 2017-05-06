@@ -154,7 +154,7 @@
                                 <span id="fullname-error"></span>
                                 <?php echo form_error('year'); ?>
 
-                                <select name="month" id="month">
+                                <select name="month" style="margin-left: 10px;" id="month">
                                     <option value="<?php echo $freelancerpostdata[0]['post_exp_month']?> "><?php echo $freelancerpostdata[0]['post_exp_month']." Month"?></option>
                                     <option >Month</option>
                                     <option value="0">0 Month</option>
@@ -177,7 +177,7 @@
                              <b><h2>Payment For Freelancer : </h2></b>
                             </fieldset>
 
-                            <fieldset  class="col-md-4" <?php if($rate) {  ?> class="error-msg" <?php } ?> >
+                            <fieldset style="padding-left: 8px;" class="col-md-4" <?php if($rate) {  ?> class="error-msg" <?php } ?> >
                             <label class="control-label">Rate:<span style="color:red">*</span></label>
                             <input name="rate" type="number" id="rate" placeholder="Enter Your rate" value="<?php echo $freelancerpostdata[0]['post_rate']; ?>" />
                                 <span id="fullname-error"></span>

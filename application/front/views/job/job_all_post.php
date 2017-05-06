@@ -271,11 +271,7 @@
                                             <?php
                                             if ($jobdata[0]['job_user_image']) {
                                                 ?>
-                                                <img src="<?php echo base_url(USERIMAGE . $jobdata[0]['job_user_image']); ?>" alt="<?php echo $jobdata[0]['fname']; ?> "  style="    height: 77px;
-                                                     width: 71px;
-                                                     z-index: 3;
-                                                     position: relative;
-                                                     ">
+                                                <img src="<?php echo base_url(USERIMAGE . $jobdata[0]['job_user_image']); ?>" alt="<?php echo $jobdata[0]['fname']; ?> " >
                                                      <?php
                                                  } else {
                                                      ?>
@@ -285,7 +281,7 @@
                                             ?>
                                         </a>
                                     </div>
-                                    <div class="profile-box-user  profile-text-bui-user  fr col-md-9">
+   <div class="profile-box-user  profile-text-bui-user  fr col-sm-10  col-md-9">
                                         <span class="profile-company-name ">
                                             <a  style="font-weight: 600;" href="<?php echo site_url('job/job_printpreview/' . $jobdata[0]['user_id']); ?>">  <?php echo $jobdata[0]['fname'] . ' ' . $jobdata[0]['lname']; ?></a>
                                         </span>

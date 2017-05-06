@@ -301,7 +301,7 @@ label.cameraButton input[accept*="camera"] {
                 <div class="row">
 
 
-      <div  class="col-sm-10 border_tag padding_low_data  padding_less_right" >
+      <div  class="col-sm-12 border_tag padding_low_data  padding_less_right" >
       
         <div class="col-xs-3 padding_low_data padding_les"> <!-- required for floating -->
           <!-- Nav tabs -->
@@ -321,7 +321,7 @@ label.cameraButton input[accept*="camera"] {
                             <div class="">
 
                                 <h2 class="add_tag_design"> Audio</h2>
-                                 <div class="contact-frnd-post">
+                                 <div class="" style="padding: 10px;">
                                  <div class="vidoe_tag">
        
                                   <?php
@@ -380,12 +380,10 @@ label.cameraButton input[accept*="camera"] {
                <?php }?>             
       
                          </div>
+
 </div>
 </div>
-</div></div>
-            <div class="tab-pane" id="profile">Profile Tab.</div>
-            <div class="tab-pane" id="messages">Messages Tab.</div>
-            <div class="tab-pane" id="settings">Settings Tab.</div>
+          
           </div>
         </div>
 
