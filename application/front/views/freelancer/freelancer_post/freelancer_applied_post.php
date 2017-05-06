@@ -317,7 +317,7 @@ function text2link($text) {
                                             <div class="popup">
 
                                                 <div class="pop_content">
-                                                    Are You Sure want to delete this post?.
+                                                    Are You Sure you want to delete this post?.
 
                                                     <input type="hidden" id="<?php echo 'removehidden' . $post['app_id']; ?>" value="applied">
 
@@ -895,7 +895,7 @@ $( "#tags" ).autocomplete({
 <script>
     function removepopup(id) {
         //alert(id); return false;
-        $('.biderror .mes').html("<div class='pop_content'>Are you sure want to remove this Freelancer?<div class='model_ok_cancel'><a class='okbtn' id="+ id +" onClick='remove_post(" + id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+        $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to remove this Freelancer?<div class='model_ok_cancel'><a class='okbtn' id="+ id +" onClick='remove_post(" + id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
         $('#bidmodal').modal('show');
     }
 </script>
