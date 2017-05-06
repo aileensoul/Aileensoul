@@ -5903,6 +5903,9 @@ class Business_profile extends MY_Controller {
         echo '<div class="likeduser">';
         echo '<div class="likeduser-title">User List</div>';
         foreach ($likelistarray as $key => $value) {
+
+        // $bus_slug =  $this->db->get_where('business_profile',array('user_id' => $value))->row()->slug_id;
+
             $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $value, 'status' => 1))->row()->company_name;
             echo '<div class="likeuser_list"><a href="'.base_url('business_profile/business_resume/' . $value).'">';
             echo ucwords($business_fname1);

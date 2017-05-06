@@ -371,7 +371,11 @@ if($status == 0 || $status == " "){?>
                                   <?php if($followerusername != ''){ ?>
                             <img src="<?php echo base_url(ARTISTICIMAGE . $followerusername);?>" height="50px" width="50px" alt="" >
                             <?php } else { ?>
+<<<<<<< HEAD
                             <img alt=""  src="<?php echo base_url(NOIMAGE); ?>" alt="" />
+=======
+                            <img alt="" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
+>>>>>>> 16be45fbefe760d24da5807a182434c39cc126de
                             <?php } ?> 
                             </div>
                             </li>

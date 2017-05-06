@@ -127,7 +127,7 @@ label.cameraButton input[accept*="camera"] {
                         <?php if($businessdata[0]['business_user_image'] != ''){ ?>
                            <img src="<?php echo base_url(USERIMAGE . $businessdata[0]['business_user_image']);?>" alt="" >
                             <?php } else { ?>
-                            <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
+                            <img alt=""  src="<?php echo base_url(NOIMAGE); ?>" alt="" />
                             <?php } ?>
 
                             <?php

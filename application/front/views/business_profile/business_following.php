@@ -125,7 +125,7 @@ label.cameraButton input[accept*="camera"] {
                         <?php if($businessdata1[0]['business_user_image'] != ''){ ?>
                            <img src="<?php echo base_url(USERIMAGE . $businessdata1[0]['business_user_image']);?>" alt="" >
                             <?php } else { ?>
-                            <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
+                            <img alt=""  src="<?php echo base_url(NOIMAGE); ?>" alt="" />
                             <?php } ?>
 
                             <?php
@@ -370,7 +370,7 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
                                  <?php if($this->db->get_where('business_profile',array('business_profile_id' => $user['follow_to']))->row()->business_user_image != ''){ ?>
                            <img src="<?php echo base_url(USERIMAGE . $this->db->get_where('business_profile',array('business_profile_id' => $user['follow_to']))->row()->business_user_image);?>" height="50px" width="50px" alt="" >
                             <?php } else { ?>
-                            <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
+                            <img alt="" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
                             <?php } ?> 
                             </div>
                             </li>
