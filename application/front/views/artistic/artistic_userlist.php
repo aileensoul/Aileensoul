@@ -275,7 +275,7 @@ if ($this->session->flashdata('success')) {
     <?php if ($user['art_user_image'] != '') { ?>
                                                             <img src="<?php echo base_url(ARTISTICIMAGE . $user['art_user_image']); ?>" height="50px" width="50px" alt="" >
     <?php } else { ?>
-                                                            <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
+                                                            <img alt="" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
                                                         <?php } ?> 
                                                     </div>
                                                 </li>

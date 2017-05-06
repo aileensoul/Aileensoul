@@ -371,7 +371,7 @@ if($status == 0 || $status == " "){?>
                                   <?php if($followerusername != ''){ ?>
                             <img src="<?php echo base_url(ARTISTICIMAGE . $followerusername);?>" height="50px" width="50px" alt="" >
                             <?php } else { ?>
-                            <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
+                            <img alt="" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
                             <?php } ?> 
                             </div>
                             </li>
