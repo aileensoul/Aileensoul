@@ -30,11 +30,70 @@ responsive image design start -->
 </style>
 <!-- responsive image end -->
 <style>
- 
+    /*body {
+        font-family: Arial, sans-serif;
+        background-size: cover;
+        height: 100vh;
+    }
+
+    .box {
+        width: 40%;
+        margin: 0 auto;
+        background: rgba(255,255,255,0.2);
+        padding: 35px;
+        border: 2px solid #fff;
+        border-radius: 20px/50px;
+        background-clip: padding-box;
+        text-align: center;
+    }
+
+    .overlay {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.3);
+        transition: opacity 500ms;
+        visibility: hidden;
+        opacity: 0;
+        z-index: 10;
+    }
+    .overlay:target {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .popup {
+        margin: 70px auto;
+        padding: 20px;
+        background: #fff;
+        border-radius: 5px;
+        width: 30%;
+        height: 200px;
+        position: relative;
+        transition: all 5s ease-in-out;
+    }
+    */
     .okk{
         text-align: center;
     }
 
+    /*   .popup .okbtn{
+           position: absolute;
+           transition: all 200ms;
+           font-size: 18px;
+           font-weight: bold;
+           text-decoration: none;
+           color: #fff;
+           padding: 8px 18px;
+           background-color: darkcyan;
+           left: 25px;
+           margin-top: 15px;
+           width: 100px; 
+           border-radius: 8px;
+       }
+    */
     .pop_content .okbtn{
         position: absolute;
         transition: all 200ms;
@@ -49,6 +108,20 @@ responsive image design start -->
         border-radius: 8px;
     }
 
+    /*  .popup .cnclbtn {
+          position: absolute;
+          transition: all 200ms;
+          font-size: 18px;
+          font-weight: bold;
+          text-decoration: none;
+          color: #fff;
+          padding: 8px 18px;
+          background-color: darkcyan;
+          right: 25px;
+          margin-top: 15px;
+          width: 100px;
+          border-radius: 8px;
+      } */
     .pop_content .cnclbtn {
         position: absolute;
         transition: all 200ms;
@@ -72,7 +145,16 @@ responsive image design start -->
         width:200px !important;
     }
 
-  
+    /*
+        @media screen and (max-width: 700px){
+            .box{
+                width: 70%;
+            }
+            .popup{
+                width: 70%;
+            }
+        } */
+
 
 </style>
 
@@ -901,14 +983,13 @@ label.cameraButton input[accept*="camera"] {
                            <!--   <span class="fr">
                        
                            <input type="file" id="files" name="postattach[]" multiple style="display:block;">  </span> -->
-                            <div class="col-md-1 padding-left" style="padding-left: 0px;"><i class=" fa fa-camera "  style="margin: 0px;
+                            <div class="col-md-1" style="padding-left: 0px;"><i class=" fa fa-camera "  style="margin: 0px;
                                                      font-size: 27px;
                                                      cursor: pointer;
                                                      /* margin-right: -38px; */
                                                      margin-top: 25px;"></i> </div>
 
                         </div>
-                        <div class="row"></div>
                         <div  id="text"  class="editor-content col-md-12 popup-textarea" >
                               <textarea id="test-upload-des" name="product_desc" class="description" placeholder="Enter Description"></textarea>
 
@@ -1033,7 +1114,7 @@ label.cameraButton input[accept*="camera"] {
                         <div class="datespan">
                         <span style="font-weight: 400;
                                                     font-size: 14px;
-                                                    color: #91949d;"> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span></div>
+                                                    color: #91949d;""> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span></div>
                         
                           <?php }?>                          
                         </li>
