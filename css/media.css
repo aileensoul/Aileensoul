@@ -155,10 +155,10 @@
 }
 
 /*vishang 6-5-17 start */
-@media only screen and (max-width: 1024px) 
-{
-    .buisness-profile-txext {   max-width: 25% !important; }
 
+@media (min-width: 768px) and (max-width: 1024px) 
+  {
+    .buisness-profile-txext {   max-width: 25% !important; }
     .profile-box-job-menu ul { float: left; margin-left: 27%; }
     .profile-box-job-menu ul li { padding-left: 0px; }
     .profile-box-job-menu ul li a {  padding: 9px 8px 6px 8px; font-size: 13px; }
