@@ -414,8 +414,7 @@
                         $userid = $this->session->userdata('aileenuser');
                         if ($businessdata1[0]['user_id'] == $userid) {
                             ?> 
-
-                                                                                                                         <!--  <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_profile_save_post') { ?> class="active" <?php } ?>><a href="<?php echo base_url('business_profile/business_profile_save_post'); ?>">Saved Post</a>
+                                                          <!--  <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_profile_save_post') { ?> class="active" <?php } ?>><a href="<?php echo base_url('business_profile/business_profile_save_post'); ?>">Saved Post</a>
                                                                                                                                 </li> -->
 
                             <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'userlist') { ?> class="active" <?php } ?>><a href="<?php echo base_url('business_profile/userlist'); ?>">Userlist</a>
@@ -1012,7 +1011,7 @@
 
                             <?php echo form_open_multipart(base_url('business_profile/business_profile_addpost_insert/' . 'manage/' . $businessdata1[0]['user_id']), array('id' => 'artpostform', 'name' => 'artpostform', 'class' => 'clearfix', 'onsubmit' => "imgval(event)")); ?>
 
-                            <div class="main-text-area col-md-12"  style="border-bottom: 5px solid #ced5df;">
+                            <div class="main-text-area col-md-12"  >
                                 <div class="popup-img col-md-1"> <img  src="<?php echo base_url(USERIMAGE . $businessdata1[0]['business_user_image']); ?>"  alt="">
                                 </div>
                                 <div id="myBtn1"  class="editor-content col-md-10 popup-text" >
@@ -1027,13 +1026,14 @@
                                <!--   <span class="fr">
                            
                                <input type="file" id="files" name="postattach[]" multiple style="display:block;">  </span> -->
-                                <div class="col-md-1"><i class=" fa fa-camera "  style="margin: 0px;
+                                <div class="col-md-1 padding-left" style="padding-left: 0px;"><i class=" fa fa-camera "  style="margin: 0px;
                                                          font-size: 27px;
                                                          cursor: pointer;
                                                          /* margin-right: -38px; */
-                                                         margin-top: 20px;"></i> </div>
+                                                         margin-top: 25px;"></i> </div>
 
                             </div>
+                            <div class="row"></div>
                             <div  id="text"  class="editor-content col-md-12 popup-textarea" >
                                 <textarea id="test-upload_des" name="product_desc" class="description" placeholder="Enter Description"></textarea>
 
@@ -1185,14 +1185,18 @@
                                             <?php if ($row['posted_user_id']) { ?>
                                                 <li>
                                                     <div class="else_post_d">
-                                                        <div class="post-design-product" class="post_dot" title="<?php echo ucwords($companynameposted); ?>" href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugnameposted); ?>"><?php echo ucwords($companynameposted); ?></a> <span style="font-weight: 600;"> Posted With </span> <a style=" font-size: 18px; line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; " href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>"><?php echo ucwords($companyname); ?></a> <span  style="font-weight: 400;""><?php echo date('d-M-Y', strtotime($row['created_date'])); ?> </span> </div></div></li>
+                                                        <div class="post-design-product" class="post_dot" title="<?php echo ucwords($companynameposted); ?>" href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugnameposted); ?>"><?php echo ucwords($companynameposted); ?></a> <span style="font-weight: 600;"> Posted With </span> <a class="post_dot" href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>"><?php echo ucwords($companyname); ?></a> <span  style="font-weight: 400;
+                                                    font-size: 14px;
+                                                    color: #91949d;"><?php echo date('d-M-Y', strtotime($row['created_date'])); ?> </span> </div></div></li>
 
 
                                             <?php } else { ?>
                                                 <li><div class="post-design-product"><a class="post_dot" title="<?php echo ucwords($companyname); ?> " href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>"><?php echo ucwords($companyname); ?> </a>
 
                                                         <div class="datespan"> 
-                                                            <span  style="font-weight: 400;""><?php echo date('d-M-Y', strtotime($row['created_date'])); ?> </span> 
+                                                            <span  style="font-weight: 400;
+                                                    font-size: 14px;
+                                                    color: #91949d;"><?php echo date('d-M-Y', strtotime($row['created_date'])); ?> </span> 
                                                         </div>
 
                                                     </div></li>

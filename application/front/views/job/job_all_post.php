@@ -271,11 +271,7 @@
                                             <?php
                                             if ($jobdata[0]['job_user_image']) {
                                                 ?>
-                                                <img src="<?php echo base_url(USERIMAGE . $jobdata[0]['job_user_image']); ?>" alt="<?php echo $jobdata[0]['fname']; ?> "  style="    height: 77px;
-                                                     width: 71px;
-                                                     z-index: 3;
-                                                     position: relative;
-                                                     ">
+                                                <img src="<?php echo base_url(USERIMAGE . $jobdata[0]['job_user_image']); ?>" alt="<?php echo $jobdata[0]['fname']; ?> " >
                                                      <?php
                                                  } else {
                                                      ?>

@@ -968,7 +968,7 @@ label.cameraButton input[accept*="camera"] {
 
                         <?php echo form_open_multipart(base_url('artistic/art_post_insert/' . 'manage/'.$artisticdata[0]['user_id']), array('id' => 'artpostform', 'name' => 'artpostform', 'class' => 'clearfix', 'onsubmit' => "return imgval();")); ?>
 
-                        <div class="main-text-area col-md-12"  style="border-bottom: 5px solid #ced5df;">
+                        <div class="main-text-area col-md-12" >
                             <div class="popup-img col-md-1"> <img  src="<?php echo base_url(ARTISTICIMAGE . $artisticdata[0]['art_user_image']); ?>"  alt="">
                             </div>
                             <div id="myBtn3"  class="editor-content col-md-10 popup-text" >
@@ -983,11 +983,11 @@ label.cameraButton input[accept*="camera"] {
                            <!--   <span class="fr">
                        
                            <input type="file" id="files" name="postattach[]" multiple style="display:block;">  </span> -->
-                            <div class="col-md-1"><i class=" fa fa-camera "  style="margin: 0px;
+                            <div class="col-md-1" style="padding-left: 0px;"><i class=" fa fa-camera "  style="margin: 0px;
                                                      font-size: 27px;
                                                      cursor: pointer;
                                                      /* margin-right: -38px; */
-                                                     margin-top: 20px;"></i> </div>
+                                                     margin-top: 25px;"></i> </div>
 
                         </div>
                         <div  id="text"  class="editor-content col-md-12 popup-textarea" >
@@ -1708,7 +1708,7 @@ label.cameraButton input[accept*="camera"] {
 
                                     <div class="">
                                         <div class="col-md-10 inputtype-comment" style="padding-left: 7px;">
-                                            <textarea type="text" class="textarea" name="<?php echo $row['art_post_id']; ?>"  id="<?php echo "post_comment" . $row['art_post_id']; ?>" placeholder="Type Comment ..." value= "" onClick="entercomment(this.name)"></textarea>
+                                            <div contenteditable="true" class="editable_text" type="text" class="textarea" name="<?php echo $row['art_post_id']; ?>"  id="<?php echo "post_comment" . $row['art_post_id']; ?>" placeholder="Type Comment ..." value= "" onClick="entercomment(this.name)"></div>
         <?php echo form_error('post_comment'); ?>
                                         </div>
                                         <div class="col-md-1 comment-edit-butn">   

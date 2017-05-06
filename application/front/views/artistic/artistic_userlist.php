@@ -279,7 +279,7 @@ if ($this->session->flashdata('success')) {
                                                         <?php } ?> 
                                                     </div>
                                                 </li>
-                                                <li>
+                                                <li style="width:67%;">
                                     <div class="">
                                     <div class="follow-li-text ">
                                     <a href="<?php echo base_url('artistic/art_manage_post/' . $user['user_id']); ?>"><?php echo ucwords($user['art_name']); echo "&nbsp;"; echo ucwords($user['art_lastname']); ?></a></div>
