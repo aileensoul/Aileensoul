@@ -487,18 +487,26 @@ label.cameraButton input[accept*="camera"] {
           $i++;
             } } else{?>
                   
-      <div style="margin-left: 380px; margin-top: 20px;">
-                  <div class="not_avali" >
-                                <img src="<?php echo base_url('images/020-c.png'); ?>"  >
-                               <div>
-                               <div class="not_text" >Photo not avalible</div>
-                               </div>
-                               </div>
+      <div style="position: relative;">
+                
                                </div>
               <?php  }?>
   
     </div>
+<div class="not_text" style=" top: 70;     position: absolute;
+    columns: #000033;
+    color: #728bc0;
+    font-size: 19px;
+    font-weight: 600;
+    left: 362;"><img src="<?php echo base_url('images/020-c.png'); ?>" style= "padding: 20px;
+    height: 200px;
+    width: 200px;
+    " ><span style="position: absolute;
+       left: 19px;
+    top: 184px;
 
+">Photo not avalible</span></div>
+     
 
 <!-- silder start -->
 <div id="myModal1" class="modal2">
