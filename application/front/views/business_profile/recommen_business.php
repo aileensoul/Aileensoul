@@ -281,7 +281,7 @@
                                             </div> 
                                         </div>
                                         
-                                        <div class="post-design-mid col-md-12">
+                                        <div class="post-design-mid col-md-12" style="border: none;">
                                             <!-- multiple image code  start-->
                                             <div>                                                                                                                                                           <!-- one image start -->
                                                         <div id="basic-responsive-image" style="height: 50%; width: 100%;">
@@ -294,7 +294,7 @@
                                             </div>
                                             <!-- multiple image code  end-->
                                         </div>
-                                        <div class="post-design-like-box col-md-12">
+                                        <div class="post-design-like-box col-md-12" style="border: none;">
                                             <div class="post-design-menu">
                                                 <ul>
                                                     <li class="likepost5">
