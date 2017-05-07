@@ -359,13 +359,13 @@
                                                     Created Date : <?php echo date('d/m/Y',strtotime($post['created_date'])); ?>
                                                 </li>
 
-                                                                    <li>
-                                                                        <a href="#" style="font-size: 19px;font-weight: 600;">
-                                                                            <?php echo ucwords(text2link($post['post_name'])); ?> </a>   </li>
+                                                 <li>
+                                                 <a href="#" style="font-size: 19px;font-weight: 600;">
+              <?php echo ucwords(text2link($post['post_name'])); ?> </a>   </li>
 
-                                                                    <li>   
+                                                      <li>   
 
-                                                                       <div class="fr lction">
+                                                       <div class="fr lction">
                                                     <?php $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name;
 
 
@@ -551,7 +551,8 @@
 
                                                    <li>
                                               <a href="#" style="font-size: 19px;font-weight: 600;">
-                                              <?php echo ucwords(text2link($post['post_name'])); ?> </a>   </li>
+                                              <?php echo ucwords(text2link($post['post_name'])); ?> </a>   
+                                              </li>
 
                                                                     <li>   
 
