@@ -25,7 +25,7 @@ $userid = $this->session->userdata('aileenuser');
 // 1-5 notification start
 // recruiter notfication start 
 
-$contition_array = array('notification.not_type' => 3, 'notification.not_to_id' => $userid, 'notification.not_read' => 1,'notification.not_from' => 2,'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
+$contition_array = array('notification.not_type' => 3, 'notification.not_to_id' => $userid,'notification.not_from' => 2,'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
 $join_str = array(array(
         'join_type' => '',
         'table' => 'job_apply',
@@ -42,7 +42,7 @@ $this->data['rec_not'] = $this->common->select_data_by_condition('notification',
 // recruiter notification end
 // job notfication start 
 
-$contition_array = array('notification.not_type' => 4, 'notification.not_to_id' => $userid, 'notification.not_read' => 1,'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
+$contition_array = array('notification.not_type' => 4, 'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
 $join_str = array(array(
         'join_type' => '',
         'table' => 'job_apply',
@@ -61,7 +61,7 @@ $this->data['job_not'] = $this->common->select_data_by_condition('notification',
 // job notification end
 
 // freelancer hire  notification start
- $contition_array = array('notification.not_type' => 3,'notification.not_from' => 6,  'notification.not_to_id' => $userid, 'notification.not_read' => 1,'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
+ $contition_array = array('notification.not_type' => 3,'notification.not_from' => 6,  'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
 
 $join_str = array(
     array(
@@ -80,7 +80,7 @@ $data = array('notification.*','freelancer_apply.*','user.user_id', 'user.first_
 $this->data['hire_not'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'app_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = 'not_from_id');
  // freelancer hire notification end
 // freelancer post notification start
-$contition_array = array('notification.not_type' => 4, 'notification.not_from' => 4,  'notification.not_to_id' => $userid, 'notification.not_read' => 1,'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
+$contition_array = array('notification.not_type' => 4, 'notification.not_from' => 4,  'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
 $join_str = array(array(
         'join_type' => '',
         'table' => 'job_apply',
@@ -99,7 +99,7 @@ $this->data['work_post'] = $this->common->select_data_by_condition('notification
 //artistic notification start
 // follow notification start
 
-$contition_array = array('notification.not_type' => 8,'notification.not_from' => 3,  'notification.not_to_id' => $userid, 'notification.not_read' => 1,'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
+$contition_array = array('notification.not_type' => 8,'notification.not_from' => 3,  'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
 $join_str = array(array(
         'join_type' => '',
         'table' => 'follow',
@@ -118,7 +118,7 @@ $this->data['artfollow'] = $this->common->select_data_by_condition('notification
 // follow notification end
 //post comment notification start
 
-$contition_array = array('notification.not_type' => 6,'notification.not_from' => 3,  'notification.not_to_id' => $userid, 'notification.not_read' => 1,'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
+$contition_array = array('notification.not_type' => 6,'notification.not_from' => 3,  'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
 $join_str = array(array(
         'join_type' => '',
         'table' => 'artistic_post_comment',
@@ -134,7 +134,7 @@ $data = array('notification.*',' artistic_post_comment.*',' user.user_id', 'user
 $this->data['artcommnet'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'artistic_post_comment_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = 'not_from_id');
 // comment notification end
 //post like notification start
- $contition_array = array('notification.not_type' => 5,'notification.not_from' => 3,  'notification.not_to_id' => $userid, 'notification.not_read' => 1,'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
+ $contition_array = array('notification.not_type' => 5,'notification.not_from' => 3,  'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
 $join_str = array(array(
         'join_type' => '',
         'table' => 'art_post',
@@ -157,7 +157,7 @@ $this->data['artlike'] = $this->common->select_data_by_condition('notification',
 // business profile notification start
 // follow notification start
  
-$contition_array = array('notification.not_type' => 8,'notification.not_from' => 6,  'notification.not_to_id' => $userid, 'notification.not_read' => 1,'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
+$contition_array = array('notification.not_type' => 8,'notification.not_from' => 6,  'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
 $join_str = array(array(
         'join_type' => '',
         'table' => 'follow',
@@ -177,7 +177,7 @@ $this->data['busifollow'] = $this->common->select_data_by_condition('notificatio
 
 // comment notification start
 
-$contition_array = array('notification.not_type' => 6,'notification.not_from' => 6,  'notification.not_to_id' => $userid, 'notification.not_read' => 1,'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
+$contition_array = array('notification.not_type' => 6,'notification.not_from' => 6,  'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
 $join_str = array(array(
     'join_type' => '',
     'table' => 'business_profile_post_comment',
@@ -196,7 +196,7 @@ $this->data['buscommnet'] = $this->common->select_data_by_condition('notificatio
 // comment notification end
 
 // like notification start
-$contition_array = array('notification.not_type' => 5,'notification.not_from' => 6,  'notification.not_to_id' => $userid, 'notification.not_read' => 1,'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
+$contition_array = array('notification.not_type' => 5,'notification.not_from' => 6,  'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
 $join_str = array(array(
         'join_type' => '',
         'table' => 'business_profile_post',
