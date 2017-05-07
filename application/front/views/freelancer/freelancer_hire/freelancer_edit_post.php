@@ -154,7 +154,7 @@
                                 <span id="fullname-error"></span>
                                 <?php echo form_error('year'); ?>
 
-                                <select name="month" style="margin-left: 10px;" id="month">
+                                <select name="month" style="margin-left: 8px;" id="month">
                                     <option value="<?php echo $freelancerpostdata[0]['post_exp_month']?> "><?php echo $freelancerpostdata[0]['post_exp_month']." Month"?></option>
                                     <option >Month</option>
                                     <option value="0">0 Month</option>

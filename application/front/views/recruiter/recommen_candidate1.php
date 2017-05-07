@@ -298,24 +298,13 @@
                                                         <div class="profile-job-profile-menu  search ">
 
                  <ul>
-                <li><b>E-mail</b><span>
-                                                                    <?php
-                                                                    echo $p['email'];
-                                                                    ?></span>
-                                                                </li>
-
-                                                                <li><b>Mobile Number</b>
-                                                                 <span>   <?php
-                                                                    echo $p['phnno'];
-                                                                    ?></span>
-                                                                </li>
-
+              
                                                                 <?php
                                                                 if ($p['keyskill']) {
                                                                     ?>
                                                                     <li><b>Skills</b>
                                                                       <span>  <?php
-                                                                        $comma = ",";
+                                                                        $comma = ", ";
                                                                         $k = 0;
                                                                         $aud = $p['keyskill'];
                                                                         $aud_res = explode(',', $aud);
@@ -343,10 +332,21 @@
                                                                     <li><b>Other Skill</b>
                                                                        <span> <?php echo $p['other_skill']; ?></span>
                                                                     </li>
+
+
+                                                                
                                                                     <?php
                                                                 }
                                                                 ?>
+                                                                <li> <b> Total Experience </b>
+                                                                <span><?php echo $p['experience_year']; ?>  <?php echo $p['experience_month']; ?> 
+</span>
+                                                                </li>
 
+
+                                                                <li><b>Location</b> 
+
+       <span> <?php echo $countryname; ?> <?php echo $cityname; ?></span></li>
 
 
                                                                 <li> <b> Degree </b>
@@ -370,19 +370,22 @@
                                                                 $cityname = $this->db->get_where('cities', array('city_id' => $p['city_id']))->row()->city_name;
                                                                 ?>
 
-                                                                <li><b>Location</b> 
-
-       <span> <?php echo $countryname; ?> <?php echo $cityname; ?></span></li>
 
 
 
 
 
-                                                                <li> <b> Total Experience </b>
-                                                                <span><?php echo $p['experience_year']; ?>  <?php echo $p['experience_month']; ?> 
-</span>
+                                                                  <li><b>E-mail</b><span>
+                                                                    <?php
+                                                                    echo $p['email'];
+                                                                    ?></span>
                                                                 </li>
 
+                                                                <li><b>Mobile Number</b>
+                                                                 <span>   <?php
+                                                                    echo $p['phnno'];
+                                                                    ?></span>
+                                                                </li>
 
 
 
@@ -410,12 +413,12 @@
 
 
                  <input type="hidden" name="saveuser"  id="saveuser" value= "<?php echo $data[0]['save_id']; ?>">
-                                                                        <a id="<?php echo $p['user_id']; ?>" onClick="save_user(this.id)" href="#popup1" class="<?php echo 'saveduser' . $p['user_id']; ?>">Save User</a>
+                                                                        <a id="<?php echo $p['user_id']; ?>" onClick="save_user(this.id)" href="#popup1" class="<?php echo 'saveduser' . $p['user_id']; ?>">Save </a>
                                                                     <?php
                                                                 } else {
                                                                     ?>
 
-                                                                    <a href=" ">Saved User</a> 
+                                                                    <a href=" ">Saved </a> 
                                                                 <?php }
                                                                 ?> 
 

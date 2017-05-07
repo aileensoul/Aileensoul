@@ -679,6 +679,7 @@ class Recruiter extends MY_Controller {
     }
 
     public function add_post_store() {
+
         //echo "string"; die();
 //echo '<pre>'; print_r($_POST); die();
         $userid = $this->session->userdata('aileenuser');
@@ -708,9 +709,70 @@ class Recruiter extends MY_Controller {
 
 
         if ($this->form_validation->run() == FALSE) {
+            $contition_array = array('status' => '1');
+        $this->data['countries'] = $this->common->select_data_by_condition('countries', $contition_array, $data = '*', $sortby = 'country_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+        $contition_array = array('status' => '1', 'type' => '1');
+        $this->data['skill'] = $this->common->select_data_by_condition('skill', $contition_array, $data = '*', $sortby = 'skill', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+        $this->data['recdata'] = $this->common->select_data_by_id('recruiter', 'user_id', $userid, $data = '*', $join_str = array());
+
+
+        $contition_array = array('status' => '1', 'user_id' => $userid);
+
+        $edudata = $this->data['edudata'] = $this->common->select_data_by_condition('job_add_edu', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
+
+
+        $contition_array = array('status' => '1', 'is_delete' => '0');
+
+
+        $recdata = $this->data['results'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'other_skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        $contition_array = array('status' => '1');
+
+        $jobdata = $this->data['results'] = $this->common->select_data_by_condition('job_add_workexp', $contition_array, $data = 'jobtitle', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+
+        $contition_array = array('status' => '1');
+
+        $degreedata = $this->data['results'] = $this->common->select_data_by_condition('degree', $contition_array, $data = 'degree_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+
+        $contition_array = array('status' => '1');
+
+        $streamdata = $this->data['results'] = $this->common->select_data_by_condition('stream', $contition_array, $data = 'stream_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+
+        $contition_array = array('status' => '1', 'type' => '1');
+
+        $skill = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        // echo "<pre>"; print_r($artpost);die();
+
+
+        $uni = array_merge($recdata, $jobdata, $degreedata, $streamdata, $skill, $edudata);
+        //   echo count($unique);
+
+
+        foreach ($uni as $key => $value) {
+            foreach ($value as $ke => $val) {
+                if ($val != "") {
+
+
+                    $result[] = $val;
+                }
+            }
+        }
+        foreach ($result as $key => $value) {
+            $result1[$key]['label'] = $value;
+            $result1[$key]['value'] = $value;
+        }
+
+
+        $this->data['demo'] = array_values($result1);
+
 
              // echo "hi"; die();
-            $this->load->view('recruiter/add_post');
+            $this->load->view('recruiter/add_post',$this->data);
         } else {
             //echo "hello"; die();
             $data = array(

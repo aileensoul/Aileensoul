@@ -1172,6 +1172,7 @@ class Business_profile extends MY_Controller {
 
         $files = $_FILES;
         $count = count($_FILES['postattach']['name']);
+        $title = time();
 
         for ($i = 0; $i < $count; $i++) {
 
@@ -4630,13 +4631,17 @@ class Business_profile extends MY_Controller {
 
 
 
-         $contition_array = array('business_profile_post_comment_id' => $post_image_comment_id);
-         $busimglike = $this->data['busimglike'] = $this->common->select_data_by_condition('business_profile_post_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        $contition_array = array('post_image_comment_id' => $post_image_comment_id);
+        $busimglike = $this->data['busimglike'] = $this->common->select_data_by_condition('bus_post_image_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 //echo "<pre>"; print_r($busimglike); die();
        
 
-        $contition_array = array('business_profile_post_id' => $busimglike[0]['business_profile_post_id']);
-         $busimglikepost = $this->data['busimglikepost'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        $contition_array = array('image_id' => $busimglike[0]['post_image_id'], 'image_type' => '2');
+        $buslikeimg = $this->data['buslikeimg'] = $this->common->select_data_by_condition('post_image', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+       $contition_array = array('business_profile_post_id' => $buslikeimg[0]["post_id"]);
+        $busimglikepost = $this->data['busimglikepost'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
 //echo "<pre>"; print_r($busimglikepost); die();
 
         if (!$likecommentuser) {
@@ -4813,13 +4818,17 @@ class Business_profile extends MY_Controller {
         $contition_array = array('post_image_comment_id' => $post_image_comment_id, 'user_id' => $userid);
 
         $likecommentuser = $this->data['likecommentuser'] = $this->common->select_data_by_condition('bus_comment_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+    //echo "<pre>"; print_r($likecommentuser); die();
+
+        $contition_array = array('post_image_comment_id' => $post_image_comment_id);
+        $busimglike = $this->data['busimglike'] = $this->common->select_data_by_condition('bus_post_image_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        //echo "<pre>"; print_r($busimglike); die();
 
 
-        $contition_array = array('business_profile_post_comment_id' => $likecommentuser[0]["post_image_comment_id"]);
-        $busimglike = $this->data['busimglike'] = $this->common->select_data_by_condition('business_profile_post_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+       $contition_array = array('image_id' => $busimglike[0]['post_image_id'], 'image_type' => '2');
+        $buslikeimg = $this->data['buslikeimg'] = $this->common->select_data_by_condition('post_image', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-
-       $contition_array = array('business_profile_post_id' => $artimglike[0]["business_profile_post_id"]);
+       $contition_array = array('business_profile_post_id' => $buslikeimg[0]["post_id"]);
         $busimglikepost = $this->data['busimglikepost'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
         if (!$likecommentuser) {
@@ -4838,7 +4847,7 @@ class Business_profile extends MY_Controller {
             // insert notification
 
             if($busimglikepost[0]['user_id'] == $userid){}else{
-            $data = array(
+            $datanotification = array(
                 'not_type' => 5,
                 'not_from_id' => $userid,
                 'not_to_id' => $busimglikepost[0]['user_id'] ,
@@ -4847,8 +4856,8 @@ class Business_profile extends MY_Controller {
                 'not_from' => 6,
                 'not_img' => 6
             );
-
-            $insert_id = $this->common->insert_data_getid($data, 'notification');
+            //echo "<pre>"; print_r($datanotification); die();
+            $insert_id = $this->common->insert_data_getid($datanotification, 'notification');
             }
             // end notoification
 
@@ -4923,9 +4932,9 @@ class Business_profile extends MY_Controller {
 
              // insert notification
 
-            if($artimglike[0]['user_id'] == $userid){}else{
+            if($busimglikepost[0]['user_id'] == $userid){}else{
 
-                $contition_array = array('not_type' => 5, 'not_from_id' => $userid, 'not_to_id' => $businessprofiledata[0]['user_id'], 'not_product_id' => $post_id, 'not_from' => 6, 'not_img' => 2);
+      $contition_array = array('not_type' => 5, 'not_from_id' => $userid, 'not_to_id' => $busimglikepost[0]['user_id'], 'not_product_id' => $post_image_comment_id, 'not_from' => 6, 'not_img' => 6);
         $busnotification = $this->common->select_data_by_condition('notification', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
               if($busnotification[0]['not_read'] ==  2){}
                 elseif($busnotification[0]['not_read'] ==  1){
@@ -4934,29 +4943,27 @@ class Business_profile extends MY_Controller {
                     'not_read' => 2 
                     );
 
-                $where = array('not_type' => 5, 'not_from_id' => $userid, 'not_to_id' => $businessprofiledata[0]['user_id'], 'not_product_id' => $post_id, 'not_from' => 6, 'not_img' => 2);
+                $where = array('not_type' => 5, 'not_from_id' => $userid, 'not_to_id' => $busimglikepost[0]['user_id'], 'not_product_id' => $post_image_comment_id, 'not_from' => 6, 'not_img' => 6);
                 $this->db->where($where);
                 $updatdata = $this->db->update('notification', $datalike);
 
                 }
 
                  else{
-            $data = array(
+            $datanotification = array(
                 'not_type' => 5,
                 'not_from_id' => $userid,
-                'not_to_id' => $artimglikepost[0]['user_id'] ,
+                'not_to_id' => $busimglikepost[0]['user_id'] ,
                 'not_read' => 2,
                 'not_product_id' => $post_image_comment_id,
                 'not_from' => 6,
                 'not_img' => 6
             );
 
-            $insert_id = $this->common->insert_data_getid($data, 'notification');
+            $insert_id = $this->common->insert_data_getid($datanotification, 'notification');
             }
           }
             // end notoification
-
-
 
 
                 $contition_array = array('post_image_comment_id' => $_POST["post_image_comment_id"], 'is_unlike' => '0');

@@ -56,77 +56,81 @@ label.cameraButton input[accept*="camera"] {
   <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
     <!-- END HEADER -->
    
-<?php echo $art_header2?>
+<?php echo $art_header2 ?>
    
 
   <body   class="page-container-bg-solid page-boxed">
 
     <section>
         <div class="container">
-          <div class="row" id="row1" style="display:none;">
-                <div class="col-md-12 text-center">
-                    <div id="upload-demo" style="width:100%"></div>
-                </div>
-                <div class="col-md-12 cover-pic" style="padding-top: 25px;text-align: center;">
-
-                    <button class="btn btn-success cancel-result">Cancel</button>
-                    <button class="btn btn-success set-btn upload-result" onclick="myFunction()">Upload Image</button>
-
-                    <div id="message1" style="display:none;">
-                        <div id="floatBarsG">
-                            <div id="floatBarsG_1" class="floatBarsG"></div>
-                            <div id="floatBarsG_2" class="floatBarsG"></div>
-                            <div id="floatBarsG_3" class="floatBarsG"></div>
-                            <div id="floatBarsG_4" class="floatBarsG"></div>
-                            <div id="floatBarsG_5" class="floatBarsG"></div>
-                            <div id="floatBarsG_6" class="floatBarsG"></div>
-                            <div id="floatBarsG_7" class="floatBarsG"></div>
-                            <div id="floatBarsG_8" class="floatBarsG"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12"  style="visibility: hidden; ">
-                    <div id="upload-demo-i" style="background:#e1e1e1;width:100%;padding:30px;height:1px;margin-top:30px"></div>
-                </div>
-            </div>
-
-            <div class="container">
-                <div class="row" id="row2">
-                    <?php
-                    $userid = $this->session->userdata('aileenuser');
-                    if ($this->uri->segment(3) == $userid) {
-                        $user_id = $userid;
-                    } elseif ($this->uri->segment(3) == "") {
-                        $user_id = $userid;
-                    } else {
-                        $user_id = $this->uri->segment(3);
-                    }
-                    $contition_array = array('user_id' => $user_id, 'is_delete' => '0', 'status' => '1');
-                    $image = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'profile_background', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
-                    $image_ori = $image[0]['profile_background'];
-                    if ($image_ori) {
-                        ?>
-                        <div class="bg-images">
-                            <img src="<?php echo base_url(ARTBGIMAGE . $image[0]['profile_background']); ?>" name="image_src" id="image_src" / ></div>
-                        <?php
-                    } else {
-                        ?>
-                        <div class="bg-images">
-                            <img src="<?php echo base_url(WHITEIMAGE); ?>" name="image_src" id="image_src" / ></div>
-                    <?php }
-                    ?>
-
-                </div>
-            </div>
+            <!--- select thaya pachhi ave ae -->
+      <div class="row" id="row1" style="display:none;">
+        <div class="col-md-12 text-center">
+        <div id="upload-demo" style="width:100%"></div>
         </div>
-    </div>
-</div>   
+        <div class="col-md-12 cover-pic" style="padding-top: 25px;text-align: center;">
+            <button class="btn btn-success  cancel-result">Cancel</button>
+    
+        <button class="btn btn-success upload-result" onclick="myFunction()">Upload Image</button>
 
-<?php
+        <div id="message1" style="display:none;">
+       <div id="floatBarsG">
+  <div id="floatBarsG_1" class="floatBarsG"></div>
+  <div id="floatBarsG_2" class="floatBarsG"></div>
+  <div id="floatBarsG_3" class="floatBarsG"></div>
+  <div id="floatBarsG_4" class="floatBarsG"></div>
+  <div id="floatBarsG_5" class="floatBarsG"></div>
+  <div id="floatBarsG_6" class="floatBarsG"></div>
+  <div id="floatBarsG_7" class="floatBarsG"></div>
+  <div id="floatBarsG_8" class="floatBarsG"></div>
+</div>
+
+        </div>
+        </div>
+        <div class="col-md-12"  style="visibility: hidden; ">
+        <div id="upload-demo-i" style="background:#e1e1e1;width:100%;padding:30px;height:1px;margin-top:30px"></div>
+        </div>
+      </div>
+
+      <!--- select thaya pachhi ave ae end-->
+  
+<!--- select thai ne ave ae pelaj -->
+<div class="container">
+  <div class="row" id="row2">
+        <?php
+        $userid  = $this->session->userdata('aileenuser');
+            $contition_array = array( 'user_id' => $userid, 'is_deleted' => '0' , 'status' => '1');
+            $image = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'profile_background', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+           
+            $image_ori=$image[0]['profile_background'];
+           if($artisticdata[0]['profile_background_main'])
+           {
+            ?>
+            <div class="bg-images">
+            <img src="<?php echo base_url(ARTBGIMAGE . $artisticdata[0]['profile_background_main']);?>" name="image_src" id="image_src" / ></div>
+            <?php
+           }
+           else
+           { ?>
+         <div class="bg-images">
+            <img src="<?php echo base_url(WHITEIMAGE); ?>" name="image_src" id="image_src" / ></div>
+      <?php     }
+          
+            ?>
+
+    </div>
+    </div>
+</div>
+  </div>
+  </div>   
+
+    <div class="container"> 
+
+    <?php
     $userid = $this->session->userdata('aileenuser');
-    if($artisticdata[0]['user_id'] == $userid){ 
-    ?>   
+    if($artisticdata[0]['user_id'] == $userid) {
+    ?> 
+
       <div class="upload-img">
       
         
@@ -134,10 +138,11 @@ label.cameraButton input[accept*="camera"] {
             <input type="file" id="upload" name="upload" accept="image/*;capture=camera" onclick="showDiv()">
         </label>
 
+
+<!--- select thai ne ave ae pelaj puru -->
                 
             </div>
-
-            <?php }?>
+           <?php }?>
             <div class="profile-photo">
             <div class="buisness-menu">
               <div class="profile-pho-bui">
@@ -149,14 +154,16 @@ label.cameraButton input[accept*="camera"] {
                             <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
                             <?php } ?>
 
+
                             <?php
     $userid = $this->session->userdata('aileenuser');
-    if($artisticdata[0]['user_id'] == $userid) {
+    if($art_user_image[0]['user_id'] == $userid) {
     ?>
 
+
                             <!--<a href="#popup-form" class="fancybox"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>-->
-<a href="javascript:void(0);" onclick="updateprofilepopup();"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>
-                            <?php }?>
+                             <a href="javascript:void(0);" onclick="updateprofilepopup();"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>
+                  <?php }?>
 
                         </div>
                         
@@ -166,7 +173,7 @@ label.cameraButton input[accept*="camera"] {
                         <input type="hidden" name="hitext" id="hitext" value="5">
                         <input type="submit" name="cancel5" id="cancel5" value="Cancel">
                         <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save">
-                     <?php  echo form_close();?>
+                     <?php  echo form_close( );?>
                 </div>-->
 
                 </div>
@@ -175,9 +182,9 @@ label.cameraButton input[accept*="camera"] {
 
                   
 
-                     <h4 class="profile-head-text"><a href="<?php echo base_url('artistic/art_manage_post/'.$artisticdata[0]['user_id'].''); ?>"> <?php echo ucwords($artisticdata[0]['art_name']); ?><?php echo ucwords($artisticdata[0]['art_lastname']); ?></a></h4>
+                    <h4 class="profile-head-text"><a href="<?php echo base_url('artistic/art_manage_post/'.$artisticdata[0]['user_id'].''); ?>"> <?php echo ucwords($artisticdata[0]['art_name']); ?><?php echo ucwords($artisticdata[0]['art_lastname']); ?></a></h4>
 
-                     <?php
+                    <?php
                     if ($artisticdata[0]['designation'] == '') {
                         ?>
 
@@ -195,8 +202,7 @@ label.cameraButton input[accept*="camera"] {
 
                     <?php } ?>
 
-
-                   
+  
               </div>
                 <!-- PICKUP -->
                                    <!-- menubar --><div class="buisness-data-menu  col-md-12 ">
@@ -206,7 +212,9 @@ label.cameraButton input[accept*="camera"] {
        <div class="profile-main-box-buis-menu  col-md-9">  
  <ul class="">
  
-                                    <li <?php if($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'art_manage_post'){?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/art_manage_post/'.$artisticdata[0]['user_id']); ?>"> Dashboard</a>
+                                     
+                                     
+ <li <?php if($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'art_manage_post'){?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/art_manage_post/'.$artisticdata[0]['user_id']); ?>"> Dashboard</a>
                                     
                                     </li>
 
@@ -220,7 +228,8 @@ label.cameraButton input[accept*="camera"] {
                { 
                 ?> 
 
-                                    
+
+                                
 
                                      <li <?php if($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'userlist'){?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/userlist'); ?>">Userlist</a>
                                     </li>
@@ -248,7 +257,7 @@ label.cameraButton input[accept*="camera"] {
                                     <?php
                             if($artisticdata[0]['user_id'] == $userid){ 
                             ?>        
-                                     <li <?php if($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'following'){?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/following'); ?>">Following  <br>  (<?php echo (count($followingdata)); ?>)</a>
+                                     <li <?php if($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'following'){?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/following'); ?>">Following  <br> (<?php echo (count($followingdata)); ?>)</a>
                                     </li>
                                     <?php }else{
 
@@ -259,7 +268,6 @@ $followingotherdata = $this->data['followingotherdata'] =  $this->common->select
                                   <li <?php if($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'following'){?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/following/'.$artisticdata[0]['user_id']); ?>">Following  <br>  (<?php echo (count($followingotherdata)); ?>)</a>
                                     </li> 
                                   <?php }?>  
-                                    
                                  
                                 </ul>
 
@@ -285,7 +293,8 @@ $followingotherdata = $this->data['followingotherdata'] =  $this->common->select
                 <div class="row">
                    
                     <div class="col-md-3">
-                        
+
+              
                     
    </div>
                      
@@ -295,94 +304,97 @@ $followingotherdata = $this->data['followingotherdata'] =  $this->common->select
 
                </div>
 <div class="user-midd-section">
-               <div class="container " style="border: 1px solid #d9d9d9;">
+              <div class="container " style="border: 1px solid #efefef;">
                 <div class="row">
 
 
-      <div  class="col-sm-12 border_tag padding_low_data padding_les" >
+      <div  class="col-sm-12 border_tag padding_low_data padding_less_right" >
       
         <div class="col-xs-3 padding_low_data padding_les"> <!-- required for floating -->
           <!-- Nav tabs -->
-          <ul class="nav nav-tabs tabs-left remove_tab">
+          <ul class="nav nav-tabs tabs-left">
             <li> <a href="<?php echo base_url('artistic/art_photos/'.$artisticdata[0]['user_id']) ?>" data-toggle="tab"><i class="fa fa-camera" aria-hidden="true"></i>   Photos</a></li>
-            <li> <a href="<?php echo base_url('artistic/art_videos/'.$artisticdata[0]['user_id']) ?>" data-toggle="tab"><i class="fa fa-video-camera" aria-hidden="true"></i>  Video</a></li>
+            <li class="active"> <a href="<?php echo base_url('artistic/art_videos/'.$artisticdata[0]['user_id']) ?>" data-toggle="tab"><i class="fa fa-video-camera" aria-hidden="true"></i>  Video</a></li>
             <li><a href="<?php echo base_url('artistic/art_audios/'.$artisticdata[0]['user_id']) ?>" data-toggle="tab"><i class="fa fa-music" aria-hidden="true"></i>  Audio</a></li>
-            <li class="active">    <a href="<?php echo base_url('artistic/art_pdf/'.$artisticdata[0]['user_id']) ?>" data-toggle="tab"><i class="fa fa-file-pdf-o" aria-hidden="true"></i>  Pdf</a></li>
+            <li>    <a href="<?php echo base_url('artistic/art_pdf/'.$artisticdata[0]['user_id']) ?>" data-toggle="tab"><i class="fa fa-file-pdf-o" aria-hidden="true"></i>  Pdf</a></li>
           </ul>
         </div>
-<div class="col-xs-9 padding_less_right" style="padding-left: 0;  border-left: 1px solid #d9d9d9">
 
+        <div class="col-xs-9 padding_less_right" style="padding-left: 0; border-left: 1px solid #ccc">
           <!-- Tab panes -->
           <div class="tab-content">
             <div class="tab-pane active" id="home"><div class="common-form">
-                            <div class="">
+                            <div class="" >
 
-                                <h2 class="add_tag_design"> PDF</h2>
-                              <div class="" style="padding: 10px;">
-                                 <div class="pictures1">
+                                <h2 class="add_tag_design"> Video</h2>
+
+                             
 
 
-                                 <?php
+            <?php
 
           $contition_array = array('user_id' => $artisticdata[0]['user_id']);
-         $artisticimage = $this->data['artisticimage'] = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+         $artvideo = $this->data['artvideo'] = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-           
-            foreach ($artisticimage as $val) {
+          
+            foreach ($artvideo as $val) {
              
             
 
               $contition_array = array('post_id' => $val['art_post_id'], 'is_deleted' =>'1', 'image_type' => '1');
-            $artmultipdf = $this->data['artmultipdf'] =  $this->common->select_data_by_condition('post_image', $contition_array, $data = '*', $sortby = 'post_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            $artmultivideo = $this->data['artmultivideo'] =  $this->common->select_data_by_condition('post_image', $contition_array, $data = '*', $sortby = 'post_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-              $multiplepdf[] = $busmultipdf;
-             }
+              $multiplevideo[] = $artmultivideo;
+             }  
 
                   ?>
-              <?php   
 
-                $allowed =  array('pdf');
+                  <?php   
+
+                $allowesvideo = array('mp4','3gp');
               
-                foreach ($multiplepdf as $mke => $mval) {
+                foreach ($multiplevideo as $mke => $mval) {
                   
                   foreach ($mval as $mke1 => $mval1) {
                       $ext = pathinfo($mval1['image_name'], PATHINFO_EXTENSION);
 
-                     if(in_array($ext,$allowed)){
-                   $singlearray3[] = $mval1;
+                     if(in_array($ext,$allowesvideo)){ 
+                   $singlearray1[] = $mval1;
                      }
                   }
                 } 
                 ?>
+        <?php  if($singlearray1) {  
 
+            foreach ($singlearray1 as $videov) {
+         
+         ?>
 
-              <?php 
-               if($singlearray3) {
+             <div class="vidoe_tag"> 
+                 <video controls>
+                    <source src="<?php echo base_url(ARTPOSTIMAGE. str_replace(" ","_",$videov['image_name']))?>" type="video/mp4">
+                    <source src="movie.ogg" type="video/ogg">
+               Your browser does not support the video tag.
+                  </video>
+              </div>
 
-                foreach ($singlearray3 as $pdfv) {
-                  
-              ?>
+      <?php }   }  else{?>
 
-
-        <a href="<?php echo base_url('artistic/creat_pdf/'.$pdfv['image_id']) ?>">PDF</a>
-
-        <?php } } else{?>
- 
-      <div style="margin-left:380px; margin-top: 20px;">
-                 <div class="not_avali" >
-                                <img src="<?php echo base_url('images/020.png'); ?>" >
+      <div style="margin-left: 380px; margin-top: 20px;">
+                <div class="not_avali" >
+                                <img src="<?php echo base_url('images/010.png'); ?>"  >
                                <div>
-                               <div class="not_text" >Pdf not avalible</div>
+                                <div class="not_text" >Video not avalible</div>
                                </div>
                                </div>
                                </div>
         <?php }?>
-      
-    </div>
+
+           </div>
 </div>
 </div>
 </div></div>
-        
+            
           </div>
         </div>
 
@@ -412,9 +424,9 @@ $followingotherdata = $this->data['followingotherdata'] =  $this->common->select
                                     <div class="modal-body">
                                         <span class="mes">
                                             <div id="popup-form">
-                                                <?php echo form_open_multipart(base_url('artistic/user_image_insert'), array('id' => 'userimage', 'name' => 'userimage', 'class' => 'clearfix')); ?>
+                                                <?php echo form_open_multipart(base_url('job/user_image_insert'), array('id' => 'userimage', 'name' => 'userimage', 'class' => 'clearfix')); ?>
                                                 <input type="file" name="profilepic" accept="image/gif, image/jpeg, image/png" id="profilepic">
-                                                <input type="hidden" name="hitext" id="hitext" value="5">
+                                                <input type="hidden" name="hitext" id="hitext" value="2">
                                                 <!--<input type="submit" name="cancel3" id="cancel3" value="Cancel">-->
                                                 <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save">
                                                 <?php echo form_close(); ?>
@@ -440,6 +452,7 @@ $followingotherdata = $this->data['followingotherdata'] =  $this->common->select
 
 <script src="<?php echo base_url('js/jquery.jMosaic.js'); ?>"></script>
  
+
 <script>
 
 var data= <?php echo json_encode($demo); ?>;
@@ -518,6 +531,7 @@ $( "#tags" ).autocomplete({
 
 </script>
 
+
    <script type="text/javascript">
     //For blocks or images of size, you can use $(document).ready
     $(document).ready(function() {
@@ -537,136 +551,10 @@ $( "#tags" ).autocomplete({
     });
     </script>
     
-      <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
+    <!-- end search validation -->
+                        <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
                         <script>
                             function updateprofilepopup(id) {
                                 $('#bidmodal-2').modal('show');
                             }
                         </script>
-                        
-                        <!-- cover image start -->
-<script>
-    function myFunction() {
-        document.getElementById("upload-demo").style.visibility = "hidden";
-        document.getElementById("upload-demo-i").style.visibility = "hidden";
-        document.getElementById('message1').style.display = "block";
-
-        // setTimeout(function () { location.reload(1); }, 9000);
-
-    }
-
-
-    function showDiv() {
-        document.getElementById('row1').style.display = "block";
-        document.getElementById('row2').style.display = "none";
-    }
-</script>
-
-
-<script type="text/javascript">
-    $uploadCrop = $('#upload-demo').croppie({
-        enableExif: true,
-        viewport: {
-            width: 1250,
-            height: 350,
-            type: 'square'
-        },
-        boundary: {
-            width: 1250,
-            height: 350
-        }
-    });
-
-
-
-    $('.upload-result').on('click', function (ev) {
-        $uploadCrop.croppie('result', {
-            type: 'canvas',
-            size: 'viewport'
-        }).then(function (resp) {
-
-
-            $.ajax({
-                url: "<?php echo base_url() ?>artistic/ajaxpro",
-                type: "POST",
-                data: {"image": resp},
-                success: function (data) {
-                    html = '<img src="' + resp + '" />';
-                    if (html) {
-                        window.location.reload();
-                    }
-                    //  $("#kkk").html(html);
-                }
-            });
-
-        });
-    });
-
-    $('.cancel-result').on('click', function (ev) {
-
-        document.getElementById('row2').style.display = "block";
-        document.getElementById('row1').style.display = "none";
-        document.getElementById('message1').style.display = "none";
-
-    });
-
-//aarati code start
-    $('#upload').on('change', function () {
-
-
-        var reader = new FileReader();
-        //alert(reader);
-        reader.onload = function (e) {
-            $uploadCrop.croppie('bind', {
-                url: e.target.result
-            }).then(function () {
-                console.log('jQuery bind complete');
-            });
-
-        }
-        reader.readAsDataURL(this.files[0]);
-
-
-
-    });
-
-    $('#upload').on('change', function () {
-
-        var fd = new FormData();
-        fd.append("image", $("#upload")[0].files[0]);
-
-        files = this.files;
-        size = files[0].size;
-
-        //alert(size);
-
-        if (size > 4194304)
-        {
-            //show an alert to the user
-            alert("Allowed file size exceeded. (Max. 4 MB)")
-
-            document.getElementById('row1').style.display = "none";
-            document.getElementById('row2').style.display = "block";
-
-            // window.location.href = "https://www.aileensoul.com/dashboard"
-            //reset file upload control
-            return false;
-        }
-
-        $.ajax({
-
-            url: "<?php echo base_url(); ?>artistic/image",
-            type: "POST",
-            data: fd,
-            processData: false,
-            contentType: false,
-            success: function (response) {
-                //alert(response);
-
-            }
-        });
-    });
-
-//aarati code end
-</script>
-<!-- cover image end -->

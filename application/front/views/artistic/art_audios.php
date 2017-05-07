@@ -281,12 +281,104 @@
 
 
 <div class="user-midd-section">
+<<<<<<< HEAD
     <div class="container">
         <div class="row">
+=======
+            <div class="container " style="border: 1px solid #d9d9d9;">
+                <div class="row">
+>>>>>>> 2eecff05e236530f331f9dd336f6d54c48970a8f
 
             <div class="col-md-3">
 
+<<<<<<< HEAD
 
+=======
+      <div  class="col-sm-12 border_tag padding_low_data padding_les" >
+      
+        <div class="col-xs-3 padding_low_data padding_les"> <!-- required for floating -->
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs tabs-left remove_tab">
+            <li> <a href="<?php echo base_url('artistic/art_photos/'.$artisticdata[0]['user_id']) ?>" data-toggle="tab"><i class="fa fa-camera" aria-hidden="true"></i>   Photos</a></li>
+            <li> <a href="<?php echo base_url('artistic/art_videos/'.$artisticdata[0]['user_id']) ?>" data-toggle="tab"><i class="fa fa-video-camera" aria-hidden="true"></i>  Video</a></li>
+            <li class="active"><a href="<?php echo base_url('artistic/art_audios/'.$artisticdata[0]['user_id']) ?>" data-toggle="tab"><i class="fa fa-music" aria-hidden="true"></i>  Audio</a></li>
+            <li>    <a href="<?php echo base_url('artistic/art_pdf/'.$artisticdata[0]['user_id']) ?>" data-toggle="tab"><i class="fa fa-file-pdf-o" aria-hidden="true"></i>  Pdf</a></li>
+          </ul>
+        </div>
+
+      <div class="col-xs-9 padding_less_right" style="padding-left: 0;  border-left: 1px solid #d9d9d9">
+
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <div class="tab-pane active" id="home"><div class="common-form">
+                            <div class="">
+
+                                <h2 class="add_tag_design"> Audio</h2>
+                                <div class="" style="padding: 10px;">
+                                 <div class="vidoe_tag">
+       
+                                  <?php
+
+          $contition_array = array('user_id' => $businessdata1[0]['user_id']);
+         $artaudio = $this->data['artaudio'] = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+          
+            foreach ($artaudio as $val) {
+             
+            
+
+            $contition_array = array('post_id' => $val['art_post_id'], 'is_deleted' =>'1', 'image_type' => '1');
+            $artmultiaudio = $this->data['artmultiaudio'] =  $this->common->select_data_by_condition('post_image', $contition_array, $data = '*', $sortby = 'post_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+              $multipleaudio[] = $artmultiaudio;
+             }  
+
+                  ?>
+              <?php   
+
+                $allowesaudio = array('mp3');
+              
+                foreach ($multipleaudio as $mke => $mval) {
+                  
+                  foreach ($mval as $mke1 => $mval1) {
+                      $ext = pathinfo($mval1['image_name'], PATHINFO_EXTENSION);
+                    
+                     if(in_array($ext,$allowesaudio)){ 
+                   $singlearray2[] = $mval1;
+                     }
+                  }
+                } 
+                ?>
+
+               <?php  if($singlearray2) { 
+                foreach ($singlearray2 as $audiov) {
+                  
+                 ?>
+
+                            <audio controls>
+                            <source src="<?php echo base_url(ARTPOSTIMAGE. str_replace(" ","_",$audiov['image_name']))?>" type="audio/ogg">
+                            <source src="movie.ogg" type="audio/mpeg">
+                           Your browser does not support the audio tag.
+                            </audio>
+
+               <?php } } else{?>
+             
+      <div style="margin-left: 380px; margin-top: 20px;">
+                <div class="not_avali" >
+                                <img src="<?php echo base_url('images/color_008.png'); ?>"  >
+                               <div>
+                                <div class="not_text" >Audio not avalible</div>
+                               </div>
+                               </div>
+                               </div>
+              
+               <?php }?>             
+      
+                         </div>
+</div>
+</div>
+</div></div>
+>>>>>>> 2eecff05e236530f331f9dd336f6d54c48970a8f
             </div>
 
 

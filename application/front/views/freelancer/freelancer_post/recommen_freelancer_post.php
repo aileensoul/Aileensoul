@@ -209,71 +209,92 @@ body {
 
                     <div class="col-md-4"><div class="profile-box profile-box-left">
 
-                            <div class="full-box-module">    
-
-
-                                <div class="profile-boxProfileCard  module">
-
+                        <div class="full-box-module">    
+      
+      <div class="profile-boxProfileCard  module">
+<div class="profile-boxProfileCard-cover">   
                                     <a class="profile-boxProfileCard-bg u-bgUserColor a-block"
                                        href="<?php echo base_url('freelancer/freelancer_post_profile'); ?>"
                                        tabindex="-1"
                                        aria-hidden="true"
                                        rel="noopener">
-
+                                       <!-- rash code start 12-4 -->
+                                       <?php
+                                       if ($freepostdata[0]['profile_background'] != '') {
+                                           ?>
                                         <!-- box image start -->
-                                        <img src="<?php echo base_url(FREEWORKIMG . $freepostdata[0]['profile_background']); ?>" class="bgImage"  style="    height: 95px;
-                                             width: 100%; " >
+                                        <img src="<?php echo base_url(FREEWORKIMG . $freepostdata[0]['profile_background']); ?>" class="bgImage" alt="<?php echo  $freepostdata[0]['freelancer_post_fullname'] . ' ' . $freepostdata[0]['freelancer_post_username']; ?>"  style="height: 95px;
+                                             width: 100%;">
                                         <!-- box image end -->
-
-
-                                    </a>
-
-
-                                    <div class="profile-box-menu  fr col-md-12">
-                                        <div class="left- col-md-2"></div>
-                                        <div  class="right-section col-md-10">
-                                            <ul>
-                                                <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_post_profile')) { ?> class="active" <?php } ?>><a href="<?php echo base_url('freelancer/freelancer_post_profile'); ?>">Profile</a>
+                                        <?php
+                                    } else {
+                                        ?>
+                                        <img src="<?php echo base_url(WHITEIMAGE); ?>" class="bgImage" alt="<?php echo  $freepostdata[0]['freelancer_post_fullname'] . ' ' . $freepostdata[0]['freelancer_post_username']; ?>"  style="height: 95px;
+                                             width: 100%;">
+                                             <?php
+                                         }
+                                         ?>
+                                        </a>
+ </div>
+  
+    <div class="profile-boxProfileCard-content clearfix">
+<div class="buisness-profile-txext col-md-4">
+       
+                                                              <a class="profile-boxProfilebuisness-avatarLink2 a-inlineBlock" 
+                                                              href="<?php echo base_url('freelancer/freelancer_post_profile/' . $freelancerdata[0]['user_id']); ?>" title="<?php echo $freelancerdata[0]['freelancer_post_fullname']. ' ' . $freelancerdata[0]['freelancer_post_username']; ?>" tabindex="-1" aria-hidden="true" rel="noopener">
+                                                   <?php
+                                            if ($freelancerdata[0]['freelancer_post_user_image']) {
+                                                ?>
+                                                 <img src="<?php echo base_url(USERIMAGE . $freelancerdata[0]['freelancer_post_user_image']); ?>" alt="<?php echo $freelancerdata[0]['freelancer_post_fullname']. ' ' . $freelancerdata[0]['freelancer_post_username']; ?>"  style="    height: 77px;
+    width: 71px;
+    z-index: 3;
+    position: relative;
+">
+                                                <?php
+                                            } else {
+                                                ?>
+                                                 <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo $freelancerdata[0]['freelancer_post_fullname']. ' ' . $freelancerdata[0]['freelancer_post_username']; ?>"   style="   height: 80px;
+                                                     width: 77px;     z-index: 3;
+                                                     position: relative;"> <?php
+                                            }
+                                            ?>
+                                        </a>
+</div>
+<div class="profile-box-user  profile-text-bui-user  fr col-md-9">
+            <span class="profile-company-name ">
+                                         <a style="font-size: 18px; font-weight: 600;" href="<?php echo base_url('freelancer/freelancer_post_profile'); ?>"><?php echo ucwords($userdata[0]['first_name']) . ' ' . ucwords($userdata[0]['last_name']); ?></a>
+                                        </span>
+       
+         
+         <div class="profile-boxProfile-name">
+        <a style=" font-weight: 600; font-size: 15px;" href="<?php echo base_url('freelancer/freelancer_post_profile'); ?>"><?php
+if ($freepostdata[0]['designation']) {
+    echo ucwords($freepostdata[0]['designation']);
+} else {
+    echo "Current Work";
+}
+?></a></div>
+     
+     
+    </div>
+   
+          <div class="profile-box-job-menu  col-md-12">
+         
+                                    <ul class="">
+                                             <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_post_profile')) { ?> class="active" <?php } ?>><a href="<?php echo base_url('freelancer/freelancer_post_profile'); ?>">Details</a>
                                                 </li>
                                                 <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_save_post')) { ?> class="active" <?php } ?>><a href="<?php echo base_url('freelancer/freelancer_save_post'); ?>">Saved </a>
                                                 </li>
-
                                                 <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_applied_post')) { ?> class="active" <?php } ?>><a href="<?php echo base_url('freelancer/freelancer_applied_post'); ?>">Applied</a>
                                                 </li>
-
-
-                                            </ul>
-                                        </div>
-                                    </div>
-
-                                    <div class="profile-boxProfileCard-content">
-                                        <div class="buisness-profile-txext ">
-
-                                            <a class="profile-boxProfileCard-avatarLink a-inlineBlock" href="<?php echo base_url('freelancer/freelancer_post_profile'); ?>" title="zalak" tabindex="-1" aria-hidden="true" rel="noopener">
-                                                <img src="<?php echo base_url(USERIMAGE . $freepostdata[0]['freelancer_post_user_image']); ?>"   alt=""  style="   height: 80px;
-                                                     width: 77px;     z-index: 3;
-                                                     position: relative;" >
-                                            </a>
-                                        </div>
-
-                                        <div class="profile-box-user">
-                                            <span class="profile-box-name ">
-                                                <a href="<?php echo base_url('freelancer/freelancer_post_profile'); ?>"><?php echo ucwords($userdata[0]['first_name']) . ' ' . ucwords($userdata[0]['last_name']); ?></a></span>
-                                        </div>
-                                        <div class="profile-box-user">
-                                            <span class="profile-box-name"><a href="<?php echo base_url('freelancer/freelancer_post_profile'); ?>"><?php
-                                                    if ($freepostdata[0]['designation']) {
-                                                        echo ucwords($freepostdata[0]['designation']);
-                                                    } else {
-                                                        echo "Current Work";
-                                                    }
-                                                    ?></a></span>
-                                        </div>
-
-                                        <div id="profile-box-profile-prompt"></div>
-
-                                    </div>
-                                </div></div>
+                                </ul>
+     
+      </div>
+     
+  </div>
+  </div>
+  </div>
+           
 
                         </div>
 
@@ -423,7 +444,7 @@ function text2link($text) {
                                                                 </li>
                                <li> <b> Skills</b> <span> 
                                <?php
-                  $comma = " , ";
+                  $comma = ", ";
                   $k = 0;
                                                                 $aud = $post['post_skill'];
                                                                 $aud_res = explode(',', $aud);

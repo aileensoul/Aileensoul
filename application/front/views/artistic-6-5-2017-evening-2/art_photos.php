@@ -484,14 +484,15 @@
 
     <section>
         <div class="container">
+            <!--- select thaya pachhi ave ae -->
             <div class="row" id="row1" style="display:none;">
                 <div class="col-md-12 text-center">
                     <div id="upload-demo" style="width:100%"></div>
                 </div>
                 <div class="col-md-12 cover-pic" style="padding-top: 25px;text-align: center;">
+                    <button class="btn btn-success  cancel-result">Cancel</button>
 
-                    <button class="btn btn-success cancel-result">Cancel</button>
-                    <button class="btn btn-success set-btn upload-result" onclick="myFunction()">Upload Image</button>
+                    <button class="btn btn-success upload-result" onclick="myFunction()">Upload Image</button>
 
                     <div id="message1" style="display:none;">
                         <div id="floatBarsG">
@@ -504,6 +505,7 @@
                             <div id="floatBarsG_7" class="floatBarsG"></div>
                             <div id="floatBarsG_8" class="floatBarsG"></div>
                         </div>
+
                     </div>
                 </div>
                 <div class="col-md-12"  style="visibility: hidden; ">
@@ -511,32 +513,26 @@
                 </div>
             </div>
 
+
             <div class="container">
                 <div class="row" id="row2">
                     <?php
                     $userid = $this->session->userdata('aileenuser');
-                    if ($this->uri->segment(3) == $userid) {
-                        $user_id = $userid;
-                    } elseif ($this->uri->segment(3) == "") {
-                        $user_id = $userid;
-                    } else {
-                        $user_id = $this->uri->segment(3);
-                    }
-                    $contition_array = array('user_id' => $user_id, 'is_delete' => '0', 'status' => '1');
-                    $image = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'profile_background', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                    $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
+                    $image = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'profile_background_main', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
                     $image_ori = $image[0]['profile_background'];
-                    if ($image_ori) {
+                    if ($artisticdata[0]['profile_background_main']) {
                         ?>
                         <div class="bg-images">
-                            <img src="<?php echo base_url(ARTBGIMAGE . $image[0]['profile_background']); ?>" name="image_src" id="image_src" / ></div>
+                            <img src="<?php echo base_url(ARTBGIMAGE . $artisticdata[0]['profile_background_main']); ?>" name="image_src" id="image_src" / ></div>
                         <?php
                     } else {
                         ?>
                         <div class="bg-images">
                             <img src="<?php echo base_url(WHITEIMAGE); ?>" name="image_src" id="image_src" / ></div>
-                    <?php }
-                    ?>
+<?php }
+?>
 
                 </div>
             </div>
@@ -544,21 +540,24 @@
     </div>
 </div>   
 
+<div class="container"> 
+
 <?php
-    $userid = $this->session->userdata('aileenuser');
-    if($artisticdata[0]['user_id'] == $userid){ 
+$userid = $this->session->userdata('aileenuser');
+if ($artisticdata[0]['user_id'] == $userid) {
     ?>   
-      <div class="upload-img">
-      
-        
-        <label class="cameraButton"><i class="fa fa-camera" aria-hidden="true"></i>
-            <input type="file" id="upload" name="upload" accept="image/*;capture=camera" onclick="showDiv()">
-        </label>
+        <div class="upload-img">
 
-                
-            </div>
 
-            <?php }?>
+            <label class="cameraButton"><i class="fa fa-camera" aria-hidden="true"></i>
+                <input type="file" id="upload" name="upload" accept="image/*;capture=camera" onclick="showDiv()">
+            </label>
+
+
+            <!--- select thai ne ave ae pelaj puru -->
+
+        </div>
+<?php } ?>
     <div class="profile-photo">
         <div class="buisness-menu">
             <div class="profile-pho-bui">
@@ -658,7 +657,7 @@ if ($artisticdata[0]['user_id'] == $userid) {
                         $userid = $this->session->userdata('aileenuser');
                         if ($artisticdata[0]['user_id'] == $userid) {
                             ?>
-                            <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'followers') { ?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/followers'); ?>">Followers  <br> (<?php echo (count($followerdata)); ?>)</a>
+                            <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'followers') { ?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/followers'); ?>">Followers  (<?php echo (count($followerdata)); ?>)</a>
                             </li>
                         <?php
                         } else {
@@ -667,14 +666,14 @@ if ($artisticdata[0]['user_id'] == $userid) {
                             $contition_array = array('follow_to' => $artregid, 'follow_status' => '1', 'follow_type' => '1');
                             $followerotherdata = $this->data['followerotherdata'] = $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                             ?> 
-                            <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'followers') { ?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/followers/' . $artisticdata[0]['user_id']); ?>">Followers  <br> (<?php echo (count($followerotherdata)); ?>)</a>
+                            <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'followers') { ?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/followers/' . $artisticdata[0]['user_id']); ?>">Followers  (<?php echo (count($followerotherdata)); ?>)</a>
                             </li>
 
                         <?php } ?> 
                         <?php
                         if ($artisticdata[0]['user_id'] == $userid) {
                             ?>        
-                            <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'following') { ?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/following'); ?>">Following  <br> (<?php echo (count($followingdata)); ?>)</a>
+                            <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'following') { ?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/following'); ?>">Following  (<?php echo (count($followingdata)); ?>)</a>
                             </li>
                         <?php
                         } else {
@@ -683,7 +682,7 @@ if ($artisticdata[0]['user_id'] == $userid) {
                             $contition_array = array('follow_from' => $artregid, 'follow_status' => '1', 'follow_type' => '1');
                             $followingotherdata = $this->data['followingotherdata'] = $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                             ?>
-                            <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'following') { ?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/following/' . $artisticdata[0]['user_id']); ?>">Following <br>  (<?php echo (count($followingotherdata)); ?>)</a>
+                            <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'following') { ?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/following/' . $artisticdata[0]['user_id']); ?>">Following  (<?php echo (count($followingotherdata)); ?>)</a>
                             </li> 
                         <?php } ?>  
 
@@ -715,15 +714,15 @@ if ($artisticdata[0]['user_id'] == $userid) {
 
     </div>
     <div class="user-midd-section">
-        <div class="container "  style="border: 1px solid #d9d9d9;    padding-right: 0px; ">
+        <div class="container "  style="border: 1px solid #efefef;">
             <div class="row">
 
 
-                <div  class="col-sm-12 border_tag padding_low_data padding_les" >
+                <div  class="col-sm-10 border_tag padding_low_data" style="margin: 16px;">
 
-                    <div class="col-xs-3 padding_low_data padding_les"> <!-- required for floating -->
+                    <div class="col-xs-3 padding_low_data"> <!-- required for floating -->
                         <!-- Nav tabs -->
-                        <ul class="nav nav-tabs tabs-left remove_tab">
+                        <ul class="nav nav-tabs tabs-left">
                             <li class="active"> <a href="<?php echo base_url('artistic/art_photos/' . $artisticdata[0]['user_id']) ?>" data-toggle="tab"><i class="fa fa-camera" aria-hidden="true"></i>   Photos</a></li>
                             <li> <a href="<?php echo base_url('artistic/art_videos/' . $artisticdata[0]['user_id']) ?>" data-toggle="tab"><i class="fa fa-video-camera" aria-hidden="true"></i>  Video</a></li>
                             <li><a href="<?php echo base_url('artistic/art_audios/' . $artisticdata[0]['user_id']) ?>" data-toggle="tab"><i class="fa fa-music" aria-hidden="true"></i>  Audio</a></li>
@@ -731,7 +730,7 @@ if ($artisticdata[0]['user_id'] == $userid) {
                         </ul>
                     </div>
 
-                    <div class="col-xs-9" style="padding-left: 0; height: 100%; border-left: 1px solid #d9d9d9">
+                    <div class="col-xs-9" style="padding-left: 0;  border-left: 1px solid #ccc">
 
                         <!-- Tab panes -->
                         <div class="tab-content">
@@ -1875,130 +1874,3 @@ function updateprofilepopup(id) {
 $('#bidmodal-2').modal('show');
 }
 </script>
-
-<!-- cover image start -->
-<script>
-    function myFunction() {
-        document.getElementById("upload-demo").style.visibility = "hidden";
-        document.getElementById("upload-demo-i").style.visibility = "hidden";
-        document.getElementById('message1').style.display = "block";
-
-        // setTimeout(function () { location.reload(1); }, 9000);
-
-    }
-
-
-    function showDiv() {
-        document.getElementById('row1').style.display = "block";
-        document.getElementById('row2').style.display = "none";
-    }
-</script>
-
-
-<script type="text/javascript">
-    $uploadCrop = $('#upload-demo').croppie({
-        enableExif: true,
-        viewport: {
-            width: 1250,
-            height: 350,
-            type: 'square'
-        },
-        boundary: {
-            width: 1250,
-            height: 350
-        }
-    });
-
-
-
-    $('.upload-result').on('click', function (ev) {
-        $uploadCrop.croppie('result', {
-            type: 'canvas',
-            size: 'viewport'
-        }).then(function (resp) {
-
-
-            $.ajax({
-                url: "<?php echo base_url() ?>artistic/ajaxpro",
-                type: "POST",
-                data: {"image": resp},
-                success: function (data) {
-                    html = '<img src="' + resp + '" />';
-                    if (html) {
-                        window.location.reload();
-                    }
-                    //  $("#kkk").html(html);
-                }
-            });
-
-        });
-    });
-
-    $('.cancel-result').on('click', function (ev) {
-
-        document.getElementById('row2').style.display = "block";
-        document.getElementById('row1').style.display = "none";
-        document.getElementById('message1').style.display = "none";
-
-    });
-
-//aarati code start
-    $('#upload').on('change', function () {
-
-
-        var reader = new FileReader();
-        //alert(reader);
-        reader.onload = function (e) {
-            $uploadCrop.croppie('bind', {
-                url: e.target.result
-            }).then(function () {
-                console.log('jQuery bind complete');
-            });
-
-        }
-        reader.readAsDataURL(this.files[0]);
-
-
-
-    });
-
-    $('#upload').on('change', function () {
-
-        var fd = new FormData();
-        fd.append("image", $("#upload")[0].files[0]);
-
-        files = this.files;
-        size = files[0].size;
-
-        //alert(size);
-
-        if (size > 4194304)
-        {
-            //show an alert to the user
-            alert("Allowed file size exceeded. (Max. 4 MB)")
-
-            document.getElementById('row1').style.display = "none";
-            document.getElementById('row2').style.display = "block";
-
-            // window.location.href = "https://www.aileensoul.com/dashboard"
-            //reset file upload control
-            return false;
-        }
-
-        $.ajax({
-
-            url: "<?php echo base_url(); ?>artistic/image",
-            type: "POST",
-            data: fd,
-            processData: false,
-            contentType: false,
-            success: function (response) {
-                //alert(response);
-
-            }
-        });
-    });
-
-//aarati code end
-</script>
-<!-- cover image end -->
