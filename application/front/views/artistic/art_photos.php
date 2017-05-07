@@ -657,7 +657,7 @@ if ($artisticdata[0]['user_id'] == $userid) {
                         $userid = $this->session->userdata('aileenuser');
                         if ($artisticdata[0]['user_id'] == $userid) {
                             ?>
-                            <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'followers') { ?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/followers'); ?>">Followers  (<?php echo (count($followerdata)); ?>)</a>
+                            <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'followers') { ?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/followers'); ?>">Followers  <br> (<?php echo (count($followerdata)); ?>)</a>
                             </li>
                         <?php
                         } else {
@@ -666,14 +666,14 @@ if ($artisticdata[0]['user_id'] == $userid) {
                             $contition_array = array('follow_to' => $artregid, 'follow_status' => '1', 'follow_type' => '1');
                             $followerotherdata = $this->data['followerotherdata'] = $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                             ?> 
-                            <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'followers') { ?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/followers/' . $artisticdata[0]['user_id']); ?>">Followers  (<?php echo (count($followerotherdata)); ?>)</a>
+                            <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'followers') { ?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/followers/' . $artisticdata[0]['user_id']); ?>">Followers  <br> (<?php echo (count($followerotherdata)); ?>)</a>
                             </li>
 
                         <?php } ?> 
                         <?php
                         if ($artisticdata[0]['user_id'] == $userid) {
                             ?>        
-                            <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'following') { ?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/following'); ?>">Following  (<?php echo (count($followingdata)); ?>)</a>
+                            <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'following') { ?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/following'); ?>">Following  <br> (<?php echo (count($followingdata)); ?>)</a>
                             </li>
                         <?php
                         } else {
@@ -682,7 +682,7 @@ if ($artisticdata[0]['user_id'] == $userid) {
                             $contition_array = array('follow_from' => $artregid, 'follow_status' => '1', 'follow_type' => '1');
                             $followingotherdata = $this->data['followingotherdata'] = $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                             ?>
-                            <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'following') { ?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/following/' . $artisticdata[0]['user_id']); ?>">Following  (<?php echo (count($followingotherdata)); ?>)</a>
+                            <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'following') { ?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/following/' . $artisticdata[0]['user_id']); ?>">Following <br>  (<?php echo (count($followingotherdata)); ?>)</a>
                             </li> 
                         <?php } ?>  
 
@@ -714,15 +714,15 @@ if ($artisticdata[0]['user_id'] == $userid) {
 
     </div>
     <div class="user-midd-section">
-        <div class="container "  style="border: 1px solid #efefef;">
+        <div class="container "  style="border: 1px solid #d9d9d9;    padding-right: 0px; ">
             <div class="row">
 
 
-                <div  class="col-sm-10 border_tag padding_low_data" style="margin: 16px;">
+                <div  class="col-sm-12 border_tag padding_low_data padding_les" >
 
-                    <div class="col-xs-3 padding_low_data"> <!-- required for floating -->
+                    <div class="col-xs-3 padding_low_data padding_les"> <!-- required for floating -->
                         <!-- Nav tabs -->
-                        <ul class="nav nav-tabs tabs-left">
+                        <ul class="nav nav-tabs tabs-left remove_tab">
                             <li class="active"> <a href="<?php echo base_url('artistic/art_photos/' . $artisticdata[0]['user_id']) ?>" data-toggle="tab"><i class="fa fa-camera" aria-hidden="true"></i>   Photos</a></li>
                             <li> <a href="<?php echo base_url('artistic/art_videos/' . $artisticdata[0]['user_id']) ?>" data-toggle="tab"><i class="fa fa-video-camera" aria-hidden="true"></i>  Video</a></li>
                             <li><a href="<?php echo base_url('artistic/art_audios/' . $artisticdata[0]['user_id']) ?>" data-toggle="tab"><i class="fa fa-music" aria-hidden="true"></i>  Audio</a></li>
@@ -730,7 +730,7 @@ if ($artisticdata[0]['user_id'] == $userid) {
                         </ul>
                     </div>
 
-                    <div class="col-xs-9" style="padding-left: 0;  border-left: 1px solid #ccc">
+                    <div class="col-xs-9" style="padding-left: 0; height: 100%; border-left: 1px solid #d9d9d9">
 
                         <!-- Tab panes -->
                         <div class="tab-content">

@@ -304,11 +304,11 @@ label.cameraButton input[accept*="camera"] {
                 <div class="row">
 
 
-      <div  class="col-sm-12 border_tag padding_low_data padding_less_right" >
+      <div  class="col-sm-12 border_tag padding_low_data padding_les" >
       
         <div class="col-xs-3 padding_low_data padding_les"> <!-- required for floating -->
           <!-- Nav tabs -->
-          <ul class="nav nav-tabs tabs-left">
+          <ul class="nav nav-tabs tabs-left remove_tab">
             <li> <a href="<?php echo base_url('business_profile/business_photos/'.$businessdata1[0]['business_slug']) ?>" data-toggle="tab"><i class="fa fa-camera" aria-hidden="true"></i>   Photos</a></li>
             <li class="active">       <a href="<?php echo base_url('business_profile/business_videos/'.$businessdata1[0]['business_slug']) ?>" data-toggle="tab"><i class="fa fa-video-camera" aria-hidden="true"></i>  Video</a></li>
             <li>    <a href="<?php echo base_url('business_profile/business_audios/'.$businessdata1[0]['business_slug']) ?>" data-toggle="tab"><i class="fa fa-music" aria-hidden="true"></i>  Audio</a></li>
