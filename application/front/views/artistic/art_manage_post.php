@@ -294,7 +294,13 @@ responsive image design start -->
     if ($artisticdata[0]['user_id'] == $userid) {
         ?>   
         <div class="upload-img">
+     
+        <label class="cameraButton"><i class="fa fa-camera" aria-hidden="true"></i>
+            <input type="file" id="upload" name="upload" accept="image/*;capture=camera" onclick="showDiv()">
+        </label>
 
+                
+            </div>
 
             <label class="cameraButton"><i class="fa fa-camera" aria-hidden="true"></i>
                 <input type="file" id="upload" name="upload" accept="image/*;capture=camera" onclick="showDiv()">
