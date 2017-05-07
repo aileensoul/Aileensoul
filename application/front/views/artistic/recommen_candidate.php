@@ -313,9 +313,9 @@ return false;
                                                   <div class="profile-job-profile-menu">
                                                    
                                                         <ul>
-                                                                    <li><b>Skills:</b>
+                                                                    <li><b>Skills</b><span>
                                                         <?php
-                                                        $comma = ",";
+                                                        $comma = ", ";
                                                         $k=0;
                                                         $aud=$row['art_skill']; 
                                                         $aud_res=explode(',',$aud);
@@ -332,20 +332,20 @@ return false;
                                                            $k++;
                                                         }
                                                         ?>       
-
+                                                        </span>
                                                       </li>
 
 
-                                                      <li><b>Other Skill:</b>
-                                                       <?php echo $row['other_skill']; ?>
+                                                      <li><b>Other Skill</b>
+                                                      <span> <?php echo $row['other_skill']; ?></span>
                                                      </li>
 
                                                         <?php 
                  $cityname =  $this->db->get_where('cities',array('city_id' => $row['art_city']))->row()->city_name; ?>
 
-                                                      <li><b>Location:</b> <?php echo $cityname; ?></li>
-  <li><b>Speciality :</b> <?php echo $row['art_yourart']; ?></li>
-   <li><b>Designation :</b> <?php echo $row['designation']; ?></li>
+                                                      <li><b>Location</b> <span><?php echo $cityname; ?></span></li>
+  <li><b>Speciality</b> <span><?php echo $row['art_yourart']; ?></span></li>
+   <li><b>Designation</b><span> <?php echo $row['designation']; ?></span></li>
 
                                                      <input type="hidden" name="search" id="search" value="<?php echo $keyword; ?>">
                                                         </ul>
@@ -364,17 +364,17 @@ return false;
                                     if($data[0]['status'] != 0 || $data[0]['status'] == '')
                                       {
                                       ?> 
-                                          <a href="<?php echo base_url('recruiter/save_search_user/'  . $row['user_id'].'/'. $data[0]['save_id'] ); ?>">Save User</a>
+                                          <a class="fr" href="<?php echo base_url('recruiter/save_search_user/'  . $row['user_id'].'/'. $data[0]['save_id'] ); ?>">Save </a>
                                          <?php 
                                           } 
                                          else{
                                         ?>
 
-                                          <a href=" ">Saved User</a> 
+                                          <a class="fr" href=" ">Saved </a> 
                                         <?php
                                  }?> 
 
-                                 <a href="<?php echo base_url('message/message_chats/'  . $row['user_id']); ?>">Message</a>     
+                                 <a class="fr" href="<?php echo base_url('message/message_chats/'  . $row['user_id']); ?>">Message</a>     
 
  
                                                 </div> </div>
