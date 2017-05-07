@@ -5,13 +5,17 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/demo.css'); ?>">
 <!--post save success pop up style strat -->
 <style>
-    body {
-        font-family: Arial, sans-serif;
-        background-size: cover;
-        height: 100vh;
-    }
-
-    .box {
+    /* body {
+         font-family: Arial, sans-serif;
+         background-size: cover;
+         height: 100vh;
+     }*/
+    /*.designation_rec ul li{    display: block;
+    padding-bottom: 10px;
+    padding-left: 10px;
+padding-top: 1px;}
+    */
+    /*.box {
         width: 40%;
         margin: 0 auto;
         background: rgba(255,255,255,0.2);
@@ -20,11 +24,8 @@
         border-radius: 20px/50px;
         background-clip: padding-box;
         text-align: center;
-    }
-
-
-
-    .overlay {
+    }*/
+    /*.overlay {
         position: fixed;
         top: 0;
         bottom: 0;
@@ -35,53 +36,57 @@
         visibility: hidden;
         opacity: 0;
         z-index: 10;
-    }
-    .overlay:target {
-        visibility: visible;
-        opacity: 1;
-    }
-
-    .popup {
-        margin: 70px auto;
-        padding: 20px;
-        background: #fff;
-        border-radius: 5px;
-        width: 30%;
-        height: 200px;
-        position: relative;
-        transition: all 5s ease-in-out;
-    }
-
+    }*/
+    /* .overlay:target {
+         visibility: visible;
+         opacity: 1;
+     }
+ 
+     .popup {
+         margin: 70px auto;
+         padding: 20px;
+         background: #fff;
+         border-radius: 5px;
+         width: 30%;
+         height: 200px;
+         position: relative;
+         transition: all 5s ease-in-out;
+     }*/
     .okk{
         text-align: center;
     }
-
-    .popup .okbtn {
+    .pop_content .okbtn{
         position: absolute;
         transition: all 200ms;
-        font-size: 26px;
-        font-weight: bold;
+        font-size: 16px;
         text-decoration: none;
         color: #fff;
-        padding: 12px 30px;
-        background-color: darkcyan;
-        margin-left: -45px;
-        margin-top: 15px;
+        padding: 8px 18px;
+        background-color: #0A2C5D;
+        left: 170px;
+        margin-top: 8px;
+        width: 100px; 
+        border-radius: 8px;
     }
-
+    .pop_content .cnclbtn {
+        position: absolute;
+        transition: all 200ms;
+        font-size: 16px;
+        text-decoration: none;
+        color: #fff;
+        padding: 8px 18px;
+        background-color: #0A2C5D;
+        right: 170px;
+        margin-top: 8px;
+        width: 100px;
+        border-radius: 8px;
+    }
     .popup .pop_content {
         text-align: center;
         margin-top: 40px;
-
     }
-
-    @media screen and (max-width: 700px){
-        .box{
-            width: 70%;
-        }
-        .popup{
-            width: 70%;
-        }
+    .model_ok_cancel{
+        width:200px !important;
     }
 </style>
 
@@ -95,6 +100,7 @@
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="<?php echo base_url('css/bootstrap.min.css'); ?>" />
 
 <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
 
@@ -399,33 +405,33 @@
                                                         </div>
 
                                                         <div class="profile-job-profile-button clearfix">
-             <div class="apply-btn fr">
+      <div class="apply-btn fr">
+   <?php
+ $userid = $this->session->userdata('aileenuser');
+$contition_array = array('from_id' => $userid, 'to_id' => $p['user_id'], 'save_type' => 1, 'status' => '0');
+$data = $this->common->select_data_by_condition('save', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                                                
+ if($userid != $p['user_id']){       
+ if (!$data) {
+     ?> 
+                     
+    <a href="<?php echo base_url('chat/abc/' . $p['user_id']); ?>">Message</a> 
 
+<!--                     <a href="#">Invite</a>-->
 
-                                                                <?php
-                                                                $userid = $this->session->userdata('aileenuser');
-                                                                $contition_array = array('from_id' => $userid, 'to_id' => $p['user_id']);
-                                                                $data = $this->common->select_data_by_condition('save', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+             <input type="hidden" id="<?php echo 'hideenuser' . $p['user_id']; ?>" value= "<?php echo $data[0]['save_id']; ?>">
+                <!-- <a id="<?php echo $row['user_id']; ?>" onClick="save_user(this.id)" href="#popup1" class="<?php echo 'saveduser' . $row['user_id']; ?>">Save User</a> -->
+              <a id="<?php echo $p['user_id']; ?>" onClick="savepopup(<?php echo $p['user_id']; ?>)" href="javascript:void(0);" class="<?php echo 'saveduser' . $p['user_id']; ?>">Save</a>
 
-
-                                                               if(!$data) {
-                ?>
-
-
-                 <input type="hidden" name="saveuser"  id="saveuser" value= "<?php echo $data[0]['save_id']; ?>">
-                                                                        <a id="<?php echo $p['user_id']; ?>" onClick="save_user(this.id)" href="#popup1" class="<?php echo 'saveduser' . $p['user_id']; ?>">Save </a>
-                                                                    <?php
-                                                                } else {
-                                                                    ?>
-
-                                                                    <a href=" ">Saved </a> 
-                                                                <?php }
-                                                                ?> 
-
-                                                                <a href="<?php echo base_url('message/message_chats/' . $p['user_id']); ?>">Message</a>     
-
-
-                                                            </div> </div>
+                <?php
+            } else {
+                 ?>
+    <a href="<?php echo base_url('chat/abc/' . $p['user_id']); ?>">Message</a> 
+<!--    <a href="#">Invite</a>   -->
+    <a class="saved">Saved </a> 
+                                                        <?php } }
+        ?> 
+                                                            </div>  </div>
 
                                                         <!--  <div class="profile-job-profile-button clearfix">
                                                                
@@ -468,6 +474,21 @@
     <footer>
 
 <?php echo $footer; ?>
+
+
+  <!-- Bid-modal  -->
+                    <div class="modal fade message-box biderror" id="bidmodal" role="dialog">
+                        <div class="modal-dialog modal-lm">
+                            <div class="modal-content">
+                                <button type="button" class="modal-close" data-dismiss="modal">&times;</button>         
+                                <div class="modal-body">
+                                    <!--<img class="icon" src="images/dollar-icon.png" alt="" />-->
+                                    <span class="mes"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Model Popup Close -->
 
 
 </body>
@@ -530,26 +551,7 @@ $( "#tags" ).autocomplete({
 </script>
 
 
-  <script type="text/javascript">
-                        function save_user(abc)
-                        {
-
-                            var saveid = document.getElementById("saveuser");
-                            $.ajax({
-                                type: 'POST',
-                                url: '<?php echo base_url() . "recruiter/save_search_user" ?>',
-                                data: 'user_id=' + abc + 'save_id=' + saveid.value,
-                                success: function (data) {
-
-                                    $('.' + 'saveduser' + abc).html(data);
-
-
-                                }
-                            });
-
-                        }
-                    </script>
-
+  
 
 <script type="text/javascript">
     var text = document.getElementById("search").value;
@@ -752,4 +754,31 @@ $( "#tags" ).autocomplete({
 
     });
 </script>
+
+
 <!-- Cover Image upload Start--> 
+<script type="text/javascript">
+                  function save_user(abc)
+                        {
+           var saveid = document.getElementById("hideenuser" + abc);
+                $.ajax({
+        type: 'POST',
+        url: '<?php echo base_url() . "recruiter/save_search_user" ?>',
+        data: 'user_id=' + abc + '&save_id=' + saveid.value,
+        success: function (data) {
+    $('.' + 'saveduser' + abc).html(data).addClass('saved');
+                                }
+                            });
+                        }
+                    </script>
+                    <!-- save post end-->
+<script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
+                   
+                    <script>
+                        function savepopup(id) {
+                            save_user(id);
+                      
+            $('.biderror .mes').html("<div class='pop_content'>Your post is successfully saved.");
+            $('#bidmodal').modal('show');
+                        }
+                    </script>

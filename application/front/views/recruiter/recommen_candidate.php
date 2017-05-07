@@ -130,38 +130,38 @@ padding-top: 1px;}
                                 <?php
                             } else {
                                 ?>
-                                                                            <img src="<?php echo base_url(WHITEIMAGE); ?>" class="bgImage" alt="<?php echo $recruiterdata1[0]['rec_firstname'] . ' ' . $recruiterdata1[0]['rec_lastname']; ?>"  style="height: 95px;
+                         <img src="<?php echo base_url(WHITEIMAGE); ?>" class="bgImage" alt="<?php echo $recruiterdata1[0]['rec_firstname'] . ' ' . $recruiterdata1[0]['rec_lastname']; ?>"  style="height: 95px;
                                                                                  width: 100%;">
                                 <?php
                             }
                             ?>
                             
-                                                                         rash code end 12-4 
+              rash code end 12-4 
                             
-                                                                    </a></div>
-                                                                <div class="profile-box-menu  fr col-md-12">
-                                                                    <div class="left- col-md-2"></div>
-                                                                    <div  class="right-section col-md-10">
-                                                                        <ul class="">
+             </a></div>
+            <div class="profile-box-menu  fr col-md-12">
+          <div class="left- col-md-2"></div>
+      <div  class="right-section col-md-10">
+   <ul class="">
                             
-                                                                            <li <?php if ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'rec_profile') { ?> class="active" <?php } ?>><a href="<?php echo base_url('recruiter/rec_profile'); ?>"> Details</a>
-                                                                            </li>                                
-                                                                            <li <?php if ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'rec_post') { ?> class="active" <?php } ?>><a href="<?php echo base_url('recruiter/rec_post'); ?>">Post</a>
-                                                                            </li>
+        <li <?php if ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'rec_profile') { ?> class="active" <?php } ?>><a href="<?php echo base_url('recruiter/rec_profile'); ?>"> Details</a>
+                              </li>                                
+     <li <?php if ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'rec_post') { ?> class="active" <?php } ?>><a href="<?php echo base_url('recruiter/rec_post'); ?>">Post</a>
+                 </li>
                             
                             
-                                                                            <li <?php if ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'save_candidate') { ?> class="active" <?php } ?>><a href="<?php echo base_url('recruiter/save_candidate'); ?>">Saved </a>
-                                                                            </li>
+ <li <?php if ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'save_candidate') { ?> class="active" <?php } ?>><a href="<?php echo base_url('recruiter/save_candidate'); ?>">Saved </a>
+     </li>
                             
                             
                                                                         </ul>
                                                                     </div>
                                                                 </div>
                                                                 <div class="profile-boxProfileCard-content">
-                                                                    <div class="buisness-profile-txext ">
-                                                                     <rash code 12-4 start> 
+                                 <div class="buisness-profile-txext ">
+                         <rash code 12-4 start> 
                             
-                                                                       <a class="profile-boxProfileCard-avatarLink a-inlineBlock" href="<?php echo base_url('recruiter/rec_profile/' . $recruiterdata1[0]['user_id']); ?>" title="<?php echo $recruiterdata1[0]['rec_firstname'] . ' ' . $recruiterdata1[0]['rec_lastname']; ?>" tabindex="-1" aria-hidden="true" rel="noopener">
+                         <a class="profile-boxProfileCard-avatarLink a-inlineBlock" href="<?php echo base_url('recruiter/rec_profile/' . $recruiterdata1[0]['user_id']); ?>" title="<?php echo $recruiterdata1[0]['rec_firstname'] . ' ' . $recruiterdata1[0]['rec_lastname']; ?>" tabindex="-1" aria-hidden="true" rel="noopener">
                                                                             
                             
                             <?php
@@ -169,7 +169,7 @@ padding-top: 1px;}
                             if ($recruiterdata1[0]['recruiter_user_image'] != '') {
                                 // echo "hii"; die();
                                 ?>
-                                                                                    <img src="<?php echo base_url(USERIMAGE . $recruiterdata1[0]['recruiter_user_image']); ?>" alt="<?php echo $recruiterdata1[0]['rec_firstname'] . ' ' . $recruiterdata1[0]['rec_lastname']; ?>">
+                                                                        >
                                 <?php
                             } else {
                                 ?>
@@ -458,17 +458,17 @@ padding-top: 1px;}
                                                             </ul>
                                                         </div>
                                                         <div class="profile-job-profile-button clearfix">
-                                                            <div class="apply-btn fr">
-                                                                <?php
-                                                                $userid = $this->session->userdata('aileenuser');
-                                                                $contition_array = array('from_id' => $userid, 'to_id' => $row['user_id'], 'save_type' => 1, 'status' => '0');
-                                                                $data = $this->common->select_data_by_condition('save', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-                                                                //echo "<pre>"; print_r($data); die();
-                                                        if($userid != $row['user_id']){       
-                                                                if (!$data) {
-                                                                    ?> 
+       <div class="apply-btn fr">
+   <?php
+ $userid = $this->session->userdata('aileenuser');
+$contition_array = array('from_id' => $userid, 'to_id' => $row['user_id'], 'save_type' => 1, 'status' => '0');
+$data = $this->common->select_data_by_condition('save', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                                                
+ if($userid != $row['user_id']){       
+ if (!$data) {
+     ?> 
                      
-                      <a href="<?php echo base_url('chat/abc/' . $row['user_id']); ?>">Message</a> 
+    <a href="<?php echo base_url('chat/abc/' . $row['user_id']); ?>">Message</a> 
 
 <!--                     <a href="#">Invite</a>-->
 
