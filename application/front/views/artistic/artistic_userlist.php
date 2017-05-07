@@ -116,13 +116,17 @@
 </div>   
 
 <div class="container">    
-    <div class="upload-img">
-
-
+    <?php
+    $userid = $this->session->userdata('aileenuser');
+    if($artisticdata[0]['user_id'] == $userid) {
+    ?>     
+      <div class="upload-img">
+      
         <label class="cameraButton"><i class="fa fa-camera" aria-hidden="true"></i>
             <input type="file" id="upload" name="upload" accept="image/*;capture=camera" onclick="showDiv()">
         </label>
-    </div>
+             </div>
+           <?php }?>
 
 
     <div class="profile-photo">
