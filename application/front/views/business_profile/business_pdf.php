@@ -302,7 +302,7 @@ label.cameraButton input[accept*="camera"] {
                     }elseif($this->uri->segment(3) == ""){
                     $user_id = $userid;
                     }else{
-                    $user_id = $this->uri->segment(3);
+                    $user_id = $this->db->get_where('business_profile',array('business_slug' => $this->uri->segment(3)))->row()->user_id;
                      }
                     $contition_array = array('user_id' => $user_id, 'is_deleted' => '0', 'status' => '1');
                     $image = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'profile_background', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -316,7 +316,7 @@ label.cameraButton input[accept*="camera"] {
                     } else {
                         ?>
                         <div class="bg-images">
-                            <img src="<?php echo base_url(WHITEIMAGE); ?>" name="image_src" id="image_src" / ></div>
+                            <img src="<?php echo base_url(WHITEIMAGE); ?>" name="image_src" id="image_src" /></div>
                     <?php }
                     ?>
 
