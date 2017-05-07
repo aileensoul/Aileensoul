@@ -272,7 +272,7 @@ label.cameraButton input[accept*="camera"] {
             <input type="file" id="upload" name="upload" accept="image/*;capture=camera" onclick="showDiv()">
         </label>
     </div>
-</div>
+
     <?php } ?>
         <!-- coer image end-->
             <div class="profile-photo">
