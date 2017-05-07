@@ -4360,6 +4360,14 @@ class Business_profile extends MY_Controller {
         $post_image_id = $_POST["post_image_id"];
         $post_comment = $_POST["comment"];
 
+
+         $contition_array = array('image_id' => $_POST["post_image_id"], 'is_deleted' => '1');
+        $busimg = $this->data['busimg'] = $this->common->select_data_by_condition('post_image', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+        $contition_array = array('business_profile_post_id' => $busimg[0]["post_id"], 'is_delete' => 0);
+        $buspostid = $this->data['buspostid'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+
         $data = array(
             'user_id' => $userid,
             'post_image_id' => $post_image_id,
@@ -4368,6 +4376,24 @@ class Business_profile extends MY_Controller {
             'is_delete' => 0
         );
         $insert_id = $this->common->insert_data_getid($data, 'bus_post_image_comment');
+
+
+        // insert notification
+
+            if($buspostid[0]['user_id'] == $userid){}else{
+            $datanotification = array(
+                'not_type' => 6,
+                'not_from_id' => $userid,
+                'not_to_id' => $buspostid[0]['user_id'] ,
+                'not_read' => 2,
+                'not_product_id' => $insert_id,
+                'not_from' => 6,
+                'not_img' => 4
+            );
+
+            $insert_id_notification = $this->common->insert_data_getid($datanotification, 'notification');
+            }
+            // end notoification
 
 
         $contition_array = array('post_image_id' => $post_image_id, 'is_delete' => '0');
@@ -4384,7 +4410,7 @@ class Business_profile extends MY_Controller {
 
             $business_userimage = $this->db->get_where('business_profile', array('user_id' => $bus_comment['user_id'], 'status' => 1))->row()->business_user_image;
 
-            //$cmtinsert = '<div class="all-comment-comment-box">';
+            $cmtinsert .= '<div class="all-comment-comment-box">';
             $cmtinsert .= '<div class="post-design-pro-comment-img">';
             $cmtinsert .= '<img  src="' . base_url(USERIMAGE . $business_userimage) . '" alt="">  </div>';
 
@@ -4394,7 +4420,11 @@ class Business_profile extends MY_Controller {
             $cmtinsert .= '<div class="comment-details" id= "imgshowcomment' . $bus_comment['post_image_comment_id'] . '"" >';
             $cmtinsert .= $bus_comment['comment'];
             $cmtinsert .= '</div>';
-            $cmtinsert .= '<input type="text" name="' . $bus_comment['post_image_comment_id'] . '" id="imgeditcomment' . $bus_comment['post_image_comment_id'] . '"style="display:none;" value="' . $bus_comment['comment'] . ' " onClick="imgcommentedit(' . $bus_comment['post_image_comment_id'] . ')">';
+
+            $cmtinsert .= '<div contenteditable="true" class= "editable_text" name="' . $bus_comment['post_image_comment_id'] . '" id="imgeditcomment' . $bus_comment['post_image_comment_id'] . '"style="display:none;" onClick="imgcommentedit(' . $bus_comment['post_image_comment_id'] . ')">';
+
+            $cmtinsert .= $bus_comment['comment'];
+            $cmtinsert .= '</div>';
 
             $cmtinsert .= '<button id="imgeditsubmit' . $bus_comment['post_image_comment_id'] . '" style="display:none;" onClick="imgedit_comment(' . $bus_comment['post_image_comment_id'] . ')">Save</button><div class="art-comment-menu-design"> <div class="comment-details-menu" id="imglikecomment' . $bus_comment['post_image_comment_id'] . '">';
 
@@ -4471,7 +4501,7 @@ class Business_profile extends MY_Controller {
 
             $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
             $cmtinsert .= '<div class="comment-details-menu">';
-            $cmtinsert .= '<p>' . $bus_comment['created_date'] . '</p></div></div>';
+            $cmtinsert .= '<p>' . $bus_comment['created_date'] . '</p></div></div></div>';
 
             $cmtcount = '<a onClick="imgcommentall(this.id)" id="' . $post_image_id . '">';
             $cmtcount .= '<i class="fa fa-comment-o" aria-hidden="true">';
@@ -4492,6 +4522,14 @@ class Business_profile extends MY_Controller {
         $post_image_id = $_POST["post_image_id"];
         $post_comment = $_POST["comment"];
 
+
+        $contition_array = array('image_id' => $_POST["post_image_id"], 'is_deleted' => '1');
+        $busimg = $this->data['busimg'] = $this->common->select_data_by_condition('post_image', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+        $contition_array = array('business_profile_post_id' => $busimg[0]["post_id"], 'is_delete' => 0);
+        $buspostid = $this->data['buspostid'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+
         $data = array(
             'user_id' => $userid,
             'post_image_id' => $post_image_id,
@@ -4500,6 +4538,26 @@ class Business_profile extends MY_Controller {
             'is_delete' => 0
         );
         $insert_id = $this->common->insert_data_getid($data, 'bus_post_image_comment');
+
+
+
+        // insert notification
+
+            if($buspostid[0]['user_id'] == $userid){}else{ 
+            $datanotification = array(
+                'not_type' => 6,
+                'not_from_id' => $userid,
+                'not_to_id' => $buspostid[0]['user_id'] ,
+                'not_read' => 2,
+                'not_product_id' => $insert_id,
+                'not_from' => 6,
+                'not_img' => 4
+            );
+            //echo "<pre>"; print_r($datanotification); die();
+            $insert_id_notification = $this->common->insert_data_getid($datanotification, 'notification');
+            }
+            // end notoification
+
 
 
         $contition_array = array('post_image_id' => $post_image_id, 'is_delete' => '0');
@@ -4516,7 +4574,7 @@ class Business_profile extends MY_Controller {
 
             $business_userimage = $this->db->get_where('business_profile', array('user_id' => $bus_comment['user_id'], 'status' => 1))->row()->business_user_image;
 
-            //$cmtinsert = '<div class="all-comment-comment-box">';
+            $cmtinsert .= '<div class="all-comment-comment-box">';
             $cmtinsert .= '<div class="post-design-pro-comment-img">';
             $cmtinsert .= '<img  src="' . base_url(USERIMAGE . $business_userimage) . '" alt="">  </div>';
 
@@ -4526,7 +4584,11 @@ class Business_profile extends MY_Controller {
             $cmtinsert .= '<div class="comment-details" id= "imgshowcomment' . $bus_comment['post_image_comment_id'] . '"" >';
             $cmtinsert .= $bus_comment['comment'];
             $cmtinsert .= '</div>';
-            $cmtinsert .= '<input type="text" name="' . $bus_comment['post_image_comment_id'] . '" id="imgeditcomment' . $bus_comment['post_image_comment_id'] . '"style="display:none;" value="' . $bus_comment['comment'] . ' " onClick="imgcommentedit(' . $bus_comment['post_image_comment_id'] . ')">';
+
+            $cmtinsert .= '<div contenteditable="true" class= "editable_text" name="' . $bus_comment['post_image_comment_id'] . '" id="imgeditcomment' . $bus_comment['post_image_comment_id'] . '"style="display:none;"  onClick="imgcommentedit(' . $bus_comment['post_image_comment_id'] . ')">';
+
+            $cmtinsert .= $bus_comment['comment'];
+            $cmtinsert .= '</div>';
 
             $cmtinsert .= '<button id="imgeditsubmit' . $bus_comment['post_image_comment_id'] . '" style="display:none;" onClick="imgedit_comment(' . $bus_comment['post_image_comment_id'] . ')">Save</button><div class="art-comment-menu-design"> <div class="comment-details-menu" id="imglikecomment' . $bus_comment['post_image_comment_id'] . '">';
 
@@ -4603,7 +4665,7 @@ class Business_profile extends MY_Controller {
 
             $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
             $cmtinsert .= '<div class="comment-details-menu">';
-            $cmtinsert .= '<p>' . $bus_comment['created_date'] . '</p></div></div>';
+            $cmtinsert .= '<p>' . $bus_comment['created_date'] . '</p></div></div></div>';
 
             $cmtcount = '<a onClick="imgcommentall(this.id)" id="' . $post_image_id . '">';
             $cmtcount .= '<i class="fa fa-comment-o" aria-hidden="true">';
@@ -5609,7 +5671,7 @@ class Business_profile extends MY_Controller {
 
         $contition_array = array('business_profile_post_id' => $_POST["post_id"], 'status' => '1');
         $busdatacomment = $this->data['busdatacomment'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-        
+
         $data = array(
             'user_id' => $userid,
             'business_profile_post_id' => $post_id,
