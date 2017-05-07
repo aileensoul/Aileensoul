@@ -4365,7 +4365,7 @@ word-break: break-all;
   left: 7px;
   visibility: visible;
 }
-
+.dropdown-menu{left: -12px!important;}
 
 /* vishang 4-5-17 */
 .profile-boxProfileCard-bg img { height: 95PX ; width: 100%; }
