@@ -5226,5 +5226,26 @@ class Artistic extends MY_Controller {
         $update = $this->common->update_data($data, 'art_reg', 'user_id', $userid);
         echo 'ok';
     }
+    
+    public function likeuserlist() {
+        $post_id = $_POST['post_id'];
+
+        $contition_array = array('art_post_id' => $post_id, 'status' => '1', 'is_delete' => '0');
+        $commnetcount = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        
+        $likeuser = $commnetcount[0]['art_like_user'];
+        $countlike = $commnetcount[0]['art_likes_count'] - 1;
+
+        $likelistarray = explode(',', $likeuser);
+        echo '<div class="likeduser">';
+        echo '<div class="likeduser-title">User List</div>';
+        foreach ($likelistarray as $key => $value) {
+            $art_name1 = $this->db->get_where('art_reg', array('user_id' => $value, 'status' => 1))->row()->art_name;
+            echo '<div class="likeuser_list"><a href="'.base_url('artistic/artistic_profile/' . $value).'">';
+            echo ucwords($art_name1);
+            echo '</a></div>';
+        }
+        echo '<div>';
+    }
 
 }

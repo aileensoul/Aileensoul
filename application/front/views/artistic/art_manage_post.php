@@ -26,11 +26,11 @@ responsive image design start -->
         display: inline-block;
     }
     [contenteditable=true]:empty:before{content: attr(placeholder);
-    display: block;
-    color: #cacaca;}
-</style>
-<!-- responsive image end -->
-<style>
+                                        display: block;
+                                        color: #cacaca;}
+    </style>
+    <!-- responsive image end -->
+    <style>
     /*body {
         font-family: Arial, sans-serif;
         background-size: cover;
@@ -164,36 +164,36 @@ responsive image design start -->
 
 
 <style type="text/css" media="screen">
-   
-#row2 { overflow: hidden; width: 100%; }
-#row2 img { height: 350px;width: 100%; }
-.upload-img{    float: right;
-    position: relative;
-    margin-top: -135px;
-    right: 50px; }
+
+    #row2 { overflow: hidden; width: 100%; }
+    #row2 img { height: 350px;width: 100%; }
+    .upload-img{    float: right;
+                    position: relative;
+                    margin-top: -135px;
+                    right: 50px; }
 
 
-   label.cameraButton {
-  display: inline-block;
-  margin: 1em 0;
-  cursor: pointer;
-  /* Styles to make it look like a button */
-  padding: 0.5em;
-  border: 2px solid #666;
-  border-color: #EEE #CCC #CCC #EEE;
-  background-color: #DDD;
-  opacity: 0.7;
-}
+    label.cameraButton {
+        display: inline-block;
+        margin: 1em 0;
+        cursor: pointer;
+        /* Styles to make it look like a button */
+        padding: 0.5em;
+        border: 2px solid #666;
+        border-color: #EEE #CCC #CCC #EEE;
+        background-color: #DDD;
+        opacity: 0.7;
+    }
 
-/* Look like a clicked/depressed button */
-label.cameraButton:active {
-  border-color: #CCC #EEE #EEE #CCC;
-}
+    /* Look like a clicked/depressed button */
+    label.cameraButton:active {
+        border-color: #CCC #EEE #EEE #CCC;
+    }
 
-/* This is the part that actually hides the 'Choose file' text box for camera inputs */
-label.cameraButton input[accept*="camera"] {
-  display: none;
-}
+    /* This is the part that actually hides the 'Choose file' text box for camera inputs */
+    label.cameraButton input[accept*="camera"] {
+        display: none;
+    }
 
 
 
@@ -218,298 +218,300 @@ label.cameraButton input[accept*="camera"] {
 <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
 <?php echo $art_header2; ?>
 
-
-
-
-
 <link rel="stylesheet" type="text/css" href="../css/jquery.jMosaic.css">
 
 <!-- END HEADER -->
 <body   class="page-container-bg-solid page-boxed">
 
-         <div class="container">
-            
-      <div class="row" id="row1" style="display:none;">
-        <div class="col-md-12 text-center">
-        <div id="upload-demo" style="width:100%"></div>
-        </div>
-        <div class="col-md-12 cover-pic" style="padding-top: 25px;text-align: center;">
-            <button class="btn btn-success cancel-result" onclick="" >Cancel</button>
-    
-        <button class="btn btn-success set-btn upload-result" onclick="myFunction()">Upload Image</button>
-     
-        <div id="message1" style="display:none;">
-     <div class="loader"><div id="floatBarsG">
-  <div id="floatBarsG_1" class="floatBarsG"></div>
-  <div id="floatBarsG_2" class="floatBarsG"></div>
-  <div id="floatBarsG_3" class="floatBarsG"></div>
-  <div id="floatBarsG_4" class="floatBarsG"></div>
-  <div id="floatBarsG_5" class="floatBarsG"></div>
-  <div id="floatBarsG_6" class="floatBarsG"></div>
-  <div id="floatBarsG_7" class="floatBarsG"></div>
-  <div id="floatBarsG_8" class="floatBarsG"></div>
-</div>
-</div>
-        </div>
-        </div>
-        <div class="col-md-12"  style="visibility: hidden; ">
-        <div id="upload-demo-i" style="background:#e1e1e1;width:100%;padding:30px;height:1px;margin-top:30px"></div>
-        </div>
-      </div>
+    <div class="container">
 
-     
-<div class="container">
-  <div class="row" id="row2">
-        <?php
-        $userid  = $this->session->userdata('aileenuser');
-            $contition_array = array( 'user_id' => $userid, 'is_delete' => '0' , 'status' => '1');
-            $image = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'profile_background', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-          
-            $image_ori=$image[0]['profile_background'];
-           if($image_ori)
-           {
-            ?>
-            <div class="bg-images">
-            <img src="<?php echo base_url(ARTBGIMAGE . $artisticdata[0]['profile_background']);?>" name="image_src" id="image_src" / ></div>
-              <?php
-           }
-           else
-           { ?>
-         <div class="bg-images">
-            <img src="<?php echo base_url(WHITEIMAGE); ?>" name="image_src" id="image_src" / ></div>
-      <?php     }
-          
-            ?>
+        <div class="row" id="row1" style="display:none;">
+            <div class="col-md-12 text-center">
+                <div id="upload-demo" style="width:100%"></div>
+            </div>
+            <div class="col-md-12 cover-pic" style="padding-top: 25px;text-align: center;">
+                <button class="btn btn-success cancel-result" onclick="" >Cancel</button>
 
+                <button class="btn btn-success set-btn upload-result" onclick="myFunction()">Upload Image</button>
+
+                <div id="message1" style="display:none;">
+                    <div class="loader"><div id="floatBarsG">
+                            <div id="floatBarsG_1" class="floatBarsG"></div>
+                            <div id="floatBarsG_2" class="floatBarsG"></div>
+                            <div id="floatBarsG_3" class="floatBarsG"></div>
+                            <div id="floatBarsG_4" class="floatBarsG"></div>
+                            <div id="floatBarsG_5" class="floatBarsG"></div>
+                            <div id="floatBarsG_6" class="floatBarsG"></div>
+                            <div id="floatBarsG_7" class="floatBarsG"></div>
+                            <div id="floatBarsG_8" class="floatBarsG"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12"  style="visibility: hidden; ">
+                <div id="upload-demo-i" style="background:#e1e1e1;width:100%;padding:30px;height:1px;margin-top:30px"></div>
+            </div>
+        </div>
+
+
+        <div class="container">
+            <div class="row" id="row2">
+                <?php
+                $userid = $this->session->userdata('aileenuser');
+                if ($this->uri->segment(3) == $userid) {
+                    $user_id = $userid;
+                } elseif ($this->uri->segment(3) == "") {
+                    $user_id = $userid;
+                } else {
+                    $user_id = $this->uri->segment(3);
+                }
+                $contition_array = array('user_id' => $user_id, 'is_delete' => '0', 'status' => '1');
+                $image = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'profile_background', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+                $image_ori = $image[0]['profile_background'];
+                if ($image_ori) {
+                    ?>
+                    <div class="bg-images">
+                        <img src="<?php echo base_url(ARTBGIMAGE . $image[0]['profile_background']); ?>" name="image_src" id="image_src" / ></div>
+                    <?php
+                } else {
+                    ?>
+                    <div class="bg-images">
+                        <img src="<?php echo base_url(WHITEIMAGE); ?>" name="image_src" id="image_src" / ></div>
+                <?php }
+                ?>
+
+            </div>
+        </div>
     </div>
-    </div>
 </div>
-  </div>
-  </div>   
+</div>   
 
-    <div class="container"> 
+<div class="container"> 
 
     <?php
     $userid = $this->session->userdata('aileenuser');
-    if($artisticdata[0]['user_id'] == $userid){ 
-    ?>   
-      <div class="upload-img">
-      
-        
-        <label class="cameraButton"><i class="fa fa-camera" aria-hidden="true"></i>
-            <input type="file" id="upload" name="upload" accept="image/*;capture=camera" onclick="showDiv()">
-        </label>
+    if ($artisticdata[0]['user_id'] == $userid) {
+        ?>   
+        <div class="upload-img">
 
-                
+
+            <label class="cameraButton"><i class="fa fa-camera" aria-hidden="true"></i>
+                <input type="file" id="upload" name="upload" accept="image/*;capture=camera" onclick="showDiv()">
+            </label>
+
+
+        </div>
+
+    <?php } ?>
+
+    <div class="profile-photo">
+        <div class="profile-pho">
+
+            <div class="user-pic">
+                <?php if ($artisticdata[0]['art_user_image'] != '') { ?>
+                    <img src="<?php echo base_url(ARTISTICIMAGE . $artisticdata[0]['art_user_image']); ?>" alt="" >
+                <?php } else { ?>
+                    <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
+                <?php } ?>
+
+                <?php
+                $userid = $this->session->userdata('aileenuser');
+                if ($artisticdata[0]['user_id'] == $userid) {
+                    ?>
+
+                                                                                                                                            <!--<a href="#popup-form" class="fancybox"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>-->
+                    <a href="javascript:void(0);" onclick="updateprofilepopup();"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>
+                <?php } ?>
             </div>
 
-            <?php }?>
+            <!--                <div id="popup-form">
+            <?php // echo form_open_multipart(base_url('artistic/user_image_insert'), array('id' => 'userimage', 'name' => 'userimage', 'class' => 'clearfix'));  ?>
+                                <input type="file" name="profilepic" accept="image/gif, image/jpeg, image/png" id="profilepic">
+                                <input type="hidden" name="hitext" id="hitext" value="5">
+                                <input type="submit" name="cancel5" id="cancel5" value="Cancel">
+                                <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save">
+                                </form>
+                            </div>-->
 
-        <div class="profile-photo">
-            <div class="profile-pho">
+        </div>
+        <div class="profile-main-rec-box-menu  col-md-12 padding_les">
 
-                <div class="user-pic">
-                    <?php if ($artisticdata[0]['art_user_image'] != '') { ?>
-                        <img src="<?php echo base_url(ARTISTICIMAGE . $artisticdata[0]['art_user_image']); ?>" alt="" >
-                    <?php } else { ?>
-                        <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
+            <div class="left-side-menu col-md-1">  </div>
+            <div class="right-side-menu col-md-7">
+                <ul>
+
+
+                    <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'art_manage_post') { ?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/art_manage_post/' . $artisticdata[0]['user_id']); ?>"> Dashboard</a>
+                    </li>
+
+                    <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'artistic_profile') { ?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/artistic_profile/' . $artisticdata[0]['user_id']); ?>"> Details</a>
+                    </li>
+
+
+                    <?php
+                    $userid = $this->session->userdata('aileenuser');
+                    if ($artisticdata[0]['user_id'] == $userid) {
+                        ?> 
+
+                                                                                                                                                            <!-- <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'art_savepost') { ?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/art_savepost'); ?>">Saved Post</a>
+                                                                                                                                                            </li> -->
+
+
+
+                        <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'userlist') { ?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/userlist'); ?>">Userlist</a>
+                        </li>
                     <?php } ?>
+
 
                     <?php
                     $userid = $this->session->userdata('aileenuser');
                     if ($artisticdata[0]['user_id'] == $userid) {
                         ?>
+                        <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'followers') { ?> class="active" <?php } ?>><a style="padding: 12px 15px 2px 15px" href="<?php echo base_url('artistic/followers'); ?>">Followers <br> (<?php echo (count($followerdata)); ?>)</a>
+                        </li>
+                        <?php
+                    } else {
 
-                                <!--<a href="#popup-form" class="fancybox"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>-->
-                        <a href="javascript:void(0);" onclick="updateprofilepopup();"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>
-                    <?php } ?>
-                </div>
+                        $artregid = $artisticdata[0]['art_id'];
+                        $contition_array = array('follow_to' => $artregid, 'follow_status' => '1', 'follow_type' => '1');
+                        $followerotherdata = $this->data['followerotherdata'] = $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                        ?> 
+                        <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'followers') { ?> class="active" <?php } ?>><a  style="padding: 12px 15px 2px 15px" href="<?php echo base_url('artistic/followers/' . $artisticdata[0]['user_id']); ?>">Followers <br> (<?php echo (count($followerotherdata)); ?>)</a>
+                        </li>
 
-                <!--                <div id="popup-form">
-                <?php // echo form_open_multipart(base_url('artistic/user_image_insert'), array('id' => 'userimage', 'name' => 'userimage', 'class' => 'clearfix')); ?>
-                                    <input type="file" name="profilepic" accept="image/gif, image/jpeg, image/png" id="profilepic">
-                                    <input type="hidden" name="hitext" id="hitext" value="5">
-                                    <input type="submit" name="cancel5" id="cancel5" value="Cancel">
-                                    <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save">
-                                    </form>
-                                </div>-->
+                    <?php } ?> 
+                    <?php
+                    if ($artisticdata[0]['user_id'] == $userid) {
+                        ?>        
+                        <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'following') { ?> class="active" <?php } ?>><a style="padding: 12px 15px 2px 15px" href="<?php echo base_url('artistic/following'); ?>">Following <br> (<?php echo (count($followingdata)); ?>)</a>
+                        </li>
+                        <?php
+                    } else {
 
+                        $artregid = $artisticdata[0]['art_id'];
+                        $contition_array = array('follow_from' => $artregid, 'follow_status' => '1', 'follow_type' => '1');
+                        $followingotherdata = $this->data['followingotherdata'] = $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                        ?>
+                        <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'following') { ?> class="active" <?php } ?>><a style="padding: 12px 15px 2px 15px" href="<?php echo base_url('artistic/following/' . $artisticdata[0]['user_id']); ?>">Following <br>  (<?php echo (count($followingotherdata)); ?>)</a>
+                        </li> 
+                    <?php } ?>  
+
+
+
+                </ul>
             </div>
-            <div class="profile-main-rec-box-menu  col-md-12 padding_les">
 
-                <div class="left-side-menu col-md-1">  </div>
-                <div class="right-side-menu col-md-7">
-                    <ul>
+            <?php
+            $userid = $this->session->userdata('aileenuser');
+            if ($artisticdata[0]['user_id'] != $userid) {
+                ?>
+                <div class="col-md-3 padding_les">
+                    <div class="flw_msg_btn fr">
+                        <ul>
+
+                            <li class="<?php echo "fruser" . $artisticdata[0]['art_id']; ?>">
+
+                                <?php
+                                $userid = $this->session->userdata('aileenuser');
+
+                                $contition_array = array('user_id' => $userid, 'status' => '1');
+
+                                $bup_id = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+                                $status = $this->db->get_where('follow', array('follow_type' => 1, 'follow_from' => $bup_id[0]['art_id'], 'follow_to' => $artisticdata[0]['art_id']))->row()->follow_status;
+                                //echo "<pre>"; print_r($status); die();
+
+                                if ($status == 0 || $status == " ") {
+                                    ?>
+
+                                    <div id= "followdiv">
+                                        <button id="<?php echo "follow" . $artisticdata[0]['art_id']; ?>" onClick="followuser(<?php echo $artisticdata[0]['art_id']; ?>)">Follow</button>
+                                    </div>
+                                <?php } elseif ($status == 1) { ?>
+                                    <div id= "unfollowdiv">
+                                        <button id="<?php echo "unfollow" . $artisticdata[0]['art_id']; ?>" onClick="unfollowuser(<?php echo $artisticdata[0]['art_id']; ?>)"> Following</button>
+                                    </div>
 
 
-                        <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'art_manage_post') { ?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/art_manage_post/' . $artisticdata[0]['user_id']); ?>"> Dashboard</a>
-                        </li>
-
-                        <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'artistic_profile') { ?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/artistic_profile/' . $artisticdata[0]['user_id']); ?>"> Details</a>
-                        </li>
-
-
-                        <?php
-                        $userid = $this->session->userdata('aileenuser');
-                        if ($artisticdata[0]['user_id'] == $userid) {
-                            ?> 
-
-                                                <!-- <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'art_savepost') { ?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/art_savepost'); ?>">Saved Post</a>
-                                                </li> -->
-
-
-
-                            <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'userlist') { ?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/userlist'); ?>">Userlist</a>
-                            </li>
-                        <?php } ?>
-
-
-                        <?php
-                        $userid = $this->session->userdata('aileenuser');
-                        if ($artisticdata[0]['user_id'] == $userid) {
-                            ?>
-                            <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'followers') { ?> class="active" <?php } ?>><a style="padding: 12px 15px 2px 15px" href="<?php echo base_url('artistic/followers'); ?>">Followers <br> (<?php echo (count($followerdata)); ?>)</a>
-                            </li>
-                            <?php
-                        } else {
-
-                            $artregid = $artisticdata[0]['art_id'];
-                            $contition_array = array('follow_to' => $artregid, 'follow_status' => '1', 'follow_type' => '1');
-                            $followerotherdata = $this->data['followerotherdata'] = $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-                            ?> 
-                            <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'followers') { ?> class="active" <?php } ?>><a  style="padding: 12px 15px 2px 15px" href="<?php echo base_url('artistic/followers/' . $artisticdata[0]['user_id']); ?>">Followers <br> (<?php echo (count($followerotherdata)); ?>)</a>
+                                <?php } ?>
                             </li>
 
-                        <?php } ?> 
-                        <?php
-                        if ($artisticdata[0]['user_id'] == $userid) {
-                            ?>        
-                            <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'following') { ?> class="active" <?php } ?>><a style="padding: 12px 15px 2px 15px" href="<?php echo base_url('artistic/following'); ?>">Following <br> (<?php echo (count($followingdata)); ?>)</a>
-                            </li>
-                            <?php
-                        } else {
+                            <li>
 
-                            $artregid = $artisticdata[0]['art_id'];
-                            $contition_array = array('follow_from' => $artregid, 'follow_status' => '1', 'follow_type' => '1');
-                            $followingotherdata = $this->data['followingotherdata'] = $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-                            ?>
-                            <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'following') { ?> class="active" <?php } ?>><a style="padding: 12px 15px 2px 15px" href="<?php echo base_url('artistic/following/' . $artisticdata[0]['user_id']); ?>">Following <br>  (<?php echo (count($followingotherdata)); ?>)</a>
-                            </li> 
-                        <?php } ?>  
-
-
-
-                    </ul>
+                                <?php
+                                $userid = $this->session->userdata('aileenuser');
+                                if ($userid != $artisticdata[0]['user_id']) {
+                                    ?>
+                                <li> <a href="<?php echo base_url('chat/abc/' . $this->uri->segment(3)); ?>">Message</a> </li>
+                            <?php } ?>
+                        </ul>
+                    </div>
                 </div>
+            <?php } ?>
+
+        </div>  
+        <!-- menubar -->      <div class="job-menu-profile">
+            <a href="<?php echo site_url('artistic/art_manage_post/' . $artisticdata[0]['user_id']); ?>">
+                <h5><?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?></h5></a>
+
+            <!-- text head start -->
+            <div class="profile-text" >
 
                 <?php
-                $userid = $this->session->userdata('aileenuser');
-                if ($artisticdata[0]['user_id'] != $userid) {
+                if ($artisticdata[0]['designation'] == '') {
                     ?>
-                    <div class="col-md-3 padding_les">
-                        <div class="flw_msg_btn fr">
-                            <ul>
 
-                                <li class="<?php echo "fruser" . $artisticdata[0]['art_id']; ?>">
-
-                                    <?php
-                                    $userid = $this->session->userdata('aileenuser');
-
-                                    $contition_array = array('user_id' => $userid, 'status' => '1');
-
-                                    $bup_id = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
-                                    $status = $this->db->get_where('follow', array('follow_type' => 1, 'follow_from' => $bup_id[0]['art_id'], 'follow_to' => $artisticdata[0]['art_id']))->row()->follow_status;
-                                    //echo "<pre>"; print_r($status); die();
-
-                                    if ($status == 0 || $status == " ") {
-                                        ?>
-
-                                        <div id= "followdiv">
-                                            <button id="<?php echo "follow" . $artisticdata[0]['art_id']; ?>" onClick="followuser(<?php echo $artisticdata[0]['art_id']; ?>)">Follow</button>
-                                        </div>
-                                    <?php } elseif ($status == 1) { ?>
-                                        <div id= "unfollowdiv">
-                                            <button id="<?php echo "unfollow" . $artisticdata[0]['art_id']; ?>" onClick="unfollowuser(<?php echo $artisticdata[0]['art_id']; ?>)"> Following</button>
-                                        </div>
-
-
-                                    <?php } ?>
-                                </li>
-
-                                <li>
-                                    
-<?php $userid = $this->session->userdata('aileenuser');
-                        if($userid != $artisticdata[0]['user_id']){ ?>
-                        <li> <a href="<?php echo base_url('chat/abc/' . $this->uri->segment(3)); ?>">Message</a> </li>
-                       <?php } ?>
-                            </ul>
-                        </div>
-                    </div>
-                <?php } ?>
-
-            </div>  
-            <!-- menubar -->      <div class="job-menu-profile">
-                <a href="<?php echo site_url('artistic/art_manage_post/' . $artisticdata[0]['user_id']); ?>">
-                    <h5><?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?></h5></a>
-
-                <!-- text head start -->
-                <div class="profile-text" >
-
-                    <?php
-                    if ($artisticdata[0]['designation'] == '') {
-                        ?>
-
-                        <?php if ($artisticdata[0]['user_id'] == $userid) { ?>
-                            <a id="myBtn">Designation</a>
-                        <?php } ?>
-
-                    <?php } else { ?> 
-
-                        <?php if ($artisticdata[0]['user_id'] == $userid) { ?>
-                            <a id="myBtn"><?php echo ucwords($artisticdata[0]['designation']); ?></a>
-                        <?php } else { ?>
-                            <a><?php echo ucwords($artisticdata[0]['designation']); ?></a>
-                        <?php } ?>
-
+                    <?php if ($artisticdata[0]['user_id'] == $userid) { ?>
+                        <a id="myBtn">Designation</a>
                     <?php } ?>
 
+                <?php } else { ?> 
 
-                    <!-- The Modal -->
-                    <div id="myModal" class="modal">
-                        <!-- Modal content -->
-                        <div class="col-md-2"></div>
-                        <div class="modal-content col-md-8">
-                            <span class="close">&times;</span>
-                            <fieldset></fieldset>
-                            <?php echo form_open(base_url('artistic/art_designation/'), array('id' => 'artdesignation', 'name' => 'artdesignation', 'class' => 'clearfix')); ?>
+                    <?php if ($artisticdata[0]['user_id'] == $userid) { ?>
+                        <a id="myBtn"><?php echo ucwords($artisticdata[0]['designation']); ?></a>
+                    <?php } else { ?>
+                        <a><?php echo ucwords($artisticdata[0]['designation']); ?></a>
+                    <?php } ?>
 
-                            <fieldset class="col-md-8"> <input type="text" name="designation" id="designation" placeholder="Enter Your Designation" value="<?php echo $artisticdata[0]['designation']; ?>">
-                                <?php echo form_error('designation'); ?>
-                            </fieldset>
-                            <input type="hidden" name="hitext" id="hitext" value="5">
-                            <fieldset class="col-md-2"><input type="submit"  id="submitdes" name="submitdes" value="Submit"></fieldset>
-                            <?php echo form_close(); ?>
+                <?php } ?>
 
 
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+                    <!-- Modal content -->
+                    <div class="col-md-2"></div>
+                    <div class="modal-content col-md-8">
+                        <span class="close">&times;</span>
+                        <fieldset></fieldset>
+                        <?php echo form_open(base_url('artistic/art_designation/'), array('id' => 'artdesignation', 'name' => 'artdesignation', 'class' => 'clearfix')); ?>
 
-                        </div>
+                        <fieldset class="col-md-8"> <input type="text" name="designation" id="designation" placeholder="Enter Your Designation" value="<?php echo $artisticdata[0]['designation']; ?>">
+                            <?php echo form_error('designation'); ?>
+                        </fieldset>
+                        <input type="hidden" name="hitext" id="hitext" value="5">
+                        <fieldset class="col-md-2"><input type="submit"  id="submitdes" name="submitdes" value="Submit"></fieldset>
+                        <?php echo form_close(); ?>
 
-                        <div class="col-md-2"></div>
+
 
                     </div>
 
+                    <div class="col-md-2"></div>
+
                 </div>
-
-
-                <!-- text head end -->
 
             </div>
 
 
+            <!-- text head end -->
 
         </div>
+
+
+
     </div>
+</div>
 </div>
 </div>
 <div class="user-midd-section">
@@ -941,8 +943,8 @@ label.cameraButton input[accept*="camera"] {
                 <div class="post-editor col-md-12">
                     <div class="main-text-area col-md-12">
                         <div class="popup-img col-md-1"> <img  src="<?php echo base_url(USERIMAGE . $artisticdata[0]['art_user_image']); ?>"  alt="" style=" margin-left: -7px;
-    margin-top: 6px;
-">
+                                                               margin-top: 6px;
+                                                               ">
                         </div>
                         <div id="myBtn3"  class="editor-content col-md-11 popup-text" contenteditable>
                             <span style="font-size: 23px;"> Post Your Art....</span> 
@@ -968,7 +970,7 @@ label.cameraButton input[accept*="camera"] {
 
                     <div class="post-editor col-md-12">
 
-                        <?php echo form_open_multipart(base_url('artistic/art_post_insert/' . 'manage/'.$artisticdata[0]['user_id']), array('id' => 'artpostform', 'name' => 'artpostform', 'class' => 'clearfix', 'onsubmit' => "return imgval();")); ?>
+                        <?php echo form_open_multipart(base_url('artistic/art_post_insert/' . 'manage/' . $artisticdata[0]['user_id']), array('id' => 'artpostform', 'name' => 'artpostform', 'class' => 'clearfix', 'onsubmit' => "return imgval();")); ?>
 
                         <div class="main-text-area col-md-12" >
                             <div class="popup-img col-md-1"> <img  src="<?php echo base_url(ARTISTICIMAGE . $artisticdata[0]['art_user_image']); ?>"  alt="">
@@ -978,22 +980,22 @@ label.cameraButton input[accept*="camera"] {
                                 <textarea id= "test-upload-product" placeholder="Post Your Art...."  onKeyPress=check_length(this.form); onKeyDown=check_length(this.form); 
                                           name=my_text rows=4 cols=30 class="post_product_name"></textarea>
                                 <div style="position: absolute; top: 21px; right: 19px; border: none;">                        
-                                <input size=1 value=50 name=text_num style=" border: none;   width: 30px; padding: 5px; height: 30px;" readonly> 
-                               </div>
+                                    <input size=1 value=50 name=text_num style=" border: none;   width: 30px; padding: 5px; height: 30px;" readonly> 
+                                </div>
 
                             </div>
                            <!--   <span class="fr">
                        
                            <input type="file" id="files" name="postattach[]" multiple style="display:block;">  </span> -->
                             <div class="col-md-1" style="padding-left: 0px;"><i class=" fa fa-camera "  style="margin: 0px;
-                                                     font-size: 27px;
-                                                     cursor: pointer;
-                                                     /* margin-right: -38px; */
-                                                     margin-top: 25px;"></i> </div>
+                                                                                font-size: 27px;
+                                                                                cursor: pointer;
+                                                                                /* margin-right: -38px; */
+                                                                                margin-top: 25px;"></i> </div>
 
                         </div>
                         <div  id="text"  class="editor-content col-md-12 popup-textarea" >
-                              <textarea id="test-upload-des" name="product_desc" class="description" placeholder="Enter Description"></textarea>
+                            <textarea id="test-upload-des" name="product_desc" class="description" placeholder="Enter Description"></textarea>
 
                             <output id="list"></output>
                         </div>
@@ -1013,10 +1015,10 @@ label.cameraButton input[accept*="camera"] {
                             <ul class="editor-header">
 
                                 <li>
-                                <input type="file" class="file" style="display:block;" id="test-upload" style="display:none;" name="postattach[]" multiple>
+                                    <input type="file" class="file" style="display:block;" id="test-upload" style="display:none;" name="postattach[]" multiple>
                                     <label for="test-upload"><i class=" fa fa-camera "  style=" margin: 8px; cursor:pointer"> Photo</i><i class=" fa fa-video-camera"  style=" margin: 8px; cursor:pointer"> Video </i> <i class="fa fa-music "  style=" margin: 8px; cursor:pointer"> Audio </i><i class=" fa fa-file-pdf-o fa-2x"  style=" margin: 8px; cursor:pointer"> PDF </i> </label>
 
-                                    
+
                                 </li>
                             </ul>
 
@@ -1063,7 +1065,7 @@ label.cameraButton input[accept*="camera"] {
                                     </div>
                                     <!-- pop up box end-->
 
-                                   
+
                                     <div class="post-design-top col-md-12" >  
                                         <div class="post-design-pro-img col-md-2"> 
 
@@ -1072,54 +1074,54 @@ label.cameraButton input[accept*="camera"] {
                                             $userimageposted = $this->db->get_where('art_reg', array('user_id' => $row['posted_user_id']))->row()->art_user_image;
                                             ?>
 
-                                        <?php if($row['posted_user_id']){?>
-                                        <img src="<?php echo base_url(ARTISTICIMAGE . $userimageposted); ?>" name="image_src" id="image_src" / >
+                                            <?php if ($row['posted_user_id']) { ?>
+                                                <img src="<?php echo base_url(ARTISTICIMAGE . $userimageposted); ?>" name="image_src" id="image_src" / >
 
-                                        <?php }else{?>
-                                            <img src="<?php echo base_url(ARTISTICIMAGE . $userimage); ?>" name="image_src" id="image_src" / >
+                                                 <?php } else { ?>
+                                                     <img src="<?php echo base_url(ARTISTICIMAGE . $userimage); ?>" name="image_src" id="image_src" / >
 
-                                            <?php }?>
+                                                 <?php } ?>
                                         </div>
 
 
                                         <div class="post-design-name fl col-md-9">
                                             <ul>
                                                 <li><span>
-                        <?php
-                        $firstname = $this->db->get_where('art_reg', array('user_id' => $row['user_id']))->row()->art_name;
-                         $lastname = $this->db->get_where('art_reg', array('user_id' => $row['user_id']))->row()->art_lastname;
+                                                        <?php
+                                                        $firstname = $this->db->get_where('art_reg', array('user_id' => $row['user_id']))->row()->art_name;
+                                                        $lastname = $this->db->get_where('art_reg', array('user_id' => $row['user_id']))->row()->art_lastname;
 
-                         $firstnameposted = $this->db->get_where('art_reg', array('user_id' => $row['posted_user_id']))->row()->art_name;
-                         $lastnameposted = $this->db->get_where('art_reg', array('user_id' => $row['posted_user_id']))->row()->art_lastname;
-                        ?>
-                        </span>
+                                                        $firstnameposted = $this->db->get_where('art_reg', array('user_id' => $row['posted_user_id']))->row()->art_name;
+                                                        $lastnameposted = $this->db->get_where('art_reg', array('user_id' => $row['posted_user_id']))->row()->art_lastname;
+                                                        ?>
+                                                    </span>
 
-                        <!-- other user post time name strat-->
+                                                    <!-- other user post time name strat-->
 
-                        <?php if($row['posted_user_id']){?>
+                                                    <?php if ($row['posted_user_id']) { ?>
 
-                        <div class="else_post_d">
-                        <a  class="post_dot" title="<?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?>" href="<?php echo base_url('artistic/art_manage_post/' . $row['posted_user_id']); ?>"><?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?> </a><span style="font-weight: 600;"> Posted With 
-                        </span><a class="post_dot"  href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>"><?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?></a><span role="presentation" aria-hidden="true" style="color: #91949d; font-size: 14px;"> · </span>
-                                <span style="color: #91949d;
-                                font-size: 14px;"> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span>
-                        </div>
+                                                        <div class="else_post_d">
+                                                            <a  class="post_dot" title="<?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?>" href="<?php echo base_url('artistic/art_manage_post/' . $row['posted_user_id']); ?>"><?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?> </a><span style="font-weight: 600;"> Posted With 
+                                                            </span><a class="post_dot"  href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>"><?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?></a><span role="presentation" aria-hidden="true" style="color: #91949d; font-size: 14px;"> · </span>
+                                                            <span style="color: #91949d;
+                                                                  font-size: 14px;"> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span>
+                                                        </div>
 
-                        <!-- other user post time name end-->
-                        <?php }else{?>
+                                                        <!-- other user post time name end-->
+                                                    <?php } else { ?>
 
-                        <a   class="post_dot" title="<?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?>
-"   href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>">
-                        <?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?>
+                                                        <a   class="post_dot" title="<?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?>
+                                                             "   href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>">
+                                                                 <?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?>
 
-                        </a>
-                        <div class="datespan">
-                        <span style="font-weight: 400;
-                                                    font-size: 14px;
-                                                    color: #91949d;""> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span></div>
-                        
-                          <?php }?>                          
-                        </li>
+                                                        </a>
+                                                        <div class="datespan">
+                                                            <span style="font-weight: 400;
+                                                                  font-size: 14px;
+                                                                  color: #91949d;""> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span></div>
+
+                                                    <?php } ?>                          
+                                                </li>
                                                 <li>
                                                 <!--     <div id="<?php echo 'editpostdata' . $row['art_post_id']; ?>" style="display:block;">
                                                         <a><?php print $row['art_post']; ?></a>
@@ -1141,7 +1143,7 @@ label.cameraButton input[accept*="camera"] {
                                                 if ($row['user_id'] == $userid) {
                                                     ?>
 
-    <a id="<?php echo $row['art_post_id']; ?>" onClick="deleteownpostmodel(this.id)"><i class="fa fa-trash-o" aria-hidden="true"></i>Delete Post</a>
+                                                    <a id="<?php echo $row['art_post_id']; ?>" onClick="deleteownpostmodel(this.id)"><i class="fa fa-trash-o" aria-hidden="true"></i>Delete Post</a>
                                                     <a id="<?php echo $row['art_post_id']; ?>" onClick="editpost(this.id)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit</a>
 
                                                 <?php } else { ?>
@@ -1172,17 +1174,17 @@ label.cameraButton input[accept*="camera"] {
 
                                         <div class="post-design-desc ">
                                             <span> 
- <div id="<?php echo 'editpostdata' . $row['art_post_id']; ?>" style="display:block;">
-                                                        <a><?php print $row['art_post']; ?></a>
-                                                    </div>
-
-                                                    <div id="<?php echo 'editpostbox' . $row['art_post_id']; ?>" style="display:none; margin-bottom: 10px;">
-                                                        <input type="text" id="<?php echo 'editpostname' . $row['art_post_id']; ?>" name="editpostname" placeholder="Art name" value="<?php echo $row['art_post']; ?>">
-                                                    </div>
-                 <div  id="<?php echo 'editpostdetails' . $row['art_post_id']; ?>" style="display:block;">
-                <span class="show"><?php print $row['art_description']; ?></span>
+                                                <div id="<?php echo 'editpostdata' . $row['art_post_id']; ?>" style="display:block;">
+                                                    <a><?php print $row['art_post']; ?></a>
                                                 </div>
-  
+
+                                                <div id="<?php echo 'editpostbox' . $row['art_post_id']; ?>" style="display:none; margin-bottom: 10px;">
+                                                    <input type="text" id="<?php echo 'editpostname' . $row['art_post_id']; ?>" name="editpostname" placeholder="Art name" value="<?php echo $row['art_post']; ?>">
+                                                </div>
+                                                <div  id="<?php echo 'editpostdetails' . $row['art_post_id']; ?>" style="display:block;">
+                                                    <span class="show"><?php print $row['art_description']; ?></span>
+                                                </div>
+
                                                 <div id="<?php echo 'editpostdetailbox' . $row['art_post_id']; ?>" style="display:none;">
 
                                                     <div contenteditable="true" class="editable_text"  id="<?php echo 'editpostdesc' . $row['art_post_id']; ?>" placeholder="Art Description" name="editpostdesc"><?php echo $row['art_description']; ?>
@@ -1372,7 +1374,6 @@ label.cameraButton input[accept*="camera"] {
                                         <div class="post-design-menu">
                                             <!-- like comment div start -->
                                             <ul>
-
                                                 <li class="<?php echo 'likepost' . $row['art_post_id']; ?>">
                                                     <a id="<?php echo $row['art_post_id']; ?>" onClick="post_like(this.id)">
 
@@ -1404,325 +1405,323 @@ label.cameraButton input[accept*="camera"] {
                                                     </a>
                                                 </li>
 
-                                                <li id="<?php echo 'commnetpost' . $row['art_post_id']; ?>" style="visibility:show">
+                                                <li id="<?php echo 'insertcount' . $row['art_post_id']; ?>" style="visibility:show">
 
                                                     <?php
                                                     $contition_array = array('art_post_id' => $row['art_post_id'], 'status' => '1', 'is_delete' => '0');
                                                     $commnetcount = $this->common->select_data_by_condition('artistic_post_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                                                     ?>
-
-
-                                                    <?php if (count($commnetcount) > 1) { ?>
-                                                        <a  onClick="commentall(this.id)" id="<?php echo $row['art_post_id']; ?>">
-                                                            <i class="fa fa-comment-o" aria-hidden="true">
-                                                                <?php echo count($commnetcount); ?>
-                                                            </i>  
+                                                    <a  onClick="commentall(this.id)" id="<?php echo $row['art_post_id']; ?>">
+                                                        <i class="fa fa-comment-o" aria-hidden="true">
                                                             <?php
-                                                        } else {
-                                                            
-                                                        }
-                                                        ?>
-
+                                                            if (count($commnetcount) > 0) {
+                                                                echo count($commnetcount);
+                                                            }
+                                                            ?>
+                                                        </i>  
                                                     </a>
                                                 </li>
                                             </ul>
                                             <!-- like comment div end -->
-
-
                                         </div>
                                     </div>
 
                                     <!-- like user list start -->
 
-               
+
                                     <!-- pop up box start-->
-
-             <!-- <?php
-                $contition_array = array('art_post_id' => $row['art_post_id'], 'status' => '1', 'is_delete' => '0');
-                $commnetcount = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
-                   
-
-                    if($commnetcount[0]['art_likes_count'] != 0){
-                    ?> --> 
-
-        <div class="<?php echo "likeusername" . $row['art_post_id']; ?>">
-        <div id="<?php echo "popuplike" . $row['art_post_id']; ?>" class="overlay">
-             <div class="popup">
-
-                <div class="pop_content">
-
-                 <?php
-                $contition_array = array('art_post_id' => $row['art_post_id'], 'status' => '1', 'is_delete' => '0');
-                    $commnetcount = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
-                    $likeuser = $commnetcount[0]['art_like_user'];
-                    $countlike = $commnetcount[0]['art_likes_count'] - 1;
-
-                     $likelistarray = explode(',', $likeuser);
-
-
-                     foreach ($likelistarray as $key => $value) {
-
-                    $art_fname1 = $this->db->get_where('art_reg', array('user_id' => $value, 'status' => 1))->row()->art_name;
-
-                     $art_lname1 = $this->db->get_where('art_reg', array('user_id' => $value, 'status' => 1))->row()->art_lastname;
+                                    <?php
+                                    if ($row['art_likes_count'] > 0) {
+                                        ?>
+                                        <div class="likeduserlist<?php echo $row['art_post_id'] ?>">
+                                            <?php
+                                            $contition_array = array('art_post_id' => $row['art_post_id'], 'status' => '1', 'is_delete' => '0');
+                                            $commnetcount = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                            $likeuser = $commnetcount[0]['art_like_user'];
+                                            $countlike = $commnetcount[0]['art_likes_count'] - 1;
+                                            $likelistarray = explode(',', $likeuser);
+                                            foreach ($likelistarray as $key => $value) {
+                                                $art_fname1 = $this->db->get_where('art_reg', array('user_id' => $value, 'status' => 1))->row()->art_name;
+                                                $art_lname1 = $this->db->get_where('art_reg', array('user_id' => $value, 'status' => 1))->row()->art_lastname;
+                                            }
+                                            ?>
+                                            <a href="javascript:void(0);"  onclick="likeuserlist(<?php echo $row['art_post_id']; ?>);">
+                                                <?php
+                                                $contition_array = array('art_post_id' => $row['art_post_id'], 'status' => '1', 'is_delete' => '0');
+                                                $commnetcount = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                                $likeuser = $commnetcount[0]['art_like_user'];
+                                                $countlike = $commnetcount[0]['art_likes_count'] - 1;
+                                                $likelistarray = explode(',', $likeuser);
+                                                $art_fname = $this->db->get_where('art_reg', array('user_id' => $likelistarray[0], 'status' => 1))->row()->art_name;
+                                                $art_lname = $this->db->get_where('art_reg', array('user_id' => $likelistarray[0], 'status' => 1))->row()->art_lastname;
+                                                ?>
+                                                <div class="like_one_other">
+                                                    <?php
+                                                    echo ucwords($art_fname);
+                                                    echo "&nbsp; ";
+                                                    echo ucwords($art_lname);
+                                                    echo "&nbsp;";
                                                     ?>
-
-                    <a href="<?php echo base_url('artistic/art_manage_post/' . $value); ?>">
-                    <?php
-                         echo ucwords($art_fname1);
-                        echo "&nbsp;";
-                        echo ucwords($art_lname1);
-                     ?>
-
-                    </a>
-
-                    <?php } ?>
-
-                 <p class="okk"><a class="cnclbtn" href="#">Cancel</a></p>
-
-                        </div>
-
-                        </div>
-                    </div>
-                                    <!-- pop up box end-->
-                                    <div style="    /* margin: 0px; */    padding-top: 6px;
-                                         padding-bottom: 6px;
-                                         border-top: 1px solid #efefef;
-                                         display: inline-block;
-                                         width: 100%;
-                                         /* word-spacing: -2px; */">
-                    <a  href="<?php echo "#popuplike" . $row['art_post_id']; ?>">
-                    <?php
-                     $contition_array = array('art_post_id' => $row['art_post_id'], 'status' => '1', 'is_delete' => '0');
-                    $commnetcount = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
-                     $likeuser = $commnetcount[0]['art_like_user'];
-                    $countlike = $commnetcount[0]['art_likes_count'] - 1;
-
-                    $likelistarray = explode(',', $likeuser);
-
-                    $art_fname = $this->db->get_where('art_reg', array('user_id' => $likelistarray[0], 'status' => 1))->row()->art_name;
-
-                    $art_lname = $this->db->get_where('art_reg', array('user_id' => $likelistarray[0], 'status' => 1))->row()->art_lastname;
-                        ?>
-
-
-                 <div class="fl" style=" padding-left: 22px;" >
-
-                    <?php
-                    echo ucwords($art_fname);
-                     echo "&nbsp; ";
-                    echo ucwords($art_lname);
-                    echo "&nbsp;";
-                    ?>
-
-                 </div>
-
-                <?php
-                if (count($likelistarray) > 1) {
-                ?>
-                <div class="fl" style="padding-right: 5px;">
-                 <?php echo "and"; ?>
-
-                 <?php echo $countlike ?>  <?php echo " others" ?>
-
-                        </div>
-            <?php } ?>
-            </a>
-          </div>
-
-          </div>
-        <!-- like user list end -->
-
- <!-- <?php }?>  -->
-<?php 
-
-        $contition_array = array('art_post_id' =>  $row['art_post_id'], 'status' =>'1');
-        $artdatacondition =   $this->data['artdata'] = $this->common->select_data_by_condition('artistic_post_comment', $contition_array , $data='*', $sortby = 'artistic_post_comment_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str= array(), $groupby = ''); 
-        if($artdatacondition){
-         ?>
-
-
-                                    <div class="art-all-comment col-md-12">
-                                        <!-- all comments code start-->
-                                        <div id="<?php echo "fourcomment" . $row['art_post_id']; ?>" style="display:none">
-
-
-
+                                                    <?php
+                                                    if (count($likelistarray) > 1) {
+                                                        ?>
+                                                        <?php echo "and"; ?>
+                                                        <?php
+                                                        echo $countlike;
+                                                        echo "&nbsp;";
+                                                        echo "others";
+                                                        ?> 
+                                                    <?php } ?>
+                                                </div>
+                                            </a>
                                         </div>
+                                        <?php
+                                    }
+                                    ?>
+                                    <div class="<?php echo "likeusername" . $row['art_post_id']; ?>" id="<?php echo "likeusername" . $row['art_post_id']; ?>" style="display:none">
+                                        <?php
+                                        $contition_array = array('art_post_id' => $row['art_post_id'], 'status' => '1', 'is_delete' => '0');
+                                        $commnetcount = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                        $likeuser = $commnetcount[0]['art_like_user'];
+                                        $countlike = $commnetcount[0]['art_likes_count'] - 1;
+                                        $likelistarray = explode(',', $likeuser);
+                                        foreach ($likelistarray as $key => $value) {
+                                            $art_fname1 = $this->db->get_where('art_reg', array('user_id' => $value, 'status' => 1))->row()->art_name;
+                                            $art_lname1 = $this->db->get_where('art_reg', array('user_id' => $value, 'status' => 1))->row()->art_lastname;
+                                        }
+                                        ?>
+                                        <a href="javascript:void(0);"  onclick="likeuserlist(<?php echo $row['art_post_id']; ?>);">
+                                            <?php
+                                            $contition_array = array('art_post_id' => $row['art_post_id'], 'status' => '1', 'is_delete' => '0');
+                                            $commnetcount = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                            $likeuser = $commnetcount[0]['art_like_user'];
+                                            $countlike = $commnetcount[0]['art_likes_count'] - 1;
+                                            $likelistarray = explode(',', $likeuser);
+                                            $art_fname = $this->db->get_where('art_reg', array('user_id' => $likelistarray[0], 'status' => 1))->row()->art_name;
+                                            $art_lname = $this->db->get_where('art_reg', array('user_id' => $likelistarray[0], 'status' => 1))->row()->art_lastname;
+                                            ?>
+                                            <div class="like_one_other">
+                                                <?php
+                                                echo ucwords($art_fname);
+                                                echo "&nbsp; ";
+                                                echo ucwords($art_lname);
+                                                echo "&nbsp;";
+                                                ?>
+                                                <?php
+                                                if (count($likelistarray) > 1) {
+                                                    ?>
+                                                    <?php echo "and"; ?>
+                                                    <?php
+                                                    echo $countlike;
+                                                    echo "&nbsp;";
+                                                    echo "others";
+                                                    ?> 
+                                                <?php } ?>
+                                            </div>
+                                        </a>
+                                    </div>
 
+                                    <!-- like user list end -->
+
+                                    <!-- <?php } ?>  -->
+                                <?php
+                                $contition_array = array('art_post_id' => $row['art_post_id'], 'status' => '1');
+                                $artdatacondition = $this->data['artdata'] = $this->common->select_data_by_condition('artistic_post_comment', $contition_array, $data = '*', $sortby = 'artistic_post_comment_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                if ($artdatacondition) {
+                                    ?>
+                                    <div class="art-all-comment col-md-12">
+                                        <div id="<?php echo "fourcomment" . $row['art_post_id']; ?>" style="display:none">
+                                        </div>
                                         <!-- 3 comment start -->
                                         <!-- khyati changes start -->
-
                                         <div  id="<?php echo "threecomment" . $row['art_post_id']; ?>" style="display:block">
                                             <div class="<?php echo 'insertcomment' . $row['art_post_id']; ?>">
                                                 <?php
                                                 $contition_array = array('art_post_id' => $row['art_post_id'], 'status' => '1');
                                                 $artdata = $this->data['artdata'] = $this->common->select_data_by_condition('artistic_post_comment', $contition_array, $data = '*', $sortby = 'artistic_post_comment_id', $orderby = 'DESC', $limit = '1', $offset = '', $join_str = array(), $groupby = '');
-
-
-
                                                 if ($artdata) {
                                                     foreach ($artdata as $rowdata) {
                                                         $artname = $this->db->get_where('art_reg', array('user_id' => $rowdata['user_id']))->row()->art_name;
 
                                                         $artlastname = $this->db->get_where('art_reg', array('user_id' => $rowdata['user_id']))->row()->art_lastname;
                                                         ?>
-     <div class="all-comment-comment-box">
-            <div class="post-design-pro-comment-img"> 
-                            <?php
-                        $art_userimage = $this->db->get_where('art_reg', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->art_user_image; ?>
-
-            <img  src="<?php echo base_url(ARTISTICIMAGE . $art_userimage); ?>"  alt="">
-            </div>
-                <div class="comment-name">
-                     <b><?php  echo ucwords($artname);
-                            echo "&nbsp;"; echo ucwords($artlastname); ?></b><?php echo '</br>'; ?></div>
-
-                    <div class="comment-details" id= "<?php echo "showcomment" . $rowdata['artistic_post_comment_id']; ?>">
-                        <?php
-                        echo $rowdata['comments'];
-                        echo '</br>'; ?>
+                                                        <div class="all-comment-comment-box">
+                                                            <div class="post-design-pro-comment-img"> 
+                                                                <?php $art_userimage = $this->db->get_where('art_reg', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->art_user_image; ?>
+                                                                <?php if ($art_userimage) { ?>
+                                                                    <img  src="<?php echo base_url(ARTISTICIMAGE . $art_userimage); ?>"  alt="">
+                                                                    <?php
+                                                                } else {
+                                                                    ?>
+                                                                    <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
+                                                                    <?php
+                                                                }
+                                                                ?>
                                                             </div>
-                                                            <div class="col-md-12">
-    <div class="col-md-10"> 
-    <textarea type="text" name="<?php echo $rowdata['artistic_post_comment_id']; ?>" id="<?php echo "editcomment" . $rowdata['artistic_post_comment_id']; ?>" style="display:none"  onClick="commentedit(this.name)"><?php echo $rowdata['comments']; ?></textarea>                            
-    
-    </div>
-
-                <div class="col-md-2 comment-edit-button">
-             <button id="<?php echo "editsubmit" . $rowdata['artistic_post_comment_id']; ?>" style="display:none" onClick="edit_comment(<?php echo $rowdata['artistic_post_comment_id']; ?>)">Comment</button>
-                             </div>
-
+                                                            <div class="comment-name">
+                                                                <b><?php
+                                                                    echo ucwords($artname);
+                                                                    echo "&nbsp;";
+                                                                    echo ucwords($artlastname);
+                                                                    ?></b><?php echo '</br>'; ?>
                                                             </div>
 
+                                                            <div class="comment-details" id= "<?php echo "showcomment" . $rowdata['artistic_post_comment_id']; ?>">
+                                                                <?php
+                                                                echo $rowdata['comments'];
+//                                                                echo '</br>';
+                                                                ?>
+                                                            </div>
+                                                            <!--                                                            <div class="col-md-12">
+                                                                                                                            <div class="col-md-10"> 
+                                                                                                                                <textarea type="text" name="<?php echo $rowdata['artistic_post_comment_id']; ?>" id="<?php echo "editcomment" . $rowdata['artistic_post_comment_id']; ?>" style="display:none"  onClick="commentedit(this.name)"><?php echo $rowdata['comments']; ?></textarea>                            
+                                                            
+                                                                                                                            </div>
+                                                            
+                                                                                                                            <div class="col-md-2 comment-edit-button">
+                                                                                                                                <button id="<?php echo "editsubmit" . $rowdata['artistic_post_comment_id']; ?>" style="display:none" onClick="edit_comment(<?php echo $rowdata['artistic_post_comment_id']; ?>)">Comment</button>
+                                                                                                                            </div>
+                                                            
+                                                                                                                        </div>-->
+                                                            <div class="edit-comment-box">
+                                                                <div class="inputtype-edit-comment">
+                                                                    <!--<textarea type="text" class="textarea" name="<?php echo $rowdata['artistic_post_comment_id']; ?>" id="<?php echo "editcomment" . $rowdata['artistic_post_comment_id']; ?>" style="display:none;resize: none;" onClick="commentedit(this.name)"><?php echo $rowdata['comments']; ?></textarea>-->
+                                                                    <div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="<?php echo $rowdata['artistic_post_comment_id']; ?>"  id="<?php echo "editcomment" . $rowdata['artistic_post_comment_id']; ?>" placeholder="Enter Your Comment " value= ""  onkeyup="commentedit(<?php echo $rowdata['artistic_post_comment_id']; ?>)"><?php echo $rowdata['comments']; ?></div>
+                                                                    <span class="comment-edit-button"><button id="<?php echo "editsubmit" . $rowdata['artistic_post_comment_id']; ?>" style="display:none" onClick="edit_comment(<?php echo $rowdata['artistic_post_comment_id']; ?>)">Save</button></span>
+                                                                </div>
+                                                            </div>
 
-            <div class="art-comment-menu-design"> 
-        <div class="comment-details-menu" id="<?php echo 'likecomment1' . $rowdata['artistic_post_comment_id']; ?>">
-        <a id="<?php echo $rowdata['artistic_post_comment_id']; ?>"   onClick="comment_like1(this.id)">
+                                                            <div class="art-comment-menu-design"> 
+                                                                <div class="comment-details-menu" id="<?php echo 'likecomment1' . $rowdata['artistic_post_comment_id']; ?>">
+                                                                    <a id="<?php echo $rowdata['artistic_post_comment_id']; ?>"   onClick="comment_like1(this.id)">
 
-                     <?php
-                        $userid = $this->session->userdata('aileenuser');
-            $contition_array = array('artistic_post_comment_id' => $rowdata['artistic_post_comment_id'], 'status' => '1');
-             $artcommentlike = $this->data['artcommentlike'] = $this->common->select_data_by_condition('artistic_post_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-            $likeuserarray = explode(',', $artcommentlike[0]['artistic_comment_like_user']);
+                                                                        <?php
+                                                                        $userid = $this->session->userdata('aileenuser');
+                                                                        $contition_array = array('artistic_post_comment_id' => $rowdata['artistic_post_comment_id'], 'status' => '1');
+                                                                        $artcommentlike = $this->data['artcommentlike'] = $this->common->select_data_by_condition('artistic_post_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                                                        $likeuserarray = explode(',', $artcommentlike[0]['artistic_comment_like_user']);
 
-        if (!in_array($userid, $likeuserarray)) {
-                        ?>
+                                                                        if (!in_array($userid, $likeuserarray)) {
+                                                                            ?>
 
-         <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i> 
-                <?php } else {
-             ?>
-        <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-                    <?php }
-                ?>
-             <span>
-            <?php
-             if ($rowdata['artistic_comment_likes_count'] > 0) {
-                echo $rowdata['artistic_comment_likes_count'];
-             }
-            ?>
-            </span>
-            </a>
-            </div>
+                                                                            <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i> 
+                                                                        <?php } else {
+                                                                            ?>
+                                                                            <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                                                        <?php }
+                                                                        ?>
+                                                                        <span>
+                                                                            <?php
+                                                                            if ($rowdata['artistic_comment_likes_count'] > 0) {
+                                                                                echo $rowdata['artistic_comment_likes_count'];
+                                                                            }
+                                                                            ?>
+                                                                        </span>
+                                                                    </a>
+                                                                </div>
+                                                                <?php
+                                                                $userid = $this->session->userdata('aileenuser');
 
+                                                                if ($rowdata['user_id'] == $userid) {
+                                                                    ?> 
 
-            <?php
-             $userid = $this->session->userdata('aileenuser');
+                                                                    <span role="presentation" aria-hidden="true"> · </span>
+                                                                    <div class="comment-details-menu">
 
-             if ($rowdata['user_id'] == $userid) {
-             ?> 
+                                                                        <div id="<?php echo 'editcommentbox' . $rowdata['artistic_post_comment_id']; ?>" style="display:block;">
+                                                                            <a id="<?php echo $rowdata['artistic_post_comment_id']; ?>" onClick="comment_editbox(this.id)" class="editbox">Edit
+                                                                            </a>
+                                                                        </div>
 
-        <span role="presentation" aria-hidden="true"> · </span>
-                <div class="comment-details-menu">
+                                                                        <div id="<?php echo 'editcancle' . $rowdata['artistic_post_comment_id']; ?>" style="display:none;">
+                                                                            <a id="<?php echo $rowdata['artistic_post_comment_id']; ?>" onClick="comment_editcancle(this.id)">Cancel
+                                                                            </a>
+                                                                        </div>
 
-             <div id="<?php echo 'editbox' . $rowdata['artistic_post_comment_id']; ?>" style="display:block;">
-            <a id="<?php echo $rowdata['artistic_post_comment_id']; ?>" onClick="comment_editbox(this.id)">Edit
-             </a>
-                </div>
+                                                                    </div>
+                                                                <?php } ?>
 
-        <div id="<?php echo 'editcancle' . $rowdata['artistic_post_comment_id']; ?>" style="display:none;">
-        <a id="<?php echo $rowdata['artistic_post_comment_id']; ?>" onClick="comment_editcancle(this.id)">Cancel
-        </a>
-        </div>
+                                                                <?php
+                                                                $userid = $this->session->userdata('aileenuser');
 
-         </div>
-        <?php } ?>
-
-                 <?php
-                $userid = $this->session->userdata('aileenuser');
-
-            $art_userid = $this->db->get_where('art_post', array('art_post_id' => $rowdata['art_post_id'], 'status' => 1))->row()->user_id;
+                                                                $art_userid = $this->db->get_where('art_post', array('art_post_id' => $rowdata['art_post_id'], 'status' => 1))->row()->user_id;
 
 
-        if ($rowdata['user_id'] == $userid || $art_userid == $userid) {
-        ?> 
-            <span role="presentation" aria-hidden="true"> · </span>
-            <div class="comment-details-menu">
-             <input type="hidden" name="post_delete"  id="post_delete" value= "<?php echo $rowdata['art_post_id']; ?>">
-            <a id="<?php echo $rowdata['artistic_post_comment_id']; ?>"   onClick="comment_deletemodel(this.id)"> Delete<span class="<?php echo 'insertcomment' . $rowdata['artistic_post_comment_id']; ?>">
-                                     </span>
-                    </a>
-                 </div>
-                 <?php } ?>
+                                                                if ($rowdata['user_id'] == $userid || $art_userid == $userid) {
+                                                                    ?> 
+                                                                    <span role="presentation" aria-hidden="true"> · </span>
+                                                                    <div class="comment-details-menu">
+                                                                        <input type="hidden" name="post_delete"  id="post_delete" value= "<?php echo $rowdata['art_post_id']; ?>">
+                                                                        <a id="<?php echo $rowdata['artistic_post_comment_id']; ?>"   onClick="comment_delete(this.id)"> Delete<span class="<?php echo 'insertcomment' . $rowdata['artistic_post_comment_id']; ?>">
+                                                                            </span>
+                                                                        </a>
+                                                                    </div>
+                                                                <?php } ?>
 
-                    <span role="presentation" aria-hidden="true"> · </span>
+                                                                <span role="presentation" aria-hidden="true"> · </span>
 
-                    <div class="comment-details-menu">
-                        <p> <?php
-                        echo date('d-M-Y', strtotime($rowdata['created_date']));
-                             echo '</br>';
-                            ?>
-                     </p></div></div>
-                    </div>
-                    <?php }  } ?>
-           </div> </div>
+                                                                <div class="comment-details-menu">
+                                                                    <p> <?php
+                                                                        echo date('d-M-Y', strtotime($rowdata['created_date']));
+                                                                        echo '</br>';
+                                                                        ?>
+                                                                    </p></div></div>
+                                                        </div>
+                                                        <?php
+                                                    }
+                                                }
+                                                ?>
+                                            </div> </div>
                                         <!-- khyati changes end -->
                                         <!-- all comments code end -->
 
                                     </div>
-                                    <?php }else{?>
+                                <?php } else { ?>
 
-                  <div id="<?php echo "fourcomment" . $row['art_post_id']; ?>" style="display:none">
+                                    <div id="<?php echo "fourcomment" . $row['art_post_id']; ?>" style="display:none">
+                                    </div>
+
+                                    <div  id="<?php echo "threecomment" . $row['art_post_id']; ?>" style="display:block">
+
+                                        <div class="<?php echo 'insertcomment' . $row['art_post_id']; ?>">
                                         </div>
-
-                      <div  id="<?php echo "threecomment" . $row['art_post_id']; ?>" style="display:block">
-
-                       <div class="<?php echo 'insertcomment' . $row['art_post_id']; ?>">
-                       </div>
-                         </div>
-                <?php }?>
-                                </div>
+                                    </div>
+                                <?php } ?>
+                                <!--</div>-->
                                 <div class="post-design-commnet-box col-md-12">
 
-
+                                    <div class="post-design-proo-img"></div>
                                     <?php
                                     $userid = $this->session->userdata('aileenuser');
                                     $art_userimage = $this->db->get_where('art_reg', array('user_id' => $userid, 'status' => 1))->row()->art_user_image;
                                     ?>
-
-                                    <div class="post-design-proo-img">
+                                    <?php
+                                    if ($art_userimage) {
+                                        ?>
                                         <img src="<?php echo base_url(ARTISTICIMAGE . $art_userimage); ?>" name="image_src" id="image_src" />
-                                    </div>
-
-
-                                    <div class="">
-                                        <div class="col-md-10 inputtype-comment" style="padding-left: 7px;">
-                                            <div contenteditable="true" class="editable_text" type="text" class="textarea" name="<?php echo $row['art_post_id']; ?>"  id="<?php echo "post_comment" . $row['art_post_id']; ?>" placeholder="Type Comment ..." value= "" onClick="entercomment(this.name)"></div>
-        <?php echo form_error('post_comment'); ?>
-                                        </div>
-                                        <div class="col-md-1 comment-edit-butn">   
-                                            <button id="<?php echo $row['art_post_id']; ?>" onClick="insert_comment(this.id)">Comment</button> </div>
-                                    </div>
-
+                                        <?php
+                                    } else {
+                                        ?>
+                                        <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
+                                        <?php
+                                    }
+                                    ?>
                                 </div>
-                                <!-- khyati 18-4 end-->
-                            </div>
+                                <div class="">
+                                    <div id="content" class="col-md-10 inputtype-comment" style="padding-left: 7px;">
+                                        <div contenteditable="true" class="editable_text" type="text" name="<?php echo $row['art_post_id']; ?>"  id="<?php echo "post_comment" . $row['art_post_id']; ?>" placeholder="Type Comment ..." value= "" onClick="entercomment(<?php echo $row['art_post_id']; ?>)"></div>
+                                    </div>    
+                                    <?php echo form_error('post_comment'); ?>
 
-                            <?php
-                        }
+                                    <div class="col-md-1 comment-edit-butn">   
+                                        <button id="<?php echo $row['art_post_id']; ?>" onClick="insert_comment(this.id)">Comment</button> </div>
+                                </div>
+
+                            </div>
+                            <!-- khyati 18-4 end-->
+                        </div>
+
+                        <?php
                     }
                     ?>
                 </div>
@@ -1737,7 +1736,7 @@ label.cameraButton input[accept*="camera"] {
 <!-- footer start -->
 <footer>
 
-<?php echo $footer; ?>
+    <?php echo $footer; ?>
 </footer>
 <!-- Bid-modal-2  -->
 <div class="modal fade message-box" id="bidmodal-2" role="dialog">
@@ -1747,12 +1746,12 @@ label.cameraButton input[accept*="camera"] {
             <div class="modal-body">
                 <span class="mes">
                     <div id="popup-form">
-<?php echo form_open_multipart(base_url('artistic/user_image_insert'), array('id' => 'userimage', 'name' => 'userimage', 'class' => 'clearfix')); ?>
+                        <?php echo form_open_multipart(base_url('artistic/user_image_insert'), array('id' => 'userimage', 'name' => 'userimage', 'class' => 'clearfix')); ?>
                         <input type="file" name="profilepic" accept="image/gif, image/jpeg, image/png" id="profilepic">
                         <input type="hidden" name="hitext" id="hitext" value="5">
                         <!--<input type="submit" name="cancel3" id="cancel3" value="Cancel">-->
                         <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save">
-<?php echo form_close(); ?>
+                        <?php echo form_close(); ?>
                     </div>
                 </span>
             </div>
@@ -1775,7 +1774,19 @@ label.cameraButton input[accept*="camera"] {
     </div>
 </div>
 <!-- Model Popup Close -->
-
+<!-- Bid-modal-2  -->
+<div class="modal fade message-box" id="likeusermodal" role="dialog">
+    <div class="modal-dialog modal-lm">
+        <div class="modal-content">
+            <button type="button" class="modal-close" data-dismiss="modal">&times;</button>       
+            <div class="modal-body">
+                <span class="mes">
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Model Popup Close -->
 </body>
 </html>
 
@@ -1783,10 +1794,10 @@ label.cameraButton input[accept*="camera"] {
 
 <!-- footer End -->
 <!-- script for skill textbox automatic start (option 2)-->
-<!-- <script src="<?php //echo base_url('js/jquery-ui.min.js');   ?>"></script> -->
+<!-- <script src="<?php //echo base_url('js/jquery-ui.min.js');                              ?>"></script> -->
 <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
 <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
-  <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
+<script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
 <script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 
@@ -1795,33 +1806,33 @@ label.cameraButton input[accept*="camera"] {
 <!-- script for skill textbox automatic end (option 2)-->
 <script>
 
-                                        var data = <?php echo json_encode($demo); ?>;
-// alert(data);
+                                            var data = <?php echo json_encode($demo); ?>;
+                                            // alert(data);
 
 
-                                        $(function () {
-                                            // alert('hi');
-                                            $("#tags").autocomplete({
-                                                source: function (request, response) {
-                                                    var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
-                                                    response($.grep(data, function (item) {
-                                                        return matcher.test(item.label);
-                                                    }));
-                                                },
-                                                minLength: 1,
-                                                select: function (event, ui) {
-                                                    event.preventDefault();
-                                                    $("#tags").val(ui.item.label);
-                                                    $("#selected-tag").val(ui.item.label);
-                                                    // window.location.href = ui.item.value;
-                                                }
-                                                ,
-                                                focus: function (event, ui) {
-                                                    event.preventDefault();
-                                                    $("#tags").val(ui.item.label);
-                                                }
+                                            $(function () {
+                                                // alert('hi');
+                                                $("#tags").autocomplete({
+                                                    source: function (request, response) {
+                                                        var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+                                                        response($.grep(data, function (item) {
+                                                            return matcher.test(item.label);
+                                                        }));
+                                                    },
+                                                    minLength: 1,
+                                                    select: function (event, ui) {
+                                                        event.preventDefault();
+                                                        $("#tags").val(ui.item.label);
+                                                        $("#selected-tag").val(ui.item.label);
+                                                        // window.location.href = ui.item.value;
+                                                    }
+                                                    ,
+                                                    focus: function (event, ui) {
+                                                        event.preventDefault();
+                                                        $("#tags").val(ui.item.label);
+                                                    }
+                                                });
                                             });
-                                        });
 
 </script>
 
@@ -1843,7 +1854,7 @@ label.cameraButton input[accept*="camera"] {
 </script>
 
 <script>
-//select2 autocomplete start for skill
+    //select2 autocomplete start for skill
     $('#searchskills').select2({
 
         placeholder: 'Find Your Skills',
@@ -1867,9 +1878,9 @@ label.cameraButton input[accept*="camera"] {
             cache: true
         }
     });
-//select2 autocomplete End for skill
+    //select2 autocomplete End for skill
 
-//select2 autocomplete start for Location
+    //select2 autocomplete start for Location
     $('#searchplace').select2({
 
         placeholder: 'Find Your Location',
@@ -1893,7 +1904,7 @@ label.cameraButton input[accept*="camera"] {
             cache: true
         }
     });
-//select2 autocomplete End for Location
+    //select2 autocomplete End for Location
 
 
 
@@ -1903,26 +1914,26 @@ label.cameraButton input[accept*="camera"] {
 
 <!-- popup form edit start -->
 <script>
-// Get the modal
+    // Get the modal
     var modal = document.getElementById('myModal');
 
-// Get the button that opens the modal
+    // Get the button that opens the modal
     var btn = document.getElementById("myBtn");
 
-// Get the <span> element that closes the modal
+    // Get the <span> element that closes the modal
     var span = document.getElementsByClassName("close1")[0];
 
-// When the user clicks the button, open the modal 
+    // When the user clicks the button, open the modal 
     btn.onclick = function () {
         modal.style.display = "block";
     }
 
-// When the user clicks on <span> (x), close the modal
+    // When the user clicks on <span> (x), close the modal
     span.onclick = function () {
         modal.style.display = "none";
     }
 
-// When the user clicks anywhere outside of the modal, close it
+    // When the user clicks anywhere outside of the modal, close it
     window.onclick = function (event) {
         if (event.target == modal) {
             modal.style.display = "none";
@@ -1974,21 +1985,27 @@ label.cameraButton input[accept*="camera"] {
 <!-- post like script start -->
 
 <script type="text/javascript">
-function post_like(clicked_id)
-{
-   $.ajax({
-                type:'POST',
-                url:'<?php echo base_url() . "artistic/like_post" ?>',
-                dataType: 'json',
-                 data:'post_id='+clicked_id,
-                success:function(data){ 
-                    console.log(data.like);
-                    console.log(data.likeuser);
-                    $('.' + 'likepost' + clicked_id).html(data.like);
-                    $('.likeusername' + clicked_id).html(data.likeuser);
+    function post_like(clicked_id)
+    {
+        $.ajax({
+            type: 'POST',
+            url: '<?php echo base_url() . "artistic/like_post" ?>',
+            dataType: 'json',
+            data: 'post_id=' + clicked_id,
+            success: function (data) {
+                $('.' + 'likepost' + clicked_id).html(data.like);
+                $('.likeusername' + clicked_id).html(data.likeuser);
+
+                $('.likeduserlist' + clicked_id).hide();
+                if (data.like_user_count == '0') {
+                    document.getElementById('likeusername' + clicked_id).style.display = "none";
+                } else {
+                    document.getElementById('likeusername' + clicked_id).style.display = "block";
                 }
-            }); 
-}
+                $('#likeusername' + clicked_id).addClass('likeduserlist1');
+            }
+        });
+    }
 </script>
 
 <!--post like script end -->
@@ -1996,6 +2013,19 @@ function post_like(clicked_id)
 <!-- comment like script start -->
 
 <script type="text/javascript">
+//    function comment_like(clicked_id)
+//    {
+//
+//        $.ajax({
+//            type: 'POST',
+//            url: '<?php echo base_url() . "artistic/like_comment" ?>',
+//            data: 'post_id=' + clicked_id,
+//            success: function (data) {
+//                $('#' + 'likecomment' + clicked_id).html(data);
+//
+//            }
+//        });
+//    }
     function comment_like(clicked_id)
     {
 
@@ -2012,6 +2042,20 @@ function post_like(clicked_id)
 </script>
 
 <script type="text/javascript">
+//    function comment_like1(clicked_id)
+//    {
+//
+//        $.ajax({
+//            type: 'POST',
+//            url: '<?php echo base_url() . "artistic/like_comment1" ?>',
+//            data: 'post_id=' + clicked_id,
+//            success: function (data) {
+//                $('#' + 'likecomment1' + clicked_id).html(data);
+//
+//            }
+//        });
+//    }
+
     function comment_like1(clicked_id)
     {
 
@@ -2031,68 +2075,140 @@ function post_like(clicked_id)
 <!-- comment delete script start -->
 
 
-
+<!--
 <script type="text/javascript">
-  
-function comment_deletemodel(abc){
+
+    function comment_deletemodel(abc) {
 
 
-    $('.biderror .mes').html("<div class='pop_content'>Are you sure want to Delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc +")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-    $('#bidmodal').modal('show');
-}
+        $('.biderror .mes').html("<div class='pop_content'>Are you sure want to Delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+        $('#bidmodal').modal('show');
+    }
 
 </script>
 
 <script type="text/javascript">
-  
-function comment_deletetwomodel(abc){
+
+    function comment_deletetwomodel(abc) {
 
 
-    $('.biderror .mes').html("<div class='pop_content'>Are you sure want to Delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deletetwo(" + abc +")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-    $('#bidmodal').modal('show');
-}
+        $('.biderror .mes').html("<div class='pop_content'>Are you sure want to Delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deletetwo(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+        $('#bidmodal').modal('show');
+    }
 
-</script>
-
+</script>-->
 
 <script type="text/javascript">
-    function comment_delete(clicked_id)
+
+    function comment_delete(clicked_id) {
+        $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='comment_deleted(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+        $('#bidmodal').modal('show');
+    }
+
+    function comment_deleted(clicked_id)
     {
-
         var post_delete = document.getElementById("post_delete");
-        // alert(post_delete);
+        //alert(post_delete.value);
         $.ajax({
             type: 'POST',
             url: '<?php echo base_url() . "artistic/delete_comment" ?>',
             data: 'post_id=' + clicked_id + '&post_delete=' + post_delete.value,
             dataType: "json",
             success: function (data) {
-
-                // $('.' + 'insertcomment' + post_delete.value).html(data);
-                $('#' + 'commnetpost' + post_delete.value).html(data.count);
-                $('.insertcomment' + post_delete.value).html(data.comment);
-
+                //alert('.' + 'insertcomment' + clicked_id);
+                $('.' + 'insertcomment' + post_delete.value).html(data.comment);
+                $('#' + 'insertcount' + post_delete.value).html(data.count);
+                $('.post-design-commnet-box').show();
             }
         });
     }
-
 
     function comment_deletetwo(clicked_id)
     {
+        $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='comment_deletedtwo(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+        $('#bidmodal').modal('show');
+    }
 
-        var post_delete = document.getElementById("post_delete2");
+</script>
 
+<script type="text/javascript">
+    function comment_deletedtwo(clicked_id)
+    {
+        var post_delete1 = document.getElementById("post_deletetwo");
         $.ajax({
             type: 'POST',
             url: '<?php echo base_url() . "artistic/delete_commenttwo" ?>',
-            data: 'post_id=' + clicked_id + '&post_delete=' + post_delete.value,
+            data: 'post_id=' + clicked_id + '&post_delete=' + post_delete1.value,
+            dataType: "json",
             success: function (data) {
 
-                $('#' + 'fourcomment' + post_delete.value).html(data);
+                // $('.' + 'insertcomment' + post_delete.value).html(data);
+                $('.' + 'insertcommenttwo' + post_delete1.value).html(data.comment);
+                $('#' + 'insertcount' + post_delete1.value).html(data.count);
+                $('.post-design-commnet-box').show();
 
             }
         });
     }
+
+
+//                        function comment_deletetwo(clicked_id)
+//                        {
+//
+//                            var post_delete = document.getElementById("post_delete2");
+//
+//                            $.ajax({
+//                                type: 'POST',
+//                                url: '<?php echo base_url() . "artistic/delete_commenttwo" ?>',
+//                                data: 'post_id=' + clicked_id + '&post_delete=' + post_delete.value,
+//                                success: function (data) {
+//
+//                                    $('#' + 'fourcomment' + post_delete.value).html(data);
+//
+//                                }
+//                            });
+//                        }
+</script>
+
+
+<script type="text/javascript">
+//    function comment_delete(clicked_id)
+//    {
+//
+//        var post_delete = document.getElementById("post_delete");
+//        // alert(post_delete);
+//        $.ajax({
+//            type: 'POST',
+//            url: '<?php echo base_url() . "artistic/delete_comment" ?>',
+//            data: 'post_id=' + clicked_id + '&post_delete=' + post_delete.value,
+//            dataType: "json",
+//            success: function (data) {
+//
+//                // $('.' + 'insertcomment' + post_delete.value).html(data);
+//                $('#' + 'commnetpost' + post_delete.value).html(data.count);
+//                $('.insertcomment' + post_delete.value).html(data.comment);
+//
+//            }
+//        });
+//    }
+
+
+//    function comment_deletetwo(clicked_id)
+//    {
+//
+//        var post_delete = document.getElementById("post_delete2");
+//
+//        $.ajax({
+//            type: 'POST',
+//            url: '<?php echo base_url() . "artistic/delete_commenttwo" ?>',
+//            data: 'post_id=' + clicked_id + '&post_delete=' + post_delete.value,
+//            success: function (data) {
+//
+//                $('#' + 'fourcomment' + post_delete.value).html(data);
+//
+//            }
+//        });
+//    }
 </script>
 
 <!--comment delete script end -->
@@ -2101,59 +2217,106 @@ function comment_deletetwomodel(abc){
 <!-- insert comment using enter -->
 <script type="text/javascript">
 
+//    function insert_comment(clicked_id)
+//    {
+//
+//        var post_comment = document.getElementById("post_comment" + clicked_id);
+//
+//
+//        var x = document.getElementById('threecomment' + clicked_id);
+//        var y = document.getElementById('fourcomment' + clicked_id);
+//
+//
+//        if (post_comment.value == '') {
+//
+//            event.preventDefault();
+//            return false;
+//        } else {
+//
+//
+//            if (x.style.display === 'block' && y.style.display === 'none') {
+//
+//                $.ajax({
+//                    type: 'POST',
+//                    url: '<?php echo base_url() . "artistic/insert_commentthree" ?>',
+//                    data: 'post_id=' + clicked_id + '&comment=' + post_comment.value,
+//                    dataType: "json",
+//                    success: function (data) {
+//                        $('textarea').each(function () {
+//                            $(this).val('');
+//                        });
+//                        //$('.' + 'insertcomment' + clicked_id).html(data);
+//                        $('#' + 'commnetpost' + clicked_id).html(data.count);
+//                        $('.insertcomment' + clicked_id).html(data.comment);
+//                    }
+//                });
+//            } else {
+//
+//                $.ajax({
+//                    type: 'POST',
+//                    url: '<?php echo base_url() . "artistic/insert_comment" ?>',
+//                    data: 'post_id=' + clicked_id + '&comment=' + post_comment.value,
+//                    // dataType: "json",
+//                    success: function (data) {
+//                        $('textarea').each(function () {
+//                            $(this).val('');
+//                        });
+//                        $('#' + 'fourcomment' + clicked_id).html(data);
+//                    }
+//                });
+//            }
+//        }
+//
+//    }
+
     function insert_comment(clicked_id)
     {
-        
-        var post_comment = document.getElementById("post_comment" + clicked_id);
+        // start khyati code
+        var $field = $('#post_comment' + clicked_id);
+        var post_comment = $('#post_comment' + clicked_id).html();
 
+        $('#post_comment' + clicked_id).html("");
 
         var x = document.getElementById('threecomment' + clicked_id);
         var y = document.getElementById('fourcomment' + clicked_id);
 
-
- if(post_comment.value == ''){ 
-
-        event.preventDefault();
-        return false;
-   }else{
-
-
-        if (x.style.display === 'block' && y.style.display === 'none') {
-
-        $.ajax({
-        type: 'POST',
-                url: '<?php echo base_url() . "artistic/insert_commentthree" ?>',
-                data: 'post_id=' + clicked_id + '&comment=' + post_comment.value,
-                dataType: "json",
-                success: function (data) {
-                $('textarea').each(function(){ 
-                $(this).val('');
-                });
+        if (post_comment == '') {
+            event.preventDefault();
+            return false;
+        } else {
+            if (x.style.display === 'block' && y.style.display === 'none') {
+                $.ajax({
+                    type: 'POST',
+                    url: '<?php echo base_url() . "artistic/insert_commentthree" ?>',
+                    data: 'post_id=' + clicked_id + '&comment=' + post_comment,
+                    dataType: "json",
+                    success: function (data) {
                         //$('.' + 'insertcomment' + clicked_id).html(data);
-                        $('#' + 'commnetpost' + clicked_id).html(data.count);
+                        $('#' + 'insertcount' + clicked_id).html(data.count);
                         $('.insertcomment' + clicked_id).html(data.comment);
-                }
+                    }
                 });
-                } else {
 
-        $.ajax({
-        type: 'POST',
-                url: '<?php echo base_url() . "artistic/insert_comment" ?>',
-                data: 'post_id=' + clicked_id + '&comment=' + post_comment.value,
-                // dataType: "json",
-                success: function (data) {
-                $('textarea').each(function(){ 
-                $(this).val('');
+            } else {
+
+                $.ajax({
+                    type: 'POST',
+                    url: '<?php echo base_url() . "artistic/insert_comment" ?>',
+                    data: 'post_id=' + clicked_id + '&comment=' + post_comment,
+                    dataType: "json",
+                    success: function (data) {
+                        $('textarea').each(function () {
+                            $(this).val('');
+                        });
+                        $('#' + 'insertcount' + clicked_id).html(data.count);
+                        $('#' + 'fourcomment' + clicked_id).html(data.comment);
+                    }
                 });
-                        $('#' + 'fourcomment' + clicked_id).html(data);
-                        //  $('#' + 'commnetpost' + clicked_id).html(data.count);
-                        //  $('#' + 'fourcomment' + clicked_id).html(data.comment);
 
-                }
-                });
-                }  }
-
+            }
         }
+
+    }
 
 </script>
 
@@ -2161,74 +2324,132 @@ function comment_deletetwomodel(abc){
 
 <script type="text/javascript">
 
-        function entercomment(clicked_id)
-        {
+//    function entercomment(clicked_id)
+//    {
+//         $('#post_comment' + clicked_id).keypress(function (e) {
+//
+//
+//            if (e.keyCode == 13 && !e.shiftKey) {
+//                var val = $('#post_comment' + clicked_id).val();
+//                e.preventDefault();
+//                if (window.preventDuplicateKeyPresses)
+//                    return;
+//                window.preventDuplicateKeyPresses = true;
+//                window.setTimeout(function () {
+//                    window.preventDuplicateKeyPresses = false;
+//                }, 500);
+//               
+//                var x = document.getElementById('threecomment' + clicked_id);
+//                var y = document.getElementById('fourcomment' + clicked_id);
+//
+//
+//                if (val == '') {
+//
+//                    event.preventDefault();
+//                    return false;
+//                } else {
+//                    if (x.style.display === 'block' && y.style.display === 'none') {
+//                        $.ajax({
+//                            type: 'POST',
+//                            url: '<?php echo base_url() . "artistic/insert_commentthree" ?>',
+//                            data: 'post_id=' + clicked_id + '&comment=' + val,
+//                            dataType: "json",
+//                            success: function (data) {
+//                                $('textarea').each(function () {
+//                                    $(this).val('');
+//                                });
+//                                $('#' + 'commnetpost' + clicked_id).html(data.count);
+//                                $('.insertcomment' + clicked_id).html(data.comment);
+//                            }
+//                        });
+//                    } else {
+//
+//                        $.ajax({
+//                            type: 'POST',
+//                            url: '<?php echo base_url() . "artistic/insert_comment" ?>',
+//                            data: 'post_id=' + clicked_id + '&comment=' + val,
+//                            success: function (data) {
+//                                $('textarea').each(function () {
+//                                    $(this).val('');
+//                                });
+//                                $('#' + 'fourcomment' + clicked_id).html(data);
+//                       
+//                            }
+//                        });
+//                    }
+//                }
+//                e.preventDefault();
+//            }
+//        });
+//    }
 
-        //$(document).ready(function () {
+
+    function entercomment(clicked_id)
+    {
+        $("#post_comment" + clicked_id).click(function () {
+            $(this).prop("contentEditable", true);
+        });
+
         $('#post_comment' + clicked_id).keypress(function (e) {
 
-
-        if (e.keyCode == 13 && !e.shiftKey) {
-        var val = $('#post_comment' + clicked_id).val();
+            if (e.keyCode == 13 && !e.shiftKey) {
                 e.preventDefault();
+                var sel = $("#post_comment" + clicked_id);
+                var txt = sel.html();
+                if (txt == '') {
+                    return false;
+                }
+
+                $('#post_comment' + clicked_id).html("");
+
                 if (window.preventDuplicateKeyPresses)
-                return;
+                    return;
+
                 window.preventDuplicateKeyPresses = true;
                 window.setTimeout(function () {
-                window.preventDuplicateKeyPresses = false;
+                    window.preventDuplicateKeyPresses = false;
                 }, 500);
-                // khyati chnages  start
 
-            var x = document.getElementById('threecomment' + clicked_id);
-            var y = document.getElementById('fourcomment' + clicked_id);
+                var x = document.getElementById('threecomment' + clicked_id);
+                var y = document.getElementById('fourcomment' + clicked_id);
 
-
-    if(val == ''){ 
-
-    event.preventDefault();
-        return false;
-   }else{ 
-
-
-    if (x.style.display === 'block' && y.style.display === 'none') {
-        $.ajax({
-        type: 'POST',
-                url: '<?php echo base_url() . "artistic/insert_commentthree" ?>',
-                data: 'post_id=' + clicked_id + '&comment=' + val,
-                dataType: "json",
-                success: function (data) {
-                $('textarea').each(function(){ 
-                $(this).val('');
-                });
-                        //  $('.insertcomment' + clicked_id).html(data);
-                        $('#' + 'commnetpost' + clicked_id).html(data.count);
-                        $('.insertcomment' + clicked_id).html(data.comment);
-                }
-                });
+                if (x.style.display === 'block' && y.style.display === 'none') {
+                    $.ajax({
+                        type: 'POST',
+                        url: '<?php echo base_url() . "artistic/insert_commentthree" ?>',
+                        data: 'post_id=' + clicked_id + '&comment=' + txt,
+                        dataType: "json",
+                        success: function (data) {
+                            $('textarea').each(function () {
+                                $(this).val('');
+                            });
+                            $('#' + 'insertcount' + clicked_id).html(data.count);
+                            $('.insertcomment' + clicked_id).html(data.comment);
+                        }
+                    });
                 } else {
-
-        $.ajax({
-        type: 'POST',
-                url: '<?php echo base_url() . "artistic/insert_comment" ?>',
-                data: 'post_id=' + clicked_id + '&comment=' + val,
-                // dataType: "json",
-                success: function (data) {
-                $('textarea').each(function(){ 
-                $(this).val('');
-                });
-                        $('#' + 'fourcomment' + clicked_id).html(data);
-                        // $('#' + 'commnetpost' + clicked_id).html(data.count);
-                        //  $('#' + 'fourcomment' + clicked_id).html(data.comment);
-
+                    $.ajax({
+                        type: 'POST',
+                        url: '<?php echo base_url() . "artistic/insert_comment" ?>',
+                        data: 'post_id=' + clicked_id + '&comment=' + txt,
+                        dataType: "json",
+                        success: function (data) {
+                            $('textarea').each(function () {
+                                $(this).val('');
+                            });
+                            $('#' + 'insertcount' + clicked_id).html(data.count);
+                            $('#' + 'fourcomment' + clicked_id).html(data.comment);
+                        }
+                    });
                 }
-                });
-                }  }
-        // khyati chnages end
-            e.preventDefault();
-        }
+            }
         });
-        //});
-        }
+        $(".scroll").click(function (event) {
+            event.preventDefault();
+            $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1200);
+        });
+    }
+
 </script>
 
 <!--comment insert script end -->
@@ -2237,48 +2458,143 @@ function comment_deletetwomodel(abc){
 <!-- comment edit box start-->
 <script type="text/javascript">
 
-        function comment_editbox(clicked_id) {
+//    function comment_editbox(clicked_id) {
+//        document.getElementById('editcomment' + clicked_id).style.display = 'block';
+//        document.getElementById('showcomment' + clicked_id).style.display = 'none';
+//        document.getElementById('editsubmit' + clicked_id).style.display = 'block';
+//        document.getElementById('editbox' + clicked_id).style.display = 'none';
+//        document.getElementById('editcancle' + clicked_id).style.display = 'block';
+//
+//    }
+//
+//    function comment_editcancle(clicked_id) {
+//
+//        document.getElementById('editbox' + clicked_id).style.display = 'block';
+//        document.getElementById('editcancle' + clicked_id).style.display = 'none';
+//
+//        document.getElementById('editcomment' + clicked_id).style.display = 'none';
+//        document.getElementById('showcomment' + clicked_id).style.display = 'block';
+//        document.getElementById('editsubmit' + clicked_id).style.display = 'none';
+//
+//    }
+//    function comment_editboxtwo(clicked_id) {
+//
+//        document.getElementById('editcommenttwo' + clicked_id).style.display = 'block';
+//        document.getElementById('showcommenttwo' + clicked_id).style.display = 'none';
+//        document.getElementById('editsubmittwo' + clicked_id).style.display = 'block';
+//        document.getElementById('editboxtwo' + clicked_id).style.display = 'none';
+//        document.getElementById('editcancletwo' + clicked_id).style.display = 'block';
+//
+//    }
+//
+//
+//
+//    function comment_editcancletwo(clicked_id) {
+//
+//        document.getElementById('editboxtwo' + clicked_id).style.display = 'block';
+//        document.getElementById('editcancletwo' + clicked_id).style.display = 'none';
+//
+//        document.getElementById('editcommenttwo' + clicked_id).style.display = 'none';
+//        document.getElementById('showcommenttwo' + clicked_id).style.display = 'block';
+//        document.getElementById('editsubmittwo' + clicked_id).style.display = 'none';
+//
+//    }
 
-
-        document.getElementById('editcomment' + clicked_id).style.display = 'block';
+    function comment_editbox(clicked_id) {
+        document.getElementById('editcomment' + clicked_id).style.display = 'inline-block';
         document.getElementById('showcomment' + clicked_id).style.display = 'none';
-        document.getElementById('editsubmit' + clicked_id).style.display = 'block';
-
-        document.getElementById('editbox' + clicked_id).style.display = 'none';
+        document.getElementById('editsubmit' + clicked_id).style.display = 'inline-block';
+        //document.getElementById('editbox' + clicked_id).style.display = 'none';
+        document.getElementById('editcommentbox' + clicked_id).style.display = 'none';
         document.getElementById('editcancle' + clicked_id).style.display = 'block';
-
+        $('.post-design-commnet-box').hide();
     }
 
+
     function comment_editcancle(clicked_id) {
-
-        document.getElementById('editbox' + clicked_id).style.display = 'block';
+        document.getElementById('editcommentbox' + clicked_id).style.display = 'block';
         document.getElementById('editcancle' + clicked_id).style.display = 'none';
-
         document.getElementById('editcomment' + clicked_id).style.display = 'none';
         document.getElementById('showcomment' + clicked_id).style.display = 'block';
         document.getElementById('editsubmit' + clicked_id).style.display = 'none';
 
+        $('.post-design-commnet-box').show();
     }
+
     function comment_editboxtwo(clicked_id) {
 
-        document.getElementById('editcommenttwo' + clicked_id).style.display = 'block';
+        $('div[id^=editcommenttwo]').css('display', 'none');
+        $('div[id^=showcommenttwo]').css('display', 'block');
+        $('button[id^=editsubmittwo]').css('display', 'none');
+        $('div[id^=editcommentboxtwo]').css('display', 'block');
+        $('div[id^=editcancletwo]').css('display', 'none');
+
+        document.getElementById('editcommenttwo' + clicked_id).style.display = 'inline-block';
         document.getElementById('showcommenttwo' + clicked_id).style.display = 'none';
-        document.getElementById('editsubmittwo' + clicked_id).style.display = 'block';
-        document.getElementById('editboxtwo' + clicked_id).style.display = 'none';
+        document.getElementById('editsubmittwo' + clicked_id).style.display = 'inline-block';
+        document.getElementById('editcommentboxtwo' + clicked_id).style.display = 'none';
         document.getElementById('editcancletwo' + clicked_id).style.display = 'block';
-
+        $('.post-design-commnet-box').hide();
     }
-
 
 
     function comment_editcancletwo(clicked_id) {
 
-        document.getElementById('editboxtwo' + clicked_id).style.display = 'block';
+        document.getElementById('editcommentboxtwo' + clicked_id).style.display = 'block';
         document.getElementById('editcancletwo' + clicked_id).style.display = 'none';
 
         document.getElementById('editcommenttwo' + clicked_id).style.display = 'none';
         document.getElementById('showcommenttwo' + clicked_id).style.display = 'block';
         document.getElementById('editsubmittwo' + clicked_id).style.display = 'none';
+        $('.post-design-commnet-box').show();
+    }
+
+    function comment_editbox3(clicked_id) { //alert(clicked_id); alert('editcomment' + clicked_id); alert('showcomment' + clicked_id); alert('editsubmit' + clicked_id); 
+        document.getElementById('editcomment3' + clicked_id).style.display = 'block';
+        document.getElementById('showcomment3' + clicked_id).style.display = 'none';
+        document.getElementById('editsubmit3' + clicked_id).style.display = 'block';
+
+        document.getElementById('editcommentbox3' + clicked_id).style.display = 'none';
+        document.getElementById('editcancle3' + clicked_id).style.display = 'block';
+        $('.post-design-commnet-box').hide();
+
+    }
+
+    function comment_editcancle3(clicked_id) {
+
+        document.getElementById('editcommentbox3' + clicked_id).style.display = 'block';
+        document.getElementById('editcancle3' + clicked_id).style.display = 'none';
+
+        document.getElementById('editcomment3' + clicked_id).style.display = 'none';
+        document.getElementById('showcomment3' + clicked_id).style.display = 'block';
+        document.getElementById('editsubmit3' + clicked_id).style.display = 'none';
+
+        $('.post-design-commnet-box').show();
+
+    }
+
+    function comment_editbox4(clicked_id) { //alert(clicked_id); alert('editcomment' + clicked_id); alert('showcomment' + clicked_id); alert('editsubmit' + clicked_id); 
+        document.getElementById('editcomment4' + clicked_id).style.display = 'block';
+        document.getElementById('showcomment4' + clicked_id).style.display = 'none';
+        document.getElementById('editsubmit4' + clicked_id).style.display = 'block';
+
+        document.getElementById('editcommentbox4' + clicked_id).style.display = 'none';
+        document.getElementById('editcancle4' + clicked_id).style.display = 'block';
+
+        $('.post-design-commnet-box').hide();
+
+    }
+
+    function comment_editcancle4(clicked_id) {
+
+        document.getElementById('editcommentbox4' + clicked_id).style.display = 'block';
+        document.getElementById('editcancle4' + clicked_id).style.display = 'none';
+
+        document.getElementById('editcomment4' + clicked_id).style.display = 'none';
+        document.getElementById('showcomment4' + clicked_id).style.display = 'block';
+        document.getElementById('editsubmit4' + clicked_id).style.display = 'none';
+
+        $('.post-design-commnet-box').show();
 
     }
 
@@ -2294,33 +2610,33 @@ function comment_deletetwomodel(abc){
 
         var post_comment_edit = document.getElementById("editcomment" + abc);
 
-    if(post_comment_edit.value == ''){ 
-      $('.biderror .mes').html("<div class='pop_content'>Are you sure want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-       $('#bidmodal').modal('show');
-        
-   }else{ 
+        if (post_comment_edit.value == '') {
+            $('.biderror .mes').html("<div class='pop_content'>Are you sure want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+            $('#bidmodal').modal('show');
 
-        $.ajax({
-            type: 'POST',
-            url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
-            data: 'post_id=' + abc + '&comment=' + post_comment_edit.value,
-            success: function (data) {
+        } else {
 
-
-                document.getElementById('editcomment' + abc).style.display = 'none';
-                document.getElementById('showcomment' + abc).style.display = 'block';
-                document.getElementById('editsubmit' + abc).style.display = 'none';
-
-                document.getElementById('editbox' + abc).style.display = 'block';
-                document.getElementById('editcancle' + abc).style.display = 'none';
-
-                $('#' + 'showcomment' + abc).html(data);
+            $.ajax({
+                type: 'POST',
+                url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
+                data: 'post_id=' + abc + '&comment=' + post_comment_edit.value,
+                success: function (data) {
 
 
+                    document.getElementById('editcomment' + abc).style.display = 'none';
+                    document.getElementById('showcomment' + abc).style.display = 'block';
+                    document.getElementById('editsubmit' + abc).style.display = 'none';
 
-            }
-        });
-      }
+                    document.getElementById('editbox' + abc).style.display = 'block';
+                    document.getElementById('editcancle' + abc).style.display = 'none';
+
+                    $('#' + 'showcomment' + abc).html(data);
+
+
+
+                }
+            });
+        }
     }
 </script>
 
@@ -2358,26 +2674,26 @@ function comment_deletetwomodel(abc){
     {
 
         // $(document).ready(function () {
-            $('#editcomment' + abc).keypress(function (e) {
+        $('#editcomment' + abc).keypress(function (e) {
 
-                    if (e.keyCode == 13 && !e.shiftKey) {
-                    var val = $('#editcomment' + abc).val();
-                    e.preventDefault();
+            if (e.keyCode == 13 && !e.shiftKey) {
+                var val = $('#editcomment' + abc).val();
+                e.preventDefault();
 
-                    if (window.preventDuplicateKeyPresses)
-                        return;
+                if (window.preventDuplicateKeyPresses)
+                    return;
 
-                    window.preventDuplicateKeyPresses = true;
-                    window.setTimeout(function () {
-                        window.preventDuplicateKeyPresses = false;
-                    }, 500);
+                window.preventDuplicateKeyPresses = true;
+                window.setTimeout(function () {
+                    window.preventDuplicateKeyPresses = false;
+                }, 500);
 
-        if(val == ''){ 
+                if (val == '') {
 
-      $('.biderror .mes').html("<div class='pop_content'>Are you sure want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-       $('#bidmodal').modal('show');
-        
-   }else{ 
+                    $('.biderror .mes').html("<div class='pop_content'>Are you sure want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+                    $('#bidmodal').modal('show');
+
+                } else {
 
                     $.ajax({
                         type: 'POST',
@@ -2395,10 +2711,11 @@ function comment_deletetwomodel(abc){
 
                             $('#' + 'showcomment' + abc).html(data);
                         }
-                    }); }
-                    //alert(val);
+                    });
                 }
-            });
+                //alert(val);
+            }
+        });
         //});
 
     }
@@ -2410,36 +2727,37 @@ function comment_deletetwomodel(abc){
 
         var post_comment_edit = document.getElementById("editcommenttwo" + abc);
 
-if(post_comment_edit.value == ''){ 
+        if (post_comment_edit.value == '') {
 
-      $('.biderror .mes').html("<div class='pop_content'>Are you sure want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deletetwo(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-       $('#bidmodal').modal('show');
-        
-   }else{ 
+            $('.biderror .mes').html("<div class='pop_content'>Are you sure want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deletetwo(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+            $('#bidmodal').modal('show');
 
-        $.ajax({
-            type: 'POST',
-            url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
-            data: 'post_id=' + abc + '&comment=' + post_comment_edit.value,
-            success: function (data) {
-                //alert(abc);
-                //return false;
-                document.getElementById('showcommenttwo' + abc).style.display = 'block';
-                document.getElementById('showcommenttwo' + abc).innerHTML = data;
-                document.getElementById('editboxtwo' + abc).style.display = 'block';
+        } else {
 
-                document.getElementById('editcommenttwo' + abc).style.display = 'none';
+            $.ajax({
+                type: 'POST',
+                url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
+                data: 'post_id=' + abc + '&comment=' + post_comment_edit.value,
+                success: function (data) {
+                    //alert(abc);
+                    //return false;
+                    document.getElementById('showcommenttwo' + abc).style.display = 'block';
+                    document.getElementById('showcommenttwo' + abc).innerHTML = data;
+                    document.getElementById('editboxtwo' + abc).style.display = 'block';
 
-                document.getElementById('editsubmittwo' + abc).style.display = 'none';
-                document.getElementById('editcancletwo' + abc).style.display = 'none';
+                    document.getElementById('editcommenttwo' + abc).style.display = 'none';
 
-                //$('#' + 'showcommenttwo' + abc).html(data);
-                //$('#' + 'showcommenttwo' + abc).text(data);
+                    document.getElementById('editsubmittwo' + abc).style.display = 'none';
+                    document.getElementById('editcancletwo' + abc).style.display = 'none';
+
+                    //$('#' + 'showcommenttwo' + abc).html(data);
+                    //$('#' + 'showcommenttwo' + abc).text(data);
 
 
 
-            }
-        });  }
+                }
+            });
+        }
 
     }
 </script>
@@ -2451,11 +2769,11 @@ if(post_comment_edit.value == ''){
     {
 
         // $(document).ready(function () {
-            $('#editcommenttwo' + abc).keypress(function (e) {
-                // if (e.which == 13) {
-                //     var val = $('#editcommenttwo' + abc).val();
+        $('#editcommenttwo' + abc).keypress(function (e) {
+            // if (e.which == 13) {
+            //     var val = $('#editcommenttwo' + abc).val();
 
-                if (e.keyCode == 13 && !e.shiftKey) {
+            if (e.keyCode == 13 && !e.shiftKey) {
                 var val = $('#editcommenttwo' + abc).val();
                 e.preventDefault();
 
@@ -2467,12 +2785,12 @@ if(post_comment_edit.value == ''){
                     window.preventDuplicateKeyPresses = false;
                 }, 500);
 
- if(val == ''){ 
+                if (val == '') {
 
-      $('.biderror .mes').html("<div class='pop_content'>Are you sure want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deletetwo(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-       $('#bidmodal').modal('show');
-        
-   }else{ 
+                    $('.biderror .mes').html("<div class='pop_content'>Are you sure want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deletetwo(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+                    $('#bidmodal').modal('show');
+
+                } else {
                     $.ajax({
                         type: 'POST',
                         url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
@@ -2489,10 +2807,12 @@ if(post_comment_edit.value == ''){
 
                             $('#' + 'showcommenttwo' + abc).html(data);
                         }
-                    });  }
-                    //alert(val);
-                }  e.preventDefault();
-            });
+                    });
+                }
+                //alert(val);
+            }
+            e.preventDefault();
+        });
         //});
 
     }
@@ -2556,60 +2876,60 @@ if(post_comment_edit.value == ''){
 
 <!-- cover image start -->
 <script>
-function myFunction() {
-   document.getElementById("upload-demo").style.visibility = "hidden";
-   document.getElementById("upload-demo-i").style.visibility = "hidden";
-   document.getElementById('message1').style.display = "block";
+    function myFunction() {
+        document.getElementById("upload-demo").style.visibility = "hidden";
+        document.getElementById("upload-demo-i").style.visibility = "hidden";
+        document.getElementById('message1').style.display = "block";
 
-   //setTimeout(function () { location.reload(1); }, 5000);
-   
-   }
-  
+        //setTimeout(function () { location.reload(1); }, 5000);
 
-   function showDiv() {
-   document.getElementById('row1').style.display = "block";
-   document.getElementById('row2').style.display = "none";
-}
+    }
+
+
+    function showDiv() {
+        document.getElementById('row1').style.display = "block";
+        document.getElementById('row2').style.display = "none";
+    }
 </script>
 
 <script type="text/javascript">
-$uploadCrop = $('#upload-demo').croppie({
-    enableExif: true,
-    viewport: {
-        width: 1250,
-        height: 350,
-        type: 'square'
-    },
-    boundary: {
-        width: 1250,
-        height: 350
-    }
-});
-
-
-$('.upload-result').on('click', function (ev) {
-  $uploadCrop.croppie('result', {
-    type: 'canvas',
-    size: 'viewport'
-  }).then(function (resp) {
-
-    $.ajax({
-     url: "<?php echo base_url() ?>artistic/ajaxpro",
-      type: "POST",
-      data: {"image":resp},
-      success: function (data) {
-        html = '<img src="' + resp + '" />';
-        if(html)
-         {
-       window.location.reload();
-         }
-      }
+    $uploadCrop = $('#upload-demo').croppie({
+        enableExif: true,
+        viewport: {
+            width: 1250,
+            height: 350,
+            type: 'square'
+        },
+        boundary: {
+            width: 1250,
+            height: 350
+        }
     });
 
-  });
-});
 
-$('.cancel-result').on('click', function (ev) {
+    $('.upload-result').on('click', function (ev) {
+        $uploadCrop.croppie('result', {
+            type: 'canvas',
+            size: 'viewport'
+        }).then(function (resp) {
+
+            $.ajax({
+                url: "<?php echo base_url() ?>artistic/ajaxpro",
+                type: "POST",
+                data: {"image": resp},
+                success: function (data) {
+                    html = '<img src="' + resp + '" />';
+                    if (html)
+                    {
+                        window.location.reload();
+                    }
+                }
+            });
+
+        });
+    });
+
+    $('.cancel-result').on('click', function (ev) {
 
         document.getElementById('row2').style.display = "block";
         document.getElementById('row1').style.display = "none";
@@ -2617,45 +2937,45 @@ $('.cancel-result').on('click', function (ev) {
 
     });
 
-//aarati code start
-$('#upload').on('change', function () { 
-  
-  var reader = new FileReader();
-  
-    reader.onload = function (e) {
-      $uploadCrop.croppie('bind', {
-        url: e.target.result
-      }).then(function(){
-        console.log('jQuery bind complete');
-      });
-      
-    }
-    reader.readAsDataURL(this.files[0]);
+    //aarati code start
+    $('#upload').on('change', function () {
 
-    
+        var reader = new FileReader();
 
-});
-
-$('#upload').on('change', function () { 
-  
-  var fd = new FormData();
- fd.append( "image", $("#upload")[0].files[0]);
-
-    $.ajax({
-
-        url: "<?php echo base_url(); ?>artistic/image",
-        type: "POST",
-        data: fd,
-        processData: false,
-        contentType: false,
-        success:function(response){
-         
+        reader.onload = function (e) {
+            $uploadCrop.croppie('bind', {
+                url: e.target.result
+            }).then(function () {
+                console.log('jQuery bind complete');
+            });
 
         }
-      });
-  });
+        reader.readAsDataURL(this.files[0]);
 
-//aarati code end
+
+
+    });
+
+    $('#upload').on('change', function () {
+
+        var fd = new FormData();
+        fd.append("image", $("#upload")[0].files[0]);
+
+        $.ajax({
+
+            url: "<?php echo base_url(); ?>artistic/image",
+            type: "POST",
+            data: fd,
+            processData: false,
+            contentType: false,
+            success: function (response) {
+
+
+            }
+        });
+    });
+
+    //aarati code end
 </script>
 <!-- cover image end -->
 
@@ -2667,7 +2987,7 @@ $('#upload').on('change', function () {
         document.getElementById('myDropdown' + clicked_id).classList.toggle("show");
     }
 
-// Close the dropdown if the user clicks outside of it
+    // Close the dropdown if the user clicks outside of it
     window.onclick = function (event) {
         if (!event.target.matches('.dropbtn1')) {
 
@@ -2689,7 +3009,7 @@ $('#upload').on('change', function () {
         document.getElementById('myDropdown' + clicked_id).classList.toggle("show");
     }
 
-// Close the dropdown if the user clicks outside of it
+    // Close the dropdown if the user clicks outside of it
     window.onclick = function (event) {
         if (!event.target.matches('.dropbtn2')) {
 
@@ -2737,8 +3057,8 @@ $('#upload').on('change', function () {
 
 <script type="text/javascript">
 
-    $(document).ready(function () { 
-        $('.modal-close').on('click', function () { 
+    $(document).ready(function () {
+        $('.modal-close').on('click', function () {
             $('.modal-post').hide();
         });
     });
@@ -2820,13 +3140,13 @@ $('#upload').on('change', function () {
 
 
 <script type="text/javascript">
-  
-function deleteownpostmodel(abc){
+
+    function deleteownpostmodel(abc) {
 
 
-    $('.biderror .mes').html("<div class='pop_content'>Are you sure want to Delete Your post?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='remove_ownpost(" + abc +")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-    $('#bidmodal').modal('show');
-}
+        $('.biderror .mes').html("<div class='pop_content'>Are you sure want to Delete Your post?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='remove_ownpost(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+        $('#bidmodal').modal('show');
+    }
 
 </script>
 
@@ -2885,16 +3205,11 @@ function deleteownpostmodel(abc){
 <script type="text/javascript">
     function editpost(abc)
     {
-
-
-
         document.getElementById('editpostdata' + abc).style.display = 'none';
         document.getElementById('editpostbox' + abc).style.display = 'block';
         document.getElementById('editpostdetails' + abc).style.display = 'none';
         document.getElementById('editpostdetailbox' + abc).style.display = 'block';
         document.getElementById('editpostsubmit' + abc).style.display = 'block';
-
-
     }
 </script>
 
@@ -2907,12 +3222,12 @@ function deleteownpostmodel(abc){
         var editpostdetails = document.getElementById("editpostdesc" + abc);
 
 
-// start khyati code
-  var $field = $('#editpostdesc' + abc);
-  //var data = $field.val();
-  var editpostdetails = $('#editpostdesc' + abc).html();
-// end khyati code
-  
+        // start khyati code
+        var $field = $('#editpostdesc' + abc);
+        //var data = $field.val();
+        var editpostdetails = $('#editpostdesc' + abc).html();
+        // end khyati code
+
 
 
         $.ajax({
@@ -2968,26 +3283,26 @@ function deleteownpostmodel(abc){
 
 
 <script>
-// Get the modal
+    // Get the modal
     var modal = document.getElementById('myModal3');
 
-// Get the button that opens the modal
+    // Get the button that opens the modal
     var btn = document.getElementById("myBtn3");
 
-// Get the <span> element that closes the modal
+    // Get the <span> element that closes the modal
     var span = document.getElementsByClassName("close")[0];
 
-// When the user clicks the button, open the modal 
+    // When the user clicks the button, open the modal 
     btn.onclick = function () {
         modal.style.display = "block";
     }
 
-// When the user clicks on <span> (x), close the modal
+    // When the user clicks on <span> (x), close the modal
     span.onclick = function () {
         modal.style.display = "none";
     }
 
-// When the user clicks anywhere outside of the modal, close it
+    // When the user clicks anywhere outside of the modal, close it
     window.onclick = function (event) {
         if (event.target == modal) {
             modal.style.display = "none";
@@ -3064,11 +3379,7 @@ function deleteownpostmodel(abc){
             return filename.replace('(', '_').replace(']', '_');
         }
     });
-    /*
-     $(".file").on('fileselect', function(event, n, l) {
-     alert('File Selected. Name: ' + l + ', Num: ' + n);
-     });
-     */
+
     $("#file-3").fileinput({
         showUpload: false,
         showCaption: false,
@@ -3102,14 +3413,7 @@ function deleteownpostmodel(abc){
     $(".btn-info").on('click', function () {
         $("#file-4").fileinput('refresh', {previewClass: 'bg-info'});
     });
-    /*
-     $('#file-4').on('fileselectnone', function() {
-     alert('Huh! You selected no files.');
-     });
-     $('#file-4').on('filebrowse', function() {
-     alert('File browse clicked for #file-4');
-     });
-     */
+
     $(document).ready(function () {
         $("#test-upload").fileinput({
             'showPreview': false,
@@ -3132,11 +3436,7 @@ function deleteownpostmodel(abc){
                 {caption: "nature-3.jpg", size: 632762, width: "120px", url: "{$url}", key: 3},
             ]
         });
-        /*
-         $("#test-upload").on('fileloaded', function(event, file, previewId, index) {
-         alert('i = ' + index + ', id = ' + previewId + ', file = ' + file.name);
-         });
-         */
+
     });
 </script>
 
@@ -3159,170 +3459,141 @@ function deleteownpostmodel(abc){
 
     function imgval() {
 
-
-//var fileInput = document.getElementById('test-upload');
-
-
-var fileInput = document.getElementById("test-upload").files;
-var product_name1 = document.getElementById("test-upload-product").value;
-var product_description1 = document.getElementById("test-upload-des").value;
-var product_fileInput1 = document.getElementById("test-upload").value;
-//alert(product_name1); alert(product_description1); alert(product_fileInput1);
+        var fileInput = document.getElementById("test-upload").files;
+        var product_name1 = document.getElementById("test-upload-product").value;
+        var product_description1 = document.getElementById("test-upload-des").value;
+        var product_fileInput1 = document.getElementById("test-upload").value;
 
 
-if(product_fileInput1 == '' && product_name1 == '' && product_description1 == '')
-  { 
- 
-$('.biderror .mes').html("<div class='pop_content'>This post appears to be blank. Please write or attach (photos, videos, audios, pdf) to post.");
-          $('#bidmodal').modal('show');
-         setInterval('window.location.reload()', 10000);
-       // window.location='';
-       event.preventDefault();
-        return false;
-
-}else{
-   
-        for (var i = 0; i < fileInput.length; i++)
+        if (product_fileInput1 == '' && product_name1 == '' && product_description1 == '')
         {
-            var vname = fileInput[i].name;
-            var vfirstname = fileInput[0].name;
-            var ext = vfirstname.split('.').pop();
-            var ext1 = vname.split('.').pop();
-            var allowedExtensions = ['jpg', 'jpeg', 'png', 'gif'];
-            var allowesvideo = ['mp4', '3gp'];
-            var allowesaudio = ['mp3'];
-            var allowespdf = ['pdf'];
 
-            var foundPresent = $.inArray(ext, allowedExtensions) > -1;
-            var foundPresentvideo = $.inArray(ext, allowesvideo) > -1;
-            var foundPresentaudio = $.inArray(ext, allowesaudio) > -1;
-            var foundPresentpdf = $.inArray(ext, allowespdf) > -1;
+            $('.biderror .mes').html("<div class='pop_content'>This post appears to be blank. Please write or attach (photos, videos, audios, pdf) to post.");
+            $('#bidmodal').modal('show');
+            setInterval('window.location.reload()', 10000);
+            // window.location='';
+            event.preventDefault();
+            return false;
 
-            if (foundPresent == true)
+        } else {
+
+            for (var i = 0; i < fileInput.length; i++)
             {
-                var foundPresent1 = $.inArray(ext1, allowedExtensions) > -1;
+                var vname = fileInput[i].name;
+                var vfirstname = fileInput[0].name;
+                var ext = vfirstname.split('.').pop();
+                var ext1 = vname.split('.').pop();
+                var allowedExtensions = ['jpg', 'jpeg', 'png', 'gif'];
+                var allowesvideo = ['mp4', '3gp'];
+                var allowesaudio = ['mp3'];
+                var allowespdf = ['pdf'];
 
-                if (foundPresent1 == true && fileInput.length <= 10) {
-                } else {
+                var foundPresent = $.inArray(ext, allowedExtensions) > -1;
+                var foundPresentvideo = $.inArray(ext, allowesvideo) > -1;
+                var foundPresentaudio = $.inArray(ext, allowesaudio) > -1;
+                var foundPresentpdf = $.inArray(ext, allowespdf) > -1;
 
-                    $('.biderror .mes').html("<div class='pop_content'>sorry this is not valid file for this post please try to uplode in new post.");
-                    $('#bidmodal').modal('show');
-                    setInterval('window.location.reload()', 10000);
-                    // window.location='';
-                    event.preventDefault();
-                    return false;
-                }
+                if (foundPresent == true)
+                {
+                    var foundPresent1 = $.inArray(ext1, allowedExtensions) > -1;
 
-            } else if (foundPresentvideo == true)
-            {
+                    if (foundPresent1 == true && fileInput.length <= 10) {
+                    } else {
 
-                var foundPresent1 = $.inArray(ext1, allowesvideo) > -1;
+                        $('.biderror .mes').html("<div class='pop_content'>sorry this is not valid file for this post please try to uplode in new post.");
+                        $('#bidmodal').modal('show');
+                        setInterval('window.location.reload()', 10000);
+                        // window.location='';
+                        event.preventDefault();
+                        return false;
+                    }
 
-                if (foundPresent1 == true && fileInput.length == 1) {
-                } else {
-                    $('.biderror .mes').html("<div class='pop_content'>sorry this is not valid file for this post please try to uplode in new post.");
-                    $('#bidmodal').modal('show');
-                    setInterval('window.location.reload()', 10000);
-                    event.preventDefault();
-                    return false;
-                }
-            } else if (foundPresentaudio == true)
-            {
+                } else if (foundPresentvideo == true)
+                {
 
-                var foundPresent1 = $.inArray(ext1, allowesaudio) > -1;
+                    var foundPresent1 = $.inArray(ext1, allowesvideo) > -1;
 
-                if (foundPresent1 == true && fileInput.length == 1) {
-                } else {
-                    $('.biderror .mes').html("<div class='pop_content'>sorry this is not valid file for this post please try to uplode in new post.");
-                    $('#bidmodal').modal('show');
-                    setInterval('window.location.reload()', 10000);
-                    event.preventDefault();
-                    return false;
-                }
-            } else if (foundPresentpdf == true)
-            {
+                    if (foundPresent1 == true && fileInput.length == 1) {
+                    } else {
+                        $('.biderror .mes').html("<div class='pop_content'>sorry this is not valid file for this post please try to uplode in new post.");
+                        $('#bidmodal').modal('show');
+                        setInterval('window.location.reload()', 10000);
+                        event.preventDefault();
+                        return false;
+                    }
+                } else if (foundPresentaudio == true)
+                {
 
-                var foundPresent1 = $.inArray(ext1, allowespdf) > -1;
+                    var foundPresent1 = $.inArray(ext1, allowesaudio) > -1;
 
-                if (foundPresent1 == true && fileInput.length == 1) {
-                } else {
-                    $('.biderror .mes').html("<div class='pop_content'>sorry this is not valid file for this post please try to uplode in new post.");
-                    $('#bidmodal').modal('show');
-                    setInterval('window.location.reload()', 10000);
-                    event.preventDefault();
-                    return false;
+                    if (foundPresent1 == true && fileInput.length == 1) {
+                    } else {
+                        $('.biderror .mes').html("<div class='pop_content'>sorry this is not valid file for this post please try to uplode in new post.");
+                        $('#bidmodal').modal('show');
+                        setInterval('window.location.reload()', 10000);
+                        event.preventDefault();
+                        return false;
+                    }
+                } else if (foundPresentpdf == true)
+                {
+
+                    var foundPresent1 = $.inArray(ext1, allowespdf) > -1;
+
+                    if (foundPresent1 == true && fileInput.length == 1) {
+                    } else {
+                        $('.biderror .mes').html("<div class='pop_content'>sorry this is not valid file for this post please try to uplode in new post.");
+                        $('#bidmodal').modal('show');
+                        setInterval('window.location.reload()', 10000);
+                        event.preventDefault();
+                        return false;
+                    }
                 }
             }
-
-        } }
+        }
     }
 
 </script>
 
 <script type="text/javascript">
-  
-$(document).ready(function(){
-  $('.modal-close').on('click',function(){
-      $('.modal-post').hide();
-  });
-});
+
+    $(document).ready(function () {
+        $('.modal-close').on('click', function () {
+            $('.modal-post').hide();
+        });
+    });
 
 </script>
 
 
 <!-- insert validation end -->
 
-<script language=JavaScript>
-<!--
-function check_length(my_form)
-{ 
-maxLen = 50; // max number of characters allowed
-if (my_form.my_text.value.length >= maxLen) { 
-// Alert message if maximum limit is reached. 
-// If required Alert can be removed. 
-var msg = "You have reached your maximum limit of characters allowed";
-//alert(msg);
-// Reached the Maximum length so trim the textarea
-  my_form.my_text.value = my_form.my_text.value.substring(0, maxLen); 
-  
- }
-else{ // Maximum length not reached so update the value of my_text counter
-  my_form.text_num.value = maxLen - my_form.my_text.value.length;
-  
-}
-}
-//-->
-</script>
-
-
-
 <!-- zalak script for more decription strat -->
 
 <script>
-$(function() {
-var showTotalChar = 150, showChar = "More", hideChar = "less";
-$('.show').each(function() {
-var content = $(this).text();
-if (content.length > showTotalChar) {
-var con = content.substr(0, showTotalChar);
-var hcon = content.substr(showTotalChar, content.length - showTotalChar);
-var txt= con +  '<span class="dots">...</span><span class="morectnt"><span>' + hcon + '</span>&nbsp;&nbsp;<a href="" class="showmoretxt">' + showChar + '</a></span>';
-$(this).html(txt);
-}
-});
-$(".showmoretxt").click(function() {
-if ($(this).hasClass("sample")) {
-$(this).removeClass("sample");
-$(this).text(showChar);
-} else {
-$(this).addClass("sample");
-$(this).text(hideChar);
-}
-$(this).parent().prev().toggle();
-$(this).prev().toggle();
-return false;
-});
-});
+    $(function () {
+        var showTotalChar = 150, showChar = "More", hideChar = "less";
+        $('.show').each(function () {
+            var content = $(this).text();
+            if (content.length > showTotalChar) {
+                var con = content.substr(0, showTotalChar);
+                var hcon = content.substr(showTotalChar, content.length - showTotalChar);
+                var txt = con + '<span class="dots">...</span><span class="morectnt"><span>' + hcon + '</span>&nbsp;&nbsp;<a href="" class="showmoretxt">' + showChar + '</a></span>';
+                $(this).html(txt);
+            }
+        });
+        $(".showmoretxt").click(function () {
+            if ($(this).hasClass("sample")) {
+                $(this).removeClass("sample");
+                $(this).text(showChar);
+            } else {
+                $(this).addClass("sample");
+                $(this).text(hideChar);
+            }
+            $(this).parent().prev().toggle();
+            $(this).prev().togg            le();
+            return false;
+        });
+    });
 </script>
 
 <!-- zalak script for more decription end -->
@@ -3336,9 +3607,61 @@ return false;
             'overflow-y': 'hidden'
         }).height(e.scrollHeight);
     }
-    $('.textarea').each(function() {
+    $('.textarea').each(function () {
         h(this);
-    }).on('input', function() {
+    }).on('input', function () {
         h(this);
     });
 </script>
+
+
+<script type="text/javascript">
+    function likeuserlist(post_id) {
+
+        $.ajax({
+            type: 'POST',
+            url: '<?php echo base_url() . "artistic/likeuserlist" ?>',
+            data: 'post_id=' + post_id,
+            dataType: "html",
+            success: function (data) {
+                var html_data = data;
+                $('#likeusermodal .mes').html(html_data);
+                $('#likeusermodal').modal('show');
+            }
+        });
+
+
+    }
+</script>
+
+<style type="text/css">
+    .likeduser{
+        width: 100%;
+        background-color: #00002D;
+    }
+    .likeduser-title{
+        color: #fff;
+        margin-bottom: 5px;
+        padding: 7px;
+    }
+    .likeuser_list{
+        background-color: #ccc;
+        float: left;
+        margin: 0px 6px 5px 9px;
+        padding: 5px;
+        width: 47%;
+        font-size: 14px;
+    }
+    .likeduserlist, .likeduserlist1 {
+        float: left;
+        /*        margin-left: 15px;
+                margin-right: 15px;*/
+        width: 96%;
+    }
+    .like_one_other{
+        margin-left: 15px;
+        /*  margin-right: 15px;*/
+
+    }
+
+</style>

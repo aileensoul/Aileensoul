@@ -1033,7 +1033,7 @@
                                                                    ?> </a>
 
                                                                 <div class="datespan">
-                                                                    <span style="font-weight: 400;"> <?php // echo date('d-M-Y',strtotime($row['created_date']));                                       ?>
+                                                                    <span style="font-weight: 400;"> <?php // echo date('d-M-Y',strtotime($row['created_date']));                                         ?>
 
                                                                         <?php echo $row['created_date']; ?>
 
@@ -1042,7 +1042,7 @@
 
                                                         </div></li>
                                                     <!-- 
-                                                    <li><div class="post-design-product"><a><?php //echo $listFinal ;                                       ?> </a></div></li>
+                                                    <li><div class="post-design-product"><a><?php //echo $listFinal ;                                         ?> </a></div></li>
                                                     -->
 
                                                     <li>
@@ -1086,12 +1086,12 @@
 
                                                         if ($artsave) {
                                                             ?>
-                                                                                                                                                                                                                
-                                                                                                                                                                                                                   <a><i class="fa fa-bookmark" aria-hidden="true"></i>Saved Post</a>
-                                                                                                                                                                                                                
+                                                                                                                                                                                                                        
+                                                                                                                                                                                                                        <a><i class="fa fa-bookmark" aria-hidden="true"></i>Saved Post</a>
+                                                                                                                                                                                                                        
                                                         <?php } else { ?>
-                                                                                                                                                                                                                
-                                                                                                                                                                                                                 <a id="<?php echo $row['art_post_id']; ?>" onClick="save_post(this.id)" href="#popup1" class="<?php echo 'savedpost' . $row['art_post_id']; ?>"><i class="fa fa-bookmark" aria-hidden="true"></i>Save Post</a>
+                                                                                                                                                                                                                        
+                                                                                                                                                                                                                        <a id="<?php echo $row['art_post_id']; ?>" onClick="save_post(this.id)" href="#popup1" class="<?php echo 'savedpost' . $row['art_post_id']; ?>"><i class="fa fa-bookmark" aria-hidden="true"></i>Save Post</a>
                                                         <?php } ?> -->
 
 
@@ -1110,7 +1110,7 @@
 
                                                     <div id="<?php echo 'editpostdetailbox' . $row['art_post_id']; ?>" style="display:none;">
 
-                                                                                                                                                                                                                                                                                                                <!--   <textarea id="<?php echo 'editpostdesc' . $row['art_post_id']; ?>" name="editpostdesc"><?php echo $row['art_description']; ?></textarea>  -->
+                                                                                                                                                                                                                                                                                                                                <!--   <textarea id="<?php echo 'editpostdesc' . $row['art_post_id']; ?>" name="editpostdesc"><?php echo $row['art_description']; ?></textarea>  -->
                                                         <div contenteditable="true"  id="<?php echo 'editpostdesc' . $row['art_post_id']; ?>" class="textbuis  editable_text" name="editpostdesc" style="width: 75%; margin-bottom: 10px;"><?php echo $row['art_description']; ?></div>
 
 
@@ -1662,6 +1662,19 @@
                     </div>
                     <!-- Model Popup Close -->
 
+                    <!-- Bid-modal-2  -->
+                    <div class="modal fade message-box" id="likeusermodal" role="dialog">
+                        <div class="modal-dialog modal-lm">
+                            <div class="modal-content">
+                                <button type="button" class="modal-close" data-dismiss="modal">&times;</button>       
+                                <div class="modal-body">
+                                    <span class="mes">
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Model Popup Close -->
 
                     </body>
 
@@ -3248,6 +3261,25 @@
                         });
                     </script>
 
+                    <script type="text/javascript">
+                        function likeuserlist(post_id) {
+
+                            $.ajax({
+                                type: 'POST',
+                                url: '<?php echo base_url() . "artistic/likeuserlist" ?>',
+                                data: 'post_id=' + post_id,
+                                dataType: "html",
+                                success: function (data) {
+                                    var html_data = data;
+                                    $('#likeusermodal .mes').html(html_data);
+                                    $('#likeusermodal').modal('show');
+                                }
+                            });
+
+
+                        }
+                    </script>
+
                     <style type="text/css">
                         .likeduser{
                             width: 100%;
@@ -3277,4 +3309,5 @@
                             /*  margin-right: 15px;*/
 
                         }
+
                     </style>
