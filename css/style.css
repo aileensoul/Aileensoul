@@ -2388,7 +2388,8 @@ border-bottom: 1px solid #000033;
 .popup-textarea textarea {
     border: none;
     width: 100%;
-    height:20%;
+  height: auto;
+        min-height: 30%;
     color: #000;
     padding: 12px 20px;
     box-sizing: border-box;
@@ -4392,9 +4393,9 @@ fieldset .add_post_btns{min-width: 120px;padding:8px 30px 8px;}
     .remove_tab a:hover{
   
     cursor: pointer!important;
-    background: #e1e1e1!important;
+    background: none!important;
     text-decoration: none!important;
-    color: #666!important;
+    color: #000033!important;
     -webkit-tap-highlight-color: rgba(0,0,0,0)!important;
     -webkit-font-smoothing: antialiased!important;
     -moz-osx-font-smoothing: grayscale!important;}
@@ -4405,7 +4406,7 @@ fieldset .add_post_btns{min-width: 120px;padding:8px 30px 8px;}
     left: 50%!important;
     right: 50%!important;
     bottom: 0!important;
-    background: #2098D1!important;
+    background: #000033!important;
     height: 4px;
     -webkit-transition-property: left, right!important;
     transition-property: left, right!important;

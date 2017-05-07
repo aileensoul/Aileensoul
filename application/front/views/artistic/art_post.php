@@ -158,7 +158,8 @@
     }
     .popup-textarea .description{
         width: 100%;
-        height: 30%;
+        height: auto;
+        min-height: 30%;
         color: #999999;
         padding: 12px 20px;
         box-sizing: border-box;
@@ -864,15 +865,15 @@
 
                                 <?php echo form_open_multipart(base_url('artistic/art_post_insert/'), array('id' => 'artpostform', 'name' => 'artpostform', 'class' => 'clearfix', 'onsubmit' => "imgval(event)")); ?>
 
-                                <div class="main-text-area col-md-12"  style="border-bottom: 5px solid #ced5df;">
+                                <div class="main-text-area col-md-12" >
                                     <div class="popup-img col-md-1"> <img  src="<?php echo base_url(ARTISTICIMAGE . $artisticdata[0]['art_user_image']); ?>"  alt="">
                                     </div>
                                     <div id="myBtn"  class="editor-content col-md-10 popup-text" >
                                            <!-- <textarea name="product_title" placeholder="Post Your Product...."></textarea>  -->
                                         <textarea id= "test-upload_product" placeholder="Post Your Art...."  onKeyPress=check_length(this.form); onKeyDown=check_length(this.form); 
                                                   name=my_text rows=4 cols=30 class="post_product_name" style="position: relative;"></textarea>
-                                        <div style="position: absolute; top: 20px; right: 13px; border: none;">                        
-                                            <input size=1 value=50 name=text_num style="width: 52px;" readonly> 
+                                         <div style="position: absolute; top: 21px; right: 19px; border: none;">                        
+                                            <input size=1 value=50 name=text_num style=" border: none;   width: 30px; padding: 5px; height: 30px;" readonly> 
                                         </div>
 
                                     </div>
@@ -886,6 +887,7 @@
                                                              margin-top: 20px;"></i> </div>
 
                                 </div>
+                                <div class="row"></div>
                                 <div  id="text"  class="editor-content col-md-12 popup-textarea" >
                                     <textarea id="test-upload_des" name="product_desc" class="description" placeholder="Enter Description"></textarea>
 

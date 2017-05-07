@@ -318,9 +318,7 @@ responsive image design start -->
                 <?php
                 $userid = $this->session->userdata('aileenuser');
                 if ($artisticdata[0]['user_id'] == $userid) {
-                    ?>
-
-                                                                                                                                                                                <!--<a href="#popup-form" class="fancybox"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>-->
+                    ?>                                                                                                                                    <!--<a href="#popup-form" class="fancybox"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>-->
                     <a href="javascript:void(0);" onclick="updateprofilepopup();"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>
                 <?php } ?>
             </div>
@@ -353,8 +351,7 @@ responsive image design start -->
                     $userid = $this->session->userdata('aileenuser');
                     if ($artisticdata[0]['user_id'] == $userid) {
                         ?> 
-                      <!-- <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'art_savepost') { ?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/art_savepost'); ?>">Saved Post</a>
-                                                                                                                                                                                                </li> -->
+                      <!-- <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'art_savepost') { ?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/art_savepost'); ?>">Saved Post</a>                                                                                                                                                                                                </li> -->
 
                         <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'userlist') { ?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/userlist'); ?>">Userlist</a>
                         </li>
@@ -991,6 +988,7 @@ responsive image design start -->
                                                                                 margin-top: 25px;"></i> </div>
 
                         </div>
+                        <div class="row"></div>
                         <div  id="text"  class="editor-content col-md-12 popup-textarea" >
                             <textarea id="test-upload-des" name="product_desc" class="description" placeholder="Enter Description"></textarea>
 
