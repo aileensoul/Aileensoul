@@ -4426,7 +4426,8 @@ fieldset .add_post_btns{min-width: 120px;padding:8px 30px 8px;}
     width: 110px;
     display: inline-block; }
     .search_img img{height: 100%; width: 100%;}
-    .search_button{margin-top: 17px;}
+    .search_button{margin-top: 31px;
+    margin-left: 23px;}
     .search_button button{    margin-bottom: 6px;
     width: 90px;
     padding: 8px 0px;
@@ -4446,3 +4447,4 @@ fieldset .add_post_btns{min-width: 120px;padding:8px 30px 8px;}
 
     border: 1px solid #efefef;
     border-bottom: none;}
+    .color-search{color: #999!important;}

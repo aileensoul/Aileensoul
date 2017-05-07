@@ -105,8 +105,8 @@
                                     <div class="job-contact-frnd ">
 <!-- main data start -->
                                     
-                                       <div class="profile-job-post-title-inside clearfix">
-          <div class="profile-job-profile-button clearfix box_search_module">
+                                       <div class="profile-job-post-title-inside clearfix" style="border: 1px solid #d9d9d9;">
+          <div class="profile-job-profile-button clearfix box_search_module" style="height: 16%;">
                                                             <!-- pop up box start-->
               
                                                             <!-- pop up box end-->
@@ -128,21 +128,21 @@
       </li>
       
       <li style="display: block;">
-        <a style="font-size: 16px;" href="" title="IAS">
+        <a  class="color-search" style="font-size: 16px;" href="" title="IAS">
                   It Sector                
            </a>
        </li>
        <li style="display: block;">
-         <a href="">
+         <a  class="color-search" href="">
            Production
          </a>
 
        </li>
        <li style="display: block;">
-         <a href="">Ahmedabad,India</a>
+         <a  class="color-search" href="">Ahmedabad,India</a>
        </li>
        <li style="display: block;">
-         <a style="font-weight: 600;" href="">www.aileensoul.com</a>
+         <a  class="color-search" style="font-weight: 600;" href="">www.aileensoul.com</a>
        </li>
     </ul>
       </div>
