@@ -2931,7 +2931,7 @@ class Artistic extends MY_Controller {
                     $cmtinsert .= '<div class="comment-details-menu">';
 
 
-                    $cmtinsert .= '<div id="editboxtwo' . $art['artistic_post_comment_id'] . '" style="display:block;">';
+                    $cmtinsert .= '<div id="editcommentboxtwo' . $art['artistic_post_comment_id'] . '" style="display:block;">';
                     $cmtinsert .= '<a id="' . $art['artistic_post_comment_id'] . '"';
                     $cmtinsert .= 'onClick="comment_editboxtwo(this.id)">';
                     $cmtinsert .= 'Edit';
@@ -3508,7 +3508,7 @@ class Artistic extends MY_Controller {
 
                 $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
                 $cmtinsert .= '<div class="comment-details-menu">';
-                $cmtinsert .= '<div id="editbox' . $art['artistic_post_comment_id'] . '" style="display:block;">';
+                $cmtinsert .= '<div id="editcommentbox' . $art['artistic_post_comment_id'] . '" style="display:block;">';
                 $cmtinsert .= '<a id="' . $art['artistic_post_comment_id'] . '"';
                 $cmtinsert .= 'onClick="comment_editbox(this.id)">';
                 $cmtinsert .= 'Edit';
