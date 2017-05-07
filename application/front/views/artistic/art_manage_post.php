@@ -941,7 +941,7 @@ responsive image design start -->
                                                                ">
                         </div>
                         <div id="myBtn3"  class="editor-content col-md-11 popup-text" contenteditable>
-                            <span style="font-size: 23px;"> Post Your Art....</span> 
+                            <span> Post Your Art....</span> 
                           <!--  <span class="fr">
                             <input type="file" id="FileID" style="display:none;">
                              <label for="FileID"><i class=" fa fa-camera fa"  style=" margin: 8px; cursor:pointer">  </i>
