@@ -1163,7 +1163,7 @@ class Business_profile extends MY_Controller {
         //echo $insert_id; die(); 
         $config = array(
             'upload_path' => 'uploads/bus_post_image/',
-            'max_size' => 2500000000000,
+            //'max_size' => 2500000000000,
             'allowed_types' => 'gif|jpeg|jpg|png|pdf|mp4|mp3',
             'overwrite' => true,
             'remove_spaces' => true);
@@ -5529,7 +5529,11 @@ class Business_profile extends MY_Controller {
                 $pnfour .= '' . $rowdata['comments'] . '</br></div>';
 
                 $pnfour .= '<div class="col-md-12"><div class="col-md-10">';
-                $pnfour .= '<input type="text" name="' . $rowdata['business_profile_post_comment_id'] . '" id="editcommenttwo' . $rowdata['business_profile_post_comment_id'] . '" style="display:none" value="' . $rowdata['comments'] . '" onClick="commentedittwo(this.name)">';
+
+                $pnfour .= '<div contenteditable="true" class="editable_text" name="' . $rowdata['business_profile_post_comment_id'] . '" id="editcommenttwo' . $rowdata['business_profile_post_comment_id'] . '" style="display:none" value="' . $rowdata['comments'] . '" onClick="commentedittwo(this.name)">';
+                $pnfour .= '' . $rowdata['comments'] . '';
+                $pnfour .= '</div>';
+
                 $pnfour .= '</div>  <div class="col-md-2 comment-edit-button">';
                 $pnfour .= '<button id="editsubmittwo' . $rowdata['business_profile_post_comment_id'] . '" style="display:none" onClick="edit_commenttwo(' . $rowdata['business_profile_post_comment_id'] . ')">Save</button>
  </div>';
