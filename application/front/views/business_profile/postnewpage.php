@@ -656,7 +656,7 @@ width: 68px;">
     <a href="<?php echo "#popup5" . $busienss_data[0]['business_profile_post_id']; ?>"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete Post</a>
 
 
-    <?php
+    <!-- <?php
 
   $userid  = $this->session->userdata('aileenuser'); 
   $contition_array = array('user_id' => $userid, 'business_save' => '1', 'post_id ' => $busienss_data[0]['business_profile_post_id']);
@@ -672,19 +672,39 @@ width: 68px;">
 
    <a id="<?php echo $busienss_data[0]['business_profile_post_id']; ?>" onClick="save_post(this.id)" href="#popup1" class="<?php echo 'savedpost' . $busienss_data[0]['business_profile_post_id']; ?>"><i class="fa fa-bookmark" aria-hidden="true"></i>  Save Post</a>
 
-<?php }?>
+<?php }?> -->
 
     <a href="<?php echo base_url('business_profile/business_profile_contactperson/'.$busienss_data[0]['user_id']. ''); ?>"><i class="fa fa-user" aria-hidden="true"></i> Contact Person</a>
 <?php }?>
   </div>
 </div>
 
-              <div class="post-design-desc ">
-                  <div> <a style="margin-bottom: 0px;     font-size: 16px"><?php echo $busienss_data[0]['product_name']; ?></a></div> <span class="show">
-<?php  echo $busienss_data[0]['product_description'];  ?>
-</span>
+                  <div class="post-design-desc ">
+                  <div id="<?php echo 'editpostdata' . $row['business_profile_post_id']; ?>" style="display:block;">
+                      <a  style="margin-bottom: 0px;   font-weight: 600;  font-size: 16px"><?php echo $row['product_name']; ?></a>
+                   </div>
 
-                     </div> 
+                   <div id="<?php echo 'editpostbox' . $row['business_profile_post_id']; ?>" style="display:none;">
+                       <input type="text" id="<?php echo 'editpostname' . $row['business_profile_post_id']; ?>" name="editpostname" placeholder="Product Name" value="<?php echo $row['product_name']; ?>">
+                   </div>
+
+
+                   <div id="<?php echo 'editpostdetails' . $row['business_profile_post_id']; ?>" style="display:block;">
+                      <span class="show">  <?php print $row['product_description']; ?>
+                      </span>
+                     </div>
+
+           <div id="<?php echo 'editpostdetailbox' . $row['business_profile_post_id']; ?>" style="display:none;">
+
+              <!-- <textarea id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" name="editpostdesc"><?php echo $row['product_description']; ?>
+                     </textarea>  -->
+               <div  contenteditable="true" id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" placeholder="Product Description" class="textbuis  editable_text" placeholder="Description of Your Product"  name="editpostdesc"><?php echo $row['product_description']; ?></div>
+
+                <!-- <div contenteditable="true"  id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" placeholder="Product Description" class="textbuis  editable_text"  name="editpostdesc"><?php echo $row['product_description']; ?></div>  -->
+
+              </div>
+<button class="fr" id="<?php echo "editpostsubmit" . $row['business_profile_post_id']; ?>" style="display:none;margin: 5px 0;" onClick="edit_postinsert(<?php echo $row['business_profile_post_id']; ?>)">Save</button>
+ </div> 
                 </div>
 
 
@@ -2713,3 +2733,77 @@ $('.textarea').each(function ()
  }).on('input', function () {    h(this);
                                             });
 </script>
+
+
+<!-- edit post start -->
+
+
+<script type="text/javascript">
+      function editpost(abc)
+      {
+          document.getElementById('editpostdata' + abc).style.display = 'none';
+          document.getElementById('editpostbox' + abc).style.display = 'block';
+          document.getElementById('editpostdetails' + abc).style.display = 'none';
+          document.getElementById('editpostdetailbox' + abc).style.display = 'block';
+          document.getElementById('editpostsubmit' + abc).style.display = 'block';
+        }
+</script>
+
+
+            <script type="text/javascript">
+                function edit_postinsert(abc)
+                { 
+
+                    var editpostname = document.getElementById("editpostname" + abc);
+
+                   
+                    //var editpostdetails = document.getElementById("editpostdesc" + abc);
+
+
+
+                    // start khyati code
+                    var $field = $('#editpostname' + abc);
+                    //var data = $field.val();
+                    var editpostdetails = $('#editpostdesc' + abc).html();
+// end khyati code
+
+
+                    // $('#editpostdesc' + abc).html("");
+                        
+            if(editpostname.value == '' && editpostdetails == ''){ 
+          $('.biderror .mes').html("<div class='pop_content'>You must either fill title or description.");
+            $('#bidmodal').modal('show');
+
+            document.getElementById('editpostdata' + abc).style.display = 'block';
+            document.getElementById('editpostbox' + abc).style.display = 'none';
+            document.getElementById('editpostdetails' + abc).style.display = 'block';
+            document.getElementById('editpostdetailbox' + abc).style.display = 'none';
+
+            document.getElementById('editpostsubmit' + abc).style.display = 'none';
+
+                }
+                else{
+
+                    $.ajax({
+                        type: 'POST',
+                        url: '<?php echo base_url() . "business_profile/edit_post_insert" ?>',
+                        data: 'business_profile_post_id=' + abc + '&product_name=' + editpostname.value + '&product_description=' + editpostdetails,
+                        dataType: "json",
+                        success: function (data) {
+
+                            document.getElementById('editpostdata' + abc).style.display = 'block';
+                            document.getElementById('editpostbox' + abc).style.display = 'none';
+                            document.getElementById('editpostdetails' + abc).style.display = 'block';
+                            document.getElementById('editpostdetailbox' + abc).style.display = 'none';
+
+                            document.getElementById('editpostsubmit' + abc).style.display = 'none';
+
+                            $('#' + 'editpostdata' + abc).html(data.title);
+                            $('#' + 'editpostdetails' + abc).html(data.description);
+                        }
+                    });
+                  }
+                }
+            </script>
+            <!-- edit post end -->
+<!-- edit post end -->
