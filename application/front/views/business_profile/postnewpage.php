@@ -1351,7 +1351,7 @@ if(count($likelistarray) > 1) {
                                         </div> 
 
                                           <div class="col-md-2 comment-edit-button">
-                                        <button id="<?php echo "editsubmit" . $rowdata['business_profile_post_comment_id']; ?>" style="display:none" onClick="edit_comment(<?php echo $rowdata['business_profile_post_comment_id']; ?>)">Comment</button>
+                                        <button id="<?php echo "editsubmit" . $rowdata['business_profile_post_comment_id']; ?>" style="display:none" onClick="edit_comment(<?php echo $rowdata['business_profile_post_comment_id']; ?>)">Save</button>
 </div>
 </div>
  <div class="art-comment-menu-design"> 

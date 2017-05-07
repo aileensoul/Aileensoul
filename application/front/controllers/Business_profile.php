@@ -5530,7 +5530,7 @@ class Business_profile extends MY_Controller {
 
                 $pnfour .= '<div class="col-md-12"><div class="col-md-10">';
 
-                $pnfour .= '<div contenteditable="true" class="editable_text" name="' . $rowdata['business_profile_post_comment_id'] . '" id="editcommenttwo' . $rowdata['business_profile_post_comment_id'] . '" style="display:none" value="' . $rowdata['comments'] . '" onClick="commentedittwo(this.name)">';
+                $pnfour .= '<div contenteditable="true" class="editable_text" name="' . $rowdata['business_profile_post_comment_id'] . '" id="editcommenttwo' . $rowdata['business_profile_post_comment_id'] . '" style="display:none" onClick="commentedittwo(' . $rowdata['business_profile_post_comment_id'] . ')">';
                 $pnfour .= '' . $rowdata['comments'] . '';
                 $pnfour .= '</div>';
 
@@ -5606,6 +5606,10 @@ class Business_profile extends MY_Controller {
         $post_id = $_POST["post_id"];
         $post_comment = $_POST["comment"];
 
+
+        $contition_array = array('business_profile_post_id' => $_POST["post_id"], 'status' => '1');
+        $busdatacomment = $this->data['busdatacomment'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        
         $data = array(
             'user_id' => $userid,
             'business_profile_post_id' => $post_id,
@@ -5619,6 +5623,25 @@ class Business_profile extends MY_Controller {
 
         $insert_id = $this->common->insert_data_getid($data, 'business_profile_post_comment');
 
+
+         // insert notification
+        
+            if($busdatacomment[0]['user_id'] == $userid){}
+            else{
+            $notificationdata = array(
+                'not_type' => 6,
+                'not_from_id' => $userid,
+                'not_to_id' => $busdatacomment[0]['user_id'],
+                'not_read' => 2,
+                'not_product_id' => $insert_id,
+                'not_from' => 6,
+                'not_img' => 1
+            );
+           //echo "<pre>"; print_r($notificationdata); 
+            $insert_id_notification = $this->common->insert_data_getid($notificationdata, 'notification');
+          }
+            // end notoification
+
         $contition_array = array('business_profile_post_id' => $_POST["post_id"], 'status' => '1');
         $businessprofiledata = $this->data['businessprofiledata'] = $this->common->select_data_by_condition('business_profile_post_comment', $contition_array, $data = '*', $sortby = 'business_profile_post_comment_id', $orderby = 'DESC', $limit = '1', $offset = '', $join_str = array(), $groupby = '');
         //echo "<pre>"; print_r($businessprofiledata); die();
@@ -5630,7 +5653,7 @@ class Business_profile extends MY_Controller {
 
             $business_userimage = $this->db->get_where('business_profile', array('user_id' => $business_profile['user_id'], 'status' => 1))->row()->business_user_image;
 
-            // $cmtinsert = '<div class="all-comment-comment-box">';
+             $cmtinsert .= '<div class="all-comment-comment-box">';
             $cmtinsert .= '<div class="post-design-pro-comment-img">';
 
 
@@ -5641,7 +5664,11 @@ class Business_profile extends MY_Controller {
             $cmtinsert .= '<div class="comment-details" id= "showcomment' . $business_profile['business_profile_post_comment_id'] . '"" >';
             $cmtinsert .= $business_profile['comments'];
             $cmtinsert .= '</div>';
-            $cmtinsert .= '<input type="text" name="' . $business_profile['business_profile_post_comment_id'] . '" id="editcomment' . $business_profile['business_profile_post_comment_id'] . '"style="display:none;" value="' . $business_profile['comments'] . ' " onClick="commentedit(' . $business_profile['business_profile_post_comment_id'] . ')">';
+
+            $cmtinsert .= '<div contenteditable="true" class="editable_text" name="' . $business_profile['business_profile_post_comment_id'] . '" id="editcomment' . $business_profile['business_profile_post_comment_id'] . '"style="display:none;" onClick="commentedit(' . $business_profile['business_profile_post_comment_id'] . ')">';
+            $cmtinsert .= $business_profile['comments'];
+            $cmtinsert .= '</div>';
+
             $cmtinsert .= '<button id="editsubmit' . $business_profile['business_profile_post_comment_id'] . '" style="display:none;" onClick="edit_comment(' . $business_profile['business_profile_post_comment_id'] . ')">Save</button><div class="art-comment-menu-design"> <div class="comment-details-menu" id="likecomment1' . $business_profile['business_profile_post_comment_id'] . '">';
 
             $cmtinsert .= '<a id="' . $business_profile['business_profile_post_comment_id'] . '"';
@@ -5716,7 +5743,7 @@ class Business_profile extends MY_Controller {
 
             $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
             $cmtinsert .= '<div class="comment-details-menu">';
-            $cmtinsert .= '<p>' . $business_profile['created_date'] . '</p></div></div>';
+            $cmtinsert .= '<p>' . $business_profile['created_date'] . '</p></div></div></div>';
 
 
             // comment aount variable start
@@ -5764,7 +5791,11 @@ class Business_profile extends MY_Controller {
             $cmtinsert .= '<div class="comment-details" id= "showcommenttwo' . $business_profile['business_profile_post_comment_id'] . '">';
             $cmtinsert .= $business_profile['comments'];
             $cmtinsert .= '</div>';
-            $cmtinsert .= '<input type="text" name="' . $business_profile['business_profile_post_comment_id'] . '" id="editcommenttwo' . $business_profile['business_profile_post_comment_id'] . '"style="display:none;" value="' . $business_profile['comments'] . ' " onClick="commentedittwo(' . $business_profile['business_profile_post_comment_id'] . ')">';
+
+            $cmtinsert .= '<div contenteditable="true" class="editable_text" name="' . $business_profile['business_profile_post_comment_id'] . '" id="editcommenttwo' . $business_profile['business_profile_post_comment_id'] . '"style="display:none;"  onClick="commentedittwo(' . $business_profile['business_profile_post_comment_id'] . ')">';
+            $cmtinsert .= $business_profile['comments'];
+            $cmtinsert .= '</div>';
+
             $cmtinsert .= '<button id="editsubmittwo' . $business_profile['business_profile_post_comment_id'] . '" style="display:none;" onClick="edit_commenttwo(' . $business_profile['business_profile_post_comment_id'] . ')">Save</button><div class="art-comment-menu-design"> <div class="comment-details-menu" id="likecomment1' . $business_profile['business_profile_post_comment_id'] . '">';
 
             $cmtinsert .= '<a id="' . $business_profile['business_profile_post_comment_id'] . '"';
