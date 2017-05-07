@@ -2327,13 +2327,13 @@ border-bottom: 1px solid #000033;
     margin-top: 13px;
     margin-bottom: 5px;
 }
-.popup-text span{color: #999999;}
-.popup-text textarea{height: 8%; width: 100%; resize: none;}
+.popup-text span{color: #999999; font-weight: 600; font-size: 22px;}
+.popup-text textarea{height: 8%; width: 100%; resize: none; border: none;}
 .post-editor .popup-textarea p{color: #999999;}
 .post-editor .popup-text span i{font-size: 25px; color: #0a2c5d; }
 .popup-img{    padding-left: 2px !important; padding-right: 0px;}
-.popup-text{padding: 16px;}
-.main-text-area{background-color: #ffffff; margin: 4px 0px 4px 0px; border-radius: 4px;    padding-left: px !important;}
+.popup-text{padding: 16px; padding-top: 25px;}
+.main-text-area{background-color: #ffffff; margin: 4px 0px 4px 0px; border-radius: 4px;    padding-left: 4px !important;}
 /* The Modal (background) */
 .modal-post {
     display: none; /* Hidden by default */
@@ -2348,6 +2348,13 @@ border-bottom: 1px solid #000033;
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
+.text_num{    font-size: 20px;
+    border: none;
+    width: 30px;
+    padding: 5px;
+    height: 30px;
+    color: #999;
+    padding-left: 0px!important;}
 
 /* Modal Content */
 .modal-content-post {
@@ -4456,3 +4463,7 @@ fieldset .add_post_btns{min-width: 120px;padding:8px 30px 8px;}
     margin-top: 10px;
 }
 .view_more_details a:hover{text-decoration-line: underline;}
+.popup-text textarea::-webkit-input-placeholder {
+    font-size: 20px;
+  
+}

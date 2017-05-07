@@ -675,7 +675,7 @@
                                     <?php } ?>
                                 </div>
                                 <div id="myBtn"  class="editor-content col-md-11 popup-text" contenteditable>
-                                    <span style="font-size: 23px;"> Post Your Product....
+                                    <span> Post Your Product....
                                     </span> 
                                 </div>
                             </div>
@@ -703,7 +703,7 @@
                                       <!-- <textarea name="product_title" placeholder="Post Your Product...."></textarea>  -->
                                         <textarea id= "test-upload-product" placeholder="Post Your Product...."  onKeyPress=check_length(this.form); onKeyDown=check_length(this.form); name=my_text rows=4 cols=30 class="post_product_name" style=" position: relative;"></textarea>
                                       <div style="position: absolute; top: 21px; right: 19px; border: none;">                       
-                                            <input size=1 value=50 name=text_num style=" border: none;   width: 30px; padding: 5px; height: 30px;" readonly> 
+                                            <input size=1 value=50 name=text_num class="text_num"  readonly> 
                                         </div>
                                     </div>
                                     <!--   <span class="fr">
