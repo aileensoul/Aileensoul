@@ -437,7 +437,7 @@
                <ul>
                   <li><b>Skills</b><span>
                   <?php
-                  $comma = ",";
+                  $comma = ", ";
                   $k = 0;
                   $aud = $row['freelancer_post_area'];
                   $aud_res = explode(',', $aud);
