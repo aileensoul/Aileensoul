@@ -998,7 +998,9 @@
                                                     <?php } elseif (in_array($ext, $allowespdf)) { ?>
                                                         <!-- one pdf start -->
                                                         <div>
-                                                            <a href="<?php echo base_url('business_profile/creat_pdf/' . $businessmultiimage[0]['image_id']) ?>">PDF
+                                                            <a title="click to open" href="<?php echo base_url('business_profile/creat_pdf/' . $businessmultiimage[0]['image_id']) ?>"><div class="pdf_img">
+                                                                <img src="<?php echo base_url('images/PDF.jpg')?>" style="height: 100%; width: 100%;">
+                                                            </div>
                                                             </a>
                                                         </div>
                                                         <!-- one pdf end -->

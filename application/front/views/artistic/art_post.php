@@ -1161,7 +1161,9 @@
 
                                                         <!-- one pdf start -->
                                                         <div>
-                                                            <a href="<?php echo base_url('artistic/creat_pdf/' . str_replace(" ", "_", $artmultiimage[0]['image_name'])) ?>">PDF</a>
+                                                            <a href="<?php echo base_url('artistic/creat_pdf/' . str_replace(" ", "_", $artmultiimage[0]['image_name'])) ?>"><div class="pdf_img">
+                                                                <img src="<?php echo base_url('images/PDF.jpg')?>" style="height: 100%; width: 100%;">
+                                                            </div></a>
                                                         </div>
                                                         <!-- one pdf end -->
 

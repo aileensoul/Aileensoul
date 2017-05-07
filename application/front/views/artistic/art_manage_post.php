@@ -911,7 +911,9 @@ responsive image design start -->
                                     <div class="image_profile">
 
 
-                                        <a href="<?php echo base_url('artistic/creat_pdf/' . $singlearray3[0]['image_id']) ?>">PDF</a>
+                                        <a href="<?php echo base_url('artistic/creat_pdf/' . $singlearray3[0]['image_id']) ?>"><div class="pdf_img">
+                                                                <img src="<?php echo base_url('images/PDF.jpg')?>" style="height: 100%; width: 100%;">
+                                                            </div></a>
                                     </div>
 
                                     <?php

@@ -806,7 +806,9 @@ width: 68px;">
 
         <!-- one pdf start -->
                  <div>
-                <a href="<?php echo base_url('business_profile/creat_pdf/'.$data['image_id']) ?>">PDF</a>
+                <a href="<?php echo base_url('business_profile/creat_pdf/'.$data['image_id']) ?>"><div class="pdf_img">
+                                                                <img src="<?php echo base_url('images/PDF.jpg')?>" style="height: 100%; width: 100%;">
+                                                            </div></a>
                 </div>
           <!-- one pdf end -->
 
