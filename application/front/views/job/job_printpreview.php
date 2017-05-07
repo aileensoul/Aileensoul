@@ -2,7 +2,7 @@
 echo $head;
 ?>
 
-<style type="text/css" media="screen">
+<!-- <style type="text/css" media="screen">
     #row2 { overflow: hidden; width: 100%; }
     #row2 img { height: 350px;width: 100%; }
     .upload-img{    float: right;
@@ -33,7 +33,7 @@ echo $head;
     }
 
 
-</style>
+</style> -->
 <!-- END HEAD -->
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
