@@ -243,7 +243,7 @@
                         <div class="full-box-module">    
                             <div class="profile-boxProfileCard  module">
                                 <div class="profile-boxProfileCard-cover">     
-                            <a class="profile-boxProfileCard-bg u-bgUserColor a-block"
+          <a class="profile-boxProfileCard-bg u-bgUserColor a-block"
                                         href="<?php echo base_url('job/job_printpreview'); ?>"
                                         tabindex="-1"
                                         aria-hidden="true"
@@ -252,8 +252,7 @@
                                          if ($jobdata[0]['profile_background'] != '') {
                                                                                           ?>
                                             <!-- box image start -->
-                          <img src="<?php echo base_url(JOBBGIMAGE . $jobdata[0]['profile_background']); ?>" class="bgImage" alt="<?php echo $jobdata[0]['fname']; ?>"  style="height: 95px;
-                                                 width: 100%;">
+                          <img src="<?php echo base_url(JOBBGIMAGE . $jobdata[0]['profile_background']); ?>" class="bgImage" alt="<?php echo $jobdata[0]['fname']; ?>" >
                                             <!-- box image end -->
                                             <?php
                                         } else {
