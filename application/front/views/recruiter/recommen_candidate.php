@@ -207,28 +207,24 @@ padding-top: 1px;}
                                                         </div>-->
                             <div class="full-box-module">    
                                 <div class="profile-boxProfileCard  module">
-                                    <div class="profile-boxProfileCard-cover">     <a class="profile-boxProfileCard-bg u-bgUserColor a-block"
-                                                                                      href="<?php echo base_url('recruiter/rec_profile'); ?>"
-                                                                                      tabindex="-1"
-                                                                                      aria-hidden="true"
-                                                                                      rel="noopener">
-                                                                                          <?php
-                                                                                          $image_ori = $recruiterdata1[0]['profile_background'];
-                                                                                          if ($image_ori) {
-                                                                                              //echo "hii"; die();
+                 <div class="profile-boxProfileCard-cover">     <a class="profile-boxProfileCard-bg u-bgUserColor a-block" href="<?php echo base_url('recruiter/rec_profile'); ?>" tabindex="-1" 
+                 aria-hidden="true" rel="noopener">
+               
+                <?php
+                 $image_ori = $recruiterdata1[0]['profile_background'];
+                if ($image_ori) {
+                        //echo "hii"; die();
                                                                                               ?>
-                                                <!-- box image start -->
-                                                <img src="<?php echo base_url(RECBGIMAGE . $recruiterdata1[0]['profile_background']); ?>" class="bgImage" alt="<?php echo $recruiterdata1[0]['rec_firstname'] . ' ' . $recruiterdata1[0]['rec_lastname']; ?>"  style="height: 95px;
-                                                     width: 100%;">
-                                                <!-- box image end -->
-                                                <?php
-                                            } else {
-                                                ?>
-                                                <img src="<?php echo base_url(WHITEIMAGE); ?>" class="bgImage" alt="<?php echo $recruiterdata1[0]['rec_firstname'] . ' ' . $recruiterdata1[0]['rec_lastname']; ?>"  style="height: 95px;
-                                                     width: 100%;">
-                                                     <?php
-                                                 }
-                                                 ?>
+                   <!-- box image start -->
+               <img src="<?php echo base_url(RECBGIMAGE . $recruiterdata1[0]['profile_background']); ?>" class="bgImage" alt="<?php echo $recruiterdata1[0]['rec_firstname'] . ' ' . $recruiterdata1[0]['rec_lastname']; ?>">
+                    <!-- box image end -->
+                         <?php
+                   } else {
+                             ?>
+                  <img src="<?php echo base_url(WHITEIMAGE); ?>" class="bgImage" alt="<?php echo $recruiterdata1[0]['rec_firstname'] . ' ' . $recruiterdata1[0]['rec_lastname']; ?>" >
+                                <?php
+                             }
+                                 ?>
                                         </a>
                                     </div>
                                     <div class="profile-boxProfileCard-content clearfix">

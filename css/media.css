@@ -164,6 +164,7 @@
     .profile-box-job-menu ul li a {  padding: 9px 8px 6px 8px; margin-right: 1px; font-size: 13px; }
     .profile-boxProfileCard-cover { height: 10%; }
     .profile-boxProfileCard-bg img { height: auto; width: 100%; }
-
+    .left-side-menu {  width: 18%; float: left; }
+    .profile-main-rec-box-menu { height: 8%; }
     }
   /* vishang end*/

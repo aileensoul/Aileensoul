@@ -257,8 +257,7 @@
                                             <?php
                                         } else {
                                             ?>
-                                            <img src="<?php echo base_url(WHITEIMAGE); ?>" class="bgImage" alt="<?php echo $jobdata[0]['fname']; ?>"  style="height: 95px;
-                                                 width: 100%;">
+                                            <img src="<?php echo base_url(WHITEIMAGE); ?>" class="bgImage" alt="<?php echo $jobdata[0]['fname']; ?>">
                                                  <?php
                                              }
                                              ?>

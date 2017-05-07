@@ -1,6 +1,60 @@
 <!-- start head -->
 <?php  echo $head; ?>
+<style>
+    .okk{
+        text-align: center;
+    }
 
+    .pop_content .okbtn{
+        position: absolute;
+        transition: all 200ms;
+        font-size: 16px;
+        text-decoration: none;
+        color: #fff;
+        padding: 8px 18px;
+        background-color: #0A2C5D;
+        left: 170px;
+        margin-top: 8px;
+        width: 100px; 
+        border-radius: 8px;
+    }
+
+
+    .pop_content .cnclbtn {
+        position: absolute;
+        transition: all 200ms;
+        font-size: 16px;
+        text-decoration: none;
+        color: #fff;
+        padding: 8px 18px;
+        background-color: #0A2C5D;
+        right: 170px;
+        margin-top: 8px;
+        width: 100px;
+        border-radius: 8px;
+    }
+
+    .popup .pop_content {
+        text-align: center;
+        margin-top: 40px;
+
+    }
+    .model_ok_cancel{
+        width:200px !important;
+    }
+
+    /*
+        @media screen and (max-width: 700px){
+            .box{
+                width: 70%;
+            }
+            .popup{
+                width: 70%;
+            }
+        } */
+
+
+</style>
 <!--post save success pop up style strat -->
 <style>
 body {
@@ -358,6 +412,8 @@ body {
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/jquery.jMosaic.css'); ?>">
@@ -680,30 +736,30 @@ width: 68px;">
 </div>
 
                   <div class="post-design-desc ">
-                  <div id="<?php echo 'editpostdata' . $row['business_profile_post_id']; ?>" style="display:block;">
-                      <a  style="margin-bottom: 0px;   font-weight: 600;  font-size: 16px"><?php echo $row['product_name']; ?></a>
+                  <div id="<?php echo 'editpostdata' . $busienss_data[0]['business_profile_post_id']; ?>" style="display:block;">
+                      <a  style="margin-bottom: 0px;   font-weight: 600;  font-size: 16px"><?php echo $busienss_data[0]['product_name']; ?></a>
                    </div>
 
-                   <div id="<?php echo 'editpostbox' . $row['business_profile_post_id']; ?>" style="display:none;">
-                       <input type="text" id="<?php echo 'editpostname' . $row['business_profile_post_id']; ?>" name="editpostname" placeholder="Product Name" value="<?php echo $row['product_name']; ?>">
+                   <div id="<?php echo 'editpostbox' . $busienss_data[0]['business_profile_post_id']; ?>" style="display:none;">
+                       <input type="text" id="<?php echo 'editpostname' . $busienss_data[0]['business_profile_post_id']; ?>" name="editpostname" placeholder="Product Name" value="<?php echo $busienss_data[0]['product_name']; ?>">
                    </div>
 
 
-                   <div id="<?php echo 'editpostdetails' . $row['business_profile_post_id']; ?>" style="display:block;">
-                      <span class="show">  <?php print $row['product_description']; ?>
+                   <div id="<?php echo 'editpostdetails' . $busienss_data[0]['business_profile_post_id']; ?>" style="display:block;">
+                      <span class="show">  <?php print $busienss_data[0]['product_description']; ?>
                       </span>
                      </div>
 
-           <div id="<?php echo 'editpostdetailbox' . $row['business_profile_post_id']; ?>" style="display:none;">
+           <div id="<?php echo 'editpostdetailbox' . $busienss_data[0]['business_profile_post_id']; ?>" style="display:none;">
 
               <!-- <textarea id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" name="editpostdesc"><?php echo $row['product_description']; ?>
                      </textarea>  -->
-               <div  contenteditable="true" id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" placeholder="Product Description" class="textbuis  editable_text" placeholder="Description of Your Product"  name="editpostdesc"><?php echo $row['product_description']; ?></div>
+               <div  contenteditable="true" id="<?php echo 'editpostdesc' . $busienss_data[0]['business_profile_post_id']; ?>" placeholder="Product Description" class="textbuis  editable_text" placeholder="Description of Your Product"  name="editpostdesc"><?php echo $busienss_data[0]['product_description']; ?></div>
 
                 <!-- <div contenteditable="true"  id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" placeholder="Product Description" class="textbuis  editable_text"  name="editpostdesc"><?php echo $row['product_description']; ?></div>  -->
 
               </div>
-<button class="fr" id="<?php echo "editpostsubmit" . $row['business_profile_post_id']; ?>" style="display:none;margin: 5px 0;" onClick="edit_postinsert(<?php echo $row['business_profile_post_id']; ?>)">Save</button>
+<button class="fr" id="<?php echo "editpostsubmit" . $busienss_data[0]['business_profile_post_id']; ?>" style="display:none;margin: 5px 0;" onClick="edit_postinsert(<?php echo $busienss_data[0]['business_profile_post_id']; ?>)">Save</button>
  </div> 
                 </div>
 
@@ -1291,7 +1347,7 @@ if(count($likelistarray) > 1) {
                                         <input type="text" name="<?php echo $rowdata['business_profile_post_comment_id']; ?>" id="<?php echo "editcomment" . $rowdata['business_profile_post_comment_id']; ?>" style="display:none" value="<?php  echo $rowdata['comments']; ?>" onClick="commentedit(this.name)"></div> -->
 
                                         <div class="col-md-10">
-   <textarea type="text" name="<?php echo $rowdata['business_profile_post_comment_id']; ?>" id="<?php echo "editcomment" . $rowdata['business_profile_post_comment_id']; ?>" style="display:none"  onClick="commentedit(this.name)" class="textarea" ><?php  echo $rowdata['comments']; ?></textarea>
+   <div contenteditable="true" class="editable_text" name="<?php echo $rowdata['business_profile_post_comment_id']; ?>" id="<?php echo "editcomment" . $rowdata['business_profile_post_comment_id']; ?>" style="display:none"  onkeyup="commentedit(<?php echo $rowdata['business_profile_post_comment_id']; ?>)"><?php  echo $rowdata['comments']; ?></div>
                                         </div> 
 
                                           <div class="col-md-2 comment-edit-button">
@@ -1414,9 +1470,7 @@ if(count($likelistarray) > 1) {
                   
                   <div class="">
                   <div class="col-md-10 inputtype-comment" style="    padding-left: 7px;">
-                  <!-- <input type="text" name="<?php echo $busienss_data[0]['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $busienss_data[0]['business_profile_post_id']; ?>" placeholder="Type Message ..." value= "" onClick="entercomment(this.name)"> -->
-                    <textarea type="text" name="<?php echo $busienss_data[0]['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $busienss_data[0]['business_profile_post_id']; ?>" placeholder="Type Message ..." value= "" onClick="entercomment(this.name)" class="textarea">  </textarea></div>
-                      <?php echo form_error('post_comment'); ?> 
+                    <div contenteditable="true" class="editable_text" name="<?php echo $busienss_data[0]['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $busienss_data[0]['business_profile_post_id']; ?>" placeholder="Type Message ..." value= "" onClick="entercomment(<?php echo $busienss_data[0]['business_profile_post_id']; ?>)"></div></div>
                       <div class="col-md-1 comment-edit-butn">        
                       <button id="<?php echo $busienss_data[0]['business_profile_post_id']; ?>" onClick="insert_comment(this.id)">Comment</button></div>
                   </div>
@@ -1434,7 +1488,22 @@ if(count($likelistarray) > 1) {
     </section>
   
         <footer>
-             <?php echo $footer;  ?>
+            <!--  <?php echo $footer;  ?> -->
+            <!-- Bid-modal  -->
+<div class="modal fade message-box biderror" id="bidmodal" role="dialog">
+    <div class="modal-dialog modal-lm">
+        <div class="modal-content">
+            <button type="button" class="modal-close" data-dismiss="modal">&times;
+            </button>       
+            <div class="modal-body">
+              <!--<img class="icon" src="images/dollar-icon.png" alt="" />-->
+                <span class="mes">
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Model Popup Close -->
         </footer>
 
 </body>
@@ -1443,7 +1512,7 @@ if(count($likelistarray) > 1) {
 
 
 <script src="<?php echo base_url('js/jquery.jMosaic.js'); ?>"></script>
- 
+<script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
 
 
    <script type="text/javascript">
@@ -1564,13 +1633,25 @@ function post_like(clicked_id)
 <script type="text/javascript">
 function insert_comment(clicked_id)
 {
-    var post_comment = document.getElementById("post_comment" + clicked_id);
-   //alert(clicked_id);
-   //alert(post_comment.value);
+    //var post_comment = document.getElementById("post_comment" + clicked_id);
+
+
+   $("#post_comment" + clicked_id).click(function () {
+            $(this).prop("contentEditable", true);
+            $(this).html("");
+        });
+
+        var sel = $("#post_comment" + clicked_id);
+        var txt = sel.html();
+        if (txt == '') {
+            return false;
+        }
+
+        $('#post_comment' + clicked_id).html("");
    $.ajax({ 
                 type:'POST',
                 url:'<?php echo base_url() . "business_profile/pninsert_comment" ?>',
-                 data:'post_id='+clicked_id + '&comment='+post_comment.value,
+                 data:'post_id='+clicked_id + '&comment='+txt,
                    success:function(data){ 
                      $('textarea').each(function(){
                       $(this).val('');
@@ -1589,14 +1670,37 @@ function insert_comment(clicked_id)
 function entercomment(clicked_id)
 { 
  
-  $(document).ready(function() {
+
+ $("#post_comment" + clicked_id).click(function () {
+            $(this).prop("contentEditable", true);
+            //$(this).html("");
+        });
+
+
+  
   $('#post_comment' + clicked_id).keypress(function(e) {
-    if (e.which == 13) {
-      var val = $('#post_comment' + clicked_id).val();
-      $.ajax({ 
+    if (e.keyCode == 13 && !e.shiftKey) {
+       e.preventDefault();
+                var sel = $("#post_comment" + clicked_id);
+                var txt = sel.html();
+                if (txt == '') {
+                    return false;
+                }
+
+                $('#post_comment' + clicked_id).html("");
+
+                if (window.preventDuplicateKeyPresses)
+                    return;
+
+                window.preventDuplicateKeyPresses = true;
+                window.setTimeout(function () {
+                    window.preventDuplicateKeyPresses = false;
+                }, 500);
+
+           $.ajax({ 
                 type:'POST',
                 url:'<?php echo base_url() . "business_profile/pninsert_comment" ?>',
-                 data:'post_id='+clicked_id + '&comment='+val,
+                 data:'post_id='+clicked_id + '&comment='+txt,
                    success:function(data){ 
                      $('textarea').each(function(){
                       $(this).val('');
@@ -1608,7 +1712,7 @@ function entercomment(clicked_id)
       //alert(val);
     }        
   });
-});
+
 
 }
 </script>
@@ -1708,7 +1812,15 @@ function comment_like1(clicked_id)
 <!--comment like script end -->
 
 <script type="text/javascript">
-function comment_delete(clicked_id)
+
+
+function comment_delete(clicked_id) {
+        $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='comment_deleted(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+        $('#bidmodal').modal('show');
+    }
+
+
+function comment_deleted(clicked_id)
 {
     
      var post_delete = document.getElementById("post_delete");
@@ -1731,7 +1843,15 @@ function comment_delete(clicked_id)
             }); 
 }
 
+
 function comment_deletetwo(clicked_id)
+    {
+
+        $('.biderror .mes').html("<div class='pop_content'>Are you sure want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='comment_deletedtwo(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+        $('#bidmodal').modal('show');
+    }
+
+function comment_deletedtwo(clicked_id)
 {
     
      var post_delete = document.getElementById("post_delete");
@@ -1812,13 +1932,22 @@ function comment_editcancletwo(clicked_id){
 function edit_comment(abc)
 { //alert('editsubmit' + abc);
 
-   var post_comment_edit = document.getElementById("editcomment" + abc);
-   //alert(post_comment.value);
-   //alert(post_comment.value);
+   $("#editcomment" + abc).click(function () {
+    $(this).prop("contentEditable", true);
+    });
+   
+
+    var sel = $("#editcomment" + abc);
+     var txt = sel.html();
+      if (txt == '' || txt == '<br>') {
+       $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+        $('#bidmodal').modal('show');
+         return false;
+        }
    $.ajax({ 
                 type:'POST',
                 url:'<?php echo base_url() . "business_profile/edit_comment_insert" ?>',
-                 data:'post_id='+abc + '&comment='+post_comment_edit.value,
+                 data:'post_id='+abc + '&comment='+txt,
                    success:function(data){ //alert('falguni');
 
                   //  $('input').each(function(){
@@ -1848,16 +1977,32 @@ function edit_comment(abc)
 function commentedit(abc)
 {  
  
+ $("#editcomment" + abc).click(function () {
+  $(this).prop("contentEditable", true);
+  });
  
-  $(document).ready(function() {
-  $('#editcomment' + abc).keypress(function(e) {
-    if (e.which == 13) {
-      var val = $('#editcomment' + abc).val();
+  
+  $('#editcomment' + abc).keypress(function(event) {
+    if (event.which == 13 && event.shiftKey != 1) {
+      event.preventDefault();
+      var sel = $("#editcomment" + abc);
+      var txt = sel.html();
+       if (txt == '' || txt == '<br>') {
+        $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+          $('#bidmodal').modal('show');
+          return false;
+        }
+        if (window.preventDuplicateKeyPresses)
+        return;
+        window.preventDuplicateKeyPresses = true;
+        window.setTimeout(function () {
+        window.preventDuplicateKeyPresses = false;
+        }, 500);
       
        $.ajax({ 
                 type:'POST',
                 url:'<?php echo base_url() . "business_profile/edit_comment_insert" ?>',
-                 data:'post_id='+abc + '&comment='+val,
+                 data:'post_id='+abc + '&comment='+txt,
                    success:function(data){ //alert('falguni');
 
                   
@@ -1869,15 +2014,13 @@ function commentedit(abc)
         document.getElementById('editcancle' + abc).style.display='none';
                      //alert('.' + 'showcomment' + abc);
                     $('#' + 'showcomment' + abc).html(data);
-
-
                     
                 }
             }); 
       //alert(val);
     }        
   });
-});
+
 
 }
 </script>
@@ -1887,18 +2030,23 @@ function commentedit(abc)
 function edit_commenttwo(abc)
 { //alert('editsubmit' + abc);
 
-   var post_comment_edit = document.getElementById("editcommenttwo" + abc);
-   //alert(post_comment.value);
-   //alert(post_comment.value);
+
+  $("#editcommenttwo" + abc).click(function () {
+  $(this).prop("contentEditable", true);
+   });
+   var sel = $("#editcommenttwo" + abc);
+    var txt = sel.html();
+      if (txt == '' || txt == '<br>') {
+      $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deletetwo(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+        $('#bidmodal').modal('show');
+          return false;
+        }
+    else{
    $.ajax({ 
                 type:'POST',
                 url:'<?php echo base_url() . "business_profile/edit_comment_insert" ?>',
-                 data:'post_id='+abc + '&comment='+post_comment_edit.value,
-                   success:function(data){ //alert('falguni');
-
-                  //  $('input').each(function(){
-                  //     $(this).val('');
-                  // }); 
+                 data:'post_id='+abc + '&comment='+txt,
+                   success:function(data){ 
          document.getElementById('editcommenttwo' + abc).style.display='none';
        document.getElementById('showcommenttwo' + abc).style.display='block';
        document.getElementById('editsubmittwo' + abc).style.display='none';
@@ -1908,11 +2056,10 @@ function edit_commenttwo(abc)
         document.getElementById('editcancletwo' + abc).style.display='none';
                      //alert('.' + 'showcomment' + abc);
                     $('#' + 'showcommenttwo' + abc).html(data);
-
-
                     
                 }
-            }); 
+            });
+          } 
    
 }
 </script>
@@ -1922,15 +2069,34 @@ function edit_commenttwo(abc)
 
 function commentedittwo(abc)
 { 
-  $(document).ready(function() {
-  $('#editcommenttwo' + abc).keypress(function(e) {
-    if (e.which == 13) {
-      var val = $('#editcommenttwo' + abc).val();
+  $("#editcommenttwo" + abc).click(function () {
+  $(this).prop("contentEditable", true);
+  });
+
+
+  $('#editcommenttwo' + abc).keypress(function(event) {
+    if (event.which == 13 && event.shiftKey != 1) {
+     var sel = $("#editcommenttwo" + abc);
+      var txt = sel.html();
+      if (txt == '' || txt == '<br>') {
+     $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deletetwo(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+        $('#bidmodal').modal('show');
+            return false;
+           }
+
+        if (window.preventDuplicateKeyPresses)
+             return;
+
+       window.preventDuplicateKeyPresses = true;
+      window.setTimeout(function () {
+      window.preventDuplicateKeyPresses = false;
+      }, 500);
+
       
      $.ajax({ 
                 type:'POST',
                 url:'<?php echo base_url() . "business_profile/edit_comment_insert" ?>',
-                 data:'post_id='+abc + '&comment='+val,
+                 data:'post_id='+abc + '&comment='+txt,
                    success:function(data){ //alert('falguni');
 
                   //  $('input').each(function(){
@@ -1944,17 +2110,12 @@ function commentedittwo(abc)
         document.getElementById('editcancletwo' + abc).style.display='none';
                      //alert('.' + 'showcomment' + abc);
                     $('#' + 'showcommenttwo' + abc).html(data);
-
-
                     
                 }
             }); 
-   
-   
-      //alert(val);
+  
     }        
   });
-});
 
 }
 </script>
