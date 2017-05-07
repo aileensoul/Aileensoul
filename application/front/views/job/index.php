@@ -1,4 +1,5 @@
 
+
 <!-- start head -->
 <?php echo $head; ?>
 <!-- END HEAD -->
@@ -8,6 +9,10 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
 
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
+<!-- <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/select2.min.css'); ?>">
+ -->
 <!-- start header -->
 <?php echo $header; ?>
 <?php echo $job_header2; ?>
@@ -233,13 +238,20 @@ if (count($nation) > 0) {
 </html>
 
 <!-- Calender JS Start-->
-<script src="<?php echo base_url('js/jquery.js'); ?>"></script>
+<!-- <script src="<?php echo base_url('js/jquery.js'); ?>"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
+ -->
 
 
 <script src="<?php echo base_url('js/jquery.datetimepicker.full.js'); ?>"></script>
+
+
+ <script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
+ <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
+ <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
+ <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+
 <script type="text/javascript">
     $('#datepicker').datetimepicker({
         //yearOffset:222,
