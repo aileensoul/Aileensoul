@@ -1140,6 +1140,8 @@ class Artistic extends MY_Controller {
         $files = $_FILES;
         $count = count($_FILES['postattach']['name']);
 
+        $title = time();
+        
         for ($i = 0; $i < $count; $i++) {
 
             $_FILES['postattach']['name'] = $files['postattach']['name'][$i];

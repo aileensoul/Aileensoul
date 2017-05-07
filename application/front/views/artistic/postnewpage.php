@@ -2061,9 +2061,17 @@ $art_userimage = $this->db->get_where('art_reg', array('user_id' => $art_data[0]
                                 var editpostdetails = $('#editpostdesc' + abc).html();
 // end khyati code
 
+    if(editpostname.value == '' && editpostdetails == ''){ 
+          $('.biderror .mes').html("<div class='pop_content'>You must either fill title or description.");
+            $('#bidmodal').modal('show');
 
+            document.getElementById('editpostdata' + abc).style.display = 'block';
+             document.getElementById('editpostbox' + abc).style.display = 'none';
+             document.getElementById('editpostdetails' + abc).style.display = 'block';
+              document.getElementById('editpostdetailbox' + abc).style.display = 'none';
 
-
+                document.getElementById('editpostsubmit' + abc).style.display = 'none';
+          }else{
                                 $.ajax({
                                     type: 'POST',
                                     url: '<?php echo base_url() . "artistic/edit_post_insert" ?>',
@@ -2079,7 +2087,7 @@ $art_userimage = $this->db->get_where('art_reg', array('user_id' => $art_data[0]
                                         $('#' + 'editpostdata' + abc).html(data.title);
                                         $('#' + 'editpostdetails' + abc).html(data.description);
                                     }
-                                });
+                                }); }
                             }
                         </script>
                         <!-- edit post end -->
