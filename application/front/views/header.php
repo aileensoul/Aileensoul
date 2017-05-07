@@ -373,7 +373,7 @@ $(window).load(function(){
   </a></li> -->
 
                                 <li id="notification_li">
-                                    <a href="javascript:void(0)" id="notificationLink" onclick = "return myFunction();">Notification <i class="fa fa-bell-slash-o" aria-hidden="true"></i>
+                                    <a href="javascript:void(0)" id="notificationLink" onclick = "return Notificationheader();">Notification <i class="fa fa-bell-slash-o" aria-hidden="true"></i>
 
                                         <span id="notification_count"></span>
 
@@ -859,7 +859,7 @@ if($work['not_from'] == 4){
 
     <!-- script for update all read notification start-->
     <script type="text/javascript">
-            function myFunction(){
+            function Notificationheader(){
               getNotification();
                notheader();
                   }
@@ -872,7 +872,7 @@ if($work['not_from'] == 4){
                 //data: {uid: 12341234}, //this sends the user-id to php as a post variable, in php it can be accessed as $_POST['uid']
                 success: function (data) {
                     data = JSON.parse(data);
-                    //alert(data);
+                   //alert(data);
                     //update some fields with the updated data
                     //you can access the data like 'data["driver"]'
                 }
