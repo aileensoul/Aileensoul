@@ -193,86 +193,88 @@ label.cameraButton input[accept*="camera"] {
   <body   class="page-container-bg-solid page-boxed">
 
     <section>
+ <!-- coer image start-->
         <div class="container">
-            <!--- select thaya pachhi ave ae -->
-      <div class="row" id="row1" style="display:none;">
-        <div class="col-md-12 text-center">
-        <div id="upload-demo" style="width:100%"></div>
+
+            <div class="row" id="row1" style="display:none;">
+                <div class="col-md-12 text-center">
+                    <div id="upload-demo" style="width:100%"></div>
+                </div>
+                <div class="col-md-12 cover-pic" style="padding-top: 25px;text-align: center;">
+                    <button class="btn btn-success  cancel-result" onclick="">Cancel</button>
+
+                    <button class="btn btn-success upload-result fr" onclick="myFunction()">Upload Image</button>
+
+                    <div id="message1" style="display:none;">
+                        <div class="loader">
+                            <div id="floatBarsG">
+                                <div id="floatBarsG_1" class="floatBarsG"></div>
+                                <div id="floatBarsG_2" class="floatBarsG"></div>
+                                <div id="floatBarsG_3" class="floatBarsG"></div>
+                                <div id="floatBarsG_4" class="floatBarsG"></div>
+                                <div id="floatBarsG_5" class="floatBarsG"></div>
+                                <div id="floatBarsG_6" class="floatBarsG"></div>
+                                <div id="floatBarsG_7" class="floatBarsG"></div>
+                                <div id="floatBarsG_8" class="floatBarsG"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12"  style="visibility: hidden; ">
+                    <div id="upload-demo-i" style="background:#e1e1e1;width:100%;padding:30px;height:1px;margin-top:30px"></div>
+                </div>
+            </div>
+
+
+
+
+            <div class="container">
+                <div class="row" id="row2">
+                    <?php
+                    $userid = $this->session->userdata('aileenuser');
+                    if($this->uri->segment(3) == $userid){
+                    $user_id = $userid;
+                    }elseif($this->uri->segment(3) == ""){
+                    $user_id = $userid;
+                    }else{
+                    $user_id =  $user_id = $this->db->get_where('business_profile',array('business_slug' => $this->uri->segment(3)))->row()->user_id;;
+                     }
+                    $contition_array = array('user_id' => $user_id, 'is_deleted' => '0', 'status' => '1');
+                    $image = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'profile_background', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+                    $image_ori = $image[0]['profile_background'];
+                    if ($image_ori) {
+                        ?>
+                        <div class="bg-images">
+                            <img src="<?php echo base_url(BUSBGIMG . $image_ori); ?>" name="image_src" id="image_src" / ></div>
+                        <?php
+                    } else {
+                        ?>
+                        <div class="bg-images">
+                            <img src="<?php echo base_url(WHITEIMAGE); ?>" name="image_src" id="image_src" / ></div>
+                    <?php }
+                    ?>
+
+
+                </div>
+            </div>
         </div>
-        <div class="col-md-12 cover-pic" style="padding-top: 25px;text-align: center;">
-            <button class="btn btn-success  cancel-result">Cancel</button>
-    
-        <button class="btn btn-success upload-result" onclick="myFunction()">Upload Image</button>
-
-        <div id="message1" style="display:none;">
-       <div id="floatBarsG">
-  <div id="floatBarsG_1" class="floatBarsG"></div>
-  <div id="floatBarsG_2" class="floatBarsG"></div>
-  <div id="floatBarsG_3" class="floatBarsG"></div>
-  <div id="floatBarsG_4" class="floatBarsG"></div>
-  <div id="floatBarsG_5" class="floatBarsG"></div>
-  <div id="floatBarsG_6" class="floatBarsG"></div>
-  <div id="floatBarsG_7" class="floatBarsG"></div>
-  <div id="floatBarsG_8" class="floatBarsG"></div>
-</div>
-
-        </div>
-        </div>
-        <div class="col-md-12"  style="visibility: hidden; ">
-        <div id="upload-demo-i" style="background:#e1e1e1;width:100%;padding:30px;height:1px;margin-top:30px"></div>
-        </div>
-      </div>
-
-      <!--- select thaya pachhi ave ae end-->
-  
-<!--- select thai ne ave ae pelaj -->
-<div class="container">
-  <div class="row" id="row2">
-        <?php
-        $userid  = $this->session->userdata('aileenuser');
-            $contition_array = array( 'user_id' => $userid, 'is_deleted' => '0' , 'status' => '1');
-            $image = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'profile_background', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-           
-            $image_ori=$image[0]['profile_background'];
-           if($image_ori)
-           {
-            ?>
-            <div class="bg-images">
-            <img src="<?php echo base_url(BUSBGIMG . $businessdata1[0]['profile_background']);?>" name="image_src" id="image_src" / ></div>
-            <?php
-           }
-           else
-           { ?>
-         <div class="bg-images">
-            <img src="<?php echo base_url(WHITEIMAGE); ?>" name="image_src" id="image_src" / ></div>
-      <?php     }
-          
-            ?>
-
-    </div>
-    </div>
-</div>
-  </div>
-  </div>   
-
-    <div class="container"> 
-
-    <?php
+       
+<?php
     $userid = $this->session->userdata('aileenuser');
-    if($businessdata1[0]['user_id'] == $userid) {
-    ?>   
-      <div class="upload-img">
-      
-        
+    if ($businessdata1[0]['user_id'] == $userid) {
+        ?>
+<div class="container">    
+    <div class="upload-img">
+
+
         <label class="cameraButton"><i class="fa fa-camera" aria-hidden="true"></i>
             <input type="file" id="upload" name="upload" accept="image/*;capture=camera" onclick="showDiv()">
         </label>
-
-
-<!--- select thai ne ave ae pelaj puru -->
-                
-            </div>
-           <?php }?>
+    </div>
+</div>
+    <?php } ?>
+        <!-- coer image end-->
             <div class="profile-photo">
             <div class="buisness-menu">
               <div class="profile-pho-bui">
@@ -1549,3 +1551,126 @@ function comment_deletedtwo(clicked_id)
 </script>
 
 <!-- commenmt delete end
+
+  <!-- cover image start -->
+            <script>
+                function myFunction() {
+                    document.getElementById("upload-demo").style.visibility = "hidden";
+                    document.getElementById("upload-demo-i").style.visibility = "hidden";
+                    document.getElementById('message1').style.display = "block";
+                }
+
+
+                function showDiv() {
+                    document.getElementById('row1').style.display = "block";
+                    document.getElementById('row2').style.display = "none";
+                }
+            </script>
+
+
+            <script type="text/javascript">
+                $uploadCrop = $('#upload-demo').croppie({
+                    enableExif: true,
+                    viewport: {
+                        width: 1250,
+                        height: 350,
+                        type: 'square'
+                    },
+                    boundary: {
+                        width: 1250,
+                        height: 350
+                    }
+                });
+
+
+
+                $('.upload-result').on('click', function (ev) {
+                    $uploadCrop.croppie('result', {
+                        type: 'canvas',
+                        size: 'viewport'
+                    }).then(function (resp) {
+
+                        $.ajax({
+                            url: "<?php echo base_url() ?>business_profile/ajaxpro",
+                            type: "POST",
+                            data: {"image": resp},
+                            success: function (data) {
+                                html = '<img src="' + resp + '" />';
+                                if (html)
+                                {
+                                    window.location.reload();
+                                }
+
+                            }
+                        });
+
+                    });
+                });
+                
+                $('.cancel-result').on('click', function (ev) {
+        document.getElementById('row2').style.display = "block";
+        document.getElementById('row1').style.display = "none";
+        document.getElementById('message1').style.display = "none";
+    });
+
+                //aarati code start
+                $('#upload').on('change', function () {
+
+
+
+                    var reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        $uploadCrop.croppie('bind', {
+                            url: e.target.result
+                        }).then(function () {
+                            console.log('jQuery bind complete');
+                        });
+
+                    }
+                    reader.readAsDataURL(this.files[0]);
+
+
+
+                });
+
+                $('#upload').on('change', function () {
+
+                    var fd = new FormData();
+                    fd.append("image", $("#upload")[0].files[0]);
+
+                    files = this.files;
+                    size = files[0].size;
+
+
+
+                    if (size > 4194304)
+                    {
+                        //show an alert to the user
+                        alert("Allowed file size exceeded. (Max. 4 MB)")
+
+                        document.getElementById('row1').style.display = "none";
+                        document.getElementById('row2').style.display = "block";
+
+
+                        //reset file upload control
+                        return false;
+                    }
+
+                    $.ajax({
+
+                        url: "<?php echo base_url(); ?>business_profile/imagedata",
+                        type: "POST",
+                        data: fd,
+                        processData: false,
+                        contentType: false,
+                        success: function (response) {
+
+
+                        }
+                    });
+                });
+
+                //aarati code end
+            </script>
+            <!-- cover image end -->
