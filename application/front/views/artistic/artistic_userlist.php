@@ -66,14 +66,14 @@
 
                     <div id="message1" style="display:none;">
                         <div id="floatBarsG">
-                                <div id="floatBarsG_1" class="floatBarsG"></div>
-                                <div id="floatBarsG_2" class="floatBarsG"></div>
-                                <div id="floatBarsG_3" class="floatBarsG"></div>
-                                <div id="floatBarsG_4" class="floatBarsG"></div>
-                                <div id="floatBarsG_5" class="floatBarsG"></div>
-                                <div id="floatBarsG_6" class="floatBarsG"></div>
-                                <div id="floatBarsG_7" class="floatBarsG"></div>
-                                <div id="floatBarsG_8" class="floatBarsG"></div>
+                            <div id="floatBarsG_1" class="floatBarsG"></div>
+                            <div id="floatBarsG_2" class="floatBarsG"></div>
+                            <div id="floatBarsG_3" class="floatBarsG"></div>
+                            <div id="floatBarsG_4" class="floatBarsG"></div>
+                            <div id="floatBarsG_5" class="floatBarsG"></div>
+                            <div id="floatBarsG_6" class="floatBarsG"></div>
+                            <div id="floatBarsG_7" class="floatBarsG"></div>
+                            <div id="floatBarsG_8" class="floatBarsG"></div>
                         </div>
                     </div>
                 </div>
@@ -86,7 +86,14 @@
                 <div class="row" id="row2">
                     <?php
                     $userid = $this->session->userdata('aileenuser');
-                    $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
+                    if ($this->uri->segment(3) == $userid) {
+                        $user_id = $userid;
+                    } elseif ($this->uri->segment(3) == "") {
+                        $user_id = $userid;
+                    } else {
+                        $user_id = $this->uri->segment(3);
+                    }
+                    $contition_array = array('user_id' => $user_id, 'is_delete' => '0', 'status' => '1');
                     $image = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'profile_background', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
                     $image_ori = $image[0]['profile_background'];
@@ -99,8 +106,8 @@
                         ?>
                         <div class="bg-images">
                             <img src="<?php echo base_url(WHITEIMAGE); ?>" name="image_src" id="image_src" / ></div>
-<?php }
-?>
+                    <?php }
+                    ?>
 
                 </div>
             </div>
@@ -122,16 +129,16 @@
         <div class="profile-pho">
 
             <div class="user-pic">
-<?php if ($artisticdata[0]['art_user_image'] != '') { ?>
+                <?php if ($artisticdata[0]['art_user_image'] != '') { ?>
                     <img src="<?php echo base_url(ARTISTICIMAGE . $artisticdata[0]['art_user_image']); ?>" alt="" >
                 <?php } else { ?>
                     <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
                 <?php } ?>
-                <!--<a href="#popup-form" class="fancybox"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>-->
+            <!--<a href="#popup-form" class="fancybox"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>-->
                 <a href="javascript:void(0);" onclick="updateprofilepopup();"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>
             </div>
             <!--                        <div id="popup-form">
-<?php // echo form_open_multipart(base_url('artistic/user_image_insert'), array('id' => 'userimage', 'name' => 'userimage', 'class' => 'clearfix')); ?>
+            <?php // echo form_open_multipart(base_url('artistic/user_image_insert'), array('id' => 'userimage', 'name' => 'userimage', 'class' => 'clearfix')); ?>
                                     <input type="file" name="profilepic" accept="image/gif, image/jpeg, image/png" id="profilepic">
                                     <input type="hidden" name="hitext" id="hitext" value="6">
                                     <input type="submit" name="cancel6" id="cancel6" value="Cancel">
@@ -147,7 +154,7 @@
             <div class="right-side-menu col-md-8">
                 <ul>
 
-<?php if (($this->uri->segment(1) == 'artistic') && ($this->uri->segment(2) == 'artistic_profile') && ($this->uri->segment(3) == $this->session->userdata('aileenuser'))) { ?>
+                    <?php if (($this->uri->segment(1) == 'artistic') && ($this->uri->segment(2) == 'artistic_profile') && ($this->uri->segment(3) == $this->session->userdata('aileenuser'))) { ?>
 
                         <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'art_post') { ?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/art_post'); ?>">Home</a>
                         </li>
@@ -180,22 +187,22 @@
 
                 </ul>
             </div>
-            <?php 
-                    $userid  = $this->session->userdata('aileenuser'); 
-                    if($artisticdata[0]['user_id'] != $userid){
-                      ?>
-            <div class="col-md-2 padding_les">
-                <div class="flw_msg_btn">
-                    <ul>
-                        <li><button>Follow</button></li>
-                        <li>
-                            <a>Message</a></li>
-
-                    </ul>
-                </div>
-            </div>
             <?php
-                    }
+            $userid = $this->session->userdata('aileenuser');
+            if ($artisticdata[0]['user_id'] != $userid) {
+                ?>
+                <div class="col-md-2 padding_les">
+                    <div class="flw_msg_btn">
+                        <ul>
+                            <li><button>Follow</button></li>
+                            <li>
+                                <a>Message</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+                <?php
+            }
             ?>
         </div>  
         <!-- menubar -->                
@@ -205,9 +212,9 @@
         <!-- text head start -->
         <div class="profile-text" >
 
-<?php
-if ($artisticdata[0]['designation'] == '') {
-    ?>
+            <?php
+            if ($artisticdata[0]['designation'] == '') {
+                ?>
                 <a id="myBtn">Designation</a>
             <?php } else { ?> 
                 <a id="myBtn"><?php echo ucwords($artisticdata[0]['designation']); ?></a>
@@ -220,14 +227,14 @@ if ($artisticdata[0]['designation'] == '') {
                 <div class="modal-content col-md-8">
                     <span class="close">&times;</span>
                     <fieldset></fieldset>
-<?php echo form_open(base_url('artistic/art_designation/'), array('id' => 'artdesignation', 'name' => 'artdesignation', 'class' => 'clearfix')); ?>
+                    <?php echo form_open(base_url('artistic/art_designation/'), array('id' => 'artdesignation', 'name' => 'artdesignation', 'class' => 'clearfix')); ?>
 
                     <fieldset class="col-md-8"> <input type="text" name="designation" id="designation" placeholder="Enter Your Designation" value="<?php echo $artisticdata[0]['designation']; ?>">
-<?php echo form_error('designation'); ?>
+                        <?php echo form_error('designation'); ?>
                     </fieldset>
                     <input type="hidden" name="hitext" id="hitext" value="8">
                     <fieldset class="col-md-2"><input type="submit"  id="submitdes" name="submitdes" value="Submit"></fieldset>
-                        <?php echo form_close(); ?>
+                    <?php echo form_close(); ?>
 
 
 
@@ -246,14 +253,14 @@ if ($artisticdata[0]['designation'] == '') {
     <div class="col-md-7 col-sm-7">
 
         <div>
-<?php
-if ($this->session->flashdata('error')) {
-    echo '<div class="alert alert-danger">' . $this->session->flashdata('error') . '</div>';
-}
-if ($this->session->flashdata('success')) {
-    echo '<div class="alert alert-success">' . $this->session->flashdata('success') . '</div>';
-}
-?>
+            <?php
+            if ($this->session->flashdata('error')) {
+                echo '<div class="alert alert-danger">' . $this->session->flashdata('error') . '</div>';
+            }
+            if ($this->session->flashdata('success')) {
+                echo '<div class="alert alert-success">' . $this->session->flashdata('success') . '</div>';
+            }
+            ?>
         </div> 
 
         <div class="common-form">
@@ -262,7 +269,7 @@ if ($this->session->flashdata('success')) {
                 <h3>User list</h3>
                 <div class="contact-frnd-post">
 
-<?php foreach ($userlist as $user) { ?>
+                    <?php foreach ($userlist as $user) { ?>
                         <div class="job-contact-frnd ">
 
                             <div class="profile-job-post-detail clearfix">
@@ -272,46 +279,49 @@ if ($this->session->flashdata('success')) {
 
                                                 <li class="fl" style="padding-left: 0px;">
                                                     <div class="follow-img">
-    <?php if ($user['art_user_image'] != '') { ?>
+                                                        <?php if ($user['art_user_image'] != '') { ?>
                                                             <img src="<?php echo base_url(ARTISTICIMAGE . $user['art_user_image']); ?>" height="50px" width="50px" alt="" >
-    <?php } else { ?>
+                                                        <?php } else { ?>
                                                             <img alt="" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
                                                         <?php } ?> 
                                                     </div>
                                                 </li>
                                                 <li style="width:67%;">
-                                    <div class="">
-                                    <div class="follow-li-text ">
-                                    <a href="<?php echo base_url('artistic/art_manage_post/' . $user['user_id']); ?>"><?php echo ucwords($user['art_name']); echo "&nbsp;"; echo ucwords($user['art_lastname']); ?></a></div>
+                                                    <div class="">
+                                                        <div class="follow-li-text ">
+                                                            <a href="<?php echo base_url('artistic/art_manage_post/' . $user['user_id']); ?>"><?php echo ucwords($user['art_name']);
+                                                    echo "&nbsp;";
+                                                    echo ucwords($user['art_lastname']); ?></a></div>
 
 
-                                <div>
-                               <a><?php echo ucwords($user['designation']); ?></a>
-                                </div>
+                                                        <div>
+                                                            <a><?php echo ucwords($user['designation']); ?></a>
+                                                        </div>
 
 
                                                 </li>
 
                                                 <li class="fr <?php echo "fruser" . $user['art_id']; ?>">
 
-    <?php $status = $this->db->get_where('follow', array('follow_type' => 1, 'follow_from' => $artdata[0]['art_id'], 'follow_to' => $user['art_id']))->row()->follow_status;
+                                                    <?php
+                                                    $status = $this->db->get_where('follow', array('follow_type' => 1, 'follow_from' => $artdata[0]['art_id'], 'follow_to' => $user['art_id']))->row()->follow_status;
 
-    if ($status == 0 || $status == " ") {
-        ?>
+                                                    if ($status == 0 || $status == " ") {
+                                                        ?>
 
-             <div id= "followdiv" class="user_btn">
-            <button id="<?php echo "follow" . $user['art_id']; ?>" onClick="followuser(<?php echo $user['art_id']; ?>)"> 
-             Follow 
-             </button>
-             </div>
+                                                        <div id= "followdiv" class="user_btn">
+                                                            <button id="<?php echo "follow" . $user['art_id']; ?>" onClick="followuser(<?php echo $user['art_id']; ?>)"> 
+                                                                Follow 
+                                                            </button>
+                                                        </div>
 
     <?php } elseif ($status == 1) { ?>
 
-     <div id= "unfollowdiv" class="user_btn ">
-        <button class="bg_following" id="<?php echo "unfollow" . $user['art_id']; ?>" onClick="unfollowuser(<?php echo $user['art_id']; ?>)">
-             Following 
-            </button>
-         </div>
+                                                        <div id= "unfollowdiv" class="user_btn ">
+                                                            <button class="bg_following" id="<?php echo "unfollow" . $user['art_id']; ?>" onClick="unfollowuser(<?php echo $user['art_id']; ?>)">
+                                                                Following 
+                                                            </button>
+                                                        </div>
     <?php } ?>
 
                                                 </li>
@@ -383,55 +393,55 @@ if ($this->session->flashdata('success')) {
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
 <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
-  <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
+<script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
 <script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 <!-- script for skill textbox automatic end (option 2)-->
 <script>
 
-var data= <?php echo json_encode($demo); ?>;
+                                                        var data = <?php echo json_encode($demo); ?>;
 // alert(data);
 
-        
-$(function() {
-    // alert('hi');
-$( "#tags" ).autocomplete({
-     source: function( request, response ) {
-         var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
-         response( $.grep( data, function( item ){
-             return matcher.test( item.label );
-         }) );
-   },
-    minLength: 1,
-    select: function(event, ui) {
-        event.preventDefault();
-        $("#tags").val(ui.item.label);
-        $("#selected-tag").val(ui.item.label);
-        // window.location.href = ui.item.value;
-    }
-    ,
-    focus: function(event, ui) {
-        event.preventDefault();
-        $("#tags").val(ui.item.label);
-    }
-});
-});
-  
+
+                                                        $(function () {
+                                                            // alert('hi');
+                                                            $("#tags").autocomplete({
+                                                                source: function (request, response) {
+                                                                    var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+                                                                    response($.grep(data, function (item) {
+                                                                        return matcher.test(item.label);
+                                                                    }));
+                                                                },
+                                                                minLength: 1,
+                                                                select: function (event, ui) {
+                                                                    event.preventDefault();
+                                                                    $("#tags").val(ui.item.label);
+                                                                    $("#selected-tag").val(ui.item.label);
+                                                                    // window.location.href = ui.item.value;
+                                                                }
+                                                                ,
+                                                                focus: function (event, ui) {
+                                                                    event.preventDefault();
+                                                                    $("#tags").val(ui.item.label);
+                                                                }
+                                                            });
+                                                        });
+
 </script>
 
 <script type="text/javascript">
-                        function checkvalue() {
-                            //alert("hi");
-                            var searchkeyword = document.getElementById('tags').value;
-                            var searchplace = document.getElementById('searchplace').value;
-                            // alert(searchkeyword);
-                            // alert(searchplace);
-                            if (searchkeyword == "" && searchplace == "") {
-                                //alert('Please enter Keyword');
-                                return false;
-                            }
-                        }
-                    </script>
+    function checkvalue() {
+        //alert("hi");
+        var searchkeyword = document.getElementById('tags').value;
+        var searchplace = document.getElementById('searchplace').value;
+        // alert(searchkeyword);
+        // alert(searchplace);
+        if (searchkeyword == "" && searchplace == "") {
+            //alert('Please enter Keyword');
+            return false;
+        }
+    }
+</script>
 
 <script>
 //select2 autocomplete start for skill
@@ -526,34 +536,34 @@ $( "#tags" ).autocomplete({
 <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
 <script type="text/javascript">
 
-   //validation for edit email formate form
+    //validation for edit email formate form
 
-   $(document).ready(function () {
+    $(document).ready(function () {
 
-       $("#artdesignation").validate({
+        $("#artdesignation").validate({
 
-           rules: {
+            rules: {
 
-               designation: {
+                designation: {
 
-                   required: true,
+                    required: true,
 
-               },
+                },
 
-           },
+            },
 
-           messages: {
+            messages: {
 
-               designation: {
+                designation: {
 
-                   required: "Designation Is Required.",
+                    required: "Designation Is Required.",
 
-               },
+                },
 
-           },
+            },
 
-       });
-   });
+        });
+    });
 </script>
 <!-- cover image start -->
 <script>
@@ -598,7 +608,7 @@ $( "#tags" ).autocomplete({
 
 
             $.ajax({
-                 url: "<?php echo base_url() ?>artistic/ajaxpro",
+                url: "<?php echo base_url() ?>artistic/ajaxpro",
                 type: "POST",
                 data: {"image": resp},
                 success: function (data) {
@@ -692,7 +702,7 @@ $( "#tags" ).autocomplete({
             type: 'POST',
             url: '<?php echo base_url() . "artistic/follow" ?>',
             data: 'follow_to=' + clicked_id,
-            success: function (data) {  
+            success: function (data) {
 
                 $('.' + 'fruser' + clicked_id).html(data);
 
