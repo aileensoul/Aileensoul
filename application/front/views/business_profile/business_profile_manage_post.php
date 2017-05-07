@@ -607,7 +607,7 @@
                                     ?>
                                     <tr>
                                         <td class="business_data_td1"><i class="fa fa-globe"></i></td>
-                                        <td class="business_data_td2"><span><a href="<?php echo $businessdata1[0]['contact_website']; ?>" target="_blank"><?php echo $businessdata1[0]['contact_website']; ?></a></span></td>
+                                        <td class="business_data_td2"><span><a href="<?php echo $businessdata1[0]['contact_website']; ?>" target="_blank"><u><?php echo $businessdata1[0]['contact_website']; ?></u></a></span></td>
                                     </tr>
 
                                 <?php } ?>
@@ -1326,7 +1326,9 @@
 
                                                 <!-- one pdf start -->
                                                 <div>
-                                                    <a href="<?php echo base_url('business_profile/creat_pdf/' . $businessmultiimage[0]['image_id']) ?>">PDF</a>
+                                                    <a href="<?php echo base_url('business_profile/creat_pdf/' . $businessmultiimage[0]['image_id']) ?>"><div class="pdf_img">
+                                                                <img src="<?php echo base_url('images/PDF.jpg')?>" style="height: 100%; width: 100%;">
+                                                            </div></a>
                                                 </div>
                                                 <!-- one pdf end -->
 

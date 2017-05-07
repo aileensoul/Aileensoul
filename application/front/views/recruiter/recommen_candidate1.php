@@ -276,21 +276,21 @@ padding-top: 1px;}
                    <a style=" font-size: 19px;
          font-weight: 600;" href="<?php echo base_url('job/job_printpreview/' . $p['user_id']); ?>">
                    <?php echo ucwords($p['fname']) . ' ' . ucwords($p['lname']); ?>
-                      <?php
+                     
+                 </a></li>
+
+            <li style="display: block;"><a href="#">  <?php
                   if ($p['designation']) {
                           ?>
-                      (<?php echo $p['designation']; ?>)
+                      <?php echo $p['designation']; ?>
                                                      
                    <?php
                     } else {
                      ?>
-                  ( <?php echo "Designation"; ?>)
+                   <?php echo "Designation"; ?>
                  <?php
                     }
-                  ?>
-                 </a></li>
-
-            <li style="display: block;"><a href="#"> Designation  </a>  </li>
+                  ?> </a>  </li>
             
           </ul>
         </div>
