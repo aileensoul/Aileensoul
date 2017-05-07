@@ -216,7 +216,9 @@ label.cameraButton input[accept*="camera"] {
                              if($this->uri->segment(3) != ""){?>
                         <li> <a href="<?php echo base_url('chat/abc/' . $this->uri->segment(3)); ?>">Message</a> </li>
                        
-                             <?php }} ?>
+                             <?php }
+                              }
+                              ?>
                     </ul>
                 </div>
             </div>
