@@ -2305,10 +2305,18 @@ class Business_profile extends MY_Controller {
 
 // create pdf start
 
-    public function creat_pdf($id) {
+    public function creat_pdf1($id) {
 
         $contition_array = array('business_profile_post_id' => $id, 'status' => '1');
         $this->data['businessdata'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data, $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        $this->load->view('business_profile/business_pdfdispaly', $this->data);
+    }
+
+     public function creat_pdf($id) { 
+
+        $contition_array = array('image_id' => $id, 'is_deleted' => '1');
+        $this->data['busdata'] = $this->common->select_data_by_condition('post_image', $contition_array, $data, $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        //echo "<pre>"; print_r($this->data['artdata']); die();
         $this->load->view('business_profile/business_pdfdispaly', $this->data);
     }
 

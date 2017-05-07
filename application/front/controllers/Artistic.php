@@ -2491,10 +2491,11 @@ class Artistic extends MY_Controller {
 //designation end
 // create pdf start
 
-    public function creat_pdf($id) {
+    public function creat_pdf($id) { 
 
         $contition_array = array('image_id' => $id, 'is_deleted' => '1');
         $this->data['artdata'] = $this->common->select_data_by_condition('post_image', $contition_array, $data, $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        //echo "<pre>"; print_r($this->data['artdata']); die();
         $this->load->view('artistic/art_pdfdispaly', $this->data);
     }
 

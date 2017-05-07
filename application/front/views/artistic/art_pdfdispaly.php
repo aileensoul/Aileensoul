@@ -2,7 +2,6 @@
 <input action="action" type="button" value="Back" onclick="history.back();" /> <br/><br/>
 
 
-
 <?php
 
 	if($artdata[0]['image_name']){ 
