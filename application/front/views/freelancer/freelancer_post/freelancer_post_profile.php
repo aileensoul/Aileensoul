@@ -205,6 +205,7 @@ echo $freelancer_post_header2;
    $contition_array = array('from_id' => $userid, 'to_id' => $this->uri->segment(3), 'save_type' => 2, 'status' => '0');
    $data = $this->common->select_data_by_condition('save', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
   if($userid != $this->uri->segment(3)){ 
+      if($this->uri->segment(3) != ""){
     if (!$data) { ?> 
                         <li> 
                             <input type="hidden" id="<?php echo 'hideenuser' . $this->uri->segment(3); ?>" value= "<?php echo $this->uri->segment(3); ?>">
@@ -219,7 +220,7 @@ echo $freelancer_post_header2;
                       <li>
            <a href="<?php echo base_url('chat/abc/' . $this->uri->segment(3)); ?>">Message</a>
                  </li>
-  <?php } ?>
+      <?php }} ?>
                     </ul>
                 </div>
             </div>
