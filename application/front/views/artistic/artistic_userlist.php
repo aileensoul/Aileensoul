@@ -136,7 +136,7 @@
                 <?php if ($artisticdata[0]['art_user_image'] != '') { ?>
                     <img src="<?php echo base_url(ARTISTICIMAGE . $artisticdata[0]['art_user_image']); ?>" alt="" >
                 <?php } else { ?>
-                    <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
+                    <img alt=""  src="<?php echo base_url(NOIMAGE); ?>" alt="" />
                 <?php } ?>
             <!--<a href="#popup-form" class="fancybox"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>-->
                 <a href="javascript:void(0);" onclick="updateprofilepopup();"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>
