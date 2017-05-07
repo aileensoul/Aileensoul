@@ -373,7 +373,7 @@ $(window).load(function(){
   </a></li> -->
 
                                 <li id="notification_li">
-                                    <a href="javascript:void(0)" id="notificationLink" onclick = "return getNotification()">Notification <i class="fa fa-bell-slash-o" aria-hidden="true"></i>
+                                    <a href="javascript:void(0)" id="notificationLink" onclick = "return myFunction();">Notification <i class="fa fa-bell-slash-o" aria-hidden="true"></i>
 
                                         <span id="notification_count"></span>
 
@@ -544,55 +544,9 @@ $(window).load(function(){
                                                                 </div>
                                                             </div> </div> </li>
                                                     <?php                 } }
+                                                      ?>
 
-                                                    ?>
-
-                                                    <?php 
                                                     
-                                                    
-           /* foreach($artlike as $art) { 
-                                                      if ($art['not_from'] == '3') {
-                                                      $art_not_img = $art['not_img'];
-                                                      if($art_not_img == '2'){?>
-                                                      <li> <?php echo $art_not_img; ?>
-                                                      <div class="notification-database">
-                                                      <div class="notification-pic" >
-                                                      <img src="<?php echo base_url(USERIMAGE . $art['user_image']);?>" >
-                                                      </div>
-                                                      <div class="notification-data-inside">
-                                                      <a href="<?php echo base_url('artistic/postnewpage/' .$art['art_post_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Artistic</i></font></b><b>" . "  " .  $art['first_name'] . ' ' . $art['last_name'] . "</b> commneted on your post"; ?></h6></a>
-                                                      <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
-                                                      <?php echo $this->common->time_elapsed_string($art['message_create_date'], $full = false);?>
-                                                      </div>
-                                                      </div> </div> </li>
-                                                      <?php}
-                                                      else if($art_not_img == '5'){ ?>
-                                                      <li> <?php echo $art_not_img; ?>
-                                                      <div class="notification-database">
-                                                      <div class="notification-pic" >
-                                                      <img src="<?php echo base_url(USERIMAGE . $art['user_image']);?>" >
-                                                      </div>
-                                                      <div class="notification-data-inside">
-                                                      <a href="<?php echo base_url('artistic/postnewpage/' .$art['art_post_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Artistic</i></font></b><b>" . "  " .  $art['first_name'] . ' ' . $art['last_name'] . "</b> commneted on your image"; ?></h6></a>
-                                                      <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
-                                                      <?php echo $this->common->time_elapsed_string($art['message_create_date'], $full = false);?>
-                                                      </div>
-                                                      </div> </div> </li>
-                                                      <?php }
-                                                      else{?>
-                                                      <li>
-                                                      <div class="notification-database">
-                                                      <div class="notification-pic" >
-                                                      <img src="<?php echo base_url(USERIMAGE . $art['user_image']);?>" >
-                                                      </div>
-                                                      <div class="notification-data-inside">
-                                                      <a href="<?php echo base_url('artistic/postnewpage/' .$art['art_post_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Artistic</i></font></b><b>" . "  " .  $art['first_name'] . ' ' . $art['last_name'] . "</b> commneted on your image"; ?></h6></a>
-                                                      <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
-                                                      <?php echo $this->common->time_elapsed_string($art['message_create_date'], $full = false);?>
-                                                      </div>
-                                                      </div> </div> </li>
-                                                      <?php }}} */ ?>
-
                                                     <!--5-->                                                    
                                                     <?php
                                                     foreach($buscommnet as $bus) {
@@ -905,7 +859,10 @@ if($work['not_from'] == 4){
 
     <!-- script for update all read notification start-->
     <script type="text/javascript">
-
+            function myFunction(){
+              getNotification();
+               notheader();
+                  }
         function getNotification() {
             // first click alert('here'); 
 
@@ -922,6 +879,28 @@ if($work['not_from'] == 4){
             });
 
         }
+        
+        function notheader()
+                        {
+
+                           // $("#fad" + clicked_id).fadeOut(6000);
+
+
+                            $.ajax({
+                                type: 'POST',
+                                url: '<?php echo base_url() . "notification/not_header" ?>',
+                                data: '',
+                                success: function (data) {
+                               //    alert(data);
+                                   $('#' + 'notificationsBody').html(data);
+
+                                }
+
+
+                            });
+
+                        }
+
     </script>
     <!-- script for update all read notification end -->
 

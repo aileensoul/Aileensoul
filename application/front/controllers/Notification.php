@@ -524,5 +524,434 @@ public function update_msg_noti()
         $this->load->view('notification/bus_image', $this->data);
     }
     
+    public function not_header($id){
+        
+        $userid = $this->session->userdata('aileenuser');
+// 1-5 notification start
+// recruiter notfication start 
+
+$contition_array = array('notification.not_type' => 3, 'notification.not_to_id' => $userid,'notification.not_from' => 2,'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
+$join_str = array(array(
+        'join_type' => '',
+        'table' => 'job_apply',
+        'join_table_id' => 'notification.not_product_id',
+        'from_table_id' => 'job_apply.app_id'),
+    array(
+        'join_type' => '',
+        'table' => 'user',
+        'join_table_id' => 'notification.not_from_id',
+        'from_table_id' => 'user.user_id')
+);
+$data = array('notification.*','job_apply.*','user.user_id', 'user.first_name','user.user_image','user.last_name');
+$rec_not = $this->data['rec_not'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'app_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = 'not_from_id');
+// recruiter notification end
+// job notfication start 
+
+$contition_array = array('notification.not_type' => 4, 'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
+$join_str = array(array(
+        'join_type' => '',
+        'table' => 'job_apply',
+        'join_table_id' => 'notification.not_product_id',
+        'from_table_id' => 'job_apply.app_id'),
+    array(
+        'join_type' => '',
+        'table' => 'user',
+        'join_table_id' => 'notification.not_from_id',
+        'from_table_id' => 'user.user_id')
+);
+$data = array('notification.*',' job_apply.*',' user.user_id', 'user.first_name', 'user.user_image','user.last_name');
+
+$job_not = $this->data['job_not'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'app_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = 'not_from_id');
+
+// job notification end
+
+// freelancer hire  notification start
+ $contition_array = array('notification.not_type' => 3,'notification.not_from' => 6,  'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
+
+$join_str = array(
+    array(
+        'join_type' => '',
+        'table' => 'freelancer_apply',
+        'join_table_id' => 'notification.not_product_id',
+        'from_table_id' => 'freelancer_apply.app_id'),
+    array(
+        'join_type' => '',
+        'table' => 'user',
+        'join_table_id' => 'notification.not_from_id',
+        'from_table_id' => 'user.user_id')
+      );
+$data = array('notification.*','freelancer_apply.*','user.user_id', 'user.first_name','user.user_image','user.last_name');
+
+$hire_not = $this->data['hire_not'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'app_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = 'not_from_id');
+ // freelancer hire notification end
+// freelancer post notification start
+$contition_array = array('notification.not_type' => 4, 'notification.not_from' => 4,  'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
+$join_str = array(array(
+        'join_type' => '',
+        'table' => 'job_apply',
+        'join_table_id' => 'notification.not_product_id',
+        'from_table_id' => 'job_apply.app_id'),
+    array(
+        'join_type' => '',
+        'table' => 'user',
+        'join_table_id' => 'notification.not_from_id',
+        'from_table_id' => 'user.user_id')
+);
+$data = array('notification.*',' job_apply.*',' user.user_id', 'user.first_name', 'user.user_image','user.last_name');
+
+$this->data['work_post']= $work_post = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'app_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = 'not_from_id');
+// freelancer post notification end
+//artistic notification start
+// follow notification start
+
+$contition_array = array('notification.not_type' => 8,'notification.not_from' => 3,  'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
+$join_str = array(array(
+        'join_type' => '',
+        'table' => 'follow',
+        'join_table_id' => 'notification.not_product_id',
+        'from_table_id' => 'follow.follow_id'),
+    array(
+        'join_type' => '',
+        'table' => 'user',
+        'join_table_id' => 'notification.not_from_id',
+        'from_table_id' => 'user.user_id')
+);
+$data = array('notification.*',' follow.*',' user.user_id', 'user.first_name', 'user.user_image','user.last_name');
+
+$this->data['artfollow'] =$artfollow = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'follow_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = 'not_from_id');
+//echo '<pre>'; print_r($this->data['artfollow']); die();
+// follow notification end
+//post comment notification start
+
+$contition_array = array('notification.not_type' => 6,'notification.not_from' => 3,  'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
+$join_str = array(array(
+        'join_type' => '',
+        'table' => 'artistic_post_comment',
+        'join_table_id' => 'notification.not_product_id',
+    'from_table_id' => 'artistic_post_comment.artistic_post_comment_id'),
+    array(
+        'join_type' => '',
+        'table' => 'user',
+        'join_table_id' => 'notification.not_from_id',
+        'from_table_id' => 'user.user_id')
+);
+$data = array('notification.*',' artistic_post_comment.*',' user.user_id', 'user.first_name', 'user.user_image','user.last_name');
+$this->data['artcommnet'] = $artcommnet = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'artistic_post_comment_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = 'not_from_id');
+// comment notification end
+//post like notification start
+ $contition_array = array('notification.not_type' => 5,'notification.not_from' => 3,  'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
+$join_str = array(array(
+        'join_type' => '',
+        'table' => 'art_post',
+        'join_table_id' => 'notification.not_product_id',
+    'from_table_id' => 'art_post.art_post_id'),
+    array(
+        'join_type' => '',
+        'table' => 'user',
+        'join_table_id' => 'notification.not_from_id',
+        'from_table_id' => 'user.user_id')
+);
+$data = array('notification.*','art_post.*',' user.user_id', 'user.first_name', 'user.user_image','user.last_name');
+$this->data['artlike'] = $artlike = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'art_post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = 'not_from_id');
+// like notification end
+//echo '<pre>'; 
+//print_r($this->data['artcommnet']); 
+//print_r($this->data['artlike']); 
+//die();
+// artistic notification end
+// business profile notification start
+// follow notification start
+ 
+$contition_array = array('notification.not_type' => 8,'notification.not_from' => 6,  'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
+$join_str = array(array(
+        'join_type' => '',
+        'table' => 'follow',
+        'join_table_id' => 'notification.not_product_id',
+        'from_table_id' => 'follow.follow_id'),
+    array(
+        'join_type' => '',
+        'table' => 'user',
+        'join_table_id' => 'notification.not_from_id',
+        'from_table_id' => 'user.user_id')
+);
+$data = array('notification.*','follow.*','user.user_id', 'user.first_name', 'user.user_image','user.last_name');
+
+$this->data['busifollow'] = $busifollow = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'follow_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = 'not_from_id');
+
+// follow notification end
+
+// comment notification start
+
+$contition_array = array('notification.not_type' => 6,'notification.not_from' => 6,  'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
+$join_str = array(array(
+    'join_type' => '',
+    'table' => 'business_profile_post_comment',
+    'join_table_id' => 'notification.not_product_id',
+    'from_table_id' => 'business_profile_post_comment.business_profile_post_comment_id'),
+    array(
+        'join_type' => '',
+        'table' => 'user',
+        'join_table_id' => 'notification.not_from_id',
+        'from_table_id' => 'user.user_id')
+      );
+$data = array('notification.*','business_profile_post_comment.*','user.user_id','user.first_name','user.user_image','user.last_name');
+
+$this->data['buscommnet'] = $buscommnet = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'business_profile_post_comment_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = 'not_from_id');
+//echo '<pre>'; print_r($this->data['buscommnet']); 
+// comment notification end
+
+// like notification start
+$contition_array = array('notification.not_type' => 5,'notification.not_from' => 6,  'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
+$join_str = array(array(
+        'join_type' => '',
+        'table' => 'business_profile_post',
+        'join_table_id' => 'notification.not_product_id',
+    'from_table_id' => 'business_profile_post.business_profile_post_id'),
+    array(
+        'join_type' => '',
+        'table' => 'user',
+        'join_table_id' => 'notification.not_from_id',
+        'from_table_id' => 'user.user_id')
+);
+$data = array('notification.*',' business_profile_post.*',' user.user_id', 'user.first_name', 'user.user_image','user.last_name');
+
+$this->data['buslike'] = $buslike = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'business_profile_post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = 'not_from_id');
+//echo '<pre>'; print_r($this->data['buslike']); die();
+// like notification end
+// business profile notification end
+// 1-5 notification end
+       $notification = '<div class="notification-data">';
+       $notification .= '<ul>';
+       $notification .= '<li>'; 
+       $notification .= '<div class="notification-database">';
+       $notification .= '<div class="notification-pic">';
+       $notification .= '</div>';
+       $notification .= '<div class="notification-data-inside">';
+       $notification .= '<h6> Notification updates</h6>';
+       $notification .= '<div ></div>';
+       $notification .= '</div></div></li>';
+                  foreach ($job_not as $job) {
+                     if ($job['not_from'] == 1) {
+                                                 
+       $notification .= '<li><div class="notification-database">';
+       $notification .= '<div class="notification-pic">';
+       $notification .= '<img src="' . base_url(USERIMAGE . $job['user_image']) . ' " >';
+       $notification .=  '</div><div class="notification-data-inside">';
+       $notification .=  '<a href="' . base_url('notification/recruiter_post/' . $job['post_id']) . '"><h6>HI.. !  <font color="blue"><b><i> Rectuiter</i></font></b><b>' . '  ' . $job['first_name'] . ' ' . $job['last_name'] . '</b> invited you for an interview</h6></a>';
+       $notification .=  '<div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
+       $notification .=  '' .     $this->common->time_elapsed_string($job['message_create_date'], $full = false) . '';
+       $notification .=  '</div></div></div></li>';
+               }}
+                   
+                    foreach ($artfollow as $art) {
+                   if ($art['not_from'] == 3) {
+                                                   
+        $notification .= '<li><div class="notification-database">';
+        $notification .= '<div class="notification-pic">';
+        $notification .= '<img src="' . base_url(USERIMAGE . $art['user_image']) . '">';
+        $notification .= '</div><div class="notification-data-inside">';
+        $notification .= '<a href="' . base_url('artistic/artistic_profile/' . $art['user_id']) . '"><h6>HI.. !  <font color="#4e6db1"><b><i> Artistic</i></font></b><b>' . '  ' . $art['first_name'] . ' ' . $art['last_name'] . '</b> started to following you</h6></a>';
+        $notification .= '<div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
+        $notification .= '' . $this->common->time_elapsed_string($art['message_create_date'], $full = false). ''; 
+        $notification .= '</div></div></div></li>';
+                  }}
+          
+                  foreach($artcommnet as $art) {
+                $art_not_from = $art['not_from'];
+                $art_not_img = $art['not_img'];          
+           if($art_not_from == '3' && $art_not_img == '1'){
+                                               
+        $notification .= '<li><div class="notification-database">';
+        $notification .= '<div class="notification-pic">';
+        $notification .= '<img src="' . base_url(USERIMAGE . $art['user_image']) . '" >';
+        $notification .= '</div><div class="notification-data-inside">';
+        $notification .= '<a href="' . base_url('artistic/postnewpage/' .$art['art_post_id']) . '">';
+        $notification .= '<h6>';
+        $notification .= 'HI.. !  <font color="#4e6db1"><b><i> Artistic</i></font></b><b>' . '  ' . $art['first_name'] . ' ' . $art['last_name'] . '</b> commneted on your post';
+        $notification .= '</h6></a><div><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
+$notification .= '' . $this->common->time_elapsed_string($art['message_create_date'], $full = false) . ''; 
+        $notification .= '</div></div></div></li>';
+                }else{ 
+        $notification .= '<li><div class="notification-database">';
+        $notification .= '<div class="notification-pic">';
+        $notification .= '<img src="' . base_url(USERIMAGE . $art['user_image']) . '" >';
+        $notification .= '</div><div class="notification-data-inside">';
+        $notification .= '<a href="' . base_url('artistic/postnewpage/' .$art['art_post_id']) . '">';
+        $notification .= '<h6>';
+        $notification .= 'HI.. !  <font color="#4e6db1"><b><i> Artistic</i></font></b><b>' . '  ' . $art['first_name'] . ' ' . $art['last_name'] . '</b> commneted on your image'; 
+        $notification .= '</h6></a><div>';
+        $notification .= '<i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
+$notification .= '' . $this->common->time_elapsed_string($art['message_create_date'], $full = false) . ''; 
+          $notification .= '</div></div></div></li>';
+                 } } 
+          foreach($artlike as $art){
+          $art_not_from = $art['not_from'];
+          $art_not_img = $art['not_img'];
+          if($art_not_from == '3' && $art_not_img == '2'){
+                                                  
+        $notification .= '<li><div class="notification-database">';
+        $notification .= '<div class="notification-pic">';
+        $notification .= '<img src="' . base_url(USERIMAGE . $art['user_image']) . '" >';
+        $notification .= '</div><div class="notification-data-inside">';
+        $notification .= '<a href="' . base_url('artistic/postnewpage/' .$art['art_post_id']) . '"><h6>HI.. !  <font color="#4e6db1"><b><i> Artistic</i></font></b><b>' . '  ' . $art['first_name'] . ' ' . $art['last_name'] . '</b> liked on your post</h6></a>';
+        $notification .= '<div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
+        $notification .= '' . $this->common->time_elapsed_string($art['message_create_date'], $full = false) . ''; 
+         $notification .= '</div></div> </div> </li>';
+                                     }
+                            elseif($art_not_from == '3' && $art_not_img == '5'){
+        $notification .= '<li>' . $art_not_img . '<div class="notification-database">';
+        $notification .= '<div class="notification-pic">';
+        $notification .= '<img src="' . base_url(USERIMAGE . $art['user_image']) . '" >';
+        $notification .= '</div><div class="notification-data-inside">';
+        $notification .= '<a href="' . base_url('artistic/postnewpage/' .$art['art_post_id']) . '"><h6>HI.. !  <font color="#4e6db1"><b><i> Artistic</i></font></b><b>' . '  ' . $art['first_name'] . ' ' . $art['last_name'] . '</b> liked on your image</h6></a>';
+        $notification .= '<div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
+        $notification .= '' . $this->common->time_elapsed_string($art['message_create_date'], $full = false) . ''; 
+        $notification .= '</div></div> </div> </li>';       
+             }else{ 
+        $notification .= '<li>' . $art_not_img . '';
+        $notification .= '<div class="notification-database">';
+        $notification .= '<div class="notification-pic">';
+        $notification .= '<img src="' . base_url(USERIMAGE . $art['user_image']) . '" >';
+        $notification .= '</div><div class="notification-data-inside">';
+        $notification .= '<a href="' . base_url('artistic/postnewpage/' .$art['art_post_id']) . '"><h6>HI.. !  <font color="#4e6db1"><b><i> Artistic</i></font></b><b>' . '  ' . $art['first_name'] . ' ' . $art['last_name'] . '</b> liked on your comment</h6></a>';
+        $notification .= '<div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
+      $notification .= ''. $this->common->time_elapsed_string($art['message_create_date'], $full = false) . '';
+      $notification .= '</div></div> </div> </li>';
+                                                                   } }
+                                                                                                   
+          foreach($buscommnet as $bus) { 
+         $bus_not_from = $bus['not_from'];
+        $bus_not_img = $bus['not_img'];
+       if($bus_not_from == '6' && $bus_not_img == '1'){
+        $notification .= '<li>'; 
+        $notification .= '<div class="notification-database">';
+        $notification .= '<div class="notification-pic">';
+        $notification .= '<img src="' . base_url(USERIMAGE . $bus['user_image']) . '" >';
+        $notification .= '</div><div class="notification-data-inside">';
+        $notification .= '<a href="' . base_url('notification/business_post/' . $bus['user_id']) . '"><h6>HI.. !  <font color="#4e6db1"><b><i> Business</i></font></b><b>' . '  ' . $bus['first_name'] . ' ' . $bus['last_name'] . '</b> commneted on your post</h6></a>';
+        $notification .= '<div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
+    $notification .= '' . $this->common->time_elapsed_string($bus['message_create_date'], $full = false) . '';
+        $notification .= '</div></div> </div> </li>';
+           }else{ 
+        $notification .= '<li><div class="notification-database">';
+        $notification .= '<div class="notification-pic">';
+        $notification .= '<img src="' . base_url(USERIMAGE . $bus['user_image']) . '" >';
+        $notification .= '</div><div class="notification-data-inside">';
+        $notification .= '<a href="' . base_url('notification/business_post/' . $bus['user_id']) . '"><h6>HI.. !  <font color="#4e6db1"><b><i> Business</i></font></b><b>' . '  ' . $bus['first_name'] . ' ' . $bus['last_name'] . '</b> commneted on your image</h6></a>';
+        $notification .= '<div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
+        $notification .= '' . $this->common->time_elapsed_string($bus['message_create_date'], $full = false) . '';
+        $notification .= '</div></div> </div> </li>';
+                                                 }} 
+
+                                                                                           
+
+                                  foreach($busifollow as $bus) {
+                                   if ($bus['not_from'] == 6) {
+
+       $notification .= '<li><div class="notification-database">';
+       $notification .= '<div class="notification-pic">';
+       $notification .= '<img src="' . base_url(USERIMAGE . $bus['user_image']) . '" >';
+       $notification .= '</div><div class="notification-data-inside">';
+       $notification .= '<a href="' . base_url('business_profile/business_resume/' . $bus['user_id']) . '"><h6>HI.. !  <font color="#4e6db1"><b><i> Businessman</i></font></b><b>' . '  ' . $bus['first_name'] . ' ' . $bus['last_name'] . '</b> started to following you</h6></a>';
+       $notification .= '<div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
+       $notification .= '' . $this->common->time_elapsed_string($bus['message_create_date'], $full = false) . '';
+       $notification .= '</div></div> </div> </li>';
+                                                 }} 
+
+                                                                                               
+
+foreach($buslike as $bus) {
+$bus_not_from = $bus['not_from'];
+$bus_not_img = $bus['not_img'];
+
+if($bus_not_from == '6' && $bus_not_img == '2'){ 
+     $notification .= '<li><div class="notification-database">';
+     $notification .= '<div class="notification-pic">';
+     $notification .= '<img src="' . base_url(USERIMAGE . $bus['user_image']) . '" >';
+     $notification .= '</div><div class="notification-data-inside">';
+     $notification .= '<a href="' . base_url('notification/art_post/' . $bus['user_id']) . '"><h6>HI.. !  <font color="#4e6db1"><b><i> Businessman</i></font></b><b>' . '  ' . $bus['first_name'] . ' ' . $bus['last_name'] . '</b> liked on your post</h6></a>';
+     $notification .= '<div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
+ $notification .= '' . $this->common->time_elapsed_string($bus['message_create_date'], $full = false) . '';
+     $notification .= '</div></div> </div> </li>';
+ }elseif($bus_not_from == '6' && $bus_not_img == '5'){ 
+    $notification .= '<li><div class="notification-database">';
+    $notification .= '<div class="notification-pic">';
+    $notification .= '<img src="' . base_url(USERIMAGE . $bus['user_image']) . '" >';
+    $notification .= '</div><div class="notification-data-inside">';
+    $notification .= '<a href="' . base_url('notification/art_post/' . $bus['user_id']) . '"><h6>HI.. !  <font color="#4e6db1"><b><i> Businessman</i></font></b><b>' . '  ' . $bus['first_name'] . ' ' . $bus['last_name'] . '</b> liked on your image</h6></a>';
+    $notification .= '<div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
+    $notification .= '' . $this->common->time_elapsed_string($bus['message_create_date'], $full = false) . ''; 
+    $notification .= '</div></div> </div> </li>';
+     }else{ 
+    $notification .= '<li><div class="notification-database">';
+    $notification .= '<div class="notification-pic">';
+    $notification .= '<img src="' . base_url(USERIMAGE . $bus['user_image']) . '" >';
+    $notification .= '</div><div class="notification-data-inside">';
+    $notification .= '<a href="' . base_url('notification/art_post/' . $bus['user_id']) . '"><h6>HI.. !  <font color="#4e6db1"><b><i> Businessman</i></font></b><b>"' . '"  "' . $bus['first_name'] . ' ' . $bus['last_name'] . '"</b> liked on your comment"</h6></a>';
+    $notification .= '<div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
+    $notification .= '' . $this->common->time_elapsed_string($bus['message_create_date'], $full = false) . '';
+    $notification .= '</div></div> </div> </li>';
+                                                 }} 
+
+foreach($rec_not as $art) {
+if ($art['not_from'] == 2) {
+
+  $notification .= '<li><div class="notification-database">';
+  $notification .= '<div class="notification-pic">';
+  $notification .= '<img src="' . base_url(USERIMAGE . $art['user_image']) .'" >';
+  $notification .= '</div><div class="notification-data-inside">';
+  $notification .= '<a href="' . base_url('job/job_printpreview/' . $id) . '"><h6>HI.. !  <font color="#4e6db1"><b><i> Job seeker</i></font></b><b>' . '  ' . $art['first_name'] . ' ' . $art['last_name'] . '</b> Aplied on your post</h6></a>';
+  $notification .= '<div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
+  $notification .= '' . $this->common->time_elapsed_string($art['message_create_date'], $full = false) . '';
+  $notification .= '</div></div> </div> </li>';
+                                               }}
+
+                                                                                     
+
+foreach($hire_not as $art) {
+if($art['not_from'] == 6){
+
+        $notification .= '<li><div class="notification-database">';
+        $notification .= '<div class="notification-pic">';
+        $notification .= '<img src="' . base_url(USERIMAGE . $art['user_image']) . '" >';
+        $notification .= '</div><div class="notification-data-inside">';
+        $notification .= '<a href="' . base_url('job/job_printpreview/' . $id) . '"><h6>HI.. !  <font color="yellow"><b><i>Freelancer work</i></font></b><b>' . '  ' . $art['first_name'] . ' ' . $art['last_name'] . '</b> Aplied on your post</h6></a>'; 
+        $notification .= '<div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
+        $notification .= '' . $this->common->time_elapsed_string($art['message_create_date'], $full = false) . '';
+        $notification .= '</div></div> </div> </li>';
+ }} 
+                                                                                                   
+
+foreach($work_not as $art) {
+if($art['not_from'] == 5){
+
+             $notification .= '<li><div class="notification-database">';
+             $notification .= '<div class="notification-pic">';
+             $notification .= '<img src="' . base_url(USERIMAGE . $art['user_image']) . '" >';
+             $notification .= '</div><div class="notification-data-inside">';
+             $notification .= '<a href="' . base_url('job/job_printpreview/' . $id) . '"><h6>HI.. !  <font color="black"><b><i>Freelance Hire</i></font></b><b>' . '  ' . $art['first_name'] . ' ' . $art['last_name'] . '</b> Aplied on your post</h6></a>';
+             $notification .= '<div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
+             $notification .= '' . $this->common->time_elapsed_string($art['message_create_date'], $full = false) . '';
+             $notification .= '</div></div> </div> </li>';
+                                           }} 
+      
+
+foreach($work_post as $work) {
+if($work['not_from'] == 4){
+
+      $notification .= '<li><div class="notification-database">';
+      $notification .= '<div class="notification-pic">';
+      $notification .= '<img src="' . base_url(USERIMAGE . $work['user_image']) . '" >';
+      $notification .= '</div><div class="notification-data-inside">';
+      $notification .= '<a href="' . base_url('notification/recruiter_post/' . $work['post_id']) . '><h6>HI.. !  <font color="#4e6db1"><b><i> Freelancer hire</i></font></b><b>' . '  ' . $work['first_name'] . ' ' . $work['last_name'] . '</b> invited you for an interview</h6></a>';
+      $notification .= '<div><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
+      $notification .= '' . $this->common->time_elapsed_string($work['message_create_date'], $full = false) . ''; 
+      $notification .= '</div></div> </div> </li>';
+ }}                
+       $notification .= '</div>'; 
+       
+       echo $notification;
+    }
+    
     
 }

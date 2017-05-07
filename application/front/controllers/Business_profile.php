@@ -193,13 +193,6 @@ class Business_profile extends MY_Controller {
         }
 
         $this->data['demo'] = array_values($result1);
-
-
-
-
-
-
-
         $this->load->view('business_profile/business_info', $this->data);
     }
 
@@ -1875,7 +1868,7 @@ class Business_profile extends MY_Controller {
 
             if ($update) {
 
-                $follow = '<div class="user_btn_f follow_btn_' .$business_id.'" id="unfollowdiv">';
+                $follow = '<div class="user_btn_f follow_btn_' . $business_id . '" id="unfollowdiv">';
                 $follow .= '<button class="bg_following" id="unfollow' . $business_id . '" onClick="unfollowuser_two(' . $business_id . ')">
                               Following
                       </button>';
@@ -1905,7 +1898,7 @@ class Business_profile extends MY_Controller {
             $insert_id = $this->common->insert_data_getid($data, 'notification');
             // end notoification
             if ($insert) {
-                $follow = '<div class="user_btn_f follow_btn_' .$business_id.'" id="unfollowdiv">';
+                $follow = '<div class="user_btn_f follow_btn_' . $business_id . '" id="unfollowdiv">';
                 // $follow = '<button id="unfollow' . $business_id . '" onClick="unfollowuser(' . $business_id . ')">
                 //                Following
                 //       </button>';
@@ -1988,18 +1981,18 @@ class Business_profile extends MY_Controller {
                 $unfollow .= ')</div>';
 
 
-                if(count($followingotherdata) == 0){
-              $notfound = '<div>'; 
-             $notfound .= '<div class="text-center rio">';
-             $notfound .= '<h4 class="page-heading  product-listing" style="border:0px;margin-bottom: 11px;">No Following Found.</h4>';
-             $notfound .= '</div></div>';
-               }
+                if (count($followingotherdata) == 0) {
+                    $notfound = '<div>';
+                    $notfound .= '<div class="text-center rio">';
+                    $notfound .= '<h4 class="page-heading  product-listing" style="border:0px;margin-bottom: 11px;">No Following Found.</h4>';
+                    $notfound .= '</div></div>';
+                }
 
-              echo json_encode(
-                array("unfollow" => $unfollow,
-                    "notfound" => $notfound,
-                    "notcount" => $followingdatacount,
-                    ));
+                echo json_encode(
+                        array("unfollow" => $unfollow,
+                            "notfound" => $notfound,
+                            "notcount" => $followingdatacount,
+                ));
             }
         }
     }
@@ -2420,38 +2413,37 @@ class Business_profile extends MY_Controller {
 
             // insert notification
 
-            if($businessprofiledata[0]['user_id'] == $userid){}else{ 
-           
-        $contition_array = array('not_type' => 5, 'not_from_id' => $userid, 'not_to_id' => $businessprofiledata[0]['user_id'], 'not_product_id' => $post_id, 'not_from' => 6, 'not_img' => 3);
-        $busnotification = $this->common->select_data_by_condition('notification', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-              if($busnotification[0]['not_read'] ==  2){}
-                elseif($busnotification[0]['not_read'] ==  1){
+            if ($businessprofiledata[0]['user_id'] == $userid) {
+                
+            } else {
+
+                $contition_array = array('not_type' => 5, 'not_from_id' => $userid, 'not_to_id' => $businessprofiledata[0]['user_id'], 'not_product_id' => $post_id, 'not_from' => 6, 'not_img' => 3);
+                $busnotification = $this->common->select_data_by_condition('notification', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                if ($busnotification[0]['not_read'] == 2) {
+                    
+                } elseif ($busnotification[0]['not_read'] == 1) {
 
                     $datalike = array(
-                    'not_read' => 2 
+                        'not_read' => 2
                     );
 
-                $where = array('not_type' => 5, 'not_from_id' => $userid, 'not_to_id' => $businessprofiledata[0]['user_id'], 'not_product_id' => $post_id, 'not_from' => 6, 'not_img' => 3);
-                $this->db->where($where);
-                $updatdata = $this->db->update('notification', $datalike);
+                    $where = array('not_type' => 5, 'not_from_id' => $userid, 'not_to_id' => $businessprofiledata[0]['user_id'], 'not_product_id' => $post_id, 'not_from' => 6, 'not_img' => 3);
+                    $this->db->where($where);
+                    $updatdata = $this->db->update('notification', $datalike);
+                } else {
 
-                }
+                    $datacmlike = array(
+                        'not_type' => 5,
+                        'not_from_id' => $userid,
+                        'not_to_id' => $businessprofiledata[0]['user_id'],
+                        'not_read' => 2,
+                        'not_product_id' => $post_id,
+                        'not_from' => 6,
+                        'not_img' => 3
+                    );
 
-                 else{
 
-            $datacmlike = array(
-                'not_type' => 5,
-                'not_from_id' => $userid,
-                'not_to_id' => $businessprofiledata[0]['user_id'],
-                'not_read' => 2,
-                'not_product_id' => $post_id,
-                'not_from' => 6,
-                'not_img' => 3
-            );
-
-            
-            $insert_id = $this->common->insert_data_getid($datacmlike, 'notification');
-
+                    $insert_id = $this->common->insert_data_getid($datacmlike, 'notification');
                 }
             }
             // end notoification
@@ -2548,38 +2540,37 @@ class Business_profile extends MY_Controller {
 
             // insert notification
 
-            if($businessprofiledata[0]['user_id'] == $userid){}else{
-            
-        $contition_array = array('not_type' => 5, 'not_from_id' => $userid, 'not_to_id' => $businessprofiledata[0]['user_id'], 'not_product_id' => $post_id, 'not_from' => 6, 'not_img' => 3);
-        $busnotification = $this->common->select_data_by_condition('notification', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-              if($busnotification[0]['not_read'] ==  2){}
-                elseif($busnotification[0]['not_read'] ==  1){
+            if ($businessprofiledata[0]['user_id'] == $userid) {
+                
+            } else {
+
+                $contition_array = array('not_type' => 5, 'not_from_id' => $userid, 'not_to_id' => $businessprofiledata[0]['user_id'], 'not_product_id' => $post_id, 'not_from' => 6, 'not_img' => 3);
+                $busnotification = $this->common->select_data_by_condition('notification', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                if ($busnotification[0]['not_read'] == 2) {
+                    
+                } elseif ($busnotification[0]['not_read'] == 1) {
 
                     $datalike = array(
-                    'not_read' => 2 
+                        'not_read' => 2
                     );
 
-                $where = array('not_type' => 5, 'not_from_id' => $userid, 'not_to_id' => $businessprofiledata[0]['user_id'], 'not_product_id' => $post_id, 'not_from' => 6, 'not_img' => 3);
-                $this->db->where($where);
-                $updatdata = $this->db->update('notification', $datalike);
+                    $where = array('not_type' => 5, 'not_from_id' => $userid, 'not_to_id' => $businessprofiledata[0]['user_id'], 'not_product_id' => $post_id, 'not_from' => 6, 'not_img' => 3);
+                    $this->db->where($where);
+                    $updatdata = $this->db->update('notification', $datalike);
+                } else {
 
+                    $data = array(
+                        'not_type' => 5,
+                        'not_from_id' => $userid,
+                        'not_to_id' => $businessprofiledata[0]['user_id'],
+                        'not_read' => 2,
+                        'not_product_id' => $post_id,
+                        'not_from' => 6,
+                        'not_img' => 3
+                    );
+
+                    $insert_id = $this->common->insert_data_getid($data, 'notification');
                 }
-
-                 else{
-
-            $data = array(
-                'not_type' => 5,
-                'not_from_id' => $userid,
-                'not_to_id' => $businessprofiledata[0]['user_id'] ,
-                'not_read' => 2,
-                'not_product_id' => $post_id,
-                'not_from' => 6,
-                'not_img' => 3
-            );
-
-            $insert_id = $this->common->insert_data_getid($data, 'notification');
-
-              }
             }
             // end notoification
 
@@ -2929,7 +2920,7 @@ class Business_profile extends MY_Controller {
 
     public function like_post() {
 
-       $userid = $this->session->userdata('aileenuser'); 
+        $userid = $this->session->userdata('aileenuser');
         $post_id = $_POST["post_id"];
 
         $contition_array = array('business_profile_post_id' => $_POST["post_id"], 'status' => '1');
@@ -2960,38 +2951,38 @@ class Business_profile extends MY_Controller {
 
 
             // insert notification
-        if($businessprofiledata[0]['user_id'] == $userid){ }else{ 
+            if ($businessprofiledata[0]['user_id'] == $userid) {
+                
+            } else {
 
-        $contition_array = array('not_type' => 5, 'not_from_id' => $userid, 'not_to_id' => $businessprofiledata[0]['user_id'], 'not_product_id' => $post_id, 'not_from' => 6, 'not_img' => 2);
-        $busnotification = $this->common->select_data_by_condition('notification', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-              if($busnotification[0]['not_read'] ==  2){}
-                elseif($busnotification[0]['not_read'] ==  1){
+                $contition_array = array('not_type' => 5, 'not_from_id' => $userid, 'not_to_id' => $businessprofiledata[0]['user_id'], 'not_product_id' => $post_id, 'not_from' => 6, 'not_img' => 2);
+                $busnotification = $this->common->select_data_by_condition('notification', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                if ($busnotification[0]['not_read'] == 2) {
+                    
+                } elseif ($busnotification[0]['not_read'] == 1) {
 
                     $datalike = array(
-                    'not_read' => 2 
+                        'not_read' => 2
                     );
 
-                $where = array('not_type' => 5, 'not_from_id' => $userid, 'not_to_id' => $businessprofiledata[0]['user_id'], 'not_product_id' => $post_id, 'not_from' => 6, 'not_img' => 2);
-                $this->db->where($where);
-                $updatdata = $this->db->update('notification', $datalike);
+                    $where = array('not_type' => 5, 'not_from_id' => $userid, 'not_to_id' => $businessprofiledata[0]['user_id'], 'not_product_id' => $post_id, 'not_from' => 6, 'not_img' => 2);
+                    $this->db->where($where);
+                    $updatdata = $this->db->update('notification', $datalike);
+                } else {
 
+                    $datalike = array(
+                        'not_type' => 5,
+                        'not_from_id' => $userid,
+                        'not_to_id' => $businessprofiledata[0]['user_id'],
+                        'not_read' => 2,
+                        'not_product_id' => $post_id,
+                        'not_from' => 6,
+                        'not_img' => 2
+                    );
+                    //echo "<pre>"; print_r($data); die();
+
+                    $insert_id = $this->common->insert_data_getid($datalike, 'notification');
                 }
-
-                 else{
-
-                $datalike = array(
-                    'not_type' => 5,
-                    'not_from_id' => $userid,
-                    'not_to_id' => $businessprofiledata[0]['user_id'],
-                    'not_read' => 2,
-                    'not_product_id' => $post_id,
-                    'not_from' => 6,
-                    'not_img' => 2
-                );
-                //echo "<pre>"; print_r($data); die();
-
-                $insert_id = $this->common->insert_data_getid($datalike, 'notification');
-              }
             }
             // end notoification
 
@@ -3031,17 +3022,16 @@ class Business_profile extends MY_Controller {
 
                 foreach ($likelistarray as $key => $value) {
                     $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $value, 'status' => 1))->row()->company_name;
-                  //  $cmtlikeuser .= '<a href="' . base_url('business_profile/business_resume/' . $value) . '">';
-                  //  $cmtlikeuser .= '' . ucwords($business_fname1) . '&nbsp;';
-                  //  $cmtlikeuser .= '</a>';
+                    //  $cmtlikeuser .= '<a href="' . base_url('business_profile/business_resume/' . $value) . '">';
+                    //  $cmtlikeuser .= '' . ucwords($business_fname1) . '&nbsp;';
+                    //  $cmtlikeuser .= '</a>';
                 }
 
-               // $cmtlikeuser .= '<p class="okk"><a class="cnclbtn" href="#">Cancel</a></p>';
-               // $cmtlikeuser .= '</div>';
-               // $cmtlikeuser .= '</div>';
-               // $cmtlikeuser .= '</div>';
+                // $cmtlikeuser .= '<p class="okk"><a class="cnclbtn" href="#">Cancel</a></p>';
+                // $cmtlikeuser .= '</div>';
+                // $cmtlikeuser .= '</div>';
+                // $cmtlikeuser .= '</div>';
 //popup box end like user name
-
 //                $cmtlikeuser .= '<a href=#popuplike' . $businessprofiledata1[0]['business_profile_post_id'] . '>';
                 //$cmtlikeuser .= '<div style="padding-top: 6px; padding-bottom: 6px;">';
                 $cmtlikeuser .= ' <a href="javascript:void(0);"  onclick="likeuserlist(' . $businessprofiledata1[0]['business_profile_post_id'] . ');">';
@@ -3057,17 +3047,16 @@ class Business_profile extends MY_Controller {
 
                 $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $likelistarray[0], 'status' => 1))->row()->company_name;
 
-               // $cmtlikeuser .= '<div class="fl" style=" padding-left: 22px;" >';
+                // $cmtlikeuser .= '<div class="fl" style=" padding-left: 22px;" >';
                 $cmtlikeuser .= '<div class="like_one_other">';
                 $cmtlikeuser .= '' . ucwords($business_fname1) . '&nbsp;';
                 $cmtlikeuser .= '</div>';
                 if (count($likelistarray) > 1) {
 
 //                    $cmtlikeuser .= '<div class="fl" style="padding-right: 5px;">';
-                   // $cmtlikeuser .= '<div class="like_one_other">';
+                    // $cmtlikeuser .= '<div class="like_one_other">';
                     $cmtlikeuser .= 'and';
                     //$cmtlikeuser .= '</div>';
-
                     //$cmtlikeuser .= '<div style="padding-left: 5px;">';
                     $cmtlikeuser .= ' ' . $countlike . ' others';
                     //$cmtlikeuser .= '</div>';
@@ -3075,7 +3064,7 @@ class Business_profile extends MY_Controller {
 
                 $cmtlikeuser .= '</a>';
                 //$cmtlikeuser .= '</div>';
-               $like_user_count = $commnetcount[0]['business_likes_count'];
+                $like_user_count = $commnetcount[0]['business_likes_count'];
                 echo json_encode(
                         array("like" => $cmtlike,
                             "likeuser" => $cmtlikeuser,
@@ -3105,7 +3094,7 @@ class Business_profile extends MY_Controller {
             if ($updatdata) {
 
                 $cmtlike = '<li>';
-                $cmtlike .= '<a id="'. $businessprofiledata2[0]['business_profile_post_id'] . '" onClick="post_like(this.id)">';
+                $cmtlike .= '<a id="' . $businessprofiledata2[0]['business_profile_post_id'] . '" onClick="post_like(this.id)">';
                 $cmtlike .= '<i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true">';
                 $cmtlike .= '</i>';
                 $cmtlike .= '<span>';
@@ -3118,8 +3107,8 @@ class Business_profile extends MY_Controller {
 //echo $cmtlike;
 //popup box start like user name
                 //popup box start like user name
-               // $cmtlikeuser .= '<div id=popuplike' . $businessprofiledata2[0]['business_profile_post_id'] . ' class="overlay">';
-               // $cmtlikeuser .= '<div class="popup">';
+                // $cmtlikeuser .= '<div id=popuplike' . $businessprofiledata2[0]['business_profile_post_id'] . ' class="overlay">';
+                // $cmtlikeuser .= '<div class="popup">';
                 //$cmtlikeuser .= '<div class="pop_content">';
 
                 $contition_array = array('business_profile_post_id' => $businessprofiledata2['business_profile_post_id'], 'status' => '1', 'is_delete' => '0');
@@ -3132,9 +3121,9 @@ class Business_profile extends MY_Controller {
 
                 foreach ($likelistarray as $key => $value) {
                     $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $value, 'status' => 1))->row()->company_name;
-                  //  $cmtlikeuser .= '<a href="' . base_url('business_profile/business_resume/' . $value) . '">';
-                  //  $cmtlikeuser .= '' . ucwords($business_fname1) . '&nbsp;';
-                  //  $cmtlikeuser .= '</a>';
+                    //  $cmtlikeuser .= '<a href="' . base_url('business_profile/business_resume/' . $value) . '">';
+                    //  $cmtlikeuser .= '' . ucwords($business_fname1) . '&nbsp;';
+                    //  $cmtlikeuser .= '</a>';
                 }
 
                 //$cmtlikeuser .= '<p class="okk"><a class="cnclbtn" href="#">Cancel</a></p>';
@@ -3142,7 +3131,6 @@ class Business_profile extends MY_Controller {
                 //$cmtlikeuser .= '</div>';
                 //$cmtlikeuser .= '</div>';
 //popup box end like user name
-
 //                $cmtlikeuser .= '<a href=#popuplike' . $businessprofiledata2[0]['business_profile_post_id'] . '>';
                 //$cmtlikeuser .= '<div style="padding-top: 6px; padding-bottom: 6px;">';
                 $cmtlikeuser .= '<a href="javascript:void(0);" onclick="likeuserlist(' . $businessprofiledata2[0]['business_profile_post_id'] . ')"';
@@ -3169,22 +3157,21 @@ class Business_profile extends MY_Controller {
                     //$cmtlikeuser .= '<div class="fl" style="padding-right: 5px;">';
                     $cmtlikeuser .= 'and';
                     //$cmtlikeuser .= '</div>';
-
                     //$cmtlikeuser .= '<div style="padding-left: 5px;">';
                     $cmtlikeuser .= ' ' . $countlike . ' others';
                     //$cmtlikeuser .= '</div>';
                 }
                 $cmtlikeuser .= '</a>';
 //                $cmtlikeuser .= '</div>';
-                
-                
+
+
                 $like_user_count = $commnetcount[0]['business_likes_count'];
-                
+
                 echo json_encode(
                         array("like" => $cmtlike,
                             "likeuser" => $cmtlikeuser,
                             "like_user_count" => $like_user_count,
-                            ));
+                ));
             } else {
                 
             }
@@ -3223,9 +3210,10 @@ class Business_profile extends MY_Controller {
 
 
         // insert notification
-        
-            if($busdatacomment[0]['user_id'] == $userid){}
-            else{
+
+        if ($busdatacomment[0]['user_id'] == $userid) {
+            
+        } else {
             $notificationdata = array(
                 'not_type' => 6,
                 'not_from_id' => $userid,
@@ -3235,10 +3223,10 @@ class Business_profile extends MY_Controller {
                 'not_from' => 6,
                 'not_img' => 1
             );
-           //echo "<pre>"; print_r($notificationdata); 
+            //echo "<pre>"; print_r($notificationdata); 
             $insert_id_notification = $this->common->insert_data_getid($notificationdata, 'notification');
-          }
-            // end notoification
+        }
+        // end notoification
 
 
 
@@ -3397,9 +3385,10 @@ class Business_profile extends MY_Controller {
 
 
         // insert notification
-        
-            if($busdatacomment[0]['user_id'] == $userid){}
-            else{
+
+        if ($busdatacomment[0]['user_id'] == $userid) {
+            
+        } else {
             $notificationdata = array(
                 'not_type' => 6,
                 'not_from_id' => $userid,
@@ -3409,10 +3398,10 @@ class Business_profile extends MY_Controller {
                 'not_from' => 6,
                 'not_img' => 1
             );
-           //echo "<pre>"; print_r($notificationdata); 
+            //echo "<pre>"; print_r($notificationdata); 
             $insert_id_notification = $this->common->insert_data_getid($notificationdata, 'notification');
-          }
-            // end notoification
+        }
+        // end notoification
 
 
 
@@ -3842,7 +3831,7 @@ class Business_profile extends MY_Controller {
 
 
 
-         $contition_array = array('image_id' => $post_image);
+        $contition_array = array('image_id' => $post_image);
 
         $likeuserid = $this->data['likeuserid'] = $this->common->select_data_by_condition('post_image', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         $contition_array = array('business_profile_post_id' => $likeuserid[0]['post_id']);
@@ -3867,22 +3856,22 @@ class Business_profile extends MY_Controller {
 
             // insert notification
 
-        if($likepostid[0]['user_id'] == $userid){}else{
-            
-            $data = array(
-                'not_type' => 5,
-                'not_from_id' => $userid,
-                'not_to_id' => $likepostid[0]['user_id'] ,
-                'not_read' => 2,
-                'not_product_id' => $post_image,
-                'not_from' => 6,
-                'not_img' => 5
-            );
+            if ($likepostid[0]['user_id'] == $userid) {
+                
+            } else {
 
-            $insert_id = $this->common->insert_data_getid($data, 'notification');
-          
+                $data = array(
+                    'not_type' => 5,
+                    'not_from_id' => $userid,
+                    'not_to_id' => $likepostid[0]['user_id'],
+                    'not_read' => 2,
+                    'not_product_id' => $post_image,
+                    'not_from' => 6,
+                    'not_img' => 5
+                );
 
-          }
+                $insert_id = $this->common->insert_data_getid($data, 'notification');
+            }
             // end notoification
 
 
@@ -3950,42 +3939,42 @@ class Business_profile extends MY_Controller {
 
 
 
-                 // insert notification
+                // insert notification
 
-            if($likepostid[0]['user_id'] == $userid){}else{
-            
-     $contition_array = array('not_type' => 5, 'not_from_id' => $userid, 'not_to_id' => $likepostid[0]['user_id'], 'not_product_id' => $post_image, 'not_from' => 6, 'not_img' => 5);
-        $busnotification = $this->common->select_data_by_condition('notification', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-              if($busnotification[0]['not_read'] ==  2){}
-                elseif($busnotification[0]['not_read'] ==  1){
+                if ($likepostid[0]['user_id'] == $userid) {
+                    
+                } else {
 
-                    $datalike = array(
-                    'not_read' => 2 
-                    );
+                    $contition_array = array('not_type' => 5, 'not_from_id' => $userid, 'not_to_id' => $likepostid[0]['user_id'], 'not_product_id' => $post_image, 'not_from' => 6, 'not_img' => 5);
+                    $busnotification = $this->common->select_data_by_condition('notification', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                    if ($busnotification[0]['not_read'] == 2) {
+                        
+                    } elseif ($busnotification[0]['not_read'] == 1) {
 
-                $where = array('not_type' => 5, 'not_from_id' => $userid, 'not_to_id' => $likepostid[0]['user_id'], 'not_product_id' => $post_image, 'not_from' => 6, 'not_img' => 5);
-                $this->db->where($where);
-                $updatdata = $this->db->update('notification', $datalike);
+                        $datalike = array(
+                            'not_read' => 2
+                        );
 
+                        $where = array('not_type' => 5, 'not_from_id' => $userid, 'not_to_id' => $likepostid[0]['user_id'], 'not_product_id' => $post_image, 'not_from' => 6, 'not_img' => 5);
+                        $this->db->where($where);
+                        $updatdata = $this->db->update('notification', $datalike);
+                    } else {
+
+
+                        $data = array(
+                            'not_type' => 5,
+                            'not_from_id' => $userid,
+                            'not_to_id' => $likepostid[0]['user_id'],
+                            'not_read' => 2,
+                            'not_product_id' => $post_image,
+                            'not_from' => 6,
+                            'not_img' => 5
+                        );
+
+                        $insert_id = $this->common->insert_data_getid($data, 'notification');
+                    }
                 }
-
-                 else{
-
-
-            $data = array(
-                'not_type' => 5,
-                'not_from_id' => $userid,
-                'not_to_id' => $likepostid[0]['user_id'] ,
-                'not_read' => 2,
-                'not_product_id' => $post_image,
-                'not_from' => 6,
-                'not_img' => 5
-            );
-
-            $insert_id = $this->common->insert_data_getid($data, 'notification');
-            }
-          }
-            // end notoification
+                // end notoification
 
                 $contition_array = array('post_image_id' => $_POST["post_image_id"], 'is_unlike' => '0');
                 $bdata2 = $this->data['bdata2'] = $this->common->select_data_by_condition('bus_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -4020,7 +4009,7 @@ class Business_profile extends MY_Controller {
         $userid = $this->session->userdata('aileenuser');
 
         $post_image_id = $_POST["post_image_id"];
-        $post_comment = $_POST["comment"]; 
+        $post_comment = $_POST["comment"];
 
 
 
@@ -4044,13 +4033,15 @@ class Business_profile extends MY_Controller {
 
 
 
-         // insert notification
+        // insert notification
 
-            if($buspostid[0]['user_id'] == $userid){}else{ 
+        if ($buspostid[0]['user_id'] == $userid) {
+            
+        } else {
             $datanotification = array(
                 'not_type' => 6,
                 'not_from_id' => $userid,
-                'not_to_id' => $buspostid[0]['user_id'] ,
+                'not_to_id' => $buspostid[0]['user_id'],
                 'not_read' => 2,
                 'not_product_id' => $insert_id,
                 'not_from' => 6,
@@ -4058,8 +4049,8 @@ class Business_profile extends MY_Controller {
             );
             //echo "<pre>"; print_r($datanotification); die();
             $insert_id_notification = $this->common->insert_data_getid($datanotification, 'notification');
-            }
-            // end notoification
+        }
+        // end notoification
 
 
 
@@ -4196,7 +4187,7 @@ class Business_profile extends MY_Controller {
         $post_comment = $_POST["comment"];
 
 
-         $contition_array = array('image_id' => $_POST["post_image_id"], 'is_deleted' => '1');
+        $contition_array = array('image_id' => $_POST["post_image_id"], 'is_deleted' => '1');
         $busimg = $this->data['busimg'] = $this->common->select_data_by_condition('post_image', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
         $contition_array = array('business_profile_post_id' => $busimg[0]["post_id"], 'is_delete' => 0);
@@ -4213,13 +4204,15 @@ class Business_profile extends MY_Controller {
 
 
 
-             // insert notification
+        // insert notification
 
-            if($buspostid[0]['user_id'] == $userid){}else{
+        if ($buspostid[0]['user_id'] == $userid) {
+            
+        } else {
             $datanotification = array(
                 'not_type' => 6,
                 'not_from_id' => $userid,
-                'not_to_id' => $buspostid[0]['user_id'] ,
+                'not_to_id' => $buspostid[0]['user_id'],
                 'not_read' => 2,
                 'not_product_id' => $insert_id,
                 'not_from' => 6,
@@ -4227,8 +4220,8 @@ class Business_profile extends MY_Controller {
             );
 
             $insert_id_notification = $this->common->insert_data_getid($datanotification, 'notification');
-            }
-            // end notoification
+        }
+        // end notoification
 
 
 
@@ -4634,12 +4627,12 @@ class Business_profile extends MY_Controller {
         $contition_array = array('post_image_comment_id' => $post_image_comment_id);
         $busimglike = $this->data['busimglike'] = $this->common->select_data_by_condition('bus_post_image_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 //echo "<pre>"; print_r($busimglike); die();
-       
+
 
         $contition_array = array('image_id' => $busimglike[0]['post_image_id'], 'image_type' => '2');
         $buslikeimg = $this->data['buslikeimg'] = $this->common->select_data_by_condition('post_image', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-       $contition_array = array('business_profile_post_id' => $buslikeimg[0]["post_id"]);
+        $contition_array = array('business_profile_post_id' => $buslikeimg[0]["post_id"]);
         $busimglikepost = $this->data['busimglikepost'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
 //echo "<pre>"; print_r($busimglikepost); die();
@@ -4659,18 +4652,20 @@ class Business_profile extends MY_Controller {
 
             // insert notification
 
-            if($busimglikepost[0]['user_id'] == $userid){}else{ 
-            $datanotification = array(
-                'not_type' => 5,
-                'not_from_id' => $userid,
-                'not_to_id' => $busimglikepost[0]['user_id'] ,
-                'not_read' => 2,
-                'not_product_id' => $post_image_comment_id,
-                'not_from' => 6,
-                'not_img' => 6
-            );
-            //echo "<pre>"; print_r($datanotification); die();
-            $insert_id = $this->common->insert_data_getid($datanotification, 'notification');
+            if ($busimglikepost[0]['user_id'] == $userid) {
+                
+            } else {
+                $datanotification = array(
+                    'not_type' => 5,
+                    'not_from_id' => $userid,
+                    'not_to_id' => $busimglikepost[0]['user_id'],
+                    'not_read' => 2,
+                    'not_product_id' => $post_image_comment_id,
+                    'not_from' => 6,
+                    'not_img' => 6
+                );
+                //echo "<pre>"; print_r($datanotification); die();
+                $insert_id = $this->common->insert_data_getid($datanotification, 'notification');
             }
             // end notoification
 
@@ -4703,9 +4698,9 @@ class Business_profile extends MY_Controller {
                 );
 
 
-            $where = array('post_image_comment_id' => $post_image_comment_id , 'user_id' => $userid);
-              $this->db->where($where);
-             $updatdata = $this->db->update('bus_comment_image_like ', $data); 
+                $where = array('post_image_comment_id' => $post_image_comment_id, 'user_id' => $userid);
+                $this->db->where($where);
+                $updatdata = $this->db->update('bus_comment_image_like ', $data);
 
 
                 //$updatdata = $this->common->update_data($data, 'bus_comment_image_like', 'post_image_comment_id', $post_image_comment_id);
@@ -4739,50 +4734,50 @@ class Business_profile extends MY_Controller {
                 );
 
 
-               // $updatdata = $this->common->update_data($data, 'bus_comment_image_like', 'post_image_comment_id', $post_image_comment_id);
+                // $updatdata = $this->common->update_data($data, 'bus_comment_image_like', 'post_image_comment_id', $post_image_comment_id);
 
 
-            $where = array('post_image_comment_id' => $post_image_comment_id , 'user_id' => $userid);
-              $this->db->where($where);
-             $updatdata = $this->db->update('bus_comment_image_like ', $data);
-
-
-             // insert notification
-
-            if($busimglikepost[0]['user_id'] == $userid){}else{ 
-
-
-        $contition_array = array('not_type' => 5, 'not_from_id' => $userid, 'not_to_id' => $busimglikepost[0]['user_id'], 'not_product_id' => $post_image_comment_id, 'not_from' => 6, 'not_img' => 6);
-        $busnotification = $this->common->select_data_by_condition('notification', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-              if($busnotification[0]['not_read'] ==  2){}
-                elseif($busnotification[0]['not_read'] ==  1){
-
-                    $datalike = array(
-                    'not_read' => 2 
-                    );
-
-                $where = array('not_type' => 5, 'not_from_id' => $userid, 'not_to_id' => $busimglikepost[0]['user_id'], 'not_product_id' => $post_image_comment_id, 'not_from' => 6, 'not_img' => 6);
+                $where = array('post_image_comment_id' => $post_image_comment_id, 'user_id' => $userid);
                 $this->db->where($where);
-                $updatdata = $this->db->update('notification', $datalike);
+                $updatdata = $this->db->update('bus_comment_image_like ', $data);
 
+
+                // insert notification
+
+                if ($busimglikepost[0]['user_id'] == $userid) {
+                    
+                } else {
+
+
+                    $contition_array = array('not_type' => 5, 'not_from_id' => $userid, 'not_to_id' => $busimglikepost[0]['user_id'], 'not_product_id' => $post_image_comment_id, 'not_from' => 6, 'not_img' => 6);
+                    $busnotification = $this->common->select_data_by_condition('notification', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                    if ($busnotification[0]['not_read'] == 2) {
+                        
+                    } elseif ($busnotification[0]['not_read'] == 1) {
+
+                        $datalike = array(
+                            'not_read' => 2
+                        );
+
+                        $where = array('not_type' => 5, 'not_from_id' => $userid, 'not_to_id' => $busimglikepost[0]['user_id'], 'not_product_id' => $post_image_comment_id, 'not_from' => 6, 'not_img' => 6);
+                        $this->db->where($where);
+                        $updatdata = $this->db->update('notification', $datalike);
+                    } else {
+
+                        $data = array(
+                            'not_type' => 5,
+                            'not_from_id' => $userid,
+                            'not_to_id' => $busimglikepost[0]['user_id'],
+                            'not_read' => 2,
+                            'not_product_id' => $post_image_comment_id,
+                            'not_from' => 6,
+                            'not_img' => 6
+                        );
+                        //echo "<pre>"; print_r($data); die();
+                        $insert_id = $this->common->insert_data_getid($data, 'notification');
+                    }
                 }
-
-                 else{
-
-            $data = array(
-                'not_type' => 5,
-                'not_from_id' => $userid,
-                'not_to_id' => $busimglikepost[0]['user_id'] ,
-                'not_read' => 2,
-                'not_product_id' => $post_image_comment_id,
-                'not_from' => 6,
-                'not_img' => 6
-            );
-            //echo "<pre>"; print_r($data); die();
-            $insert_id = $this->common->insert_data_getid($data, 'notification');
-            }
-          }
-            // end notoification 
+                // end notoification 
 
 
                 $contition_array = array('post_image_comment_id' => $_POST["post_image_comment_id"], 'is_unlike' => '0');
@@ -4818,17 +4813,17 @@ class Business_profile extends MY_Controller {
         $contition_array = array('post_image_comment_id' => $post_image_comment_id, 'user_id' => $userid);
 
         $likecommentuser = $this->data['likecommentuser'] = $this->common->select_data_by_condition('bus_comment_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-    //echo "<pre>"; print_r($likecommentuser); die();
+        //echo "<pre>"; print_r($likecommentuser); die();
 
         $contition_array = array('post_image_comment_id' => $post_image_comment_id);
         $busimglike = $this->data['busimglike'] = $this->common->select_data_by_condition('bus_post_image_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         //echo "<pre>"; print_r($busimglike); die();
 
 
-       $contition_array = array('image_id' => $busimglike[0]['post_image_id'], 'image_type' => '2');
+        $contition_array = array('image_id' => $busimglike[0]['post_image_id'], 'image_type' => '2');
         $buslikeimg = $this->data['buslikeimg'] = $this->common->select_data_by_condition('post_image', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-       $contition_array = array('business_profile_post_id' => $buslikeimg[0]["post_id"]);
+        $contition_array = array('business_profile_post_id' => $buslikeimg[0]["post_id"]);
         $busimglikepost = $this->data['busimglikepost'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
         if (!$likecommentuser) {
@@ -4846,18 +4841,20 @@ class Business_profile extends MY_Controller {
 
             // insert notification
 
-            if($busimglikepost[0]['user_id'] == $userid){}else{
-            $datanotification = array(
-                'not_type' => 5,
-                'not_from_id' => $userid,
-                'not_to_id' => $busimglikepost[0]['user_id'] ,
-                'not_read' => 2,
-                'not_product_id' => $post_image_comment_id,
-                'not_from' => 6,
-                'not_img' => 6
-            );
-            //echo "<pre>"; print_r($datanotification); die();
-            $insert_id = $this->common->insert_data_getid($datanotification, 'notification');
+            if ($busimglikepost[0]['user_id'] == $userid) {
+                
+            } else {
+                $datanotification = array(
+                    'not_type' => 5,
+                    'not_from_id' => $userid,
+                    'not_to_id' => $busimglikepost[0]['user_id'],
+                    'not_read' => 2,
+                    'not_product_id' => $post_image_comment_id,
+                    'not_from' => 6,
+                    'not_img' => 6
+                );
+                //echo "<pre>"; print_r($datanotification); die();
+                $insert_id = $this->common->insert_data_getid($datanotification, 'notification');
             }
             // end notoification
 
@@ -4921,49 +4918,49 @@ class Business_profile extends MY_Controller {
                 );
 
 
-               // $updatdata = $this->common->update_data($data, 'bus_comment_image_like', 'post_image_comment_id', $post_image_comment_id);
+                // $updatdata = $this->common->update_data($data, 'bus_comment_image_like', 'post_image_comment_id', $post_image_comment_id);
 
 
-            $where = array('post_image_comment_id' => $post_image_comment_id , 'user_id' => $userid);
-              $this->db->where($where);
-             $updatdata = $this->db->update('bus_comment_image_like ', $data);
-
-
-
-             // insert notification
-
-            if($busimglikepost[0]['user_id'] == $userid){}else{
-
-      $contition_array = array('not_type' => 5, 'not_from_id' => $userid, 'not_to_id' => $busimglikepost[0]['user_id'], 'not_product_id' => $post_image_comment_id, 'not_from' => 6, 'not_img' => 6);
-        $busnotification = $this->common->select_data_by_condition('notification', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-              if($busnotification[0]['not_read'] ==  2){}
-                elseif($busnotification[0]['not_read'] ==  1){
-
-                    $datalike = array(
-                    'not_read' => 2 
-                    );
-
-                $where = array('not_type' => 5, 'not_from_id' => $userid, 'not_to_id' => $busimglikepost[0]['user_id'], 'not_product_id' => $post_image_comment_id, 'not_from' => 6, 'not_img' => 6);
+                $where = array('post_image_comment_id' => $post_image_comment_id, 'user_id' => $userid);
                 $this->db->where($where);
-                $updatdata = $this->db->update('notification', $datalike);
+                $updatdata = $this->db->update('bus_comment_image_like ', $data);
 
+
+
+                // insert notification
+
+                if ($busimglikepost[0]['user_id'] == $userid) {
+                    
+                } else {
+
+                    $contition_array = array('not_type' => 5, 'not_from_id' => $userid, 'not_to_id' => $busimglikepost[0]['user_id'], 'not_product_id' => $post_image_comment_id, 'not_from' => 6, 'not_img' => 6);
+                    $busnotification = $this->common->select_data_by_condition('notification', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                    if ($busnotification[0]['not_read'] == 2) {
+                        
+                    } elseif ($busnotification[0]['not_read'] == 1) {
+
+                        $datalike = array(
+                            'not_read' => 2
+                        );
+
+                        $where = array('not_type' => 5, 'not_from_id' => $userid, 'not_to_id' => $busimglikepost[0]['user_id'], 'not_product_id' => $post_image_comment_id, 'not_from' => 6, 'not_img' => 6);
+                        $this->db->where($where);
+                        $updatdata = $this->db->update('notification', $datalike);
+                    } else {
+                        $datanotification = array(
+                            'not_type' => 5,
+                            'not_from_id' => $userid,
+                            'not_to_id' => $busimglikepost[0]['user_id'],
+                            'not_read' => 2,
+                            'not_product_id' => $post_image_comment_id,
+                            'not_from' => 6,
+                            'not_img' => 6
+                        );
+
+                        $insert_id = $this->common->insert_data_getid($datanotification, 'notification');
+                    }
                 }
-
-                 else{
-            $datanotification = array(
-                'not_type' => 5,
-                'not_from_id' => $userid,
-                'not_to_id' => $busimglikepost[0]['user_id'] ,
-                'not_read' => 2,
-                'not_product_id' => $post_image_comment_id,
-                'not_from' => 6,
-                'not_img' => 6
-            );
-
-            $insert_id = $this->common->insert_data_getid($datanotification, 'notification');
-            }
-          }
-            // end notoification
+                // end notoification
 
 
                 $contition_array = array('post_image_comment_id' => $_POST["post_image_comment_id"], 'is_unlike' => '0');
@@ -5024,7 +5021,7 @@ class Business_profile extends MY_Controller {
     public function mul_delete_comment() {
         $userid = $this->session->userdata('aileenuser');
         $post_image_comment_id = $_POST["post_image_comment_id"];
-       $post_delete = $_POST["post_delete"]; 
+        $post_delete = $_POST["post_delete"];
         $data = array(
             'is_delete' => 1,
             'modify_date' => date('y-m-d h:i:s')
@@ -5422,7 +5419,7 @@ class Business_profile extends MY_Controller {
                 $fourdata .= '<div class="col-md-12"><div class="col-md-10">';
 
                 $fourdata .= '<div contenteditable="true" class="editable_text" name="' . $rowdata['post_image_comment_id'] . '" id="editcommenttwo' . $rowdata['post_image_comment_id'] . '" style="display: none;"  onClick="commentedittwo(' . $rowdata['post_image_comment_id'] . ')">';
-                 $fourdata .= '' . $rowdata['comment'] . '</div>';
+                $fourdata .= '' . $rowdata['comment'] . '</div>';
 
                 $fourdata .= '</div>  <div class="col-md-2 comment-edit-button">';
                 $fourdata .= '<button id="editsubmittwo' . $rowdata['post_image_comment_id'] . '" style="display:none" onClick="edit_commenttwo(' . $rowdata['post_image_comment_id'] . ')">Save</button></div> </div>';
@@ -5967,7 +5964,7 @@ class Business_profile extends MY_Controller {
 
         $contition_array = array('business_profile_post_id' => $post_id, 'status' => '1', 'is_delete' => '0');
         $commnetcount = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-        
+
         $likeuser = $commnetcount[0]['business_like_user'];
         $countlike = $commnetcount[0]['business_likes_count'] - 1;
 
@@ -5976,10 +5973,10 @@ class Business_profile extends MY_Controller {
         echo '<div class="likeduser-title">User List</div>';
         foreach ($likelistarray as $key => $value) {
 
-         $bus_slug =  $this->db->get_where('business_profile',array('user_id' => $value))->row()->business_slug;
+            $bus_slug = $this->db->get_where('business_profile', array('user_id' => $value))->row()->business_slug;
 
             $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $value, 'status' => 1))->row()->company_name;
-            echo '<div class="likeuser_list"><a href="'.base_url('business_profile/business_resume/' . $bus_slug).'">';
+            echo '<div class="likeuser_list"><a href="' . base_url('business_profile/business_resume/' . $bus_slug) . '">';
             echo ucwords($business_fname1);
             echo '</a></div>';
         }
