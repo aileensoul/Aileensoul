@@ -466,7 +466,7 @@
                                                 </li>
                                                    <li>
                                                 <b>Required Experience</b>
-                                                <span>
+                                                <span title="Min - Max">
                                                     <p><?php 
 
 
