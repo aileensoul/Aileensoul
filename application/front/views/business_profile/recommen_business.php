@@ -100,7 +100,7 @@
                         <div class="common-form">
                             <div class="job-saved-box">
 
-                                <h3>Search Result of Business</h3>
+                                <h3>Search Result of Aileensoul</h3>
                                 <div class="contact-frnd-post">
                                     <div class="job-contact-frnd ">
 <!-- main data start -->
@@ -352,8 +352,13 @@
                                                 </div>
                                             </div>
                                         </div>
+
+                                       
                                         <!-- comment end -->
-                                    </div>
+
+                                    </div> </div><div class="view_more_details">
+                                          <a href="">View more in Aileensoul's Profile</a>
+                                        </div>
                                 </div>
 
 

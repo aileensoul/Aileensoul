@@ -4448,3 +4448,11 @@ fieldset .add_post_btns{min-width: 120px;padding:8px 30px 8px;}
     border: 1px solid #efefef;
     border-bottom: none;}
     .color-search{color: #999!important;}
+    .view_more_details{
+    text-align: center;
+    margin: 10px;
+    font-weight: 600;}
+    .view_more_details a{display: inline-block;
+    margin-top: 10px;
+}
+.view_more_details a:hover{text-decoration-line: underline;}
