@@ -391,7 +391,7 @@ padding-top: 1px;}
                                                                 }
                                                                 ?>
                                                                 <li> <b> Total Experience</b>
-                                                                    <span>
+                                                                    <span title="Min - Max">
                                                                         <?php
                                                                         if ($row['experience_year'] || $row['experience_month']) {
                                                                             echo $row['experience_year'] . ' ' . $row['experience_month'];
