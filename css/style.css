@@ -2327,13 +2327,13 @@ border-bottom: 1px solid #000033;
     margin-top: 13px;
     margin-bottom: 5px;
 }
-.popup-text span{color: #999999;}
-.popup-text textarea{height: 8%; width: 100%; resize: none;}
+.popup-text span{color: #999999; font-weight: 600; font-size: 22px;}
+.popup-text textarea{height: 8%; width: 100%; resize: none; border: none;}
 .post-editor .popup-textarea p{color: #999999;}
 .post-editor .popup-text span i{font-size: 25px; color: #0a2c5d; }
 .popup-img{    padding-left: 2px !important; padding-right: 0px;}
-.popup-text{padding: 16px;}
-.main-text-area{background-color: #ffffff; margin: 4px 0px 4px 0px; border-radius: 4px;    padding-left: px !important;}
+.popup-text{padding: 16px; padding-top: 25px;}
+.main-text-area{background-color: #ffffff; margin: 4px 0px 4px 0px; border-radius: 4px;    padding-left: 4px !important;}
 /* The Modal (background) */
 .modal-post {
     display: none; /* Hidden by default */
@@ -2348,6 +2348,13 @@ border-bottom: 1px solid #000033;
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
+.text_num{    font-size: 20px;
+    border: none;
+    width: 30px;
+    padding: 5px;
+    height: 30px;
+    color: #999;
+    padding-left: 0px!important;}
 
 /* Modal Content */
 .modal-content-post {
@@ -4415,3 +4422,48 @@ fieldset .add_post_btns{min-width: 120px;padding:8px 30px 8px;}
     -webkit-transition-timing-function: ease-out!important;
     transition-timing-function: ease-out!important;}
     .remove_tab a:hover:before, .remove_tab a:focus:before, .remove_tab a:active:before{left: 0!important; right: 0!important;}
+
+
+
+/*
+    search result*/
+
+ .search_img{    margin: 4px 3px 2px 7px;
+    height: 110px;
+    width: 110px;
+    display: inline-block; }
+    .search_img img{height: 100%; width: 100%;}
+    .search_button{margin-top: 31px;
+    margin-left: 23px;}
+    .search_button button{    margin-bottom: 6px;
+    width: 90px;
+    padding: 8px 0px;
+    margin-top: 0px;}
+    .box_search_module{    background-color: white!important;
+    padding: 4px 0px!important;
+    box-shadow: 6px 12px 44px 4px #bfbfbf!important;
+    border-radius: 2px!important;
+    z-index: 9999!important;}
+    .module_Ssearch{    display: inline-block;
+    float: left;
+    padding-top: 15px;
+    padding-left: 16px;}
+    .post-design-search-top{    border-radius: 5px;
+    padding: 5px;
+    padding-bottom: 0px;
+
+    border: 1px solid #efefef;
+    border-bottom: none;}
+    .color-search{color: #999!important;}
+    .view_more_details{
+    text-align: center;
+    margin: 10px;
+    font-weight: 600;}
+    .view_more_details a{display: inline-block;
+    margin-top: 10px;
+}
+.view_more_details a:hover{text-decoration-line: underline;}
+.popup-text textarea::-webkit-input-placeholder {
+    font-size: 20px;
+  
+}

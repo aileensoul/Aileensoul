@@ -941,7 +941,7 @@ responsive image design start -->
                                                                ">
                         </div>
                         <div id="myBtn3"  class="editor-content col-md-11 popup-text" contenteditable>
-                            <span style="font-size: 23px;"> Post Your Art....</span> 
+                            <span> Post Your Art....</span> 
                           <!--  <span class="fr">
                             <input type="file" id="FileID" style="display:none;">
                              <label for="FileID"><i class=" fa fa-camera fa"  style=" margin: 8px; cursor:pointer">  </i>
@@ -974,7 +974,7 @@ responsive image design start -->
                                 <textarea id= "test-upload-product" placeholder="Post Your Art...."  onKeyPress=check_length(this.form); onKeyDown=check_length(this.form); 
                                           name=my_text rows=4 cols=30 class="post_product_name"></textarea>
                                 <div style="position: absolute; top: 21px; right: 19px; border: none;">                        
-                                    <input size=1 value=50 name=text_num style=" border: none;   width: 30px; padding: 5px; height: 30px;" readonly> 
+                                    <input size=1 class="text_num" value=50 name=text_num readonly> 
                                 </div>
 
                             </div>
@@ -3391,6 +3391,18 @@ responsive image design start -->
                 var editpostdetails = $('#editpostdesc' + abc).html();
                 // end khyati code
 
+        if(editpostname.value == '' && editpostdetails == ''){ 
+          $('.biderror .mes').html("<div class='pop_content'>You must either fill title or description.");
+            $('#bidmodal').modal('show');
+
+            document.getElementById('editpostdata' + abc).style.display = 'block';
+             document.getElementById('editpostbox' + abc).style.display = 'none';
+             document.getElementById('editpostdetails' + abc).style.display = 'block';
+              document.getElementById('editpostdetailbox' + abc).style.display = 'none';
+
+                document.getElementById('editpostsubmit' + abc).style.display = 'none';
+          }else{
+
                 $.ajax({
                     type: 'POST',
                     url: '<?php echo base_url() . "artistic/edit_post_insert" ?>',
@@ -3412,6 +3424,7 @@ responsive image design start -->
 
                     }
                 });
+              }
 
             }
         </script>

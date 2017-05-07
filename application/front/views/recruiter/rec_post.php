@@ -511,7 +511,7 @@ if ($returnpage == 'job') {
                                             <!-- vishang 14-4 start -->
                                             <li>
                                                 <b>Required Experience</b>
-                                                <span>
+                                                <span title="Min - Max">
      <p>
      <?php 
 
