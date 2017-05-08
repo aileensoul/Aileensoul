@@ -12,7 +12,7 @@ body {
   font-family: 'Lato', sans-serif;
   overflow-y: scroll;
 }
-
+.about_us_text{text-align: justify; letter-spacing: 1px; padding-bottom: 7%;}   
 html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}
 body{line-height:1}
 article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
@@ -59,7 +59,8 @@ outline:none;
 
 
 .form {
-  background: #ffffff;
+background: #f2f4f4;
+    opacity: 0.9;
   padding:15px 25px 5px 25px;
   max-width: 60%;
   margin: 100px auto;
@@ -220,6 +221,7 @@ label.highlight {
 }
 
 input, textarea,button {
+  background-color: #fff!important;
   font-size: 22px;
   display: block;
   width: 100%;
@@ -268,7 +270,7 @@ textarea {
   border: 0;
   outline: none;
  
-  padding: 10px 0;
+     padding: 7px 0;
   font-size: 1.3rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -285,7 +287,8 @@ textarea {
 
 .button-block {
   display: block;
-  width: 100%;
+  width: 85%;
+  margin-left: 7%;
 }
 
 .forgot {
@@ -537,7 +540,12 @@ input[type="radio"] {
     border-radius: 4px;
     box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
 }
-.banner_cnt_reg{position: relative; top: 30px; width: 57%;left: 23%;height: 35%;}
+.banner_cnt_reg{    position: relative;
+    top: 54px;
+    width: 57%;
+    left: 22%;
+    height: 35%;
+    }
  input[type=date]{ font-size: 18px;
   display: block;
   width: 100%;
@@ -612,4 +620,11 @@ footer .footer-menu li a:hover{
 /* optional: show position indicator in red */
 ::-webkit-scrollbar-thumb {
     background: #FF0000;
+}
+
+.field-wrap{}
+.field-wrap input::-webkit-input-placeholder {
+  color: #a0b3b0; font-weight: 600;
+    font-size: 15px;
+    line-height: 3;
 }

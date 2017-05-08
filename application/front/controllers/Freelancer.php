@@ -14,6 +14,7 @@ class Freelancer extends MY_Controller {
         $this->load->model('email_model');
 
         include ('include.php');
+          $this->data['aileenuser_id'] = $this->session->userdata('aileenuser');
     }
 
     public function index() {  //echo "falguni"; die();
@@ -1524,32 +1525,34 @@ $new = array();
 
     //Freelancer Job All Post controller end
 //Freelancer Apply post at all post page & save post page controller Start
-    public function apply_insert($id, $para, $notid) {  
+    public function apply_insert() {  
         
- $id = $_POST['post_id'];
- $para = $_POST['allpost']; 
- $notid = $_POST['userid'];
+        $id = $_POST['post_id'];
+        $para = $_POST['allpost'];
+        $notid = $_POST['userid'];
 
-$userid = $this->session->userdata('aileenuser');
+        $userid = $this->session->userdata('aileenuser');
 
-$contition_array = array('post_id' => $id, 'user_id' => $userid, 'is_delete' => 0);
-$userdata = $this->common->select_data_by_condition('freelancer_apply', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        $contition_array = array('post_id' => $id, 'user_id' => $userid, 'is_delete' => 0);
+        $userdata = $this->common->select_data_by_condition('freelancer_apply', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
         $app_id = $userdata[0]['app_id'];
 
-        if($userdata){
+        if ($userdata) {
 
-$contition_array = array('job_delete' => 1);
-$jobdata = $this->common->select_data_by_condition('freelancer_apply', $contition_array, $data = 'app_id', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            $contition_array = array('job_delete' => 1);
+            $jobdata = $this->common->select_data_by_condition('freelancer_apply', $contition_array, $data = 'app_id', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
             $data = array(
                 'job_delete' => 0,
-                'job_save' => 1
+                'job_save'  => 3
+                
             );
 
-$updatedata = $this->common->update_data($data, 'freelancer_apply', 'app_id', $app_id);
 
-            // insert notification
+            $updatedata = $this->common->update_data($data, 'freelancer_apply', 'app_id', $app_id);
+
+
 
             $data = array(
                 'not_type' => 3,
@@ -1579,11 +1582,11 @@ $updatedata = $this->common->insert_data_getid($data, 'notification');
                 'created_date' => date('Y-m-d h:i:s', time()),
                 'is_delete' => 0,
                 'job_delete' => 0,
-                'job_save' => 1
+                'job_save'  => 3
             );
 
 
-$insert_id = $this->common->insert_data_getid($data, 'freelancer_apply');
+            $insert_id = $this->common->insert_data_getid($data, 'freelancer_apply');
 
             // insert notification
 
@@ -1620,19 +1623,28 @@ $insert_id = $this->common->insert_data_getid($data, 'freelancer_apply');
 
 // post detail
 
-        $join_str[0]['table'] = 'freelancer_apply';
-        $join_str[0]['join_table_id'] = 'freelancer_apply.post_id';
-        $join_str[0]['from_table_id'] = 'freelancer_post.post_id';
-        $join_str[0]['join_type'] = '';
+//         $join_str[0]['table'] = 'freelancer_apply';
+//         $join_str[0]['join_table_id'] = 'freelancer_apply.post_id';
+//         $join_str[0]['from_table_id'] = 'freelancer_post.post_id';
+//         $join_str[0]['join_type'] = '';
 
-        $contition_array = array('freelancer_apply.job_delete' => 0, 'freelancer_apply.user_id' => $userid, 'freelancer_apply.job_save' => 1);
+//         $contition_array = array('freelancer_apply.job_delete' => 0, 'freelancer_apply.user_id' => $userid, 'freelancer_apply.job_save' => 1);
 
-$data='freelancer_post.post_id,freelancer_post.post_name,freelancer_post.post_field_req,freelancer_post.post_est_time,freelancer_post.post_skill,freelancer_post.post_other_skill,freelancer_post.post_rate,freelancer_post.post_last_date,freelancer_post.post_description,freelancer_post.user_id,freelancer_post.created_date,freelancer_post.post_currency,freelancer_post.post_rating_type,freelancer_post.country,freelancer_post.city,freelancer_post.post_exp_month,freelancer_post.post_exp_year,freelancer_apply.app_id,freelancer_apply.post_id,freelancer_apply.status,freelancer_apply.created_date,freelancer_apply.modify_date,freelancer_apply.job_delete,freelancer_apply.job_save,freelancer_apply.is_delete';
-        $postdata = $this->data['postdata'] = $this->common->select_data_by_condition('freelancer_post', $contition_array, $data, $sortby = 'freelancer_post.post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
+// $data='freelancer_post.post_id,freelancer_post.post_name,freelancer_post.post_field_req,freelancer_post.post_est_time,freelancer_post.post_skill,freelancer_post.post_other_skill,freelancer_post.post_rate,freelancer_post.post_last_date,freelancer_post.post_description,freelancer_post.user_id,freelancer_post.created_date,freelancer_post.post_currency,freelancer_post.post_rating_type,freelancer_post.country,freelancer_post.city,freelancer_post.post_exp_month,freelancer_post.post_exp_year,freelancer_apply.app_id,freelancer_apply.post_id,freelancer_apply.status,freelancer_apply.created_date,freelancer_apply.modify_date,freelancer_apply.job_delete,freelancer_apply.job_save,freelancer_apply.is_delete';
+//         $postdata = $this->data['postdata'] = $this->common->select_data_by_condition('freelancer_post', $contition_array, $data, $sortby = 'freelancer_post.post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
         
         //echo "<pre>"; print_r($postdata); die();
 
+          $join_str[0]['table'] = 'freelancer_apply';
+                    $join_str[0]['join_table_id'] = 'freelancer_apply.post_id';
+                    $join_str[0]['from_table_id'] = 'freelancer_post.post_id';
+                    $join_str[0]['join_type'] = '';
+                     $contition_array = array('freelancer_apply.job_delete' => 0, 'freelancer_apply.user_id' => $userid);
+                
+                $postdata = $this->data['postdata'] = $this->common->select_data_by_condition('freelancer_post', $contition_array, $data ='freelancer_post.*,freelancer_apply.app_id,freelancer_apply.user_id as userid', $sortby = 'app_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
+        
 
+//echo "<pre>"; print_r($postdata); die();
 
         $contition_array = array('status' => '1', 'is_delete' => '0');
 
@@ -1771,48 +1783,54 @@ $updatedata = $this->common->update_data($data, 'freelancer_apply', 'app_id', $a
 
     public function save_user() {
 
+         $id = $_POST['post_id'];
+
+
         $userid = $this->session->userdata('aileenuser');
 
-        $id = $_POST['user_id'];
-        $saveid = $_POST['save_id'];
+        $contition_array = array('post_id' => $id, 'user_id' => $userid, 'is_delete' => 0);
+        $userdata = $this->common->select_data_by_condition('freelancer_apply', $contition_array, $data = '*', $sortby = 'post_id', $orderby = 'asc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+//echo '<pre>'; print_r($userdata); die();
 
-        $contition_array = array('from_id' => $userid, 'to_id' => $id, 'save_id' => $save_id);
-        $userdata = $this->common->select_data_by_condition('save', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
+        $app_id = $userdata[0]['app_id'];
 
         if ($userdata) {
+
+            $contition_array = array('job_delete' => 0);
+            $jobdata = $this->common->select_data_by_condition('freelancer_apply', $contition_array = array(), $data = '*', $sortby = 'post_id', $orderby = 'asc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+
+
             $data = array(
-                'status' => 0
+                'job_delete' => 1,
+                'job_save' => 2
             );
 
-            $updatedata = $this->common->update_data($data, 'save', 'save_id', $save_id);
+            $updatedata = $this->common->update_data($data, 'freelancer_apply', 'app_id', $app_id);
+
 
             if ($updatedata) {
-                //$savepost = '<div> Saved Post </div>';
-                //$savepost.= '<i class="fa fa-bookmark" aria-hidden="true"></i>';
-                //$saveuser .= 'Saved User';
-                $saveuser .= 'Saved';
-                //$savepost .= '</a>';      
-                echo $saveuser;
+
+                $savepost = 'Saved';
             }
+            echo $savepost;
         } else {
+
             $data = array(
-                'from_id' => $userid,
-                'to_id' => $id,
-                'status' => 0,
-                'save_type' => 2
+                'post_id' => $id,
+                'user_id' => $userid,
+                'status' => 1,
+                'created_date' => date('Y-m-d h:i:s', time()),
+                'is_delete' => 0,
+                'job_delete' => 1,
+                'job_save' => 2
             );
 
-            $insert_id = $this->common->insert_data($data, 'save');
+            $insert_id = $this->common->insert_data_getid($data, 'freelancer_apply');
             if ($insert_id) {
 
-                //$savepost = '<div> Saved Post </div>';
-                //$savepost.= '<i class="fa fa-bookmark" aria-hidden="true"></i>';
-                //$saveuser .= 'Saved user';
-                $saveuser .= 'Saved';
-                //$savepost .= '</a>';      
-                echo $saveuser;
-            }
+                $savepost = 'Saved';
+            } echo $savepost;
         }
     }
 
@@ -1884,12 +1902,12 @@ $this->load->view('freelancer/freelancer_hire/freelancer_save', $this->data);
 
 // post detail
         $join_str[0]['table'] = 'freelancer_post';
-        $join_str[0]['join_table_id'] = 'freelancer_post.user_id';
-        $join_str[0]['from_table_id'] = 'save.to_id';
+        $join_str[0]['join_table_id'] = 'freelancer_post.post_id';
+        $join_str[0]['from_table_id'] = 'freelancer_apply.post_id';
         $join_str[0]['join_type'] = '';
 
-       $contition_array= array('save.from_id' => $userid, 'save.status' => '0', 'save.save_type' => 2);
-        $this->data['postdetail'] = $this->common->select_data_by_condition('save', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby ='to_id');
+       $contition_array = array('freelancer_apply.job_delete' => 1, 'freelancer_apply.user_id' => $userid, 'freelancer_apply.job_save' => 2);
+        $this->data['postdetail'] = $this->common->select_data_by_condition('freelancer_apply', $contition_array, $data = '*', $sortby = 'app_id', $orderby = '', $limit = '', $offset = '', $join_str, $groupby ='');
 
         $contition_array = array('status' => '1', 'is_delete' => '0');
 
@@ -2106,16 +2124,17 @@ $this->load->view('freelancer/freelancer_hire/freelancer_save', $this->data);
     public function remove_save() {
         //echo "hi"; die();
 
-        $id = $_POST['save_id'];
+          $id = $_POST['app_id'];
+        $para = $_POST['para'];
         $userid = $this->session->userdata('aileenuser');
-        // echo "$userid";
-
 
         $data = array(
-            'status' => 1
+            'job_delete' => 1,
+            'job_save' => 3,
+            'modify_date' => date('Y-m-d h:i:s', time())
         );
 
-        $updatedata = $this->common->update_data($data, 'save', 'save_id', $id);
+        $updatedata = $this->common->update_data($data, 'freelancer_apply', 'app_id', $id);
         // echo "<pre>"; print_r($updatedata);die();
     }
 

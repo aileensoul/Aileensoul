@@ -4403,6 +4403,11 @@ word-break: break-all;
 
 /* vishang 4-5-17 */
 
+
+  .profile-job-post-location-name-rec .post_name { font-size: 19px; font-weight: 600; }
+       
+  .profile-job-post-location-name-rec .post_designation { font-size: 16px; }
+
  #row2 { overflow: hidden; width: 100%; }
     #row2 img { height: 350px;width: 100%; }
     .upload-img{    float: right;

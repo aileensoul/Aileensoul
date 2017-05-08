@@ -222,15 +222,15 @@
          
            
          <!--  <button class="button3 button-block3 " style="background-image: url(partical/images/bg-button.png); background-repeat: no-repeat; background-position: right center ; margin-top:  10px;">Create an Account</button> -->
-           <input type="submit" value="Create an Account" name="submit" class="button3 button-block3 " style="background-image: url(partical/images/bg-button.png); background-repeat: no-repeat; background-position: right center ; margin-top:  10px;">
+           <input type="submit" value="Create an Account" name="submit" class="button3 button-block3 " style="background:#87ceff!important; background-repeat: no-repeat; background-position: right center ; margin-top:  10px;">
           <div class="or"> <span>or</span></div>
           
           <button class="button3 button-block3 facebook_ac" style="background-color: #3b5998!important ;background-repeat: no-repeat; background-position: right center; margin-bottom: 15px;">Sign Up With Facebook</button>
-    <!--      
-          <div class="or">Already have an account? <a href="<?php echo base_url('login')?>"  style="color: #a0b3b0;
+         
+          <div class="or" style="margin-bottom: 10px;">Already have an account? <a href="<?php echo base_url('login')?>"  style="color: #a0b3b0;
     font-size: 17px;
     font-weight: 600;
-    padding-bottom: 10px;">Sign in</a></div> -->
+    padding-bottom: 10px;">Sign in</a></div>
         <!--<small class="help-block" data-fv-validator="notEmpty" data-fv-for="agree" data-fv-result="VALID" style="display: none;">You must agree with the terms and conditions</small>-->
           </form>
 

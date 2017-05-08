@@ -326,13 +326,12 @@ padding-top: 1px;}
        <div class="designation_rec fl">
           <ul>
        <li>
-      <a  class="post_name" style="  font-size: 19px;
-         font-weight: 600;" href="<?php echo base_url('job/job_printpreview/' . $row['user_id'].'?page=recruiter'); ?>" title=" <?php echo $row['fname'] . ' ' . $row['lname']; ?>">
+      <a  class="post_name" href="<?php echo base_url('job/job_printpreview/' . $row['user_id'].'?page=recruiter'); ?>" title=" <?php echo $row['fname'] . ' ' . $row['lname']; ?>">
        <?php echo ucwords($row['fname']) . ' ' . ucwords($row['lname']); ?></a>
       </li>
       
       <li style="display: block;">
-        <a  class="post_designation" style="font-size: 16px;" href="<?php echo base_url('job/job_printpreview/' . $row['user_id'].'?page=recruiter'); ?>" title="<?php echo $row['designation']; ?>">
+        <a  class="post_designation" href="<?php echo base_url('job/job_printpreview/' . $row['user_id'].'?page=recruiter'); ?>" title="<?php echo $row['designation']; ?>">
             <?php
               if ($row['designation']) {
              ?>
@@ -351,6 +350,7 @@ padding-top: 1px;}
      </div>
        </div>
          </div>
+    
     
          <div class="profile-job-post-title clearfix">
              <div class="profile-job-profile-menu">
