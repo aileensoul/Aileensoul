@@ -109,7 +109,7 @@ body {
 <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
 
 
-<style type="text/css" media="screen">
+<!-- <style type="text/css" media="screen">
     #row2 { overflow: hidden; width: 100%; }
     #row2 img { height: 350px;width: 100%; }
     .upload-img{    float: right;
@@ -142,7 +142,7 @@ body {
 
 
 
-</style>
+</style> -->
 
 <!-- END HEAD -->
     <!-- END HEAD -->

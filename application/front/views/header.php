@@ -105,7 +105,7 @@ $(window).load(function(){
                 addmsg("new", data);
                 setTimeout(
                         waitForMsg,
-                        1000
+                        10000
                         );
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
@@ -171,7 +171,7 @@ $(window).load(function(){
                 addmsg1("new", data);
                 setTimeout(
                         waitForMsg1,
-                        1000
+                        10000
                         );
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {

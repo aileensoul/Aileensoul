@@ -2698,7 +2698,7 @@
         if (x.style.display === 'block' && y.style.display === 'none') {
             x.style.display = 'none';
             y.style.display = 'block';
-            z.style.display = 'none';
+            z.style.visibility = 'show';
             $.ajax({
                 type: 'POST',
                 url: '<?php echo base_url() . "business_profile/pnmulimagefourcomment" ?>',
@@ -2761,11 +2761,11 @@
 
     function imgcomment_editboxtwo(clicked_id) {
 
-        $('div[id^=editcommenttwo]').css('display', 'none');
-        $('div[id^=showcommenttwo]').css('display', 'block');
-        $('button[id^=editsubmittwo]').css('display', 'none');
-        $('div[id^=editcommentboxtwo]').css('display', 'block');
-        $('div[id^=editcancletwo]').css('display', 'none');
+        $('div[id^=imgeditcommenttwo]').css('display', 'none');
+        $('div[id^=imgshowcommenttwo]').css('display', 'block');
+        $('button[id^=imgeditsubmittwo]').css('display', 'none');
+        $('div[id^=imgeditcommentboxtwo]').css('display', 'block');
+        $('div[id^=imgeditcancletwo]').css('display', 'none');
 
         document.getElementById('imgeditcommenttwo' + clicked_id).style.display = 'inline-block';
         document.getElementById('imgshowcommenttwo' + clicked_id).style.display = 'none';
@@ -2892,7 +2892,7 @@
         $('#imgeditcomment' + abc).keypress(function (event) {
             
             if (event.which == 13 && event.shiftKey != 1) {
-                event.preventDefault();s
+                event.preventDefault();
                 var sel = $("#imgeditcomment" + abc);
                 var txt = sel.html();
                 if (txt == '' || txt == '<br>') {
@@ -2924,7 +2924,7 @@
                             document.getElementById('imgeditcancle' + abc).style.display = 'none';
 
                             $('#' + 'imgshowcomment' + abc).html(data);
-
+                            $('.post-design-commnet-box').show();
 
 
                         }
@@ -2993,7 +2993,7 @@
         $('#imgeditcommenttwo' + abc).keypress(function (event) {
             if (event.which == 13 && event.shiftKey != 1) {
                 event.preventDefault();
-                var sel = $("#editcomment" + abc);
+                var sel = $("#imgeditcommenttwo" + abc);
                 var txt = sel.html();
                 if (txt == '' || txt == '<br>') {
                     $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='imgcomment_deletedtwo(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
@@ -3045,6 +3045,7 @@
     function imgcomment_deleted(clicked_id)
     {
         var post_delete = document.getElementById("imgpost_delete");
+        //alert(post_delete.value);
         $.ajax({
             type: 'POST',
             url: '<?php echo base_url() . "business_profile/mul_delete_comment" ?>',
@@ -3071,6 +3072,8 @@
     {
 
         var post_delete1 = document.getElementById("imgpost_delete1");
+        alert(post_delete1);
+        return false;
         $.ajax({
             type: 'POST',
             url: '<?php echo base_url() . "business_profile/mul_delete_commenttwo" ?>',

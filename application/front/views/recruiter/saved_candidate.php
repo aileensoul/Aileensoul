@@ -143,7 +143,7 @@
 
 
 
-<style type="text/css" media="screen">
+<!-- <style type="text/css" media="screen">
     #row2 { overflow: hidden; width: 100%; }
     #row2 img { height: 350px;width: 100%; }
     .upload-img{    float: right;
@@ -176,7 +176,7 @@
 
 
 
-</style>
+</style> -->
 
 <!-- END HEAD -->
 <!-- start header -->
@@ -415,12 +415,12 @@
                                 if ($userdata[0]['status'] != 1) {
                                     ?>
  <div class="job-contact-frnd ">
-                                    <div class="profile-job-post-detail clearfix" id="<?php echo "removeuser" . $userdata[0]['save_id']; ?>">
+     <div class="profile-job-post-detail clearfix" id="<?php echo "removeuser" . $userdata[0]['save_id']; ?>">
 
-                     <div class="profile-job-post-title-inside clearfix">
+     <div class="profile-job-post-title-inside clearfix">
                                            <!--  <div class="profile-job-post-location-name"> --> 
 
-                <div class="profile-job-profile-button clearfix"> 
+     <div class="profile-job-profile-button clearfix"> 
 
                                                 <!-- pop up box start-->
                                                 <!-- <div id="popup1" class="overlay">
@@ -442,7 +442,7 @@
 
                   <div class="profile-job-post-location-name-rec">
                  <div style="display: inline-block; float: left;">
-<div  class="buisness-profile-pic-candidate" style=" margin-top: 5px;">
+<div class="buisness-profile-pic-candidate" >
                                 <!-- <rash code 12-4 start> -->
 
                   <?php
@@ -462,17 +462,17 @@
                                  </div>
                                 </div>
 
-                               </div>
-                                <div class="designation_rec_1" style="float: left;">
-                              <ul>
-                                                                      <li> 
-    <a style="font-size: 18px;    font-weight: 600;" href="<?php echo base_url('job/job_printpreview/' . $rec['user_id'].'?page=recruiter'); ?>" title="<?php echo $rec[0]['fname']. ' ' . $rec[0]['lname']; ?>">
+                               
+                <div class="designation_rec_1 fl ">
+             <ul>
+                <li> 
+      <a class="post_name"  href="<?php echo base_url('job/job_printpreview/' . $rec['user_id'].'?page=recruiter'); ?>" title="<?php echo $rec[0]['fname']. ' ' . $rec[0]['lname']; ?>">
         <?php echo $this->db->get_where('job_reg', array('user_id' => $rec['to_id']))->row()->fname . ' ' . $this->db->get_where('job_reg', array('user_id' => $rec['to_id']))->row()->lname; ?></a>
-  </li>
+                 </li>
    
           <li style="display: block;">
 
-                <a  style="font-size: 16px;" href="<?php echo base_url('job/job_printpreview/' . $rec['user_id']); ?>" title=" <?php echo $rec['designation']; ?>">
+                <a class="post_designation"  href="<?php echo base_url('job/job_printpreview/' . $rec['user_id']); ?>" title=" <?php echo $rec['designation']; ?>">
                  <?php
                if ($rec['designation']) {
                     ?>
@@ -480,20 +480,18 @@
                 <?php
                  } else {
                 ?>
-                                                                                    
-                                                                                    <?php echo "Designation"; ?>
-                                                                                    
-                                                                                    <?php
-                                                                                }
-                                                                                ?> 
-                                                                                </a>
+              <?php echo "Designation"; ?>
+                 <?php
+                   }
+                    ?> 
+                </a>
+              </li>
+        </ul>
+        </div>
 
- </li>
-                                                                      </ul>
-                                                                </div>
-
-                                            </div>
-                                        </div>
+       </div>
+    </div>
+   </div>
 
                                         <div class="profile-job-post-title clearfix">
                                            <!--  <div class="profile-job-profile-button clearfix">

@@ -5056,7 +5056,6 @@ class Business_profile extends MY_Controller {
 //multiple images comemnt like end
 //multiple images comment edit start
     public function mul_edit_com_insert() {
-
         $userid = $this->session->userdata('aileenuser');
 
         $post_image_comment_id = $_POST["post_image_comment_id"];
@@ -5066,7 +5065,6 @@ class Business_profile extends MY_Controller {
             'comment' => $post_comment,
             'modify_date' => date('y-m-d h:i:s')
         );
-
 
         $updatdata = $this->common->update_data($data, 'bus_post_image_comment', 'post_image_comment_id', $post_image_comment_id);
         if ($updatdata) {
@@ -5120,7 +5118,7 @@ class Business_profile extends MY_Controller {
                 $cmtinsert .= '<div class="comment-details" id= "imgshowcomment' . $bus_comment['post_image_comment_id'] . '"" >';
                 $cmtinsert .= $bus_comment['comment'];
                 $cmtinsert .= '</div>';
-                
+
                 $cmtinsert .= '<div class="edit-comment-box"><div class="inputtype-edit-comment">';
                 $cmtinsert .= '<div contenteditable="true" class="editable_text" name="' . $bus_comment['post_image_comment_id'] . '" id="imgeditcomment' . $bus_comment['post_image_comment_id'] . '"style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;"  onkeyup="imgcommentedit(' . $bus_comment['post_image_comment_id'] . ')">';
                 $cmtinsert .= $bus_comment['comment'];
@@ -5177,7 +5175,7 @@ class Business_profile extends MY_Controller {
 
                     $cmtinsert .= '</div>';
                 }
-                
+
                 $userid = $this->session->userdata('aileenuser');
 
                 $business_userid = $this->db->get_where('business_profile_post', array('business_profile_post_id' => $bus_comment['post_image_id'], 'status' => 1))->row()->user_id;
@@ -5245,7 +5243,7 @@ class Business_profile extends MY_Controller {
 
             $business_userimage = $this->db->get_where('business_profile', array('user_id' => $bus_comment['user_id'], 'status' => 1))->row()->business_user_image;
 
-            //$cmtinsert = '<div class="all-comment-comment-box">';
+            $cmtinsert = '<div class="all-comment-comment-box">';
             $cmtinsert .= '<div class="post-design-pro-comment-img">';
             $cmtinsert .= '<img  src="' . base_url(USERIMAGE . $business_userimage) . '" alt="">  </div>';
 
@@ -5334,14 +5332,14 @@ class Business_profile extends MY_Controller {
                 $cmtinsert .= 'id="post_deletetwo' . $bus_comment['post_image_comment_id'] . '"';
                 $cmtinsert .= 'value= "' . $bus_comment['post_image_id'] . '">';
                 $cmtinsert .= '<a id="' . $bus_comment['post_image_comment_id'] . '"';
-                $cmtinsert .= 'onClick="comment_deletetwo(this.id)">';
+                $cmtinsert .= 'onClick="imgcomment_deletetwo(this.id)">';
                 $cmtinsert .= 'Delete';
                 $cmtinsert .= '</a></div>';
             }
 
             $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
             $cmtinsert .= '<div class="comment-details-menu">';
-            $cmtinsert .= '<p>' . $bus_comment['created_date'] . '</p></div></div>';
+            $cmtinsert .= '<p>' . date('d-M-Y', strtotime($bus_comment['created_date'])) . '</p></div></div></div>';
         }
         echo $cmtinsert;
     }
@@ -6519,7 +6517,6 @@ class Business_profile extends MY_Controller {
 
                 $business_userimage = $this->db->get_where('business_profile', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->business_user_image;
 
-
                 $mulimgfour .= '<img  src="' . base_url(USERIMAGE . $business_userimage) . '"  alt=""></div>';
                 $mulimgfour .= '<div class="comment-name"><b>';
                 $mulimgfour .= '' . ucwords($companyname) . '</br></b></div>';
@@ -6528,13 +6525,18 @@ class Business_profile extends MY_Controller {
 
                 $mulimgfour .= '' . $rowdata['comment'] . '</br></div>';
 
-                $mulimgfour .= '<div class="col-md-12"><div class="col-md-10">';
-                $mulimgfour .= '<input type="text" name="' . $rowdata['post_image_comment_id'] . '" id="imgeditcommenttwo' . $rowdata['post_image_comment_id'] . '" style="display: none;" value="' . $rowdata['comment'] . '" onkeyup="imgcommentedittwo(' . $rowdata['post_image_comment_id'] . ')">';
+//                $mulimgfour .= '<div class="col-md-12"><div class="col-md-10">';
+//                $mulimgfour .= '<input type="text" name="' . $rowdata['post_image_comment_id'] . '" id="imgeditcommenttwo' . $rowdata['post_image_comment_id'] . '" style="display: none;" value="' . $rowdata['comment'] . '" onkeyup="imgcommentedittwo(' . $rowdata['post_image_comment_id'] . ')">';
+//
+//                $mulimgfour .= '</div><div class="col-md-2 comment-edit-button">';
+//                $mulimgfour .= '<button id="imgeditsubmittwo' . $rowdata['post_image_comment_id'] . '" style="display:none" onClick="imgedit_commenttwo(' . $rowdata['post_image_comment_id'] . ')">Save</button></div>';
+//
+//                $mulimgfour .= '</div>';
 
-                $mulimgfour .= '</div><div class="col-md-2 comment-edit-button">';
-                $mulimgfour .= '<button id="imgeditsubmittwo' . $rowdata['post_image_comment_id'] . '" style="display:none" onClick="imgedit_commenttwo(' . $rowdata['post_image_comment_id'] . ')">Save</button></div>';
-
-                $mulimgfour .= '</div>';
+                $mulimgfour .= '<div class="edit-comment-box"><div class="inputtype-edit-comment">';
+                $mulimgfour .= '<div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="' . $rowdata['post_image_comment_id'] . '"  id="imgeditcommenttwo' . $rowdata['post_image_comment_id'] . '" placeholder="Type Message ..." value= ""  onkeyup="imgcommentedittwo(' . $rowdata['post_image_comment_id'] . ')">' . $rowdata['comment'] . '</div>';
+                $mulimgfour .= '<span class="comment-edit-button"><button id="imgeditsubmittwo' . $rowdata['post_image_comment_id'] . '" style="display:none" onClick="imgedit_commenttwo(' . $rowdata['post_image_comment_id'] . ')">Save</button></span>';
+                $mulimgfour .= '</div></div><div class="art-comment-menu-design">';
                 $mulimgfour .= '<div class="comment-details-menu" id="imglikecomment1' . $rowdata['post_image_comment_id'] . '">';
 
                 $mulimgfour .= '<a id="' . $rowdata['post_image_comment_id'] . '"   onClick="imgcomment_liketwo(this.id)">';
@@ -6565,7 +6567,7 @@ class Business_profile extends MY_Controller {
 
                 $userid = $this->session->userdata('aileenuser');
                 if ($rowdata['user_id'] == $userid) {
-
+                    $mulimgfour .= '<span role="presentation" aria-hidden="true"> · </span>';
                     $mulimgfour .= '<div class="comment-details-menu">';
 
                     $mulimgfour .= '<div id="imgeditcommentboxtwo' . $rowdata['post_image_comment_id'] . '" style="display:block;">';
@@ -6593,7 +6595,7 @@ class Business_profile extends MY_Controller {
 
                 $mulimgfour .= '<span role="presentation" aria-hidden="true"> · </span>
  <div class="comment-details-menu">';
-                $mulimgfour .= '<p>' . date('d-M-Y', strtotime($rowdata['created_date'])) . '</br></p></div></div>';
+                $mulimgfour .= '<p>' . date('d-M-Y', strtotime($rowdata['created_date'])) . '</br></p></div></div></div>';
             }
         }
         $mulimgfour .= '</div>';
