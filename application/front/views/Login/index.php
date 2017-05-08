@@ -164,7 +164,7 @@
                             echo form_open('profile/forgot_password', $form_attribute);
                             ?>
 
-                            <button type="submit" id="btnShow" name="login" value="Login" class="button button-block" style="background-image: url(partical/images/bg-button.png); background-repeat: no-repeat; background-position: right center">Log In</button>
+                            <button type="submit" id="btnShow" name="login" value="Login" class="button button-block" style="background:#87ceff!important; background-repeat: no-repeat; background-position: right center">Log In</button>
                             <div class="c_account">
                                 <span style="font-size: 14px;">Don't have an account?</span>
                                 <a  href="<?php echo base_url('registration'); ?>">Create an account</a>
