@@ -14,7 +14,7 @@
     <!-- END HEADER -->
     <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
  <?php echo $business_header2?>
-    <div class="user-midd-section">
+    <div class="user-midd-section" id="paddingtop_fixed">
             <div class="container">
                 <div class="row">
 
