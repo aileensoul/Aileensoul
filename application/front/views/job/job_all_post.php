@@ -353,7 +353,7 @@
                                                     Created Date : <?php echo date('d/m/Y',strtotime($post['created_date'])); ?>
                                                 </li>
                              <li>
-                              <a href="#" title="Post Title" class="display_inline" style="font-size: 19px;font-weight: 600;cursor: default;">
+                              <a href="#" title="Post Title" class="display_inline post_title" >
                               <?php echo ucwords(text2link($post['post_name'])); ?> </a>   </li>
 
                            <li>   
