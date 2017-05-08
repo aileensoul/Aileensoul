@@ -545,7 +545,7 @@ input[type="radio"] {
     width: 57%;
     left: 22%;
     height: 35%;
-}
+    }
  input[type=date]{ font-size: 18px;
   display: block;
   width: 100%;
@@ -620,4 +620,11 @@ footer .footer-menu li a:hover{
 /* optional: show position indicator in red */
 ::-webkit-scrollbar-thumb {
     background: #FF0000;
+}
+
+.field-wrap{}
+.field-wrap input::-webkit-input-placeholder {
+  color: #a0b3b0; font-weight: 600;
+    font-size: 15px;
+    line-height: 3;
 }
