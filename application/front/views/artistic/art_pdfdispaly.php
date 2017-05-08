@@ -6,7 +6,7 @@
 
 	if($artdata[0]['image_name']){ 
 ?>
-<embed src="<?php echo base_url().ARTPOSTIMAGE.$artdata[0]['image_name']; ?>" width="600" height="775">
+<embed src="<?php echo base_url().ARTPOSTIMAGE.str_replace(" ", "_", $artdata[0]['image_name']) ?>" width="600" height="775">
 <?php }
 elseif($artregdata[0]['art_bestofmine']){ 
 ?>

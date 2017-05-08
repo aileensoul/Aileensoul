@@ -61,7 +61,7 @@ outline:none;
 .form {
   background: #ffffff;
   padding:15px 25px 5px 25px;
-  max-width: 575px;
+  max-width: 60%;
   margin: 100px auto;
   border-radius: 4px;
   box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
@@ -293,8 +293,10 @@ textarea {
   text-align: right;
 }
 
+footer{position: absolute; width: 100%;    background: #f2f4f4;
+bottom: 0;}
 #login{
-    width: 60%;
+    width: 86%;
     margin: 0 auto;
 }
 .c_account{
@@ -408,7 +410,7 @@ canvas{
 /* ---- particles.js container ---- */
 #particles-js {
   position: absolute;
-height: 100%;
+height: 95%;
 width: 100%;
   background: #ffffff;
 /*  background-image: url(../img/Untitled.jpg);
@@ -535,7 +537,7 @@ input[type="radio"] {
     border-radius: 4px;
     box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
 }
-.banner_cnt_reg{position: relative;top :-22px;width: 57%;left: 23%;height: 35%;}
+.banner_cnt_reg{position: relative; top: 30px; width: 57%;left: 23%;height: 35%;}
  input[type=date]{ font-size: 18px;
   display: block;
   width: 100%;
@@ -550,7 +552,7 @@ input[type="radio"] {
   transition: border-color .25s ease, box-shadow .25s ease;
 
  }
- .checkbox2{display: inline-block; width: 45%;}
+ .checkbox2{display: inline-block; width: 45%;     margin-top: 23px;}
  .checkbox2 input[type="checkbox"]{height: 15px; width: 15px; float: left;cursor: pointer;}
   .checkbox2 h6{color:#a0b3b0;font-size: 15px;
    font-weight: 600;}
@@ -571,8 +573,7 @@ input[type="radio"] {
 
 
 footer{
-  padding: 15px 0px;
-  background-color: white;
+
   text-transform: capitalize;
 }
 
