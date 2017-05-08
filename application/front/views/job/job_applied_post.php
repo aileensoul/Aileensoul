@@ -180,7 +180,7 @@
 <body   class="page-container-bg-solid page-boxed">
 
     <section>
-        <div class="container">
+        <div class="container" id="paddingtop_fixed">
 
             <div class="row" id="row1" style="display:none;">
                 <div class="col-md-12 text-center">
@@ -361,7 +361,7 @@
                                                     Created Date : <?php echo date('d/m/Y',strtotime($post['created_date'])); ?>
                                                 </li>
                     <li>
-                      <a title="Post Title" class="display_inline" href="#" style="font-size: 19px;font-weight: 600; cursor: default;">
+        <a title="Post Title" class="display_inline post_title" href="#" style="font-size: 19px;font-weight: 600; cursor: default;">
                       <?php echo ucwords(text2link($post['post_name'])); ?> </a>   </li>
 
                     <li>   

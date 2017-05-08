@@ -18,11 +18,9 @@ body {
   border-radius: 20px/50px;
   background-clip: padding-box;
   text-align: center;
-}
+ }
 
-
-
-.overlay {
+/*.overlay {
   position: fixed;
   top: 0;
   bottom: 0;
@@ -97,7 +95,7 @@ body {
   .popup{
     width: 70%;
   }
-}
+}*/
 </style>
 
 <!--post save success pop up style end -->

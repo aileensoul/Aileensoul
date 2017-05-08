@@ -205,6 +205,7 @@
       
       /* job on */
            .profile-job-details ul li { font-size: 12px; }
+           .profile-job-post-detail .profile-job-post-title .button { padding: 1px 12px; font-size: 12px;  }
       /* job off */
            
      /* post box off*/
@@ -222,7 +223,7 @@
         /* cover pic on */
      #row2 { margin: auto 0px auto 0px;  width: 96.8% }
      #row2 img {  height: 30%; width: 100%; }
-        
+       .profile-job-details .post_title { font-size: 16px; }
           /* cover pic off */     
     }
   /* vishang end*/
