@@ -145,7 +145,7 @@ return false;
 <body>
 
 <!-- cover pic start -->
-<div class="container" id="container">
+<div class="container" id="container" id="paddingtop_fixed">
 
 <div id="timelineContainer">
 

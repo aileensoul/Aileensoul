@@ -10,7 +10,7 @@
 
       <section>
         
-        <div class="user-midd-section">
+        <div class="user-midd-section" id="paddingtop_fixed">
             <div class="container">
                 <div class="row">
                        <?php echo $artistic_left; ?>
