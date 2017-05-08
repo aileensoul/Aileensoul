@@ -383,6 +383,13 @@
 
                 </div>
             </div> -->
+
+            <div  class="add-post-button">
+        <?php if($returnpage == '') {?>
+        <a class="btn btn-3 btn-3b" href="<?php echo base_url('recruiter/add_post'); ?>"><i class="fa fa-plus" aria-hidden="true"></i>  Add Post</a>
+        <?php } ?>
+  </div>
+  
         </div>
 
         <!-- text head end -->
