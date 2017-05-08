@@ -389,8 +389,8 @@ class Artistic extends MY_Controller {
                     'art_city' => $this->input->post('city'),
                     'art_address' => $this->input->post('address'),
                     'art_pincode' => $this->input->post('pincode'),
-                    'modified_date' => date('Y-m-d', time()),
-                    'art_step' => 2
+                    'modified_date' => date('Y-m-d', time())
+                    //'art_step' => 2
                 );
 
 
@@ -3705,7 +3705,7 @@ class Artistic extends MY_Controller {
         $contition_array = array('art_post_id' => $id, 'status' => '1');
         $this->data['art_data'] = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-        //echo "<pre>"; print_r($this->data['art_data']);die();
+       //echo "<pre>"; print_r($this->data['art_data']);die();
         $this->load->view('artistic/postnewpage', $this->data);
     }
 
