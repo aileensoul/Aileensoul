@@ -103,7 +103,7 @@ padding-top: 1px;}
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     </head>
     <body>
-        <div class="user-midd-section">
+        <div class="user-midd-section" id="paddingtop_fixed">
             <div class="container">
                 <div class="row">
                     <div class="col-md-4"><div class="profile-box profile-box-left">

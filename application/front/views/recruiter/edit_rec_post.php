@@ -8,7 +8,7 @@
     <body class="page-container-bg-solid page-boxed">
 
       <section>
-        <div class="user-profile">
+        <div class="user-profile" id="paddingtop_fixed" >
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
@@ -27,7 +27,7 @@
                 </div>
             </div>
         </div>
-        <div class="user-midd-section">
+        <div class="user-midd-section" id="paddingtop_fixed">
             <div class="container">
                 <div class="row">
                     <div class="col-md-3 col-sm-4">

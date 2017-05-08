@@ -1,5 +1,5 @@
  <div>
-            <div class="container">
+            <div class="container" id="paddingtop_fixed">
                 <div class="profile-banner">
 
                 </div>  

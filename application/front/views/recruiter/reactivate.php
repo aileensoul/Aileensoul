@@ -28,7 +28,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 
 
-<div class="container">
+<div class="container" id="paddingtop_fixed">
   <div class="row">
           
           <center> 
