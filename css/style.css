@@ -100,12 +100,20 @@ a:focus { outline: none; text-decoration: none;  }
 .header2  ul li.active a { background:#0a2c5d; color: #ffffff; }
 
 /* header2*/
-.header2 {    margin-left: 50px;
-              margin-right: 50px;
-              padding: 0px -31px;
-              background-color: #00002d ;
-              border-bottom-left-radius: 5px; 
-              border-bottom-right-radius: 5px;
+.header2 {       backface-visibility: hidden;
+    border-bottom: 1px solid #e6ecf0;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    position: fixed;
+    top: 56px;
+    right: 0;
+    left: 0;
+    z-index: 1000;
+    margin-left: 50px;
+    margin-right: 50px;
+    padding: 0px -31px;
+    background-color: #00002d;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 
@@ -186,7 +194,17 @@ hr{ border: none; margin: 20px 0; background:#cacaca; height: 1px; }
 .header { padding: 0; background: #fff;z-index: 1000; }
 .logo { padding: 8px 0; }
 
-.header { -webkit-transition: all 0.4s ease; transition: all 0.4s ease; background: #000033; }
+.header {     -webkit-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+    background: #000033;
+    backface-visibility: hidden;
+    border-bottom: 1px solid #e6ecf0;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1000; }
 .fixed { position: fixed; top:0; left:0; width: 100%; z-index: 10000; }
 
 
@@ -4405,50 +4423,7 @@ word-break: break-all;
     label.cameraButton input[accept*="camera"] {
         display: none;
     }
-        /* ^ job printprivew 7-5- */
-
-
-     .okk{  text-align: center;  }
-
-     .pop_content .okbtn{
-                position: absolute;
-                transition: all 200ms;
-                font-size: 16px;
-                text-decoration: none;
-                color: #fff;
-                padding: 8px 18px;
-                background-color: #0A2C5D;
-                left: 170px;
-                margin-top: 8px;
-                width: 100px; 
-                border-radius: 8px;
-            }
-
-      .pop_content .cnclbtn {
-                position: absolute;
-                transition: all 200ms;
-                font-size: 16px;
-                text-decoration: none;
-                color: #fff;
-                padding: 8px 18px;
-                background-color: #0A2C5D;
-                right: 170px;
-                margin-top: 8px;
-                width: 100px;
-                border-radius: 8px;
-            }
-
-            .popup .pop_content {
-                text-align: center;
-                margin-top: 40px;
-            }
-
-            .model_ok_cancel{
-                width:200px !important;
-            }      
-
-
-     /* ^^^ job save post & job_applied_post */
+        /* ^ job printprivew */
 
 .profile-boxProfileCard-bg img { height: 95PX ; width: 100%; }
 
@@ -4545,3 +4520,4 @@ fieldset .add_post_btns{min-width: 120px;padding:8px 30px 8px;}
     margin: 0 auto;
     width: 40%;
     padding: 5px;}
+    #paddingtop_fixed{padding-top:103px!important;}

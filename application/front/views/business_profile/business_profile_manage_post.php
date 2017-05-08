@@ -224,7 +224,7 @@
 
     <section>
    <!-- coer image start-->
-        <div class="container">
+        <div class="container" id="paddingtop_fixed">
 
             <div class="row" id="row1" style="display:none;">
                 <div class="col-md-12 text-center">
