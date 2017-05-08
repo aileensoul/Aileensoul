@@ -157,14 +157,72 @@
 /*vishang 6-5-17 start */
 
 @media (min-width: 768px) and (max-width: 1024px) 
-  {
+  {  
+  	 /*profile leftbar start*/
+  	     /*job on */
     .buisness-profile-txext {   max-width: 25% !important; }
     .profile-box-job-menu ul { float: left; margin-left: 26%; }
     .profile-box-job-menu ul li { padding-left: 0px; }
     .profile-box-job-menu ul li a {  padding: 9px 8px 6px 8px; margin-right: 1px; font-size: 13px; }
     .profile-boxProfileCard-cover { height: 10%; }
     .profile-boxProfileCard-bg img { height: auto; width: 100%; }
-    .left-side-menu {  width: 18%; float: left; }
-    .profile-main-rec-box-menu { height: 8%; }
+         /*job off */
+
+          /* recruter on*/
+      .profile-box-rec-menu ul { float: left; margin-left: 24%; }
+     .profile-box-rec-menu ul li {     padding-left: 7px;  }
+     .profile-box-rec-menu ul li a { padding: 9px 8px 6px 8px; font-size: 13px; }
+    
+          /* recruter off */
+
+     /* profile leftbar end */
+  
+    /* profile namebox on*/
+     
+     .job-menu-profile .profile-head-text { font-size: 20px; font-weight: 600; }
+     .job-menu-profile .profile-text a { font-size: 17px; }
+    /* profile namebox off */
+
+    
+    /* profile detail page on */
+     .common-form h3 
+     { 
+         padding: 5px 15px 5px;
+         font-size: 20px;
+     }
+     .details_all_tital { font-size: 18px; }
+  
+      .profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li b 
+        { font-size: 13px; }
+       .profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li span
+        { font-size: 12px; }
+       .profile-job-profile-menu h5 { font-size: 18px; }
+ 
+    /* profile detail page on */
+
+
+     /* post box on */
+      
+      /* job on */
+           .profile-job-details ul li { font-size: 12px; }
+      /* job off */
+           
+     /* post box off*/
+
+      
+      /* menu  on */
+       .left-side-menu {  width: 18%; float: left; }
+    .profile-main-rec-box-menu { height: 7%; left: 1.5%; width: 96.8%; }
+     .right-side-menu { float: left; height: auto; }
+    .profile-main-rec-box-menu li a { padding: 11px 15px 15px 15px; }
+
+
+        /* menu  off */
+
+        /* cover pic on */
+     #row2 { margin: auto 0px auto 0px;  width: 96.8% }
+     #row2 img {  height: 30%; width: 100%; }
+        
+          /* cover pic off */     
     }
   /* vishang end*/

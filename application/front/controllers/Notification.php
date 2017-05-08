@@ -38,11 +38,12 @@ $join_str = array(array(
         'from_table_id' => 'user.user_id')
 );
 $data = array('notification.*','job_apply.*','user.user_id', 'user.first_name','user.user_image','user.last_name');
-$this->data['rec_not'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'app_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = 'not_from_id');
+$this->data['rec_not'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'app_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 // recruiter notification end
+
 // job notfication start 
 
-$contition_array = array('notification.not_type' => 4, 'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
+$contition_array = array('notification.not_type' => 4, 'notification.not_to_id' => $userid,'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
 $join_str = array(array(
         'join_type' => '',
         'table' => 'job_apply',
@@ -56,7 +57,7 @@ $join_str = array(array(
 );
 $data = array('notification.*',' job_apply.*',' user.user_id', 'user.first_name', 'user.user_image','user.last_name');
 
-$this->data['job_not'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'app_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = 'not_from_id');
+$this->data['job_not'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'app_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 
 // job notification end
 
@@ -77,7 +78,7 @@ $join_str = array(
       );
 $data = array('notification.*','freelancer_apply.*','user.user_id', 'user.first_name','user.user_image','user.last_name');
 
-$this->data['hire_not'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'app_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = 'not_from_id');
+$this->data['hire_not'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'app_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
  // freelancer hire notification end
 // freelancer post notification start
 $contition_array = array('notification.not_type' => 4, 'notification.not_from' => 4,  'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
@@ -94,7 +95,7 @@ $join_str = array(array(
 );
 $data = array('notification.*',' job_apply.*',' user.user_id', 'user.first_name', 'user.user_image','user.last_name');
 
-$this->data['work_post'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'app_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = 'not_from_id');
+$this->data['work_post'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'app_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 // freelancer post notification end
 //artistic notification start
 // follow notification start
@@ -113,7 +114,7 @@ $join_str = array(array(
 );
 $data = array('notification.*',' follow.*',' user.user_id', 'user.first_name', 'user.user_image','user.last_name');
 
-$this->data['artfollow'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'follow_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = 'not_from_id');
+$this->data['artfollow'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'follow_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 //echo '<pre>'; print_r($this->data['artfollow']); die();
 // follow notification end
 //post comment notification start
@@ -131,7 +132,7 @@ $join_str = array(array(
         'from_table_id' => 'user.user_id')
 );
 $data = array('notification.*',' artistic_post_comment.*',' user.user_id', 'user.first_name', 'user.user_image','user.last_name');
-$this->data['artcommnet'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'artistic_post_comment_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = 'not_from_id');
+$this->data['artcommnet'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'artistic_post_comment_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 // comment notification end
 //post like notification start
  $contition_array = array('notification.not_type' => 5,'notification.not_from' => 3,  'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
@@ -147,7 +148,7 @@ $join_str = array(array(
         'from_table_id' => 'user.user_id')
 );
 $data = array('notification.*','art_post.*',' user.user_id', 'user.first_name', 'user.user_image','user.last_name');
-$this->data['artlike'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'art_post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = 'not_from_id');
+$this->data['artlike'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'art_post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 // like notification end
 //echo '<pre>'; 
 //print_r($this->data['artcommnet']); 
@@ -171,7 +172,7 @@ $join_str = array(array(
 );
 $data = array('notification.*','follow.*','user.user_id', 'user.first_name', 'user.user_image','user.last_name');
 
-$this->data['busifollow'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'follow_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = 'not_from_id');
+$this->data['busifollow'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'follow_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 
 // follow notification end
 
@@ -191,7 +192,7 @@ $join_str = array(array(
       );
 $data = array('notification.*','business_profile_post_comment.*','user.user_id','user.first_name','user.user_image','user.last_name');
 
-$this->data['buscommnet'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'business_profile_post_comment_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = 'not_from_id');
+$this->data['buscommnet'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'business_profile_post_comment_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 //echo '<pre>'; print_r($this->data['buscommnet']); 
 // comment notification end
 
@@ -210,7 +211,7 @@ $join_str = array(array(
 );
 $data = array('notification.*',' business_profile_post.*',' user.user_id', 'user.first_name', 'user.user_image','user.last_name');
 
-$this->data['buslike'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'business_profile_post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = 'not_from_id');
+$this->data['buslike'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'business_profile_post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 //echo '<pre>'; print_r($this->data['buslike']); die();
 // like notification end
 // business profile notification end
@@ -543,7 +544,7 @@ $join_str = array(array(
         'from_table_id' => 'user.user_id')
 );
 $data = array('notification.*','job_apply.*','user.user_id', 'user.first_name','user.user_image','user.last_name');
-$rec_not = $this->data['rec_not'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'app_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = 'not_from_id');
+$rec_not = $this->data['rec_not'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'app_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 // recruiter notification end
 // job notfication start 
 
@@ -561,7 +562,7 @@ $join_str = array(array(
 );
 $data = array('notification.*',' job_apply.*',' user.user_id', 'user.first_name', 'user.user_image','user.last_name');
 
-$job_not = $this->data['job_not'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'app_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = 'not_from_id');
+$job_not = $this->data['job_not'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'app_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 
 // job notification end
 
@@ -582,7 +583,7 @@ $join_str = array(
       );
 $data = array('notification.*','freelancer_apply.*','user.user_id', 'user.first_name','user.user_image','user.last_name');
 
-$hire_not = $this->data['hire_not'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'app_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = 'not_from_id');
+$hire_not = $this->data['hire_not'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'app_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
  // freelancer hire notification end
 // freelancer post notification start
 $contition_array = array('notification.not_type' => 4, 'notification.not_from' => 4,  'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
@@ -599,7 +600,7 @@ $join_str = array(array(
 );
 $data = array('notification.*',' job_apply.*',' user.user_id', 'user.first_name', 'user.user_image','user.last_name');
 
-$this->data['work_post']= $work_post = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'app_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = 'not_from_id');
+$this->data['work_post']= $work_post = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'app_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 // freelancer post notification end
 //artistic notification start
 // follow notification start
@@ -618,7 +619,7 @@ $join_str = array(array(
 );
 $data = array('notification.*',' follow.*',' user.user_id', 'user.first_name', 'user.user_image','user.last_name');
 
-$this->data['artfollow'] =$artfollow = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'follow_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = 'not_from_id');
+$this->data['artfollow'] =$artfollow = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'follow_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 //echo '<pre>'; print_r($this->data['artfollow']); die();
 // follow notification end
 //post comment notification start
@@ -636,7 +637,7 @@ $join_str = array(array(
         'from_table_id' => 'user.user_id')
 );
 $data = array('notification.*',' artistic_post_comment.*',' user.user_id', 'user.first_name', 'user.user_image','user.last_name');
-$this->data['artcommnet'] = $artcommnet = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'artistic_post_comment_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = 'not_from_id');
+$this->data['artcommnet'] = $artcommnet = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'artistic_post_comment_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 // comment notification end
 //post like notification start
  $contition_array = array('notification.not_type' => 5,'notification.not_from' => 3,  'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
@@ -652,7 +653,7 @@ $join_str = array(array(
         'from_table_id' => 'user.user_id')
 );
 $data = array('notification.*','art_post.*',' user.user_id', 'user.first_name', 'user.user_image','user.last_name');
-$this->data['artlike'] = $artlike = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'art_post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = 'not_from_id');
+$this->data['artlike'] = $artlike = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'art_post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 // like notification end
 //echo '<pre>'; 
 //print_r($this->data['artcommnet']); 
@@ -676,7 +677,7 @@ $join_str = array(array(
 );
 $data = array('notification.*','follow.*','user.user_id', 'user.first_name', 'user.user_image','user.last_name');
 
-$this->data['busifollow'] = $busifollow = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'follow_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = 'not_from_id');
+$this->data['busifollow'] = $busifollow = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'follow_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 
 // follow notification end
 
@@ -696,7 +697,7 @@ $join_str = array(array(
       );
 $data = array('notification.*','business_profile_post_comment.*','user.user_id','user.first_name','user.user_image','user.last_name');
 
-$this->data['buscommnet'] = $buscommnet = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'business_profile_post_comment_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = 'not_from_id');
+$this->data['buscommnet'] = $buscommnet = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'business_profile_post_comment_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 //echo '<pre>'; print_r($this->data['buscommnet']); 
 // comment notification end
 
@@ -715,12 +716,12 @@ $join_str = array(array(
 );
 $data = array('notification.*',' business_profile_post.*',' user.user_id', 'user.first_name', 'user.user_image','user.last_name');
 
-$this->data['buslike'] = $buslike = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'business_profile_post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = 'not_from_id');
+$this->data['buslike'] = $buslike = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'business_profile_post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 //echo '<pre>'; print_r($this->data['buslike']); die();
 // like notification end
 // business profile notification end
 // 1-5 notification end
-       $notification = '<div class="notification-data">';
+       $notification .= '<div class="notification-data">';
        $notification .= '<ul>';
        $notification .= '<li>'; 
        $notification .= '<div class="notification-database">';
