@@ -151,7 +151,7 @@
 
     <section>
 
-        <div class="user-midd-section">
+        <div class="user-midd-section" id="paddingtop_fixed">
             <div class="container">
                 <div class="row">
                     <div class="col-md-2 col-sm-2">
