@@ -609,7 +609,7 @@
                                     ?>
                                     <tr>
                                         <td class="business_data_td1"><i class="fa fa-globe"></i></td>
-                                        <td class="business_data_td2"><span><a href="<?php echo $businessdata1[0]['contact_website']; ?>" target="_blank"><u><?php echo $businessdata1[0]['contact_website']; ?></u></a></span></td>
+                                        <td class="business_data_td2 website"><span><a href="<?php echo $businessdata1[0]['contact_website']; ?>" target="_blank"> <?php echo $businessdata1[0]['contact_website']; ?></a></span></td>
                                     </tr>
 
                                 <?php } ?>
