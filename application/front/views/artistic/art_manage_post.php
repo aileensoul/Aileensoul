@@ -749,7 +749,7 @@ responsive image design start -->
                                     <?php } ?>
                                 </tr>
                             <?php } else { ?>
-                                Video Not Available
+                             <div class="not_avalible">  <p> Video Not Available</p></div>
                             <?php } ?>
                         </table>
 
