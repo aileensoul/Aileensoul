@@ -75,22 +75,29 @@
 
 
                 <div class="row">
-                    <div class="col-md-5 col-sm-5">
-                        <div class="logo"><a href="<?php echo base_url('dashboard') ?>"><img src="<?php echo base_url('images/logo.png'); ?>"></a></div>
+                    <div class="col-md-4 col-sm-5">
+                        <div class="logo"><a href="<?php echo base_url('dashboard') ?>"><!-- <img src="<?php// echo base_url('images/logo.png'); ?>"> --> <span style="color: #87ceff; font-size: 41px;">Aileensoul</span></a></div>
                     </div>
                     <div class="col-md-7 col-sm-7 header-left-menu">
-                        <div class="pushmenu pushmenu-left">
-                        <ul class="fr">
-    
 
-                               
-                         
-                                </div>
+                    <ul class="fr">
+                    <li class=""><a style="       margin-top: 25px;
+    padding: 8px 17px;
+    border: none;
+    line-height: normal;
+    font-size: 15px;
+    background-color: #87ceff!important;
+    color: #FFF;
+    font-weight: 600;
+    border: 3px solid #fff; " href="">Login</a></li>
+                      
+                    </ul>
+                     
+      </div>                          </div>
 
                                 <!-- Friend Request End-->
 
                                 <!-- END USER LOGIN DROPDOWN -->
-                            </ul>
                         </div>
                     </div>
                 </div>
@@ -105,16 +112,16 @@
 
     	 <marquee behavior="alternate" style="font-size: 30px;color: red; line-height: 30px;padding: 5px;">This Site Is Under Construction</marquee>
 
-    <section>
+    <section id="section-height" style="height: 650px;">
     <div id="particles-js"></div>
 
 
     <div class="banner_cnt_reg text-center clearfix">
     
-          <div class="form" style="max-width:100%;" >
+          <div class="form" style="max-width:75%;" >
        <div class="tab-group-reg">
       <ul >
-        <li class="tab active"><a class="head-ail2">Join Aileensoul</a></li>
+        <li class="tab active"><a style="cursor: default;" class="head-ail2">Join Aileensoul</a></li>
       </ul>
       </div>
         <div id="login2"> 
@@ -170,12 +177,12 @@
          <div class="top-row">
             <div class="field-wrap full-width">
         <label class="fname_reg">Password<span class="req">*</span></label>
-    <input type="password" name="password" id="password" class="showpassword"  style="position: relative;"  />
+    <input type="password" name="password" id="password" class="showpassword" placeholder="Password *" style="position: relative;"  />
                       <?php echo form_error('password'); ?>
             
 
                         <label for="password1" style="    position: absolute;
-    top: 14px;
+    top: 8px;
     right: 35px;" ><img style="height: 20px; width: 20px;" src="<?php echo base_url('images/eye.png'); ?>"></label>
             </div>
         
@@ -187,7 +194,7 @@
           </div>
               
           <div class="top-row">
-            <div class="field-wrap">
+            <div class="field-wrap" style="margin-bottom: 5px;">
               <label class="fname_reg">
              
               </label>
@@ -218,23 +225,44 @@
            <input type="submit" value="Create an Account" name="submit" class="button3 button-block3 " style="background-image: url(partical/images/bg-button.png); background-repeat: no-repeat; background-position: right center ; margin-top:  10px;">
           <div class="or"> <span>or</span></div>
           
-          <button class="button3 button-block3 facebook_ac" style="background-color: #3b5998 ;background-repeat: no-repeat; background-position: right center">Sign Up With Facebook</button>
-         
-          <div class="or">Already on Aileensoul? <a href="<?php echo base_url('login')?>"  style="color: #a0b3b0;
+          <button class="button3 button-block3 facebook_ac" style="background-color: #3b5998!important ;background-repeat: no-repeat; background-position: right center; margin-bottom: 15px;">Sign Up With Facebook</button>
+    <!--      
+          <div class="or">Already have an account? <a href="<?php echo base_url('login')?>"  style="color: #a0b3b0;
     font-size: 17px;
     font-weight: 600;
-    padding-bottom: 10px;">Sign in</a></div>
+    padding-bottom: 10px;">Sign in</a></div> -->
         <!--<small class="help-block" data-fv-validator="notEmpty" data-fv-for="agree" data-fv-result="VALID" style="display: none;">You must agree with the terms and conditions</small>-->
           </form>
 
        
-          </form>
-
+        
         </div>
         
       </div>
 
-    </div>
+    </div>  <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6" style="padding: 12px;">
+                <div class="footer-menu pull-left">
+                    <p>copyright 2017 | by <a href="#" style="color: #000033">Aileensoul</a></p>
+                </div>
+                </div>
+                <div class="col-md-6">
+                <div class="footer-menu pull-right">
+                    <nav>
+                        <ul>
+                          <li> <b><a class="" href="<?php echo base_url('about_us'); ?>">About Us</a> </b></li>
+                                    <li> <b><a class="" href="<?php echo base_url('contact_us'); ?>">Contact Us</a> </b></li>
+                                    <li><b><a class="" href="javascript:void(0);">Blog</a> </b></li>
+                                    <li> <b><a class="" href="<?php echo base_url('feedback'); ?>">Send Us Feedback</a> </b></li>
+                        </ul>
+                    </nav>
+                </div>
+                </div>
+            </div>
+        </div>
+        </footer>
 
 
 <!-- scripts -->

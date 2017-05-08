@@ -66,27 +66,37 @@
     <body>
         <header>
 
-            <div class="header3">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-5 col-sm-5">
-                            <div class="logo"><a href="<?php echo base_url('dashboard') ?>"><img src="<?php echo base_url('images/logo.png'); ?>"></a></div>
-                        </div>
-                        <div class="col-md-7 col-sm-7 header-left-menu">
-                            <div class="pushmenu pushmenu-left">
-                                <ul class="fr">
+             <div class="header3" style="    background-color: #f2f4f4;">
+            <div class="container">
 
-                            </div>
 
-                            <!-- Friend Request End-->
+                <div class="row">
+                    <div class="col-md-4 col-sm-5">
+                        <div class="logo" style="    padding: 26px 0;
+    padding-left: 79px;"><a href="<?php echo base_url('dashboard') ?>"><!-- <img src="<?php// echo base_url('images/logo.png'); ?>"> --> <span style="color: #87ceff; font-size: 41px;">Aileensoul</span></a></div>
+                    </div>
+                    <div class="col-md-7 col-sm-7 header-left-menu">
 
-                            <!-- END USER LOGIN DROPDOWN -->
-                            </ul>
+                    <ul class="fr">
+                    <li class=""><a style="       margin-top: 25px;
+    padding: 8px 17px;
+    border: none;
+    line-height: normal;
+    font-size: 15px;
+    background-color: #87ceff!important;
+    color: #FFF;
+    font-weight: 600;
+    border: 3px solid #fff; " href="">Create an account</a></li>
+                      
+                    </ul>
+                     
+      </div>                          </div>
+
+                                <!-- Friend Request End-->
+
+                                <!-- END USER LOGIN DROPDOWN -->
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
     </header>
     <section class="buttonset">
         <div id="nav_list"></div>
@@ -94,15 +104,14 @@
 
     <!-- header end -->
 
-
-    <section>
+<section id="section-height" style="height: 660px;">
         <div id="particles-js"></div>
 
         <div class="banner_cnt_reg text-center clearfix">
             <div class="form">
                 <div class="tab-group">
                     <ul>
-                        <div class="logo1"><img src="<?php echo base_url('partical/images/khalilogo.png'); ?>"></div>
+                        <div class="logo1"><!-- <img src="<?php echo base_url('partical/images/khalilogo.png'); ?>"> --></div>
                         <li class="tab active"><a class="head-ail">Welcome to Aileensoul</a></li>
                     </ul>
                 </div>
@@ -190,8 +199,37 @@
             </div>
 
         </div>
+        </form>
+        </div>
+        </div>
 
 
+        </div>
+  </section>
+  <footer style="background-color: #f2f4f4; height:10%;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6" style="padding: 12px;">
+                <div class="footer-menu pull-left">
+                    <p>copyright 2017 | by <a href="#" style="color: #000033">Aileensoul</a></p>
+                </div>
+                </div>
+                <div class="col-md-6">
+                <div class="footer-menu pull-right">
+                    <nav>
+                        <ul>
+                          <li> <b><a class="" href="<?php echo base_url('about_us'); ?>">About Us</a> </b></li>
+                                    <li> <b><a class="" href="<?php echo base_url('contact_us'); ?>">Contact Us</a> </b></li>
+                                    <li><b><a class="" href="javascript:void(0);">Blog</a> </b></li>
+                                    <li> <b><a class="" href="<?php echo base_url('feedback'); ?>">Send Us Feedback</a> </b></li>
+                        </ul>
+                    </nav>
+                </div>
+                </div>
+            </div>
+        </div>
+        </footer>
+  </body>
         <!-- scripts -->
         <!-- <script src="<?php //echo base_url('partical/particles.json');   ?>"></script> -->
 
