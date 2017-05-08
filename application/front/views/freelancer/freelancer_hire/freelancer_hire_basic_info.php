@@ -280,8 +280,17 @@ $( "#tags" ).autocomplete({
                         },
                     },
                 },
+
+                phone: {
+
+                    number: true,
+                    required: true,
+                            
+                    },
+
             },
 
+             
             messages: {
 
                 fname: {
