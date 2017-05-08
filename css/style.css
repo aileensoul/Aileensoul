@@ -4528,5 +4528,6 @@ fieldset .add_post_btns{min-width: 120px;padding:8px 30px 8px;}
     margin: 0 auto;
     width: 40%;
     padding: 5px;}
-    #paddingtop_fixed{padding-top:103px!important;}
+    #paddingtop_fixed{padding-top:100px!important;}
     .profile-job-details .post_title {   font-size: 19px; font-weight: 600; cursor: default; }
+    .not_avalible{}

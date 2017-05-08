@@ -644,7 +644,7 @@ responsive image design start -->
 
 
                         <?php } else { ?>
-                            Photos Not Available
+                          <div class="not_available">  <p>    Photos Not Available</p></div>
 
                         <?php } ?>
 
@@ -749,7 +749,7 @@ responsive image design start -->
                                     <?php } ?>
                                 </tr>
                             <?php } else { ?>
-                                Video Not Available
+                             <div class="not_available">  <p> Video Not Available</p></div>
                             <?php } ?>
                         </table>
 
@@ -857,7 +857,7 @@ responsive image design start -->
                                     <?php } ?>
                                 </tr>
                             <?php } else { ?>
-                                Audio Not Available
+                                <div class="not_available">  <p>  Audio Not Available</p> </div>
                             <?php } ?>
                         </table>
 
@@ -924,7 +924,8 @@ responsive image design start -->
                                 ?>
 
                             <?php }else { ?>
-                                Pdf Not Available
+                              <div class="not_available">  <p>    Pdf Not Available</p>
+                              </div>
                             <?php } ?>
                         </table>
 
