@@ -146,7 +146,7 @@
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
-<link rel="stylesheet" href="<?php echo base_url('css/bootstrap.min.css'); ?>" />
+
 
 <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
 
@@ -511,10 +511,8 @@ $freelancerapply1 = $this->data['freelancerapply'] = $this->common->select_data_
  <?php
 } else {
 ?>
-<input type="hidden" id="<?php echo 'allpost' . $post['post_id']; ?>" value="all">
 
- <input type="hidden" id="<?php echo 'userid' . $post['post_id']; ?>" value="<?php echo $post['user_id']; ?>">
-                <a class="applypost button" href="javascript:void(0);"  class= "<?php echo 'applypost' . $post['post_id']; ?>  button" onclick="applypopup(<?php echo $post['post_id'] ?>,<?php echo $post['user_id'] ?>)">Apply</a>
+                <a href="javascript:void(0);" class="button" onclick="applypopup(<?php echo $post['post_id'] ?>,<?php echo $post['app_id'] ?>)">Apply</a>
                                                                     </li> 
 
                 <?php }?>
@@ -832,79 +830,56 @@ $( "#tags" ).autocomplete({
     function remove_post(abc)
     {
         // alert(abc);     
-    $.ajax({
-    type:'POST',
-            url:'<?php echo base_url() . "freelancer/remove_save" ?>',
-            data:'save_id=' + abc,
-            success:function(data){
-                //alert(data);
-                $('#' + 'postdata' + abc).parent().removeClass();
+
+
+    var savepara = 'save';
+        $.ajax({
+            type: 'POST',
+            url: '<?php echo base_url() . "freelancer/remove_save" ?>',
+            data: 'app_id=' + abc + '&para=' + savepara,
+            success: function (data) {
                 $('#' + 'postdata' + abc).html(data);
-                
+                $('#' + 'postdata' + abc).parent().removeClass();
                 var numItems = $('.contact-frnd-post .job-contact-frnd').length;
                 if (numItems == '0') {
-                    var nodataHtml = "<div class='text-center rio'><h4 class='page-heading  product-listing' style='border:0px;margin-bottom: 11px;'>No Saved Freelancer Found.</h4></div>";
-
-                 $('.contact-frnd-post').html(nodataHtml);
-
-}
-            
+                    var nodataHtml = "<div class='text-center rio'><h4 class='page-heading  product-listing' style='border:0px;margin-bottom: 11px;'>No Saved Job Found.</h4></div>";
+                    $('.contact-frnd-post').html(nodataHtml);
+                }
             }
-    });
+        });
     }
 
-      function apply_post1(abc,xyz)
+      function apply_post(abc,xyz)
     {
-        //alert(455);
-    // var alldata = document.getElementById("allpost" + abc);
-    // var user = document.getElementById("userid" + abc);
-            var alldata = 'all';
-            var user = abc;
-            var appid = xyz;
 
-    $.ajax({
-    type:'POST',
-            url:'<?php echo base_url() . "freelancer/apply_insert" ?>',
+
+         var alldata = 'all';
+        //var user = document.getElementById("userid" + abc);
+        var user = <?php echo $aileenuser_id; ?>;
+       // alert(user);
+        var appid = xyz;
+
+        $.ajax({
+            type: 'POST',
+            url: '<?php echo base_url() . "freelancer/apply_insert" ?>',
             data: 'post_id=' + abc + '&allpost=' + alldata.value + '&userid=' + user.value,
-            success:function(data){
-                $('#' + 'postdata' + abc).parent().removeClass();
-                  $('#' + 'postdata' + abc).html(data);
-                
-            var numItems = $('.contact-frnd-post .job-contact-frnd').length;
+            success: function (data) {
+                $('#' + 'postdata' + appid).html(data);
+                $('#' + 'postdata' + appid).parent().removeClass();
+                var numItems = $('.contact-frnd-post .job-contact-frnd').length;
                 if (numItems == '0') {
-                    var nodataHtml = "<div class='text-center rio'><h4 class='page-heading  product-listing' style='border:0px;margin-bottom: 11px;'>No Saved Freelancer Found.</h4></div>";
+                    var nodataHtml = "<div class='text-center rio'><h4 class='page-heading  product-listing' style='border:0px;margin-bottom: 11px;'>No Saved Job Found.</h4></div>";
+                    $('.contact-frnd-post').html(nodataHtml);
+                }
 
-                 $('.contact-frnd-post').html(nodataHtml);
-
-}
             }
-    });
-    }
+        });
+       }
 </script>
 
 <!-- remove save post end -->
 
 
-<!-- apply post start -->
-
-<!-- <script type="text/javascript">
-    function apply_post(abc)
-    {
-
-    var alldata = document.getElementById("allpost" + abc);
-    var user = document.getElementById("userid" + abc);
-    $.ajax({
-    type:'POST',
-            url:'<?php echo base_url() . "freelancer/apply_insert" ?>',
-            data: 'post_id=' + abc + '&allpost=' + alldata.value + '&userid=' + user.value,
-            success:function(data){
-
-            $('.' + 'applypost' + abc).html(data);
-            }
-    });
-    }
-    
-  </script> -->
 
 
                         <script>
@@ -929,43 +904,18 @@ $( "#tags" ).autocomplete({
             }
             }
         </script> 
-         <!-- <script type="text/javascript">
-                    function apply_post(abc, xyz) {
-                        //var alldata = document.getElementById("allpost" + abc);
-                        var alldata = 'all';
-                        //var user = document.getElementById("userid" + abc);
-                        var user = xyz;
-
-                        $.ajax({
-                            type: 'POST',
-                            url: '<?php //echo base_url() . "freelancer/save_insert"?>',
-//                            data: 'post_id=' + abc + '&allpost=' + alldata.value + '&userid=' + user.value,
-                            data: 'post_id=' + abc + '&allpost=' + alldata + '&userid=' + user,
-                            success: function (data) {
-                                $('.savedpost' + abc).hide();
-                                $('.applypost' + abc).html(data);
-                                $('.applypost' + abc).attr('disabled', 'disabled');
-                                $('.applypost' + abc).attr('onclick', 'myFunction()');
-                            }
-                        });
-                    }
-                </script>
- -->
-                <
-
-        <!-- apply post end-->
-<script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
+       
+       <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
 <script>
     function removepopup(id) {
          //alert(id); return false;
         $('.biderror .mes').html("<div class='pop_content'>Are you sure want to remove this Freelancer?<div class='model_ok_cancel'><a class='okbtn' id="+ id +" onClick='remove_post(" + id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
         $('#bidmodal').modal('show');
     }
-       function applypopup(postid, userid) {
-           // alert("hello");
-                        $('.biderror .mes').html("<div class='pop_content'>Are you sure want to apply this post?<div class='model_ok_cancel'><a class='okbtn' id=" + postid + " onclick='apply_post1(" + postid + "," + userid + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-                        $('#bidmodal').modal('show');
-                    }
+        function applypopup(postid, appid) {
+        $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to apply this post?<div class='model_ok_cancel'><a class='okbtn' id=" + postid + " onClick='apply_post(" + postid + "," + appid + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+        $('#bidmodal').modal('show');
+    }
 </script>
 
 <script>

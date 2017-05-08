@@ -3166,6 +3166,7 @@ public function job_applied_post() {
 
         $data = array(
             'job_delete' => 1,
+            'job_save' => 3,
             'modify_date' => date('Y-m-d h:i:s', time())
         );
 
