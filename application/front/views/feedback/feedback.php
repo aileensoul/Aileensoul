@@ -78,6 +78,16 @@
                     <div class="col-md-7 col-sm-7 header-left-menu">
 
                     <ul class="fr">
+                        <li class=""><a style="       margin-top: 25px;
+    padding: 8px 17px;
+    border: none;
+    line-height: normal;
+    font-size: 15px;
+    background-color: #87ceff!important;
+    color: #FFF;
+    margin-right: 10px;
+    font-weight: 600;
+    border: 3px solid #fff; " href="">Login</a></li>
                     <li class=""><a style="       margin-top: 25px;
     padding: 8px 17px;
     border: none;
