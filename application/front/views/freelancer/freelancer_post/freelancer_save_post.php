@@ -370,7 +370,7 @@ $freelancerapply1 = $this->data['freelancerapply'] = $this->common->select_data_
 
                             
                             <div class="job-contact-frnd ">
-                                        <div class="profile-job-post-detail clearfix" id="<?php echo "removeapply" . $post['save_id']; ?>">
+                                        <div class="profile-job-post-detail clearfix" id="<?php echo "postdata" . $post['app_id']; ?>">
                                             <div class="profile-job-post-title-inside clearfix">
 
 
@@ -500,7 +500,7 @@ $freelancerapply1 = $this->data['freelancerapply'] = $this->common->select_data_
                                                                    
                                                                                             
                                           <li class=fr>
-                                          <a href="javascript:void(0);" class="button" onclick="removepopup(<?php echo  $post['save_id']?>)">Remove</a>
+                                          <a href="javascript:void(0);" class="button" onclick="removepopup(<?php echo  $post['app_id']?>)">Remove</a>
                                           <?php
 $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
  $contition_array = array('post_id' => $post['post_id'], 'job_delete' => 0, 'user_id' => $userid);
@@ -838,8 +838,8 @@ $( "#tags" ).autocomplete({
             data:'save_id=' + abc,
             success:function(data){
                 //alert(data);
-                $('#' + 'removeapply' + abc).parent().removeClass();
-                $('#' + 'removeapply' + abc).html(data);
+                $('#' + 'postdata' + abc).parent().removeClass();
+                $('#' + 'postdata' + abc).html(data);
                 
                 var numItems = $('.contact-frnd-post .job-contact-frnd').length;
                 if (numItems == '0') {
@@ -867,8 +867,8 @@ $( "#tags" ).autocomplete({
             url:'<?php echo base_url() . "freelancer/apply_insert" ?>',
             data: 'post_id=' + abc + '&allpost=' + alldata.value + '&userid=' + user.value,
             success:function(data){
-                $('#' + 'removeapply' + abc).parent().removeClass();
-                  $('#' + 'removeapply' + abc).html(data);
+                $('#' + 'postdata' + abc).parent().removeClass();
+                  $('#' + 'postdata' + abc).html(data);
                 
             var numItems = $('.contact-frnd-post .job-contact-frnd').length;
                 if (numItems == '0') {

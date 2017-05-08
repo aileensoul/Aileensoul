@@ -47,7 +47,6 @@ echo $head;
     .popup .pop_content {
         text-align: center;
         margin-top: 40px;
-
     }
     .model_ok_cancel{
         width:200px !important;
@@ -66,40 +65,7 @@ echo $head;
 <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
 <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
 
-<style type="text/css" media="screen">
-    #row2 { overflow: hidden; width: 100%; }
-    #row2 img { height: 350px;width: 100%; }
-    .upload-img{    float: right;
-                    position: relative;
-                    margin-top: -135px;
-                    right: 50px; }
 
-    label.cameraButton {
-        display: inline-block;
-        margin: 1em 0;
-        cursor: pointer;
-        /* Styles to make it look like a button */
-        padding: 0.5em;
-        border: 2px solid #666;
-        border-color: #EEE #CCC #CCC #EEE;
-        background-color: #DDD;
-        opacity: 0.7;
-    }
-
-    /* Look like a clicked/depressed button */
-    label.cameraButton:active {
-        border-color: #CCC #EEE #EEE #CCC;
-    }
-
-    /* This is the part that actually hides the 'Choose file' text box for camera inputs */
-    label.cameraButton input[accept*="camera"] {
-        display: none;
-    }
-
-
-
-
-</style>
 <!-- END HEAD -->
 <!-- start header -->
 <?php echo $header; ?>
@@ -359,25 +325,25 @@ if ($returnpage == 'job') {
                                 <!-- vishang 14-4 end -->
                                 <div class="profile-job-post-title clearfix">
                                     <div class="profile-job-profile-button clearfix">
-                                        <div class="profile-job-details col-md-12">
-                                            <ul>
-                                                <li class="fr">
-                                                    Created Date : <?php echo date('d/m/Y',strtotime($post['created_date'])); ?>
-                                                </li>
-                                                <li>
-                                                    <a href="#" title="Post Title"  style="font-size: 19px;font-weight: 600;cursor:default;">
-                                                        <?php echo $post['post_name'] ?> </a>     </li>
-                                                <li>   
-                                                       <div class="fr lction">
-                                                    <?php $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name;
-
-
-                                                     $countryname = $this->db->get_where('countries', array('country_id' => $post['country']))->row()->country_name; ?>
-                                                            <?php  
-                                                            if($cityname || $countryname)
-                                                            { 
-                                                            ?>
-                                                            <p><i class="fa fa-map-marker" aria-hidden="true">
+       <div class="profile-job-details col-md-12">
+          <ul>
+              <li class="fr">
+                  Created Date : <?php echo date('d/m/Y',strtotime($post['created_date'])); ?>
+               </li>
+     
+              <li>
+              <a class="post_title" href="#" title="Post Title">
+               <?php echo $post['post_name'] ?> </a>     </li>
+     
+             <li>   
+                 <div class="fr lction">
+            <?php $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name;
+            $countryname = $this->db->get_where('countries', array('country_id' => $post['country']))->row()->country_name; ?>
+               <?php  
+             if($cityname || $countryname)
+               { 
+                ?>
+            <p><i class="fa fa-map-marker" aria-hidden="true">
 
                                                             <?php  echo $cityname .', '. $countryname; ?> 
                                                             </i></p>
@@ -466,9 +432,9 @@ if ($returnpage == 'job') {
                                         </ul>
                                     </div>
                                     <div class="profile-job-profile-button clearfix">
-                                        <div class="profile-job-details col-md-12">
+                       <div class="profile-job-details col-md-12">
                                          <?php
-                                          $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
+                                        $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
 
                                           $contition_array = array('post_id' => $post['post_id'], 'job_delete' => 0, 'user_id' => $userid);
                                           $jobsave = $this->data['jobsave'] = $this->common->select_data_by_condition('job_apply', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -523,34 +489,33 @@ if ($returnpage == 'job') {
                                 <!-- vishang 14-4 end -->
                                 <div class="profile-job-post-title clearfix">
                                     <div class="profile-job-profile-button clearfix">
-                                        <div class="profile-job-details col-md-12">
-                                            <ul>
-                                                <li class="fr">
-                                                    Created Date : <?php echo date('d/m/Y',strtotime($post['created_date'])); ?>
-                                                </li>
-                                                <li>
-                                                    <a href="#" title="Post Title"  style="font-size: 19px;font-weight: 600;cursor:default;">
-                                                        <?php echo $post['post_name'] ?> </a>     </li>
-                                                <li>   
-                                                  <div class="fr lction">
-                                                    <?php $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name;
+           <div class="profile-job-details col-md-12">
+                  <ul>
+                              <li class="fr">
+             Created Date : <?php echo date('d/m/Y',strtotime($post['created_date'])); ?>
+                  </li>
+              
+                  <li>
+               <a class="post_title" href="#" title="Post Title">
+                  <?php echo $post['post_name'] ?> </a>     </li>
+                  
+                    <li>   
+                       <div class="fr lction">
+                  <?php $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name;
+                 $countryname = $this->db->get_where('countries', array('country_id' => $post['country']))->row()->country_name; ?>
+                    <?php  
+                  if($cityname || $countryname)
+                       { 
+                        ?>
+                <p><i class="fa fa-map-marker" aria-hidden="true">
 
-
-                                                     $countryname = $this->db->get_where('countries', array('country_id' => $post['country']))->row()->country_name; ?>
-                                                            <?php  
-                                                            if($cityname || $countryname)
-                                                            { 
-                                                            ?>
-                                                            <p><i class="fa fa-map-marker" aria-hidden="true">
-
-                                                            <?php  echo $cityname .', '. $countryname; ?> 
-                                                            </i></p>
+                  <?php  echo $cityname .', '. $countryname; ?> 
+                  </i></p>
                                                             
-                                                            <?php
-                                                             }
-
-                                                             else{}?> 
-                                                    </div>
+                      <?php
+                         }
+                        else{}?> 
+           </div>
                                                       <a class="display_inline" title="<?php echo $post['re_comp_name'];?>" href="#"> <?php 
                                                           $out = strlen($post['re_comp_name']) > 40? substr($post['re_comp_name'],0,40)."..." : $post['re_comp_name'];
 
