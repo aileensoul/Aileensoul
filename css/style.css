@@ -4405,7 +4405,50 @@ word-break: break-all;
     label.cameraButton input[accept*="camera"] {
         display: none;
     }
-        /* ^ job printprivew */
+        /* ^ job printprivew 7-5- */
+
+
+     .okk{  text-align: center;  }
+
+     .pop_content .okbtn{
+                position: absolute;
+                transition: all 200ms;
+                font-size: 16px;
+                text-decoration: none;
+                color: #fff;
+                padding: 8px 18px;
+                background-color: #0A2C5D;
+                left: 170px;
+                margin-top: 8px;
+                width: 100px; 
+                border-radius: 8px;
+            }
+
+      .pop_content .cnclbtn {
+                position: absolute;
+                transition: all 200ms;
+                font-size: 16px;
+                text-decoration: none;
+                color: #fff;
+                padding: 8px 18px;
+                background-color: #0A2C5D;
+                right: 170px;
+                margin-top: 8px;
+                width: 100px;
+                border-radius: 8px;
+            }
+
+            .popup .pop_content {
+                text-align: center;
+                margin-top: 40px;
+            }
+
+            .model_ok_cancel{
+                width:200px !important;
+            }      
+
+
+     /* ^^^ job save post & job_applied_post */
 
 .profile-boxProfileCard-bg img { height: 95PX ; width: 100%; }
 
