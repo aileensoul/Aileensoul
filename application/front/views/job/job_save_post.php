@@ -50,9 +50,7 @@
         transition: all 5s ease-in-out;
     }
     */
-    .okk{
-        text-align: center;
-    }
+           /* .okk{  text-align: center;  } 8-5-17 v*/
 
     /*   .popup .okbtn{
            position: absolute;
@@ -69,19 +67,19 @@
            border-radius: 8px;
        }
     */
-    .pop_content .okbtn{
-        position: absolute;
-        transition: all 200ms;
-        font-size: 16px;
-        text-decoration: none;
-        color: #fff;
-        padding: 8px 18px;
-        background-color: #0A2C5D;
-        left: 170px;
-        margin-top: 8px;
-        width: 100px; 
-        border-radius: 8px;
-    }
+            /*.pop_content .okbtn{
+                position: absolute;
+                transition: all 200ms;
+                font-size: 16px;
+                text-decoration: none;
+                color: #fff;
+                padding: 8px 18px;
+                background-color: #0A2C5D;
+                left: 170px;
+                margin-top: 8px;
+                width: 100px; 
+                border-radius: 8px;
+            } 8-5-17 v*/
 
     /*  .popup .cnclbtn {
           position: absolute;
@@ -97,29 +95,28 @@
           width: 100px;
           border-radius: 8px;
       } */
-    .pop_content .cnclbtn {
-        position: absolute;
-        transition: all 200ms;
-        font-size: 16px;
-        text-decoration: none;
-        color: #fff;
-        padding: 8px 18px;
-        background-color: #0A2C5D;
-        right: 170px;
-        margin-top: 8px;
-        width: 100px;
-        border-radius: 8px;
-    }
+            /*.pop_content .cnclbtn {
+                position: absolute;
+                transition: all 200ms;
+                font-size: 16px;
+                text-decoration: none;
+                color: #fff;
+                padding: 8px 18px;
+                background-color: #0A2C5D;
+                right: 170px;
+                margin-top: 8px;
+                width: 100px;
+                border-radius: 8px;
+            }
 
-    .popup .pop_content {
-        text-align: center;
-        margin-top: 40px;
+            .popup .pop_content {
+                text-align: center;
+                margin-top: 40px;
+            }
 
-    }
-    .model_ok_cancel{
-        width:200px !important;
-    }
-
+            .model_ok_cancel{
+                width:200px !important;
+            } 8-5-17 v */
     /*
         @media screen and (max-width: 700px){
             .box{
@@ -138,7 +135,7 @@
 
 
 
-<style type="text/css" media="screen">
+<!-- <style type="text/css" media="screen">
     #row2 { overflow: hidden; width: 100%; }
     #row2 img { height: 350px;width: 100%; }
     .upload-img{    float: right;
@@ -171,7 +168,7 @@
 
 
 
-</style>
+</style> -->
 <!-- END HEAD -->
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
