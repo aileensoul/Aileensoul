@@ -1470,7 +1470,11 @@ class Artistic extends MY_Controller {
         }
     }
 
+<<<<<<< HEAD
     public function artistic_profile($id="") {
+=======
+    public function artistic_profile($id = "") {
+>>>>>>> 600ba1736433a228ccaffcb24d4f0289e9455406
 
         $userid = $this->session->userdata('aileenuser');
         $this->data['id'] = $id;
