@@ -351,6 +351,7 @@ padding-top: 1px;}
        </div>
          </div>
     
+    
          <div class="profile-job-post-title clearfix">
              <div class="profile-job-profile-menu">
                 <ul>

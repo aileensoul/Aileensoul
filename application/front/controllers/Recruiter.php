@@ -661,7 +661,7 @@ class Recruiter extends MY_Controller {
 
             $contition_array = array('rec_post.user_id' => $userid, 'rec_post.is_delete' => 0);
            $this->data['postdata'] = $this->common->select_data_by_condition('rec_post', $contition_array, $data = 'rec_post.*,recruiter.rec_firstname,recruiter.re_comp_name,recruiter.rec_lastname,recruiter.recruiter_user_image,recruiter.profile_background', $sortby = 'post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
-          // echo "<pre>"; print_r($this->data['postdata']); die();
+           //echo "<pre>"; print_r($this->data['postdata']); die();
 
         } else { 
             //echo "hello"; die();
