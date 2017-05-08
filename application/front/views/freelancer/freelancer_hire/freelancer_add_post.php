@@ -32,7 +32,7 @@
 <body>
 
         <div>
-        <div class="user-midd-section">
+        <div class="user-midd-section" id="paddingtop_fixed">
         <div class="row"></div>
             <div class="container">
               <div class="col-md-3"></div>

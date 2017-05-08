@@ -188,7 +188,7 @@
     </head>
     <body>
         <!-- cover pic start -->
-        <div class="user-midd-section">
+        <div class="user-midd-section" id="paddingtop_fixed">
             <div class="container">
                 <div class="row">
 
