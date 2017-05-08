@@ -2772,8 +2772,8 @@ class Artistic extends MY_Controller {
 //Artistic comment delete start
     public function delete_comment() {
         $userid = $this->session->userdata('aileenuser');
-        $post_id = $_POST["post_id"];
-        $post_delete = $_POST["post_delete"];
+       echo  $post_id = $_POST["post_id"];
+     echo   $post_delete = $_POST["post_delete"];
 
         $data = array(
             'status' => 0,
@@ -2783,7 +2783,7 @@ class Artistic extends MY_Controller {
 
         $contition_array = array('art_post_id' => $post_delete, 'status' => '1');
         $artdata = $this->data['artdata'] = $this->common->select_data_by_condition('artistic_post_comment', $contition_array, $data = '*', $sortby = 'artistic_post_comment_id', $orderby = 'DESC', $limit = '1', $offset = '', $join_str = array(), $groupby = '');
-//echo '<pre>'; print_r($artdata); die();
+echo '<pre>'; print_r($artdata); die();
         // all count of commnet 
 
         $contition_array = array('art_post_id' => $_POST["post_delete"], 'status' => '1');

@@ -800,9 +800,352 @@ foreach ($databus1 as $artdata) {
                             <div class="numbertext"><?php echo $i ?> / <?php echo count($databus1) ?></div>
                              <img src="<?php echo base_url(ARTPOSTIMAGE . str_replace(" ", "_", $artdata['image_name'])) ?>" style="width:100%; height: 70%;">
 
-                                    <!-- 8-5 comment design start -->
-       
-     <!-- 8-5 comment design end -->
+     <!-- 8-5 post art_post page data comment design start -->
+     <div class="post-design-like-box col-md-12">
+             <div class="post-design-menu">
+                 <!-- like comment div start -->
+                 <ul>
+
+                     <li class="<?php echo 'likeimg' . $artdata['image_id']; ?>">
+                         <a id="<?php echo $artdata['image_id']; ?>" onClick="post_likeimg(this.id)">
+
+                             <?php
+    $userid = $this->session->userdata('aileenuser');
+    $contition_array = array('post_image_id' => $artdata['image_id'], 'user_id' => $userid, 'is_unlike' => 0);
+
+    $activedata = $this->data['activedata'] = $this->common->select_data_by_condition('art_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+    if ($activedata) {
+        ?>
+                           <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                <?php } else { ?>
+                              <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>
+                            <?php } ?>
+
+
+           <span class="<?php echo 'likeimage' . $artdata['image_id']; ?>"> <?php
+             $contition_array = array('post_image_id' => $artdata['image_id'], 'is_unlike' => 0);
+              $likecount = $this->common->select_data_by_condition('art_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+                   if ($likecount) {
+                          echo count($likecount);
+                      }
+                      ?>
+
+               </span>
+                         </a>
+                     </li>
+                     <li id="<?php echo 'insertcount' . $row['art_post_id']; ?>" style="visibility:show">
+                         <?php
+                         $contition_array = array('art_post_id' => $row['art_post_id'], 'status' => '1', 'is_delete' => '0');
+                         $commnetcount = $this->common->select_data_by_condition('artistic_post_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                         ?>
+                         <a  onClick="commentall(this.id)" id="<?php echo $row['art_post_id']; ?>">
+                             <i class="fa fa-comment-o" aria-hidden="true">
+                                 <?php echo count($commnetcount); ?>
+                             </i>  
+                         </a>
+                     </li>
+                 </ul>
+                 <!-- like comment div end -->
+             </div>
+         </div>
+
+
+         <!-- like user list start -->
+
+         <!-- pop up box start-->
+         <?php
+         if ($row['art_likes_count'] > 0) {
+             ?>
+             <div class="likeduserlist<?php echo $row['art_post_id'] ?>">
+                 <?php
+                 $contition_array = array('art_post_id' => $row['art_post_id'], 'status' => '1', 'is_delete' => '0');
+                 $commnetcount = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                 $likeuser = $commnetcount[0]['art_like_user'];
+                 $countlike = $commnetcount[0]['art_likes_count'] - 1;
+                 $likelistarray = explode(',', $likeuser);
+                 foreach ($likelistarray as $key => $value) {
+                     $art_fname1 = $this->db->get_where('art_reg', array('user_id' => $value, 'status' => 1))->row()->art_name;
+                     $art_lname1 = $this->db->get_where('art_reg', array('user_id' => $value, 'status' => 1))->row()->art_lastname;
+                     ?>
+                 <?php } ?>
+                 <!-- pop up box end-->
+                 <a href="javascript:void(0);"  onclick="likeuserlist(<?php echo $row['art_post_id']; ?>);">
+                     <?php
+                     $contition_array = array('art_post_id' => $row['art_post_id'], 'status' => '1', 'is_delete' => '0');
+                     $commnetcount = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+                     $likeuser = $commnetcount[0]['art_like_user'];
+                     $countlike = $commnetcount[0]['art_likes_count'] - 1;
+
+                     $likelistarray = explode(',', $likeuser);
+                     $art_fname = $this->db->get_where('art_reg', array('user_id' => $likelistarray[0], 'status' => 1))->row()->art_name;
+                     $art_lname = $this->db->get_where('art_reg', array('user_id' => $likelistarray[0], 'status' => 1))->row()->art_lastname;
+                     ?>
+                     <div class="like_one_other">
+                         <?php
+                         echo ucwords($art_fname);
+                         echo "&nbsp;";
+                         echo ucwords($art_lname);
+                         echo "&nbsp;";
+                         ?>
+                         <?php
+                         if (count($likelistarray) > 1) {
+                             echo "and ";
+                             echo $countlike;
+                             echo "&nbsp;";
+                             echo "others";
+                         }
+                         ?>
+                     </div>
+                 </a>
+             </div>
+             <?php
+         }
+         ?>
+         <div class="<?php echo "likeusername" . $row['art_post_id']; ?>" id="<?php echo "likeusername" . $row['art_post_id']; ?>" style="display:none">
+             <?php
+             $contition_array = array('art_post_id' => $row['art_post_id'], 'status' => '1', 'is_delete' => '0');
+             $commnetcount = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+             $likeuser = $commnetcount[0]['art_like_user'];
+             $countlike = $commnetcount[0]['art_likes_count'] - 1;
+             $likelistarray = explode(',', $likeuser);
+             foreach ($likelistarray as $key => $value) {
+                 $art_fname1 = $this->db->get_where('art_reg', array('user_id' => $value, 'status' => 1))->row()->art_name;
+                 $art_lname1 = $this->db->get_where('art_reg', array('user_id' => $value, 'status' => 1))->row()->art_lastname;
+                 ?>
+             <?php } ?>
+             <!-- pop up box end-->
+             <a href="javascript:void(0);"  onclick="likeuserlist(<?php echo $row['art_post_id']; ?>);">
+                 <?php
+                 $contition_array = array('art_post_id' => $row['art_post_id'], 'status' => '1', 'is_delete' => '0');
+                 $commnetcount = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+                 $likeuser = $commnetcount[0]['art_like_user'];
+                 $countlike = $commnetcount[0]['art_likes_count'] - 1;
+
+                 $likelistarray = explode(',', $likeuser);
+                 $art_fname = $this->db->get_where('art_reg', array('user_id' => $likelistarray[0], 'status' => 1))->row()->art_name;
+                 $art_lname = $this->db->get_where('art_reg', array('user_id' => $likelistarray[0], 'status' => 1))->row()->art_lastname;
+                 ?>
+                 <div class="like_one_other">
+                     <?php
+                     echo ucwords($art_fname);
+                     echo "&nbsp;";
+                     echo ucwords($art_lname);
+                     echo "&nbsp;";
+                     ?>
+                     <?php
+                     if (count($likelistarray) > 1) {
+                         echo "and ";
+                         echo $countlike;
+                         echo "&nbsp;";
+                         echo "others";
+                     }
+                     ?>
+                 </div>
+             </a>
+         </div>
+         <!-- like user list end -->
+
+         <?php
+//                                        $contition_array = array('art_post_id' => $row['art_post_id'], 'status' => '1');
+//                                        $artdatacondition = $this->data['artdata'] = $this->common->select_data_by_condition('artistic_post_comment', $contition_array, $data = '*', $sortby = 'artistic_post_comment_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+//                                        if ($artdatacondition) {
+//                                            
+         ?>
+
+         <div class="art-all-comment col-md-12">
+             <!-- 18-4 all comment start-->
+             <div id="<?php echo "fourcomment" . $row['art_post_id']; ?>" style="display:none">
+             </div>
+
+             <!-- khyati changes start -->
+
+             <div  id="<?php echo "threecomment" . $row['art_post_id']; ?>" style="display:block">
+                 <div class="<?php echo 'insertcomment' . $row['art_post_id']; ?>">
+                     <?php
+                     $contition_array = array('art_post_id' => $row['art_post_id'], 'status' => '1');
+                     $artdata = $this->data['artdata'] = $this->common->select_data_by_condition('artistic_post_comment', $contition_array, $data = '*', $sortby = 'artistic_post_comment_id', $orderby = 'DESC', $limit = '1', $offset = '', $join_str = array(), $groupby = '');
+
+                     if ($artdata) {
+                         foreach ($artdata as $rowdata) {
+                             $artname = $this->db->get_where('art_reg', array('user_id' => $rowdata['user_id']))->row()->art_name;
+                             $artlastname = $this->db->get_where('art_reg', array('user_id' => $rowdata['user_id']))->row()->art_lastname;
+                             ?>
+                             <div class="all-comment-comment-box">
+                                 <div class="post-design-pro-comment-img"> 
+                                     <?php
+                                     $art_userimage = $this->db->get_where('art_reg', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->art_user_image;
+                                     ?>
+                                     <?php if ($art_userimage) { ?>
+                                         <img  src="<?php echo base_url(ARTISTICIMAGE . $art_userimage); ?>"  alt="">
+                                         <?php
+                                     } else {
+                                         ?>
+                                         <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
+                                         <?php
+                                     }
+                                     ?>
+                                 </div>
+                                 <div class="comment-name">
+                                     <b title=" <?php
+                                     echo ucwords($artname);
+                                     echo "&nbsp;";
+                                     echo ucwords($artlastname);
+                                     ?>">
+                                            <?php
+                                            echo ucwords($artname);
+                                            echo "&nbsp;";
+                                            echo ucwords($artlastname);
+                                            ?></b><?php echo '</br>'; ?></div>
+
+                                 <div class="comment-details" id= "<?php echo "showcomment" . $rowdata['artistic_post_comment_id']; ?>">
+                                     <?php
+                                     echo text2link($rowdata['comments']);
+                                     ?>
+                                 </div>
+                                 <!--                                                                        <div class="col-md-12">
+                                                                                                             <div class="col-md-10">
+                                                                                                                 <div contenteditable="true"   class="editable_text" name="<?php echo $rowdata['artistic_post_comment_id']; ?>" id="<?php echo "editcomment" . $rowdata['artistic_post_comment_id']; ?>" style="display:none;-webkit-min-height: 40px;" onClick="commentedit(<?php echo $rowdata['artistic_post_comment_id']; ?>)" style="height:50px;" ><?php echo $rowdata['comments']; ?></div>
+                                                                                                             </div>
+                                 
+                                                                                                             <div class="col-md-2 comment-edit-button">
+                                                                                                                 <button id="<?php echo "editsubmit" . $rowdata['artistic_post_comment_id']; ?>" style="display:none" onClick="edit_comment(<?php echo $rowdata['artistic_post_comment_id']; ?>)">Comment</button>
+                                                                                                             </div>
+                                 
+                                                                                                         </div>-->
+                                 <div class="edit-comment-box">
+                                     <div class="inputtype-edit-comment">
+                                         <div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="<?php echo $rowdata['artistic_post_comment_id']; ?>"  id="editcomment<?php echo $rowdata['artistic_post_comment_id']; ?>" placeholder="Enter Your Comment " value= ""  onkeyup="commentedit(<?php echo $rowdata['artistic_post_comment_id']; ?>)"><?php echo $rowdata['comments']; ?></div>
+                                         <span class="comment-edit-button"><button id="<?php echo "editsubmit" . $rowdata['artistic_post_comment_id']; ?>" style="display:none" onClick="edit_comment(<?php echo $rowdata['artistic_post_comment_id']; ?>)">Save</button></span>
+                                     </div>
+                                 </div>
+
+                                 <div class="art-comment-menu-design"> 
+                                     <div class="comment-details-menu" id="<?php echo 'likecomment1' . $rowdata['artistic_post_comment_id']; ?>">
+                                         <a id="<?php echo $rowdata['artistic_post_comment_id']; ?>"   onClick="comment_like1(this.id)">
+
+                                             <?php
+                                             $userid = $this->session->userdata('aileenuser');
+                                             $contition_array = array('artistic_post_comment_id' => $rowdata['artistic_post_comment_id'], 'status' => '1');
+                                             $artcommentlike = $this->data['artcommentlike'] = $this->common->select_data_by_condition('artistic_post_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                             $likeuserarray = explode(',', $artcommentlike[0]['artistic_comment_like_user']);
+
+                                             if (!in_array($userid, $likeuserarray)) {
+                                                 ?>
+
+                                                 <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i> 
+                                             <?php } else {
+                                                 ?>
+                                                 <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                             <?php }
+                                             ?>
+                                             <span>
+                                                 <?php
+                                                 if ($rowdata['artistic_comment_likes_count'] > 0) {
+                                                     echo $rowdata['artistic_comment_likes_count'];
+                                                 }
+                                                 ?>
+                                             </span>
+                                         </a>
+                                     </div>
+
+
+                                     <?php
+                                     $userid = $this->session->userdata('aileenuser');
+
+                                     if ($rowdata['user_id'] == $userid) {
+                                         ?> 
+
+                                         <span role="presentation" aria-hidden="true"> · </span>
+                                         <div class="comment-details-menu">
+                                             <div id="<?php echo 'editcommentbox' . $rowdata['artistic_post_comment_id']; ?>" style="display:block;">
+                                                 <a id="<?php echo $rowdata['artistic_post_comment_id']; ?>" onClick="comment_editbox(this.id)" class="editbox">Edit
+                                                 </a>
+                                             </div>
+                                             <div id="<?php echo 'editcancle' . $rowdata['artistic_post_comment_id']; ?>" style="display:none;">
+                                                 <a id="<?php echo $rowdata['artistic_post_comment_id']; ?>" onClick="comment_editcancle(this.id)">Cancel
+                                                 </a>
+                                             </div>
+                                         </div>
+                                     <?php } ?>
+
+                                     <?php
+                                     $userid = $this->session->userdata('aileenuser');
+
+                                     $art_userid = $this->db->get_where('art_post', array('art_post_id' => $rowdata['art_post_id'], 'status' => 1))->row()->user_id;
+
+
+                                     if ($rowdata['user_id'] == $userid || $art_userid == $userid) {
+                                         ?> 
+                                         <span role="presentation" aria-hidden="true"> · </span>
+                                         <div class="comment-details-menu">
+                                             <input type="hidden" name="post_delete"  id="post_delete" value= "<?php echo $rowdata['art_post_id']; ?>">
+                                             <a id="<?php echo $rowdata['artistic_post_comment_id']; ?>"   onClick="comment_delete(this.id)"> Delete<span class="<?php echo 'insertcomment' . $rowdata['artistic_post_comment_id']; ?>">
+                                                 </span>
+                                             </a>
+                                         </div>
+            <?php } ?>
+
+                                     <span role="presentation" aria-hidden="true"> · </span>
+
+                                     <div class="comment-details-menu">
+                                         <p> <?php
+                                             /*   $new_date = date('Y-m-d H:i:s',strtotime($rowdata['created_date']));
+                                              */
+                                             /* 							$new_time =	$this->time_elapsed_string($new_date);
+                                              */
+//							echo $new_time. '<br>';
+                                             echo date('d-M-Y', strtotime($rowdata['created_date']));
+                                             echo '</br>';
+                                             ?>
+                                         </p></div></div>
+                             </div>
+                             <?php
+                         }
+                     }
+                     ?>
+
+                 </div>
+             </div>
+             <!-- khyati changes end -->
+
+             <!-- all comment end-->
+
+
+         </div>
+
+             <?php //  }  ?>
+         <div class="post-design-commnet-box col-md-12">
+             <?php
+             $userid = $this->session->userdata('aileenuser');
+             $art_userimage = $this->db->get_where('art_reg', array('user_id' => $userid, 'status' => 1))->row()->art_user_image;
+             ?>
+             <div class="post-design-proo-img">
+                 <?php if ($art_userimage) { ?>
+                     <img src="<?php echo base_url(ARTISTICIMAGE . $art_userimage); ?>" name="image_src" id="image_src" />
+                     <?php
+                 } else {
+                     ?>
+                     <img src="<?php echo base_url(NOIMAGE); ?>" alt="No Image">
+                     <?php
+                 }
+                 ?>
+             </div>
+             <div class="">
+                 <div id="content" class="col-md-10 inputtype-comment" style="padding-left: 7px !important;">
+                     <div contenteditable="true" style="min-height:37px !important; margin-top: 0px!important" class="editable_text" name="<?php echo $row['art_post_id']; ?>"  id="<?php echo "post_comment" . $row['art_post_id']; ?>" placeholder="Type Message ..." onClick="entercomment(<?php echo $row['art_post_id']; ?>)"></div>
+                 </div>
+    <?php echo form_error('post_comment'); ?>
+                 <div class="col-md-1 comment-edit-butn">   
+                     <button id="<?php echo $row['art_post_id']; ?>" onClick="insert_comment(this.id)">Comment</button> 
+                 </div>
+             </div>
+         </div>
+                
+                                        <!-- 8-5 comment design end -->
       </div>
 
 
