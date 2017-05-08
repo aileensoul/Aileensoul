@@ -23,7 +23,7 @@ class Main extends CI_Controller {
     
     public function index()
     {
-       $this->load->view('main');
+       $this->load->view('registration/registration');
 
     }
 //job user end
