@@ -149,6 +149,13 @@
                                 },
                             },
                         },
+
+                        phoneno: {
+
+                            number: true,
+                            required: true,
+                            
+                        },
                        
                     },
 
@@ -172,6 +179,11 @@
                             remote: "Email already exists"
                         },
 
+                        phoneno: {
+
+                            required: "Phone Number Is Required.",
+                            //phoneno: "Enter valid number.",
+                        },
                        
                       
 

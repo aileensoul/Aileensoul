@@ -2637,12 +2637,18 @@ class Job extends MY_Controller {
 
 
             //for getting data job_add_edu table
-            $contition_array = array('user_id' => $userid, 'status' => '1');
+            // $contition_array = array('user_id' => $userid, 'status' => 1);
 
-            $data = '*';
+            // // $data = '*';
 
-            $this->data['job_edu'] = $this->common->select_data_by_condition('job_add_edu', $contition_array, $data, $sortby, $orderby, $limit, $offset, $join_str, $groupby);
+            // $this->data['job_edu'] = $this->common->select_data_by_condition('job_add_edu', $contition_array, $data = '*', $sortby, $orderby, $limit, $offset, $join_str = array(), $groupby);
 
+
+        $contition_array = array('user_id' => $id, 'status' => 1);
+         $this->data['job_edu'] = $this->common->select_data_by_condition('job_add_edu', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+
+// echo "<pre>"; print_r($this->data['job_edu']); die();
             //for getting data job_add_workexp table
             $contition_array = array('user_id' => $userid, 'experience' => 'Experience', 'status' => '1');
 
