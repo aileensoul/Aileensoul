@@ -2905,7 +2905,7 @@
                             //var data = $field.val();
                             var editpostdetails = $('#editpostdesc' + abc).html();
                             // end khyati code
-                            alert(editpostdetails); alert(editpostname.value);
+                           
             if((editpostname.value == '') && (editpostdetails == '' || editpostdetails == '<br>')){  
           $('.biderror .mes').html("<div class='pop_content'>You must either fill title or description.");
             $('#bidmodal').modal('show');
