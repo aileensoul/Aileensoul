@@ -403,57 +403,8 @@ $(window).load(function(){
                                         <div id="InboxBody" class="Inbox">
                                             <div id="notificationTitle">Messages</div>
 
-                                            <div id="notificationsBody" class="notifications">
-                                                <div class="notification-data">
-                                                    <ul>
-
-                                                        <li> 
-                                                            <div class="notification-database">
-                                                                <div class="notification-pic" >
-
-                                                                </div>
-                                                                <div class="notification-data-inside">
-                                                                    <h6> Message updates</h6>
-                                                                    <div ></div>
-                                                                </div>
-
-                                                            </div>
-
-                                                        </li>
-
-<?php foreach ($user_message as $msg) { ?>
-
-                                                        <a href="<?php echo base_url('chat/' . $msg['not_from_id']); ?>" class="clearfix">
-                                                            <li> 
-                                                                <div class="notification-database">
-                                                                    <div class="notification-pic" >
-                                                                        <img src="<?php echo base_url(USERIMAGE . $msg['user_image']); ?>" >
-                                                                    </div>
-                                                                    <div class="notification-data-inside">
-                                                                        <h6><?php echo ucwords($msg['first_name']) . " " . ucwords($msg['last_name']); ?></h6>
-                                                                        <div >
-                                                                            <?php
-                                                                            $contition_array = array('message.message_from' => $msg['not_from_id'], 'message.message_to' => $userid);
-
-
-                                                                            $data = array(' message.*');
-//$data = array('notification.*');
-                                                                            $messages = $this->common->select_data_by_condition('message', $contition_array, $data, $sortby = 'message_id', $orderby = 'desc', $limit = '', $offset = '', $join_str = "", $groupby = '');
-//echo '<pre>'; print_r($messages); die();
-                                                                            echo $messages[0]['message'];
-                                                                            ?>
-
-                                                                        </div>
-                                                                        <div ><?php echo date('d M ', strtotime($msg['message_create_date'])); ?></div>
-                                                                    </div>
-
-                                                                </div>
-
-                                                            </li>
-                                                        </a>
-<?php } ?>
-                                                    </ul>
-                                                </div>  
+                                            <div id="notificationsmsgBody" class="notificationsmsg">
+                       
 
                                             </div>
                                             <div id="InboxFooter"><a href="<?php echo base_url('chat') ?>">See All</a></div>
@@ -526,10 +477,12 @@ $(window).load(function(){
 
     <!-- script for update all read notification start-->
     <script type="text/javascript">
-            function Notificationheader(){
+            
+    function Notificationheader(){
               getNotification();
                notheader();
-                  }
+                  
+    }
         function getNotification() {
             // first click alert('here'); 
 
@@ -573,8 +526,14 @@ $(window).load(function(){
 
     <!-- script for update all read notification start-->
     <script type="text/javascript">
+        
+        function getmsgNotification(){
+              msgNotification();
+               msgheader();
+                  
+    }
 
-        function getmsgNotification() {
+        function msgNotification() {
             // first click alert('here'); 
 
             $.ajax({
@@ -590,6 +549,27 @@ $(window).load(function(){
             });
 
         }
+        
+        function msgheader()
+                        {
+
+                           // $("#fad" + clicked_id).fadeOut(6000);
+
+
+                            $.ajax({
+                                type: 'POST',
+                                url: '<?php echo base_url() . "notification/msg_header" ?>',
+                                data: '',
+                                success: function (data) {
+                               //    alert(data);
+                                   $('#' + 'notificationsmsgBody').html(data);
+
+                                }
+
+
+                            });
+
+                        }
     </script>
     <!-- script for update all read notification end -->
 <!-- <script>

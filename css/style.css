@@ -1486,6 +1486,14 @@ a:hover, a:active, a:focus {
     height: 350px;
 
 }
+#notificationsmsgBody {
+    padding: 0px 0px 0px 0px !important;
+
+
+    overflow-y: scroll;
+    height: 350px;
+
+}
 #notificationFooter {
     background-color: #e9eaed;
     text-align: center;

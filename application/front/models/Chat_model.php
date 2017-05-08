@@ -5,7 +5,7 @@ class Chat_model extends CI_Model {
   
 	function add_message($message, $nickname, $guid,$userid,$id)
 	{
-		$data = array(
+		$data1 = array(
 			'message'	=> (string) $message,
 			'nickname'	=> (string) $nickname,
 			'message_from'	=> (string) $userid,
@@ -14,7 +14,20 @@ class Chat_model extends CI_Model {
 			'timestamp'	=> time(),
 		);
 		  
-		$this->db->insert('messages', $data);
+		$this->db->insert('messages', $data1);
+                $msg_insert_id = $this->db->insert_id();
+               
+                $data2 = array(
+			'not_type'	=> 2,
+			'not_from_id'	=> $userid,
+			'not_to_id'	=> $id,
+                        'not_read' => 2,
+                        'not_img' => 0,
+			'not_product_id' => $msg_insert_id,
+			
+		);
+		  
+		$this->db->insert('notification', $data2);
 	}
  
 	function get_messages($timestamp,$userid,$id)
