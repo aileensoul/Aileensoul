@@ -988,7 +988,7 @@ class Notification extends MY_Controller {
             
        //     $notmsg .= ''. $messages[0]['message'] . '';
 
-            $notmsg .= '</div><div >' . date('d M ', strtotime($msg['message_create_date'])) . '</div>';
+            $notmsg .= '</div><div >' . $this->common->time_elapsed_string($work['message_create_date'], $full = false)  . '</div>';
             $notmsg .= '</div></div></li></a>';
         }
         $notmsg .= '</ul></div>';
