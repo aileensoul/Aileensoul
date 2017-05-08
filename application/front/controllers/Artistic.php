@@ -2548,6 +2548,22 @@ class Artistic extends MY_Controller {
             if ($artdata[0]['user_id'] == $userid) {
                 
             } else {
+
+             $contition_array = array('not_type' => 5, 'not_from_id' => $userid, 'not_to_id' => $artdata[0]['user_id'], 'not_product_id' => $post_id, 'not_from' => 3, 'not_img' => 3);
+             $artnotification = $this->common->select_data_by_condition('notification', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                if ($artnotification[0]['not_read'] == 2) {
+                    
+                } elseif ($artnotification[0]['not_read'] == 1) {
+
+                    $datalike = array(
+                        'not_read' => 2
+                    );
+
+                    $where = array('not_type' => 5, 'not_from_id' => $userid, 'not_to_id' => $artdata[0]['user_id'], 'not_product_id' => $post_id, 'not_from' => 3, 'not_img' => 3);
+                    $this->db->where($where);
+                     $updatdata = $this->db->update('notification', $datalike);
+                } else {
+
                 $data = array(
                     'not_type' => 5,
                     'not_from_id' => $userid,
@@ -2560,6 +2576,7 @@ class Artistic extends MY_Controller {
 
                 $insert_id = $this->common->insert_data_getid($data, 'notification');
             }
+          } 
             // end notoification
 
 
@@ -2638,14 +2655,14 @@ class Artistic extends MY_Controller {
             $user_array = array_push($likeuserarray, $userid);
 
             if ($artdata[0]['artistic_comment_likes_count'] == 0) {
-                $userid = implode('', $likeuserarray);
+                $useridcl = implode('', $likeuserarray);
             } else {
-                $userid = implode(',', $likeuserarray);
+                $useridcl = implode(',', $likeuserarray);
             }
 
             $data = array(
                 'artistic_comment_likes_count' => $artistic_comment_likes_count + 1,
-                'artistic_comment_like_user' => $userid,
+                'artistic_comment_like_user' => $useridcl,
                 'modify_date' => date('y-m-d h:i:s')
             );
 
@@ -2658,6 +2675,22 @@ class Artistic extends MY_Controller {
             if ($artdata[0]['user_id'] == $userid) {
                 
             } else {
+
+
+             $contition_array = array('not_type' => 5, 'not_from_id' => $userid, 'not_to_id' => $artdata[0]['user_id'], 'not_product_id' => $post_id, 'not_from' => 3, 'not_img' => 3);
+             $artnotification = $this->common->select_data_by_condition('notification', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                if ($artnotification[0]['not_read'] == 2) {
+                    
+                } elseif ($artnotification[0]['not_read'] == 1) {
+
+                    $datalike = array(
+                        'not_read' => 2
+                    );
+
+                    $where = array('not_type' => 5, 'not_from_id' => $userid, 'not_to_id' => $artdata[0]['user_id'], 'not_product_id' => $post_id, 'not_from' => 3, 'not_img' => 3);
+                    $this->db->where($where);
+                     $updatdata = $this->db->update('notification', $datalike);
+                } else {
                 $data = array(
                     'not_type' => 5,
                     'not_from_id' => $userid,
@@ -2670,6 +2703,7 @@ class Artistic extends MY_Controller {
 
                 $insert_id = $this->common->insert_data_getid($data, 'notification');
             }
+           }
             // end notoification
 
 
@@ -3024,6 +3058,22 @@ class Artistic extends MY_Controller {
             if ($artdata[0]['user_id'] == $userid) {
                 
             } else {
+
+        $contition_array = array('not_type' => 5, 'not_from_id' => $userid, 'not_to_id' => $artdata[0]['user_id'], 'not_product_id' => $post_id, 'not_from' => 3, 'not_img' => 2);
+        $artnotification = $this->common->select_data_by_condition('notification', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                if ($artnotification[0]['not_read'] == 2) {
+                    
+                } elseif ($artnotification[0]['not_read'] == 1) {
+
+                    $datalike = array(
+                        'not_read' => 2
+                    );
+
+                    $where = array('not_type' => 5, 'not_from_id' => $userid, 'not_to_id' => $artdata[0]['user_id'], 'not_product_id' => $post_id, 'not_from' => 3, 'not_img' => 2);
+                    $this->db->where($where);
+                    $updatdata = $this->db->update('notification', $datalike);
+                } else {
+
                 $data = array(
                     'not_type' => 5,
                     'not_from_id' => $userid,
@@ -3035,6 +3085,7 @@ class Artistic extends MY_Controller {
                 );
 
                 $insert_id = $this->common->insert_data_getid($data, 'notification');
+               }
             }
             // end notoification
 

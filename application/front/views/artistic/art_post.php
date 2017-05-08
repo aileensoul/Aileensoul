@@ -322,7 +322,7 @@
     </head>
     <body>
 
-        <div class="user-midd-section">
+        <div class="user-midd-section" id="paddingtop_fixed">
             <div class="container">
                 <div class="row">
 
@@ -1106,9 +1106,7 @@
                                             <div class="post-design-desc ">
                                                 <span> 
 
-                                                    <div  id="<?php echo 'editpostdetails' . $row['art_post_id']; ?>" style="display:block ; padding-bottom: 10px;">
-                                                        <span class="show"><?php echo $row['art_description']; ?></span>
-                                                    </div>
+                          <div  id="<?php echo 'editpostdetails' . $row['art_post_id']; ?>" style="display:block ; padding-bottom: 10px;"><span class="show"><?php echo $row['art_description']; ?></span></div>
 
                                                     <div id="<?php echo 'editpostdetailbox' . $row['art_post_id']; ?>" style="display:none;">
 
@@ -2905,13 +2903,14 @@
                         {
 
                             var editpostname = document.getElementById("editpostname" + abc);
-                            var editpostdetails = document.getElementById("editpostdesc" + abc);
+                           // var editpostdetails = document.getElementById("editpostdesc" + abc);
                             // start khyati code
                             var $field = $('#editpostdesc' + abc);
                             //var data = $field.val();
                             var editpostdetails = $('#editpostdesc' + abc).html();
                             // end khyati code
-            if(editpostname.value == '' && editpostdetails == ''){ 
+
+            if((editpostname.value == '') && (editpostdetails == '' || editpostdetails == '<br>')){  
           $('.biderror .mes').html("<div class='pop_content'>You must either fill title or description.");
             $('#bidmodal').modal('show');
 
