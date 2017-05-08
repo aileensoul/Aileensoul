@@ -1367,7 +1367,7 @@ if (count($likelistarray) > 1) {
    <?php } ?>
              </a>
        <!-- like user list end -->
-
+<!-- 8-5 comment start -->
              <div class="art-all-comment col-md-12">
 
              <!-- all comment start-->
@@ -1586,6 +1586,7 @@ if ($artdata) {
 
 <!-- all comment end-->
  </div>
+       <!-- 8-5 comment end -->
 <div class="post-design-commnet-box col-md-12">
     <div class="post-design-proo-img" > 
 <?php
