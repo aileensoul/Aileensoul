@@ -206,7 +206,7 @@
 
         </div>
   </section>
-  <footer style="background-color: #f2f4f4; height:10%;">
+  <footer style="background-color: #f2f4f4;">
         <div class="container">
             <div class="row">
                 <div class="col-md-6" style="padding: 12px;">

@@ -410,7 +410,7 @@ canvas{
 /* ---- particles.js container ---- */
 #particles-js {
   position: absolute;
-height: 90%;
+height: 95%;
 width: 100%;
   background: #ffffff;
 /*  background-image: url(../img/Untitled.jpg);
@@ -573,8 +573,7 @@ input[type="radio"] {
 
 
 footer{
-  padding: 15px 0px;
-  background-color: white;
+
   text-transform: capitalize;
 }
 
