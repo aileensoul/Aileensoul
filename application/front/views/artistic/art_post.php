@@ -552,7 +552,7 @@
         ?>
 
 
-                                                <!-- second condition start -->
+       <!-- second condition start -->
 
 
 
@@ -570,76 +570,76 @@
 
 
 
-                                                        if (!$artfollow) {
-                                                            ?>                             
+                  if (!$artfollow) {
+               ?>                             
 
-                                                            <div class="profile-job-post-title-inside clearfix">
+          <div class="profile-job-post-title-inside clearfix">
 
-                                                                <div class=" col-md-12 follow_left_box_main" id="<?php echo "fad" . $userlist['art_id']; ?>">                   
-                                                                    <div class="post-design-pro-img_follow">
+           <div class=" col-md-12 follow_left_box_main" id="<?php echo "fad" . $userlist['art_id']; ?>">                   
+                <div class="post-design-pro-img_follow">
 
-                                                                        <img  src="<?php echo base_url(ARTISTICIMAGE . $userlist['art_user_image']); ?>"  alt="">
+        <img  src="<?php echo base_url(ARTISTICIMAGE . $userlist['art_user_image']); ?>"  alt="">
 
-                                                                    </div>
-
-
-                                                                    <div class="post-design-name_follow fl">
-                                                                        <ul>
+                 </div>
 
 
-                                                                            <li><div class="post-design-product_follow">
-                                                                                    <a href="<?php echo base_url('artistic/art_manage_post/' . $userlist['user_id'] . ''); ?>">
-                                                                                        <h6>
-                                                                                            <?php
-                                                                                            echo ucwords($userlist['art_name']);
-                                                                                            echo"&nbsp;";
-                                                                                            echo ucwords($userlist['art_lastname']);
-                                                                                            ?>
-                                                                                        </h6>
-                                                                                    </a> </div></li>
+        <div class="post-design-name_follow fl">
+            <ul>
 
 
-                                                                            <li>
-                                                                                <div class="post-design-product_follow_main" style="display:block;">
-                                                                                    <a>
-                                                                                        <p>
-                                                                                            <?php
-                                                                                            if ($userlist['designation']) {
-                                                                                                echo $userlist['designation'];
-                                                                                            } else {
-                                                                                                echo "Designation";
-                                                                                            }
-                                                                                            ?>
-                                                                                        </p></a>
-                                                                                </div>
+  <li><div class="post-design-product_follow">
+    <a href="<?php echo base_url('artistic/art_manage_post/' . $userlist['user_id'] . ''); ?>">
+        <h6>
+                <?php
+           echo ucwords($userlist['art_name']);
+       echo"&nbsp;";
+        echo ucwords($userlist['art_lastname']);
+           ?>
+       </h6>
+         </a> </div></li>
 
 
-                                                                            </li>
-                                                                        </ul> 
-                                                                    </div>  
-
-                                                                    <div class="follow_left_box_main_btn">
-
-                                                                        <div class="<?php echo "fr" . $userlist['art_id']; ?>">
-                                                                            <button id="<?php echo "followdiv" . $userlist['art_id']; ?>" onClick="followuser(<?php echo $userlist['art_id']; ?>)">Follow</button>
-                                                                        </div>
-
-                                                                    </div>
-
-
-                                                                    <span class="Follow_close" onClick="followclose(<?php echo $userlist['art_id']; ?>)"><i class="fa fa-times" aria-hidden="true"></i></span>
-
-
-                                                                </div>
-
-                                                            </div>
+         <li>
+           <div class="post-design-product_follow_main" style="display:block;">
+              <a>
+          <p>
+          <?php
+          if ($userlist['designation']) {
+               echo $userlist['designation'];
+             } else {
+             echo "Designation";
+              }
+              ?>
+          </p></a>
+          </div>
 
 
-                                                            <?php
-                                                        }
-                                                    }
-                                                }
-                                                ?>
+            </li>
+          </ul> 
+  </div>  
+
+       <div class="follow_left_box_main_btn">
+
+       <div class="<?php echo "fr" . $userlist['art_id']; ?>">
+      <button id="<?php echo "followdiv" . $userlist['art_id']; ?>" onClick="followuser(<?php echo $userlist['art_id']; ?>)">Follow</button>
+      </div>
+
+       </div>
+
+
+      <span class="Follow_close" onClick="followclose(<?php echo $userlist['art_id']; ?>)"><i class="fa fa-times" aria-hidden="true"></i></span>
+
+
+        </div>
+
+    </div>
+
+
+            <?php
+              }
+          }
+      }
+?>
 
                                                 <!-- third condition start -->
                                                 <?php
@@ -656,76 +656,76 @@
 
 
 
-                                                        if (!$artfollow) {
-                                                            ?>                             
+                  if (!$artfollow) {
+                           ?>                             
 
-                                                            <div class="profile-job-post-title-inside clearfix">
+            <div class="profile-job-post-title-inside clearfix">
 
-                                                                <div class=" col-md-12 follow_left_box_main" id="<?php echo "fad" . $userlist['art_id']; ?>">                   
-                                                                    <div class="post-design-pro-img_follow">
+            <div class=" col-md-12 follow_left_box_main" id="<?php echo "fad" . $userlist['art_id']; ?>">                   
+             <div class="post-design-pro-img_follow">
 
-                                                                        <img  src="<?php echo base_url(ARTISTICIMAGE . $userlist['art_user_image']); ?>"  alt="">
+            <img  src="<?php echo base_url(ARTISTICIMAGE . $userlist['art_user_image']); ?>"  alt="">
 
-                                                                    </div>
-
-
-                                                                    <div class="post-design-name_follow fl">
-                                                                        <ul>
+              </div>
 
 
-                                                                            <li><div class="post-design-product_follow">
-                                                                                    <a href="<?php echo base_url('artistic/art_manage_post/' . $userlist['user_id'] . ''); ?>">
-                                                                                        <h6>
-                                                                                            <?php
-                                                                                            echo ucwords($userlist['art_name']);
-                                                                                            echo"&nbsp;";
-                                                                                            echo ucwords($userlist['art_lastname']);
-                                                                                            ?>
-                                                                                        </h6>
-                                                                                    </a> </div></li>
+                <div class="post-design-name_follow fl">
+                  <ul>
 
 
-                                                                            <li>
-                                                                                <div class="post-design-product_follow_main" style="display:block;">
-                                                                                    <a>
-                                                                                        <p>
-                                                                                            <?php
-                                                                                            if ($userlist['designation']) {
-                                                                                                echo $userlist['designation'];
-                                                                                            } else {
-                                                                                                echo "Designation";
-                                                                                            }
-                                                                                            ?>
-                                                                                        </p></a>
-                                                                                </div>
+            <li><div class="post-design-product_follow">
+                    <a href="<?php echo base_url('artistic/art_manage_post/' . $userlist['user_id'] . ''); ?>">
+                     <h6>
+                     <?php
+                    echo ucwords($userlist['art_name']);
+                    echo"&nbsp;";
+                    echo ucwords($userlist['art_lastname']);
+                   ?>
+                    </h6>
+                     </a> </div></li>
 
 
-                                                                            </li>
-                                                                        </ul> 
-                                                                    </div>  
-
-                                                                    <div class="follow_left_box_main_btn">
-
-                                                                        <div class="<?php echo "fr" . $userlist['art_id']; ?>">
-                                                                            <button id="<?php echo "followdiv" . $userlist['art_id']; ?>" onClick="followuser(<?php echo $userlist['art_id']; ?>)">Follow</button>
-                                                                        </div>
-
-                                                                    </div>
-
-
-                                                                    <span class="Follow_close" onClick="followclose(<?php echo $userlist['art_id']; ?>)"><i class="fa fa-times" aria-hidden="true"></i></span>
-
-
-                                                                </div>
-
-                                                            </div>
+                  <li>
+                    <div class="post-design-product_follow_main" style="display:block;">
+                       <a>
+                        <p>
+                         <?php
+                            if ($userlist['designation']) {
+                                   echo $userlist['designation'];
+                                     } else {
+                                         echo "Designation";
+                                         }
+                                    ?>
+                             </p></a>
+                          </div>
 
 
-                                                            <?php
-                                                        }
-                                                    }
-                                                }
-                                                ?>
+                  </li>
+                 </ul> 
+                </div>  
+
+                  <div class="follow_left_box_main_btn">
+
+              <div class="<?php echo "fr" . $userlist['art_id']; ?>">
+             <button id="<?php echo "followdiv" . $userlist['art_id']; ?>" onClick="followuser(<?php echo $userlist['art_id']; ?>)">Follow</button>
+             </div>
+
+            </div>
+
+
+   <span class="Follow_close" onClick="followclose(<?php echo $userlist['art_id']; ?>)"><i class="fa fa-times" aria-hidden="true"></i></span>
+
+
+       </div>
+
+           </div>
+
+
+                        <?php
+                         }
+                     }
+                }
+           ?>
                                                 <!-- forth condition start -->
                                                 <?php
                                                 if ($userlistview4 > 0) {
@@ -741,64 +741,64 @@
 
 
 
-                                                        if (!$artfollow) {
-                                                            ?>                             
+   if (!$artfollow) {
+          ?>                             
 
-                                                            <div class="profile-job-post-title-inside clearfix">
+ <div class="profile-job-post-title-inside clearfix">
 
-                                                                <div class=" col-md-12 follow_left_box_main" id="<?php echo "fad" . $userlist['art_id']; ?>">                   
-                                                                    <div class="post-design-pro-img_follow">
+     <div class=" col-md-12 follow_left_box_main" id="<?php echo "fad" . $userlist['art_id']; ?>">                   
+             <div class="post-design-pro-img_follow">
 
-                                                                        <img  src="<?php echo base_url(ARTISTICIMAGE . $userlist['art_user_image']); ?>"  alt="">
+        <img  src="<?php echo base_url(ARTISTICIMAGE . $userlist['art_user_image']); ?>"  alt="">
 
-                                                                    </div>
-
-
-                                                                    <div class="post-design-name_follow fl">
-                                                                        <ul>
+                 </div>
 
 
-                                                                            <li><div class="post-design-product_follow">
-                                                                                    <a href="<?php echo base_url('artistic/art_manage_post/' . $userlist['user_id'] . ''); ?>">
-                                                                                        <h6>
-                                                                                            <?php
-                                                                                            echo ucwords($userlist['art_name']);
-                                                                                            echo"&nbsp;";
-                                                                                            echo ucwords($userlist['art_lastname']);
-                                                                                            ?>
-                                                                                        </h6>
-                                                                                    </a> </div></li>
+       <div class="post-design-name_follow fl">
+   <ul>
 
 
-                                                                            <li>
-                                                                                <div class="post-design-product_follow_main" style="display:block;">
-                                                                                    <a>
-                                                                                        <p>
-                                                                                            <?php
-                                                                                            if ($userlist['designation']) {
-                                                                                                echo $userlist['designation'];
-                                                                                            } else {
-                                                                                                echo "Designation";
-                                                                                            }
-                                                                                            ?>
-                                                                                        </p></a>
-                                                                                </div>
+         <li><div class="post-design-product_follow">
+         <a href="<?php echo base_url('artistic/art_manage_post/' . $userlist['user_id'] . ''); ?>">
+                    <h6>
+               <?php
+               echo ucwords($userlist['art_name']);
+               echo"&nbsp;";
+                echo ucwords($userlist['art_lastname']);
+                    ?>
+                </h6>
+                </a> </div></li>
 
 
-                                                                            </li>
-                                                                        </ul> 
-                                                                    </div>  
+            <li>
+           <div class="post-design-product_follow_main" style="display:block;">
+               <a>
+                <p>
+                    <?php
+                         if ($userlist['designation']) {
+                          echo $userlist['designation'];
+                       } else {
+                     echo "Designation";
+                    }
+                    ?>
+              </p></a>
+          </div>
 
-                                                                    <div class="follow_left_box_main_btn">
 
-                                                                        <div class="<?php echo "fr" . $userlist['art_id']; ?>">
-                                                                            <button id="<?php echo "followdiv" . $userlist['art_id']; ?>" onClick="followuser(<?php echo $userlist['art_id']; ?>)">Follow</button>
-                                                                        </div>
+              </li>
+              </ul> 
+             </div>  
 
-                                                                    </div>
+               <div class="follow_left_box_main_btn">
+
+         <div class="<?php echo "fr" . $userlist['art_id']; ?>">
+                       <button id="<?php echo "followdiv" . $userlist['art_id']; ?>" onClick="followuser(<?php echo $userlist['art_id']; ?>)">Follow</button>
+                                   </div>
+
+                    </div>
 
 
-                                                                    <span class="Follow_close" onClick="followclose(<?php echo $userlist['art_id']; ?>)"><i class="fa fa-times" aria-hidden="true"></i></span>
+                                  <span class="Follow_close" onClick="followclose(<?php echo $userlist['art_id']; ?>)"><i class="fa fa-times" aria-hidden="true"></i></span>
 
 
                                                                 </div>
@@ -1006,29 +1006,27 @@
                                                     ?>
 
 
-                                                    <li>
-                                                        <div class="post-design-product">
+                  <li>
+                <div class="post-design-product">
 
-                                                            <!-- other user post time name strat-->
+                    <!-- other user post time name strat-->
 
-                                                            <?php if ($row['posted_user_id']) { ?>
-                                                                <div class="else_post_d">
-                                                                    <a class="post_dot" title="<?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?>" href="<?php echo base_url('artistic/art_manage_post/' . $row['posted_user_id']); ?>"><?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?> </a><span style="font-weight: 600;"> Posted With 
-                                                                    </span><a  class="post_dot" href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>"><?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?></a>
-
-
-                                                                    <span style="color: #91949d;
-                                                                          font-size: 14px;"> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span>
-                                                                </div>
-                                                                <!-- other user post time name end-->
-                                                            <?php } else { ?>
+                    <?php if ($row['posted_user_id']) { ?>
+                    <div class="else_post_d">
+                       <a class="post_dot" title="<?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?>" href="<?php echo base_url('artistic/art_manage_post/' . $row['posted_user_id']); ?>"><?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?> </a><span style="font-weight: 600;"> Posted With 
+                   </span><a  class="post_dot" href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>"><?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?></a>
 
 
-                                                                <a title="<?php
-                                                                echo ucwords($firstname);
-                                                                print "&nbsp;&nbsp;";
-                                                                echo ucwords($lastname);
-                                                                ?>" class="post_dot" href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>"><?php
+                          <span style="color: #91949d;font-size: 14px;"> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span>
+                           </div>
+                            <!-- other user post time name end-->
+                          <?php } else { ?>
+
+
+                          <a title="<?php
+                        echo ucwords($firstname);
+                    print "&nbsp;&nbsp;";
+                      echo ucwords($lastname);?>" class="post_dot" href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>"><?php
                                                                    echo ucwords($firstname);
                                                                    print "&nbsp;&nbsp;";
                                                                    echo ucwords($lastname);
@@ -1089,15 +1087,15 @@
                                                         if ($artsave) {
                                                             ?>
                                                                                                                                                                                                                         
-                                                                                                                                                                                                                        <a><i class="fa fa-bookmark" aria-hidden="true"></i>Saved Post</a>
+                                                        <a><i class="fa fa-bookmark" aria-hidden="true"></i>Saved Post</a>
                                                                                                                                                                                                                         
                                                         <?php } else { ?>
                                                                                                                                                                                                                         
-                                                                                                                                                                                                                        <a id="<?php echo $row['art_post_id']; ?>" onClick="save_post(this.id)" href="#popup1" class="<?php echo 'savedpost' . $row['art_post_id']; ?>"><i class="fa fa-bookmark" aria-hidden="true"></i>Save Post</a>
+                                         <a id="<?php echo $row['art_post_id']; ?>" onClick="save_post(this.id)" href="#popup1" class="<?php echo 'savedpost' . $row['art_post_id']; ?>"><i class="fa fa-bookmark" aria-hidden="true"></i>Save Post</a>
                                                         <?php } ?> -->
 
 
-                                                        <a href="<?php echo base_url('artistic/artistic_contactperson/' . $row['user_id'] . ''); ?>"><i class="fa fa-user" aria-hidden="true"></i> Contact Person</a>
+                                  <a href="<?php echo base_url('artistic/artistic_contactperson/' . $row['user_id'] . ''); ?>"><i class="fa fa-user" aria-hidden="true"></i> Contact Person</a>
                                                     <?php } ?>
                                                 </div>
                                             </div>
@@ -1106,22 +1104,20 @@
                                             <div class="post-design-desc ">
                                                 <span> 
 
-                          <div  id="<?php echo 'editpostdetails' . $row['art_post_id']; ?>" style="display:block ; padding-bottom: 10px;"><span class="show"><?php echo $row['art_description']; ?></span></div>
+           <div  id="<?php echo 'editpostdetails' . $row['art_post_id']; ?>" style="display:block ; padding-bottom: 10px;"><span class="show"><?php echo $row['art_description']; ?></span></div>
 
-                                                    <div id="<?php echo 'editpostdetailbox' . $row['art_post_id']; ?>" style="display:none;">
-
-                                                                                                                                                                                                                                                                                                                                        <!--   <textarea id="<?php echo 'editpostdesc' . $row['art_post_id']; ?>" name="editpostdesc"><?php echo $row['art_description']; ?></textarea>  -->
-                                                        <div contenteditable="true"  id="<?php echo 'editpostdesc' . $row['art_post_id']; ?>" class="textbuis  editable_text" name="editpostdesc" style="width: 75%; margin-bottom: 10px;"><?php echo $row['art_description']; ?></div>
+          <div id="<?php echo 'editpostdetailbox' . $row['art_post_id']; ?>" style="display:none;">
 
 
-                                                    </div>
+                 <div contenteditable="true" id="<?php echo 'editpostdesc' . $row['art_post_id']; ?>" class="textbuis editable_text" name="editpostdesc" style="width: 75%; margin-bottom: 10px;"><?php echo $row['art_description']; ?></div>
+             </div>      
 
-                                                    <button id="<?php echo "editpostsubmit" . $row['art_post_id']; ?>" style="display:none" onClick="edit_postinsert(<?php echo $row['art_post_id']; ?>)" class="fr" style="margin-right: 176px; border-radius: 3px;" >Save</button>
+           <button id="<?php echo "editpostsubmit" . $row['art_post_id']; ?>" style="display:none" onClick="edit_postinsert(<?php echo $row['art_post_id']; ?>)" class="fr" style="margin-right: 176px; border-radius: 3px;" >Save</button>
 
 
 
-                                                </span></div> 
-                                        </div>
+              </span></div> 
+           </div>
 
 
 
@@ -2891,7 +2887,7 @@
                         {
                             document.getElementById('editpostdata' + abc).style.display = 'none';
                             document.getElementById('editpostbox' + abc).style.display = 'block';
-                            document.getElementById('editpostdetails' + abc).style.display = 'none', 'display:inline !important';
+                            document.getElementById('editpostdetails' + abc).style.display = 'none','display:inline !important';
                             document.getElementById('editpostdetailbox' + abc).style.display = 'block';
                             document.getElementById('editpostsubmit' + abc).style.display = 'block';
                         }
