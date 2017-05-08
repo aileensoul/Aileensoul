@@ -239,8 +239,6 @@ $('#searchplace').select2({
                          contactmobile: {
 
                             required: true,
-                            minlength:10,
-                            maxlength:11,
                             number: true,
                             
                            

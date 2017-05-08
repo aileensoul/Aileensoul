@@ -416,6 +416,13 @@ if (count($nation) > 0) {
                     },
                 },
 
+                phnno: {
+
+                            number: true,
+                            required: true,
+                            
+                        },
+                        
                 marital_status: {
 
                     required: true,

@@ -115,7 +115,7 @@ $phoneno = form_error('phoneno');
 
                             <fieldset <?php if ($phoneno) { ?> class="error-msg" <?php } ?>>
                                 <label>Phone number:<span style="color:red">*</span></label>
-                                <input type="text" name="phoneno"  placeholder="Enter phone number" value="<?php if ($phoneno1) {
+                                <input type="text" name="phoneno" id="phoneno" placeholder="Enter phone number" value="<?php if ($phoneno1) {
             echo $phoneno1;
         } ?>">
 <?php echo form_error('phoneno'); ?>
@@ -186,6 +186,12 @@ $phoneno = form_error('phoneno');
                     },
                 },
 
+                phoneno: {
+
+                            number: true,
+                            required: true,
+                            
+                        },
                
 
             },
