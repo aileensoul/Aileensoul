@@ -462,94 +462,94 @@
                                 </div>
 
 
-                                <div class="profile-boxProfileCard_follow  module">
-                                    <ul>
-                                        <li class="follow_box_ul_li">
-                                            <div class="contact-frnd-post follow_left_main_box">
-                                                <?php
-                                                if ($userlistview1 > 0) {
-                                                    foreach ($userlistview1 as $userlist) {
+                <div class="profile-boxProfileCard_follow  module">
+                   <ul>
+                 <li class="follow_box_ul_li">
+                  <div class="contact-frnd-post follow_left_main_box">
+                    <?php
+                 if ($userlistview1 > 0) {
+                     foreach ($userlistview1 as $userlist) {
 
-                                                        $userid = $this->session->userdata('aileenuser');
+                       $userid = $this->session->userdata('aileenuser');
 
-                                                        $followfrom = $this->db->get_where('art_reg', array('user_id' => $userid, 'status' => 1))->row()->art_id;
-
-
-                                                        $contition_array = array('follow_to' => $userlist['art_id'], 'follow_from' => $followfrom, 'follow_status' => '1', 'follow_type' => '1');
-                                                        $artfollow = $this->data['artfollow'] = $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                        $followfrom = $this->db->get_where('art_reg', array('user_id' => $userid, 'status' => 1))->row()->art_id;
 
 
-
-                                                        if (!$artfollow) {
-                                                            ?>                             
-
-                                                            <div class="profile-job-post-title-inside clearfix">
-
-                                                                <div class=" col-md-12 follow_left_box_main" id="<?php echo "fad" . $userlist['art_id']; ?>">                   
-                                                                    <div class="post-design-pro-img_follow">
-
-                                                                        <img  src="<?php echo base_url(ARTISTICIMAGE . $userlist['art_user_image']); ?>"  alt="">
-
-                                                                    </div>
+                        $contition_array = array('follow_to' => $userlist['art_id'], 'follow_from' => $followfrom, 'follow_status' => '1', 'follow_type' => '1');
+                          $artfollow = $this->data['artfollow'] = $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
 
-                                                                    <div class="post-design-name_follow fl">
-                                                                        <ul>
+
+                             if (!$artfollow) {
+                             ?>                             
+
+                     <div class="profile-job-post-title-inside clearfix">
+
+                       <div class=" col-md-12 follow_left_box_main" id="<?php echo "fad" . $userlist['art_id']; ?>">                   
+                         <div class="post-design-pro-img_follow">
+
+                     <img  src="<?php echo base_url(ARTISTICIMAGE . $userlist['art_user_image']); ?>"  alt="">
+
+                      </div>
 
 
-                                                                            <li><div class="post-design-product_follow">
-                                                                                    <a href="<?php echo base_url('artistic/art_manage_post/' . $userlist['user_id'] . ''); ?>">
-                                                                                        <h6>
-                                                                                            <?php
-                                                                                            echo ucwords($userlist['art_name']);
-                                                                                            echo"&nbsp;";
-                                                                                            echo ucwords($userlist['art_lastname']);
-                                                                                            ?>
-                                                                                        </h6>
-                                                                                    </a> </div></li>
+            <div class="post-design-name_follow fl">
+                   <ul>
 
 
-                                                                            <li>
-                                                                                <div class="post-design-product_follow_main" style="display:block;">
-                                                                                    <a>
-                                                                                        <p>
-                                                                                            <?php
-                                                                                            if ($userlist['designation']) {
-                                                                                                echo $userlist['designation'];
-                                                                                            } else {
-                                                                                                echo "Designation";
-                                                                                            }
-                                                                                            ?>
-                                                                                        </p></a>
-                                                                                </div>
+            <li><div class="post-design-product_follow">
+              <a href="<?php echo base_url('artistic/art_manage_post/' . $userlist['user_id'] . ''); ?>">
+              <h6>
+               <?php
+                   echo ucwords($userlist['art_name']);
+                    echo"&nbsp;";
+                  echo ucwords($userlist['art_lastname']);
+                ?>
+                </h6>
+                    </a> </div></li>
 
 
-                                                                            </li>
-                                                                        </ul> 
-                                                                    </div>  
-
-                                                                    <div class="follow_left_box_main_btn">
-
-                                                                        <div class="<?php echo "fr" . $userlist['art_id']; ?>">
-                                                                            <button id="<?php echo "followdiv" . $userlist['art_id']; ?>" onClick="followuser(<?php echo $userlist['art_id']; ?>)">Follow</button>
-                                                                        </div>
-
-                                                                    </div>
-
-
-                                                                    <span class="Follow_close" onClick="followclose(<?php echo $userlist['art_id']; ?>)"><i class="fa fa-times" aria-hidden="true"></i></span>
-
-
-                                                                </div>
-
-                                                            </div>
+                    <li>
+            <div class="post-design-product_follow_main" style="display:block;">
+                <a>
+                <p>
+                     <?php
+                        if ($userlist['designation']) {
+                               echo $userlist['designation'];
+                              } else {
+                                echo "Designation";
+                                 }
+                               ?>
+                         </p></a>
+                        </div>
 
 
-                                                            <?php
-                                                        }
-                                                    }
-                                                }
-                                                ?>
+                       </li>
+                       </ul> 
+                      </div>  
+
+                  <div class="follow_left_box_main_btn">
+
+              <div class="<?php echo "fr" . $userlist['art_id']; ?>">
+           <button id="<?php echo "followdiv" . $userlist['art_id']; ?>" onClick="followuser(<?php echo $userlist['art_id']; ?>)">Follow</button>
+           </div>
+
+           </div>
+
+
+        <span class="Follow_close" onClick="followclose(<?php echo $userlist['art_id']; ?>)"><i class="fa fa-times" aria-hidden="true"></i></span>
+
+
+             </div>
+
+         </div>
+
+
+                  <?php
+                 }
+              }
+          }
+        ?>
 
 
                                                 <!-- second condition start -->
@@ -2909,7 +2909,7 @@
                             //var data = $field.val();
                             var editpostdetails = $('#editpostdesc' + abc).html();
                             // end khyati code
-
+                            alert(editpostdetails); alert(editpostname.value);
             if((editpostname.value == '') && (editpostdetails == '' || editpostdetails == '<br>')){  
           $('.biderror .mes').html("<div class='pop_content'>You must either fill title or description.");
             $('#bidmodal').modal('show');
