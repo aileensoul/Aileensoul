@@ -461,8 +461,7 @@ $(document).ready(function () {
  <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
 <script type="text/javascript">
 
-
-  function feedback_form_submit(){  
+function feedback_form_submit(){  
    
   
   var email = $('#contact_email').val();
