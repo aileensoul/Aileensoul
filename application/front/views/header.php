@@ -359,7 +359,10 @@ $(window).load(function(){
             <div class="container">
                 <div class="row">
                     <div class="col-md-4 col-sm-5">
-                        <div class="logo"><a href="<?php echo base_url('dashboard') ?>"><img src="<?php echo base_url('images/logo-white.png'); ?>"></a></div>
+                        <!-- <div class="logo"><a href="<?php echo base_url('dashboard') ?>"><img src="<?php echo base_url('images/logo-white.png'); ?>"></a></div> -->
+                        <div class="logo">
+                           <a href="<?php echo base_url('dashboard') ?>"> <h2  style="color: white;">Aileensoul</h2></a>
+                        </div>
                     </div>
                     <div class="col-md-8 col-sm-7 header-left-menu">
                         <div class="pushmenu pushmenu-left">

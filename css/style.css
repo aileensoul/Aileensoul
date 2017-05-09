@@ -92,7 +92,7 @@ a:focus { outline: none; text-decoration: none;  }
 .header2 ul { font-size: 0; margin: 0; padding-right: 21px; float: right; }
 .header2 ul li { list-style: none; display: inline-block; padding: 0; margin: 0; position: relative; }
 .header2 ul li a {  font-size: 13px; color: #fff; padding: 4px 16px; display: block; }
-.header2 ul li a i{font-size: 12px;padding-left: 10px; }
+.header2 ul li a i{font-size: 12px;padding-left: 0px; }
 
 .header2 ul li a:hover {     background: #08234a;
                              color: #fff; }
@@ -108,7 +108,7 @@ a:focus { outline: none; text-decoration: none;  }
     right: 0;
     height: 35px;
     left: 0;
-    z-index: 1000;
+    z-index: 9;
     margin-left: 50px;
     margin-right: 50px;
     padding: 0px -31px;
@@ -193,7 +193,7 @@ hr{ border: none; margin: 20px 0; background:#cacaca; height: 1px; }
 /* Common Style End */
 
 .header { padding: 0; background: #fff;z-index: 1000; }
-.logo { padding: 4px 0; }
+.logo { padding: 4px 23px; }
 
 .header {     -webkit-transition: all 0.4s ease;
     transition: all 0.4s ease;
@@ -4554,3 +4554,41 @@ fieldset .add_post_btns{min-width: 120px;padding:8px 30px 8px;}
      
     .header2 input::-moz-placeholder { font-size: 15px; line-height: 3; } / Firefox 19+ /
     .header2 input::-moz-placeholder { font-size: 14px; line-height: 3;}  / Firefox 18- /
+
+
+
+    .logo h2{color: #fff;}
+
+     .dropdown_hover {
+    position: relative;
+    display: inline-block;
+    color: white;
+    padding: 8px 16px 8px;
+    cursor: pointer;
+}
+
+
+.dropdown-content_hover {
+   display: none;
+    position: absolute;
+    color: #3b5283;
+    background-color: #fff;
+    min-width: 139px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    margin-top: 10px;
+    z-index: 1;
+    border-radius: 4px; }
+.dropdown-content_hover::before{       /* top: -1px; */
+    content: '';
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    color: transparent;
+    border: 9px solid black;
+    border-color: transparent transparent #fff;
+    margin-top: -18px;
+    /* margin-left: 104px; */
+    right: 6px;}
+
+.dropdown_hover .dropdown-content_hover a {color: #000;}

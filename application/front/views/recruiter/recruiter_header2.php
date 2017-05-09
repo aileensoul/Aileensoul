@@ -102,29 +102,7 @@ body {
 
 
 <style type="text/css">
-  .dropdown_hover {
-    position: relative;
-    display: inline-block;
-    color: white;
-    padding: 8px 16px 8px;
-    cursor: pointer;
-}
-
-
-.dropdown-content_hover {
-    display: none;
-    position: absolute;
-    color: #3b5283;
-    background-color: #fff;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    margin-top: 10px;
-    z-index: 1;
-    border-radius:4px;
-}
-
-.dropdown_hover .dropdown-content_hover a {color: #000;}
-
+ 
 
 
 </style>
