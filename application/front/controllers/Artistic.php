@@ -3944,8 +3944,8 @@ echo '<pre>'; print_r($artdata); die();
     }
 
 //multiple pdf for user end    
-    // khyati 12-4 multiple images like start
-    public function mulimg_like() {
+    // khyati 9-5 multiple images like start
+    public function like_postimg() {
         //$id = $_POST['save_id'];
         $post_image = $_POST['post_image_id'];
         $userid = $this->session->userdata('aileenuser');
@@ -4001,7 +4001,7 @@ echo '<pre>'; print_r($artdata); die();
             if ($insertdata) {
 
                 $imglike = '<li>';
-                $imglike .= '<a id="' . $post_image . '" onClick="mulimg_like(this.id)">';
+                $imglike .= '<a id="' . $post_image . '" onClick="post_likeimg(this.id)">';
                 $imglike .= ' <i class="fa fa-thumbs-up" aria-hidden="true">';
                 $imglike .= '</i>';
                 $imglike .= '<span>';
@@ -4034,7 +4034,7 @@ echo '<pre>'; print_r($artdata); die();
                 if ($updatdata) {
 
                     $imglike1 = '<li>';
-                    $imglike1 .= '<a id="' . $post_image . '" onClick="mulimg_like(this.id)">';
+                    $imglike1 .= '<a id="' . $post_image . '" onClick="post_likeimg(this.id)">';
                     $imglike1 .= '<i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true">';
                     $imglike1 .= '</i>';
                     $imglike1 .= '<span>';
@@ -4105,7 +4105,7 @@ echo '<pre>'; print_r($artdata); die();
                 if ($updatdata) {
 
                     $imglike1 = '<li>';
-                    $imglike1 .= '<a id="' . $post_image . '" onClick="mulimg_like(this.id)">';
+                    $imglike1 .= '<a id="' . $post_image . '" onClick="post_likeimg(this.id)">';
                     $imglike1 .= '<i class="fa fa-thumbs-up" aria-hidden="true">';
                     $imglike1 .= '</i>';
                     $imglike1 .= '<span>';
