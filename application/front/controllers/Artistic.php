@@ -389,8 +389,8 @@ class Artistic extends MY_Controller {
                     'art_city' => $this->input->post('city'),
                     'art_address' => $this->input->post('address'),
                     'art_pincode' => $this->input->post('pincode'),
-                    'modified_date' => date('Y-m-d', time()),
-                    'art_step' => 2
+                    'modified_date' => date('Y-m-d', time())
+                    //'art_step' => 2
                 );
 
 
@@ -2772,8 +2772,8 @@ class Artistic extends MY_Controller {
 //Artistic comment delete start
     public function delete_comment() {
         $userid = $this->session->userdata('aileenuser');
-        $post_id = $_POST["post_id"];
-        $post_delete = $_POST["post_delete"];
+       echo  $post_id = $_POST["post_id"];
+     echo   $post_delete = $_POST["post_delete"];
 
         $data = array(
             'status' => 0,
@@ -2783,7 +2783,7 @@ class Artistic extends MY_Controller {
 
         $contition_array = array('art_post_id' => $post_delete, 'status' => '1');
         $artdata = $this->data['artdata'] = $this->common->select_data_by_condition('artistic_post_comment', $contition_array, $data = '*', $sortby = 'artistic_post_comment_id', $orderby = 'DESC', $limit = '1', $offset = '', $join_str = array(), $groupby = '');
-//echo '<pre>'; print_r($artdata); die();
+echo '<pre>'; print_r($artdata); die();
         // all count of commnet 
 
         $contition_array = array('art_post_id' => $_POST["post_delete"], 'status' => '1');
@@ -3705,7 +3705,7 @@ class Artistic extends MY_Controller {
         $contition_array = array('art_post_id' => $id, 'status' => '1');
         $this->data['art_data'] = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-        //echo "<pre>"; print_r($this->data['art_data']);die();
+       //echo "<pre>"; print_r($this->data['art_data']);die();
         $this->load->view('artistic/postnewpage', $this->data);
     }
 
@@ -3944,8 +3944,8 @@ class Artistic extends MY_Controller {
     }
 
 //multiple pdf for user end    
-    // khyati 12-4 multiple images like start
-    public function mulimg_like() {
+    // khyati 9-5 multiple images like start
+    public function like_postimg() {
         //$id = $_POST['save_id'];
         $post_image = $_POST['post_image_id'];
         $userid = $this->session->userdata('aileenuser');
@@ -4001,7 +4001,7 @@ class Artistic extends MY_Controller {
             if ($insertdata) {
 
                 $imglike = '<li>';
-                $imglike .= '<a id="' . $post_image . '" onClick="mulimg_like(this.id)">';
+                $imglike .= '<a id="' . $post_image . '" onClick="post_likeimg(this.id)">';
                 $imglike .= ' <i class="fa fa-thumbs-up" aria-hidden="true">';
                 $imglike .= '</i>';
                 $imglike .= '<span>';
@@ -4034,7 +4034,7 @@ class Artistic extends MY_Controller {
                 if ($updatdata) {
 
                     $imglike1 = '<li>';
-                    $imglike1 .= '<a id="' . $post_image . '" onClick="mulimg_like(this.id)">';
+                    $imglike1 .= '<a id="' . $post_image . '" onClick="post_likeimg(this.id)">';
                     $imglike1 .= '<i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true">';
                     $imglike1 .= '</i>';
                     $imglike1 .= '<span>';
@@ -4105,7 +4105,7 @@ class Artistic extends MY_Controller {
                 if ($updatdata) {
 
                     $imglike1 = '<li>';
-                    $imglike1 .= '<a id="' . $post_image . '" onClick="mulimg_like(this.id)">';
+                    $imglike1 .= '<a id="' . $post_image . '" onClick="post_likeimg(this.id)">';
                     $imglike1 .= '<i class="fa fa-thumbs-up" aria-hidden="true">';
                     $imglike1 .= '</i>';
                     $imglike1 .= '<span>';
@@ -4123,9 +4123,9 @@ class Artistic extends MY_Controller {
     }
 
 //multiple iamges like end 
-//multiple images comment strat
+//multiple 9-5 images comment strat
 
-    public function mulimg_commentthree() {
+    public function insert_commentthreeimg() {
 
         $userid = $this->session->userdata('aileenuser');
 
@@ -4194,18 +4194,18 @@ class Artistic extends MY_Controller {
             $cmtinsert .= '<div class="comment-name"><b>' . $art_name . '</b>';
             $cmtinsert .= '</div>';
 
-            $cmtinsert .= '<div class="comment-details" id= "showcomment' . $art_comment['post_image_comment_id'] . '"" >';
+            $cmtinsert .= '<div class="comment-details" id= "showcommentimg' . $art_comment['post_image_comment_id'] . '"" >';
             $cmtinsert .= $art_comment['comment'];
             $cmtinsert .= '</div>';
-            $cmtinsert .= '<div contenteditable="true" class="editable_text" name="' . $art_comment['post_image_comment_id'] . '" id="editcomment' . $art_comment['post_image_comment_id'] . '"style="display:none;" onkeyup="commentedit(' . $art_comment['post_image_comment_id'] . ')">';
+            $cmtinsert .= '<div contenteditable="true" class="editable_text" name="' . $art_comment['post_image_comment_id'] . '" id="editcommentimg' . $art_comment['post_image_comment_id'] . '"style="display:none;" onkeyup="commenteditimg(' . $art_comment['post_image_comment_id'] . ')">';
 
             $cmtinsert .= '' . $art_comment['comment'] . '';
             $cmtinsert .= '</div>';
 
-            $cmtinsert .= '<button id="editsubmit' . $art_comment['post_image_comment_id'] . '" style="display:none;" onClick="edit_comment(' . $art_comment['post_image_comment_id'] . ')">Comment</button><div class="art-comment-menu-design"> <div class="comment-details-menu" id="likecomment' . $art_comment['post_image_comment_id'] . '">';
+            $cmtinsert .= '<button id="editsubmitimg' . $art_comment['post_image_comment_id'] . '" style="display:none;" onClick="edit_commentimg(' . $art_comment['post_image_comment_id'] . ')">Comment</button><div class="art-comment-menu-design"> <div class="comment-details-menu" id="likecommentimg' . $art_comment['post_image_comment_id'] . '">';
 
             $cmtinsert .= '<a id="' . $art_comment['post_image_comment_id'] . '"';
-            $cmtinsert .= 'onClick="comment_like(this.id)">';
+            $cmtinsert .= 'onClick="comment_likeimg(this.id)">';
 
             $contition_array = array('post_image_comment_id' => $art_comment['post_image_comment_id'], 'user_id' => $userid, 'is_unlike' => 0);
 
@@ -4237,17 +4237,17 @@ class Artistic extends MY_Controller {
                 $cmtinsert .= '<div class="comment-details-menu">';
 
 
-                $cmtinsert .= '<div id="editcommentbox' . $art_comment['post_image_comment_id'] . '"style="display:block;">';
+                $cmtinsert .= '<div id="editcommentboximg' . $art_comment['post_image_comment_id'] . '"style="display:block;">';
 
                 $cmtinsert .= '<a id="' . $art_comment['post_image_comment_id'] . '"';
-                $cmtinsert .= 'onClick="comment_editbox(this.id)">';
+                $cmtinsert .= 'onClick="comment_editboximg(this.id)">';
                 $cmtinsert .= 'Edit';
                 $cmtinsert .= '</a></div>';
 
-                $cmtinsert .= '<div id="editcancle' . $art_comment['post_image_comment_id'] . '"style="display:none;">';
+                $cmtinsert .= '<div id="editcancleimg' . $art_comment['post_image_comment_id'] . '"style="display:none;">';
 
                 $cmtinsert .= '<a id="' . $art_comment['post_image_comment_id'] . '"';
-                $cmtinsert .= 'onClick="comment_editcancle(this.id)">';
+                $cmtinsert .= 'onClick="comment_editcancleimg(this.id)">';
                 $cmtinsert .= 'Cancel';
                 $cmtinsert .= '</a></div>';
 
@@ -4268,11 +4268,12 @@ class Artistic extends MY_Controller {
                 $cmtinsert .= '<div class="comment-details-menu">';
 
 
-                $cmtinsert .= '<input type="hidden" name="post_delete"';
-                $cmtinsert .= 'id="post_delete' . $art_comment['post_image_comment_id'] . '"';
+                $cmtinsert .= '<input type="hidden" name="post_deleteimg"';
+               // $cmtinsert .= 'id="post_deleteimg' . $art_comment['post_image_comment_id'] . '"';
+                $cmtinsert .= 'id="post_deleteimg"';
                 $cmtinsert .= 'value= "' . $art_comment['post_image_id'] . '">';
                 $cmtinsert .= '<a id="' . $art_comment['post_image_comment_id'] . '"';
-                $cmtinsert .= 'onClick="comment_delete(this.id)">';
+                $cmtinsert .= 'onClick="comment_deleteimg(this.id)">';
                 $cmtinsert .= 'Delete';
                 $cmtinsert .= '</a></div>';
             }
@@ -4284,7 +4285,7 @@ class Artistic extends MY_Controller {
 
             if (count($artcont) > 1) {
                 // comment aount variable start
-                $cmtcount = '<a onClick="commentall(this.id)" id="' . $post_image_id . '">';
+                $cmtcount = '<a onClick="commentallimg(this.id)" id="' . $post_image_id . '">';
                 $cmtcount .= '<i class="fa fa-comment-o" aria-hidden="true">';
                 $cmtcount .= ' ' . count($artcont) . '';
                 $cmtcount .= '</i></a>';
@@ -4449,8 +4450,8 @@ class Artistic extends MY_Controller {
     }
 
 //multiple images comment end 
-//multiple images comment like start
-    public function mulimg_comment_like() {
+//multiple 9-5 images comment like start
+    public function like_commentimg1() {
 
         $userid = $this->session->userdata('aileenuser');
         $post_image_comment_id = $_POST["post_image_comment_id"];
@@ -4510,7 +4511,7 @@ class Artistic extends MY_Controller {
             if ($insertdata) {
 
 
-                $imglike .= '<a id="' . $post_image_comment_id . '" onClick="comment_like(this.id)">';
+                $imglike .= '<a id="' . $post_image_comment_id . '" onClick="comment_likeimg(this.id)">';
                 $imglike .= ' <i class="fa fa-thumbs-up" aria-hidden="true">';
                 $imglike .= '</i>';
                 $imglike .= '<span>';
@@ -4545,7 +4546,7 @@ class Artistic extends MY_Controller {
                 if ($updatdata) {
 
 
-                    $imglike1 .= '<a id="' . $post_image_comment_id . '" onClick="comment_like(this.id)">';
+                    $imglike1 .= '<a id="' . $post_image_comment_id . '" onClick="comment_likeimg(this.id)">';
                     $imglike1 .= '<i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true">';
                     $imglike1 .= '</i>';
                     $imglike1 .= '<span>';
@@ -4616,7 +4617,7 @@ class Artistic extends MY_Controller {
                 if ($updatdata) {
 
 
-                    $imglike1 .= '<a id="' . $post_image_comment_id . '" onClick="comment_like(this.id)">';
+                    $imglike1 .= '<a id="' . $post_image_comment_id . '" onClick="comment_likeimg(this.id)">';
                     $imglike1 .= '<i class="fa fa-thumbs-up" aria-hidden="true">';
                     $imglike1 .= '</i>';
                     $imglike1 .= '<span>';
@@ -4812,8 +4813,8 @@ class Artistic extends MY_Controller {
     }
 
 //multiple images comemnt like end
-//business_profile comment edit start
-    public function mul_edit_com_insert() {
+//business_profile 9-5 comment edit start
+    public function edit_comment_insertimg() {
 
         $userid = $this->session->userdata('aileenuser');
 
@@ -4840,8 +4841,8 @@ class Artistic extends MY_Controller {
     }
 
 //business_profile comment edit end
-    //multiple images commnet delete start
-    public function mul_delete_comment() {
+    //multiple images 9-5  commnet delete start
+    public function delete_commentimg() {
         $userid = $this->session->userdata('aileenuser');
         $post_image_comment_id = $_POST["post_image_comment_id"];
         $post_delete = $_POST["post_delete"];
@@ -4878,18 +4879,18 @@ class Artistic extends MY_Controller {
             $cmtinsert .= '<div class="comment-name"><b>' . $art_name . '</b>';
             $cmtinsert .= '</div>';
 
-            $cmtinsert .= '<div class="comment-details" id= "showcomment' . $art_comment['post_image_comment_id'] . '">';
+            $cmtinsert .= '<div class="comment-details" id= "showcommentimg' . $art_comment['post_image_comment_id'] . '">';
             $cmtinsert .= $art_comment['comment'];
             $cmtinsert .= '</div>';
-            $cmtinsert .= '<div contenteditable="true"   class="editable_text" name="' . $art_comment['post_image_comment_id'] . '" id="editcomment' . $art_comment['post_image_comment_id'] . '"style="display:none;" onkeyup="commentedit(' . $art_comment['post_image_comment_id'] . ')">';
+            $cmtinsert .= '<div contenteditable="true"   class="editable_text" name="' . $art_comment['post_image_comment_id'] . '" id="editcommentimg' . $art_comment['post_image_comment_id'] . '"style="display:none;" onkeyup="commenteditimg(' . $art_comment['post_image_comment_id'] . ')">';
 
             $cmtinsert .= '' . $art_comment['comment'] . '';
             $cmtinsert .= '</div>';
 
-            $cmtinsert .= '<button id="editsubmit' . $art_comment['post_image_comment_id'] . '" style="display:none;" onClick="edit_comment(' . $art_comment['post_image_comment_id'] . ')">Comment</button><div class="art-comment-menu-design"> <div class="comment-details-menu" id="likecomment' . $art_comment['post_image_comment_id'] . '">';
+            $cmtinsert .= '<button id="editsubmitimg' . $art_comment['post_image_comment_id'] . '" style="display:none;" onClick="edit_commentimg(' . $art_comment['post_image_comment_id'] . ')">Comment</button><div class="art-comment-menu-design"> <div class="comment-details-menu" id="likecommentimg' . $art_comment['post_image_comment_id'] . '">';
 
             $cmtinsert .= '<a id="' . $art_comment['post_image_comment_id'] . '"';
-            $cmtinsert .= 'onClick="comment_like(this.id)">';
+            $cmtinsert .= 'onClick="comment_likeimg(this.id)">';
 
             $contition_array = array('post_image_comment_id' => $art_comment['post_image_comment_id'], 'user_id' => $userid, 'is_unlike' => 0);
 
@@ -4921,17 +4922,17 @@ class Artistic extends MY_Controller {
                 $cmtinsert .= '<div class="comment-details-menu">';
 
 
-                $cmtinsert .= '<div id="editcommentbox' . $art_comment['post_image_comment_id'] . '"style="display:block;">';
+                $cmtinsert .= '<div id="editcommentboximg' . $art_comment['post_image_comment_id'] . '"style="display:block;">';
 
                 $cmtinsert .= '<a id="' . $art_comment['post_image_comment_id'] . '"';
-                $cmtinsert .= 'onClick="comment_editbox(this.id)">';
+                $cmtinsert .= 'onClick="comment_editboximg(this.id)">';
                 $cmtinsert .= 'Edit';
                 $cmtinsert .= '</a></div>';
 
-                $cmtinsert .= '<div id="editcancle' . $art_comment['post_image_comment_id'] . '"style="display:none;">';
+                $cmtinsert .= '<div id="editcancleimg' . $art_comment['post_image_comment_id'] . '"style="display:none;">';
 
                 $cmtinsert .= '<a id="' . $art_comment['post_image_comment_id'] . '"';
-                $cmtinsert .= 'onClick="comment_editcancle(this.id)">';
+                $cmtinsert .= 'onClick="comment_editcancleimg(this.id)">';
                 $cmtinsert .= 'Cancel';
                 $cmtinsert .= '</a></div>';
 
@@ -4952,11 +4953,12 @@ class Artistic extends MY_Controller {
                 $cmtinsert .= '<div class="comment-details-menu">';
 
 
-                $cmtinsert .= '<input type="hidden" name="post_delete"';
-                $cmtinsert .= 'id="post_delete' . $art_comment['post_image_comment_id'] . '"';
+                $cmtinsert .= '<input type="hidden" name="post_deleteimg"';
+               // $cmtinsert .= 'id="post_deleteimg' . $art_comment['post_image_comment_id'] . '"';
+                $cmtinsert .= 'id="post_deleteimg"';
                 $cmtinsert .= 'value= "' . $art_comment['post_image_id'] . '">';
                 $cmtinsert .= '<a id="' . $art_comment['post_image_comment_id'] . '"';
-                $cmtinsert .= 'onClick="comment_delete(this.id)">';
+                $cmtinsert .= 'onClick="comment_deleteimg(this.id)">';
                 $cmtinsert .= 'Delete';
                 $cmtinsert .= '</a></div>';
             }
@@ -4967,7 +4969,7 @@ class Artistic extends MY_Controller {
 
             if (count($artcont) > 1) {
                 // comment aount variable start
-                $cmtcount = '<a onClick="commentall(this.id)" id="' . $art_comment['post_image_id'] . '">';
+                $cmtcount = '<a onClick="commentallimg(this.id)" id="' . $art_comment['post_image_id'] . '">';
                 $cmtcount .= '<i class="fa fa-comment-o" aria-hidden="true">';
                 $cmtcount .= ' ' . count($artcont) . '';
                 $cmtcount .= '</i></a>';
@@ -4979,8 +4981,8 @@ class Artistic extends MY_Controller {
                 array("comment" => $cmtinsert,
                     "count" => $cmtcount));
     }
-
-    public function mul_delete_commenttwo() {
+// changes done 9-5
+    public function delete_commenttwoimg() {
         $userid = $this->session->userdata('aileenuser');
         $post_image_comment_id = $_POST["post_image_comment_id"];
         $post_delete = $_POST["post_delete"];
@@ -4996,7 +4998,8 @@ class Artistic extends MY_Controller {
         $contition_array = array('post_image_id' => $post_delete, 'is_delete' => '0');
         $artcomment = $this->common->select_data_by_condition('art_post_image_comment', $contition_array, $data = '*', $sortby = 'post_image_comment_id', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-        // echo "<pre>"; print_r($artcomment); die();
+       // echo "<pre>"; print_r($artcomment); die();
+        if(count($artcomment) > 0){
         foreach ($artcomment as $art_comment) {
 
             $art_name = $this->db->get_where('art_reg', array('user_id' => $art_comment['user_id']))->row()->art_name;
@@ -5010,18 +5013,18 @@ class Artistic extends MY_Controller {
             $cmtinsert .= '<div class="comment-name"><b>' . $art_name . '</b>';
             $cmtinsert .= '</div>';
 
-            $cmtinsert .= '<div class="comment-details" id= "showcommenttwo' . $art_comment['post_image_comment_id'] . '">';
+            $cmtinsert .= '<div class="comment-details" id= "showcommentimgtwo' . $art_comment['post_image_comment_id'] . '">';
             $cmtinsert .= $art_comment['comment'];
             $cmtinsert .= '</div>';
-            $cmtinsert .= '<div contenteditable="true" class="editable_text" name="' . $art_comment['post_image_comment_id'] . '" id="editcommenttwo' . $art_comment['post_image_comment_id'] . '"style="display:none;" onkeyup="commentedittwo(' . $art_comment['post_image_comment_id'] . ')">';
+            $cmtinsert .= '<div contenteditable="true" class="editable_text" name="' . $art_comment['post_image_comment_id'] . '" id="editcommentimgtwo' . $art_comment['post_image_comment_id'] . '"style="display:none;" onkeyup="commenteditimgtwo(' . $art_comment['post_image_comment_id'] . ')">';
 
             $cmtinsert .= '' . $art_comment['comment'] . '';
             $cmtinsert .= '</div>';
 
-            $cmtinsert .= '<button id="editsubmittwo' . $art_comment['post_image_comment_id'] . '" style="display:none;" onClick="edit_commenttwo(' . $art_comment['post_image_comment_id'] . ')">Comment</button><div class="art-comment-menu-design"> <div class="comment-details-menu" id="likecomment' . $art_comment['post_image_comment_id'] . '">';
+            $cmtinsert .= '<button id="editsubmitimgtwo' . $art_comment['post_image_comment_id'] . '" style="display:none;" onClick="edit_commentimgtwo(' . $art_comment['post_image_comment_id'] . ')">Comment</button><div class="art-comment-menu-design"> <div class="comment-details-menu" id="likecommentimg' . $art_comment['post_image_comment_id'] . '">';
 
             $cmtinsert .= '<a id="' . $art_comment['post_image_comment_id'] . '"';
-            $cmtinsert .= 'onClick="comment_like(this.id)">';
+            $cmtinsert .= 'onClick="comment_likeimg(this.id)">';
 
             $contition_array = array('post_image_comment_id' => $art_comment['post_image_comment_id'], 'user_id' => $userid, 'is_unlike' => 0);
 
@@ -5053,17 +5056,17 @@ class Artistic extends MY_Controller {
                 $cmtinsert .= '<div class="comment-details-menu">';
 
 
-                $cmtinsert .= '<div id="editcommentboxtwo' . $art_comment['post_image_comment_id'] . '"style="display:block;">';
+                $cmtinsert .= '<div id="editcommentboximgtwo' . $art_comment['post_image_comment_id'] . '"style="display:block;">';
 
                 $cmtinsert .= '<a id="' . $art_comment['post_image_comment_id'] . '"';
-                $cmtinsert .= 'onClick="comment_editboxtwo(this.id)">';
+                $cmtinsert .= 'onClick="comment_editboximgtwo(this.id)">';
                 $cmtinsert .= 'Edit';
                 $cmtinsert .= '</a></div>';
 
-                $cmtinsert .= '<div id="editcancletwo' . $art_comment['post_image_comment_id'] . '"style="display:none;">';
+                $cmtinsert .= '<div id="editcancleimgtwo' . $art_comment['post_image_comment_id'] . '"style="display:none;">';
 
                 $cmtinsert .= '<a id="' . $art_comment['post_image_comment_id'] . '"';
-                $cmtinsert .= 'onClick="comment_editcancletwo(this.id)">';
+                $cmtinsert .= 'onClick="comment_editcancleimgtwo(this.id)">';
                 $cmtinsert .= 'Cancel';
                 $cmtinsert .= '</a></div>';
 
@@ -5084,11 +5087,12 @@ class Artistic extends MY_Controller {
                 $cmtinsert .= '<div class="comment-details-menu">';
 
 
-                $cmtinsert .= '<input type="hidden" name="post_deletetwo"';
-                $cmtinsert .= 'id="post_deletetwo' . $art_comment['post_image_comment_id'] . '"';
+                $cmtinsert .= '<input type="hidden" name="post_deleteimgtwo"';
+                //$cmtinsert .= 'id="post_deleteimgtwo' . $art_comment['post_image_comment_id'] . '"';
+                $cmtinsert .= 'id="post_deleteimgtwo"';
                 $cmtinsert .= 'value= "' . $art_comment['post_image_id'] . '">';
                 $cmtinsert .= '<a id="' . $art_comment['post_image_comment_id'] . '"';
-                $cmtinsert .= 'onClick="comment_deletetwo(this.id)">';
+                $cmtinsert .= 'onClick="comment_deleteimgtwo(this.id)">';
                 $cmtinsert .= 'Delete';
                 $cmtinsert .= '</a></div>';
             }
@@ -5096,8 +5100,24 @@ class Artistic extends MY_Controller {
             $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
             $cmtinsert .= '<div class="comment-details-menu">';
             $cmtinsert .= '<p>' . $art_comment['created_date'] . '</p></div></div></div>';
+            
+             // comment aount variable start
+                $idpost = $art['art_post_id'];
+                $cmtcount = '<a onClick="commentallimg(this.id)" id="' . $post_delete . '">';
+                $cmtcount .= '<i class="fa fa-comment-o" aria-hidden="true">';
+                $cmtcount .= ' ' . count($artcomment) . '';
+                $cmtcount .= '</i></a>';
         }
-        echo $cmtinsert;
+        }else{
+          
+            $cmtcount = '<a onClick="commentallimg(this.id)" id="' . $post_delete . '">';
+            $cmtcount .= '<i class="fa fa-comment-o" aria-hidden="true">';
+            $cmtcount .= '</i></a>';
+        }
+        //echo $cmtinsert;
+        echo json_encode(
+                array("comment" => $cmtinsert,
+                    "count" => $cmtcount));
     }
 
     //mulitple images commnet delete end 
@@ -5200,10 +5220,10 @@ class Artistic extends MY_Controller {
         echo $fourdata;
     }
 
-    // khyati 17-4 changes end 
+    // khyati 9-5 changes end 
 
 
-    public function multifourcomment($postid) {
+    public function fourcommentimg($postid) {
 
         $userid = $this->session->userdata('aileenuser');
         //$post_id =  $postid; 
@@ -5217,7 +5237,7 @@ class Artistic extends MY_Controller {
 
         // echo '<pre>'; print_r($artmulimage1); die();
 
-        $fourdata = '<div class="insertcommenttwo' . $image_id . '">';
+        $fourdata = '<div class="insertcommentimgtwo' . $image_id . '">';
 
 
         foreach ($artmulimage1 as $rowdata) {
@@ -5240,19 +5260,19 @@ class Artistic extends MY_Controller {
             $fourdata .= '<div class="comment-name">';
             $fourdata .= '<b>' . ucwords($artname) . '&nbsp' . ucwords($artlastname) . '</b></br> </div>';
 
-            $fourdata .= '<div class="comment-details" id= "showcommenttwo' . $rowdata['post_image_comment_id'] . '">';
+            $fourdata .= '<div class="comment-details" id= "showcommentimgtwo' . $rowdata['post_image_comment_id'] . '">';
             $fourdata .= '' . $rowdata['comment'] . '</br></div>';
 
-            $fourdata .= '<div contenteditable="true" class="editable_text" name="' . $rowdata['post_image_comment_id'] . '" id="editcommenttwo' . $rowdata['post_image_comment_id'] . '" style="display:none"  onClick="commentedittwo(' . $rowdata['post_image_comment_id'] . ')">';
+            $fourdata .= '<div contenteditable="true" class="editable_text" name="' . $rowdata['post_image_comment_id'] . '" id="editcommentimgtwo' . $rowdata['post_image_comment_id'] . '" style="display:none"  onClick="commenteditimgtwo(' . $rowdata['post_image_comment_id'] . ')">';
 
             $fourdata .= '' . $rowdata['comment'] . '';
             $fourdata .= '</div>';
 
-            $fourdata .= '<button id="editsubmittwo' . $rowdata['post_image_comment_id'] . '" style="display:none" onClick="edit_commenttwo(' . $rowdata['post_image_comment_id'] . ')">Comment</button>';
+            $fourdata .= '<button id="editsubmitimgtwo' . $rowdata['post_image_comment_id'] . '" style="display:none" onClick="edit_commentimgtwo(' . $rowdata['post_image_comment_id'] . ')">Comment</button>';
 
             $fourdata .= '<div class="art-comment-menu-design">';
-            $fourdata .= '<div class="comment-details-menu" id="likecommentone' . $rowdata['post_image_comment_id'] . '">';
-            $fourdata .= '<a id="' . $rowdata['post_image_comment_id'] . '"   onClick="comment_liketwo(this.id)">';
+            $fourdata .= '<div class="comment-details-menu" id="likecommentimg' . $rowdata['post_image_comment_id'] . '">';
+            $fourdata .= '<a id="' . $rowdata['post_image_comment_id'] . '"   onClick="comment_likeimgtwo(this.id)">';
 
             $userid = $this->session->userdata('aileenuser');
             $contition_array = array('post_image_comment_id' => $rowdata['post_image_comment_id'], 'user_id' => $userid, 'is_unlike' => 0);
@@ -5282,10 +5302,10 @@ class Artistic extends MY_Controller {
 
                 $fourdata .= '<span role="presentation" aria-hidden="true"> · </span>';
                 $fourdata .= '<div class="comment-details-menu">';
-                $fourdata .= '<div id="editcommentboxtwo' . $rowdata['post_image_comment_id'] . '" style="display:block;">';
-                $fourdata .= '<a id="' . $rowdata['post_image_comment_id'] . '"   onClick="comment_editboxtwo(this.id)">Edit</a> </div>';
-                $fourdata .= '<div id="editcancletwo' . $rowdata['post_image_comment_id'] . '" style="display:none;">';
-                $fourdata .= '<a id="' . $rowdata['post_image_comment_id'] . '" onClick="comment_editcancletwo(this.id)">Cancel</a></div></div>';
+                $fourdata .= '<div id="editcommentboximgtwo' . $rowdata['post_image_comment_id'] . '" style="display:block;">';
+                $fourdata .= '<a id="' . $rowdata['post_image_comment_id'] . '"   onClick="comment_editboximgtwo(this.id)">Edit</a> </div>';
+                $fourdata .= '<div id="editcancleimgtwo' . $rowdata['post_image_comment_id'] . '" style="display:none;">';
+                $fourdata .= '<a id="' . $rowdata['post_image_comment_id'] . '" onClick="comment_editcancleimgtwo(this.id)">Cancel</a></div></div>';
             }
             $userid = $this->session->userdata('aileenuser');
             $art_userid = $this->db->get_where('art_post', array('art_post_id' => $rowdata['art_post_id'], 'status' => 1))->row()->user_id;
@@ -5295,10 +5315,11 @@ class Artistic extends MY_Controller {
                 $fourdata .= '<div class="comment-details-menu">';
 
 
-                $fourdata .= '<input type="hidden" name="post_deletetwo"  id="post_deletetwo' . $rowdata['post_image_comment_id'] . '" value= "' . $rowdata['post_image_id'] . '">';
+             //   $fourdata .= '<input type="hidden" name="post_deleteimgtwo"  id="post_deleteimgtwo' . $rowdata['post_image_comment_id'] . '" value= "' . $rowdata['post_image_id'] . '">';
+                $fourdata .= '<input type="hidden" name="post_deleteimgtwo"  id="post_deleteimgtwo" value= "' . $rowdata['post_image_id'] . '">';
                 $fourdata .= '<a id="' . $rowdata['post_image_comment_id'] . '"';
                 //$fourdata .= 'onClick="comment_deletetwo(this.id)"> Delete <span class="insertcommenttwo' . $rowdata['post_image_comment_id'] . '">';
-                $fourdata .= 'onClick="comment_deletetwo(this.id)"> Delete';
+                $fourdata .= 'onClick="comment_deleteimgtwo(this.id)"> Delete';
                 $fourdata .= '</span> </a> </div>';
             }
             $fourdata .= '<span role="presentation" aria-hidden="true"> · </span>';
@@ -5333,6 +5354,24 @@ class Artistic extends MY_Controller {
         $update = $this->common->update_data($data, 'art_reg', 'user_id', $userid);
         echo 'ok';
     }
+    
+    public function likeuserlistimg() {
+        $post_id = $_POST['post_id'];
+
+        $contition_array = array('post_image_id' => $post_id, 'is_unlike' => '0');
+        $commnetcount = $this->common->select_data_by_condition('art_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        
+        echo '<div class="likeduser">';
+        echo '<div class="likeduser-title">User List</div>';
+        foreach ($commnetcount as $comment) {
+            $art_name1 = $this->db->get_where('art_reg', array('user_id' => $comment['user_id'], 'status' => 1))->row()->art_name;
+            echo '<div class="likeuser_list"><a href="'.base_url('artistic/artistic_profile/' . $comment['user_id']).'">';
+            echo ucwords($art_name1);
+            echo '</a></div>';
+        }
+        echo '<div>';
+    }
+    
     
     public function likeuserlist() {
         $post_id = $_POST['post_id'];

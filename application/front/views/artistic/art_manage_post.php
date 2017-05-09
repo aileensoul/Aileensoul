@@ -2116,6 +2116,7 @@ responsive image design start -->
                     dataType: "json",
                     success: function (data) {
                         //alert('.' + 'insertcomment' + clicked_id);
+                        alert(data.comment);
                         $('.' + 'insertcomment' + post_delete.value).html(data.comment);
                         $('#' + 'insertcount' + post_delete.value).html(data.count);
                         $('.post-design-commnet-box').show();

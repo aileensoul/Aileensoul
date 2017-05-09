@@ -929,7 +929,7 @@
                             return $text;
                         }
                         ?>
-
+<!--like comment start -->
                         <?php
                         foreach ($finalsorting as $row) {
 
@@ -1639,6 +1639,7 @@
                             }
                         }
                         ?>
+<!-- like commnet end -->
                     </div>
                     </section>
                     <footer>
