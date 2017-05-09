@@ -14,6 +14,7 @@ class Freelancer extends MY_Controller {
         $this->load->model('email_model');
 
         include ('include.php');
+          $this->data['aileenuser_id'] = $this->session->userdata('aileenuser');
     }
 
     public function index() {  //echo "falguni"; die();
@@ -1543,7 +1544,8 @@ $new = array();
             $jobdata = $this->common->select_data_by_condition('freelancer_apply', $contition_array, $data = 'app_id', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
             $data = array(
-                'job_delete' => 0
+                'job_delete' => 0,
+                'job_save'  => 3
                 
             );
 
@@ -1579,7 +1581,8 @@ $updatedata = $this->common->insert_data_getid($data, 'notification');
                 'status' => 1,
                 'created_date' => date('Y-m-d h:i:s', time()),
                 'is_delete' => 0,
-                'job_delete' => 0
+                'job_delete' => 0,
+                'job_save'  => 3
             );
 
 
@@ -2121,16 +2124,17 @@ $this->load->view('freelancer/freelancer_hire/freelancer_save', $this->data);
     public function remove_save() {
         //echo "hi"; die();
 
-        $id = $_POST['save_id'];
+          $id = $_POST['app_id'];
+        $para = $_POST['para'];
         $userid = $this->session->userdata('aileenuser');
-        // echo "$userid";
-
 
         $data = array(
-            'status' => 1
+            'job_delete' => 1,
+            'job_save' => 3,
+            'modify_date' => date('Y-m-d h:i:s', time())
         );
 
-        $updatedata = $this->common->update_data($data, 'save', 'save_id', $id);
+        $updatedata = $this->common->update_data($data, 'freelancer_apply', 'app_id', $id);
         // echo "<pre>"; print_r($updatedata);die();
     }
 

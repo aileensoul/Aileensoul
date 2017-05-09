@@ -678,24 +678,29 @@ $( "#tags" ).autocomplete({
                 </script>
                 
               
-    <script type="text/javascript">
-    function apply_post(abc)
-    {
-    var alldata = document.getElementById("allpost" + abc);
-    var user = document.getElementById("userid" + abc);
+    
+         <script type="text/javascript">
+                    function apply_post(abc, xyz) {
+                        //var alldata = document.getElementById("allpost" + abc);
+                        var alldata = 'all';
+                        //var user = document.getElementById("userid" + abc);
+                        var user = xyz;
 
-
-    $.ajax({
-    type:'POST',
-            url:'<?php echo base_url() . "freelancer/apply_insert" ?>',
-            data: 'post_id=' + abc + '&allpost=' + alldata.value + '&userid=' + user.value,
-            success:function(data){
-                //alert(data);
-            $('.' + 'applypost' + abc).html(data);
-            }
-    });
-    }
-    </script>
+                        $.ajax({
+                            type: 'POST',
+                            url: '<?php echo base_url() . "freelancer/apply_insert" ?>',
+//                            data: 'post_id=' + abc + '&allpost=' + alldata.value + '&userid=' + user.value,
+                            data: 'post_id=' + abc + '&allpost=' + alldata + '&userid=' + user,
+                            success: function (data) {
+                                $('.savedpost' + abc).hide();
+                                $('.applypost' + abc).html(data);
+                                $('.applypost' + abc).attr('disabled', 'disabled');
+                                $('.applypost' + abc).attr('onclick', 'myFunction()');
+                                $('.applypost' + abc).addClass('applied');
+                            }
+                        });
+                    }
+                </script>
                 <!-- apply post end-->
                               <!-- save post end -->
  <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
