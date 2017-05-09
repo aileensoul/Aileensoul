@@ -11,22 +11,6 @@ $(window).load(function(){
 <!-- style for span id=notification_count start-->
 <style>
 
-.animate
-{
-    transition: all 0.1s;
-    -webkit-transition: all 0.1s;
-}
-
-.action-button:active
-{
-    transform: translate(0px,5px);
-  -webkit-transform: translate(0px,5px);
-    border-bottom: 1px solid;
-}
-.action-button
-{
-     
-}
   /*style for span id=notification_count start*/
     #notification_count
     {   padding: 3px;
