@@ -545,15 +545,20 @@
           <?php
             if (!$data) {
                 ?> 
-         <input type="hidden" name="saveuser"  id="saveuser" value= "<?php echo $data[0]['save_id']; ?>">
-        <!-- pallavi changes 15-4 -->
-        <a id="<?php echo $row['user_id']; ?>" onClick="savepopup(<?php echo$row['user_id']; ?>)" href="javascript:void(0);" class="<?php echo 'saveduser' . $row['user_id']; ?>">Save</a>
+        <input type="hidden" id="<?php echo 'hideenuser' . $row['user_id']; ?>" value= "<?php echo $data[0]['save_id']; ?>">
+               
+              <a id="<?php echo $row['user_id']; ?>" onClick="savepopup(<?php echo $row['user_id']; ?>)" href="javascript:void(0);" class="<?php echo 'saveduser' . $row['user_id']; ?>">Save</a>
           <!-- pallavi changes end 15-4 -->
          <!--  <a id="<?php echo $row['user_id']; ?>" onClick="save_user(this.id)" href="#popup1" class="<?php echo 'saveduser' . $row['user_id']; ?>">Save User</a> -->
                 <?php
             } else {
                 ?>
-         <a class="saved" href="javascript:void(0);" onclick="return false">Saved</a> 
+
+
+       
+
+    <a class="saved">Saved </a> 
+              
                 <?php
                 // khayti changes end 6-4                              
             } }
@@ -691,30 +696,29 @@
                         //select2 autocomplete End for Location
                     </script>
                     <!-- save post start -->
-                    <script type="text/javascript">
-                        function save_user(abc)
+                     <script type="text/javascript">
+                  function save_user(abc)
                         {
-                            var saveid = document.getElementById("saveuser");
-                            $.ajax({
-                                type: 'POST',
-                                url: '<?php echo base_url() . "freelancer/save_user" ?>',
-                                data: 'user_id=' + abc + 'save_id=' + saveid.value,
-                                success: function (data) {
-                                    $('.' + 'saveduser' + abc).html(data).addClass('saved');
+           var saveid = document.getElementById("hideenuser" + abc);
+                $.ajax({
+        type: 'POST',
+        url: '<?php echo base_url() . "freelancer/save_user" ?>',
+        data: 'user_id=' + abc + '&save_id=' + saveid.value,
+        success: function (data) {
+    $('.' + 'saveduser' + abc).html(data).addClass('saved');
                                 }
                             });
                         }
                     </script>
-                    <!-- pallavi changes 15-4 -->
-                    <!-- save post end -->
-                    <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
+                    <!-- save post end-->
+<script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
+                   
                     <script>
                         function savepopup(id) {
-
                             save_user(id);
-//                       
-                            $('.biderror .mes').html("<div class='pop_content'>Your post is successfully saved.");
-                            $('#bidmodal').modal('show');
+                      
+            $('.biderror .mes').html("<div class='pop_content'>Your post is successfully saved.");
+            $('#bidmodal').modal('show');
                         }
                     </script>
                     <!-- pallavi changes end 15-4

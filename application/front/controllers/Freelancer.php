@@ -2032,54 +2032,46 @@ $updatedata = $this->common->update_data($data, 'freelancer_apply', 'app_id', $a
 
     public function save_user() {
 
-         $id = $_POST['post_id'];
+          $id = $_POST['user_id'];
 
+       // echo $id; die();
+        $save_id = $_POST['save_id'];
 
         $userid = $this->session->userdata('aileenuser');
-
-        $contition_array = array('post_id' => $id, 'user_id' => $userid, 'is_delete' => 0);
-        $userdata = $this->common->select_data_by_condition('freelancer_apply', $contition_array, $data = '*', $sortby = 'post_id', $orderby = 'asc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-//echo '<pre>'; print_r($userdata); die();
-
-        $app_id = $userdata[0]['app_id'];
+        //echo $id;die();
+        $contition_array = array('from_id' => $userid, 'to_id' => $id, 'save_id' => $save_id);
+        $userdata = $this->common->select_data_by_condition('save', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        //echo "<pre>";print_r($userdata);die();
 
         if ($userdata) {
-
-            $contition_array = array('job_delete' => 0);
-            $jobdata = $this->common->select_data_by_condition('freelancer_apply', $contition_array = array(), $data = '*', $sortby = 'post_id', $orderby = 'asc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
-
-
             $data = array(
-                'job_delete' => 1,
-                'job_save' => 2
+                'status' => 0
             );
 
-            $updatedata = $this->common->update_data($data, 'freelancer_apply', 'app_id', $app_id);
 
+            $updatedata = $this->common->update_data($data, 'save', 'save_id', $save_id);
 
             if ($updatedata) {
 
-                $savepost = 'Saved';
+                $saveuser = 'Saved';
+                echo $saveuser;
             }
-            echo $savepost;
         } else {
-
             $data = array(
-                'post_id' => $id,
-                'user_id' => $userid,
-                'status' => 1,
-                'created_date' => date('Y-m-d h:i:s', time()),
-                'is_delete' => 0,
-                'job_delete' => 1,
-                'job_save' => 2
+                'from_id' => $userid,
+                'to_id' => $id,
+                'status' => 0,
+                'save_type' => 2
             );
 
-            $insert_id = $this->common->insert_data_getid($data, 'freelancer_apply');
+            $insert_id = $this->common->insert_data($data, 'save');
+
+
             if ($insert_id) {
 
-                $savepost = 'Saved';
-            } echo $savepost;
+                $saveuser = 'Saved';
+                echo $saveuser;
+            }
         }
     }
 

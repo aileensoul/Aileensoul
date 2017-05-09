@@ -10,26 +10,7 @@ $(window).load(function(){
 
 <!-- style for span id=notification_count start-->
 <style>
-
-.animate
-{
-    transition: all 0.1s;
-    -webkit-transition: all 0.1s;
-}
-
-.action-button
-{
-   
-}
-
-
-.action-button:active
-{
-    transform: translate(0px,5px);
-  -webkit-transform: translate(0px,5px);
-   
-}
-    /*style for span id=notification_count start*/
+  /*style for span id=notification_count start*/
     #notification_count
     {   padding: 3px;
         background: #0c3168;
@@ -387,7 +368,7 @@ $(window).load(function(){
                         <div class="pushmenu pushmenu-left">
                             <ul class="">
 
-                                <li><a class="action-button shadow animate blue" href="<?php echo base_url('dashboard') ?>">All</a></li>
+                                <li><a class=" button7" href="<?php echo base_url('dashboard') ?>">All</a></li>
 
 
   <!-- <li><a href="#" id="notificationLink" onclick = "return getNotification()">Notification <i class="fa fa-bell-slash-o" aria-hidden="true"></i>
@@ -395,7 +376,7 @@ $(window).load(function(){
   </a></li> -->
 <!-- general notification start -->
                                 <li id="notification_li">
-                                    <a class="action-button shadow animate blue" href="javascript:void(0)" id="notificationLink" onclick = "return Notificationheader();">Notification <i class="fa fa-bell-slash-o" aria-hidden="true"></i>
+                                    <a href="javascript:void(0)" id="notificationLink" onclick = "return Notificationheader();">Notification <i class="fa fa-bell-slash-o" aria-hidden="true"></i>
 
                                         <span id="notification_count"></span>
 
@@ -417,7 +398,7 @@ $(window).load(function(){
 <?php if ($message_count) { ?>
                                                <!--  <span class="badge bg-theme"><?php echo $message_count; ?></span> -->
 <?php } ?>
-                                    <a class="action-button shadow animate blue" href="#" id="InboxLink" onclick = "return getmsgNotification()">Messages<i class="fa fa-commenting" aria-hidden="true"></i>
+                                    <a href="#" id="InboxLink" onclick = "return getmsgNotification()">Messages<i class="fa fa-commenting" aria-hidden="true"></i>
                                         <span id="message_count"></span>
                                     </a>
 
@@ -439,7 +420,7 @@ $(window).load(function(){
                                 <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
                                 <li class="dropdown dropdown-user">
 
-                                    <a class="dropbtn action-button shadow animate blue" href="javascript:void(0)" type="button" id="menu1" data-toggle="dropdown" >
+                                    <a class="dropbtn button7" href="javascript:void(0)" type="button" id="menu1" data-toggle="dropdown" >
                                         <!-- <div id="hi" class="notifications"> -->
 <?php if ($userdata[0]['user_image'] != '') { ?>
                                         <img alt="" class="img-circle" src="<?php echo base_url(USERIMAGE . $userdata[0]['user_image']); ?>" height="50" width="50" alt="Smiley face" />

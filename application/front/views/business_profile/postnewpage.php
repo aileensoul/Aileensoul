@@ -1063,7 +1063,7 @@
                                                                                         ?>
                                                                                         <span role="presentation" aria-hidden="true"> · </span>
                                                                                         <div class="comment-details-menu">
-                                                                                            <input type="hidden" name="imgpost_delete"  id="imgpost_delete" value= "<?php echo $rowdata['post_image_id']; ?>">
+                                                                                            <input type="hidden" name="imgpost_delete"  id="imgpost_delete_<?php echo $rowdata['post_image_comment_id']; ?>" value= "<?php echo $rowdata['post_image_id']; ?>">
                                                                                             <a id="<?php echo $rowdata['post_image_comment_id']; ?>"   onClick="imgcomment_delete(this.id)"> Delete<span class="<?php echo 'imginsertcomment' . $rowdata['post_image_comment_id']; ?>">
                                                                                                 </span> </a> </div>
 
@@ -2868,7 +2868,7 @@
                     document.getElementById('imgeditcancle' + abc).style.display = 'none';
                     $('#' + 'imgshowcomment' + abc).html(data);
 
-
+                    $('.post-design-commnet-box').show();
 
                 }
             });
@@ -3097,7 +3097,7 @@
 
     function imgcomment_deleted(clicked_id)
     {
-        var post_delete = document.getElementById("imgpost_delete");
+        var post_delete = document.getElementById("imgpost_delete_" + clicked_id);
         //alert(post_delete.value);
         $.ajax({
             type: 'POST',
@@ -3123,7 +3123,7 @@
 
     function imgcomment_deletedtwo(clicked_id)
     {
-        var post_delete1 = document.getElementById("imgpost_delete1");
+        var post_delete1 = document.getElementById("imgpost_deletetwo_" + clicked_id);
 //        alert(post_delete1.value);
 //        return false;
         $.ajax({

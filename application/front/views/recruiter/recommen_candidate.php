@@ -427,14 +427,14 @@ $data = $this->common->select_data_by_condition('save', $contition_array, $data 
 <!--                     <a href="#">Invite</a>-->
 
              <input type="hidden" id="<?php echo 'hideenuser' . $row['user_id']; ?>" value= "<?php echo $data[0]['save_id']; ?>">
-                <!-- <a id="<?php echo $row['user_id']; ?>" onClick="save_user(this.id)" href="#popup1" class="<?php echo 'saveduser' . $row['user_id']; ?>">Save User</a> -->
+               
               <a id="<?php echo $row['user_id']; ?>" onClick="savepopup(<?php echo $row['user_id']; ?>)" href="javascript:void(0);" class="<?php echo 'saveduser' . $row['user_id']; ?>">Save</a>
 
                 <?php
             } else {
                  ?>
     <a href="<?php echo base_url('chat/abc/' . $row['user_id']); ?>">Message</a> 
-<!--    <a href="#">Invite</a>   -->
+
     <a class="saved">Saved </a> 
                                                         <?php } }
         ?> 
