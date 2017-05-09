@@ -150,7 +150,7 @@ body {
                                   <li>
   
 <div class="dropdown_hover">
-  <span id="art_profile">Recruiter Profile <i class="fa fa-angle-down" aria-hidden="true"></i></span>
+  <span id="art_profile" style="font-size: 13px;">Recruiter Profile <i class="fa fa-angle-down" aria-hidden="true"></i></span>
   <div class="dropdown-content_hover" id="dropdown-content_hover">
       <a href="<?php echo base_url('recruiter/rec_profile'); ?>"><i class="fa fa-user" aria-hidden="true"></i> View Profile</a>
      <a href="<?php echo base_url('recruiter/rec_basic_information'); ?>"><i class="fa fa-pencil" aria-hidden="true"></i> Edit Profile</a>

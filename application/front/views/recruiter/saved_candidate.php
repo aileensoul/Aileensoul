@@ -361,6 +361,7 @@
                 <a id="designation" class="designation" title="<?php echo ucwords($recruiterdata[0]['designation']); ?>"><?php echo ucwords($recruiterdata[0]['designation']); ?></a>
             <?php } ?>
 
+        </div>
 
 
             <!-- The Modal -->
@@ -390,7 +391,7 @@
         <?php } ?>
   </div>
   
-        </div>
+        
 
         <!-- text head end -->
     </div>
