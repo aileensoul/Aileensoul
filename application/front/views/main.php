@@ -80,13 +80,16 @@
                     </div>
 
 <!-- start login data -->
+
+               
+
 <form action="<?php echo base_url(); ?>login/check_login" method="post" id="login_form" name="login_form">
 
                     <div class="col-md-7 col-sm-7 header-left-menu">
                         <div class="pushmenu pushmenu-left">
                       
    <div class="col-md-4 reg_form">
-                        <input type="text" name="user_name" id="user_name" placeholder="Email Address">
+                        <input type="text" name="user_name" id="user_name" placeholder="Email Address" value="">
 
                         <div class="checkbox2" style="display: block;">
 
@@ -96,6 +99,9 @@
         </div> 
          <div class="col-md-4 reg_form">              
                                <input type="password" name="password" id="password" placeholder="Password">
+
+                                <input type="hidden" name="hiddenf" id="hiddenf" value="main">
+
                               <span style="font-size: 12px; padding-left: 8px; font-weight: 600; color: #a0b3b0;">
                               <a style="font-size: 13px;" data-toggle="modal" href="login.html#myModal"> Forgot Password?</a>
                               </span>
@@ -122,6 +128,14 @@
 
     <!-- header end -->
 
+                  <?php
+                    if ($this->session->flashdata('error1')) {
+                        echo $this->session->flashdata('error1');
+                    }
+                    if ($this->session->flashdata('success')) {
+                        echo $this->session->flashdata('success');
+                    }
+                    ?>
          <marquee behavior="alternate" style="font-size: 30px;color: red; line-height: 30px;padding: 5px;">This Site Is Under Construction</marquee>
 
     <section id="section-height" style="height: 650px;">

@@ -25,6 +25,7 @@ class Login extends CI_Controller {
 
     public function check_login() {
 
+       $para = $_POST['hiddenf']; 
                                                             
         $this->form_validation->set_rules('user_name', 'User name', 'required');
         $this->form_validation->set_rules('password', 'Password', 'required');
@@ -38,22 +39,24 @@ class Login extends CI_Controller {
                 if ($user_check != 0) { 
       // cookie start
 
-                  if($this->input->post('remember')){
-        // $cookieuser= array(
-        //     'name'   => 'username',
-        //     'value'  => $this->input->post('user_name'),
-        //     'expire' => 'time()+ (10 * 365 * 24 * 60 * 60)',
-        //  );
+                  if($this->input->post('remember')){ 
+        $cookieuser= array(
+            'name'   => 'username',
+            'value'  => $this->input->post('user_name'),
+            'expire' => 'time()+ (10 * 365 * 24 * 60 * 60)',
+         );
 
-        // $cookiepass= array(
-        //     'name'   => 'password',
-        //     'value'  => $this->input->post('password'),
-        //     'expire' => 'time()+ (10 * 365 * 24 * 60 * 60)',
-        //  );
+        $cookiepass= array(
+            'name'   => 'password',
+            'value'  => $this->input->post('password'),
+            'expire' => 'time()+ (10 * 365 * 24 * 60 * 60)',
+         );
+       
+          $this->input->set_cookie($cookieuser); 
+          $this->input->set_cookie($cookiepass); 
 
-        //  echo  $this->input->set_cookie($cookieuser); 
-        //  echo  $this->input->set_cookie($cookiepass); die();
-           }
+        
+             }
           // cookie end
   
                     //echo $user_name;echo  md5($user_password);
@@ -90,12 +93,27 @@ class Login extends CI_Controller {
                      redirect('dashboard', 'refresh');
                    
                 } else {
+
+                    if($para == login){
                     $this->session->set_flashdata('error', '<div class="alert alert-danger">Please Enter Valid Credential.</div>');
                     redirect('login', 'refresh');
+                    }else{
+                      $this->session->set_flashdata('error1', '<div class="alert alert-danger">Please Enter Valid Credential.</div>');
+                    redirect('main', 'refresh');
+
+                    }
                 }
             } else {
+
+
+                  if($para == login){
                 $this->session->set_flashdata('error', '<div class="alert alert-danger">Please Enter Valid Login Detail.</div>');
                 redirect('login', 'refresh');
+                 }else{
+                   $this->session->set_flashdata('error', '<div class="alert alert-danger">Please Enter Valid Login Detail.</div>');
+                redirect('main', 'refresh');
+
+                 }
             }
         } else {
             $this->load->view('Login/index', $this->data);
