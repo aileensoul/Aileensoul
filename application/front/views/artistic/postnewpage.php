@@ -3048,7 +3048,7 @@ if (count($commnetcount) > 0) {
             document.getElementById('imgshowcomment' + clicked_id).style.display = 'block';
             document.getElementById('imgeditsubmit' + clicked_id).style.display = 'none';
                                                             }
-                                                            function imgcomment_editboxtwo(clicked_id) {  //alert('editsubmit2' + clicked_id);
+        function imgcomment_editboxtwo(clicked_id) {  //alert('editsubmit2' + clicked_id);
             document.getElementById('imgeditcommenttwo' + clicked_id).style.display = 'block';
             document.getElementById('imgshowcommenttwo' + clicked_id).style.display = 'none';
             document.getElementById('imgeditsubmittwo' + clicked_id).style.display = 'block';
@@ -3255,7 +3255,7 @@ if (count($commnetcount) > 0) {
                         
                        
                         function comment_likeimg(clicked_id)
-                        {// alert("hi");
+                        {
                                  alert(clicked_id);
                             $.ajax({
                                 type: 'POST',
