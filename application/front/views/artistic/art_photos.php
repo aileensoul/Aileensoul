@@ -1205,7 +1205,20 @@
 </div>
 <!-- Model Popup Close -->
 
-
+<!-- Model Popup Close -->
+        <!-- Bid-modal-2  -->
+        <div class="modal fade message-box" id="likeusermodal" role="dialog">
+            <div class="modal-dialog modal-lm">
+                <div class="modal-content">
+                    <button type="button" class="modal-close" data-dismiss="modal">&times;</button>       
+                    <div class="modal-body">
+                        <span class="mes">
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Model Popup Close -->
 </html>
 <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
 <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>

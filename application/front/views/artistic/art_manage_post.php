@@ -3864,9 +3864,7 @@ responsive image design start -->
                         $('#likeusermodal').modal('show');
                     }
                 });
-
-
-            }
+          }
         </script>
 
         <style type="text/css">
