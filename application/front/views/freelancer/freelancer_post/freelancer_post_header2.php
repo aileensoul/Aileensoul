@@ -1,5 +1,30 @@
 <!--post save success pop up style strat -->
-
+<style type="text/css">
+  .dropdown-content_hover {
+    display: none;
+    position: absolute;
+    color: #3b5283;
+    background-color: #fff;
+    min-width: 139px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    margin-top: 3px;
+    z-index: 1;
+    left: 26px;
+    border-radius: 4px;
+} .dropdown-content_hover::before {
+    /* top: -1px; */
+    content: '';
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    color: transparent;
+    border: 9px solid black;
+    border-color: transparent transparent #fff;
+    margin-top: -18px;
+    /* margin-left: 104px; */
+    right: 10px;
+</style>
 
 <!--post save success pop up style end -->
 

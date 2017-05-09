@@ -1,4 +1,19 @@
-
+<style type="text/css">
+  .dropdown-content_hover::before {
+    /* top: -1px; */
+    content: '';
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    color: transparent;
+    border: 9px solid black;
+    border-color: transparent transparent #fff;
+    margin-top: -18px;
+    /* margin-left: 104px; */
+    right: 15px;
+}
+</style>
 
 
 
