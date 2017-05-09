@@ -11,23 +11,55 @@ $(window).load(function(){
 <!-- style for span id=notification_count start-->
 <style>
 
-.animate
-{
-    transition: all 0.1s;
-    -webkit-transition: all 0.1s;
+#notification_li .button4 {
+    color: rgba(255,255,255,1)!important;
+    -webkit-transition: all 0.5s!important;
+    -moz-transition: all 0.5s!important;
+    -o-transition: all 0.5s!important;
+    transition: all 0.5s!important;
+    position: relative!important;
+  
+    overflow: hidden!important;
 }
-
-.action-button
-{
-   
+#notification_li .button4 a{
+    color: rgba(51,51,51,1)!important;
+    text-decoration: none!important;
+    display: block!important;
 }
-
-
-.action-button:active
-{
-    transform: translate(0px,5px);
-  -webkit-transform: translate(0px,5px);
-   
+#notification_li .button4 > span {
+    -webkit-transition: all 0.3s!important;
+    -moz-transition: all 0.3s!important;
+    -o-transition: all 0.3s!important;
+    transition: all 0.3s!important;
+}
+#notification_li .button4:hover{
+    background-color: rgba(255,255,255,0.2)!important;
+}
+#notification_li .button4:hover > span{
+    opacity: 0!important;
+    -webkit-transform: translate(0px,40px)!important;
+    transform: translate(0px,40px)!important;
+}
+#notification_li .button4::after{
+    content: attr(data-text)!important;
+    position: absolute!important;
+    width: 100%!important;
+    height: 100%!important;
+    top: 0!important;
+    left: 0!important;
+    opacity: 0!important;
+    -webkit-transform: translate(-30%, -50%) rotate(-30deg)!important;
+    transform: translate(-30%, -50%) rotate(-30deg)!important;
+    -webkit-transition: all 0.3s!important;
+    -moz-transition: all 0.3s!important;
+    -o-transition: all 0.3s!important;
+    transition: all 0.3s!important;   
+    
+}
+#notification_li .button4:hover::after{
+    opacity: 1!important;
+    -webkit-transform: translate(0, 0)!important;
+    transform: translate(0, 0)!important;
 }
     /*style for span id=notification_count start*/
     #notification_count
@@ -387,7 +419,7 @@ $(window).load(function(){
                         <div class="pushmenu pushmenu-left">
                             <ul class="">
 
-                                <li><a class="action-button shadow animate blue" href="<?php echo base_url('dashboard') ?>">All</a></li>
+                                <li><a class=" button7" href="<?php echo base_url('dashboard') ?>">All</a></li>
 
 
   <!-- <li><a href="#" id="notificationLink" onclick = "return getNotification()">Notification <i class="fa fa-bell-slash-o" aria-hidden="true"></i>
@@ -395,7 +427,7 @@ $(window).load(function(){
   </a></li> -->
 <!-- general notification start -->
                                 <li id="notification_li">
-                                    <a class="action-button shadow animate blue" href="javascript:void(0)" id="notificationLink" onclick = "return Notificationheader();">Notification <i class="fa fa-bell-slash-o" aria-hidden="true"></i>
+                                    <a class="button4" href="javascript:void(0)" id="notificationLink" onclick = "return Notificationheader();">Notification <i class="fa fa-bell-slash-o" aria-hidden="true"></i>
 
                                         <span id="notification_count"></span>
 
@@ -417,7 +449,7 @@ $(window).load(function(){
 <?php if ($message_count) { ?>
                                                <!--  <span class="badge bg-theme"><?php echo $message_count; ?></span> -->
 <?php } ?>
-                                    <a class="action-button shadow animate blue" href="#" id="InboxLink" onclick = "return getmsgNotification()">Messages<i class="fa fa-commenting" aria-hidden="true"></i>
+                                    <a href="#" id="InboxLink" onclick = "return getmsgNotification()">Messages<i class="fa fa-commenting" aria-hidden="true"></i>
                                         <span id="message_count"></span>
                                     </a>
 
@@ -439,7 +471,7 @@ $(window).load(function(){
                                 <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
                                 <li class="dropdown dropdown-user">
 
-                                    <a class="dropbtn action-button shadow animate blue" href="javascript:void(0)" type="button" id="menu1" data-toggle="dropdown" >
+                                    <a class="dropbtn button7" href="javascript:void(0)" type="button" id="menu1" data-toggle="dropdown" >
                                         <!-- <div id="hi" class="notifications"> -->
 <?php if ($userdata[0]['user_image'] != '') { ?>
                                         <img alt="" class="img-circle" src="<?php echo base_url(USERIMAGE . $userdata[0]['user_image']); ?>" height="50" width="50" alt="Smiley face" />
