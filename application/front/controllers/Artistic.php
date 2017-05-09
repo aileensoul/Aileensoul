@@ -5355,6 +5355,24 @@ echo '<pre>'; print_r($artdata); die();
         echo 'ok';
     }
     
+    public function likeuserlistimg() {
+        $post_id = $_POST['post_id'];
+
+        $contition_array = array('post_image_id' => $post_id, 'is_unlike' => '0');
+        $commnetcount = $this->common->select_data_by_condition('art_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        
+        echo '<div class="likeduser">';
+        echo '<div class="likeduser-title">User List</div>';
+        foreach ($commnetcount as $comment) {
+            $art_name1 = $this->db->get_where('art_reg', array('user_id' => $comment['user_id'], 'status' => 1))->row()->art_name;
+            echo '<div class="likeuser_list"><a href="'.base_url('artistic/artistic_profile/' . $comment['user_id']).'">';
+            echo ucwords($art_name1);
+            echo '</a></div>';
+        }
+        echo '<div>';
+    }
+    
+    
     public function likeuserlist() {
         $post_id = $_POST['post_id'];
 
