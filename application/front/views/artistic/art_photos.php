@@ -1007,8 +1007,8 @@
 
 
                                                                                     <div class="art-comment-menu-design"> 
-                                                                                        <div class="comment-details-menu" id="<?php echo 'likecommentimg1' . $rowdata['post_image_comment_id']; ?>">
-                                                                                            <a id="<?php echo $rowdata['post_image_comment_id']; ?>"   onClick="comment_likeimg1(this.id)">
+                                                                                        <div class="comment-details-menu" id="<?php echo 'likecommentimg' . $rowdata['post_image_comment_id']; ?>">
+                                                                                            <a id="<?php echo $rowdata['post_image_comment_id']; ?>"   onClick="comment_likeimg(this.id)">
 
                                                                                                 <?php
                                                                                                 $userid = $this->session->userdata('aileenuser');
@@ -1123,7 +1123,7 @@
                                                                     <div id="content" class="col-md-10 inputtype-comment" style="padding-left: 7px !important;">
                                                                         <div contenteditable="true" style="min-height:37px !important; margin-top: 0px!important" class="editable_text" name="<?php echo $artdata['image_id']; ?>"  id="<?php echo "post_commentimg" . $artdata['image_id']; ?>" placeholder="Type Message ..." onClick="entercommentimg(<?php echo $artdata['image_id']; ?>)"></div>
                                                                     </div>
-                                                                    <?php echo form_error('post_comment'); ?>
+                                                                    <?php echo form_error('post_commentimg'); ?>
                                                                     <div class="col-md-1 comment-edit-butn">   
                                                                         <button id="<?php echo $artdata['image_id']; ?>" onClick="insert_commentimg(this.id)">Comment</button> 
                                                                     </div>
@@ -1432,9 +1432,9 @@
     function insert_commentimg(clicked_id)
     {
         // start khyati code
-        var $field = $('#post_comment' + clicked_id);
+        var $field = $('#post_commentimg' + clicked_id);
         //var data = $field.val();
-        var post_comment = $('#post_comment' + clicked_id).html();
+        var post_commentimg = $('#post_commentimg' + clicked_id).html();
 // end khyati code
 
 
@@ -1442,7 +1442,7 @@
         var x = document.getElementById('threecomment' + clicked_id);
         var y = document.getElementById('fourcomment' + clicked_id);
 
-        if (post_comment == '') {
+        if (post_commentimg == '') {
             event.preventDefault();
             return false;
         } else {
@@ -2099,15 +2099,15 @@
                         }
                         
                        
-                        function comment_likeimg1(clicked_id)
-                        {
-
+                        function comment_likeimg(clicked_id)
+                        {// alert("hi");
+                                 alert(clicked_id);
                             $.ajax({
                                 type: 'POST',
                                 url: '<?php echo base_url() . "artistic/like_commentimg1" ?>',
                                 data: 'post_image_comment_id=' + clicked_id,
                                 success: function (data) {
-                                    $('#' + 'likecommentimg1' + clicked_id).html(data);
+                                    $('#' + 'likecommentimg' + clicked_id).html(data);
 
                                 }
                             });
@@ -2134,6 +2134,35 @@
                             $('.post-design-commnet-box').show();
                         }
                         
+                        function comment_editboximgtwo(clicked_id) {
+//                            alert('editcommentboxtwo' + clicked_id);
+//                            return false;
+                            $('div[id^=editcommentimgtwo]').css('display', 'none');
+                            $('div[id^=showcommentimgtwo]').css('display', 'block');
+                            $('button[id^=editsubmitimgtwo]').css('display', 'none');
+                            $('div[id^=editcommentboximgtwo]').css('display', 'block');
+                            $('div[id^=editcancleimgtwo]').css('display', 'none');
+
+                            document.getElementById('editcommentimgtwo' + clicked_id).style.display = 'inline-block';
+                            document.getElementById('showcommentimgtwo' + clicked_id).style.display = 'none';
+                            document.getElementById('editsubmitimgtwo' + clicked_id).style.display = 'inline-block';
+                            document.getElementById('editcommentboximgtwo' + clicked_id).style.display = 'none';
+                            document.getElementById('editcancleimgtwo' + clicked_id).style.display = 'block';
+                            $('.post-design-commnet-box').hide();
+                        }
+
+
+                        function comment_editcancleimgtwo(clicked_id) {
+
+                            document.getElementById('editcommentboximgtwo' + clicked_id).style.display = 'block';
+                            document.getElementById('editcancleimgtwo' + clicked_id).style.display = 'none';
+
+                            document.getElementById('editcommentimgtwo' + clicked_id).style.display = 'none';
+                            document.getElementById('showcommentimgtwo' + clicked_id).style.display = 'block';
+                            document.getElementById('editsubmitimgtwo' + clicked_id).style.display = 'none';
+                            $('.post-design-commnet-box').show();
+                        }
+                        
                         function comment_deleteimg(clicked_id) {
                             $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='comment_deletedimg(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
                             $('#bidmodal').modal('show');
@@ -2142,7 +2171,7 @@
                         function comment_deletedimg(clicked_id)
                         {
                             var post_delete = document.getElementById("post_deleteimg");
-                            //alert(post_delete.value);
+                            alert(post_delete.value);
                             $.ajax({
                                 type: 'POST',
                                 url: '<?php echo base_url() . "artistic/delete_commentimg" ?>',
@@ -2156,7 +2185,159 @@
                                 }
                             });
                         }
+                        
+                        function insert_commentimg(clicked_id)
+                        {
+                            $("#post_commentimg" + clicked_id).click(function () {
+                                $(this).prop("contentEditable", true);
+                                $(this).html("");
+                            });
+
+                            var sel = $("#post_commentimg" + clicked_id);
+                            var txt = sel.html();
+                            if (txt == '') {
+                                return false;
+                            }
+
+                            $('#post_commentimg' + clicked_id).html("");
+
+                            var x = document.getElementById('threecommentimg' + clicked_id);
+                            var y = document.getElementById('fourcommentimg' + clicked_id);
+                            
+                            if (x.style.display === 'block' && y.style.display === 'none') {
+                                $.ajax({
+                                    type: 'POST',
+                                    url: '<?php echo base_url() . "artistic/insert_commentthreeimg" ?>',
+                                    data: 'post_image_id=' + clicked_id + '&comment=' + txt,
+                                    dataType: "json",
+                                    success: function (data) {
+                                        $('textarea').each(function () {
+                                            $(this).val('');
+                                        });
+                                        $('#' + 'insertcountimg' + clicked_id).html(data.count);
+                                        $('.insertcommentimg' + clicked_id).html(data.comment);
+
+                                    }
+                                });
+
+                            } else {
+
+                                $.ajax({
+                                    type: 'POST',
+                                    url: '<?php echo base_url() . "artistic/insert_commentimg" ?>',
+                                    data: 'post_image_id=' + clicked_id + '&comment=' + txt,
+                                    dataType: "json",
+                                    success: function (data) {
+                                        $('textarea').each(function () {
+                                            $(this).val('');
+                                        });
+                                        $('#' + 'insertcountimg' + clicked_id).html(data.count);
+                                        $('#' + 'fourcommentimg' + clicked_id).html(data.comment);
+                                    }
+                                });
+                            }
+                        }
+                        
+                                function edit_commentimg(abc)
+                        {
+                            $("#editcommentimg" + abc).click(function () {
+                                $(this).prop("contentEditable", true);
+                            });
+
+                            var sel = $("#editcommentimg" + abc);
+                            var txt = sel.html();
+                            if (txt == '' || txt == '<br>') {
+                                $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+                                $('#bidmodal').modal('show');
+                                return false;
+                            }
+                            $.ajax({
+                                type: 'POST',
+                                url: '<?php echo base_url() . "artistic/edit_comment_insertimg" ?>',
+                                data: 'post_image_comment_id=' + abc + '&comment=' + txt,
+                                success: function (data) {
+                                    document.getElementById('editcommentimg' + abc).style.display = 'none';
+                                    document.getElementById('showcommentimg' + abc).style.display = 'block';
+                                    document.getElementById('editsubmitimg' + abc).style.display = 'none';
+                                    document.getElementById('editcommentboximg' + abc).style.display = 'block';
+                                    document.getElementById('editcancleimg' + abc).style.display = 'none';
+                                    $('#' + 'showcommentimg' + abc).html(data);
+                                    $('.post-design-commnet-box').show();
+                                }
+                            });
+                            $(".scroll").click(function (event) {
+                                event.preventDefault();
+                                $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1200);
+                            });
+                        }
+                        
+                        function commentallimg(clicked_id) {
+                            var x = document.getElementById('threecommentimg' + clicked_id);
+                            var y = document.getElementById('fourcommentimg' + clicked_id);
+                            var z = document.getElementById('insertcountimg' + clicked_id);
+
+                            if (x.style.display === 'block' && y.style.display === 'none') {
+                                x.style.display = 'none';
+                                y.style.display = 'block';
+                                z.style.visibility = 'show';
+                                $.ajax({
+                                    type: 'POST',
+                                    url: '<?php echo base_url() . "artistic/fourcommentimg" ?>',
+                                    data: 'art_post_id=' + clicked_id,
+                                    //alert(data);
+                                    success: function (data) {
+                                        $('#' + 'fourcommentimg' + clicked_id).html(data);
+                                    }
+                                });
+                            }
+                            // } else {
+                            //      x.style.display = 'block';
+                            //      y.style.display = 'block';
+                            //      z.style.display = 'block';
+
+                            //      $.ajax({ 
+                            //             type:'POST',
+                            //             url:'<?php echo base_url() . "artistic/fourcomment" ?>',
+                            //             data:'art_post_id='+clicked_id,
+                            //             //alert(data);
+                            //             success:function(data){
+                            //       $('#' + 'threecomment' + clicked_id).html(data);
+
+                            //       }
+                            //         });
+                            // }
+                        }
+                        
+                        function comment_deletetwo(clicked_id)
+                        {
+                            $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='comment_deletedtwo(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+                            $('#bidmodal').modal('show');
+                        }
+
                     </script>
+
+                    <script type="text/javascript">
+                        function comment_deletedtwo(clicked_id)
+                        {
+                            var post_delete1 = document.getElementById("post_deletetwo");
+                            $.ajax({
+                                type: 'POST',
+                                url: '<?php echo base_url() . "artistic/delete_commenttwo" ?>',
+                                data: 'post_id=' + clicked_id + '&post_delete=' + post_delete1.value,
+                                dataType: "json",
+                                success: function (data) {
+
+                                    // $('.' + 'insertcomment' + post_delete.value).html(data);
+                                    $('.' + 'insertcommenttwo' + post_delete1.value).html(data.comment);
+                                    $('#' + 'insertcount' + post_delete1.value).html(data.count);
+                                    $('.post-design-commnet-box').show();
+
+                                }
+                            });
+                        }
+                    </script>
+    
+                 
                    
 
 <!-- khyati image script  emd --> 
