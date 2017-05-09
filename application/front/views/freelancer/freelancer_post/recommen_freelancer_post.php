@@ -202,7 +202,7 @@ body {
     <body>
 
         <!-- cover pic start -->
-        <div class="user-midd-section">
+        <div class="user-midd-section" id="paddingtop_fixed">
             <div class="container">
                 <div class="row">
 
@@ -387,24 +387,7 @@ function text2link($text) {
                                         <div class="profile-job-post-detail clearfix" id="<?php echo "removeapply" . $post['post_id']; ?>">
                                             <div class="profile-job-post-title-inside clearfix">
 
-
-                                                <!-- pop up box start-->
-                                                <!-- <div id="<?php echo 'popup3' . $post['post_id']; ?>" class="overlay">
-                                                    <div class="popup"> -->
-<!-- khati changes 11-4 start -->
-                                                        <!-- div class="pop_content">
-                                                            Are You Sure want to delete this post?.
-
-                                                            <p class="okk"><a class="okbtn" id="<?php echo $post['post_id']; ?>" onClick="remove_post(this.id)" href="#">Yes</a></p>
-
-                                                            <p class="okk"><a class="cnclbtn" href="#">No</a></p>
-
-                                                        </div> -->
-<!-- khati changes 11-4 end -->
-                                                   <!--  </div>
-                                                </div> -->
-                                                <!-- pop up box end-->
-                  <div class="profile-job-post-title clearfix" style="margin-bottom:0px">
+                  <div class="profile-job-post-title clearfix search" style="margin-bottom:0px">
                   <div class="profile-job-profile-button clearfix">
                      <div class="profile-job-details col-md-12">
                           <ul>
@@ -432,7 +415,7 @@ function text2link($text) {
 
                             <li><a class="display_inline" title="<?php echo ucwords($firstname); ?>&nbsp;<?php echo ucwords($lastname); ?>" href="<?php echo base_url('freelancer/freelancer_hire_profile/' . $post['user_id'].'?page=freelancer_post'); ?>"><?php echo ucwords($firstname); ?>&nbsp;<?php echo ucwords($lastname); ?>
                             </a></li>
-                    <!-- vishang 14-4 end -->    
+                
                 </ul>
              </div>
           </div>
@@ -485,7 +468,7 @@ function text2link($text) {
                      else{ echo PROFILENA;}
                         ?></span>
                                                                 </li>
-                                                                <!-- vishang 14-4 start -->
+                                                               
                                                                 <li>
                                                                     <b>Required Experience</b>
                                                                     <span>
@@ -495,11 +478,6 @@ function text2link($text) {
                                                                     </span>
                                                                 </li>
 
-
-                                                                <!-- vishang 14-4 end -->
-
-                                                               
-                                                                
                                                                 <li><b>Estimated Time</b><span> <?php if($post['post_est_time']) {echo $post['post_est_time'];} else{echo PROFILENA; } ?></span>
                                                                 </li>
 
@@ -511,7 +489,7 @@ function text2link($text) {
                       <ul><li class="job_all_post last_date">
                            Last Date : <?php if($post['post_last_date']){echo date('d-M-Y', strtotime($post['post_last_date']));} else{echo PROFILENA;} ?>                                                          </li>
 
-                                                                   
+                                                                    <input type="hidden" name="search" id="search" value="<?php echo $keyword; ?>">
                                                                                             
                                           <li class=fr>
                                           <?php
@@ -793,4 +771,7 @@ $data = $this->common->select_data_by_condition('save', $contition_array, $data 
                 }
                 </script>
                 
-                <!-- save post end
+                <!-- save post end -->
+
+
+                

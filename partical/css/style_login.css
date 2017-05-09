@@ -222,7 +222,7 @@ label.highlight {
 
 input, textarea,button {
   background-color: #fff!important;
-  font-size: 22px;
+  font-size: 18px;
   display: block;
   width: 100%;
   height: 100%;
@@ -624,6 +624,11 @@ footer .footer-menu li a:hover{
 
 .field-wrap{}
 .field-wrap input::-webkit-input-placeholder {
+  color: #a0b3b0; font-weight: 600;
+    font-size: 15px;
+    line-height: 3;
+}
+.field-wrap input::-moz-input-placeholder {
   color: #a0b3b0; font-weight: 600;
     font-size: 15px;
     line-height: 3;

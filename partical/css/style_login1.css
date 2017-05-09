@@ -224,10 +224,10 @@ label .req {
 
 input, textarea,button {
 
-    font-size: 22px;
+    font-size: 18px;
     background-color: #fff!important;
     display: block;
-    line-height: 20px;
+    line-height: 24px;
     width: 100%;
     height: auto;
     padding: 2px 9px;
@@ -577,16 +577,25 @@ input[type="radio"] {
 .error-msg p, label.error { background: #737373; color: #fff !important; padding: 4px 10px !important; position: absolute; right: 8px; z-index: 10; font-size: 12px; }
 
 .error-msg select { border:2px solid #f00; }
-.top-row .full-width{width: 100%; padding-bottom: 32px;      padding-right: 19px;}
-.reg_form input{line-height: 2px; padding: 1px 7px;}
+.top-row .full-width{width: 100%; padding-bottom: 32px;padding-right: 19px;}
+.reg_form input{line-height: 24px; padding: 1px 7px;}
 .reg_form{margin-top: 25px;     padding-left: 0px;}
 .reg_form input::-webkit-input-placeholder {
   color: #a0b3b0; font-weight: 600;
     font-size: 15px;
     line-height: 3;
 }
+.reg_form input::-moz-placeholder {
+  color: #a0b3b0; font-weight: 600;
+    font-size: 15px;
+    line-height: 1.7;
+}
 .reg_button input{padding: 6px 7px;border: none; line-height: normal; font-size: 15px; background-color: #87ceff!important; color: #FFF; font-weight: 600; }
 .reg_button{margin-top: 27px;    padding-left: 0px; }
 .field-wrap  input::-webkit-input-placeholder{ color: #a0b3b0; font-weight: 600;
+    font-size: 15px;
+    line-height: 3;}
+    
+    .field-wrap  input::-moz-input-placeholder{ color: #a0b3b0; font-weight: 600;
     font-size: 15px;
     line-height: 3;}

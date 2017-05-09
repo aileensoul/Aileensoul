@@ -1765,6 +1765,7 @@ public function freelancer_post_index()
            // echo "$search_condition";
          $experidata=$experidata['data'] = $this->common->select_data_by_search('freelancer_post', $search_condition, $contition_array = array(), $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str=array(), $groupby = '');
          
+         echo "<pre>"; print_r($experidata); die();
    if(count($freeskillpost)  == 0){
     // echo "hello";
               $unique=array_merge($freeldata,$experidata);

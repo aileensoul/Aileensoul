@@ -162,11 +162,12 @@
                                     Description <span class="req">*</span>
                                 </label>
                               <div contenteditable="true" name="contact_message" class="description " id="contact_message"  style="    background-color: #fff!important;
-    font-size: 22px;
+    font-size: 18px;
    
     min-height: 150px;
     padding: 5px 10px;
-   
+    max-height: 150px;
+    overflow: scroll;
     border: 1px solid #a0b3b0;
     color: #000000;
     border-radius: 3px;
