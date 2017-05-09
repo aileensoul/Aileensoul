@@ -173,7 +173,7 @@ echo $freelancer_post_header2;
             <div class="right-side-menu col-md-8">  
                 <ul class="">
                     <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_post_profile')) { ?> class="active" <?php } ?>>
-                        <?php if($returnpage == 'freelancer_hire'){ ?><a href="<?php echo base_url('freelancer/freelancer_post_profile/').$this->uri->segment(3).'?page=freelancer_hire'; ?>">Details</a><?php } else { ?><a href="<?php echo base_url('freelancer/freelancer_post_profile'); ?>">Details</a><?php } ?>
+                        <?php if($returnpage == 'freelancer_hire'){ ?><a title="Freelancer Details" href="<?php echo base_url('freelancer/freelancer_post_profile/').$this->uri->segment(3).'?page=freelancer_hire'; ?>">Details</a><?php } else { ?><a title="Freelancer Details" href="<?php echo base_url('freelancer/freelancer_post_profile'); ?>">Details</a><?php } ?>
                     </li>
 
 
@@ -182,10 +182,10 @@ echo $freelancer_post_header2;
 
 
 
-                        <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_save_post')) { ?> class="active" <?php } ?>><a href="<?php echo base_url('freelancer/freelancer_save_post'); ?>">Saved Post</a>
+                        <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_save_post')) { ?> class="active" <?php } ?>><a title="Saved Post" href="<?php echo base_url('freelancer/freelancer_save_post'); ?>">Saved Post</a>
                         </li>
 
-                        <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_applied_post')) { ?> class="active" <?php } ?>><a href="<?php echo base_url('freelancer/freelancer_applied_post'); ?>">Applied Post</a>
+                        <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_applied_post')) { ?> class="active" <?php } ?>><a title="Applied  Post" href="<?php echo base_url('freelancer/freelancer_applied_post'); ?>">Applied Post</a>
                         </li>
 
 
