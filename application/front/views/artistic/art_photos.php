@@ -912,8 +912,8 @@
                                                                     $commnetcount = $this->common->select_data_by_condition('art_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                                                                   // echo '<pre>'; print_r($commnetcount);
                                                                     foreach ($commnetcount as $comment) {
-                                                                      echo  $art_fname1 = $this->db->get_where('art_reg', array('user_id' => $comment['user_id'], 'status' => 1))->row()->art_name;
-                                                                      echo  $art_lname1 = $this->db->get_where('art_reg', array('user_id' => $comment['user_id'], 'status' => 1))->row()->art_lastname;
+                                                                       $art_fname1 = $this->db->get_where('art_reg', array('user_id' => $comment['user_id'], 'status' => 1))->row()->art_name;
+                                                                       $art_lname1 = $this->db->get_where('art_reg', array('user_id' => $comment['user_id'], 'status' => 1))->row()->art_lastname;
                                                                     ?>
                                                                 <?php } ?>
                                                                 <!-- pop up box end-->
@@ -1111,7 +1111,7 @@
                                                                 </div>
                                                                 <div class="">
                                                                     <div id="content" class="col-md-10 inputtype-comment" style="padding-left: 7px !important;">
-                                                                        <div contenteditable="true" style="min-height:37px !important; margin-top: 0px!important" class="editable_text" name="<?php echo $artdata['image_id']; ?>"  id="<?php echo "post_commentimg" . $artdata['image_id']; ?>" placeholder="Type Message ..." onClick="entercommentimg(<?php echo $artdata['image_id']; ?>)"></div>
+                                                                        <div contenteditable="true" style="min-height:37px !important; margin-top: 0px!important" class="editable_text" name="<?php echo $artdata['image_id']; ?>"  id="<?php echo "post_commentimg" . $artdata['image_id']; ?>" placeholder="Type Message ..." onkeyup="entercommentimg(<?php echo $artdata['image_id']; ?>)"></div>
                                                                     </div>
                                                                     <?php echo form_error('post_commentimg'); ?>
                                                                     <div class="col-md-1 comment-edit-butn">   
@@ -1491,7 +1491,7 @@
 </script>
 
 <script type="text/javascript">
-    function entercommentimg(clicked_id) {
+    function entercomment(clicked_id) {
 
 
 //var $field = $('#post_comment' + clicked_id);
@@ -1499,19 +1499,21 @@
         // var post_comment = $('#post_comment' + clicked_id).html();
 
         //$(document).ready(function($) {
-        $("#post_comment" + clicked_id).click(function () {
+//        alert("#post_commentimg" + clicked_id);
+//        return false;
+        $("#post_commentimg" + clicked_id).click(function () {
             $(this).prop("contentEditable", true);
             $(this).html("");
         });
 
 
-        $("#post_comment" + clicked_id).keypress(function (event) { //alert(post_comment);
+        $("#post_commentimg" + clicked_id).keypress(function (event) { //alert(post_comment);
             if (event.which == 13 && event.shiftKey != 1) { //alert(post_comment);
                 event.preventDefault();
-                var sel = $("#post_comment" + clicked_id);
+                var sel = $("#post_commentimg" + clicked_id);
                 var txt = sel.html();
 
-                $('#post_comment' + clicked_id).html("");
+                $('#post_commentimg' + clicked_id).html("");
                 // $("#result").html(txt);
                 // sel.html("")
                 // sel.blur();
@@ -2188,7 +2190,76 @@
                                 }
                             });
                         }
-                        
+                        function entercommentimg(clicked_id)
+                        {   
+                            $("#post_commentimg" + clicked_id).click(function () {
+                                $(this).prop("contentEditable", true);
+                            });
+
+                            $('#post_commentimg' + clicked_id).keypress(function (e) {
+
+                                if (e.keyCode == 13 && !e.shiftKey) {
+                                    e.preventDefault();
+                                    var sel = $("#post_commentimg" + clicked_id);
+                                    var txt = sel.html();
+                                    if (txt == '') {
+                                        return false;
+                                    }
+                                    $('#post_commentimg' + clicked_id).html("");
+
+                                    if (window.preventDuplicateKeyPresses)
+                                        return;
+
+                                    window.preventDuplicateKeyPresses = true;
+                                    window.setTimeout(function () {
+                                        window.preventDuplicateKeyPresses = false;
+                                    }, 500);
+                                    
+                                    var x = document.getElementById('threecommentimg' + clicked_id);
+                                    var y = document.getElementById('fourcommentimg' + clicked_id);
+                                    
+                                    
+                                    
+                                    if (x.style.display === 'block' && y.style.display === 'none') {
+                                $.ajax({
+                                    type: 'POST',
+                                    url: '<?php echo base_url() . "artistic/insert_commentthreeimg" ?>',
+                                    data: 'post_image_id=' + clicked_id + '&comment=' + txt,
+                                    dataType: "json",
+                                    success: function (data) {
+                                        $('textarea').each(function () {
+                                            $(this).val('');
+                                        });
+                                        $('#' + 'insertcountimg' + clicked_id).html(data.count);
+                                        $('.insertcommentimg' + clicked_id).html(data.comment);
+
+                                    }
+                                });
+
+                            } else {
+
+                                $.ajax({
+                                    type: 'POST',
+                                    url: '<?php echo base_url() . "artistic/insert_commentimg" ?>',
+                                    data: 'post_image_id=' + clicked_id + '&comment=' + txt,
+                                    dataType: "json",
+                                    success: function (data) {
+                                        $('textarea').each(function () {
+                                            $(this).val('');
+                                        });
+                                        $('#' + 'insertcountimg' + clicked_id).html(data.count);
+                                        $('#' + 'fourcommentimg' + clicked_id).html(data.comment);
+                                    }
+                                });
+                            }
+                                }
+                            });
+                            $(".scroll").click(function (event) {
+                                event.preventDefault();
+                                $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1200);
+                            });
+                        }
+                   
                         function insert_commentimg(clicked_id)
                         {
                             $("#post_commentimg" + clicked_id).click(function () {
