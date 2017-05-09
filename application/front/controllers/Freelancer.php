@@ -84,6 +84,42 @@ class Freelancer extends MY_Controller {
 //echo "<pre>";print_r( $this->data['phoneno1']);die();
         }
 
+           $contition_array = array('status' => '1', 'is_delete' => '0');
+
+        $freelancer_postdata = $this->data['results'] = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = 'designation,freelancer_post_otherskill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        // echo "<pre>"; print_r($freelancer_postdata);die();
+
+        $contition_array = array('status' => '1', 'type' => '1');
+
+        $skill = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        $contition_array = array('status' => '1', 'is_delete' => '0');
+
+        $field = $this->data['results'] = $this->common->select_data_by_condition('category', $contition_array, $data = 'category_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        $uni = array_merge($skill, $freelancer_postdata, $field);
+        // echo count($unique);
+        // $this->data['demo']=$uni;
+
+        foreach ($uni as $key => $value) {
+            foreach ($value as $ke => $val) {
+                if ($val != "") {
+
+
+                    $result[] = $val;
+                }
+            }
+        }
+        foreach($result as $key =>$value){
+            $result1[$key]['label']=$value;
+            $result1[$key]['value']=$value;
+          }
+
+         
+         $this->data['demo']= array_values($result1);
+
+
+
         $this->load->view('freelancer/freelancer_post/freelancer_post_basic_information', $this->data);
     }
 
@@ -279,6 +315,42 @@ class Freelancer extends MY_Controller {
             }
         }
 
+           $contition_array = array('status' => '1', 'is_delete' => '0');
+
+        $freelancer_postdata = $this->data['results'] = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = 'designation,freelancer_post_otherskill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        // echo "<pre>"; print_r($freelancer_postdata);die();
+
+        $contition_array = array('status' => '1', 'type' => '1');
+
+        $skill = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        $contition_array = array('status' => '1', 'is_delete' => '0');
+
+        $field = $this->data['results'] = $this->common->select_data_by_condition('category', $contition_array, $data = 'category_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        $uni = array_merge($skill, $freelancer_postdata, $field);
+        // echo count($unique);
+        // $this->data['demo']=$uni;
+
+        foreach ($uni as $key => $value) {
+            foreach ($value as $ke => $val) {
+                if ($val != "") {
+
+
+                    $result[] = $val;
+                }
+            }
+        }
+        foreach($result as $key =>$value){
+            $result1[$key]['label']=$value;
+            $result1[$key]['value']=$value;
+          }
+
+         
+         $this->data['demo']= array_values($result1);
+
+
+
         $this->load->view('freelancer/freelancer_post/freelancer_post_address_information', $this->data);
     }
 
@@ -446,6 +518,42 @@ class Freelancer extends MY_Controller {
         $this->data['selectdata'] = $skildata;
 
 
+
+           $contition_array = array('status' => '1', 'is_delete' => '0');
+
+        $freelancer_postdata = $this->data['results'] = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = 'designation,freelancer_post_otherskill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        // echo "<pre>"; print_r($freelancer_postdata);die();
+
+        $contition_array = array('status' => '1', 'type' => '1');
+
+        $skill = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        $contition_array = array('status' => '1', 'is_delete' => '0');
+
+        $field = $this->data['results'] = $this->common->select_data_by_condition('category', $contition_array, $data = 'category_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        $uni = array_merge($skill, $freelancer_postdata, $field);
+        // echo count($unique);
+        // $this->data['demo']=$uni;
+
+        foreach ($uni as $key => $value) {
+            foreach ($value as $ke => $val) {
+                if ($val != "") {
+
+
+                    $result[] = $val;
+                }
+            }
+        }
+        foreach($result as $key =>$value){
+            $result1[$key]['label']=$value;
+            $result1[$key]['value']=$value;
+          }
+
+         
+         $this->data['demo']= array_values($result1);
+
+
         $this->load->view('freelancer/freelancer_post/freelancer_post_professional_information', $this->data);
     }
 
@@ -538,6 +646,41 @@ class Freelancer extends MY_Controller {
             }
 //echo "<pre>";print_r( $this->data['fixed_rate1']);die();
         }
+           $contition_array = array('status' => '1', 'is_delete' => '0');
+
+        $freelancer_postdata = $this->data['results'] = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = 'designation,freelancer_post_otherskill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        // echo "<pre>"; print_r($freelancer_postdata);die();
+
+        $contition_array = array('status' => '1', 'type' => '1');
+
+        $skill = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        $contition_array = array('status' => '1', 'is_delete' => '0');
+
+        $field = $this->data['results'] = $this->common->select_data_by_condition('category', $contition_array, $data = 'category_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        $uni = array_merge($skill, $freelancer_postdata, $field);
+        // echo count($unique);
+        // $this->data['demo']=$uni;
+
+        foreach ($uni as $key => $value) {
+            foreach ($value as $ke => $val) {
+                if ($val != "") {
+
+
+                    $result[] = $val;
+                }
+            }
+        }
+        foreach($result as $key =>$value){
+            $result1[$key]['label']=$value;
+            $result1[$key]['value']=$value;
+          }
+
+         
+         $this->data['demo']= array_values($result1);
+
+
 
         $this->load->view('freelancer/freelancer_post/freelancer_post_rate', $this->data);
     }
@@ -622,6 +765,42 @@ class Freelancer extends MY_Controller {
                 $this->data['work_hour1'] = $userdata[0]['freelancer_post_work_hour'];
             }
         }
+
+           $contition_array = array('status' => '1', 'is_delete' => '0');
+
+        $freelancer_postdata = $this->data['results'] = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = 'designation,freelancer_post_otherskill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        // echo "<pre>"; print_r($freelancer_postdata);die();
+
+        $contition_array = array('status' => '1', 'type' => '1');
+
+        $skill = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        $contition_array = array('status' => '1', 'is_delete' => '0');
+
+        $field = $this->data['results'] = $this->common->select_data_by_condition('category', $contition_array, $data = 'category_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        $uni = array_merge($skill, $freelancer_postdata, $field);
+        // echo count($unique);
+        // $this->data['demo']=$uni;
+
+        foreach ($uni as $key => $value) {
+            foreach ($value as $ke => $val) {
+                if ($val != "") {
+
+
+                    $result[] = $val;
+                }
+            }
+        }
+        foreach($result as $key =>$value){
+            $result1[$key]['label']=$value;
+            $result1[$key]['value']=$value;
+          }
+
+         
+         $this->data['demo']= array_values($result1);
+
+
         $this->load->view('freelancer/freelancer_post/freelancer_post_avability', $this->data);
     }
 
@@ -713,6 +892,41 @@ class Freelancer extends MY_Controller {
                 $this->data['pass_year1'] = $userdata[0]['freelancer_post_passingyear'];
             }
         }
+
+           $contition_array = array('status' => '1', 'is_delete' => '0');
+
+        $freelancer_postdata = $this->data['results'] = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = 'designation,freelancer_post_otherskill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        // echo "<pre>"; print_r($freelancer_postdata);die();
+
+        $contition_array = array('status' => '1', 'type' => '1');
+
+        $skill = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        $contition_array = array('status' => '1', 'is_delete' => '0');
+
+        $field = $this->data['results'] = $this->common->select_data_by_condition('category', $contition_array, $data = 'category_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        $uni = array_merge($skill, $freelancer_postdata, $field);
+        // echo count($unique);
+        // $this->data['demo']=$uni;
+
+        foreach ($uni as $key => $value) {
+            foreach ($value as $ke => $val) {
+                if ($val != "") {
+
+
+                    $result[] = $val;
+                }
+            }
+        }
+        foreach($result as $key =>$value){
+            $result1[$key]['label']=$value;
+            $result1[$key]['value']=$value;
+          }
+
+         
+         $this->data['demo']= array_values($result1);
+
 
 
         $this->load->view('freelancer/freelancer_post/freelancer_post_education', $this->data);
@@ -808,6 +1022,41 @@ class Freelancer extends MY_Controller {
                 $this->data['portfolio_attachment1'] = $userdata[0]['freelancer_post_portfolio_attachment'];
             }
         }
+           $contition_array = array('status' => '1', 'is_delete' => '0');
+
+        $freelancer_postdata = $this->data['results'] = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = 'designation,freelancer_post_otherskill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        // echo "<pre>"; print_r($freelancer_postdata);die();
+
+        $contition_array = array('status' => '1', 'type' => '1');
+
+        $skill = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        $contition_array = array('status' => '1', 'is_delete' => '0');
+
+        $field = $this->data['results'] = $this->common->select_data_by_condition('category', $contition_array, $data = 'category_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        $uni = array_merge($skill, $freelancer_postdata, $field);
+        // echo count($unique);
+        // $this->data['demo']=$uni;
+
+        foreach ($uni as $key => $value) {
+            foreach ($value as $ke => $val) {
+                if ($val != "") {
+
+
+                    $result[] = $val;
+                }
+            }
+        }
+        foreach($result as $key =>$value){
+            $result1[$key]['label']=$value;
+            $result1[$key]['value']=$value;
+          }
+
+         
+         $this->data['demo']= array_values($result1);
+
+
 
         $this->load->view('freelancer/freelancer_post/freelancer_post_portfolio', $this->data);
     }
