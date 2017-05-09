@@ -69,7 +69,7 @@
     .modal2 {
         display: none;
         position: fixed;
-      /*  z-index: 9999999;*/
+        /*  z-index: 9999999;*/
         padding-top: 35px;
         left: 0;
         top: 0;
@@ -418,7 +418,7 @@
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/jquery.jMosaic.css'); ?>">
 
-<!-- <script src="<?php //echo base_url('js/jquery.min.js');                ?>"></script> -->
+<!-- <script src="<?php //echo base_url('js/jquery.min.js');                    ?>"></script> -->
         <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
         <script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
@@ -715,13 +715,13 @@
 
                                                 if ($businesssave) {
                                                     ?>
-                                                                                                        
-                                                                                                           <a><i class="fa fa-bookmark" aria-hidden="true"></i>Saved Post</a>
-                                                                                                        
+                                                                                                                        
+                                                                                                                           <a><i class="fa fa-bookmark" aria-hidden="true"></i>Saved Post</a>
+                                                                                                                        
                                                 <?php } else { ?>
-                                                                                                        
-                                                                                                           <a id="<?php echo $busienss_data[0]['business_profile_post_id']; ?>" onClick="save_post(this.id)" href="#popup1" class="<?php echo 'savedpost' . $busienss_data[0]['business_profile_post_id']; ?>"><i class="fa fa-bookmark" aria-hidden="true"></i>  Save Post</a>
-                                                                                                        
+                                                                                                                        
+                                                                                                                           <a id="<?php echo $busienss_data[0]['business_profile_post_id']; ?>" onClick="save_post(this.id)" href="#popup1" class="<?php echo 'savedpost' . $busienss_data[0]['business_profile_post_id']; ?>"><i class="fa fa-bookmark" aria-hidden="true"></i>  Save Post</a>
+                                                                                                                        
                                                 <?php } ?> -->
 
                                                 <a href="<?php echo base_url('business_profile/business_profile_contactperson/' . $busienss_data[0]['user_id'] . ''); ?>"><i class="fa fa-user" aria-hidden="true"></i> Contact Person</a>
@@ -907,7 +907,7 @@
                                                                         </a>
                                                                     </li>
 
-                                                                    <li id="<?php echo 'insertimgcomment' . $busdata['image_id']; ?>">
+                                                                    <li id="<?php echo 'insertimgcount' . $busdata['image_id']; ?>">
 
                                                                         <?php
                                                                         $contition_array = array('post_image_id' => $busdata['image_id'], 'is_delete' => '0');
@@ -2594,9 +2594,11 @@
                 data: 'post_image_id=' + clicked_id + '&comment=' + txt,
                 dataType: "json",
                 success: function (data) {
-
+                    $('textarea').each(function () {
+                        $(this).val('');
+                    });
                     $('.' + 'insertimgcomment' + clicked_id).html(data.comment);
-                    $('#' + 'insertimgcomment' + clicked_id).html(data.count);
+                    $('#' + 'insertimgcount' + clicked_id).html(data.count);
 
                 }
             });
@@ -2607,9 +2609,21 @@
                 type: 'POST',
                 url: '<?php echo base_url() . "business_profile/pnmulimg_comment" ?>',
                 data: 'post_image_id=' + clicked_id + '&comment=' + txt,
+                dataType: "json",
                 success: function (data) {
+                    $('textarea').each(function () {
+                        $(this).val('');
+                    });
+//                    alert('#' + 'insertimgcount' + clicked_id);
+//                    alert(data.count);
+//                    
+//                    alert('#' + 'fourimgcomment' + clicked_id);
+//                    alert(data.comment);
 
-                    $('#' + 'insertcommenttwo' + clicked_id).html(data);
+                    $('#' + 'insertimgcount' + clicked_id).html(data.count);
+                    $('#' + 'fourimgcomment' + clicked_id).html(data.comment);
+
+                    //$('#' + 'insertcommenttwo' + clicked_id).html(data);
 
                 }
             });
@@ -2662,7 +2676,7 @@
                         success: function (data) {
 
                             $('.' + 'insertimgcomment' + clicked_id).html(data.comment);
-                            $('#' + 'insertimgcomment' + clicked_id).html(data.count);
+                            $('#' + 'insertimgcount' + clicked_id).html(data.count);
 
                         }
                     });
@@ -2674,8 +2688,11 @@
                         url: '<?php echo base_url() . "business_profile/pnmulimg_comment" ?>',
                         data: 'post_image_id=' + clicked_id + '&comment=' + txt,
                         success: function (data) {
+//                            $('#' + 'insertcommenttwo' + clicked_id).html(data);
+//alert('#' + 'insertimgcount' + clicked_id);
 
-                            $('#' + 'insertcommenttwo' + clicked_id).html(data);
+                            $('#' + 'insertimgcount' + clicked_id).html(data.count);
+                            $('#' + 'fourimgcomment' + clicked_id).html(data.comment);
 
                         }
                     });
@@ -2693,7 +2710,7 @@
 
         var x = document.getElementById('threeimgcomment' + clicked_id);
         var y = document.getElementById('fourimgcomment' + clicked_id);
-        var z = document.getElementById('insertimgcomment' + clicked_id);
+        var z = document.getElementById('insertimgcount' + clicked_id);
 
         if (x.style.display === 'block' && y.style.display === 'none') {
             x.style.display = 'none';
@@ -2711,6 +2728,43 @@
         }
     }
 </script>
+
+
+<script type="text/javascript">
+                function commentall1(clicked_id) { //alert("xyz");
+
+                    //alert(clicked_id);
+                    var x = document.getElementById('threecomment1' + clicked_id);
+                    var y = document.getElementById('fourcomment1' + clicked_id);
+                    if (x.style.display === 'block' && y.style.display === 'none') {
+                        x.style.display = 'none';
+                        y.style.display = 'block';
+
+                    } else {
+                        x.style.display = 'block';
+                        y.style.display = 'none';
+                    }
+
+                }
+            </script>
+            
+            <script type="text/javascript">
+                function imgcommentall1(clicked_id) { //alert("xyz");
+
+                    //alert(clicked_id);
+                    var x = document.getElementById('threeimgcomment1' + clicked_id);
+                    var y = document.getElementById('fourimgcomment1' + clicked_id);
+                    if (x.style.display === 'block' && y.style.display === 'none') {
+                        x.style.display = 'none';
+                        y.style.display = 'block';
+
+                    } else {
+                        x.style.display = 'block';
+                        y.style.display = 'none';
+                    }
+
+                }
+            </script>
 <script type="text/javascript">
     function imgcomment_like(clicked_id)
     {
@@ -2827,70 +2881,70 @@
 <script type="text/javascript">
 
     /*
+     function imgcommentedit(abc)
+     {
+     
+     $("#imgeditcomment" + abc).click(function () {
+     $(this).prop("contentEditable", true);
+     
+     });
+     
+     $('#imgeditcomment' + abc).keypress(function (event) {
+     
+     if (event.which == 13 && event.shiftKey != 1) {
+     vent.preventDefault();
+     var sel = $("#imgeditcomment" + abc);
+     var txt = sel.html();
+     if (txt == '' || txt == '<br>') {
+     $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='imgcomment_deleted(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+     $('#bidmodal').modal('show');
+     return false;
+     } else {
+     
+     if (window.preventDuplicateKeyPresses)
+     return;
+     window.preventDuplicateKeyPresses = true;
+     window.setTimeout(function () {
+     window.preventDuplicateKeyPresses = false;
+     }, 500);
+     
+     
+     $.ajax({
+     type: 'POST',
+     url: '<?php echo base_url() . "business_profile/mul_edit_com_insert" ?>',
+     data: 'post_image_comment_id=' + abc + '&comment=' + txt,
+     success: function (data) {
+     
+     
+     document.getElementById('imgeditcomment' + abc).style.display = 'none';
+     document.getElementById('imgshowcomment' + abc).style.display = 'block';
+     document.getElementById('imgeditsubmit' + abc).style.display = 'none';
+     
+     document.getElementById('imgeditcommentbox' + abc).style.display = 'block';
+     document.getElementById('imgeditcancle' + abc).style.display = 'none';
+     
+     $('#' + 'imgshowcomment' + abc).html(data);
+     
+     
+     
+     }
+     });
+     }
+     
+     }
+     });
+     
+     
+     } */
+
     function imgcommentedit(abc)
     {
-
         $("#imgeditcomment" + abc).click(function () {
             $(this).prop("contentEditable", true);
-
         });
 
         $('#imgeditcomment' + abc).keypress(function (event) {
 
-            if (event.which == 13 && event.shiftKey != 1) {
-                vent.preventDefault();
-                var sel = $("#imgeditcomment" + abc);
-                var txt = sel.html();
-                if (txt == '' || txt == '<br>') {
-                    $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='imgcomment_deleted(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-                    $('#bidmodal').modal('show');
-                    return false;
-                } else {
-
-                    if (window.preventDuplicateKeyPresses)
-                        return;
-                    window.preventDuplicateKeyPresses = true;
-                    window.setTimeout(function () {
-                        window.preventDuplicateKeyPresses = false;
-                    }, 500);
-
-
-                    $.ajax({
-                        type: 'POST',
-                        url: '<?php echo base_url() . "business_profile/mul_edit_com_insert" ?>',
-                        data: 'post_image_comment_id=' + abc + '&comment=' + txt,
-                        success: function (data) {
-
-
-                            document.getElementById('imgeditcomment' + abc).style.display = 'none';
-                            document.getElementById('imgshowcomment' + abc).style.display = 'block';
-                            document.getElementById('imgeditsubmit' + abc).style.display = 'none';
-
-                            document.getElementById('imgeditcommentbox' + abc).style.display = 'block';
-                            document.getElementById('imgeditcancle' + abc).style.display = 'none';
-
-                            $('#' + 'imgshowcomment' + abc).html(data);
-
-
-
-                        }
-                    });
-                }
-
-            }
-        });
-
-
-    } */
-    
-    function imgcommentedit(abc)
-    {
-        $("#imgeditcomment" + abc).click(function () {
-            $(this).prop("contentEditable", true);
-        });
-
-        $('#imgeditcomment' + abc).keypress(function (event) {
-            
             if (event.which == 13 && event.shiftKey != 1) {
                 event.preventDefault();
                 var sel = $("#imgeditcomment" + abc);
@@ -2957,14 +3011,12 @@
             return false;
         }
 
-
-
         $.ajax({
             type: 'POST',
             url: '<?php echo base_url() . "business_profile/mul_edit_com_insert" ?>',
             data: 'post_image_comment_id=' + abc + '&comment=' + txt,
             success: function (data) {
-
+                //alert(data);
                 document.getElementById('imgeditcommenttwo' + abc).style.display = 'none';
                 document.getElementById('imgshowcommenttwo' + abc).style.display = 'block';
                 document.getElementById('imgeditsubmittwo' + abc).style.display = 'none';
@@ -2972,12 +3024,13 @@
                 document.getElementById('imgeditcommentboxtwo' + abc).style.display = 'block';
                 document.getElementById('imgeditcancletwo' + abc).style.display = 'none';
                 $('#' + 'imgshowcommenttwo' + abc).html(data);
-
-
-
+                $('.post-design-commnet-box').show();
             }
         });
-
+        $(".scroll").click(function (event) {
+            event.preventDefault();
+            $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1200);
+        });
     }
 </script>
 
@@ -3021,7 +3074,7 @@
                         document.getElementById('imgeditcommentboxtwo' + abc).style.display = 'block';
                         document.getElementById('imgeditcancletwo' + abc).style.display = 'none';
                         $('#' + 'imgshowcommenttwo' + abc).html(data);
-
+                        $('.post-design-commnet-box').show();
                     }
                 });
 
@@ -3070,18 +3123,19 @@
 
     function imgcomment_deletedtwo(clicked_id)
     {
-
         var post_delete1 = document.getElementById("imgpost_delete1");
-        alert(post_delete1);
-        return false;
+//        alert(post_delete1.value);
+//        return false;
         $.ajax({
             type: 'POST',
             url: '<?php echo base_url() . "business_profile/mul_delete_commenttwo" ?>',
             data: 'post_image_comment_id=' + clicked_id + '&post_delete=' + post_delete1.value,
+            dataType: "json",
             success: function (data) {
-
-                $('.' + 'insertcommenttwo' + post_delete1.value).html(data);
-
+                //$('.' + 'insertcommenttwo' + post_delete1.value).html(data);
+                $('.' + 'insertimgcommenttwo' + post_delete1.value).html(data.comment);
+                $('#' + 'insertimgcount' + post_delete1.value).html(data.count);
+                $('.post-design-commnet-box').show();
             }
         });
     }

@@ -72,8 +72,8 @@
 
                 <div class="row">
                     <div class="col-md-4 col-sm-5">
-                        <div class="logo" style="    padding: 26px 0;
-    padding-left: 79px;"><a href="<?php echo base_url('dashboard') ?>"><!-- <img src="<?php// echo base_url('images/logo.png'); ?>"> --> <span style="color: #87ceff; font-size: 41px;">Aileensoul</span></a></div>
+                        <div class="logo" style="padding: 26px 0;
+    padding-left: 79px;"><a href="<?php echo base_url('main') ?>"><!-- <img src="<?php// echo base_url('images/logo.png'); ?>"> --> <span style="color: #87ceff; font-size: 41px;">Aileensoul</span></a></div>
                     </div>
                     <div class="col-md-7 col-sm-7 header-left-menu">
 
@@ -87,7 +87,7 @@
     background-color: #87ceff!important;
     color: #FFF;
     font-weight: 600;
-    border: 3px solid #fff; " href="">Login</a></li>
+    border: 3px solid #fff; " href="<?php echo base_url('login'); ?>">Login</a></li>
                     <li class=""><a style="       margin-top: 25px;
     padding: 8px 17px;
     border: none;
@@ -96,7 +96,7 @@
     background-color: #87ceff!important;
     color: #FFF;
     font-weight: 600;
-    border: 3px solid #fff; " href="">Create an account</a></li>
+    border: 3px solid #fff; " href="<?php echo base_url('registration'); ?>">Create an account</a></li>
                       
                     </ul>
                      
@@ -140,8 +140,10 @@
                 <div id="login"> 
 
 
-                  <?php echo form_open(base_url('contact_us/contact_us_insert'), array('id' => 'contact_regform', 'name' => 'contact_regform', 'class' => 'clearfix')); ?>
+                  <!-- <?php echo form_open(base_url('contact_us/contact_us_insert'), array('id' => 'contact_regform', 'name' => 'contact_regform', 'class' => 'clearfix')); ?> -->
 
+                  <form name="contact_regform" method="post" id="contact_regform" 
+                    class="clearfix" onsubmit="return  contact_form_submit()">
     
                         <div class="login_filed">
                             <div class="field-wrap">
@@ -186,7 +188,7 @@
                             </div>
                            
                           
-                            <button type="submit"  id="submit" name="submit" value="Login" class="button button-block" style="background:#87ceff!important;width: 40%; margin-left: 30%; background-repeat: no-repeat; background-position: right center"   >Submit</button>
+                            <button type="submit"  id="submit" name="submit" value="Login" class="button button-block" style="background:#87ceff!important;width: 40%; margin-left: 30%; background-repeat: no-repeat; background-position: right center">Submit</button>
                           
                             <!-- Modal -->
                             <div class="modal fade" id="myModal" role="dialog">
@@ -216,7 +218,7 @@
             <div class="row">
                 <div class="col-md-6" style="padding: 12px;">
                 <div class="footer-menu pull-left">
-                    <p>copyright 2017 | by <a href="#" style="color: #000033">Aileensoul</a></p>
+                    <p>copyright 2017 | by <a href="<?php echo base_url('main'); ?>" style="color: #000033">Aileensoul</a></p>
                 </div>
                 </div>
                 <div class="col-md-6">
@@ -249,7 +251,7 @@
 
     </section>
 
-    <script type="text/javascript" src="<?php echo base_url('js/jquery-1.11.1.min.js'); ?>"></script>
+    
 
     <script>
 
@@ -284,40 +286,88 @@
         $(".alert-danger").delay(2000).fadeOut(400);
     </script>
 
-    <script src="<?php echo base_url('partical/js/index.js'); ?>"></script>
+<script src="<?php echo base_url('partical/js/index.js'); ?>"></script>
 
-<script type="text/javascript" src="<?php echo base_url('js/jquery-1.11.1.min.js'); ?>"></script>
+
 <script type="text/javascript" src="<?php echo base_url() ?>js/jquery.validate.min.js"></script>
 <script type="text/javascript">
                                 //validation for edit email formate form
-                                $(document).ready(function () {
+$(document).ready(function () { 
                                     /* validation */
-                                    $("#login_form").validate({
-                                        rules: {
-                                            user_name: {
-                                                required: true,
-                                            },
-                                            password: {
-                                                required: true,
-                                            }
-                                        },
-                                        messages:
-                                                {
-                                                    user_name: {
-                                                        required: "Please enter user name",
-                                                    },
-                                                    password: {
-                                                        required: "Please enter password",
-                                                    }
-                                                },
-                                    });
-                                    /* validation */
+    $("#contact_regform").validate({
+    rules: {
+                contact_name: {
+                 required: true,
+                 },
+                contact_email: {
+                 required: true,
+                 },
+                 contact_subject: {
+                 required: true,
+                },
+                contact_message: {
+                 required: true,
+                    }
+            },
+    messages:
+            {
+            contact_name: {
+            required: "Enter Name",
+            },
+            contact_email: {
+            required: "Enter Email",
+            },
+            contact_subject: {
+            required: "Enter Subject",
+            },
+            contact_message: {
+            required: "Enter Message",
+            }
+        },
+     });
+    //                                 /* validation */
                                     
-                                });
+});
 
 
 </script>
 
+
+<!-- form insert script start -->
+
+
+<script type="text/javascript">
+
+
+  function contact_form_submit(){  
+   
+  var name = $('#contact_name').val();
+  var email = $('#contact_email').val();
+  var subject = $('#contact_subject').val();
+
+  var $field = $('#contact_message');
+  
+  var message = $('#contact_message').html();
+
+   $('#contact_message').html("");
+
+       $.ajax({
+                type:'POST',
+                url:'<?php echo base_url() . "contact_us/contact_us_insert" ?>',
+                 data:'name=' + name + '&email=' + email + '&subject=' + subject + '&message=' + message,
+                success:function(data){ 
+                    $('input').each(function(){
+                             $(this).val('');
+                             });
+                   window.location= "<?php echo base_url() ?>main";  
+                }
+            }); 
+   
+    return false;
+  }
+ 
+</script>
+<!-- form insert script end -->
 </body>
 
 </html>

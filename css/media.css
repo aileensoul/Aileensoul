@@ -155,9 +155,20 @@
 }
 
 /*vishang 6-5-17 start */
+  .header2 .profiletitle { font-size: 13px; }
 
 @media (min-width: 768px) and (max-width: 1024px) 
   {  
+
+     /*  header2 on */
+         .header2 input::-webkit-input-placeholder 
+               {    font-size: 12px; line-height: 3;  }
+          .header2 .profiletitle { font-size: 11px; }
+          .header2 ul li a { font-size: 11px; }
+
+    /*   header2 off */
+
+
   	 /*profile leftbar start*/
   	     /*job on */
     .buisness-profile-txext {   max-width: 25% !important; }
@@ -166,6 +177,8 @@
     .profile-box-job-menu ul li a {  padding: 9px 8px 6px 8px; margin-right: 1px; font-size: 13px; }
     .profile-boxProfileCard-cover { height: 10%; }
     .profile-boxProfileCard-bg img { height: auto; width: 100%; }
+
+     .left-side-bar ul li a { font-size: 12px; }
          /*job off */
 
           /* recruter on*/

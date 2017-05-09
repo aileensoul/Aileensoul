@@ -2763,7 +2763,7 @@ class Business_profile extends MY_Controller {
 
                 $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
                 $cmtinsert .= '<div class="comment-details-menu">';
-                $cmtinsert .= '<p>' . $business_profile['created_date'] . '</p></div></div></div>';
+                $cmtinsert .= '<p>' . date('d-M-Y', strtotime($business_profile['created_date'])) . '</p></div></div></div>';
 
 
                 // comment aount variable start
@@ -2902,7 +2902,7 @@ class Business_profile extends MY_Controller {
 
                 $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
                 $cmtinsert .= '<div class="comment-details-menu">';
-                $cmtinsert .= '<p>' . $business_profile['created_date'] . '</p></div></div></div>';
+                $cmtinsert .= '<p>' . date('d-M-Y', strtotime($business_profile['created_date'])) . '</p></div></div></div>';
                 // comment aount variable start
                 $idpost = $business_profile['business_profile_post_id'];
                 $cmtcount = '<a onClick="commentall1(this.id)" id="' . $idpost . '">';
@@ -3341,7 +3341,7 @@ class Business_profile extends MY_Controller {
 
             $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
             $cmtinsert .= '<div class="comment-details-menu">';
-            $cmtinsert .= '<p>' . $business_profile['created_date'] . '</p></div></div></div>';
+            $cmtinsert .= '<p>' . date('d-M-Y', strtotime($business_profile['created_date'])) . '</p></div></div></div>';
 
 
             // comment aount variable start
@@ -3366,12 +3366,8 @@ class Business_profile extends MY_Controller {
         $post_id = $_POST["post_id"];
         $post_comment = $_POST["comment"];
 
-
-
         $contition_array = array('business_profile_post_id' => $_POST["post_id"], 'status' => '1');
         $busdatacomment = $this->data['busdatacomment'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
-
 
         $data = array(
             'user_id' => $userid,
@@ -3382,13 +3378,9 @@ class Business_profile extends MY_Controller {
             'is_delete' => 0
         );
 
-
-
         $insert_id = $this->common->insert_data_getid($data, 'business_profile_post_comment');
 
-
         // insert notification
-
         if ($busdatacomment[0]['user_id'] == $userid) {
             
         } else {
@@ -3506,7 +3498,7 @@ class Business_profile extends MY_Controller {
 
             $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
             $cmtinsert .= '<div class="comment-details-menu">';
-            $cmtinsert .= '<p>' . $business_profile['created_date'] . '</p></div></div></div>';
+            $cmtinsert .= '<p>' . date('d-M-Y', strtotime($business_profile['created_date'])) . '</p></div></div></div>';
 
 
             // comment aount variable start
@@ -4081,7 +4073,7 @@ class Business_profile extends MY_Controller {
             $cmtinsert .= '<div class="comment-details" id= "showcomment' . $bus_comment['post_image_comment_id'] . '"" >';
             $cmtinsert .= $bus_comment['comment'];
             $cmtinsert .= '</div>';
-            $cmtinsert .= '<div contenteditable="true" class="editable_text" name="' . $bus_comment['post_image_comment_id'] . '" id="editcomment' . $bus_comment['post_image_comment_id'] . '"style="display:none;" onClick="commentedit(' . $bus_comment['post_image_comment_id'] . ')">';
+            $cmtinsert .= '<div contenteditable="true" class="editable_text" name="' . $bus_comment['post_image_comment_id'] . '" id="editcomment' . $bus_comment['post_image_comment_id'] . '" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" onClick="commentedit(' . $bus_comment['post_image_comment_id'] . ')">';
             $cmtinsert .= $bus_comment['comment'];
             $cmtinsert .= '</div>';
 
@@ -4165,7 +4157,7 @@ class Business_profile extends MY_Controller {
 
             $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
             $cmtinsert .= '<div class="comment-details-menu">';
-            $cmtinsert .= '<p>' . $bus_comment['created_date'] . '</p></div></div>';
+            $cmtinsert .= '<p>' . date('d-M-Y', strtotime($bus_comment['created_date'])) . '</p></div></div>';
 
 
             // comment aount variable start
@@ -4332,7 +4324,7 @@ class Business_profile extends MY_Controller {
 
             $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
             $cmtinsert .= '<div class="comment-details-menu">';
-            $cmtinsert .= '<p>' . $bus_comment['created_date'] . '</p></div></div>';
+            $cmtinsert .= '<p>' . date('d-M-Y', strtotime($bus_comment['created_date'])) . '</p></div></div>';
 
 
             // comment aount variable start
@@ -4395,10 +4387,10 @@ class Business_profile extends MY_Controller {
 
 
         $contition_array = array('post_image_id' => $post_image_id, 'is_delete' => '0');
-        $businesscomment = $this->common->select_data_by_condition('bus_post_image_comment', $contition_array, $data = '*', $sortby = 'post_image_comment_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        $businesscomment = $this->common->select_data_by_condition('bus_post_image_comment', $contition_array, $data = '*', $sortby = 'post_image_comment_id', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
         $contition_array = array('post_image_id' => $post_image_id, 'is_delete' => '0');
-        $buscmtcnt = $this->common->select_data_by_condition('bus_post_image_comment', $contition_array, $data = '*', $sortby = 'post_image_comment_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        $buscmtcnt = $this->common->select_data_by_condition('bus_post_image_comment', $contition_array, $data = '*', $sortby = 'post_image_comment_id', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
         //echo "<pre>"; print_r($businesscomment); die();
         foreach ($businesscomment as $bus_comment) {
@@ -4419,7 +4411,7 @@ class Business_profile extends MY_Controller {
             $cmtinsert .= $bus_comment['comment'];
             $cmtinsert .= '</div>';
             $cmtinsert .= '<div class="edit-comment-box"><div class="inputtype-edit-comment">';
-            $cmtinsert .= '<div contenteditable="true" class= "editable_text" name="' . $bus_comment['post_image_comment_id'] . '" id="imgeditcomment' . $bus_comment['post_image_comment_id'] . '"style="display:none;" onkeyup="imgcommentedit(' . $bus_comment['post_image_comment_id'] . ')">';
+            $cmtinsert .= '<div contenteditable="true" class= "editable_text" name="' . $bus_comment['post_image_comment_id'] . '" id="imgeditcomment' . $bus_comment['post_image_comment_id'] . '" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" onkeyup="imgcommentedit(' . $bus_comment['post_image_comment_id'] . ')">';
             $cmtinsert .= $bus_comment['comment'];
             $cmtinsert .= '</div>';
             $cmtinsert .= '<span class="comment-edit-button"><button id="imgeditsubmit' . $bus_comment['post_image_comment_id'] . '" style="display:none;" onClick="imgedit_comment(' . $bus_comment['post_image_comment_id'] . ')">Save</button></span>';
@@ -4461,14 +4453,14 @@ class Business_profile extends MY_Controller {
                 $cmtinsert .= '<div id="imgeditcommentbox' . $bus_comment['post_image_comment_id'] . '"style="display:block;">';
 
                 $cmtinsert .= '<a id="' . $bus_comment['post_image_comment_id'] . '"';
-                $cmtinsert .= 'onClick="imgcomment_editbox(this.id)">';
+                $cmtinsert .= 'onClick="imgcomment_editboxtwo(this.id)">';
                 $cmtinsert .= 'Edit';
                 $cmtinsert .= '</a></div>';
 
-                $cmtinsert .= '<div id="imgeditcancle' . $bus_comment['post_image_comment_id'] . '"style="display:none;">';
+                $cmtinsert .= '<div id="imgeditcancletwo' . $bus_comment['post_image_comment_id'] . '"style="display:none;">';
 
                 $cmtinsert .= '<a id="' . $bus_comment['post_image_comment_id'] . '"';
-                $cmtinsert .= 'onClick="imgcomment_editcancle(this.id)">';
+                $cmtinsert .= 'onClick="imgcomment_editcancletwo(this.id)">';
                 $cmtinsert .= 'Cancel';
                 $cmtinsert .= '</a></div>';
 
@@ -4498,7 +4490,7 @@ class Business_profile extends MY_Controller {
 
             $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
             $cmtinsert .= '<div class="comment-details-menu">';
-            $cmtinsert .= '<p>' . $bus_comment['created_date'] . '</p></div></div></div>';
+            $cmtinsert .= '<p>' . date('d-M-Y', strtotime($bus_comment['created_date'])) . '</p></div></div></div>';
 
             $cmtcount = '<a onClick="imgcommentall(this.id)" id="' . $post_image_id . '">';
             $cmtcount .= '<i class="fa fa-comment-o" aria-hidden="true">';
@@ -4507,6 +4499,7 @@ class Business_profile extends MY_Controller {
 
             // comment count variable end 
         }
+        header('Content-type: application/json');
         echo json_encode(
                 array("comment" => $cmtinsert,
                     "count" => $cmtcount));
@@ -5073,7 +5066,7 @@ class Business_profile extends MY_Controller {
             $buseditdata = $this->data['buseditdata'] = $this->common->select_data_by_condition('bus_post_image_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
             $cmtlike = '<div>';
-            $cmtlike .= $buseditdata[0]['comment'] . "<br>";
+            $cmtlike .= $buseditdata[0]['comment'] . "";
             $cmtlike .= '</div>';
             echo $cmtlike;
         }
@@ -5102,7 +5095,7 @@ class Business_profile extends MY_Controller {
         $buscmtcnt = $this->common->select_data_by_condition('bus_post_image_comment', $contition_array, $data = '*', $sortby = 'post_image_comment_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
         //echo "<pre>"; print_r($buscmtcnt); die();
-        if ($businesscomment) {
+        if (count($businesscomment) > 0) {
             foreach ($businesscomment as $bus_comment) {
 
                 $company_name = $this->db->get_where('business_profile', array('user_id' => $bus_comment['user_id']))->row()->company_name;
@@ -5188,7 +5181,8 @@ class Business_profile extends MY_Controller {
 
 
                     $cmtinsert .= '<input type="hidden" name="imgpost_delete"';
-                    $cmtinsert .= 'id="imgpost_delete' . $bus_comment['post_image_comment_id'] . '"';
+                    // $cmtinsert .= 'id="imgpost_delete' . $bus_comment['post_image_comment_id'] . '"';
+                    $cmtinsert .= 'id="imgpost_delete"';
                     $cmtinsert .= 'value= "' . $bus_comment['post_image_id'] . '">';
                     $cmtinsert .= '<a id="' . $bus_comment['post_image_comment_id'] . '"';
                     $cmtinsert .= 'onClick="imgcomment_delete(this.id)">';
@@ -5228,7 +5222,6 @@ class Business_profile extends MY_Controller {
             'modify_date' => date('y-m-d h:i:s')
         );
 
-
         $updatdata = $this->common->update_data($data, 'bus_post_image_comment', 'post_image_comment_id', $post_image_comment_id);
 
 
@@ -5236,112 +5229,126 @@ class Business_profile extends MY_Controller {
         $businesscomment = $this->common->select_data_by_condition('bus_post_image_comment', $contition_array, $data = '*', $sortby = 'post_image_comment_id', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
         //echo "<pre>"; print_r($businesscomment); die();
-        foreach ($businesscomment as $bus_comment) {
+        if (count($businesscomment) > 0) {
+            foreach ($businesscomment as $bus_comment) {
+                $company_name = $this->db->get_where('business_profile', array('user_id' => $bus_comment['user_id']))->row()->company_name;
+                $business_userimage = $this->db->get_where('business_profile', array('user_id' => $bus_comment['user_id'], 'status' => 1))->row()->business_user_image;
 
+                $cmtinsert .= '<div class="all-comment-comment-box">';
+                $cmtinsert .= '<div class="post-design-pro-comment-img">';
+                $cmtinsert .= '<img  src="' . base_url(USERIMAGE . $business_userimage) . '" alt="">  </div>';
 
-            $company_name = $this->db->get_where('business_profile', array('user_id' => $bus_comment['user_id']))->row()->company_name;
+                $cmtinsert .= '<div class="comment-name"><b>' . $company_name . '</b>';
+                $cmtinsert .= '</div>';
 
-            $business_userimage = $this->db->get_where('business_profile', array('user_id' => $bus_comment['user_id'], 'status' => 1))->row()->business_user_image;
+                $cmtinsert .= '<div class="comment-details" id= "imgshowcommenttwo' . $bus_comment['post_image_comment_id'] . '"" >';
+                $cmtinsert .= $bus_comment['comment'];
+                $cmtinsert .= '</div>';
 
-            $cmtinsert = '<div class="all-comment-comment-box">';
-            $cmtinsert .= '<div class="post-design-pro-comment-img">';
-            $cmtinsert .= '<img  src="' . base_url(USERIMAGE . $business_userimage) . '" alt="">  </div>';
-
-            $cmtinsert .= '<div class="comment-name"><b>' . $company_name . '</b>';
-            $cmtinsert .= '</div>';
-
-            $cmtinsert .= '<div class="comment-details" id= "imgshowcommenttwo' . $bus_comment['post_image_comment_id'] . '"" >';
-            $cmtinsert .= $bus_comment['comment'];
-            $cmtinsert .= '</div>';
-
-            $cmtinsert .= '<div class="edit-comment-box"><div class="inputtype-edit-comment">';
-            //$cmtinsert .= '<textarea type="text" class="textarea" name="' . $business_profile['business_profile_post_comment_id'] . '" id="editcomment' . $business_profile['business_profile_post_comment_id'] . '" style="display:none;resize: none;" onClick="commentedit(this.name)">' . $business_profile['comments'] . '</textarea>';
-            $cmtinsert .= '<div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="' . $business_profile['business_profile_post_comment_id'] . '"  id="editcomment' . $business_profile['business_profile_post_comment_id'] . '" placeholder="Type Message ..."  onkeyup="commentedittwo(' . $business_profile['business_profile_post_comment_id'] . ')">' . $business_profile['comments'] . '</div>';
-            $cmtinsert .= '<span class="comment-edit-button"><button id="editsubmit' . $business_profile['business_profile_post_comment_id'] . '" style="display:none" onClick="edit_commenttwo(' . $business_profile['business_profile_post_comment_id'] . ')">Save</button></span>';
-            $cmtinsert .= '</div></div>';
+                $cmtinsert .= '<div class="edit-comment-box"><div class="inputtype-edit-comment">';
+                //$cmtinsert .= '<textarea type="text" class="textarea" name="' . $business_profile['business_profile_post_comment_id'] . '" id="editcomment' . $business_profile['business_profile_post_comment_id'] . '" style="display:none;resize: none;" onClick="commentedit(this.name)">' . $business_profile['comments'] . '</textarea>';
+                $cmtinsert .= '<div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="' . $bus_comment['post_image_comment_id'] . '"  id="imgeditcommenttwo' . $bus_comment['post_image_comment_id'] . '" placeholder="Type Message ..."  onkeyup="imgcommentedittwo(' . $bus_comment['post_image_comment_id'] . ')">' . $bus_comment['comment'] . '</div>';
+                $cmtinsert .= '<span class="comment-edit-button"><button id="imgeditsubmittwo' . $bus_comment['post_image_comment_id'] . '" style="display:none" onClick="imgedit_commenttwo(' . $bus_comment['post_image_comment_id'] . ')">Save</button></span>';
+                $cmtinsert .= '</div></div>';
 
 //            $cmtinsert .= '<input type="text" name="' . $bus_comment['post_image_comment_id'] . '" id="imgeditcommenttwo' . $bus_comment['post_image_comment_id'] . '"style="display:none;" value="' . $bus_comment['comment'] . ' " onClick="imgcommentedittwo(this.name)">';
 //            $cmtinsert .= '<button id="imgeditsubmittwo' . $bus_comment['post_image_comment_id'] . '" style="display:none;" onClick="imgedit_commenttwo(' . $bus_comment['post_image_comment_id'] . ')">Comment</button><div class="art-comment-menu-design"> <div class="comment-details-menu" id="imglikecomment1' . $bus_comment['post_image_comment_id'] . '">';
 
-            $cmtinsert .= '<div class="art-comment-menu-design"><div class="comment-details-menu" id="likecomment1' . $business_profile['business_profile_post_comment_id'] . '">';
-            $cmtinsert .= '<a id="' . $bus_comment['post_image_comment_id'] . '"';
-            $cmtinsert .= 'onClick="imgcomment_liketwo(this.id)">';
+                $cmtinsert .= '<div class="art-comment-menu-design"><div class="comment-details-menu" id="imglikecomment1' . $bus_comment['post_image_comment_id'] . '">';
+                $cmtinsert .= '<a id="' . $bus_comment['post_image_comment_id'] . '"';
+                $cmtinsert .= 'onClick="imgcomment_liketwo(this.id)">';
 
-            $contition_array = array('post_image_comment_id' => $bus_comment['post_image_comment_id'], 'user_id' => $userid, 'is_unlike' => 0);
+                $contition_array = array('post_image_comment_id' => $bus_comment['post_image_comment_id'], 'user_id' => $userid, 'is_unlike' => 0);
 
-            $businesscommentlike1 = $this->common->select_data_by_condition('bus_comment_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                $businesscommentlike1 = $this->common->select_data_by_condition('bus_comment_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-            if (count($businesscommentlike1) == 0) {
-                $cmtinsert .= '<i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>';
-            } else {
+                if (count($businesscommentlike1) == 0) {
+                    $cmtinsert .= '<i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>';
+                } else {
 
-                $cmtinsert .= '<i class="fa fa-thumbs-up" aria-hidden="true"></i>';
-            }
+                    $cmtinsert .= '<i class="fa fa-thumbs-up" aria-hidden="true"></i>';
+                }
 
-            $cmtinsert .= '<span>';
+                $cmtinsert .= '<span>';
 
-            $contition_array = array('post_image_comment_id' => $bus_comment['post_image_comment_id'], 'is_unlike' => '0');
-            $mulcountlike = $this->data['mulcountlike'] = $this->common->select_data_by_condition('bus_comment_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                $contition_array = array('post_image_comment_id' => $bus_comment['post_image_comment_id'], 'is_unlike' => '0');
+                $mulcountlike = $this->data['mulcountlike'] = $this->common->select_data_by_condition('bus_comment_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
 
-            if (count($mulcountlike) > 0) {
-                echo count($mulcountlike);
-            }
-            $cmtinsert .= '</span>';
-            $cmtinsert .= '</a></div>';
+                if (count($mulcountlike) > 0) {
+                    $cmtinsert .= count($mulcountlike);
+                }
+                $cmtinsert .= '</span>';
+                $cmtinsert .= '</a></div>';
 
-            $userid = $this->session->userdata('aileenuser');
-            if ($bus_comment['user_id'] == $userid) {
+                $userid = $this->session->userdata('aileenuser');
+                if ($bus_comment['user_id'] == $userid) {
+
+                    $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
+                    $cmtinsert .= '<div class="comment-details-menu">';
+
+
+                    $cmtinsert .= '<div id="imgeditcommentboxtwo' . $bus_comment['post_image_comment_id'] . '"style="display:block;">';
+
+                    $cmtinsert .= '<a id="' . $bus_comment['post_image_comment_id'] . '"';
+                    $cmtinsert .= 'onClick="imgcomment_editboxtwo(this.id)">';
+                    $cmtinsert .= 'Edit';
+                    $cmtinsert .= '</a></div>';
+
+                    $cmtinsert .= '<div id="imgeditcancletwo' . $bus_comment['post_image_comment_id'] . '"style="display:none;">';
+
+                    $cmtinsert .= '<a id="' . $bus_comment['post_image_comment_id'] . '"';
+                    $cmtinsert .= 'onClick="imgcomment_editcancletwo(this.id)">';
+                    $cmtinsert .= 'Cancel';
+                    $cmtinsert .= '</a></div>';
+
+                    $cmtinsert .= '</div>';
+                }
+                $userid = $this->session->userdata('aileenuser');
+
+                $business_userid = $this->db->get_where('business_profile_post', array('business_profile_post_id' => $bus_comment['post_image_id'], 'status' => 1))->row()->user_id;
+
+
+                if ($bus_comment['user_id'] == $userid || $business_userid == $userid) {
+
+
+                    $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
+                    $cmtinsert .= '<div class="comment-details-menu">';
+
+
+                    //$cmtinsert .= '<input type="hidden" name="post_deletetwo"';
+                    //$cmtinsert .= ' id="post_deletetwo' . $bus_comment['post_image_comment_id'] . '"';
+                    $cmtinsert .= '<input type="hidden" name="imgpost_delete1"';
+                    $cmtinsert .= ' id="imgpost_delete1"';
+                    $cmtinsert .= ' value= "' . $bus_comment['post_image_id'] . '">';
+                    $cmtinsert .= ' <a id="' . $bus_comment['post_image_comment_id'] . '"';
+                    $cmtinsert .= 'onClick="imgcomment_deletetwo(this.id)">';
+                    $cmtinsert .= 'Delete';
+                    $cmtinsert .= '</a></div>';
+                }
 
                 $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
                 $cmtinsert .= '<div class="comment-details-menu">';
+                $cmtinsert .= '<p>' . date('d-M-Y', strtotime($bus_comment['created_date'])) . '</p></div></div></div>';
 
-
-                $cmtinsert .= '<div id="imgeditcommentboxtwo' . $bus_comment['post_image_comment_id'] . '"style="display:block;">';
-
-                $cmtinsert .= '<a id="' . $bus_comment['post_image_comment_id'] . '"';
-                $cmtinsert .= 'onClick="imgcomment_editboxtwo(this.id)">';
-                $cmtinsert .= 'Edit';
-                $cmtinsert .= '</a></div>';
-
-                $cmtinsert .= '<div id="imgeditcancletwo' . $bus_comment['post_image_comment_id'] . '"style="display:none;">';
-
-                $cmtinsert .= '<a id="' . $bus_comment['post_image_comment_id'] . '"';
-                $cmtinsert .= 'onClick="imgcomment_editcancletwo(this.id)">';
-                $cmtinsert .= 'Cancel';
-                $cmtinsert .= '</a></div>';
-
-                $cmtinsert .= '</div>';
+                // comment aount variable start
+                $idpost = $bus_comment['post_image_id'];
+                $cmtcount = '<a onClick="commentall1(this.id)" id="' . $idpost . '">';
+                $cmtcount .= '<i class="fa fa-comment-o" aria-hidden="true">';
+                $cmtcount .= ' ' . count($businesscomment) . '';
+                $cmtcount .= '</i></a>';
             }
-            $userid = $this->session->userdata('aileenuser');
-
-
-            $userid = $this->session->userdata('aileenuser');
-
-            $business_userid = $this->db->get_where('business_profile_post', array('business_profile_post_id' => $bus_comment['post_image_id'], 'status' => 1))->row()->user_id;
-
-
-            if ($bus_comment['user_id'] == $userid || $business_userid == $userid) {
-
-
-                $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
-                $cmtinsert .= '<div class="comment-details-menu">';
-
-
-                $cmtinsert .= '<input type="hidden" name="post_deletetwo"';
-                $cmtinsert .= 'id="post_deletetwo' . $bus_comment['post_image_comment_id'] . '"';
-                $cmtinsert .= 'value= "' . $bus_comment['post_image_id'] . '">';
-                $cmtinsert .= '<a id="' . $bus_comment['post_image_comment_id'] . '"';
-                $cmtinsert .= 'onClick="imgcomment_deletetwo(this.id)">';
-                $cmtinsert .= 'Delete';
-                $cmtinsert .= '</a></div>';
-            }
-
-            $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
-            $cmtinsert .= '<div class="comment-details-menu">';
-            $cmtinsert .= '<p>' . date('d-M-Y', strtotime($bus_comment['created_date'])) . '</p></div></div></div>';
+        } else {
+            $idpost = $bus_comment['post_image_id'];
+            $cmtcount = '<a onClick="commentall1(this.id)" id="' . $idpost . '">';
+            $cmtcount .= '<i class="fa fa-comment-o" aria-hidden="true">';
+            $cmtcount .= '</i></a>';
         }
-        echo $cmtinsert;
+
+        //header('Content-type: application/json');
+        echo json_encode(
+                array("comment" => $cmtinsert,
+                    "count" => $cmtcount));
     }
 
     //mulitple images commnet delete end  
@@ -5484,7 +5491,7 @@ class Business_profile extends MY_Controller {
 
                 $fourdata .= '<div class="col-md-12"><div class="col-md-10">';
 
-                $fourdata .= '<div contenteditable="true" class="editable_text" name="' . $rowdata['post_image_comment_id'] . '" id="editcommenttwo' . $rowdata['post_image_comment_id'] . '" style="display: none;"  onClick="commentedittwo(' . $rowdata['post_image_comment_id'] . ')">';
+                $fourdata .= '<div contenteditable="true" class="editable_text" name="' . $rowdata['post_image_comment_id'] . '" id="editcommenttwo' . $rowdata['post_image_comment_id'] . '" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;"  onClick="commentedittwo(' . $rowdata['post_image_comment_id'] . ')">';
                 $fourdata .= '' . $rowdata['comment'] . '</div>';
 
                 $fourdata .= '</div>  <div class="col-md-2 comment-edit-button">';
@@ -5904,7 +5911,7 @@ class Business_profile extends MY_Controller {
 
             $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
             $cmtinsert .= '<div class="comment-details-menu">';
-            $cmtinsert .= '<p>' . $business_profile['created_date'] . '</p></div></div></div>';
+            $cmtinsert .= '<p>' . date('d-M-Y', strtotime($business_profile['created_date'])) . '</p></div></div></div>';
 
 
             // comment aount variable start
@@ -6069,7 +6076,7 @@ class Business_profile extends MY_Controller {
 
             $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
             $cmtinsert .= '<div class="comment-details-menu">';
-            $cmtinsert .= '<p>' . $business_profile['created_date'] . '</p></div></div></div>';
+            $cmtinsert .= '<p>' . date('d-M-Y', strtotime($business_profile['created_date'])) . '</p></div></div></div>';
 
 
             // comment aount variable start
@@ -6212,7 +6219,7 @@ class Business_profile extends MY_Controller {
 
                 $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
                 $cmtinsert .= '<div class="comment-details-menu">';
-                $cmtinsert .= '<p>' . $business_profile['created_date'] . '</p></div></div></div>';
+                $cmtinsert .= '<p>' . date('d-M-Y', strtotime($business_profile['created_date'])) . '</p></div></div></div>';
 
 
                 // comment aount variable start
@@ -6474,7 +6481,7 @@ class Business_profile extends MY_Controller {
 
                 $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
                 $cmtinsert .= '<div class="comment-details-menu">';
-                $cmtinsert .= '<p>' . $business_profile['created_date'] . '</p></div></div></div>';
+                $cmtinsert .= '<p>' . date('d-M-Y', strtotime($business_profile['created_date'])) . '</p></div></div></div>';
                 // comment aount variable start
                 $idpost = $business_profile['business_profile_post_id'];
                 $cmtcount = '<a onClick="commentall1(this.id)" id="' . $idpost . '">';
@@ -6498,8 +6505,7 @@ class Business_profile extends MY_Controller {
     public function pnmulimagefourcomment() {
 
         $postid = $_POST['bus_img_id'];
-
-        $mulimgfour .= '<div class="insertcommenttwo' . $postid . '">';
+        $mulimgfour = '<div class="insertimgcommenttwo' . $postid . '">';
 
         $contition_array = array('post_image_id' => $postid, 'is_delete' => '0');
         $busmulimage1 = $this->common->select_data_by_condition('bus_post_image_comment', $contition_array, $data = '*', $sortby = 'post_image_comment_id', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -6524,6 +6530,7 @@ class Business_profile extends MY_Controller {
 
 
                 $mulimgfour .= '' . $rowdata['comment'] . '</br></div>';
+
 
 //                $mulimgfour .= '<div class="col-md-12"><div class="col-md-10">';
 //                $mulimgfour .= '<input type="text" name="' . $rowdata['post_image_comment_id'] . '" id="imgeditcommenttwo' . $rowdata['post_image_comment_id'] . '" style="display: none;" value="' . $rowdata['comment'] . '" onkeyup="imgcommentedittwo(' . $rowdata['post_image_comment_id'] . ')">';
@@ -6558,12 +6565,11 @@ class Business_profile extends MY_Controller {
                 $mulcountlike1 = $this->data['mulcountlike'] = $this->common->select_data_by_condition('bus_comment_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
                 if (count($mulcountlike1) > 0) {
-                    echo count($mulcountlike1);
+                    $mulimgfour .= count($mulcountlike1);
                 }
 
 
                 $mulimgfour .= '</span></a></div>';
-
 
                 $userid = $this->session->userdata('aileenuser');
                 if ($rowdata['user_id'] == $userid) {

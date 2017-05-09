@@ -331,11 +331,11 @@ if ($freepostdata[0]['designation']) {
           <div class="profile-box-job-menu  col-md-12">
          
                                     <ul class="">
-                                             <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_post_profile')) { ?> class="active" <?php } ?>><a href="<?php echo base_url('freelancer/freelancer_post_profile'); ?>">Details</a>
+                                             <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_post_profile')) { ?> class="active" <?php } ?>><a title="freelancer Details" href="<?php echo base_url('freelancer/freelancer_post_profile'); ?>">Details</a>
                                                 </li>
-                                                <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_save_post')) { ?> class="active" <?php } ?>><a href="<?php echo base_url('freelancer/freelancer_save_post'); ?>">Saved </a>
+                                                <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_save_post')) { ?> class="active" <?php } ?>><a title="Saved Post" href="<?php echo base_url('freelancer/freelancer_save_post'); ?>">Saved </a>
                                                 </li>
-                                                <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_applied_post')) { ?> class="active" <?php } ?>><a href="<?php echo base_url('freelancer/freelancer_applied_post'); ?>">Applied</a>
+                                                <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_applied_post')) { ?> class="active" <?php } ?>><a title="Applied Post" href="<?php echo base_url('freelancer/freelancer_applied_post'); ?>">Applied</a>
                                                 </li>
                                 </ul>
      
@@ -486,8 +486,8 @@ if ($freepostdata[0]['designation']) {
                                                                     <b>Required Experience</b>
                                                                     <span>
                                                                         <?php if($post['post_exp_month'] ||  $post['post_exp_year']){
-            echo $post['post_exp_year'];   ?> year&nbsp;&nbsp;<?php  echo $post['post_exp_month'];}
-                else{echo PROFILENA;} ?> month
+            echo $post['post_exp_year'];   ?> &nbsp;&nbsp;<?php  echo $post['post_exp_month'];}
+                else{echo PROFILENA;} ?>
                                                                     </span>
                                                                 </li>
 
@@ -593,7 +593,7 @@ $userid = $this->session->userdata('aileenuser');
     <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
     <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
-               <script>
+ <script>
 var data= <?php echo json_encode($demo); ?>;
 //alert(data);
         

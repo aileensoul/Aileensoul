@@ -78,7 +78,7 @@
                     <div class="col-md-7 col-sm-7 header-left-menu">
 
                     <ul class="fr">
-                    <li class=""><a style="       margin-top: 25px;
+                    <li class=""><a style="margin-top: 25px;
     padding: 8px 17px;
     border: none;
     line-height: normal;
@@ -86,7 +86,9 @@
     background-color: #87ceff!important;
     color: #FFF;
     font-weight: 600;
-    border: 3px solid #fff; " href="">Create an account</a></li>
+    border: 3px solid #fff; "  href="<?php echo base_url('registration'); ?>">Create an account</a></li>
+
+
                       
                     </ul>
                      
@@ -144,7 +146,7 @@
                                     Password<span class="req">*</span>
                                 </label>
                                 <input type="password" id="password" name="password" class="showpassword"  style="position: relative;padding-right: 8%;" />
-
+                                <input type="hidden" name="hiddenf" id="hiddenf" value="login">
                                 
   <label for="password1" style="position: absolute;
     top: 37px;
@@ -299,10 +301,10 @@
                                         messages:
                                                 {
                                                     user_name: {
-                                                        required: "Please enter user name",
+                                                        required: "Please Enter Email Address",
                                                     },
                                                     password: {
-                                                        required: "Please enter password",
+                                                        required: "Please Enter Password",
                                                     }
                                                 },
                                     });

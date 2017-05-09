@@ -63,7 +63,7 @@
     background-color: #87ceff!important;
     color: #FFF;
     font-weight: 600;
-    border: 3px solid #fff; " href="">Login</a></li>
+    border: 3px solid #fff; " href="<?php echo base_url('login'); ?>">Login</a></li>
                       
                     </ul>
                      
@@ -187,7 +187,7 @@
           <div class="or" style="margin-bottom: 10px;">Already have an account? <a href="<?php echo base_url('login')?>"  style="color: #a0b3b0;
     font-size: 17px;
     font-weight: 600;
-    padding-bottom: 10px;">Sign in</a></div>
+    padding-bottom: 10px;">Log in</a></div>
           </form>
 
        

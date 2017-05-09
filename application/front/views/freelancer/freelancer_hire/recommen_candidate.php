@@ -338,11 +338,11 @@
           <div class="profile-box-job-menu  col-md-12 rec_menubox">
 
                                             <ul class="">
-                                                <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_hire_profile')) { ?> class="active" <?php } ?>><a href="<?php echo base_url('freelancer/freelancer_hire_profile'); ?>" > Details</a></li>
-                                                <li><a href="<?php echo base_url('freelancer/freelancer_hire_post'); ?>">Posts</a></li>
+                                                <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_hire_profile')) { ?> class="active" <?php } ?>><a title="Employer Details" href="<?php echo base_url('freelancer/freelancer_hire_profile'); ?>" > Details</a></li>
+                                                <li><a title="Post" href="<?php echo base_url('freelancer/freelancer_hire_post'); ?>">Posts</a></li>
 <!--                                                <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_save')) { ?> class="active" <?php } ?>><a href="<?php echo base_url('freelancer/freelancer_save'); ?>">Message</a>
                                                 </li>-->
-                                                <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_save')) { ?> class="active" <?php } ?>><a href="<?php echo base_url('freelancer/freelancer_save'); ?>">Saved</a></li>
+                                                <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_save')) { ?> class="active" <?php } ?>><a title="Saved Freelancer" href="<?php echo base_url('freelancer/freelancer_save'); ?>">Saved</a></li>
                                             </ul>
 
                                         </div>

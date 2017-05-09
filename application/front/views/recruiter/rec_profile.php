@@ -280,9 +280,9 @@ body {
                                   
  <li <?php if($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'rec_profile'){?> class="active" <?php } ?>>
         <?php if($returnpage == 'job'){?>
-     <a href="<?php echo base_url('recruiter/rec_profile/'.$this->uri->segment(3).'?page='.$returnpage); ?>">Details</a>
+     <a title="Details" href="<?php echo base_url('recruiter/rec_profile/'.$this->uri->segment(3).'?page='.$returnpage); ?>">Details</a>
         <?php }else{?>
-     <a href="<?php echo base_url('recruiter/rec_profile'); ?>">Details</a>
+     <a title="Details" href="<?php echo base_url('recruiter/rec_profile'); ?>">Details</a>
         <?php }?>
                                     </li>
 
@@ -293,9 +293,9 @@ body {
 
                                        <li <?php if($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'rec_post'){?> class="active" <?php } ?>>
                                            <?php if($returnpage == 'job'){ ?>
-                                           <a href="<?php echo base_url('recruiter/rec_post/'.$this->uri->segment(3).'?page='.$returnpage); ?>">Post</a>
+                                           <a title="Candidate Post" href="<?php echo base_url('recruiter/rec_post/'.$this->uri->segment(3).'?page='.$returnpage); ?>">Post</a>
                                            <?php } else {?>
-                                           <a href="<?php echo base_url('recruiter/rec_post'); ?>">Post</a>
+                                           <a title="Candidate Post" href="<?php echo base_url('recruiter/rec_post'); ?>">Post</a>
                                            <?php }?>
                                     </li>
 
@@ -305,7 +305,7 @@ body {
                                     <?php
                                     if(($this->uri->segment(1) == 'recruiter') && ($this->uri->segment(2) == 'rec_post' || $this->uri->segment(2) == 'rec_profile' || $this->uri->segment(2) == 'add_post' || $this->uri->segment(2) == 'save_candidate') && ($this->uri->segment(3) == $this->session->userdata('aileenuser')|| $this->uri->segment(3) == '')) { ?>
 
-                                    <li <?php if($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'save_candidate'){?> class="active" <?php } ?>><a href="<?php echo base_url('recruiter/save_candidate'); ?>">Saved </a>
+                                    <li <?php if($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'save_candidate'){?> class="active" <?php } ?>><a title="Saved Candidate" href="<?php echo base_url('recruiter/save_candidate'); ?>">Saved </a>
                                     </li> 
                                                                           <fa>
                                     </li> 

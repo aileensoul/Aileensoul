@@ -2,101 +2,93 @@
 <?php echo $head; ?>
 <!-- END HEAD -->
 <style>
-body {
-  font-family: Arial, sans-serif;
-  background-size: cover;
-  height: 100vh;
-}
-
-.box {
-  width: 40%;
-  margin: 0 auto;
-  background: rgba(255,255,255,0.2);
-  padding: 35px;
-  border: 2px solid #fff;
-  border-radius: 20px/50px;
-  background-clip: padding-box;
-  text-align: center;
-}
-
-
-
-.overlay {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.3);
-  transition: opacity 500ms;
-  visibility: hidden;
-  opacity: 0;
-  z-index: 10;
-}
-.overlay:target {
-  visibility: visible;
-  opacity: 1;
-}
-
-.popup {
-    margin: 70px auto;
-    padding: 20px;
-    background: #fff;
-    border-radius: 5px;
-    width: 30%;
-    height: 200px;
-    position: relative;
-    transition: all 5s ease-in-out;
-}
-
+   /* body {
+        font-family: Arial, sans-serif;
+        background-size: cover;
+        height: 100vh;
+    }*/
+    /*.box {
+        width: 40%;
+        margin: 0 auto;
+        background: rgba(255,255,255,0.2);
+        padding: 35px;
+        border: 2px solid #fff;
+        border-radius: 20px/50px;
+        background-clip: padding-box;
+        text-align: center;
+    }*/
+   /* .overlay {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.7);
+        transition: opacity 500ms;
+        visibility: hidden;
+        opacity: 0;
+        z-index: 10;
+    }*/
+    /*.overlay:target {
+        visibility: visible;
+        opacity: 1;
+    }*/
+    /*.popup {
+        margin: 70px auto;
+        padding: 20px;
+        background: #fff;
+        border-radius: 5px;
+        width: 30%;
+        height: 200px;
+        position: relative;
+        transition: all 5s ease-in-out;
+    }
+*/
 .okk{
-  text-align: center;
-}
-
-.popup .okbtn {
-  position: absolute;
-    transition: all 200ms;
-    font-size: 18px;
-    font-weight: bold;
-    text-decoration: none;
-    color: #fff;
-    padding: 8px 18px;
-    background-color: darkcyan;
-    left: 25px;
-    margin-top: 15px;
-    width: 100px; 
-    border-radius: 8px;
-}
-
-.popup .cnclbtn {
-  position: absolute;
-    transition: all 200ms;
-    font-size: 18px;
-    font-weight: bold;
-    text-decoration: none;
-    color: #fff;
-    padding: 8px 18px;
-    background-color: darkcyan;
-    right: 25px;
-    margin-top: 15px;
-    width: 100px;
-    border-radius: 8px;
-}
-
-.popup .pop_content {
- text-align: center;
- margin-top: 40px;
+        text-align: center;
+    }
+     .pop_content .okbtn{
+        position: absolute;
+        transition: all 200ms;
+        font-size: 16px;
+        text-decoration: none;
+        color: #fff;
+        padding: 8px 18px;
+        background-color: #0A2C5D;
+        left: 170px;
+        margin-top: 8px;
+        width: 100px; 
+        border-radius: 8px;
+    }
+      .pop_content .cnclbtn {
+        position: absolute;
+        transition: all 200ms;
+        font-size: 16px;
+        text-decoration: none;
+        color: #fff;
+        padding: 8px 18px;
+        background-color: #0A2C5D;
+        right: 170px;
+        margin-top: 8px;
+        width: 100px;
+        border-radius: 8px;
+    }  
+    .popup .pop_content {
+        text-align: center;
+        margin-top: 40px;
+    }
+      .model_ok_cancel{
+        width:200px !important;
+    }
   
-}
-
-@media screen and (max-width: 700px){
-  .box{
-    width: 70%;
-  }
-  .popup{
-    width: 70%;
-  }
-}
+/*    @media screen and (max-width: 700px){
+        .box{
+            width: 70%;
+        }
+        .popup{
+            width: 70%;
+        }
+    }*/
 </style>
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/demo.css'); ?>">
@@ -473,8 +465,8 @@ function text2link($text) {
                                                                     <b>Required Experience</b>
                                                                     <span>
                                                                         <?php if($post['post_exp_month'] ||  $post['post_exp_year']){
-            echo $post['post_exp_year'];   ?> year&nbsp;&nbsp;<?php  echo $post['post_exp_month'];}
-                else{echo PROFILENA;} ?> month
+            echo $post['post_exp_year'];   ?> &nbsp;&nbsp;<?php  echo $post['post_exp_month'];}
+                else{echo PROFILENA;} ?>
                                                                     </span>
                                                                 </li>
 
@@ -492,7 +484,7 @@ function text2link($text) {
                                                                     <input type="hidden" name="search" id="search" value="<?php echo $keyword; ?>">
                                                                                             
                                           <li class=fr>
-                                          <?php
+                                                          <?php
 $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
  $contition_array = array('post_id' => $post['post_id'], 'job_delete' => 0, 'user_id' => $userid);
 $freelancerapply1 = $this->data['freelancerapply'] = $this->common->select_data_by_condition('freelancer_apply', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -502,27 +494,24 @@ $freelancerapply1 = $this->data['freelancerapply'] = $this->common->select_data_
  <?php
 } else {
 ?>
-<input type="hidden" id="<?php echo 'allpost' . $post['post_id']; ?>" value="all">
 
- <input type="hidden" id="<?php echo 'userid' . $post['post_id']; ?>" value="<?php echo $post['user_id']; ?>">
-                <a class="applypost button" href="javascript:void(0);"  class= "<?php echo 'applypost' . $post['post_id']; ?>  button" onclick="applypopup(<?php echo $post['post_id'] ?>,<?php echo $post['user_id'] ?>)">Apply</a>
+ <a href="javascript:void(0);"  class= "<?php echo 'applypost' . $post['post_id']; ?>  button" onclick="applypopup(<?php echo $post['post_id'] ?>,<?php echo $post['user_id'] ?>)">Apply</a>
                                                                     </li> 
                 <li>
                 <?php
 $userid = $this->session->userdata('aileenuser');
             
-$contition_array = array('from_id' => $userid, 'to_id' => $post['user_id'],'save_type' => 2,'status'=> 0);
-$data = $this->common->select_data_by_condition('save', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+ $contition_array = array('user_id' => $userid, 'job_save' => '2', 'post_id ' => $post['post_id'], 'job_delete' => '1');
+ $data = $this->data['jobsave'] = $this->common->select_data_by_condition('freelancer_apply', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
             if ($data){
                 ?>
-       <a class="applypost  button">Saved</a>
+       <a class="saved  button">Saved</a>
     <?php } else { ?>
-                <input type="hidden" name="saveuser"  id="saveuser" value= "<?php echo $data[0]['save_id']; ?>"> 
-<a id="<?php echo $post['user_id']; ?>" onClick="savepopup(<?php echo $post['user_id']; ?>)" href="javascript:void(0);" class="<?php echo 'saveduser' . $post['user_id']; ?> applypost button">Save</a>
+             
+<a id="<?php echo $post['post_id']; ?>" onClick="savepopup(<?php echo $post['post_id']; ?>)" href="javascript:void(0);" class="<?php echo 'savedpost' . $post['post_id']; ?> button">Save</a>
 
                 <?php }?>
                 <?php }?>
-
                                                                    </li>                        
                                                                    </ul>
                                                             </div>
@@ -564,6 +553,17 @@ $data = $this->common->select_data_by_condition('save', $contition_array, $data 
                 <footer>
                     <?php echo $footer; ?>
                 </footer>
+                <div class="modal fade message-box biderror" id="bidmodal" role="dialog">
+                    <div class="modal-dialog modal-lm">
+                        <div class="modal-content">
+                            <button type="button" class="modal-close" data-dismiss="modal">&times;</button>         
+                            <div class="modal-body">
+                                <!--<img class="icon" src="images/dollar-icon.png" alt="" />-->
+                                <span class="mes"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 </body>
 
@@ -724,54 +724,64 @@ $data = $this->common->select_data_by_condition('save', $contition_array, $data 
                 </script>
                 <!-- save post start -->
                 
-                 <!-- apply post start -->
+               
 
-                <script type="text/javascript">
-                    function apply_post(abc)
+                  <script type="text/javascript">
+                    function save_post(abc)
                     {
-
-                        var alldata = document.getElementById("allpost" + abc);
-
-                        var user = document.getElementById("userid" + abc);
-
                         $.ajax({
                             type: 'POST',
-                            url: '<?php echo base_url() . "freelancer/apply_insert" ?>',
-                            data: 'post_id=' + abc + '&allpost=' + alldata.value + '&userid=' + user.value,
+                            url: '<?php echo base_url() . "freelancer/save_user" ?>',
+                            data: 'post_id=' + abc,
                             success: function (data) {
-
-                                $('.' + 'applypost' + abc).html(data);
-
-
+                                $('.' + 'savedpost' + abc).html(data).addClass('saved');
                             }
                         });
 
                     }
                 </script>
-
-                 <!-- apply post end -->
-
-                 <!-- save post start -->
                 
-                <script type="text/javascript">
-                   function save_post(abc)
-                   {  
-                
-                      $.ajax({ 
-                                type:'POST',
-                                url:'<?php echo base_url() . "freelancer/save_insert" ?>',
-                                data:'post_id='+abc,
-                                success:function(data){ 
-                                
-                                 $('.' + 'savedpost' + abc).html(data);
-                                 
-                                }
-                            }); 
-                        
-                }
+              
+    
+         <script type="text/javascript">
+                    function apply_post(abc, xyz) {
+                        //var alldata = document.getElementById("allpost" + abc);
+                        var alldata = 'all';
+                        //var user = document.getElementById("userid" + abc);
+                        var user = xyz;
+
+                        $.ajax({
+                            type: 'POST',
+                            url: '<?php echo base_url() . "freelancer/apply_insert" ?>',
+//                            data: 'post_id=' + abc + '&allpost=' + alldata.value + '&userid=' + user.value,
+                            data: 'post_id=' + abc + '&allpost=' + alldata + '&userid=' + user,
+                            success: function (data) {
+                                $('.savedpost' + abc).hide();
+                                $('.applypost' + abc).html(data);
+                                $('.applypost' + abc).attr('disabled', 'disabled');
+                                $('.applypost' + abc).attr('onclick', 'myFunction()');
+                                $('.applypost' + abc).addClass('applied');
+                            }
+                        });
+                    }
                 </script>
-                
-                <!-- save post end -->
+                <!-- apply post end-->
+                              <!-- save post end -->
+ <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
+                     <script>
+                    function savepopup(id) {
+                        //alert(id);
+                        save_post(id);
+//                       
+                        $('.biderror .mes').html("<div class='pop_content'>Your post is successfully saved.");
+                        $('#bidmodal').modal('show');
+                    }
+           function applypopup(postid, userid) {
+                        $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to apply this post?<div class='model_ok_cancel'><a class='okbtn' id=" + postid + " onClick='apply_post(" + postid + "," + userid + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+                        $('#bidmodal').modal('show');
+                    }
+                   
+                    </script>
 
 
                 

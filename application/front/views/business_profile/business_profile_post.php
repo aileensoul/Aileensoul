@@ -378,20 +378,20 @@
                                                 <li 
                                                     <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_profile_manage_post') { ?> class="active" 
                                                     <?php } ?>>
-                                                    <a href="<?php echo base_url('business_profile/business_profile_manage_post'); ?>">Dashboard
+                                                    <a title="Dashboard" href="<?php echo base_url('business_profile/business_profile_manage_post'); ?>">Dashboard
                                                     </a>
                                                 </li>
                                                 <li 
                                                     <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'followers') { ?> class="active" 
                                                     <?php } ?>>
-                                                    <a href="<?php echo base_url('business_profile/followers'); ?>">Followers 
+                                                    <a title="Followers" href="<?php echo base_url('business_profile/followers'); ?>">Followers 
                                                         <br> (<?php echo (count($businessfollowerdata)); ?>)
                                                     </a>
                                                 </li>
                                                 <li 
                                                     <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'following') { ?> class="active" 
                                                     <?php } ?>>
-                                                    <a href="<?php echo base_url('business_profile/following'); ?>">Following 
+                                                    <a title="Following" href="<?php echo base_url('business_profile/following'); ?>">Following 
                                                         <br> (<?php echo (count($businessfollowingdata)); ?>) 
                                                     </a>
                                                 </li>

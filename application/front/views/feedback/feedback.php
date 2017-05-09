@@ -73,7 +73,7 @@
                 <div class="row">
                     <div class="col-md-4 col-sm-5">
                         <div class="logo" style="    padding: 26px 0;
-    padding-left: 79px;"><a href="<?php echo base_url('dashboard') ?>"><!-- <img src="<?php// echo base_url('images/logo.png'); ?>"> --> <span style="color: #87ceff; font-size: 41px;">Aileensoul</span></a></div>
+    padding-left: 79px;"><a href="<?php echo base_url('main') ?>"><!-- <img src="<?php// echo base_url('images/logo.png'); ?>"> --> <span style="color: #87ceff; font-size: 41px;">Aileensoul</span></a></div>
                     </div>
                     <div class="col-md-7 col-sm-7 header-left-menu">
 
@@ -87,7 +87,7 @@
     color: #FFF;
     margin-right: 10px;
     font-weight: 600;
-    border: 3px solid #fff; " href="">Login</a></li>
+    border: 3px solid #fff; " href="<?php echo base_url('login') ?>">Login</a></li>
                     <li class=""><a style="       margin-top: 25px;
     padding: 8px 17px;
     border: none;
@@ -96,7 +96,7 @@
     background-color: #87ceff!important;
     color: #FFF;
     font-weight: 600;
-    border: 3px solid #fff; " href="">Create an account</a></li>
+    border: 3px solid #fff; " href="<?php echo base_url('registration') ?>">Create an account</a></li>
                       
                     </ul>
                      
@@ -139,8 +139,10 @@
                 </div>
                 <div id="login"> 
 
+                     <form name="feedbackform" method="post" id="feedbackform" 
+                    class="clearfix" onsubmit="return  feedback_form_submit()">
 
-                    <form id="feedbackform " class="clearfix" method="post" enctype="multipart/form-data" action="<?php echo base_url('feedback/feedback_insert'); ?>">
+                    <!-- <form id="feedbackform " class="clearfix" method="post" enctype="multipart/form-data" action="<?php echo base_url('feedback/feedback_insert'); ?>"> -->
      
 	
                         <div class="login_filed">
@@ -171,7 +173,7 @@
     border: 1px solid #a0b3b0;
     color: #000000;
     border-radius: 3px;
-   "" ></div>
+   "" ></div><span id="contact_message-error"> </span>
                             </div>
 
                            
@@ -206,7 +208,7 @@
             <div class="row">
                 <div class="col-md-6" style="padding: 12px;">
                 <div class="footer-menu pull-left">
-                    <p>copyright 2017 | by <a href="#" style="color: #000033">Aileensoul</a></p>
+                    <p>copyright 2017 | by <a href="<?php echo base_url('main') ?>" style="color: #000033">Aileensoul</a></p>
                 </div>
                 </div>
                 <div class="col-md-6">
@@ -239,8 +241,7 @@
 
     </section>
 
-    <script type="text/javascript" src="<?php echo base_url('js/jquery-1.11.1.min.js'); ?>"></script>
-
+   
     <script>
 
         $(function () {
@@ -276,44 +277,82 @@
 
     <script src="<?php echo base_url('partical/js/index.js'); ?>"></script>
 
-<script type="text/javascript" src="<?php echo base_url('js/jquery-1.11.1.min.js'); ?>"></script>
+
 <script type="text/javascript" src="<?php echo base_url() ?>js/jquery.validate.min.js"></script>
 <script type="text/javascript">
                                 //validation for edit email formate form
-                                $(document).ready(function () {
+$(document).ready(function () { 
                                     /* validation */
-                                    $("#login_form").validate({
-                                        rules: {
-                                            user_name: {
-                                                required: true,
-                                            },
-                                            password: {
-                                                required: true,
-                                            }
-                                        },
-                                        messages:
-                                                {
-                                                    user_name: {
-                                                        required: "Please enter user name",
-                                                    },
-                                                    password: {
-                                                        required: "Please enter password",
-                                                    }
-                                                },
-                                    });
-                                    /* validation */
+    $("#feedbackform").validate({
+    rules: {
+                
+                contact_email: {
+                 required: true,
+                 },
+                 contact_subject: {
+                 required: true,
+                },
+                contact_message: {
+                 required: true,
+                    }
+            },
+    messages:
+            {
+            
+            contact_email: {
+            required: "Enter Email",
+            },
+            contact_subject: {
+            required: "Enter Subject",
+            },
+            contact_message: {
+            required: "Enter Message",
+            }
+        },
+     });
+    //                                 /* validation */
                                     
-                                });
+});
 
 
 </script>
+
+<!-- form insert script start -->
+
+
+<script type="text/javascript">
+
+
+  function feedback_form_submit(){  
+   
+  
+  var email = $('#contact_email').val();
+  var subject = $('#contact_subject').val();
+
+  var $field = $('#contact_message');
+  
+  var message = $('#contact_message').html();
+
+   $('#contact_message').html("");
+
+       $.ajax({
+                type:'POST',
+                url:'<?php echo base_url() . "feedback/feedback_insert" ?>',
+                 data:'email=' + email + '&subject=' + subject + '&message=' + message,
+                success:function(data){ 
+                    $('input').each(function(){
+                             $(this).val('');
+                             });
+                   window.location= "<?php echo base_url() ?>main";  
+                }
+            }); 
+   
+    return false;
+  }
+ 
+</script>
+<!-- form insert script end -->
 
 </body>
 
 </html>
-
-
-<script type="text/javascript">
-	
-	
-</script>

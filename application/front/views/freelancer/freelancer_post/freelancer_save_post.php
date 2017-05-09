@@ -267,7 +267,7 @@
             <div class="left-side-menu col-md-2">  </div>
             <div class="right-side-menu col-md-9">  
                 <ul class="">
-                    <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_post_profile')) { ?> class="active" <?php } ?>><a href="<?php echo base_url('freelancer/freelancer_post_profile'); ?>">Details</a>
+                    <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_post_profile')) { ?> class="active" <?php } ?>><a title="Freelancer Details" href="<?php echo base_url('freelancer/freelancer_post_profile'); ?>">Details</a>
                     </li>
 
 
@@ -276,10 +276,10 @@
 
 
 
-                        <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_save_post')) { ?> class="active" <?php } ?>><a href="<?php echo base_url('freelancer/freelancer_save_post'); ?>">Saved Post</a>
+                        <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_save_post')) { ?> class="active" <?php } ?>><a title="Saved" href="<?php echo base_url('freelancer/freelancer_save_post'); ?>">Saved Post</a>
                         </li>
 
-                        <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_applied_post')) { ?> class="active" <?php } ?>><a href="<?php echo base_url('freelancer/freelancer_applied_post'); ?>">Applied Post</a>
+                        <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_applied_post')) { ?> class="active" <?php } ?>><a title="Applied Post" href="<?php echo base_url('freelancer/freelancer_applied_post'); ?>">Applied Post</a>
                         </li>
 
 
@@ -476,8 +476,8 @@ $freelancerapply1 = $this->data['freelancerapply'] = $this->common->select_data_
                                                                     <b>Required Experience</b>
                                                                     <span>
                                                                         <?php if($post['post_exp_month'] ||  $post['post_exp_year']){
-            echo $post['post_exp_year'];   ?> year&nbsp;&nbsp;<?php  echo $post['post_exp_month'];}
-                else{echo PROFILENA;} ?> month
+            echo $post['post_exp_year'];   ?>&nbsp;&nbsp;<?php  echo $post['post_exp_month'];}
+                else{echo PROFILENA;} ?>
                                                                     </span>
                                                                 </li>
 

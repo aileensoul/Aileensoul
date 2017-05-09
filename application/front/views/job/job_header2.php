@@ -124,7 +124,14 @@ body {
 
 .dropdown_hover .dropdown-content_hover a {color: #000;}
 
+/* vishang 9-5-17 header2 on */
 
+
+
+   /* Firefox 18- */
+
+
+/* vishang 9-5-17 header2 off */
 
 </style>
    
@@ -134,15 +141,16 @@ body {
         <div class="header2">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-7 col-sm-7">
+                 
+                    <div class="col-sm-7 col-md-7 ">
                         <div class="job-search-box1 clearfix">
                         <?php echo $job_search; ?>
                         </div>
                     </div>
-                  <div class="col-md-5 col-sm-5">
+                  <div class="col-sm-5 col-md-5">
                        <div class="">
                             <ul class="">
-                                <li <?php if($this->uri->segment(1) == 'job' && $this->uri->segment(2) == 'job_all_post'){?> class="active" <?php } ?>><a href="<?php echo base_url('job/job_all_post'); ?>" title="Home">Home</a>
+                                <li id="art_profile" <?php if($this->uri->segment(1) == 'job' && $this->uri->segment(2) == 'job_all_post'){?> class="active" <?php } ?>><a href="<?php echo base_url('job/job_all_post'); ?>" title="Home">Home</a>
                                     </li>
                                 <!-- Friend Request Start-->
 
@@ -150,7 +158,7 @@ body {
                                 <!-- Friend Request End-->
 
 <div class="dropdown_hover">
-  <span id="art_profile">Job Profile <i class="fa fa-angle-down" aria-hidden="true"></i></span>
+  <span id="art_profile" class="profiletitle" >Job Profile <i class="fa fa-angle-down" aria-hidden="true"></i></span>
   <div class="dropdown-content_hover" id="dropdown-content_hover">
       <a href="<?php echo base_url('job/job_printpreview'); ?>" title="View Profile"><i class="fa fa-user" aria-hidden="true"></i> View Profile</a>
       <a href="<?php echo base_url('job/job_basicinfo_update'); ?>" title="Edit Profile"><i class="fa fa-pencil" aria-hidden="true"></i> Edit Profile</a>
