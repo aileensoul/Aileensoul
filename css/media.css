@@ -158,6 +158,14 @@
 
 @media (min-width: 768px) and (max-width: 1024px) 
   {  
+
+     /*  header2 on */
+         .header2 input::-webkit-input-placeholder 
+               {    font-size: 12px; line-height: 3;  }
+
+    /*   header2 off */
+
+
   	 /*profile leftbar start*/
   	     /*job on */
     .buisness-profile-txext {   max-width: 25% !important; }
