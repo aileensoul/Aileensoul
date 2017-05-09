@@ -104,7 +104,7 @@ a:focus { outline: none; text-decoration: none;  }
     border-bottom: 1px solid #e6ecf0;
     border-bottom: 1px solid rgba(0,0,0,0.05);
     position: fixed;
-    top: 56px;
+    top: 49px;
     right: 0;
     left: 0;
     z-index: 1000;
