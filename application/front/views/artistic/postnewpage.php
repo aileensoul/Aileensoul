@@ -937,309 +937,325 @@
                                                     <div>
                                                         <img src="<?php echo base_url(ARTPOSTIMAGE . str_replace(" ", "_", $artdata['image_name'])) ?>" style="width:100%; height: 70%;">
                                                     </div>
-                                                    <!-- like comment start -->
-        <div>
-        <div class="post-design-like-box col-md-12">
-        <div class="post-design-menu">
-        <ul>
-         <li class="<?php echo 'likeimgpost' . $artdata['image_id']; ?>">
-            <a id="<?php echo $artdata['image_id']; ?>" onClick="mulimg_like(this.id)">
-         <?php
-        $userid = $this->session->userdata('aileenuser');
-     $contition_array = array('post_image_id' => $artdata['image_id'], 'user_id' => $userid, 'is_unlike' => 0);
-      $activedata = $this->data['activedata'] = $this->common->select_data_by_condition('art_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+ <!-- 9-5 like comment start -->
+                 <div class="post-design-like-box col-md-12">
+                                                                <div class="post-design-menu">
+                                                                    <!-- like comment div start -->
+                                                                    <ul>
 
-         if ($activedata) {
-            ?>
-            <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-            <?php } else { ?>
-             <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>
-     <?php } ?>
-    <span class="<?php echo 'likeimage' . $artdata['image_id']; ?>"> 
-    <?php
-     $contition_array = array('post_image_id' => $artdata['image_id'], 'is_unlike' => 0);
-         $likecount = $this->common->select_data_by_condition('art_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-            if ($likecount) {
-               echo count($likecount);
-                }
-                ?>
-         </span>
-         </a>
-         </li>
-         <li> 
-           <?php
-               $contition_array = array('post_image_id' => $artdata['image_id'], 'is_delete' => '0');
-               $commnetcount = $this->common->select_data_by_condition('art_post_image_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-          ?>
-         <a onClick="imgcommentall(this.id)" id="<?php echo $artdata['image_id']; ?>">
-            <i class="fa fa-comment-o" aria-hidden="true">
-                <?php
-                       if (count($commnetcount) > 0) {
-                     echo count($commnetcount);
-                       }
-                   ?>
-              </i> 
-          </a>
-          </li>
-          </ul>
-           </div>
-            </div>
-               <!-- show comment div start -->
-              <div>
-              <div  id="<?php echo "threeimgcomment" . $artdata['image_id']; ?>" style="display:block">
-                <div class="<?php echo 'insertimgcomment' . $artdata['image_id']; ?>">
-                     <?php
-                      $contition_array = array('post_image_id' => $artdata['image_id'], 'is_delete' => '0');
-                      $artmulimage = $this->common->select_data_by_condition('art_post_image_comment', $contition_array, $data = '*', $sortby = 'post_image_comment_id', $orderby = 'DESC', $limit = '1', $offset = '', $join_str = array(), $groupby = '');
+                                                                        <li class="<?php echo 'likepostimg' . $artdata['image_id']; ?>">
+                                                                            <a id="<?php echo $artdata['image_id']; ?>" onClick="post_likeimg(this.id)">
 
-                       if ($artmulimage) {
-                           foreach ($artmulimage as $rowdata) {
-                                  $artname = $this->db->get_where('art_reg', array('user_id' => $rowdata['user_id']))->row()->art_name;
-                                       ?>
-                      <div class="all-comment-comment-box">
-                      <div class="post-design-pro-comment-img"> 
-            <?php
-            $art_userimage = $this->db->get_where('art_reg', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->art_user_image;
-            ?>
-            <img  src="<?php echo base_url(USERIMAGE . $art_userimage); ?>"  alt="">
-              </div>
-              <div class="comment-name">
-             <b>  <?php echo ucwords($artname);
-            echo '</br>';
-            ?>
-          </b>
-          </div>
-       <div class="comment-details" id= "<?php echo "imgshowcomment" . $rowdata['post_image_comment_id']; ?>">
-            <?php
-            echo $rowdata['comment'];
-            echo '</br>';
-            ?>
-             </div>
-      <!-- edit box start -->
-               <div class="col-md-12">
-                   <div class="col-md-10">
-            <input type="text" name="<?php echo $rowdata['post_image_comment_id']; ?>" id="<?php echo "imgeditcomment" . $rowdata['post_image_comment_id']; ?>" style="display: none;" value="<?php echo $rowdata['comment']; ?>" onClick="imgcommentedit(this.name)">
-               </div>  <div class="col-md-2 comment-edit-button">
-             <button id="<?php echo "imgeditsubmit" . $rowdata['post_image_comment_id']; ?>" style="display:none" onClick="imgedit_comment(<?php echo $rowdata['post_image_comment_id']; ?>)">Comment</button>
-              </div>
-              </div>
-               <!-- edit box end -->
-               <!-- comment like start -->
-             <div class="comment-details-menu"  id="<?php echo 'imglikecomment' . $rowdata['post_image_comment_id']; ?>">
-            <a id="<?php echo $rowdata['post_image_comment_id']; ?>"   onClick="imgcomment_like(this.id)">
-               <?php
-                  $userid = $this->session->userdata('aileenuser');
-                  $contition_array = array('post_image_comment_id' => $rowdata['post_image_comment_id'], 'user_id' => $userid, 'is_unlike' => 0);
-                  $artcommentlike1 = $this->common->select_data_by_condition('art_comment_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-                    //echo "<pre>"; print_r($businesscommentlike); 
-                    //echo count($businesscommentlike); 
-                if (count($artcommentlike1) == 0) {
-            ?>
-                <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>
-                 <?php } else {
-                     ?>
-                    <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-                      <?php } ?>
-                 <span>
-                <?php
-              $contition_array = array('post_image_comment_id' => $rowdata['post_image_comment_id'], 'is_unlike' => '0');
-              $mulcountlike = $this->data['mulcountlike'] = $this->common->select_data_by_condition('art_comment_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-              if (count($mulcountlike) > 0) {
-                 echo count($mulcountlike);
-            }
-            ?>
+                                                                                <?php
+                                                                                $userid = $this->session->userdata('aileenuser');
+                                                                                $contition_array = array('post_image_id' => $artdata['image_id'], 'user_id' => $userid, 'is_unlike' => 0);
 
-              </span>
-               </a>
-            </div>
-          <!--   comment like end -->
-         <!-- comment edit start -->
-            <?php
-            $userid = $this->session->userdata('aileenuser');
-            if ($rowdata['user_id'] == $userid) {
-                ?>
-             <div class="comment-details-menu">
-          <div id="<?php echo 'imgeditcommentbox' . $rowdata['post_image_comment_id']; ?>" style="display:block;">
-          <a id="<?php echo $rowdata['post_image_comment_id']; ?>"   onClick="imgcomment_editbox(this.id)" class="editbox">Edit
-        </a>
-        </div>
-      <div id="<?php echo 'imgeditcancle' . $rowdata['post_image_comment_id']; ?>" style="display:none;">
-      <a id="<?php echo $rowdata['post_image_comment_id']; ?>" onClick="imgcomment_editcancle(this.id)">Cancle
-      </a>
-       </div>
-   </div>
-   <?php } ?>
-      <!-- comment edit end -->
-     <!-- comment delete start -->
-   <?php
- $userid = $this->session->userdata('aileenuser');
-  $art_userid = $this->db->get_where('art_post', array('art_post_id' => $rowdata['post_image_id'], 'status' => 1))->row()->user_id;
-       if ($rowdata['user_id'] == $userid || $art_userid == $userid) {
-      ?>
-   <span role="presentation" aria-hidden="true"> ? </span>
-         <div class="comment-details-menu">
+                                                                                $activedata = $this->data['activedata'] = $this->common->select_data_by_condition('art_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-           <input type="hidden" name="imgpost_delete"  id="imgpost_delete" value= "<?php echo $rowdata['post_image_id']; ?>">
-                 <a id="<?php echo $rowdata['post_image_comment_id']; ?>"   onClick="imgcomment_delete(this.id)"> Delete<span class="<?php echo 'imginsertcomment' . $rowdata['post_image_comment_id']; ?>">
-           </span>
-        </a>
-           </div>
-            <?php } ?>
-            <!-- comment delete end -->
-             <!-- created date start -->
-             <span role="presentation" aria-hidden="true"> ? </span>
-             <div class="comment-details-menu">
-            <p><?php echo date('d-M-Y', strtotime($rowdata['created_date']));
-            echo '</br>';
-            ?>
-             </p></div>
-           <!-- created date end -->
-                </div>
-            <?php
-        }
-    }
-    ?>
-       </div>
-     </div>
-    <div id="<?php echo "fourimgcomment" . $artdata['image_id']; ?>" style="display:none;">
-         <div class="<?php echo 'insertcomment1' . $artdata['image_id']; ?>">
-          <?php
-           $contition_array = array('post_image_id' => $artdata['image_id'], 'is_delete' => '0');
-           $artmulimage1 = $this->common->select_data_by_condition('art_post_image_comment', $contition_array, $data = '*', $sortby = 'post_image_comment_id', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-           if ($artmulimage1) {
-          foreach ($artmulimage1 as $rowdata) {
-         $artname = $this->db->get_where('art_reg', array('user_id' => $rowdata['user_id']))->row()->art_name;
-         ?> 
-                <div class="all-comment-comment-box">
-                <div class="post-design-pro-comment-img"> 
-            <?php
-            $art_userimage = $this->db->get_where('art_reg', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->art_user_image;
-            ?>
-            <img  src="<?php echo base_url(USERIMAGE . $art_userimage); ?>"  alt="">
-             </div>
-        <div class="comment-name">
-           <b>  <?php echo ucwords($artname);
-               echo '</br>';
-            ?>
-          </b>
-        </div>
-        <div class="comment-details" id= "<?php echo "imgshowcommenttwo" . $rowdata['post_image_comment_id']; ?>" style="display: block;">
-            <?php
-            echo $rowdata['comment'];
-            echo '</br>';
-            ?>
-      </div>
-      <!-- edit box start -->
-    <div class="col-md-12">
- <div class="col-md-10">
-   <input type="text" name="<?php echo $rowdata['post_image_comment_id']; ?>" id="<?php echo "imgeditcommenttwo" . $rowdata['post_image_comment_id']; ?>" style="display: none;" value="<?php echo $rowdata['comment']; ?>" onClick="imgcommentedittwo(this.name)">
-         </div>  <div class="col-md-2 comment-edit-button">
-       <button id="<?php echo "imgeditsubmittwo" . $rowdata['post_image_comment_id']; ?>" style="display:none" onClick="imgedit_commenttwo(<?php echo $rowdata['post_image_comment_id']; ?>)">Comment</button>
-        </div>
-         </div>
-        <!-- edit box end -->
-         <!-- comment like start -->
-         <div class="comment-details-menu" id="<?php echo 'imglikecomment1' . $rowdata['post_image_comment_id']; ?>">
-         <a id="<?php echo $rowdata['post_image_comment_id']; ?>"   onClick="imgcomment_like1(this.id)">
-         <?php
-              $userid = $this->session->userdata('aileenuser');
-           $contition_array = array('post_image_comment_id' => $rowdata['post_image_comment_id'], 'user_id' => $userid, 'is_unlike' => 0);
-            $artcommentlike2 = $this->common->select_data_by_condition('art_comment_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-                 //echo "<pre>"; print_r($businesscommentlike); 
-                 //echo count($businesscommentlike); 
-            if (count($artcommentlike2) == 0) {
-              ?>
-              <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>
-              <?php } else {
+                                                                                if ($activedata) {
+                                                                                    ?>
+                                                                                    <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                                                                <?php } else { ?>
+                                                                                    <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>
+                                                                                <?php } ?>
+
+
+                                                                                <span class="<?php echo 'likeimage' . $artdata['image_id']; ?>"> <?php
+                                                                                    $contition_array = array('post_image_id' => $artdata['image_id'], 'is_unlike' => 0);
+                                                                                    $likecount = $this->common->select_data_by_condition('art_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+                                                                                    if ($likecount) {
+                                                                                        echo count($likecount);
+                                                                                    }
+                                                                                    ?>
+
+                                                                                </span>
+                                                                            </a>
+                                                                        </li>
+                                                                        <li id="<?php echo "insertcountimg" . $artdata['image_id']; ?>" style="visibility:show">
+
+                                                                            <?php
+                                                                            $contition_array = array('post_image_id' => $artdata['image_id'], 'is_delete' => '0');
+                                                                            $commnetcount = $this->common->select_data_by_condition('art_post_image_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                                                            ?>
+
+                                                                            <a onClick="commentallimg(this.id)" id="<?php echo $artdata['image_id']; ?>">
+                                                                                <i class="fa fa-comment-o" aria-hidden="true">
+                                                                                    <?php
+                                                                                    if (count($commnetcount) > 0) {
+                                                                                        echo count($commnetcount);
+                                                                                    }
+                                                                                    ?>
+                                                                                </i> 
+                                                                            </a>
+                                                                        </li>
+                                                                    </ul>
+                                                                    <!-- like comment div end -->
+                                                                </div>
+                                                            </div>
+
+
+                                                            <!-- like user list start -->
+
+                                                            <!-- pop up box start-->
+                                                            <?php
+                                                            if ($commnetcount > 0) {
+                                                                ?>
+                                                                <div class="likeduserlistimg<?php echo $artdata['image_id']; ?>">
+                                                                    <?php
+                                                                    $contition_array = array('post_image_id' => $artdata['image_id'], 'is_unlike' => '0');
+                                                                    $commnetcount = $this->common->select_data_by_condition('art_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                                                  // echo '<pre>'; print_r($commnetcount);
+                                                                    foreach ($commnetcount as $comment) {
+                                                                      echo  $art_fname1 = $this->db->get_where('art_reg', array('user_id' => $comment['user_id'], 'status' => 1))->row()->art_name;
+                                                                      echo  $art_lname1 = $this->db->get_where('art_reg', array('user_id' => $comment['user_id'], 'status' => 1))->row()->art_lastname;
+                                                                        ?>
+                                                                    <?php } ?>
+                                                                    <!-- pop up box end-->
+                                                                    <a href="javascript:void(0);"  onclick="likeuserlistimg(<?php echo $artdata['image_id']; ?>);">
+                                                                        <?php
+                                                                    $contition_array = array('post_image_id' => $artdata['image_id'], 'is_unlike' => '0');
+                                                                    $commnetcount = $this->common->select_data_by_condition('art_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+                                                                      
+                                                                      $art_fname = $this->db->get_where('art_reg', array('user_id' => $commnetcount[0]['user_id'], 'status' => 1))->row()->art_name;
+                                                                      $art_lname = $this->db->get_where('art_reg', array('user_id' => $commnetcount[0]['user_id'], 'status' => 1))->row()->art_lastname;
+                                                                        ?>
+                                                                        <div class="like_one_other">
+                                                                            <?php
+                                                                            echo ucwords($art_fname);
+                                                                            echo "&nbsp;";
+                                                                            echo ucwords($art_lname);
+                                                                            echo "&nbsp;";
+                                                                            ?>
+                                                                            <?php
+                                                                            if (count($commnetcount) > 1) {
+                                                                                echo "and ";
+                                                                                echo $countlike;
+                                                                                echo "&nbsp;";
+                                                                                echo "others";
+                                                                            }
+                                                                            ?>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+                                                                <?php
+                                                            }
+                                                            ?>
+                                                            <div class="<?php echo "likeusername" . $artdata['image_id']; ?>" id="<?php echo "likeusername" . $row['art_post_id']; ?>" style="display:none">
+                                                                <?php
+                                                                 $contition_array = array('post_image_id' => $artdata['image_id'], 'is_unlike' => '0');
+                                                                    $commnetcount = $this->common->select_data_by_condition('art_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                                                  // echo '<pre>'; print_r($commnetcount);
+                                                                    foreach ($commnetcount as $comment) {
+                                                                      echo  $art_fname1 = $this->db->get_where('art_reg', array('user_id' => $comment['user_id'], 'status' => 1))->row()->art_name;
+                                                                      echo  $art_lname1 = $this->db->get_where('art_reg', array('user_id' => $comment['user_id'], 'status' => 1))->row()->art_lastname;
+                                                                    ?>
+                                                                <?php } ?>
+                                                                <!-- pop up box end-->
+                                                                <a href="javascript:void(0);"  onclick="likeuserlist(<?php echo $artdata['image_id']; ?>);">
+                                                                    <?php
+                                                                    $contition_array = array('post_image_id' => $artdata['image_id'], 'is_unlike' => '0');
+                                                                    $commnetcount = $this->common->select_data_by_condition('art_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+                                                                      
+                                                                      $art_fname = $this->db->get_where('art_reg', array('user_id' => $commnetcount[0]['user_id'], 'status' => 1))->row()->art_name;
+                                                                      $art_lname = $this->db->get_where('art_reg', array('user_id' => $commnetcount[0]['user_id'], 'status' => 1))->row()->art_lastname;
+                                                                        ?>
+                                                                        <div class="like_one_other">
+                                                                            <?php
+                                                                            echo ucwords($art_fname);
+                                                                            echo "&nbsp;";
+                                                                            echo ucwords($art_lname);
+                                                                            echo "&nbsp;";
+                                                                            ?>
+                                                                            <?php
+                                                                            if (count($commnetcount) > 1) {
+                                                                                echo "and ";
+                                                                                echo $countlike;
+                                                                                echo "&nbsp;";
+                                                                                echo "others";
+                                                                            }
+                                                                            ?>
+                                                                        </div>
+                                                                </a>
+                                                            </div>
+                                                            <!-- like user list end -->
+
+
+
+                                                            <div class="art-all-comment col-md-12">
+                                                                <!-- 18-4 all comment start-->
+                                                                <div id="<?php echo "fourcommentimg" . $artdata['image_id']; ?>" style="display:none">
+                                                                </div>
+
+                                                                <!-- khyati changes start -->
+
+                                                                <div  id="<?php echo "threecommentimg" . $artdata['image_id']; ?>" style="display:block">
+                                                                    <div class="<?php echo 'insertcommentimg' . $artdata['image_id']; ?>">
+                                                                        <?php
+                                                                        $contition_array = array('post_image_id' => $artdata['image_id'], 'is_delete' => '0');
+                                                                        $artmulimage = $this->common->select_data_by_condition('art_post_image_comment', $contition_array, $data = '*', $sortby = 'post_image_comment_id', $orderby = 'DESC', $limit = '1', $offset = '', $join_str = array(), $groupby = '');
+                                                                        if ($artmulimage) {
+                                                                            foreach ($artmulimage as $rowdata) {
+                                                                                $companyname = $this->db->get_where('art_reg', array('user_id' => $rowdata['user_id']))->row()->art_name;
+                                                                                ?>
+                                                                                <div class="all-comment-comment-box">
+                                                                                    <div class="post-design-pro-comment-img"> 
+                                                                                        <?php
+                                                                                        $art_userimage = $this->db->get_where('art_reg', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->art_user_image;
+                                                                                        ?>
+
+                                                                                        <img  src="<?php echo base_url(ARTISTICIMAGE . $art_userimage); ?>"  alt="">
+                                                                                    </div>
+                                                                                    <div class="comment-name">
+                                                                                        <b>  <?php
+                                                                                            echo ucwords($companyname);
+                                                                                            echo '</br>';
+                                                                                            ?>
+                                                                                        </b>
+                                                                                    </div>
+
+                                                                                    <div class="comment-details" id= "<?php echo "showcommentimg" . $rowdata['post_image_comment_id']; ?>">
+                                                                                        <?php
+                                                                                        echo $rowdata['comment'];
+                                                                                        echo '</br>';
+                                                                                        ?>
+                                                                                    </div>
+
+                                                                                    <div class="edit-comment-box">
+                                                                                        <div class="inputtype-edit-comment">
+                                                                                            <div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="<?php echo $rowdata['post_image_comment_id']; ?>"  id="editcommentimg<?php echo $rowdata['post_image_comment_id']; ?>" placeholder="Enter Your Comment " value= ""  onkeyup="commenteditimg(<?php echo $rowdata['post_image_comment_id']; ?>)"><?php echo $rowdata['comment']; ?></div>
+                                                                                            <span class="comment-edit-button"><button id="<?php echo "editsubmitimg" . $rowdata['post_image_comment_id']; ?>" style="display:none" onClick="edit_commentimg(<?php echo $rowdata['post_image_comment_id']; ?>)">Save</button></span>
+                                                                                        </div>
+                                                                                    </div>
+
+
+
+                                                                                    <div class="art-comment-menu-design"> 
+                                                                                        <div class="comment-details-menu" id="<?php echo 'likecommentimg' . $rowdata['post_image_comment_id']; ?>">
+                                                                                            <a id="<?php echo $rowdata['post_image_comment_id']; ?>"   onClick="comment_likeimg(this.id)">
+
+                                                                                                <?php
+                                                                                                $userid = $this->session->userdata('aileenuser');
+                                                                                                $contition_array = array('post_image_comment_id' => $rowdata['post_image_comment_id'], 'user_id' => $userid, 'is_unlike' => 0);
+
+                                                                                                $artcommentlike1 = $this->common->select_data_by_condition('art_comment_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                                                                                if (count($artcommentlike1) == 0) {
+                                                                                                    ?>
+                                                                                                    <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>
+
+                                                                                                <?php } else { ?>
+                                                                                                    <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                                                                                <?php } ?>
+                                                                                                <span>
+
+                                                                                                    <?php
+                                                                                                    $contition_array = array('post_image_comment_id' => $rowdata['post_image_comment_id'], 'is_unlike' => '0');
+                                                                                                    $mulcountlike = $this->data['mulcountlike'] = $this->common->select_data_by_condition('art_comment_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+                                                                                                    if (count($mulcountlike) > 0) {
+                                                                                                        echo count($mulcountlike);
+                                                                                                    }
+                                                                                                    ?>
+
+                                                                                                </span>
+                                                                                            </a>
+                                                                                        </div>
+
+
+                                                                                        <?php
+                                                                                        $userid = $this->session->userdata('aileenuser');
+
+                                                                                        if ($rowdata['user_id'] == $userid) {
+                                                                                            ?> 
+
+                                                                                            <span role="presentation" aria-hidden="true"> · </span>
+                                                                                            <div class="comment-details-menu">
+                                                                                                <div id="<?php echo 'editcommentboximg' . $rowdata['post_image_comment_id']; ?>" style="display:block;">
+                                                                                                    <a id="<?php echo $rowdata['post_image_comment_id']; ?>" onClick="comment_editboximg(this.id)" class="editbox">Edit
+                                                                                                    </a>
+                                                                                                </div>
+                                                                                                <div id="<?php echo 'editcancleimg' . $rowdata['post_image_comment_id']; ?>" style="display:none;">
+                                                                                                    <a id="<?php echo $rowdata['post_image_comment_id']; ?>" onClick="comment_editcancleimg(this.id)">Cancel
+                                                                                                    </a>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        <?php } ?>
+
+                                                                                        <?php
+                                                                                        $userid = $this->session->userdata('aileenuser');
+
+                                                                                       $business_userid = $this->db->get_where('art_post', array('art_post_id' => $rowdata['post_image_id'], 'status' => 1))->row()->user_id;
+
+
+                                                                                        if ($rowdata['user_id'] == $userid || $business_userid == $userid) {
+                                                                                         ?> 
+                                                                                            <span role="presentation" aria-hidden="true"> · </span>
+                                                                                            <div class="comment-details-menu">
+                                                                                                <input type="hidden" name="post_deleteimg"  id="post_deleteimg" value= "<?php echo $rowdata['post_image_id']; ?>">
+                                                                                                <a id="<?php echo $rowdata['post_image_comment_id']; ?>"   onClick="comment_deleteimg(this.id)"> Delete<span class="<?php echo 'insertcommentimg' . $rowdata['post_image_comment_id']; ?>">
+                                                                                                    </span>
+                                                                                                </a>
+                                                                                            </div>
+                                                                                        <?php } ?>
+
+                                                                                        <span role="presentation" aria-hidden="true"> · </span>
+
+                                                                                        <div class="comment-details-menu">
+                                                                                            <p> <?php
+                                                                                                /*   $new_date = date('Y-m-d H:i:s',strtotime($rowdata['created_date']));
+                                                                                                 */
+                                                                                                /* 							$new_time =	$this->time_elapsed_string($new_date);
+                                                                                                 */
+//							echo $new_time. '<br>';
+                                                                                                echo date('d-M-Y', strtotime($rowdata['created_date']));
+                                                                                                echo '</br>';
                                                                                                 ?>
-            <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-              <?php } ?>
-           <span>
-           <?php
-            $contition_array = array('post_image_comment_id' => $rowdata['post_image_comment_id'], 'is_unlike' => '0');
-              $mulcountlike1 = $this->data['mulcountlike'] = $this->common->select_data_by_condition('art_comment_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-               if (count($mulcountlike1) > 0) {
-                 echo count($mulcountlike1);
-                  }
-                 ?>
+                                                                                            </p></div></div>
+                                                                                </div>
+                                                                                <?php
+                                                                            }
+                                                                        }
+                                                                        ?>
 
-              </span>
-               </a>
-               </div>
-              <!--   comment like end -->
-           <!-- comment edit start -->
-            <?php
-            $userid = $this->session->userdata('aileenuser');
-            if ($rowdata['user_id'] == $userid) {
-                ?>
-              <div class="comment-details-menu">
-                <div id="<?php echo 'imgeditcommentboxtwo' . $rowdata['post_image_comment_id']; ?>" style="display:block;">
-                     <a id="<?php echo $rowdata['post_image_comment_id']; ?>"   onClick="imgcomment_editboxtwo(this.id)" class="editbox">Edit
-                       </a>
-                  </div>
-              <div id="<?php echo 'imgeditcancletwo' . $rowdata['post_image_comment_id']; ?>" style="display:none;">
-             <a id="<?php echo $rowdata['post_image_comment_id']; ?>" onClick="imgcomment_editcancletwo(this.id)">Cancle
-              </a>
-            </div>
-              </div>
-              <?php } ?>
-             <!-- comment edit end -->
-              <!-- comment delete start -->
-            <?php
-            $userid = $this->session->userdata('aileenuser');
-            $art_userid = $this->db->get_where('art_post', array('art_post_id' => $rowdata['post_image_id'], 'status' => 1))->row()->user_id;
-            if ($rowdata['user_id'] == $userid || $art_userid == $userid) {
-                ?>
-                     <span role="presentation" aria-hidden="true"> ? </span>
-                      <div class="comment-details-menu">
-                        <input type="hidden" name="imgpost_delete1"  id="imgpost_delete1" value= "<?php echo $rowdata['post_image_id']; ?>">
-                       <a id="<?php echo $rowdata['post_image_comment_id']; ?>"   onClick="imgcomment_delete1(this.id)"> Delete<span class="<?php echo 'imginsertcomment1' . $rowdata['post_image_comment_id']; ?>">
-                       </span>
-                       </a>
-                     </div>
-                   <?php } ?>
-                <!-- comment delete end -->
-              <!-- created date start -->
-                <span role="presentation" aria-hidden="true"> ? </span>
-                 <div class="comment-details-menu">
-                    <p><?php echo date('d-M-Y', strtotime($rowdata['created_date']));
-                           echo '</br>';
-                       ?>
-                  </p></div>
-            <!-- created date end -->
-           </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- khyati changes end -->
 
-        <?php }
-    }
-    ?>
-                   </div>
-               </div>
-       </div>
-             <!-- show comment div end -->
-        <!-- insert comment code start -->
-                <div class="post-design-commnet-box col-md-12">
+                                                                <!-- all comment end-->
 
-                   <div class="post-design-proo-img"> 
 
-    <?php
+                                                            </div>
+
+                                                            <?php //  }   ?>
+                                                            <div class="post-design-commnet-box col-md-12">
+                                                                <?php
     $userid = $this->session->userdata('aileenuser');
     $art_userimage = $this->db->get_where('art_reg', array('user_id' => $userid, 'status' => 1))->row()->art_user_image;
     ?>
-      <img src="<?php echo base_url(USERIMAGE . $art_userimage); ?>" alt="">
-      </div>
-     <div class="">
-     <div class="col-md-10 inputtype-comment">
-        <input type="text" name="<?php echo $artdata['image_id']; ?>" id="<?php echo "post_imgcomment" . $artdata['image_id']; ?>" placeholder="Type Comment ..." value="" onClick="entercommentimg(this.name)">
-    </div>
-  <div class="col-md-1 comment-edit-butn">                                      
-   <button id="<?php echo $artdata['image_id']; ?>" onClick="insert_commentimg(this.id)">Comment</button>
-
- </div>
-   </div>
-     </div>
-   <!-- insert comment code end -->
-     </div>
-  <!-- like comment end -->
+                                                                <div class="post-design-proo-img">
+                                                                    <?php if ($art_userimage) { ?>
+                                                                        <img src="<?php echo base_url(ARTISTICIMAGE . $art_userimage); ?>" name="image_src" id="image_src" />
+                                                                        <?php
+                                                                    } else {
+                                                                        ?>
+                                                                        <img src="<?php echo base_url(NOIMAGE); ?>" alt="No Image">
+                                                                        <?php
+                                                                    }
+                                                                    ?>
+                                                                </div>
+                                                                <div class="">
+                                                                    <div id="content" class="col-md-10 inputtype-comment" style="padding-left: 7px !important;">
+                                                                        <div contenteditable="true" style="min-height:37px !important; margin-top: 0px!important" class="editable_text" name="<?php echo $artdata['image_id']; ?>"  id="<?php echo "post_commentimg" . $artdata['image_id']; ?>" placeholder="Type Message ..." onClick="entercommentimg(<?php echo $artdata['image_id']; ?>)"></div>
+                                                                    </div>
+                                                                    <?php echo form_error('post_commentimg'); ?>
+                                                                    <div class="col-md-1 comment-edit-butn">   
+                                                                        <button id="<?php echo $artdata['image_id']; ?>" onClick="insert_commentimg(this.id)">Comment</button> 
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+  <!-- 9-5 like comment end -->
    </div>
     <?php
     $i++;
@@ -3025,7 +3041,7 @@ if (count($commnetcount) > 0) {
 
 
         }
-                                                            function imgcomment_editcancle(clicked_id) {
+        function imgcomment_editcancle(clicked_id) {
             document.getElementById('imgeditcommentbox' + clicked_id).style.display = 'block';
             document.getElementById('imgeditcancle' + clicked_id).style.display = 'none';
             document.getElementById('imgeditcomment' + clicked_id).style.display = 'none';
@@ -3209,3 +3225,320 @@ if (count($commnetcount) > 0) {
                                                                                             </script>
                                                                                             <!-- commenmt delete end -->
                                                                                             <!-- multiple images all script like comment end -->
+                                                                                            
+                                                                                            
+                                                                                            
+                                                                                            <!-- 9-5 khyati image script  start --> 
+
+<script type="text/javascript">
+                        function post_likeimg(clicked_id)
+                        {
+                            $.ajax({
+                                type: 'POST',
+                                url: '<?php echo base_url() . "artistic/like_postimg" ?>',
+                               dataType: 'json',
+                                data: 'post_image_id=' + clicked_id,
+                                success: function (data) {  alert(data);
+                                    $('.' + 'likepostimg' + clicked_id).html(data.like);
+                                    $('.likeusernameimg' + clicked_id).html(data.likeuser);
+
+                                    $('.likeduserlistimg' + clicked_id).hide();
+                                    if (data.like_user_count == '0') {
+                                        document.getElementById('likeusernameimg' + clicked_id).style.display = "none";
+                                    } else {
+                                        document.getElementById('likeusernameimg' + clicked_id).style.display = "block";
+                                    }
+                                    $('#likeusernameimg' + clicked_id).addClass('likeduserlistimg1');
+                                }
+                            });
+                        }
+                        
+                       
+                        function comment_likeimg(clicked_id)
+                        {// alert("hi");
+                                 alert(clicked_id);
+                            $.ajax({
+                                type: 'POST',
+                                url: '<?php echo base_url() . "artistic/like_commentimg1" ?>',
+                                data: 'post_image_comment_id=' + clicked_id,
+                                success: function (data) {
+                                    $('#' + 'likecommentimg' + clicked_id).html(data);
+
+                                }
+                            });
+                        }
+                        
+                         function comment_editboximg(clicked_id) {
+                            document.getElementById('editcommentimg' + clicked_id).style.display = 'inline-block';
+                            document.getElementById('showcommentimg' + clicked_id).style.display = 'none';
+                            document.getElementById('editsubmitimg' + clicked_id).style.display = 'inline-block';
+                            //document.getElementById('editbox' + clicked_id).style.display = 'none';
+                            document.getElementById('editcommentboximg' + clicked_id).style.display = 'none';
+                            document.getElementById('editcancleimg' + clicked_id).style.display = 'block';
+                            $('.post-design-commnet-box').hide();
+                        }
+
+
+                        function comment_editcancleimg(clicked_id) {
+                            document.getElementById('editcommentboximg' + clicked_id).style.display = 'block';
+                            document.getElementById('editcancleimg' + clicked_id).style.display = 'none';
+                            document.getElementById('editcommentimg' + clicked_id).style.display = 'none';
+                            document.getElementById('showcommentimg' + clicked_id).style.display = 'block';
+                            document.getElementById('editsubmitimg' + clicked_id).style.display = 'none';
+
+                            $('.post-design-commnet-box').show();
+                        }
+                        
+                        function comment_editboximgtwo(clicked_id) {
+//                            alert('editcommentboxtwo' + clicked_id);
+//                            return false;
+                            $('div[id^=editcommentimgtwo]').css('display', 'none');
+                            $('div[id^=showcommentimgtwo]').css('display', 'block');
+                            $('button[id^=editsubmitimgtwo]').css('display', 'none');
+                            $('div[id^=editcommentboximgtwo]').css('display', 'block');
+                            $('div[id^=editcancleimgtwo]').css('display', 'none');
+
+                            document.getElementById('editcommentimgtwo' + clicked_id).style.display = 'inline-block';
+                            document.getElementById('showcommentimgtwo' + clicked_id).style.display = 'none';
+                            document.getElementById('editsubmitimgtwo' + clicked_id).style.display = 'inline-block';
+                            document.getElementById('editcommentboximgtwo' + clicked_id).style.display = 'none';
+                            document.getElementById('editcancleimgtwo' + clicked_id).style.display = 'block';
+                            $('.post-design-commnet-box').hide();
+                        }
+
+
+                        function comment_editcancleimgtwo(clicked_id) {
+
+                            document.getElementById('editcommentboximgtwo' + clicked_id).style.display = 'block';
+                            document.getElementById('editcancleimgtwo' + clicked_id).style.display = 'none';
+
+                            document.getElementById('editcommentimgtwo' + clicked_id).style.display = 'none';
+                            document.getElementById('showcommentimgtwo' + clicked_id).style.display = 'block';
+                            document.getElementById('editsubmitimgtwo' + clicked_id).style.display = 'none';
+                            $('.post-design-commnet-box').show();
+                        }
+                        
+                        function comment_deleteimg(clicked_id) {
+                            $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='comment_deletedimg(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+                            $('#bidmodal').modal('show');
+                        }
+
+                        function comment_deletedimg(clicked_id)
+                        {
+                            var post_delete = document.getElementById("post_deleteimg");
+                            alert(post_delete.value);
+                            $.ajax({
+                                type: 'POST',
+                                url: '<?php echo base_url() . "artistic/delete_commentimg" ?>',
+                                data: 'post_image_comment_id=' + clicked_id + '&post_delete=' + post_delete.value,
+                                dataType: "json",
+                                success: function (data) {
+                                    //alert('.' + 'insertcomment' + clicked_id);
+                                    $('.' + 'insertcommentimg' + post_delete.value).html(data.comment);
+                                    $('#' + 'insertcountimg' + post_delete.value).html(data.count);
+                                    $('.post-design-commnet-box').show();
+                                }
+                            });
+                        }
+                        
+                        function insert_commentimg(clicked_id)
+                        {
+                            $("#post_commentimg" + clicked_id).click(function () {
+                                $(this).prop("contentEditable", true);
+                                $(this).html("");
+                            });
+
+                            var sel = $("#post_commentimg" + clicked_id);
+                            var txt = sel.html();
+                            if (txt == '') {
+                                return false;
+                            }
+
+                            $('#post_commentimg' + clicked_id).html("");
+
+                            var x = document.getElementById('threecommentimg' + clicked_id);
+                            var y = document.getElementById('fourcommentimg' + clicked_id);
+                            
+                            if (x.style.display === 'block' && y.style.display === 'none') {
+                                $.ajax({
+                                    type: 'POST',
+                                    url: '<?php echo base_url() . "artistic/insert_commentthreeimg" ?>',
+                                    data: 'post_image_id=' + clicked_id + '&comment=' + txt,
+                                    dataType: "json",
+                                    success: function (data) {
+                                        $('textarea').each(function () {
+                                            $(this).val('');
+                                        });
+                                        $('#' + 'insertcountimg' + clicked_id).html(data.count);
+                                        $('.insertcommentimg' + clicked_id).html(data.comment);
+
+                                    }
+                                });
+
+                            } else {
+
+                                $.ajax({
+                                    type: 'POST',
+                                    url: '<?php echo base_url() . "artistic/insert_commentimg" ?>',
+                                    data: 'post_image_id=' + clicked_id + '&comment=' + txt,
+                                    dataType: "json",
+                                    success: function (data) {
+                                        $('textarea').each(function () {
+                                            $(this).val('');
+                                        });
+                                        $('#' + 'insertcountimg' + clicked_id).html(data.count);
+                                        $('#' + 'fourcommentimg' + clicked_id).html(data.comment);
+                                    }
+                                });
+                            }
+                        }
+                        
+                                function edit_commentimg(abc)
+                        {
+                            $("#editcommentimg" + abc).click(function () {
+                                $(this).prop("contentEditable", true);
+                            });
+
+                            var sel = $("#editcommentimg" + abc);
+                            var txt = sel.html();
+                            if (txt == '' || txt == '<br>') {
+                                $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+                                $('#bidmodal').modal('show');
+                                return false;
+                            }
+                            $.ajax({
+                                type: 'POST',
+                                url: '<?php echo base_url() . "artistic/edit_comment_insertimg" ?>',
+                                data: 'post_image_comment_id=' + abc + '&comment=' + txt,
+                                success: function (data) {
+                                    document.getElementById('editcommentimg' + abc).style.display = 'none';
+                                    document.getElementById('showcommentimg' + abc).style.display = 'block';
+                                    document.getElementById('editsubmitimg' + abc).style.display = 'none';
+                                    document.getElementById('editcommentboximg' + abc).style.display = 'block';
+                                    document.getElementById('editcancleimg' + abc).style.display = 'none';
+                                    $('#' + 'showcommentimg' + abc).html(data);
+                                    $('.post-design-commnet-box').show();
+                                }
+                            });
+                            $(".scroll").click(function (event) {
+                                event.preventDefault();
+                                $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1200);
+                            });
+                        }
+                        
+                        function commentallimg(clicked_id) {
+                            var x = document.getElementById('threecommentimg' + clicked_id);
+                            var y = document.getElementById('fourcommentimg' + clicked_id);
+                            var z = document.getElementById('insertcountimg' + clicked_id);
+
+                            if (x.style.display === 'block' && y.style.display === 'none') {
+                                x.style.display = 'none';
+                                y.style.display = 'block';
+                                z.style.visibility = 'show';
+                                $.ajax({
+                                    type: 'POST',
+                                    url: '<?php echo base_url() . "artistic/fourcommentimg" ?>',
+                                    data: 'art_post_id=' + clicked_id,
+                                    //alert(data);
+                                    success: function (data) {
+                                        $('#' + 'fourcommentimg' + clicked_id).html(data);
+                                    }
+                                });
+                            }
+                            // } else {
+                            //      x.style.display = 'block';
+                            //      y.style.display = 'block';
+                            //      z.style.display = 'block';
+
+                            //      $.ajax({ 
+                            //             type:'POST',
+                            //             url:'<?php echo base_url() . "artistic/fourcomment" ?>',
+                            //             data:'art_post_id='+clicked_id,
+                            //             //alert(data);
+                            //             success:function(data){
+                            //       $('#' + 'threecomment' + clicked_id).html(data);
+
+                            //       }
+                            //         });
+                            // }
+                        }
+                        
+                        function comment_deleteimgtwo(clicked_id)
+                        {
+                            $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='comment_deletedimgtwo(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+                            $('#bidmodal').modal('show');
+                        }
+
+                    
+                        function comment_deletedimgtwo(clicked_id)
+                        { 
+                            var post_delete1 = document.getElementById("post_deleteimgtwo");
+                            alert(post_delete1.value);
+                            $.ajax({
+                                type: 'POST',
+                                url: '<?php echo base_url() . "artistic/delete_commenttwoimg" ?>',
+                                data: 'post_image_comment_id=' + clicked_id + '&post_delete=' + post_delete1.value,
+                                dataType: "json",
+                                success: function (data) {
+                                    
+                                    $('.' + 'insertcommentimgtwo' + post_delete1.value).html(data.comment);
+                                    $('#' + 'insertcountimg' + post_delete1.value).html(data.count);
+                                    $('.post-design-commnet-box').show();
+
+                                }
+                            });
+                        }
+                        
+                        function edit_commentimgtwo(abc)
+                        {
+                            $("#editcommentimgtwo" + abc).click(function () {
+                                $(this).prop("contentEditable", true);
+                            });
+
+                            var sel = $("#editcommentimgtwo" + abc);
+                            var txt = sel.html();
+                            if (txt == '' || txt == '<br>') {
+                                $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deletetwo(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+                                $('#bidmodal').modal('show');
+                                return false;
+                            }
+                            $.ajax({
+                                type: 'POST',
+                                url: '<?php echo base_url() . "artistic/edit_comment_insertimg" ?>',
+                                data: 'post_image_comment_id=' + abc + '&comment=' + txt,
+                                success: function (data) {
+                                    document.getElementById('editcommentimgtwo' + abc).style.display = 'none';
+                                    document.getElementById('showcommentimgtwo' + abc).style.display = 'block';
+                                    document.getElementById('editsubmitimgtwo' + abc).style.display = 'none';
+                                    document.getElementById('editcommentboximgtwo' + abc).style.display = 'block';
+                                    document.getElementById('editcancleimgtwo' + abc).style.display = 'none';
+                                    $('#' + 'showcommentimgtwo' + abc).html(data);
+                                    $('.post-design-commnet-box').show();
+                                }
+                            });
+                            $(".scroll").click(function (event) {
+                                event.preventDefault();
+                                $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1200);
+                            });
+                        }
+                        
+                        
+                        function likeuserlistimg(post_id) {
+
+                            $.ajax({
+                                type: 'POST',
+                                url: '<?php echo base_url() . "artistic/likeuserlistimg" ?>',
+                                data: 'post_id=' + post_id,
+                                dataType: "html",
+                                success: function (data) {
+                                    var html_data = data;
+                                    $('#likeusermodal .mes').html(html_data);
+                                    $('#likeusermodal').modal('show');
+                                }
+                            });
+
+
+                        }
+                    </script>
+    
+<!-- 9-5 khyati image script  emd --> 

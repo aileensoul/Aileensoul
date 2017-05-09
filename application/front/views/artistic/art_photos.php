@@ -2063,7 +2063,7 @@
 //aarati code end
 </script>
 <!-- cover image end -->
-<!-- khyati image script  start --> 
+<!-- 9-5 khyati image script  start --> 
 
 <script type="text/javascript">
                         function post_likeimg(clicked_id)
@@ -2379,4 +2379,4 @@
                  
                    
 
-<!-- khyati image script  emd --> 
+<!-- 9-5 khyati image script  emd --> 
