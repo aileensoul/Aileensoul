@@ -401,7 +401,7 @@ $(function(){
                 '     </div>\n' +
                 '</div>';
             tSize = ' <samp>({sizeText})</samp>';
-            tFooter = '<div class="file-thumbnail-footer">\n' +
+            tFooter = '<div class="file-thumbnail-footer"> <div class="remove-  "> <i class="fa fa-trash" aria-hidden="true"></i></div>\n' +
                 '    <div class="file-footer-caption" title="{caption}">{caption}<br>{size}</div>  \n' +
                 '    {progress} {actions}\n' +
                 '</div>';
@@ -424,7 +424,7 @@ $(function(){
             tActionDrag = '<span class="file-drag-handle {dragClass}" title="{dragTitle}">{dragIcon}</span>';
             tTagBef = '  <div class="file-preview-frame {frameClass}" id="{previewId}" data-fileindex="{fileindex}"' +
                 ' data-template="{template}"';
-            tTagBef1 = tTagBef + '><div class="remove-  "> <i class="fa fa-trash" aria-hidden="true"></i></div> <div class="kv-file-content">\n';
+            tTagBef1 = tTagBef + '> <div class="kv-file-content">\n';
             tTagBef2 = tTagBef + ' title="{caption}"><div class="kv-file-content">\n';
             tTagAft = '</div>{footer}\n</div> \n';
             tGeneric = '{content}\n';

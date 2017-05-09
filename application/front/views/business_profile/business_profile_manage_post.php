@@ -294,7 +294,7 @@
     $userid = $this->session->userdata('aileenuser');
     if ($businessdata1[0]['user_id'] == $userid) {
         ?>
-<div class="container">    
+   
     <div class="upload-img">
 
 
@@ -305,7 +305,7 @@
 
     <?php } ?>
         <!-- coer image end-->
-    
+    <div class="container"> 
     <div class="profile-photo">
         <div class="buisness-menu">
             <div class="profile-pho-bui">
@@ -320,8 +320,7 @@
                     <?php
                     $userid = $this->session->userdata('aileenuser');
                     if ($businessdata1[0]['user_id'] == $userid) {
-                        ?>
-                                                                                                                        <!-- <a href="#popup-form" class="fancybox"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a> -->
+                        ?>                                                                                                                        <!-- <a href="#popup-form" class="fancybox"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a> -->
 
                         <a href="javascript:void(0);" onclick="updateprofilepopup();"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>
 
