@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -89,7 +90,7 @@
                         <div class="pushmenu pushmenu-left">
                       
    <div class="col-md-4 reg_form">
-                        <input type="text" name="user_name" id="user_name" placeholder="Email Address" value="">
+                        <input type="text" name="user_name" id="user_name" placeholder="Email Address" value="<?php if (isset($_COOKIE['user_name'])) { echo $_COOKIE['user_name']; } ?>">
 
                         <div class="checkbox2" style="display: block;">
 
@@ -98,7 +99,7 @@
                         </div>
         </div> 
          <div class="col-md-4 reg_form">              
-                               <input type="password" name="password" id="password" placeholder="Password">
+                               <input type="password" name="password" id="password" placeholder="Password" value="<?php if (isset($_COOKIE['password'])) { echo $_COOKIE['password']; } ?>">
 
                                 <input type="hidden" name="hiddenf" id="hiddenf" value="main">
 
