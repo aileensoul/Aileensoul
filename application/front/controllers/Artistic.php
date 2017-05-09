@@ -5373,7 +5373,7 @@ echo '<pre>'; print_r($artdata); die();
     }
     
     
-    public function likeuserlist() {
+    public function likeuserlist(){
         $post_id = $_POST['post_id'];
 
         $contition_array = array('art_post_id' => $post_id, 'status' => '1', 'is_delete' => '0');
