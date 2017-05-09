@@ -113,8 +113,8 @@ a:focus { outline: none; text-decoration: none;  }
     margin-right: 50px;
     padding: 0px -31px;
     background-color: #00002d;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
+  /*  border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;*/
 }
 
 
