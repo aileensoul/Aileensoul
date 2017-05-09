@@ -91,7 +91,7 @@ a:focus { outline: none; text-decoration: none;  }
 
 .header2 ul { font-size: 0; margin: 0; padding-right: 21px; float: right; }
 .header2 ul li { list-style: none; display: inline-block; padding: 0; margin: 0; position: relative; }
-.header2 ul li a {  font-size: 15px; color: #fff; padding: 8px 16px 8px; display: block; }
+.header2 ul li a {  font-size: 13px; color: #fff; padding: 4px 16px; display: block; }
 .header2 ul li a i{font-size: 12px;padding-left: 10px; }
 
 .header2 ul li a:hover {     background: #08234a;
@@ -106,6 +106,7 @@ a:focus { outline: none; text-decoration: none;  }
     position: fixed;
     top: 49px;
     right: 0;
+    height: 35px;
     left: 0;
     z-index: 1000;
     margin-left: 50px;
@@ -210,7 +211,7 @@ hr{ border: none; margin: 20px 0; background:#cacaca; height: 1px; }
 
 .header ul { font-size: 0; margin: 0; padding: 0; }
 .header ul li { list-style: none; display: inline-block; padding: 0; margin: 0; position: relative; }
-.header ul li a { font-size: 17px; color: #fff; padding: 13px; font-weight: 400; display: block;letter-spacing: 0.5; }
+.header ul li a { font-size: 14px; color: #fff; padding: 13px; font-weight: 400; display: block;letter-spacing: 0.5; }
 .header ul li a:hover { background: #fff; color: #000033; }
 .header ul li a i {padding-left: 10px;}
 ul.sub-menu { display: none; position: absolute; top: 100%; right: 0; width: 274px; z-index: 2; box-shadow: 0px 0px 2px 0px #000; }
@@ -675,7 +676,7 @@ ul.business_pf_ct_person_detail li b {font-size: 16px; display: inline-block; wi
     border: 2px solid #cacaca;
     outline: none;
     background-color: #ffffff;
-    padding: 3px 15px;
+    padding: 1px 15px;
     color: #000;
     font-size: 14px;
     font-weight: 400;
@@ -3966,7 +3967,7 @@ border-bottom: 1px solid #000033;
 }
 
 .job-search-box1 label i{    border-radius: 3px;
-    padding: 5px 9px 5px 9px;
+    padding: 3px 4px 3px 4px;
     font-size: 22px;
     color: #999;
     /* padding-left: 10px; */
@@ -4533,11 +4534,12 @@ fieldset .add_post_btns{min-width: 120px;padding:8px 30px 8px;}
     margin: 0 auto;
     width: 40%;
     padding: 5px;}
-    #paddingtop_fixed{padding-top:95px!important;}
+    #paddingtop_fixed{padding-top:84px!important;}
     .profile-job-details .post_title {   font-size: 19px; font-weight: 600; cursor: default; }
     .not_avalible{}
     .website:hover{text-decoration-line: underline;}
 
-
+.select2-container .select2-search--inline .select2-search__field{margin-top: 0px!important;}
 
     #padding_dash{padding-top: 58px!important;}
+    .select2-container .select2-selection--multiple{min-height: 28px!important;}

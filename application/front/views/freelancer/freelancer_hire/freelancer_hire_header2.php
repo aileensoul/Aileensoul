@@ -152,7 +152,7 @@ body {
                                 <!-- Friend Request End-->
 
 <div class="dropdown_hover">
-  <span id="art_profile">Employer Profile <i class="fa fa-angle-down" aria-hidden="true"></i></span>
+  <span id="art_profile" style="font-size: 13px;">Employer Profile <i class="fa fa-angle-down" aria-hidden="true"></i></span>
   <div class="dropdown-content_hover" id="dropdown-content_hover">
     <a href="<?php echo base_url('freelancer/freelancer_hire_profile'); ?>"><i class="fa fa-user" aria-hidden="true"></i> View Profile</a>
     <a href="<?php echo base_url('freelancer_hire/freelancer_hire_basic_info'); ?>"><i class="fa fa-pencil" aria-hidden="true"></i> Edit Profile</a>
