@@ -80,11 +80,11 @@
                     </div>
                     <div class="col-md-7 col-sm-7 header-left-menu">
                         <div class="pushmenu pushmenu-left">
-                      
+                        <form action="<?php echo base_url(); ?>login/check_login" method="post" id="login_form" name="login_form">
    <div class="col-md-4 reg_form">
-                        <input type="text" name="" placeholder="Email Address">
+                          <input id="user_name"  type="text" name="user_name" autocomplete="off" placeholder="Email Address">
         </div>  <div class="col-md-4 reg_form">              
-                               <input type="text" name="" placeholder="Password">
+                                 <input type="password" id="password" name="password" class="showpassword" />
                               <span style="font-size: 12px; padding-left: 8px; font-weight: 600; color: #a0b3b0;"><a style="font-size: 13px;" href=""> Forgot Password?</a></span>
 </div> <div class="col-md-2 reg_button">
                          <input type="submit" value="login" name="">
