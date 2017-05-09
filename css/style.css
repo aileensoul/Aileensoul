@@ -104,7 +104,7 @@ a:focus { outline: none; text-decoration: none;  }
     border-bottom: 1px solid #e6ecf0;
     border-bottom: 1px solid rgba(0,0,0,0.05);
     position: fixed;
-    top: 56px;
+    top: 49px;
     right: 0;
     left: 0;
     z-index: 1000;
@@ -4537,3 +4537,7 @@ fieldset .add_post_btns{min-width: 120px;padding:8px 30px 8px;}
     .profile-job-details .post_title {   font-size: 19px; font-weight: 600; cursor: default; }
     .not_avalible{}
     .website:hover{text-decoration-line: underline;}
+
+
+
+    #padding_dash{padding-top: 58px!important;}

@@ -66,8 +66,8 @@
 	/*.user-section-free-up{height: 0px;}*/
 
 	/* After Regi */
-	.mid-bar ul li { width: 50%; }
-	.mid-bar ul li a { font-size: 20px; padding: 8px 10px; margin-left: 0px; }
+	.mid-bar ul li { /*width: 50%; */}
+	.mid-bar ul li a { font-size: 20px; padding: 25px 10px; margin-left: 0px; }
 	.role-model-normal { font-size: 20px; padding: 8px 10px; }
 	
 	/* Profile */

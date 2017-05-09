@@ -243,7 +243,7 @@
                                 </fieldset>
 <fieldset class="form-group">
                                     <label class="control-label">Last date for apply:<span style="color:red">*</span></label>
-                                    <input type="text" name="last_date"  id="datepicker" value=""  placeholder="dd/mm/yyyy"  autocomplete="off">
+                                    <input type="text" name="last_date"  id="datepicker" value=""  placeholder="dd-mm-yyyy"  autocomplete="off">
                                       
                                     <?php echo form_error('last_date'); ?> 
                                 </fieldset>
@@ -369,7 +369,7 @@ $('#datepicker').datetimepicker({
   //startDate: "2013/02/14",
   lang:'ch',
   timepicker:false,
-  format:'d/m/Y',
+  format:'d-M-Y',
   formatDate:'Y/m/d'
   //minDate:'-1970/01/02', // yesterday is minimum date
   //maxDate:'+1970/01/02' // and tommorow is maximum date calendar
