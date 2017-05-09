@@ -1183,7 +1183,7 @@ $new = array();
                 'is_delete' => 0
             );
 
-              // echo "<pre>"; print_r($data); die();  
+              //echo "<pre>"; print_r($data); die();  
 
             $insert_id = $this->common->insert_data_getid($data, 'freelancer_post');
             if ($insert_id) {
