@@ -479,37 +479,40 @@
                                                             </div>
 
                                                             <div class="profile-job-profile-button clearfix">
-                                                                <div class="apply-btn">
+             <div class="apply-btn fr">
 
             <?php
             $userid = $this->session->userdata('aileenuser');
-            $contition_array = array('from_id' => $userid, 'to_id' => $row['user_id'],'save_type' => 2,'status'=>'0');
+            $contition_array = array('from_id' => $userid, 'to_id' => $row['user_id'], 'save_type' => 2, 'status' => '0');
             $data = $this->common->select_data_by_condition('save', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                        ?>
+             
+            <?php   
+            
+            if($userid != $row['user_id']){ ?>
+          <a href="<?php echo base_url('chat/abc/' . $row['user_id']); ?>">Message</a>
 
-
-           
-            if(!$data) {
+          <?php
+            if (!$data) {
                 ?> 
-                                                                        <input type="hidden" name="saveuser"  id="saveuser" value= "<?php echo $data[0]['save_id']; ?>">
+        <input type="hidden" id="<?php echo 'hideenuser' . $row['user_id']; ?>" value= "<?php echo $data[0]['save_id']; ?>">
+               
+              <a id="<?php echo $row['user_id']; ?>" onClick="savepopup(<?php echo $row['user_id']; ?>)" href="javascript:void(0);" class="<?php echo 'saveduser' . $row['user_id']; ?>">Save</a>
+         
+                <?php
+            } else {
+                ?>
 
-                                                                        
-                                                                        <a class="fr" id="<?php echo $row['user_id']; ?>" onClick="savepopup(<?php echo$row['user_id']; ?>)" href="javascript:void(0);" class="<?php echo 'saveduser' . $row['user_id']; ?>">Save</a>
-                                                                        
 
-                                                                      
-                                                                        <?php
-                                                                    } else {
-                                                                        ?>
+       
 
-                                                                        <a class="saved fr" href="javascript:void(0);" onclick="return false">Saved </a> 
-                                                                        <?php
-                                                                                                    
-                                                                    }
-                                                                    ?> 
-
-                                                                    <a class="fr" href="<?php echo base_url('message/message_chats/' . $row['user_id']); ?>">Message</a>
-
-                                                                </div>
+    <a class="saved">Saved </a> 
+              
+                <?php
+                // khayti changes end 6-4                              
+            } }
+            ?> 
+                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -691,38 +694,30 @@ $( "#tags" ).autocomplete({
                     <!-- save post start -->
 
                     <script type="text/javascript">
-                        function save_user(abc)
+                  function save_user(abc)
                         {
-
-                            var saveid = document.getElementById("saveuser");
-                            $.ajax({
-                                type: 'POST',
-                                url: '<?php echo base_url() . "freelancer/save_user" ?>',
-                                data: 'user_id=' + abc + 'save_id=' + saveid.value,
-                                success: function (data) {
-
-                                    $('.' + 'saveduser' + abc).html(data).addClass('saved');
-
-
+           var saveid = document.getElementById("hideenuser" + abc);
+                $.ajax({
+        type: 'POST',
+        url: '<?php echo base_url() . "freelancer/save_user" ?>',
+        data: 'user_id=' + abc + '&save_id=' + saveid.value,
+        success: function (data) {
+    $('.' + 'saveduser' + abc).html(data).addClass('saved');
                                 }
                             });
-
                         }
                     </script>
 
 
-<!-- pallavi changes 15-4 -->
-
-                    <!-- save post end -->
- <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
-                     <script>
-                    function savepopup(id) {
-                        
-                        save_user(id);
-//                       
-                        $('.biderror .mes').html("<div class='pop_content'>Your post is successfully saved.");
-                        $('#bidmodal').modal('show');
-                    }
+                    <!-- save post end-->
+<script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
+                   
+                    <script>
+                        function savepopup(id) {
+                            save_user(id);
+                      
+            $('.biderror .mes').html("<div class='pop_content'>Your post is successfully saved.");
+            $('#bidmodal').modal('show');
+                        }
                     </script>
-
                     <!-- pallavi changes end 15-4
