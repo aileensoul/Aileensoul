@@ -140,39 +140,39 @@
 
                           <select name="year">
                             <option value="">Year</option>
-                            <option value="1">1 Year</option>
-                            <option value="2">2 Year</option>
-                            <option value="3">3 Year</option>
-                            <option value="4">4 Year</option>
-                            <option value="5">5 Year</option>
-                            <option value="6">6 Year</option>
-                            <option value="7">7 Year</option>
-                            <option value="8">8 Year</option>
-                            <option value="9">9 Year</option>
-                            <option value="10">10 Year</option>
-                            <option value="11">11 Year</option>
-                            <option value="12">12 Year</option>
-                            <option value="13">13 Year</option>
-                            <option value="14">14 Year</option>
-                            <option value="15">15 Year</option>
-                            <option value="16">16 Year</option>
-                            <option value="17">17 Year</option>
-                            <option value="18">18 Year</option>
-                            <option value="19">19 Year</option>
-                            <option value="20">20 Year</option>
+                            <option value="1 year">1 Year</option>
+                            <option value="2 year">2 Year</option>
+                            <option value="3 year">3 Year</option>
+                            <option value="4 year">4 Year</option>
+                            <option value="5 year">5 Year</option>
+                            <option value="6 year">6 Year</option>
+                            <option value="7 year">7 Year</option>
+                            <option value="8 year">8 Year</option>
+                            <option value="9 year">9 Year</option>
+                            <option value="10 year">10 Year</option>
+                            <option value="11 year">11 Year</option>
+                            <option value="12 year">12 Year</option>
+                            <option value="13 year">13 Year</option>
+                            <option value="14 year">14 Year</option>
+                            <option value="15 year">15 Year</option>
+                            <option value="16 year">16 Year</option>
+                            <option value="17 year">17 Year</option>
+                            <option value="18 year">18 Year</option>
+                            <option value="19 year">19 Year</option>
+                            <option value="20 year">20 Year</option>
                             </select>
                             <span id="fullname-error"></span>
                             <?php echo form_error('year'); ?>
 
                             <select style="margin-left: 10px;" name="month" id="month">
                             <option value="">Month</option>
-                            <option value="1">0 Month</option>
-                            <option value="1">1 Month</option>
-                            <option value="2">2 Month</option>
-                            <option value="3">3 Month</option>
-                            <option value="4">4 Month</option>
-                            <option value="5">5 Month</option>
-                            <option value="6">6 Month</option>
+                            <option value="0 month">0 Month</option>
+                            <option value="1 month">1 Month</option>
+                            <option value="2 month">2 Month</option>
+                            <option value="3 month">3 Month</option>
+                            <option value="4 month">4 Month</option>
+                            <option value="5 month">5 Month</option>
+                            <option value="6 month">6 Month</option>
                                </select>
                                 <?php echo form_error('month'); ?>
                             
