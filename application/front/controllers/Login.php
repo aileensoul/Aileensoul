@@ -17,6 +17,7 @@ class Login extends CI_Controller {
         $this->load->library('form_validation');
         $this->load->model('logins');
          $this->load->model('email_model');
+         
     }
 
     public function index() {
@@ -39,21 +40,31 @@ class Login extends CI_Controller {
                 if ($user_check != 0) { 
       // cookie start
 
-                  if($this->input->post('remember')){ 
-        $cookieuser= array(
-            'name'   => 'username',
-            'value'  => $this->input->post('user_name'),
-            'expire' => 'time()+ (10 * 365 * 24 * 60 * 60)',
-         );
+       if($this->input->post('remember')){ 
 
-        $cookiepass= array(
-            'name'   => 'password',
-            'value'  => $this->input->post('password'),
-            'expire' => 'time()+ (10 * 365 * 24 * 60 * 60)',
-         );
+        // $cookieuser= array(
+        //     'name'   => 'user_name',
+        //     'value'  => $this->input->post('user_name'),
+        //     'expire' => 'time()+ (10 * 365 * 24 * 60 * 60)',
+        //  );
+
+        // $cookiepass= array(
+        //     'name'   => 'password',
+        //     'value'  => $this->input->post('password'),
+        //     'expire' => 'time()+ (10 * 365 * 24 * 60 * 60)',
+        //  );
        
-          $this->input->set_cookie($cookieuser); 
-          $this->input->set_cookie($cookiepass); 
+       $this->load->helper('cookie');
+
+       setcookie('user_name',$_POST['user_name'], time() + (10 * 365 * 24 * 60 * 60));
+       setcookie('password', $_POST['password'], time() + (10 * 365 * 24 * 60 * 60));
+         
+        
+
+          //set_cookie($cookieuser); 
+         // set_cookie($cookiepass); 
+         //echo $_COOKIE['user_name'];
+         //echo $_COOKIE['password']; die();
 
         
              }

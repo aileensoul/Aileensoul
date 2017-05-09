@@ -11,6 +11,8 @@ class Main extends CI_Controller {
         
          $this->load->library('form_validation');
           $this->load->model('email_model');
+          $this->load->helper('cookie');
+           $this->load->model('logins');
           
         if ($this->session->userdata('aileenuser')) { 
           redirect('dashboard', 'refresh');
@@ -23,6 +25,7 @@ class Main extends CI_Controller {
     
     public function index()
     {
+
        $this->load->view('main');
 
     }

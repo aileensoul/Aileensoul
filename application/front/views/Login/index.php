@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -138,14 +140,15 @@
                                 <label class="login_label">
                                     Email Address<span class="req">*</span>
                                 </label>
-                                <input id="user_name"  type="text" name="user_name" autocomplete="off"/>
+                                <input id="user_name"  type="text" name="user_name" autocomplete="off" value="<?php if (isset($_COOKIE['user_name'])) { echo $_COOKIE['user_name']; } ?>" />
                             </div>
 
                             <div class="field-wrap">
                                 <label class="login_label">
                                     Password<span class="req">*</span>
                                 </label>
-                                <input type="password" id="password" name="password" class="showpassword"  style="position: relative;padding-right: 8%;" />
+                                <input type="password" id="password" name="password" class="showpassword"  style="position: relative;padding-right: 8%;" 
+                                value="<?php if (isset($_COOKIE['password'])) { echo $_COOKIE['password']; } ?>"/>
                                 <input type="hidden" name="hiddenf" id="hiddenf" value="login">
                                 
   <label for="password1" style="position: absolute;
