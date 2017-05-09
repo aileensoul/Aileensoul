@@ -1389,30 +1389,26 @@ public function freelancer_hire_index()
             $contition_array = array('status' =>'1','is_delete'=>'0');
 
          $search_condition = "(designation LIKE '%$search_skill%' or freelancer_post_otherskill LIKE '%$search_skill%' or freelancer_post_exp_month LIKE '%$search_skill%' or freelancer_post_exp_year LIKE '%$search_skill%')";
-            // echo "$search_condition";
-         $otherdata=$other['data'] = $this->common->select_data_by_search('freelancer_post_reg', $search_condition, $contition_array = array(), $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str=array(), $groupby = '');
-          // $p3= chop($str,"World!");
-          // echo "<pre>";print_r($otherdata); die();
+          // echo "$search_condition";
+         $otherdata  = $other['data'] = $this->common->select_data_by_search('freelancer_post_reg', $search_condition, $contition_array = array(), $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str=array(), $groupby = '');
+          
+          //echo "<pre>";print_r($otherdata); die();
 
 
-         $p3=str_split($search_skill,6);
-         $year=$p3[0]; 
-         $p4=str_split($search_skill,7);
-          // echo $year."<br>"; 
-          $month= $p4[1];
-         // echo $month;
+         // $p3=str_split($search_skill,6);
+         // $year=$p3[0]; 
+         // $p4=str_split($search_skill,7);
+         //  // echo $year."<br>"; 
+         //  $month= $p4[1];
+         // // echo $month;
          
-          $contition_array = array('status' =>'1');
+         //  $contition_array = array('status' =>'1');
 
-         $search_condition = "(freelancer_post_exp_year  LIKE '%$year%' or freelancer_post_exp_month LIKE '%$month%')";
-            // echo "$search_condition";
-         $experidata=$experidata['data'] = $this->common->select_data_by_search('freelancer_post_reg', $search_condition, $contition_array = array(), $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str=array(), $groupby = '');
+         // $search_condition = "(freelancer_post_exp_year  LIKE '%$year%' or freelancer_post_exp_month LIKE '%$month%')";
+         //    // echo "$search_condition";
+         // $experidata=$experidata['data'] = $this->common->select_data_by_search('freelancer_post_reg', $search_condition, $contition_array = array(), $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str=array(), $groupby = '');
 
-          //echo "<pre>"; print_r($experidata); die();
-         // echo count($experidata);
-         // echo count($otherdata);
-         // echo count($fieldfound);
-         // echo count($skillpost);
+        
 
          foreach($skillpost as $ke => $arr) 
           {  
@@ -1435,12 +1431,12 @@ public function freelancer_hire_index()
          
    if(count($new)  == 0){
     // echo "hello";
-              $unique1=array_merge($experidata,$otherdata,$fieldfound);
+              $unique1=array_merge($otherdata,$fieldfound);
                 // echo count($unique) . "<br>"; die();
                  // echo "<pre>"; print_r($unique); die();
 
           }else{
-              $unique1=array_merge($new,$experidata,$otherdata,$fieldfound);
+              $unique1=array_merge($new,$otherdata,$fieldfound);
 
           }
 
@@ -1528,27 +1524,23 @@ $contition_array = array('type' => '1', 'status' =>'1');
          $search_condition = "(designation LIKE '%$search_skill%' or freelancer_post_otherskill LIKE '%$search_skill%' or freelancer_post_exp_month LIKE '%$search_skill%' or freelancer_post_exp_year LIKE '%$search_skill%')";
            // echo "$search_condition";
          $otherdata=$other['data'] = $this->common->select_data_by_search('freelancer_post_reg', $search_condition, $contition_array = array(), $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str=array(), $groupby = '');
-          // $p3= chop($str,"World!");
+          
          // echo "<pre>";print_r($otherdata);
 
-$p3=str_split($search_skill,6);
-         $year=$p3[0]; 
-         $p4=str_split($search_skill,7);
-         // echo $year."<br>"; $month= $p4[1];
-         // echo $month;
+// $p3=str_split($search_skill,6);
+//          $year=$p3[0]; 
+//          $p4=str_split($search_skill,7);
+//          // echo $year."<br>"; $month= $p4[1];
+//          // echo $month;
          
-          $contition_array = array('status' =>'1','freelancer_post_city' => $search_place[0]);
+//           $contition_array = array('status' =>'1','freelancer_post_city' => $search_place[0]);
 
-         $search_condition = "(freelancer_post_exp_year  LIKE '%$year%' AND freelancer_post_exp_month LIKE '%$month%')";
-           // echo "$search_condition";
-         $experidata=$experidata['data'] = $this->common->select_data_by_search('freelancer_post_reg', $search_condition, $contition_array = array(), $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str=array(), $groupby = '');
+//          $search_condition = "(freelancer_post_exp_year  LIKE '%$year%' AND freelancer_post_exp_month LIKE '%$month%')";
+//            // echo "$search_condition";
+//          $experidata=$experidata['data'] = $this->common->select_data_by_search('freelancer_post_reg', $search_condition, $contition_array = array(), $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str=array(), $groupby = '');
 
-         // echo "<pre>"; print_r($experidata);
-         // echo count($experidata);
-         // echo count($otherdata);
-         // echo count($fieldfound);
-         // echo count($skillpost);
-
+         
+      
          foreach($skillpost as $ke => $arr) 
           {  
                 
@@ -1570,12 +1562,12 @@ $p3=str_split($search_skill,6);
          
    if(count($new)  == 0){
     // echo "hello";
-              $unique1=array_merge($experidata,$otherdata,$fieldfound);
+              $unique1=array_merge($otherdata,$fieldfound);
                 // echo count($unique) . "<br>"; die();
                  // echo "<pre>"; print_r($unique); die();
 
           }else{
-              $unique1=array_merge($new,$experidata,$otherdata,$fieldfound);
+              $unique1=array_merge($new,$otherdata,$fieldfound);
 
           }
 
@@ -1757,29 +1749,29 @@ public function freelancer_post_index()
 
        
 
-         $p3=str_split($search_skill,6);
-         $year=$p3[0]; 
-         $p4=str_split($search_skill,7);
-          // echo $year."<br>"; 
-          $month= $p4[1];
-         // echo $month;
+         // $p3=str_split($search_skill,6);
+         // $year=$p3[0]; 
+         // $p4=str_split($search_skill,7);
+         //  // echo $year."<br>"; 
+         //  $month= $p4[1];
+         // // echo $month;
          
-          $contition_array = array('status' =>'1');
+         //  $contition_array = array('status' =>'1');
 
-         $search_condition = "(post_exp_year  LIKE '%$year%'   OR post_exp_month LIKE '%$month%')";
-            // echo "$search_condition";
-         $experidata=$experidata['data'] = $this->common->select_data_by_search('freelancer_post', $search_condition, $contition_array = array(), $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str=array(), $groupby = '');
+         // $search_condition = "(post_exp_year  LIKE '%$year%'   OR post_exp_month LIKE '%$month%')";
+         //    // echo "$search_condition";
+         // $experidata=$experidata['data'] = $this->common->select_data_by_search('freelancer_post', $search_condition, $contition_array = array(), $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str=array(), $groupby = '');
 
         // echo "<pre>"; print_r($experidata); die();
 
    if(count($freeskillpost)  == 0){
     // echo "hello";
-              $unique=array_merge($freeldata,$experidata);
+              $unique=array_merge($freeldata);
                 // echo count($unique) . "<br>"; die();
                  // echo "<pre>"; print_r($unique); die();
 
           }else{
-              $unique=array_merge($freeskillpost,$freeldata,$experidata);
+              $unique=array_merge($freeskillpost,$freeldata);
 
           }
 
@@ -1815,7 +1807,7 @@ $contition_array = array('is_delete' => '0', 'status' =>'1');
           
          $skilldata=$artdata['data'] = $this->common->select_data_by_search('skill', $search_condition, $contition_array = array(), $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str=array(), $groupby = '');
            // echo "<pre>"; print_r($artdata['data']); 
-          $contition_array = array('status'=>'1', 'post_location' => $search_place[0]);
+          $contition_array = array('status'=>'1', 'city' => $search_place[0]);
          $recdata=$userdata['data'] = $this->common->select_data_by_condition('freelancer_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
           // echo "<pre>"; print_r($recdata); 
 
@@ -1844,34 +1836,34 @@ $contition_array = array('is_delete' => '0', 'status' =>'1');
 
 
             $search_condition = "(post_name LIKE '%$search_skill%' or post_other_skill LIKE '%$search_skill%' or post_est_time LIKE '%$search_skill%' or post_rate LIKE '%$search_skill%' or  post_exp_year LIKE '%$search_skill%' or  post_exp_month LIKE '%$search_skill%')";
-       $contion_array = array('post_name=' => $search_job ,'post_location' => $search_place[0]);
+       $contion_array = array('post_name=' => $search_job ,'city' => $search_place[0]);
           
          $freeldata = $this->common->select_data_by_search('freelancer_post', $search_condition, $contition_array = array(), $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str=array(), $groupby = '');
 
          // echo "<pre>"; print_r($freeldata);
 
-         $p3=str_split($search_skill,6);
-         $year=$p3[0]; 
-         $p4=str_split($search_skill,7);
-         // echo $year."<br>"; $month= $p4[1];
-         // echo $month;
+         // $p3=str_split($search_skill,6);
+         // $year=$p3[0]; 
+         // $p4=str_split($search_skill,7);
+         // // echo $year."<br>"; $month= $p4[1];
+         // // echo $month;
          
-          $contition_array = array('status' =>'1','post_location' => $search_place[0]);
+         //  $contition_array = array('status' =>'1','post_location' => $search_place[0]);
 
-         $search_condition = "(post_exp_year  LIKE '%$year%' AND post_exp_month LIKE '%$month%')";
-           // echo "$search_condition";
-         $experidata=$experidata['data'] = $this->common->select_data_by_search('freelancer_post', $search_condition, $contition_array = array(), $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str=array(), $groupby = '');
+         // $search_condition = "(post_exp_year  LIKE '%$year%' AND post_exp_month LIKE '%$month%')";
+         //   // echo "$search_condition";
+         // $experidata=$experidata['data'] = $this->common->select_data_by_search('freelancer_post', $search_condition, $contition_array = array(), $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str=array(), $groupby = '');
 
 
          
    if(count($freeskillpost)  == 0){
     // echo "hello";
-              $unique=array_merge($freeldata,$experidata);
+              $unique=array_merge($freeldata);
                 // echo count($unique) . "<br>"; die();
                  // echo "<pre>"; print_r($unique); die();
 
           }else{
-              $unique=array_merge($freeskillpost,$freeldata,$experidata);
+              $unique=array_merge($freeskillpost,$freeldata);
 
           }
 
