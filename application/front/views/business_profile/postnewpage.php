@@ -69,7 +69,7 @@
     .modal2 {
         display: none;
         position: fixed;
-        z-index: 9999999;
+      /*  z-index: 9999999;*/
         padding-top: 35px;
         left: 0;
         top: 0;
@@ -418,7 +418,7 @@
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/jquery.jMosaic.css'); ?>">
 
-<!-- <script src="<?php //echo base_url('js/jquery.min.js');    ?>"></script> -->
+<!-- <script src="<?php //echo base_url('js/jquery.min.js');                ?>"></script> -->
         <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
         <script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
@@ -715,13 +715,13 @@
 
                                                 if ($businesssave) {
                                                     ?>
-                                                        
-                                                           <a><i class="fa fa-bookmark" aria-hidden="true"></i>Saved Post</a>
-                                                        
+                                                                                                        
+                                                                                                           <a><i class="fa fa-bookmark" aria-hidden="true"></i>Saved Post</a>
+                                                                                                        
                                                 <?php } else { ?>
-                                                        
-                                                           <a id="<?php echo $busienss_data[0]['business_profile_post_id']; ?>" onClick="save_post(this.id)" href="#popup1" class="<?php echo 'savedpost' . $busienss_data[0]['business_profile_post_id']; ?>"><i class="fa fa-bookmark" aria-hidden="true"></i>  Save Post</a>
-                                                        
+                                                                                                        
+                                                                                                           <a id="<?php echo $busienss_data[0]['business_profile_post_id']; ?>" onClick="save_post(this.id)" href="#popup1" class="<?php echo 'savedpost' . $busienss_data[0]['business_profile_post_id']; ?>"><i class="fa fa-bookmark" aria-hidden="true"></i>  Save Post</a>
+                                                                                                        
                                                 <?php } ?> -->
 
                                                 <a href="<?php echo base_url('business_profile/business_profile_contactperson/' . $busienss_data[0]['user_id'] . ''); ?>"><i class="fa fa-user" aria-hidden="true"></i> Contact Person</a>
@@ -893,7 +893,7 @@
                                                                                 <i class="fa fa-thumbs-up" aria-hidden="true"></i>
                                                                             <?php } else { ?>
                                                                                 <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>
-    <?php } ?>
+                                                                            <?php } ?>
 
                                                                             <span class="<?php echo 'likeimage' . $busdata['image_id']; ?>"> <?php
                                                                                 $contition_array = array('post_image_id' => $busdata['image_id'], 'is_unlike' => 0);
@@ -907,7 +907,7 @@
                                                                         </a>
                                                                     </li>
 
-                                                                    <li id="<?php echo 'commentimgpost' . $busdata['image_id']; ?>">
+                                                                    <li id="<?php echo 'insertimgcomment' . $busdata['image_id']; ?>">
 
                                                                         <?php
                                                                         $contition_array = array('post_image_id' => $busdata['image_id'], 'is_delete' => '0');
@@ -967,22 +967,28 @@
                                                                                 <div class="comment-details" id= "<?php echo "imgshowcomment" . $rowdata['post_image_comment_id']; ?>">
                                                                                     <?php
                                                                                     echo $rowdata['comment'];
-                                                                                    echo '</br>';
                                                                                     ?>
                                                                                 </div>
 
 
                                                                                 <!-- edit box start -->
 
-                                                                                <div class="col-md-12">
-                                                                                    <div class="col-md-10">
-                                                                                        <div contenteditable="true" class="editable_text"  name="<?php echo $rowdata['post_image_comment_id']; ?>" id="<?php echo "imgeditcomment" . $rowdata['post_image_comment_id']; ?>" style="display: none;" onkeyup="imgcommentedit(<?php echo $rowdata['post_image_comment_id']; ?>)"><?php echo $rowdata['comment']; ?>
-                                                                                        </div>
+                                                                                <!--                                                                                <div class="col-md-12">
+                                                                                                                                                                    <div class="col-md-10">
+                                                                                                                                                                        <div contenteditable="true" class="editable_text"  name="<?php echo $rowdata['post_image_comment_id']; ?>" id="<?php echo "imgeditcomment" . $rowdata['post_image_comment_id']; ?>" style="display: none;" onkeyup="imgcommentedit(<?php echo $rowdata['post_image_comment_id']; ?>)"><?php echo $rowdata['comment']; ?>
+                                                                                                                                                                        </div>
+                                                                                
+                                                                                                                                                                    </div>  <div class="col-md-2 comment-edit-button">
+                                                                                                                                                                        <button id="<?php echo "imgeditsubmit" . $rowdata['post_image_comment_id']; ?>" style="display:none" onClick="imgedit_comment(<?php echo $rowdata['post_image_comment_id']; ?>)">Save</button>
+                                                                                                                                                                    </div>
+                                                                                
+                                                                                                                                                                </div>-->
 
-                                                                                    </div>  <div class="col-md-2 comment-edit-button">
-                                                                                        <button id="<?php echo "imgeditsubmit" . $rowdata['post_image_comment_id']; ?>" style="display:none" onClick="imgedit_comment(<?php echo $rowdata['post_image_comment_id']; ?>)">Save</button>
+                                                                                <div class="edit-comment-box">
+                                                                                    <div class="inputtype-edit-comment">
+                                                                                        <div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="<?php echo $rowdata['post_image_comment_id']; ?>"  id="<?php echo "imgeditcomment" . $rowdata['post_image_comment_id']; ?>" placeholder="Enter Your Comment " value= ""  onkeyup="imgcommentedit(<?php echo $rowdata['post_image_comment_id']; ?>)"><?php echo $rowdata['comment']; ?></div>
+                                                                                        <span class="comment-edit-button"><button id="<?php echo "imgeditsubmit" . $rowdata['post_image_comment_id']; ?>" style="display:none" onClick="imgedit_comment(<?php echo $rowdata['post_image_comment_id']; ?>)">Save</button></span>
                                                                                     </div>
-
                                                                                 </div>
 
                                                                                 <!-- edit box end -->
@@ -1007,7 +1013,7 @@
                                                                                             <?php } else {
                                                                                                 ?>
                                                                                                 <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-                                                                                                <?php } ?>
+                                                                                            <?php } ?>
                                                                                             <span>
 
                                                                                                 <?php
@@ -1043,7 +1049,7 @@
 
                                                                                         </div>
 
-            <?php } ?>
+                                                                                    <?php } ?>
                                                                                     <!-- comment edit end -->
 
                                                                                     <!-- comment delete start -->
@@ -1061,7 +1067,7 @@
                                                                                             <a id="<?php echo $rowdata['post_image_comment_id']; ?>"   onClick="imgcomment_delete(this.id)"> Delete<span class="<?php echo 'imginsertcomment' . $rowdata['post_image_comment_id']; ?>">
                                                                                                 </span> </a> </div>
 
-            <?php } ?>
+                                                                                    <?php } ?>
                                                                                     <!-- comment delete end -->
 
 
@@ -1070,9 +1076,9 @@
                                                                                     <span role="presentation" aria-hidden="true"> · </span>
                                                                                     <div class="comment-details-menu">
                                                                                         <p><?php
-            echo date('d-M-Y', strtotime($rowdata['created_date']));
-            echo '</br>';
-            ?>
+                                                                                            echo date('d-M-Y', strtotime($rowdata['created_date']));
+                                                                                            echo '</br>';
+                                                                                            ?>
                                                                                         </p></div>
 
                                                                                     <!-- created date end -->
@@ -1113,7 +1119,7 @@
 
                                                             <div class="">
                                                                 <div class="col-md-10 inputtype-comment" style="padding-left: 7px;">
-                                                                    <div contenteditable="true" class="editable_text" name="<?php echo $busdata['image_id']; ?>" id="<?php echo "post_imgcomment" . $busdata['image_id']; ?>" placeholder="Type Comment ..." value="" onKeyup="entercommentimg(<?php echo $busdata['image_id']; ?>)"></div>
+                                                                    <div contenteditable="true" class="editable_text" name="<?php echo $busdata['image_id']; ?>" id="<?php echo "post_imgcomment" . $busdata['image_id']; ?>" placeholder="Type Comment ..." onkeyup="entercommentimg(<?php echo $busdata['image_id']; ?>)"></div>
                                                                 </div>
 
                                                                 <div class="col-md-1 comment-edit-butn">                                      
@@ -1177,9 +1183,9 @@
 
                                                         <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>
 
-                                                        <?php } else { ?> 
+                                                    <?php } else { ?> 
                                                         <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-                                                        <?php } ?>
+                                                    <?php } ?>
                                                     <span>
                                                         <?php
                                                         if ($busienss_data[0]['business_likes_count'] > 0) {
@@ -1242,11 +1248,11 @@
                                                 ?>
 
                                                 <a href="<?php echo base_url('business_profile/business_resume/' . $value); ?>">
-                                                <?php echo ucwords($business_fname1); ?>
+                                                    <?php echo ucwords($business_fname1); ?>
 
                                                 </a>
 
-<?php } ?>
+                                            <?php } ?>
 
                                             <p class="okk"><a class="cnclbtn" href="#">Cancle</a></p>
 
@@ -1273,16 +1279,16 @@
 
                                         <div class="like_one_other">
 
-<?php
-echo ucwords($business_fname1);
-echo "&nbsp;";
-?>
+                                            <?php
+                                            echo ucwords($business_fname1);
+                                            echo "&nbsp;";
+                                            ?>
 
                                         </div>
 
-                                            <?php
-                                            if (count($likelistarray) > 1) {
-                                                ?>
+                                        <?php
+                                        if (count($likelistarray) > 1) {
+                                            ?>
                                             <div>
                                                 <?php echo "and"; ?>
 
@@ -1293,7 +1299,7 @@ echo "&nbsp;";
                                                 ?> 
 
 
-<?php } ?>
+                                            <?php } ?>
                                         </div>
                                     </a>
                                 </div>
@@ -1326,36 +1332,40 @@ echo "&nbsp;";
                                                     ?>
                                                     <div class="all-comment-comment-box">
                                                         <div class="post-design-pro-comment-img"> 
-        <?php
-        $business_userimage = $this->db->get_where('business_profile', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->business_user_image;
-        ?>
+                                                            <?php
+                                                            $business_userimage = $this->db->get_where('business_profile', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->business_user_image;
+                                                            ?>
 
                                                             <img  src="<?php echo base_url(USERIMAGE . $business_userimage); ?>"  alt="">
                                                         </div>
                                                         <div class="comment-name">
 
                                                             <b>  <?php
-        echo $companyname;
-        echo '</br>';
-        ?>
+                                                                echo $companyname;
+                                                                echo '</br>';
+                                                                ?>
                                                             </b>
                                                         </div>
                                                         <div class="comment-details" id= "<?php echo "showcomment" . $rowdata['business_profile_post_comment_id']; ?>">
-        <?php
-        echo $rowdata['comments'];
-        echo '</br>';
-        ?>
+                                                            <?php
+                                                            echo $rowdata['comments'];
+//                                                            echo '</br>';
+                                                            ?>
                                                         </div>
-                                                        <div class="col-md-12">
-                                                            <!-- <div class="col-md-10">
-                                                            <input type="text" name="<?php echo $rowdata['business_profile_post_comment_id']; ?>" id="<?php echo "editcomment" . $rowdata['business_profile_post_comment_id']; ?>" style="display:none" value="<?php echo $rowdata['comments']; ?>" onClick="commentedit(this.name)"></div> -->
-
-                                                            <div class="col-md-10">
-                                                                <div contenteditable="true" class="editable_text" name="<?php echo $rowdata['business_profile_post_comment_id']; ?>" id="<?php echo "editcomment" . $rowdata['business_profile_post_comment_id']; ?>" style="display:none"  onkeyup="commentedit(<?php echo $rowdata['business_profile_post_comment_id']; ?>)"><?php echo $rowdata['comments']; ?></div>
-                                                            </div> 
-
-                                                            <div class="col-md-2 comment-edit-button">
-                                                                <button id="<?php echo "editsubmit" . $rowdata['business_profile_post_comment_id']; ?>" style="display:none" onClick="edit_comment(<?php echo $rowdata['business_profile_post_comment_id']; ?>)">Save</button>
+                                                        <!--                                                        <div class="col-md-12">
+                                                                                                                    <div class="col-md-10">
+                                                                                                                        <div contenteditable="true" class="editable_text" name="<?php echo $rowdata['business_profile_post_comment_id']; ?>" id="<?php echo "editcomment" . $rowdata['business_profile_post_comment_id']; ?>" style="display:none"  onkeyup="commentedit(<?php echo $rowdata['business_profile_post_comment_id']; ?>)"><?php echo $rowdata['comments']; ?></div>
+                                                                                                                    </div> 
+                                                        
+                                                                                                                    <div class="col-md-2 comment-edit-button">
+                                                                                                                        <button id="<?php echo "editsubmit" . $rowdata['business_profile_post_comment_id']; ?>" style="display:none" onClick="edit_comment(<?php echo $rowdata['business_profile_post_comment_id']; ?>)">Save</button>
+                                                                                                                    </div>
+                                                                                                                </div>-->
+                                                        <div class="edit-comment-box">
+                                                            <div class="inputtype-edit-comment">
+                                                                <!--<textarea type="text" class="textarea" name="<?php echo $rowdata['business_profile_post_comment_id']; ?>" id="<?php echo "editcomment" . $rowdata['business_profile_post_comment_id']; ?>" style="display:none;resize: none;" onClick="commentedit(this.name)"><?php echo $rowdata['comments']; ?></textarea>-->
+                                                                <div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="<?php echo $rowdata['business_profile_post_comment_id']; ?>"  id="<?php echo "editcomment" . $rowdata['business_profile_post_comment_id']; ?>" placeholder="Enter Your Comment " value= ""  onkeyup="commentedit(<?php echo $rowdata['business_profile_post_comment_id']; ?>)"><?php echo $rowdata['comments']; ?></div>
+                                                                <span class="comment-edit-button"><button id="<?php echo "editsubmit" . $rowdata['business_profile_post_comment_id']; ?>" style="display:none" onClick="edit_comment(<?php echo $rowdata['business_profile_post_comment_id']; ?>)">Save</button></span>
                                                             </div>
                                                         </div>
                                                         <div class="art-comment-menu-design"> 
@@ -1374,25 +1384,25 @@ echo "&nbsp;";
                                                                     if (!in_array($userid, $likeuserarray)) {
                                                                         ?>
                                                                         <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i> 
-                                                                        <?php } else { ?>
+                                                                    <?php } else { ?>
 
                                                                         <i class="fa fa-thumbs-up" aria-hidden="true"></i>
 
-                                                                        <?php } ?>
+                                                                    <?php } ?>
                                                                     <span>
-        <?php
-        if ($rowdata['business_comment_likes_count']) {
-            echo $rowdata['business_comment_likes_count'];
-        }
-        ?>
+                                                                        <?php
+                                                                        if ($rowdata['business_comment_likes_count']) {
+                                                                            echo $rowdata['business_comment_likes_count'];
+                                                                        }
+                                                                        ?>
                                                                     </span>
                                                                 </a>
                                                             </div>
 
-        <?php
-        $userid = $this->session->userdata('aileenuser');
-        if ($rowdata['user_id'] == $userid) {
-            ?>                                     
+                                                            <?php
+                                                            $userid = $this->session->userdata('aileenuser');
+                                                            if ($rowdata['user_id'] == $userid) {
+                                                                ?>                                     
                                                                 <span role="presentation" aria-hidden="true"> · </span>
                                                                 <div class="comment-details-menu">
 
@@ -1433,20 +1443,20 @@ echo "&nbsp;";
                                                                 </div>
 
 
-                                                                    <?php } ?>                                       
+                                                            <?php } ?>                                       
                                                             <span role="presentation" aria-hidden="true"> · </span>
                                                             <div class="comment-details-menu">
                                                                 <p><?php
-                                                    echo date('d-M-Y', strtotime($rowdata['created_date']));
-                                                    echo '</br>';
-                                                    ?></p></div>
+                                                                    echo date('d-M-Y', strtotime($rowdata['created_date']));
+                                                                    echo '</br>';
+                                                                    ?></p></div>
                                                         </div></div>
 
 
-        <?php
-    }
-}
-?>
+                                                    <?php
+                                                }
+                                            }
+                                            ?>
 
                                         </div>
                                     </div>
@@ -1464,10 +1474,10 @@ echo "&nbsp;";
                                     <div class="post-design-proo-img"> 
 
 
-<?php
-$userid = $this->session->userdata('aileenuser');
-$business_userimage = $this->db->get_where('business_profile', array('user_id' => $userid, 'status' => 1))->row()->business_user_image;
-?>
+                                        <?php
+                                        $userid = $this->session->userdata('aileenuser');
+                                        $business_userimage = $this->db->get_where('business_profile', array('user_id' => $userid, 'status' => 1))->row()->business_user_image;
+                                        ?>
 
                                         <img  src="<?php echo base_url(USERIMAGE . $business_userimage); ?>"  alt="">
                                     </div>
@@ -1494,9 +1504,9 @@ $business_userimage = $this->db->get_where('business_profile', array('user_id' =
 </section>
 
 <footer>
-<?php // echo $footer;   ?> 
+    <?php // echo $footer;   ?> 
     <!-- Bid-modal  -->
-    <div class="modal fade message-box biderror" id="bidmodal" role="dialog" style="z-index: 999999;">
+    <div class="modal fade message-box biderror" id="bidmodal" role="dialog" style="z-index: 999999 !important;">
         <div class="modal-dialog modal-lm">
             <div class="modal-content">
                 <button type="button" class="modal-close" data-dismiss="modal">&times;
@@ -1733,20 +1743,48 @@ $business_userimage = $this->db->get_where('business_profile', array('user_id' =
 </script>
 
 <script type="text/javascript">
-    function commentall(clicked_id) {
+//    function commentall(clicked_id) {
+//
+//
+//        var x = document.getElementById('threecomment' + clicked_id);
+//        var y = document.getElementById('fourcomment' + clicked_id);
+//        var z = document.getElementById('commnetpost' + clicked_id);
+//
+//
+//
+//
+//        if (x.style.display === 'block' && y.style.display === 'none') {
+//            x.style.display = 'none';
+//            y.style.display = 'block';
+//            z.style.display = 'none';
+//            $.ajax({
+//                type: 'POST',
+//                url: '<?php echo base_url() . "business_profile/pnfourcomment" ?>',
+//                data: 'bus_post_id=' + clicked_id,
+//                //alert(data);
+//                success: function (data) {
+//                    $('#' + 'fourcomment' + clicked_id).html(data);
+//
+//                }
+//            });
+//
+//        }
+//
+//    }
 
+
+    function commentall(clicked_id) {
 
         var x = document.getElementById('threecomment' + clicked_id);
         var y = document.getElementById('fourcomment' + clicked_id);
-        var z = document.getElementById('commnetpost' + clicked_id);
-
-
-
+        var z = document.getElementById('insertcount' + clicked_id);
 
         if (x.style.display === 'block' && y.style.display === 'none') {
+
             x.style.display = 'none';
             y.style.display = 'block';
-            z.style.display = 'none';
+            z.style.visibility = 'show';
+
             $.ajax({
                 type: 'POST',
                 url: '<?php echo base_url() . "business_profile/pnfourcomment" ?>',
@@ -1757,15 +1795,13 @@ $business_userimage = $this->db->get_where('business_profile', array('user_id' =
 
                 }
             });
-
         }
-
     }
+
 </script>
 <script type="text/javascript">
     function comment_like(clicked_id)
     {
-        alert(clicked_id);
         $.ajax({
             type: 'POST',
             url: '<?php echo base_url() . "business_profile/like_comment" ?>',
@@ -1807,22 +1843,46 @@ $business_userimage = $this->db->get_where('business_profile', array('user_id' =
 
     function comment_deleted(clicked_id)
     {
-
         var post_delete = document.getElementById("post_delete");
         $.ajax({
             type: 'POST',
-            url: '<?php echo base_url() . "business_profile/delete_comment" ?>',
-            dataType: 'json',
+            url: '<?php echo base_url() . "business_profile/pndelete_comment" ?>',
             data: 'post_id=' + clicked_id + '&post_delete=' + post_delete.value,
+            dataType: "json",
             success: function (data) {
-
                 $('.' + 'insertcomment' + post_delete.value).html(data.comment);
-                $('#' + 'commnetpost' + post_delete.value).html(data.count);
+                $('#' + 'insertcount' + post_delete.value).html(data.count);
 
+                $('.post-design-commnet-box').show();
             }
         });
     }
 
+
+    /*  function comment_deletetwo(clicked_id)
+     {
+     
+     $('.biderror .mes').html("<div class='pop_content'>Are you sure want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='comment_deletedtwo(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+     $('#bidmodal').modal('show');
+     }
+     
+     function comment_deletedtwo(clicked_id)
+     {
+     
+     var post_delete = document.getElementById("post_delete");
+     $.ajax({
+     type: 'POST',
+     url: '<?php echo base_url() . "business_profile/pndelete_commenttwo" ?>',
+     dataType: 'json',
+     data: 'post_id=' + clicked_id + '&post_delete=' + post_delete.value,
+     success: function (data) { //alert('.' + 'insertcomment' + clicked_id);
+     
+     $('#' + 'fourcomment' + post_delete.value).html(data.comment);
+     $('#' + 'commnetpost' + post_delete.value).html(data.count);
+     
+     }
+     });
+     } */
 
     function comment_deletetwo(clicked_id)
     {
@@ -1834,17 +1894,18 @@ $business_userimage = $this->db->get_where('business_profile', array('user_id' =
     function comment_deletedtwo(clicked_id)
     {
 
-        var post_delete = document.getElementById("post_delete");
+        var post_delete1 = document.getElementById("post_deletetwo");
+
         $.ajax({
             type: 'POST',
             url: '<?php echo base_url() . "business_profile/pndelete_commenttwo" ?>',
-            dataType: 'json',
-            data: 'post_id=' + clicked_id + '&post_delete=' + post_delete.value,
+            data: 'post_id=' + clicked_id + '&post_delete=' + post_delete1.value,
+            dataType: "json",
             success: function (data) { //alert('.' + 'insertcomment' + clicked_id);
+                $('.' + 'insertcommenttwo' + post_delete1.value).html(data.comment);
+                $('#' + 'insertcount' + post_delete1.value).html(data.count);
 
-                $('#' + 'fourcomment' + post_delete.value).html(data.comment);
-                $('#' + 'commnetpost' + post_delete.value).html(data.count);
-
+                $('.post-design-commnet-box').show();
             }
         });
     }
@@ -1960,6 +2021,43 @@ $business_userimage = $this->db->get_where('business_profile', array('user_id' =
 
 </script>
 <script type="text/javascript">
+    /*  function edit_comment(abc)
+     {
+     
+     $("#editcomment" + abc).click(function () {
+     $(this).prop("contentEditable", true);
+     });
+     
+     
+     var sel = $("#editcomment" + abc);
+     var txt = sel.html();
+     if (txt == '' || txt == '<br>') {
+     $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+     $('#bidmodal').modal('show');
+     return false;
+     }
+     $.ajax({
+     type: 'POST',
+     url: '<?php echo base_url() . "business_profile/edit_comment_insert" ?>',
+     data: 'post_id=' + abc + '&comment=' + txt,
+     success: function (data) {
+     
+     document.getElementById('editcomment' + abc).style.display = 'none';
+     document.getElementById('showcomment' + abc).style.display = 'block';
+     document.getElementById('editsubmit' + abc).style.display = 'none';
+     
+     
+     document.getElementById('editcommentbox' + abc).style.display = 'block';
+     document.getElementById('editcancle' + abc).style.display = 'none';
+     $('#' + 'showcomment' + abc).html(data);
+     
+     
+     
+     }
+     });
+     
+     } */
+
     function edit_comment(abc)
     {
 
@@ -1967,12 +2065,9 @@ $business_userimage = $this->db->get_where('business_profile', array('user_id' =
             $(this).prop("contentEditable", true);
         });
 
-
         var sel = $("#editcomment" + abc);
         var txt = sel.html();
         if (txt == '' || txt == '<br>') {
-            $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-            $('#bidmodal').modal('show');
             return false;
         }
         $.ajax({
@@ -1985,14 +2080,17 @@ $business_userimage = $this->db->get_where('business_profile', array('user_id' =
                 document.getElementById('showcomment' + abc).style.display = 'block';
                 document.getElementById('editsubmit' + abc).style.display = 'none';
 
-
                 document.getElementById('editcommentbox' + abc).style.display = 'block';
                 document.getElementById('editcancle' + abc).style.display = 'none';
                 $('#' + 'showcomment' + abc).html(data);
-
+                $('.post-design-commnet-box').show();
 
 
             }
+        });
+        $(".scroll").click(function (event) {
+            event.preventDefault();
+            $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1200);
         });
 
     }
@@ -2001,20 +2099,66 @@ $business_userimage = $this->db->get_where('business_profile', array('user_id' =
 
 <script type="text/javascript">
 
+    /* function commentedit(abc)
+     {
+     $("#editcomment" + abc).click(function () {
+     $(this).prop("contentEditable", true);
+     });
+     
+     $('#editcomment' + abc).keypress(function (event) {
+     if (event.which == 13 && event.shiftKey != 1) {
+     event.preventDefault();
+     var sel = $("#editcomment" + abc);
+     var txt = sel.html();
+     if (txt == '' || txt == '<br>') {
+     $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+     $('#bidmodal').modal('show');
+     return false;
+     }
+     if (window.preventDuplicateKeyPresses)
+     return;
+     window.preventDuplicateKeyPresses = true;
+     window.setTimeout(function () {
+     window.preventDuplicateKeyPresses = false;
+     }, 500);
+     
+     $.ajax({
+     type: 'POST',
+     url: '<?php echo base_url() . "business_profile/edit_comment_insert" ?>',
+     data: 'post_id=' + abc + '&comment=' + txt,
+     success: function (data) {
+     
+     
+     document.getElementById('editcomment' + abc).style.display = 'none';
+     document.getElementById('showcomment' + abc).style.display = 'block';
+     document.getElementById('editsubmit' + abc).style.display = 'none';
+     
+     document.getElementById('editcommentbox' + abc).style.display = 'block';
+     document.getElementById('editcancle' + abc).style.display = 'none';
+     
+     $('#' + 'showcomment' + abc).html(data);
+     
+     }
+     });
+     
+     }
+     });
+     
+     
+     } */
+
     function commentedit(abc)
     {
+
         $("#editcomment" + abc).click(function () {
             $(this).prop("contentEditable", true);
         });
-
         $('#editcomment' + abc).keypress(function (event) {
             if (event.which == 13 && event.shiftKey != 1) {
                 event.preventDefault();
                 var sel = $("#editcomment" + abc);
                 var txt = sel.html();
                 if (txt == '' || txt == '<br>') {
-                    $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-                    $('#bidmodal').modal('show');
                     return false;
                 }
                 if (window.preventDuplicateKeyPresses)
@@ -2023,87 +2167,172 @@ $business_userimage = $this->db->get_where('business_profile', array('user_id' =
                 window.setTimeout(function () {
                     window.preventDuplicateKeyPresses = false;
                 }, 500);
-
                 $.ajax({
                     type: 'POST',
                     url: '<?php echo base_url() . "business_profile/edit_comment_insert" ?>',
                     data: 'post_id=' + abc + '&comment=' + txt,
-                    success: function (data) {
-
-
+                    success: function (data) { //alert('falguni');
                         document.getElementById('editcomment' + abc).style.display = 'none';
                         document.getElementById('showcomment' + abc).style.display = 'block';
                         document.getElementById('editsubmit' + abc).style.display = 'none';
-
                         document.getElementById('editcommentbox' + abc).style.display = 'block';
                         document.getElementById('editcancle' + abc).style.display = 'none';
-
                         $('#' + 'showcomment' + abc).html(data);
-
+                        $('.post-design-commnet-box').show();
                     }
                 });
-
             }
         });
-
-
+        $(".scroll").click(function (event) {
+            event.preventDefault();
+            $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1200);
+        });
     }
 </script>
 
 
 <script type="text/javascript">
+    /*function edit_commenttwo(abc)
+     {
+     $("#editcommenttwo" + abc).click(function () {
+     $(this).prop("contentEditable", true);
+     });
+     var sel = $("#editcommenttwo" + abc);
+     var txt = sel.html();
+     if (txt == '' || txt == '<br>') {
+     $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deletetwo(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+     $('#bidmodal').modal('show');
+     return false;
+     } else {
+     $.ajax({
+     type: 'POST',
+     url: '<?php echo base_url() . "business_profile/edit_comment_insert" ?>',
+     data: 'post_id=' + abc + '&comment=' + txt,
+     success: function (data) {
+     document.getElementById('editcommenttwo' + abc).style.display = 'none';
+     document.getElementById('showcommenttwo' + abc).style.display = 'block';
+     document.getElementById('editsubmittwo' + abc).style.display = 'none';
+     
+     document.getElementById('editcommentboxtwo' + abc).style.display = 'block';
+     document.getElementById('editcancletwo' + abc).style.display = 'none';
+     //alert('.' + 'showcomment' + abc);
+     $('#' + 'showcommenttwo' + abc).html(data);
+     
+     }
+     });
+     }
+     
+     }*/
+
     function edit_commenttwo(abc)
     {
+        //var post_comment_edit = document.getElementById("editcommenttwo" + abc);
+
         $("#editcommenttwo" + abc).click(function () {
             $(this).prop("contentEditable", true);
+            //$(this).html("");
         });
+
         var sel = $("#editcommenttwo" + abc);
         var txt = sel.html();
         if (txt == '' || txt == '<br>') {
-            $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deletetwo(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-            $('#bidmodal').modal('show');
             return false;
-        } else {
-            $.ajax({
-                type: 'POST',
-                url: '<?php echo base_url() . "business_profile/edit_comment_insert" ?>',
-                data: 'post_id=' + abc + '&comment=' + txt,
-                success: function (data) {
-                    document.getElementById('editcommenttwo' + abc).style.display = 'none';
-                    document.getElementById('showcommenttwo' + abc).style.display = 'block';
-                    document.getElementById('editsubmittwo' + abc).style.display = 'none';
-
-                    document.getElementById('editcommentboxtwo' + abc).style.display = 'block';
-                    document.getElementById('editcancletwo' + abc).style.display = 'none';
-                    //alert('.' + 'showcomment' + abc);
-                    $('#' + 'showcommenttwo' + abc).html(data);
-
-                }
-            });
         }
+        $.ajax({
+            type: 'POST',
+            url: '<?php echo base_url() . "business_profile/edit_comment_insert" ?>',
+            data: 'post_id=' + abc + '&comment=' + txt,
+            success: function (data) { //alert('falguni');
+
+                document.getElementById('editcommenttwo' + abc).style.display = 'none';
+                document.getElementById('showcommenttwo' + abc).style.display = 'block';
+                document.getElementById('editsubmittwo' + abc).style.display = 'none';
+
+                document.getElementById('editcommentboxtwo' + abc).style.display = 'block';
+                document.getElementById('editcancletwo' + abc).style.display = 'none';
+                $('#' + 'showcommenttwo' + abc).html(data);
+                $('.post-design-commnet-box').show();
+            }
+        });
+        $(".scroll").click(function (event) {
+            event.preventDefault();
+            $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1200);
+        });
 
     }
 </script>
 
 
 <script type="text/javascript">
+    /*
+     function commentedittwo(abc)
+     {
+     $("#editcommenttwo" + abc).click(function () {
+     $(this).prop("contentEditable", true);
+     });
+     
+     
+     $('#editcommenttwo' + abc).keypress(function (event) {
+     if (event.which == 13 && event.shiftKey != 1) {
+     var sel = $("#editcommenttwo" + abc);
+     var txt = sel.html();
+     if (txt == '' || txt == '<br>') {
+     $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deletetwo(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+     $('#bidmodal').modal('show');
+     return false;
+     }
+     
+     if (window.preventDuplicateKeyPresses)
+     return;
+     
+     window.preventDuplicateKeyPresses = true;
+     window.setTimeout(function () {
+     window.preventDuplicateKeyPresses = false;
+     }, 500);
+     
+     
+     $.ajax({
+     type: 'POST',
+     url: '<?php echo base_url() . "business_profile/edit_comment_insert" ?>',
+     data: 'post_id=' + abc + '&comment=' + txt,
+     success: function (data) { //alert('falguni');
+     
+     document.getElementById('editcommenttwo' + abc).style.display = 'none';
+     document.getElementById('showcommenttwo' + abc).style.display = 'block';
+     document.getElementById('editsubmittwo' + abc).style.display = 'none';
+     
+     document.getElementById('editcommentboxtwo' + abc).style.display = 'block';
+     document.getElementById('editcancletwo' + abc).style.display = 'none';
+     $('#' + 'showcommenttwo' + abc).html(data);
+     
+     }
+     });
+     
+     }
+     });
+     
+     } */
 
     function commentedittwo(abc)
     {
+        //$(document).ready(function () {
         $("#editcommenttwo" + abc).click(function () {
             $(this).prop("contentEditable", true);
+            //$(this).html("");
         });
-
 
         $('#editcommenttwo' + abc).keypress(function (event) {
             if (event.which == 13 && event.shiftKey != 1) {
+                event.preventDefault();
+
                 var sel = $("#editcommenttwo" + abc);
                 var txt = sel.html();
+
                 if (txt == '' || txt == '<br>') {
-                    $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deletetwo(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-                    $('#bidmodal').modal('show');
                     return false;
                 }
+
+                //$('#editcommenttwo' + abc).html("");
 
                 if (window.preventDuplicateKeyPresses)
                     return;
@@ -2112,7 +2341,6 @@ $business_userimage = $this->db->get_where('business_profile', array('user_id' =
                 window.setTimeout(function () {
                     window.preventDuplicateKeyPresses = false;
                 }, 500);
-
 
                 $.ajax({
                     type: 'POST',
@@ -2120,21 +2348,31 @@ $business_userimage = $this->db->get_where('business_profile', array('user_id' =
                     data: 'post_id=' + abc + '&comment=' + txt,
                     success: function (data) { //alert('falguni');
 
+
                         document.getElementById('editcommenttwo' + abc).style.display = 'none';
                         document.getElementById('showcommenttwo' + abc).style.display = 'block';
                         document.getElementById('editsubmittwo' + abc).style.display = 'none';
 
                         document.getElementById('editcommentboxtwo' + abc).style.display = 'block';
                         document.getElementById('editcancletwo' + abc).style.display = 'none';
+                        //alert('.' + 'showcomment' + abc);
+
                         $('#' + 'showcommenttwo' + abc).html(data);
+                        $('.post-design-commnet-box').show();
+
 
                     }
                 });
-
             }
+        });
+        //});
+        $(".scroll").click(function (event) {
+            event.preventDefault();
+            $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1200);
         });
 
     }
+
 </script>
 
 <script>
@@ -2358,7 +2596,7 @@ $business_userimage = $this->db->get_where('business_profile', array('user_id' =
                 success: function (data) {
 
                     $('.' + 'insertimgcomment' + clicked_id).html(data.comment);
-                    $('#' + 'commentimgpost' + clicked_id).html(data.count);
+                    $('#' + 'insertimgcomment' + clicked_id).html(data.count);
 
                 }
             });
@@ -2424,7 +2662,7 @@ $business_userimage = $this->db->get_where('business_profile', array('user_id' =
                         success: function (data) {
 
                             $('.' + 'insertimgcomment' + clicked_id).html(data.comment);
-                            $('#' + 'commentimgpost' + clicked_id).html(data.count);
+                            $('#' + 'insertimgcomment' + clicked_id).html(data.count);
 
                         }
                     });
@@ -2455,7 +2693,7 @@ $business_userimage = $this->db->get_where('business_profile', array('user_id' =
 
         var x = document.getElementById('threeimgcomment' + clicked_id);
         var y = document.getElementById('fourimgcomment' + clicked_id);
-        var z = document.getElementById('commentimgpost' + clicked_id);
+        var z = document.getElementById('insertimgcomment' + clicked_id);
 
         if (x.style.display === 'block' && y.style.display === 'none') {
             x.style.display = 'none';
@@ -2501,15 +2739,13 @@ $business_userimage = $this->db->get_where('business_profile', array('user_id' =
 <script type="text/javascript">
 
     function imgcomment_editbox(clicked_id) {
-        document.getElementById('imgeditcomment' + clicked_id).style.display = 'block';
+        document.getElementById('imgeditcomment' + clicked_id).style.display = 'inline-block';
         document.getElementById('imgshowcomment' + clicked_id).style.display = 'none';
-        document.getElementById('imgeditsubmit' + clicked_id).style.display = 'block';
-
-
+        document.getElementById('imgeditsubmit' + clicked_id).style.display = 'inline-block';
         document.getElementById('imgeditcommentbox' + clicked_id).style.display = 'none';
         document.getElementById('imgeditcancle' + clicked_id).style.display = 'block';
 
-
+        $('.post-design-commnet-box').hide();
     }
 
     function imgcomment_editcancle(clicked_id) {
@@ -2520,29 +2756,32 @@ $business_userimage = $this->db->get_where('business_profile', array('user_id' =
         document.getElementById('imgeditcomment' + clicked_id).style.display = 'none';
         document.getElementById('imgshowcomment' + clicked_id).style.display = 'block';
         document.getElementById('imgeditsubmit' + clicked_id).style.display = 'none';
-
+        $('.post-design-commnet-box').show();
     }
 
     function imgcomment_editboxtwo(clicked_id) {
-        document.getElementById('imgeditcommenttwo' + clicked_id).style.display = 'block';
+
+        $('div[id^=editcommenttwo]').css('display', 'none');
+        $('div[id^=showcommenttwo]').css('display', 'block');
+        $('button[id^=editsubmittwo]').css('display', 'none');
+        $('div[id^=editcommentboxtwo]').css('display', 'block');
+        $('div[id^=editcancletwo]').css('display', 'none');
+
+        document.getElementById('imgeditcommenttwo' + clicked_id).style.display = 'inline-block';
         document.getElementById('imgshowcommenttwo' + clicked_id).style.display = 'none';
-        document.getElementById('imgeditsubmittwo' + clicked_id).style.display = 'block';
-
-
+        document.getElementById('imgeditsubmittwo' + clicked_id).style.display = 'inline-block';
         document.getElementById('imgeditcommentboxtwo' + clicked_id).style.display = 'none';
         document.getElementById('imgeditcancletwo' + clicked_id).style.display = 'block';
-
+        $('.post-design-commnet-box').hide();
     }
 
     function imgcomment_editcancletwo(clicked_id) {
-
         document.getElementById('imgeditcommentboxtwo' + clicked_id).style.display = 'block';
         document.getElementById('imgeditcancletwo' + clicked_id).style.display = 'none';
-
         document.getElementById('imgeditcommenttwo' + clicked_id).style.display = 'none';
         document.getElementById('imgshowcommenttwo' + clicked_id).style.display = 'block';
         document.getElementById('imgeditsubmittwo' + clicked_id).style.display = 'none';
-
+        $('.post-design-commnet-box').show();
     }
 
 </script>
@@ -2587,6 +2826,7 @@ $business_userimage = $this->db->get_where('business_profile', array('user_id' =
 
 <script type="text/javascript">
 
+    /*
     function imgcommentedit(abc)
     {
 
@@ -2599,6 +2839,60 @@ $business_userimage = $this->db->get_where('business_profile', array('user_id' =
 
             if (event.which == 13 && event.shiftKey != 1) {
                 vent.preventDefault();
+                var sel = $("#imgeditcomment" + abc);
+                var txt = sel.html();
+                if (txt == '' || txt == '<br>') {
+                    $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='imgcomment_deleted(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+                    $('#bidmodal').modal('show');
+                    return false;
+                } else {
+
+                    if (window.preventDuplicateKeyPresses)
+                        return;
+                    window.preventDuplicateKeyPresses = true;
+                    window.setTimeout(function () {
+                        window.preventDuplicateKeyPresses = false;
+                    }, 500);
+
+
+                    $.ajax({
+                        type: 'POST',
+                        url: '<?php echo base_url() . "business_profile/mul_edit_com_insert" ?>',
+                        data: 'post_image_comment_id=' + abc + '&comment=' + txt,
+                        success: function (data) {
+
+
+                            document.getElementById('imgeditcomment' + abc).style.display = 'none';
+                            document.getElementById('imgshowcomment' + abc).style.display = 'block';
+                            document.getElementById('imgeditsubmit' + abc).style.display = 'none';
+
+                            document.getElementById('imgeditcommentbox' + abc).style.display = 'block';
+                            document.getElementById('imgeditcancle' + abc).style.display = 'none';
+
+                            $('#' + 'imgshowcomment' + abc).html(data);
+
+
+
+                        }
+                    });
+                }
+
+            }
+        });
+
+
+    } */
+    
+    function imgcommentedit(abc)
+    {
+        $("#imgeditcomment" + abc).click(function () {
+            $(this).prop("contentEditable", true);
+        });
+
+        $('#imgeditcomment' + abc).keypress(function (event) {
+            
+            if (event.which == 13 && event.shiftKey != 1) {
+                event.preventDefault();s
                 var sel = $("#imgeditcomment" + abc);
                 var txt = sel.html();
                 if (txt == '' || txt == '<br>') {
@@ -2758,9 +3052,9 @@ $business_userimage = $this->db->get_where('business_profile', array('user_id' =
             data: 'post_image_comment_id=' + clicked_id + '&post_delete=' + post_delete.value,
             success: function (data) {
 
-                $('#' + 'commentimgpost' + post_delete.value).html(data.count);
+                $('#' + 'insertimgcount' + post_delete.value).html(data.count);
                 $('.' + 'insertimgcomment' + post_delete.value).html(data.comment);
-
+                $('.post-design-commnet-box').show();
             }
         });
     }
