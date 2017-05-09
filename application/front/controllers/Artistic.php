@@ -4449,8 +4449,8 @@ echo '<pre>'; print_r($artdata); die();
     }
 
 //multiple images comment end 
-//multiple images comment like start
-    public function mulimg_comment_like() {
+//multiple 9-5 images comment like start
+    public function like_commentimg1() {
 
         $userid = $this->session->userdata('aileenuser');
         $post_image_comment_id = $_POST["post_image_comment_id"];
@@ -4510,7 +4510,7 @@ echo '<pre>'; print_r($artdata); die();
             if ($insertdata) {
 
 
-                $imglike .= '<a id="' . $post_image_comment_id . '" onClick="comment_like(this.id)">';
+                $imglike .= '<a id="' . $post_image_comment_id . '" onClick="comment_likeimg1(this.id)">';
                 $imglike .= ' <i class="fa fa-thumbs-up" aria-hidden="true">';
                 $imglike .= '</i>';
                 $imglike .= '<span>';
@@ -4545,7 +4545,7 @@ echo '<pre>'; print_r($artdata); die();
                 if ($updatdata) {
 
 
-                    $imglike1 .= '<a id="' . $post_image_comment_id . '" onClick="comment_like(this.id)">';
+                    $imglike1 .= '<a id="' . $post_image_comment_id . '" onClick="comment_likeimg1(this.id)">';
                     $imglike1 .= '<i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true">';
                     $imglike1 .= '</i>';
                     $imglike1 .= '<span>';
@@ -4616,7 +4616,7 @@ echo '<pre>'; print_r($artdata); die();
                 if ($updatdata) {
 
 
-                    $imglike1 .= '<a id="' . $post_image_comment_id . '" onClick="comment_like(this.id)">';
+                    $imglike1 .= '<a id="' . $post_image_comment_id . '" onClick="comment_likeimg1(this.id)">';
                     $imglike1 .= '<i class="fa fa-thumbs-up" aria-hidden="true">';
                     $imglike1 .= '</i>';
                     $imglike1 .= '<span>';

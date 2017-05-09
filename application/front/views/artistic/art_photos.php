@@ -2096,6 +2096,22 @@
                                 }
                             });
                         }
+                        
+                       
+                        function comment_likeimg1(clicked_id)
+                        {
+
+                            $.ajax({
+                                type: 'POST',
+                                url: '<?php echo base_url() . "artistic/like_commentimg1" ?>',
+                                data: 'post_image_comment_id=' + clicked_id,
+                                success: function (data) {
+                                    $('#' + 'likecommentimg1' + clicked_id).html(data);
+
+                                }
+                            });
+                        }
                     </script>
+                   
 
 <!-- khyati image script  emd --> 
