@@ -39,7 +39,136 @@
   });
 </script>
         -->
+<style>
+    /*body {
+        font-family: Arial, sans-serif;
+        background-size: cover;
+        height: 100vh;
+    }
 
+    .box {
+        width: 40%;
+        margin: 0 auto;
+        background: rgba(255,255,255,0.2);
+        padding: 35px;
+        border: 2px solid #fff;
+        border-radius: 20px/50px;
+        background-clip: padding-box;
+        text-align: center;
+    }
+
+    .overlay {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.3);
+        transition: opacity 500ms;
+        visibility: hidden;
+        opacity: 0;
+        z-index: 10;
+    }
+    .overlay:target {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .popup {
+        margin: 70px auto;
+        padding: 20px;
+        background: #fff;
+        border-radius: 5px;
+        width: 30%;
+        height: 200px;
+        position: relative;
+        transition: all 5s ease-in-out;
+    }
+    */
+    .okk{
+        text-align: center;
+    }
+
+    /*   .popup .okbtn{
+           position: absolute;
+           transition: all 200ms;
+           font-size: 18px;
+           font-weight: bold;
+           text-decoration: none;
+           color: #fff;
+           padding: 8px 18px;
+           background-color: darkcyan;
+           left: 25px;
+           margin-top: 15px;
+           width: 100px; 
+           border-radius: 8px;
+       }
+    */
+    .pop_content .okbtn{
+        position: absolute;
+        transition: all 200ms;
+        font-size: 16px;
+        text-decoration: none;
+        color: #fff;
+        padding: 8px 18px;
+        background-color: #0A2C5D;
+        left: 170px;
+        margin-top: 8px;
+        width: 100px; 
+        border-radius: 8px;
+    }
+
+    /*  .popup .cnclbtn {
+          position: absolute;
+          transition: all 200ms;
+          font-size: 18px;
+          font-weight: bold;
+          text-decoration: none;
+          color: #fff;
+          padding: 8px 18px;
+          background-color: darkcyan;
+          right: 25px;
+          margin-top: 15px;
+          width: 100px;
+          border-radius: 8px;
+      } */
+    .pop_content .cnclbtn {
+        position: absolute;
+        transition: all 200ms;
+        font-size: 16px;
+        text-decoration: none;
+        color: #fff;
+        padding: 8px 18px;
+        background-color: #0A2C5D;
+        right: 170px;
+        margin-top: 8px;
+        width: 100px;
+        border-radius: 8px;
+    }
+
+    .popup .pop_content {
+        text-align: center;
+        margin-top: 40px;
+
+    }
+    .model_ok_cancel{
+        width:200px !important;
+    }
+
+    /*
+        @media screen and (max-width: 700px){
+            .box{
+                width: 70%;
+            }
+            .popup{
+                width: 70%;
+            }
+        } */
+
+
+</style>
+
+<!--post save success pop up style end -->
 
         <link rel="canonical" href="https://www.aileensoul.com" />
         <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
@@ -49,14 +178,12 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 
         <link rel="stylesheet" type="text/css" href="partical/css/style_login.css">
-
+        <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
         <meta content="" name="author" />
         <link rel="icon" href="">
         <!-- css start -->
-        <style type="text/css">
+        <!--post save success pop up style strat -->
 
-
-        </style>
     </head>
     <!-- header -->
 
@@ -236,6 +363,20 @@
             </div>
         </div>
         </footer>
+
+        <!-- Bid-modal  -->
+                    <div class="modal fade message-box biderror" id="bidmodal" role="dialog">
+                        <div class="modal-dialog modal-lm">
+                            <div class="modal-content">
+                                <button type="button" class="modal-close" data-dismiss="modal" onclick="closemodel()">&times;</button>       
+                                <div class="modal-body">
+                                    <!--<img class="icon" src="images/dollar-icon.png" alt="" />-->
+                                    <span class="mes"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Model Popup Close -->
   </body>
         <!-- scripts -->
         <!-- <script src="<?php //echo base_url('partical/particles.json');   ?>"></script> -->
@@ -334,7 +475,7 @@ $(document).ready(function () {
 
 
 <!-- form insert script start -->
-
+ <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
 
 <script type="text/javascript">
 
@@ -351,6 +492,10 @@ $(document).ready(function () {
 
    $('#contact_message').html("");
 
+if(name == '' && email == '' && subject == '' && message == ''){
+
+    return false;
+}else{
        $.ajax({
                 type:'POST',
                 url:'<?php echo base_url() . "contact_us/contact_us_insert" ?>',
@@ -359,13 +504,20 @@ $(document).ready(function () {
                     $('input').each(function(){
                              $(this).val('');
                              });
-                   window.location= "<?php echo base_url() ?>main";  
+                    $('.biderror .mes').html("<div class='pop_content'>Contact successfully");
+                        $('#bidmodal').modal('show');
+                       // setInterval('window.location.reload()', 800000000);
+
+                        // window.location= "<?php echo base_url() ?>main";  
                 }
-            }); 
+            }); }
    
     return false;
   }
  
+ function closemodel(){
+    window.location= "<?php echo base_url() ?>main";
+ }
 </script>
 <!-- form insert script end -->
 </body>

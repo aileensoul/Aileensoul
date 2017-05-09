@@ -418,7 +418,7 @@
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/jquery.jMosaic.css'); ?>">
 
-<!-- <script src="<?php //echo base_url('js/jquery.min.js');                    ?>"></script> -->
+<!-- <script src="<?php //echo base_url('js/jquery.min.js');                     ?>"></script> -->
         <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
         <script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
@@ -715,13 +715,13 @@
 
                                                 if ($businesssave) {
                                                     ?>
-                                                                                                                        
-                                                                                                                           <a><i class="fa fa-bookmark" aria-hidden="true"></i>Saved Post</a>
-                                                                                                                        
+                                                                                                                            
+                                                                                                                               <a><i class="fa fa-bookmark" aria-hidden="true"></i>Saved Post</a>
+                                                                                                                            
                                                 <?php } else { ?>
-                                                                                                                        
-                                                                                                                           <a id="<?php echo $busienss_data[0]['business_profile_post_id']; ?>" onClick="save_post(this.id)" href="#popup1" class="<?php echo 'savedpost' . $busienss_data[0]['business_profile_post_id']; ?>"><i class="fa fa-bookmark" aria-hidden="true"></i>  Save Post</a>
-                                                                                                                        
+                                                                                                                            
+                                                                                                                               <a id="<?php echo $busienss_data[0]['business_profile_post_id']; ?>" onClick="save_post(this.id)" href="#popup1" class="<?php echo 'savedpost' . $busienss_data[0]['business_profile_post_id']; ?>"><i class="fa fa-bookmark" aria-hidden="true"></i>  Save Post</a>
+                                                                                                                            
                                                 <?php } ?> -->
 
                                                 <a href="<?php echo base_url('business_profile/business_profile_contactperson/' . $busienss_data[0]['user_id'] . ''); ?>"><i class="fa fa-user" aria-hidden="true"></i> Contact Person</a>
@@ -1226,13 +1226,103 @@
                                 <!-- like user list start -->
 
                                 <!-- pop up box start-->
+                                
+                                <?php
+                                        if ($busienss_data[0]['business_likes_count'] > 0) {
+                                            ?>
+                                            <div class="likeduserlist<?php echo $busienss_data[0]['business_profile_post_id'] ?>">
+                                                <?php
+                                                $contition_array = array('business_profile_post_id' => $busienss_data[0]['business_profile_post_id'], 'status' => '1', 'is_delete' => '0');
+                                                $commnetcount = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                                $likeuser = $commnetcount[0]['business_like_user'];
+                                                $countlike = $commnetcount[0]['business_likes_count'] - 1;
+                                                $likelistarray = explode(',', $likeuser);
+                                                foreach ($likelistarray as $key => $value) {
+                                                    $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $value, 'status' => 1))->row()->company_name;
+                                                }
+                                                ?>
+                                                <!-- pop up box end-->
+                                                <a href="javascript:void(0);"  onclick="likeuserlist(<?php echo $busienss_data[0]['business_profile_post_id']; ?>);">
+                                                    <?php
+                                                    $contition_array = array('business_profile_post_id' => $busienss_data[0]['business_profile_post_id'], 'status' => '1', 'is_delete' => '0');
+                                                    $commnetcount = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-                                <div id="<?php echo "popuplike" . $busienss_data[0]['business_profile_post_id']; ?>" class="overlay">
+                                                    $likeuser = $commnetcount[0]['business_like_user'];
+                                                    $countlike = $commnetcount[0]['business_likes_count'] - 1;
+                                                    $likelistarray = explode(',', $likeuser);
+
+                                                    $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $value, 'status' => 1))->row()->company_name;
+                                                    ?>
+                                                    <div class="like_one_other">
+                                                        <?php
+                                                        echo ucwords($business_fname1);
+                                                        echo "&nbsp;";
+                                                        ?>
+                                                        <?php
+                                                        if (count($likelistarray) > 1) {
+                                                            ?>
+                                                            <?php echo "and"; ?>
+                                                            <?php
+                                                            echo $countlike;
+                                                            echo "&nbsp;";
+                                                            echo "others";
+                                                            ?> 
+            <?php } ?>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <?php
+                                        }
+                                        ?>
+
+                                        <div class="<?php echo "likeusername" . $busienss_data[0]['business_profile_post_id']; ?>" id="<?php echo "likeusername" . $busienss_data[0]['business_profile_post_id']; ?>" style="display:none">
+                                            <?php
+                                            $contition_array = array('business_profile_post_id' => $busienss_data[0]['business_profile_post_id'], 'status' => '1', 'is_delete' => '0');
+                                            $commnetcount = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                            $likeuser = $commnetcount[0]['business_like_user'];
+                                            $countlike = $commnetcount[0]['business_likes_count'] - 1;
+                                            $likelistarray = explode(',', $likeuser);
+                                            foreach ($likelistarray as $key => $value) {
+                                                $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $value, 'status' => 1))->row()->company_name;
+                                            }
+                                            ?>
+                                            <!-- pop up box end-->
+                                            <a href="javascript:void(0);"  onclick="likeuserlist(<?php echo $busienss_data[0]['business_profile_post_id']; ?>);">
+                                                <?php
+                                                $contition_array = array('business_profile_post_id' => $row['business_profile_post_id'], 'status' => '1', 'is_delete' => '0');
+                                                $commnetcount = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+                                                $likeuser = $commnetcount[0]['business_like_user'];
+                                                $countlike = $commnetcount[0]['business_likes_count'] - 1;
+                                                $likelistarray = explode(',', $likeuser);
+
+                                                $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $value, 'status' => 1))->row()->company_name;
+                                                ?>
+                                                <div class="like_one_other">
+                                                    <?php
+                                                    echo ucwords($business_fname1);
+                                                    echo "&nbsp;";
+                                                    ?>
+                                                    <?php
+                                                    if (count($likelistarray) > 1) {
+                                                        ?>
+                                                        <?php echo "and"; ?>
+                                                        <?php
+                                                        echo $countlike;
+                                                        echo "&nbsp;";
+                                                        echo "others";
+                                                        ?> 
+        <?php } ?>
+                                                </div>
+                                            </a>
+                                        </div>
+
+<!--                                <div id="<?php echo "popuplike" . $busienss_data[0]['business_profile_post_id']; ?>" class="overlay">
                                     <div class="popup">
 
                                         <div class="pop_content">
 
-                                            <?php
+                                            <?php /*
                                             $contition_array = array('business_profile_post_id' => $busienss_data[0]['business_profile_post_id'], 'status' => '1', 'is_delete' => '0');
                                             $commnetcount = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -1252,18 +1342,18 @@
 
                                                 </a>
 
-                                            <?php } ?>
+                                            <?php }  */?>
 
                                             <p class="okk"><a class="cnclbtn" href="#">Cancle</a></p>
 
                                         </div>
 
                                     </div>
-                                </div>
+                                </div>-->
                                 <!-- pop up box end-->
-                                <div class="like_other">
+<!--                                <div class="like_other">
                                     <a  href="<?php echo "#popuplike" . $busienss_data[0]['business_profile_post_id']; ?>">
-                                        <?php
+                                        <?php /*
                                         $contition_array = array('business_profile_post_id' => $busienss_data[0]['business_profile_post_id'], 'status' => '1', 'is_delete' => '0');
                                         $commnetcount = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -1299,10 +1389,10 @@
                                                 ?> 
 
 
-                                            <?php } ?>
+                                            <?php } */?>
                                         </div>
                                     </a>
-                                </div>
+                                </div>-->
                                 <!-- like user list end -->
 
 
@@ -1615,14 +1705,39 @@
 </script>
 
 <script type="text/javascript">
+//    function post_like(clicked_id)
+//    {
+//        $.ajax({
+//            type: 'POST',
+//            url: '<?php echo base_url() . "business_profile/like_post" ?>',
+//            data: 'post_id=' + clicked_id,
+//            success: function (data) {
+//                $('.' + 'likepost' + clicked_id).html(data);
+//            }
+//        });
+//    }
+
     function post_like(clicked_id)
     {
+        //alert(clicked_id);
         $.ajax({
             type: 'POST',
             url: '<?php echo base_url() . "business_profile/like_post" ?>',
             data: 'post_id=' + clicked_id,
-            success: function (data) {
-                $('.' + 'likepost' + clicked_id).html(data);
+            dataType: 'json',
+            success: function (data) { //alert('.' + 'likepost' + clicked_id);
+                // $('.' + 'likepost' + clicked_id).html(data);
+                $('.' + 'likepost' + clicked_id).html(data.like);
+                $('.likeusername' + clicked_id).html(data.likeuser);
+
+                $('.likeduserlist' + clicked_id).hide();
+                if (data.like_user_count == '0') {
+                    document.getElementById('likeusername' + clicked_id).style.display = "none";
+                } else {
+                    document.getElementById('likeusername' + clicked_id).style.display = "block";
+                }
+                $('#likeusername' + clicked_id).addClass('likeduserlist1');
+
             }
         });
     }
@@ -2731,40 +2846,40 @@
 
 
 <script type="text/javascript">
-                function commentall1(clicked_id) { //alert("xyz");
+    function commentall1(clicked_id) { //alert("xyz");
 
-                    //alert(clicked_id);
-                    var x = document.getElementById('threecomment1' + clicked_id);
-                    var y = document.getElementById('fourcomment1' + clicked_id);
-                    if (x.style.display === 'block' && y.style.display === 'none') {
-                        x.style.display = 'none';
-                        y.style.display = 'block';
+        //alert(clicked_id);
+        var x = document.getElementById('threecomment1' + clicked_id);
+        var y = document.getElementById('fourcomment1' + clicked_id);
+        if (x.style.display === 'block' && y.style.display === 'none') {
+            x.style.display = 'none';
+            y.style.display = 'block';
 
-                    } else {
-                        x.style.display = 'block';
-                        y.style.display = 'none';
-                    }
+        } else {
+            x.style.display = 'block';
+            y.style.display = 'none';
+        }
 
-                }
-            </script>
-            
-            <script type="text/javascript">
-                function imgcommentall1(clicked_id) { //alert("xyz");
+    }
+</script>
 
-                    //alert(clicked_id);
-                    var x = document.getElementById('threeimgcomment1' + clicked_id);
-                    var y = document.getElementById('fourimgcomment1' + clicked_id);
-                    if (x.style.display === 'block' && y.style.display === 'none') {
-                        x.style.display = 'none';
-                        y.style.display = 'block';
+<script type="text/javascript">
+    function imgcommentall1(clicked_id) { //alert("xyz");
 
-                    } else {
-                        x.style.display = 'block';
-                        y.style.display = 'none';
-                    }
+        //alert(clicked_id);
+        var x = document.getElementById('threeimgcomment1' + clicked_id);
+        var y = document.getElementById('fourimgcomment1' + clicked_id);
+        if (x.style.display === 'block' && y.style.display === 'none') {
+            x.style.display = 'none';
+            y.style.display = 'block';
 
-                }
-            </script>
+        } else {
+            x.style.display = 'block';
+            y.style.display = 'none';
+        }
+
+    }
+</script>
 <script type="text/javascript">
     function imgcomment_like(clicked_id)
     {
