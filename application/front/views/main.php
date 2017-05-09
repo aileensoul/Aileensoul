@@ -78,15 +78,29 @@
                     <div class="col-md-5 col-sm-5">
                         <div class="logo"><a href="<?php echo base_url('dashboard') ?>"><!-- <img src="<?php// echo base_url('images/logo.png'); ?>"> --> <span style="color: #87ceff; font-size: 41px;">Aileensoul</span></a></div>
                     </div>
+
+<!-- start login data -->
+<form action="<?php echo base_url(); ?>login/check_login" method="post" id="login_form" name="login_form">
+
                     <div class="col-md-7 col-sm-7 header-left-menu">
                         <div class="pushmenu pushmenu-left">
                       
    <div class="col-md-4 reg_form">
-                        <input type="text" name="" placeholder="Email Address">
-        </div>  <div class="col-md-4 reg_form">              
-                               <input type="text" name="" placeholder="Password">
-                              <span style="font-size: 12px; padding-left: 8px; font-weight: 600; color: #a0b3b0;"><a style="font-size: 13px;" href=""> Forgot Password?</a></span>
-</div> <div class="col-md-2 reg_button">
+                        <input type="text" name="user_name" id="user_name" placeholder="Email Address">
+
+                        <div class="checkbox2" style="display: block;">
+
+                        <input type="checkbox" class="fl" name="remember" style="display: inline-block;padding: 2px; width: 6%; margin-left: 5px;margin-top: 5px;">
+                                     <span class="" style="font-size: 15px; padding-left: 8px; font-weight: 600; color: #a0b3b0;">Remember me</span>
+                        </div>
+        </div> 
+         <div class="col-md-4 reg_form">              
+                               <input type="password" name="password" id="password" placeholder="Password">
+                              <span style="font-size: 12px; padding-left: 8px; font-weight: 600; color: #a0b3b0;">
+                              <a style="font-size: 13px;" data-toggle="modal" href="login.html#myModal"> Forgot Password?</a>
+                              </span>
+</div> 
+<div class="col-md-2 reg_button">
                          <input type="submit" value="login" name="">
       </div>                          </div>
 
@@ -94,6 +108,9 @@
 
                                 <!-- END USER LOGIN DROPDOWN -->
                         </div>
+                        </form>
+<!-- end login data -->
+
                     </div>
                 </div>
             </div>
@@ -488,6 +505,38 @@ $('#datepicker').datetimepicker({
 
                 });
                    });
+
+
+
+            // login validation  start
+
+
+ $(document).ready(function () {
+          /* validation */
+          $("#login_form").validate({
+              rules: {
+                  user_name: {
+                      required: true,
+                        },
+                   password: {
+                          required: true,
+                            }
+                        },
+            messages:  {
+                    user_name: {
+                    required: "Please Enter Email Address",
+                      },
+
+                    password: {
+                    required: "Please Enter Password",
+                           }
+                   },
+                });
+            /* validation */
+                                    
+          });
+
+            //login validation end
 
             //pattern validation at fname and lname start//
               $.validator.addMethod("pattern", function(value, element, param) {

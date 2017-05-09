@@ -124,7 +124,7 @@
 
 .krajee-default.file-preview-frame .file-thumbnail-footer {
 
-    width: 110px;
+    width: 100%;
     overflow: hidden;
 /*    height: 70px;*/
 }
@@ -156,13 +156,14 @@
 .krajee-default[data-template="audio"] .file-preview-audio {
     display: table-cell;
     vertical-align: middle;
-    height: 170px;
+    height: 120px;
     border: 1px solid #ddd;
     border-radius: 5px;
 }
 
 .krajee-default .file-preview-audio audio {
     vertical-align: middle;
+    width: 125px;
 }
 
 .krajee-default .file-zoom-dialog .file-preview-text {

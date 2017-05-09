@@ -182,7 +182,7 @@ h1 {
   
 }
 
-.field-wrap .fname_reg {
+/*.field-wrap .fname_reg {
   position: absolute;
   -webkit-transform: translateY(6px);
           transform: translateY(6px);
@@ -194,7 +194,22 @@ h1 {
   -webkit-backface-visibility: hidden;
   pointer-events: none;
   font-size: 15px;
+}*/
+
+.field-wrap .fname_reg{
+  cursor: text;
+    margin: 0;
+    padding: 0;
+    left: 15px;
+    top: 4px;
+    position: absolute;
+    font-size: 14px;
+    color: #ccc;
+    font-weight: normal;
+    transition: all .3s ease;
 }
+    
+
 .field-wrap .login_label{color: #a0b3b0;  font-size: 15px;}
 .label_gen{
   position: absolute;
@@ -592,10 +607,10 @@ input[type="radio"] {
 }
 .reg_button input{padding: 6px 7px;border: none; line-height: normal; font-size: 15px; background-color: #87ceff!important; color: #FFF; font-weight: 600; }
 .reg_button{margin-top: 27px;    padding-left: 0px; }
-.field-wrap  input::-webkit-input-placeholder{ color: #a0b3b0; font-weight: 600;
-    font-size: 15px;
-    line-height: 3;}
+.field-wrap  input::-webkit-input-placeholder{ color: #a0b3b0!important; font-weight: 600!important;
+    font-size: 15px!important;
+    line-height: 3!important;}
     
-    .field-wrap  input::-moz-input-placeholder{ color: #a0b3b0; font-weight: 600;
-    font-size: 15px;
-    line-height: 3;}
+    .field-wrap  input::-moz-input-placeholder{ color: #a0b3b0!important; font-weight: 600!important;
+    font-size: 15px!important;
+    line-height: 3!important;}
