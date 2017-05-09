@@ -127,17 +127,8 @@ body {
 /* vishang 9-5-17 header2 on */
 
 
-.header2 ul { font-size: 0; margin: 0; /*padding-right: 21px;*/
- float: right; }
 
- .header2 input::-webkit-input-placeholder 
-     {    
-         font-size: 15px;
-         line-height: 3;
-     }
-     
-.header2 input::-moz-placeholder { font-size: 15px; line-height: 3; } /* Firefox 19+ */
-.header2 input:-moz-placeholder { font-size: 14px; line-height: 3;}  /* Firefox 18- */
+   /* Firefox 18- */
 
 
 /* vishang 9-5-17 header2 off */
@@ -148,17 +139,18 @@ body {
 
     <div class="bg-search">
         <div class="header2">
-            <div class="container2">
-                <div class="row2">
+            <div class="container">
+                <div class="row">
+                 
                     <div class="col-sm-7 col-md-7 ">
                         <div class="job-search-box1 clearfix">
                         <?php echo $job_search; ?>
                         </div>
                     </div>
-                  <div class="col-sm-5 col-md-5 padding_less_right">
+                  <div class="col-sm-5 col-md-5">
                        <div class="">
                             <ul class="">
-                                <li <?php if($this->uri->segment(1) == 'job' && $this->uri->segment(2) == 'job_all_post'){?> class="active" <?php } ?>><a href="<?php echo base_url('job/job_all_post'); ?>" title="Home">Home</a>
+                                <li id="art_profile" <?php if($this->uri->segment(1) == 'job' && $this->uri->segment(2) == 'job_all_post'){?> class="active" <?php } ?>><a href="<?php echo base_url('job/job_all_post'); ?>" title="Home">Home</a>
                                     </li>
                                 <!-- Friend Request Start-->
 
@@ -166,7 +158,7 @@ body {
                                 <!-- Friend Request End-->
 
 <div class="dropdown_hover">
-  <span id="art_profile" style="font-size: 13px;">Job Profile <i class="fa fa-angle-down" aria-hidden="true"></i></span>
+  <span id="art_profile" class="profiletitle" >Job Profile <i class="fa fa-angle-down" aria-hidden="true"></i></span>
   <div class="dropdown-content_hover" id="dropdown-content_hover">
       <a href="<?php echo base_url('job/job_printpreview'); ?>" title="View Profile"><i class="fa fa-user" aria-hidden="true"></i> View Profile</a>
       <a href="<?php echo base_url('job/job_basicinfo_update'); ?>" title="Edit Profile"><i class="fa fa-pencil" aria-hidden="true"></i> Edit Profile</a>
