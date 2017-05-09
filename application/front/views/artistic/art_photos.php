@@ -836,7 +836,7 @@
                                                                                 </span>
                                                                             </a>
                                                                         </li>
-                                                                        <li id="<?php echo "insertcount" . $artdata['image_id']; ?>" style="visibility:show">
+                                                                        <li id="<?php echo "insertcountimg" . $artdata['image_id']; ?>" style="visibility:show">
 
                                                                             <?php
                                                                             $contition_array = array('post_image_id' => $artdata['image_id'], 'is_delete' => '0');
@@ -999,7 +999,7 @@
 
                                                                                     <div class="edit-comment-box">
                                                                                         <div class="inputtype-edit-comment">
-                                                                                            <div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="<?php echo $rowdata['post_image_comment_id']; ?>"  id="editcommentimg<?php echo $rowdata['post_image_comment_id']; ?>" placeholder="Enter Your Comment " value= ""  onkeyup="commenteditimg(<?php echo $rowdata['post_image_comment_id']; ?>)"><?php echo $rowdata['comments']; ?></div>
+                                                                                            <div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="<?php echo $rowdata['post_image_comment_id']; ?>"  id="editcommentimg<?php echo $rowdata['post_image_comment_id']; ?>" placeholder="Enter Your Comment " value= ""  onkeyup="commenteditimg(<?php echo $rowdata['post_image_comment_id']; ?>)"><?php echo $rowdata['comment']; ?></div>
                                                                                             <span class="comment-edit-button"><button id="<?php echo "editsubmitimg" . $rowdata['post_image_comment_id']; ?>" style="display:none" onClick="edit_commentimg(<?php echo $rowdata['post_image_comment_id']; ?>)">Save</button></span>
                                                                                         </div>
                                                                                     </div>
@@ -1398,7 +1398,7 @@
 
         var x = document.getElementById('threecomment' + clicked_id);
         var y = document.getElementById('fourcomment' + clicked_id);
-        var z = document.getElementById('insertcount' + clicked_id);
+        var z = document.getElementById('insertcountimg' + clicked_id);
 
 
 
@@ -1458,7 +1458,7 @@
                         $('#post_comment' + clicked_id).html("");
 
                         //  $('.insertcomment' + clicked_id).html(data);
-                        $('#' + 'insertcount' + clicked_id).html(data.count);
+                        $('#' + 'insertcountimg' + clicked_id).html(data.count);
                         $('.insertcomment' + clicked_id).html(data.comment);
 
                     }
@@ -1532,7 +1532,7 @@
                             success: function (data) {
 
                                 //  $('.insertcomment' + clicked_id).html(data);
-                                $('#' + 'insertcount' + clicked_id).html(data.count);
+                                $('#' + 'insertcountimg' + clicked_id).html(data.count);
                                 $('.insertcomment' + clicked_id).html(data.comment);
 
                             }
@@ -1835,6 +1835,7 @@
 
 
     }
+    
 
     function comment_editcancle(clicked_id) {
 
@@ -1910,7 +1911,7 @@
             data: 'post_image_comment_id=' + clicked_id + '&post_delete=' + post_delete.value,
             success: function (data) {
 
-                $('#' + 'insertcount' + post_delete.value).html(data.count);
+                $('#' + 'insertcountimg' + post_delete.value).html(data.count);
                 $('.insertcomment' + post_delete.value).html(data.comment);
 
             }
@@ -2108,6 +2109,50 @@
                                 success: function (data) {
                                     $('#' + 'likecommentimg1' + clicked_id).html(data);
 
+                                }
+                            });
+                        }
+                        
+                         function comment_editboximg(clicked_id) {
+                            document.getElementById('editcommentimg' + clicked_id).style.display = 'inline-block';
+                            document.getElementById('showcommentimg' + clicked_id).style.display = 'none';
+                            document.getElementById('editsubmitimg' + clicked_id).style.display = 'inline-block';
+                            //document.getElementById('editbox' + clicked_id).style.display = 'none';
+                            document.getElementById('editcommentboximg' + clicked_id).style.display = 'none';
+                            document.getElementById('editcancleimg' + clicked_id).style.display = 'block';
+                            $('.post-design-commnet-box').hide();
+                        }
+
+
+                        function comment_editcancleimg(clicked_id) {
+                            document.getElementById('editcommentboximg' + clicked_id).style.display = 'block';
+                            document.getElementById('editcancleimg' + clicked_id).style.display = 'none';
+                            document.getElementById('editcommentimg' + clicked_id).style.display = 'none';
+                            document.getElementById('showcommentimg' + clicked_id).style.display = 'block';
+                            document.getElementById('editsubmitimg' + clicked_id).style.display = 'none';
+
+                            $('.post-design-commnet-box').show();
+                        }
+                        
+                        function comment_deleteimg(clicked_id) {
+                            $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='comment_deletedimg(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+                            $('#bidmodal').modal('show');
+                        }
+
+                        function comment_deletedimg(clicked_id)
+                        {
+                            var post_delete = document.getElementById("post_delete");
+                            //alert(post_delete.value);
+                            $.ajax({
+                                type: 'POST',
+                                url: '<?php echo base_url() . "artistic/delete_commentimg" ?>',
+                                data: 'post_image_comment_id=' + clicked_id + '&post_delete=' + post_delete.value,
+                                dataType: "json",
+                                success: function (data) {
+                                    //alert('.' + 'insertcomment' + clicked_id);
+                                    $('.' + 'insertcommentimg' + post_delete.value).html(data.comment);
+                                    $('#' + 'insertcountimg' + post_delete.value).html(data.count);
+                                    $('.post-design-commnet-box').show();
                                 }
                             });
                         }
