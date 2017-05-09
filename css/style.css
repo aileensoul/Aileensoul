@@ -4546,3 +4546,11 @@ fieldset .add_post_btns{min-width: 120px;padding:8px 30px 8px;}
 
 
     .dropdown_hover span i{margin-right: -8px;}
+     .header2 input::-webkit-input-placeholder 
+     {    
+         font-size: 15px;
+         line-height: 3;
+     }
+     
+    .header2 input::-moz-placeholder { font-size: 15px; line-height: 3; } / Firefox 19+ /
+    .header2 input::-moz-placeholder { font-size: 14px; line-height: 3;}  / Firefox 18- /
