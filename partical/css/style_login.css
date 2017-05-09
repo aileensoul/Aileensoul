@@ -628,3 +628,8 @@ footer .footer-menu li a:hover{
     font-size: 15px;
     line-height: 3;
 }
+.field-wrap input::-moz-input-placeholder {
+  color: #a0b3b0; font-weight: 600;
+    font-size: 15px;
+    line-height: 3;
+}

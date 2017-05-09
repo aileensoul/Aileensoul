@@ -585,8 +585,17 @@ input[type="radio"] {
     font-size: 15px;
     line-height: 3;
 }
+.reg_form input::-moz-placeholder {
+  color: #a0b3b0; font-weight: 600;
+    font-size: 15px;
+    line-height: 1.7;
+}
 .reg_button input{padding: 6px 7px;border: none; line-height: normal; font-size: 15px; background-color: #87ceff!important; color: #FFF; font-weight: 600; }
 .reg_button{margin-top: 27px;    padding-left: 0px; }
 .field-wrap  input::-webkit-input-placeholder{ color: #a0b3b0; font-weight: 600;
+    font-size: 15px;
+    line-height: 3;}
+    
+    .field-wrap  input::-moz-input-placeholder{ color: #a0b3b0; font-weight: 600;
     font-size: 15px;
     line-height: 3;}
