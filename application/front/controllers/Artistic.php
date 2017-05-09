@@ -4981,8 +4981,8 @@ echo '<pre>'; print_r($artdata); die();
                 array("comment" => $cmtinsert,
                     "count" => $cmtcount));
     }
-
-    public function mul_delete_commenttwo() {
+// changes done 9-5
+    public function delete_commenttwoimg() {
         $userid = $this->session->userdata('aileenuser');
         $post_image_comment_id = $_POST["post_image_comment_id"];
         $post_delete = $_POST["post_delete"];
@@ -4998,7 +4998,8 @@ echo '<pre>'; print_r($artdata); die();
         $contition_array = array('post_image_id' => $post_delete, 'is_delete' => '0');
         $artcomment = $this->common->select_data_by_condition('art_post_image_comment', $contition_array, $data = '*', $sortby = 'post_image_comment_id', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-        // echo "<pre>"; print_r($artcomment); die();
+       // echo "<pre>"; print_r($artcomment); die();
+        if(count($artcomment) > 0){
         foreach ($artcomment as $art_comment) {
 
             $art_name = $this->db->get_where('art_reg', array('user_id' => $art_comment['user_id']))->row()->art_name;
@@ -5012,18 +5013,18 @@ echo '<pre>'; print_r($artdata); die();
             $cmtinsert .= '<div class="comment-name"><b>' . $art_name . '</b>';
             $cmtinsert .= '</div>';
 
-            $cmtinsert .= '<div class="comment-details" id= "showcommenttwo' . $art_comment['post_image_comment_id'] . '">';
+            $cmtinsert .= '<div class="comment-details" id= "showcommentimgtwo' . $art_comment['post_image_comment_id'] . '">';
             $cmtinsert .= $art_comment['comment'];
             $cmtinsert .= '</div>';
-            $cmtinsert .= '<div contenteditable="true" class="editable_text" name="' . $art_comment['post_image_comment_id'] . '" id="editcommenttwo' . $art_comment['post_image_comment_id'] . '"style="display:none;" onkeyup="commentedittwo(' . $art_comment['post_image_comment_id'] . ')">';
+            $cmtinsert .= '<div contenteditable="true" class="editable_text" name="' . $art_comment['post_image_comment_id'] . '" id="editcommentimgtwo' . $art_comment['post_image_comment_id'] . '"style="display:none;" onkeyup="commenteditimgtwo(' . $art_comment['post_image_comment_id'] . ')">';
 
             $cmtinsert .= '' . $art_comment['comment'] . '';
             $cmtinsert .= '</div>';
 
-            $cmtinsert .= '<button id="editsubmittwo' . $art_comment['post_image_comment_id'] . '" style="display:none;" onClick="edit_commenttwo(' . $art_comment['post_image_comment_id'] . ')">Comment</button><div class="art-comment-menu-design"> <div class="comment-details-menu" id="likecomment' . $art_comment['post_image_comment_id'] . '">';
+            $cmtinsert .= '<button id="editsubmitimgtwo' . $art_comment['post_image_comment_id'] . '" style="display:none;" onClick="edit_commentimgtwo(' . $art_comment['post_image_comment_id'] . ')">Comment</button><div class="art-comment-menu-design"> <div class="comment-details-menu" id="likecommentimg' . $art_comment['post_image_comment_id'] . '">';
 
             $cmtinsert .= '<a id="' . $art_comment['post_image_comment_id'] . '"';
-            $cmtinsert .= 'onClick="comment_like(this.id)">';
+            $cmtinsert .= 'onClick="comment_likeimg(this.id)">';
 
             $contition_array = array('post_image_comment_id' => $art_comment['post_image_comment_id'], 'user_id' => $userid, 'is_unlike' => 0);
 
@@ -5055,17 +5056,17 @@ echo '<pre>'; print_r($artdata); die();
                 $cmtinsert .= '<div class="comment-details-menu">';
 
 
-                $cmtinsert .= '<div id="editcommentboxtwo' . $art_comment['post_image_comment_id'] . '"style="display:block;">';
+                $cmtinsert .= '<div id="editcommentboximgtwo' . $art_comment['post_image_comment_id'] . '"style="display:block;">';
 
                 $cmtinsert .= '<a id="' . $art_comment['post_image_comment_id'] . '"';
-                $cmtinsert .= 'onClick="comment_editboxtwo(this.id)">';
+                $cmtinsert .= 'onClick="comment_editboximgtwo(this.id)">';
                 $cmtinsert .= 'Edit';
                 $cmtinsert .= '</a></div>';
 
-                $cmtinsert .= '<div id="editcancletwo' . $art_comment['post_image_comment_id'] . '"style="display:none;">';
+                $cmtinsert .= '<div id="editcancleimgtwo' . $art_comment['post_image_comment_id'] . '"style="display:none;">';
 
                 $cmtinsert .= '<a id="' . $art_comment['post_image_comment_id'] . '"';
-                $cmtinsert .= 'onClick="comment_editcancletwo(this.id)">';
+                $cmtinsert .= 'onClick="comment_editcancleimgtwo(this.id)">';
                 $cmtinsert .= 'Cancel';
                 $cmtinsert .= '</a></div>';
 
@@ -5086,11 +5087,12 @@ echo '<pre>'; print_r($artdata); die();
                 $cmtinsert .= '<div class="comment-details-menu">';
 
 
-                $cmtinsert .= '<input type="hidden" name="post_deletetwo"';
-                $cmtinsert .= 'id="post_deletetwo' . $art_comment['post_image_comment_id'] . '"';
+                $cmtinsert .= '<input type="hidden" name="post_deleteimgtwo"';
+                //$cmtinsert .= 'id="post_deleteimgtwo' . $art_comment['post_image_comment_id'] . '"';
+                $cmtinsert .= 'id="post_deleteimgtwo"';
                 $cmtinsert .= 'value= "' . $art_comment['post_image_id'] . '">';
                 $cmtinsert .= '<a id="' . $art_comment['post_image_comment_id'] . '"';
-                $cmtinsert .= 'onClick="comment_deletetwo(this.id)">';
+                $cmtinsert .= 'onClick="comment_deleteimgtwo(this.id)">';
                 $cmtinsert .= 'Delete';
                 $cmtinsert .= '</a></div>';
             }
@@ -5098,8 +5100,24 @@ echo '<pre>'; print_r($artdata); die();
             $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
             $cmtinsert .= '<div class="comment-details-menu">';
             $cmtinsert .= '<p>' . $art_comment['created_date'] . '</p></div></div></div>';
+            
+             // comment aount variable start
+                $idpost = $art['art_post_id'];
+                $cmtcount = '<a onClick="commentallimg(this.id)" id="' . $post_delete . '">';
+                $cmtcount .= '<i class="fa fa-comment-o" aria-hidden="true">';
+                $cmtcount .= ' ' . count($artcomment) . '';
+                $cmtcount .= '</i></a>';
         }
-        echo $cmtinsert;
+        }else{
+          
+            $cmtcount = '<a onClick="commentallimg(this.id)" id="' . $post_delete . '">';
+            $cmtcount .= '<i class="fa fa-comment-o" aria-hidden="true">';
+            $cmtcount .= '</i></a>';
+        }
+        //echo $cmtinsert;
+        echo json_encode(
+                array("comment" => $cmtinsert,
+                    "count" => $cmtcount));
     }
 
     //mulitple images commnet delete end 
@@ -5297,7 +5315,8 @@ echo '<pre>'; print_r($artdata); die();
                 $fourdata .= '<div class="comment-details-menu">';
 
 
-                $fourdata .= '<input type="hidden" name="post_deleteimgtwo"  id="post_deleteimgtwo' . $rowdata['post_image_comment_id'] . '" value= "' . $rowdata['post_image_id'] . '">';
+             //   $fourdata .= '<input type="hidden" name="post_deleteimgtwo"  id="post_deleteimgtwo' . $rowdata['post_image_comment_id'] . '" value= "' . $rowdata['post_image_id'] . '">';
+                $fourdata .= '<input type="hidden" name="post_deleteimgtwo"  id="post_deleteimgtwo" value= "' . $rowdata['post_image_id'] . '">';
                 $fourdata .= '<a id="' . $rowdata['post_image_comment_id'] . '"';
                 //$fourdata .= 'onClick="comment_deletetwo(this.id)"> Delete <span class="insertcommenttwo' . $rowdata['post_image_comment_id'] . '">';
                 $fourdata .= 'onClick="comment_deleteimgtwo(this.id)"> Delete';

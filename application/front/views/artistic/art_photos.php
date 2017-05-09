@@ -2308,31 +2308,62 @@
                             // }
                         }
                         
-                        function comment_deletetwo(clicked_id)
+                        function comment_deleteimgtwo(clicked_id)
                         {
-                            $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='comment_deletedtwo(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+                            $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='comment_deletedimgtwo(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
                             $('#bidmodal').modal('show');
                         }
 
-                    </script>
-
-                    <script type="text/javascript">
-                        function comment_deletedtwo(clicked_id)
-                        {
-                            var post_delete1 = document.getElementById("post_deletetwo");
+                    
+                        function comment_deletedimgtwo(clicked_id)
+                        { 
+                            var post_delete1 = document.getElementById("post_deleteimgtwo");
+                            alert(post_delete1.value);
                             $.ajax({
                                 type: 'POST',
-                                url: '<?php echo base_url() . "artistic/delete_commenttwo" ?>',
-                                data: 'post_id=' + clicked_id + '&post_delete=' + post_delete1.value,
+                                url: '<?php echo base_url() . "artistic/delete_commenttwoimg" ?>',
+                                data: 'post_image_comment_id=' + clicked_id + '&post_delete=' + post_delete1.value,
                                 dataType: "json",
                                 success: function (data) {
-
-                                    // $('.' + 'insertcomment' + post_delete.value).html(data);
-                                    $('.' + 'insertcommenttwo' + post_delete1.value).html(data.comment);
-                                    $('#' + 'insertcount' + post_delete1.value).html(data.count);
+                                    
+                                    $('.' + 'insertcommentimgtwo' + post_delete1.value).html(data.comment);
+                                    $('#' + 'insertcountimg' + post_delete1.value).html(data.count);
                                     $('.post-design-commnet-box').show();
 
                                 }
+                            });
+                        }
+                        
+                        function edit_commentimgtwo(abc)
+                        {
+                            $("#editcommentimgtwo" + abc).click(function () {
+                                $(this).prop("contentEditable", true);
+                            });
+
+                            var sel = $("#editcommentimgtwo" + abc);
+                            var txt = sel.html();
+                            if (txt == '' || txt == '<br>') {
+                                $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deletetwo(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+                                $('#bidmodal').modal('show');
+                                return false;
+                            }
+                            $.ajax({
+                                type: 'POST',
+                                url: '<?php echo base_url() . "artistic/edit_comment_insertimg" ?>',
+                                data: 'post_image_comment_id=' + abc + '&comment=' + txt,
+                                success: function (data) {
+                                    document.getElementById('editcommentimgtwo' + abc).style.display = 'none';
+                                    document.getElementById('showcommentimgtwo' + abc).style.display = 'block';
+                                    document.getElementById('editsubmitimgtwo' + abc).style.display = 'none';
+                                    document.getElementById('editcommentboximgtwo' + abc).style.display = 'block';
+                                    document.getElementById('editcancleimgtwo' + abc).style.display = 'none';
+                                    $('#' + 'showcommentimgtwo' + abc).html(data);
+                                    $('.post-design-commnet-box').show();
+                                }
+                            });
+                            $(".scroll").click(function (event) {
+                                event.preventDefault();
+                                $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1200);
                             });
                         }
                     </script>
