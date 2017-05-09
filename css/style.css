@@ -212,8 +212,12 @@ hr{ border: none; margin: 20px 0; background:#cacaca; height: 1px; }
 .header ul { font-size: 0; margin: 0; padding: 0; }
 .header ul li { list-style: none; display: inline-block; padding: 0; margin: 0; position: relative; }
 .header ul li a { font-size: 14px; color: #fff; padding: 13px; font-weight: 400; display: block;letter-spacing: 0.5; }
-.header ul li a:hover { background: #fff; color: #000033; }
-.header ul li a i {padding-left: 10px;}
+/*.header ul li a:hover { background: #fff; color: #000033; }
+*/.header ul li a i {padding-left: 10px;}
+.header ul li a:hover {background-color: #191947;
+   /* opacity: 0.8;*/
+    color: rgba(255,255,255,0.7);
+}
 ul.sub-menu { display: none; position: absolute; top: 100%; right: 0; width: 274px; z-index: 2; box-shadow: 0px 0px 2px 0px #000; }
 ul.sub-menu li { display: block; margin-bottom: 2px; }
 ul.sub-menu li a { background: #f4f4f4; padding: 6px 15px; color: #000033; font-size: 16px; }
@@ -307,7 +311,7 @@ bottom: 0;}
 .dropdown-menu { position: absolute; }
 ul.dropdown-menu li { display: block; }
 ul.dropdown-menu li a { padding: 8px 14px; font-size: 16px; }
-ul.dropdown-menu li a i { padding-right: 8px; }
+ul.dropdown-menu li a i { padding-right: 2px; }
 .dropdown-menu:before {
     content: '';
     display: block;
@@ -318,12 +322,12 @@ ul.dropdown-menu li a i { padding-right: 8px; }
     border: 10px solid black;
     border-color: transparent transparent #fff;
     margin-top: -18px;
-    margin-left: 99px;
+   right: 8;
 }
 /*.dropdown:hover .dropdown-menu { display: block; }*/
 .header ul li.dropdown-user a { padding: 13px; text-transform: capitalize;}
 
-.header ul li.dropdown-user ul li a { padding: 8px 10px; color: #000; }
+.header ul li.dropdown-user ul li a { padding: 6px 2px; font-size: 13px; color: #000; }
 .header ul li.dropdown-user ul li a:hover { background: #000033; color: #fff; }
 
 .panel-body { border:2px solid #ddd; border-top: 0; background-color: #ffffff; }
@@ -2174,7 +2178,9 @@ border-bottom: 1px solid #000033;
     font-weight: 600;
 
 }
-.profile-main-rec-box-menu{background-color:white;}  .profile-main-rec-box-menu ul li.active { position:relative; /*background:#000033; */}
+.profile-main-rec-box-menu{background-color:white;  box-shadow: 0px 4px 17px #CCCCCC; 
+-webkit-box-shadow: 0px 4px 17px #CCCCCC; 
+-moz-box-shadow: 0px 4px 17px #CCCCCC; }  .profile-main-rec-box-menu ul li.active { position:relative; /*background:#000033; */}
 .profile-main-rec-box-menu ul li.active a { background:#000033; color: #ffffff; }
 .last_date{    padding-left: 15px;
                float: left;
@@ -2252,7 +2258,9 @@ border-bottom: 1px solid #000033;
 .profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li {margin-bottom: 5px;}
 .profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li span p a{color: #3b5283; text-decoration-line: underline;}
 .buisness-menu {    padding-bottom: 1px;
-                    box-shadow: 1px 1px 6px 1px #efefef;
+                   box-shadow: 0px 4px 17px #CCCCCC; 
+-webkit-box-shadow: 0px 4px 17px #CCCCCC; 
+-moz-box-shadow: 0px 4px 17px #CCCCCC; 
                     width: 100%;
                     border-bottom: 1px solid #d9d9d9; 
                     border-left: 1px solid #d9d9d9;
@@ -4400,7 +4408,7 @@ word-break: break-all;
   left: 7px;
   visibility: visible;
 }
-.dropdown-menu{left: -12px!important;}
+.dropdown-menu{left: -50px!important;}
 
 /* vishang 4-5-17 */
 
@@ -4575,8 +4583,9 @@ fieldset .add_post_btns{min-width: 120px;padding:8px 30px 8px;}
     background-color: #fff;
     min-width: 139px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    margin-top: 10px;
+    margin-top: 3px;
     z-index: 1;
+    left: 18;
     border-radius: 4px; }
 .dropdown-content_hover::before{       /* top: -1px; */
     content: '';
@@ -4589,6 +4598,6 @@ fieldset .add_post_btns{min-width: 120px;padding:8px 30px 8px;}
     border-color: transparent transparent #fff;
     margin-top: -18px;
     /* margin-left: 104px; */
-    right: 6px;}
+    right: 9px;}
 
 .dropdown_hover .dropdown-content_hover a {color: #000;}
