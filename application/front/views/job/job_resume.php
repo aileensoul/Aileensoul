@@ -46,7 +46,7 @@
                                                   <div >
                                                    <p><?php echo $job[0]['fname']  .' '. $job[0]['lname']; ?></p>
 
-                                                  <p><?php echo date('d/m/Y',strtotime($job[0]['dob'])); ?></p>
+                                                  <p><?php echo date('d-M-Y',strtotime($job[0]['dob'])); ?></p>
 
                                                   <p><?php echo $job[0]['marital_status'];?></p>
 
