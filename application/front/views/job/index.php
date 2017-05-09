@@ -87,9 +87,11 @@
                             <div class="common-form">
                                 <h3>Basic Information</h3>
 <?php echo form_open(base_url('job/job_basicinfo_insert'), array('id' => 'jobseeker_regform', 'name' => 'jobseeker_regform', 'class' => 'clearfix')); ?>
-                                <div>
-                                   <span style="color:#7f7f7e;padding-left: 8px;">( </span><span style="color:red">*</span><span style="color:#7f7f7e"> )</span> <span style="color:#7f7f7e">Indicates required field</span>
-                                </div>
+                            <!-- <div>
+                                <span style="color:#7f7f7e;padding-left: 8px;">( </span><span style="color:red">*</span><span style="color:#7f7f7e"> )</span> <span style="color:#7f7f7e">Indicates required field</span>
+                                </div> -->
+
+     <div> <span class="required_field" >( <span style="color: red">*</span> ) Indicates required field</span></div>
 
 <?php
 $fname = form_error('fname');
@@ -106,7 +108,7 @@ $gender = form_error('gender');
 
                                 <fieldset <?php if ($fname) { ?> class="error-msg" <?php } ?>>
                                     <label>First Name: <span style="color:red">*</span></label>
-                                    <input type="text" name="fname" id="fname" placeholder="Enter Firstname" value="<?php if ($fname1) {
+                                    <input type="text" name="fname" id="fname" placeholder="Enter First name" value="<?php if ($fname1) {
                                         echo $fname1;
                                     } else {
                                         echo $job[0]['first_name'];
@@ -116,7 +118,7 @@ $gender = form_error('gender');
 
                                 <fieldset <?php if ($lname) { ?> class="error-msg" <?php } ?>>  
                                     <label>Last Name <span style="color:red">*</span></label>
-                                    <input type="text" name="lname"  id="lname" placeholder="Enter Lastname" value="<?php if ($lname1) {
+                                    <input type="text" name="lname"  id="lname" placeholder="Enter Last name" value="<?php if ($lname1) {
     echo $lname1;
 } else {
     echo $job[0]['last_name'];
@@ -144,8 +146,11 @@ $gender = form_error('gender');
 
                                 <fieldset <?php if ($marital_status) { ?> class="error-msg" <?php } ?>>
                                     <label>Marital Status <span style="color:red">*</span></label>
-                                    <input type="radio" name="marital_status" value="married" id="marital_status"  <?php echo ($marital_status1 == 'married') ? 'checked' : '' ?>>Married
-                                    <input type="radio" name="marital_status" value="unmarried" id="marital_status" <?php echo ($marital_status1 == 'unmarried') ? 'checked' : '' ?>  >Unmarried
+                                    <input type="radio" name="marital_status" value="married" id="marital_status"  <?php echo ($marital_status1 == 'married') ? 'checked' : '' ?>>
+                    <span class="radio_check_text">Married</span>
+                                    
+                                    <input type="radio" name="marital_status" value="unmarried" id="marital_status" <?php echo ($marital_status1 == 'unmarried') ? 'checked' : '' ?>  > 
+                    <span class="radio_check_text">Unmarried</span>
 
                                     <span id="marital_status-error"> </span>
                                         <?php echo form_error('marital_status'); ?>
@@ -186,7 +191,7 @@ if (count($nation) > 0) {
                                 <fieldset <?php if ($language) { ?> class="error-msg" <?php } ?>>
                                     <label>Languages Known:<span style="color:red">*</span></label> 
 
-                                    <select name="language[]" id ="lan" multiple="multiple" style="width:270px "  required="true" >
+             <select name="language[]" id ="lan" multiple="multiple" style="width: 100%"  required="true" >
 
 <?php foreach ($language1 as $language) { ?>
                                             <option value="<?php echo $language['language_id']; ?>"><?php echo $language['language_name']; ?></option>

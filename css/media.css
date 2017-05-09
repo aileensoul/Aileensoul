@@ -156,6 +156,10 @@
 
 /*vishang 6-5-17 start */
   .header2 .profiletitle { font-size: 13px; }
+  .required_field { padding-left: 8px; font-size: 16px; color: #7f7f7e; }
+  .common-form form input::-webkit-input-placeholder 
+               {    font-size: 15px; line-height: 3;  }
+   .radio_check_text { font-size: 16px; }
 
 @media (min-width: 768px) and (max-width: 1024px) 
   {  
@@ -168,6 +172,19 @@
 
     /*   header2 off */
 
+
+     /* forms start*/
+        .required_field { font-size: 13px; }
+        .common-form fieldset label { margin: 0 0 2px; }
+          label { font-size: 12px; }
+          input { padding: 3px 9px; font-size: 13px; }
+          .common-form form input::-webkit-input-placeholder 
+               {    font-size: 12px; line-height: 3;  }
+           select { padding: 3px 9px; font-size: 13px; }
+           .common-form input[type=radio], .common-form input[type=checkbox] { height: 11px; }
+           .select2-container--default .select2-selection--multiple .select2-selection__rendered li { margin-top: 2px; margin-bottom: 2px;}
+            .radio_check_text { font-size: 14px; }
+               /* forms end*/
 
   	 /*profile leftbar start*/
   	     /*job on */
@@ -203,7 +220,7 @@
      .common-form h3 
      { 
          padding: 5px 15px 5px;
-         font-size: 18px;
+         font-size: 16px;
      }
      .details_all_tital { font-size: 15px; }
   
