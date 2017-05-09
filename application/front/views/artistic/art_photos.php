@@ -2141,7 +2141,7 @@
 
                         function comment_deletedimg(clicked_id)
                         {
-                            var post_delete = document.getElementById("post_delete");
+                            var post_delete = document.getElementById("post_deleteimg");
                             //alert(post_delete.value);
                             $.ajax({
                                 type: 'POST',
