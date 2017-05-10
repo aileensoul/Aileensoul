@@ -3,6 +3,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 <!DOCTYPE html>
 <html lang="en">
+<!-- start header -->
+<?php echo $header; ?>
 <head>
 
 <!--- for dispaly div insted of input type start -->
@@ -12,48 +14,26 @@ div .comment {
   border: 1px solid #ccc;
 }
 </style>
-
-<!--- for dispaly div insted of input type end -->
-  <meta charset="utf-8">
-  <title>Chat-Example | CodeIgniter</title>
-  <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+<link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
   
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
   <script src="<?php echo base_url('js/moment.js'); ?>"></script>
  
      <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
-  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/media.css'); ?>">
+ 
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+   <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/common-style.css'); ?>">
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style.css'); ?>">
   
-  <!-- http://bootsnipp.com/snippets/4jXW -->
-
-  <link rel="stylesheet" href="<?php echo base_url(); ?>css/style_chat.css" />
-  
-  
-  <!-- <script type="text/javascript">   
-    $( document ).ready ( function () {
-      
-      $('#nickname').keyup(function() {
-        var nickname = $(this).val();
-        
-        if(nickname == ''){
-          $('#msg_block').hide();
-        }else{
-          $('#msg_block').show();
-        }
-      });
-      
-      // initial nickname check
-      $('#nickname').trigger('keyup');
-    });
-    
-  </script> -->
+  <!-- <link rel="stylesheet" href="<?php echo base_url(); ?>css/style_chat.css" />
+   -->
  
 </head>
-<body>
 
- <div class="container ">
+
+ <div class="container_chat " id="paddingtop_fixed">
     <div class="people-list" id="people-list">
        <div class="search">
         <input type="text" name=""  id="user_search" placeholder="search" value= ""  />
@@ -68,9 +48,9 @@ if(count($userlist) > 0){
  foreach($userlist as $user){ ?>
  <li class="clearfix">
           <?php        if ($user['user_image']) {?>
-   
-<img src="<?php echo base_url(USERIMAGE . $user['user_image']); ?>" alt="" height="50px" weight="50px">
-
+   <div style=" height: 50px; width: 50px; display: inline-block; float: left;">
+<img src="<?php echo base_url(USERIMAGE . $user['user_image']); ?>" alt="" style="width: 100%; height: 100%;" >
+</div>
  <?php  } else { ?>
  <img src="<?php echo base_url(NOIMAGE); ?>" alt="" height="50px" weight="50px">
  
@@ -78,9 +58,9 @@ if(count($userlist) > 0){
           <div class="about">
             <div class="name"> 
     <a href="<?php echo base_url() . 'chat/abc/' . $user['user_id']; ?>"><?php echo  $user['first_name'] . "<br>"; ?></a> </div>
-            <div class="<?php echo 'status' . $user['user_id']; ?>">
-            <?php echo  $user['message']; ?>
-            </div>
+            <div class="<?php echo 'status' . $user['user_id']; ?>" id="chat_msg_in_data">
+            <p><?php echo  $user['message']; ?>
+            </p></div>
           </div>
         </li>
 <?php }}else{
@@ -101,12 +81,14 @@ if($lstusrdata){?>
       <div class="chat-header clearfix">
 
   <?php   if ($lstusrdata[0]['user_image']) {?>
-   
-<img src="<?php echo base_url(USERIMAGE . $lstusrdata[0]['user_image']); ?>" alt="" height="50px" weight="50px">
 
+   <div style=" height: 50px; width: 50px; display: inline-block; float: left;">
+<img src="<?php echo base_url(USERIMAGE . $lstusrdata[0]['user_image']); ?>" alt="" height="50px" weight="50px">
+</div>
 <?php  } else { ?>
- <img src="<?php echo base_url(NOIMAGE); ?>" alt="" height="50px" weight="50px">
  
+   <div style=" height: 50px; width: 50px; display: inline-block; float: left;"><img src="<?php echo base_url(NOIMAGE); ?>" alt="" height="50px" weight="50px">
+ </div>
 <?php  } ?>
 
          <div class="chat-about">
@@ -151,7 +133,7 @@ if($lstusrdata){?>
     bottom: 5px;">
     <a href="#" id="notificationLink" style="position: absolute;
     bottom: 4px;
-    left: -22px;"><i class="em em-blush"></i></a>
+    left: -49px;"><i class="em em-blush"></i></a>
     
       <div id="notificationContainer" style="display: none;
     position: relative;margin-bottom: 37px;">
