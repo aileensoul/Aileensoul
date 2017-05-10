@@ -972,18 +972,19 @@ z-index: 1;
                             </div>
 
 
+<!-- next button start -->
+<fieldset class="hs-submit full-width">
+                       
+<input type="button"  id="next" name="next" value="Next" onclick="next_page()">
+
+ </fieldset>
+<!-- next button end -->
                         </div>
                     </div>
 
                 </div>
                 </section>
-                                <fieldset class="hs-submit full-width">
-
-                              <!--<input type="reset">-->
-                                    <input type="submit"  id="next" name="next" value="Next">
-
-
-                                </fieldset>
+                                
 
 
                 <footer>
@@ -1526,3 +1527,22 @@ z-index: 1;
 <script type="text/javascript"> 
  $(".alert").delay(3200).fadeOut(300);
 </script>
+
+
+<!-- script start for next button -->
+<script type="text/javascript">
+ function next_page() {
+
+// var board_primary = document.getElementById("board_primary").value;
+// var school_primary = document.getElementById("school_primary").value;
+// var percentage_primary = document.getElementById("percentage_primary").value;
+// var pass_year_primary = document.getElementById("pass_year_primary").value;
+
+window.location= "<?php echo base_url() ?>job/job_project_update";
+
+// if(board_primary == '' || school_primary == '' || percentage_primary == '' || pass_year_primary == ''){
+//     return false;
+// }
+
+ }
+ </script>

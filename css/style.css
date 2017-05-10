@@ -4663,7 +4663,7 @@ fieldset .add_post_btns{min-width: 120px;padding:8px 30px 8px;}
 .people-list ul {
       padding: 20px;
     overflow-y: scroll;
-    height: 409px;
+    height: 480px;
 }
 .people-list ul li {
   padding-bottom: 20px;
@@ -4685,7 +4685,8 @@ fieldset .add_post_btns{min-width: 120px;padding:8px 30px 8px;}
 }
 
 .chat {
-  height: 421px;
+    border: 1px solid #999;
+  height: 570px;
   width: 1005px;
   float: left;
   background: #F2F5F8;
@@ -4722,7 +4723,7 @@ fieldset .add_post_btns{min-width: 120px;padding:8px 30px 8px;}
   padding: 30px 30px 20px;
   border-bottom: 2px solid white;
   overflow-y: scroll;
-  height: 320px;
+  height: 395px;
 }
 .chat .chat-history .message-data {
   margin-bottom: 15px;
@@ -4742,6 +4743,7 @@ fieldset .add_post_btns{min-width: 120px;padding:8px 30px 8px;}
   position: relative;
       word-break: break-word;
 }
+.panel-footer{border-bottom: 1px solid #003; border-right: 1px solid #003;}
 .chat .chat-history .message:after {
   bottom: 100%;
   left: 3%;
@@ -4759,10 +4761,10 @@ fieldset .add_post_btns{min-width: 120px;padding:8px 30px 8px;}
   background: #86BB71;
 }
 .chat .chat-history .other-message {
-  background: #94C2ED;
+  background: #000033;
 }
 .chat .chat-history .other-message:after {
-  border-bottom-color: #94C2ED;
+  border-bottom-color: #000033;
   left: 97%;
 }
 .chat .chat-message {
@@ -4810,7 +4812,7 @@ fieldset .add_post_btns{min-width: 120px;padding:8px 30px 8px;}
 }
 
 .me {
-  color: #94C2ED;
+  color: #000033;
 }
 
 .align-left {
