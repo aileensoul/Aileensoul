@@ -598,22 +598,22 @@ input[type="radio"] {
 .reg_form input{line-height: 24px; padding: 1px 7px;}
 .reg_form{margin-top: 25px;     padding-left: 0px;}
 .reg_form input::-webkit-input-placeholder {
-  color: #a0b3b0; font-weight: 600;
+  color: #a0b3b0;
     font-size: 15px;
     line-height: 3;
 }
 .reg_form input::-moz-placeholder {
-  color: #a0b3b0; font-weight: 600;
+  color: #a0b3b0;
     font-size: 15px;
     line-height: 1.7;
 }
 .reg_button input{padding: 6px 7px;border: none; line-height: normal; font-size: 15px; background-color: #87ceff!important; color: #FFF; font-weight: 600; }
 .reg_button{margin-top: 27px;    padding-left: 0px; }
-.field-wrap  input::-webkit-input-placeholder{ color: #a0b3b0!important; font-weight: 600!important;
+.field-wrap  input::-webkit-input-placeholder{ color: #a0b3b0!important; 
     font-size: 15px!important;
     line-height: 3!important;}
     
-    .field-wrap  input::-moz-input-placeholder{ color: #a0b3b0!important; font-weight: 600!important;
+    .field-wrap  input::-moz-input-placeholder{ color: #a0b3b0!important; 
     font-size: 15px!important;
     line-height: 3!important;}
 
@@ -1047,3 +1047,22 @@ word-break: break-all;
 }
 
 
+.login_butn{   margin-top: 25px!important;
+    padding: 8px 17px!important;
+    border: none!important;
+    margin-right: 10px!important;
+    line-height: normal!important;
+    font-size: 15px!important;
+    background-color: #87ceff!important;
+    color: #FFF!important;
+    font-weight: 600!important;
+    border: 3px solid #fff!important; }
+    .login_butn:hover{text-decoration-line: none!important;}
+
+    .logo a:hover{text-decoration-line: none!important;}
+    [contenteditable=true]:empty:before{
+  content: attr(placeholder);
+  display: block; /* For Firefox */
+  color: #a0b3b0;
+  font-size: 15px;
+}

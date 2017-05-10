@@ -167,25 +167,8 @@
                     <div class="col-md-7 col-sm-7 header-left-menu">
 
                     <ul class="fr">
-                        <li class=""><a style="       margin-top: 25px;
-    padding: 8px 17px;
-    border: none;
-    margin-right: 10px;
-    line-height: normal;
-    font-size: 15px;
-    background-color: #87ceff!important;
-    color: #FFF;
-    font-weight: 600;
-    border: 3px solid #fff; " href="<?php echo base_url('login'); ?>">Login</a></li>
-                    <li class=""><a style="       margin-top: 25px;
-    padding: 8px 17px;
-    border: none;
-    line-height: normal;
-    font-size: 15px;
-    background-color: #87ceff!important;
-    color: #FFF;
-    font-weight: 600;
-    border: 3px solid #fff; " href="<?php echo base_url('registration'); ?>">Create an account</a></li>
+                        <li class=""><a class="login_butn" href="<?php echo base_url('login'); ?>">Login</a></li>
+                    <li class=""><a class="login_butn" href="<?php echo base_url('registration'); ?>">Create an account</a></li>
                       
                     </ul>
                      
@@ -262,7 +245,7 @@
                                 <label class="login_label">
                                     Message <span class="req">*</span>
                                 </label>
-                                <div contenteditable="true" name="contact_message" class="description " id="contact_message"  style="    background-color: #fff!important;
+                                <div contenteditable="true" name="contact_message" class="description " placeholder="Enter description " id="contact_message"  style="    background-color: #fff!important;
     font-size: 18px;
    
     min-height: 150px;

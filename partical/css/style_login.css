@@ -610,7 +610,8 @@ footer .footer-menu li a{
 }
 
 footer .footer-menu li a:hover{
-  color:#00c0f3;
+  color: #000033!important;
+text-decoration-line: underline!important;
 }
 
 ::-webkit-scrollbar {
@@ -624,12 +625,12 @@ footer .footer-menu li a:hover{
 
 .field-wrap{}
 .field-wrap input::-webkit-input-placeholder {
-  color: #a0b3b0; font-weight: 600;
+  color: #a0b3b0; 
     font-size: 15px;
     line-height: 3;
 }
 .field-wrap input::-moz-input-placeholder {
-  color: #a0b3b0; font-weight: 600;
+  color: #a0b3b0; 
     font-size: 15px;
     line-height: 3;
 }
@@ -1061,4 +1062,27 @@ word-break: break-all;
     color: #fff;
 }
 
+
+
+
+
+.login_butn{   margin-top: 25px!important;
+    padding: 8px 17px!important;
+    border: none!important;
+    margin-right: 10px!important;
+    line-height: normal!important;
+    font-size: 15px!important;
+    background-color: #87ceff!important;
+    color: #FFF!important;
+    font-weight: 600!important;
+    border: 3px solid #fff!important; }
+    .login_butn:hover{text-decoration-line: none!important;}
+    
+    .logo a:hover{text-decoration-line: none!important;}
+[contenteditable=true]:empty:before{
+  content: attr(placeholder);
+  display: block; /* For Firefox */
+  color: #a0b3b0;
+  font-size: 15px;
+}
 
