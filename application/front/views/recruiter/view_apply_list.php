@@ -421,15 +421,15 @@ if ($user_data) {
 </html>
 
 
-<!-- script for skill textbox automatic start (option 2)-->
-<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script> -->
- <!--  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
-  -->
-<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/select2-4.0.3.min.css'); ?>">
-<link rel="stylesheet" href="<?php echo base_url('css/bootstrap.min.css'); ?>" />
 
-<script type="text/javascript" src="<?php echo base_url('js/select2-4.0.3.min.js'); ?>"></script>
+
+
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
+
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap-3.min.css'); ?>">
+<link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
 <!-- script for skill textbox automatic end (option 2)-->
 
 <script>
@@ -519,11 +519,46 @@ window.onclick = function(event) {
 </script>
 
 <!-- Cover Image upload Start--> 
-<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
-
-
-<script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
 <script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
+   <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
+    <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
+    <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+       <script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script>
+
+  <link rel="stylesheet" href="<?php echo base_url('assets/css/croppie.css'); ?>">
+  <script>
+
+var data= <?php echo json_encode($demo); ?>;
+//alert(data);
+
+        
+$(function() {
+    // alert('hi');
+$( "#tags" ).autocomplete({
+     source: function( request, response ) {
+         var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
+         response( $.grep( data, function( item ){
+             return matcher.test( item.label );
+         }) );
+   },
+    minLength: 1,
+    select: function(event, ui) {
+        event.preventDefault();
+        $("#tags").val(ui.item.label);
+        $("#selected-tag").val(ui.item.label);
+        // window.location.href = ui.item.value;
+    }
+    ,
+    focus: function(event, ui) {
+        event.preventDefault();
+        $("#tags").val(ui.item.label);
+    }
+});
+});
+  
+</script>
+
 <script>
 $(document).ready(function()
 {

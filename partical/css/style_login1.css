@@ -197,6 +197,7 @@ h1 {
 }*/
 
 .field-wrap .fname_reg{
+  z-index: 1;
   cursor: text;
     margin: 0;
     padding: 0;
@@ -204,9 +205,10 @@ h1 {
     top: 4px;
     position: absolute;
     font-size: 14px;
-    color: #ccc;
+    color: #a0b3b0;
     font-weight: normal;
     transition: all .3s ease;
+    z-index: 1;
 }
     
 
@@ -256,7 +258,7 @@ input, textarea,button {
 }
 input:focus, textarea:focus {
   outline: 0;
-  border: 2px solid #3db0c1;
+  border: 1px solid #3db0c1;
   
  
 }
@@ -353,7 +355,7 @@ textarea {
     background-color: #fefefe;
     margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    width: 82.5%; /* Could be more or less, depending on screen size */
 }
 /* The Close Button (x) */
 .close {
@@ -512,13 +514,13 @@ input[type="radio"] {
 .terms{margin-bottom:10px;}
 .terms span{font-size: 12px; word-spacing: 2px;}
 .terms span a{font-size: 12px;}
-#gen{    padding: 12px;
+#gen{    padding: 5px 12PX 12PX 12PX;
     padding-left: 85px;}
 
 .gen_lbl{color: #a0b3b0;pointer-events: none;position: absolute;
     left: 14px;
     font-size: 18px;
-    top: 10px;}
+    top: 4px;}
 
 .field-wrap .terms{width: 100%;padding:0px 5px 10px 5px;}
 
