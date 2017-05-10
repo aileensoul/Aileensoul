@@ -91,12 +91,11 @@ if ($this->session->flashdata('success')) {
 <?php echo form_open(base_url('job/job_skill_insert'), array('id' => 'jobseeker_regform', 'name' => 'jobseeker_regform', 'class' => 'clearfix')); ?>
 
 
-                                <div>
-                                   <span style="color:#7f7f7e;padding-left: 8px;">( </span><span style="color:red">*</span><span style="color:#7f7f7e"> )</span> <span style="color:#7f7f7e">Indicates required field</span><?php
-$skills = form_error('skills');
-?>
+                                <!-- <div>
+                                   <span style="color:#7f7f7e;padding-left: 8px;">( </span><span style="color:red">*</span><span style="color:#7f7f7e"> )</span> <span style="color:#7f7f7e">Indicates required field</span><?php $skills = form_error('skills'); ?>
+                                </div> --> 
 
-                                </div> 
+      <div> <span class="required_field" >( <span style="color: red">*</span> ) Indicates required field</span></div>
                                 
 
 
