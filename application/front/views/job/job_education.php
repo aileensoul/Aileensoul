@@ -210,11 +210,8 @@ z-index: 1;
                         </div>
                     </div>
                     <div class="col-md-8 col-sm-8">
-                        <div class="common-form">
-                            <div class="job-saved-boxe_2" >
-                                <h3>Educational  Qualification</h3>
-                                <div class="contact-frnd-post1" style="padding: 10px; height: 100%;">
-                                    <?php
+                    <div>
+                    <?php
                                     if ($this->session->flashdata('error')) {
                                         echo '<div class="alert alert-danger">' . $this->session->flashdata('error') . '</div>';
                                     }
@@ -222,6 +219,12 @@ z-index: 1;
                                         echo '<div class="alert alert-success">' . $this->session->flashdata('success') . '</div>';
                                     }
                                     ?>
+                    </div>
+                        <div class="common-form">
+                            <div class="job-saved-boxe_2" >
+                                <h3>Educational  Qualification</h3>
+                                <div class="contact-frnd-post1" style="padding: 10px; height: 100%;">
+                                    
                                     <div class="tabordion">
 
                                         <section id="section1">
@@ -958,16 +961,29 @@ z-index: 1;
 
                                     </div>
 
+
                                     <div class="col-md-1">
                                     </div>
+
                                 </div>
+
                             </div>
 
 
                         </div>
                     </div>
+
                 </div>
                 </section>
+                                <fieldset class="hs-submit full-width">
+
+                              <!--<input type="reset">-->
+                                    <input type="submit"  id="next" name="next" value="Next">
+
+
+                                </fieldset>
+
+
                 <footer>
 
                     </body>
