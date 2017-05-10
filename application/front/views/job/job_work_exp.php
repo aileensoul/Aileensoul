@@ -17,7 +17,7 @@
         
         <div class="user-midd-section" id="paddingtop_fixed">
             <div class="container">
-                <div class="row">
+                <div class="row2">
                     <div class="col-md-3 col-sm-4">
                         <div class="left-side-bar">
                             <ul>
@@ -74,12 +74,15 @@
 
 <?php echo form_open_multipart(base_url('job/job_work_exp_insert'), array('id' => 'jobseeker_regform','name' => 'jobseeker_regform','class'=>'clearfix')); ?>
 <div id="London" class="tabcontent1">
- <div>
+                                <!-- <div>
                                    <span style="color:#7f7f7e;padding-left: 8px;">( </span><span style="color:red">*</span><span style="color:#7f7f7e"> )</span> <span style="color:#7f7f7e">Indicates required field</span>
-                                </div>
-<label for="Fresher">
+                                </div> -->
+                            
+                            <div> <span class="required_field" >( <span style="color: red">*</span> ) Indicates required field</span></div>
+
+                                        <label for="Fresher">
                                             <input type="radio" id="fresher" name="radio" value="Fresher" checked="checked">
-                                            Fresher&nbsp;&nbsp;
+          <span class="radio_check_text">Fresher&nbsp;&nbsp;</span>
                                         </label>
 <fieldset class="hs-submit full-width">
                                     

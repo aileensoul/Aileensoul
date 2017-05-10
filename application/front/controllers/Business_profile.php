@@ -3558,7 +3558,6 @@ class Business_profile extends MY_Controller {
         $this->data['businessdata'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
         $contition_array = array('business_profile_post_id' => $id, 'status' => '1');
-
         $this->data['busienss_data'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
         //echo "<pre>"; print_r($this->data['art_data']);die();
@@ -3815,42 +3814,27 @@ class Business_profile extends MY_Controller {
 //multiple pdf for manage user end 
 //multiple images like start
     public function mulimg_like() {
-        //$id = $_POST['save_id'];
         $post_image = $_POST['post_image_id'];
         $userid = $this->session->userdata('aileenuser');
 
-
         $contition_array = array('post_image_id' => $post_image, 'user_id' => $userid);
-
         $likeuser = $this->data['likeuser'] = $this->common->select_data_by_condition('bus_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-
-
         $contition_array = array('image_id' => $post_image);
-
         $likeuserid = $this->data['likeuserid'] = $this->common->select_data_by_condition('post_image', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-        $contition_array = array('business_profile_post_id' => $likeuserid[0]['post_id']);
 
+        $contition_array = array('business_profile_post_id' => $likeuserid[0]['post_id']);
         $likepostid = $this->data['likepostid'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-
-
         if (!$likeuser) {
-
             $data = array(
                 'post_image_id' => $post_image,
                 'user_id' => $userid,
                 'created_date' => date('Y-m-d', time()),
                 'is_unlike' => 0
             );
-//echo "<pre>"; print_r($data); die();
-
             $insertdata = $this->common->insert_data_getid($data, 'bus_post_image_like');
-
-
-
             // insert notification
-
             if ($likepostid[0]['user_id'] == $userid) {
                 
             } else {
@@ -3887,25 +3871,53 @@ class Business_profile extends MY_Controller {
                 $imglike .= '</a>';
                 $imglike .= '</li>';
 
-                echo $imglike;
+                $contition_array = array('post_image_id' => $post_image, 'is_unlike' => '0');
+                $commneteduser = $this->common->select_data_by_condition('bus_post_image_like', $contition_array, $data = 'post_image_like_id,post_image_id,user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                $countlike = count($commneteduser) - 1;
+                foreach ($commneteduser as $userdata) {
+                    $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $userdata['user_id'], 'status' => 1))->row()->company_name;
+                }
+
+                $imglikeuser .= '<a href="javascript:void(0);"  onclick="likeuserlistimg(' . $businessprofiledata1[0]['business_profile_post_id'] . ');">';
+
+                $contition_array = array('post_image_id' => $post_image, 'is_unlike' => '0');
+                $commneteduser = $this->common->select_data_by_condition('bus_post_image_like', $contition_array, $data = 'post_image_like_id,post_image_id,user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+                $countlike = count($commneteduser) - 1;
+                $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $commneteduser[0]['user_id'], 'status' => 1))->row()->company_name;
+
+                $imglikeuser .= '<div class="like_one_other_img">';
+                $imglikeuser .= '' . ucwords($business_fname1) . '&nbsp;';
+                if (count($commneteduser) > 1) {
+
+                    $imglikeuser .= 'and';
+                    $imglikeuser .= ' ' . $countlike . ' others';
+                }
+                $imglikeuser .= '</div>';
+                $imglikeuser .= '</a>';
+                $like_user_count = count($commneteduser);
+                echo json_encode(
+                        array("like" => $imglike,
+                            "likeuser" => $imglikeuser,
+                            "like_user_count" => $like_user_count));
             }
         } else {
 
             if ($likeuser[0]['is_unlike'] == 0) {
-
                 $data = array(
                     'modify_date' => date('Y-m-d', time()),
                     'is_unlike' => 1
                 );
 
+                $this->db->where('post_image_id', $post_image);
+                $this->db->where('user_id', $userid);
+                $updatdata = $this->db->update('bus_post_image_like', $data);
 
-                $updatdata = $this->common->update_data($data, 'bus_post_image_like', 'post_image_id', $post_image);
+                //$updatdata = $this->common->update_data($data, 'bus_post_image_like', 'post_image_id', $post_image);
 
                 $contition_array = array('post_image_id' => $_POST["post_image_id"], 'is_unlike' => '0');
                 $bdata2 = $this->data['bdata2'] = $this->common->select_data_by_condition('bus_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
-
-
+                
                 if ($updatdata) {
 
                     $imglike1 = '<li>';
@@ -3920,26 +3932,55 @@ class Business_profile extends MY_Controller {
                     $imglike1 .= '</a>';
                     $imglike1 .= '</li>';
 
-                    echo $imglike1;
+                    // echo $imglike1;
+
+                    $contition_array = array('post_image_id' => $post_image, 'is_unlike' => '0');
+                    $commneteduser = $this->common->select_data_by_condition('bus_post_image_like', $contition_array, $data = 'post_image_like_id,post_image_id,user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                    $countlike = count($commneteduser) - 1;
+                    foreach ($commneteduser as $userdata) {
+                        $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $userdata['user_id'], 'status' => 1))->row()->company_name;
+                    }
+
+                    $imglikeuser1 .= '<a href="javascript:void(0);"  onclick="likeuserlistimg(' . $businessprofiledata1[0]['business_profile_post_id'] . ');">';
+
+                    $contition_array = array('post_image_id' => $post_image, 'is_unlike' => '0');
+                    $commneteduser = $this->common->select_data_by_condition('bus_post_image_like', $contition_array, $data = 'post_image_like_id,post_image_id,user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+                    $countlike = count($commneteduser) - 1;
+                    $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $commneteduser[0]['user_id'], 'status' => 1))->row()->company_name;
+
+                    $imglikeuser1 .= '<div class="like_one_other_img">';
+                    $imglikeuser1 .= '' . ucwords($business_fname1) . '&nbsp;';
+                    if (count($commneteduser) > 1) {
+
+                        $imglikeuser1 .= 'and';
+                        $imglikeuser1 .= ' ' . $countlike . ' others';
+                    }
+                    $imglikeuser1 .= '</div>';
+                    
+                    $imglikeuser1 .= '</a>';
+                    $like_user_count1 = count($commneteduser);
+                    echo json_encode(
+                            array("like" => $imglike1,
+                                "likeuser" => $imglikeuser1,
+                                "like_user_count" => $like_user_count1));
                 }
             } else {
-
                 $data = array(
                     'modify_date' => date('Y-m-d', time()),
                     'is_unlike' => 0
                 );
+                
+                $this->db->where('post_image_id', $post_image);
+                $this->db->where('user_id', $userid);
+                $updatdata =  $this->db->update('bus_post_image_like', $data);
 
-
-                $updatdata = $this->common->update_data($data, 'bus_post_image_like', 'post_image_id', $post_image);
-
-
+                //$updatdata = $this->common->update_data($data, 'bus_post_image_like', 'post_image_id', $post_image);
 
                 // insert notification
-
                 if ($likepostid[0]['user_id'] == $userid) {
                     
                 } else {
-
                     $contition_array = array('not_type' => 5, 'not_from_id' => $userid, 'not_to_id' => $likepostid[0]['user_id'], 'not_product_id' => $post_image, 'not_from' => 6, 'not_img' => 5);
                     $busnotification = $this->common->select_data_by_condition('notification', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                     if ($busnotification[0]['not_read'] == 2) {
@@ -3990,7 +4031,37 @@ class Business_profile extends MY_Controller {
                     $imglike1 .= '</a>';
                     $imglike1 .= '</li>';
 
-                    echo $imglike1;
+                    //echo $imglike1;
+
+                    $contition_array = array('post_image_id' => $post_image, 'is_unlike' => '0');
+                    $commneteduser = $this->common->select_data_by_condition('bus_post_image_like', $contition_array, $data = 'post_image_like_id,post_image_id,user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                    $countlike = count($commneteduser) - 1;
+                    foreach ($commneteduser as $userdata) {
+                        $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $userdata['user_id'], 'status' => 1))->row()->company_name;
+                    }
+
+                    $imglikeuser1 .= '<a href="javascript:void(0);"  onclick="likeuserlistimg(' . $businessprofiledata1[0]['business_profile_post_id'] . ');">';
+
+                    $contition_array = array('post_image_id' => $post_image, 'is_unlike' => '0');
+                    $commneteduser = $this->common->select_data_by_condition('bus_post_image_like', $contition_array, $data = 'post_image_like_id,post_image_id,user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+                    $countlike = count($commneteduser) - 1;
+                    $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $commneteduser[0]['user_id'], 'status' => 1))->row()->company_name;
+
+                    $imglikeuser1 .= '<div class="like_one_other_img">';
+                    $imglikeuser1 .= '' . ucwords($business_fname1) . '&nbsp;';
+                    if (count($commneteduser) > 1) {
+
+                        $imglikeuser1 .= 'and';
+                        $imglikeuser1 .= ' ' . $countlike . ' others';
+                    }
+                    $imglikeuser1 .= '</div>';
+                    $imglikeuser1 .= '</a>';
+                    $like_user_count1 = count($commneteduser);
+                    echo json_encode(
+                            array("like" => $imglike1,
+                                "likeuser" => $imglikeuser1,
+                                "like_user_count" => $like_user_count1));
                 }
             }
         }
@@ -4391,9 +4462,9 @@ class Business_profile extends MY_Controller {
 
         $contition_array = array('post_image_id' => $post_image_id, 'is_delete' => '0');
         $buscmtcnt = $this->common->select_data_by_condition('bus_post_image_comment', $contition_array, $data = '*', $sortby = 'post_image_comment_id', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-        
+
         $cmtinsert .= '<div class="insertimgcommenttwo' . $post_image_id . '">';
-        
+
         //echo "<pre>"; print_r($businesscomment); die();
         foreach ($businesscomment as $bus_comment) {
 
@@ -4498,7 +4569,7 @@ class Business_profile extends MY_Controller {
 
             // comment count variable end 
         }
-        
+
         $cmtinsert .= '</div>';
         header('Content-type: application/json');
         echo json_encode(
@@ -5183,7 +5254,7 @@ class Business_profile extends MY_Controller {
 
                     $cmtinsert .= '<input type="hidden" name="imgpost_delete"';
                     // $cmtinsert .= 'id="imgpost_delete' . $bus_comment['post_image_comment_id'] . '"';
-                    $cmtinsert .= 'id="imgpost_delete_'.$bus_comment['post_image_comment_id'].'"';
+                    $cmtinsert .= 'id="imgpost_delete_' . $bus_comment['post_image_comment_id'] . '"';
                     $cmtinsert .= ' value= "' . $bus_comment['post_image_id'] . '">';
                     $cmtinsert .= '<a id="' . $bus_comment['post_image_comment_id'] . '"';
                     $cmtinsert .= 'onClick="imgcomment_delete(this.id)">';
@@ -6629,6 +6700,25 @@ class Business_profile extends MY_Controller {
             $bus_slug = $this->db->get_where('business_profile', array('user_id' => $value))->row()->business_slug;
 
             $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $value, 'status' => 1))->row()->company_name;
+            echo '<div class="likeuser_list"><a href="' . base_url('business_profile/business_resume/' . $bus_slug) . '">';
+            echo ucwords($business_fname1);
+            echo '</a></div>';
+        }
+        echo '<div>';
+    }
+
+    public function imglikeuserlist() {
+        $post_id = $_POST['post_id'];
+
+        $contition_array = array('post_image_id' => $post_id, 'is_unlike' => '0');
+        $commneteduser = $this->common->select_data_by_condition('bus_post_image_like', $contition_array, $data = 'user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+        echo '<div class="likeduser">';
+        echo '<div class="likeduser-title">User List</div>';
+        foreach ($commneteduser as $userlist) {
+            $bus_slug = $this->db->get_where('business_profile', array('user_id' => $userlist['user_id']))->row()->business_slug;
+
+            $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $userlist['user_id'], 'status' => 1))->row()->company_name;
             echo '<div class="likeuser_list"><a href="' . base_url('business_profile/business_resume/' . $bus_slug) . '">';
             echo ucwords($business_fname1);
             echo '</a></div>';

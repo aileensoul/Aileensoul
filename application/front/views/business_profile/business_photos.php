@@ -4,70 +4,10 @@
 
 <!--post save success pop up style strat -->
 <style>
-    /*body {
-        font-family: Arial, sans-serif;
-        background-size: cover;
-        height: 100vh;
-    }
-
-    .box {
-        width: 40%;
-        margin: 0 auto;
-        background: rgba(255,255,255,0.2);
-        padding: 35px;
-        border: 2px solid #fff;
-        border-radius: 20px/50px;
-        background-clip: padding-box;
-        text-align: center;
-    }
-
-    .overlay {
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: rgba(0, 0, 0, 0.3);
-        transition: opacity 500ms;
-        visibility: hidden;
-        opacity: 0;
-        z-index: 10;
-    }
-    .overlay:target {
-        visibility: visible;
-        opacity: 1;
-    }
-
-    .popup {
-        margin: 70px auto;
-        padding: 20px;
-        background: #fff;
-        border-radius: 5px;
-        width: 30%;
-        height: 200px;
-        position: relative;
-        transition: all 5s ease-in-out;
-    }
-    */
     .okk{
         text-align: center;
     }
 
-    /*   .popup .okbtn{
-           position: absolute;
-           transition: all 200ms;
-           font-size: 18px;
-           font-weight: bold;
-           text-decoration: none;
-           color: #fff;
-           padding: 8px 18px;
-           background-color: darkcyan;
-           left: 25px;
-           margin-top: 15px;
-           width: 100px; 
-           border-radius: 8px;
-       }
-    */
     .pop_content .okbtn{
         position: absolute;
         transition: all 200ms;
@@ -82,20 +22,7 @@
         border-radius: 8px;
     }
 
-    /*  .popup .cnclbtn {
-          position: absolute;
-          transition: all 200ms;
-          font-size: 18px;
-          font-weight: bold;
-          text-decoration: none;
-          color: #fff;
-          padding: 8px 18px;
-          background-color: darkcyan;
-          right: 25px;
-          margin-top: 15px;
-          width: 100px;
-          border-radius: 8px;
-      } */
+
     .pop_content .cnclbtn {
         position: absolute;
         transition: all 200ms;
@@ -131,6 +58,301 @@
 
 
 </style>
+<!--post save success pop up style strat -->
+<style>
+
+    /* The Modal (background) */
+    .modal2 {
+        display: none;
+        position: fixed;
+        /*  z-index: 9999999;*/
+        padding-top: 35px;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: black;
+    }
+
+    /* Modal Content */
+    .modal-content2 {
+        position: relative;
+        background-color: #fefefe;
+        margin: auto;
+        padding: 0;
+        width: 65%;
+        max-width: 1200px;
+    }
+
+
+    /* Next & previous buttons */
+    .prev,
+    .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        padding: 16px;
+        margin-top: -50px;
+        color: white;
+        font-weight: bold;
+        font-size: 20px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+        -webkit-user-select: none;
+    }
+
+    /* The Close Button */
+    .close2 {
+        color: white;
+        position: absolute;
+        top: 10px;
+        right: 196px;
+        font-size: 35px;
+        font-weight: bold;
+    }
+
+    .close2:hover,
+    .close2:focus {
+        color: #999;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    /* Position the "next button" to the right */
+    .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+    }
+
+    /* On hover, add a black background color with a little bit see-through */
+    .prev:hover,
+    .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    /* Number text (1/3 etc) */
+    .numbertext {
+        color: #f2f2f2;
+        font-size: 12px;
+        padding: 8px 12px;
+        position: absolute;
+        top: 0;
+    }
+
+
+    .caption-container {
+        text-align: center;
+        background-color: black;
+        padding: 2px 16px;
+        color: white;
+    }
+
+    .demo {
+        opacity: 0.6;
+    }
+
+    .active,
+    .demo:hover {
+        opacity: 1;
+    }
+
+
+    .hover-shadow:hover {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
+    }
+    /*!
+     * bootstrap-vertical-tabs - v1.2.2
+     * https://dbtek.github.io/bootstrap-vertical-tabs
+     * 2016-12-02
+     * Copyright (c) 2016 İsmail Demirbilek
+     * License: MIT
+     */
+    .tabs-left, .tabs-right {
+        border-bottom: none;
+        padding-top: 2px;
+    }
+    .tabs-left {
+        /*border-right: 1px solid #ddd;*/
+        padding-top: 15px;
+        height: 100%;
+    }
+    .tabs-right {
+        border-left: 1px solid #ddd;
+    }
+    .tabs-left>li, .tabs-right>li {
+        float: none;
+        margin-bottom: 2px;
+    }
+    .tabs-left>li {
+        margin-right: -1px;
+        padding: 0;
+    }
+    .tabs-right>li {
+        margin-left: -1px;
+    }
+    .tabs-left>li.active>a,
+    .tabs-left>li.active>a:hover,
+    .tabs-left>li.active>a:focus {
+        border-bottom-color: #ddd;
+        border-right-color: transparent;
+    }
+
+    .tabs-right>li.active>a,
+    .tabs-right>li.active>a:hover,
+    .tabs-right>li.active>a:focus {
+        border-bottom: 1px solid #ddd;
+        border-left-color: transparent;
+    }
+    .tabs-left>li>a {
+        /*border-radius: 4px 0 0 4px;*/
+        margin-right: 0;
+        display:block;
+        letter-spacing: 2px;
+        font-size: 18px;
+        font-weight: 600;
+    }
+    .tabs-right>li>a {
+        border-radius: 0 4px 4px 0;
+        margin-right: 0;
+
+    }
+    .sideways {
+        margin-top:50px;
+        border: none;
+        position: relative;
+    }
+    .sideways>li {
+        height: 20px;
+        width: 120px;
+        margin-bottom: 100px;
+    }
+    .sideways>li>a {
+        border-bottom: 1px solid #ddd;
+        border-right-color: transparent;
+        text-align: center;
+        border-radius: 4px 4px 0px 0px;
+    }
+    .sideways>li.active>a,
+    .sideways>li.active>a:hover,
+    .sideways>li.active>a:focus {
+        border-bottom-color: transparent;
+        border-right-color: #ddd;
+        border-left-color: #ddd;
+    }
+    .sideways.tabs-left {
+        left: -50px;
+    }
+    .sideways.tabs-right {
+        right: -50px;
+    }
+    .sideways.tabs-right>li {
+        -webkit-transform: rotate(90deg);
+        -moz-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        -o-transform: rotate(90deg);
+        transform: rotate(90deg);
+    }
+    .sideways.tabs-left>li {
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+    }
+
+    .box {
+        width: 40%;
+        margin: 0 auto;
+        background: rgba(255,255,255,0.2);
+        padding: 35px;
+        border: 2px solid #fff;
+        border-radius: 20px/50px;
+        background-clip: padding-box;
+        text-align: center;
+    }
+
+
+
+    .overlay {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.3);
+        transition: opacity 500ms;
+        visibility: hidden;
+        opacity: 0;
+        z-index: 10;
+    }
+    .overlay:target {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .popup {
+        margin: 70px auto;
+        padding: 20px;
+        background: #fff;
+        border-radius: 5px;
+        width: 30%;
+        height: 200px;
+        position: relative;
+        transition: all 5s ease-in-out;
+    }
+
+    .okk{
+        text-align: center;
+    }
+
+    .popup .okbtn {
+        position: absolute;
+        transition: all 200ms;
+        font-size: 18px;
+        font-weight: bold;
+        text-decoration: none;
+        color: #fff;
+        padding: 8px 18px;
+        background-color: darkcyan;
+        left: 25px;
+        margin-top: 15px;
+        width: 100px; 
+        border-radius: 8px;
+    }
+
+    .popup .cnclbtn {
+        position: absolute;
+        transition: all 200ms;
+        font-size: 18px;
+        font-weight: bold;
+        text-decoration: none;
+        color: #fff;
+        padding: 8px 18px;
+        background-color: darkcyan;
+        right: 25px;
+        margin-top: 15px;
+        width: 100px;
+        border-radius: 8px;
+    }
+
+    .popup .pop_content {
+        text-align: center;
+        margin-top: 40px;
+
+    }
+
+    @media screen and (max-width: 700px){
+        .box{
+            width: 70%;
+        }
+        .popup{
+            width: 70%;
+        }
+    }
+</style>
 
 <!--post save success pop up style end -->
 
@@ -143,7 +365,7 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/jquery.jMosaic.css'); ?>">
 <link rel="stylesheet" href="<?php echo base_url('css/bootstrap.min.css') ?>" />  
-<!-- <link rel="stylesheet" href="<?php //echo base_url('assets/css/croppie.css');       ?>">
+<!-- <link rel="stylesheet" href="<?php //echo base_url('assets/css/croppie.css');        ?>">
 --><style type="text/css" media="screen">
     #row2 { overflow: hidden; width: 100%; }
     #row2 img { height: 350px;width: 100%; } 
@@ -533,284 +755,369 @@
                                                     }
 
                                                     foreach ($databus1 as $busdata) {
-                                                ?>
+                                                        ?>
 
-                                                <div class="mySlides">
-                                                    <div class="numbertext"><?php echo $i ?> / <?php echo count($databus1) ?></div>
-                                                    <div>
-                                                        <img src="<?php echo base_url(BUSPOSTIMAGE . str_replace(" ", "_", $busdata['image_name'])) ?>" style="width:100%; height: 70%;">
-                                                    </div>
+                                                        <div class="mySlides">
+                                                            <div class="numbertext"><?php echo $i ?> / <?php echo count($databus1) ?></div>
+                                                            <div>
+                                                                <img src="<?php echo base_url(BUSPOSTIMAGE . str_replace(" ", "_", $busdata['image_name'])) ?>" style="width:100%; height: 70%;">
+                                                            </div>
 
-                                                    <!-- like comment start -->
-
-
-                                                    <div>
-                                                        <div class="post-design-like-box col-md-12">
-                                                            <div class="post-design-menu">
-                                                                <ul>
-                                                                    <li class="<?php echo 'likeimgpost' . $busdata['image_id']; ?>">
+                                                            <!-- like comment start -->
 
 
-                                                                        <a id="<?php echo $busdata['image_id']; ?>" onClick="mulimg_like(this.id)">
+                                                            <div>
+                                                                <div class="post-design-like-box col-md-12">
+                                                                    <div class="post-design-menu">
+                                                                        <ul>
+                                                                            <li class="<?php echo 'likepostimg' . $busdata['image_id']; ?>">
+                                                                                <a id="<?php echo $busdata['image_id']; ?>" onClick="mulimg_like(this.id)">
+
+                                                                                    <?php
+                                                                                    $userid = $this->session->userdata('aileenuser');
+                                                                                    $contition_array = array('post_image_id' => $busdata['image_id'], 'user_id' => $userid, 'is_unlike' => 0);
+
+                                                                                    $activedata = $this->data['activedata'] = $this->common->select_data_by_condition('bus_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+                                                                                    if ($activedata) {
+                                                                                        ?>
+                                                                                        <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                                                                    <?php } else { ?>
+                                                                                        <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>
+                                                                                    <?php } ?>
+
+                                                                                    <span class="<?php echo 'likeimage' . $busdata['image_id']; ?>"> <?php
+                                                                                        $contition_array = array('post_image_id' => $busdata['image_id'], 'is_unlike' => 0);
+                                                                                        $likecount = $this->common->select_data_by_condition('bus_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                                                                        if ($likecount) {
+                                                                                            echo count($likecount);
+                                                                                        }
+                                                                                        ?>
+
+                                                                                    </span>
+                                                                                </a>
+                                                                            </li>
+
+                                                                            <li id="<?php echo 'insertcountimg' . $busdata['image_id']; ?>">
+
+                                                                                <?php
+                                                                                $contition_array = array('post_image_id' => $busdata['image_id'], 'is_delete' => '0');
+                                                                                $commnetcount = $this->common->select_data_by_condition('bus_post_image_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                                                                ?>
+
+                                                                                <a onClick="imgcommentall(this.id)" id="<?php echo $busdata['image_id']; ?>">
+                                                                                    <i class="fa fa-comment-o" aria-hidden="true">
+                                                                                        <?php
+                                                                                        if (count($commnetcount) > 0) {
+                                                                                            echo count($commnetcount);
+                                                                                        }
+                                                                                        ?>
+                                                                                    </i> 
+                                                                                </a>
+                                                                            </li>
+                                                                        </ul>
+
+                                                                    </div>
+                                                                </div>
+                                                                <?php
+                                                                $contition_array = array('post_image_id' => $busdata['image_id'], 'is_unlike' => '0');
+                                                                $commneteduser = $this->common->select_data_by_condition('bus_post_image_like', $contition_array, $data = 'post_image_like_id,post_image_id,user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                                                if (count($commneteduser) > 0) {
+                                                                    ?>
+                                                                    <div class="likeduserlistimg<?php echo $busdata['image_id'] ?>">
+                                                                        <?php
+                                                                        $contition_array = array('post_image_id' => $busdata['image_id'], 'is_unlike' => '0');
+                                                                        $commneteduser = $this->common->select_data_by_condition('bus_post_image_like', $contition_array, $data = 'post_image_like_id,post_image_id,user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+//                                                                echo '<pre>';
+//                                                                print_r($commneteduser);
+//                                                                
+                                                                        $countlike = count($commneteduser) - 1;
+                                                                        foreach ($commneteduser as $userdata) {
+                                                                            $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $userdata['user_id'], 'status' => 1))->row()->company_name;
+                                                                        }
+                                                                        ?>
+                                                                        <!-- pop up box end-->
+                                                                        <a href="javascript:void(0);"  onclick="likeuserlistimg(<?php echo $busdata['image_id'] ?>);">
+                                                                            <?php
+                                                                            $contition_array = array('post_image_id' => $busdata['image_id'], 'is_unlike' => '0');
+                                                                            $commneteduser = $this->common->select_data_by_condition('bus_post_image_like', $contition_array, $data = 'post_image_like_id,post_image_id,user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+//                                                              
+                                                                            $countlike = count($commneteduser) - 1;
+                                                                            $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $commneteduser[0]['user_id'], 'status' => 1))->row()->company_name;
+                                                                            ?>
+                                                                            <div class="like_one_other_img">
+                                                                                <?php
+                                                                                echo ucwords($business_fname1);
+                                                                                echo "&nbsp;";
+                                                                                ?>
+                                                                                <?php
+                                                                                if (count($commneteduser) > 1) {
+                                                                                    ?>
+                                                                                    <?php echo "and"; ?>
+                                                                                    <?php
+                                                                                    echo $countlike;
+                                                                                    echo "&nbsp;";
+                                                                                    echo "others";
+                                                                                    ?> 
+                                                                                <?php } ?>
+                                                                            </div>
+                                                                        </a>
+                                                                    </div>
+                                                                    <?php
+                                                                }
+                                                                ?>
+
+                                                                <div class="<?php echo "likeusernameimg" . $busdata['image_id']; ?>" id="<?php echo "likeusernameimg" . $busdata['image_id']; ?>" style="display:none">
+                                                                    <?php
+                                                                    $contition_array = array('post_image_id' => $busdata['image_id'], 'is_unlike' => '0');
+                                                                    $commneteduser = $this->common->select_data_by_condition('bus_post_image_like', $contition_array, $data = 'post_image_like_id,post_image_id,user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+//                                                                echo '<pre>';
+//                                                                print_r($commneteduser);
+//                                                                
+                                                                    $countlike = count($commneteduser) - 1;
+                                                                    foreach ($commneteduser as $userdata) {
+                                                                        $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $userdata['user_id'], 'status' => 1))->row()->company_name;
+                                                                    }
+                                                                    ?>
+                                                                    <!-- pop up box end-->
+                                                                    <a href="javascript:void(0);"  onclick="likeuserlistimg(<?php echo $busdata['image_id'] ?>);">
+                                                                        <?php
+                                                                        $contition_array = array('post_image_id' => $busdata['image_id'], 'is_unlike' => '0');
+                                                                        $commneteduser = $this->common->select_data_by_condition('bus_post_image_like', $contition_array, $data = 'post_image_like_id,post_image_id,user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+//                                                              
+                                                                        $countlike = count($commneteduser) - 1;
+                                                                        $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $commneteduser[0]['user_id'], 'status' => 1))->row()->company_name;
+                                                                        ?>
+                                                                        <div class="like_one_other_img">
+                                                                            <?php
+                                                                            echo ucwords($business_fname1);
+                                                                            echo "&nbsp;";
+                                                                            ?>
+                                                                            <?php
+                                                                            if (count($commneteduser) > 1) {
+                                                                                ?>
+                                                                                <?php echo "and"; ?>
+                                                                                <?php
+                                                                                echo $countlike;
+                                                                                echo "&nbsp;";
+                                                                                echo "others";
+                                                                                ?> 
+                                                                            <?php } ?>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+
+                                                                <!-- show comment div start -->
+                                                                <div class="art-all-comment">
+
+                                                                    <div  id="<?php echo "threeimgcomment" . $busdata['image_id']; ?>" style="display:block">
+                                                                        <div class="<?php echo 'insertimgcomment' . $busdata['image_id']; ?>">
 
                                                                             <?php
-                                                                            $userid = $this->session->userdata('aileenuser');
-                                                                            $contition_array = array('post_image_id' => $busdata['image_id'], 'user_id' => $userid, 'is_unlike' => 0);
+                                                                            $contition_array = array('post_image_id' => $busdata['image_id'], 'is_delete' => '0');
 
-                                                                            $activedata = $this->data['activedata'] = $this->common->select_data_by_condition('bus_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                                                            $busmulimage = $this->common->select_data_by_condition('bus_post_image_comment', $contition_array, $data = '*', $sortby = 'post_image_comment_id', $orderby = 'DESC', $limit = '1', $offset = '', $join_str = array(), $groupby = '');
 
-                                                                            if ($activedata) {
-                                                                                ?>
-                                                                                <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-                                                                            <?php } else { ?>
-                                                                                <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>
-                                                                            <?php } ?>
-
-                                                                            <span class="<?php echo 'likeimage' . $busdata['image_id']; ?>"> <?php
-                                                                                $contition_array = array('post_image_id' => $busdata['image_id'], 'is_unlike' => 0);
-                                                                                $likecount = $this->common->select_data_by_condition('bus_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-                                                                                if ($likecount) {
-                                                                                    echo count($likecount);
-                                                                                }
-                                                                                ?>
-
-                                                                            </span>
-                                                                        </a>
-                                                                    </li>
-
-                                                                    <li id="<?php echo 'insertimgcount' . $busdata['image_id']; ?>">
-
-                                                                        <?php
-                                                                        $contition_array = array('post_image_id' => $busdata['image_id'], 'is_delete' => '0');
-                                                                        $commnetcount = $this->common->select_data_by_condition('bus_post_image_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-                                                                        ?>
-
-                                                                        <a onClick="imgcommentall(this.id)" id="<?php echo $busdata['image_id']; ?>">
-                                                                            <i class="fa fa-comment-o" aria-hidden="true">
-                                                                                <?php
-                                                                                if (count($commnetcount) > 0) {
-                                                                                    echo count($commnetcount);
-                                                                                }
-                                                                                ?>
-                                                                            </i> 
-                                                                        </a>
-                                                                    </li>
-                                                                </ul>
-
-                                                            </div>
-                                                        </div>
-
-                                                        <!-- show comment div start -->
-                                                        <div class="art-all-comment">
-
-                                                            <div  id="<?php echo "threeimgcomment" . $busdata['image_id']; ?>" style="display:block">
-                                                                <div class="<?php echo 'insertimgcomment' . $busdata['image_id']; ?>">
-
-                                                                    <?php
-                                                                    $contition_array = array('post_image_id' => $busdata['image_id'], 'is_delete' => '0');
-
-                                                                    $busmulimage = $this->common->select_data_by_condition('bus_post_image_comment', $contition_array, $data = '*', $sortby = 'post_image_comment_id', $orderby = 'DESC', $limit = '1', $offset = '', $join_str = array(), $groupby = '');
-
-                                                                    if ($busmulimage) {
-                                                                        foreach ($busmulimage as $rowdata) {
-                                                                            $companyname = $this->db->get_where('business_profile', array('user_id' => $rowdata['user_id']))->row()->company_name;
-                                                                            ?>
-
-                                                                            <div class="all-comment-comment-box">
-
-                                                                                <div class="post-design-pro-comment-img"> 
-                                                                                    <?php
-                                                                                    $business_userimage = $this->db->get_where('business_profile', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->business_user_image;
+                                                                            if ($busmulimage) {
+                                                                                foreach ($busmulimage as $rowdata) {
+                                                                                    $companyname = $this->db->get_where('business_profile', array('user_id' => $rowdata['user_id']))->row()->company_name;
                                                                                     ?>
 
-                                                                                    <img  src="<?php echo base_url(USERIMAGE . $business_userimage); ?>"  alt="">
-                                                                                </div>
+                                                                                    <div class="all-comment-comment-box">
 
-                                                                                <div class="comment-name">
+                                                                                        <div class="post-design-pro-comment-img"> 
+                                                                                            <?php
+                                                                                            $business_userimage = $this->db->get_where('business_profile', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->business_user_image;
+                                                                                            ?>
 
-                                                                                    <b>  <?php
-                                                                                        echo ucwords($companyname);
-                                                                                        echo '</br>';
-                                                                                        ?>
-                                                                                    </b>
-                                                                                </div>
+                                                                                            <img  src="<?php echo base_url(USERIMAGE . $business_userimage); ?>"  alt="">
+                                                                                        </div>
 
-                                                                                <div class="comment-details" id= "<?php echo "imgshowcomment" . $rowdata['post_image_comment_id']; ?>">
-                                                                                    <?php
-                                                                                    echo $rowdata['comment'];
-                                                                                    ?>
-                                                                                </div>
+                                                                                        <div class="comment-name">
+
+                                                                                            <b>  <?php
+                                                                                                echo ucwords($companyname);
+                                                                                                echo '</br>';
+                                                                                                ?>
+                                                                                            </b>
+                                                                                        </div>
+
+                                                                                        <div class="comment-details" id= "<?php echo "imgshowcomment" . $rowdata['post_image_comment_id']; ?>">
+                                                                                            <?php
+                                                                                            echo $rowdata['comment'];
+                                                                                            ?>
+                                                                                        </div>
 
 
-                                                                                <!-- edit box start -->
+                                                                                        <!-- edit box start -->
 
-                                                                                <!--                                                                                <div class="col-md-12">
-                                                                                                                                                                    <div class="col-md-10">
-                                                                                                                                                                        <div contenteditable="true" class="editable_text"  name="<?php echo $rowdata['post_image_comment_id']; ?>" id="<?php echo "imgeditcomment" . $rowdata['post_image_comment_id']; ?>" style="display: none;" onkeyup="imgcommentedit(<?php echo $rowdata['post_image_comment_id']; ?>)"><?php echo $rowdata['comment']; ?>
-                                                                                                                                                                        </div>
-                                                                                
-                                                                                                                                                                    </div>  <div class="col-md-2 comment-edit-button">
-                                                                                                                                                                        <button id="<?php echo "imgeditsubmit" . $rowdata['post_image_comment_id']; ?>" style="display:none" onClick="imgedit_comment(<?php echo $rowdata['post_image_comment_id']; ?>)">Save</button>
-                                                                                                                                                                    </div>
-                                                                                
-                                                                                                                                                                </div>-->
+                                                                                        <!--                                                                                <div class="col-md-12">
+                                                                                                                                                                            <div class="col-md-10">
+                                                                                                                                                                                <div contenteditable="true" class="editable_text"  name="<?php echo $rowdata['post_image_comment_id']; ?>" id="<?php echo "imgeditcomment" . $rowdata['post_image_comment_id']; ?>" style="display: none;" onkeyup="imgcommentedit(<?php echo $rowdata['post_image_comment_id']; ?>)"><?php echo $rowdata['comment']; ?>
+                                                                                                                                                                                </div>
+                                                                                        
+                                                                                                                                                                            </div>  <div class="col-md-2 comment-edit-button">
+                                                                                                                                                                                <button id="<?php echo "imgeditsubmit" . $rowdata['post_image_comment_id']; ?>" style="display:none" onClick="imgedit_comment(<?php echo $rowdata['post_image_comment_id']; ?>)">Save</button>
+                                                                                                                                                                            </div>
+                                                                                        
+                                                                                                                                                                        </div>-->
 
-                                                                                <div class="edit-comment-box">
-                                                                                    <div class="inputtype-edit-comment">
-                                                                                        <div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="<?php echo $rowdata['post_image_comment_id']; ?>"  id="<?php echo "imgeditcomment" . $rowdata['post_image_comment_id']; ?>" placeholder="Enter Your Comment " value= ""  onkeyup="imgcommentedit(<?php echo $rowdata['post_image_comment_id']; ?>)"><?php echo $rowdata['comment']; ?></div>
-                                                                                        <span class="comment-edit-button"><button id="<?php echo "imgeditsubmit" . $rowdata['post_image_comment_id']; ?>" style="display:none" onClick="imgedit_comment(<?php echo $rowdata['post_image_comment_id']; ?>)">Save</button></span>
-                                                                                    </div>
-                                                                                </div>
+                                                                                        <div class="edit-comment-box">
+                                                                                            <div class="inputtype-edit-comment">
+                                                                                                <div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="<?php echo $rowdata['post_image_comment_id']; ?>"  id="<?php echo "imgeditcomment" . $rowdata['post_image_comment_id']; ?>" placeholder="Enter Your Comment " value= ""  onkeyup="imgcommentedit(<?php echo $rowdata['post_image_comment_id']; ?>)"><?php echo $rowdata['comment']; ?></div>
+                                                                                                <span class="comment-edit-button"><button id="<?php echo "imgeditsubmit" . $rowdata['post_image_comment_id']; ?>" style="display:none" onClick="imgedit_comment(<?php echo $rowdata['post_image_comment_id']; ?>)">Save</button></span>
+                                                                                            </div>
+                                                                                        </div>
 
-                                                                                <!-- edit box end -->
-                                                                                <div class="art-comment-menu-design"> 
+                                                                                        <!-- edit box end -->
+                                                                                        <div class="art-comment-menu-design"> 
 
-                                                                                    <!-- comment like start -->
-                                                                                    <div class="comment-details-menu"  id="<?php echo 'imglikecomment' . $rowdata['post_image_comment_id']; ?>">
+                                                                                            <!-- comment like start -->
+                                                                                            <div class="comment-details-menu"  id="<?php echo 'imglikecomment' . $rowdata['post_image_comment_id']; ?>">
 
-                                                                                        <a id="<?php echo $rowdata['post_image_comment_id']; ?>"   onClick="imgcomment_like(this.id)">
+                                                                                                <a id="<?php echo $rowdata['post_image_comment_id']; ?>"   onClick="imgcomment_like(this.id)">
+
+                                                                                                    <?php
+                                                                                                    $userid = $this->session->userdata('aileenuser');
+                                                                                                    $contition_array = array('post_image_comment_id' => $rowdata['post_image_comment_id'], 'user_id' => $userid, 'is_unlike' => 0);
+
+                                                                                                    $businesscommentlike1 = $this->common->select_data_by_condition('bus_comment_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                                                                                    //echo "<pre>"; print_r($businesscommentlike); 
+                                                                                                    //echo count($businesscommentlike); 
+                                                                                                    if (count($businesscommentlike1) == 0) {
+                                                                                                        ?>
+                                                                                                        <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>
+
+                                                                                                    <?php } else {
+                                                                                                        ?>
+                                                                                                        <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                                                                                    <?php } ?>
+                                                                                                    <span>
+
+                                                                                                        <?php
+                                                                                                        $contition_array = array('post_image_comment_id' => $rowdata['post_image_comment_id'], 'is_unlike' => '0');
+                                                                                                        $mulcountlike = $this->data['mulcountlike'] = $this->common->select_data_by_condition('bus_comment_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+                                                                                                        if (count($mulcountlike) > 0) {
+                                                                                                            echo count($mulcountlike);
+                                                                                                        }
+                                                                                                        ?>
+
+                                                                                                    </span>
+                                                                                                </a>
+
+                                                                                            </div>
+
+                                                                                            <!--   comment like end -->
+
+
+                                                                                            <!-- comment edit start -->
 
                                                                                             <?php
                                                                                             $userid = $this->session->userdata('aileenuser');
-                                                                                            $contition_array = array('post_image_comment_id' => $rowdata['post_image_comment_id'], 'user_id' => $userid, 'is_unlike' => 0);
-
-                                                                                            $businesscommentlike1 = $this->common->select_data_by_condition('bus_comment_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-                                                                                            //echo "<pre>"; print_r($businesscommentlike); 
-                                                                                            //echo count($businesscommentlike); 
-                                                                                            if (count($businesscommentlike1) == 0) {
+                                                                                            if ($rowdata['user_id'] == $userid) {
                                                                                                 ?>
-                                                                                                <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>
+                                                                                                <div class="comment-details-menu">
 
-                                                                                            <?php } else {
-                                                                                                ?>
-                                                                                                <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                                                                                    <div id="<?php echo 'imgeditcommentbox' . $rowdata['post_image_comment_id']; ?>" style="display:block;">
+                                                                                                        <a id="<?php echo $rowdata['post_image_comment_id']; ?>"   onClick="imgcomment_editbox(this.id)" class="editbox">Edit</a></div>
+
+                                                                                                    <div id="<?php echo 'imgeditcancle' . $rowdata['post_image_comment_id']; ?>" style="display:none;">
+                                                                                                        <a id="<?php echo $rowdata['post_image_comment_id']; ?>" onClick="imgcomment_editcancle(this.id)">Cancle</a></div>
+
+                                                                                                </div>
+
                                                                                             <?php } ?>
-                                                                                            <span>
+                                                                                            <!-- comment edit end -->
 
-                                                                                                <?php
-                                                                                                $contition_array = array('post_image_comment_id' => $rowdata['post_image_comment_id'], 'is_unlike' => '0');
-                                                                                                $mulcountlike = $this->data['mulcountlike'] = $this->common->select_data_by_condition('bus_comment_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                                                                            <!-- comment delete start -->
+                                                                                            <?php
+                                                                                            $userid = $this->session->userdata('aileenuser');
 
-                                                                                                if (count($mulcountlike) > 0) {
-                                                                                                    echo count($mulcountlike);
-                                                                                                }
+                                                                                            $business_userid = $this->db->get_where('business_profile_post', array('business_profile_post_id' => $rowdata['post_image_id'], 'status' => 1))->row()->user_id;
+
+
+                                                                                            if ($rowdata['user_id'] == $userid || $business_userid == $userid) {
                                                                                                 ?>
+                                                                                                <span role="presentation" aria-hidden="true"> · </span>
+                                                                                                <div class="comment-details-menu">
+                                                                                                    <input type="hidden" name="imgpost_delete"  id="imgpost_delete_<?php echo $rowdata['post_image_comment_id']; ?>" value= "<?php echo $rowdata['post_image_id']; ?>">
+                                                                                                    <a id="<?php echo $rowdata['post_image_comment_id']; ?>"   onClick="imgcomment_delete(this.id)"> Delete<span class="<?php echo 'imginsertcomment' . $rowdata['post_image_comment_id']; ?>">
+                                                                                                        </span> </a> </div>
 
-                                                                                            </span>
-                                                                                        </a>
-
-                                                                                    </div>
-
-                                                                                    <!--   comment like end -->
+                                                                                            <?php } ?>
+                                                                                            <!-- comment delete end -->
 
 
-                                                                                    <!-- comment edit start -->
+                                                                                            <!-- created date start -->
 
-                                                                                    <?php
-                                                                                    $userid = $this->session->userdata('aileenuser');
-                                                                                    if ($rowdata['user_id'] == $userid) {
-                                                                                        ?>
-                                                                                        <div class="comment-details-menu">
+                                                                                            <span role="presentation" aria-hidden="true"> · </span>
+                                                                                            <div class="comment-details-menu">
+                                                                                                <p><?php
+                                                                                                    echo date('d-M-Y', strtotime($rowdata['created_date']));
+                                                                                                    echo '</br>';
+                                                                                                    ?>
+                                                                                                </p></div>
 
-                                                                                            <div id="<?php echo 'imgeditcommentbox' . $rowdata['post_image_comment_id']; ?>" style="display:block;">
-                                                                                                <a id="<?php echo $rowdata['post_image_comment_id']; ?>"   onClick="imgcomment_editbox(this.id)" class="editbox">Edit</a></div>
-
-                                                                                            <div id="<?php echo 'imgeditcancle' . $rowdata['post_image_comment_id']; ?>" style="display:none;">
-                                                                                                <a id="<?php echo $rowdata['post_image_comment_id']; ?>" onClick="imgcomment_editcancle(this.id)">Cancle</a></div>
+                                                                                            <!-- created date end -->
 
                                                                                         </div>
-
-                                                                                    <?php } ?>
-                                                                                    <!-- comment edit end -->
-
-                                                                                    <!-- comment delete start -->
+                                                                                    </div>
                                                                                     <?php
-                                                                                    $userid = $this->session->userdata('aileenuser');
+                                                                                }
+                                                                            }
+                                                                            ?>
 
-                                                                                    $business_userid = $this->db->get_where('business_profile_post', array('business_profile_post_id' => $rowdata['post_image_id'], 'status' => 1))->row()->user_id;
-
-
-                                                                                    if ($rowdata['user_id'] == $userid || $business_userid == $userid) {
-                                                                                        ?>
-                                                                                        <span role="presentation" aria-hidden="true"> · </span>
-                                                                                        <div class="comment-details-menu">
-                                                                                            <input type="hidden" name="imgpost_delete"  id="imgpost_delete_<?php echo $rowdata['post_image_comment_id']; ?>" value= "<?php echo $rowdata['post_image_id']; ?>">
-                                                                                            <a id="<?php echo $rowdata['post_image_comment_id']; ?>"   onClick="imgcomment_delete(this.id)"> Delete<span class="<?php echo 'imginsertcomment' . $rowdata['post_image_comment_id']; ?>">
-                                                                                                </span> </a> </div>
-
-                                                                                    <?php } ?>
-                                                                                    <!-- comment delete end -->
+                                                                        </div>
+                                                                    </div>
+                                                                    <!-- 27-4 mulimage comment start -->
+                                                                    <div id="<?php echo "fourimgcomment" . $busdata['image_id']; ?>" style="display:none;">
 
 
-                                                                                    <!-- created date start -->
-
-                                                                                    <span role="presentation" aria-hidden="true"> · </span>
-                                                                                    <div class="comment-details-menu">
-                                                                                        <p><?php
-                                                                                            echo date('d-M-Y', strtotime($rowdata['created_date']));
-                                                                                            echo '</br>';
-                                                                                            ?>
-                                                                                        </p></div>
-
-                                                                                    <!-- created date end -->
-
-                                                                                </div>
-                                                                            </div>
-                                                                            <?php
-                                                                        }
-                                                                    }
-                                                                    ?>
+                                                                    </div>
+                                                                    <!-- 27-4 mulimage comment end -->
 
                                                                 </div>
-                                                            </div>
-                                                            <!-- 27-4 mulimage comment start -->
-                                                            <div id="<?php echo "fourimgcomment" . $busdata['image_id']; ?>" style="display:none;">
+
+                                                                <!-- show comment div end -->
+
+                                                                <!-- insert comment code start -->
+                                                                <div class="post-design-commnet-box col-md-12">
+
+                                                                    <div class="post-design-proo-img"> 
+
+                                                                        <?php
+                                                                        $userid = $this->session->userdata('aileenuser');
+                                                                        $business_userimage = $this->db->get_where('business_profile', array('user_id' => $userid, 'status' => 1))->row()->business_user_image;
+                                                                        ?>
+
+                                                                        <img src="<?php echo base_url(USERIMAGE . $business_userimage); ?>" alt="">
+                                                                    </div>
 
 
+                                                                    <div class="">
+                                                                        <div class="col-md-10 inputtype-comment" style="padding-left: 7px;">
+                                                                            <div contenteditable="true" class="editable_text" name="<?php echo $busdata['image_id']; ?>" id="<?php echo "post_imgcomment" . $busdata['image_id']; ?>" placeholder="Type Comment ..." onkeyup="entercommentimg(<?php echo $busdata['image_id']; ?>)"></div>
+                                                                        </div>
+
+                                                                        <div class="col-md-1 comment-edit-butn">                                      
+                                                                            <button id="<?php echo $busdata['image_id']; ?>" onClick="insert_commentimg(this.id)">Comment</button>
+
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                                <!-- insert comment code end -->
+
                                                             </div>
-                                                            <!-- 27-4 mulimage comment end -->
+
+                                                            <!-- like comment end -->
 
                                                         </div>
-
-                                                        <!-- show comment div end -->
-
-                                                        <!-- insert comment code start -->
-                                                        <div class="post-design-commnet-box col-md-12">
-
-                                                            <div class="post-design-proo-img"> 
-
-                                                                <?php
-                                                                $userid = $this->session->userdata('aileenuser');
-                                                                $business_userimage = $this->db->get_where('business_profile', array('user_id' => $userid, 'status' => 1))->row()->business_user_image;
-                                                                ?>
-
-                                                                <img src="<?php echo base_url(USERIMAGE . $business_userimage); ?>" alt="">
-                                                            </div>
-
-
-                                                            <div class="">
-                                                                <div class="col-md-10 inputtype-comment" style="padding-left: 7px;">
-                                                                    <div contenteditable="true" class="editable_text" name="<?php echo $busdata['image_id']; ?>" id="<?php echo "post_imgcomment" . $busdata['image_id']; ?>" placeholder="Type Comment ..." onkeyup="entercommentimg(<?php echo $busdata['image_id']; ?>)"></div>
-                                                                </div>
-
-                                                                <div class="col-md-1 comment-edit-butn">                                      
-                                                                    <button id="<?php echo $busdata['image_id']; ?>" onClick="insert_commentimg(this.id)">Comment</button>
-
-                                                                </div>
-                                                            </div>
-
-                                                        </div>
-                                                        <!-- insert comment code end -->
-
-                                                    </div>
-
-                                                    <!-- like comment end -->
-
-                                                </div>
-                                                <?php
-                                                $i++;
-                                            }
-                                            ?>
+                                                        <?php
+                                                        $i++;
+                                                    }
+                                                    ?>
                                                     <!-- slider image rotation end  -->
 
                                                     <a class="prev" style="left: 10" onclick="plusSlides(-1)">&#10094;</a>
@@ -869,6 +1176,18 @@
 </div>
 <!-- Model Popup Close -->
 
+<!-- Bid-modal-2  -->
+<div class="modal fade message-box" id="likeusermodal" role="dialog" style="z-index: 999999 !important;">
+    <div class="modal-dialog modal-lm">
+        <div class="modal-content">
+            <button type="button" class="modal-close" data-dismiss="modal">&times;</button>       
+            <div class="modal-body">
+                <span class="mes">
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 
@@ -954,13 +1273,36 @@
 <script type="text/javascript">
     function mulimg_like(clicked_id)
     {
+        /*$.ajax({
+         type: 'POST',
+         url: '<?php echo base_url() . "business_profile/mulimg_like" ?>',
+         data: 'post_image_id=' + clicked_id,
+         success: function (data) {
+         //alert(data);
+         $('.' + 'likeimgpost' + clicked_id).html(data);
+         
+         }
+         }); */
+
         $.ajax({
             type: 'POST',
             url: '<?php echo base_url() . "business_profile/mulimg_like" ?>',
             data: 'post_image_id=' + clicked_id,
+            dataType: 'json',
             success: function (data) {
-                $('.' + 'likeimgpost' + clicked_id).html(data);
+                // $('.' + 'likepost' + clicked_id).html(data);
+                //alert(data.like_user_count);
 
+                $('.' + 'likepostimg' + clicked_id).html(data.like);
+                $('.likeusernameimg' + clicked_id).html(data.likeuser);
+
+                $('.likeduserlistimg' + clicked_id).hide();
+                if (data.like_user_count == '0') {
+                    document.getElementById('likeusernameimg' + clicked_id).style.display = "none";
+                } else {
+                    document.getElementById('likeusernameimg' + clicked_id).style.display = "block";
+                }
+                $('#likeusernameimg' + clicked_id).addClass('likeduserlistimg1');
             }
         });
     }
@@ -1243,8 +1585,8 @@
         $('button[id^=imgeditsubmittwo]').css('display', 'none');
         $('div[id^=imgeditcommentboxtwo]').css('display', 'block');
         $('div[id^=imgeditcancletwo]').css('display', 'none');
-        
-        
+
+
         document.getElementById('imgeditcommenttwo' + clicked_id).style.display = 'inline-block';
         document.getElementById('imgshowcommenttwo' + clicked_id).style.display = 'none';
         document.getElementById('imgeditsubmittwo' + clicked_id).style.display = 'inline-block';
@@ -1973,3 +2315,68 @@
 </script>
 
 <!-- cover image end -->
+<script type="text/javascript">
+    function likeuserlist(post_id) {
+
+        $.ajax({
+            type: 'POST',
+            url: '<?php echo base_url() . "business_profile/likeuserlist" ?>',
+            data: 'post_id=' + post_id,
+            dataType: "html",
+            success: function (data) {
+                var html_data = data;
+                $('#likeusermodal .mes').html(html_data);
+                $('#likeusermodal').modal('show');
+            }
+        });
+
+
+    }
+    function likeuserlistimg(post_id) {
+
+        $.ajax({
+            type: 'POST',
+            url: '<?php echo base_url() . "business_profile/imglikeuserlist" ?>',
+            data: 'post_id=' + post_id,
+            dataType: "html",
+            success: function (data) {
+                var html_data = data;
+                $('#likeusermodal .mes').html(html_data);
+                $('#likeusermodal').modal('show');
+            }
+        });
+
+
+    }
+</script>
+<style type="text/css">
+    .likeduser, .likeduser1{
+        width: 100%;
+        background-color: #00002D;
+    }
+    .likeduser-title, .likeduser-title1{
+        color: #fff;
+        margin-bottom: 5px;
+        padding: 7px;
+    }
+    .likeuser_list, .likeuser_list1{
+        background-color: #ccc;
+        float: left;
+        margin: 0px 6px 5px 9px;
+        padding: 5px;
+        width: 47%;
+        font-size: 14px;
+    }
+    .likeduserlist, .likeduserlist1 {
+        float: left;
+        /*        margin-left: 15px;
+                margin-right: 15px;*/
+        width: 96%;
+    }
+    .like_one_other, .like_one_other_img{
+        margin-left: 15px;
+        /*  margin-right: 15px;*/
+
+    }
+
+</style>
