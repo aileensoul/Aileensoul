@@ -159,7 +159,7 @@
           <div class="top-row">
             <div class="field-wrap" style="margin-bottom: 5px;">
               <label class="fname_reg">
-             dd/mm/yyyy
+            Date of Birth<span class="req">*</span></label>
               </label>
               <input type="text" name="datepicker" id="datepicker" placeholder="dd/mm/yyyy"   autocomplete="off" >
             </div>
