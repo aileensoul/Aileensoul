@@ -494,7 +494,7 @@ function text2link($text) {
 
                                                 </div>
                                                 </div>
-                                    </div>
+                                    
 
                                 
     <?php }
@@ -510,6 +510,7 @@ function text2link($text) {
             </div>
         </div>
 
+    </div>
     </div>
     </div>
 </section>

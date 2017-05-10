@@ -354,7 +354,7 @@ if ($freepostdata[0]['designation']) {
                             <div class="job-saved-box">
                                 <h3> Recommended Post</h3>
                                 <div class="contact-frnd-post">
-                                    <div >
+                                    <!-- <div > -->
                                         <!-- start -->
                                         <?php
                                         function text2link($text) {
@@ -470,10 +470,10 @@ if ($freepostdata[0]['designation']) {
                                                                     <li><b>Other Skill</b><span><?php echo "-"; ?></span></li><?php } ?>
 
                                                                 <li><b>Post Description</b><span><p>
-                                                                            <?php if($post['post_description']){echo text2link($post['post_description']);}else{echo PROFILENA;} ?> </p></span>
+                         <?php if($post['post_description']){echo text2link($post['post_description']);}else{echo PROFILENA;} ?> </p></span>
                                                                 </li>
                                                                 <li><b>Rate</b><span>
-                                                                        <?php if($post['post_rate']){
+                                  <?php if($post['post_rate']){
                      echo $post['post_rate'];
                      echo "&nbsp";
                      echo $this->db->get_where('currency', array('currency_id' => $post['post_currency']))->row()->currency_name; echo "&nbsp";
@@ -548,7 +548,7 @@ $userid = $this->session->userdata('aileenuser');
                                                         </div>
                                                         </div>
                                                     </div>
-                                        
+                                                    </div>                                        
 
 
                                                 </div>
