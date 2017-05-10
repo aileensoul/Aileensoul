@@ -1,3 +1,4 @@
+
 /*!
  * bootstrap-fileinput v4.3.9
  * http://plugins.krajee.com/file-input
@@ -3485,7 +3486,7 @@ $(function(){
         resizeDefaultImageType: 'image/jpeg',
         minFileSize: 0,
         maxFileSize: 0,
-        maxFilePreviewSize: 25600, // 25 MB
+        maxFilePreviewSize: 256000, // 25 MB
         minFileCount: 0,
         maxFileCount: 0,
         validateInitialCount: false,
