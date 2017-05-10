@@ -883,7 +883,7 @@ class Notification extends MY_Controller {
                 $notification .= '<div class="notification-pic">';
                 $notification .= '<img src="' . base_url(USERIMAGE . $art['user_image']) . '" >';
                 $notification .= '</div><div class="notification-data-inside">';
-                $notification .= '<a href="' . base_url('job/job_printpreview/' . $id) . '"><h6>HI.. !  <font color="#4e6db1"><b><i> Job seeker</i></font></b><b>' . '  ' . $art['first_name'] . ' ' . $art['last_name'] . '</b> Aplied on your post</h6></a>';
+                $notification .= '<a href="' . base_url('job/job_printpreview/' . $art['not_from_id']) . '"><h6>HI.. !  <font color="#4e6db1"><b><i> Job seeker</i></font></b><b>' . '  ' . $art['first_name'] . ' ' . $art['last_name'] . '</b> Aplied on your post</h6></a>';
                 $notification .= '<div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
                 $notification .= '' . $this->common->time_elapsed_string($art['message_create_date'], $full = false) . '';
                 $notification .= '</div></div> </div> </li>';

@@ -1247,7 +1247,7 @@
                                                                 </div>
                                                                 <div class="">
                                                                     <div id="content" class="col-md-10 inputtype-comment" style="padding-left: 7px !important;">
-                                                                        <div contenteditable="true" style="min-height:37px !important; margin-top: 0px!important" class="editable_text" name="<?php echo $artdata['image_id']; ?>"  id="<?php echo "post_commentimg" . $artdata['image_id']; ?>" placeholder="Type Message ..." onClick="entercommentimg(<?php echo $artdata['image_id']; ?>)"></div>
+                                                                        <div contenteditable="true" style="min-height:37px !important; margin-top: 0px!important" class="editable_text" name="<?php echo $artdata['image_id']; ?>"  id="<?php echo "post_commentimg" . $artdata['image_id']; ?>" placeholder="Type Message ..." onkeyup="entercommentimg(<?php echo $artdata['image_id']; ?>)"></div>
                                                                     </div>
                                                                     <?php echo form_error('post_commentimg'); ?>
                                                                     <div class="col-md-1 comment-edit-butn">   
@@ -2966,39 +2966,75 @@ if (count($commnetcount) > 0) {
                             <script type="text/javascript">
 
         function entercommentimg(clicked_id)
-        {
-            //alert(clicked_id);
-            $(document).ready(function () {
-                $('#post_imgcomment' + clicked_id).keypress(function (e) {
-                    if (e.keyCode == 13 && !e.shiftKey) {
-                        var val = $('#post_imgcomment' + clicked_id).val();
-                        e.preventDefault();
-                        if (window.preventDuplicateKeyPresses)
-                            return;
-                        window.preventDuplicateKeyPresses = true;
-                        window.setTimeout(function () {
-                            window.preventDuplicateKeyPresses = false;
-                        }, 500);
-                        $.ajax({
-                            type: 'POST',
-                            url: '<?php echo base_url() . "artistic/mulimg_comment" ?>',
-                            data: 'post_image_id=' + clicked_id + '&comment=' + val,
-                            dataType: "json",
-                            success: function (data) {
-                                $('input').each(function () {
-                                    $(this).val('');
-                                });
-                                        $('.' + 'insertimgcomment' + clicked_id).html(data.comment);
+                        {   
+                            $("#post_commentimg" + clicked_id).click(function () {
+                                $(this).prop("contentEditable", true);
+                            });
 
-                                                              }
-                                                });
-                                              }
+                            $('#post_commentimg' + clicked_id).keypress(function (e) {
+
+                                if (e.keyCode == 13 && !e.shiftKey) {
+                                    e.preventDefault();
+                                    var sel = $("#post_commentimg" + clicked_id);
+                                    var txt = sel.html();
+                                    if (txt == '') {
+                                        return false;
+                                    }
+                                    $('#post_commentimg' + clicked_id).html("");
+
+                                    if (window.preventDuplicateKeyPresses)
+                                        return;
+
+                                    window.preventDuplicateKeyPresses = true;
+                                    window.setTimeout(function () {
+                                        window.preventDuplicateKeyPresses = false;
+                                    }, 500);
+                                    
+                                    var x = document.getElementById('threecommentimg' + clicked_id);
+                                    var y = document.getElementById('fourcommentimg' + clicked_id);
+                                    
+                                    
+                                    
+                                    if (x.style.display === 'block' && y.style.display === 'none') {
+                                $.ajax({
+                                    type: 'POST',
+                                    url: '<?php echo base_url() . "artistic/insert_commentthreeimg" ?>',
+                                    data: 'post_image_id=' + clicked_id + '&comment=' + txt,
+                                    dataType: "json",
+                                    success: function (data) {
+                                        $('textarea').each(function () {
+                                            $(this).val('');
                                         });
-                                                             });
-                                        }
-        </script>
-                        <!-- hide and show data start-->
-                                        <script type="text/javascript">
+                                        $('#' + 'insertcountimg' + clicked_id).html(data.count);
+                                        $('.insertcommentimg' + clicked_id).html(data.comment);
+
+                                    }
+                                });
+
+                            } else {
+
+                                $.ajax({
+                                    type: 'POST',
+                                    url: '<?php echo base_url() . "artistic/insert_commentimg" ?>',
+                                    data: 'post_image_id=' + clicked_id + '&comment=' + txt,
+                                    dataType: "json",
+                                    success: function (data) {
+                                        $('textarea').each(function () {
+                                            $(this).val('');
+                                        });
+                                        $('#' + 'insertcountimg' + clicked_id).html(data.count);
+                                        $('#' + 'fourcommentimg' + clicked_id).html(data.comment);
+                                    }
+                                });
+                            }
+                                }
+                            });
+                            $(".scroll").click(function (event) {
+                                event.preventDefault();
+                                $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1200);
+                            });
+                        }
+                        
     function imgcommentall(clicked_id) { //alert("xyz")                                                ;
 
         //alert('threeimgcomment' + clicked_id);
