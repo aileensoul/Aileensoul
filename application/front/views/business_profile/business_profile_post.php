@@ -797,40 +797,8 @@
                                                     </div>
                                                 </div>
                                                 <!-- pop up box end-->
-                                                <!-- pop up box start-->
-                                                <div id="<?php echo "popup2" . $row['business_profile_post_id']; ?>" class="overlay">
-                                                    <div class="popup">
-                                                        <div class="pop_content">
-                                                            Are You Sure want to delete this post?.
-                                                            <p class="okk">
-                                                                <a class="okbtn" id="<?php echo $row['business_profile_post_id']; ?>" onClick="remove_post(this.id)" href="#">Yes
-                                                                </a>
-                                                            </p>
-                                                            <p class="okk">
-                                                                <a class="cnclbtn" href="#">No
-                                                                </a>
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- pop up box end-->
-                                                <!-- pop up box start-->
-                                                <div id="<?php echo "popup5" . $row['business_profile_post_id']; ?>" class="overlay">
-                                                    <div class="popup">
-                                                        <div class="pop_content">
-                                                            Are You Sure want to delete this post from your profile?.
-                                                            <p class="okk">
-                                                                <a class="okbtn" id="<?php echo $row['business_profile_post_id']; ?>" onClick="del_particular_userpost(this.id)" href="#">OK
-                                                                </a>
-                                                            </p>
-                                                            <p class="okk">
-                                                                <a class="cnclbtn" href="#">Cancel
-                                                                </a>
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- pop up box end-->
+                                                
+                                                
                                                 <?php
                                                 $business_userimage = $this->db->get_where('business_profile', array('user_id' => $row['user_id'], 'status' => 1))->row()->business_user_image;
                                                 $userimageposted = $this->db->get_where('business_profile', array('user_id' => $row['posted_user_id']))->row()->business_user_image;
@@ -914,7 +882,7 @@
                                                 </a>
                                                 <div id="<?php echo "myDropdown" . $row['business_profile_post_id']; ?>" class="dropdown-content1">
                                                     <?php if ($this->session->userdata('aileenuser') == $row['user_id']) { ?> 
-                                                        <a href="<?php echo "#popup2" . $row['business_profile_post_id']; ?>">
+                                                    <a onclick="user_postdelete(<?php echo $row['business_profile_post_id']; ?>)">
                                                             <i class="fa fa-trash-o" aria-hidden="true">
                                                             </i> Delete Post
                                                         </a>
@@ -923,7 +891,7 @@
                                                             </i>Edit
                                                         </a>
                                                     <?php } else { ?>
-                                                        <a href="<?php echo "#popup5" . $row['business_profile_post_id']; ?>">
+    <a onclick="user_postdeleteparticular(<?php echo $row['business_profile_post_id']; ?>)">
                                                             <i class="fa fa-trash-o" aria-hidden="true">
                                                             </i> Delete Post
                                                         </a>
@@ -3088,6 +3056,30 @@
 
     }
 </script>
+
+
+<!-- post delete login user script start -->
+<script type="text/javascript">
+function user_postdelete(clicked_id)
+    {
+
+        $('.biderror .mes').html("<div class='pop_content'> Are You Sure want to delete this post?.<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='remove_post(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+        $('#bidmodal').modal('show');
+    }
+   </script>
+<!-- post delete login user end -->
+
+<!-- post delete particular login user script start -->
+<script type="text/javascript">
+function user_postdeleteparticular(clicked_id)
+    {
+
+        $('.biderror .mes').html("<div class='pop_content'> Are You Sure want to delete this post from your profile?.<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='del_particular_userpost(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+        $('#bidmodal').modal('show');
+    }
+   </script>
+<!-- post delete particular login user end -->
+
 
 <style type="text/css">
     .likeduser{

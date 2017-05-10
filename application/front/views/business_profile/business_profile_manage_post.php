@@ -1117,25 +1117,6 @@
 
 
 
-
-                            <!-- pop up box start-->
-                            <div id="<?php echo "popup2" . $row['business_profile_post_id']; ?>" class="overlay">
-                                <div class="popup">
-
-                                    <div class="pop_content">
-                                        Are You Sure want to delete this post?.
-
-                                        <p class="okk"><a class="okbtn" id="<?php echo $row['business_profile_post_id']; ?>" onClick="remove_ownpost(this.id)" href="#">Yes</a></p>
-
-                                        <p class="okk"><a class="cnclbtn" href="#">No</a></p>
-
-                                    </div>
-
-                                </div>
-                            </div>
-                            <!-- pop up box end-->
-
-
                             <div class=" post-design-box">
                                 <div class="post-design-top col-md-12" >  
                                     <div class="post-design-pro-img col-md-2"> 
@@ -1225,7 +1206,7 @@
                                             <?php if ($this->session->userdata('aileenuser') == $row['user_id']) { ?> 
 
 
-                                                <a href="<?php echo "#popup2" . $row['business_profile_post_id']; ?>"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete Post</a>
+             <a onclick="user_postdelete(<?php echo $row['business_profile_post_id']; ?>)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete Post</a>
 
                                                 <a id="<?php echo $row['business_profile_post_id']; ?>" onClick="editpost(this.id)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit</a>
 
@@ -3854,4 +3835,14 @@
             </script>
             <!-- cover image end -->
 
+<!-- post delete login user script start -->
+<script type="text/javascript">
+function user_postdelete(clicked_id)
+    {
+
+        $('.biderror .mes').html("<div class='pop_content'> Are You Sure want to delete this post?.<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='remove_ownpost(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+        $('#bidmodal').modal('show');
+    }
+   </script>
+<!-- post delete login user end -->
 
