@@ -254,7 +254,9 @@
 
 </script>
                 
-
+<script type="text/javascript">   
+ $(".formSentMsg").delay(3200).fadeOut(300);
+</script>
 
 
     

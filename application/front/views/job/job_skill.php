@@ -461,3 +461,7 @@ if ($this->session->flashdata('success')) {
 
 </script>
 
+<script type="text/javascript"> 
+ $(".alert").delay(3200).fadeOut(300);
+</script>
+

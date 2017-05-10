@@ -305,7 +305,7 @@
             type: 'POST',
             url: '<?php echo base_url() . "freelancer/free_invite_user" ?>',
             data: 'post_id=' + post_id + '&invited_user=' + clicked_id,
-            success: function (data) { alert(data);
+            success: function (data) { //alert(data);
                 $('#' + 'invited' + clicked_id).html(data);
 
             }

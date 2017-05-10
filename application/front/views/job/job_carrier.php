@@ -270,5 +270,7 @@
     
 
 <!-- validation end--> 
-
+<script type="text/javascript"> 
+ $(".alert").delay(3200).fadeOut(300);
+</script>
     
