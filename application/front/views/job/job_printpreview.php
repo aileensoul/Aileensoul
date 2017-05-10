@@ -1306,3 +1306,7 @@ echo $job_header2;
             $('#bidmodal').modal('show');
                         }
                     </script>
+
+<script type="text/javascript"> 
+ $(".alert").delay(3200).fadeOut(300);
+</script>

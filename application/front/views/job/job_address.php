@@ -693,4 +693,6 @@
 <!-- script for Language textbox automatic end (option 2)-->
 <script type="text/javascript">
     $(".alert").delay(3200).fadeOut(300);
+
+    $(".formSentMsg").delay(3200).fadeOut(300);
 </script>
