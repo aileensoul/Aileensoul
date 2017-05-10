@@ -1,13 +1,8 @@
-
-
 <!-- start head -->
 <?php
 //echo "<pre>"; print_r($recdata); die();
 echo $head;
 ?>
-
-
-
 <!--post save success pop up style strat -->
 <style>
     /*body {
@@ -474,7 +469,8 @@ echo $head;
                                             <li>
                                                 <b>Require Experience</b>
                                                 <span>
-                                                    <p><?php if($post['min_year'] !='0' || $post['min_year'] ==''){ echo $post['min_year'].' Year '; } ?> <?php if($post['min_month'] !='0' || $post['min_month'] ==''){ echo $post['min_month']. ' Month'; } ?></p>  
+                                                    <!--<p><?php if($post['min_year'] !='0' || $post['min_year'] ==''){ echo $post['min_year'].' Year '; } ?> <?php if($post['min_month'] !='0' || $post['min_month'] ==''){ echo $post['min_month']. ' Month'; } ?></p>-->  
+                                                    <p><?php if($post['min_year'] !='0' || $post['min_year'] ==''){ echo $post['min_year'] .'.'; } ?> <?php if($post['min_month'] !='0' || $post['min_month'] ==''){ echo $post['min_month']. ' year'; } ?></p>  
                                                 </span>
                                             </li>
                                             <li><b>Maximum Salary</b><span><?php echo $post['min_sal']; ?></span>
