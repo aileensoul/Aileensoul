@@ -1550,7 +1550,6 @@
                 // $('.' + 'likepost' + clicked_id).html(data);
                 //alert(data.like_user_count);
                 
-                
                 $('.' + 'likepost' + clicked_id).html(data.like);
                 $('.likeusername' + clicked_id).html(data.likeuser);
                 
