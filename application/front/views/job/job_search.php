@@ -7,7 +7,7 @@
                             </fieldset>
                             <fieldset class="col-md-3">
                               
-                              <select class="" name="searchplace[]" id="searchplace" multiple="multiple">
+                              <select class="" name="searchplace[]" id="searchplace" multiple="multiple"  placeholder="Find Your location">
                                 </select>
                             </fieldset>
                         <!--     <fieldset class="col-md-2">

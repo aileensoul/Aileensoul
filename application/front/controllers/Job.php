@@ -1423,12 +1423,17 @@ class Job extends MY_Controller {
         }
 
         $contition_array = array('status' => '1', 'is_delete' => 0, 'user_id' => $userid);
-        $this->data['postdata'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+       $post = $this->data['postdata'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+      //echo "<pre>"; print_r($this->data['postdata']); die();
 
         // $this->data['postdata'] = $this->common->select_data_by_id('job_reg','user_id', $userid, $data = '*', $join_str = array());
+       
 
-        $skildata = explode(',', $this->data['postdata'][0]['keyskill']);
+        $skildata = explode(',',$post[0]['keyskill']);
+       // echo $skildata; die();
         $this->data['selectdata'] = $skildata;
+
+       // echo "<pre>"; print_r( $this->data['selectdata']); die();
 
         // code for search
         $contition_array = array('re_status' => '1');
