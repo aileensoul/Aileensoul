@@ -331,7 +331,7 @@ z-index: 1;
                                         <section id="section2">
                                             <input type="radio" name="sections" id="option2">
                                             <label for="option2" class="label-d">Secondary</label>
-                                              <article class="none_aaaart">
+                                              <article class="">
 
                                                 <?php echo form_open_multipart(base_url('job/job_education_secondary_insert'), array('id' => 'jobseeker_regform_secondary', 'name' => 'jobseeker_regform_secondary', 'class' => 'clearfix')); ?>
 
@@ -439,7 +439,7 @@ z-index: 1;
                                         <section id="section3">
                                             <input type="radio" name="sections" id="option3">
                                             <label for="option3" class="label-d">Higher Secondary</label>
-                                              <article class="none_aaaart">
+                                              <article class="">
 
                                                 <?php echo form_open_multipart(base_url('job/job_education_higher_secondary_insert'), array('id' => 'jobseeker_regform_higher_secondary', 'name' => 'jobseeker_regform_higher_secondary', 'class' => 'clearfix')); ?>
 
@@ -555,7 +555,7 @@ z-index: 1;
 
 
 
-                                        <section id="section4">
+                                        <section id="section4" style="overflow: auto;">
                                             <input type="radio" name="sections" id="option4">
                                             <label for="option4" class="label-d">Graduation</label>
                                              <article class="none_aaaart">
