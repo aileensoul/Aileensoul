@@ -4391,7 +4391,9 @@ class Business_profile extends MY_Controller {
 
         $contition_array = array('post_image_id' => $post_image_id, 'is_delete' => '0');
         $buscmtcnt = $this->common->select_data_by_condition('bus_post_image_comment', $contition_array, $data = '*', $sortby = 'post_image_comment_id', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
+        
+        $cmtinsert .= '<div class="insertimgcommenttwo' . $post_image_id . '">';
+        
         //echo "<pre>"; print_r($businesscomment); die();
         foreach ($businesscomment as $bus_comment) {
 
@@ -4407,14 +4409,14 @@ class Business_profile extends MY_Controller {
             $cmtinsert .= '<div class="comment-name"><b>' . $company_name . '</b>';
             $cmtinsert .= '</div>';
 
-            $cmtinsert .= '<div class="comment-details" id= "imgshowcomment' . $bus_comment['post_image_comment_id'] . '"" >';
+            $cmtinsert .= '<div class="comment-details" id= "imgshowcommenttwo' . $bus_comment['post_image_comment_id'] . '"" >';
             $cmtinsert .= $bus_comment['comment'];
             $cmtinsert .= '</div>';
             $cmtinsert .= '<div class="edit-comment-box"><div class="inputtype-edit-comment">';
-            $cmtinsert .= '<div contenteditable="true" class= "editable_text" name="' . $bus_comment['post_image_comment_id'] . '" id="imgeditcomment' . $bus_comment['post_image_comment_id'] . '" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" onkeyup="imgcommentedit(' . $bus_comment['post_image_comment_id'] . ')">';
+            $cmtinsert .= '<div contenteditable="true" class= "editable_text" name="' . $bus_comment['post_image_comment_id'] . '" id="imgeditcommenttwo' . $bus_comment['post_image_comment_id'] . '" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" onkeyup="imgcommentedittwo(' . $bus_comment['post_image_comment_id'] . ')">';
             $cmtinsert .= $bus_comment['comment'];
             $cmtinsert .= '</div>';
-            $cmtinsert .= '<span class="comment-edit-button"><button id="imgeditsubmit' . $bus_comment['post_image_comment_id'] . '" style="display:none;" onClick="imgedit_comment(' . $bus_comment['post_image_comment_id'] . ')">Save</button></span>';
+            $cmtinsert .= '<span class="comment-edit-button"><button id="imgeditsubmittwo' . $bus_comment['post_image_comment_id'] . '" style="display:none;" onClick="imgedit_commenttwo(' . $bus_comment['post_image_comment_id'] . ')">Save</button></span>';
             $cmtinsert .= '</div></div>';
             $cmtinsert .= '<div class="art-comment-menu-design"> <div class="comment-details-menu" id="imglikecomment' . $bus_comment['post_image_comment_id'] . '">';
             $cmtinsert .= '<a id="' . $bus_comment['post_image_comment_id'] . '"';
@@ -4450,10 +4452,10 @@ class Business_profile extends MY_Controller {
                 $cmtinsert .= '<div class="comment-details-menu">';
 
 
-                $cmtinsert .= '<div id="imgeditcommentbox' . $bus_comment['post_image_comment_id'] . '"style="display:block;">';
+                $cmtinsert .= '<div id="imgeditcommentboxtwo' . $bus_comment['post_image_comment_id'] . '"style="display:block;">';
 
                 $cmtinsert .= '<a id="' . $bus_comment['post_image_comment_id'] . '"';
-                $cmtinsert .= 'onClick="imgcomment_editboxtwo(this.id)">';
+                $cmtinsert .= 'onClick="imgcomment_editboxtwo(this.id)" class="editbox">';
                 $cmtinsert .= 'Edit';
                 $cmtinsert .= '</a></div>';
 
@@ -4468,9 +4470,6 @@ class Business_profile extends MY_Controller {
             }
             $userid = $this->session->userdata('aileenuser');
 
-
-            $userid = $this->session->userdata('aileenuser');
-
             $business_userid = $this->db->get_where('business_profile_post', array('business_profile_post_id' => $bus_comment['post_image_id'], 'status' => 1))->row()->user_id;
 
 
@@ -4479,11 +4478,11 @@ class Business_profile extends MY_Controller {
 
                 $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
                 $cmtinsert .= '<div class="comment-details-menu">';
-                $cmtinsert .= '<input type="hidden" name="imgpost_delete"';
-                $cmtinsert .= 'id="imgpost_delete"';
+                $cmtinsert .= '<input type="hidden" name="imgpost_deletetwo"';
+                $cmtinsert .= 'id="imgpost_deletetwo_' . $bus_comment['post_image_comment_id'] . '"';
                 $cmtinsert .= 'value= "' . $bus_comment['post_image_id'] . '">';
                 $cmtinsert .= '<a id="' . $bus_comment['post_image_comment_id'] . '"';
-                $cmtinsert .= 'onClick="imgcomment_delete(this.id)">';
+                $cmtinsert .= 'onClick="imgcomment_deletetwo(this.id)">';
                 $cmtinsert .= 'Delete';
                 $cmtinsert .= '</a></div>';
             }
@@ -4499,6 +4498,8 @@ class Business_profile extends MY_Controller {
 
             // comment count variable end 
         }
+        
+        $cmtinsert .= '</div>';
         header('Content-type: application/json');
         echo json_encode(
                 array("comment" => $cmtinsert,
@@ -4644,7 +4645,7 @@ class Business_profile extends MY_Controller {
                 $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
                 $cmtinsert .= '<div class="comment-details-menu">';
                 $cmtinsert .= '<input type="hidden" name="imgpost_delete"';
-                $cmtinsert .= 'id="imgpost_delete"';
+                $cmtinsert .= 'id="imgpost_delete_' . $bus_comment['post_image_comment_id'] . '"';
                 $cmtinsert .= 'value= "' . $bus_comment['post_image_id'] . '">';
                 $cmtinsert .= '<a id="' . $bus_comment['post_image_comment_id'] . '"';
                 $cmtinsert .= 'onClick="imgcomment_delete(this.id)">';
@@ -5182,8 +5183,8 @@ class Business_profile extends MY_Controller {
 
                     $cmtinsert .= '<input type="hidden" name="imgpost_delete"';
                     // $cmtinsert .= 'id="imgpost_delete' . $bus_comment['post_image_comment_id'] . '"';
-                    $cmtinsert .= 'id="imgpost_delete"';
-                    $cmtinsert .= 'value= "' . $bus_comment['post_image_id'] . '">';
+                    $cmtinsert .= 'id="imgpost_delete_'.$bus_comment['post_image_comment_id'].'"';
+                    $cmtinsert .= ' value= "' . $bus_comment['post_image_id'] . '">';
                     $cmtinsert .= '<a id="' . $bus_comment['post_image_comment_id'] . '"';
                     $cmtinsert .= 'onClick="imgcomment_delete(this.id)">';
                     $cmtinsert .= 'Delete';
@@ -5241,7 +5242,7 @@ class Business_profile extends MY_Controller {
                 $cmtinsert .= '<div class="comment-name"><b>' . $company_name . '</b>';
                 $cmtinsert .= '</div>';
 
-                $cmtinsert .= '<div class="comment-details" id= "imgshowcommenttwo' . $bus_comment['post_image_comment_id'] . '"" >';
+                $cmtinsert .= '<div class="comment-details" id= "imgshowcommenttwo' . $bus_comment['post_image_comment_id'] . '">';
                 $cmtinsert .= $bus_comment['comment'];
                 $cmtinsert .= '</div>';
 
@@ -5319,7 +5320,7 @@ class Business_profile extends MY_Controller {
                     //$cmtinsert .= '<input type="hidden" name="post_deletetwo"';
                     //$cmtinsert .= ' id="post_deletetwo' . $bus_comment['post_image_comment_id'] . '"';
                     $cmtinsert .= '<input type="hidden" name="imgpost_delete1"';
-                    $cmtinsert .= ' id="imgpost_delete1"';
+                    $cmtinsert .= ' id="imgpost_deletetwo_' . $bus_comment['post_image_comment_id'] . '"';
                     $cmtinsert .= ' value= "' . $bus_comment['post_image_id'] . '">';
                     $cmtinsert .= ' <a id="' . $bus_comment['post_image_comment_id'] . '"';
                     $cmtinsert .= 'onClick="imgcomment_deletetwo(this.id)">';
@@ -6594,7 +6595,7 @@ class Business_profile extends MY_Controller {
 
                     $mulimgfour .= '<span role="presentation" aria-hidden="true"> · </span>
                                     <div class="comment-details-menu">';
-                    $mulimgfour .= '<input type="hidden" name="imgpost_delete1"  id="imgpost_delete1" value= "' . $rowdata['post_image_id'] . '">';
+                    $mulimgfour .= '<input type="hidden" name="imgpost_delete1"  id="imgpost_deletetwo_' . $rowdata['post_image_comment_id'] . '" value= "' . $rowdata['post_image_id'] . '">';
                     $mulimgfour .= '<a id="' . $rowdata['post_image_comment_id'] . '"   onClick="imgcomment_deletetwo(this.id)"> Delete<span class="imginsertcomment1' . $rowdata['post_image_comment_id'] . '"></span></a></div>';
                 }
 
