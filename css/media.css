@@ -162,6 +162,8 @@
      /*  header2 on */
          .header2 input::-webkit-input-placeholder 
                {    font-size: 12px; line-height: 3;  }
+          .header2 input::-moz-placeholder { font-size: 13px; line-height: 13px; } /* Firefox 19+ */
+          .header2 input:-moz-placeholder { font-size: 14px; line-height: 3;}  /* Firefox 18- */
           .header2 .profiletitle { font-size: 11px; }
           .header2 ul li a { font-size: 11px; }
 
@@ -180,8 +182,15 @@
            .select2-container--default .select2-selection--multiple .select2-selection__rendered li { margin-top: 2px; margin-bottom: 2px;}
             .radio_check_text { font-size: 14px; }
            .job_address_btn { min-width: 50px !important; font-size: 15px !important; padding: 5px 14px !important;}
-           input[type=submit], input[type=button], button  { padding: 6px 22px 6px; }
+           input[type=submit], input[type=button], button  { padding: 6px 22px 6px; font-size: 15px; }
             .hs-submit input { min-width: 110px; font-size: 15px; }
+            .tabordion section .label-d { font-size: 1em; padding: 11px 6px; }
+            .tabordion h6 { font-size: 14px; }
+            .job_add_head { font-size: 18px; }
+            .job_add_head_pro { font-size: 18px; }
+            .keyskil, #other_keyskill1, #other_keyskill { width: 91%; margin-right: 10px; }
+            .job_carrier_checkbox { font-size: 12px; } 
+
             /* forms end*/
            
 
