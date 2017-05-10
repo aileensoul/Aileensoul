@@ -203,8 +203,8 @@
                     <div class="col-md-7 col-sm-7 header-left-menu">
 
                     <ul class="fr">
-                        <li class=""><a class="login_butn" href="<?php echo base_url('login') ?>">Login</a></li>
-                    <li class=""><a class="login_butn" href="<?php echo base_url('registration') ?>">Create an account</a></li>
+                    <li class=""><a class="login_butn" href="<?php echo base_url('login') ?>">Login</a></li>
+                <li class=""><a class="login_butn" href="<?php echo base_url('registration') ?>">Create an account</a></li>
                       
                     </ul>
                      
@@ -247,8 +247,7 @@
                 </div>
                 <div id="login"> 
 
-                     <form name="feedbackform" method="post" id="feedbackform" 
-                    class="clearfix" onsubmit="return feedback_form_submit()">
+    <form name="feedbackform" method="post" id="feedbackform" class="clearfix" onclick="return feedback_form_submit()">
 
 	
                         <div class="login_filed">
@@ -269,7 +268,7 @@
                                 <label class="login_label">
                                     Description <span class="req">*</span>
                                 </label>
-                              <div contenteditable="true" name="contact_message" class="description" id="contact_message"  style="background-color: #fff!important;
+                              <div contenteditable="true" name="contact_message" class="description" id="contact_message" placeholder="Enter Description" style="background-color: #fff!important;
     font-size: 18px;
    
     min-height: 150px;
@@ -487,17 +486,17 @@ if(email == '' && subject == '' && message == ''){
 function feedback_form_submit()
 {
   var email = $('#contact_email').val();
-  var subject = $('#contact_subject').val();
+  // var subject = $('#contact_subject').val();
 
-  var $field = $('#contact_message');
+  // var $field = $('#contact_message');
   
-  var message = $('#contact_message').html();
+  // var message = $('#contact_message').html();
 
-   $('#contact_message').html("");
+  //  $('#contact_message').html("");
     $.ajax({
                 type:'POST',
                 url:'<?php echo base_url() . "feedback/feedback_insert" ?>',
-                 data:'email=' + email + '&subject=' + subject + '&message=' + message,
+                 data:'email=' + email,
                  success:function(data){ 
                     
                   }
