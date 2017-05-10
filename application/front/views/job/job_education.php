@@ -211,7 +211,7 @@ z-index: 1;
                     </div>
                     <div class="col-md-8 col-sm-8">
                         <div class="common-form">
-                            <div class="job-saved-box_2">
+                            <div class="job-saved-boxe_2">
                                 <h3>Educational  Qualification</h3>
                                 <div class="contact-frnd-post">
                                     <?php
