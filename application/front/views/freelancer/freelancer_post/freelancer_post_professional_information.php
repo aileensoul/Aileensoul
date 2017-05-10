@@ -123,7 +123,7 @@
                                 <select name="skills[]" id ="skill1" class="keyskil" multiple="multiple" style="width:100%;" >
 
                                     <?php foreach ($skill1 as $skill) { ?>
-                                        <option value="<?php echo $skill['skill_id']; ?>"><?php echo $skill['skill']; ?></option>
+                                        <option value="<?php echo $cnt[0]['skill_id']; ?>" ><?php echo $skill['skill']; ?></option>
                                     <?php } ?>
 
                                 </select>

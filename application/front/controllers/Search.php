@@ -653,14 +653,14 @@ $unique=array_merge($business_post,$business_profile);
             $result1[$key]['label']=$value;
             $result1[$key]['value']=$value;
           }
+
+
           
           $this->data['demo']=array_values($result1); 
 
 
 
-
-
-
+ 
 
 
 
@@ -2280,6 +2280,7 @@ $contition_array = array('is_delete' => '0', 'status' =>'1');
          
          $this->data['demo']= array_values($result1);
 
+      
       
 
         $this->load->view('job/job_all_post1',$this->data);
