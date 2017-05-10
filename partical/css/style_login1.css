@@ -197,6 +197,7 @@ h1 {
 }*/
 
 .field-wrap .fname_reg{
+  z-index: 1;
   cursor: text;
     margin: 0;
     padding: 0;
