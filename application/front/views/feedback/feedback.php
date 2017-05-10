@@ -407,6 +407,7 @@ $(document).ready(function () {
                 
                 contact_email: {
                  required: true,
+                 email: true,
                  },
                  contact_subject: {
                  required: true,
@@ -439,48 +440,6 @@ $(document).ready(function () {
 <!-- form insert script start -->
 
  <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
-<script type="text/javascript">
-
-function feedback_form_submit1(){  
-   
-  
-  var email = $('#contact_email').val();
-  var subject = $('#contact_subject').val();
-
-  var $field = $('#contact_message');
-  
-  var message = $('#contact_message').html();
-
-   $('#contact_message').html("");
- //alert(email); alert(subject); alert(message);
-if(email == '' && subject == '' && message == ''){
-    
-    return false;
-}else{ 
-       $.ajax({
-                type:'POST',
-                url:'<?php echo base_url() . "feedback/feedback_insert" ?>',
-                 data:'email=' + email + '&subject=' + subject + '&message=' + message,
-                 success:function(data){ 
-                    //alert(data);
-                //     $('input').each(function(){
-                //              $(this).val('');
-                //              });
-                     // $('.biderror .mes').html("<div class='pop_content'>Feedback send successfully");
-                     //    $('#bidmodal').modal('show');
-                    
-                  }
-            }); }
-   
-   
-  }
- 
- // function closemodel(){
- //    window.location= "<?php echo base_url() ?>main";
- // }
-</script>
-<!-- form insert script end -->
-
 
 <script type="text/javascript">
 function feedback_form_submit()
@@ -514,6 +473,8 @@ function closemodel(){
      window.location= "<?php echo base_url() ?>main";
   }
 </script>
+
+<!-- form insert script end -->
 </body>
 
 </html>

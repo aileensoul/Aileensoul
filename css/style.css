@@ -3994,7 +3994,7 @@ input:-moz-placeholder { color:#999; font-size: 15px; }
 /* v 26-4-17 start*/
 
 .display_inline { display: inline !important; }
-.job_address_btn { min-width: 70px; font-size: 16px; }
+.job_address_btn { min-width: 70px !important; font-size: 17px !important; padding: 10px 25px !important;}
 .details_all_tital { font-weight: 700; font-size: 20px; }
 
 /* v 26-4-17 end*/
@@ -4562,7 +4562,12 @@ fieldset .add_post_btns{min-width: 120px;padding:8px 30px 8px;}
      
     .header2 input::-moz-placeholder { font-size: 16px; line-height: 16px; } / Firefox 19+ /
     .header2 input::-moz-placeholder { font-size: 14px; line-height: 3;}  / Firefox 18- /
-
+   
+     .header2 .profiletitle { font-size: 13px; }
+  .required_field { padding-left: 8px; font-size: 16px; color: #7f7f7e; }
+  .common-form form input::-webkit-input-placeholder 
+               {    font-size: 15px; line-height: 3;  }
+   .radio_check_text { font-size: 16px; }
 
 
     .logo h2{color: #fff;}

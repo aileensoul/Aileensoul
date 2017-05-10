@@ -384,6 +384,7 @@ $(document).ready(function () {
     rules: {
                 contact_name: {
                  required: true,
+                 email: true,
                  },
                 contact_email: {
                  required: true,

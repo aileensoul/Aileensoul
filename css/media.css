@@ -155,12 +155,7 @@
 }
 
 /*vishang 6-5-17 start */
-  .header2 .profiletitle { font-size: 13px; }
-  .required_field { padding-left: 8px; font-size: 16px; color: #7f7f7e; }
-  .common-form form input::-webkit-input-placeholder 
-               {    font-size: 15px; line-height: 3;  }
-   .radio_check_text { font-size: 16px; }
-
+  
 @media (min-width: 768px) and (max-width: 1024px) 
   {  
 
@@ -184,7 +179,11 @@
            .common-form input[type=radio], .common-form input[type=checkbox] { height: 11px; }
            .select2-container--default .select2-selection--multiple .select2-selection__rendered li { margin-top: 2px; margin-bottom: 2px;}
             .radio_check_text { font-size: 14px; }
-               /* forms end*/
+           .job_address_btn { min-width: 50px !important; font-size: 15px !important; padding: 5px 14px !important;}
+           input[type=submit], input[type=button], button  { padding: 6px 22px 6px; }
+            .hs-submit input { min-width: 110px; font-size: 15px; }
+            /* forms end*/
+           
 
   	 /*profile leftbar start*/
   	     /*job on */
