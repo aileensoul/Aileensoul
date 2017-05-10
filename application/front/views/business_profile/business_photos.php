@@ -1176,6 +1176,18 @@
 </div>
 <!-- Model Popup Close -->
 
+<!-- Bid-modal-2  -->
+<div class="modal fade message-box" id="likeusermodal" role="dialog" style="z-index: 999999 !important;">
+    <div class="modal-dialog modal-lm">
+        <div class="modal-content">
+            <button type="button" class="modal-close" data-dismiss="modal">&times;</button>       
+            <div class="modal-body">
+                <span class="mes">
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 
@@ -2303,7 +2315,40 @@
 </script>
 
 <!-- cover image end -->
+<script type="text/javascript">
+    function likeuserlist(post_id) {
 
+        $.ajax({
+            type: 'POST',
+            url: '<?php echo base_url() . "business_profile/likeuserlist" ?>',
+            data: 'post_id=' + post_id,
+            dataType: "html",
+            success: function (data) {
+                var html_data = data;
+                $('#likeusermodal .mes').html(html_data);
+                $('#likeusermodal').modal('show');
+            }
+        });
+
+
+    }
+    function likeuserlistimg(post_id) {
+
+        $.ajax({
+            type: 'POST',
+            url: '<?php echo base_url() . "business_profile/imglikeuserlist" ?>',
+            data: 'post_id=' + post_id,
+            dataType: "html",
+            success: function (data) {
+                var html_data = data;
+                $('#likeusermodal .mes').html(html_data);
+                $('#likeusermodal').modal('show');
+            }
+        });
+
+
+    }
+</script>
 <style type="text/css">
     .likeduser, .likeduser1{
         width: 100%;

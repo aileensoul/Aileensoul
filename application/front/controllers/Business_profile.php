@@ -6707,4 +6707,23 @@ class Business_profile extends MY_Controller {
         echo '<div>';
     }
 
+    public function imglikeuserlist() {
+        $post_id = $_POST['post_id'];
+
+        $contition_array = array('post_image_id' => $post_id, 'is_unlike' => '0');
+        $commneteduser = $this->common->select_data_by_condition('bus_post_image_like', $contition_array, $data = 'user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+        echo '<div class="likeduser">';
+        echo '<div class="likeduser-title">User List</div>';
+        foreach ($commneteduser as $userlist) {
+            $bus_slug = $this->db->get_where('business_profile', array('user_id' => $userlist['user_id']))->row()->business_slug;
+
+            $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $userlist['user_id'], 'status' => 1))->row()->company_name;
+            echo '<div class="likeuser_list"><a href="' . base_url('business_profile/business_resume/' . $bus_slug) . '">';
+            echo ucwords($business_fname1);
+            echo '</a></div>';
+        }
+        echo '<div>';
+    }
+
 }
