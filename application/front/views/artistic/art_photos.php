@@ -2088,14 +2088,14 @@
                                 url: '<?php echo base_url() . "artistic/like_postimg" ?>',
                                dataType: 'json',
                                 data: 'post_image_id=' + clicked_id,
-                                success: function (data) {alert('hi');
+                                success: function (data) {
                                     $('.' + 'likepostimg' + clicked_id).html(data.like);
                                     $('.likeusernameimg' + clicked_id).html(data.likeuser);
 
                                     $('.likeduserlistimg' + clicked_id).hide();
-                                    if (data.like_user_count == '0') { alert('hiiii');
+                                    if (data.like_user_count == '0') { 
                                         document.getElementById('likeusernameimg' + clicked_id).style.display = "none";
-                                    } else {alert("dsdsdd");
+                                    } else {
                                         document.getElementById('likeusernameimg' + clicked_id).style.display = "block";
                                     }
                                     $('#likeusernameimg' + clicked_id).addClass('likeduserlistimg1');
@@ -2106,7 +2106,20 @@
                        
                         function comment_likeimg(clicked_id)
                         {// alert("hi");
-                                 alert(clicked_id);
+                               //  alert(clicked_id);
+                            $.ajax({
+                                type: 'POST',
+                                url: '<?php echo base_url() . "artistic/like_commentimg1" ?>',
+                                data: 'post_image_comment_id=' + clicked_id,
+                                success: function (data) {
+                                    $('#' + 'likecommentimg' + clicked_id).html(data);
+
+                                }
+                            });
+                        }
+                        function comment_likeimgtwo(clicked_id)
+                        {// alert("hi");
+                               //  alert(clicked_id);
                             $.ajax({
                                 type: 'POST',
                                 url: '<?php echo base_url() . "artistic/like_commentimg1" ?>',

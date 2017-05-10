@@ -1627,7 +1627,7 @@ if (count($commnetcount) > 0) {
 <!-- Model Popup Close -->
                         </footer>
                         </body>
-                        <!-- Model Popup Close -->
+       <!-- Model Popup Close -->
         <!-- Bid-modal-2  -->
         <div class="modal fade message-box" id="likeusermodal" role="dialog">
             <div class="modal-dialog modal-lm">
@@ -3252,14 +3252,14 @@ if (count($commnetcount) > 0) {
                                 url: '<?php echo base_url() . "artistic/like_postimg" ?>',
                                dataType: 'json',
                                 data: 'post_image_id=' + clicked_id,
-                                success: function (data) {alert('hi');
+                                success: function (data) {;
                                     $('.' + 'likepostimg' + clicked_id).html(data.like);
                                     $('.likeusernameimg' + clicked_id).html(data.likeuser);
 
                                     $('.likeduserlistimg' + clicked_id).hide();
-                                    if (data.like_user_count == '0') { alert('hiiii');
+                                    if (data.like_user_count == '0') { 
                                         document.getElementById('likeusernameimg' + clicked_id).style.display = "none";
-                                    } else {alert("dsdsdd");
+                                    } else {
                                         document.getElementById('likeusernameimg' + clicked_id).style.display = "block";
                                     }
                                     $('#likeusernameimg' + clicked_id).addClass('likeduserlistimg1');
@@ -3270,7 +3270,7 @@ if (count($commnetcount) > 0) {
                        
                         function comment_likeimg(clicked_id)
                         {
-                                 alert(clicked_id);
+                                 //alert(clicked_id);
                             $.ajax({
                                 type: 'POST',
                                 url: '<?php echo base_url() . "artistic/like_commentimg1" ?>',
@@ -3281,6 +3281,21 @@ if (count($commnetcount) > 0) {
                                 }
                             });
                         }
+                        
+                        function comment_likeimgtwo(clicked_id)
+                        {// alert("hi");
+                                // alert(clicked_id);
+                            $.ajax({
+                                type: 'POST',
+                                url: '<?php echo base_url() . "artistic/like_commentimg1" ?>',
+                                data: 'post_image_comment_id=' + clicked_id,
+                                success: function (data) {
+                                    $('#' + 'likecommentimg' + clicked_id).html(data);
+
+                                }
+                            });
+                        }
+                        
                         
                          function comment_editboximg(clicked_id) {
                             document.getElementById('editcommentimg' + clicked_id).style.display = 'inline-block';
