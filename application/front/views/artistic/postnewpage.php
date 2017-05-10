@@ -1031,7 +1031,7 @@
                                                                             <?php
                                                                             if (count($commnetcount) > 1) {
                                                                                 echo "and ";
-                                                                                echo $countlike;
+                                                                                 echo '' . count($commnetcount) - 1 . '';
                                                                                 echo "&nbsp;";
                                                                                 echo "others";
                                                                             }
@@ -1072,7 +1072,7 @@
                                                                             <?php
                                                                             if (count($commnetcount) > 1) {
                                                                                 echo "and ";
-                                                                                echo $countlike;
+                                                                                 echo '' . count($commnetcount) - 1 . '';
                                                                                 echo "&nbsp;";
                                                                                 echo "others";
                                                                             }

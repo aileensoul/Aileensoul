@@ -4074,7 +4074,7 @@ echo '<pre>'; print_r($artdata); die();
                                                                             
                                                                             if (count($commnetcount) > 1) {
                                                             $cmtlikeuser .= 'and ';
-                                                            $cmtlikeuser .= '' . $countlike . '';
+                                                            $cmtlikeuser .= '' . count($commnetcount) - 1 . '';
                                                             $cmtlikeuser .= '&nbsp;';
                                                             $cmtlikeuser .= 'others';
                                                                             }
@@ -4175,8 +4175,7 @@ echo '<pre>'; print_r($artdata); die();
                                                                   
                                                      $contition_array = array('post_image_id' => $post_image, 'is_unlike' => '0');
                                                      $commnetcount = $this->common->select_data_by_condition('art_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
-                                                         // echo "hehehe";   echo '<pre>'; print_r($commnetcount); die();         
+                          //echo "hehehe";   echo '<pre>'; echo count($commnetcount); print_r($commnetcount); die();         
                                                        $art_fname = $this->db->get_where('art_reg', array('user_id' => $commnetcount[0]['user_id'], 'status' => 1))->row()->art_name;
                                                        $art_lname = $this->db->get_where('art_reg', array('user_id' => $commnetcount[0]['user_id'], 'status' => 1))->row()->art_lastname;
                                                                        
@@ -4189,7 +4188,7 @@ echo '<pre>'; print_r($artdata); die();
                                                                             
                                                                             if (count($commnetcount) > 1) {
                                                             $cmtlikeuser .= 'and ';
-                                                            $cmtlikeuser .= '' . $countlike . '';
+                                                            $cmtlikeuser .= '' . count($commnetcount) - 1 . '';
                                                             $cmtlikeuser .= '&nbsp;';
                                                             $cmtlikeuser .= 'others';
                                                                             }
