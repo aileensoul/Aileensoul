@@ -50,7 +50,7 @@ class MY_Controller extends CI_Controller {
         return $string ? implode(', ', $string) . ' ago' : 'just now';
     }
 
-    public function random_string($length = 10, $allowed_chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890') {
+    public function random_string($length = 5, $allowed_chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890') {
         $allowed_chars_len = strlen($allowed_chars);
 
         if ($allowed_chars_len == 1) {

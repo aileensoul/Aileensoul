@@ -445,10 +445,9 @@ ul.cv-btn li a i { padding-right: 6px; }
 .contact_form{    border: 5px solid white;
     border-bottom: none;}
 /* ART INFO */
-.common-form1 h3 {font-weight:bold; color:#a0b3b0;text-align: center;
-border-radius:10px; background: #fff; margin: 0; padding: 6px 15px 8px;  font-size: 20px; line-height: 28px; }
+.common-form1 h3 {font-weight:bold; color:#a0b3b0; text-align:center; border-radius:10px; background: #fff; margin: 0; padding: 6px 15px 8px;  font-size: 20px; line-height: 28px; }
 .common-form h3 { background: #000033; margin: 0; padding: 6px 15px 8px;  color: #fff; font-size: 20px; line-height: 28px; }
-#jobseeker_regform_primary{border: none !important;}
+#jobseeker_regform_primary{border: none !important; margin-bottom: 0px!important;}
 .common-form form { border: 2px solid #ddd; border-top: 0; padding: 10px;     background-color: white;}
 .none_aaaart .common-form form{border: none!important;}
 fieldset.full-width { width: 100%; }
