@@ -564,10 +564,15 @@ label.cameraButton input[accept*="camera"] {
 <div class="main_box_pdf" style="">
 <div class="main_box_img" style="">
         <a href="<?php echo base_url('business_profile/creat_pdf/'.$pdfv['image_id']) ?>"><div class="" style="margin: 0!important;">
-                                                                <img src="<?php echo base_url('images/PDF.jpg')?>" style="height: 100%; width: 100%;">
+                <img src="<?php echo base_url('images/PDF.jpg')?>" style="height: 100%; width: 100%;">
                                                               
-                                                            </div></a> </div> 
-                                                            <div class="pdf_name"><a title="Zalak infotech .in pdf" href="">Zalak infotech .in pdf</a> </div>
+          </div></a> </div> 
+          <?php 
+           $contition_array = array('business_profile_post_id' => $pdfv['post_id']);
+         $businesstitle = $this->data['businesstitle'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+          ?>
+         <div class="pdf_name"><a title="Zalak infotech .in pdf" href="<?php echo base_url('business_profile/creat_pdf/'.$pdfv['image_id']) ?>"><?php echo ucwords($businesstitle[0]['product_name']); ?></a> </div>
 </div>
         <?php } } else{?>
 

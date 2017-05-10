@@ -964,7 +964,7 @@ class Recruiter extends MY_Controller {
          $contition_array = array('status' => '1', 'is_delete' => '0');
 
 
-        $recdata = $this->data['results'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'other_skill,designation', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        $recdata = $this->data['results'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'other_skill,designation', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby='');
 
         $contition_array = array('status' => '1');
 

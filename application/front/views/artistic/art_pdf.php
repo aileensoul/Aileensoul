@@ -333,7 +333,7 @@ $followingotherdata = $this->data['followingotherdata'] =  $this->common->select
               $contition_array = array('post_id' => $val['art_post_id'], 'is_deleted' =>'1', 'image_type' => '1');
             $artmultipdf = $this->data['artmultipdf'] =  $this->common->select_data_by_condition('post_image', $contition_array, $data = '*', $sortby = 'post_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-              $multiplepdf[] = $busmultipdf;
+              $multiplepdf[] = $artmultipdf;
              }
 
                   ?>
@@ -361,8 +361,23 @@ $followingotherdata = $this->data['followingotherdata'] =  $this->common->select
                   
               ?>
 
+  <div class="main_box_pdf" style="">
+<div class="main_box_img" style="">
+        <a href="<?php echo base_url('artistic/creat_pdf/'.$pdfv['image_id']) ?>">
+        <div class="" style="margin: 0!important;">
+              <img src="<?php echo base_url('images/PDF.jpg')?>" style="height: 100%; width: 100%;">
+                                                              
+              </div></a> </div> 
 
-        <a href="<?php echo base_url('artistic/creat_pdf/'.$pdfv['image_id']) ?>">PDF</a>
+              <?php 
+              $contition_array = array('art_post_id' => $pdfv['post_id']);
+             $artistictitle = $this->data['artistictitle'] = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+              ?>
+        <div class="pdf_name"><a title="Zalak infotech .in pdf" href="<?php echo base_url('artistic/creat_pdf/'.$pdfv['image_id']) ?>"><?php echo ucwords($artistictitle[0]['art_post']); ?></a> </div>
+</div>
+
+        <!-- <a href="<?php echo base_url('artistic/creat_pdf/'.$pdfv['image_id']) ?>">
+        <div class="pdf_name"><a title="Zalak infotech .in pdf" href="">Zalak infotech .in pdf</a> </div></a> -->
 
         <?php } } else{?>
  

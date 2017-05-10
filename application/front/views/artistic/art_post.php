@@ -1147,7 +1147,7 @@
 
                                                         <!-- one image start -->
                                                         <div id="basic-responsive-image" style="height: 80%; width: 100%;">
-                                                            <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img src="<?php echo base_url(ARTPOSTIMAGE . str_replace(" ", "_", $artmultiimage[0]['image_name'])) ?>" style="width: 100%; height: 100%;"> </a>
+                                                            <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img src="<?php echo base_url(ARTPOSTIMAGE .$artmultiimage[0]['image_name']) ?>" style="width: 100%; height: 100%;"> </a>
                                                         </div>
                                                         <!-- one image end -->
 
@@ -1155,7 +1155,7 @@
 
                                                         <!-- one pdf start -->
                                                         <div>
-                                                            <a href="<?php echo base_url('artistic/creat_pdf/' . str_replace(" ", "_", $artmultiimage[0]['image_id'])) ?>"><div class="pdf_img">
+                                                            <a href="<?php echo base_url('artistic/creat_pdf/' .$artmultiimage[0]['image_id']) ?>"><div class="pdf_img">
                                                                 <img src="<?php echo base_url('images/PDF.jpg')?>" style="height: 100%; width: 100%;">
                                                             </div></a>
                                                         </div>
@@ -1166,7 +1166,7 @@
                                                         <!-- one video start -->
                                                         <div>
                                                             <video width="320" height="240" controls>
-                                                                <source src="<?php echo base_url(ARTPOSTIMAGE . str_replace(" ", "_", $artmultiimage[0]['image_name'])) ?>" type="video/mp4">
+                                                                <source src="<?php echo base_url(ARTPOSTIMAGE .$artmultiimage[0]['image_name']) ?>" type="video/mp4">
                                                                 <source src="movie.ogg" type="video/ogg">
                                                                 Your browser does not support the video tag.
                                                             </video>
@@ -1179,7 +1179,7 @@
                                                         <div>
                                                             <audio width="120" height="100" controls>
 
-                                                                <source src="<?php echo base_url(ARTPOSTIMAGE . str_replace(" ", "_", $artmultiimage[0]['image_name'])) ?>" type="audio/mp3">
+                                                                <source src="<?php echo base_url(ARTPOSTIMAGE .$artmultiimage[0]['image_name']) ?>" type="audio/mp3">
                                                                 <source src="movie.ogg" type="audio/ogg">
                                                                 Your browser does not support the audio tag.
 
@@ -1199,7 +1199,7 @@
 
                                                         <!-- two image start -->
                                                         <div  id="two_images_art" style="width: 48.8%;">
-                                                            <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="two-columns" src="<?php echo base_url(ARTPOSTIMAGE . str_replace(" ", "_", $multiimage['image_name'])) ?>" > </a>
+                                                            <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="two-columns" src="<?php echo base_url(ARTPOSTIMAGE .$multiimage['image_name']) ?>" > </a>
                                                         </div>
 
                                                         <!-- two image end -->
@@ -1211,13 +1211,13 @@
 
                                                     <!-- three image start -->
                                                     <div id="three_images_art" >
-                                                        <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="three-columns" src="<?php echo base_url(ARTPOSTIMAGE . str_replace(" ", "_", $artmultiimage[0]['image_name'])) ?>" style="width: 100%; height:100%; "> </a>
+                                                        <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="three-columns" src="<?php echo base_url(ARTPOSTIMAGE .$artmultiimage[0]['image_name']) ?>" style="width: 100%; height:100%; "> </a>
                                                     </div>
                                                     <div style="width: 49.4%; height: 35%; float: left; margin-top: 4px; margin-right: 3px;">
-                                                        <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="three-columns" src="<?php echo base_url(ARTPOSTIMAGE . str_replace(" ", "_", $artmultiimage[1]['image_name'])) ?>" style="width: 100%; height:100%; "> </a>
+                                                        <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="three-columns" src="<?php echo base_url(ARTPOSTIMAGE .$artmultiimage[1]['image_name']) ?>" style="width: 100%; height:100%; "> </a>
                                                     </div>
                                                     <div style="width: 49.4%; height: 35%; float: left; margin-top: 4px; margin-right: 3px;">
-                                                        <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="three-columns" src="<?php echo base_url(ARTPOSTIMAGE . str_replace(" ", "_", $artmultiimage[2]['image_name'])) ?>" style="width: 100%; height:100%; "> </a>
+                                                        <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="three-columns" src="<?php echo base_url(ARTPOSTIMAGE .$artmultiimage[2]['image_name']) ?>" style="width: 100%; height:100%; "> </a>
                                                     </div>
 
                                                     <!-- three image end -->
@@ -1232,7 +1232,7 @@
 
                                                         <!-- four image start -->
                                                         <div id="responsive-images-breakpoints" style="   ">
-                                                            <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="breakpoint" src="<?php echo base_url(ARTPOSTIMAGE . str_replace(" ", "_", $multiimage['image_name'])) ?>" > </a>
+                                                            <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="breakpoint" src="<?php echo base_url(ARTPOSTIMAGE .$multiimage['image_name']) ?>" > </a>
 
                                                         </div>
 
@@ -1253,7 +1253,7 @@
                                                         <!-- five image start -->
                                                         <div>
                                                             <div id="responsive-images_2-breakpoints">
-                                                                <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img src="<?php echo base_url(ARTPOSTIMAGE . str_replace(" ", "_", $multiimage['image_name'])) ?>" style=""> </a>
+                                                                <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img src="<?php echo base_url(ARTPOSTIMAGE .$multiimage['image_name']) ?>" style=""> </a>
                                                             </div>
                                                         </div>
 
@@ -1268,7 +1268,7 @@
                                                     <!-- this div view all image start -->
                                                     <div>
                                                         <div id="responsive-images_3-breakpoints" >
-                                                            <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img src="<?php echo base_url(ARTPOSTIMAGE . str_replace(" ", "_", $artmultiimage[3]['image_name'])) ?>" style=" width: 100%; height: 100%;"> </a></div>
+                                                            <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img src="<?php echo base_url(ARTPOSTIMAGE .$artmultiimage[3]['image_name']) ?>" style=" width: 100%; height: 100%;"> </a></div>
 
 
                                                         <div class="images_view_more" >
@@ -3167,7 +3167,15 @@
 
                                         var foundPresent1 = $.inArray(ext1, allowespdf) > -1;
 
-                                        if (foundPresent1 == true && fileInput.length == 1) {
+                              if (foundPresent1 == true && fileInput.length == 1) {
+
+                                          if(product_name == ''){
+                                          $('.biderror .mes').html("<div class='pop_content'>You have to add pdf title.");
+                                           $('#bidmodal').modal('show');
+                                        setInterval('window.location.reload()', 10000);
+                                       event.preventDefault();
+                                       return false;
+                                             }
                                         } else {
                                             $('.biderror .mes').html("<div class='pop_content'>sorry this is not valid file for this post please try to uplode in new post.");
                                             $('#bidmodal').modal('show');

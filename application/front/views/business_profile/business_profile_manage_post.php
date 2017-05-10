@@ -913,7 +913,7 @@
                         <div class="profile-boxProfileCard  module buisness_he_module" style="">
 
                             <div class="head_details">
-                                <a href="<?php echo base_url('business_profile/business_pdf/' . $businessdata1[0]['user_id']) ?>">   <h5><i class="fa fa-file-pdf-o" aria-hidden="true"></i>  PDF</h5></a>
+                                <a href="<?php echo base_url('business_profile/business_pdf/' . $businessdata1[0]['business_slug']) ?>">   <h5><i class="fa fa-file-pdf-o" aria-hidden="true"></i>  PDF</h5></a>
                             </div>      
                             <?php
                             $contition_array = array('user_id' => $businessdata1[0]['user_id']);
