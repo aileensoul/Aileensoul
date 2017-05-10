@@ -3767,6 +3767,15 @@ responsive image design start -->
                             var foundPresent1 = $.inArray(ext1, allowespdf) > -1;
 
                             if (foundPresent1 == true && fileInput.length == 1) {
+
+
+                                if(product_name1 == ''){
+                               $('.biderror .mes').html("<div class='pop_content'>You have to add pdf title.");
+                              $('#bidmodal').modal('show');
+                              setInterval('window.location.reload()', 10000);
+                             event.preventDefault();
+                               return false;
+                                           }
                             } else {
                                 $('.biderror .mes').html("<div class='pop_content'>sorry this is not valid file for this post please try to uplode in new post.");
                                 $('#bidmodal').modal('show');

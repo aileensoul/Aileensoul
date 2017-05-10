@@ -758,7 +758,7 @@
                                                 if ($databus) {
                                                     foreach ($databus as $data) {
                                                         ?>
-                                                        <img src="<?php echo base_url(ARTPOSTIMAGE . str_replace(" ", "_", $data['image_name'])) ?>" onclick="openModal();currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor" width="280" height="300"/>
+                                                        <img src="<?php echo base_url(ARTPOSTIMAGE . $data['image_name']) ?>" onclick="openModal();currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor" width="280" height="300"/>
 
                                                         <?php
                                                         $i++;
@@ -799,7 +799,7 @@
 
                                                         <div class="mySlides">
                                                             <div class="numbertext"><?php echo $i ?> / <?php echo count($databus1) ?></div>
-                                                            <img src="<?php echo base_url(ARTPOSTIMAGE . str_replace(" ", "_", $artdata['image_name'])) ?>" style="width:100%; height: 70%;">
+                                                            <img src="<?php echo base_url(ARTPOSTIMAGE .$artdata['image_name']) ?>" style="width:100%; height: 70%;">
 
                                                             <!-- 8-5 post art_post page data comment design start -->
                                                             <div class="post-design-like-box col-md-12">

@@ -365,7 +365,7 @@ $followingotherdata = $this->data['followingotherdata'] =  $this->common->select
 
              <div class="vidoe_tag"> 
                  <video controls>
-                    <source src="<?php echo base_url(ARTPOSTIMAGE. str_replace(" ","_",$videov['image_name']))?>" type="video/mp4">
+                    <source src="<?php echo base_url(ARTPOSTIMAGE.$videov['image_name'])?>" type="video/mp4">
                     <source src="movie.ogg" type="video/ogg">
                Your browser does not support the video tag.
                   </video>
