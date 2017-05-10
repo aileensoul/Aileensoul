@@ -179,7 +179,9 @@
     </head>
     <body>
         <!-- cover pic start -->
+        <section>
         <div class="user-midd-section " id="paddingtop_fixed">
+           
             <div class="container">
                 <div class="row">
                     <div class="col-md-4"><div class="profile-box profile-box-left">
@@ -425,7 +427,7 @@ if ($freepostdata[0]['designation']) {
                 $firstname = $this->db->get_where('freelancer_hire_reg', array('user_id' => $post['user_id']))->row()->fullname;
                 $lastname = $this->db->get_where('freelancer_hire_reg', array('user_id' => $post['user_id']))->row()->username;
                     ?>
-
+                    </li>
                             <li><a class="display_inline" title="<?php echo ucwords($firstname); ?>&nbsp;<?php echo ucwords($lastname); ?>" href="<?php echo base_url('freelancer/freelancer_hire_profile/' . $post['user_id'].'?page=freelancer_post'); ?>"><?php echo ucwords($firstname); ?>&nbsp;<?php echo ucwords($lastname); ?>
                             </a></li>
                     <!-- vishang 14-4 end -->    
@@ -540,13 +542,13 @@ $userid = $this->session->userdata('aileenuser');
                 <?php }?>
 
                                                                    </li>                        
-
+                                                                   </ul>
                                                             </div>
 
                                                         </div>
                                                         </div>
                                                     </div>
-                                        </div>
+                                        
 
 
                                                 </div>
@@ -567,6 +569,8 @@ $userid = $this->session->userdata('aileenuser');
                         </div>
                     </div>
                 </div>
+
+
                 </section>
                 <footer>
 <?php echo $footer; ?>
