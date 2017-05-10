@@ -40,11 +40,10 @@
 </script>
         -->
 <style>
-    /*body {
-        font-family: Arial, sans-serif;
-        background-size: cover;
-        height: 100vh;
-    }
+
+
+
+
 
     .box {
         width: 40%;
@@ -89,21 +88,6 @@
         text-align: center;
     }
 
-    /*   .popup .okbtn{
-           position: absolute;
-           transition: all 200ms;
-           font-size: 18px;
-           font-weight: bold;
-           text-decoration: none;
-           color: #fff;
-           padding: 8px 18px;
-           background-color: darkcyan;
-           left: 25px;
-           margin-top: 15px;
-           width: 100px; 
-           border-radius: 8px;
-       }
-    */
     .pop_content .okbtn{
         position: absolute;
         transition: all 200ms;
@@ -118,20 +102,7 @@
         border-radius: 8px;
     }
 
-    /*  .popup .cnclbtn {
-          position: absolute;
-          transition: all 200ms;
-          font-size: 18px;
-          font-weight: bold;
-          text-decoration: none;
-          color: #fff;
-          padding: 8px 18px;
-          background-color: darkcyan;
-          right: 25px;
-          margin-top: 15px;
-          width: 100px;
-          border-radius: 8px;
-      } */
+ 
     .pop_content .cnclbtn {
         position: absolute;
         transition: all 200ms;
@@ -155,16 +126,7 @@
         width:200px !important;
     }
 
-    /*
-        @media screen and (max-width: 700px){
-            .box{
-                width: 70%;
-            }
-            .popup{
-                width: 70%;
-            }
-        } */
-
+     
 
 </style>
 
@@ -205,25 +167,8 @@
                     <div class="col-md-7 col-sm-7 header-left-menu">
 
                     <ul class="fr">
-                        <li class=""><a style="       margin-top: 25px;
-    padding: 8px 17px;
-    border: none;
-    margin-right: 10px;
-    line-height: normal;
-    font-size: 15px;
-    background-color: #87ceff!important;
-    color: #FFF;
-    font-weight: 600;
-    border: 3px solid #fff; " href="<?php echo base_url('login'); ?>">Login</a></li>
-                    <li class=""><a style="       margin-top: 25px;
-    padding: 8px 17px;
-    border: none;
-    line-height: normal;
-    font-size: 15px;
-    background-color: #87ceff!important;
-    color: #FFF;
-    font-weight: 600;
-    border: 3px solid #fff; " href="<?php echo base_url('registration'); ?>">Create an account</a></li>
+                        <li class=""><a class="login_butn" href="<?php echo base_url('login'); ?>">Login</a></li>
+                    <li class=""><a class="login_butn" href="<?php echo base_url('registration'); ?>">Create an account</a></li>
                       
                     </ul>
                      
@@ -300,7 +245,7 @@
                                 <label class="login_label">
                                     Message <span class="req">*</span>
                                 </label>
-                                <div contenteditable="true" name="contact_message" class="description " id="contact_message"  style="    background-color: #fff!important;
+                                <div contenteditable="true" name="contact_message" class="description " placeholder="Enter description " id="contact_message"  style="    background-color: #fff!important;
     font-size: 18px;
    
     min-height: 150px;
@@ -368,7 +313,7 @@
                     <div class="modal fade message-box biderror" id="bidmodal" role="dialog">
                         <div class="modal-dialog modal-lm">
                             <div class="modal-content">
-                                <button type="button" class="modal-close" data-dismiss="modal" onclick="closemodel()">&times;</button>       
+                                <button  type="button" class="modal-close" data-dismiss="modal" onclick="closemodel()">&times;</button>       
                                 <div class="modal-body">
                                     <!--<img class="icon" src="images/dollar-icon.png" alt="" />-->
                                     <span class="mes"></span>
@@ -504,7 +449,7 @@ if(name == '' && email == '' && subject == '' && message == ''){
                     $('input').each(function(){
                              $(this).val('');
                              });
-                    $('.biderror .mes').html("<div class='pop_content'>Contact successfully");
+                    $('.biderror .mes').html("<div class='pop_content'>Contact successfully ");
                         $('#bidmodal').modal('show');
                        // setInterval('window.location.reload()', 800000000);
 
