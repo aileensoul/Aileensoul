@@ -4612,8 +4612,13 @@ fieldset .add_post_btns{min-width: 120px;padding:8px 30px 8px;}
     margin-top: 0px;
     margin-left: 10px;
 }
- .pdf_name a{white-space: nowrap;
+ .pdf_name a{ color: #999;
+    white-space: nowrap;
     max-width: 121px;
     display: block;
     overflow: hidden;
-    text-overflow: ellipsis;}
+    text-overflow: ellipsis;
+    font-weight: 600}
+    .main_box_img{height: 136px;
+    display: inline-block;
+    width: 136px;}
