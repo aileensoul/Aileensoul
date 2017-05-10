@@ -3523,24 +3523,32 @@
                                     event.preventDefault();
                                     return false;
                                 }
-                            } else if (foundPresentpdf == true)
-                            {
+    } else if (foundPresentpdf == true)
+        {
 
-                                var foundPresent1 = $.inArray(ext1, allowespdf) > -1;
+       var foundPresent1 = $.inArray(ext1, allowespdf) > -1;
 
-                                if (foundPresent1 == true && fileInput.length == 1) {
-                                } else {
-                                    $('.biderror .mes').html("<div class='pop_content'>sorry this is not valid file for this post please try to uplode in new post.");
-                                    $('#bidmodal').modal('show');
-                                    setInterval('window.location.reload()', 10000);
-                                    event.preventDefault();
-                                    return false;
-                                }
-                            }
+      if (foundPresent1 == true && fileInput.length == 1) {
 
-                        }
+                if(product_name == ''){
+                $('.biderror .mes').html("<div class='pop_content'>You have to add pdf title.");
+                $('#bidmodal').modal('show');
+                setInterval('window.location.reload()', 10000);
+                 event.preventDefault();
+                return false;
                     }
-                }
+        } else {
+             $('.biderror .mes').html("<div class='pop_content'>sorry this is not valid file for this post please try to uplode in new post.");
+            $('#bidmodal').modal('show');
+            setInterval('window.location.reload()', 10000);
+             event.preventDefault();
+            return false;
+            }
+        }
+
+     }
+   }
+}
 
             </script>
             <script type="text/javascript">

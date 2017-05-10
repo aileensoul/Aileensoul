@@ -992,7 +992,7 @@
                                                         <!-- one image start -->
                                                         <div id="basic-responsive-image" style="height: 50%; width: 100%;">
                                                             <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>">
-                                                                <img src="<?php echo base_url(BUSPOSTIMAGE . str_replace(" ", "_", $businessmultiimage[0]['image_name'])) ?>" style="width: 100%; height: 100%;"> 
+                                                                <img src="<?php echo base_url(BUSPOSTIMAGE .$businessmultiimage[0]['image_name']) ?>" style="width: 100%; height: 100%;"> 
                                                             </a>
                                                         </div>
                                                         <!-- one image end -->
@@ -1033,7 +1033,7 @@
                                                         <!-- two image start -->
                                                         <div  id="two_images_bui" >
                                                             <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>">
-                                                                <img class="two-columns" src="<?php echo base_url(BUSPOSTIMAGE . str_replace(" ", "_", $multiimage['image_name'])) ?>" style="width: 100%; height: 100%;"> 
+                                                                <img class="two-columns" src="<?php echo base_url(BUSPOSTIMAGE .$multiimage['image_name']) ?>" style="width: 100%; height: 100%;"> 
                                                             </a>
                                                         </div>
                                                         <!-- two image end -->
@@ -1042,17 +1042,17 @@
                                                     <!-- three image start -->
                                                     <div id="three_images_art" >
                                                         <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>">
-                                                            <img class="three-columns" src="<?php echo base_url(BUSPOSTIMAGE . str_replace(" ", "_", $businessmultiimage[0]['image_name'])) ?>" style="width: 100%; height:100%; "> 
+                                                            <img class="three-columns" src="<?php echo base_url(BUSPOSTIMAGE .$businessmultiimage[0]['image_name']) ?>" style="width: 100%; height:100%; "> 
                                                         </a>
                                                     </div>
                                                     <div style="width: 49.4%; height: 35%; float: left; margin-top: 4px; margin-right: 3px;">
                                                         <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>">
-                                                            <img class="three-columns" src="<?php echo base_url(BUSPOSTIMAGE . str_replace(" ", "_", $businessmultiimage[1]['image_name'])) ?>" style="width: 100%; height:100%; "> 
+                                                            <img class="three-columns" src="<?php echo base_url(BUSPOSTIMAGE .$businessmultiimage[1]['image_name'])?>" style="width: 100%; height:100%; "> 
                                                         </a>
                                                     </div>
                                                     <div style="width: 49.4%; height: 35%; float: left; margin-top: 4px; margin-right: 3px;">
                                                         <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_post_id']) ?>">
-                                                            <img class="three-columns" src="<?php echo base_url(BUSPOSTIMAGE . str_replace(" ", "_", $businessmultiimage[2]['image_name'])) ?>" style="width: 100%; height:100%; "> 
+                                                            <img class="three-columns" src="<?php echo base_url(BUSPOSTIMAGE .$businessmultiimage[2]['image_name']) ?>" style="width: 100%; height:100%; "> 
                                                         </a>
                                                     </div>
                                                     <!-- three image end -->
@@ -1063,7 +1063,7 @@
                                                         <!-- four image start -->
                                                         <div id="responsive_buis-images-breakpoints" style="   ">
                                                             <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>">
-                                                                <img class="breakpoint" src="<?php echo base_url(BUSPOSTIMAGE . str_replace(" ", "_", $multiimage['image_name'])) ?>" style="width: 100%; height: 100%;"> 
+                                                                <img class="breakpoint" src="<?php echo base_url(BUSPOSTIMAGE .$multiimage['image_name']) ?>" style="width: 100%; height: 100%;"> 
                                                             </a>
                                                         </div>
                                                         <!-- four image end -->
@@ -1077,7 +1077,7 @@
                                                         <div>
                                                             <div id="responsive_buis-images-breakpoints">
                                                                 <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>">
-                                                                    <img src="<?php echo base_url(BUSPOSTIMAGE . str_replace(" ", "_", $multiimage['image_name'])) ?>" style="width: 100%; height: 100%;"> 
+                                                                    <img src="<?php echo base_url(BUSPOSTIMAGE .$multiimage['image_name']) ?>" style="width: 100%; height: 100%;"> 
                                                                 </a>
                                                             </div>
                                                         </div>
@@ -1092,7 +1092,7 @@
                                                     <div>
                                                         <div id="responsive_buis-images_3-breakpoints" >
                                                             <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>">
-                                                                <img src="<?php echo base_url(BUSPOSTIMAGE . str_replace(" ", "_", $businessmultiimage[3]['image_name'])) ?>" style="width: 100%; height: 100%;"> 
+                                                                <img src="<?php echo base_url(BUSPOSTIMAGE .$businessmultiimage[3]['image_name']) ?>" style="width: 100%; height: 100%;"> 
                                                             </a>
                                                         </div>
                                                         <div class="bui_images_view_more" >
@@ -2963,6 +2963,14 @@
                 {
                     var foundPresent1 = $.inArray(ext1, allowespdf) > -1;
                     if (foundPresent1 == true && fileInput.length == 1) {
+
+                        if(product_name == ''){
+                        $('.biderror .mes').html("<div class='pop_content'>You have to add pdf title.");
+                        $('#bidmodal').modal('show');
+                        setInterval('window.location.reload()', 10000);
+                         event.preventDefault();
+                        return false;
+                            }
                     } else {
                         $('.biderror .mes').html("<div class='pop_content'>sorry this is not valid file for this post please try to uplode in new post.");
                         $('#bidmodal').modal('show');
