@@ -1150,7 +1150,13 @@ class Artistic extends MY_Controller {
             $_FILES['postattach']['error'] = $files['postattach']['error'][$i];
             $_FILES['postattach']['size'] = $files['postattach']['size'][$i];
 
-            $fileName = $title . '_' . $_FILES['postattach']['name'];
+             $store = $_FILES['postattach']['name'];
+
+            $store_ext = explode('.',$store);
+            $store_ext = end($store_ext);
+
+            $fileName = 'file_'.$title.'_'.$this->random_string().'.'.$store_ext;
+            
             $images[] = $fileName;
             $config['file_name'] = $fileName;
 

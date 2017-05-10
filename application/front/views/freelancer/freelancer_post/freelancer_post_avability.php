@@ -21,6 +21,13 @@
 
 
         <div class="user-midd-section" id="paddingtop_fixed">
+            <div class="common-form1">
+             <div class="col-md-3 col-sm-4"></div>
+                      <div class="col-md-6 col-sm-8"><h3>You are making your Freelancer Profile.</h3></div>
+            </div>
+            <br>
+            <br>
+            <br>
             <div class="container">
                 <div class="row">
                     <div class="col-md-3 col-sm-3">
@@ -153,6 +160,28 @@ $( "#tags" ).autocomplete({
 });
   
 </script>
+ <script>
+                    
+                    //select2 autocomplete start for Location
+                    $('#searchplace').select2({
+                        placeholder: 'Find Your Location',
+                        maximumSelectionLength: 1,
+                        ajax: {
+                            url: "<?php echo base_url(); ?>freelancer/location",
+                            dataType: 'json',
+                            delay: 250,
+                            processResults: function (data) {
+                                return {
+                                    //alert(data);
+                                    results: data
+                                };
+                            },
+                            cache: true
+                        }
+                    });
+                    //select2 autocomplete End for Location
+                </script>
+
  
 <script type="text/javascript">
 

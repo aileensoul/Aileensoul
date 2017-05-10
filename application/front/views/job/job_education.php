@@ -8,9 +8,10 @@
         margin: 1em auto;
         width: 80%;
     }
-
+.none_aaaart{border: 1px solid #ccc;}
     .tabordion {
-
+}
+z-index: 1;
         display: block;
         font-family: arial, sans-serif;
         margin: auto;
@@ -25,28 +26,29 @@
     }
 
     .tabordion section {
+        height: 43px;
         display: block;
     }
 
     .tabordion section .label-d {
-        background: #728bc0;
-        color: #fff;
-        border: 1px solid #fff;
-        cursor: pointer;
-        display: block;
-        font-size: 1.2em;
-        font-weight: bold;
-        padding: 17px 6px;
-        position: relative;
-        width: 220px;
-        z-index: 100;
+          background: #728bc0;
+    color: #fff;
+    border: 1px solid #fff;
+    cursor: pointer;
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 9px 6px;
+    position: relative;
+    width: 195px;
+    z-index: 1;
     }
 
     .tabordion section article {
         display: none;
         left: 230px;
         min-width: 300px;
-        padding: 0 0 0 21px;
+        padding: 0 0 0 0px;
         position: absolute;  
         top: 0;
     }
@@ -149,12 +151,12 @@
 
 <body class="page-container-bg-solid page-boxed">
 
-    <section>
+    <section style="overflow:auto;">
 
         <div class="user-midd-section" id="paddingtop_fixed">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-2 col-sm-2">
+                    <div class="col-md-3 col-sm-3">
                         <div class="job-profile-left-side-bar">
                             <div class="left-side-bar">
                                 <ul>
@@ -209,12 +211,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-10 col-sm-10">
-                        <div class="common-form">
-                            <div class="job-saved-box_2">
-                                <h3>Educational  Qualification</h3>
-                                <div class="contact-frnd-post">
-                                    <?php
+                    <div class="col-md-8 col-sm-8">
+                    <div>
+                    <?php
                                     if ($this->session->flashdata('error')) {
                                         echo '<div class="alert alert-danger">' . $this->session->flashdata('error') . '</div>';
                                     }
@@ -222,12 +221,18 @@
                                         echo '<div class="alert alert-success">' . $this->session->flashdata('success') . '</div>';
                                     }
                                     ?>
+                    </div>
+                        <div class="common-form">
+                            <div class="job-saved-boxe_2" >
+                                <h3>Educational  Qualification</h3>
+                                <div class="contact-frnd-post1" style="padding: 10px; height: 100%;">
+                                    
                                     <div class="tabordion">
 
                                         <section id="section1">
                                             <input type="radio" name="sections" id="option1" checked>
                                             <label for="option1" class="label-d">Primary</label>
-                                            <article>
+                                            <article class="none_aaaart">
 
                                                 <?php echo form_open_multipart(base_url('job/job_education_primary_insert'), array('id' => 'jobseeker_regform_primary', 'name' => 'jobseeker_regform_primary', 'class' => 'clearfix')); ?>
 
@@ -242,7 +247,7 @@
                                                 $edu_certificate_primary1 = $jobdata[0]['edu_certificate_primary'];
                                                 ?>
                                                 <fieldset class="full-width">
-                                                    <h6>Board :<span style="color:red">*</span></h6>
+                                                   <h6 style="font-size: 16px;">Board :<span style="color:red">*</span></h6>
                                                     <input type="text" name="board_primary" id="board_primary" placeholder="Enter Board" value="<?php
                                                     if ($board_primary1) {
                                                         echo $board_primary1;
@@ -251,7 +256,7 @@
                                                 </fieldset>
 
                                                 <fieldset class="full-width">
-                                                    <h6>School :<span style="color:red">*</span></h6>
+                                                   <h6 style="font-size: 16px;">School :<span style="color:red">*</span></h6>
                                                     <input type="text" name="school_primary" id="school_primary" placeholder="Enter School Name" value="<?php
                                                     if ($school_primary1) {
                                                         echo $school_primary1;
@@ -260,7 +265,7 @@
                                                 </fieldset> 
 
                                                 <fieldset class="full-width">
-                                                    <h6>Percentage :<span style="color:red">*</span></h6>
+                                                    <h6 style="font-size: 16px;">Percentage :<span style="color:red">*</span></h6>
                                                     <input type="number" name="percentage_primary" id="percentage_primary" placeholder="Enter Percentage"  value="<?php
                                                     if ($percentage_primary1) {
                                                         echo $percentage_primary1;
@@ -269,7 +274,7 @@
                                                 </fieldset>  
 
                                                 <fieldset class="full-width">
-                                                    <h6>Year Of Passing :<span style="color:red">*</span></h6>
+                                                   <h6 style="font-size: 16px;">Year Of Passing :<span style="color:red">*</span></h6>
                                                     <select name="pass_year_primary" id="pass_year_primary" class="pass_year_primary" >
                                                         <option value="" selected option disabled>--SELECT--</option>
 
@@ -297,7 +302,7 @@
                                                 </fieldset>
 
                                                 <fieldset class="full-width">
-                                                    <h6>Education Certificate:</h6>
+                                                   <h6 style="font-size: 16px;">Education Certificate:</h6>
                                                     <input type="file" name="edu_certificate_primary" id="edu_certificate_primary" class="edu_certificate_primary" placeholder="CERTIFICATE" multiple="" />
 
                                                     <?php
@@ -329,7 +334,7 @@
                                         <section id="section2">
                                             <input type="radio" name="sections" id="option2">
                                             <label for="option2" class="label-d">Secondary</label>
-                                            <article>
+                                              <article class="">
 
                                                 <?php echo form_open_multipart(base_url('job/job_education_secondary_insert'), array('id' => 'jobseeker_regform_secondary', 'name' => 'jobseeker_regform_secondary', 'class' => 'clearfix')); ?>
 
@@ -345,7 +350,7 @@
                                                 ?>
 
                                                 <fieldset class="full-width">
-                                                    <h6>Board :<span style="color:red">*</span></h6>
+                                                    <h6 style="font-size: 16px;">Board :<span style="color:red">*</span></h6>
                                                     <input type="text" name="board_secondary" id="board_secondary" placeholder="Enter Board" value="<?php
                                                     if ($board_secondary1) {
                                                         echo $board_secondary1;
@@ -354,7 +359,7 @@
                                                 </fieldset>
 
                                                 <fieldset class="full-width">
-                                                    <h6>School :<span style="color:red">*</span></h6>
+                                                    <h6 style="font-size: 16px;">School :<span style="color:red">*</span></h6>
                                                     <input type="text" name="school_secondary" id="school_secondary" placeholder="Enter School Name" value="<?php
                                                     if ($school_secondary1) {
                                                         echo $school_secondary1;
@@ -363,7 +368,7 @@
                                                 </fieldset>     
 
                                                 <fieldset class="full-width">
-                                                    <h6>Percentage :<span style="color:red">*</span></h6>
+                                                    <h6 style="font-size: 16px;">Percentage :<span style="color:red">*</span></h6>
                                                     <input type="number" name="percentage_secondary" id="percentage_secondary" placeholder="Enter Percentage"  value="<?php
                                                     if ($percentage_secondary1) {
                                                         echo $percentage_secondary1;
@@ -372,7 +377,7 @@
                                                 </fieldset>      
 
                                                 <fieldset class="full-width">
-                                                    <h6>Year Of Passing :<span style="color:red">*</span></h6>
+                                                    <h6 style="font-size: 16px;">Year Of Passing :<span style="color:red">*</span></h6>
                                                     <select name="pass_year_secondary" id="pass_year_secondary" class="pass_year_secondary" >
                                                         <option value="" selected option disabled>--SELECT--</option>
 
@@ -400,7 +405,7 @@
                                                 </fieldset>
 
                                                 <fieldset class="full-width">
-                                                    <h6>Education Certificate:</h6>
+                                                    <h6 style="font-size: 16px;">Education Certificate:</h6>
                                                     <input type="file" name="edu_certificate_secondary" id="edu_certificate_secondary" class="edu_certificate_secondary" placeholder="CERTIFICATE" multiple="" />
 
                                                     <?php
@@ -437,8 +442,7 @@
                                         <section id="section3">
                                             <input type="radio" name="sections" id="option3">
                                             <label for="option3" class="label-d">Higher Secondary</label>
-                                            <article>
-
+                                              <article class="">
 
                                                 <?php echo form_open_multipart(base_url('job/job_education_higher_secondary_insert'), array('id' => 'jobseeker_regform_higher_secondary', 'name' => 'jobseeker_regform_higher_secondary', 'class' => 'clearfix')); ?>
 
@@ -455,7 +459,7 @@
                                                 ?>
 
                                                 <fieldset class="full-width">
-                                                    <h6>Board :<span style="color:red">*</span></h6>
+                                                    <h6 style="font-size: 16px;">Board :<span style="color:red">*</span></h6>
                                                     <input type="text" name="board_higher_secondary" id="board_higher_secondary" placeholder="Enter Board" value="<?php
                                                     if ($board_higher_secondary1) {
                                                         echo $board_higher_secondary1;
@@ -464,7 +468,7 @@
                                                 </fieldset>
 
                                                 <fieldset class="full-width">
-                                                    <h6>Stream :<span style="color:red">*</span></h6>
+                                                    <h6 style="font-size: 16px;">Stream :<span style="color:red">*</span></h6>
                                                     <input type="text" name="stream_higher_secondary" id="stream_higher_secondary" placeholder="Enter Stream" value="<?php
                                                     if ($stream_higher_secondary1) {
                                                         echo $stream_higher_secondary1;
@@ -473,7 +477,7 @@
                                                 </fieldset>      
 
                                                 <fieldset class="full-width">
-                                                    <h6>School :<span style="color:red">*</span></h6>
+                                                    <h6 style="font-size: 16px;">School :<span style="color:red">*</span></h6>
                                                     <input type="text" name="school_higher_secondary" id="school_higher_secondary" placeholder="Enter School Name" value="<?php
                                                     if ($school_higher_secondary1) {
                                                         echo $school_higher_secondary1;
@@ -482,7 +486,7 @@
                                                 </fieldset>      
 
                                                 <fieldset class="full-width">
-                                                    <h6>Percentage :<span style="color:red">*</span></h6>
+                                                    <h6 style="font-size: 16px;">Percentage :<span style="color:red">*</span></h6>
                                                     <input type="number" name="percentage_higher_secondary" id="percentage_higher_secondary" placeholder="Enter Percentage"  value="<?php
                                                     if ($percentage_higher_secondary1) {
                                                         echo $percentage_higher_secondary1;
@@ -491,7 +495,7 @@
                                                 </fieldset>      
 
                                                 <fieldset class="full-width">
-                                                    <h6>Year Of Passing :<span style="color:red">*</span></h6>
+                                                    <h6 style="font-size: 16px;">Year Of Passing :<span style="color:red">*</span></h6>
                                                     <select name="pass_year_higher_secondary" id="pass_year_higher_secondary" class="pass_year_higher_secondary" >
                                                         <option value="" selected option disabled>--SELECT--</option>
 
@@ -519,7 +523,7 @@
                                                 </fieldset>
 
                                                 <fieldset class="full-width">
-                                                    <h6>Education Certificate:</h6>
+                                                    <h6 style="font-size: 16px;">Education Certificate:</h6>
                                                     <input type="file" name="edu_certificate_higher_secondary" id="edu_certificate_higher_secondary" class="edu_certificate_higher_secondary" placeholder="CERTIFICATE" multiple="" />
 
                                                     <?php
@@ -554,12 +558,12 @@
 
 
 
-                                        <section id="section4">
+                                        <section id="section4" style="overflow: auto;">
                                             <input type="radio" name="sections" id="option4">
                                             <label for="option4" class="label-d">Graduation</label>
-                                            <article>
+                                             <article class="none_aaaart">
 
-                                                <?php echo form_open_multipart(base_url('job/job_education_insert'), array('id' => 'jobseeker_regform', 'name' => 'jobseeker_regform', 'class' => 'clearfix')); ?>
+                                                <?php echo form_open_multipart(base_url('job/job_education_insert'), array('id' => 'jobseeker_regform', 'name' => 'jobseeker_regform', 'class' => 'clearfix border_none')); ?>
 
                                                 <?php
                                                 if ($jobdata1) {
@@ -580,7 +584,7 @@
                                                         ?>   
 
                                                         <fieldset class="">
-                                                            <h6>Degree :<span style="color:red">*</span></h6>
+                                                            <h6 style="font-size: 16px;">Degree :<span style="color:red">*</span></h6>
                                                             <select name="degree[]" id="<?php echo $degree_sequence ?>"  class="degree">
                                                                 <option value="">Select your degree</option>
 
@@ -612,7 +616,7 @@
 
 
                                                         <fieldset class="">
-                                                            <h6>Stream :<span style="color:red">*</span></h6>
+                                                            <h6 style="font-size: 16px;">Stream :<span style="color:red">*</span></h6>
                                                             <select name="stream[]" id="<?php echo $stream_sequence ?>" class="stream" >
 
                                                                 <?php
@@ -637,7 +641,7 @@
                                                         </fieldset>      
 
                                                         <fieldset class="">
-                                                            <h6>University :<span style="color:red">*</span></h6>
+                                                            <h6 style="font-size: 16px;">University :<span style="color:red">*</span></h6>
                                                             <select name="university[]" id="university1" class="university">
 
                                                                 <option value="" selected option disabled>Select your University</option>
@@ -665,7 +669,7 @@
                                                         </fieldset>      
 
                                                         <fieldset class="">
-                                                            <h6>College :<span style="color:red">*</span></h6>
+                                                            <h6 style="font-size: 16px;">College :<span style="color:red">*</span></h6>
 
                                                             <input type="text" name="college[]" id="college1" class="college" placeholder="Enter College" value="<?php
                                                             if ($college1) {
@@ -677,7 +681,7 @@
 
 
                                                         <fieldset class="">
-                                                            <h6>Grade :<span style="color:red">*</span></h6>
+                                                            <h6 style="font-size: 16px;">Grade :<span style="color:red">*</span></h6>
                                                             <input type="text" name="grade[]" id="grade1" class="grade" placeholder="Enter Grade" value="<?php
                                                             if ($grade1) {
                                                                 echo $grade1;
@@ -687,7 +691,7 @@
                                                         </fieldset>
 
                                                         <fieldset class="">
-                                                            <h6>Percentage :<span style="color:red">*</span></h6>
+                                                            <h6 style="font-size: 16px;">Percentage :<span style="color:red">*</span></h6>
                                                             <input type="number" name="percentage[]" id="percentage1" class="percentage" placeholder="Enter Percentage"  value="<?php
                                                             if ($percentage1) {
                                                                 echo $percentage1;
@@ -697,7 +701,7 @@
                                                         </fieldset>
 
                                                         <fieldset class="">
-                                                            <h6>Year Of Passing :<span style="color:red">*</span></h6>
+                                                            <h6 style="font-size: 16px;">Year Of Passing :<span style="color:red">*</span></h6>
                                                             <select name="pass_year[]" id="pass_year1" class="pass_year" >
                                                                 <option value="" selected option disabled>--SELECT--</option>
 
@@ -726,7 +730,7 @@
                                                         </fieldset>
 
                                                         <fieldset class="full-width">
-                                                            <h6>Education Certificate:</h6>
+                                                            <h6 style="font-size: 16px;">Education Certificate:</h6>
                                                             <input type="file" name="certificate[]" id="certificate1" class="certificate" placeholder="CERTIFICATE" multiple="" />&nbsp;&nbsp;&nbsp; <span id="certificate-error"> </span>
 
                                                             <?php
@@ -764,7 +768,7 @@
                                                     <div id="input1" style="margin-bottom:4px;" class="clonedInput">
 
                                                         <!-- <fieldset class=""> -->
-                                                        <h6>Degree :<span style="color:red">*</span></h6>
+                                                        <h6 style="font-size: 16px;">Degree :<span style="color:red">*</span></h6>
                                                         <select name="degree[]" id="degree1" class="degree">
                                                             <option value="">Select your degree</option>
 
@@ -793,7 +797,7 @@
                                                         
                                                         
                                                               <fieldset class=""> -->
-                                                        <h6>Stream :<span style="color:red">*</span></h6>
+                                                        <h6 style="font-size: 16px;">Stream :<span style="color:red">*</span></h6>
                                                         <select name="stream[]" id="stream1" class="stream" >
 
                                                             <?php
@@ -818,7 +822,7 @@
                                                         <!-- </fieldset>      
                                                   
                                                         <fieldset class=""> -->
-                                                        <h6>University :<span style="color:red">*</span></h6>
+                                                        <h6 style="font-size: 16px;">University :<span style="color:red">*</span></h6>
                                                         <select name="university[]" id="university1" class="university">
 
                                                             <option value="" selected option disabled>Select your University</option>
@@ -846,7 +850,7 @@
                                                         <!--  </fieldset>      
                                                    
                                                          <fieldset class=""> -->
-                                                        <h6>College :<span style="color:red">*</span></h6>
+                                                        <h6 style="font-size: 16px;">College :<span style="color:red">*</span></h6>
 
                                                         <input type="text" name="college[]" id="college1" class="college" placeholder="Enter College" value="<?php
                                                         if ($college1) {
@@ -858,7 +862,7 @@
                                                      
                                                      
                                                            <fieldset class=""> -->
-                                                        <h6>Grade :<span style="color:red">*</span></h6>
+                                                        <h6 style="font-size: 16px;">Grade :<span style="color:red">*</span></h6>
                                                         <input type="text" name="grade[]" id="grade1" class="grade" placeholder="Enter Grade" value="<?php
                                                         if ($grade1) {
                                                             echo $grade1;
@@ -868,7 +872,7 @@
                                                         <!-- </fieldset>
                                                   
                                                         <fieldset class=""> -->
-                                                        <h6>Percentage :<span style="color:red">*</span></h6>
+                                                        <h6 style="font-size: 16px;">Percentage :<span style="color:red">*</span></h6>
                                                         <input type="number" name="percentage[]" id="percentage1" class="percentage" placeholder="Enter Percentage"  value="<?php
                                                         if ($percentage1) {
                                                             echo $percentage1;
@@ -878,7 +882,7 @@
                                                         <!--    </fieldset>
                                                      
                                                            <fieldset class=""> -->
-                                                        <h6>Year Of Passing :<span style="color:red">*</span></h6>
+                                                        <h6 style="font-size: 16px;">Year Of Passing :<span style="color:red">*</span></h6>
                                                         <select name="pass_year[]" id="pass_year1" class="pass_year" >
                                                             <option value="" selected option disabled>--SELECT--</option>
 
@@ -908,7 +912,7 @@
                                                         <!--  </fieldset>
                                                    
                                                          <fieldset class="full-width"> -->
-                                                        <h6>Education Certificate:</h6>
+                                                        <h6 style="font-size: 16px;">Education Certificate:</h6>
                                                         <input type="file" name="certificate[]" id="certificate1" class="certificate" placeholder="CERTIFICATE" multiple="" />&nbsp;&nbsp;&nbsp; <span id="certificate-error"> </span>
 
                                                         <?php
@@ -928,7 +932,7 @@
                                                     <!--clone div End-->
 
                                                     <fieldset class="full-width">
-                                                        <h6>Add More Education</h6>
+                                                        <h6 style="font-size: 16px;">Add More Education</h6>
                                                     </fieldset>
 
                                                     <div class="fl" style="margin-right: 10px;" >
@@ -959,16 +963,30 @@
 
                                     </div>
 
+
                                     <div class="col-md-1">
                                     </div>
+
                                 </div>
+
                             </div>
 
 
+<!-- next button start -->
+<fieldset class="hs-submit full-width">
+                       
+<input type="button"  id="next" name="next" value="Next" onclick="next_page()">
+
+ </fieldset>
+<!-- next button end -->
                         </div>
                     </div>
+
                 </div>
                 </section>
+                                
+
+
                 <footer>
 
                     </body>
@@ -1501,3 +1519,30 @@
                         });
                     </script>
                     <!-- stream change depend on degeree start-->
+
+<!-- <script type="text/javascript">   
+ $(".formSentMsg").delay(3200).fadeOut(300);
+</script> -->
+
+<script type="text/javascript"> 
+ $(".alert").delay(3200).fadeOut(300);
+</script>
+
+
+<!-- script start for next button -->
+<script type="text/javascript">
+ function next_page() {
+
+// var board_primary = document.getElementById("board_primary").value;
+// var school_primary = document.getElementById("school_primary").value;
+// var percentage_primary = document.getElementById("percentage_primary").value;
+// var pass_year_primary = document.getElementById("pass_year_primary").value;
+
+window.location= "<?php echo base_url() ?>job/job_project_update";
+
+// if(board_primary == '' || school_primary == '' || percentage_primary == '' || pass_year_primary == ''){
+//     return false;
+// }
+
+ }
+ </script>

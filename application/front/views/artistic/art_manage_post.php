@@ -632,7 +632,7 @@ responsive image design start -->
                                 ?>
                                 <div class="image_profile">
 
-                                    <img src="<?php echo base_url(ARTPOSTIMAGE . str_replace(" ", "_", $mi['image_name'])) ?>" alt="img1">
+                                    <img src="<?php echo base_url(ARTPOSTIMAGE .$mi['image_name'])?>" alt="img1">
 
                                 </div>
                                 <?php
@@ -672,7 +672,7 @@ responsive image design start -->
                             }
                             ?>
                             <?php
-                            $allowesvideo = array('mp4', '3gp');
+                            $allowesvideo = array('mp4', '3gp','avi');
 
                             foreach ($multiplevideo as $mke => $mval) {
 
@@ -692,7 +692,7 @@ responsive image design start -->
                                     <?php if ($singlearray1[0]['image_name']) { ?>
                                         <td class="image_profile"> 
                                             <video  controls>
-                                                <source src="<?php echo base_url(ARTPOSTIMAGE . str_replace(" ", "_", $singlearray1[0]['image_name'])) ?>" type="video/mp4">
+                                                <source src="<?php echo base_url(ARTPOSTIMAGE .$singlearray1[0]['image_name'])?>" type="video/mp4">
                                                 <source src="movie.ogg" type="video/ogg">
                                                 Your browser does not support the video tag.
                                             </video>
@@ -702,7 +702,7 @@ responsive image design start -->
                                     <?php if ($singlearray1[1]['image_name']) { ?>
                                         <td class="image_profile">
                                             <video  controls>
-                                                <source src="<?php echo base_url(ARTPOSTIMAGE . str_replace(" ", "_", $singlearray1[1]['image_name'])) ?>" type="video/mp4">
+                                                <source src="<?php echo base_url(ARTPOSTIMAGE .$singlearray1[1]['image_name'])?>" type="video/mp4">
                                                 <source src="movie.ogg" type="video/ogg">
                                                 Your browser does not support the video tag.
                                             </video>
@@ -711,7 +711,7 @@ responsive image design start -->
                                     <?php if ($singlearray1[2]['image_name']) { ?>
                                         <td class="image_profile">
                                             <video  controls>
-                                                <source src="<?php echo base_url(ARTPOSTIMAGE . str_replace(" ", "_", $singlearray1[2]['image_name'])) ?>" type="video/mp4">
+                                                <source src="<?php echo base_url(ARTPOSTIMAGE .$singlearray1[2]['image_name'])?>" type="video/mp4">
                                                 <source src="movie.ogg" type="video/ogg">
                                                 Your browser does not support the video tag.
                                             </video>
@@ -723,7 +723,7 @@ responsive image design start -->
                                     <?php if ($singlearray1[3]['image_name']) { ?>
                                         <td class="image_profile"> 
                                             <video  controls>
-                                                <source src="<?php echo base_url(ARTPOSTIMAGE . str_replace(" ", "_", $singlearray1[3]['image_name'])) ?>" type="video/mp4">
+                                                <source src="<?php echo base_url(ARTPOSTIMAGE .$singlearray1[3]['image_name'])?>" type="video/mp4">
                                                 <source src="movie.ogg" type="video/ogg">
                                                 Your browser does not support the video tag.
                                             </video>
@@ -732,7 +732,7 @@ responsive image design start -->
                                     <?php if ($singlearray1[4]['image_name']) { ?>
                                         <td class="image_profile">
                                             <video  controls>
-                                                <source src="<?php echo base_url(ARTPOSTIMAGE . str_replace(" ", "_", $singlearray1[4]['image_name'])) ?>" type="video/mp4">
+                                                <source src="<?php echo base_url(ARTPOSTIMAGE .$singlearray1[4]['image_name'])?>" type="video/mp4">
                                                 <source src="movie.ogg" type="video/ogg">
                                                 Your browser does not support the video tag.
                                             </video>
@@ -741,7 +741,7 @@ responsive image design start -->
                                     <?php if ($singlearray1[5]['image_name']) { ?>
                                         <td class="image_profile">
                                             <video  controls>
-                                                <source src="<?php echo base_url(ARTPOSTIMAGE . str_replace(" ", "_", $singlearray1[5]['image_name'])) ?>" type="video/mp4">
+                                                <source src="<?php echo base_url(ARTPOSTIMAGE .$singlearray1[5]['image_name'])?>" type="video/mp4">
                                                 <source src="movie.ogg" type="video/ogg">
                                                 Your browser does not support the video tag.
                                             </video>
@@ -800,7 +800,7 @@ responsive image design start -->
                                             <video  controls>
 
 
-                                                <source src="<?php echo base_url(ARTPOSTIMAGE . str_replace(" ", "_", $singlearray2[0]['image_name'])) ?>" type="audio/mp3"">
+                                                <source src="<?php echo base_url(ARTPOSTIMAGE . $singlearray2[0]['image_name'])?>" type="audio/mp3"">
                                                 <source src="movie.ogg" type="audio/mp3">
                                                 Your browser does not support the audio tag.
                                             </video>
@@ -810,7 +810,7 @@ responsive image design start -->
                                     <?php if ($singlearray2[1]['image_name']) { ?>
                                         <td class="image_profile">
                                             <video  controls>
-                                                <source src="<?php echo base_url(ARTPOSTIMAGE . str_replace(" ", "_", $singlearray2[1]['image_name'])) ?>" type="audio/mp3"">
+                                                <source src="<?php echo base_url(ARTPOSTIMAGE .$singlearray2[1]['image_name'])?>" type="audio/mp3"">
                                                 <source src="movie.ogg" type="audio/mp3">
                                                 Your browser does not support the audio tag.
                                             </video>
@@ -819,7 +819,7 @@ responsive image design start -->
                                     <?php if ($singlearray2[2]['image_name']) { ?>
                                         <td class="image_profile">
                                             <video  controls>
-                                                <source src="<?php echo base_url(ARTPOSTIMAGE . str_replace(" ", "_", $singlearray2[2]['image_name'])) ?> type="audio/mp3"">
+                                                <source src="<?php echo base_url(ARTPOSTIMAGE .$singlearray2[2]['image_name'])?> type="audio/mp3"">
                                                         <source src="movie.ogg" type="audio/mp3">
                                                 Your browser does not support the audio tag.
                                             </video>
@@ -831,7 +831,7 @@ responsive image design start -->
                                     <?php if ($singlearray2[3]['image_name']) { ?>
                                         <td class="image_profile"> 
                                             <video  controls>
-                                                <source src="<?php echo base_url(ARTPOSTIMAGE . str_replace(" ", "_", $singlearray2[3]['image_name'])) ?>" type="video/mp4">
+                                                <source src="<?php echo base_url(ARTPOSTIMAGE .$singlearray2[3]['image_name'])?>" type="video/mp4">
                                                 <source src="movie.ogg" type="audio/mp3">
                                                 Your browser does not support the audio tag.
                                             </video>
@@ -840,7 +840,7 @@ responsive image design start -->
                                     <?php if ($singlearray2[4]['image_name']) { ?>
                                         <td class="image_profile">
                                             <video  controls>
-                                                <source src="<?php echo base_url(ARTPOSTIMAGE . str_replace(" ", "_", $singlearray2[4]['image_name'])) ?>" type="audio/mp3"">
+                                                <source src="<?php echo base_url(ARTPOSTIMAGE .$singlearray2[4]['image_name']) ?>" type="audio/mp3"">
                                                 <source src="movie.ogg" type="audio/mp3">
                                                 Your browser does not support the audio tag.
                                             </video>
@@ -849,7 +849,7 @@ responsive image design start -->
                                     <?php if ($singlearray2[5]['image_name']) { ?>
                                         <td class="image_profile">
                                             <video  controls>
-                                                <source src="<?php echo base_url(ARTPOSTIMAGE . str_replace(" ", "_", $singlearray2[5]['image_name'])) ?>" type="audio/mp3"">
+                                                <source src="<?php echo base_url(ARTPOSTIMAGE .$singlearray2[5]['image_name'])?>" type="audio/mp3"">
                                                 <source src="movie.ogg" type="audio/mp3">
                                                 Your browser does not support the audio tag.
                                             </video>
@@ -939,7 +939,7 @@ responsive image design start -->
 
                 <div class="post-editor col-md-12">
                     <div class="main-text-area col-md-12">
-                        <div class="popup-img col-md-1"> <img  src="<?php echo base_url(USERIMAGE . $artisticdata[0]['art_user_image']); ?>"  alt="" style=" margin-left: -7px;
+                        <div class="popup-img col-md-1"> <img  src="<?php echo base_url(ARTISTICIMAGE . $artisticdata[0]['art_user_image']); ?>"  alt="" style=" margin-left: -7px;
                                                                margin-top: 6px;
                                                                ">
                         </div>
@@ -985,10 +985,7 @@ responsive image design start -->
                        
                            <input type="file" id="files" name="postattach[]" multiple style="display:block;">  </span> -->
                             <div class="col-md-1" style="padding-left: 0px;"><i class=" fa fa-camera "  style="margin: 0px;
-                                                                                font-size: 27px;
-                                                                                cursor: pointer;
-                                                                                /* margin-right: -38px; */
-                                                                                margin-top: 25px;"></i> </div>
+                                  font-size: 27px; cursor: pointer; /* margin-right: -38px; */ margin-top: 25px;"></i> </div>
 
                         </div>
                         <div class="row"></div>
@@ -1082,43 +1079,39 @@ responsive image design start -->
                                         </div>
 
 
-                                        <div class="post-design-name fl col-md-9">
-                                            <ul>
-                                                <li><span>
-                                                        <?php
-                                                        $firstname = $this->db->get_where('art_reg', array('user_id' => $row['user_id']))->row()->art_name;
-                                                        $lastname = $this->db->get_where('art_reg', array('user_id' => $row['user_id']))->row()->art_lastname;
+    <div class="post-design-name fl col-md-9">
+    <ul>
+     <li><span>
+        <?php
+        $firstname = $this->db->get_where('art_reg', array('user_id' => $row['user_id']))->row()->art_name;
+     $lastname = $this->db->get_where('art_reg', array('user_id' => $row['user_id']))->row()->art_lastname;
 
-                                                        $firstnameposted = $this->db->get_where('art_reg', array('user_id' => $row['posted_user_id']))->row()->art_name;
-                                                        $lastnameposted = $this->db->get_where('art_reg', array('user_id' => $row['posted_user_id']))->row()->art_lastname;
+        $firstnameposted = $this->db->get_where('art_reg', array('user_id' => $row['posted_user_id']))->row()->art_name;
+         $lastnameposted = $this->db->get_where('art_reg', array('user_id' => $row['posted_user_id']))->row()->art_lastname;
                                                         ?>
                                                     </span>
 
                                                     <!-- other user post time name strat-->
 
-                                                    <?php if ($row['posted_user_id']) { ?>
+        <?php if ($row['posted_user_id']) { ?>
 
-                                                        <div class="else_post_d">
-                                                            <a  class="post_dot" title="<?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?>" href="<?php echo base_url('artistic/art_manage_post/' . $row['posted_user_id']); ?>"><?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?> </a><span style="font-weight: 600;"> Posted With 
-                                                            </span><a class="post_dot"  href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>"><?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?></a><span role="presentation" aria-hidden="true" style="color: #91949d; font-size: 14px;"> · </span>
-                                                            <span style="color: #91949d;
-                                                                  font-size: 14px;"> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span>
+            <div class="else_post_d">
+          <a  class="post_dot" title="<?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?>" href="<?php echo base_url('artistic/art_manage_post/' . $row['posted_user_id']); ?>"><?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?> </a><span style="font-weight: 600;"> Posted With 
+             </span><a class="post_dot"  href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>"><?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?></a><span role="presentation" aria-hidden="true" style="color: #91949d; font-size: 14px;"> · </span>
+             <span style="color: #91949d; font-size: 14px;"> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span>
                                                         </div>
 
                                                         <!-- other user post time name end-->
-                                                    <?php } else { ?>
+         <?php } else { ?>
 
-                                                        <a   class="post_dot" title="<?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?>
-                                                             "   href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>">
-                                                                 <?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?>
+<a  class="post_dot" title="<?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?>"   href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>">
+             <?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?>
 
-                                                        </a>
-                                                        <div class="datespan">
-                                                            <span style="font-weight: 400;
-                                                                  font-size: 14px;
-                                                                  color: #91949d;""> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span></div>
+</a>
+ <div class="datespan">
+ <span style="font-weight: 400; font-size: 14px; color: #91949d;""> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span></div>
 
-                                                    <?php } ?>                          
+    <?php } ?>                          
                                                 </li>
                                                 <li>
                                                 <!--     <div id="<?php echo 'editpostdata' . $row['art_post_id']; ?>" style="display:block;">
@@ -1211,27 +1204,27 @@ responsive image design start -->
                                                 <?php
                                                 $allowed = array('gif', 'png', 'jpg');
                                                 $allowespdf = array('pdf');
-                                                $allowesvideo = array('mp4', '3gp');
+                                                $allowesvideo = array('mp4', '3gp', 'avi');
                                                 $allowesaudio = array('mp3');
                                                 $filename = $artmultiimage[0]['image_name'];
                                                 $ext = pathinfo($filename, PATHINFO_EXTENSION);
 
-                                                if (in_array($ext, $allowed)) {
-                                                    ?>
+         if (in_array($ext, $allowed)) {
+                ?>
 
                                                     <!-- one image start -->
-                                                    <div id="basic-responsive-image" style="height: 80%; width: 100%;">
-                                                        <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img src="<?php echo base_url(ARTPOSTIMAGE . str_replace(" ", "_", $artmultiimage[0]['image_name'])) ?>" style="width: 100%; height: 100%;"> </a>
+            <div id="basic-responsive-image" style="height: 80%; width: 100%;">
+             <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img src="<?php echo base_url(ARTPOSTIMAGE .$artmultiimage[0]['image_name'])?>" style="width: 100%; height: 100%;"> </a>
                                                     </div>
                                                     <!-- one image end -->
 
                                                 <?php } elseif (in_array($ext, $allowespdf)) { ?>
 
                                                     <!-- one pdf start -->
-                                                    <div>
-                                                        <a href="<?php echo base_url('artistic/creat_pdf/' . $artmultiimage[0]['image_id']) ?>"><div class="pdf_img">
-                                                                <img src="<?php echo base_url('images/PDF.jpg')?>" style="height: 100%; width: 100%;">
-                                                            </div></a>
+             <div>
+            <a href="<?php echo base_url('artistic/creat_pdf/' . $artmultiimage[0]['image_id']) ?>"><div class="pdf_img">
+                <img src="<?php echo base_url('images/PDF.jpg')?>" style="height: 100%; width: 100%;">
+                                </div></a>
                                                     </div>
                                                     <!-- one pdf end -->
 
@@ -1242,24 +1235,24 @@ responsive image design start -->
                                                         <video width="100%" height="55%" controls>
 
 
-                                                            <source src="<?php echo base_url(ARTPOSTIMAGE . str_replace(" ", "_", $artmultiimage[0]['image_name'])) ?>" type="video/mp4">
-                                                            <source src="movie.ogg" type="video/ogg">
-                                                            Your browser does not support the video tag.
-                                                        </video>
-                                                    </div>
+                        <source src="<?php echo base_url(ARTPOSTIMAGE .$artmultiimage[0]['image_name']) ?>" type="video/mp4">
+                        <source src="movie.ogg" type="video/ogg">
+                        Your browser does not support the video tag.
+                         </video>
+                    </div>
                                                     <!-- one video end -->
 
-                                                <?php } elseif (in_array($ext, $allowesaudio)) { ?>
+                <?php } elseif (in_array($ext, $allowesaudio)) { ?>
 
                                                     <!-- one audio start -->
-                                                    <div>
-                                                        <audio width="120" height="100" controls>
+                                 <div>
+                        <audio width="120" height="100" controls>
 
-                                                            <source src="<?php echo base_url(ARTPOSTIMAGE . $artmultiimage[0]['image_name']); ?>" type="audio/mp3">
-                                                            <source src="movie.ogg" type="audio/ogg">
-                                                            Your browser does not support the audio tag.
+                    <source src="<?php echo base_url(ARTPOSTIMAGE . $artmultiimage[0]['image_name']); ?>" type="audio/mp3">
+                    <source src="movie.ogg" type="audio/ogg">
+                        Your browser does not support the audio tag.
 
-                                                        </audio>
+             </audio>
 
                                                     </div>
 
@@ -1275,7 +1268,7 @@ responsive image design start -->
 
                                                     <!-- two image start -->
                                                     <div  id="two_manage_images_art" >
-                                                        <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="two-columns" src="<?php echo base_url(ARTPOSTIMAGE . str_replace(" ", "_", $multiimage['image_name'])) ?>" > </a>
+                                                        <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="two-columns" src="<?php echo base_url(ARTPOSTIMAGE .$multiimage['image_name']) ?>" > </a>
                                                     </div>
 
                                                     <!-- two image end -->
@@ -1287,14 +1280,14 @@ responsive image design start -->
 
                                                 <!-- three image start -->
                                                 <div id="three_images_art" >
-                                                    <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="three-columns" src="<?php echo base_url(ARTPOSTIMAGE . str_replace(" ", "_", $artmultiimage[0]['image_name'])) ?>" style="width: 100%; height:100%; "> </a>
+                                                    <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="three-columns" src="<?php echo base_url(ARTPOSTIMAGE .$artmultiimage[0]['image_name']) ?>" style="width: 100%; height:100%; "> </a>
                                                 </div>
                                                 <div  id="three_images_2_art">
-                                                    <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="three-columns" src="<?php echo base_url(ARTPOSTIMAGE . str_replace(" ", "_", $artmultiimage[1]['image_name'])) ?>" style="width: 100%; height:100%; "> </a>
+                                                    <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="three-columns" src="<?php echo base_url(ARTPOSTIMAGE . $artmultiimage[1]['image_name'])?>" style="width: 100%; height:100%; "> </a>
                                                 </div>
 
                                                 <div  id="three_images_2_art">
-                                                    <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="three-columns" src="<?php echo base_url(ARTPOSTIMAGE . str_replace(" ", "_", $artmultiimage[2]['image_name'])) ?>" style="width: 100%; height:100%; "> </a>
+                                                    <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="three-columns" src="<?php echo base_url(ARTPOSTIMAGE . $artmultiimage[2]['image_name'])?>" style="width: 100%; height:100%; "> </a>
                                                 </div>
 
                                                 <!-- three image end -->
@@ -1309,7 +1302,7 @@ responsive image design start -->
 
                                                     <!-- four image start -->
                                                     <div id="responsive_manage-images-breakpoints" style="   ">
-                                                        <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="breakpoint" src="<?php echo base_url(ARTPOSTIMAGE . str_replace(" ", "_", $multiimage['image_name'])) ?>" style="width: 100%; height: 100%;"> </a>
+                                                        <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="breakpoint" src="<?php echo base_url(ARTPOSTIMAGE . $multiimage['image_name'])?>" style="width: 100%; height: 100%;"> </a>
 
                                                     </div>
 
@@ -1330,7 +1323,7 @@ responsive image design start -->
                                                     <!-- five image start -->
                                                     <div>
                                                         <div id="responsive-manage_images_2-breakpoints">
-                                                            <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img src="<?php echo base_url(ARTPOSTIMAGE . str_replace(" ", "_", $multiimage['image_name'])) ?>" style=""> </a>
+                                                            <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img src="<?php echo base_url(ARTPOSTIMAGE . $multiimage['image_name']) ?>" style=""> </a>
                                                         </div>
                                                     </div>
 
@@ -1345,7 +1338,7 @@ responsive image design start -->
                                                 <!-- this div view all image start -->
                                                 <div>
                                                     <div id="responsive-manage_images_3-breakpoints" >
-                                                        <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img src="<?php echo base_url(ARTPOSTIMAGE . str_replace(" ", "_", $artmultiimage[3]['image_name'])) ?>" > </a></div>
+                                                        <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img src="<?php echo base_url(ARTPOSTIMAGE .$artmultiimage[3]['image_name'])?>" > </a></div>
 
 
                                                     <div class="manage_images_view_more" >
@@ -1572,47 +1565,46 @@ responsive image design start -->
 //                                                                echo '</br>';
                                                                 ?>
                                                             </div>
-                                                            <!--                                                            <div class="col-md-12">
-                                                                                                                            <div class="col-md-10"> 
-                                                                                                                                <textarea type="text" name="<?php echo $rowdata['artistic_post_comment_id']; ?>" id="<?php echo "editcomment" . $rowdata['artistic_post_comment_id']; ?>" style="display:none"  onClick="commentedit(this.name)"><?php echo $rowdata['comments']; ?></textarea>                            
+                                                            <!-- <div class="col-md-12">
+                                                               <div class="col-md-10"> 
+                                                           <textarea type="text" name="<?php echo $rowdata['artistic_post_comment_id']; ?>" id="<?php echo "editcomment" . $rowdata['artistic_post_comment_id']; ?>" style="display:none"  onClick="commentedit(this.name)"><?php echo $rowdata['comments']; ?></textarea>                            
                                                             
-                                                                                                                            </div>
+                                                               </div>
                                                             
-                                                                                                                            <div class="col-md-2 comment-edit-button">
-                                                                                                                                <button id="<?php echo "editsubmit" . $rowdata['artistic_post_comment_id']; ?>" style="display:none" onClick="edit_comment(<?php echo $rowdata['artistic_post_comment_id']; ?>)">Comment</button>
-                                                                                                                            </div>
+                                                              <div class="col-md-2 comment-edit-button">
+                                                         <button id="<?php echo "editsubmit" . $rowdata['artistic_post_comment_id']; ?>" style="display:none" onClick="edit_comment(<?php echo $rowdata['artistic_post_comment_id']; ?>)">Comment</button>
+                                                        </div>
                                                             
-                                                                                                                        </div>-->
+                                                          </div>-->
                                                             <div class="edit-comment-box">
                                                                 <div class="inputtype-edit-comment">
                                                                     <!--<textarea type="text" class="textarea" name="<?php echo $rowdata['artistic_post_comment_id']; ?>" id="<?php echo "editcomment" . $rowdata['artistic_post_comment_id']; ?>" style="display:none;resize: none;" onClick="commentedit(this.name)"><?php echo $rowdata['comments']; ?></textarea>-->
-                                                                    <div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="<?php echo $rowdata['artistic_post_comment_id']; ?>"  id="<?php echo "editcomment" . $rowdata['artistic_post_comment_id']; ?>" placeholder="Enter Your Comment " value= ""  onkeyup="commentedit(<?php echo $rowdata['artistic_post_comment_id']; ?>)"><?php echo $rowdata['comments']; ?></div>
-                                                                    <span class="comment-edit-button"><button id="<?php echo "editsubmit" . $rowdata['artistic_post_comment_id']; ?>" style="display:none" onClick="edit_comment(<?php echo $rowdata['artistic_post_comment_id']; ?>)">Save</button></span>
+         <div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="<?php echo $rowdata['artistic_post_comment_id']; ?>"  id="<?php echo "editcomment" . $rowdata['artistic_post_comment_id']; ?>" placeholder="Enter Your Comment " value= ""  onkeyup="commentedit(<?php echo $rowdata['artistic_post_comment_id']; ?>)"><?php echo $rowdata['comments']; ?></div>
+            <span class="comment-edit-button"><button id="<?php echo "editsubmit" . $rowdata['artistic_post_comment_id']; ?>" style="display:none" onClick="edit_comment(<?php echo $rowdata['artistic_post_comment_id']; ?>)">Save</button></span>
                                                                 </div>
                                                             </div>
 
-                                                            <div class="art-comment-menu-design"> 
-                                                                <div class="comment-details-menu" id="<?php echo 'likecomment1' . $rowdata['artistic_post_comment_id']; ?>">
-                                                                    <a id="<?php echo $rowdata['artistic_post_comment_id']; ?>"   onClick="comment_like1(this.id)">
+  <div class="art-comment-menu-design"> 
+             <div class="comment-details-menu" id="<?php echo 'likecomment1' . $rowdata['artistic_post_comment_id']; ?>">
+     <a id="<?php echo $rowdata['artistic_post_comment_id']; ?>"   onClick="comment_like1(this.id)">
 
-                                                                        <?php
-                                                                        $userid = $this->session->userdata('aileenuser');
-                                                                        $contition_array = array('artistic_post_comment_id' => $rowdata['artistic_post_comment_id'], 'status' => '1');
-                                                                        $artcommentlike = $this->data['artcommentlike'] = $this->common->select_data_by_condition('artistic_post_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-                                                                        $likeuserarray = explode(',', $artcommentlike[0]['artistic_comment_like_user']);
+                 <?php
+                 $userid = $this->session->userdata('aileenuser');
+         $contition_array = array('artistic_post_comment_id' => $rowdata['artistic_post_comment_id'], 'status' => '1');
+                    $artcommentlike = $this->data['artcommentlike'] = $this->common->select_data_by_condition('artistic_post_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                    $likeuserarray = explode(',', $artcommentlike[0]['artistic_comment_like_user']);
 
-                                                                        if (!in_array($userid, $likeuserarray)) {
-                                                                            ?>
-
-                                                                            <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i> 
-                                                                        <?php } else {
-                                                                            ?>
-                                                                            <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-                                                                        <?php }
-                                                                        ?>
-                                                                        <span>
-                                                                            <?php
-                                                                            if ($rowdata['artistic_comment_likes_count'] > 0) {
+             if (!in_array($userid, $likeuserarray)) {
+                          ?>
+ <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i> 
+     <?php } else {
+         ?>
+                <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+             <?php }
+   ?>
+ <span>
+<?php
+            if ($rowdata['artistic_comment_likes_count'] > 0) {
                                                                                 echo $rowdata['artistic_comment_likes_count'];
                                                                             }
                                                                             ?>
@@ -3775,6 +3767,15 @@ responsive image design start -->
                             var foundPresent1 = $.inArray(ext1, allowespdf) > -1;
 
                             if (foundPresent1 == true && fileInput.length == 1) {
+
+
+                                if(product_name1 == ''){
+                               $('.biderror .mes').html("<div class='pop_content'>You have to add pdf title.");
+                              $('#bidmodal').modal('show');
+                              setInterval('window.location.reload()', 10000);
+                             event.preventDefault();
+                               return false;
+                                           }
                             } else {
                                 $('.biderror .mes').html("<div class='pop_content'>sorry this is not valid file for this post please try to uplode in new post.");
                                 $('#bidmodal').modal('show');
@@ -3867,6 +3868,25 @@ responsive image design start -->
           }
         </script>
 
+
+<!-- scrtipt for count title number start -->
+
+<script language=JavaScript>
+                function check_length(my_form) {
+                    maxLen = 50; // max number of characters allowed
+                    if (my_form.my_text.value.length >= maxLen) {
+                        // Alert message if maximum limit is reached. 
+                        // If required Alert can be removed. 
+                        var msg = "You have reached your maximum limit of characters allowed";
+                        //alert(msg);
+                        // Reached the Maximum length so trim the textarea
+                        my_form.my_text.value = my_form.my_text.value.substring(0, maxLen);
+                    } else { // Maximum length not reached so update the value of my_text counter
+                        my_form.text_num.value = maxLen - my_form.my_text.value.length;
+                    }
+                }
+            </script>
+<!-- script end -->
         <style type="text/css">
             .likeduser{
                 width: 100%;

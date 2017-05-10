@@ -496,10 +496,10 @@ echo $freelancer_hire_header2;} ?>
                                                                 </li>
                                                                 <!-- vishang 14-4 start -->
                                                                 <li>
-                                                                    <b>Required Experience</b>
-                                                                    <span>
-                                                                        <?php if($post['post_exp_month'] ||  $post['post_exp_year']){
-            echo $post['post_exp_year'];   ?> year&nbsp;&nbsp;<?php  echo $post['post_exp_month'] ." month";}
+                                            <b>Required Experience</b>
+                                                     <span>
+                                             <?php if($post['post_exp_month'] ||  $post['post_exp_year']){
+            echo $post['post_exp_year'];?>&nbsp;&nbsp;<?php  echo $post['post_exp_month'];}
                 else{echo PROFILENA;} ?> 
                                                                     </span>
                                                                 </li>

@@ -10,29 +10,10 @@
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i" rel="stylesheet"> 
 </head>
 <body>
-	<header>
-		<div class="header">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-4 col-sm-5">
-						<div class="logo"><a href="<?php echo base_url('dashboard') ?>"><img src="images/logo.png"></a></div>
-					</div>
-					<div class="col-md-8 col-sm-7">
-						<ul>
-							<li><a href="<?php echo base_url('dashboard') ?>">Dashborad</a></li>
-							<li><a href="#">Notification <i class="fa fa-bell-slash-o" aria-hidden="true"></i></a></li>
-							<li><a href="#">Inbox <i class="fa fa-commenting" aria-hidden="true"></i></a></li>
-							<li><a href="#">Friend Request <i class="fa fa-user" aria-hidden="true"></i></a></li>
-							<li><a href="#">Masari Odedara <i class="fa fa-angle-down" aria-hidden="true"></i></a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</header>
+	
 	<section>
 		<div class="freelancer-banner">
-			<div class="container">
+			<div class="container" >
 				<div class="row">
 					<div class="col-md-12">
 						<form>
@@ -48,7 +29,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="user-midd-section">
+		<div class="user-midd-section" >
 			<div class="container">
 				<div class="row">
 					<div class="col-md-3 col-sm-3">

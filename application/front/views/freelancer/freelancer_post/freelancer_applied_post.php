@@ -494,9 +494,9 @@ function text2link($text) {
 
                                                 </div>
                                                 </div>
-                                    </div>
+                                    
 
-                                </div>
+                                
     <?php }
 } else {
     ?>
@@ -509,6 +509,9 @@ function text2link($text) {
                 </div>
             </div>
         </div>
+
+    </div>
+    </div>
     </div>
 </section>
 <footer>

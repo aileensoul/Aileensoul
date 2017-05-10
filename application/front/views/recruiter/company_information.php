@@ -15,8 +15,15 @@
       <section>
         
         <div class="user-midd-section" id="paddingtop_fixed">
+           <div class="common-form1">
+             <div class="col-md-3 col-sm-4"></div>
+                      <div class="col-md-6 col-sm-8"><h3>You are making your Recruiter Profile.</h3></div>
+            </div>
+            <br>
+            <br>
+            <br>
             <div class="container">
-                <div class="row">
+                <div class="row2">
                     <div class="col-md-3 col-sm-4">
                         <div class="left-side-bar">
                             <ul>
@@ -43,11 +50,13 @@
 			    <div class="common-form">
                 <h3>Company information</h3>
 				 <?php echo form_open(base_url('recruiter/company_info_store'), array('id' => 'basicinfo','name' => 'basicinfo','class' => 'clearfix')); ?>
-               <div>
+                                <!-- <div>
                                    <span style="color:#7f7f7e;padding-left: 8px;">( </span><span style="color:red">*</span><span style="color:#7f7f7e"> )</span> <span style="color:#7f7f7e">Indicates required field</span>
-                                </div>
+                                </div> -->
 
-				 	
+				 	<div> <span class="required_field" >( <span style="color: red">*</span> ) Indicates required field</span></div>
+
+
                     <?php
                          $comp_name =  form_error('comp_name');
                          $comp_email =  form_error('comp_email');

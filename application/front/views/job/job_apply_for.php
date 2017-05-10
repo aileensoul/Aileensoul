@@ -20,7 +20,7 @@
 
         <div class="user-midd-section" id="paddingtop_fixed">
             <div class="container">
-                <div class="row">
+                <div class="row2">
                     <div class="col-md-3 col-sm-4">
                         <div class="left-side-bar">
 
@@ -79,16 +79,19 @@
                             <div class="common-form">
                                 <h3>Apply For</h3>
 <?php echo form_open(base_url('job/job_apply_for_insert'), array('id' => 'jobseeker_regform', 'name' => 'jobseeker_regform', 'class' => 'clearfix')); ?>
-  <div>
+                                <!-- <div>
                                    <span style="color:#7f7f7e;padding-left: 8px;">( </span><span style="color:red">*</span><span style="color:#7f7f7e"> )</span> <span style="color:#7f7f7e">Indicates required field</span>
-                                </div>
+                                </div> -->
+
+                          
+                          <div> <span class="required_field" >( <span style="color: red">*</span> ) Indicates required field</span></div>
 
 
                                 <fieldset class="full-width">
                                     <label>Apply For<span style="color:red">*</span></label>
 
 
-                                    <select name="ApplyFor" id="ApplyFor" style="width:500px">
+                                    <select name="ApplyFor" id="ApplyFor" style="width:100%;">
 <?php
 foreach ($postskill as $post_key => $post_value) {
 
@@ -286,4 +289,8 @@ foreach ($postskill as $post_key => $post_value) {
     var complex = <?php echo json_encode($selectdata); ?>;
     $('#ApplyFor').select2().select2('val', complex)
 //select2 autocomplete start for apply for End
+</script>
+
+<script type="text/javascript"> 
+ $(".alert").delay(3200).fadeOut(300);
 </script>

@@ -797,40 +797,8 @@
                                                     </div>
                                                 </div>
                                                 <!-- pop up box end-->
-                                                <!-- pop up box start-->
-                                                <div id="<?php echo "popup2" . $row['business_profile_post_id']; ?>" class="overlay">
-                                                    <div class="popup">
-                                                        <div class="pop_content">
-                                                            Are You Sure want to delete this post?.
-                                                            <p class="okk">
-                                                                <a class="okbtn" id="<?php echo $row['business_profile_post_id']; ?>" onClick="remove_post(this.id)" href="#">Yes
-                                                                </a>
-                                                            </p>
-                                                            <p class="okk">
-                                                                <a class="cnclbtn" href="#">No
-                                                                </a>
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- pop up box end-->
-                                                <!-- pop up box start-->
-                                                <div id="<?php echo "popup5" . $row['business_profile_post_id']; ?>" class="overlay">
-                                                    <div class="popup">
-                                                        <div class="pop_content">
-                                                            Are You Sure want to delete this post from your profile?.
-                                                            <p class="okk">
-                                                                <a class="okbtn" id="<?php echo $row['business_profile_post_id']; ?>" onClick="del_particular_userpost(this.id)" href="#">OK
-                                                                </a>
-                                                            </p>
-                                                            <p class="okk">
-                                                                <a class="cnclbtn" href="#">Cancel
-                                                                </a>
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- pop up box end-->
+                                                
+                                                
                                                 <?php
                                                 $business_userimage = $this->db->get_where('business_profile', array('user_id' => $row['user_id'], 'status' => 1))->row()->business_user_image;
                                                 $userimageposted = $this->db->get_where('business_profile', array('user_id' => $row['posted_user_id']))->row()->business_user_image;
@@ -914,7 +882,7 @@
                                                 </a>
                                                 <div id="<?php echo "myDropdown" . $row['business_profile_post_id']; ?>" class="dropdown-content1">
                                                     <?php if ($this->session->userdata('aileenuser') == $row['user_id']) { ?> 
-                                                        <a href="<?php echo "#popup2" . $row['business_profile_post_id']; ?>">
+                                                    <a onclick="user_postdelete(<?php echo $row['business_profile_post_id']; ?>)">
                                                             <i class="fa fa-trash-o" aria-hidden="true">
                                                             </i> Delete Post
                                                         </a>
@@ -923,7 +891,7 @@
                                                             </i>Edit
                                                         </a>
                                                     <?php } else { ?>
-                                                        <a href="<?php echo "#popup5" . $row['business_profile_post_id']; ?>">
+    <a onclick="user_postdeleteparticular(<?php echo $row['business_profile_post_id']; ?>)">
                                                             <i class="fa fa-trash-o" aria-hidden="true">
                                                             </i> Delete Post
                                                         </a>
@@ -992,7 +960,7 @@
                                                         <!-- one image start -->
                                                         <div id="basic-responsive-image" style="height: 50%; width: 100%;">
                                                             <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>">
-                                                                <img src="<?php echo base_url(BUSPOSTIMAGE . str_replace(" ", "_", $businessmultiimage[0]['image_name'])) ?>" style="width: 100%; height: 100%;"> 
+                                                                <img src="<?php echo base_url(BUSPOSTIMAGE .$businessmultiimage[0]['image_name']) ?>" style="width: 100%; height: 100%;"> 
                                                             </a>
                                                         </div>
                                                         <!-- one image end -->
@@ -1033,7 +1001,7 @@
                                                         <!-- two image start -->
                                                         <div  id="two_images_bui" >
                                                             <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>">
-                                                                <img class="two-columns" src="<?php echo base_url(BUSPOSTIMAGE . str_replace(" ", "_", $multiimage['image_name'])) ?>" style="width: 100%; height: 100%;"> 
+                                                                <img class="two-columns" src="<?php echo base_url(BUSPOSTIMAGE .$multiimage['image_name']) ?>" style="width: 100%; height: 100%;"> 
                                                             </a>
                                                         </div>
                                                         <!-- two image end -->
@@ -1042,17 +1010,17 @@
                                                     <!-- three image start -->
                                                     <div id="three_images_art" >
                                                         <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>">
-                                                            <img class="three-columns" src="<?php echo base_url(BUSPOSTIMAGE . str_replace(" ", "_", $businessmultiimage[0]['image_name'])) ?>" style="width: 100%; height:100%; "> 
+                                                            <img class="three-columns" src="<?php echo base_url(BUSPOSTIMAGE .$businessmultiimage[0]['image_name']) ?>" style="width: 100%; height:100%; "> 
                                                         </a>
                                                     </div>
                                                     <div style="width: 49.4%; height: 35%; float: left; margin-top: 4px; margin-right: 3px;">
                                                         <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>">
-                                                            <img class="three-columns" src="<?php echo base_url(BUSPOSTIMAGE . str_replace(" ", "_", $businessmultiimage[1]['image_name'])) ?>" style="width: 100%; height:100%; "> 
+                                                            <img class="three-columns" src="<?php echo base_url(BUSPOSTIMAGE .$businessmultiimage[1]['image_name'])?>" style="width: 100%; height:100%; "> 
                                                         </a>
                                                     </div>
                                                     <div style="width: 49.4%; height: 35%; float: left; margin-top: 4px; margin-right: 3px;">
                                                         <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_post_id']) ?>">
-                                                            <img class="three-columns" src="<?php echo base_url(BUSPOSTIMAGE . str_replace(" ", "_", $businessmultiimage[2]['image_name'])) ?>" style="width: 100%; height:100%; "> 
+                                                            <img class="three-columns" src="<?php echo base_url(BUSPOSTIMAGE .$businessmultiimage[2]['image_name']) ?>" style="width: 100%; height:100%; "> 
                                                         </a>
                                                     </div>
                                                     <!-- three image end -->
@@ -1063,7 +1031,7 @@
                                                         <!-- four image start -->
                                                         <div id="responsive_buis-images-breakpoints" style="   ">
                                                             <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>">
-                                                                <img class="breakpoint" src="<?php echo base_url(BUSPOSTIMAGE . str_replace(" ", "_", $multiimage['image_name'])) ?>" style="width: 100%; height: 100%;"> 
+                                                                <img class="breakpoint" src="<?php echo base_url(BUSPOSTIMAGE .$multiimage['image_name']) ?>" style="width: 100%; height: 100%;"> 
                                                             </a>
                                                         </div>
                                                         <!-- four image end -->
@@ -1077,7 +1045,7 @@
                                                         <div>
                                                             <div id="responsive_buis-images-breakpoints">
                                                                 <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>">
-                                                                    <img src="<?php echo base_url(BUSPOSTIMAGE . str_replace(" ", "_", $multiimage['image_name'])) ?>" style="width: 100%; height: 100%;"> 
+                                                                    <img src="<?php echo base_url(BUSPOSTIMAGE .$multiimage['image_name']) ?>" style="width: 100%; height: 100%;"> 
                                                                 </a>
                                                             </div>
                                                         </div>
@@ -1092,7 +1060,7 @@
                                                     <div>
                                                         <div id="responsive_buis-images_3-breakpoints" >
                                                             <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>">
-                                                                <img src="<?php echo base_url(BUSPOSTIMAGE . str_replace(" ", "_", $businessmultiimage[3]['image_name'])) ?>" style="width: 100%; height: 100%;"> 
+                                                                <img src="<?php echo base_url(BUSPOSTIMAGE .$businessmultiimage[3]['image_name']) ?>" style="width: 100%; height: 100%;"> 
                                                             </a>
                                                         </div>
                                                         <div class="bui_images_view_more" >
@@ -1549,7 +1517,6 @@
             success: function (data) {
                 // $('.' + 'likepost' + clicked_id).html(data);
                 //alert(data.like_user_count);
-                
                 
                 $('.' + 'likepost' + clicked_id).html(data.like);
                 $('.likeusername' + clicked_id).html(data.likeuser);
@@ -2964,6 +2931,14 @@
                 {
                     var foundPresent1 = $.inArray(ext1, allowespdf) > -1;
                     if (foundPresent1 == true && fileInput.length == 1) {
+
+                        if(product_name == ''){
+                        $('.biderror .mes').html("<div class='pop_content'>You have to add pdf title.");
+                        $('#bidmodal').modal('show');
+                        setInterval('window.location.reload()', 10000);
+                         event.preventDefault();
+                        return false;
+                            }
                     } else {
                         $('.biderror .mes').html("<div class='pop_content'>sorry this is not valid file for this post please try to uplode in new post.");
                         $('#bidmodal').modal('show');
@@ -3081,6 +3056,30 @@
 
     }
 </script>
+
+
+<!-- post delete login user script start -->
+<script type="text/javascript">
+function user_postdelete(clicked_id)
+    {
+
+        $('.biderror .mes').html("<div class='pop_content'> Are You Sure want to delete this post?.<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='remove_post(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+        $('#bidmodal').modal('show');
+    }
+   </script>
+<!-- post delete login user end -->
+
+<!-- post delete particular login user script start -->
+<script type="text/javascript">
+function user_postdeleteparticular(clicked_id)
+    {
+
+        $('.biderror .mes').html("<div class='pop_content'> Are You Sure want to delete this post from your profile?.<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='del_particular_userpost(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+        $('#bidmodal').modal('show');
+    }
+   </script>
+<!-- post delete particular login user end -->
+
 
 <style type="text/css">
     .likeduser{

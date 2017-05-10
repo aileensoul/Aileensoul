@@ -63,6 +63,7 @@ echo $head;
 <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap-3.min.css'); ?>">
 <link rel="stylesheet" href="<?php echo base_url('assets/css/croppie.css'); ?>">
 <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
+
 <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
 
 
@@ -202,7 +203,7 @@ if ($returnpage == 'job') {
         <!-- menubar --><div class="profile-main-rec-box-menu  col-md-12 ">
 
             <div class="left-side-menu col-md-2">  </div>
-            <div class="right-side-menu col-md-8">
+            <div class="right-side-menu col-md-5">
                 <ul class="">
 
 

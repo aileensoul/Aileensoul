@@ -179,7 +179,9 @@
     </head>
     <body>
         <!-- cover pic start -->
+        <section>
         <div class="user-midd-section " id="paddingtop_fixed">
+           
             <div class="container">
                 <div class="row">
                     <div class="col-md-4"><div class="profile-box profile-box-left">
@@ -352,7 +354,7 @@ if ($freepostdata[0]['designation']) {
                             <div class="job-saved-box">
                                 <h3> Recommended Post</h3>
                                 <div class="contact-frnd-post">
-                                    <div >
+                                    <!-- <div > -->
                                         <!-- start -->
                                         <?php
                                         function text2link($text) {
@@ -425,7 +427,7 @@ if ($freepostdata[0]['designation']) {
                 $firstname = $this->db->get_where('freelancer_hire_reg', array('user_id' => $post['user_id']))->row()->fullname;
                 $lastname = $this->db->get_where('freelancer_hire_reg', array('user_id' => $post['user_id']))->row()->username;
                     ?>
-
+                    </li>
                             <li><a class="display_inline" title="<?php echo ucwords($firstname); ?>&nbsp;<?php echo ucwords($lastname); ?>" href="<?php echo base_url('freelancer/freelancer_hire_profile/' . $post['user_id'].'?page=freelancer_post'); ?>"><?php echo ucwords($firstname); ?>&nbsp;<?php echo ucwords($lastname); ?>
                             </a></li>
                     <!-- vishang 14-4 end -->    
@@ -468,10 +470,10 @@ if ($freepostdata[0]['designation']) {
                                                                     <li><b>Other Skill</b><span><?php echo "-"; ?></span></li><?php } ?>
 
                                                                 <li><b>Post Description</b><span><p>
-                                                                            <?php if($post['post_description']){echo text2link($post['post_description']);}else{echo PROFILENA;} ?> </p></span>
+                         <?php if($post['post_description']){echo text2link($post['post_description']);}else{echo PROFILENA;} ?> </p></span>
                                                                 </li>
                                                                 <li><b>Rate</b><span>
-                                                                        <?php if($post['post_rate']){
+                                  <?php if($post['post_rate']){
                      echo $post['post_rate'];
                      echo "&nbsp";
                      echo $this->db->get_where('currency', array('currency_id' => $post['post_currency']))->row()->currency_name; echo "&nbsp";
@@ -484,8 +486,8 @@ if ($freepostdata[0]['designation']) {
                                                                 <!-- vishang 14-4 start -->
                                                                 <li>
                                                                     <b>Required Experience</b>
-                                                                    <span>
-                                                                        <?php if($post['post_exp_month'] ||  $post['post_exp_year']){
+                                                            <span>
+                        <?php if($post['post_exp_month'] ||  $post['post_exp_year']){
             echo $post['post_exp_year'];   ?> &nbsp;&nbsp;<?php  echo $post['post_exp_month'];}
                 else{echo PROFILENA;} ?>
                                                                     </span>
@@ -540,13 +542,13 @@ $userid = $this->session->userdata('aileenuser');
                 <?php }?>
 
                                                                    </li>                        
-
+                                                                   </ul>
                                                             </div>
 
                                                         </div>
                                                         </div>
                                                     </div>
-                                        </div>
+                                                    </div>                                        
 
 
                                                 </div>
@@ -567,6 +569,8 @@ $userid = $this->session->userdata('aileenuser');
                         </div>
                     </div>
                 </div>
+
+
                 </section>
                 <footer>
 <?php echo $footer; ?>

@@ -24,6 +24,7 @@ a:focus { outline: none; text-decoration: none;  }
    /* border:none;*/
     outline:none;
 }
+.border_none{border: none!important;}
 .marquee-main {
     height: 50px;  
     overflow: hidden;
@@ -444,8 +445,11 @@ ul.cv-btn li a i { padding-right: 6px; }
 .contact_form{    border: 5px solid white;
     border-bottom: none;}
 /* ART INFO */
+.common-form1 h3 {font-weight:bold; color:#a0b3b0; text-align:center; border-radius:10px; background: #fff; margin: 0; padding: 6px 15px 8px;  font-size: 20px; line-height: 28px; }
 .common-form h3 { background: #000033; margin: 0; padding: 6px 15px 8px;  color: #fff; font-size: 20px; line-height: 28px; }
+#jobseeker_regform_primary{border: none !important; margin-bottom: 0px!important;}
 .common-form form { border: 2px solid #ddd; border-top: 0; padding: 10px;     background-color: white;}
+.none_aaaart .common-form form{border: none!important;}
 fieldset.full-width { width: 100%; }
 .common-form .cntact-ss{    border: none!important;
     border-top: 0!important;
@@ -768,7 +772,7 @@ ul.business_pf_ct_person_detail li b {font-size: 16px; display: inline-block; wi
 .profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li b {font-weight: 600; width: 32%; float: left; }
 
 .profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li label {font-weight: 600; width: 30%; float: left; }
-.profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li span{     text-align: justify;
+.profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li span{   word-break: break-all; word-break: break-word;  text-align: justify;
                                                                                            padding-right: 10px ;display: flex; width: 63%;/* display: inline-block;*/}
 .profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li span::before { 
     content: " :"; padding-right: 20px; float: left; }
@@ -820,7 +824,7 @@ text-align: center*/;
     /* height: 8%; */
 
     float: left;
-  padding-left:35px;
+  padding-left:45px;
     padding-right: 10px; 
     /* margin-top: -19px; */}
 .job-menu-profile h5 { text-transform: capitalize; font-size: 25px; font-weight: 600; }
@@ -2198,7 +2202,7 @@ border-bottom: 1px solid #000033;
 }
 .right-side-menu{float: left; height: 50px;    margin-left: 10px;
 }
-.left-side-menu {width: 13%;
+.left-side-menu {width: 16%;
                  float: left;
                  height: 50px;
                  border-right: none; }
@@ -2227,7 +2231,7 @@ border-bottom: 1px solid #000033;
     transition-property: box-shadow, transform;
     line-height: 16px;
 }
-.profile-main-box-buis-menu{margin-left: 20px;}
+.profile-main-box-buis-menu{margin-left: -6px;}
 .profile-main-box-buis-menu li a:hover {
     box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
    /* -webkit-transform: scale(1.1);
@@ -4350,6 +4354,7 @@ textarea {overflow: hidden;}
     resize: none;
 word-break: break-all;
     word-break: break-word;
+    cursor: text;
 }
 
 /*v 1-5-17 start */
@@ -4606,3 +4611,253 @@ fieldset .add_post_btns{min-width: 120px;padding:8px 30px 8px;}
     right: 9px;}
 
 .dropdown_hover .dropdown-content_hover a {color: #000;}
+ .pdf_name a:{text-decoration-line: underline;}
+ .pdf_name {    font-size: 14px;
+    margin-top: 0px;
+    margin-left: 10px;
+}
+ .pdf_name a{ color: #999;
+    white-space: nowrap;
+    max-width: 121px;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 600}
+    .main_box_img{height: 136px;
+    display: inline-block;
+    width: 136px;}
+
+/*
+    chat*/
+
+.container_chat {
+
+  padding-right: 0px !important;
+  margin: 0 auto;
+  width: 1280px;
+
+  border-radius: 5px;
+}
+
+    .people-list {
+  width: 260px;  background: #444753;
+  float: left;
+}
+.people-list .search {
+  padding: 20px;
+}
+.people-list input {
+  border-radius: 3px;
+  border: none;
+  padding: 14px;
+  color: white;
+  background: #6A6C75;
+  width: 90%;
+  font-size: 14px;
+}
+.people-list .fa-search {
+  position: relative;
+  left: -25px;
+}
+#chat_msg_in_data p{color: #fff;}
+.people-list ul {
+      padding: 20px;
+    overflow-y: scroll;
+    height: 480px;
+}
+.people-list ul li {
+  padding-bottom: 20px;
+}
+.people-list ul li.active{color: #fff;
+    background-color: #000;}
+.people-list img {
+  float: left;
+}
+.people-list .about {
+  float: left;
+  margin-top: 8px;
+}
+.people-list .about {
+  padding-left: 8px;
+}
+.people-list .status {
+  color: #92959E;
+}
+
+.chat {
+    border: 1px solid #999;
+  height: 570px;
+  width: 1005px;
+  float: left;
+  background: #F2F5F8;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  color: #434651;
+}
+.chat .chat-header {
+  padding: 20px;
+  border-bottom: 2px solid white;
+}
+.chat .chat-header img {
+  float: left;
+}
+.chat .chat-header .chat-about {
+  float: left;
+  padding-left: 10px;
+  margin-top: 6px;
+}
+.chat .chat-header .chat-with {
+  font-weight: bold;
+  font-size: 20px;
+}
+.chat .chat-header .chat-num-messages {
+  color: #92959E;
+}
+.chat .chat-header .fa-star {
+  float: right;
+  color: #D8DADF;
+  font-size: 20px;
+  margin-top: 12px;
+}
+.chat .chat-history {
+  padding: 30px 30px 20px;
+  border-bottom: 2px solid white;
+  overflow-y: scroll;
+  height: 395px;
+}
+.chat .chat-history .message-data {
+  margin-bottom: 15px;
+}
+.chat .chat-history .message-data-time {
+  color: #a8aab1;
+  padding-left: 6px;
+}
+.chat .chat-history .message {
+  color: white;
+  padding: 6px 20px;
+  line-height: 26px;
+  font-size: 20px;
+  border-radius: 7px;
+  margin-bottom: 30px;
+  width: 82%;
+  position: relative;
+      word-break: break-word;
+}
+.panel-footer{border-bottom: 1px solid #003; border-right: 1px solid #003;}
+.chat .chat-history .message:after {
+  bottom: 100%;
+  left: 3%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-bottom-color: #86BB71;
+  border-width: 10px;
+  margin-left: -10px;
+}
+.chat .chat-history .my-message {
+  background: #86BB71;
+}
+.chat .chat-history .other-message {
+  background: #000033;
+}
+.chat .chat-history .other-message:after {
+  border-bottom-color: #000033;
+  left: 97%;
+}
+.chat .chat-message {
+  padding: 30px;
+}
+.chat .chat-message textarea {
+  width: 100%;
+  border: none;
+  padding: 10px 20px;
+  font: 14px/22px "Lato", Arial, sans-serif;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  resize: none;
+}
+.chat .chat-message .fa-file-o, .chat .chat-message .fa-file-image-o {
+  font-size: 16px;
+  color: gray;
+  cursor: pointer;
+}
+.chat .chat-message button {
+  float: right;
+  color: #94C2ED;
+  font-size: 16px;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  background: #F2F5F8;
+}
+.chat .chat-message button:hover {
+  color: #75b1e8;
+}
+
+.online, .offline, .me {
+  margin-right: 3px;
+  font-size: 10px;
+}
+
+.online {
+  color: #86BB71;
+}
+
+.offline {
+  color: #E38968;
+}
+
+.me {
+  color: #000033;
+}
+
+.align-left {
+  text-align: left;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.float-right {
+  float: right;
+}
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+.people-list ul li{list-style: none;}
+.chat-history ul li{list-style: none;}
+
+
+
+.message-data-name{font-size:16px; font-weight: 600;}
+
+
+.name a{color: #fff;}
+
+/*::-webkit-scrollbar {
+    width: 0px;   remove scrollbar space 
+    background: transparent;   optional: just make scrollbar invisible 
+}*/
+/* optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+    background: #FF0000;
+}
+::-moz-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}
+/* optional: show position indicator in red */
+::-moz-scrollbar-thumb {
+    background: #FF0000;
+}   

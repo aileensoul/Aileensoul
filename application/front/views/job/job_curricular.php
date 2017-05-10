@@ -19,7 +19,7 @@
         
         <div class="user-midd-section" id="paddingtop_fixed">
             <div class="container">
-                <div class="row">
+                <div class="row2">
                     <div class="col-md-3 col-sm-4">
                         <div class="left-side-bar">
                             <ul>
@@ -67,9 +67,11 @@
                                       
                             <?php echo form_open(base_url('job/job_curricular_insert'), array('id' => 'jobseeker_regform','name' => 'jobseeker_regform','class'=>'clearfix')); ?>
 
-                          <div>
+                               <!-- <div>
                                    <span style="color:#7f7f7e;padding-left: 8px;">( </span><span style="color:red">*</span><span style="color:#7f7f7e"> )</span> <span style="color:#7f7f7e">Indicates required field</span>
-                                </div>
+                                </div> -->
+
+                                <div> <span class="required_field" >( <span style="color: red">*</span> ) Indicates required field</span></div>
 
                                 <?php
                                  $curricular =  form_error('curricular');
@@ -256,4 +258,6 @@
     
 
 <!-- script for validation end -->
-    
+ <script type="text/javascript"> 
+ $(".alert").delay(3200).fadeOut(300);
+</script>   

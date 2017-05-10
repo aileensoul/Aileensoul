@@ -17,6 +17,13 @@
       <section>
         
         <div class="user-midd-section" id="paddingtop_fixed">
+          <div class="common-form1">
+             <div class="col-md-3 col-sm-4"></div>
+                      <div class="col-md-6 col-sm-8"><h3>You are making your Business Profile.</h3></div>
+            </div>
+            <br>
+            <br>
+            <br>
             <div class="container">
                 <div class="row">
                     <div class="col-md-3 col-sm-4">
