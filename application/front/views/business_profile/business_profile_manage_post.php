@@ -402,7 +402,7 @@
             <!-- PICKUP -->
             <!-- menubar --><div class="buisness-data-menu  col-md-12 ">
 
-                <div class="left-side-menu col-md-1" style="width: 13%;">   </div>
+                <div class="left-side-menu col-md-1">   </div>
 
                 <div class="profile-main-box-buis-menu  col-md-7">  
                     <ul class="">

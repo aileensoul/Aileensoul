@@ -56,8 +56,8 @@ class Login extends CI_Controller {
        
        $this->load->helper('cookie');
 
-       setcookie('user_name',$_POST['user_name'], time() + (10 * 365 * 24 * 60 * 60));
-       setcookie('password', $_POST['password'], time() + (10 * 365 * 24 * 60 * 60));
+       setcookie('user_name',$_POST['user_name'], time() + (10 * 365 * 24 * 60 * 60) , '/' );
+       setcookie('password',$_POST['password'], time() + (10 * 365 * 24 * 60 * 60) , '/' );
          
         
 

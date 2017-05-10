@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -80,15 +79,7 @@
                     <div class="col-md-7 col-sm-7 header-left-menu">
 
                     <ul class="fr">
-                    <li class=""><a style="margin-top: 25px;
-    padding: 8px 17px;
-    border: none;
-    line-height: normal;
-    font-size: 15px;
-    background-color: #87ceff!important;
-    color: #FFF;
-    font-weight: 600;
-    border: 3px solid #fff; "  href="<?php echo base_url('registration'); ?>">Create an account</a></li>
+                    <li class=""><a class="login_butn"  href="<?php echo base_url('registration'); ?>">Create an account</a></li>
 
 
                       

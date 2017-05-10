@@ -1772,6 +1772,51 @@ $new = array();
         $this->load->view('freelancer/freelancer_post/post_apply', $this->data);
     }
 
+     public function save_user1($id, $save_id) { //echo $id; echo $save_id; die();
+        $id = $_POST['user_id'];
+
+       // echo $id; die();
+        $save_id = $_POST['save_id'];
+
+        $userid = $this->session->userdata('aileenuser');
+        //echo $id;die();
+        $contition_array = array('from_id' => $userid, 'to_id' => $id, 'save_id' => $save_id);
+        $userdata = $this->common->select_data_by_condition('save', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        //echo "<pre>";print_r($userdata);die();
+
+        if ($userdata) {
+            $data = array(
+                'status' => 0
+            );
+
+
+            $updatedata = $this->common->update_data($data, 'save', 'save_id', $save_id);
+
+            if ($updatedata) {
+
+                $saveuser = 'Saved';
+                echo $saveuser;
+            }
+        } else {
+            $data = array(
+                'from_id' => $userid,
+                'to_id' => $id,
+                'status' => 0,
+                'save_type' => 2
+            );
+
+            $insert_id = $this->common->insert_data($data, 'save');
+
+
+            if ($insert_id) {
+
+                $saveuser = 'Saved';
+                echo $saveuser;
+            }
+        }
+    }
+
+
     //Freelancer Job All Post controller end
 //Freelancer Apply post at all post page & save post page controller Start
     public function apply_insert() {  
@@ -2388,7 +2433,7 @@ $this->load->view('freelancer/freelancer_hire/freelancer_save', $this->data);
 
 //Remove save candidate controller End
 
-    public function freelancer_post_profile($id) {
+    public function freelancer_post_profile($id = " ") {
 
         $userid = $this->session->userdata('aileenuser');
 
