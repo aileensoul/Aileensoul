@@ -8,8 +8,9 @@
         margin: 1em auto;
         width: 80%;
     }
-article .border_none{border: none!important;}
+.none_aaaart{border: 1px solid #ccc;}
     .tabordion {
+}
 z-index: 1;
         display: block;
         font-family: arial, sans-serif;
@@ -25,6 +26,7 @@ z-index: 1;
     }
 
     .tabordion section {
+        height: 43px;
         display: block;
     }
 
@@ -38,7 +40,7 @@ z-index: 1;
     font-weight: bold;
     padding: 9px 6px;
     position: relative;
-    width: 220px;
+    width: 195px;
     z-index: 1;
     }
 
@@ -46,7 +48,7 @@ z-index: 1;
         display: none;
         left: 230px;
         min-width: 300px;
-        padding: 0 0 0 21px;
+        padding: 0 0 0 0px;
         position: absolute;  
         top: 0;
     }
