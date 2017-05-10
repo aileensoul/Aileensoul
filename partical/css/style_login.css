@@ -1075,7 +1075,12 @@ word-break: break-all;
     background-color: #87ceff!important;
     color: #FFF!important;
     font-weight: 600!important;
-    border: 3px solid #fff!important; }
+    border: 3px solid #fff!important;  -o-text-overflow: clip;
+  text-overflow: clip;
+  -webkit-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+  -moz-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+  -o-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+  transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);}
     .login_butn:hover{text-decoration-line: none!important;}
     
     .logo a:hover{text-decoration-line: none!important;}
@@ -1086,3 +1091,26 @@ word-break: break-all;
   font-size: 15px;
 }
 
+
+.login_butn:hover {
+  border: 1px solid #007cad;
+  background: rgba(0,142,198,1);/*
+  -webkit-box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.3) ;
+  box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.3) ;*/
+  -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+.login_butn:active {
+  border: 1px solid #018dc4;
+  background: #87ceff;
+  -webkit-box-shadow: 0 1px 4px 0 rgba(0,0,0,0.2) inset;
+  box-shadow: 0 1px 4px 0 rgba(0,0,0,0.2) inset;
+  text-shadow: none;
+  -webkit-transition: all 50ms cubic-bezier(0.42, 0, 0.58, 1);
+  -moz-transition: all 50ms cubic-bezier(0.42, 0, 0.58, 1);
+  -o-transition: all 50ms cubic-bezier(0.42, 0, 0.58, 1);
+  transition: all 50ms cubic-bezier(0.42, 0, 0.58, 1);
+}
