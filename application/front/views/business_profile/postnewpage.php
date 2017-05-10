@@ -411,7 +411,7 @@
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/jquery.jMosaic.css'); ?>">
 
-<!-- <script src="<?php //echo base_url('js/jquery.min.js');                         ?>"></script> -->
+<!-- <script src="<?php //echo base_url('js/jquery.min.js');                          ?>"></script> -->
         <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
         <script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
@@ -708,13 +708,13 @@
 
                                                 if ($businesssave) {
                                                     ?>
-                                                                                                                                            
-                                                                                                                                               <a><i class="fa fa-bookmark" aria-hidden="true"></i>Saved Post</a>
-                                                                                                                                            
+                                                                                                                                                
+                                                                                                                                                   <a><i class="fa fa-bookmark" aria-hidden="true"></i>Saved Post</a>
+                                                                                                                                                
                                                 <?php } else { ?>
-                                                                                                                                            
-                                                                                                                                               <a id="<?php echo $busienss_data[0]['business_profile_post_id']; ?>" onClick="save_post(this.id)" href="#popup1" class="<?php echo 'savedpost' . $busienss_data[0]['business_profile_post_id']; ?>"><i class="fa fa-bookmark" aria-hidden="true"></i>  Save Post</a>
-                                                                                                                                            
+                                                                                                                                                
+                                                                                                                                                   <a id="<?php echo $busienss_data[0]['business_profile_post_id']; ?>" onClick="save_post(this.id)" href="#popup1" class="<?php echo 'savedpost' . $busienss_data[0]['business_profile_post_id']; ?>"><i class="fa fa-bookmark" aria-hidden="true"></i>  Save Post</a>
+                                                                                                                                                
                                                 <?php } ?> -->
 
                                                 <a href="<?php echo base_url('business_profile/business_profile_contactperson/' . $busienss_data[0]['user_id'] . ''); ?>"><i class="fa fa-user" aria-hidden="true"></i> Contact Person</a>
@@ -1689,7 +1689,18 @@
     </div>
     <!-- Model Popup Close -->
 </footer>
-
+<!-- Bid-modal-2  -->
+<div class="modal fade message-box" id="likeusermodal" role="dialog" style="z-index: 999999 !important;">
+    <div class="modal-dialog modal-lm">
+        <div class="modal-content">
+            <button type="button" class="modal-close" data-dismiss="modal">&times;</button>       
+            <div class="modal-body">
+                <span class="mes">
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 
 </html>
@@ -3422,6 +3433,41 @@
     }
 </script>
 
+<!-- cover image end -->
+<script type="text/javascript">
+    function likeuserlist(post_id) {
+
+        $.ajax({
+            type: 'POST',
+            url: '<?php echo base_url() . "business_profile/imglikeuserlist" ?>',
+            data: 'post_id=' + post_id,
+            dataType: "html",
+            success: function (data) {
+                var html_data = data;
+                $('#likeusermodal .mes').html(html_data);
+                $('#likeusermodal').modal('show');
+            }
+        });
+
+
+    }
+    function likeuserlistimg(post_id) {
+
+        $.ajax({
+            type: 'POST',
+            url: '<?php echo base_url() . "business_profile/imglikeuserlist" ?>',
+            data: 'post_id=' + post_id,
+            dataType: "html",
+            success: function (data) {
+                var html_data = data;
+                $('#likeusermodal .mes').html(html_data);
+                $('#likeusermodal').modal('show');
+            }
+        });
+
+
+    }
+</script>
 <style type="text/css">
     .likeduser, .likeduser1{
         width: 100%;
