@@ -671,7 +671,7 @@
                                     ?>
                                     <div class="image_profile">
 
-                                        <img src="<?php echo base_url(BUSPOSTIMAGE . str_replace(" ", "_", $mi['image_name'])) ?>" alt="img1">
+                                        <img src="<?php echo base_url(BUSPOSTIMAGE .$mi['image_name']) ?>" alt="img1">
 
                                     </div>
                                     <?php
@@ -738,7 +738,7 @@
                                             <td class="image_profile"> 
                                                 <video  controls>
 
-                                                    <source src="<?php echo base_url(BUSPOSTIMAGE . str_replace(" ", "_", $singlearray1[0]['image_name'])) ?>" type="video/mp4">
+                                                    <source src="<?php echo base_url(BUSPOSTIMAGE .$singlearray1[0]['image_name']) ?>" type="video/mp4">
                                                     <source src="movie.ogg" type="video/ogg">
                                                     Your browser does not support the video tag.
                                                 </video>
@@ -748,7 +748,7 @@
                                         <?php if ($singlearray1[1]['image_name']) { ?>
                                             <td class="image_profile">
                                                 <video  controls>
-                                                    <source src="<?php echo base_url(BUSPOSTIMAGE . str_replace(" ", "_", $singlearray1[1]['image_name'])) ?>" type="video/mp4">
+                                                    <source src="<?php echo base_url(BUSPOSTIMAGE .$singlearray1[1]['image_name']) ?>" type="video/mp4">
                                                     <source src="movie.ogg" type="video/ogg">
                                                     Your browser does not support the video tag.
                                                 </video>
@@ -757,7 +757,7 @@
                                         <?php if ($singlearray1[2]['image_name']) { ?>
                                             <td class="image_profile">
                                                 <video  controls>
-                                                    <source src="<?php echo base_url(BUSPOSTIMAGE . str_replace(" ", "_", $singlearray1[2]['image_name'])) ?>" type="video/mp4">
+                                                    <source src="<?php echo base_url(BUSPOSTIMAGE .$singlearray1[2]['image_name']) ?>" type="video/mp4">
                                                     <source src="movie.ogg" type="video/ogg">
                                                     Your browser does not support the video tag.
                                                 </video>
@@ -769,7 +769,7 @@
                                         <?php if ($singlearray1[3]['image_name']) { ?>
                                             <td class="image_profile"> 
                                                 <video  controls>
-                                                    <source src="<?php echo base_url(BUSPOSTIMAGE . str_replace(" ", "_", $singlearray1[3]['image_name'])) ?>" type="video/mp4">
+                                                    <source src="<?php echo base_url(BUSPOSTIMAGE .$singlearray1[3]['image_name']) ?>" type="video/mp4">
                                                     <source src="movie.ogg" type="video/ogg">
                                                     Your browser does not support the video tag.
                                                 </video>
@@ -778,7 +778,7 @@
                                         <?php if ($singlearray1[4]['image_name']) { ?>
                                             <td class="image_profile">
                                                 <video  controls>
-                                                    <source src="<?php echo base_url(BUSPOSTIMAGE . str_replace(" ", "_", $singlearray1[4]['image_name'])) ?>" type="video/mp4">
+                                                    <source src="<?php echo base_url(BUSPOSTIMAGE .$singlearray1[4]['image_name']) ?>" type="video/mp4">
                                                     <source src="movie.ogg" type="video/ogg">
                                                     Your browser does not support the video tag.
                                                 </video>
@@ -787,7 +787,7 @@
                                         <?php if ($singlearray1[5]['image_name']) { ?>
                                             <td class="image_profile">
                                                 <video  controls>
-                                                    <source src="<?php echo base_url(BUSPOSTIMAGE . str_replace(" ", "_", $singlearray1[5]['image_name'])) ?>" type="video/mp4">
+                                                    <source src="<?php echo base_url(BUSPOSTIMAGE .$singlearray1[5]['image_name']) ?>" type="video/mp4">
                                                     <source src="movie.ogg" type="video/ogg">
                                                     Your browser does not support the video tag.
                                                 </video>
@@ -844,7 +844,7 @@
                                             <td class="image_profile"> 
                                                 <video  controls>
 
-                                                    <source src="<?php echo base_url(BUSPOSTIMAGE . str_replace(" ", "_", $singlearray2[0]['image_name'])) ?>" type="audio/mp3">
+                                                    <source src="<?php echo base_url(BUSPOSTIMAGE .$singlearray2[0]['image_name']) ?>" type="audio/mp3">
                                                     <source src="movie.ogg" type="audio/mp3">
                                                     Your browser does not support the audio tag.
                                                 </video>
@@ -854,7 +854,7 @@
                                         <?php if ($singlearray2[1]['image_name']) { ?>
                                             <td class="image_profile">
                                                 <video  controls>
-                                                    <source src="<?php echo base_url(BUSPOSTIMAGE . str_replace(" ", "_", $singlearray2[1]['image_name'])) ?>" type="audio/mp3">
+                                                    <source src="<?php echo base_url(BUSPOSTIMAGE .$singlearray2[1]['image_name']) ?>" type="audio/mp3">
                                                     <source src="movie.ogg" type="audio/mp3">
                                                     Your browser does not support the audio tag.
                                                 </video>
@@ -863,7 +863,7 @@
                                         <?php if ($singlearray2[2]['image_name']) { ?>
                                             <td class="image_profile">
                                                 <video  controls>
-                                                    <source src="<?php echo base_url(BUSPOSTIMAGE . str_replace(" ", "_", $singlearray2[2]['image_name'])) ?>" type="audio/mp3">
+                                                    <source src="<?php echo base_url(BUSPOSTIMAGE .$singlearray2[2]['image_name']) ?>" type="audio/mp3">
                                                     <source src="movie.ogg" type="audio/mp3">
                                                     Your browser does not support the audio tag.
                                                 </video>
@@ -875,7 +875,7 @@
                                         <?php if ($singlearray2[3]['image_name']) { ?>
                                             <td class="image_profile"> 
                                                 <video  controls>
-                                                    <source src="<?php echo base_url(BUSPOSTIMAGE . str_replace(" ", "_", $singlearray2[3]['image_name'])) ?>" type="audio/mp3">
+                                                    <source src="<?php echo base_url(BUSPOSTIMAGE .$singlearray2[3]['image_name']) ?>" type="audio/mp3">
                                                     <source src="movie.ogg" type="audio/mp3">
                                                     Your browser does not support the audio tag.
                                                 </video>
@@ -884,7 +884,7 @@
                                         <?php if ($singlearray2[4]['image_name']) { ?>
                                             <td class="image_profile">
                                                 <video  controls>
-                                                    <source src="<?php echo base_url(BUSPOSTIMAGE . str_replace(" ", "_", $singlearray2[4]['image_name'])) ?>" type="audio/mp3">
+                                                    <source src="<?php echo base_url(BUSPOSTIMAGE .$singlearray2[4]['image_name']) ?>" type="audio/mp3">
                                                     <source src="movie.ogg" type="audio/mp3">
                                                     Your browser does not support the audio tag.
                                                 </video>
@@ -893,7 +893,7 @@
                                         <?php if ($singlearray2[5]['image_name']) { ?>
                                             <td class="image_profile">
                                                 <video  controls>
-                                                    <source src="<?php echo base_url(BUSPOSTIMAGE . str_replace(" ", "_", $singlearray2[5]['image_name'])) ?>" type="audio/mp3">
+                                                    <source src="<?php echo base_url(BUSPOSTIMAGE .$singlearray2[5]['image_name']) ?>" type="audio/mp3">
                                                     <source src="movie.ogg" type="audio/mp3">
                                                     Your browser does not support the audio tag.
                                                 </video>
@@ -957,7 +957,7 @@
                                     <div class="image_profile">
 
 
-                                        <a href="<?php echo base_url('business_profile/creat_pdf/' . str_replace(" ", "_", $singlearray3[0]['image_id'])) ?>"><div class="pdf_img">
+                                        <a href="<?php echo base_url('business_profile/creat_pdf/' .$singlearray3[0]['image_id']) ?>"><div class="pdf_img">
                                                                 <img src="<?php echo base_url('images/PDF.jpg')?>" style="height: 100%; width: 100%;">
                                                             </div></a>
 
@@ -1319,7 +1319,7 @@
 
                                                 <!-- one image start -->
                                                 <div id="basic-responsive-image" style="height: 50%; width: 100%;">
-                                                    <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>"><img src="<?php echo base_url(BUSPOSTIMAGE . str_replace(" ", "_", $businessmultiimage[0]['image_name'])) ?>" style="width: 100%; height: 100%;"> </a>
+                                                    <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>"><img src="<?php echo base_url(BUSPOSTIMAGE .$businessmultiimage[0]['image_name']) ?>" style="width: 100%; height: 100%;"> </a>
                                                 </div>
                                                 <!-- one image end -->
 
@@ -1338,7 +1338,7 @@
                                                 <!-- one video start -->
                                                 <div>
                                                     <video width="100%" height="240" controls>
-                                                        <source src="<?php echo base_url(BUSPOSTIMAGE . str_replace(" ", "_", $businessmultiimage[0]['image_name'])) ?>" type="video/mp4">
+                                                        <source src="<?php echo base_url(BUSPOSTIMAGE .$businessmultiimage[0]['image_name']) ?>" type="video/mp4">
                                                         <source src="movie.ogg" type="video/ogg">
                                                         Your browser does not support the video tag.
                                                     </video>
@@ -1351,7 +1351,7 @@
                                                 <div>
                                                     <audio width="120" height="100" controls>
 
-                                                        <source src="<?php echo base_url(BUSPOSTIMAGE . str_replace(" ", "_", $businessmultiimage[0]['image_name'])) ?>" type="audio/mp3">
+                                                        <source src="<?php echo base_url(BUSPOSTIMAGE .$businessmultiimage[0]['image_name']) ?>" type="audio/mp3">
                                                         <source src="movie.ogg" type="audio/ogg">
                                                         Your browser does not support the audio tag.
 
@@ -1371,7 +1371,7 @@
 
                                                 <!-- two image start -->
                                                 <div  id="two_manage_images_art" >
-                                                    <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>"><img class="two-columns" src="<?php echo base_url(BUSPOSTIMAGE . str_replace(" ", "_", $multiimage['image_name'])) ?>" style="width: 100%; height: 100%;"> </a>
+                                                    <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>"><img class="two-columns" src="<?php echo base_url(BUSPOSTIMAGE .$multiimage['image_name']) ?>" style="width: 100%; height: 100%;"> </a>
                                                 </div>
 
                                                 <!-- two image end -->
@@ -1383,13 +1383,13 @@
 
                                             <!-- three image start -->
                                             <div id="three_images_art" >
-                                                <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>"><img class="three-columns" src="<?php echo base_url(BUSPOSTIMAGE . str_replace(" ", "_", $businessmultiimage[0]['image_name'])) ?>" style="width: 100%; height:100%; "> </a>
+                                                <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>"><img class="three-columns" src="<?php echo base_url(BUSPOSTIMAGE .$businessmultiimage[0]['image_name']) ?>" style="width: 100%; height:100%; "> </a>
                                             </div>
                                             <div  id="three_images_2_art">
-                                                <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>"><img class="three-columns" src="<?php echo base_url(BUSPOSTIMAGE . str_replace(" ", "_", $businessmultiimage[1]['image_name'])) ?>" style="width: 100%; height:100%; "> </a>
+                                                <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>"><img class="three-columns" src="<?php echo base_url(BUSPOSTIMAGE .$businessmultiimage[1]['image_name']) ?>" style="width: 100%; height:100%; "> </a>
                                             </div>
                                             <div  id="three_images_2_art">
-                                                <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_post_id']) ?>"><img class="three-columns" src="<?php echo base_url(BUSPOSTIMAGE . str_replace(" ", "_", $businessmultiimage[2]['image_name'])) ?>" style="width: 100%; height:100%; "> </a>
+                                                <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_post_id']) ?>"><img class="three-columns" src="<?php echo base_url(BUSPOSTIMAGE .$businessmultiimage[2]['image_name']) ?>" style="width: 100%; height:100%; "> </a>
                                             </div>
 
                                             <!-- three image end -->
@@ -1404,7 +1404,7 @@
 
                                                 <!-- four image start -->
                                                 <div id="responsive_manage-images-breakpoints" style="   ">
-                                                    <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>"><img class="breakpoint" src="<?php echo base_url(BUSPOSTIMAGE . str_replace(" ", "_", $multiimage['image_name'])) ?>" style="width: 100%; height: 100%;"> </a>
+                                                    <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>"><img class="breakpoint" src="<?php echo base_url(BUSPOSTIMAGE .$multiimage['image_name']) ?>" style="width: 100%; height: 100%;"> </a>
 
                                                 </div>
 
@@ -1425,7 +1425,7 @@
                                                 <!-- five image start -->
                                                 <div>
                                                     <div id="responsive-manage_images_2-breakpoints">
-                                                        <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>"><img src="<?php echo base_url(BUSPOSTIMAGE . str_replace(" ", "_", $multiimage['image_name'])) ?>" style=""> </a>
+                                                        <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>"><img src="<?php echo base_url(BUSPOSTIMAGE .$multiimage['image_name']) ?>" style=""> </a>
                                                     </div>
                                                 </div>
 
@@ -1440,7 +1440,7 @@
                                             <!-- this div view all image start -->
                                             <div>
                                                 <div id="responsive-manage_images_3-breakpoints" >
-                                                    <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>"><img src="<?php echo base_url(BUSPOSTIMAGE . str_replace(" ", "_", $businessmultiimage[3]['image_name'])) ?>" style=" width: 100%; height: 100%;"> </a></div>
+                                                    <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>"><img src="<?php echo base_url(BUSPOSTIMAGE .$businessmultiimage[3]['image_name']) ?>" style=" width: 100%; height: 100%;"> </a></div>
 
 
                                                 <div class="manage_images_view_more" >
@@ -3523,24 +3523,32 @@
                                     event.preventDefault();
                                     return false;
                                 }
-                            } else if (foundPresentpdf == true)
-                            {
+    } else if (foundPresentpdf == true)
+        {
 
-                                var foundPresent1 = $.inArray(ext1, allowespdf) > -1;
+       var foundPresent1 = $.inArray(ext1, allowespdf) > -1;
 
-                                if (foundPresent1 == true && fileInput.length == 1) {
-                                } else {
-                                    $('.biderror .mes').html("<div class='pop_content'>sorry this is not valid file for this post please try to uplode in new post.");
-                                    $('#bidmodal').modal('show');
-                                    setInterval('window.location.reload()', 10000);
-                                    event.preventDefault();
-                                    return false;
-                                }
-                            }
+      if (foundPresent1 == true && fileInput.length == 1) {
 
-                        }
+                if(product_name == ''){
+                $('.biderror .mes').html("<div class='pop_content'>You have to add pdf title.");
+                $('#bidmodal').modal('show');
+                setInterval('window.location.reload()', 10000);
+                 event.preventDefault();
+                return false;
                     }
-                }
+        } else {
+             $('.biderror .mes').html("<div class='pop_content'>sorry this is not valid file for this post please try to uplode in new post.");
+            $('#bidmodal').modal('show');
+            setInterval('window.location.reload()', 10000);
+             event.preventDefault();
+            return false;
+            }
+        }
+
+     }
+   }
+}
 
             </script>
             <script type="text/javascript">

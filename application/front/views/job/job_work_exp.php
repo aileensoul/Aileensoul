@@ -8,7 +8,10 @@
  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
-
+<style type="text/css">
+  .v
+  .
+</style>
  <?php echo $job_header2; ?>
 <!-- END HEADER -->
     <body class="page-container-bg-solid page-boxed">
@@ -122,7 +125,7 @@
 
    <!--  <fieldset class="two-select-box full-width"> -->
                                            <label>Experience<span style="color:red">*</span></label>
-                                         <select name="experience_year[]" id="experience_year" class="experience_year">
+                                         <select style="width: 50%;" name="experience_year[]" id="experience_year" class="experience_year">
                                           <option value="" selected option disabled>Year</option>
                                           <option value="0 year"  <?php if($experience_year1=="0 year") echo 'selected';?>>0</option>
                                           <option value="1 year"  <?php if($experience_year1=="1 year") echo 'selected';?>>1</option>
@@ -149,7 +152,7 @@
                                         </select>
                                        
 
-                                         <select name="experience_month[]" id="experience_month" class="experience_month">
+                                         <select style="width: 50%;" name="experience_month[]" id="experience_month" class="experience_month">
                                           <option value="" selected option disabled>Month</option>
                                           <option value="1 month"  <?php if($experience_month1=="1 month") echo 'selected';?>>1</option>
                                           <option value="2 month"  <?php if($experience_month1=="2 month") echo 'selected';?>>2</option>
@@ -226,8 +229,6 @@
 ?>
 
                                      <fieldset class="hs-submit full-width">
-<!--                                     <input type="reset">
-                                    <input type="submit"  id="previous" name="previous" value="previous">-->
                                     <input type="submit"  id="next" name="next" value="Next" onclick="document.getElementById('experience1')[0].style.display = 'block';" >
                                   <input type="submit"  id="add_workexp" name="add_workexp" value="Add More Work Expierence"> 
                                      
@@ -243,7 +244,8 @@ else
   <div id="input1" style="margin-bottom:4px;" class="clonedInput">
    <!--  <fieldset class="two-select-box full-width"> -->
                                            <label>Experience<span style="color:red">*</span></label>
-                                         <select name="experience_year[]" id="experience_year" class="experience_year">
+                                           <br>
+                                         <select style="width: 50%; float: left;" name="experience_year[]" id="experience_year" class="experience_year">
                                           <option value="" selected option disabled>Year</option>
                                           <option value="0 year"  <?php if($experience_year1=="0 year") echo 'selected';?>>0</option>
                                           <option value="1 year"  <?php if($experience_year1=="1 year") echo 'selected';?>>1</option>
@@ -270,7 +272,7 @@ else
                                         </select>
                                        
 
-                                         <select name="experience_month[]" id="experience_month" class="experience_month">
+                                         <select name="experience_month[]" style="width: 50%;" id="experience_month" class="experience_month">
                                           <option value="" selected option disabled>Month</option>
                                           <option value="1 month"  <?php if($experience_month1=="1 month") echo 'selected';?>>1</option>
                                           <option value="2 month"  <?php if($experience_month1=="2 month") echo 'selected';?>>2</option>
@@ -342,18 +344,23 @@ else
   </div> 
 <!--clone div End-->
                                    <!--  <fieldset class="hs-submit full-width"> -->
-                                     <input type="reset">
-
+                                   
+                                      <fieldset class="hs-submit full-width">
+                                
+        <input type="button" id="btnAdd" value=" + ">
+        <input type="button" id="btnRemove" value=" - " disabled="disabled">
+<br>
+           <input type="submit" id="next" name="next" value="Next" onclick="document.getElementById('experience1')[0].style.display = 'block';">
                                   
+                          
+                                </fieldset>
 
-                                    <input type="submit" id="next" name="next" value="Next" onclick="document.getElementById('experience1')[0].style.display = 'block';">
-                                  
+
+                                   
 
                                 <!-- </fieldset> -->
                                        <div class="hs-submit full-width fl">
-                             
-        <input type="button" id="btnAdd" value=" + ">
-        <input type="button" id="btnRemove" value=" - " disabled="disabled">
+   
 </div>
 </div>
   <?php echo form_close(); ?> 

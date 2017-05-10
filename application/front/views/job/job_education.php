@@ -8,8 +8,9 @@
         margin: 1em auto;
         width: 80%;
     }
-article .border_none{border: none!important;}
+.none_aaaart{border: 1px solid #ccc;}
     .tabordion {
+}
 z-index: 1;
         display: block;
         font-family: arial, sans-serif;
@@ -25,6 +26,7 @@ z-index: 1;
     }
 
     .tabordion section {
+        height: 43px;
         display: block;
     }
 
@@ -38,7 +40,7 @@ z-index: 1;
     font-weight: bold;
     padding: 9px 6px;
     position: relative;
-    width: 220px;
+    width: 195px;
     z-index: 1;
     }
 
@@ -46,7 +48,7 @@ z-index: 1;
         display: none;
         left: 230px;
         min-width: 300px;
-        padding: 0 0 0 21px;
+        padding: 0 0 0 0px;
         position: absolute;  
         top: 0;
     }
@@ -332,7 +334,7 @@ z-index: 1;
                                         <section id="section2">
                                             <input type="radio" name="sections" id="option2">
                                             <label for="option2" class="label-d">Secondary</label>
-                                              <article class="none_aaaart">
+                                              <article class="">
 
                                                 <?php echo form_open_multipart(base_url('job/job_education_secondary_insert'), array('id' => 'jobseeker_regform_secondary', 'name' => 'jobseeker_regform_secondary', 'class' => 'clearfix')); ?>
 
@@ -440,7 +442,7 @@ z-index: 1;
                                         <section id="section3">
                                             <input type="radio" name="sections" id="option3">
                                             <label for="option3" class="label-d">Higher Secondary</label>
-                                              <article class="none_aaaart">
+                                              <article class="">
 
                                                 <?php echo form_open_multipart(base_url('job/job_education_higher_secondary_insert'), array('id' => 'jobseeker_regform_higher_secondary', 'name' => 'jobseeker_regform_higher_secondary', 'class' => 'clearfix')); ?>
 
@@ -556,7 +558,7 @@ z-index: 1;
 
 
 
-                                        <section id="section4">
+                                        <section id="section4" style="overflow: auto;">
                                             <input type="radio" name="sections" id="option4">
                                             <label for="option4" class="label-d">Graduation</label>
                                              <article class="none_aaaart">
