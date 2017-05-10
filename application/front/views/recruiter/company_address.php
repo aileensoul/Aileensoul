@@ -24,7 +24,7 @@
             <br>
             <br>
             <div class="container">
-                <div class="row">
+                <div class="row2">
                     <div class="col-md-3 col-sm-4">
                         <div class="left-side-bar">
                             <ul>
@@ -52,10 +52,12 @@
                       <h3>Company address</h3>
                  <?php echo form_open(base_url('recruiter/comp_address_store'), array('id' => 'basicinfo','name' => 'basicinfo','class' => 'clearfix')); ?>
 
-                   <div>
-                                   <span style="color:#7f7f7e;padding-left: 8px;">( </span><span style="color:red">*</span><span style="color:#7f7f7e"> )</span> <span style="color:#7f7f7e">Indicates required field</span>
-                                </div>
+                              <!-- <div>
+                                   <span style="color:#7f7f7e;padding-left: 8px;">( </span><span style="color:red">*</span><span style="color:#7f7f7e"> )</span> <span style="color:#7f7f7e">Indicates required field </span>
+                                </div> -->
 
+                   <div> <span class="required_field" >( <span style="color: red">*</span> ) Indicates required field</span></div>
+                     
 
                     <?php
                          $country =  form_error('country');

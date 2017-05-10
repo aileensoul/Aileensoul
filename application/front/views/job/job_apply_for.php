@@ -290,3 +290,7 @@ foreach ($postskill as $post_key => $post_value) {
     $('#ApplyFor').select2().select2('val', complex)
 //select2 autocomplete start for apply for End
 </script>
+
+<script type="text/javascript"> 
+ $(".alert").delay(3200).fadeOut(300);
+</script>

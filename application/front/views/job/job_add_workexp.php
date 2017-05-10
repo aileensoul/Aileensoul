@@ -291,5 +291,7 @@
   </script>
     
  <!--javascript for fresher and experience radio button End -->
-
+<script type="text/javascript"> 
+ $(".alert").delay(3200).fadeOut(300);
+</script>
  
