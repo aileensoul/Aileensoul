@@ -273,7 +273,27 @@ $( "#tags" ).autocomplete({
     $("#skill1").select2().select2('val', complex)
 
 </script>
-
+<script>
+                    
+                    //select2 autocomplete start for Location
+                    $('#searchplace').select2({
+                        placeholder: 'Find Your Location',
+                        maximumSelectionLength: 1,
+                        ajax: {
+                            url: "<?php echo base_url(); ?>freelancer/location",
+                            dataType: 'json',
+                            delay: 250,
+                            processResults: function (data) {
+                                return {
+                                    //alert(data);
+                                    results: data
+                                };
+                            },
+                            cache: true
+                        }
+                    });
+                    //select2 autocomplete End for Location
+                </script>
 
 <!-- <script type="text/javascript" src="<?php echo base_url('js/jquery-1.11.1.min.js'); ?>"></script> -->
 <script type="text/javascript" src="<?php echo base_url('js/jquery.validate1.15.0..min.js'); ?>"></script>
