@@ -3954,7 +3954,7 @@ echo '<pre>'; print_r($artdata); die();
         $contition_array = array('post_image_id' => $post_image, 'user_id' => $userid);
 
         $likeuser = $this->data['likeuser'] = $this->common->select_data_by_condition('art_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
+//echo '<pre>'; print_r($likeuser); die();
         $contition_array = array('image_id' => $post_image);
 
         $likeuserid = $this->data['likeuserid'] = $this->common->select_data_by_condition('post_image', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -3963,7 +3963,7 @@ echo '<pre>'; print_r($artdata); die();
         $likepostid = $this->data['likepostid'] = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
 
-        if (!$likeuser) {
+        if (!$likeuser) { //echo 1; die();
 
             $data = array(
                 'post_image_id' => $post_image,
@@ -4014,7 +4014,7 @@ echo '<pre>'; print_r($artdata); die();
 
                 echo $imglike;
             }
-        } else {
+        } else { 
 
             if ($likeuser[0]['is_unlike'] == 0) {
 
@@ -4024,14 +4024,14 @@ echo '<pre>'; print_r($artdata); die();
                 );
 
 
-                $updatdata = $this->common->update_data($data, 'art_post_image_like', 'post_image_id', $post_image);
+                $updatdata = $this->common->update_data($data, 'art_post_image_like', 'post_image_like_id', $likeuser[0]['post_image_like_id']);
 
                 $contition_array = array('post_image_id' => $_POST["post_image_id"], 'is_unlike' => '0');
                 $bdata2 = $this->data['bdata2'] = $this->common->select_data_by_condition('art_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
 
 
-                if ($updatdata) {
+                if ($updatdata) {  
 
                     $imglike1 = '<li>';
                     $imglike1 .= '<a id="' . $post_image . '" onClick="post_likeimg(this.id)">';
@@ -4044,8 +4044,52 @@ echo '<pre>'; print_r($artdata); die();
                     $imglike1 .= '</span>';
                     $imglike1 .= '</a>';
                     $imglike1 .= '</li>';
+                    
+      //10-5 user list start
+         
+            $contition_array = array('post_image_id' => $post_image, 'is_unlike' => '0');
+            $commnetcount = $this->common->select_data_by_condition('art_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                                                 
+                foreach ($commnetcount as $comment) {
+                           $art_fname1 = $this->db->get_where('art_reg', array('user_id' => $comment['user_id'], 'status' => 1))->row()->art_name;
+                           $art_lname1 = $this->db->get_where('art_reg', array('user_id' => $comment['user_id'], 'status' => 1))->row()->art_lastname;
+                                                                    
+                      } 
+                                                               
+                                                        $cmtlikeuser .= '<a href="javascript:void(0);"  onclick="likeuserlistimg(' . $post_image . ')">';
+                                                                  
+                                                     $contition_array = array('post_image_id' => $post_image, 'is_unlike' => '0');
+                                                     $commnetcount = $this->common->select_data_by_condition('art_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-                    echo $imglike1;
+                                                                      
+                                                       $art_fname = $this->db->get_where('art_reg', array('user_id' => $commnetcount[0]['user_id'], 'status' => 1))->row()->art_name;
+                                                       $art_lname = $this->db->get_where('art_reg', array('user_id' => $commnetcount[0]['user_id'], 'status' => 1))->row()->art_lastname;
+                                                                       
+                                                        $cmtlikeuser .= '<div class="like_one_other">';
+                                                                            
+                                                            $cmtlikeuser .= '' . ucwords($art_fname) . '';
+                                                            $cmtlikeuser .= '&nbsp;';
+                                                            $cmtlikeuser .= '' . ucwords($art_lname) . '';
+                                                            $cmtlikeuser .= '&nbsp;';
+                                                                            
+                                                                            if (count($commnetcount) > 1) {
+                                                            $cmtlikeuser .= 'and ';
+                                                            $cmtlikeuser .= '' . $countlike . '';
+                                                            $cmtlikeuser .= '&nbsp;';
+                                                            $cmtlikeuser .= 'others';
+                                                                            }
+                                                                          
+                                                            $cmtlikeuser .= '</div>';
+                                                            $cmtlikeuser .= '</a>'; 
+                                             //    echo "123456789"; die();           
+                 $like_user_count = count($commnetcount);
+                echo json_encode(
+                        array("like" => $imglike1,
+                            "likeuser" => $cmtlikeuser,
+                            "like_user_count" => $like_user_count));
+                                                     //10-5 user list end               
+
+                   // echo $imglike1;
                 }
             } else {
 
@@ -4115,8 +4159,52 @@ echo '<pre>'; print_r($artdata); die();
                     $imglike1 .= '</span>';
                     $imglike1 .= '</a>';
                     $imglike1 .= '</li>';
+                    
+                    //10-5 user list start
+        
+            $contition_array = array('post_image_id' => $post_image, 'is_unlike' => '0');
+            $commnetcount = $this->common->select_data_by_condition('art_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                     //       echo '<pre>'; print_r($commnetcount); die();                                     
+                foreach ($commnetcount as $comment) {
+                           $art_fname1 = $this->db->get_where('art_reg', array('user_id' => $comment['user_id'], 'status' => 1))->row()->art_name;
+                           $art_lname1 = $this->db->get_where('art_reg', array('user_id' => $comment['user_id'], 'status' => 1))->row()->art_lastname;
+                                                                    
+                      } 
+                                                               
+                                                        $cmtlikeuser .= '<a href="javascript:void(0);"  onclick="likeuserlistimg(' . $post_image . ')">';
+                                                                  
+                                                     $contition_array = array('post_image_id' => $post_image, 'is_unlike' => '0');
+                                                     $commnetcount = $this->common->select_data_by_condition('art_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-                    echo $imglike1;
+                                                         // echo "hehehe";   echo '<pre>'; print_r($commnetcount); die();         
+                                                       $art_fname = $this->db->get_where('art_reg', array('user_id' => $commnetcount[0]['user_id'], 'status' => 1))->row()->art_name;
+                                                       $art_lname = $this->db->get_where('art_reg', array('user_id' => $commnetcount[0]['user_id'], 'status' => 1))->row()->art_lastname;
+                                                                       
+                                                        $cmtlikeuser .= '<div class="like_one_other">';
+                                                                            
+                                                            $cmtlikeuser .= '' . ucwords($art_fname) . '';
+                                                            $cmtlikeuser .= '&nbsp;';
+                                                            $cmtlikeuser .= '' . ucwords($art_lname) . '';
+                                                            $cmtlikeuser .= '&nbsp;';
+                                                                            
+                                                                            if (count($commnetcount) > 1) {
+                                                            $cmtlikeuser .= 'and ';
+                                                            $cmtlikeuser .= '' . $countlike . '';
+                                                            $cmtlikeuser .= '&nbsp;';
+                                                            $cmtlikeuser .= 'others';
+                                                                            }
+                                                                          
+                                                            $cmtlikeuser .= '</div>';
+                                                            $cmtlikeuser .= '</a>'; 
+                                                        //  echo $cmtlikeuser; die();  
+                                                              $like_user_count = count($commnetcount);
+                echo json_encode(
+                        array("like" => $imglike1,
+                            "likeuser" => $cmtlikeuser,
+                            "like_user_count" => $like_user_count));
+     //10-5 user list end
+
+                //    echo $imglike1;
                 }
             }
         }

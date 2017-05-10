@@ -1042,18 +1042,18 @@
                                                                 <?php
                                                             }
                                                             ?>
-                                                            <div class="<?php echo "likeusername" . $artdata['image_id']; ?>" id="<?php echo "likeusername" . $row['art_post_id']; ?>" style="display:none">
+                                                            <div class="<?php echo "likeusernameimg" . $artdata['image_id']; ?>" id="<?php echo "likeusernameimg" . $artdata['image_id']; ?>" style="display:none">
                                                                 <?php
                                                                  $contition_array = array('post_image_id' => $artdata['image_id'], 'is_unlike' => '0');
                                                                     $commnetcount = $this->common->select_data_by_condition('art_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                                                                   // echo '<pre>'; print_r($commnetcount);
                                                                     foreach ($commnetcount as $comment) {
-                                                                      echo  $art_fname1 = $this->db->get_where('art_reg', array('user_id' => $comment['user_id'], 'status' => 1))->row()->art_name;
-                                                                      echo  $art_lname1 = $this->db->get_where('art_reg', array('user_id' => $comment['user_id'], 'status' => 1))->row()->art_lastname;
+                                                                       $art_fname1 = $this->db->get_where('art_reg', array('user_id' => $comment['user_id'], 'status' => 1))->row()->art_name;
+                                                                       $art_lname1 = $this->db->get_where('art_reg', array('user_id' => $comment['user_id'], 'status' => 1))->row()->art_lastname;
                                                                     ?>
                                                                 <?php } ?>
                                                                 <!-- pop up box end-->
-                                                                <a href="javascript:void(0);"  onclick="likeuserlist(<?php echo $artdata['image_id']; ?>);">
+                                                                <a href="javascript:void(0);"  onclick="likeuserlistimg(<?php echo $artdata['image_id']; ?>);">
                                                                     <?php
                                                                     $contition_array = array('post_image_id' => $artdata['image_id'], 'is_unlike' => '0');
                                                                     $commnetcount = $this->common->select_data_by_condition('art_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -1627,6 +1627,20 @@ if (count($commnetcount) > 0) {
 <!-- Model Popup Close -->
                         </footer>
                         </body>
+                        <!-- Model Popup Close -->
+        <!-- Bid-modal-2  -->
+        <div class="modal fade message-box" id="likeusermodal" role="dialog">
+            <div class="modal-dialog modal-lm">
+                <div class="modal-content">
+                    <button type="button" class="modal-close" data-dismiss="modal">&times;</button>       
+                    <div class="modal-body">
+                        <span class="mes">
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Model Popup Close -->
                         </html>
                         <!-- script for skill textbox automatic start (option 2)-->
                         <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
@@ -3231,21 +3245,21 @@ if (count($commnetcount) > 0) {
                                                                                             <!-- 9-5 khyati image script  start --> 
 
 <script type="text/javascript">
-                        function post_likeimg(clicked_id)
+                      function post_likeimg(clicked_id)
                         {
                             $.ajax({
                                 type: 'POST',
                                 url: '<?php echo base_url() . "artistic/like_postimg" ?>',
                                dataType: 'json',
                                 data: 'post_image_id=' + clicked_id,
-                                success: function (data) {  alert(data);
+                                success: function (data) {alert('hi');
                                     $('.' + 'likepostimg' + clicked_id).html(data.like);
                                     $('.likeusernameimg' + clicked_id).html(data.likeuser);
 
                                     $('.likeduserlistimg' + clicked_id).hide();
-                                    if (data.like_user_count == '0') {
+                                    if (data.like_user_count == '0') { alert('hiiii');
                                         document.getElementById('likeusernameimg' + clicked_id).style.display = "none";
-                                    } else {
+                                    } else {alert("dsdsdd");
                                         document.getElementById('likeusernameimg' + clicked_id).style.display = "block";
                                     }
                                     $('#likeusernameimg' + clicked_id).addClass('likeduserlistimg1');
@@ -3538,6 +3552,99 @@ if (count($commnetcount) > 0) {
                             });
 
 
+                        }
+                        
+                            function commenteditimg(abc)
+                        {
+                            $("#editcommentimg" + abc).click(function () {
+                                $(this).prop("contentEditable", true);
+                            });
+                            $('#editcommentimg' + abc).keypress(function (event) {
+                                if (event.which == 13 && event.shiftKey != 1) {
+                                    event.preventDefault();
+                                    var sel = $("#editcommentimg" + abc);
+                                    var txt = sel.html();
+                                    if (txt == '' || txt == '<br>') {
+                                        $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deleteimg(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+                                        $('#bidmodal').modal('show');
+                                        return false;
+                                    }
+                                    if (window.preventDuplicateKeyPresses)
+                                        return;
+                                    window.preventDuplicateKeyPresses = true;
+                                    window.setTimeout(function () {
+                                        window.preventDuplicateKeyPresses = false;
+                                    }, 500);
+                                    $.ajax({
+                                        type: 'POST',
+                                        url: '<?php echo base_url() . "artistic/edit_comment_insertimg" ?>',
+                                        data: 'post_image_comment_id=' + abc + '&comment=' + txt,
+                                        success: function (data) {
+                                            document.getElementById('editcommentimg' + abc).style.display = 'none';
+                                            document.getElementById('showcommentimg' + abc).style.display = 'block';
+                                            document.getElementById('editsubmitimg' + abc).style.display = 'none';
+                                            document.getElementById('editcommentboximg' + abc).style.display = 'block';
+                                            document.getElementById('editcancleimg' + abc).style.display = 'none';
+                                            $('#' + 'showcommentimg' + abc).html(data);
+                                            $('.post-design-commnet-box').show();
+                                        }
+                                    });
+                                }
+                            });
+                            $(".scroll").click(function (event) {
+                                event.preventDefault();
+                                $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1200);
+                            });
+                        }
+                        
+                        function commenteditimgtwo(abc)
+                        {
+                            $("#editcommentimgtwo" + abc).click(function () {
+                                $(this).prop("contentEditable", true);
+                                //$(this).html("");
+                            });
+                            $('#editcommentimgtwo' + abc).keypress(function (event) {
+                                if (event.which == 13 && event.shiftKey != 1) {
+                                    event.preventDefault();
+                                    var sel = $("#editcommentimgtwo" + abc);
+                                    var txt = sel.html();
+                                    if (txt == '' || txt == '<br>') {
+                                        $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deleteimgtwo(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+                                        $('#bidmodal').modal('show');
+                                        return false;
+                                    }
+
+                                    if (window.preventDuplicateKeyPresses)
+                                        return;
+
+                                    window.preventDuplicateKeyPresses = true;
+                                    window.setTimeout(function () {
+                                        window.preventDuplicateKeyPresses = false;
+                                    }, 500);
+
+                                    $.ajax({
+                                        type: 'POST',
+                                        url: '<?php echo base_url() . "artistic/edit_comment_insertimg" ?>',
+                                        data: 'post_image_comment_id=' + abc + '&comment=' + txt,
+                                        success: function (data) {
+                                            document.getElementById('editcommentimgtwo' + abc).style.display = 'none';
+                                            document.getElementById('showcommentimgtwo' + abc).style.display = 'block';
+                                            document.getElementById('editsubmitimgtwo' + abc).style.display = 'none';
+
+                                            document.getElementById('editcommentboximgtwo' + abc).style.display = 'block';
+                                            document.getElementById('editcancleimgtwo' + abc).style.display = 'none';
+
+                                            $('#' + 'showcommentimgtwo' + abc).html(data);
+                                            $('.post-design-commnet-box').show();
+
+                                        }
+                                    });
+                                }
+                            });
+                            $(".scroll").click(function (event) {
+                                event.preventDefault();
+                                $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1200);
+                            });
                         }
                     </script>
     
