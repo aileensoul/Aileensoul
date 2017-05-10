@@ -446,12 +446,14 @@ function feedback_form_submit()
 {
   var email_id = $('#contact_email').val(); 
    var subject = $('#contact_subject').val();
-
+   var pattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/; 
   var $field = $('#contact_message');
   
    var message = $('#contact_message').html();
 
   if(email_id == '' && subject == '' && message == ''){
+    return false;
+  }else if(!email_id.match(pattern)){ alert("hii");
     return false;
   }
     $.ajax({
