@@ -247,7 +247,7 @@
                 </div>
                 <div id="login"> 
 
-    <form name="feedbackform" method="post" id="feedbackform" class="clearfix" onclick="return feedback_form_submit()">
+    <form name="feedbackform" method="post" id="feedbackform" class="clearfix" onsubmit= "return feedback_form_submit()">
 
 	
                         <div class="login_filed">
@@ -485,23 +485,34 @@ if(email == '' && subject == '' && message == ''){
 <script type="text/javascript">
 function feedback_form_submit()
 {
-  var email = $('#contact_email').val();
-  // var subject = $('#contact_subject').val();
+  var email_id = $('#contact_email').val(); 
+   var subject = $('#contact_subject').val();
 
-  // var $field = $('#contact_message');
+  var $field = $('#contact_message');
   
-  // var message = $('#contact_message').html();
+   var message = $('#contact_message').html();
 
-  //  $('#contact_message').html("");
+  if(email_id == '' && subject == '' && message == ''){
+    return false;
+  }
     $.ajax({
                 type:'POST',
                 url:'<?php echo base_url() . "feedback/feedback_insert" ?>',
-                 data:'email=' + email,
+                 data:'email=' + email_id + '&subject=' + subject + '&message=' + message,
                  success:function(data){ 
-                    
+                    $('input').each(function(){
+                          $(this).val('');
+                      });
+                    $('#contact_message').html("");
+                    $('.biderror .mes').html("<div class='pop_content'>Feedback send successfully");
+                      $('#bidmodal').modal('show');
                   }
-            });    
+            }); return false;   
 }
+
+function closemodel(){
+     window.location= "<?php echo base_url() ?>main";
+  }
 </script>
 </body>
 

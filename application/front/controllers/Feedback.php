@@ -8,8 +8,8 @@ class Feedback extends CI_Controller {
     {
         parent::__construct();
 
-        //  $this->load->library('form_validation');
-        //   $this->load->model('email_model');
+          $this->load->library('form_validation');
+          $this->load->model('email_model');
         // if (!$this->session->userdata('aileenuser')) {
         //   redirect('login', 'refresh');
         // }
@@ -29,22 +29,21 @@ class Feedback extends CI_Controller {
 
  public function feedback_insert() 
   { 
-        echo "hiii"; die();
-
-         // echo $email = $_POST['email']; 
-         // echo $subject = $_POST['subject'];
-         // echo  $message = $_POST['message']; 
+       
+        $email = $_POST['email']; 
+         $subject = $_POST['subject'];
+         $message = $_POST['message']; 
           
-         //   $data = array(
-         //                 'user_email' => $email,
-         //                 'subject' => $subject,
-         //                 'description' => $message,
-         //                 'created_date' => date('Y-m-d', time()),
-         //                 'is_delete' => 0
+           $data = array(
+                         'user_email' => $email,
+                          'subject' => $subject,
+                          'description' => $message,
+                         'created_date' => date('Y-m-d', time()),
+                         'is_delete' => 0
                         
-         //        ); 
-         //        echo"<pre>";print_r($data);die();
-         //      $insert_id =   $this->common->insert_data_getid($data,'feedback'); 
- }
-    
+                ); 
+                //echo"<pre>"; print_r($data); die();
+              $insert_id =   $this->common->insert_data_getid($data,'feedback'); 
 }
+    
+  }
