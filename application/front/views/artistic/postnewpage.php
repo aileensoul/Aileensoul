@@ -999,7 +999,9 @@
 
                                                             <!-- pop up box start-->
                                                             <?php
-                                                            if ($commnetcount > 0) {
+                                                             $contition_array = array('post_image_id' => $artdata['image_id'], 'is_unlike' => '0');
+                                                            $commnetlike = $this->common->select_data_by_condition('art_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                                            if (count($commnetlike) > 0) {
                                                                 ?>
                                                                 <div class="likeduserlistimg<?php echo $artdata['image_id']; ?>">
                                                                     <?php
