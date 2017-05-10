@@ -35,7 +35,7 @@
 </ul>
 </div>
 
-       <div class="col-md-4">
+       <div class="col-md-3">
                 <div class="flw_msg_btn fr">
                     <ul>
 

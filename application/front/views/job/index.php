@@ -520,3 +520,6 @@ if (count($nation) > 0) {
 
 </script>
 <!-- script for Language textbox automatic end (option 2)-->
+<script type="text/javascript">
+    $(".alert").delay(3200).fadeOut(300);
+</script>

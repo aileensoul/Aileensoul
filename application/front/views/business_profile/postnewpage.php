@@ -780,7 +780,7 @@
 
 
                                                 <div id="two_images_bui" >
-                                                    <img src="<?php echo base_url(BUSPOSTIMAGE . str_replace(" ", "_", $data['image_name'])) ?>" style="width: 100%; height: 100%;" onclick="openModal();
+                                                    <img src="<?php echo base_url(BUSPOSTIMAGE .$data['image_name']) ?>" style="width: 100%; height: 100%;" onclick="openModal();
                                                             currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
                                                 </div>
 
@@ -860,7 +860,7 @@
                                                 <div class="mySlides">
                                                     <div class="numbertext"><?php echo $i ?> / <?php echo count($databus1) ?></div>
                                                     <div>
-                                                        <img src="<?php echo base_url(BUSPOSTIMAGE . str_replace(" ", "_", $busdata['image_name'])) ?>" style="width:100%; height: 70%;">
+                                                        <img src="<?php echo base_url(BUSPOSTIMAGE .$busdata['image_name']) ?>" style="width:100%; height: 70%;">
                                                     </div>
 
                                                     <!-- like comment start -->
