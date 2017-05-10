@@ -213,7 +213,7 @@ z-index: 1;
                         <div class="common-form">
                             <div class="job-saved-boxe_2">
                                 <h3>Educational  Qualification</h3>
-                                <div class="contact-frnd-post">
+                                <div class="contact-frnd-post1" style="padding: 10px;">
                                     <?php
                                     if ($this->session->flashdata('error')) {
                                         echo '<div class="alert alert-danger">' . $this->session->flashdata('error') . '</div>';
