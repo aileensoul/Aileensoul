@@ -384,10 +384,10 @@ $(document).ready(function () {
     rules: {
                 contact_name: {
                  required: true,
-                 email: true,
                  },
                 contact_email: {
                  required: true,
+                  email: true,
                  },
                  contact_subject: {
                  required: true,
@@ -431,7 +431,7 @@ $(document).ready(function () {
   var name = $('#contact_name').val();
   var email = $('#contact_email').val();
   var subject = $('#contact_subject').val();
-
+  var pattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
   var $field = $('#contact_message');
   
   var message = $('#contact_message').html();
@@ -441,7 +441,10 @@ $(document).ready(function () {
 if(name == '' && email == '' && subject == '' && message == ''){
 
     return false;
-}else{
+}else if(!email.match(pattern)){
+  return false;  
+}
+else{
        $.ajax({
                 type:'POST',
                 url:'<?php echo base_url() . "contact_us/contact_us_insert" ?>',

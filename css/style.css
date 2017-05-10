@@ -820,7 +820,7 @@ text-align: center*/;
     /* height: 8%; */
 
     float: left;
-  padding-left:35px;
+  padding-left:45px;
     padding-right: 10px; 
     /* margin-top: -19px; */}
 .job-menu-profile h5 { text-transform: capitalize; font-size: 25px; font-weight: 600; }
@@ -2198,7 +2198,7 @@ border-bottom: 1px solid #000033;
 }
 .right-side-menu{float: left; height: 50px;    margin-left: 10px;
 }
-.left-side-menu {width: 13%;
+.left-side-menu {width: 16%;
                  float: left;
                  height: 50px;
                  border-right: none; }
@@ -2227,7 +2227,7 @@ border-bottom: 1px solid #000033;
     transition-property: box-shadow, transform;
     line-height: 16px;
 }
-.profile-main-box-buis-menu{margin-left: 20px;}
+.profile-main-box-buis-menu{margin-left: -6px;}
 .profile-main-box-buis-menu li a:hover {
     box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
    /* -webkit-transform: scale(1.1);
@@ -4350,6 +4350,7 @@ textarea {overflow: hidden;}
     resize: none;
 word-break: break-all;
     word-break: break-word;
+    cursor: text;
 }
 
 /*v 1-5-17 start */
@@ -4606,3 +4607,13 @@ fieldset .add_post_btns{min-width: 120px;padding:8px 30px 8px;}
     right: 9px;}
 
 .dropdown_hover .dropdown-content_hover a {color: #000;}
+ .pdf_name a:{text-decoration-line: underline;}
+ .pdf_name {    font-size: 14px;
+    margin-top: 0px;
+    margin-left: 10px;
+}
+ .pdf_name a{white-space: nowrap;
+    max-width: 121px;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;}
