@@ -2277,7 +2277,7 @@
                                             dataType: "json",
                                             success: function (data) {
                                                 $('textarea').each(function () {
-                                                    $(this).val('');
+                                                  $(this).val('');
                                                 });
                                                 $('#' + 'insertcount' + clicked_id).html(data.count);
                                                 $('#' + 'fourcomment' + clicked_id).html(data.comment);
