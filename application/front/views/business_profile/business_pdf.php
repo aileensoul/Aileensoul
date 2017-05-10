@@ -561,10 +561,10 @@ label.cameraButton input[accept*="camera"] {
                   
               ?>
 
-<div>
-<div>
-        <a href="<?php echo base_url('business_profile/creat_pdf/'.$pdfv['image_id']) ?>"><div class="pdf_img" style="margin: 0!important;">
-                                                                <img src="<?php echo base_url('images/PDF.jpg')?>" style="height: 128px; width: 128px;">
+<div class="main_box_pdf" style="">
+<div class="main_box_img" style="">
+        <a href="<?php echo base_url('business_profile/creat_pdf/'.$pdfv['image_id']) ?>"><div class="" style="margin: 0!important;">
+                                                                <img src="<?php echo base_url('images/PDF.jpg')?>" style="height: 100%; width: 100%;">
                                                               
                                                             </div></a> </div> 
                                                             <div class="pdf_name"><a title="Zalak infotech .in pdf" href="">Zalak infotech .in pdf</a> </div>
