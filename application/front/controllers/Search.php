@@ -505,7 +505,7 @@ class Search extends CI_Controller {
           
          $business_post=$post['data'] = $this->common->select_data_by_search('business_profile_post', $search_condition, $contition_array = array(), $data = '*' , $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
 
-          // echo "<pre>"; print_r($results);die();
+          // echo "<pre>"; print_r($business_post);die();
 
 
 
@@ -617,6 +617,8 @@ $unique=array_merge($business_post,$business_profile);
           }
       
       $this->data['businessuserdata'] = $new;
+
+
 
 
  $contition_array = array('status' => '1', 'is_deleted' => '0');

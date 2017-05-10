@@ -88,6 +88,7 @@
                                                         <br> (<?php echo (count($businessfollowingdata)); ?>) 
                                                     </a>
                                                 </li>
+                                                 <input type="hidden" name="search" id="search" value="<?php echo $keyword; ?>">
                                             </ul>
                                         </div>
                                     </div>
@@ -106,20 +107,25 @@
                         <div class="common-form">
                             <div class="job-saved-box">
 
-                                <h3>Search Result of Aileensoul</h3>
+                                <h3>Search Result of Business</h3>
                                 <div class="contact-frnd-post">
                                     <div class="job-contact-frnd ">
 <!-- main data start -->
+
                                     
-                                       <div class="profile-job-post-title-inside clearfix" style="border: 1px solid #d9d9d9;">
+                                       <div class="profile-job-post-title-inside clearfix search" style="border: 1px solid #d9d9d9;">
+                                        <?php if($businessuserdata){
+
+                                    foreach ($businessuserdata as  $p) {
+                                        
+                                  ?>
+
           <div class="profile-job-profile-button clearfix box_search_module" style="height: 16%;">
-                                                            <!-- pop up box start-->
-              
-                                                            <!-- pop up box end-->
+                                                           
      <div class="profile-job-post-location-name-rec">
           <div class="module_Ssearch" style="display: inline-block; float: left;">
              <div class="search_img">
-                           <img src="http://localhost/aileensoul/uploads/user_image/sergey-brin-33.jpg" alt=" ">
+                          <img src="<?php echo base_url(USERIMAGE . $p['business_user_image']);?>" alt="" >
                         </div>
        </div>
    
@@ -129,44 +135,86 @@
           <ul>
        <li>
       <a style="  font-size: 19px;
-         font-weight: 600;" href="" title=" dhaval shah">
-       Aileensoul</a>
+         font-weight: 600;" href="<?php echo base_url('business_profile/business_resume/'.$p['user_id']); ?>" title=""><?php echo ucwords($p['company_name']); ?></a>
       </li>
       
       <li style="display: block;">
-        <a  class="color-search" style="font-size: 16px;" href="" title="IAS">
-                  It Sector                
+        <a  class="color-search" style="font-size: 16px;" title="">
+        <?php
+         $cache_time = $this->db->get_where('industry_type', array('industry_id' => $p['industriyal']))->row()->industry_name;
+          echo $cache_time;
+        
+        ?>            
            </a>
        </li>
        <li style="display: block;">
-         <a  class="color-search" href="">
-           Production
+         <a  class="color-search">
+          
+          <?php
+         $cache_time = $this->db->get_where('business_type', array('type_id' => $p['business_type']))->row()->business_name;
+           echo $cache_time;
+        
+        ?> 
          </a>
 
        </li>
        <li style="display: block;">
-         <a  class="color-search" href="">Ahmedabad,India</a>
+         <a  class="color-search">
+            <?php $cityname = $this->db->get_where('cities', array('city_id' => $p['city']))->row()->city_name;
+
+
+                                                     $countryname = $this->db->get_where('countries', array('country_id' => $p['country']))->row()->country_name; ?>
+                                                            <?php  
+                                                            if($cityname || $countryname)
+                                                            { 
+                                                            ?>
+                                                            
+
+                                                            <?php  echo $cityname .', '. $countryname; ?> 
+                                                            
+                                                            
+                                                            <?php
+                                                             }
+
+                                                             else{}?>   
+         </a>
        </li>
        <li style="display: block;">
-         <a  class="color-search" style="font-weight: 600;" href="">www.aileensoul.com</a>
+         <a  class="color-search" style="font-weight: 600;" href="<?php echo $p['contact_website']; ?>" target="_blank"> <?php echo $p['contact_website']; ?></a>
        </li>
+       <input type="hidden" name="search" id="search" value="<?php echo $keyword; ?>">
+                                        
     </ul>
       </div>
       <div class="fl search_button">
         <button>follow</button>
         <br>
-         <button>Message</button>
-      </div>
+        <button onclick="window.location.href='<?php echo base_url('chat/abc/' . $p['user_id']); ?>'"> Message</button>
+
+              </div>
 
 
 
      </div>
        </div>
+       <?php
+     }
+   }
+      if($businessuserdata){
+
+   foreach ($businessuserdata as  $p) {
+                                        
+                                  
+
+       if($p['product_description'] == $keyword || $p['product_name'] == $keyword )
+        {
+
+          ?>
        <div class="col-md-12 col-sm-12 post-design-box" id="removepost5" style="margin-bottom: 0px; box-shadow: none; border: none;">
                                     <div class="post_radius_box">  
                                         <div class="post-design-search-top col-md-12" style="background-color: none!important;">  
                                             <div class="post-design-pro-img col-md-2"> 
-                                                <!-- pop up box start-->
+                                                
                                                 <div id="popup1" class="overlay">
                                                     <div class="popup">
                                                         <div class="pop_content">
@@ -178,8 +226,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!-- pop up box end-->
-                                                <!-- pop up box start-->
+                                                
                                                 <div id="popup25" class="overlay">
                                                     <div class="popup">
                                                         <div class="pop_content">
@@ -195,8 +242,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!-- pop up box end-->
-                                                <!-- pop up box start-->
+                                              
                                                 <div id="popup55" class="overlay">
                                                     <div class="popup">
                                                         <div class="pop_content">
@@ -212,7 +258,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!-- pop up box end-->                                                                <img src="http://localhost/aileensoul/uploads/user_image/photo2.jpg" alt="">
+                                                          <img src="<?php echo base_url(USERIMAGE . $p['business_user_image']);?>" alt="" >
                                                                                                 </div>
                                             <div class="post-design-name fl col-md-9">
                                                 <ul>
@@ -222,12 +268,12 @@
 
                                                                                                             <li>
                                                             <div class="post-design-product">
-                                                                <a class="post_dot" href="http://localhost/aileensoul/business_profile/business_profile_manage_post/zalak-patel-infotechtechnoloy-pvt-ltd-co-in-ahmedabad-gujrat-india" title="Zalak Patel Infotechtechnoloy.pvt.ltd .co.in.  Ahmedabad Gujrat India" ;="">
-                                                                    Zalak Patel Infotechtechnoloy.pvt.ltd .co.in.  Ahmedabad Gujrat India  </a>
+                 <a class="post_dot" href="<?php echo base_url('business_profile/business_resume/'.$p['user_id']); ?>" title="" ;=""><?php echo ucwords($p['company_name']); ?>
+                                                                    </a>
                                                                 <div class="datespan">  <span style="font-weight: 400;
                                                     font-size: 14px;
                                                     color: #91949d; cursor: default;"> 
-                                                                        07-May-2017                                                                    </span></div>
+                                                                     <?php echo date('d-M-Y',strtotime($p['created_date'])); ?> </span></div>
 
                                                             </div>
 
@@ -238,8 +284,12 @@
                                                     
                                                     <li>
                                                         <div class="post-design-product">
-                                                            <a href="javascript:void(0);" style=" color: #000033; font-weight: 400; cursor: default;" title="Category">
-                                                                IT Sector                                                            </a>
+                                                            <a href="javascript:void(0);" style=" color: #000033; font-weight: 400; cursor: default;" title="">
+                                                                        <?php
+         $cache_time = $this->db->get_where('industry_type', array('industry_id' => $p['industriyal']))->row()->industry_name;
+          echo $cache_time;
+        
+        ?>  </a>
                                                         </div>
                                                     </li>
                                                     <li>
@@ -265,21 +315,25 @@
                                                 <div>
                                                     <div id="editpostdata5" style="display:block;">
                                                         <a style="margin-bottom: 0px;     font-size: 16px">
-                                                            zalak                                                        </a>
+                                                        <?php echo ucwords($p['product_name']); ?>
+   
+
+                                                              </a>
                                                     </div>
                                                     <div id="editpostbox5" style="display:none;">
                                                         <input type="text" id="editpostname5" name="editpostname" placeholder="Product Name" value="zalak">
+
                                                     </div>
                                                 </div>                    
 
                                                 <div id="editpostdetails5" style="display:block;">
-                                                    <span class="show"> 
-                                                        48648486486                                                    </span>
+                                                    <span class="show">  <?php echo ucwords($p['product_description']); ?>
+                                                         </span>
                                                 </div>
                                                 <div id="editpostdetailbox5" style="display:none;">
                                                   <!-- <textarea id="editpostdesc5" placeholder="Product Description" class="textbuis" name="editpostdesc">48648486486</textarea>
                                                     -->
-                                                    <div contenteditable="true" id="editpostdesc5" placeholder="Product Description" class="textbuis  editable_text" name="editpostdesc">48648486486</div>                  
+                                                    <div contenteditable="true" id="editpostdesc5" placeholder="Product Description" class="textbuis  editable_text" name="editpostdesc"></div>                  
                                                 </div>
                                                 <button class="fr" id="editpostsubmit5" style="display:none;margin: 5px 0; border-radius: 3px;" onclick="edit_postinsert(5)">Save
                                                 </button>
@@ -288,17 +342,17 @@
                                         </div>
                                         
                                         <div class="post-design-mid col-md-12" style="border: none;">
-                                            <!-- multiple image code  start-->
-                                            <div>                                                                                                                                                           <!-- one image start -->
+                                            
+                                            <div>                                                                                                                                                           
                                                         <div id="basic-responsive-image" style="height: 50%; width: 100%;">
                                                             <a href="http://localhost/aileensoul/business_profile/postnewpage/5">
                                                                 <img src="http://localhost/aileensoul/uploads/bus_post_image/1494150788_2.jpg" style="width: 100%; height: 100%;"> 
                                                             </a>
                                                         </div>
-                                                        <!-- one image end -->                                                                      <div>
+                                                         <div>
                                                 </div>
                                             </div>
-                                            <!-- multiple image code  end-->
+                                            
                                         </div>
                                         <div class="post-design-like-box col-md-12" style="border: none;">
                                             <div class="post-design-menu">
@@ -319,11 +373,10 @@
                                                 </ul>
                                             </div>
                                         </div>
-                                        <!-- like user list start -->
-                                        <!-- pop up box start-->
+                                        
                                         
                                         <div class="likeusername5" id="likeusername5" style="display:none">
-                                                                                        <!-- pop up box end-->
+                                                                            
                                             <a href="javascript:void(0);" onclick="likeuserlist(5);">
                                                                                                 <div class="like_one_other">
                                                     &nbsp;                                                                                                    </div>
@@ -331,19 +384,14 @@
                                         </div>
 
 
-                                        <!-- like user list end -->
-                                        <!-- all comment start-->
+                                       
                                         <div class="art-all-comment col-md-12">
                                             <div id="fourcomment5" style="display:none;">
-                                                <!-- khyati 19-4 changes start -->
-                                                <!-- khyati 19-4 changes end -->
+                                                
                                             </div>
-                                            <!-- khyati changes start -->
                                            
-                                            <!-- khyati changes end -->
-                                            <!-- all comment end -->
                                         </div>
-                                        <!-- comment start -->
+                                       
                                         <div class="post-design-commnet-box col-md-12">
                                             <div class="post-design-proo-img">                                                                      <img src="http://localhost/aileensoul/uploads/user_image/photo2.jpg" alt="">
                                                                                             </div>
@@ -360,24 +408,30 @@
                                         </div>
 
                                        
-                                        <!-- comment end -->
 
-                                    </div> </div><div class="view_more_details">
+                                    </div> </div>
+                                    <?php
+                                    }?>
+
+<?php }
+}
+?>
+                                    <div class="view_more_details">
                                           <a href="">View more in Aileensoul's Profile</a>
                                         </div>
                                 </div>
 
 
          </div>
-<!-- main data end -->
 
 
+
                                     </div>
                                     </div>
                                     </div>
                                     </div>
                                     </div>
-                                   <!--  col-md-7 close -->
+                                  
 </div>
 </div>
 </div>
@@ -418,5 +472,19 @@ $( "#tags" ).autocomplete({
 });
 });
   
+</script>
+ <script src="<?php echo base_url('js/jquery.highlite.js'); ?>"></script>
+
+<script type="text/javascript">
+    var text = document.getElementById("search").value;
+//alert(text);
+
+    $(".search").highlite({
+
+        text: text
+
+
+
+    });
 </script>
 
