@@ -24,6 +24,7 @@ a:focus { outline: none; text-decoration: none;  }
    /* border:none;*/
     outline:none;
 }
+.border_none{border: none!important;}
 .marquee-main {
     height: 50px;  
     overflow: hidden;
@@ -446,6 +447,7 @@ ul.cv-btn li a i { padding-right: 6px; }
 /* ART INFO */
 .common-form h3 { background: #000033; margin: 0; padding: 6px 15px 8px;  color: #fff; font-size: 20px; line-height: 28px; }
 .common-form form { border: 2px solid #ddd; border-top: 0; padding: 10px;     background-color: white;}
+.none_aaaart .common-form form{border: none!important;}
 fieldset.full-width { width: 100%; }
 .common-form .cntact-ss{    border: none!important;
     border-top: 0!important;
@@ -768,7 +770,7 @@ ul.business_pf_ct_person_detail li b {font-size: 16px; display: inline-block; wi
 .profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li b {font-weight: 600; width: 32%; float: left; }
 
 .profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li label {font-weight: 600; width: 30%; float: left; }
-.profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li span{     text-align: justify;
+.profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li span{   word-break: break-all; word-break: break-word;  text-align: justify;
                                                                                            padding-right: 10px ;display: flex; width: 63%;/* display: inline-block;*/}
 .profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li span::before { 
     content: " :"; padding-right: 20px; float: left; }
