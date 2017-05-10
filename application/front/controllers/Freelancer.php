@@ -2433,7 +2433,7 @@ $this->load->view('freelancer/freelancer_hire/freelancer_save', $this->data);
 
 //Remove save candidate controller End
 
-    public function freelancer_post_profile($id) {
+    public function freelancer_post_profile($id = " ") {
 
         $userid = $this->session->userdata('aileenuser');
 
