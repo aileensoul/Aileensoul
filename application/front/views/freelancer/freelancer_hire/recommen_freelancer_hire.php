@@ -9,13 +9,12 @@
 
 <!--post save success pop up style strat -->
 <style>
-    /*body {
+   /* body {
         font-family: Arial, sans-serif;
         background-size: cover;
         height: 100vh;
     }*/
-
-/*    .box {
+    /*.box {
         width: 40%;
         margin: 0 auto;
         background: rgba(255,255,255,0.2);
@@ -25,9 +24,6 @@
         background-clip: padding-box;
         text-align: center;
     }*/
-
-
-
    /* .overlay {
         position: fixed;
         top: 0;
@@ -43,9 +39,8 @@
     /*.overlay:target {
         visibility: visible;
         opacity: 1;
-    }
-
-    .popup {
+    }*/
+    /*.popup {
         margin: 70px auto;
         padding: 20px;
         background: #fff;
@@ -54,9 +49,9 @@
         height: 200px;
         position: relative;
         transition: all 5s ease-in-out;
-    }*/
-
-    .okk{
+    }
+*/
+.okk{
         text-align: center;
     }
      .pop_content .okbtn{
@@ -84,40 +79,24 @@
         margin-top: 8px;
         width: 100px;
         border-radius: 8px;
-    }
-
-    /*.popup .okbtn {
-        position: absolute;
-        transition: all 200ms;
-        font-size: 26px;
-        font-weight: bold;
-        text-decoration: none;
-        color: #fff;
-        padding: 12px 30px;
-        background-color: darkcyan;
-        margin-left: -45px;
-        margin-top: 15px;
-    }*/
-
-  .popup .pop_content {
+    }  
+    .popup .pop_content {
         text-align: center;
         margin-top: 40px;
-
     }
       .model_ok_cancel{
         width:200px !important;
     }
-
-   /* @media screen and (max-width: 700px){
+  
+/*    @media screen and (max-width: 700px){
         .box{
             width: 70%;
         }
         .popup{
             width: 70%;
-        }*/
-   /* }*/
+        }
+    }*/
 </style>
-
 <!--post save success pop up style end -->
 
 
@@ -126,7 +105,7 @@
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
-<link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
+<link rel="stylesheet" href="<?php echo base_url('css/bootstrap.min.css') ?>" />
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/demo.css'); ?>">
 
 <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
@@ -135,7 +114,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
+       
 
 
 
@@ -572,7 +551,7 @@
     <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
                     <!-- script for skill textbox automatic end (option 2)-->
-                    <script src="<?php echo base_url('js/jquery.highlite.js'); ?>"></script>
+                    <!-- <script src="<?php echo base_url('js/jquery.highlite.js'); ?>"></script> -->
 
                     <script type="text/javascript">
                    
