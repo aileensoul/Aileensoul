@@ -203,25 +203,8 @@
                     <div class="col-md-7 col-sm-7 header-left-menu">
 
                     <ul class="fr">
-                        <li class=""><a style="       margin-top: 25px;
-    padding: 8px 17px;
-    border: none;
-    line-height: normal;
-    font-size: 15px;
-    background-color: #87ceff!important;
-    color: #FFF;
-    margin-right: 10px;
-    font-weight: 600;
-    border: 3px solid #fff; " href="<?php echo base_url('login') ?>">Login</a></li>
-                    <li class=""><a style="       margin-top: 25px;
-    padding: 8px 17px;
-    border: none;
-    line-height: normal;
-    font-size: 15px;
-    background-color: #87ceff!important;
-    color: #FFF;
-    font-weight: 600;
-    border: 3px solid #fff; " href="<?php echo base_url('registration') ?>">Create an account</a></li>
+                    <li class=""><a class="login_butn" href="<?php echo base_url('login') ?>">Login</a></li>
+                <li class=""><a class="login_butn" href="<?php echo base_url('registration') ?>">Create an account</a></li>
                       
                     </ul>
                      
@@ -264,11 +247,8 @@
                 </div>
                 <div id="login"> 
 
-                     <form name="feedbackform" method="post" id="feedbackform" 
-                    class="clearfix" onsubmit="return  feedback_form_submit()">
+    <form name="feedbackform" method="post" id="feedbackform" class="clearfix" onsubmit= "return feedback_form_submit()">
 
-                    <!-- <form id="feedbackform " class="clearfix" method="post" enctype="multipart/form-data" action="<?php echo base_url('feedback/feedback_insert'); ?>"> -->
-     
 	
                         <div class="login_filed">
                             <div class="field-wrap">
@@ -288,7 +268,7 @@
                                 <label class="login_label">
                                     Description <span class="req">*</span>
                                 </label>
-                              <div contenteditable="true" name="contact_message" class="description " id="contact_message"  style="    background-color: #fff!important;
+                              <div contenteditable="true" name="contact_message" class="description" id="contact_message" placeholder="Enter Description" style="background-color: #fff!important;
     font-size: 18px;
    
     min-height: 150px;
@@ -427,6 +407,7 @@ $(document).ready(function () {
                 
                 contact_email: {
                  required: true,
+                 email: true,
                  },
                  contact_subject: {
                  required: true,
@@ -459,47 +440,41 @@ $(document).ready(function () {
 <!-- form insert script start -->
 
  <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
-<script type="text/javascript">
 
-function feedback_form_submit(){  
-   
-  
-  var email = $('#contact_email').val();
-  var subject = $('#contact_subject').val();
+<script type="text/javascript">
+function feedback_form_submit()
+{
+  var email_id = $('#contact_email').val(); 
+   var subject = $('#contact_subject').val();
 
   var $field = $('#contact_message');
   
-  var message = $('#contact_message').html();
+   var message = $('#contact_message').html();
 
-   $('#contact_message').html("");
-
-if(email == '' && subject == '' && message == ''){
-
+  if(email_id == '' && subject == '' && message == ''){
     return false;
-}else{
-       $.ajax({
+  }
+    $.ajax({
                 type:'POST',
                 url:'<?php echo base_url() . "feedback/feedback_insert" ?>',
-                 data:'email=' + email + '&subject=' + subject + '&message=' + message,
-                success:function(data){ 
+                 data:'email=' + email_id + '&subject=' + subject + '&message=' + message,
+                 success:function(data){ 
                     $('input').each(function(){
-                             $(this).val('');
-                             });
-                     $('.biderror .mes').html("<div class='pop_content'>Feedback send successfully");
-                        $('#bidmodal').modal('show');
-                   //window.location= "<?php echo base_url() ?>main";  
-                }
-            }); }
-   
-   
-  }
- 
- function closemodel(){
-    window.location= "<?php echo base_url() ?>main";
- }
-</script>
-<!-- form insert script end -->
+                          $(this).val('');
+                      });
+                    $('#contact_message').html("");
+                    $('.biderror .mes').html("<div class='pop_content'>Feedback send successfully");
+                      $('#bidmodal').modal('show');
+                  }
+            }); return false;   
+}
 
+function closemodel(){
+     window.location= "<?php echo base_url() ?>main";
+  }
+</script>
+
+<!-- form insert script end -->
 </body>
 
 </html>

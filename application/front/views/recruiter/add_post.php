@@ -827,7 +827,7 @@ $('#datepicker').datetimepicker({
 var CheckValue11 = function() { //alert('hi');
    var firstBox = $('#minsal').val();
    var secondBox = $('#maxsal').val();
-  if (firstBox < secondBox){
+  if (secondBox < firstBox){
   alert('box 1 cannot be greater than box 2');
   return false;
     }

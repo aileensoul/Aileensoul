@@ -95,7 +95,7 @@
                         <div class="checkbox2" style="display: block;">
 
                         <input type="checkbox" class="fl" name="remember" style="display: inline-block;padding: 2px; width: 6%; margin-left: 5px;margin-top: 5px;">
-                                     <span class="" style="font-size: 15px; padding-left: 8px; font-weight: 600; color: #a0b3b0;">Remember me</span>
+                                     <span class="" style="font-size: 13px; padding-left: 8px; color: #a0b3b0;">Remember me</span>
                         </div>
         </div> 
          <div class="col-md-4 reg_form">              
@@ -103,7 +103,7 @@
 
                                 <input type="hidden" name="hiddenf" id="hiddenf" value="main">
 
-                              <span style="font-size: 12px; padding-left: 8px; font-weight: 600; color: #a0b3b0;">
+                              <span style="font-size: 12px; padding-left: 8px; color: #a0b3b0;">
                               <a style="font-size: 13px;" data-toggle="modal" href="login.html#myModal"> Forgot Password?</a>
                               </span>
 </div> 
