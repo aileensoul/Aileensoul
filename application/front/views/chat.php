@@ -10,7 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!--- for dispaly div insted of input type start -->
 <style type="text/css">
 div .comment {  
-  height: 40px;
+
   border: 1px solid #ccc;
 }
 </style>
@@ -82,7 +82,7 @@ if($lstusrdata){?>
 
   <?php   if ($lstusrdata[0]['user_image']) {?>
 
-   <div style=" height: 50px; width: 50px; display: inline-block; float: left;">
+   <div style=" height: 40px; width: 40px; display: inline-block; float: left;">
 <img src="<?php echo base_url(USERIMAGE . $lstusrdata[0]['user_image']); ?>" alt="" height="50px" weight="50px">
 </div>
 <?php  } else { ?>
@@ -122,7 +122,7 @@ if($lstusrdata){?>
                
               <!--  <div class="comment" contentEditable="true" name="comments" id="message  smily" style="position: relative;"> -->
 
-              <div class="comment" contentEditable="true" name="comments" id="message" style="position: relative;">
+              <div class="comment" contentEditable="true" name="comments" id="message" style="position: relative; padding-right: 40px!important; word-break: break-word; padding: 10px;">
 
               </div>
 <div for="smily" style="position: absolute;
@@ -154,7 +154,7 @@ if($lstusrdata){?>
             </form>
     
                 <span class="input-group-btn">
-        <button class="btn btn-warning btn-sm" id="submit" style="padding: 10px">Send</button>
+        <button class="btn btn-warning btn-sm" id="submit" style="padding: 12px">Send</button>
                 </span>
               </div>
             </div>
