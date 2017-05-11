@@ -26,7 +26,7 @@ class Search extends CI_Controller {
     }
 
     public function execute_search() {
-
+                //echo "test sucessfull";
         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
 
 //         // Retrieve the posted search term.
@@ -70,7 +70,7 @@ class Search extends CI_Controller {
             // $abc[] = $results;
             // $this->data['falguni'] = 1;        
         } elseif ($this->input->post('searchplace') == "") {
-            // echo "skill";
+             //echo "skill";
 
             $contition_array = array('is_delete' => '0', 'status' => '1', 'type' => '2');
 
@@ -146,7 +146,7 @@ class Search extends CI_Controller {
 
 
 
-                // echo "<pre>";print_r($new);
+                // echo "<pre>";print_r($new);die();
             } else {
                 // echo "panalia";
                 $search_condition = "(art_name LIKE '%$fullname[0]%' or art_lastname LIKE '%$fullname[1]%')";
@@ -260,7 +260,7 @@ class Search extends CI_Controller {
 
 
 
-                // echo "<pre>";print_r($new);
+                // echo "<pre>";print_r($new);die();
             } else {
 
                 $search_condition = "(art_name LIKE '%$fullname[0]%' or art_lastname LIKE '%$fullname[1]%')";
@@ -395,7 +395,11 @@ public function business_search() {
         if ($this->input->post('skills') == "") {
             $contition_array = array('city' => $search_place[0], 'status' => '1');
             $new = $this->data['results'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+
         } elseif ($this->input->post('searchplace') == "") {
+
+
 
             $condition_array = array('business_profile_id !=' => '', 'status' => '1' ,'business_profile.user_id !=' => $userid);
             $searchbusiness = $this->db->get_where('business_type', array('business_name' => $search_business))->row()->type_id;
@@ -418,6 +422,7 @@ public function business_search() {
              $condition_array = array('business_profile_post.user_id !=' => $userid);
 
             $search_condition = "(business_profile_post.product_name LIKE '%$search_business%' or business_profile_post.product_description LIKE '%$search_business%')";
+            // echo $search_condition;  die();
             $business_post = $post['data'] = $this->common->select_data_by_search('business_profile_post', $search_condition, $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
             $unique = array_merge($business_post, $business_profile);
 
@@ -429,7 +434,11 @@ public function business_search() {
             foreach ($postdata as $value) {
                 $new[$value['business_profile_id']] = $value;
             }
-        } else {
+
+           //echo "<pre>"; print_r($new); die();
+        } 
+
+        else {
 
             $condition_array = array('business_profile_id !=' => '', 'status' => '1', 'city' => $search_place[0] ,'business_profile.user_id !=' => $userid);
 
@@ -489,6 +498,7 @@ public function business_search() {
         }
 
         $this->data['demo'] = array_values($result1);
+       // echo "<pre>"; print_r($new); die();
         $this->load->view('business_profile/recommen_business', $this->data);
     }
 
