@@ -625,7 +625,7 @@
 
                 <div class="left-side-menu col-md-2">   </div>
 
-                <div class="profile-main-box-buis-menu  col-md-9">  
+                <div class="profile-main-box-buis-menu  col-md-8">  
                     <ul class="">
 
 
