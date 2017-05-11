@@ -81,20 +81,7 @@ class Notification extends MY_Controller {
         $this->data['hire_not'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'app_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
         // freelancer hire notification end
 // freelancer post notification start
-//        $contition_array = array('notification.not_type' => 4, 'notification.not_from' => 4, 'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
-//        $join_str = array(array(
-//                'join_type' => '',
-//                'table' => 'job_apply',
-//                'join_table_id' => 'notification.not_product_id',
-//                'from_table_id' => 'job_apply.app_id'),
-//            array(
-//                'join_type' => '',
-//                'table' => 'user',
-//                'join_table_id' => 'notification.not_from_id',
-//                'from_table_id' => 'user.user_id')
-//        );
-//        $data = array('notification.*', ' job_apply.*', ' user.user_id', 'user.first_name', 'user.user_image', 'user.last_name');
-//         $this->data['work_post'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'app_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
+       $this->data['work_post'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'app_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 
         
           $contition_array = array('notification.not_type' => 4, 'notification.not_from' => 4, 'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
@@ -168,6 +155,7 @@ class Notification extends MY_Controller {
         );
         $data = array('notification.*', 'art_post.*', ' user.user_id', 'user.first_name', 'user.user_image', 'user.last_name');
         $this->data['artlike'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'art_post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
+
 // like notification end
 //echo '<pre>'; 
 //print_r($this->data['artcommnet']); 
@@ -211,7 +199,24 @@ class Notification extends MY_Controller {
         $data = array('notification.*', 'business_profile_post_comment.*', 'user.user_id', 'user.first_name', 'user.user_image', 'user.last_name');
 
         $this->data['buscommnet'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'business_profile_post_comment_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
-//echo '<pre>'; print_r($this->data['buscommnet']); 
+//echo '<pre>'; print_r($this->data['buscommnet']);
+       $contition_array = array('notification.not_type' => 6, 'notification.not_from' => 6, 'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
+        $join_str = array(array(
+                'join_type' => '',
+                'table' => 'bus_post_image_comment',
+                'join_table_id' => 'notification.not_product_id',
+                'from_table_id' => 'bus_post_image_comment.post_image_comment_id'),
+            array(
+                'join_type' => '',
+                'table' => 'user',
+                'join_table_id' => 'notification.not_from_id',
+                'from_table_id' => 'user.user_id')
+        );
+        $data = array('notification.*', 'bus_post_image_comment.*', 'user.user_id', 'user.first_name', 'user.user_image', 'user.last_name');
+
+        $this->data['busimgcommnet'] = $buscommnet = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'post_image_comment_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
+
+//echo '<pre>'; print_r($this->data['busimgcommnet']); die(); 
 // comment notification end
 // like notification start
         $contition_array = array('notification.not_type' => 5, 'notification.not_from' => 6, 'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
@@ -245,6 +250,41 @@ class Notification extends MY_Controller {
         $data = array('notification.*', 'business_profile_post_comment.*', 'user.user_id', 'user.first_name', 'user.user_image', 'user.last_name');
 
         $this->data['buscmtlike'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'business_profile_post_comment_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
+        
+         $contition_array = array('notification.not_type' => 5, 'notification.not_from' => 6, 'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
+        $join_str = array(array(
+                'join_type' => '',
+                'table' => 'post_image',
+                'join_table_id' => 'notification.not_product_id',
+                'from_table_id' => 'post_image.image_id'),
+            array(
+                'join_type' => '',
+                'table' => 'user',
+                'join_table_id' => 'notification.not_from_id',
+                'from_table_id' => 'user.user_id')
+        );
+        $data = array('notification.*', 'post_image.*', 'user.user_id', 'user.first_name', 'user.user_image', 'user.last_name');
+
+        $this->data['busimglike'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'image_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
+        
+         $contition_array = array('notification.not_type' => 5, 'notification.not_from' => 6, 'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
+        $join_str = array(array(
+                'join_type' => '',
+                'table' => 'bus_post_image_comment',
+                'join_table_id' => 'notification.not_product_id',
+                'from_table_id' => 'bus_post_image_comment.post_image_comment_id'),
+            array(
+                'join_type' => '',
+                'table' => 'user',
+                'join_table_id' => 'notification.not_from_id',
+                'from_table_id' => 'user.user_id')
+        );
+        $data = array('notification.*', 'bus_post_image_comment.*', 'user.user_id', 'user.first_name', 'user.user_image', 'user.last_name');
+
+        $this->data['busimgcmtlike'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'post_image_comment_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
+
+//echo '<pre>'; print_r($this->data['busimgcmtlike']); die();
+
 //echo '<pre>'; print_r($this->data['buscmtlike']); die();
 // like notification end
 // business profile notification end
@@ -687,7 +727,24 @@ class Notification extends MY_Controller {
         $data = array('notification.*', 'business_profile_post_comment.*', 'user.user_id', 'user.first_name', 'user.user_image', 'user.last_name');
 
         $this->data['buscommnet'] = $buscommnet = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'business_profile_post_comment_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
-//echo '<pre>'; print_r($this->data['buscommnet']); 
+        
+         $contition_array = array('notification.not_type' => 6, 'notification.not_from' => 6, 'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
+        $join_str = array(array(
+                'join_type' => '',
+                'table' => 'bus_post_image_comment',
+                'join_table_id' => 'notification.not_product_id',
+                'from_table_id' => 'bus_post_image_comment.post_image_comment_id'),
+            array(
+                'join_type' => '',
+                'table' => 'user',
+                'join_table_id' => 'notification.not_from_id',
+                'from_table_id' => 'user.user_id')
+        );
+        $data = array('notification.*', 'bus_post_image_comment.*', 'user.user_id', 'user.first_name', 'user.user_image', 'user.last_name');
+
+        $this->data['busimgcommnet'] = $busimgcommnet = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'post_image_comment_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
+
+//echo '<pre>'; print_r($this->data['busimgcommnet']); 
 // comment notification end
 // like notification start
         $contition_array = array('notification.not_type' => 5, 'notification.not_from' => 6, 'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
@@ -723,6 +780,38 @@ $contition_array = array('notification.not_type' => 5, 'notification.not_from' =
 
     $buscmtlike =    $this->data['buscmtlike'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'business_profile_post_comment_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 //echo '<pre>'; print_r($this->data['buscmtlike']); die();
+ $contition_array = array('notification.not_type' => 5, 'notification.not_from' => 6, 'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
+        $join_str = array(array(
+                'join_type' => '',
+                'table' => 'post_image',
+                'join_table_id' => 'notification.not_product_id',
+                'from_table_id' => 'post_image.image_id'),
+            array(
+                'join_type' => '',
+                'table' => 'user',
+                'join_table_id' => 'notification.not_from_id',
+                'from_table_id' => 'user.user_id')
+        );
+        $data = array('notification.*', 'post_image.*', 'user.user_id', 'user.first_name', 'user.user_image', 'user.last_name');
+
+      $busimglike =  $this->data['busimglike'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'image_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
+      
+      $contition_array = array('notification.not_type' => 5, 'notification.not_from' => 6, 'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
+        $join_str = array(array(
+                'join_type' => '',
+                'table' => 'bus_post_image_comment',
+                'join_table_id' => 'notification.not_product_id',
+                'from_table_id' => 'bus_post_image_comment.post_image_comment_id'),
+            array(
+                'join_type' => '',
+                'table' => 'user',
+                'join_table_id' => 'notification.not_from_id',
+                'from_table_id' => 'user.user_id')
+        );
+        $data = array('notification.*', 'bus_post_image_comment.*', 'user.user_id', 'user.first_name', 'user.user_image', 'user.last_name');
+
+   $busimgcmtlike =     $this->data['busimgcmtlike'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'post_image_comment_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
+
 // like notification end
 // business profile notification end
 // 1-5 notification end
@@ -915,6 +1004,70 @@ $contition_array = array('notification.not_type' => 5, 'notification.not_from' =
                                       }
                                     }
                                 }
+                                
+                               
+                                foreach ($busimglike as $bus) {
+                                    if ($bus['not_from'] == 6) {
+                                      if ($bus['not_img'] == 5) {   
+                                 $notification .=  '<li>'; 
+                                  $notification .=  '<div class="notification-pic" >';
+                                   $notification .=  '<img src="' . base_url(USERIMAGE . $bus['user_image']) . '" >';
+                                   $notification .=  '</div>';
+                                   $notification .=  '<div class="notification-data-inside">';
+                                   $notification .=  '<a href="' . base_url('notification/bus_post_img/' . $bus['post_id']) . '"><h6>HI.. !  <font color="#4e6db1"><b><i> Businessman</i></font></b><b>' . $bus['first_name'] . ' ' . $bus['last_name'] . '</b> liked on your image</h6></a>';
+                                    $notification .= '<div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
+                                    $notification .=  '' . $this->common->time_elapsed_string($bus['message_create_date'], $full = false) . '';
+                                    $notification .=  '</div>';
+                                    $notification .=  '</div>';
+                                    $notification .=  '</li>';
+                                           
+                                      }
+                                    }
+                                }
+                               
+                                foreach ($busimgcommnet as $bus) {
+                                    if ($bus['not_from'] == 6) {
+                                        if ($bus['not_img'] == 4) {
+         $postid = $this->db->get_where('post_image', array('image_id' => $bus['post_image_id']))->row()->post_id; 
+                                            $notification .=  '<li>';
+                                            $notification .=  '<div class="notification-pic" >';
+                                               $notification .=  '<img src="' . base_url(USERIMAGE . $bus['user_image']) . '" >';
+                                            $notification .=  '</div>';
+                                            $notification .=  '<div class="notification-data-inside">';
+                                                $notification .=  '<a href="' . base_url('notification/bus_post_img/' . $postid) . '"><h6>HI.. !  <font color="#4e6db1"><b><i> Business</i></font></b><b>' . $bus['first_name'] . ' ' . $bus['last_name'] . '</b> commneted on your image</h6></a>';
+                                                $notification .=  '<div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
+                                             $notification .=  '' .  $this->common->time_elapsed_string($bus['message_create_date'], $full = false) . '';
+                                                $notification .=  '</div>';
+                                            $notification .=  '</div>';
+                                        $notification .=  '</li>';
+                                       }  
+                                            
+                                        
+                                    }
+                                }
+                                
+                               
+                                foreach ($busimgcmtlike as $bus) {
+                                    if ($bus['not_from'] == 6) {
+                                        if ($bus['not_img'] == 6) {
+         $postid = $this->db->get_where('post_image', array('image_id' => $bus['post_image_id']))->row()->post_id;
+        $notification .= '<li>';
+        $notification .= '<div class="notification-pic" >';
+        $notification .= '<img src="' . base_url(USERIMAGE . $bus['user_image']) . '" >';
+        $notification .= '</div>';
+        $notification .= '<div class="notification-data-inside">';
+        $notification .= '<a href="' . base_url('notification/bus_post_img/' . $postid) . '"><h6>HI.. !  <font color="#4e6db1"><b><i> Business</i></font></b><b>' . $bus['first_name'] . ' ' . $bus['last_name'] . '</b> liked on your comment</h6></a>';
+        $notification .= '<div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
+        $notification .= '' . $this->common->time_elapsed_string($bus['message_create_date'], $full = false) . '';
+        $notification .= '</div>';
+        $notification .= '</div>';
+        $notification .= '</li>';
+                                       }  
+                                            
+                                         
+                                    }
+                                }
+                               
                                
 
         foreach ($rec_not as $art) {
