@@ -3,37 +3,65 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<!-- start header -->
-<?php echo $header; ?>
 <head>
 
 <!--- for dispaly div insted of input type start -->
 <style type="text/css">
 div .comment {  
-
+  min-height: 41px;
   border: 1px solid #ccc;
+padding-right: 40px!important;
+word-break: break-all;
+background-color: #fff;
+/*padding: 10px;
+*/font-size: 15px;
 }
 </style>
-<link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
-  
+<?php echo $header; ?>
+<!--- for dispaly div insted of input type end -->
+  <meta charset="utf-8">
+  <title>Chat-Example | CodeIgniter</title>
+  <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/common-style.css'); ?>">
+   
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/media.css'); ?>">
+ <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/gyc.css'); ?>">
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
   <script src="<?php echo base_url('js/moment.js'); ?>"></script>
  
      <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
 
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/media.css'); ?>">
- 
-    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-   <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/common-style.css'); ?>">
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style_chat.css'); ?>">
+       <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   
-  <!-- <link rel="stylesheet" href="<?php echo base_url(); ?>css/style_chat.css" />
-   -->
+  <!-- http://bootsnipp.com/snippets/4jXW -->
+
+  <link rel="stylesheet" href="<?php echo base_url(); ?>css/style_chat.css" />
+  
+  
+  <!-- <script type="text/javascript">   
+    $( document ).ready ( function () {
+      
+      $('#nickname').keyup(function() {
+        var nickname = $(this).val();
+        
+        if(nickname == ''){
+          $('#msg_block').hide();
+        }else{
+          $('#msg_block').show();
+        }
+      });
+      
+      // initial nickname check
+      $('#nickname').trigger('keyup');
+    });
+    
+  </script> -->
  
 </head>
-
+<body>
 
  <div class="container_chat " id="paddingtop_fixed">
+ <div class="chat_nobcx">
     <div class="people-list" id="people-list">
        <div class="search">
         <input type="text" name=""  id="user_search" placeholder="search" value= ""  />
@@ -48,19 +76,25 @@ if(count($userlist) > 0){
  foreach($userlist as $user){ ?>
  <li class="clearfix">
           <?php        if ($user['user_image']) {?>
-   <div style=" height: 50px; width: 50px; display: inline-block; float: left;">
-<img src="<?php echo base_url(USERIMAGE . $user['user_image']); ?>" alt="" style="width: 100%; height: 100%;" >
+   <div class="chat_heae_img">
+<img src="<?php echo base_url(USERIMAGE . $user['user_image']); ?>" alt="" >
 </div>
  <?php  } else { ?>
- <img src="<?php echo base_url(NOIMAGE); ?>" alt="" height="50px" weight="50px">
- 
+ <div class="chat_heae_img">
+ <img src="<?php echo base_url(NOIMAGE); ?>" alt="" >
+ </div>
 <?php  } ?>
           <div class="about">
             <div class="name"> 
     <a href="<?php echo base_url() . 'chat/abc/' . $user['user_id']; ?>"><?php echo  $user['first_name'] . "<br>"; ?></a> </div>
-            <div class="<?php echo 'status' . $user['user_id']; ?>" id="chat_msg_in_data">
-            <p><?php echo  $user['message']; ?>
-            </p></div>
+            <div class="<?php echo 'status' . $user['user_id']; ?>" style=" width: 152px;
+    color: #003;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+">
+            <?php echo  $user['message']; ?>
+            </div>
           </div>
         </li>
 <?php }}else{
@@ -81,13 +115,13 @@ if($lstusrdata){?>
       <div class="chat-header clearfix">
 
   <?php   if ($lstusrdata[0]['user_image']) {?>
-
-   <div style=" height: 40px; width: 40px; display: inline-block; float: left;">
-<img src="<?php echo base_url(USERIMAGE . $lstusrdata[0]['user_image']); ?>" alt="" height="50px" weight="50px">
+   <div class="chat_heae_img">
+<img src="<?php echo base_url(USERIMAGE . $lstusrdata[0]['user_image']); ?>" alt="" >
 </div>
+
 <?php  } else { ?>
- 
-   <div style=" height: 50px; width: 50px; display: inline-block; float: left;"><img src="<?php echo base_url(NOIMAGE); ?>" alt="" height="50px" weight="50px">
+<div class="chat_heae_img">
+ <img src="<?php echo base_url(NOIMAGE); ?>" alt="" >
  </div>
 <?php  } ?>
 
@@ -122,23 +156,23 @@ if($lstusrdata){?>
                
               <!--  <div class="comment" contentEditable="true" name="comments" id="message  smily" style="position: relative;"> -->
 
-              <div class="comment" contentEditable="true" name="comments" id="message" style="position: relative; padding-right: 40px!important; word-break: break-word; padding: 10px;">
+              <div class="comment" contentEditable="true" name="comments" id="message" style="position: relative;">
 
               </div>
 <div for="smily" style="position: absolute;
     top: 7px;
     right: 61px;
     bottom: 0;">
-<div id="notification_li" style="position: absolute;
+<div id="notification_li1" style="position: absolute;
     bottom: 5px;">
-    <a href="#" id="notificationLink" style="position: absolute;
+    <a href="#" id="notificationLink1" style="position: absolute;
     bottom: 4px;
-    left: -49px;"><i class="em em-blush"></i></a>
+    left: -45px;"><i class="em em-blush"></i></a>
     
-      <div id="notificationContainer" style="display: none;
+      <div id="notificationContainer1" style="display: none;
     position: relative;margin-bottom: 37px;">
      
-      <div id="notificationsBody" class="notifications">
+      <div id="notificationsBody1" class="notifications1">
         <?php $i=0; foreach($smiley_table as $key => $value){ ?>
         
           <img id="<?php echo $i; ?>" src="<?php echo base_url().'uploads/smileys/' . $value[0]; ?>" height="30" width="30"onClick="followclose(<?php echo $i; ?>)">
@@ -154,7 +188,9 @@ if($lstusrdata){?>
             </form>
     
                 <span class="input-group-btn">
-        <button class="btn btn-warning btn-sm" id="submit" style="padding: 12px">Send</button>
+        <button class="btn btn-warning btn-sm" id="submit" style="padding: 10px;
+    background: #003;
+    border: 1px solid #003;">Send</button>
                 </span>
               </div>
             </div>
@@ -462,21 +498,21 @@ function enteruser()
 <script type="text/javascript">
         $(document).ready(function()
       {
-      $("#notificationLink").click(function()
+      $("#notificationLink1").click(function()
       {
-      $("#notificationContainer").fadeToggle(300);
-      $("#notification_count").fadeOut("slow");
+      $("#notificationContainer1").fadeToggle(300);
+      $("#notification_count1").fadeOut("slow");
       return false;
       });
 
       //Document Click hiding the popup 
       $(document).click(function()
       {
-      $("#notificationContainer").hide();
+      $("#notificationContainer1").hide();
       });
 
       //Popup on click
-      $("#notificationContainer").click(function()
+      $("#notificationContainer1").click(function()
       {
       return false;
       });
