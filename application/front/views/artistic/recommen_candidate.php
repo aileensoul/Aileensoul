@@ -23,8 +23,8 @@
                                            href="<?php echo site_url('artistic/art_manage_post'); ?>"
                                            tabindex="-1" aria-hidden="true" rel="noopener" title="<?php echo $businessdata[0]['company_name']; ?>">
                                             <!-- box image start -->
-                                            <?php if ($artisticdata[0]['profile_background'] != '') { ?>
-                                                <img src="<?php echo base_url(ARTBGIMAGE . $artisticdata[0]['profile_background']); ?>" class="bgImage" alt=""  style="height: 95px; width: 100%; ">
+                                            <?php if ($artdata[0]['profile_background'] != '') { ?>
+                                                <img src="<?php echo base_url(ARTBGIMAGE . $artdata[0]['profile_background']); ?>" class="bgImage" alt=""  style="height: 95px; width: 100%; ">
                                                 <?php
                                             } else {
                                                 ?>
@@ -34,11 +34,11 @@
                                     </div>
                                     <div class="profile-boxProfileCard-content clearfix">
                                         <div class="buisness-profile-txext col-md-4">
-                                            <a class="profile-boxProfilebuisness-avatarLink2 a-inlineBlock" href="<?php echo base_url('business_profile/business_profile_manage_post'); ?>" title="" tabindex="-1" aria-hidden="true" rel="noopener" >
+                                            <a class="profile-boxProfilebuisness-avatarLink2 a-inlineBlock" href="<?php echo base_url('artistic/art_manage_post'); ?>" title="" tabindex="-1" aria-hidden="true" rel="noopener" >
                                                 <?php
-                                                if ($artisticdata[0]['art_user_image']) {
+                                                if ($artdata[0]['art_user_image']) {
                                                     ?>
-                                                    <img  src="<?php echo base_url(ARTISTICIMAGE . $artisticdata[0]['art_user_image']); ?>"  alt="" style="height: 77px; width: 71px; z-index: 3; position: relative; ">
+                                                    <img  src="<?php echo base_url(ARTISTICIMAGE . $artdata[0]['art_user_image']); ?>"  alt="" style="height: 77px; width: 71px; z-index: 3; position: relative; ">
                                                 <?php } else { ?>
                                                     <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
                                                 <?php } ?>                           
@@ -51,15 +51,15 @@
                                         <div class="profile-box-user  profile-text-bui-user  fr col-md-9">
                                             <span class="profile-company-name ">
                                                 <a style="margin-left: 3px;" href="<?php echo base_url('artistic/art_manage_post'); ?> " title="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>"> 
-                                                    <?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>
+                                                    <?php echo ucwords($artdata[0]['art_name']) . ' ' . ucwords($artdata[0]['art_lastname']); ?>
                                                 </a> 
                                             </span>
                                             
                                             <div class="profile-boxProfile-name">
-                                                <a style="padding-left: 1px;" href="<?php echo base_url('artistic/art_manage_post'); ?> " title="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>" >
+                                                <a style="padding-left: 1px;" href="<?php echo base_url('artistic/art_manage_post'); ?> " title="<?php echo ucwords($artdata[0]['art_name']) . ' ' . ucwords($artdata[0]['art_lastname']); ?>" >
                                                     <b> <?php
-                                                if ($artisticdata[0]['designation']) {
-                                                    echo ucwords($artisticdata[0]['designation']);
+                                                if ($artdata[0]['designation']) {
+                                                    echo ucwords($artdata[0]['designation']);
                                                 } else {
                                                     echo "Designation";
                                                 }
@@ -93,7 +93,7 @@
                         <div class="common-form">
                             <div class="job-saved-box">
 
-                                <h3>Search Result of Music</h3>
+                                <h3>Search Result</h3>
                                 <div class="contact-frnd-post">
                                     <div class="job-contact-frnd ">
 <!-- main data start -->
@@ -115,7 +115,7 @@
      <div class="profile-job-post-location-name-rec">
           <div class="module_Ssearch" style="display: inline-block; float: left;">
              <div class="search_img">
-                           <img src="http://localhost/aileensoul/uploads/user_image/sergey-brin-33.jpg" alt=" ">
+                           <img src="<?php echo base_url(ARTISTICIMAGE . $key['art_user_image']); ?>" alt=" ">
                         </div>
        </div>
    
@@ -125,18 +125,18 @@
           <ul>
        <li>
       <a style="  font-size: 19px;
-         font-weight: 600;" href="" title=" dhaval shah">
+         font-weight: 600;" href="<?php echo base_url('artistic/art_manage_post/' . $userlist['user_id'] . ''); ?>" title="<?php echo $key['art_name'].' '.$key['art_lastname'];?>">
        <?php echo $key['art_name'].' '.$key['art_lastname'];?></a>
        </a>
       </li>
       
       <li style="display: block;">
-        <a  class="color-search" style="font-size: 16px;" href="" title="IAS">
+        <a  class="color-search" style="font-size: 16px;" href="<?php echo site_url('artistic/art_manage_post'); ?>" title="<?php echo $key['art_name'].' '.$key['art_lastname'];?>">
                 <?php  if($key['art_yourart']){echo $key['art_yourart']; }else {echo PROFILENA;}?>
            </a>
        </li>
          <li style="display: block;">
-         <a  class="color-search" href="">
+         <a  class="color-search" href="<?php echo site_url('artistic/art_manage_post'); ?>">
            <?php if($key['designation']){echo $key['designation'];} else{echo PROFILENA;} ?>
          </a>
 
@@ -240,7 +240,7 @@
 
                                                                                                             <li>
                                             <div class="post-design-product">
-                      <a class="post_dot" href="http://localhost/aileensoul/business_profile/business_profile_manage_post/zalak-patel-infotechtechnoloy-pvt-ltd-co-in-ahmedabad-gujrat-india" title="Zalak Patel Infotechtechnoloy.pvt.ltd .co.in.  Ahmedabad Gujrat India" ;="">
+                      <a class="post_dot" href="<?php echo site_url('artistic/art_manage_post'); ?>" title="<?php echo $key['art_name'].' '.$key['art_lastname'];?>">
 
                             <?php echo $key['art_name'].' '.$key['art_lastname'];?>
 
@@ -566,7 +566,7 @@
      <div class="profile-job-post-location-name-rec">
           <div class="module_Ssearch" style="display: inline-block; float: left;">
              <div class="search_img">
-                           <img src="http://localhost/aileensoul/uploads/user_image/sergey-brin-33.jpg" alt=" ">
+                           <img src="<?php echo base_url(ARTISTICIMAGE . $key['art_user_image']); ?>" alt=" ">
                         </div>
        </div>
    
@@ -576,13 +576,13 @@
           <ul>
        <li>
       <a style="  font-size: 19px;
-         font-weight: 600;" href="" title=" dhaval shah">
+         font-weight: 600;" href="<?php echo base_url('artistic/art_manage_post/' . $userlist['user_id'] . ''); ?>" title="<?php echo $key['art_name'].' '.$key['art_lastname'];?>">
        <?php echo $key['art_name'].' '.$key['art_lastname'];?>
        </a>
       </li>
       
       <li style="display: block;">
-        <a  class="color-search" style="font-size: 16px;" href="" title="IAS">
+        <a  class="color-search" style="font-size: 16px;" href="" title="<?php echo $key['art_name'].' '.$key['art_lastname'];?>">
                 <?php  if($key['art_yourart']){echo $key['art_yourart']; }else {echo PROFILENA;}?>             
            </a>
        </li>
