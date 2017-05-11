@@ -311,31 +311,21 @@ class Notification extends MY_Controller {
 
 
     public function art_post($id) {
-
         $userid = $this->session->userdata('aileenuser');
-        $user_name = $this->session->userdata('user_name');
-        // $id= $this->input->post('postid');
-        //echo $id; die();
-        //echo $userid;die();
-        //$contition_array = array( 'user_id' => $userid);
-
-
-        $contition_array = array('art_post_id' => $id, 'art_post.status' => '1');
-        // $this->data['artisticdata'] =  $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-        //echo "<pre>";print_r($this->data['artisticdata']);die();
-
-        $join_str[0]['table'] = 'user';
-        $join_str[0]['join_table_id'] = 'user.user_id';
-        $join_str[0]['from_table_id'] = 'art_post.user_id';
-        $join_str[0]['join_type'] = '';
-
-        $data = 'art_post.*,user.first_name,user.last_name';
-
-        $this->data['artdata'] = $this->common->select_data_by_condition('art_post', $contition_array, $data, $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
-        //$data['result'] = $this->common->select_art_post();
-        //echo $artdata[0]['art_post_id']; die();
-        //echo "<pre>";print_r($this->data['artdata']);die();
+        $contition_array = array('user_id' => $userid, 'status' => '1');
+        $this->data['artisticdata'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        $contition_array = array('art_post_id' => $id, 'status' => '1');
+        $this->data['art_data'] = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         $this->load->view('notification/art_post', $this->data);
+    }
+    
+    public function art_post_img($id) {
+        $userid = $this->session->userdata('aileenuser');
+        $contition_array = array('user_id' => $userid, 'status' => '1');
+        $this->data['artisticdata'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        $contition_array = array('art_post_id' => $id, 'status' => '1');
+        $this->data['art_data'] = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        $this->load->view('notification/art_image', $this->data);
     }
 
 //artistics post end
@@ -345,27 +335,22 @@ class Notification extends MY_Controller {
     public function business_post($id) {
 
         $userid = $this->session->userdata('aileenuser');
-        $user_name = $this->session->userdata('user_name');
-        //$contition_array = array( 'user_id' => $userid);
-
-        $join_str[0]['table'] = 'user';
-        $join_str[0]['join_table_id'] = 'user.user_id';
-        $join_str[0]['from_table_id'] = 'business_profile_post.user_id';
-        $join_str[0]['join_type'] = '';
-
-        $data = 'business_profile_post.*,user.user_name';
-
-        $contition_array = array('user_id' => $id, 'status' => '1');
+        $contition_array = array('user_id' => $userid, 'status' => '1');
         $this->data['businessdata'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
-        //echo "<pre>"; print_r( $this->data['businessdata']);die();
-        $this->data['business_profile_data'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data, $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
-
-        //echo "<pre>"; print_r($this->data['business_profile_data']);die();
-        //$data['result'] = $this->common->select_art_post();
-        //echo $artdata[0]['art_post_id']; die();
+        $contition_array = array('business_profile_post_id' => $id, 'status' => '1');
+        $this->data['busienss_data'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         $this->load->view('notification/business_post', $this->data);
     }
+    
+     public function bus_post_img($id) {
+        $userid = $this->session->userdata('aileenuser');
+        $contition_array = array('user_id' => $userid, 'status' => '1');
+        $this->data['businessdata'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        $contition_array = array('business_profile_post_id' => $id, 'status' => '1');
+        $this->data['busienss_data'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        $this->load->view('notification/bus_image', $this->data);
+    }
+
 
     //business _profile notification post end 
 
@@ -504,25 +489,7 @@ class Notification extends MY_Controller {
         //  echo "<pre>"; print_r($postdata); die();
         $this->load->view('Notification/freelancer_hire_post', $this->data);
     }
-
-    public function art_post_img($id) {
-        $userid = $this->session->userdata('aileenuser');
-        $contition_array = array('user_id' => $userid, 'status' => '1');
-        $this->data['artisticdata'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-        $contition_array = array('art_post_id' => $id, 'status' => '1');
-        $this->data['art_data'] = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-        $this->load->view('notification/art_image', $this->data);
-    }
-
-    public function bus_post_img($id) {
-        $userid = $this->session->userdata('aileenuser');
-        $contition_array = array('user_id' => $userid, 'status' => '1');
-        $this->data['businessdata'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-        $contition_array = array('business_profile_post_id' => $id, 'status' => '1');
-        $this->data['busienss_data'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-        $this->load->view('notification/bus_image', $this->data);
-    }
-
+   
     public function not_header($id) {
 
         $userid = $this->session->userdata('aileenuser');
