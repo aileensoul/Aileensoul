@@ -2415,20 +2415,17 @@ $this->load->view('freelancer/freelancer_hire/freelancer_save', $this->data);
 
 //Remove save candidate controller Start
     public function remove_save() {
-        //echo "hi"; die();
+        $saveid = $_POST['save_id'];
 
-          $id = $_POST['app_id'];
-        $para = $_POST['para'];
         $userid = $this->session->userdata('aileenuser');
+        // echo $userid;echo $id;die();
+
 
         $data = array(
-            'job_delete' => 1,
-            'job_save' => 3,
-            'modify_date' => date('Y-m-d h:i:s', time())
+            'status' => 1
         );
 
-        $updatedata = $this->common->update_data($data, 'freelancer_apply', 'app_id', $id);
-        // echo "<pre>"; print_r($updatedata);die();
+        $updatedata = $this->common->update_data($data, 'save', 'save_id', $saveid);
     }
 
 //Remove save candidate controller End

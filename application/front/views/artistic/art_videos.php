@@ -344,7 +344,7 @@ $followingotherdata = $this->data['followingotherdata'] =  $this->common->select
 
                   <?php   
 
-                $allowesvideo = array('mp4','3gp');
+                $allowesvideo = array('mp4','webm');
               
                 foreach ($multiplevideo as $mke => $mval) {
                   
