@@ -190,6 +190,8 @@
             .job_add_head_pro { font-size: 18px; }
             .keyskil, #other_keyskill1, #other_keyskill { width: 91%; margin-right: 10px; }
             .job_carrier_checkbox { font-size: 12px; } 
+            .user-pic { height: 125px; width: 115px; }
+            .profile-pho { height: 133px; width: 123px; margin-top: -55px; }
 
             /* forms end*/
            
@@ -201,7 +203,7 @@
     .profile-box-job-menu ul li { padding-left: 0px; }
     .profile-box-job-menu ul li a {  padding: 9px 8px 6px 8px; margin-right: 1px; font-size: 13px; }
     .profile-boxProfileCard-cover { height: 10%; }
-    .profile-boxProfileCard-bg img { height: auto; width: 100%; }
+    .profile-boxProfileCard-bg img { height: 100%; width: 100%; }
 
      .left-side-bar ul li a { font-size: 12px; }
          /*job off */
@@ -265,7 +267,7 @@
       
       /* menu  on */
        .left-side-menu {  width: 18%; float: left; }
-    .profile-main-rec-box-menu { height: 6.3%; left: 1.5%; width: 96.8%; }
+    .profile-main-rec-box-menu { height: 6.3%; left: 1.5%; width: 96.8%; margin-top: -79px; }
      .right-side-menu { float: left; height: auto; }
     .profile-main-rec-box-menu li a { padding: 11px 15px 11px 15px; font-size: 13px; }
 
