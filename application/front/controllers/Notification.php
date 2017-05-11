@@ -891,7 +891,7 @@ $contition_array = array('notification.not_type' => 5, 'notification.not_from' =
                 $notification .= '<div class="notification-pic">';
                 $notification .= '<img src="' . base_url(USERIMAGE . $art['user_image']) . '" >';
                 $notification .= '</div><div class="notification-data-inside">';
-                $notification .= '<a href="' . base_url('artistic/postnewpage/' . $art['art_post_id']) . '"><h6>HI.. !  <font color="#4e6db1"><b><i> Artistic</i></font></b><b>' . '  ' . $art['first_name'] . ' ' . $art['last_name'] . '</b> liked on your post</h6></a>';
+                $notification .= '<a href="' . base_url('notification/art_post/' . $art['art_post_id']) . '"><h6>HI.. !  <font color="#4e6db1"><b><i> Artistic</i></font></b><b>' . '  ' . $art['first_name'] . ' ' . $art['last_name'] . '</b> liked on your post</h6></a>';
                 $notification .= '<div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
                 $notification .= '' . $this->common->time_elapsed_string($art['message_create_date'], $full = false) . '';
                 $notification .= '</div></div> </div> </li>';
