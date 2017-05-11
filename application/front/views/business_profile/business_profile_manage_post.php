@@ -3283,8 +3283,8 @@
                         url: '<?php echo base_url() . "business_profile/business_profile_deletepost" ?>',
                         data: 'business_profile_post_id=' + abc,
                         success: function (data) {
-
-                            $('#' + 'removeownpost' + abc).html(data);
+                            //$('#' + 'removeownpost' + abc).html(data);
+                            $('#' + 'removeownpost' + abc).remove();
 
 
                         }
