@@ -176,7 +176,7 @@
 
                                         <li>
                                             <div class="notification-pic" >
-                                                <img src="<?php echo base_url(USERIMAGE . $art['user_image']); ?>" >
+                                                <img src="<?php echo base_url(USERIMAGE . $bus['user_image']); ?>" >
                                             </div>
                                             <div class="notification-data-inside">
                                                 <a href="<?php echo base_url('notification/business_post/' . $bus['business_profile_post_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Business</i></font></b><b>" . "  " . $bus['first_name'] . ' ' . $bus['last_name'] . "</b> commneted on your post"; ?></h6></a>
