@@ -25,7 +25,7 @@ div .comment {
  
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
    <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/common-style.css'); ?>">
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style.css'); ?>">
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style_chat.css'); ?>">
   
   <!-- <link rel="stylesheet" href="<?php echo base_url(); ?>css/style_chat.css" />
    -->
