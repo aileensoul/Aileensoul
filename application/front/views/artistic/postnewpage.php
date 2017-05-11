@@ -3702,3 +3702,40 @@ if (count($commnetcount) > 0) {
                     </script>
     
 <!-- 9-5 khyati image script  emd --> 
+
+
+ <style type="text/css">
+                        .likeduser{
+                            width: 100%;
+                            background-color: #00002D;
+                        }
+                        .likeduser-title{
+                            color: #fff;
+                            margin-bottom: 5px;
+                            padding: 7px;
+                        }
+                        .likeuser_list{
+                            background-color: #ccc;
+                            float: left;
+                            margin: 0px 6px 5px 9px;
+                            padding: 5px;
+                            width: 47%;
+                            font-size: 14px;
+                        }
+                        .likeduserlist, .likeduserlist1 {
+                            float: left;
+                            /*        margin-left: 15px;
+                                    margin-right: 15px;*/
+                            width: 96%;
+                        }
+                        div[class^="likeduserlist"]{
+                              width: 100% !important;
+                               background-color: #fff !important;
+                            }
+                        .like_one_other{
+                            margin-left: 15px;
+                            /*  margin-right: 15px;*/
+
+                        }
+
+                    </style>

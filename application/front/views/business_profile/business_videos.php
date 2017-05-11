@@ -348,7 +348,7 @@ label.cameraButton input[accept*="camera"] {
 
                   <?php   
 
-                $allowesvideo = array('mp4','3gp','avi');
+                $allowesvideo = array('mp4','3gp','webm');
               
                 foreach ($multiplevideo as $mke => $mval) {
                   
