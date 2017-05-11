@@ -26,7 +26,7 @@ class Search extends CI_Controller {
     }
 
     public function execute_search() {
-
+                //echo "test sucessfull";
         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
 
 //         // Retrieve the posted search term.
@@ -70,7 +70,7 @@ class Search extends CI_Controller {
             // $abc[] = $results;
             // $this->data['falguni'] = 1;        
         } elseif ($this->input->post('searchplace') == "") {
-            // echo "skill";
+             //echo "skill";
 
             $contition_array = array('is_delete' => '0', 'status' => '1', 'type' => '2');
 
@@ -146,7 +146,7 @@ class Search extends CI_Controller {
 
 
 
-                // echo "<pre>";print_r($new);
+                // echo "<pre>";print_r($new);die();
             } else {
                 // echo "panalia";
                 $search_condition = "(art_name LIKE '%$fullname[0]%' or art_lastname LIKE '%$fullname[1]%')";
@@ -260,7 +260,7 @@ class Search extends CI_Controller {
 
 
 
-                // echo "<pre>";print_r($new);
+                // echo "<pre>";print_r($new);die();
             } else {
 
                 $search_condition = "(art_name LIKE '%$fullname[0]%' or art_lastname LIKE '%$fullname[1]%')";
@@ -301,7 +301,7 @@ class Search extends CI_Controller {
         $this->data['artuserdata'] = $new;
 
         // echo "<pre>";print_r($abc);die();
-        // echo "<pre>"; print_r($this->data['artuserdata']);die();
+         //echo "<pre>"; print_r($this->data['artuserdata']);die();
         // code for search
         $contition_array = array('status' => '1', 'is_delete' => '0');
 
