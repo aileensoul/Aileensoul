@@ -24,7 +24,7 @@
             <br>
             <br>
             <div class="container">
-                <div class="row2">
+                <div class="row row4">
                     <div class="col-md-3 col-sm-4">
                         <div class="left-side-bar">
                             <ul>
@@ -208,7 +208,27 @@
 <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
 <!-- Field Validation Js End -->
 
-
+<script>
+                        
+                        //select2 autocomplete start for Location
+                        $('#searchplace').select2({
+                            placeholder: 'Find Your Location',
+                            maximumSelectionLength: 1,
+                            ajax: {
+                                url: "<?php echo base_url(); ?>recruiter/location",
+                                dataType: 'json',
+                                delay: 250,
+                                processResults: function (data) {
+                                    return {
+                                        //alert(data);
+                                        results: data
+                                    };
+                                },
+                                cache: true
+                            }
+                        });
+                        //select2 autocomplete End for Location
+                    </script>
 <!-- script for country,state,city start -->
 
 <script type="text/javascript">
