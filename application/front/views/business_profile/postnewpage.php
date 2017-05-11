@@ -3530,6 +3530,10 @@
                 margin-right: 15px;*/
         width: 96%;
     }
+    div[class^="likeduserlist"]{
+        width: 100% !important;
+        background-color: #fff !important;
+    }
     .like_one_other, .like_one_other_img{
         margin-left: 15px;
         /*  margin-right: 15px;*/
