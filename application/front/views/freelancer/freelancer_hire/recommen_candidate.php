@@ -192,7 +192,7 @@
         <!-- cover pic start -->
         <div class="user-midd-section" id="paddingtop_fixed">
             <div class="container">
-                <div class="row2">
+                <div class="row row4">
 
                     <div class="col-md-4"><div class="profile-box profile-box-left">
                             <!--                            <div class="full-box-module">    
@@ -300,15 +300,12 @@
 
                                     <div class="profile-boxProfileCard-content clearfix">
                                         <div class="buisness-profile-txext col-md-4">
-                                            <a class="profile-boxProfilebuisness-avatarLink2 a-inlineBlock" href="<?php echo base_url('freelancer/freelancer_hire_profile'); ?>""  tabindex="-1" aria-hidden="true" rel="noopener" title="<?php echo $freehiredata[0]['fullname'] . " " . $freehiredata[0]['username']; ?>">
+                                <a class="profile-boxProfilebuisness-avatarLink2 a-inlineBlock" href="<?php echo base_url('freelancer/freelancer_hire_profile'); ?>""  tabindex="-1" aria-hidden="true" rel="noopener" title="<?php echo $freehiredata[0]['fullname'] . " " . $freehiredata[0]['username']; ?>">
                                                 <?php
                                                 if ($freehiredata[0]['freelancer_hire_user_image']) {
                                                     ?>
-                                                    <img src="<?php echo base_url(USERIMAGE . $freehiredata[0]['freelancer_hire_user_image']); ?>" alt="<?php echo $freehiredata[0]['fullname'] . " " . $freehiredata[0]['username']; ?>"  style="    height: 77px;
-                                                         width: 71px;
-                                                         z-index: 3;
-                                                         position: relative;
-                                                         ">
+                                                    <img src="<?php echo base_url(USERIMAGE . $freehiredata[0]['freelancer_hire_user_image']); ?>" alt="<?php echo $freehiredata[0]['fullname'] . " " . $freehiredata[0]['username']; ?>" >
+                                                    
                                                          <?php
                                                      } else {
                                                          ?>

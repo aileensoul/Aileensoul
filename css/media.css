@@ -170,7 +170,7 @@
           .header2 ul li a { font-size: 11px; }
 
     /*   header2 off */
-
+   
 
      /* forms start*/
         .required_field { font-size: 13px; }
@@ -201,16 +201,20 @@
   	 /*profile leftbar start*/
   	     /*job on */
     .buisness-profile-txext {   max-width: 25% !important; }
+    .profile-box-job-menu { margin-top: -25px; height: 6%; }
     .profile-box-job-menu ul { float: left; margin-left: 26%; }
     .profile-box-job-menu ul li { padding-left: 0px; }
     .profile-box-job-menu ul li a {  padding: 9px 8px 6px 8px; margin-right: 1px; font-size: 13px; }
-    .profile-boxProfileCard-cover { height: 10%; }
+    .profile-boxProfileCard-cover { height: 8%; }
     .profile-boxProfileCard-bg img { height: 100%; width: 100%; }
-
+    .profile-boxProfileCard-content .buisness-profile-txext a img { height: 100%; width: 100%; }
+     .profile-boxProfilebuisness-avatarLink2 { height: 10%; width: 96%; }
      .left-side-bar ul li a { font-size: 12px; }
+      .profile-text-bui-user { padding-top: 7px; }
          /*job off */
 
           /* recruter on*/
+        .profile-box-rec-menu { margin-top: -25px; height: 6%; }
       .profile-box-rec-menu ul { float: left; margin-left: 24%; }
      .profile-box-rec-menu ul li {     padding-left: 7px;  }
      .profile-box-rec-menu ul li a { padding: 9px 8px 6px 8px; font-size: 13px; }
