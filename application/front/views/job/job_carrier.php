@@ -11,7 +11,7 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
 
 <?php echo $job_header2; ?>
-<!-- END HEADER -->
+   <!-- END HEADER --> 
 
     <body class="page-container-bg-solid page-boxed">
 
@@ -19,7 +19,7 @@
       
         <div class="user-midd-section" id="paddingtop_fixed">
             <div class="container">
-                <div class="row2">
+                <div class="row row4">
                     <div class="col-md-3 col-sm-4">
                         <div class="left-side-bar">
                             <ul>
