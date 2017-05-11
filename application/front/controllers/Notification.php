@@ -342,7 +342,7 @@ class Notification extends MY_Controller {
         $this->load->view('notification/business_post', $this->data);
     }
     
-     public function bus_post_img($id) {
+     public function bus_post_img($id) { //echo $id; die();
         $userid = $this->session->userdata('aileenuser');
         $contition_array = array('user_id' => $userid, 'status' => '1');
         $this->data['businessdata'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
