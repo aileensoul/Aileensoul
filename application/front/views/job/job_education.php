@@ -7,7 +7,7 @@
         font-family: arial, sans-serif;
         margin: 1em auto;
         width: 80%;
-    }
+       }
 .none_aaaart{border: 1px solid #ccc;}
     .tabordion {
 }
@@ -155,7 +155,7 @@ z-index: 1;
 
         <div class="user-midd-section" id="paddingtop_fixed">
             <div class="container">
-                <div class="row">
+                <div class="row row4">
                     <div class="col-md-3 col-sm-3">
                         <div class="job-profile-left-side-bar">
                             <div class="left-side-bar">
