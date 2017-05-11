@@ -1035,7 +1035,7 @@
                                                                 <div class="datespan">
                                                                     <span style="font-weight: 400;"> <?php // echo date('d-M-Y',strtotime($row['created_date']));                                          ?>
 
-                                                                        <?php echo $row['created_date']; ?>
+                                                                        <?php echo date('d-M-Y',strtotime($row['created_date'])); ?>
 
                                                                     </span> </div>
                                                             <?php } ?> 
