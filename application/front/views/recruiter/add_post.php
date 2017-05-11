@@ -303,7 +303,7 @@
 <script>
 
 </script>
-<script src="<?php echo base_url('js/jquery.js'); ?>"></script>
+ <script src="<?php echo base_url('js/jquery.js'); ?>"></script> 
 <script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
 <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
 <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
@@ -371,12 +371,8 @@ $('#datepicker').datetimepicker({
   //maxDate:'+1970/01/02' // and tommorow is maximum date calendar
 });
 </script>
-<!-- <script type="text/javascript" src="<?php echo base_url('js/jquery-1.11.1.min.js'); ?>"></script> -->
-<script type="text/javascript" src="<?php echo base_url('js/jquery.validate1.15.0..min.js'); ?>"></script>
-
-
-<script type="text/javascript" src="<?php echo base_url('js/additional-methods1.15.0.min.js'); ?>"></script>
-
+<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.min.js') ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
 
 <script type="text/javascript">
 

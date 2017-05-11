@@ -750,4 +750,10 @@ class Common extends CI_Model {
     return $string ? implode(', ', $string) . ' ago' : 'just now'; 
 }
 
+
+function make_links($text, $class='', $target='_blank'){ 
+    return preg_replace('!((http\:\/\/|ftp\:\/\/|https\:\/\/)|www\.)([-a-zA-Zа-яА-Я0-9\~\!\@\#\$\%\^\&\*\(\)_\-\=\+\\\/\?\.\:\;\'\,]*)?!ism',      '<a class="'.$class.'" href="//$1$3" target="'.$target.'">$1$3</a>', 
+        $text);
+ }
+
 }
