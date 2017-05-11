@@ -110,15 +110,26 @@
                                 <h3>Search Result of Business</h3>
                                 <div class="contact-frnd-post">
                                     <div class="job-contact-frnd ">
+                                    
 <!-- main data start -->
 
                                     
                                        <div class="profile-job-post-title-inside clearfix search" style="border: 1px solid #d9d9d9;">
                                         <?php if($businessuserdata){
 
+        
+          
+
                                     foreach ($businessuserdata as  $p) {
-                                        
-                                  ?>
+
+                                       $cache_time = $this->db->get_where('industry_type', array('industry_id' => $p['industriyal']))->row()->industry_name;
+          
+         $cache_time1 = $this->db->get_where('business_type', array('type_id' => $p['business_type']))->row()->business_name;
+         $cityname = $this->db->get_where('cities', array('city_id' => $p['city']))->row()->city_name;
+
+
+                                      if(($p['company_name'] == $keyword) || ($cache_time == $keyword) || ($cache_time1 == $keyword) || ($cityname == $keyword) || ($p['contact_website'] == $keyword))
+                                      { ?>
 
           <div class="profile-job-profile-button clearfix box_search_module" style="height: 16%;">
                                                            
@@ -200,6 +211,7 @@
        <?php
      }
    }
+ }
       if($businessuserdata){
 
    foreach ($businessuserdata as  $p) {
@@ -393,7 +405,8 @@
                                         </div>
                                        
                                         <div class="post-design-commnet-box col-md-12">
-                                            <div class="post-design-proo-img">                                                                      <img src="http://localhost/aileensoul/uploads/user_image/photo2.jpg" alt="">
+                                            <div class="post-design-proo-img">                                                                     <img src="<?php echo base_url(USERIMAGE . $p['business_user_image']);?>" alt="" >
+                                                               
                                                                                             </div>
                                             <div class="">
                                                 <div id="content" class="col-md-10  inputtype-comment" style="padding-left: 7px;">
