@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
   <meta charset="utf-8">
   <title>Chat-Example | CodeIgniter</title>
-  <?php echo $header; ?>
+  
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
  
 <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">

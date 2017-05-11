@@ -687,7 +687,7 @@
 
                                     <div class="post-design-desc ">
                                         <div id="<?php echo 'editpostdata' . $busienss_data[0]['business_profile_post_id']; ?>" style="display:block;">
-                                            <a  style="margin-bottom: 0px;   font-weight: 600;  font-size: 16px"><?php echo $busienss_data[0]['product_name']; ?></a>
+                                            <a  style="margin-bottom: 0px;   font-weight: 600;  font-size: 16px"><?php echo $this->common->make_links($busienss_data[0]['product_name']); ?></a>
                                         </div>
 
                                         <div id="<?php echo 'editpostbox' . $busienss_data[0]['business_profile_post_id']; ?>" style="display:none;">
@@ -696,7 +696,7 @@
 
 
                                         <div id="<?php echo 'editpostdetails' . $busienss_data[0]['business_profile_post_id']; ?>" style="display:block;">
-                                            <span class="show">  <?php print $busienss_data[0]['product_description']; ?>
+                                            <span class="show">  <?php print $this->common->make_links($busienss_data[0]['product_description']); ?>
                                             </span>
                                         </div>
 
