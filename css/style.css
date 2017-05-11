@@ -2769,8 +2769,8 @@ label.cameraButton input[accept*="camera"] {
 .fr{float: right;}
 .further-post{font-weight: 600;}
 .all-comment-comment-box{
-    padding-bottom: 10px;
-    margin-bottom: 10px;
+    padding-bottom: 10px;/*
+    margin-bottom: 10px;*/
     border-bottom: 2px solid #efefef;}
 .dropbtn {
     color: white;
