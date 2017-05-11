@@ -170,7 +170,7 @@ label.cameraButton input[accept*="camera"] {
                     <div class="profile-main-rec-box-menu  col-md-12 padding_les">
 
  <div class="left-side-menu col-md-1">  </div>
-  <div class="right-side-menu col-md-8">
+  <div class="right-side-menu col-md-7">
                                     <ul>
 
                                   
