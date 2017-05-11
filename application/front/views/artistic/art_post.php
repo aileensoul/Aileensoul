@@ -1038,8 +1038,8 @@
                                                     -->
 
                                                     <li>
-                                                        <div id="<?php echo 'editpostdata' . $row['art_post_id']; ?>" style="display:block;">
-                                                            <a  style=" color: #000033; font-weight: 400;"><?php print $row['art_post']; ?></a>
+                                      <div id="<?php echo 'editpostdata' . $row['art_post_id']; ?>" style="display:block;">
+                                           <a  style=" color: #000033; font-weight: 400;"><?php echo $this->common->make_links($row['art_description']); ?></a>
                                                         </div>
 
                                                         <div id="<?php echo 'editpostbox' . $row['art_post_id']; ?>" style="display:none;">
@@ -1096,16 +1096,22 @@
                                             <div class="post-design-desc ">
                                                 <span> 
 
-           <div  id="<?php echo 'editpostdetails' . $row['art_post_id']; ?>" style="display:block ; padding-bottom: 10px;"><span class="show"><?php echo $row['art_description']; ?></span></div>
+           <div  id="<?php echo 'editpostdetails' . $row['art_post_id']; ?>" style="display:block ; padding-bottom: 10px;">
+
+
+           <?php
+
+  $text = $this->common->make_links($row['art_description']);
+?>
+
+           <span class="show">
+           <?php echo $text; ?>
+             
+           </span></div>
 
           <div id="<?php echo 'editpostdetailbox' . $row['art_post_id']; ?>" style="display:none;">
 
-<?php 
-
-$this->common->make_links($row['art_description']); exit;
-?>
-               
-
+        
                 <div contenteditable="true" id="<?php echo 'editpostdesc' . $row['art_post_id']; ?>" class="textbuis editable_text" name="editpostdesc" style="width: 75%; margin-bottom: 10px;"><?php echo $row['art_description']; ?></div>
              </div>      
 
@@ -1488,7 +1494,7 @@ $this->common->make_links($row['art_description']); exit;
 
                                                                     <div class="comment-details" id= "<?php echo "showcomment" . $rowdata['artistic_post_comment_id']; ?>">
                                                                         <?php
-                                                                        echo $rowdata['comments'];
+                                                                        echo  $this->common->make_links($rowdata['comments']);
                                                                         ?>
                                                                     </div>
                                                                     <!--                                                                        <div class="col-md-12">
