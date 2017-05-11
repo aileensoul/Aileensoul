@@ -183,7 +183,7 @@
         <div class="user-midd-section " id="paddingtop_fixed">
            
             <div class="container">
-                <div class="row">
+                <div class="row row4">
                     <div class="col-md-4"><div class="profile-box profile-box-left">
 <!--                            <div class="full-box-module">    
                                 <div class="profile-boxProfileCard  module">
@@ -275,8 +275,7 @@ if ($freepostdata[0]['designation']) {
                                        if ($freepostdata[0]['profile_background'] != '') {
                                            ?>
                                         <!-- box image start -->
-                                        <img src="<?php echo base_url(FREEWORKIMG . $freepostdata[0]['profile_background']); ?>" class="bgImage" alt="<?php echo  $freepostdata[0]['freelancer_post_fullname'] . ' ' . $freepostdata[0]['freelancer_post_username']; ?>"  style="height: 95px;
-                                             width: 100%;">
+                                        <img src="<?php echo base_url(FREEWORKIMG . $freepostdata[0]['profile_background']); ?>" class="bgImage" alt="<?php echo  $freepostdata[0]['freelancer_post_fullname'] . ' ' . $freepostdata[0]['freelancer_post_username']; ?>" >
                                         <!-- box image end -->
                                         <?php
                                     } else {
@@ -291,17 +290,12 @@ if ($freepostdata[0]['designation']) {
   
     <div class="profile-boxProfileCard-content clearfix">
 <div class="buisness-profile-txext col-md-4">
-       
-                                                              <a class="profile-boxProfilebuisness-avatarLink2 a-inlineBlock" 
+     <a class="profile-boxProfilebuisness-avatarLink2 a-inlineBlock" 
                                                               href="<?php echo base_url('freelancer/freelancer_post_profile/' . $freelancerdata[0]['user_id']); ?>" title="<?php echo $freelancerdata[0]['freelancer_post_fullname']. ' ' . $freelancerdata[0]['freelancer_post_username']; ?>" tabindex="-1" aria-hidden="true" rel="noopener">
                                                    <?php
                                             if ($freelancerdata[0]['freelancer_post_user_image']) {
                                                 ?>
-                                                 <img src="<?php echo base_url(USERIMAGE . $freelancerdata[0]['freelancer_post_user_image']); ?>" alt="<?php echo $freelancerdata[0]['freelancer_post_fullname']. ' ' . $freelancerdata[0]['freelancer_post_username']; ?>"  style="    height: 77px;
-    width: 71px;
-    z-index: 3;
-    position: relative;
-">
+                     <img src="<?php echo base_url(USERIMAGE . $freelancerdata[0]['freelancer_post_user_image']); ?>" alt="<?php echo $freelancerdata[0]['freelancer_post_fullname']. ' ' . $freelancerdata[0]['freelancer_post_username']; ?>" >
                                                 <?php
                                             } else {
                                                 ?>
