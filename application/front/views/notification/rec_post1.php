@@ -37,7 +37,7 @@
                                         <div class="profile-job-details col-md-12">
                                             <ul>
                                                 <li class="fr">
-                                                    Created Date : <?php echo date('d/m/Y',strtotime($post['created_date'])); ?>
+                                                    Created Date : <?php echo date('d-M-Y',strtotime($post['created_date'])); ?>
                                                 </li>
                                                 <li>
                                                     <a href="<?php echo base_url('notification/rec_profile/' . $post['user_id']); ?>" title="Post Title"  style="font-size: 19px;font-weight: 600;cursor:default;">
@@ -98,7 +98,8 @@
                                             <li>
                                                 <b>Require Experience</b>
                                                 <span>
-                                                    <p><?php if($post['min_year'] !='0' || $post['min_year'] ==''){ echo $post['min_year'].' Year '; } ?> <?php if($post['min_month'] !='0' || $post['min_month'] ==''){ echo $post['min_month']. ' Month'; } ?></p>  
+                                                    <!--<p><?php if($post['min_year'] !='0' || $post['min_year'] ==''){ echo $post['min_year'].' Year '; } ?> <?php if($post['min_month'] !='0' || $post['min_month'] ==''){ echo $post['min_month']. ' Month'; } ?></p>-->  
+                                                    <p><?php if($post['min_year'] !='0' || $post['min_year'] ==''){ echo $post['min_year'] .'.'; } ?> <?php if($post['min_month'] !='0' || $post['min_month'] ==''){ echo $post['min_month']. ' year'; } ?></p>  
                                                 </span>
                                             </li>
                                             <li><b>Maximum Salary</b><span><?php echo $post['min_sal']; ?></span>
