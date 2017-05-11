@@ -1,6 +1,6 @@
 <!-- start head -->
 <?php echo $head; ?>
-<!--<style>-->
+
 <style>
 
     .okk{
