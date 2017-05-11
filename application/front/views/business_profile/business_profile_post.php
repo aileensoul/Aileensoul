@@ -3101,9 +3101,10 @@ function user_postdeleteparticular(clicked_id)
     }
     .likeduserlist, .likeduserlist1 {
         float: left;
+        background-color: #fff!important;
 /*        margin-left: 15px;
         margin-right: 15px;*/
-        width: 96%;
+        width: 100%!important;
     }
     .like_one_other{
        margin-left: 15px;
