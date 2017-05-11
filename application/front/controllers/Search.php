@@ -670,12 +670,10 @@ public function business_search() {
 
             // echo '<pre>'; print_r($unique); die();
         } elseif ($this->input->post('searchplace') == "") {
-
-<<<<<<< HEAD
           // echo "<pre>"; print_r($business_post);die();
-=======
+
             $contition_array = array('is_delete' => '0', 'status' => '1');
->>>>>>> dc5446bfd6ac90512b7c175ebe619ec402998669
+
 
             $search_condition = "(skill LIKE '%$rec_search%')";
             // echo $search_condition;die();
