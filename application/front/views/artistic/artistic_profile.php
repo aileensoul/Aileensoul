@@ -466,7 +466,7 @@ echo $listFinal . ',' . $artisticdata[0]['other_skill'];
 
 
 
-                                            <li><b> Description of your art</b> <span><?php echo $artisticdata[0]['art_desc_art']; ?></span> </li>
+                                            <li><b> Description of your art</b> <span><?php echo $this->common->make_links($artisticdata[0]['art_desc_art']); ?></span> </li>
                                             <li><b> How You are Inspire</b> <span><?php echo $artisticdata[0]['art_inspire']; ?></span> </li>   
 
                                         </ul>
@@ -594,7 +594,7 @@ if ($artisticdata[0]['art_bestofmine']) {
                                             </span>
                                             </div>
                                         </li> -->
-                                        <li> <b>Details of Portfolio </b> <span> <?php echo $artisticdata[0]['art_portfolio']; ?> </span>
+                                        <li> <b>Details of Portfolio </b> <span> <?php echo $this->common->make_links($artisticdata[0]['art_portfolio']); ?> </span>
                                         </li>
 
                                     </ul>

@@ -1166,14 +1166,19 @@ responsive image design start -->
                                         <div class="post-design-desc ">
                                             <span> 
                                                 <div id="<?php echo 'editpostdata' . $row['art_post_id']; ?>" style="display:block;">
-                                                    <a><?php print $row['art_post']; ?></a>
+                                                    <a><?php echo $this->common->make_links($row['art_post']); ?></a>
                                                 </div>
 
                                                 <div id="<?php echo 'editpostbox' . $row['art_post_id']; ?>" style="display:none; margin-bottom: 10px;">
                                                     <input type="text" id="<?php echo 'editpostname' . $row['art_post_id']; ?>" name="editpostname" placeholder="Art name" value="<?php echo $row['art_post']; ?>">
                                                 </div>
                                                 <div  id="<?php echo 'editpostdetails' . $row['art_post_id']; ?>" style="display:block;">
-                                                    <span class="show"><?php print $row['art_description']; ?></span>
+
+                                                <?php 
+                                               $text = $this->common->make_links($row['art_description']);
+
+                                                ?>
+                                                    <span class="show"><?php echo $text; ?></span>
                                                 </div>
 
                                                 <div id="<?php echo 'editpostdetailbox' . $row['art_post_id']; ?>" style="display:none;">
@@ -1561,7 +1566,7 @@ responsive image design start -->
 
                                                             <div class="comment-details" id= "<?php echo "showcomment" . $rowdata['artistic_post_comment_id']; ?>">
                                                                 <?php
-                                                                echo $rowdata['comments'];
+                                                                echo $this->common->make_links($rowdata['comments']);
 //                                                                echo '</br>';
                                                                 ?>
                                                             </div>
