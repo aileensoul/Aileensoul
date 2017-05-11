@@ -609,13 +609,13 @@
                                     ?>
                                     <tr>
                                         <td class="business_data_td1"><i class="fa fa-globe"></i></td>
-                                        <td class="business_data_td2 website"><span><a href="<?php echo $businessdata1[0]['contact_website']; ?>" target="_blank"> <?php echo $businessdata1[0]['contact_website']; ?></a></span></td>
+                                        <td class="business_data_td2 website"><span><a target="_blank"> <?php echo $this->common->make_links($businessdata1[0]['contact_website']); ?></a></span></td>
                                     </tr>
 
 <?php } ?>
                                 <tr>
                                     <td class="business_data_td1 detaile_map"><i class="fa fa-suitcase"></i></td>
-                                    <td class="business_data_td2"><span><?php echo $businessdata1[0]['details']; ?></span></td>
+                                    <td class="business_data_td2"><span><?php echo $this->common->make_links($businessdata1[0]['details']); ?></span></td>
                                 </tr>
                             </table>
                         </div>
@@ -1241,7 +1241,7 @@
 
                                     <div class="post-design-desc ">
                                         <div id="<?php echo 'editpostdata' . $row['business_profile_post_id']; ?>" style="display:block;">
-                                            <a  style="margin-bottom: 0px;   font-weight: 600;  font-size: 16px"><?php echo text2link($row['product_name']); ?></a>
+                                            <a  style="margin-bottom: 0px;   font-weight: 600;  font-size: 16px"><?php echo $this->common->make_links($row['product_name']); ?></a>
                                         </div>
 
                                         <div id="<?php echo 'editpostbox' . $row['business_profile_post_id']; ?>" style="display:none;">
@@ -1250,7 +1250,7 @@
 
 
                                         <div id="<?php echo 'editpostdetails' . $row['business_profile_post_id']; ?>" style="display:block;">
-                                            <span class="show">  <?php print text2link($row['product_description']); ?>
+                                            <span class="show">  <?php print $this->common->make_links($row['product_description']); ?>
                                             </span>
                                         </div>
 
@@ -1642,7 +1642,7 @@
                                                         </div>
                                                         <div class="comment-details" id= "<?php echo "showcomment" . $rowdata['business_profile_post_comment_id']; ?>">
                                                             <?php
-                                                            echo text2link($rowdata['comments']);
+                                                            echo $this->common->make_links($rowdata['comments']);
                                                             //  echo '</br>';
                                                             ?>
                                                         </div>
@@ -3860,4 +3860,9 @@
                 }
             </script>
             <!-- post delete login user end -->
+<script type="text/javascript">
+    $('div[id^=myDropdown]').on('click', function () {
+        $('div[id^=myDropdown]').hide().removeClass('show');
 
+    });
+</script>

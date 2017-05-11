@@ -1118,11 +1118,11 @@
                                                                                         </b>
                                                                                     </div>
 
-                                                                                    <div class="comment-details" id= "<?php echo "showcommentimg" . $rowdata['post_image_comment_id']; ?>">
-                                                                                        <?php
-                                                                                        echo $rowdata['comment'];
-                                                                                        echo '</br>';
-                                                                                        ?>
+                     <div class="comment-details" id= "<?php echo "showcommentimg" . $rowdata['post_image_comment_id']; ?>">
+                        <?php
+                            echo $this->common->make_links($rowdata['comment']);
+                                 echo '</br>';
+                         ?>
                                                                                     </div>
 
                                                                                     <div class="edit-comment-box">
@@ -1135,8 +1135,8 @@
 
 
                                                                                     <div class="art-comment-menu-design"> 
-                                                                                        <div class="comment-details-menu" id="<?php echo 'likecommentimg' . $rowdata['post_image_comment_id']; ?>">
-                                                                                            <a id="<?php echo $rowdata['post_image_comment_id']; ?>"   onClick="comment_likeimg(this.id)">
+        <div class="comment-details-menu" id="<?php echo 'likecommentimg' . $rowdata['post_image_comment_id']; ?>">
+         <a id="<?php echo $rowdata['post_image_comment_id']; ?>"   onClick="comment_likeimg(this.id)">
 
                                                                                                 <?php
                                                                                                 $userid = $this->session->userdata('aileenuser');
@@ -1466,7 +1466,7 @@ if (count($commnetcount) > 0) {
 
                                                                     <div class="comment-details" id= "<?php echo "showcomment" . $rowdata['artistic_post_comment_id']; ?>">
                                                                         <?php
-                                                                        echo text2link($rowdata['comments']);
+                                                                        echo $this->common->make_links($rowdata['comments']);
                                                                         ?>
                                                                     </div>
                                                                     <!--                                                                        <div class="col-md-12">
