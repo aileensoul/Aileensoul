@@ -323,7 +323,7 @@ $followingotherdata = $this->data['followingotherdata'] =  $this->common->select
        
                                   <?php
 
-          $contition_array = array('user_id' => $businessdata1[0]['user_id']);
+          $contition_array = array('user_id' => $artisticdata[0]['user_id']);
          $artaudio = $this->data['artaudio'] = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
           
@@ -360,7 +360,7 @@ $followingotherdata = $this->data['followingotherdata'] =  $this->common->select
                  ?>
 
                             <audio controls>
-                            <source src="<?php echo base_url(ARTPOSTIMAGE. str_replace(" ","_",$audiov['image_name']))?>" type="audio/ogg">
+                            <source src="<?php echo base_url(ARTPOSTIMAGE.$audiov['image_name'])?>" type="audio/ogg">
                             <source src="movie.ogg" type="audio/mpeg">
                            Your browser does not support the audio tag.
                             </audio>
