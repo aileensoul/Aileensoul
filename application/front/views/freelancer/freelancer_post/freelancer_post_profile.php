@@ -170,7 +170,7 @@ echo $freelancer_post_header2;
         <div class="profile-main-rec-box-menu  col-md-12 ">
 
             <div class="left-side-menu col-md-2">  </div>
-            <div class="right-side-menu col-md-8">  
+            <div class="right-side-menu col-md-6">  
                 <ul class="">
                     <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_post_profile')) { ?> class="active" <?php } ?>>
                         <?php if($returnpage == 'freelancer_hire'){ ?><a title="Freelancer Details" href="<?php echo base_url('freelancer/freelancer_post_profile/').$this->uri->segment(3).'?page=freelancer_hire'; ?>">Details</a><?php } else { ?><a title="Freelancer Details" href="<?php echo base_url('freelancer/freelancer_post_profile'); ?>">Details</a><?php } ?>
@@ -194,7 +194,7 @@ echo $freelancer_post_header2;
                 </ul>
             </div>
 
-            <div class="col-md-2">
+            <div class="col-md-3">
                 <div class="flw_msg_btn fr">
                     <ul>
                      

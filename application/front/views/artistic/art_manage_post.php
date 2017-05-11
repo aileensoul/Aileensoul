@@ -400,7 +400,7 @@ responsive image design start -->
             $userid = $this->session->userdata('aileenuser');
             if ($artisticdata[0]['user_id'] != $userid) {
                 ?>
-                <div class="col-md-3 padding_les">
+                <div class="col-md-2 padding_les">
                     <div class="flw_msg_btn fr">
                         <ul>
 

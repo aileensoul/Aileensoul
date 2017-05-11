@@ -3,7 +3,9 @@
 <!-- END HEAD -->
 <!-- start header -->
 <?php echo $header; ?>
+
 <?php echo $freelancer_hire_header2; ?>
+
 <!--post save success pop up style strat -->
 <style>
     /*body {
@@ -190,7 +192,7 @@
         <!-- cover pic start -->
         <div class="user-midd-section" id="paddingtop_fixed">
             <div class="container">
-                <div class="row">
+                <div class="row2">
 
                     <div class="col-md-4"><div class="profile-box profile-box-left">
                             <!--                            <div class="full-box-module">    
@@ -206,26 +208,25 @@
                             <?php
                             if ($freehiredata[0]['profile_background'] != '') {
                                 ?>
-                                                                             box image start 
-                                                                            <img src="<?php echo base_url(FREEHIREIMG . $freehiredata[0]['profile_background']); ?>" class="bgImage" alt="<?php echo $freehiredata[0]['fullname'] . " " . $freehiredata[0]['username']; ?>"  style="height: 95px;
-                                                                                 width: 100%;">
-                                                                             box image end 
+                          box image start 
+                        <img src="<?php echo base_url(FREEHIREIMG . $freehiredata[0]['profile_background']); ?>" class="bgImage" alt="<?php echo $freehiredata[0]['fullname'] . " " . $freehiredata[0]['username']; ?>"  style="height: 95px;
+                         width: 100%;">
+                      box image end 
                                 <?php
                             } else {
                                 ?>
-                                                                            <img src="<?php echo base_url(WHITEIMAGE); ?>" class="bgImage" alt="<?php echo $freehiredata[0]['fullname'] . " " . $freehiredata[0]['username']; ?>"  style="height: 95px;
-                                                                                 width: 100%;">
+                    <img src="<?php echo base_url(WHITEIMAGE); ?>" class="bgImage" alt="<?php echo $freehiredata[0]['fullname'] . " " . $freehiredata[0]['username']; ?>"  style="height: 95px;
+                       width: 100%;">
                                 <?php
                             }
                             ?>
                                                                         
-                                                                        
-                                                                    </a></div>
-                                                                <div class="profile-box-menu  fr col-md-12">
-                                                                    <div class="left- col-md-2"></div>
-                                                                    <div  class="right-section col-md-10">
-                                                                        <ul>
-                                                                            <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_hire_profile')) { ?> class="active" <?php } ?>><a href="<?php echo base_url('freelancer/freelancer_hire_profile'); ?>" > Profile</a>
+                     </a></div>
+                     <div class="profile-box-menu  fr col-md-12">
+                    <div class="left- col-md-2"></div>
+                    <div  class="right-section col-md-10">
+                      <ul>
+                     <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_hire_profile')) { ?> class="active" <?php } ?>><a href="<?php echo base_url('freelancer/freelancer_hire_profile'); ?>" > Profile</a>
                                                                             </li>
                                                                             <li ><a href="<?php echo base_url('freelancer/freelancer_hire_post'); ?>"> Posts</a>
                                                                             </li>
@@ -273,16 +274,16 @@
                             <div class="full-box-module">    
 
                                 <div class="profile-boxProfileCard  module">
-                                    <div class="profile-boxProfileCard-cover">    <a class="profile-boxProfileCard-bg u-bgUserColor a-block"
-                                      href="<?php echo base_url('freelancer/freelancer_hire_profile'); ?>"  tabindex="-1" aria-hidden="true" rel="noopener" 
-                                             title="<?php echo $freehiredata[0]['fullname'] . " " . $freehiredata[0]['username']; ?>">
+ <div class="profile-boxProfileCard-cover"> 
+   <a class="profile-boxProfileCard-bg u-bgUserColor a-block"
+     href="<?php echo base_url('freelancer/freelancer_hire_profile'); ?>"  tabindex="-1" aria-hidden="true" rel="noopener" 
+      title="<?php echo $freehiredata[0]['fullname'] . " " . $freehiredata[0]['username']; ?>">
 
                                             <?php
                                             if ($freehiredata[0]['profile_background'] != '') {
                                                 ?>
                                                 <!-- box image start -->
-                                                <img src="<?php echo base_url(FREEHIREIMG . $freehiredata[0]['profile_background']); ?>" class="bgImage" alt="<?php echo $freehiredata[0]['fullname'] . " " . $freehiredata[0]['username']; ?>"  style="height: 95px;
-                                                     width: 100%;">
+              <img src="<?php echo base_url(FREEHIREIMG . $freehiredata[0]['profile_background']); ?>" class="bgImage" alt="<?php echo $freehiredata[0]['fullname'] . " " . $freehiredata[0]['username']; ?>" >
                                                 <!-- box image end -->
                                                 <?php
                                             } else {
@@ -323,17 +324,15 @@
                                             </span>
 
 
-                                            <div class="profile-boxProfile-name">
-                                                <a style="font-size: 15px;" href="<?php echo base_url('freelancer/freelancer_hire_profile'); ?>" title="<?php echo $freehiredata[0]['fullname'] . " " . $freehiredata[0]['username']; ?>"><?php
-                                                    if ($freehiredata[0]['designation']) {
-                                                        echo $freehiredata[0]['designation'];
-                                                    } else {
-                                                        echo "Designation";
-                                                    }
-                                                    ?></a></div>
-
-
-                                        </div>
+       <div class="profile-boxProfile-name">
+          <a href="<?php echo base_url('freelancer/freelancer_hire_profile'); ?>" title="<?php echo $freehiredata[0]['fullname'] . " " . $freehiredata[0]['username']; ?>"><?php
+           if ($freehiredata[0]['designation']) {
+            echo $freehiredata[0]['designation'];
+                 } else {
+            echo "Designation";
+                }
+           ?></a></div>
+       </div>
 
           <div class="profile-box-job-menu  col-md-12 rec_menubox">
 
