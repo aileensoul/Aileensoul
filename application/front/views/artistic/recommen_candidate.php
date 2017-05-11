@@ -100,12 +100,14 @@
                         <div class="common-form">
                             <div class="job-saved-box">
 
-                                <h3>Search Result of Music</h3>
+                                <h3>Search Result</h3>
                                 <div class="contact-frnd-post">
                                     <div class="job-contact-frnd ">
 <!-- main data start -->
-                                    
-                                       <div class="profile-job-post-title-inside clearfix" style="border: 1px solid #d9d9d9;">
+                                   <?php if($artuserdata){
+                                    foreach ($artuserdata as $key) {       
+                                    ?> 
+                            <div class="profile-job-post-title-inside clearfix" style="border: 1px solid #d9d9d9;">
           <div class="profile-job-profile-button clearfix box_search_module" style="height: 16%;">
                                                             <!-- pop up box start-->
               
@@ -124,28 +126,46 @@
        <li>
       <a style="  font-size: 19px;
          font-weight: 600;" href="" title=" dhaval shah">
-       Zalak Patel</a>
+       <?php echo $key['art_name'].' '.$key['art_lastname'];?></a>
       </li>
       
       <li style="display: block;">
         <a  class="color-search" style="font-size: 16px;" href="" title="IAS">
-                Music             
+                <?php  if($key['art_yourart']){echo $key['art_yourart']; }else {echo PROFILENA;}?>            
            </a>
        </li>
          <li style="display: block;">
          <a  class="color-search" href="">
-           Music Director
+           <?php if($key['designation']){echo $key['designation'];} else{echo PROFILENA;} ?>
          </a>
 
        </li>
        <li style="display: block;">
          <a  class="color-search" href="">
-           Singing
+         <?php
+                  $comma = ", ";
+                  $k = 0;
+                  $aud = $key['art_skill'];
+                  $aud_res = explode(',', $aud);
+                  foreach ($aud_res as $skill) {
+                 if ($k != 0) {
+                 echo $comma;
+                     }
+               $cache_time = $this->db->get_where('skill', array('skill_id' => $skill))->row()->skill;
+               if ($cache_time) {
+               echo $cache_time;
+             } else {
+                echo PROFILENA;
+                }
+                 $k++;
+                }
+               ?> 
+           
          </a>
 
        </li>
        <li style="display: block;">
-         <a  class="color-search" href="">Ahmedabad,India</a>
+         <a  class="color-search" href=""><?php echo $key['country'].$key['city']; ?></a>
        </li>
       
     </ul>
@@ -160,6 +180,8 @@
 
      </div>
        </div>
+       <?php }}?>
+
        <div class="col-md-12 col-sm-12 post-design-box" id="removepost5" style="margin-bottom: 0px; box-shadow: none; border: none;">
                                     <div class="post_radius_box">  
                                         <div class="post-design-search-top col-md-12" style="background-color: none!important;">  
