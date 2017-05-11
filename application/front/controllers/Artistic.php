@@ -1130,7 +1130,7 @@ class Artistic extends MY_Controller {
         $config = array(
             'upload_path' => 'uploads/khyati_images/',
             'max_size' => 2500000000000,
-            'allowed_types' => 'gif|jpeg|jpg|png|pdf|mp4|mp3|avi'
+            'allowed_types' => 'gif|jpeg|jpg|png|pdf|mp4|mp3|avi|ogg|3gp|webm'
                 //'overwrite' => true,
                 //'remove_spaces' => true
         );
@@ -1150,6 +1150,14 @@ class Artistic extends MY_Controller {
             $_FILES['postattach']['error'] = $files['postattach']['error'][$i];
             $_FILES['postattach']['size'] = $files['postattach']['size'][$i];
 
+
+           
+
+         /** convert video to flash **/
+        exec("ffmpeg -i {input}.mov -vcodec h264 -acodec aac -strict -2 {output}.mp4");
+
+
+
              $store = $_FILES['postattach']['name'];
 
             $store_ext = explode('.',$store);
@@ -1159,6 +1167,7 @@ class Artistic extends MY_Controller {
             
             $images[] = $fileName;
             $config['file_name'] = $fileName;
+
 
             $this->upload->initialize($config);
             $this->upload->do_upload();

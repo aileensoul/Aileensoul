@@ -1137,7 +1137,7 @@
                                                     <?php
                                                     $allowed = array('gif', 'png', 'jpg');
                                                     $allowespdf = array('pdf');
-                                                    $allowesvideo = array('mp4', '3gp');
+                                                    $allowesvideo = array('mp4', '3gp', 'avi','ogg','3gp','webm');
                                                     $allowesaudio = array('mp3');
                                                     $filename = $artmultiimage[0]['image_name'];
                                                     $ext = pathinfo($filename, PATHINFO_EXTENSION);
@@ -1166,6 +1166,7 @@
                                                         <!-- one video start -->
                                                         <div>
                                                             <video width="320" height="240" controls>
+
                                                                 <source src="<?php echo base_url(ARTPOSTIMAGE .$artmultiimage[0]['image_name']) ?>" type="video/mp4">
                                                                 <source src="movie.ogg" type="video/ogg">
                                                                 Your browser does not support the video tag.

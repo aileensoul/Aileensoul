@@ -526,8 +526,8 @@ $(function(){
                             $h.compare(vName, /\.(txt|md|csv|nfo|ini|json|php|js|css)$/i);
                     },
                     video: function (vType, vName) {
-                        return $h.compare(vType, 'video.*') && ($h.compare(vType, /(ogg|mp4|mp?g|mov|webm|3gp)$/i) ||
-                            $h.compare(vName, /\.(og?|mp4|webm|mp?g|mov|3gp)$/i));
+                        return $h.compare(vType, 'video.*') && ($h.compare(vType, /(ogg|mp4|mp?g|mov|webm|3gp|avi)$/i) ||
+                            $h.compare(vName, /\.(og?|mp4|webm|mp?g|mov|3gp|avi)$/i));
                     },
                     audio: function (vType, vName) {
                         return $h.compare(vType, 'audio.*') && ($h.compare(vName, /(ogg|mp3|mp?g|wav)$/i) ||
