@@ -376,6 +376,7 @@ echo $job_header2;
                                                 </ul>
                                             </div>
                                         </div>
+                                        <?php if($job_edu){?>
                                         <div class="profile-job-profile-menu " id="job_education">
                                             <ul class="clearfix">
 
@@ -399,7 +400,7 @@ echo $job_header2;
                                                     if ($job_edu[0]['edu_certificate_primary'] != "") {
                                                         ?>
                                                         <li> <b>Education Certificate </b><span> 
-                                                                <img src="<?php echo base_url(JOBEDUCERTIFICATE . $job_edu[0]['edu_certificate_primary']) ?>" style="width:100px;height:100px;"></span>
+                                     <img src="<?php echo base_url(JOBEDUCERTIFICATE . $job_edu[0]['edu_certificate_primary']) ?>" style="width:100px;height:100px;"></span>
                                                         </li>
 
                                                         <?php
@@ -629,7 +630,15 @@ echo $job_header2;
                                                 <?php
                                             }
                                             ?>
+                             <?php } else { if($returnpage == ''){?> 
+                             <div> 
+                                   <center> <a href="<?php echo base_url('job/job_education_update'); ?>"> Please Add your Education</a> </center>
+                                    </div>
+                                    <?php } else {?>
 
+                                   <center><span> No Data</span> </center>
+
+                                    <?php }}?>
                                             <div class="profile-job-post-title clearfix">
                                                 <div class="profile-job-profile-button clearfix">
                                                     <div class="profile-job-details">
