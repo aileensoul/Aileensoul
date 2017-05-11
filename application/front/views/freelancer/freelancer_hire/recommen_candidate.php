@@ -3,6 +3,9 @@
 <!-- END HEAD -->
 <!-- start header -->
 <?php echo $header; ?>
+
+<?php echo $freelancer_hire_header2; ?>
+
 <!--post save success pop up style strat -->
 <style>
     /*body {

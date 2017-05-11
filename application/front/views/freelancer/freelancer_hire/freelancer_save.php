@@ -292,7 +292,7 @@
         <div class="profile-main-rec-box-menu  col-md-12 ">
 
             <div class="left-side-menu col-md-2">  </div>
-            <div class="right-side-menu col-md-9 " style="padding-left: 0px;">  
+            <div class="right-side-menu col-md-6 " style="padding-left: 0px;">  
                 <ul class="">                          
                     <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_hire_profile')) { ?> class="active" <?php } ?>><a title="Employer Details" href="<?php echo base_url('freelancer/freelancer_hire_profile'); ?>">Employer Details</a>
                     </li>
