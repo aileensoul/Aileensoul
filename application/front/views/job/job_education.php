@@ -1518,3 +1518,11 @@ z-index: 1;
                         });
                     </script>
                     <!-- stream change depend on degeree start-->
+
+<!-- <script type="text/javascript">   
+ $(".formSentMsg").delay(3200).fadeOut(300);
+</script> -->
+
+<script type="text/javascript"> 
+ $(".alert").delay(3200).fadeOut(300);
+</script>
