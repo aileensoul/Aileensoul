@@ -1130,7 +1130,7 @@ class Artistic extends MY_Controller {
         $config = array(
             'upload_path' => 'uploads/khyati_images/',
             'max_size' => 2500000000000,
-            'allowed_types' => 'gif|jpeg|jpg|png|pdf|mp4|mp3'
+            'allowed_types' => 'gif|jpeg|jpg|png|pdf|mp4|mp3|avi'
                 //'overwrite' => true,
                 //'remove_spaces' => true
         );
@@ -1172,6 +1172,7 @@ class Artistic extends MY_Controller {
                     'image_name' => $fileName,
                     'image_type' => 1,
                     'post_id' => $insert_id,
+                    'created_date' => date('Y-m-d', time()),
                     'is_deleted' => 1
                 );
 

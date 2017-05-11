@@ -3486,7 +3486,7 @@ $(function(){
         resizeDefaultImageType: 'image/jpeg',
         minFileSize: 0,
         maxFileSize: 0,
-        maxFilePreviewSize: 256000, // 25 MB
+        maxFilePreviewSize: 2560000, // 25 MB
         minFileCount: 0,
         maxFileCount: 0,
         validateInitialCount: false,
