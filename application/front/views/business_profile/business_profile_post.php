@@ -2713,6 +2713,8 @@
             //alert(data);
             success: function (data) {
                 $('#' + 'removepost' + abc).html(data);
+                $('#' + 'removepost' + abc).remove;
+
             }
         });
     }
