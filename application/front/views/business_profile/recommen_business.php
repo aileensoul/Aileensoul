@@ -202,9 +202,8 @@
 
                                             foreach ($businessuserdata as $p) {
 
-
-
-                                                if ($p['product_description'] == $keyword || $p['product_name'] == $keyword) {
+                                              
+                                                if ($p['product_description']) {
                                                     ?>
                                                     <div class="col-md-12 col-sm-12 post-design-box" id="removepost5" style="margin-bottom: 0px; box-shadow: none; border: none;">
                                                         <div class="post_radius_box">  

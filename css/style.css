@@ -2493,7 +2493,7 @@ label.cameraButton {
     border: 2px solid #666;
     border-color: #EEE #CCC #CCC #EEE;
     background-color: #DDD;
-    opacity: 0.7;
+    opacity: 0.3;
 }
 
 /* Look like a clicked/depressed button */
@@ -2897,7 +2897,7 @@ label.cameraButton input[accept*="camera"] {
                               border-radius: 3px;
                               letter-spacing: 0px;
                               margin-left: -11px;}
-.comment-details{ padding-left: 51px; padding-right: 10px;  font-weight: 400;word-break: break-word; word-break: break-all;}
+.comment-details{ padding-left: 51px; padding-right: 10px;  font-weight: 400;word-break: break-word !important; word-break: break-all;}
 .inputtype-comment textarea{  resize:none;
                               overflow:hidden;
                               font-size:18px;
@@ -4635,3 +4635,44 @@ fieldset .add_post_btns{min-width: 120px;padding:8px 30px 8px;}
 
 .message-data-name{font-size:16px; font-weight: 600;}
 
+
+
+
+/*Dhaval Tooltip*/
+
+    
+
+
+
+.cameraButton .tooltiptext {
+     visibility: hidden;
+    width: 180px;
+    background-color: black;
+    color: #fff;
+    opacity: 0.6;
+    text-align: center;
+    padding: 10px 0;
+    position: absolute;
+    z-index: 1;
+    font-weight: 800;
+    margin-top: 25px;  
+    top: -5px;
+    right: 110%;
+}
+
+.cameraButton .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent transparent black;
+}
+.cameraButton:hover .tooltiptext {
+    visibility: visible;
+}
+
+label.cameraButton:hover
+ {opacity: 1.0}
