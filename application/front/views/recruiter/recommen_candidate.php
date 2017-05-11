@@ -59,7 +59,7 @@
     <body>
         <div class="user-midd-section" id="paddingtop_fixed">
             <div class="container">
-                <div class="row">
+                <div class="row row4">
                     <div class="col-md-4"><div class="profile-box profile-box-left">
                             <!--                            <div class="full-box-module">    
                             

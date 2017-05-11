@@ -165,7 +165,7 @@ label.cameraButton input[accept*="camera"] {
                     <div class="profile-main-rec-box-menu  col-md-12 padding_les ">
 
 <div class="left-side-menu col-md-1">  </div>
-<div class="right-side-menu col-md-8">
+<div class="right-side-menu col-md-7">
                                     <ul>
  
                                      <li <?php if($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'art_manage_post'){?> class="active" <?php } ?>><a title="Dashboard" href="<?php echo base_url('artistic/art_manage_post/'.$artisticdata[0]['user_id']); ?>"> Dashboard</a>

@@ -164,7 +164,7 @@ if ($artisticdata[0]['user_id'] == $userid) {
         <div class="profile-main-rec-box-menu  col-md-12 padding_les ">
 
             <div class="left-side-menu col-md-1">  </div>
-            <div class="right-side-menu col-md-8 padding_les_right">
+            <div class="right-side-menu col-md-7 padding_les_right">
                 <ul>
 
 

@@ -153,12 +153,11 @@
 <body class="page-container-bg-solid page-boxed">
     <div class="user-midd-section" id="paddingtop_fixed">
         <div class="container" >
-            <div class="row2">
-
+            <div class="row row4">
 
                 <div class="col-md-4">
                     <div class="profile-box profile-box-left">
-<!--                        <div class="full-box-module">    
+                   <!--  <div class="full-box-module">    
                             <div class="profile-boxProfileCard  module">
                                 <a class="profile-boxProfileCard-bg u-bgUserColor a-block"
                                    href="<?php echo base_url('job/job_printpreview'); ?>"

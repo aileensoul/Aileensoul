@@ -411,7 +411,7 @@
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/jquery.jMosaic.css'); ?>">
 
-<!-- <script src="<?php //echo base_url('js/jquery.min.js');                          ?>"></script> -->
+<!-- <script src="<?php //echo base_url('js/jquery.min.js');                           ?>"></script> -->
         <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
         <script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
@@ -613,43 +613,6 @@
                             </div>
                             <!-- pop up box end-->
 
-
-
-                            <!-- pop up box start-->
-                            <div id="<?php echo "popup2" . $busienss_data[0]['business_profile_post_id']; ?>" class="overlay">
-                                <div class="popup">
-
-                                    <div class="pop_content">
-                                        Are You Sure want to delete this post?.
-
-                                        <p class="okk"><a class="okbtn" id="<?php echo $busienss_data[0]['business_profile_post_id']; ?>" onClick="remove_post(this.id)" href="#">Yes</a></p>
-
-                                        <p class="okk"><a class="cnclbtn" href="#">No</a></p>
-
-                                    </div>
-
-                                </div>
-                            </div>
-                            <!-- pop up box end-->
-
-
-                            <!-- pop up box start-->
-                            <div id="<?php echo "popup5" . $busienss_data[0]['business_profile_post_id']; ?>" class="overlay">
-                                <div class="popup">
-
-                                    <div class="pop_content">
-                                        Are You Sure want to delete this post from your profile?.
-
-                                        <p class="okk"><a class="okbtn" id="<?php echo $busienss_data[0]['business_profile_post_id']; ?>" onClick="del_particular_userpost(this.id)" href="#">OK</a></p>
-
-                                        <p class="okk"><a class="cnclbtn" href="#">Cancle</a></p>
-
-                                    </div>
-
-                                </div>
-                            </div>
-                            <!-- pop up box end-->
-
                             <div  class="">  
                                 <div class="post-design-top col-md-12" >  
                                     <div class="post-design-pro-img col-md-2"> 
@@ -693,12 +656,12 @@
 
                                             <?php if ($this->session->userdata('aileenuser') == $busienss_data[0]['user_id']) { ?> 
 
-                                                <a href="<?php echo "#popup2" . $busienss_data[0]['business_profile_post_id']; ?>"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete Post</a>
+                                                <a onclick="user_postdelete(<?php echo $busienss_data[0]['business_profile_post_id']; ?>)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete Post</a>
 
                                                 <a id="<?php echo $busienss_data[0]['business_profile_post_id']; ?>" onClick="editpost(this.id)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit</a>
 
                                             <?php } else { ?>
-                                                <a href="<?php echo "#popup5" . $busienss_data[0]['business_profile_post_id']; ?>"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete Post</a>
+                                                <a onclick="user_postdeleteparticular(<?php echo $busienss_data[0]['business_profile_post_id']; ?>)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete Post</a>
 
 
                                                 <!-- <?php
@@ -708,13 +671,13 @@
 
                                                 if ($businesssave) {
                                                     ?>
-                                                                                                                                                
-                                                                                                                                                   <a><i class="fa fa-bookmark" aria-hidden="true"></i>Saved Post</a>
-                                                                                                                                                
+                                                                                                                                                    
+                                                                                                                                                       <a><i class="fa fa-bookmark" aria-hidden="true"></i>Saved Post</a>
+                                                                                                                                                    
                                                 <?php } else { ?>
-                                                                                                                                                
-                                                                                                                                                   <a id="<?php echo $busienss_data[0]['business_profile_post_id']; ?>" onClick="save_post(this.id)" href="#popup1" class="<?php echo 'savedpost' . $busienss_data[0]['business_profile_post_id']; ?>"><i class="fa fa-bookmark" aria-hidden="true"></i>  Save Post</a>
-                                                                                                                                                
+                                                                                                                                                    
+                                                                                                                                                       <a id="<?php echo $busienss_data[0]['business_profile_post_id']; ?>" onClick="save_post(this.id)" href="#popup1" class="<?php echo 'savedpost' . $busienss_data[0]['business_profile_post_id']; ?>"><i class="fa fa-bookmark" aria-hidden="true"></i>  Save Post</a>
+                                                                                                                                                    
                                                 <?php } ?> -->
 
                                                 <a href="<?php echo base_url('business_profile/business_profile_contactperson/' . $busienss_data[0]['user_id'] . ''); ?>"><i class="fa fa-user" aria-hidden="true"></i> Contact Person</a>
@@ -780,8 +743,8 @@
 
 
                                                 <div id="two_images_bui" >
-                                                    <img src="<?php echo base_url(BUSPOSTIMAGE .$data['image_name']) ?>" style="width: 100%; height: 100%;" onclick="openModal();
-                                                            currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
+                                                    <img src="<?php echo base_url(BUSPOSTIMAGE . $data['image_name']) ?>" style="width: 100%; height: 100%;" onclick="openModal();
+                                                                    currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
                                                 </div>
 
 
@@ -860,7 +823,7 @@
                                                 <div class="mySlides">
                                                     <div class="numbertext"><?php echo $i ?> / <?php echo count($databus1) ?></div>
                                                     <div>
-                                                        <img src="<?php echo base_url(BUSPOSTIMAGE .$busdata['image_name']) ?>" style="width:100%; height: 70%;">
+                                                        <img src="<?php echo base_url(BUSPOSTIMAGE . $busdata['image_name']) ?>" style="width:100%; height: 70%;">
                                                     </div>
 
                                                     <!-- like comment start -->
@@ -1835,6 +1798,31 @@
 <script type="text/javascript">
     function insert_comment(clicked_id)
     {
+        /*$("#post_comment" + clicked_id).click(function () {
+         $(this).prop("contentEditable", true);
+         $(this).html("");
+         });
+         
+         var sel = $("#post_comment" + clicked_id);
+         var txt = sel.html();
+         if (txt == '') {
+         return false;
+         }
+         
+         $('#post_comment' + clicked_id).html("");
+         $.ajax({
+         type: 'POST',
+         url: '<?php echo base_url() . "business_profile/pninsert_comment" ?>',
+         data: 'post_id=' + clicked_id + '&comment=' + txt,
+         success: function (data) {
+         $('textarea').each(function () {
+         $(this).val('');
+         });
+         $('.' + 'insertcomment' + clicked_id).html(data);
+         
+         }
+         }); */
+
         $("#post_comment" + clicked_id).click(function () {
             $(this).prop("contentEditable", true);
             $(this).html("");
@@ -1847,18 +1835,42 @@
         }
 
         $('#post_comment' + clicked_id).html("");
-        $.ajax({
-            type: 'POST',
-            url: '<?php echo base_url() . "business_profile/pninsert_comment" ?>',
-            data: 'post_id=' + clicked_id + '&comment=' + txt,
-            success: function (data) {
-                $('textarea').each(function () {
-                    $(this).val('');
-                });
-                $('.' + 'insertcomment' + clicked_id).html(data);
 
-            }
-        });
+        var x = document.getElementById('threecomment' + clicked_id);
+        var y = document.getElementById('fourcomment' + clicked_id);
+
+        if (x.style.display === 'block' && y.style.display === 'none') {
+            $.ajax({
+                type: 'POST',
+                url: '<?php echo base_url() . "business_profile/pninsert_commentthree" ?>',
+                data: 'post_id=' + clicked_id + '&comment=' + txt,
+                dataType: "json",
+                success: function (data) {
+                    $('textarea').each(function () {
+                        $(this).val('');
+                    });
+                    $('#' + 'insertcount' + clicked_id).html(data.count);
+                    $('.insertcomment' + clicked_id).html(data.comment);
+
+                }
+            });
+
+        } else {
+
+            $.ajax({
+                type: 'POST',
+                url: '<?php echo base_url() . "business_profile/pninsert_comment" ?>',
+                data: 'post_id=' + clicked_id + '&comment=' + txt,
+                dataType: "json",
+                success: function (data) {
+                    $('textarea').each(function () {
+                        $(this).val('');
+                    });
+                    $('#' + 'insertcount' + clicked_id).html(data.count);
+                    $('#' + 'fourcomment' + clicked_id).html(data.comment);
+                }
+            });
+        }
     }
 </script>
 <script type="text/javascript">
@@ -2825,7 +2837,7 @@
                         $(this).val('');
                     });
                     $('.' + 'insertimgcomment' + clicked_id).html(data.comment);
-                    $('#' + 'insertimgcount' + clicked_id).html(data.count);
+                    $('#' + 'insertcountimg' + clicked_id).html(data.count);
 
                 }
             });
@@ -2847,7 +2859,7 @@
 //                    alert('#' + 'fourimgcomment' + clicked_id);
 //                    alert(data.comment);
 
-                    $('#' + 'insertimgcount' + clicked_id).html(data.count);
+                    $('#' + 'insertcountimg' + clicked_id).html(data.count);
                     $('#' + 'fourimgcomment' + clicked_id).html(data.comment);
 
                     //$('#' + 'insertcommenttwo' + clicked_id).html(data);
@@ -2903,7 +2915,7 @@
                         success: function (data) {
 
                             $('.' + 'insertimgcomment' + clicked_id).html(data.comment);
-                            $('#' + 'insertimgcount' + clicked_id).html(data.count);
+                            $('#' + 'insertcountimg' + clicked_id).html(data.count);
 
                         }
                     });
@@ -2918,7 +2930,7 @@
 //                            $('#' + 'insertcommenttwo' + clicked_id).html(data);
 //alert('#' + 'insertimgcount' + clicked_id);
 
-                            $('#' + 'insertimgcount' + clicked_id).html(data.count);
+                            $('#' + 'insertcountimg' + clicked_id).html(data.count);
                             $('#' + 'fourimgcomment' + clicked_id).html(data.comment);
 
                         }
@@ -2937,7 +2949,7 @@
 
         var x = document.getElementById('threeimgcomment' + clicked_id);
         var y = document.getElementById('fourimgcomment' + clicked_id);
-        var z = document.getElementById('insertimgcount' + clicked_id);
+        var z = document.getElementById('insertcountimg' + clicked_id);
 
         if (x.style.display === 'block' && y.style.display === 'none') {
             x.style.display = 'none';
@@ -3333,7 +3345,8 @@
             data: 'post_image_comment_id=' + clicked_id + '&post_delete=' + post_delete.value,
             success: function (data) {
 
-                $('#' + 'insertimgcount' + post_delete.value).html(data.count);
+                //$('#' + 'insertimgcount' + post_delete.value).html(data.count);
+                $('#' + 'insertcountimg' + post_delete.value).html(data.count);
                 $('.' + 'insertimgcomment' + post_delete.value).html(data.comment);
                 $('.post-design-commnet-box').show();
             }
@@ -3468,6 +3481,31 @@
 
     }
 </script>
+
+
+<!-- post delete login user script start -->
+<script type="text/javascript">
+    function user_postdelete(clicked_id)
+    {
+
+        $('.biderror .mes').html("<div class='pop_content'> Are You Sure want to delete this post?.<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='remove_post(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+        $('#bidmodal').modal('show');
+    }
+</script>
+<!-- post delete login user end -->
+
+<!-- post delete particular login user script start -->
+<script type="text/javascript">
+    function user_postdeleteparticular(clicked_id)
+    {
+
+        $('.biderror .mes').html("<div class='pop_content'> Are You Sure want to delete this post from your profile?.<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='del_particular_userpost(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+        $('#bidmodal').modal('show');
+    }
+</script>
+<!-- post delete particular login user end -->
+
+
 <style type="text/css">
     .likeduser, .likeduser1{
         width: 100%;
@@ -3499,3 +3537,5 @@
     }
 
 </style>
+
+
