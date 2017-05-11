@@ -1,6 +1,8 @@
 <!-- start head -->
 <?php echo $head; ?>
+<!--<style>-->
 <style>
+
     .okk{
         text-align: center;
     }
