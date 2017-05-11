@@ -848,13 +848,13 @@ public function business_search() {
                         'from_table_id' => 'job_add_workexp.user_id')
                 );
 
-<<<<<<< HEAD
+
 
 
  $contition_array = array('status' => '1', 'is_deleted' => '0');
-=======
+
                 $contition_array = array('job_add_edu.degree' => $recsearch, 'job_reg.user_id !=' => $userid);
->>>>>>> dc5446bfd6ac90512b7c175ebe619ec402998669
+
 
 
                 $yeardata = $userdata['data'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
@@ -893,18 +893,18 @@ public function business_search() {
 
             $contition_array = array('is_delete' => '0', 'status' => '1');
 
-<<<<<<< HEAD
+
          $results=array_unique($result);  
             foreach($results as $key =>$value){
             $result1[$key]['label']=$value;
             $result1[$key]['value']=$value;
           }
-=======
+
             $search_condition = "(skill LIKE '%$rec_search%')";
 
             $skilldata = $artdata['data'] = $this->common->select_data_by_search('skill', $search_condition, $contition_array = array(), $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
             // echo "<pre>"; print_r($artdata['data']);
->>>>>>> dc5446bfd6ac90512b7c175ebe619ec402998669
+
 
             $join_str = array(array(
                     'join_type' => '',
@@ -921,17 +921,15 @@ public function business_search() {
             $jobdata = $userdata['data'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
             // echo "<pre>"; print_r($recdata); die();
 
-<<<<<<< HEAD
+
           
           $this->data['demo']=array_values($result1); 
-=======
             foreach ($skilldata as $key) {
                 $id = $key['skill_id'];
                 // echo $id; echo "<br>";
                 foreach ($jobdata as $postskill) {
                     $skill = explode(',', $postskill['keyskill']);
-                    ;
->>>>>>> dc5446bfd6ac90512b7c175ebe619ec402998669
+                    
 
 
                     if (in_array($id, $skill)) {
@@ -942,13 +940,13 @@ public function business_search() {
                 }
             }
 
-<<<<<<< HEAD
+
  
-=======
+
             //echo "<pre>"; print_r($jobskillpost); die();
             $this->data['rec_skill'] = $jobskillpost;
             //  echo "<pre>"; print_r( $this->data['rec_skill']);  die();
->>>>>>> dc5446bfd6ac90512b7c175ebe619ec402998669
+
 
 
 
@@ -2041,11 +2039,9 @@ public function business_search() {
             $result1[$key]['value'] = $value;
         }
 
-<<<<<<< HEAD
+
       
       
-=======
->>>>>>> dc5446bfd6ac90512b7c175ebe619ec402998669
 
         $this->data['demo'] = array_values($result1);
 
