@@ -2433,7 +2433,7 @@ $this->load->view('freelancer/freelancer_hire/freelancer_save', $this->data);
 
 //Remove save candidate controller End
 
-    public function freelancer_post_profile($id = " ") {
+    public function freelancer_post_profile($id) {
 
         $userid = $this->session->userdata('aileenuser');
 
@@ -2441,6 +2441,7 @@ $this->load->view('freelancer/freelancer_hire/freelancer_save', $this->data);
 
             $contition_array = array('user_id' => $userid);
             $this->data['freelancerpostdata'] = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            //echo "<pre>"; print_r($this->data['freelancerpostdata']); die();
         } else {
             $contition_array = array('user_id' => $id);
             $this->data['freelancerpostdata'] = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
