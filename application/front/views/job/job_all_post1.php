@@ -153,7 +153,7 @@
 <body class="page-container-bg-solid page-boxed">
     <div class="user-midd-section" id="paddingtop_fixed">
         <div class="container">
-            <div class="row">
+            <div class="row row4">
 
 
                 <div class="col-md-4"><div class="profile-box profile-box-left">
@@ -253,14 +253,12 @@
                                                                                       if ($jobdata[0]['profile_background'] != '') {
                                                                                           ?>
                                             <!-- box image start -->
-                                            <img src="<?php echo base_url(JOBBGIMAGE . $jobdata[0]['profile_background']); ?>" class="bgImage" alt="<?php echo $jobdata[0]['fname']; ?>"  style="height: 95px;
-                                                 width: 100%;">
+                                            <img src="<?php echo base_url(JOBBGIMAGE . $jobdata[0]['profile_background']); ?>" class="bgImage" alt="<?php echo $jobdata[0]['fname']; ?>" >
                                             <!-- box image end -->
                                             <?php
                                         } else {
                                             ?>
-                                            <img src="<?php echo base_url(WHITEIMAGE); ?>" class="bgImage" alt="<?php echo $jobdata[0]['fname']; ?>"  style="height: 95px;
-                                                 width: 100%;">
+                                            <img src="<?php echo base_url(WHITEIMAGE); ?>" class="bgImage" alt="<?php echo $jobdata[0]['fname']; ?>" >
                                                  <?php
                                              }
                                              ?>
@@ -272,11 +270,7 @@
                                             <?php
                                             if ($jobdata[0]['job_user_image']) {
                                                 ?>
-                                                <img src="<?php echo base_url(USERIMAGE . $jobdata[0]['job_user_image']); ?>" alt="<?php echo $jobdata[0]['fname']; ?> "  style="    height: 77px;
-                                                     width: 71px;
-                                                     z-index: 3;
-                                                     position: relative;
-                                                     ">
+                                                <img src="<?php echo base_url(USERIMAGE . $jobdata[0]['job_user_image']); ?>" alt="<?php echo $jobdata[0]['fname']; ?> " >
                                                      <?php
                                                  } else {
                                                      ?>
@@ -353,14 +347,14 @@
                                                     
                                                     <div class="profile-job-post-title clearfix search">
                                                         <div class="profile-job-profile-button clearfix">
-                                                            <div class="profile-job-details col-md-12">
-                                                                <ul>
-                                                                    <li class="fr">
-                                                    Created Date : <?php echo date('d-M-Y',strtotime($post['created_date'])); ?>
+                 <div class="profile-job-details col-md-12">
+                    <ul>
+                         <li class="fr">
+                          Created Date: <?php echo date('d-M-Y',strtotime($post['created_date'])); ?>
                                                 </li>
 
-                                                 <li>
-                                                 <a href="#" style="font-size: 19px;font-weight: 600;">
+                     <li>
+                     <a href="#" class="display_inline post_title" >
               <?php echo ucwords(text2link($post['post_name'])); ?> </a>   </li>
 
                                                       <li>   
@@ -476,31 +470,26 @@
                                                             </ul>
                                                         </div>
                                                         <div class="profile-job-profile-button clearfix">
-                                                            <div class="profile-job-details col-md-12">
-                                                                <ul><li class="job_all_post last_date">
-                                                    Last Date : <?php if($post['post_last_date'] != "0000-00-00"){ echo date('d-M-Y',strtotime($post['post_last_date'])); }else{ echo PROFILENA;} ?></li>
+               <div class="profile-job-details col-md-12">
+                     <ul><li class="job_all_post last_date">
+                       Last Date : <?php if($post['post_last_date'] != "0000-00-00"){ echo date('d-M-Y',strtotime($post['post_last_date'])); }else{ echo PROFILENA;} ?></li>
 
-                                                                    <?php
-                                                                    $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
-
-                                                                    $contition_array = array('post_id' => $post['post_id'], 'job_delete' => 0, 'user_id' => $userid);
-                                                                    $jobsave = $this->data['jobsave'] = $this->common->select_data_by_condition('job_apply', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
-                                                                    if ($jobsave) {
-                                                                        ?>
-
-                                                                     
-                                                                        <a href="javascript:void(0);" class="button applied">Applied</a>
-                                                                        <?php
-                                                                    } else {
-                                                                        ?>
-                                                                        <li class="fr"> 
+                           <?php
+                 $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
+              $contition_array = array('post_id' => $post['post_id'], 'job_delete' => 0, 'user_id' => $userid);
+             $jobsave = $this->data['jobsave'] = $this->common->select_data_by_condition('job_apply', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            if ($jobsave) {
+                    ?>
+        <a href="javascript:void(0);" class="button applied">Applied</a>
+                    <?php
+               } else {
+                    ?>
+                  <li class="fr"> 
 
                                                                                                                                                                                           -->
                <a href="javascript:void(0);"  class= "<?php echo 'applypost' . $post['post_id']; ?>  button" onclick="applypopup(<?php echo $post['post_id'] ?>,<?php echo $post['user_id'] ?>)">Apply</a>
-
-                                                                        </li>
-                     <li class="fr">
+         </li>
+                   <li class="fr">
                              <?php
                                  $userid = $this->session->userdata('aileenuser');
                                 $contition_array = array('user_id' => $userid, 'job_save' => '2', 'post_id ' => $post['post_id'], 'job_delete' => '1');
@@ -508,14 +497,14 @@
 
                               if ($jobsave) {
                                               ?>
-                                 <a class="button saved">Saved</a>
-                                                                            <?php } else { ?>       
-         <a id="<?php echo $post['post_id']; ?>" onClick="savepopup(<?php echo $post['post_id']; ?>)" href="javascript:void(0);" class="<?php echo 'savedpost' . $post['post_id']; ?> button">Save</a>
-                                                                            <?php } ?>
-                                                                        </li>
-                                                                        <?php
-                                                                    }
-                                                                    ?>
+                                 <a class="button saved save_saved_btn">Saved</a>
+                       <?php } else { ?>       
+         <a id="<?php echo $post['post_id']; ?>" onClick="savepopup(<?php echo $post['post_id']; ?>)" href="javascript:void(0);" class="<?php echo 'savedpost' . $post['post_id']; ?> button save_saved_btn">Savess</a>
+                         <?php } ?>
+                      </li>
+                   <?php
+                       }
+                    ?>
 
                                                             </div>
 
@@ -543,16 +532,15 @@
                                                    
                                                     <div class="profile-job-post-title clearfix search">
                                                         <div class="profile-job-profile-button clearfix">
-                                                            <div class="profile-job-details col-md-12">
+                   <div class="profile-job-details col-md-12">
                                                                 <ul>
-                                                                     <li class="fr">
+                              <li class="fr">
                                                     Created Date : <?php echo date('d-M-Y',strtotime($post['created_date'])); ?>
-                                                </li>
+                                    </li>
 
-                                                   <li>
-                                              <a href="#" style="font-size: 19px;font-weight: 600;">
-                                              <?php echo ucwords(text2link($post['post_name'])); ?> </a>   
-                                              </li>
+                              <li>
+                  <a href="#" class="display_inline post_title">
+              <?php echo ucwords(text2link($post['post_name'])); ?> </a>                                        </li>
 
                                                                     <li>   
 
@@ -704,11 +692,11 @@
 
                        if ($jobsave) {
                        ?>
-                       <a class="button saved">Saved</a>
+                       <a class="button saved save_saved_btn">Saved</a>
                   <?php } else { ?>       
 
                                                                                                                                                                                                                                                
-              <a id="<?php echo $post['post_id']; ?>" onClick="savepopup(<?php echo $post['post_id']; ?>)" href="javascript:void(0);" class="<?php echo 'savedpost' . $post['post_id']; ?> button">Save</a>
+              <a id="<?php echo $post['post_id']; ?>" onClick="savepopup(<?php echo $post['post_id']; ?>)" href="javascript:void(0);" class="<?php echo 'savedpost' . $post['post_id']; ?> button save_saved_btn">Save</a>
                                                                             <?php } ?>
                                                                         </li>
                                                                         <?php
