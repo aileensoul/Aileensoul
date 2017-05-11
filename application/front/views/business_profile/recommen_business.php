@@ -122,7 +122,7 @@
                                                 $cache_time = $this->db->get_where('industry_type', array('industry_id' => $p['industriyal']))->row()->industry_name;
                                                 $cache_time1 = $this->db->get_where('business_type', array('type_id' => $p['business_type']))->row()->business_name;
                                                 $cityname = $this->db->get_where('cities', array('city_id' => $p['city']))->row()->city_name;
-                                                if (($p['company_name'] == $keyword) || ($cache_time == $keyword) || ($cache_time1 == $keyword) || ($cityname == $keyword) || ($p['contact_website'] == $keyword)) {
+                                                if (($p['company_name']) || ($cache_time) || ($cache_time1) || ($cityname) || ($p['contact_website'])) {
                                                     ?>
                                                     <div class="profile-job-profile-button clearfix box_search_module" style="height: 16%;">
                                                         <div class="profile-job-post-location-name-rec">
@@ -197,7 +197,8 @@
                                                     <?php
                                                 }
                                             }
-                                        }
+                                        }?>
+                                        <?php
                                         if ($businessuserdata) {
 
                                             foreach ($businessuserdata as $p) {
