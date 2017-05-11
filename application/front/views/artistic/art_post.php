@@ -920,15 +920,7 @@
                     <div class="col-md-7 col-sm-7 all-form-content">
 
 
-                        <?php
-
-                        function text2link($text) {
-                            $text = preg_replace('/(((f|ht){1}t(p|ps){1}:\/\/)[-a-zA-Z0-9@:%_\+.~#?&\/\/=]+)/i', '<a href="\\1" target="_blank" rel="nofollow">\\1</a>', $text);
-                            $text = preg_replace('/([[:space:]()[{}])(www.[-a-zA-Z0-9@:%_\+.~#?&\/\/=]+)/i', '\\1<a href="http://\\2" target="_blank" rel="nofollow">\\2</a>', $text);
-                            $text = preg_replace('/([_\.0-9a-z-]+@([0-9a-z][0-9a-z-]+\.)+[a-z]{2,3})/i', '<a href="mailto:\\1" rel="nofollow" target="_blank">\\1</a>', $text);
-                            return $text;
-                        }
-                        ?>
+                       
 <!--like comment start -->
                         <?php
                         foreach ($finalsorting as $row) {
@@ -1047,7 +1039,7 @@
 
                                                     <li>
                                                         <div id="<?php echo 'editpostdata' . $row['art_post_id']; ?>" style="display:block;">
-                                                            <a  style=" color: #000033; font-weight: 400;"><?php print text2link($row['art_post']); ?></a>
+                                                            <a  style=" color: #000033; font-weight: 400;"><?php print $row['art_post']; ?></a>
                                                         </div>
 
                                                         <div id="<?php echo 'editpostbox' . $row['art_post_id']; ?>" style="display:none;">
@@ -1109,7 +1101,17 @@
           <div id="<?php echo 'editpostdetailbox' . $row['art_post_id']; ?>" style="display:none;">
 
 
-                 <div contenteditable="true" id="<?php echo 'editpostdesc' . $row['art_post_id']; ?>" class="textbuis editable_text" name="editpostdesc" style="width: 75%; margin-bottom: 10px;"><?php echo $row['art_description']; ?></div>
+          <?php 
+
+            function parse_links($str)
+            {
+                 $str = str_replace('www.', 'http://www.', $str);
+                 $str = preg_replace('|http://([a-zA-Z0-9-./]+)|', '<a href="http://$1">$1</a>', $str);
+                  $str = preg_replace('/(([a-z0-9+_-]+)(.[a-z0-9+_-]+)*@([a-z0-9-]+.)+[a-z]{2,6})/', '<a href="mailto:$1">$1</a>', $str);
+                  return $str;
+            }
+            ?>
+                 <div contenteditable="true" id="<?php echo 'editpostdesc' . $row['art_post_id']; ?>" class="textbuis editable_text" name="editpostdesc" style="width: 75%; margin-bottom: 10px;"><?php echo parse_links($row['art_description']); ?></div>
              </div>      
 
            <button id="<?php echo "editpostsubmit" . $row['art_post_id']; ?>" style="display:none" onClick="edit_postinsert(<?php echo $row['art_post_id']; ?>)" class="fr" style="margin-right: 176px; border-radius: 3px;" >Save</button>
@@ -1491,7 +1493,7 @@
 
                                                                     <div class="comment-details" id= "<?php echo "showcomment" . $rowdata['artistic_post_comment_id']; ?>">
                                                                         <?php
-                                                                        echo text2link($rowdata['comments']);
+                                                                        echo $rowdata['comments'];
                                                                         ?>
                                                                     </div>
                                                                     <!--                                                                        <div class="col-md-12">
@@ -3382,6 +3384,10 @@
                                     margin-right: 15px;*/
                             width: 96%;
                         }
+                        div[class^="likeduserlist"]{
+                              width: 100% !important;
+                               background-color: #fff !important;
+                            }
                         .like_one_other{
                             margin-left: 15px;
                             /*  margin-right: 15px;*/

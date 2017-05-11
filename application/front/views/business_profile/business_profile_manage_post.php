@@ -718,7 +718,7 @@
                                 }
                                 ?>
                                 <?php
-                                $allowesvideo = array('mp4', '3gp');
+                                $allowesvideo = array('mp4', 'webm');
 
                                 foreach ($multiplevideo as $mke => $mval) {
 
@@ -1291,7 +1291,7 @@
                                             <?php
                                             $allowed = array('gif', 'png', 'jpg');
                                             $allowespdf = array('pdf');
-                                            $allowesvideo = array('mp4', '3gp');
+                                            $allowesvideo = array('mp4', 'webm');
                                             $allowesaudio = array('mp3');
                                             $filename = $businessmultiimage[0]['image_name'];
                                             $ext = pathinfo($filename, PATHINFO_EXTENSION);
@@ -3454,7 +3454,7 @@
                             var ext = vfirstname.split('.').pop();
                             var ext1 = vname.split('.').pop();
                             var allowedExtensions = ['jpg', 'jpeg', 'png', 'gif'];
-                            var allowesvideo = ['mp4', '3gp'];
+                            var allowesvideo = ['mp4', 'webm'];
                             var allowesaudio = ['mp3'];
                             var allowespdf = ['pdf'];
 
@@ -3478,7 +3478,18 @@
                                     return false;
                                 }
 
-                            } else if (foundPresentvideo == true)
+                            } else if(foundPresentvideo == false){  
+
+                                       $('.biderror .mes').html("<div class='pop_content'>This File Format is not supported Please Try to Upload MP4 or WebM files..");
+                                            $('#bidmodal').modal('show');
+                                            setInterval('window.location.reload()', 10000);
+                                            event.preventDefault();
+                                            return false;
+
+                             }
+
+
+                            else if (foundPresentvideo == true)
                             {
 
                                 var foundPresent1 = $.inArray(ext1, allowesvideo) > -1;
