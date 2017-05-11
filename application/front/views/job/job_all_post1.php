@@ -534,8 +534,8 @@
                                                         <div class="profile-job-profile-button clearfix">
                    <div class="profile-job-details col-md-12">
                                                                 <ul>
-                              <li class="fr">
-                                                    Created Date : <?php echo date('d-M-Y',strtotime($post['created_date'])); ?>
+                               <li class="fr">
+                                        Created Date : <?php echo date('d-M-Y',strtotime($post['created_date'])); ?>
                                     </li>
 
                               <li>
