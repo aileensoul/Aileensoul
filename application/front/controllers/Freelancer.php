@@ -2915,8 +2915,7 @@ $this->load->view('freelancer/freelancer_hire/freelancer_save', $this->data);
     }
     
     public function free_invite_user() {
-//echo "hiiiii";
-        
+        //echo "hiiiii";
          $postid = $_POST['post_id'];
          $invite_user = $_POST['invited_user']; 
         // echo $postid;

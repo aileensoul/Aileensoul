@@ -4845,10 +4845,10 @@ fieldset .add_post_btns{min-width: 120px;padding:8px 30px 8px;}
 
 .name a{color: #fff;}
 
-::-webkit-scrollbar {
-    width: 0px;  /* remove scrollbar space */
-    background: transparent;  /* optional: just make scrollbar invisible */
-}
+/*::-webkit-scrollbar {
+    width: 0px;   remove scrollbar space 
+    background: transparent;   optional: just make scrollbar invisible 
+}*/
 /* optional: show position indicator in red */
 ::-webkit-scrollbar-thumb {
     background: #FF0000;
