@@ -548,7 +548,7 @@ responsive image design start -->
 
                             <tr>
                                 <td class="business_data_td1"><i class="fa fa-file-text" aria-hidden="true"></i></td>
-                                <td class="business_data_td2"><span><?php echo $artisticdata[0]['art_desc_art']; ?></span></td>
+                                <td class="business_data_td2"><span><?php echo $this->common->make_links($artisticdata[0]['art_desc_art']); ?></span></td>
                             </tr>
 
                             <tr>
