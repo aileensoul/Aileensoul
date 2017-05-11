@@ -1157,7 +1157,7 @@ class Business_profile extends MY_Controller {
         $config = array(
             'upload_path' => 'uploads/bus_post_image/',
             //'max_size' => 2500000000000,
-            'allowed_types' => 'gif|jpeg|jpg|png|pdf|mp4|mp3',
+            'allowed_types' => 'gif|jpeg|jpg|png|pdf|mp4|mp3|avi|ogg|3gp|webm',
             'overwrite' => true,
             'remove_spaces' => true);
         $images = array();

@@ -2561,6 +2561,7 @@ class Artistic extends MY_Controller {
 
 
             $updatdata = $this->common->update_data($data, 'artistic_post_comment', 'artistic_post_comment_id', $post_id);
+           
             // insert notification
 
             if ($artdata[0]['user_id'] == $userid) {
