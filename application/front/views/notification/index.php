@@ -285,24 +285,30 @@
                                                     </div>
                                                 </div>
                                             </li>
-                                        <?php } else { ?>
+                                        <?php } 
+                                    }
+                                }
+                                ?>
+                                 <?php
+                                foreach ($buscmtlike as $bus) {
+                                    if ($bus['not_from'] == 6) {
+                                      if ($bus['not_img'] == 3) {   ?>
                                             <li> 
                                                 <div class="notification-pic" >
                                                     <img src="<?php echo base_url(USERIMAGE . $bus['user_image']); ?>" >
                                                 </div>
                                                 <div class="notification-data-inside">
-                                                    <a href="<?php echo base_url('notification/bus_post_img/' . $bus['business_profile_post_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Businessman</i></font></b><b>" . "  " . $bus['first_name'] . ' ' . $bus['last_name'] . "</b> liked on your comment"; ?></h6></a>
+                                                    <a href="<?php echo base_url('notification/business_post/' . $bus['business_profile_post_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Businessman</i></font></b><b>" . "  " . $bus['first_name'] . ' ' . $bus['last_name'] . "</b> liked on your comment"; ?></h6></a>
                                                     <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
                                                         <?php echo $this->common->time_elapsed_string($bus['message_create_date'], $full = false); ?>
                                                     </div>
                                                 </div>
                                             </li>
                                             <?php
-                                        }
+                                      }
                                     }
                                 }
                                 ?>
-
                                 <?php
                                 foreach ($rec_not as $art) {
                                     if ($art['not_from'] == 2) {
