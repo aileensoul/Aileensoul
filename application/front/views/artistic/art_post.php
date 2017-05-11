@@ -1101,17 +1101,10 @@
           <div id="<?php echo 'editpostdetailbox' . $row['art_post_id']; ?>" style="display:none;">
 
 
-          <?php 
 
-            function parse_links($str)
-            {
-                 $str = str_replace('www.', 'http://www.', $str);
-                 $str = preg_replace('|http://([a-zA-Z0-9-./]+)|', '<a href="http://$1">$1</a>', $str);
-                  $str = preg_replace('/(([a-z0-9+_-]+)(.[a-z0-9+_-]+)*@([a-z0-9-]+.)+[a-z]{2,6})/', '<a href="mailto:$1">$1</a>', $str);
-                  return $str;
-            }
-            ?>
-                 <div contenteditable="true" id="<?php echo 'editpostdesc' . $row['art_post_id']; ?>" class="textbuis editable_text" name="editpostdesc" style="width: 75%; margin-bottom: 10px;"><?php echo parse_links($row['art_description']); ?></div>
+
+
+                 <div contenteditable="true" id="<?php echo 'editpostdesc' . $row['art_post_id']; ?>" class="textbuis editable_text" name="editpostdesc" style="width: 75%; margin-bottom: 10px;"><?php echo $row['art_description']; ?></div>
              </div>      
 
            <button id="<?php echo "editpostsubmit" . $row['art_post_id']; ?>" style="display:none" onClick="edit_postinsert(<?php echo $row['art_post_id']; ?>)" class="fr" style="margin-right: 176px; border-radius: 3px;" >Save</button>
@@ -1585,9 +1578,9 @@
                                                                             <p> <?php
                                                                                 /*   $new_date = date('Y-m-d H:i:s',strtotime($rowdata['created_date']));
                                                                                  */
-                                                                                /* 							$new_time =	$this->time_elapsed_string($new_date);
+                                                                                /*              $new_time = $this->time_elapsed_string($new_date);
                                                                                  */
-//							echo $new_time. '<br>';
+//              echo $new_time. '<br>';
                                                                                 echo date('d-M-Y', strtotime($rowdata['created_date']));
                                                                                 echo '</br>';
                                                                                 ?>
