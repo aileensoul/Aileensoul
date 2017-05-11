@@ -149,13 +149,19 @@ class Search extends CI_Controller {
                 // echo "<pre>";print_r($new);die();
             } else {
                 // echo "panalia";
-                $search_condition = "(art_name LIKE '%$fullname[0]%' or art_lastname LIKE '%$fullname[1]%')";
+                $join_str[0]['table'] = 'art_reg';
+            $join_str[0]['join_table_id'] = 'art_reg.user_id';
+            $join_str[0]['from_table_id'] = 'art_post.user_id';
+            $join_str[0]['join_type'] = '';
+
+                $search_condition = "(art_reg.art_name LIKE '%$fullname[0]%' or art_reg.art_lastname LIKE '%$fullname[1]%')";
 
                 // echo $search_condition;
-                $artfullname = $fullnamedata['data'] = $this->common->select_data_by_search('art_reg', $search_condition, $contition_array = array(), $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                $artfullname = $fullnamedata['data'] = $this->common->select_data_by_search('art_post', $search_condition, $contition_array = array(), $data = '*', $sortby = 'art_post_id', $orderby = 'desc', $limit = '1', $offset = '', $join_str, $groupby = '');
+                // $artfullname = $fullnamedata['data'] = $this->common->select_data_by_search('art_reg', $search_condition, $contition_array = array(), $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
 
-                // echo "<pre>"; print_r($artfullname);
+                 //echo "<pre>"; print_r($artfullname);die();
 
                 if (count($artskillpost) == 0) {
                     $unique = array_merge($artpost, $otherdata, $artfullname);
@@ -183,7 +189,7 @@ class Search extends CI_Controller {
                 // echo "<pre>";print_r($new);die();
             }
         } else {
-            // echo "both";
+             //echo "both";
 
             $contition_array = array('is_delete' => '0', 'status' => '1', 'type' => '2');
 
@@ -263,11 +269,19 @@ class Search extends CI_Controller {
                 // echo "<pre>";print_r($new);die();
             } else {
 
-                $search_condition = "(art_name LIKE '%$fullname[0]%' or art_lastname LIKE '%$fullname[1]%')";
+                $join_str[0]['table'] = 'art_reg';
+            $join_str[0]['join_table_id'] = 'art_reg.user_id';
+            $join_str[0]['from_table_id'] = 'art_post.user_id';
+            $join_str[0]['join_type'] = '';
+
+                $search_condition = "(art_reg.art_name LIKE '%$fullname[0]%' or art_reg.art_lastname LIKE '%$fullname[1]%')";
+                    $contition_array = array('art_reg.art_city' => $search_place[0]);
+                // echo $search_condition;
+                $artfullname = $fullnamedata['data'] = $this->common->select_data_by_search('art_post', $search_condition, $contition_array = array(), $data = '*', $sortby = 'art_post_id', $orderby = 'desc', $limit = '1', $offset = '', $join_str, $groupby = '');
 
                 // echo $search_condition;
-                $contition_array = array('art_reg.art_city' => $search_place[0]);
-                $artfullname = $fullnamedata['data'] = $this->common->select_data_by_search('art_reg', $search_condition, $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                
+                // $artfullname = $fullnamedata['data'] = $this->common->select_data_by_search('art_reg', $search_condition, $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
 
                 // echo "<pre>"; print_r($artfullname);
