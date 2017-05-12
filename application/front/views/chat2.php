@@ -26,7 +26,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     word-break: break-all;
     background-color: #fff;
     /* padding: 10px; */
-    font-size: 15px;
+    font-size: 13px;
 }
 
 common-style.css:1083

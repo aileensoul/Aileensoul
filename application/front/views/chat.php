@@ -8,16 +8,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!--- for dispaly div insted of input type start -->
 <style type="text/css">
 div .comment {  
-width: 100%;
-background-color: rgba(244, 244, 244, 0.59);
-font-family: sans-serif;
-padding: 5%;
-bottom: 10%;
-position: absolute;
-border: 1px solid #4E4E4E;
-    max-height:30px;
-    overflow:scroll;
-    overflow-x:hidden;
+   border: 1px solid #ccc;
+    padding-right: 40px!important;
+    word-break: break-all;
+    background-color: #fff;
+    /* padding: 10px; */
+    font-size: 13px;
 }
 </style>
 <?php echo $header; ?>

@@ -331,9 +331,11 @@ z-index: 1;
                                                         echo $edu_certificate_primary1;
                                                     }
                                                     ?>">
-                                                    <button>Submit</button>
+                                                    <button style="padding: 5px 9px;">Submit</button>
                                                     <br>
-                                                     <fieldset class="hs-submit full-width" style="padding: 0;">
+                                                     <fieldset class="hs-submit full-width" style="    position: absolute;
+   right: -24%;  width: 24%;
+    bottom: 1%;">
                        
 													<input type="button" id="next" name="next" value="Next" style="font-size: 16px;min-width: 120px;" onclick="next_page()">
 
@@ -440,9 +442,11 @@ z-index: 1;
                                                     }
                                                     ?>">
 
-                                                    <button>Submit</button>
+                                                    <button style="padding: 5px 9px;">Submit</button>
                                                     <br>
-                                                    <fieldset class="hs-submit full-width" style="padding: 0;">
+                                                    <fieldset class="hs-submit full-width" style="    position: absolute;
+     right: -24%;  width: 24%;
+    bottom: 5%;">
                        
 													<input type="button" id="next" name="next" value="Next" style="font-size: 16px;min-width: 120px;" onclick="next_page()">
 
@@ -563,9 +567,11 @@ z-index: 1;
                                                     }
                                                     ?>">
 
-                                                    <button>Submit</button>
+                                                    <button style="padding: 5px 9px;">Submit</button>
                                                     <br>
-                                                    <fieldset class="hs-submit full-width" style="padding: 0;">
+                                                    <fieldset class="hs-submit full-width" style="    position: absolute;
+  right: -24%;  width: 24%;
+    bottom: 5%;">
                        
 													<input type="button" id="next" name="next" value="Next" style="font-size: 16px;min-width: 120px;" onclick="next_page()">
 
@@ -952,9 +958,6 @@ z-index: 1;
                                                     </div> 
                                                     <!--clone div End-->
 
-                                                    <fieldset class="full-width">
-                                                        <h6 style="font-size: 16px;">Add More Education</h6>
-                                                    </fieldset>
 
                                                     <div class="fl" style="margin-right: 10px;" >
 
@@ -969,10 +972,15 @@ z-index: 1;
                                                     </div>
 
                                                     <div class="fr">
-                                                        <input type="submit"  id="next" name="next" value="submit" style="padding: 10px 34px 12px;margin-right: 0px;">
+                                                        <input type="submit"  id="next" name="next" value="submit" style="padding: 5px 9px;margin-right: 0px;">
                                                     </div> 
                                                     <br>
-                                                    <fieldset class="hs-submit full-width" style="padding: 0;">
+                                                    <fieldset class="hs-submit full-width" style="     right: -24%;
+    position: absolute;
+    bottom: 2.3%;
+    display: inline-block;
+    width: 24%;
+">
                        
 													<input type="button" id="next" name="next" value="Next" style="font-size: 16px;min-width: 120px;margin-right: 0px;" onclick="next_page()">
 
