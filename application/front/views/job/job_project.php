@@ -85,7 +85,7 @@
                                      <fieldset class="full-width">
                                          <label>Project Description</label>
 
-                                          <input type="text" name="project_description"  id="project_description" placeholder="Enter Project Description" value="<?php if($project_description1){ echo $project_description1; } else { echo $job[0]['project_description']; }?>"/>
+                                          <textarea name="project_description"  id="project_description" style="resize: none;" placeholder="Enter Project Description"><?php if($project_description1){ echo $project_description1; } else { echo $job[0]['project_description']; }?></textarea>
                                         
                                   </fieldset>
 
