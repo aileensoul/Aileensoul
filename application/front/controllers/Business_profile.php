@@ -4840,13 +4840,13 @@ class Business_profile extends MY_Controller {
 
             // insert notification
 
-            if ($busimglikepost[0]['user_id'] == $userid) {
+            if ($busimglike[0]['user_id'] == $userid) {
                 
             } else {
                 $datanotification = array(
                     'not_type' => 5,
                     'not_from_id' => $userid,
-                    'not_to_id' => $busimglikepost[0]['user_id'],
+                    'not_to_id' => $busimglike[0]['user_id'],
                     'not_read' => 2,
                     'not_product_id' => $post_image_comment_id,
                     'not_from' => 6,
@@ -4932,7 +4932,7 @@ class Business_profile extends MY_Controller {
 
                 // insert notification
 
-                if ($busimglikepost[0]['user_id'] == $userid) {
+                if ($busimglike[0]['user_id'] == $userid) {
                     
                 } else {
 
@@ -4955,7 +4955,7 @@ class Business_profile extends MY_Controller {
                         $data = array(
                             'not_type' => 5,
                             'not_from_id' => $userid,
-                            'not_to_id' => $busimglikepost[0]['user_id'],
+                            'not_to_id' => $busimglike[0]['user_id'],
                             'not_read' => 2,
                             'not_product_id' => $post_image_comment_id,
                             'not_from' => 6,
@@ -5029,13 +5029,13 @@ class Business_profile extends MY_Controller {
 
             // insert notification
 
-            if ($busimglikepost[0]['user_id'] == $userid) {
+            if ($busimglike[0]['user_id'] == $userid) {
                 
             } else {
                 $datanotification = array(
                     'not_type' => 5,
                     'not_from_id' => $userid,
-                    'not_to_id' => $busimglikepost[0]['user_id'],
+                    'not_to_id' => $busimglike[0]['user_id'],
                     'not_read' => 2,
                     'not_product_id' => $post_image_comment_id,
                     'not_from' => 6,
@@ -5117,7 +5117,7 @@ class Business_profile extends MY_Controller {
 
                 // insert notification
 
-                if ($busimglikepost[0]['user_id'] == $userid) {
+                if ($busimglike[0]['user_id'] == $userid) {
                     
                 } else {
 
@@ -5138,7 +5138,7 @@ class Business_profile extends MY_Controller {
                         $datanotification = array(
                             'not_type' => 5,
                             'not_from_id' => $userid,
-                            'not_to_id' => $busimglikepost[0]['user_id'],
+                            'not_to_id' => $busimglike[0]['user_id'],
                             'not_read' => 2,
                             'not_product_id' => $post_image_comment_id,
                             'not_from' => 6,

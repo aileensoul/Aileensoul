@@ -4623,13 +4623,13 @@ echo '<pre>'; print_r($artdata); die();
 
             // insert notification
 
-            if ($artimglikepost[0]['user_id'] == $userid) {
+            if ($artimglike[0]['user_id'] == $userid) {
                 
             } else {
                 $data = array(
                     'not_type' => 5,
                     'not_from_id' => $userid,
-                    'not_to_id' => $artimglikepost[0]['user_id'],
+                    'not_to_id' => $artimglike[0]['user_id'],
                     'not_read' => 2,
                     'not_product_id' => $post_image_comment_id,
                     'not_from' => 3,
@@ -4711,7 +4711,7 @@ echo '<pre>'; print_r($artdata); die();
 
                 // insert notification
 
-                if ($artimglikepost[0]['user_id'] == $userid) { 
+                if ($artimglike[0]['user_id'] == $userid) { 
                     
                 } else { 
 
@@ -4732,7 +4732,7 @@ echo '<pre>'; print_r($artdata); die();
                     $data = array(
                         'not_type' => 5,
                         'not_from_id' => $userid,
-                        'not_to_id' => $artimglikepost[0]['user_id'],
+                        'not_to_id' => $artimglike[0]['user_id'],
                         'not_read' => 2,
                         'not_product_id' => $post_image_comment_id,
                         'not_from' => 3,
