@@ -220,9 +220,10 @@
         <!-- further and less -->
         <script>
             $(function () {
-                var showTotalChar = 170, showChar = "More", hideChar = "less";
+                var showTotalChar = 200, showChar = "More", hideChar = "less";
                 $('.show').each(function () {
-                    var content = $(this).text();
+                    //var content = $(this).text();
+                    var content = $(this).html();
                     if (content.length > showTotalChar) {
                         var con = content.substr(0, showTotalChar);
                         var hcon = content.substr(showTotalChar, content.length - showTotalChar);
