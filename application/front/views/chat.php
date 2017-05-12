@@ -8,8 +8,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!--- for dispaly div insted of input type start -->
 <style type="text/css">
 div .comment {  
+  width: 90%;
    border: 1px solid #ccc;
-    padding-right: 40px!important;
+    padding-right: 50px!important;
     word-break: break-all;
     background-color: #fff;
     /* padding: 10px; */
@@ -18,6 +19,7 @@ div .comment {
     position: relative;
     max-height: 120px;
     overflow-y: scroll;
+    padding-left: 10px!important;
 }
 </style>
 <?php echo $header; ?>
@@ -161,7 +163,7 @@ if($lstusrdata){?>
     max-height: 80px !important;
     overflow: scroll;
     overflow-x: hidden;
-    left: 0; margin-bottom: -65px;">
+    left: 0; margin-bottom: -50px;">
 
                <!--  <input id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." /> -->
                 <form name="blog">
@@ -179,7 +181,7 @@ if($lstusrdata){?>
     bottom: 5px;">
     <a href="#" id="notificationLink1" style="position: absolute;
     bottom: 0;
-    left: 0;"><i class="em em-blush"></i></a>
+    left: -91px;"><i class="em em-blush"></i></a>
     
       <div id="notificationContainer1" style="display: none;
     position: relative;margin-bottom: 37px;">
@@ -201,7 +203,7 @@ if($lstusrdata){?>
     
                 <span class="input-group-btn">
         <button class="btn btn-warning btn-sm" id="submit" style="padding: 10px;
-    background: #003;
+    background: #003; left: -110px;
     border: 1px solid #003;position: absolute;bottom: 0;">Send</button>
                 </span>
               </div>
