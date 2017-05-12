@@ -1742,6 +1742,9 @@ class Business_profile extends MY_Controller {
         $contition_array = array('follow_type' => 2, 'follow_from' => $artdata[0]['business_profile_id'], 'follow_to' => $business_id);
         $follow = $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
+        $contition_array = array('busienss_profile_id' => $business_id, 'status' => 1, 'is_delete' => 0);
+        $followuserid = $this->common->select_data_by_condition('busienss_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
 
         if ($follow) {
             $data = array(
@@ -1757,7 +1760,7 @@ class Business_profile extends MY_Controller {
             $data = array(
                 'not_type' => 8,
                 'not_from_id' => $userid,
-                'not_to_id' => $business_id,
+                'not_to_id' => $followuserid[0]['user_id'],
                 'not_read' => 2,
                 'not_product_id' => $follow[0]['follow_id'],
                 'not_from' => 6
@@ -1789,7 +1792,7 @@ class Business_profile extends MY_Controller {
             $data = array(
                 'not_type' => 8,
                 'not_from_id' => $userid,
-                'not_to_id' => $business_id,
+                'not_to_id' => $followuserid[0]['user_id'],
                 'not_read' => 2,
                 'not_product_id' => $insert,
                 'not_from' => 6

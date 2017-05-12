@@ -519,11 +519,11 @@ function text2link($text){
                                                       if($recdata[0]['re_comp_site'])
                                                       {
                                                       ?>
-                                                      <li> <b>Company Website</b><span><a href="http://<?php echo $recdata[0]['re_comp_site'] ?>" target="_blank"><?php 
+                                                      <li> <b>Company Website</b><span><a target="_blank"><?php 
 
                                                       if($recdata[0]['re_comp_site'])
                                                       {
-                                                        echo $recdata[0]['re_comp_site'];
+                                                        echo $this->common->make_links($recdata[0]['re_comp_site']);
                                                       }
                                                       else
                                                       {
@@ -545,7 +545,7 @@ function text2link($text){
 
                                               if($recdata[0]['re_comp_interview'])
                                                       {
-                                                        echo text2link($recdata[0]['re_comp_interview']);
+                                                        echo $this->common->make_links($recdata[0]['re_comp_interview']);
                                                       }
                                                       else
                                                       {
@@ -567,7 +567,7 @@ function text2link($text){
                                                        <?php 
                                                       if($recdata[0]['re_comp_project'])
                                                                     {
-                                                                        echo text2link($recdata[0]['re_comp_project']);
+                                                                        echo $this->common->make_links($recdata[0]['re_comp_project']);
                                                                     }
                                                                     else
                                                                     {
@@ -588,7 +588,7 @@ function text2link($text){
                                                           <?php 
                                              if($recdata[0]['re_comp_activities'])
                                                                     {
-                                                                        echo text2link($recdata[0]['re_comp_activities']);
+                                                                        echo $this->common->make_links($recdata[0]['re_comp_activities']);
                                                                     }
                                                                     else
                                                                     {
