@@ -78,7 +78,7 @@ class Search extends CI_Controller {
 
             $skilldata = $artdata['data'] = $this->common->select_data_by_search('skill', $search_condition, $contition_array = array(), $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
             // echo "<pre>"; print_r($skilldata); 
-            $contion_array = array('status' => '1');
+            $contion_array = array('art_reg.status' => '1', 'art_reg.user_id !=' => $userid);
             $artregdata = $this->data['results'] = $this->common->select_data_by_condition('art_reg', $contion_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
             // echo "<pre>";print_r($artregdata);
@@ -99,7 +99,7 @@ class Search extends CI_Controller {
             }
             // echo "<pre>"; print_r($artskillpost); die();
 
-            $contition_array = array('is_delete' => '0', 'status' => '1');
+            $contition_array = array('art_reg.is_delete' => '0', 'art_reg.status' => '1','art_reg.user_id !=' => $userid);
 
             $search_condition = "(designation LIKE '%$searchskill%' or other_skill LIKE '%$searchskill%' or art_name LIKE '%$searchskill%' or art_lastname LIKE '%$searchskill%' or art_yourart LIKE '%$searchskill%')";
             // echo $search_condition;
@@ -112,10 +112,12 @@ class Search extends CI_Controller {
             $join_str[0]['from_table_id'] = 'art_post.user_id';
             $join_str[0]['join_type'] = '';
 
+             $contition_array = array('art_post.user_id !=' => $userid);
+
             $search_condition = "(art_post.art_post LIKE '%$searchskill%' or art_post.art_description LIKE '%$searchskill%' or art_post.other_skill LIKE '%$searchskill%')";
 
 
-            $artpost = $artpostdata['data'] = $this->common->select_data_by_search('art_post', $search_condition, $contition_array = array(), $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
+            $artpost = $artpostdata['data'] = $this->common->select_data_by_search('art_post', $search_condition, $contition_array, $data = 'art_post.*,art_reg.art_name,art_reg.art_lastname', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
             // echo "<pre>"; print_r($artpost); die();
             $fullname = explode(" ", $searchskill);
 

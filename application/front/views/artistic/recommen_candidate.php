@@ -22,7 +22,7 @@
                                         <a class="profile-boxProfileCard-bg u-bgUserColor a-block"
                                            href="<?php echo site_url('artistic/art_manage_post'); ?>"
                                            tabindex="-1" aria-hidden="true" rel="noopener" title="<?php echo $businessdata[0]['company_name']; ?>">
-                                            <!-- box image start -->
+                                            
                                             <?php if ($artdata[0]['profile_background'] != '') { ?>
                                                 <img src="<?php echo base_url(ARTBGIMAGE . $artdata[0]['profile_background']); ?>" class="bgImage" alt=""  style="height: 95px; width: 100%; ">
                                                 <?php
@@ -42,10 +42,7 @@
                                                 <?php } else { ?>
                                                     <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
                                                 <?php } ?>                           
-                                                <!-- 
-                        <img class="profile-boxProfileCard-avatarImage js-action-profile-avatar" src="images/imgpsh_fullsize (2).jpg" alt="" style="    height: 68px;
-                        width: 68px;">
-                                                -->
+                                               
                                             </a>
                                         </div>
                                         <div class="profile-box-user  profile-text-bui-user  fr col-md-9">
@@ -86,7 +83,7 @@
    
 </div>
 </div>
-<!-- left side box close -->
+
 
 
    <div class="col-md-7 col-sm-7 all-form-content" style="height: 150%;">
@@ -96,7 +93,7 @@
                                 <h3>Search Result</h3>
                                 <div class="contact-frnd-post">
                                     <div class="job-contact-frnd ">
-<!-- main data start -->
+
                        <?php if($artuserdata){
 
                                   
@@ -107,11 +104,9 @@
                                     foreach ($artuserdata as $key) { 
                                        if($key['art_description'] || $key['art_post'] || count($artmulti) > 0){ 
                                     ?>            
-                                       <div class="profile-job-post-title-inside clearfix" style="border: 1px solid #d9d9d9;">
+                                       <!-- <div class="profile-job-post-title-inside clearfix search" style="border: 1px solid #d9d9d9;">
           <div class="profile-job-profile-button clearfix box_search_module" style="height: 16%;">
-                                                            <!-- pop up box start-->
-              
-                                                            <!-- pop up box end-->
+                                                           
      <div class="profile-job-post-location-name-rec">
           <div class="module_Ssearch" style="display: inline-block; float: left;">
              <div class="search_img">
@@ -178,13 +173,13 @@
 
 
 
-     </div>
+     </div> -->
        </div>
        <div class="col-md-12 col-sm-12 post-design-box" id="removepost5" style="margin-bottom: 0px; box-shadow: none; border: none;">
                                     <div class="post_radius_box">  
                                         <div class="post-design-search-top col-md-12" style="background-color: none!important;">  
                                             <div class="post-design-pro-img col-md-2"> 
-                                                <!-- pop up box start-->
+                                              
                                                 <div id="popup1" class="overlay">
                                                     <div class="popup">
                                                         <div class="pop_content">
@@ -196,8 +191,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!-- pop up box end-->
-                                                <!-- pop up box start-->
+                                                
                                                 <div id="popup25" class="overlay">
                                                     <div class="popup">
                                                         <div class="pop_content">
@@ -213,8 +207,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!-- pop up box end-->
-                                                <!-- pop up box start-->
+                                               
                                                 <div id="popup55" class="overlay">
                                                     <div class="popup">
                                                         <div class="pop_content">
@@ -230,7 +223,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!-- pop up box end-->                                                                <img src="http://localhost/aileensoul/uploads/user_image/photo2.jpg" alt="">
+                                                <img src="http://localhost/aileensoul/uploads/user_image/photo2.jpg" alt="">
                                                                                                 </div>
                                             <div class="post-design-name fl col-md-9">
                                                 <ul>
@@ -269,8 +262,8 @@
                                                     </li>
                                                     <li>
                                                         <div class="post-design-product">
-                                                            <a href="javascript:void(0);" style=" color: #000033; font-weight: 400; cursor: default;" title="Description">
-                                                 <?php echo $key['art_description'];?>                                                   </a>
+                                                            <a href="javascript:void(0);" style=" color: #000033; font-weight: 400; cursor: default;" title="">
+                                                                                                  </a>
                                                         </div>
                                                     </li>
                                                     <li>
@@ -296,7 +289,7 @@
                                                 <div>
                                                     <div id="editpostdata5" style="display:block;">
                                                         <a style="margin-bottom: 0px;     font-size: 16px">
-                                                            zalak                                                        </a>
+                                                          </a>
                                                     </div>
                                                     <div id="editpostbox5" style="display:none;">
                                                         <input type="text" id="editpostname5" name="editpostname" placeholder="Product Name" value="zalak">
@@ -304,13 +297,13 @@
                                                 </div>                    
 
                                                 <div id="editpostdetails5" style="display:block;">
-                                                    <span class="show"> 
-                                                        48648486486                                                    </span>
+                                                    <span class="show">
+                                                    <?php echo $key['art_description'];?> 
+                                                          </span>
                                                 </div>
                                                 <div id="editpostdetailbox5" style="display:none;">
-                                                  <!-- <textarea id="editpostdesc5" placeholder="Product Description" class="textbuis" name="editpostdesc">48648486486</textarea>
-                                                    -->
-                                                    <div contenteditable="true" id="editpostdesc5" placeholder="Product Description" class="textbuis  editable_text" name="editpostdesc">48648486486</div>                  
+                                                  
+                                                    <div contenteditable="true" id="editpostdesc5" placeholder="Product Description" class="textbuis  editable_text" name="editpostdesc">     </div>                  
                                                 </div>
                                                 <button class="fr" id="editpostsubmit5" style="display:none;margin: 5px 0; border-radius: 3px;" onclick="edit_postinsert(5)">Save
                                                 </button>
@@ -319,7 +312,7 @@
                                         </div>
                                         
                                         <div class="post-design-mid col-md-12" style="border: none;">
-            <!-- multiple image code  start-->
+            
              <div>                                     
                                   <div class="mange_post_image">
                                             <?php
@@ -340,25 +333,25 @@
          if (in_array($ext, $allowed)) {
                 ?>
 
-                                                    <!-- one image start -->
+                                                   
             <div id="basic-responsive-image" style="height: 80%; width: 100%;">
              <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img src="<?php echo base_url(ARTPOSTIMAGE .$artmultiimage[0]['image_name'])?>" style="width: 100%; height: 100%;"> </a>
                                                     </div>
-                                                    <!-- one image end -->
+                                                    
 
                                                 <?php } elseif (in_array($ext, $allowespdf)) { ?>
 
-                                                    <!-- one pdf start -->
+                                                  
              <div>
             <a href="<?php echo base_url('artistic/creat_pdf/' . $artmultiimage[0]['image_id']) ?>"><div class="pdf_img">
                 <img src="<?php echo base_url('images/PDF.jpg')?>" style="height: 100%; width: 100%;">
                                 </div></a>
                                                     </div>
-                                                    <!-- one pdf end -->
+                                                   
 
                                                 <?php } elseif (in_array($ext, $allowesvideo)) { ?>
 
-                                                    <!-- one video start -->
+                                                   
                                                     <div class="video_post">
                                                         <video width="100%" height="55%" controls>
 
@@ -368,11 +361,11 @@
                         Your browser does not support the video tag.
                          </video>
                     </div>
-                                                    <!-- one video end -->
+                                                   
 
                 <?php } elseif (in_array($ext, $allowesaudio)) { ?>
 
-                                                    <!-- one audio start -->
+                                                    
                                  <div>
                         <audio width="120" height="100" controls>
 
@@ -384,7 +377,7 @@
 
                                                     </div>
 
-                                                    <!-- one audio end -->
+                                                    
 
                                                 <?php } ?>
 
@@ -394,19 +387,19 @@
                                                 foreach ($artmultiimage as $multiimage) {
                                                     ?>
 
-                                                    <!-- two image start -->
+                                                    
                                                     <div  id="two_manage_images_art" >
                                                         <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="two-columns" src="<?php echo base_url(ARTPOSTIMAGE .$multiimage['image_name']) ?>" > </a>
                                                     </div>
 
-                                                    <!-- two image end -->
+                                                    
                                                 <?php } ?>
 
                                             <?php } elseif (count($artmultiimage) == 3) { ?>
 
 
 
-                                                <!-- three image start -->
+                                              
                                                 <div id="three_images_art" >
                                                     <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="three-columns" src="<?php echo base_url(ARTPOSTIMAGE .$artmultiimage[0]['image_name']) ?>" style="width: 100%; height:100%; "> </a>
                                                 </div>
@@ -418,7 +411,7 @@
                                                     <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="three-columns" src="<?php echo base_url(ARTPOSTIMAGE . $artmultiimage[2]['image_name'])?>" style="width: 100%; height:100%; "> </a>
                                                 </div>
 
-                                                <!-- three image end -->
+                                                
 
 
                                             <?php } elseif (count($artmultiimage) == 4) { ?>
@@ -428,13 +421,13 @@
                                                 foreach ($artmultiimage as $multiimage) {
                                                     ?>
 
-                                                    <!-- four image start -->
+                                                    
                                                     <div id="responsive_manage-images-breakpoints" style="   ">
                                                         <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="breakpoint" src="<?php echo base_url(ARTPOSTIMAGE . $multiimage['image_name'])?>" style="width: 100%; height: 100%;"> </a>
 
                                                     </div>
 
-                                                    <!-- four image end -->
+                                                    
 
                                                 <?php } ?>
 
@@ -448,14 +441,14 @@
                                                 foreach ($artmultiimage as $multiimage) {
                                                     ?>
 
-                                                    <!-- five image start -->
+                                                    
                                                     <div>
                                                         <div id="responsive-manage_images_2-breakpoints">
                                                             <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img src="<?php echo base_url(ARTPOSTIMAGE . $multiimage['image_name']) ?>" style=""> </a>
                                                         </div>
                                                     </div>
 
-                                                    <!-- five image end -->
+                                                    
 
                                                     <?php
                                                     $i++;
@@ -463,7 +456,7 @@
                                                         break;
                                                 }
                                                 ?>
-                                                <!-- this div view all image start -->
+                                               
                                                 <div>
                                                     <div id="responsive-manage_images_3-breakpoints" >
                                                         <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img src="<?php echo base_url(ARTPOSTIMAGE .$artmultiimage[3]['image_name'])?>" > </a></div>
@@ -476,7 +469,7 @@
                                                     </div>
 
                                                 </div>
-                                                <!-- this div view all image end -->
+                                              
 
 
                                             <?php } ?>
@@ -487,7 +480,7 @@
 
                                         </div>     
               </div>
-            <!-- multiple image code  end-->
+            
                                         </div>
                                         <div class="post-design-like-box col-md-12" style="border: none;">
                                             <div class="post-design-menu">
@@ -508,8 +501,7 @@
                                                 </ul>
                                             </div>
                                         </div>
-                                        <!-- like user list start -->
-                                        <!-- pop up box start-->
+                                      
                                         
                                         <div class="likeusername5" id="likeusername5" style="display:none">
                                                                                         <!-- pop up box end-->
@@ -520,19 +512,15 @@
                                         </div>
 
 
-                                        <!-- like user list end -->
-                                        <!-- all comment start-->
+                               
                                         <div class="art-all-comment col-md-12">
                                             <div id="fourcomment5" style="display:none;">
-                                                <!-- khyati 19-4 changes start -->
-                                                <!-- khyati 19-4 changes end -->
+                                                
                                             </div>
-                                            <!-- khyati changes start -->
+                                          
                                            
-                                            <!-- khyati changes end -->
-                                            <!-- all comment end -->
                                         </div>
-                                        <!-- comment start -->
+                                        
                                         <div class="post-design-commnet-box col-md-12">
                                             <div class="post-design-proo-img">                                                                      <img src="http://localhost/aileensoul/uploads/user_image/photo2.jpg" alt="">
                                                                                             </div>
@@ -549,8 +537,7 @@
                                         </div>
 
                                        
-                                        <!-- comment end -->
-
+                                       
                                     </div> </div>
                                     <div class="view_more_details">
                                           <a href="">View more in Aileensoul's Profile</a>
@@ -560,9 +547,7 @@
                                 <?php } else {?>
                <div class="profile-job-post-title-inside clearfix" style="border: 1px solid #d9d9d9;">
           <div class="profile-job-profile-button clearfix box_search_module" style="height: 16%;">
-                                                            <!-- pop up box start-->
-              
-                                                            <!-- pop up box end-->
+                                                          
      <div class="profile-job-post-location-name-rec">
           <div class="module_Ssearch" style="display: inline-block; float: left;">
              <div class="search_img">
@@ -618,6 +603,7 @@
        <li style="display: block;">
          <a  class="color-search" href=""><?php echo $key['country'].$key['city']; ?></a>
        </li>
+         <input type="hidden" name="search" id="search" value="<?php echo $keyword; ?>">
       
     </ul>
       </div>
@@ -639,7 +625,7 @@
 
          </div>
          <?php }?>
-<!-- main data end -->
+
 
 <?php }}?>
                                     </div>
@@ -647,7 +633,21 @@
                                     </div>
                                     </div>
                                     </div>
-                                   <!--  col-md-7 close -->
+                                 
 </div>
 </div>
 </div>
+<script src="<?php echo base_url('js/jquery.highlite.js'); ?>"></script>
+
+<script type="text/javascript">
+                                                                        var text = document.getElementById("search").value;
+//alert(text);
+
+                                                                        $(".search").highlite({
+
+                                                                            text: text
+
+
+
+                                                                        });
+</script>
