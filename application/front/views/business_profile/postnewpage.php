@@ -62,7 +62,7 @@
     .modal2 {
         display: none;
         position: fixed;
-        /*  z-index: 9999999;*/
+          z-index:1000;
         padding-top: 35px;
         left: 0;
         top: 0;

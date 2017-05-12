@@ -68,7 +68,12 @@ common-style.css:1083
           <div class="about">
             <div class="name"> 
     <a href="<?php echo base_url() . 'chat/abc/' . $user['user_id']; ?>"><?php echo  $user['first_name'] . "<br>"; ?></a> </div>
-            <div class="<?php echo 'status' . $user['user_id']; ?>">
+            <div class="<?php echo 'status' . $user['user_id']; ?>" style=" width: 145px;    max-height: 31px;
+    color: #003;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+">
            <?php echo  $user['message']; ?>
             </div>
           </div>
@@ -94,7 +99,12 @@ if($lstusrdata){?>
           <div class="about">
             <div class="name"> 
     <a href="<?php echo base_url() . 'chat/abc/' . $lstusrdata[0]['user_id']; ?>"><?php echo  $lstusrdata[0]['first_name'] . "<br>"; ?></a> </div>
-            <div class="<?php echo 'status' . $lstusrdata[0]['user_id']; ?>">
+            <div class="<?php echo 'status' . $lstusrdata[0]['user_id']; ?>" style=" width: 145px;    max-height: 31px;
+    color: #003;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+">
           
             </div>
           </div>
@@ -117,7 +127,12 @@ if($user['user_id'] != $toid){
           <div class="about">
             <div class="name"> 
     <a href="<?php echo base_url() . 'chat/abc/' . $user['user_id']; ?>"><?php echo  $user['first_name'] . "<br>"; ?></a> </div>
-            <div class="<?php echo 'status' . $user['user_id']; ?>">
+            <div class="<?php echo 'status' . $user['user_id']; ?>" style=" width: 145px;
+    color: #003;    max-height: 31px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+">
            <?php echo  $user['message']; ?>
             </div>
           </div>

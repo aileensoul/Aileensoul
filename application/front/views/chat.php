@@ -87,7 +87,7 @@ if(count($userlist) > 0){
           <div class="about">
             <div class="name"> 
     <a href="<?php echo base_url() . 'chat/abc/' . $user['user_id']; ?>"><?php echo  $user['first_name'] . "<br>"; ?></a> </div>
-            <div class="<?php echo 'status' . $user['user_id']; ?>" style=" width: 152px;
+            <div class="<?php echo 'status' . $user['user_id']; ?>" style=" width: 145px;    max-height: 31px;
     color: #003;
     white-space: nowrap;
     overflow: hidden;
