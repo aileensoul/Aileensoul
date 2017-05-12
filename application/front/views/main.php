@@ -187,7 +187,7 @@
           <div class="top-row">
             <div class="field-wrap full-width">
              <label class="fname_reg">Email Address <span class="req">*</span></label>
-             <input type="text" name="email" id="email" placeholder="" value="<?php if($email){ echo $email; }?>">
+             <input type="text" name="email" id="email" placeholder="" value="<?php if($email){ echo $email; }?>" autocomplete="false">
               <?php echo form_error('email'); ?>
             </div>
         
@@ -203,7 +203,7 @@
          <div class="top-row">
             <div class="field-wrap full-width">
         <label class="fname_reg">Password<span class="req">*</span></label>
-    <input type="password" name="password" id="password" class="showpassword" placeholder="Password *" style="position: relative;"  />
+    <input type="password" name="password" id="password" class="showpassword" placeholder="Password *" style="position: relative;" autocomplete="false">
                       <?php echo form_error('password'); ?>
             
 
