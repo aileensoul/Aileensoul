@@ -179,7 +179,7 @@
         
             <div class="field-wrap">
               <label class="fname_reg">Last Name<span class="req">*</span></label>
-                      <input type="text" value="<?php if($lname){ echo $lname; }?>"name="lname" id="lname" placeholder="">
+                      <input type="text" value="<?php if($lname){ echo $lname; }?>" name="lname" id="lname" placeholder="">
                       <?php echo form_error('lname'); ?>
             </div>
           </div>
@@ -187,7 +187,7 @@
           <div class="top-row">
             <div class="field-wrap full-width">
              <label class="fname_reg">Email Address <span class="req">*</span></label>
-             <input type="text" name="email" id="email" placeholder="" value="<?php if($email){ echo $email; }?>"  autocomplete='off'>
+             <input type="text" name="email" id="email" placeholder="Enter Email" value=""  autocomplete='off'>
               <?php echo form_error('email'); ?>
             </div>
         
