@@ -409,6 +409,23 @@ class Business_profile extends MY_Controller {
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('business_profile/contact_info');
         } else {
+
+
+            $contition_array = array('user_id' => $userid, 'status' => '1');
+            $userdata = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+             if ($userdata[0]['business_step'] == 4) {
+                $data = array(
+                'contact_person' => $this->input->post('contactname'),
+                'contact_mobile' => $this->input->post('contactmobile'),
+                'contact_email' => $this->input->post('email'),
+                'contact_website' => $this->input->post('contactwebsite'),
+                'modified_date' => date('Y-m-d', time()),
+                //'business_step' => 2
+            );
+
+             }else{
+
             $data = array(
                 'contact_person' => $this->input->post('contactname'),
                 'contact_mobile' => $this->input->post('contactmobile'),
@@ -418,7 +435,7 @@ class Business_profile extends MY_Controller {
                 'business_step' => 2
             );
 
-
+          }
             $updatdata = $this->common->update_data($data, 'business_profile', 'user_id', $userid);
 
 
@@ -551,6 +568,25 @@ class Business_profile extends MY_Controller {
             if ($this->form_validation->run() == FALSE) {
                 $this->load->view('business_profile/description');
             } else {
+
+
+                $contition_array = array('user_id' => $userid, 'status' => '1');
+            $userdata = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+             if ($userdata[0]['business_step'] == 4) {
+                $data = array(
+                    'business_type' => $this->input->post('business_type'),
+                    'industriyal' => $this->input->post('industriyal'),
+                    'subindustriyal' => $this->input->post('subindustriyal'),
+                    'other_business_type' => $this->input->post('bustype'),
+                    'other_industrial' => $this->input->post('indtype'),
+                    'details' => $this->input->post('business_details'),
+                    'modified_date' => date('Y-m-d', time()),
+                    //'business_step' => 3
+                );
+
+
+               }else{
                 $data = array(
                     'business_type' => $this->input->post('business_type'),
                     'industriyal' => $this->input->post('industriyal'),
@@ -561,7 +597,7 @@ class Business_profile extends MY_Controller {
                     'modified_date' => date('Y-m-d', time()),
                     'business_step' => 3
                 );
-
+               }
                 $updatdata = $this->common->update_data($data, 'business_profile', 'user_id', $userid);
 
                 if ($updatdata) {
