@@ -2855,7 +2855,7 @@ echo '<pre>'; print_r($artdata); die();
                 $cmtinsert .= '<div class="comment-name"><b>' . ucwords($artname) . '&nbsp;' . ucwords($artlastname) . '</b>';
                 $cmtinsert .= '</div>';
                 $cmtinsert .= '<div class="comment-details" id="showcomment' . $art['artistic_post_comment_id'] . '" >';
-                $cmtinsert .= $art['comments'];
+                $cmtinsert .= $this->common->make_links($art['comments']);
                 $cmtinsert .= '</div>';
                 $cmtinsert .= '<div class="edit-comment-box"><div class="inputtype-edit-comment">';
 
@@ -2976,7 +2976,7 @@ echo '<pre>'; print_r($artdata); die();
                 $cmtinsert .= '<div class="comment-name"><b>' . ucwords($artname) . '&nbsp;' . ucwords($artlastname) . '</b>';
                 $cmtinsert .= '</div>';
                 $cmtinsert .= '<div class="comment-details" id= "showcommenttwo' . $art['artistic_post_comment_id'] . '" >';
-                $cmtinsert .= $art['comments'];
+                $cmtinsert .= $this->common->make_links($art['comments']);
                 $cmtinsert .= '</div>';
 
                 $cmtinsert .= '<div class="edit-comment-box"><div class="inputtype-edit-comment">';
@@ -3407,7 +3407,7 @@ echo '<pre>'; print_r($artdata); die();
             $cmtinsert .= '<div class="comment-name"><b>' . ucwords($artname) . '&nbsp;' . ucwords($artlastname) . '</b>';
             $cmtinsert .= '</div>';
             $cmtinsert .= '<div class="comment-details" id= "showcommenttwo' . $art['artistic_post_comment_id'] . '" >';
-            $cmtinsert .= $art['comments'];
+            $cmtinsert .= $this->common->make_links($art['comments']);
             $cmtinsert .= '</div>';
             $cmtinsert .= '<div class="edit-comment-box"><div class="inputtype-edit-comment">';
 //            $cmtinsert .= '<textarea  name="' . $art['artistic_post_comment_id'] . '" id="editcommenttwo' . $art['artistic_post_comment_id'] . '" style="display:none" onClick="commentedittwo(this.name)">';
@@ -3572,7 +3572,7 @@ echo '<pre>'; print_r($artdata); die();
             $cmtinsert .= '<div class="comment-name"><b>' . ucwords($artname) . '&nbsp;' . ucwords($artlastname) . '</b>';
             $cmtinsert .= '</div>';
             $cmtinsert .= '<div class="comment-details" id= "showcomment' . $art['artistic_post_comment_id'] . '" >';
-            $cmtinsert .= $art['comments'];
+            $cmtinsert .= $this->common->make_links($art['comments']);
             $cmtinsert .= '</div>';
             $cmtinsert .= '<div class="edit-comment-box"><div class="inputtype-edit-comment">';
             $cmtinsert .= '<div contenteditable="true" class="editable_text"  name="' . $art['artistic_post_comment_id'] . '" id="editcomment' . $art['artistic_post_comment_id'] . '" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" onkeyup="commentedit(' . $art['artistic_post_comment_id'] . ')">';
@@ -3677,7 +3677,7 @@ echo '<pre>'; print_r($artdata); die();
             $artdata = $this->data['artdata'] = $this->common->select_data_by_condition('artistic_post_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
             // $cmtlike = '<div>';
-            $cmtlike = $artdata[0]['comments'] . "<br>";
+            $cmtlike = $this->common->make_links($artdata[0]['comments']) . "<br>";
             //   $cmtlike .= '</div>';
             echo $cmtlike;
         }
@@ -3788,10 +3788,11 @@ echo '<pre>'; print_r($artdata); die();
                 $editpost .= '</a></div>';
             }
             if ($this->data['artdata'][0]['art_description']) {
-
+                $com_link = $this->common->make_links($artdata[0]['art_description']);
+                $com_link = substr($com_link, 0, 200);
                 $editpostdes .= '<span class="show">';
-                $editpostdes .= $this->common->make_links($artdata[0]['art_description']);
-                $editpostdes .= '</span>';
+                $editpostdes .= $com_link;
+                $editpostdes .= '<span class="dots">...</span><span class="morectnt"><span></span>&nbsp;&nbsp;<a href="javascript:void(0);" class="showmoretxt">More</a></span></span>';
             }
             //echo $editpost;   echo $editpostdes;
             echo json_encode(
@@ -4331,7 +4332,7 @@ echo '<pre>'; print_r($artdata); die();
             $cmtinsert .= '</div>';
 
             $cmtinsert .= '<div class="comment-details" id= "showcommentimg' . $art_comment['post_image_comment_id'] . '"" >';
-            $cmtinsert .= $art_comment['comment'];
+            $cmtinsert .= $this->common->make_links($art_comment['comment']);
             $cmtinsert .= '</div>';
             $cmtinsert .= '<div contenteditable="true" class="editable_text" name="' . $art_comment['post_image_comment_id'] . '" id="editcommentimg' . $art_comment['post_image_comment_id'] . '"style="display:none;" onkeyup="commenteditimg(' . $art_comment['post_image_comment_id'] . ')">';
 
@@ -4496,7 +4497,7 @@ echo '<pre>'; print_r($artdata); die();
             $cmtinsert .= '</div>';
 
             $cmtinsert .= '<div class="comment-details" id= "showcommenttwo' . $art_comment['post_image_comment_id'] . '"" >';
-            $cmtinsert .= $art_comment['comment'];
+            $cmtinsert .= $this->common->make_links($art_comment['comment']);
             $cmtinsert .= '</div>';
             $cmtinsert .= '<div contenteditable="true"   class="editable_text" name="' . $art_comment['post_image_comment_id'] . '" id="editcommenttwo' . $art_comment['post_image_comment_id'] . '"style="display:none;" onkeyup="commentedittwo(' . $art_comment['post_image_comment_id'] . ')">';
 
@@ -4971,7 +4972,7 @@ echo '<pre>'; print_r($artdata); die();
             $arteditdata = $this->data['arteditdata'] = $this->common->select_data_by_condition('art_post_image_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
             $cmtlike = '<div>';
-            $cmtlike .= $arteditdata[0]['comment'] . "<br>";
+            $cmtlike .= $this->common->make_links($arteditdata[0]['comment']) . "<br>";
             $cmtlike .= '</div>';
             echo $cmtlike;
         }
@@ -5021,7 +5022,7 @@ echo '<pre>'; print_r($artdata); die();
             $cmtinsert .= '</div>';
             $cmtinsert .= '<div contenteditable="true"   class="editable_text" name="' . $art_comment['post_image_comment_id'] . '" id="editcommentimg' . $art_comment['post_image_comment_id'] . '"style="display:none;" onkeyup="commenteditimg(' . $art_comment['post_image_comment_id'] . ')">';
 
-            $cmtinsert .= '' . $art_comment['comment'] . '';
+            $cmtinsert .= '' . $this->common->make_links($art_comment['comment']) . '';
             $cmtinsert .= '</div>';
 
             $cmtinsert .= '<button id="editsubmitimg' . $art_comment['post_image_comment_id'] . '" style="display:none;" onClick="edit_commentimg(' . $art_comment['post_image_comment_id'] . ')">Comment</button><div class="art-comment-menu-design"> <div class="comment-details-menu" id="likecommentimg' . $art_comment['post_image_comment_id'] . '">';
@@ -5151,7 +5152,7 @@ echo '<pre>'; print_r($artdata); die();
             $cmtinsert .= '</div>';
 
             $cmtinsert .= '<div class="comment-details" id= "showcommentimgtwo' . $art_comment['post_image_comment_id'] . '">';
-            $cmtinsert .= $art_comment['comment'];
+            $cmtinsert .= $this->common->make_links($art_comment['comment']);
             $cmtinsert .= '</div>';
             $cmtinsert .= '<div contenteditable="true" class="editable_text" name="' . $art_comment['post_image_comment_id'] . '" id="editcommentimgtwo' . $art_comment['post_image_comment_id'] . '"style="display:none;" onkeyup="commenteditimgtwo(' . $art_comment['post_image_comment_id'] . ')">';
 
@@ -5294,7 +5295,7 @@ echo '<pre>'; print_r($artdata); die();
                 $fourdata .= '<b>' . ucwords($artname) . '&nbsp' . ucwords($artlastname) . '</b></br> </div>';
 
                 $fourdata .= '<div class="comment-details" id= "showcommenttwo' . $rowdata['artistic_post_comment_id'] . '">';
-                $fourdata .= '' . $rowdata['comments'] . '</div>';
+                $fourdata .= '' . $this->common->make_links($rowdata['comments']) . '</div>';
 
 //                $fourdata .= '<textarea  name="' . $rowdata['artistic_post_comment_id'] . '" id="editcommenttwo' . $rowdata['artistic_post_comment_id'] . '" style="display:none" onClick="commentedittwo(this.name)">';
 //                $fourdata .= '' . $rowdata['comments'] . '';
@@ -5398,7 +5399,7 @@ echo '<pre>'; print_r($artdata); die();
             $fourdata .= '<b>' . ucwords($artname) . '&nbsp' . ucwords($artlastname) . '</b></br> </div>';
 
             $fourdata .= '<div class="comment-details" id= "showcommentimgtwo' . $rowdata['post_image_comment_id'] . '">';
-            $fourdata .= '' . $rowdata['comment'] . '</br></div>';
+            $fourdata .= '' . $this->common->make_links($rowdata['comment']) . '</br></div>';
 
             $fourdata .= '<div contenteditable="true" class="editable_text" name="' . $rowdata['post_image_comment_id'] . '" id="editcommentimgtwo' . $rowdata['post_image_comment_id'] . '" style="display:none"  onClick="commenteditimgtwo(' . $rowdata['post_image_comment_id'] . ')">';
 

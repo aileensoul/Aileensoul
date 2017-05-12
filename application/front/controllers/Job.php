@@ -514,8 +514,9 @@ class Job extends MY_Controller {
 
     //job seeker address controller end
     //job seeker EDUCATION controller start
-    public function job_education_update() {
-
+    public function job_education_update($postid=" ") {
+        $this->data['postid'] = $postid;
+      
         $userid = $this->session->userdata('aileenuser');
         $contition_array = array('user_id' => $userid, 'is_delete' => 0, 'status' => 1);
 
@@ -685,7 +686,7 @@ class Job extends MY_Controller {
             if ($updatedata && $updatedata1) {
                 $this->session->set_flashdata('success', 'Primary Education updated successfully');
                 //  redirect('job/job_project_update');
-                redirect('job/job_education_update');
+                redirect('job/job_education_update/secondary');
             } else {
                 $this->session->flashdata('error', 'Your data not inserted');
                 redirect('job/job_education_update', refresh);
@@ -728,7 +729,7 @@ class Job extends MY_Controller {
             if ($insert_id && $updatedata) {
                 $this->session->set_flashdata('success', 'Primary Education updated successfully');
                 // redirect('job/job_project_update');
-                redirect('job/job_education_update');
+                redirect('job/job_education_update/secondary');
             } else {
                 $this->session->flashdata('error', 'Your data not inserted');
                 redirect('job/job_education_update', refresh);
@@ -814,7 +815,7 @@ class Job extends MY_Controller {
             if ($updatedata && $updatedata1) {
                 $this->session->set_flashdata('success', 'Secondary Education updated successfully');
                 // redirect('job/job_project_update');
-                redirect('job/job_education_update');
+                redirect('job/job_education_update/higher-secondary');
             } else {
                 $this->session->flashdata('error', 'Your data not inserted');
                 redirect('job/job_education_update', refresh);
@@ -857,7 +858,7 @@ class Job extends MY_Controller {
             if ($insert_id && $updatedata) {
                 $this->session->set_flashdata('success', 'Secondary Education updated successfully');
                 //  redirect('job/job_project_update');
-                redirect('job/job_education_update');
+                redirect('job/job_education_update/higher-secondary');
             } else {
                 $this->session->flashdata('error', 'Your data not inserted');
                 redirect('job/job_education_update', refresh);
@@ -946,7 +947,7 @@ class Job extends MY_Controller {
             if ($updatedata && $updatedata1) {
                 $this->session->set_flashdata('success', 'Higher Secondary Education updated successfully');
                 //  redirect('job/job_project_update');
-                redirect('job/job_education_update');
+                redirect('job/job_education_update/graduation');
             } else {
                 $this->session->flashdata('error', 'Your data not inserted');
                 redirect('job/job_education_update', refresh);
@@ -990,7 +991,7 @@ class Job extends MY_Controller {
             if ($insert_id && $updatedata) {
                 $this->session->set_flashdata('success', 'Higher Secondary Education updated successfully');
                 //  redirect('job/job_project_update');
-                redirect('job/job_education_update');
+                redirect('job/job_education_update/graduation');
             } else {
                 $this->session->flashdata('error', 'Your data not inserted');
                 redirect('job/job_education_update', refresh);
