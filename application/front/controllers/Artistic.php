@@ -381,7 +381,13 @@ class Artistic extends MY_Controller {
             if ($this->form_validation->run() == FALSE) {
                 $this->load->view('artistic/art_address');
             } else {
-                $data = array(
+
+
+        $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
+        $artuserdata = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        if($artuserdata[0]['art_step'] == 4){
+
+            $data = array(
                     'art_country' => $this->input->post('country'),
                     'art_state' => $this->input->post('state'),
                     'art_city' => $this->input->post('city'),
@@ -391,7 +397,19 @@ class Artistic extends MY_Controller {
                     //'art_step' => 2
                 );
 
+        }else{
 
+                $data = array(
+                    'art_country' => $this->input->post('country'),
+                    'art_state' => $this->input->post('state'),
+                    'art_city' => $this->input->post('city'),
+                    'art_address' => $this->input->post('address'),
+                    'art_pincode' => $this->input->post('pincode'),
+                    'modified_date' => date('Y-m-d', time()),
+                    'art_step' => 2
+                );
+
+            }
                 $updatdata = $this->common->update_data($data, 'art_reg', 'user_id', $userid);
 
 
@@ -495,6 +513,22 @@ class Artistic extends MY_Controller {
         $otherskill = $this->input->post('other_skill');
 
 
+ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
+        $artuserdata = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        if($artuserdata[0]['art_step'] == 4){
+
+            $data = array(
+            'art_yourart' => $this->input->post('artname'),
+            'other_skill' => $this->input->post('other_skill'),
+            'art_skill' => implode(',', $skill),
+            'art_desc_art' => $this->input->post('desc_art'),
+            'art_inspire' => $this->input->post('inspire'),
+            'modified_date' => date('Y-m-d', time()),
+            //'art_step' => 3
+        );
+
+        }else{
+
         $data = array(
             'art_yourart' => $this->input->post('artname'),
             'other_skill' => $this->input->post('other_skill'),
@@ -504,7 +538,7 @@ class Artistic extends MY_Controller {
             'modified_date' => date('Y-m-d', time()),
             'art_step' => 3
         );
-
+    }
 
         $updatdata = $this->common->update_data($data, 'art_reg', 'user_id', $userid);
 
