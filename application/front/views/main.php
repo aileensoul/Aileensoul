@@ -203,7 +203,7 @@
          <div class="top-row">
             <div class="field-wrap full-width">
         <label class="fname_reg">Password<span class="req">*</span></label>
-    <input type="password" name="password" id="password" class="showpassword" placeholder="Password *" style="position: relative;"  />
+    <input type="password" name="passwordlogin" id="passwordlogin" class="showpassword" placeholder="Password *" style="position: relative;"  />
                       <?php echo form_error('password'); ?>
             
 
@@ -443,7 +443,7 @@ $('#datepicker').datetimepicker({
                                 },
                               },
                         },
-                        password: {
+                        passwordlogin: {
 
                             required: true,
                             minlength: 6,
