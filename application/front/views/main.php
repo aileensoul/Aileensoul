@@ -153,7 +153,7 @@
         <div id="login2"> 
 
            
-<?php echo form_open_multipart(base_url('registration/reg_insert'),array('id' => 'regform','name' => 'regform','class' => "clearfix"));
+<?php echo form_open_multipart(base_url('registration/reg_insert'),array('id' => 'regform','name' => 'regform','class' => "clearfix", 'autocomplete' => "false"));
   
   if ($this->session->flashdata('error')) 
                {
