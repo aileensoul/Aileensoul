@@ -3074,7 +3074,7 @@
 <script type="text/javascript">
 function user_postdelete(clicked_id)
     {
-
+        
         $('.biderror .mes').html("<div class='pop_content'> Are You Sure want to delete this post?.<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='remove_post(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
         $('#bidmodal').modal('show');
     }
@@ -3129,3 +3129,10 @@ function user_postdeleteparticular(clicked_id)
     }
 
 </style>
+<script type="text/javascript">
+    $('div[id^=myDropdown]').on('click',function(){
+//        $('div[id^=myDropdown]').hide();
+    this.hide();
+    });
+    </script>
+    
