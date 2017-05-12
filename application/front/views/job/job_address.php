@@ -19,7 +19,20 @@
             
           <div class="common-form1">
              <div class="col-md-3 col-sm-4"></div>
+             <?php 
+
+             $userid = $this->session->userdata('aileenuser');
+
+             $contition_array = array('user_id' => $userid, 'status' => '1');
+             $jobdata = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+             
+             if($jobdata[0]['job_step'] == 10){ }else{
+
+             ?>
+
                       <div class="col-md-6 col-sm-8"><h3>You are making your Job Profile.</h3></div>
+
+                      <?php }?>
             </div>
             <br>
             <br>
