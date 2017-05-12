@@ -815,7 +815,7 @@ echo $job_header2;
                                                     ?>
                                                     <div class="profile-job-profile-menu" id="job_workexp">
 
-                                                        <ul><li> <b> Total Experience </b><span><?php if ($total_work_year != '0' && $total_work_month != '0') { ?> <?php if ($total_work_year != '0') { ?><?php echo $total_work_year; ?> year <?php } ?> <?php if ($total_work_month != '0') { ?><?php echo $total_work_month; ?> month <?php } ?> <?php
+                                                        <ul><li> <b> Total Experience </b><span><?php if ($total_work_year != '0' || $total_work_month != '0') { ?> <?php if ($total_work_year != '0') { ?><?php echo $total_work_year; ?> year <?php } ?> <?php if ($total_work_month != '0') { ?><?php echo $total_work_month; ?> month <?php } ?> <?php
                                                                     } else {
                                                                         echo PROFILENA;
                                                                     }
