@@ -191,6 +191,9 @@
                                                                
                                                         </div>
                                                     </div>
+                                                      <div class="view_more_details">
+                                        <a href="<?php echo base_url('business_profile/business_resume/' . $p['user_id']); ?>">View more in<?php echo ucwords($p['company_name']).'Profile'; ?></a>
+                                    </div>
                                                     <?php
                                                 }
                                             }
@@ -406,6 +409,10 @@
 
 
                                                         </div> </div>
+                                                           <div class="view_more_details">
+                                        <a href="<?php echo base_url('business_profile/business_resume/' . $p['user_id']); ?>">View more in<?php echo ucwords($p['company_name']). '  Profile'; ?></a>
+                                    </div>
+
                                                 <?php }
                                                 ?>
 
@@ -413,9 +420,7 @@
                                             }
                                         }
                                         ?>
-                                    <div class="view_more_details">
-                                        <a href="">View more in Aileensoul's Profile</a>
-                                    </div>
+                                 
                                     <?php
                                         
                                     } else {
