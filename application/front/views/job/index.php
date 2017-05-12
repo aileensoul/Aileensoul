@@ -115,6 +115,7 @@ $gender = form_error('gender');
 ?>
 
 
+
                                 <fieldset <?php if ($fname) { ?> class="error-msg" <?php } ?>>
                                     <label>First Name: <span style="color:red">*</span></label>
                                     <input type="text" name="fname" id="fname" placeholder="Enter First name" value="<?php if ($fname1) {
@@ -210,11 +211,13 @@ if (count($nation) > 0) {
 
 
 <?php echo form_error('lan'); ?>
+
+        
                                 </fieldset>
                                 <fieldset <?php if ($dob) { ?> class="error-msg" <?php } ?>>
                                     <label>Date of Birth<span style="color:red">*</span></label>
                                 
-                                    <input type="text" name="dob" id="datepicker" placeholder="dd-MM-yyyy"   autocomplete="off" value="<?php echo date('d-M-Y',strtotime($job[0]['dob1'])); ?>" >
+                                    <input type="text" name="dob" id="datepicker" placeholder="dd-MM-yyyy"   autocomplete="off" value="<?php echo date('d-M-Y',strtotime($dob1)); ?>" >
 <?php echo form_error('dob'); ?>
                                 </fieldset>
 
@@ -257,7 +260,7 @@ if (count($nation) > 0) {
  -->
 
 
-<script src="<?php echo base_url('js/jquery.datetimepicker.full.js'); ?>"></script>
+
 
 
  <script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
@@ -266,6 +269,7 @@ if (count($nation) > 0) {
  <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 
+<script src="<?php echo base_url('js/jquery.datetimepicker.full.js'); ?>"></script>
 <script type="text/javascript">
     $('#datepicker').datetimepicker({
         //yearOffset:222,
