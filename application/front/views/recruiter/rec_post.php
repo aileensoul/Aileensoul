@@ -169,8 +169,8 @@ if ($returnpage == 'job') {
             <div class="user-pic">
               <?php 
              
-              if($recdata[0]['recruiter_user_image'] != '' ){ ?>
-                           <img src="<?php echo base_url(USERIMAGE . $recdata[0]['recruiter_user_image']);?>" alt="" >
+              if($postdata[0]['recruiter_user_image'] != '' ){ ?>
+                           <img src="<?php echo base_url(USERIMAGE . $postdata[0]['recruiter_user_image']);?>" alt="" >
                             <?php } else { ?>
                             <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
                             <?php } ?>
@@ -255,7 +255,7 @@ if ($returnpage == 'job') {
     </div>                       
     
     <div class="job-menu-profile1 col-md-3">
-                         <a href="javascript:void(0);" title="<?php echo $postdata[0]['rec_firstname'] . ' ' . $recdata[0]['rec_lastname']; ?>"><h5><?php echo $recdata[0]['rec_firstname'] . ' ' . $recdata[0]['rec_lastname']; ?></h5></a>
+                         <a href="javascript:void(0);" title="<?php echo $postdata[0]['rec_firstname'] . ' ' . $postdata[0]['rec_lastname']; ?>"><h5><?php echo $postdata[0]['rec_firstname'] . ' ' . $postdata[0]['rec_lastname']; ?></h5></a>
         <!-- text head start -->
         <div class="profile-text" >
 
@@ -272,7 +272,8 @@ if ($returnpage == 'job') {
                     <a id="designation" class="designation" title="<?php echo ucwords($postdata[0]['designation']); ?>"><?php echo ucwords($postdata[0]['designation']); ?></a>
                     <?php
                 }
-            } else {
+            }
+             else {
                 echo ucwords($postdata[0]['designation']);
             }
             ?>
