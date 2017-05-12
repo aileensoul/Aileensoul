@@ -324,7 +324,11 @@ z-index: 1;
                                                     ?>">
                                                     <button>Submit</button>
                                                     <br>
+                                                     <fieldset class="hs-submit full-width" style="padding: 0;">
+                       
+													<input type="button" id="next" name="next" value="Next" style="font-size: 16px;min-width: 120px;" onclick="next_page()">
 
+													 </fieldset>
                                                 </div>
                                                 <?php echo form_close(); ?>
                                             </article>
@@ -429,6 +433,11 @@ z-index: 1;
 
                                                     <button>Submit</button>
                                                     <br>
+                                                    <fieldset class="hs-submit full-width" style="padding: 0;">
+                       
+													<input type="button" id="next" name="next" value="Next" style="font-size: 16px;min-width: 120px;" onclick="next_page()">
+
+													 </fieldset>
 
                                                 </div>
 
@@ -547,7 +556,11 @@ z-index: 1;
 
                                                     <button>Submit</button>
                                                     <br>
+                                                    <fieldset class="hs-submit full-width" style="padding: 0;">
+                       
+													<input type="button" id="next" name="next" value="Next" style="font-size: 16px;min-width: 120px;" onclick="next_page()">
 
+													 </fieldset>
                                                 </div>
 
                                                 <?php echo form_close(); ?>
@@ -937,19 +950,25 @@ z-index: 1;
 
                                                     <div class="fl" style="margin-right: 10px;" >
 
-                                                        <input type="button" id="btnAdd" value=" + " />
+                                                        <input type="button" id="btnAdd" style="padding: 5px;font-size: 13px;margin-right: 0px;" value=" Add More Education " /><br>
 
                                                     </div>
 
                                                     <div class="fl">
 
-                                                        <input type="button" id="btnRemove" value=" - "   />
+                                                        <input type="button" id="btnRemove" style="padding: 5px;font-size: 13px;margin-right: 0px;" value=" Remove Education "   />
 
                                                     </div>
 
                                                     <div class="fr">
-                                                        <input type="submit"  id="next" name="next" value="submit">
+                                                        <input type="submit"  id="next" name="next" value="submit" style="padding: 10px 34px 12px;margin-right: 0px;">
                                                     </div> 
+                                                    <br>
+                                                    <fieldset class="hs-submit full-width" style="padding: 0;">
+                       
+													<input type="button" id="next" name="next" value="Next" style="font-size: 16px;min-width: 120px;margin-right: 0px;" onclick="next_page()">
+
+													 </fieldset>
 
                                                     <?php
                                                 }
@@ -973,11 +992,11 @@ z-index: 1;
 
 
 <!-- next button start -->
-<fieldset class="hs-submit full-width">
+<!-- <fieldset class="hs-submit full-width">
                        
 <input type="button"  id="next" name="next" value="Next" onclick="next_page()">
 
- </fieldset>
+ </fieldset> -->
 <!-- next button end -->
                         </div>
                     </div>

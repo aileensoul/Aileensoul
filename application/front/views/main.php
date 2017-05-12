@@ -153,7 +153,7 @@
         <div id="login2"> 
 
            
-<?php echo form_open_multipart(base_url('registration/reg_insert'),array('id' => 'regform','name' => 'regform','class' => "clearfix"));
+<?php echo form_open_multipart(base_url('registration/reg_insert'),array('id' => 'regform','name' => 'regform','class' => "clearfix", 'autocomplete' => "off"));
   
   if ($this->session->flashdata('error')) 
                {
@@ -179,7 +179,7 @@
         
             <div class="field-wrap">
               <label class="fname_reg">Last Name<span class="req">*</span></label>
-                      <input type="text" value="<?php if($lname){ echo $lname; }?>"name="lname" id="lname" placeholder="">
+                      <input type="text" value="<?php if($lname){ echo $lname; }?>" name="lname" id="lname" placeholder="">
                       <?php echo form_error('lname'); ?>
             </div>
           </div>
@@ -187,7 +187,7 @@
           <div class="top-row">
             <div class="field-wrap full-width">
              <label class="fname_reg">Email Address <span class="req">*</span></label>
-             <input type="text" name="email" id="email" placeholder="" value="<?php if($email){ echo $email; }?>">
+             <input type="text" name="email" id="email" placeholder="" value="<?php if($email){ echo $email; }?>" autocomplete="off">
               <?php echo form_error('email'); ?>
             </div>
         
@@ -203,7 +203,7 @@
          <div class="top-row">
             <div class="field-wrap full-width">
         <label class="fname_reg">Password<span class="req">*</span></label>
-    <input type="password" name="password" id="password" class="showpassword" placeholder="Password *" style="position: relative;"  />
+    <input type="password" name="password" id="password" class="showpassword" placeholder="Password *" style="position: relative;" autocomplete="off">
                       <?php echo form_error('password'); ?>
             
 

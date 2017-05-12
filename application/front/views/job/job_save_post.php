@@ -50,7 +50,7 @@
         transition: all 5s ease-in-out;
     }
     */
-           /* .okk{  text-align: center;  } 8-5-17 v*/
+           .okk{  text-align: center;  } 
 
     /*   .popup .okbtn{
            position: absolute;
@@ -67,7 +67,7 @@
            border-radius: 8px;
        }
     */
-            /*.pop_content .okbtn{
+            .pop_content .okbtn{
                 position: absolute;
                 transition: all 200ms;
                 font-size: 16px;
@@ -79,7 +79,7 @@
                 margin-top: 8px;
                 width: 100px; 
                 border-radius: 8px;
-            } 8-5-17 v*/
+            } 
 
     /*  .popup .cnclbtn {
           position: absolute;
@@ -95,7 +95,7 @@
           width: 100px;
           border-radius: 8px;
       } */
-            /*.pop_content .cnclbtn {
+            .pop_content .cnclbtn {
                 position: absolute;
                 transition: all 200ms;
                 font-size: 16px;
@@ -116,7 +116,7 @@
 
             .model_ok_cancel{
                 width:200px !important;
-            } 8-5-17 v */
+            } 
     /*
         @media screen and (max-width: 700px){
             .box{

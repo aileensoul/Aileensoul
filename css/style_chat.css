@@ -4790,7 +4790,7 @@ fieldset .add_post_btns{min-width: 120px;padding:8px 30px 8px;}
 .people-list ul li {    padding-top: 5px;
     padding-bottom: 5px;}
 .people-list ul li.active{color: #fff;
-    background-color: #000;}
+    background-color: #999;}
 .people-list img {
   float: left;
 }
@@ -4902,12 +4902,14 @@ margin-right: 332px;
   width: 0;
   position: absolute;
   pointer-events: none;
-  border-bottom-color: #86BB71;
+  border-bottom-color: #dbf0ff;
+
   border-width: 10px;
   margin-left: -10px;
 }
 .chat .chat-history .my-message {
-  background: #86BB71;
+  background: #dbf0ff;
+color: #003;
 }
 .chat .chat-history .other-message {
   background: #d8eff6;

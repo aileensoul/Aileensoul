@@ -7,20 +7,42 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <title>Chat-Example | CodeIgniter</title>
   
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
- 
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/common-style.css'); ?>">
+   
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/media.css'); ?>">
+ <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/gyc.css'); ?>">
 <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
       
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
   <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   
   <!-- http://bootsnipp.com/snippets/4jXW -->
-  
+ 
   <link rel="stylesheet" href="<?php echo base_url(); ?>css/style_chat.css" />
-  
-</head>
-<body>
+<style type="text/css">
+  div .comment {
+    min-height: 41px;
+    border: 1px solid #ccc;
+    padding-right: 40px!important;
+    word-break: break-all;
+    background-color: #fff;
+    /* padding: 10px; */
+    font-size: 15px;
+}
 
-<div class="container ">
+common-style.css:1083
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+</style>
+<body>
+<?php echo $header; ?>
+
+
+
+ <div class="container_chat " id="paddingtop_fixed">
+  <div class="chat_nobcx">
     <div class="people-list" id="people-list">
        <div class="search">
         <input type="text" name=""  id="user_search" placeholder="search" value= ""  />
@@ -34,12 +56,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   foreach($userlist as $user){ ?>
  <li class="clearfix <?php if($user['user_id'] == $toid){ echo "active"; } ?>">
           <?php if ($user['user_image']) {?>
-   
+    <div class="chat_heae_img">
 <img src="<?php echo base_url(USERIMAGE . $user['user_image']); ?>" alt="" height="50px" weight="50px">
-
+</div>
  <?php  } else { ?>
- <img src="<?php echo base_url(NOIMAGE); ?>" alt="" height="30px" weight="30px">
  
+ <div class="chat_heae_img">
+ <img src="<?php echo base_url(NOIMAGE); ?>" alt="" height="30px" weight="30px">
+ </div>
 <?php  } ?>
           <div class="about">
             <div class="name"> 
@@ -59,12 +83,13 @@ if($lstusrdata){?>
 
   <li class="clearfix <?php if($lstusrdata[0]['user_id'] == $toid){ echo "active"; } ?>">
           <?php        if ($lstusrdata[0]['user_image']) {?>
-   
+    <div class="chat_heae_img">
 <img src="<?php echo base_url(USERIMAGE . $lstusrdata[0]['user_image']); ?>" alt="" height="50px" weight="50px">
-
+</div>
  <?php  } else { ?>
+  <div class="chat_heae_img">
  <img src="<?php echo base_url(NOIMAGE); ?>" alt="" height="50px" weight="50px">
- 
+ </div>
 <?php  } ?>
           <div class="about">
             <div class="name"> 
@@ -81,12 +106,13 @@ if($user['user_id'] != $toid){
   ?>
  <li class="clearfix <?php if($user['user_id'] == $toid){ echo "active"; } ?>">
           <?php        if ($user['user_image']) {?>
-   
+    <div class="chat_heae_img">
 <img src="<?php echo base_url(USERIMAGE . $user['user_image']); ?>" alt="" height="50px" weight="50px">
-
+</div>
  <?php  } else { ?>
+  <div class="chat_heae_img">
  <img src="<?php echo base_url(NOIMAGE); ?>" alt="" height="50px" weight="50px">
- 
+ </div>
 <?php  } ?>
           <div class="about">
             <div class="name"> 
@@ -118,12 +144,13 @@ if($lstusrdata){?>
       <div class="chat-header clearfix">
 
   <?php   if ($lstusrdata[0]['user_image']) {?>
-   
+    <div class="chat_heae_img">
 <img src="<?php echo base_url(USERIMAGE . $lstusrdata[0]['user_image']); ?>" alt="" height="50px" weight="50px">
-
+</div>
 <?php  } else { ?>
+  <div class="chat_heae_img">
  <img src="<?php echo base_url(NOIMAGE); ?>" alt="" height="50px" weight="50px">
- 
+ </div>
 <?php  } ?>
 
          <div class="chat-about">
@@ -162,16 +189,16 @@ z-index: 9;
     top: 7px;
     right: 61px;
     bottom: 0;">
-<div id="notification_li" style="position: absolute;
+<div id="notification_li1" style="position: absolute;
     bottom: 5px;">
-    <a href="#" id="notificationLink" style="position: absolute;
+    <a href="#" id="notificationLink1" style="position: absolute;
     bottom: 4px;
-    left: -22px;"><i class="em em-blush"></i></a>
+    left: -44px;"><i class="em em-blush"></i></a>
     
-      <div id="notificationContainer" style="display: none;
+      <div id="notificationContainer1" style="display: none;
     position: relative;margin-bottom: 37px;">
      
-      <div id="notificationsBody" class="notifications">
+      <div id="notificationsBody1" class="notifications1">
         <?php $i=0; foreach($smiley_table as $key => $value){ ?>
         
           <img id="<?php echo $i; ?>" src="<?php echo base_url().'uploads/smileys/' . $value[0]; ?>" height="30" width="30"onClick="followclose(<?php echo $i; ?>)">
@@ -187,7 +214,9 @@ z-index: 9;
             </form>
     
                 <span class="input-group-btn">
-        <button class="btn btn-warning btn-sm" id="submit" style="padding: 10px">Send</button>
+        <button class="btn btn-warning btn-sm" id="submit" style="padding: 10px;
+    background: #003;
+    border: 1px solid #003;">Send</button>
                 </span>
               </div>
             </div>
@@ -234,7 +263,7 @@ z-index: 9;
     bottom: 5px;">
     <a href="#" id="notificationLink" style="position: absolute;
     bottom: 4px;
-    left: -22px;"><i class="em em-blush"></i></a>
+    left: -44px;"><i class="em em-blush"></i></a>
     
       <div id="notificationContainer" style="display: none;
     position: relative;margin-bottom: 37px;">
@@ -505,21 +534,21 @@ function enteruser()
 <script type="text/javascript">
         $(document).ready(function()
       {
-      $("#notificationLink").click(function()
+      $("#notificationLink1").click(function()
       {
-      $("#notificationContainer").fadeToggle(300);
-      $("#notification_count").fadeOut("slow");
+      $("#notificationContainer1").fadeToggle(300);
+      $("#notification_count1").fadeOut("slow");
       return false;
       });
 
       //Document Click hiding the popup 
       $(document).click(function()
       {
-      $("#notificationContainer").hide();
+      $("#notificationContainer1").hide();
       });
 
       //Popup on click
-      $("#notificationContainer").click(function()
+      $("#notificationContainer1").click(function()
       {
       return false;
       });

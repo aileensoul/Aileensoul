@@ -3750,14 +3750,14 @@ echo '<pre>'; print_r($artdata); die();
             //echo "<pre>"; print_r($artdata); die();
             if ($this->data['artdata'][0]['art_post']) {
                 $editpost = '<div><a>';
-                $editpost .= $artdata[0]['art_post'] . "<br>";
+                $editpost .= $this->common->make_links($artdata[0]['art_post']) . "<br>";
                 $editpost .= '</a></div>';
             }
             if ($this->data['artdata'][0]['art_description']) {
 
-                $editpostdes = '<div>';
-                $editpostdes .= $artdata[0]['art_description'] . "<br>";
-                $editpostdes .= '</div>';
+                $editpostdes = '<span class="show">';
+                $editpostdes .= $this->common->make_links($artdata[0]['art_description']) . "<br>";
+                $editpostdes .= '</span>';
             }
             //echo $editpost;   echo $editpostdes;
             echo json_encode(

@@ -1039,7 +1039,7 @@
 
                                                     <li>
                                       <div id="<?php echo 'editpostdata' . $row['art_post_id']; ?>" style="display:block;">
-                                           <a  style=" color: #000033; font-weight: 400;"><?php echo $this->common->make_links($row['art_description']); ?></a>
+                                           <a  style=" color: #000033; font-weight: 400;"><?php echo $this->common->make_links($row['art_post']); ?></a>
                                                         </div>
 
                                                         <div id="<?php echo 'editpostbox' . $row['art_post_id']; ?>" style="display:none;">
@@ -2936,7 +2936,7 @@
 
                                     document.getElementById('editpostsubmit' + abc).style.display = 'none';
 
-
+                                    alert(data.description);
 
                                     $('#' + 'editpostdata' + abc).html(data.title);
                                     $('#' + 'editpostdetails' + abc).html(data.description);

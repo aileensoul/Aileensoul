@@ -175,8 +175,7 @@
           .header2 .profiletitle { font-size: 11px; }
           .header2 ul li a { font-size: 11px; }
 
-    /*   header2 off */
-   
+    /*   header2 off */   
 
      /* forms start*/
         .required_field { font-size: 13px; }
@@ -205,6 +204,7 @@
            
 
   	 /*profile leftbar start*/
+
   	     /*job on */
     .buisness-profile-txext {   max-width: 25% !important; }
     .profile-box-job-menu { margin-top: -25px; height: 6%; }
@@ -224,8 +224,12 @@
       .profile-box-rec-menu ul { float: left; margin-left: 24%; }
      .profile-box-rec-menu ul li {     padding-left: 7px;  }
      .profile-box-rec-menu ul li a { padding: 9px 8px 6px 8px; font-size: 13px; }
-    
-          /* recruter off */
+     .job-menu-profile1 a h5 { font-size: 20px; }
+     .job-menu-profile1 a { font-size: 17px; }
+     .job-menu-profile1 h5 { font-weight: 600; }
+       .btn-3b  { padding: 4px 11px 4px 11px; }
+           /* recruter off */
+       
 
      /* profile leftbar end */
 
@@ -258,6 +262,7 @@
      /* post box on */
       
       /* job on */
+      
            .profile-job-details ul li { font-size: 12px; }
            .profile-job-details .post_title { font-size: 16px; }
            .profile-job-post-detail .profile-job-post-title .button { padding: 1px 12px; font-size: 12px;  }
@@ -271,8 +276,7 @@
             .buisness-profile-pic-candidate { height: 6%; width: 40px; }
              .apply-btn { padding: 4px 8px;  }
             .apply-btn a { padding: 2px 10px 2px; font-size: 12px; }
-            .job-menu-profile1 a h5 { font-size: 20px; }
-            .job-menu-profile1 a { font-size: 17px; }
+
 
       /* recruiter off */
            
@@ -284,6 +288,8 @@
     .profile-main-rec-box-menu { height: 6.3%; left: 1.5%; width: 96.8%; margin-top: -79px; }
      .right-side-menu { float: left; height: auto; }
     .profile-main-rec-box-menu li a { padding: 11px 15px 11px 15px; font-size: 13px; }
+       .flw_msg_btn { margin-top: 0px; }
+       .flw_msg_btn ul li a { padding: 6px 11px; font-size: 12px; margin-top: 5px; }
 
 
         /* menu  off */

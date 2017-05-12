@@ -2,7 +2,7 @@
 <?php  echo $head; ?>
  
 
-<style type="text/css" media="screen">
+<!-- <style type="text/css" media="screen">
 #row2 { overflow: hidden; width: 100%; }
 #row2 img { height: 350px;width: 100%; }
 .upload-img{    float: right;
@@ -32,10 +32,7 @@ label.cameraButton input[accept*="camera"] {
   display: none;
 }
 
-
-
-
-</style>
+</style> -->
     <!-- END HEAD -->
     <!-- start header -->
 <?php echo $header; ?>
@@ -52,7 +49,7 @@ label.cameraButton input[accept*="camera"] {
   
   
     <!-- END HEADER -->
-<?php
+   <?php
      $returnpage=$_GET['page'];
     if($returnpage=='freelancer_post'){
     echo $freelancer_post_header2;
