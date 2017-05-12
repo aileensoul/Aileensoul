@@ -398,9 +398,9 @@ if ($returnpage == 'job') {
                                             </li>
                                             <li><b>Other Skill</b><span> <?php if($post['other_skill'] != ''){ echo $post['other_skill']; } else{ echo PROFILENA;} ?></span>
                                             </li>
-                                            <li><b>Job Description</b><span><p><?php echo $post['post_description']; ?></p></span>
+                                            <li><b>Job Description</b><span><p><?php echo $this->common->make_links($post['post_description']); ?></p></span>
                                             </li>
-                                            <li><b>Interview Process</b><span><?php echo $post['interview_process']; ?></span>
+                                            <li><b>Interview Process</b><span><?php echo $this->common->make_links($post['interview_process']); ?></span>
                                             </li>
                                             <!-- vishang 14-4 start -->
                                             <li>
@@ -556,9 +556,9 @@ if ($returnpage == 'job') {
                                             </li>
                                             <li><b>Other Skill</b><span> <?php if($post['other_skill'] != ''){ echo $post['other_skill']; } else{ echo PROFILENA;} ?></span>
                                             </li>
-                                            <li><b>Job Description</b><span><p><?php echo $post['post_description']; ?></p></span>
+                                            <li><b>Job Description</b><span><p><?php echo $this->common->make_links($post['post_description']); ?></p></span>
                                             </li>
-                                            <li><b>Interview Process</b><span><?php echo $post['interview_process']; ?></span>
+                                            <li><b>Interview Process</b><span><?php echo $this->common->make_links($post['interview_process']); ?></span>
                                             </li>
                                             <!-- vishang 14-4 start -->
                                             <li>
