@@ -163,6 +163,7 @@
 
                                          <select style="width: 50%;" name="experience_month[]" id="experience_month" class="experience_month">
                                           <option value="" selected option disabled>Month</option>
+                                          <option value="0 month"  <?php if($experience_month0=="0 month") echo 'selected';?>>0</option>
                                           <option value="1 month"  <?php if($experience_month1=="1 month") echo 'selected';?>>1</option>
                                           <option value="2 month"  <?php if($experience_month1=="2 month") echo 'selected';?>>2</option>
                                           <option value="3 month"  <?php if($experience_month1=="3 month") echo 'selected';?>>3</option>

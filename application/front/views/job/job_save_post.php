@@ -292,8 +292,8 @@
                     </li>
                     <?php if (($this->uri->segment(1) == 'job') && ($this->uri->segment(2) == 'job_all_post' || $this->uri->segment(2) == 'job_printpreview' || $this->uri->segment(2) == 'job_resume' || $this->uri->segment(2) == 'job_save_post' || $this->uri->segment(2) == 'job_applied_post') && ($this->uri->segment(3) == $this->session->userdata('aileenuser') || $this->uri->segment(3) == '')) { ?>
 
-                        <li <?php if ($this->uri->segment(1) == 'job' && $this->uri->segment(2) == 'job_resume') { ?> class="active" <?php } ?>><a title="Resume" href="<?php echo base_url('job/job_resume'); ?>">Resume</a>
-                        </li>
+                        <!-- <li <?php if ($this->uri->segment(1) == 'job' && $this->uri->segment(2) == 'job_resume') { ?> class="active" <?php } ?>><a title="Resume" href="<?php echo base_url('job/job_resume'); ?>">Resume</a>
+                        </li> -->
 
                         <li <?php if ($this->uri->segment(1) == 'job' && $this->uri->segment(2) == 'job_save_post') { ?> class="active" <?php } ?>><a title="Saved Job" href="<?php echo base_url('job/job_save_post'); ?>">Saved </a>
                         </li>
