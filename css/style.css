@@ -1537,12 +1537,11 @@ a:hover, a:active, a:focus {
     margin-top: -11px;
     font-size: 11px;
 }
-.notification-data-inside{margin-left:100px; margin-top:-55px;}
-.notification-data-inside h6 {font-size: 15px;}
-.notification-database{height:68px; width:295PX;; background-color:#FFFFFF; border-bottom: 1px solid #999999;}
-.notification-pic{height:50px; width:50px; border-radius: 50%; margin-left:20px; margin-top:10px;     }
-.notification-pic img{    border-radius: 100%;
-                          -webkit-border-radius: 100% ; height:50px; width:50px;}
+.notification-data-inside{margin-left:80px; margin-top:-55px;}
+.notification-data-inside h6 {font-size: 13px;}
+.notification-database{height:68px; width:311px;; background-color:#FFFFFF; border-bottom: 1px solid #999999;}
+.notification-pic{height:50px; width:50px;  border-radius: 50%; margin-left:20px; margin-top:10px;     }
+.notification-pic img{     height:50px; width:50px;}
 /* inbox*/
 #Inbox_li{position:relative}
 #inbox {
@@ -1643,6 +1642,7 @@ abbr { cursor: help; }
 .job-saved-box .notification-box ul { font-size: 0; margin: 0; padding: 10px; }
 .job-saved-box .notification-box ul li
 { list-style: none; 
+    background-color: #fff;
   padding: 10px; 
   margin: 10px; 
   position: relative;
@@ -4679,3 +4679,14 @@ fieldset .add_post_btns{min-width: 120px;padding:8px 30px 8px;}
 
 label.cameraButton:hover
  {opacity: 1.0}
+
+#notificationsBody::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+}
+
+#notificationsBody::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0,0,0,.3);
+    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+}
