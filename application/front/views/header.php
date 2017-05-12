@@ -386,7 +386,7 @@ $(window).load(function(){
 
                                         <div id="notificationsBody" class="notifications">
                                 
-                                        <div id="notificationFooter"><a href="<?php echo base_url('notification'); ?>">See All</a></div>
+                                        
                                     </div>
                                 </li>
 <!-- general notification end -->

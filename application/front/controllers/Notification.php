@@ -964,16 +964,16 @@ $contition_array = array('notification.not_type' => 5, 'notification.not_from' =
 // like notification end
 // business profile notification end
 // 1-5 notification end
-        $notification .= '<div class="notification-data">';
-        $notification .= '<ul>';
-        $notification .= '<li>';
-        $notification .= '<div class="notification-database">';
-        $notification .= '<div class="notification-pic">';
-        $notification .= '</div>';
-        $notification .= '<div class="notification-data-inside">';
-        $notification .= '<h6> Notification updates</h6>';
-        $notification .= '<div ></div>';
-        $notification .= '</div></div></li>';
+      //  $notification .= '<div class="notification-data">';
+       // $notification .= '<ul>';
+       // $notification .= '<li>';
+      //  $notification .= '<div class="notification-database">';
+     //   $notification .= '<div class="notification-pic">';
+    //    $notification .= '</div>';
+       // $notification .= '<div class="notification-data-inside">';
+      //  $notification .= '<h6> Notification updates</h6>';
+       // $notification .= '</div>';
+     //   $notification .= '</div></div></li>';
         foreach ($job_not as $job) {
             if ($job['not_from'] == 1) {
 
@@ -1338,6 +1338,9 @@ $contition_array = array('notification.not_type' => 5, 'notification.not_from' =
             }
         }
         $notification .= '</div>';
+
+        $notification .= '<div id="notificationFooter">';
+        $notification .= '<a href="' . base_url('notification') . '">See All</a></div>';
 
         echo $notification;
     }
