@@ -3274,7 +3274,7 @@ responsive image design start -->
 
     function deleteownpostmodel(abc) {
 
-
+        $('div[id^=myDropdown]').hide().removeClass('show');
         $('.biderror .mes').html("<div class='pop_content'>Are you sure want to Delete Your post?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='remove_ownpost(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
         $('#bidmodal').modal('show');
     }
@@ -3341,6 +3341,8 @@ responsive image design start -->
 //        document.getElementById('editpostdetails' + abc).style.display = 'none';
 //        document.getElementById('editpostdetailbox' + abc).style.display = 'block';
 //        document.getElementById('editpostsubmit' + abc).style.display = 'block';
+
+        $('div[id^=myDropdown]').hide().removeClass('show');
 
         document.getElementById('editpostdata' + abc).style.display = 'none';
         document.getElementById('editpostbox' + abc).style.display = 'block';
