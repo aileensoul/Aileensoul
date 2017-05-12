@@ -349,7 +349,7 @@ if ($returnpage == 'job') {
              if($cityname || $countryname)
                { 
                 ?>
-            <p><i class="fa fa-map-marker" aria-hidden="true">
+            <p title="Address"><i class="fa fa-map-marker" aria-hidden="true">
 
                                                             <?php  echo $cityname .', '. $countryname; ?> 
                                                             </i></p>
@@ -513,7 +513,7 @@ if ($returnpage == 'job') {
                   if($cityname || $countryname)
                        { 
                         ?>
-                <p><i class="fa fa-map-marker" aria-hidden="true">
+                <p title="Adderss"><i class="fa fa-map-marker" aria-hidden="true">
 
                   <?php  echo $cityname .', '. $countryname; ?> 
                   </i></p>
