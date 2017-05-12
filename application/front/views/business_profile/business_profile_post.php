@@ -215,7 +215,7 @@
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
-        <!-- <script src="<?php //echo base_url('js/jquery.min.js');                                      ?>"></script> -->
+        <!-- <script src="<?php //echo base_url('js/jquery.min.js');                                                   ?>"></script> -->
 
         <!-- further and less -->
         <script>
@@ -400,12 +400,12 @@
                                     </div>
                                 </div>
                             </div>
-<!--                            <div  class="add-post-button">
-                                <a class="btn btn-3 btn-3b" href="<?php echo base_url('recruiter'); ?>">
-                                    <i class="fa fa-plus" aria-hidden="true">
-                                    </i> Recruiter
-                                </a>
-                            </div>-->
+                            <!--                            <div  class="add-post-button">
+                                                            <a class="btn btn-3 btn-3b" href="<?php echo base_url('recruiter'); ?>">
+                                                                <i class="fa fa-plus" aria-hidden="true">
+                                                                </i> Recruiter
+                                                            </a>
+                                                        </div>-->
                             <div class="full-box-module_follow">
                                 <!-- follower list start  -->  
                                 <div class="common-form">
@@ -703,7 +703,7 @@
                                     <div id="myBtn1"  class="editor-content col-md-10 popup-text" >
                                       <!-- <textarea name="product_title" placeholder="Post Your Product...."></textarea>  -->
                                         <textarea id= "test-upload-product" placeholder="Post Your Product...."  onKeyPress=check_length(this.form); onKeyDown=check_length(this.form); name=my_text rows=4 cols=30 class="post_product_name" style=" position: relative;"></textarea>
-                                      <div style="position: absolute; top: 21px; right: 19px; border: none;">                       
+                                        <div style="position: absolute; top: 21px; right: 19px; border: none;">                       
                                             <input size=1 value=50 name=text_num class="text_num"  readonly> 
                                         </div>
                                     </div>
@@ -797,8 +797,8 @@
                                                     </div>
                                                 </div>
                                                 <!-- pop up box end-->
-                                                
-                                                
+
+
                                                 <?php
                                                 $business_userimage = $this->db->get_where('business_profile', array('user_id' => $row['user_id'], 'status' => 1))->row()->business_user_image;
                                                 $userimageposted = $this->db->get_where('business_profile', array('user_id' => $row['posted_user_id']))->row()->business_user_image;
@@ -853,9 +853,9 @@
                                                                 <a class="post_dot"  href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>" title="<?php echo ucwords($companyname); ?>";>
                                                                     <?php echo ucwords($companyname); ?>  </a>
                                                                 <div class="datespan">  <span style="font-weight: 400;
-                                                    font-size: 14px;
-                                                    color: #91949d; cursor: default;"> 
-                                                                        <?php echo date('d-M-Y', strtotime($row['created_date'])); ?>
+                                                                                              font-size: 14px;
+                                                                                              color: #91949d; cursor: default;"> 
+                                                                                              <?php echo date('d-M-Y', strtotime($row['created_date'])); ?>
                                                                     </span></div>
 
                                                             </div>
@@ -882,7 +882,7 @@
                                                 </a>
                                                 <div id="<?php echo "myDropdown" . $row['business_profile_post_id']; ?>" class="dropdown-content1">
                                                     <?php if ($this->session->userdata('aileenuser') == $row['user_id']) { ?> 
-                                                    <a onclick="user_postdelete(<?php echo $row['business_profile_post_id']; ?>)">
+                                                        <a onclick="user_postdelete(<?php echo $row['business_profile_post_id']; ?>)">
                                                             <i class="fa fa-trash-o" aria-hidden="true">
                                                             </i> Delete Post
                                                         </a>
@@ -891,7 +891,7 @@
                                                             </i>Edit
                                                         </a>
                                                     <?php } else { ?>
-    <a onclick="user_postdeleteparticular(<?php echo $row['business_profile_post_id']; ?>)">
+                                                        <a onclick="user_postdeleteparticular(<?php echo $row['business_profile_post_id']; ?>)">
                                                             <i class="fa fa-trash-o" aria-hidden="true">
                                                             </i> Delete Post
                                                         </a>
@@ -901,9 +901,9 @@
                                                         $businesssave = $this->data['businesssave'] = $this->common->select_data_by_condition('business_profile_save', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                                                         if ($businesssave) {
                                                             ?>
-                                                                                                                                                                                        <a><i class="fa fa-bookmark" aria-hidden="true"></i>Saved Post</a>
+                                                                                                                                                                                                                        <a><i class="fa fa-bookmark" aria-hidden="true"></i>Saved Post</a>
                                                         <?php } else { ?>
-                                                                                                                                                                                        <a id="<?php echo $row['business_profile_post_id']; ?>" onClick="save_post(this.id)" href="#popup1" class="<?php echo 'savedpost' . $row['business_profile_post_id']; ?>"><i class="fa fa-bookmark" aria-hidden="true"></i>  Save Post</a>
+                                                                                                                                                                                                                        <a id="<?php echo $row['business_profile_post_id']; ?>" onClick="save_post(this.id)" href="#popup1" class="<?php echo 'savedpost' . $row['business_profile_post_id']; ?>"><i class="fa fa-bookmark" aria-hidden="true"></i>  Save Post</a>
                                                         <?php } ?>
                                                         -->
                                                         <a href="<?php echo base_url('business_profile/business_profile_contactperson/' . $row['user_id'] . ''); ?>">
@@ -960,7 +960,7 @@
                                                         <!-- one image start -->
                                                         <div id="basic-responsive-image" style="height: 50%; width: 100%;">
                                                             <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>">
-                                                                <img src="<?php echo base_url(BUSPOSTIMAGE .$businessmultiimage[0]['image_name']) ?>" style="width: 100%; height: 100%;"> 
+                                                                <img src="<?php echo base_url(BUSPOSTIMAGE . $businessmultiimage[0]['image_name']) ?>" style="width: 100%; height: 100%;"> 
                                                             </a>
                                                         </div>
                                                         <!-- one image end -->
@@ -968,8 +968,8 @@
                                                         <!-- one pdf start -->
                                                         <div>
                                                             <a title="click to open" href="<?php echo base_url('business_profile/creat_pdf/' . $businessmultiimage[0]['image_id']) ?>"><div class="pdf_img">
-                                                                <img src="<?php echo base_url('images/PDF.jpg')?>" style="height: 100%; width: 100%;">
-                                                            </div>
+                                                                    <img src="<?php echo base_url('images/PDF.jpg') ?>" style="height: 100%; width: 100%;">
+                                                                </div>
                                                             </a>
                                                         </div>
                                                         <!-- one pdf end -->
@@ -1001,7 +1001,7 @@
                                                         <!-- two image start -->
                                                         <div  id="two_images_bui" >
                                                             <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>">
-                                                                <img class="two-columns" src="<?php echo base_url(BUSPOSTIMAGE .$multiimage['image_name']) ?>" style="width: 100%; height: 100%;"> 
+                                                                <img class="two-columns" src="<?php echo base_url(BUSPOSTIMAGE . $multiimage['image_name']) ?>" style="width: 100%; height: 100%;"> 
                                                             </a>
                                                         </div>
                                                         <!-- two image end -->
@@ -1010,17 +1010,17 @@
                                                     <!-- three image start -->
                                                     <div id="three_images_art" >
                                                         <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>">
-                                                            <img class="three-columns" src="<?php echo base_url(BUSPOSTIMAGE .$businessmultiimage[0]['image_name']) ?>" style="width: 100%; height:100%; "> 
+                                                            <img class="three-columns" src="<?php echo base_url(BUSPOSTIMAGE . $businessmultiimage[0]['image_name']) ?>" style="width: 100%; height:100%; "> 
                                                         </a>
                                                     </div>
                                                     <div style="width: 49.4%; height: 35%; float: left; margin-top: 4px; margin-right: 3px;">
                                                         <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>">
-                                                            <img class="three-columns" src="<?php echo base_url(BUSPOSTIMAGE .$businessmultiimage[1]['image_name'])?>" style="width: 100%; height:100%; "> 
+                                                            <img class="three-columns" src="<?php echo base_url(BUSPOSTIMAGE . $businessmultiimage[1]['image_name']) ?>" style="width: 100%; height:100%; "> 
                                                         </a>
                                                     </div>
                                                     <div style="width: 49.4%; height: 35%; float: left; margin-top: 4px; margin-right: 3px;">
                                                         <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_post_id']) ?>">
-                                                            <img class="three-columns" src="<?php echo base_url(BUSPOSTIMAGE .$businessmultiimage[2]['image_name']) ?>" style="width: 100%; height:100%; "> 
+                                                            <img class="three-columns" src="<?php echo base_url(BUSPOSTIMAGE . $businessmultiimage[2]['image_name']) ?>" style="width: 100%; height:100%; "> 
                                                         </a>
                                                     </div>
                                                     <!-- three image end -->
@@ -1031,7 +1031,7 @@
                                                         <!-- four image start -->
                                                         <div id="responsive_buis-images-breakpoints" style="   ">
                                                             <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>">
-                                                                <img class="breakpoint" src="<?php echo base_url(BUSPOSTIMAGE .$multiimage['image_name']) ?>" style="width: 100%; height: 100%;"> 
+                                                                <img class="breakpoint" src="<?php echo base_url(BUSPOSTIMAGE . $multiimage['image_name']) ?>" style="width: 100%; height: 100%;"> 
                                                             </a>
                                                         </div>
                                                         <!-- four image end -->
@@ -1045,7 +1045,7 @@
                                                         <div>
                                                             <div id="responsive_buis-images-breakpoints">
                                                                 <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>">
-                                                                    <img src="<?php echo base_url(BUSPOSTIMAGE .$multiimage['image_name']) ?>" style="width: 100%; height: 100%;"> 
+                                                                    <img src="<?php echo base_url(BUSPOSTIMAGE . $multiimage['image_name']) ?>" style="width: 100%; height: 100%;"> 
                                                                 </a>
                                                             </div>
                                                         </div>
@@ -1060,7 +1060,7 @@
                                                     <div>
                                                         <div id="responsive_buis-images_3-breakpoints" >
                                                             <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>">
-                                                                <img src="<?php echo base_url(BUSPOSTIMAGE .$businessmultiimage[3]['image_name']) ?>" style="width: 100%; height: 100%;"> 
+                                                                <img src="<?php echo base_url(BUSPOSTIMAGE . $businessmultiimage[3]['image_name']) ?>" style="width: 100%; height: 100%;"> 
                                                             </a>
                                                         </div>
                                                         <div class="bui_images_view_more" >
@@ -1164,7 +1164,7 @@
                                                             echo "&nbsp;";
                                                             echo "others";
                                                             ?> 
-            <?php } ?>
+                                                        <?php } ?>
                                                     </div>
                                                 </a>
                                             </div>
@@ -1209,7 +1209,7 @@
                                                         echo "&nbsp;";
                                                         echo "others";
                                                         ?> 
-        <?php } ?>
+                                                    <?php } ?>
                                                 </div>
                                             </a>
                                         </div>
@@ -1241,7 +1241,7 @@
                                                                         <img  src="<?php echo base_url(USERIMAGE . $business_userimage); ?>"  alt="">
                                                                     <?php } else { ?>
                                                                         <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
-                <?php } ?>
+                                                                    <?php } ?>
                                                                 </div>
                                                                 <div class="comment-name">
                                                                     <b title=" <?php echo $companyname; ?>">  
@@ -1290,7 +1290,7 @@
                                                                             <?php } else { ?>
                                                                                 <i class="fa fa-thumbs-up" aria-hidden="true">
                                                                                 </i>
-                                                                                <?php } ?>
+                                                                            <?php } ?>
                                                                             <span>
                                                                                 <?php
                                                                                 if ($rowdata['business_comment_likes_count']) {
@@ -1331,7 +1331,7 @@
                                                                                 </span>
                                                                             </a>
                                                                         </div>
-                <?php } ?>                                   
+                                                                    <?php } ?>                                   
                                                                     <span role="presentation" aria-hidden="true"> · 
                                                                     </span>
                                                                     <div class="comment-details-menu">
@@ -1364,13 +1364,13 @@
                                                     <img  src="<?php echo base_url(USERIMAGE . $business_userimage); ?>"  alt="">
                                                 <?php } else { ?>
                                                     <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
-        <?php } ?>
+                                                <?php } ?>
                                             </div>
                                             <div class="">
                                                 <div id="content" class="col-md-10  inputtype-comment" style="padding-left: 7px;">
                                                     <div contenteditable="true" style="min-height:37px !important; margin-top: 0px!important" class="editable_text" name="<?php echo $row['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $row['business_profile_post_id']; ?>" placeholder="Type Message ..." onClick="entercomment(<?php echo $row['business_profile_post_id']; ?>)"></div>
                                                 </div>
-        <?php echo form_error('post_comment'); ?> 
+                                                <?php echo form_error('post_comment'); ?> 
                                                 <div class="col-md-1 comment-edit-butn">       
                                                     <button id="<?php echo $row['business_profile_post_id']; ?>" onClick="insert_comment(this.id)">Comment
                                                     </button>
@@ -1392,7 +1392,7 @@
     </div>
 </section>
 <footer>
-<?php echo $footer; ?>
+    <?php echo $footer; ?>
 </footer>
 <!-- Bid-modal  -->
 <div class="modal fade message-box biderror" id="bidmodal" role="dialog">
@@ -1436,13 +1436,13 @@
 
 
 <script>
-                                                        $('#content').on('change keyup keydown paste cut', 'textarea', function () {
-                                                            $(this).height(0).height(this.scrollHeight);
-                                                        }).find('textarea').change();
+                                                $('#content').on('change keyup keydown paste cut', 'textarea', function () {
+                                                    $(this).height(0).height(this.scrollHeight);
+                                                }).find('textarea').change();
 </script>
 <script>
     var data = <?php echo json_encode($demo);
-?>;
+    ?>;
     //alert(data);
     $(function () {
         // alert('hi');
@@ -1517,16 +1517,16 @@
             success: function (data) {
                 // $('.' + 'likepost' + clicked_id).html(data);
                 //alert(data.like_user_count);
-                
+
                 $('.' + 'likepost' + clicked_id).html(data.like);
                 $('.likeusername' + clicked_id).html(data.likeuser);
-                
+
                 $('.likeduserlist' + clicked_id).hide();
-                if(data.like_user_count == '0'){
+                if (data.like_user_count == '0') {
                     document.getElementById('likeusername' + clicked_id).style.display = "none";
-                }else{
-                document.getElementById('likeusername' + clicked_id).style.display = "block";
-            }
+                } else {
+                    document.getElementById('likeusername' + clicked_id).style.display = "block";
+                }
                 $('#likeusername' + clicked_id).addClass('likeduserlist1');
             }
         });
@@ -1774,7 +1774,7 @@
         //      z.style.display = 'block';
         //      $.ajax({ 
         //             type:'POST',
-        //          url:'<?php //echo base_url() . "business_profile/fourcomment"                                      ?>',
+        //          url:'<?php //echo base_url() . "business_profile/fourcomment"                                                   ?>',
         //             data:'art_post_id='+clicked_id,
         //             //alert(data);
         //             success:function(data){
@@ -2639,8 +2639,8 @@
 
 
         // $('#editpostdesc' + abc).html("");
-        if(editpostname.value == '' && editpostdetails == ''){ 
-          $('.biderror .mes').html("<div class='pop_content'>You must either fill title or description.");
+        if (editpostname.value == '' && editpostdetails == '') {
+            $('.biderror .mes').html("<div class='pop_content'>You must either fill title or description.");
             $('#bidmodal').modal('show');
 
             document.getElementById('editpostdata' + abc).style.display = 'block';
@@ -2650,24 +2650,23 @@
 
             document.getElementById('editpostsubmit' + abc).style.display = 'none';
 
+        } else {
+            $.ajax({
+                type: 'POST',
+                url: '<?php echo base_url() . "business_profile/edit_post_insert" ?>',
+                data: 'business_profile_post_id=' + abc + '&product_name=' + editpostname.value + '&product_description=' + editpostdetails,
+                dataType: "json",
+                success: function (data) {
+                    document.getElementById('editpostdata' + abc).style.display = 'block';
+                    document.getElementById('editpostbox' + abc).style.display = 'none';
+                    document.getElementById('editpostdetails' + abc).style.display = 'block';
+                    document.getElementById('editpostdetailbox' + abc).style.display = 'none';
+                    document.getElementById('editpostsubmit' + abc).style.display = 'none';
+                    $('#' + 'editpostdata' + abc).html(data.title);
+                    $('#' + 'editpostdetails' + abc).html(data.description);
                 }
-                else{
-        $.ajax({
-            type: 'POST',
-            url: '<?php echo base_url() . "business_profile/edit_post_insert" ?>',
-            data: 'business_profile_post_id=' + abc + '&product_name=' + editpostname.value + '&product_description=' + editpostdetails,
-            dataType: "json",
-            success: function (data) {
-                document.getElementById('editpostdata' + abc).style.display = 'block';
-                document.getElementById('editpostbox' + abc).style.display = 'none';
-                document.getElementById('editpostdetails' + abc).style.display = 'block';
-                document.getElementById('editpostdetailbox' + abc).style.display = 'none';
-                document.getElementById('editpostsubmit' + abc).style.display = 'none';
-                $('#' + 'editpostdata' + abc).html(data.title);
-                $('#' + 'editpostdetails' + abc).html(data.description);
-            }
-        });
-       }
+            });
+        }
     }
 </script>
 <!-- edit post end -->
@@ -2724,14 +2723,14 @@
 <script type="text/javascript">
     function followuser(clicked_id)
     {
-       
+
         $.ajax({
             type: 'POST',
             url: '<?php echo base_url() . "business_profile/follow" ?>',
             data: 'follow_to=' + clicked_id,
             success: function (data) {
-                $('.' + 'fr' + clicked_id).html(data); 
-                 $("#fad" + clicked_id).fadeOut(6000);
+                $('.' + 'fr' + clicked_id).html(data);
+                $("#fad" + clicked_id).fadeOut(6000);
             }
         });
     }
@@ -2907,17 +2906,15 @@
                         event.preventDefault();
                         return false;
                     }
-                } else if(foundPresentvideo == false){  
+                } else if (foundPresentvideo == false) {
 
-                                       $('.biderror .mes').html("<div class='pop_content'>This File Format is not supported Please Try to Upload MP4 or WebM files..");
-                                            $('#bidmodal').modal('show');
-                                            setInterval('window.location.reload()', 10000);
-                                            event.preventDefault();
-                                            return false;
+                    $('.biderror .mes').html("<div class='pop_content'>This File Format is not supported Please Try to Upload MP4 or WebM files..");
+                    $('#bidmodal').modal('show');
+                    setInterval('window.location.reload()', 10000);
+                    event.preventDefault();
+                    return false;
 
-                    }
-
-                else if (foundPresentvideo == true)
+                } else if (foundPresentvideo == true)
                 {
                     var foundPresent1 = $.inArray(ext1, allowesvideo) > -1;
                     if (foundPresent1 == true && fileInput.length == 1) {
@@ -2944,13 +2941,13 @@
                     var foundPresent1 = $.inArray(ext1, allowespdf) > -1;
                     if (foundPresent1 == true && fileInput.length == 1) {
 
-                        if(product_name == ''){
-                        $('.biderror .mes').html("<div class='pop_content'>You have to add pdf title.");
-                        $('#bidmodal').modal('show');
-                        setInterval('window.location.reload()', 10000);
-                         event.preventDefault();
-                        return false;
-                            }
+                        if (product_name == '') {
+                            $('.biderror .mes').html("<div class='pop_content'>You have to add pdf title.");
+                            $('#bidmodal').modal('show');
+                            setInterval('window.location.reload()', 10000);
+                            event.preventDefault();
+                            return false;
+                        }
                     } else {
                         $('.biderror .mes').html("<div class='pop_content'>sorry this is not valid file for this post please try to uplode in new post.");
                         $('#bidmodal').modal('show');
@@ -3072,24 +3069,24 @@
 
 <!-- post delete login user script start -->
 <script type="text/javascript">
-function user_postdelete(clicked_id)
+    function user_postdelete(clicked_id)
     {
-        
+
         $('.biderror .mes').html("<div class='pop_content'> Are You Sure want to delete this post?.<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='remove_post(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
         $('#bidmodal').modal('show');
     }
-   </script>
+</script>
 <!-- post delete login user end -->
 
 <!-- post delete particular login user script start -->
 <script type="text/javascript">
-function user_postdeleteparticular(clicked_id)
+    function user_postdeleteparticular(clicked_id)
     {
 
         $('.biderror .mes').html("<div class='pop_content'> Are You Sure want to delete this post from your profile?.<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='del_particular_userpost(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
         $('#bidmodal').modal('show');
     }
-   </script>
+</script>
 <!-- post delete particular login user end -->
 
 
@@ -3114,8 +3111,8 @@ function user_postdeleteparticular(clicked_id)
     .likeduserlist, .likeduserlist1 {
         float: left;
         background-color: #fff!important;
-/*        margin-left: 15px;
-        margin-right: 15px;*/
+        /*        margin-left: 15px;
+                margin-right: 15px;*/
         width: 100%!important;
     }
     div[class^="likeduserlist"]{
@@ -3123,19 +3120,21 @@ function user_postdeleteparticular(clicked_id)
         background-color: #fff !important;
     }
     .like_one_other{
-       margin-left: 15px;
-      /*  margin-right: 15px;*/
-        
+        margin-left: 15px;
+        /*  margin-right: 15px;*/
+
     }
 
 </style>
-
-
-
-    <script type="text/javascript">
-    $('div[id^=myDropdown]').on('click', function () {
-        $('div[id^=myDropdown]').hide().removeClass('show');
-
+<!-- This  script use for close dropdown in every post -->
+<script type="text/javascript">
+    $('body').on("click", "*", function (e) {
+        var classNames = $(e.target).attr("class").toString().split(' ').pop();
+        if(classNames != 'fa-ellipsis-v'){
+            $('div[id^=myDropdown]').hide().removeClass('show');
+        }
+        
     });
+
 </script>
-    
+<!-- This  script use for close dropdown in every post -->

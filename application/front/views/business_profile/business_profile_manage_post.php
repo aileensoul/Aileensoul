@@ -172,7 +172,7 @@
 
 <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
 
-<!-- <link rel="stylesheet" href="<?php //echo base_url('assets/css/croppie.css');                         ?>">
+<!-- <link rel="stylesheet" href="<?php //echo base_url('assets/css/croppie.css');                          ?>">
 --><style type="text/css" media="screen">
     #row2 { overflow: hidden; width: 100%; }
     #row2 img { height: 350px;width: 100%; } 
@@ -381,13 +381,13 @@
 
                             if ($status == 0 || $status == " ") {
                                 ?>
-                                                                                                                                  <div class="msg_flw_btn_1" id= "followdiv">
-                                                                                                                                      <button  id="<?php echo "follow" . $businessdata1[0]['business_profile_id']; ?>" onClick="followuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Follow</button>
-                                                                                                                                  </div>
+                                                                                                                                      <div class="msg_flw_btn_1" id= "followdiv">
+                                                                                                                                          <button  id="<?php echo "follow" . $businessdata1[0]['business_profile_id']; ?>" onClick="followuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Follow</button>
+                                                                                                                                      </div>
                             <?php } elseif ($status == 1) { ?>
-                                                                                                                                  <div class="msg_flw_btn_1" id= "unfollowdiv">
-                                                                                                                                      <button id="<?php echo "unfollow" . $businessdata1[0]['business_profile_id']; ?>" onClick="unfollowuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Following </button>
-                                                                                                                                  </div>
+                                                                                                                                      <div class="msg_flw_btn_1" id= "unfollowdiv">
+                                                                                                                                          <button id="<?php echo "unfollow" . $businessdata1[0]['business_profile_id']; ?>" onClick="unfollowuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Following </button>
+                                                                                                                                      </div>
                             <?php } ?>
                                       </div> 
                                       <a href="<?php echo base_url('chat/abc/' . $businessdata1[0]['user_id']); ?>">Message</a>
@@ -419,8 +419,8 @@
                                 $userid = $this->session->userdata('aileenuser');
                                 if ($businessdata1[0]['user_id'] == $userid) {
                                     ?> 
-                                                              <!--  <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_profile_save_post') { ?> class="active" <?php } ?>><a href="<?php echo base_url('business_profile/business_profile_save_post'); ?>">Saved Post</a>
-                                                                                                                                    </li> -->
+                                                                  <!--  <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_profile_save_post') { ?> class="active" <?php } ?>><a href="<?php echo base_url('business_profile/business_profile_save_post'); ?>">Saved Post</a>
+                                                                                                                                        </li> -->
 
                                     <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'userlist') { ?> class="active" <?php } ?>><a title="Userlist" href="<?php echo base_url('business_profile/userlist/' . $businessdata1[0]['business_slug']); ?>">Userlist</a>
                                     </li>
@@ -499,11 +499,11 @@
                                                         <div class="msg_flw_btn_1" id= "followdiv">
                                                             <button  id="<?php echo "follow" . $businessdata1[0]['business_profile_id']; ?>" onClick="followuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Follow</button>
                                                         </div>
-        <?php } elseif ($status == 1) { ?>
+                                                    <?php } elseif ($status == 1) { ?>
                                                         <div class="msg_flw_btn_1" id= "unfollowdiv">
                                                             <button id="<?php echo "unfollow" . $businessdata1[0]['business_profile_id']; ?>" onClick="unfollowuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Following </button>
                                                         </div>
-        <?php } ?>
+                                                    <?php } ?>
                                                 </div>         
 
 
@@ -511,12 +511,12 @@
 
                                             <li>
                                                 <a href="<?php echo base_url('chat/abc/' . $businessdata1[0]['user_id']); ?>">Message</a></li>
-    <?php } ?>
+                                        <?php } ?>
 
                                     </ul>   
                                 </div>
                             </div>
-<?php } ?>
+                        <?php } ?>
 
 
                     </div>
@@ -612,7 +612,7 @@
                                         <td class="business_data_td2 website"><span><a target="_blank"> <?php echo $this->common->make_links($businessdata1[0]['contact_website']); ?></a></span></td>
                                     </tr>
 
-<?php } ?>
+                                <?php } ?>
                                 <tr>
                                     <td class="business_data_td1 detaile_map"><i class="fa fa-suitcase"></i></td>
                                     <td class="business_data_td2"><span><?php echo $this->common->make_links($businessdata1[0]['details']); ?></span></td>
@@ -683,10 +683,10 @@
                                 ?>
 
 
-<?php } else { ?>
+                            <?php } else { ?>
                                 Photos Not Available
 
-<?php } ?>
+                            <?php } ?>
 
                         </div>
                     </div>
@@ -732,10 +732,10 @@
                                 }
                                 ?>
 
-<?php if ($singlearray1) { ?>
+                                <?php if ($singlearray1) { ?>
                                     <tr>
 
-    <?php if ($singlearray1[0]['image_name']) { ?>
+                                        <?php if ($singlearray1[0]['image_name']) { ?>
                                             <td class="image_profile"> 
                                                 <video  controls>
 
@@ -746,7 +746,7 @@
                                             </td>
                                         <?php } ?>
 
-    <?php if ($singlearray1[1]['image_name']) { ?>
+                                        <?php if ($singlearray1[1]['image_name']) { ?>
                                             <td class="image_profile">
                                                 <video  controls>
                                                     <source src="<?php echo base_url(BUSPOSTIMAGE . $singlearray1[1]['image_name']) ?>" type="video/mp4">
@@ -755,7 +755,7 @@
                                                 </video>
                                             </td>
                                         <?php } ?>
-    <?php if ($singlearray1[2]['image_name']) { ?>
+                                        <?php if ($singlearray1[2]['image_name']) { ?>
                                             <td class="image_profile">
                                                 <video  controls>
                                                     <source src="<?php echo base_url(BUSPOSTIMAGE . $singlearray1[2]['image_name']) ?>" type="video/mp4">
@@ -763,11 +763,11 @@
                                                     Your browser does not support the video tag.
                                                 </video>
                                             </td>
-    <?php } ?>
+                                        <?php } ?>
                                     </tr>
                                     <tr>
 
-    <?php if ($singlearray1[3]['image_name']) { ?>
+                                        <?php if ($singlearray1[3]['image_name']) { ?>
                                             <td class="image_profile"> 
                                                 <video  controls>
                                                     <source src="<?php echo base_url(BUSPOSTIMAGE . $singlearray1[3]['image_name']) ?>" type="video/mp4">
@@ -776,7 +776,7 @@
                                                 </video>
                                             </td>
                                         <?php } ?>
-    <?php if ($singlearray1[4]['image_name']) { ?>
+                                        <?php if ($singlearray1[4]['image_name']) { ?>
                                             <td class="image_profile">
                                                 <video  controls>
                                                     <source src="<?php echo base_url(BUSPOSTIMAGE . $singlearray1[4]['image_name']) ?>" type="video/mp4">
@@ -785,7 +785,7 @@
                                                 </video>
                                             </td>
                                         <?php } ?>
-    <?php if ($singlearray1[5]['image_name']) { ?>
+                                        <?php if ($singlearray1[5]['image_name']) { ?>
                                             <td class="image_profile">
                                                 <video  controls>
                                                     <source src="<?php echo base_url(BUSPOSTIMAGE . $singlearray1[5]['image_name']) ?>" type="video/mp4">
@@ -793,11 +793,11 @@
                                                     Your browser does not support the video tag.
                                                 </video>
                                             </td>
-                                    <?php } ?>
+                                        <?php } ?>
                                     </tr>
                                 <?php } else { ?>
                                     Video Not Available
-<?php } ?>
+                                <?php } ?>
                             </table>
                         </div>
                     </div>
@@ -838,10 +838,10 @@
                                 }
                                 ?>
 
-<?php if ($singlearray2) { ?>
+                                <?php if ($singlearray2) { ?>
                                     <tr>
 
-    <?php if ($singlearray2[0]['image_name']) { ?>
+                                        <?php if ($singlearray2[0]['image_name']) { ?>
                                             <td class="image_profile"> 
                                                 <video  controls>
 
@@ -852,7 +852,7 @@
                                             </td>
                                         <?php } ?>
 
-    <?php if ($singlearray2[1]['image_name']) { ?>
+                                        <?php if ($singlearray2[1]['image_name']) { ?>
                                             <td class="image_profile">
                                                 <video  controls>
                                                     <source src="<?php echo base_url(BUSPOSTIMAGE . $singlearray2[1]['image_name']) ?>" type="audio/mp3">
@@ -861,7 +861,7 @@
                                                 </video>
                                             </td>
                                         <?php } ?>
-    <?php if ($singlearray2[2]['image_name']) { ?>
+                                        <?php if ($singlearray2[2]['image_name']) { ?>
                                             <td class="image_profile">
                                                 <video  controls>
                                                     <source src="<?php echo base_url(BUSPOSTIMAGE . $singlearray2[2]['image_name']) ?>" type="audio/mp3">
@@ -869,11 +869,11 @@
                                                     Your browser does not support the audio tag.
                                                 </video>
                                             </td>
-    <?php } ?>
+                                        <?php } ?>
                                     </tr>
                                     <tr>
 
-    <?php if ($singlearray2[3]['image_name']) { ?>
+                                        <?php if ($singlearray2[3]['image_name']) { ?>
                                             <td class="image_profile"> 
                                                 <video  controls>
                                                     <source src="<?php echo base_url(BUSPOSTIMAGE . $singlearray2[3]['image_name']) ?>" type="audio/mp3">
@@ -882,7 +882,7 @@
                                                 </video>
                                             </td>
                                         <?php } ?>
-    <?php if ($singlearray2[4]['image_name']) { ?>
+                                        <?php if ($singlearray2[4]['image_name']) { ?>
                                             <td class="image_profile">
                                                 <video  controls>
                                                     <source src="<?php echo base_url(BUSPOSTIMAGE . $singlearray2[4]['image_name']) ?>" type="audio/mp3">
@@ -891,7 +891,7 @@
                                                 </video>
                                             </td>
                                         <?php } ?>
-    <?php if ($singlearray2[5]['image_name']) { ?>
+                                        <?php if ($singlearray2[5]['image_name']) { ?>
                                             <td class="image_profile">
                                                 <video  controls>
                                                     <source src="<?php echo base_url(BUSPOSTIMAGE . $singlearray2[5]['image_name']) ?>" type="audio/mp3">
@@ -899,11 +899,11 @@
                                                     Your browser does not support the audio tag.
                                                 </video>
                                             </td>
-                                    <?php } ?>
+                                        <?php } ?>
                                     </tr>
                                 <?php } else { ?>
                                     Audio Not Available
-<?php } ?>
+                                <?php } ?>
                             </table>
 
                         </div>
@@ -971,10 +971,10 @@
                                 ?>
 
 
-<?php } else { ?>
+                            <?php } else { ?>
                                 Pdf Not Available
 
-<?php } ?>
+                            <?php } ?>
 
 
 
@@ -991,7 +991,7 @@
                                 <?php if ($businessdata1[0]['business_user_image']) { ?><img  src="<?php echo base_url(USERIMAGE . $businessdata1[0]['business_user_image']); ?>"  alt="">
                                 <?php } else { ?>
                                     <img alt=""  src="<?php echo base_url(NOIMAGE); ?>" alt="" />
-<?php } ?>
+                                <?php } ?>
                             </div>
                             <div id="myBtn1"  class="editor-content col-md-11 popup-text"  contenteditable>
                                 <span> Post Your Product....</span> 
@@ -1017,7 +1017,7 @@
 
                         <div class="post-editor col-md-12">
 
-<?php echo form_open_multipart(base_url('business_profile/business_profile_addpost_insert/' . 'manage/' . $businessdata1[0]['user_id']), array('id' => 'artpostform', 'name' => 'artpostform', 'class' => 'clearfix', 'onsubmit' => "imgval(event)")); ?>
+                            <?php echo form_open_multipart(base_url('business_profile/business_profile_addpost_insert/' . 'manage/' . $businessdata1[0]['user_id']), array('id' => 'artpostform', 'name' => 'artpostform', 'class' => 'clearfix', 'onsubmit' => "imgval(event)")); ?>
 
                             <div class="main-text-area col-md-12"  >
                                 <div class="popup-img col-md-1"> <img  src="<?php echo base_url(USERIMAGE . $businessdata1[0]['business_user_image']); ?>"  alt="">
@@ -1074,7 +1074,7 @@
                             </div>
                             <div class="fr">
                                 <button type="submit"  value="Submit">POST</button>    </div>
-<?php echo form_close(); ?>
+                            <?php echo form_close(); ?>
                         </div>
                     </div>
                 </div>
@@ -1171,7 +1171,7 @@
 
 
 
-    <?php if ($row['posted_user_id']) { ?>
+                                            <?php if ($row['posted_user_id']) { ?>
                                                 <li>
                                                     <div class="else_post_d">
                                                         <div class="post-design-product" class="post_dot" title="<?php echo ucwords($companynameposted); ?>" href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugnameposted); ?>"><?php echo ucwords($companynameposted); ?></a> <span style="font-weight: 600;"> Posted With </span> <a class="post_dot" href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>"><?php echo ucwords($companyname); ?></a> <span  style="font-weight: 400;
@@ -1179,7 +1179,7 @@
                                                                                                                                                                                                                 color: #91949d;"><?php echo date('d-M-Y', strtotime($row['created_date'])); ?> </span> </div></div></li>
 
 
-    <?php } else { ?>
+                                            <?php } else { ?>
                                                 <li><div class="post-design-product"><a class="post_dot" title="<?php echo ucwords($companyname); ?> " href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>"><?php echo ucwords($companyname); ?> </a>
 
                                                         <div class="datespan"> 
@@ -1189,7 +1189,7 @@
                                                         </div>
 
                                                     </div></li>
-    <?php } ?>
+                                            <?php } ?>
 
                                             <li><div class="post-design-product"> <a title="Category" style="cursor: default; color: #000033; font-weight: 400;"> <?php echo ucwords($category); ?></a> </div></li>
 
@@ -1204,15 +1204,15 @@
                                         <div id="<?php echo "myDropdown" . $row['business_profile_post_id']; ?>" class="dropdown-content2">
 
 
-    <?php if ($this->session->userdata('aileenuser') == $row['user_id']) { ?> 
+                                            <?php if ($this->session->userdata('aileenuser') == $row['user_id']) { ?> 
 
 
                                                 <a onclick="user_postdelete(<?php echo $row['business_profile_post_id']; ?>)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete Post</a>
 
                                                 <a id="<?php echo $row['business_profile_post_id']; ?>" onClick="editpost(this.id)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit</a>
 
-    <?php } else { ?>
-                                                                                                                                                                                                    <!-- <a href="<?php //echo "#popup5" . $row['business_profile_post_id'];                         ?>"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete Post</a> -->
+                                            <?php } else { ?>
+                                                                                                                                                                                                            <!-- <a href="<?php //echo "#popup5" . $row['business_profile_post_id'];                          ?>"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete Post</a> -->
 
 
                                                 <!-- <?php
@@ -1222,17 +1222,17 @@
 
                                                 if ($businesssave) {
                                                     ?>
-                                                                                                                                            
-                                                                                                                                               <a><i class="fa fa-bookmark" aria-hidden="true"></i>Saved Post</a>
-                                                                                                                                            
-        <?php } else { ?>
-                                                                                                                                            
-                                                                                                                                               <a id="<?php echo $row['business_profile_post_id']; ?>" onClick="save_post(this.id)" href="#popup1" class="<?php echo 'savedpost' . $row['business_profile_post_id']; ?>"><i class="fa fa-bookmark" aria-hidden="true"></i>  Save Post</a> 
-                                                                                                                                            
-        <?php } ?> -->
+                                                                                                                                                
+                                                                                                                                                   <a><i class="fa fa-bookmark" aria-hidden="true"></i>Saved Post</a>
+                                                                                                                                                
+                                                <?php } else { ?>
+                                                                                                                                                
+                                                                                                                                                   <a id="<?php echo $row['business_profile_post_id']; ?>" onClick="save_post(this.id)" href="#popup1" class="<?php echo 'savedpost' . $row['business_profile_post_id']; ?>"><i class="fa fa-bookmark" aria-hidden="true"></i>  Save Post</a> 
+                                                                                                                                                
+                                                <?php } ?> -->
 
                                                 <a href="<?php echo base_url('business_profile/business_profile_contactperson/' . $row['user_id'] . ''); ?>"><i class="fa fa-user" aria-hidden="true"></i> Contact Person</a>
-    <?php } ?>
+                                            <?php } ?>
                                         </div>
                                     </div>
 
@@ -1256,8 +1256,8 @@
 
                                         <div id="<?php echo 'editpostdetailbox' . $row['business_profile_post_id']; ?>" style="display:none;">
 
-                                                                                                                                <!-- <textarea id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" name="editpostdesc"><?php echo $row['product_description']; ?>
-                                                                                                                                </textarea> 
+                                                                                                                                    <!-- <textarea id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" name="editpostdesc"><?php echo $row['product_description']; ?>
+                                                                                                                                    </textarea> 
                                             -->
                                             <div  contenteditable="true" id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" placeholder="Product Description" class="textbuis  editable_text" placeholder="Description of Your Product"  name="editpostdesc"><?php echo $row['product_description']; ?></div>
 
@@ -1305,7 +1305,7 @@
                                                 </div>
                                                 <!-- one image end -->
 
-        <?php } elseif (in_array($ext, $allowespdf)) { ?>
+                                            <?php } elseif (in_array($ext, $allowespdf)) { ?>
 
                                                 <!-- one pdf start -->
                                                 <div>
@@ -1315,7 +1315,7 @@
                                                 </div>
                                                 <!-- one pdf end -->
 
-        <?php } elseif (in_array($ext, $allowesvideo)) { ?>
+                                            <?php } elseif (in_array($ext, $allowesvideo)) { ?>
 
                                                 <!-- one video start -->
                                                 <div>
@@ -1327,7 +1327,7 @@
                                                 </div>
                                                 <!-- one video end -->
 
-        <?php } elseif (in_array($ext, $allowesaudio)) { ?>
+                                            <?php } elseif (in_array($ext, $allowesaudio)) { ?>
 
                                                 <!-- one audio start -->
                                                 <div>
@@ -1359,7 +1359,7 @@
                                                 <!-- two image end -->
                                             <?php } ?>
 
-    <?php } elseif (count($businessmultiimage) == 3) { ?>
+                                        <?php } elseif (count($businessmultiimage) == 3) { ?>
 
 
 
@@ -1377,7 +1377,7 @@
                                             <!-- three image end -->
 
 
-    <?php } elseif (count($businessmultiimage) == 4) { ?>
+                                        <?php } elseif (count($businessmultiimage) == 4) { ?>
 
 
                                             <?php
@@ -1392,10 +1392,10 @@
 
                                                 <!-- four image end -->
 
-        <?php } ?>
+                                            <?php } ?>
 
 
-    <?php } elseif (count($businessmultiimage) > 4) { ?>
+                                        <?php } elseif (count($businessmultiimage) > 4) { ?>
 
 
 
@@ -1435,7 +1435,7 @@
                                             <!-- this div view all image end -->
 
 
-    <?php } ?>
+                                        <?php } ?>
                                         <div>
 
 
@@ -1469,7 +1469,7 @@
 
                                                     <?php } else { ?> 
                                                         <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-    <?php } ?>
+                                                    <?php } ?>
 
                                                     <span>
                                                         <?php
@@ -1544,7 +1544,7 @@
                                                     echo "&nbsp;";
                                                     echo "others";
                                                     ?> 
-        <?php } ?>
+                                                <?php } ?>
                                             </div>
                                         </a>
                                     </div>
@@ -1589,7 +1589,7 @@
                                                 echo "&nbsp;";
                                                 echo "others";
                                                 ?> 
-    <?php } ?>
+                                            <?php } ?>
                                         </div>
                                     </a>
                                 </div>
@@ -1629,7 +1629,7 @@
                                                                 <img  src="<?php echo base_url(USERIMAGE . $business_userimage); ?>"  alt="">
                                                             <?php } else { ?>
                                                                 <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
-            <?php } ?>
+                                                            <?php } ?>
 
                                                         </div>
                                                         <div class="comment-name">
@@ -1673,10 +1673,10 @@
                                                                     if (!in_array($userid, $likeuserarray)) {
                                                                         ?>
                                                                         <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i> 
-            <?php } else { ?>
+                                                                    <?php } else { ?>
                                                                         <i class="fa fa-thumbs-up" aria-hidden="true"></i>
 
-                                                                        <?php } ?>
+                                                                    <?php } ?>
                                                                     <span>
                                                                         <?php
                                                                         if ($rowdata['business_comment_likes_count']) {
@@ -1706,7 +1706,7 @@
 
                                                                 </div>
 
-            <?php } ?>
+                                                            <?php } ?>
 
 
 
@@ -1729,7 +1729,7 @@
                                                                     </a>
                                                                 </div>
 
-            <?php } ?>                                   
+                                                            <?php } ?>                                   
                                                             <span role="presentation" aria-hidden="true"> · </span>
                                                             <div class="comment-details-menu">
                                                                 <p><?php
@@ -1766,7 +1766,7 @@
                                             <img  src="<?php echo base_url(USERIMAGE . $business_userimage); ?>"  alt="">
                                         <?php } else { ?>
                                             <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
-    <?php } ?>
+                                        <?php } ?>
                                     </div>
 
 
@@ -1779,7 +1779,7 @@
                                             <!--<div contenteditable="true" style="min-height:40px !important; margin-top: 0px!important" class="editable_text" name="<?php echo $row['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $row['business_profile_post_id']; ?>" placeholder="Type Message ..."  onClick="contentedit(<?php echo $row['business_profile_post_id']; ?>)"></div>-->
                                             <div contenteditable="true" style="min-height:40px !important; margin-top: 0px!important" class="editable_text" name="<?php echo $row['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $row['business_profile_post_id']; ?>" placeholder="Enter Your Comment " onClick="entercomment(<?php echo $row['business_profile_post_id']; ?>)"></div>
                                         </div>
-    <?php echo form_error('post_comment'); ?> 
+                                        <?php echo form_error('post_comment'); ?> 
                                         <div class="col-md-1 comment-edit-butn">       
                                             <button id="<?php echo $row['business_profile_post_id']; ?>" onClick="insert_comment(this.id)">Comment</button></div>
                                     </div>
@@ -1790,7 +1790,7 @@
 
                         </div>
 
-<?php } ?>
+                    <?php } ?>
 
 
                 </div>
@@ -1803,7 +1803,7 @@
             <!-- footer start -->
             <footer>
 
-<?php echo $footer; ?>
+                <?php echo $footer; ?>
             </footer>
 
 
@@ -1831,12 +1831,12 @@
                         <div class="modal-body">
                             <span class="mes">
                                 <div id="popup-form">
-<?php echo form_open_multipart(base_url('business_profile/user_image_insert'), array('id' => 'userimage', 'name' => 'userimage', 'class' => 'clearfix')); ?>
+                                    <?php echo form_open_multipart(base_url('business_profile/user_image_insert'), array('id' => 'userimage', 'name' => 'userimage', 'class' => 'clearfix')); ?>
                                     <input type="file" name="profilepic" accept="image/gif, image/jpeg, image/png" id="profilepic">
                                     <input type="hidden" name="hitext" id="hitext" value="5">
                                     <!--<input type="submit" name="cancel3" id="cancel3" value="Cancel">-->
                                     <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save">
-<?php echo form_close(); ?>
+                                    <?php echo form_close(); ?>
                                 </div>
                             </span>
                         </div>
@@ -1887,33 +1887,33 @@
 
             <script>
 
-                                                var data = <?php echo json_encode($demo); ?>;
-                                                // alert(data);
+                                            var data = <?php echo json_encode($demo); ?>;
+                                            // alert(data);
 
 
-                                                $(function () {
-                                                    // alert('hi');
-                                                    $("#tags").autocomplete({
-                                                        source: function (request, response) {
-                                                            var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
-                                                            response($.grep(data, function (item) {
-                                                                return matcher.test(item.label);
-                                                            }));
-                                                        },
-                                                        minLength: 1,
-                                                        select: function (event, ui) {
-                                                            event.preventDefault();
-                                                            $("#tags").val(ui.item.label);
-                                                            $("#selected-tag").val(ui.item.label);
-                                                            // window.location.href = ui.item.value;
-                                                        }
-                                                        ,
-                                                        focus: function (event, ui) {
-                                                            event.preventDefault();
-                                                            $("#tags").val(ui.item.label);
-                                                        }
-                                                    });
+                                            $(function () {
+                                                // alert('hi');
+                                                $("#tags").autocomplete({
+                                                    source: function (request, response) {
+                                                        var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+                                                        response($.grep(data, function (item) {
+                                                            return matcher.test(item.label);
+                                                        }));
+                                                    },
+                                                    minLength: 1,
+                                                    select: function (event, ui) {
+                                                        event.preventDefault();
+                                                        $("#tags").val(ui.item.label);
+                                                        $("#selected-tag").val(ui.item.label);
+                                                        // window.location.href = ui.item.value;
+                                                    }
+                                                    ,
+                                                    focus: function (event, ui) {
+                                                        event.preventDefault();
+                                                        $("#tags").val(ui.item.label);
+                                                    }
                                                 });
+                                            });
 
             </script>
 
@@ -3478,18 +3478,15 @@
                                     return false;
                                 }
 
-                            } else if(foundPresentvideo == false){  
+                            } else if (foundPresentvideo == false) {
 
-                                       $('.biderror .mes').html("<div class='pop_content'>This File Format is not supported Please Try to Upload MP4 or WebM files..");
-                                            $('#bidmodal').modal('show');
-                                            setInterval('window.location.reload()', 10000);
-                                            event.preventDefault();
-                                            return false;
+                                $('.biderror .mes').html("<div class='pop_content'>This File Format is not supported Please Try to Upload MP4 or WebM files..");
+                                $('#bidmodal').modal('show');
+                                setInterval('window.location.reload()', 10000);
+                                event.preventDefault();
+                                return false;
 
-                             }
-
-
-                            else if (foundPresentvideo == true)
+                            } else if (foundPresentvideo == true)
                             {
 
                                 var foundPresent1 = $.inArray(ext1, allowesvideo) > -1;
@@ -3860,9 +3857,16 @@
                 }
             </script>
             <!-- post delete login user end -->
-<script type="text/javascript">
-    $('div[id^=myDropdown]').on('click', function () {
-        $('div[id^=myDropdown]').hide().removeClass('show');
+            <!-- This  script use for close dropdown in every post -->
+            <script type="text/javascript">
+                $('body').on("click", "*", function (e) {
+                    var classNames = $(e.target).attr("class").toString().split(' ').pop();
+                    if (classNames != 'fa-ellipsis-v') {
+                        $('div[id^=myDropdown]').hide().removeClass('show');
+                    }
 
-    });
-</script>
+                });
+
+            </script>
+            <!-- This  script use for close dropdown in every post -->
+
