@@ -1155,12 +1155,12 @@ $contition_array = array('notification.not_type' => 5, 'notification.not_from' =
 
         foreach ($busifollow as $bus) {
             if ($bus['not_from'] == 6) {
-
+             $busslug = $this->db->get_where('business_profile', array('user_id' => $bus['user_id']))->row()->business_slug;
                 $notification .= '<li><div class="notification-database">';
                 $notification .= '<div class="notification-pic">';
                 $notification .= '<img src="' . base_url(USERIMAGE . $bus['user_image']) . '" >';
                 $notification .= '</div><div class="notification-data-inside">';
-                $notification .= '<a href="' . base_url('business_profile/business_resume/' . $bus['user_id']) . '"><h6>HI.. !  <font color="#4e6db1"><b><i> Businessman</i></font></b><b>' . '  ' . $bus['first_name'] . ' ' . $bus['last_name'] . '</b> started to following you</h6></a>';
+                $notification .= '<a href="' . base_url('business_profile/business_resume/' . $busslug) . '"><h6>HI.. !  <font color="#4e6db1"><b><i> Businessman</i></font></b><b>' . '  ' . $bus['first_name'] . ' ' . $bus['last_name'] . '</b> started to following you</h6></a>';
                 $notification .= '<div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
                 $notification .= '' . $this->common->time_elapsed_string($bus['message_create_date'], $full = false) . '';
                 $notification .= '</div></div> </div> </li>';
