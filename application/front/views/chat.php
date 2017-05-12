@@ -8,13 +8,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!--- for dispaly div insted of input type start -->
 <style type="text/css">
 div .comment {  
-  min-height: 41px;
-  border: 1px solid #ccc;
-padding-right: 40px!important;
-word-break: break-all;
-background-color: #fff;
-/*padding: 10px;
-*/font-size: 15px;
+width: 100%;
+background-color: rgba(244, 244, 244, 0.59);
+font-family: sans-serif;
+padding: 5%;
+bottom: 10%;
+position: absolute;
+border: 1px solid #4E4E4E;
+    max-height:30px;
+    overflow:scroll;
+    overflow-x:hidden;
 }
 </style>
 <?php echo $header; ?>
@@ -528,7 +531,18 @@ function followclose(clicked_id)
 // alert(img.getAttribute('src')); // foo.jpg
 //alert(img.src); 
 var img = img.src;
-$('#message').append("<img  src=" + img + " height='23' width='23' style='margin-top: 7px;'>"); 
+$('#message').append("<img  src=" + img + " height='20' width='20' >"); 
  }
 </script>
 <!-- script for selact smily for message end-->
+
+
+<script type="text/javascript">
+          var editor = document.querySelector("div");
+
+        editor.addEventListener("keyup", function (){
+
+            newheight = editor.scrollHeight;
+            editor.style.height = newheight + "px";
+        })  
+</script>
