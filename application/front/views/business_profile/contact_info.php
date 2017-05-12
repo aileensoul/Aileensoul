@@ -19,7 +19,21 @@
         <div class="user-midd-section" id="paddingtop_fixed">
              <div class="common-form1">
              <div class="col-md-3 col-sm-4"></div>
+                      
+ <?php 
+
+             $userid = $this->session->userdata('aileenuser');
+
+             $contition_array = array('user_id' => $userid, 'status' => '1');
+             $busdata = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+             
+             if($busdata[0]['business_step'] == 4){ }else{
+
+             ?>
+
                       <div class="col-md-6 col-sm-8"><h3>You are making your Business Profile.</h3></div>
+<?php }?>
+                      
             </div>
             <br>
             <br>
@@ -301,3 +315,7 @@ $('#searchplace').select2({
 
  
     <!-- footer end -->
+
+    <script type="text/javascript"> 
+ $(".alert").delay(3200).fadeOut(300);
+</script>
