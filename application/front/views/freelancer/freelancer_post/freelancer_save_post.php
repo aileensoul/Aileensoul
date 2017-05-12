@@ -102,7 +102,7 @@
 
 <!--post save success pop up style end -->
 
-<style type="text/css" media="screen">
+<!-- <style type="text/css" media="screen">
     #row2 { overflow: hidden; width: 100%; }
     #row2 img { height: 350px;width: 100%; }
     .upload-img{    float: right;
@@ -135,7 +135,7 @@
 
 
 
-</style>
+</style> -->
 <!-- END HEAD -->
 
 <!-- start header -->
@@ -288,7 +288,7 @@
                 </ul>
             </div></div>
         <div class="job-menu-profile1">
-            <h3 > <?php echo ucwords($freepostdata[0]['freelancer_post_fullname']) . ' ' . ucwords($freepostdata[0]['freelancer_post_username']); ?></h3>
+            <h5> <?php echo ucwords($freepostdata[0]['freelancer_post_fullname']) . ' ' . ucwords($freepostdata[0]['freelancer_post_username']); ?></h5>
             <div class="profile-text">
              
 

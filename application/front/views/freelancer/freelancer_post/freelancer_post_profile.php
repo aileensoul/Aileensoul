@@ -1,7 +1,7 @@
 <!-- start head -->
 <?php echo $head; ?>
 
-<style type="text/css" media="screen">
+<!-- <style type="text/css" media="screen">
     #row2 { overflow: hidden;  width: 100%; }
     #row2 img { height: 350px;width: 100%; }
     .upload-img{    float: right;
@@ -34,7 +34,7 @@
 
 
 
-</style>
+</style> -->
 
 
 
@@ -227,9 +227,8 @@ echo $freelancer_post_header2;
 
         </div>
         <div class="job-menu-profile1">
-            <h3 > <?php echo ucwords($freelancerpostdata[0]['freelancer_post_fullname']) . ' ' . ucwords($freelancerpostdata[0]['freelancer_post_username']); ?></h3>
+        <h5> <?php echo ucwords($freelancerpostdata[0]['freelancer_post_fullname']) . ' ' . ucwords($freelancerpostdata[0]['freelancer_post_username']); ?></h5>
             <div class="profile-text">
-
 
          <?php 
                 if($returnpage == ''){
