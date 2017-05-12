@@ -1092,39 +1092,22 @@
         <?php } ?>
                                                 </div>
                                             </div>
-
-
                                             <div class="post-design-desc ">
                                                 <span> 
-
                                                     <div  id="<?php echo 'editpostdetails' . $row['art_post_id']; ?>" style="display:block ; padding-bottom: 10px;">
-
-
                                                         <?php
                                                         $text = $this->common->make_links($row['art_description']);
                                                         ?>
-
                                                         <span class="show">
                                                             <?php echo $text; ?>
-
-                                                        </span></div>
-
+                                                        </span>
+                                                    </div>
                                                     <div id="<?php echo 'editpostdetailbox' . $row['art_post_id']; ?>" style="display:none;">
-
-
                                                         <div contenteditable="true" id="<?php echo 'editpostdesc' . $row['art_post_id']; ?>" class="textbuis editable_text" name="editpostdesc" style="width: 75%; margin-bottom: 10px;"><?php echo $row['art_description']; ?></div>
                                                     </div>      
-
                                                     <button id="<?php echo "editpostsubmit" . $row['art_post_id']; ?>" style="display:none" onClick="edit_postinsert(<?php echo $row['art_post_id']; ?>)" class="fr" style="margin-right: 176px; border-radius: 3px;" >Save</button>
-
-
-
                                                 </span></div> 
                                         </div>
-
-
-
-
                                         <div class="post-design-mid col-md-12" >  
 
                                             <!-- multiple image code  start-->
@@ -2789,9 +2772,10 @@
                     <!-- further and less -->
                     <script>
                         $(function () {
-                            var showTotalChar = 150, showChar = "More", hideChar = "less";
+                            var showTotalChar = 200, showChar = "More", hideChar = "less";
                             $('.show').each(function () {
-                                var content = $(this).text();
+                                //var content = $(this).text();
+                                var content = $(this).html();
                                 if (content.length > showTotalChar) {
                                     var con = content.substr(0, showTotalChar);
                                     var hcon = content.substr(showTotalChar, content.length - showTotalChar);
