@@ -153,7 +153,7 @@
         <div id="login2"> 
 
            
-<?php echo form_open_multipart(base_url('registration/reg_insert'),array('id' => 'regform','name' => 'regform','class' => "clearfix"));
+<?php echo form_open_multipart(base_url('registration/reg_insert'),array('id' => 'regform','name' => 'regform','class' => "clearfix", 'autocomplete' => "off"));
   
   if ($this->session->flashdata('error')) 
                {
@@ -203,7 +203,7 @@
          <div class="top-row">
             <div class="field-wrap full-width">
         <label class="fname_reg">Password<span class="req">*</span></label>
-    <input type="password" name="passwordlogin" id="passwordlogin" class="showpassword" placeholder="Password *" style="position: relative;"  />
+    <input type="password" name="password" id="password" class="showpassword" placeholder="Password *" style="position: relative;"  />
                       <?php echo form_error('password'); ?>
             
 
@@ -443,7 +443,7 @@ $('#datepicker').datetimepicker({
                                 },
                               },
                         },
-                        passwordlogin: {
+                        password: {
 
                             required: true,
                             minlength: 6,
