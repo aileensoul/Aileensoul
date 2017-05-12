@@ -371,6 +371,8 @@ public function business_search() {
 
         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
 
+        //print_r($this->data['userid']); die();
+
         $search_business = $this->input->post('skills');
         $this->data['keyword'] = $search_business;
 
@@ -398,51 +400,58 @@ public function business_search() {
 
 
         } elseif ($this->input->post('searchplace') == "") {
+           // echo "hi";
 
 
 
-            $condition_array = array('business_profile_id !=' => '', 'business_profile.status' => '1' ,'business_profile_post.user_id !=' => $userid);
+          $condition_array = array('business_profile_id !=' => '', 'business_profile.status' => '1','business_profile.user_id !=' => $userid);
 
+             
 
             $searchbusiness = $this->db->get_where('business_type', array('business_name' => $search_business))->row()->type_id;
             $searchbusiness1 = $this->db->get_where('industry_type', array('industry_name' => $search_business))->row()->industry_id;
-
-              $join_str[0]['table'] = 'business_profile';
-            $join_str[0]['join_table_id'] = 'business_profile.user_id';
-            $join_str[0]['from_table_id'] = 'business_profile_post.user_id';
-            $join_str[0]['join_type'] = '';
-
-
             if ($searchbusiness1) {
                 $search_condition = "(industriyal LIKE '%$searchbusiness1%')";
             } elseif ($searchbusiness) {
                 $search_condition = "(business_type LIKE '%$searchbusiness%')";
             } else {
-                $search_condition = "(business_profile.company_name LIKE '%$search_business%' or business_profile.contact_website LIKE '%$search_business%' or business_profile_post.product_name LIKE '%$search_business%' or business_profile_post.product_description LIKE '%$search_business%')";
+                $search_condition = "(company_name LIKE '%$search_business%' or contact_website LIKE '%$search_business%' or other_business_type LIKE '%$search_business%' or other_industrial LIKE '%$search_business%')";
             }
-           echo $search_condition;  
-            
-            $business_post = $post['data'] = $this->common->select_data_by_search('business_profile_post', $search_condition, $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
 
-           // echo "<pre>"; print_r($business_post); die();
-            $unique = array_merge($business_post);
+         //   echo $search_condition; 
+            $business_profile = $this->data['results'] = $this->common->select_data_by_search('business_profile', $search_condition, $condition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+         // echo "<pre>"; print_r($business_profile);
 
-            foreach ($unique as $ke => $arr) {
+
+            $join_str[0]['table'] = 'business_profile';
+            $join_str[0]['join_table_id'] = 'business_profile.user_id';
+            $join_str[0]['from_table_id'] = 'business_profile_post.user_id';
+            $join_str[0]['join_type'] = '';
+
+            $condition_array = array('business_profile_post.user_id !=' => $userid);
+
+            $search_condition = "(business_profile_post.product_name LIKE '%$search_business%' or business_profile_post.product_description LIKE '%$search_business%')";
+
+            // echo $search_condition; 
+            $business_post = $post['data'] = $this->common->select_data_by_search('business_profile_post', $search_condition, $condition_array, $data = 'business_profile_post.*,business_profile.company_name,business_profile.industriyal,business_profile.business_profile_id', $sortby = '', $orderby = '', $limit = '', $offset = '',  $join_str, $groupby = '');
+         //echo "<pre>"; print_r($business_post); die();
+
+       foreach ($business_post as $ke => $arr) {
                 $postdata[] = $arr;
             }
+      //  $new = array_unique($postdata);
 
+            
             $new = array();
             foreach ($postdata as $value) {
-                $new[$value['business_profile_id']] = $value;
+                 $new[$value['business_profile_post_id']] = $value;
             }
-
-           //echo "<pre>"; print_r($new); die();
+        // echo "<pre>"; print_r($new); die();           
         } 
 
         else {
 
             $condition_array = array('business_profile_id !=' => '', 'status' => '1', 'city' => $search_place[0] ,'business_profile.user_id !=' => $userid);
-
              
 
             $searchbusiness = $this->db->get_where('business_type', array('business_name' => $search_business))->row()->type_id;
@@ -456,6 +465,7 @@ public function business_search() {
             }
             $business_profile = $this->data['results'] = $this->common->select_data_by_search('business_profile', $search_condition, $condition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
+
             $join_str[0]['table'] = 'business_profile';
             $join_str[0]['join_table_id'] = 'business_profile.user_id';
             $join_str[0]['from_table_id'] = 'business_profile_post.user_id';
@@ -464,19 +474,34 @@ public function business_search() {
             $condition_array = array('business_profile_post.user_id !=' => $userid);
 
             $search_condition = "(business_profile_post.product_name LIKE '%$search_business%' or business_profile_post.product_description LIKE '%$search_business%')";
-            $business_post = $post['data'] = $this->common->select_data_by_search('business_profile_post', $search_condition, $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
+            $business_post = $post['data'] = $this->common->select_data_by_search('business_profile_post', $search_condition, $contition_array, $data = 'business_profile_post.*,business_profile.company_name,business_profile.industriyal', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
 
-            $unique = array_merge($business_post, $business_profile);
-            foreach ($unique as $ke => $arr) {
+              foreach ($business_post as $ke => $arr) {
                 $postdata[] = $arr;
             }
+      //  $new = array_unique($postdata);
+
+            
             $new = array();
             foreach ($postdata as $value) {
-                $new[$value['business_profile_id']] = $value;
-            }
+                 $new[$value['business_profile_post_id']] = $value;
+            }  
+
+        
+
+
+
+
         }
 
-        $this->data['businessuserdata'] = $new;
+
+        $this->data['description'] = $new;
+//echo "string";
+   // echo "<pre>"; print_r($this->data['description']); die();
+
+        $this->data['profile'] = $business_profile;
+
+
         $contition_array = array('status' => '1', 'is_deleted' => '0');
 
         $businessdata = $this->data['results'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'company_name,other_industrial,other_business_type', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);

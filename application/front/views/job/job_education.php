@@ -768,19 +768,18 @@ z-index: 1;
                                                         </fieldset>
 
 
-                                                        <input type="hidden" name="image_hidden_degree<?php echo $jobdata1[$x]['edu_id']; ?>" value="<?php
-                                                        if ($edu_certificate1) {
-                                                            echo $edu_certificate1;
-                                                        }
-                                                        ?>">
+            <input type="hidden" name="image_hidden_degree<?php echo $jobdata1[$x]['edu_id']; ?>" value="<?php
+                if ($edu_certificate1) {
+                  echo $edu_certificate1;
+                       }
+                    ?>">
+                        <?php
+                          }
+                   ?>
 
-                                                        <?php
-                                                    }
-                                                    ?>
-
-                                                    <div class="fr">
-                                                        <input type="submit"  id="next" name="next" value="Submit">
-                                                        <input type="submit"  id="add_edu" name="add_edu" value="Add More Education"> 
+           <div class="fr">
+              <input type="submit"  id="next" name="next" value="Submit">
+               <input type="submit"  id="add_edu" name="add_edu" value="Add More Education"> 
                                                     </div>
                                                     <?php
                                                 } else {

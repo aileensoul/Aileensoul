@@ -1739,6 +1739,12 @@ class Business_profile extends MY_Controller {
 
         $artdata = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
+        
+       $contition_array = array('business_profile_id' => $business_id, 'is_deleted' => 0, 'status' => 1);
+
+        $busdatatoid = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+
         $contition_array = array('follow_type' => 2, 'follow_from' => $artdata[0]['business_profile_id'], 'follow_to' => $business_id);
         $follow = $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -1757,7 +1763,7 @@ class Business_profile extends MY_Controller {
             $data = array(
                 'not_type' => 8,
                 'not_from_id' => $userid,
-                'not_to_id' => $business_id,
+                'not_to_id' => $busdatatoid[0]['user_id'],
                 'not_read' => 2,
                 'not_product_id' => $follow[0]['follow_id'],
                 'not_from' => 6
@@ -1789,7 +1795,7 @@ class Business_profile extends MY_Controller {
             $data = array(
                 'not_type' => 8,
                 'not_from_id' => $userid,
-                'not_to_id' => $business_id,
+                'not_to_id' => $busdatatoid[0]['user_id'],
                 'not_read' => 2,
                 'not_product_id' => $insert,
                 'not_from' => 6
@@ -1799,7 +1805,7 @@ class Business_profile extends MY_Controller {
             // end notoification
             if ($insert) {
                 $follow = '<div id="unfollowdiv" class="user_btn">';
-                $follow .= '<button id="unfollow' . $business_id . '" onClick="unfollowuser(' . $business_id . ')">
+                $follow .= '<button class="bg_following" id="unfollow' . $business_id . '" onClick="unfollowuser(' . $business_id . ')">
                                Following
                       </button>';
                 $follow .= '</div>';
@@ -1851,6 +1857,10 @@ class Business_profile extends MY_Controller {
 
         $artdata = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
+         $contition_array = array('business_profile_id' => $business_id, 'is_deleted' => 0, 'status' => 1);
+
+        $busdatatoid = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
         $contition_array = array('follow_type' => 2, 'follow_from' => $artdata[0]['business_profile_id'], 'follow_to' => $business_id);
         $follow = $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -1869,7 +1879,7 @@ class Business_profile extends MY_Controller {
             $data = array(
                 'not_type' => 8,
                 'not_from_id' => $userid,
-                'not_to_id' => $business_id,
+                'not_to_id' => $busdatatoid[0]['user_id'],
                 'not_read' => 2,
                 'not_product_id' => $follow[0]['follow_id'],
                 'not_from' => 6
@@ -1901,7 +1911,7 @@ class Business_profile extends MY_Controller {
             $data = array(
                 'not_type' => 8,
                 'not_from_id' => $userid,
-                'not_to_id' => $business_id,
+                'not_to_id' => $busdatatoid[0]['user_id'],
                 'not_read' => 2,
                 'not_product_id' => $insert,
                 'not_from' => 6

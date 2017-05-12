@@ -17,7 +17,21 @@
         <div class="user-midd-section" id="paddingtop_fixed">
            <div class="common-form1">
              <div class="col-md-3 col-sm-4"></div>
+                      
+             <?php 
+
+             $userid = $this->session->userdata('aileenuser');
+
+             $contition_array = array('user_id' => $userid, 're_status' => '1');
+             $recdata = $this->common->select_data_by_condition('recruiter', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+             
+             if($recdata[0]['re_step'] == 3){ }else{
+
+             ?>
+
                       <div class="col-md-6 col-sm-8"><h3>You are making your Recruiter Profile.</h3></div>
+                       <?php }?>
+
             </div>
             <br>
             <br>
@@ -210,8 +224,8 @@
                        
                         comp_num:{
                             required:true,
-                            minlength:10,
-                            maxlength:11,
+                            //minlength:10,
+                            //maxlength:11,
                             number: true
                        },
 
@@ -279,4 +293,9 @@
                                             });
                                         });
 
+</script>
+
+
+<script type="text/javascript"> 
+ $(".alert").delay(3200).fadeOut(300);
 </script>

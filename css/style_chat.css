@@ -4769,7 +4769,7 @@ fieldset .add_post_btns{min-width: 120px;padding:8px 30px 8px;}
     border-radius: 3px;
     border: none;
     padding: 14px;
-    color: white;
+
     background: #fff;
     width: 90%;
     font-size: 14px;
@@ -5010,7 +5010,7 @@ color: #003;
 
 
 .message-data-name{font-size:16px; font-weight: 600;}
-.name{font-weight: 600; padding-bottom: 3px; line-height: 14px;}
+.name{font-weight: 600; padding-bottom: 6px; line-height: 14px;}
 .panel-footer{
     background-color: #444753;
     /* margin-left: 10px; */
@@ -5029,14 +5029,23 @@ color: #003;
 
 /* Overwrite the default to keep the scrollbar always visible */
 
-::-webkit-scrollbar {
+.chat .chat-history::-webkit-scrollbar {
     -webkit-appearance: none;
     width: 5px;
 }
 
-::-webkit-scrollbar-thumb {
+.chat .chat-history::-webkit-scrollbar-thumb {
     border-radius: 4px;
     background-color: rgba(0,0,0,.3);
     -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
 }
 .chat_nobcx{border: 1px solid #e4e5e7; float: left;}
+.people-list ul::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 5px;
+}
+.people-list ul::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0,0,0,.3);
+    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+}
