@@ -1280,7 +1280,7 @@ $contition_array = array('notification.not_type' => 5, 'notification.not_from' =
                 $notification .= '<div class="notification-pic">';
                 $notification .= '<img src="' . base_url(USERIMAGE . $art['user_image']) . '" >';
                 $notification .= '</div><div class="notification-data-inside">';
-                $notification .= '<a href="' . base_url('notification/freelancer_hire_post/' . $id) . '"><h6>HI.. !  <font color="yellow"><b><i>Freelancer work</i></font></b><b>' . '  ' . $art['first_name'] . ' ' . $art['last_name'] . '</b> Aplied on your post</h6></a>';
+                $notification .= '<a href="' . base_url('freelancer/freelancer_post_profile/' . $art['not_from_id']) . '"><h6>HI.. !  <font color="yellow"><b><i>Freelancer work</i></font></b><b>' . '  ' . $art['first_name'] . ' ' . $art['last_name'] . '</b> Aplied on your post</h6></a>';
                 $notification .= '<div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
                 $notification .= '' . $this->common->time_elapsed_string($art['message_create_date'], $full = false) . '';
                 $notification .= '</div></div> </div> </li>';
