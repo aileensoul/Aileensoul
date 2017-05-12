@@ -340,10 +340,10 @@
                                                                     <?php
                                                                 }
                                                                 ?>
-                                                                <li> <b> Total Experience</b>
-                                                                    <span title="Min - Max">
-                                                                        <?php
-                                                                        if ($row['experience_year'] || $row['experience_month']) {
+          <li> <b> Total Experience</b>
+              <span>
+                   <?php
+              if ($row['experience_year'] || $row['experience_month']) {
                                                                             echo $row['experience_year'] . ' ' . $row['experience_month'];
                                                                         } else {
                                                                             echo PROFILENA;
