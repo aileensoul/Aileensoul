@@ -687,7 +687,7 @@
 
                                     <div class="post-design-desc ">
                                         <div id="<?php echo 'editpostdata' . $busienss_data[0]['business_profile_post_id']; ?>" style="display:block;">
-                                            <a  style="margin-bottom: 0px;   font-weight: 600;  font-size: 16px"><?php echo $busienss_data[0]['product_name']; ?></a>
+                                            <a  style="margin-bottom: 0px;   font-weight: 600;  font-size: 16px"><?php echo $this->common->make_links($busienss_data[0]['product_name']); ?></a>
                                         </div>
 
                                         <div id="<?php echo 'editpostbox' . $busienss_data[0]['business_profile_post_id']; ?>" style="display:none;">
@@ -696,7 +696,7 @@
 
 
                                         <div id="<?php echo 'editpostdetails' . $busienss_data[0]['business_profile_post_id']; ?>" style="display:block;">
-                                            <span class="show">  <?php print $busienss_data[0]['product_description']; ?>
+                                            <span class="show">  <?php print $this->common->make_links($busienss_data[0]['product_description']); ?>
                                             </span>
                                         </div>
 
@@ -1005,10 +1005,10 @@
                                                                                     </b>
                                                                                 </div>
 
-                                                                                <div class="comment-details" id= "<?php echo "imgshowcomment" . $rowdata['post_image_comment_id']; ?>">
-                                                                                    <?php
-                                                                                    echo $rowdata['comment'];
-                                                                                    ?>
+                                         <div class="comment-details" id= "<?php echo "imgshowcomment" . $rowdata['post_image_comment_id']; ?>">
+                                            <?php
+                                             echo $this->common->make_links($rowdata['comment']);
+                                            ?>
                                                                                 </div>
 
 
@@ -1036,7 +1036,7 @@
                                                                                 <div class="art-comment-menu-design"> 
 
                                                                                     <!-- comment like start -->
-                                                                                    <div class="comment-details-menu"  id="<?php echo 'imglikecomment' . $rowdata['post_image_comment_id']; ?>">
+                     <div class="comment-details-menu"  id="<?php echo 'imglikecomment' . $rowdata['post_image_comment_id']; ?>">
 
                                                                                         <a id="<?php echo $rowdata['post_image_comment_id']; ?>"   onClick="imgcomment_like(this.id)">
 
@@ -1479,7 +1479,7 @@
                                                         </div>
                                                         <div class="comment-details" id= "<?php echo "showcomment" . $rowdata['business_profile_post_comment_id']; ?>">
                                                             <?php
-                                                            echo $rowdata['comments'];
+                                                            echo $this->common->make_links($rowdata['comments']);
 //                                                            echo '</br>';
                                                             ?>
                                                         </div>
@@ -3542,4 +3542,11 @@
 
 </style>
 
+
+<script type="text/javascript">
+    $('div[id^=myDropdown]').on('click', function () {
+        $('div[id^=myDropdown]').hide().removeClass('show');
+
+    });
+</script>
 

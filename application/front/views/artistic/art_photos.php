@@ -982,11 +982,11 @@
                                                                                         </b>
                                                                                     </div>
 
-                                                                                    <div class="comment-details" id= "<?php echo "showcommentimg" . $rowdata['post_image_comment_id']; ?>">
-                                                                                        <?php
-                                                                                        echo $rowdata['comment'];
-                                                                                        echo '</br>';
-                                                                                        ?>
+                <div class="comment-details" id= "<?php echo "showcommentimg" . $rowdata['post_image_comment_id']; ?>">
+                                         <?php
+                     echo $this->common->make_links($rowdata['comment']);
+                            echo '</br>';
+                                  ?>
                                                                                     </div>
 
                                                                                     <div class="edit-comment-box">

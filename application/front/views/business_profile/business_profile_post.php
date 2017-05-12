@@ -917,7 +917,7 @@
                                                 <div>
                                                     <div id="<?php echo 'editpostdata' . $row['business_profile_post_id']; ?>" style="display:block;">
                                                         <a style="margin-bottom: 0px;     font-size: 16px">
-                                                            <?php echo text2link($row['product_name']); ?>
+                                                            <?php echo $this->common->make_links($row['product_name']); ?>
                                                         </a>
                                                     </div>
                                                     <div id="<?php echo 'editpostbox' . $row['business_profile_post_id']; ?>" style="display:none;">
@@ -927,7 +927,7 @@
 
                                                 <div id="<?php echo 'editpostdetails' . $row['business_profile_post_id']; ?>" style="display:block;">
                                                     <span class="show"> 
-                                                        <?php print text2link($row['product_description']); ?>
+                                                        <?php print $this->common->make_links($row['product_description']); ?>
                                                     </span>
                                                 </div>
                                                 <div id="<?php echo 'editpostdetailbox' . $row['business_profile_post_id']; ?>" style="display:none;">
@@ -1253,7 +1253,7 @@
                                                                 </div>
                                                                 <div class="comment-details" id= "<?php echo "showcomment" . $rowdata['business_profile_post_comment_id']; ?>">
                                                                     <?php
-                                                                    echo text2link($rowdata['comments']);
+                                                                    echo $this->common->make_links($rowdata['comments']);
                                                                     //echo '</br>';
                                                                     ?>
                                                                 </div>
@@ -3074,7 +3074,7 @@
 <script type="text/javascript">
 function user_postdelete(clicked_id)
     {
-
+        
         $('.biderror .mes').html("<div class='pop_content'> Are You Sure want to delete this post?.<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='remove_post(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
         $('#bidmodal').modal('show');
     }
@@ -3129,3 +3129,13 @@ function user_postdeleteparticular(clicked_id)
     }
 
 </style>
+
+
+
+    <script type="text/javascript">
+    $('div[id^=myDropdown]').on('click', function () {
+        $('div[id^=myDropdown]').hide().removeClass('show');
+
+    });
+</script>
+    
