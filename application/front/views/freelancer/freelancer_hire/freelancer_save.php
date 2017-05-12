@@ -135,7 +135,7 @@
 
 
 
-<style type="text/css" media="screen">
+<!-- <style type="text/css" media="screen">
     #row2 { overflow: hidden; width: 100%; }
     #row2 img { height: 350px;width: 100%; }
     .upload-img{    float: right;
@@ -165,10 +165,8 @@
         display: none;
     }
 
+</style> -->
 
-
-
-</style>
 <!-- END HEAD -->
 <!-- start header -->
 <?php echo $header; ?>
@@ -322,7 +320,7 @@
 
 
         <div class="job-menu-profile1">
-            <h3> <?php echo ucwords($freehiredata[0]['fullname']) . ' ' . ucwords($freehiredata[0]['username']); ?></h3>
+            <h5> <?php echo ucwords($freehiredata[0]['fullname']) . ' ' . ucwords($freehiredata[0]['username']); ?></h5>
             <div class="profile-text">
                 <?php
                 if ($freehiredata[0]['designation'] == '') {

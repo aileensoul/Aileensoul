@@ -114,7 +114,7 @@
 <!--post save success pop up style end -->
 
 
-<style type="text/css" media="screen">
+<!-- <style type="text/css" media="screen">
 #row2 { overflow: hidden; width: 100%; }
 #row2 img { height: 350px;width: 100%; }
 .upload-img{    float: right;
@@ -143,11 +143,9 @@ label.cameraButton:active {
 label.cameraButton input[accept*="camera"] {
   display: none;
 }
+</style> -->
 
 
-
-
-</style>
 <!-- END HEAD -->
 <!-- start header -->
 <?php echo $header; ?>
@@ -318,7 +316,7 @@ echo $freelancer_hire_header2;} ?>
 
 
         <div class="job-menu-profile1">
-            <h3> <?php echo ucwords($freelancerpostdata[0]['fullname']) . ' ' . ucwords($freelancerpostdata[0]['username']); ?></h3>
+        <h5> <?php echo ucwords($freelancerpostdata[0]['fullname']) . ' ' . ucwords($freelancerpostdata[0]['username']); ?></h5>
 
 
             <div class="profile-text">
@@ -415,8 +413,8 @@ echo $freelancer_hire_header2;} ?>
                             echo trim(date('d-M-Y', strtotime($post['created_date'])));
                                    ?>
                             </li>
-                             <li>
-                              <a href="#" title="Post Title" class="display_inline" style="font-size: 19px;font-weight: 600;cursor: default;">
+                     <li>
+                    <a href="#" title="Post Title" class="display_inline post_title ">
                               <?php echo ucwords(text2link($post['post_name'])); ?> </a>   </li>
 
                              <li>   
