@@ -10,8 +10,8 @@
        }
 .none_aaaart{border: 1px solid #ccc;}
     .tabordion {
-}
-z-index: 1;
+
+      z-index: 1;
         display: block;
         font-family: arial, sans-serif;
         margin: auto;
@@ -253,7 +253,7 @@ z-index: 1;
                                     <div class="tabordion">
 
                                         <section id="section1">
-                                            <input type="radio" name="sections" id="option1" checked>
+                                            <input type="radio" name="sections" id="option1" <?php if($postid == " "){ echo "checked"; } ?>>
                                             <label for="option1" class="label-d">Primary</label>
                                             <article class="none_aaaart">
 
@@ -361,7 +361,7 @@ z-index: 1;
 
 
                                         <section id="section2">
-                                            <input type="radio" name="sections" id="option2">
+                                            <input type="radio" name="sections" id="option2" <?php if($postid == "secondary"){ echo "checked"; } ?>>
                                             <label for="option2" class="label-d">Secondary</label>
                                               <article class="">
 
@@ -476,7 +476,7 @@ z-index: 1;
 
 
                                         <section id="section3">
-                                            <input type="radio" name="sections" id="option3">
+                                            <input type="radio" name="sections" id="option3" <?php if($postid == "higher-secondary"){ echo "checked"; } ?>>
                                             <label for="option3" class="label-d">Higher Secondary</label>
                                               <article class="">
 
@@ -601,7 +601,7 @@ z-index: 1;
 
 
                                         <section id="section4" style="overflow: auto;">
-                                            <input type="radio" name="sections" id="option4">
+                                            <input type="radio" name="sections" id="option4" <?php if($postid == "graduation"){ echo "checked"; } ?>>
                                             <label for="option4" class="label-d">Graduation</label>
                                              <article class="none_aaaart">
 
