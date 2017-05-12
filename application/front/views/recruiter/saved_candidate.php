@@ -539,10 +539,9 @@
                                                                 }
                                                                 ?>
 
-                                                                <li> <b> Total Experience</b>
-                                                                <span title="Min - Max">
-
-                                                                      <?php if ($rec['experience_year'] ||$rec['experience_month'] ){echo $rec['experience_year'] . ' ' . $rec['experience_month'];} else{ echo PROFILENA;} ?>
+           <li> <b> Total Experience</b>
+               <span>
+                <?php if ($rec['experience_year'] ||$rec['experience_month'] ){echo $rec['experience_year'] . ' ' . $rec['experience_month'];} else{ echo PROFILENA;} ?>
                                                                  </span>
 
                                                                 </li>

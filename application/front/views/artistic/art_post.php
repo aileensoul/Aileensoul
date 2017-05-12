@@ -2918,14 +2918,10 @@
                                         document.getElementById('editpostbox' + abc).style.display = 'none';
                                         document.getElementById('editpostdetails' + abc).style.display = 'block';
                                         document.getElementById('editpostdetailbox' + abc).style.display = 'none';
-
                                         document.getElementById('editpostsubmit' + abc).style.display = 'none';
-
-                                        alert(data.description);
-
+                                        //alert(data.description);
                                         $('#' + 'editpostdata' + abc).html(data.title);
                                         $('#' + 'editpostdetails' + abc).html(data.description);
-
                                     }
                                 });
                             }

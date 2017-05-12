@@ -425,10 +425,10 @@
                                                                     <li><b>Other Skill</b><span><?php echo "-"; ?></span></li><?php } ?>
 
                                                                 <li><b>Job Description</b><span><p>
-                                                                            <?php echo text2link($post['post_description']); ?> </p></span>
+                                                                            <?php echo $this->common->make_links($post['post_description']); ?> </p></span>
                                                                 </li>
                                                                 <li><b>Interview Process</b><span>
-                                                                        <?php echo $post['interview_process']; ?></span>
+                                                                        <?php echo $this->common->make_links($post['interview_process']); ?></span>
                                                                 </li>
                                                                 <!-- vishang 14-4 start -->
                                                               <li>

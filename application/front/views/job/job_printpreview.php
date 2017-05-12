@@ -581,7 +581,7 @@ echo $job_header2;
                                                         <?php
                                                         if ($job[0]['project_description']) {
                                                             ?>
-                                                            <li><b>Project Description</b> <span><?php echo $job[0]['project_description']; ?></span> </li>
+                                                            <li><b>Project Description</b> <span><?php echo $this->common->make_links($job[0]['project_description']); ?></span> </li>
                                                             <?php
                                                         }
                                                         ?>
@@ -600,7 +600,7 @@ echo $job_header2;
                                                         <?php
                                                         if ($job[0]['training_as']) {
                                                             ?>
-                                                            <li> <b>Intern / Trainee As </b><span><?php echo $job[0]['training_as']; ?></span>
+                                                            <li> <b>Intern / Trainee As </b><span><?php echo $this->common->make_links($job[0]['training_as']); ?></span>
                                                             </li>
                                                             <?php
                                                         }
@@ -619,7 +619,7 @@ echo $job_header2;
                                                         <?php
                                                         if ($job[0]['training_organization']) {
                                                             ?>
-                                                            <li> <b>Name of Organization</b><span> <?php echo $job[0]['training_organization']; ?></span>
+                                                            <li> <b>Name of Organization</b><span> <?php echo $this->common->make_links($job[0]['training_organization']); ?></span>
                                                             </li>
                                                             <?php
                                                         }
@@ -838,7 +838,7 @@ echo $job_header2;
                                                     </div>
                                                     <div class="profile-job-profile-menu">
                                                         <ul class="clearfix">
-                                                            <li> <b> Extra Curricular Activites</b><span><?php echo $job[0]['curricular']; ?></span>
+                                                            <li> <b> Extra Curricular Activites</b><span><?php echo $this->common->make_links($job[0]['curricular']); ?></span>
                                                             </li>
 
 
@@ -857,13 +857,13 @@ echo $job_header2;
                                                     </div>
                                                     <div class="profile-job-profile-menu">
                                                         <ul class="clearfix">
-                                                            <li> <b> Interest </b> <span><?php echo $job[0]['interest']; ?></span>
+                                                            <li> <b> Interest </b> <span><?php echo $this->common->make_links($job[0]['interest']); ?></span>
                                                             </li>
 
                                                             <?php
                                                             if ($job[0]['reference']) {
                                                                 ?>
-                                                                <li> <b> Reference </b> <span><?php echo $job[0]['reference']; ?></span>
+                                                                <li> <b> Reference </b> <span><?php echo $this->common->make_links($job[0]['reference']); ?></span>
                                                                 </li>
                                                                 <?php
                                                             }
@@ -884,7 +884,7 @@ echo $job_header2;
                                                         </div>
                                                         <div class="profile-job-profile-menu">
                                                             <ul class="clearfix">
-                                                                <li> <b> Carrier Objectives </b> <span><?php echo $job[0]['carrier']; ?></span>
+                                                                <li> <b> Carrier Objectives </b> <span><?php echo $this->common->make_links($job[0]['carrier']); ?></span>
                                                                 </li>
 
 

@@ -8,13 +8,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!--- for dispaly div insted of input type start -->
 <style type="text/css">
 div .comment {  
+  width: 90%;
    border: 1px solid #ccc;
-    padding-right: 40px!important;
+    padding-right: 50px!important;
     word-break: break-all;
     background-color: #fff;
     /* padding: 10px; */
     font-size: 13px;
     min-height: 41px;
+    position: relative;
+    max-height: 120px;
+    overflow-y: scroll;
+    padding-left: 10px!important;
 }
 </style>
 <?php echo $header; ?>
@@ -149,7 +154,16 @@ if($lstusrdata){?>
               </div>
             </div> -->
             <div class="col-md-12" id="msg_block">
-              <div class="input-group">
+              <div class="input-group" style="width: 94%;
+    background-color: rgba(244, 244, 244, 0.59);
+    font-family: sans-serif;
+    bottom: 0;
+    position: absolute;
+   /* border: 1px solid #4E4E4E;*/
+    max-height: 80px !important;
+    overflow: scroll;
+    overflow-x: hidden;
+    left: 0; margin-bottom: -50px;">
 
                <!--  <input id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." /> -->
                 <form name="blog">
@@ -159,15 +173,15 @@ if($lstusrdata){?>
               <div class="comment" contentEditable="true" name="comments" id="message" style="position: relative;">
 
               </div>
-<div for="smily" style="position: absolute;
+<div for="smily" style="    position: absolute;
     top: 7px;
     right: 61px;
     bottom: 0;">
 <div id="notification_li1" style="position: absolute;
     bottom: 5px;">
     <a href="#" id="notificationLink1" style="position: absolute;
-    bottom: 4px;
-    left: -45px;"><i class="em em-blush"></i></a>
+    bottom: 0;
+    left: -91px;"><i class="em em-blush"></i></a>
     
       <div id="notificationContainer1" style="display: none;
     position: relative;margin-bottom: 37px;">
@@ -189,8 +203,8 @@ if($lstusrdata){?>
     
                 <span class="input-group-btn">
         <button class="btn btn-warning btn-sm" id="submit" style="padding: 10px;
-    background: #003;
-    border: 1px solid #003;">Send</button>
+    background: #003; left: -110px;
+    border: 1px solid #003;position: absolute;bottom: 0;">Send</button>
                 </span>
               </div>
             </div>
