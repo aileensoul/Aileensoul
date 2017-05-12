@@ -438,16 +438,16 @@ public function business_search() {
             $business_post = $post['data'] = $this->common->select_data_by_search('business_profile_post', $search_condition, $condition_array, $data = 'business_profile_post.*,business_profile.company_name,business_profile.industriyal,business_profile.business_profile_id', $sortby = '', $orderby = '', $limit = '', $offset = '',  $join_str, $groupby = '');
          //echo "<pre>"; print_r($business_post); die();
 
-       foreach ($business_post as $ke => $arr) {
-                $postdata[] = $arr;
-            }
-      //  $new = array_unique($postdata);
+      //  foreach ($business_post as $ke => $arr) {
+      //           $postdata[] = $arr;
+      //       }
+      // //  $new = array_unique($postdata);
 
             
-            $new = array();
-            foreach ($postdata as $value) {
-                 $new[$value['business_profile_post_id']] = $value;
-            }
+      //       $new = array();
+      //       foreach ($postdata as $value) {
+      //            $new[$value['business_profile_post_id']] = $value;
+      //       }
         // echo "<pre>"; print_r($new); die();           
         } 
 
@@ -478,16 +478,16 @@ public function business_search() {
             $search_condition = "(business_profile_post.product_name LIKE '%$search_business%' or business_profile_post.product_description LIKE '%$search_business%')";
             $business_post = $post['data'] = $this->common->select_data_by_search('business_profile_post', $search_condition, $contition_array, $data = 'business_profile_post.*,business_profile.company_name,business_profile.industriyal', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
 
-              foreach ($business_post as $ke => $arr) {
-                $postdata[] = $arr;
-            }
-      //  $new = array_unique($postdata);
+      //         foreach ($business_post as $ke => $arr) {
+      //           $postdata[] = $arr;
+      //       }
+      // //  $new = array_unique($postdata);
 
             
-            $new = array();
-            foreach ($postdata as $value) {
-                 $new[$value['business_profile_post_id']] = $value;
-            }  
+      //       $new = array();
+      //       foreach ($postdata as $value) {
+      //            $new[$value['business_profile_post_id']] = $value;
+      //       }  
 
         
 
@@ -497,7 +497,7 @@ public function business_search() {
         }
 
 
-        $this->data['description'] = $new;
+        $this->data['description'] = $business_post;
 //echo "string";
    // echo "<pre>"; print_r($this->data['description']); die();
 
