@@ -421,8 +421,8 @@
           <ul>
 
              <li>
-           <a href="<?php echo base_url('freelancer/freelancer_post_profile/' . $rec['user_id'].'?page=freelancer_hire'); ?>" title="<?php echo ucwords($rec['freelancer_post_fullname']) . ' ' . ucwords($rec['freelancer_post_username']); ?>"><h6>
-          <?php echo ucwords($rec['freelancer_post_fullname']) . ' ' . ucwords($rec['freelancer_post_username']); ?></h6>
+           <a  class="post_name" href="<?php echo base_url('freelancer/freelancer_post_profile/' . $rec['user_id'].'?page=freelancer_hire'); ?>" title="<?php echo ucwords($rec['freelancer_post_fullname']) . ' ' . ucwords($rec['freelancer_post_username']); ?>">
+          <?php echo ucwords($rec['freelancer_post_fullname']) . ' ' . ucwords($rec['freelancer_post_username']); ?>
                </a></li>
 
                <li style="display: block;"> <a href="#">

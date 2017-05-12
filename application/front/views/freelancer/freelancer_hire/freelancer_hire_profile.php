@@ -224,7 +224,7 @@ label.cameraButton input[accept*="camera"] {
                
         <div class="job-menu-profile1">
        
-                           <h3> <?php echo ucwords($freelancerhiredata[0]['fullname']) . ' '.ucwords($freelancerhiredata[0]['username']); ?></h3>
+                           <h5> <?php echo ucwords($freelancerhiredata[0]['fullname']) . ' '.ucwords($freelancerhiredata[0]['username']); ?></h5>
                            
                            <div class="profile-text">
 
