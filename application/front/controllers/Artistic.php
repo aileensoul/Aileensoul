@@ -3789,8 +3789,8 @@ echo '<pre>'; print_r($artdata); die();
             }
             if ($this->data['artdata'][0]['art_description']) {
 
-                $editpostdes = '<span class="show">';
-                $editpostdes .= $this->common->make_links($artdata[0]['art_description']) . "<br>";
+                $editpostdes .= '<span class="show">';
+                $editpostdes .= $this->common->make_links($artdata[0]['art_description']);
                 $editpostdes .= '</span>';
             }
             //echo $editpost;   echo $editpostdes;
