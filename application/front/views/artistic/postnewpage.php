@@ -3308,7 +3308,7 @@ if (count($commnetcount) > 0) {
                        
                         function comment_likeimg(clicked_id)
                         {
-                                 //alert(clicked_id);
+                               // alert(clicked_id);
                             $.ajax({
                                 type: 'POST',
                                 url: '<?php echo base_url() . "artistic/like_commentimg1" ?>',

@@ -4003,7 +4003,7 @@ echo '<pre>'; print_r($artdata); die();
                     'not_from_id' => $userid,
                     'not_to_id' => $likepostid[0]['user_id'],
                     'not_read' => 2,
-                    'not_product_id' => $insert_id,
+                    'not_product_id' => $post_image,
                     'not_from' => 3,
                     'not_img' => 5
                 );
@@ -4147,7 +4147,7 @@ echo '<pre>'; print_r($artdata); die();
                         'not_from_id' => $userid,
                         'not_to_id' => $likepostid[0]['user_id'],
                         'not_read' => 2,
-                        'not_product_id' => $post_image_id,
+                        'not_product_id' => $post_image,
                         'not_from' => 3,
                         'not_img' => 5
                     );
@@ -4558,7 +4558,7 @@ echo '<pre>'; print_r($artdata); die();
     public function like_commentimg1() {
 
         $userid = $this->session->userdata('aileenuser');
-        $post_image_comment_id = $_POST["post_image_comment_id"];
+       $post_image_comment_id = $_POST["post_image_comment_id"];
 
         $contition_array = array('post_image_comment_id' => $post_image_comment_id, 'user_id' => $userid);
 
@@ -4599,7 +4599,7 @@ echo '<pre>'; print_r($artdata); die();
                     'not_from_id' => $userid,
                     'not_to_id' => $artimglikepost[0]['user_id'],
                     'not_read' => 2,
-                    'not_product_id' => $insertdata,
+                    'not_product_id' => $post_image_comment_id,
                     'not_from' => 3,
                     'not_img' => 6
                 );
