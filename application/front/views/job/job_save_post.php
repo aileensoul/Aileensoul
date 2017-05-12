@@ -357,16 +357,7 @@
             <div class="job-saved-box">
                 <h3>Saved Job</h3>
                 <div class="contact-frnd-post">
-                    <?php
-
-                    function text2link($text) {
-                        $text = preg_replace('/(((f|ht){1}t(p|ps){1}:\/\/)[-a-zA-Z0-9@:%_\+.~#?&\/\/=]+)/i', '<a href="\\1" target="_blank" rel="nofollow">\\1</a>', $text);
-                        $text = preg_replace('/([[:space:]()[{}])(www.[-a-zA-Z0-9@:%_\+.~#?&\/\/=]+)/i', '\\1<a href="http://\\2" target="_blank" rel="nofollow">\\2</a>', $text);
-                        $text = preg_replace('/([_\.0-9a-z-]+@([0-9a-z][0-9a-z-]+\.)+[a-z]{2,3})/i', '<a href="mailto:\\1" rel="nofollow" target="_blank">\\1</a>', $text);
-                        return $text;
-                    }
-                    ?>
-
+                    
                     <?php
                     if ($postdetail) {
 
@@ -385,7 +376,7 @@
                                                 </li>
                      <li>
                <a  class="display_inline post_title" href="#" title="Post Title" >
-               <?php echo ucwords(text2link($post['post_name'])); ?> </a>   </li>
+               <?php echo ucwords($this->common->make_links($post['post_name'])); ?> </a>   </li>
 
              <li>   
                                                     <div class="fr lction">
@@ -456,10 +447,10 @@
                                                     <li><b>Other Skill</b><span><?php echo "-"; ?></span></li><?php } ?>
 
                                                 <li><b>Job Description</b><span><p>
-                                                            <?php echo text2link($post['post_description']); ?> </p></span>
+                                                            <?php echo $this->common->make_links($post['post_description']); ?> </p></span>
                                                 </li>
                                                 <li><b>Interview Process</b><span>
-                                                        <?php echo $post['interview_process']; ?></span>
+                                                        <?php echo $this->common->make_links($post['interview_process']); ?></span>
                                                 </li>
                                                    <li>
                                                 <b>Required Experience</b>
