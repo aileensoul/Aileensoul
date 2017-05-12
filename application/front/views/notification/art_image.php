@@ -2467,9 +2467,15 @@ if (count($commnetcount) > 0) {
                         </script>
                         <!-- remove particular user post end -->
                         <script>
-                          //  function openModal() {
+//khyati changes 12-5 start
+ document.getElementById('myModal1').style.display = "block";
+ var count = '<?php echo $count; ?>';
+ //alert(count);
+ showSlides(slideIndex = count);
+// khyati changes 12-5 end
+                            function openModal() {
                                 document.getElementById('myModal1').style.display = "block";
-                          //  }
+                            }
                             function closeModal() {
                                 document.getElementById('myModal1').style.display = "none";
                             }
@@ -2478,9 +2484,9 @@ if (count($commnetcount) > 0) {
                             function plusSlides(n) {
                                 showSlides(slideIndex += n);
                             }
-                           // function currentSlide(n) {
+                            function currentSlide(n) {
                                 showSlides(slideIndex = n);
-                          //  }
+                            }
                             function showSlides(n) {
                                 var i;
                                 var slides = document.getElementsByClassName("mySlides");

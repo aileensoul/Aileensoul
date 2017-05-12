@@ -90,8 +90,6 @@ class Artistic extends MY_Controller {
 
         // code for search
         $contition_array = array('status' => '1', 'is_delete' => '0');
-
-
         $artdata = $this->data['results'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_name,art_lastname,designation,other_skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
 
 

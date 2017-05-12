@@ -742,19 +742,11 @@
                                                 ?>
 
 
-<!--                                                <div id="two_images_bui" >
-                                                    <img src="<?php //echo base_url(BUSPOSTIMAGE . $data['image_name']) ?>" style="width: 100%; height: 100%;" onclick="openModal();
-                                                                    currentSlide(<?php //echo $i; ?>)" class="hover-shadow cursor">
-                                                </div>-->
-                                        
-                                        <div id="two_images_bui" >
-           <img src="<?php echo base_url(BUSPOSTIMAGE . $data['image_name']) ?>" style="width: 100%; height: 100%;"  class="hover-shadow cursor">
+                                                <div id="two_images_bui" >
+                                                    <img src="<?php echo base_url(BUSPOSTIMAGE . $data['image_name']) ?>" style="width: 100%; height: 100%;" onclick="openModal();
+                                                                    currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
                                                 </div>
-
-
-
-
-
+                                        
                                             <?php } elseif (in_array($ext, $allowespdf)) { ?>
 
                                                 <!-- one pdf start -->
@@ -1691,9 +1683,15 @@
 </script>
 
 <script>
-    //function openModal() {
+ //khyati changes 12-5 start
+ document.getElementById('myModal1').style.display = "block";
+ var count = '<?php echo $count; ?>';
+ //alert(count);
+ showSlides(slideIndex = count);
+// khyati changes 12-5 end
+    function openModal() {
         document.getElementById('myModal1').style.display = "block";
- //   }
+    }
 
     function closeModal() {
         document.getElementById('myModal1').style.display = "none";
@@ -1706,10 +1704,10 @@
         showSlides(slideIndex += n);
     }
 
-  // function currentSlide(n) {
+   function currentSlide(n) {
   //alert(n);
         showSlides(slideIndex = n);
-  //  }
+    }
 
     function showSlides(n) {
         var i;

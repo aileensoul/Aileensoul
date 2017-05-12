@@ -186,7 +186,7 @@ class Notification extends MY_Controller {
         );
         $data = array('notification.*', 'post_image.*', ' user.user_id', 'user.first_name', 'user.user_image', 'user.last_name');
         $this->data['artimglike'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'image_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
- 
+ //echo '<pre>'; print_r($this->data['artimglike']); die();
         $contition_array = array('notification.not_type' => 6, 'notification.not_from' => 3, 'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
         $join_str = array(array(
                 'join_type' => '',
@@ -216,16 +216,8 @@ class Notification extends MY_Controller {
         );
         $data = array('notification.*', ' art_post_image_comment.*', ' user.user_id', 'user.first_name', 'user.user_image', 'user.last_name');
         $this->data['artimgcmtlike'] = $artimgcmtlike = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'post_image_comment_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
-//echo '<pre>'; print_r($this->data['artimgcmtlike']); die();
-
-//echo '<pre>'; print_r($this->data['artimgcommnet']); die();
-//echo '<pre>'; print_r($this->data['artimglike']); die();
 
 // like notification end
-//echo '<pre>'; 
-//print_r($this->data['artcommnet']); 
-//print_r($this->data['artlike']); 
-//die();
 // artistic notification end
 // business profile notification start
 // follow notification start
@@ -440,12 +432,27 @@ class Notification extends MY_Controller {
         $this->load->view('notification/art_post', $this->data);
     }
     
-    public function art_post_img($id) {
+    public function art_post_img($id,$imageid) {
+      //  $imageid = 70;
         $userid = $this->session->userdata('aileenuser');
         $contition_array = array('user_id' => $userid, 'status' => '1');
         $this->data['artisticdata'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         $contition_array = array('art_post_id' => $id, 'status' => '1');
         $this->data['art_data'] = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+       
+        $contition_array = array('post_id' => $id, 'is_deleted' => '1', 'image_type' => '1');
+        $artmultiimage = $this->data['artmultiimage'] = $this->common->select_data_by_condition('post_image', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+       
+        $i=1;
+        foreach($artmultiimage as $artimg){
+            if($artimg['image_id'] == $imageid){
+                  $count = $i;
+                }
+            $i++;
+        }
+       $this->data['count'] = $count;
+      
+        
         $this->load->view('notification/art_image', $this->data);
     }
 
@@ -463,12 +470,25 @@ class Notification extends MY_Controller {
         $this->load->view('notification/business_post', $this->data);
     }
     
-     public function bus_post_img($id) { //echo $id; die();
+     public function bus_post_img($id,$imageid) { //echo $id; die();
         $userid = $this->session->userdata('aileenuser');
         $contition_array = array('user_id' => $userid, 'status' => '1');
         $this->data['businessdata'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         $contition_array = array('business_profile_post_id' => $id, 'status' => '1');
         $this->data['busienss_data'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+         
+        $contition_array = array('post_id' => $id, 'is_deleted' => '1', 'image_type' => '2');
+        $busmultiimage = $this->data['busmultiimage'] = $this->common->select_data_by_condition('post_image', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+       
+        $i=1;
+        foreach($busmultiimage as $artimg){
+            if($artimg['image_id'] == $imageid){
+                  $count = $i;
+                }
+            $i++;
+        }
+       $this->data['count'] = $count;
+        
         $this->load->view('notification/bus_image', $this->data);
     }
 
@@ -1053,7 +1073,7 @@ $contition_array = array('notification.not_type' => 5, 'notification.not_from' =
         $notification .= '<img src="' . base_url(USERIMAGE . $bus['user_image']) . '" >';
         $notification .= '</div>';
         $notification .= '<div class="notification-data-inside">';
-        $notification .= '<a href="' . base_url('notification/art_post_img/' . $bus['post_id']) . '"><h6>HI.. !  <font color="#4e6db1"><b><i> Artistic</i></font></b><b>' . $bus['first_name'] . ' ' . $bus['last_name'] . '</b> liked on your image</h6></a>';
+        $notification .= '<a href="' . base_url('notification/art_post_img/' . $bus['post_id'] . '/' . $bus['image_id']) . '"><h6>HI.. !  <font color="#4e6db1"><b><i> Artistic</i></font></b><b>' . $bus['first_name'] . ' ' . $bus['last_name'] . '</b> liked on your image</h6></a>';
         $notification .= '<div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
         $notification .= '' . $this->common->time_elapsed_string($bus['message_create_date'], $full = false) . '';
         $notification .= '</div>';
@@ -1074,7 +1094,7 @@ $contition_array = array('notification.not_type' => 5, 'notification.not_from' =
                              $notification .= '<img src="' . base_url(USERIMAGE . $bus['user_image']) . '" >';
                              $notification .= '</div>';
                              $notification .= '<div class="notification-data-inside">';
-                             $notification .= '<a href="' . base_url('notification/art_post_img/' . $postid) . '"><h6>HI.. !  <font color="#4e6db1"><b><i> Artistic</i></font></b><b>' . $bus['first_name'] . ' ' . $bus['last_name'] . '</b> commneted on your image</h6></a>';
+                             $notification .= '<a href="' . base_url('notification/art_post_img/' . $postid . '/' . $bus['post_image_id']) . '"><h6>HI.. !  <font color="#4e6db1"><b><i> Artistic</i></font></b><b>' . $bus['first_name'] . ' ' . $bus['last_name'] . '</b> commneted on your image</h6></a>';
                              $notification .= '<div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
                              $notification .= '' . $this->common->time_elapsed_string($bus['message_create_date'], $full = false) . '';
                              $notification .= '</div>';
@@ -1094,7 +1114,7 @@ $contition_array = array('notification.not_type' => 5, 'notification.not_from' =
                       $notification .= '<img src="' . base_url(USERIMAGE . $bus['user_image']) . '>';
                       $notification .= '</div>';
                       $notification .= '<div class="notification-data-inside">';
-                      $notification .= '<a href="' . base_url('notification/art_post_img/' . $postid) . '"><h6>HI.. !  <font color="#4e6db1"><b><i> Artistic</i></font></b><b>' . $bus['first_name'] . ' ' . $bus['last_name'] . '</b> liked on your comment</h6></a>';
+                      $notification .= '<a href="' . base_url('notification/art_post_img/' . $postid . '/' . $bus['post_image_id']) . '"><h6>HI.. !  <font color="#4e6db1"><b><i> Artistic</i></font></b><b>' . $bus['first_name'] . ' ' . $bus['last_name'] . '</b> liked on your comment</h6></a>';
                       $notification .= '<div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
                       $notification .= '' . $this->common->time_elapsed_string($bus['message_create_date'], $full = false) . '';
                       $notification .= '</div>';
@@ -1203,7 +1223,7 @@ $contition_array = array('notification.not_type' => 5, 'notification.not_from' =
                                    $notification .=  '<img src="' . base_url(USERIMAGE . $bus['user_image']) . '" >';
                                    $notification .=  '</div>';
                                    $notification .=  '<div class="notification-data-inside">';
-                                   $notification .=  '<a href="' . base_url('notification/bus_post_img/' . $bus['post_id']) . '"><h6>HI.. !  <font color="#4e6db1"><b><i> Businessman</i></font></b><b>' . $bus['first_name'] . ' ' . $bus['last_name'] . '</b> liked on your image</h6></a>';
+                                   $notification .=  '<a href="' . base_url('notification/bus_post_img/' . $bus['post_id'] . '/' . $bus['image_id']) . '"><h6>HI.. !  <font color="#4e6db1"><b><i> Businessman</i></font></b><b>' . $bus['first_name'] . ' ' . $bus['last_name'] . '</b> liked on your image</h6></a>';
                                     $notification .= '<div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
                                     $notification .=  '' . $this->common->time_elapsed_string($bus['message_create_date'], $full = false) . '';
                                     $notification .=  '</div>';
@@ -1223,7 +1243,7 @@ $contition_array = array('notification.not_type' => 5, 'notification.not_from' =
                                                $notification .=  '<img src="' . base_url(USERIMAGE . $bus['user_image']) . '" >';
                                             $notification .=  '</div>';
                                             $notification .=  '<div class="notification-data-inside">';
-                                                $notification .=  '<a href="' . base_url('notification/bus_post_img/' . $postid) . '"><h6>HI.. !  <font color="#4e6db1"><b><i> Business</i></font></b><b>' . $bus['first_name'] . ' ' . $bus['last_name'] . '</b> commneted on your image</h6></a>';
+                                                $notification .=  '<a href="' . base_url('notification/bus_post_img/' . $postid . '/' . $bus['post_image_id']) . '"><h6>HI.. !  <font color="#4e6db1"><b><i> Business</i></font></b><b>' . $bus['first_name'] . ' ' . $bus['last_name'] . '</b> commneted on your image</h6></a>';
                                                 $notification .=  '<div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
                                              $notification .=  '' .  $this->common->time_elapsed_string($bus['message_create_date'], $full = false) . '';
                                                 $notification .=  '</div>';
@@ -1245,7 +1265,7 @@ $contition_array = array('notification.not_type' => 5, 'notification.not_from' =
         $notification .= '<img src="' . base_url(USERIMAGE . $bus['user_image']) . '" >';
         $notification .= '</div>';
         $notification .= '<div class="notification-data-inside">';
-        $notification .= '<a href="' . base_url('notification/bus_post_img/' . $postid) . '"><h6>HI.. !  <font color="#4e6db1"><b><i> Business</i></font></b><b>' . $bus['first_name'] . ' ' . $bus['last_name'] . '</b> liked on your comment</h6></a>';
+        $notification .= '<a href="' . base_url('notification/bus_post_img/' . $postid . '/' . $bus['post_image_id']) . '"><h6>HI.. !  <font color="#4e6db1"><b><i> Business</i></font></b><b>' . $bus['first_name'] . ' ' . $bus['last_name'] . '</b> liked on your comment</h6></a>';
         $notification .= '<div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
         $notification .= '' . $this->common->time_elapsed_string($bus['message_create_date'], $full = false) . '';
         $notification .= '</div>';
