@@ -4715,7 +4715,7 @@ echo '<pre>'; print_r($artdata); die();
                     
                 } else { 
 
-            $contition_array = array('not_type' => 5, 'not_from_id' => $userid, 'not_to_id' => $artimglikepost[0]['user_id'], 'not_product_id' => $post_image_comment_id, 'not_from' => 3, 'not_img' => 6);
+            $contition_array = array('not_type' => 5, 'not_from_id' => $userid, 'not_to_id' => $artimglike[0]['user_id'], 'not_product_id' => $post_image_comment_id, 'not_from' => 3, 'not_img' => 6);
             $artnotification = $this->common->select_data_by_condition('notification', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                 if ($artnotification[0]['not_read'] == 2) {  
                         
@@ -4725,7 +4725,7 @@ echo '<pre>'; print_r($artdata); die();
                     'not_read' => 2
                     );
 
-                $where = array('not_type' => 5, 'not_from_id' => $userid, 'not_to_id' => $artimglikepost[0]['user_id'], 'not_product_id' => $post_image_comment_id, 'not_from' => 3, 'not_img' => 6);
+                $where = array('not_type' => 5, 'not_from_id' => $userid, 'not_to_id' => $artimglike[0]['user_id'], 'not_product_id' => $post_image_comment_id, 'not_from' => 3, 'not_img' => 6);
                 $this->db->where($where);
                 $updatdata = $this->db->update('notification', $datalike);
                     } else { 
@@ -4805,13 +4805,13 @@ echo '<pre>'; print_r($artdata); die();
 
              // insert notification
 
-            if ($artimglikepost[0]['user_id'] == $userid) {
+            if ($artimglike[0]['user_id'] == $userid) {
                 
             } else {
                 $data = array(
                     'not_type' => 5,
                     'not_from_id' => $userid,
-                    'not_to_id' => $artimglikepost[0]['user_id'],
+                    'not_to_id' => $artimglike[0]['user_id'],
                     'not_read' => 2,
                     'not_product_id' => $insertdata,
                     'not_from' => 3,
@@ -4891,11 +4891,11 @@ echo '<pre>'; print_r($artdata); die();
 
                 // insert notification
 
-                if ($artimglikepost[0]['user_id'] == $userid) { 
+                if ($artimglike[0]['user_id'] == $userid) { 
                     
                 } else { 
 
-            $contition_array = array('not_type' => 5, 'not_from_id' => $userid, 'not_to_id' => $artimglikepost[0]['user_id'], 'not_product_id' => $post_image_comment_id, 'not_from' => 3, 'not_img' => 6);
+            $contition_array = array('not_type' => 5, 'not_from_id' => $userid, 'not_to_id' => $artimglike[0]['user_id'], 'not_product_id' => $post_image_comment_id, 'not_from' => 3, 'not_img' => 6);
             $artnotification = $this->common->select_data_by_condition('notification', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                 if ($artnotification[0]['not_read'] == 2) {  
                         
@@ -4905,14 +4905,14 @@ echo '<pre>'; print_r($artdata); die();
                     'not_read' => 2
                     );
 
-                $where = array('not_type' => 5, 'not_from_id' => $userid, 'not_to_id' => $artimglikepost[0]['user_id'], 'not_product_id' => $post_image_comment_id, 'not_from' => 3, 'not_img' => 6);
+                $where = array('not_type' => 5, 'not_from_id' => $userid, 'not_to_id' => $artimglike[0]['user_id'], 'not_product_id' => $post_image_comment_id, 'not_from' => 3, 'not_img' => 6);
                 $this->db->where($where);
                 $updatdata = $this->db->update('notification', $datalike);
                     } else { 
                     $data = array(
                         'not_type' => 5,
                         'not_from_id' => $userid,
-                        'not_to_id' => $artimglikepost[0]['user_id'],
+                        'not_to_id' => $artimglike[0]['user_id'],
                         'not_read' => 2,
                         'not_product_id' => $post_image_comment_id,
                         'not_from' => 3,

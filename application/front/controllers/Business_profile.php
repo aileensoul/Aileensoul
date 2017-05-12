@@ -4937,7 +4937,7 @@ class Business_profile extends MY_Controller {
                 } else {
 
 
-                    $contition_array = array('not_type' => 5, 'not_from_id' => $userid, 'not_to_id' => $busimglikepost[0]['user_id'], 'not_product_id' => $post_image_comment_id, 'not_from' => 6, 'not_img' => 6);
+                    $contition_array = array('not_type' => 5, 'not_from_id' => $userid, 'not_to_id' => $busimglike[0]['user_id'], 'not_product_id' => $post_image_comment_id, 'not_from' => 6, 'not_img' => 6);
                     $busnotification = $this->common->select_data_by_condition('notification', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                     if ($busnotification[0]['not_read'] == 2) {
                         
@@ -4947,7 +4947,7 @@ class Business_profile extends MY_Controller {
                             'not_read' => 2
                         );
 
-                        $where = array('not_type' => 5, 'not_from_id' => $userid, 'not_to_id' => $busimglikepost[0]['user_id'], 'not_product_id' => $post_image_comment_id, 'not_from' => 6, 'not_img' => 6);
+                        $where = array('not_type' => 5, 'not_from_id' => $userid, 'not_to_id' => $busimglike[0]['user_id'], 'not_product_id' => $post_image_comment_id, 'not_from' => 6, 'not_img' => 6);
                         $this->db->where($where);
                         $updatdata = $this->db->update('notification', $datalike);
                     } else {
@@ -5121,7 +5121,7 @@ class Business_profile extends MY_Controller {
                     
                 } else {
 
-                    $contition_array = array('not_type' => 5, 'not_from_id' => $userid, 'not_to_id' => $busimglikepost[0]['user_id'], 'not_product_id' => $post_image_comment_id, 'not_from' => 6, 'not_img' => 6);
+                    $contition_array = array('not_type' => 5, 'not_from_id' => $userid, 'not_to_id' => $busimglike[0]['user_id'], 'not_product_id' => $post_image_comment_id, 'not_from' => 6, 'not_img' => 6);
                     $busnotification = $this->common->select_data_by_condition('notification', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                     if ($busnotification[0]['not_read'] == 2) {
                         
@@ -5131,7 +5131,7 @@ class Business_profile extends MY_Controller {
                             'not_read' => 2
                         );
 
-                        $where = array('not_type' => 5, 'not_from_id' => $userid, 'not_to_id' => $busimglikepost[0]['user_id'], 'not_product_id' => $post_image_comment_id, 'not_from' => 6, 'not_img' => 6);
+                        $where = array('not_type' => 5, 'not_from_id' => $userid, 'not_to_id' => $busimglike[0]['user_id'], 'not_product_id' => $post_image_comment_id, 'not_from' => 6, 'not_img' => 6);
                         $this->db->where($where);
                         $updatdata = $this->db->update('notification', $datalike);
                     } else {
