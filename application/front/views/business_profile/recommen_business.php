@@ -116,13 +116,10 @@
 
                                 <div class="profile-job-post-title-inside clearfix search" style="border: 1px solid #d9d9d9;">
                                     <?php
-                                    if (count($businessuserdata) > 0) {
-                                        if ($businessuserdata) {
-                                            foreach ($businessuserdata as $p) {
-                                                $cache_time = $this->db->get_where('industry_type', array('industry_id' => $p['industriyal']))->row()->industry_name;
-                                                $cache_time1 = $this->db->get_where('business_type', array('type_id' => $p['business_type']))->row()->business_name;
-                                                $cityname = $this->db->get_where('cities', array('city_id' => $p['city']))->row()->city_name;
-                                                if (($p['company_name']) || ($cache_time) || ($cache_time1) || ($cityname) || ($p['contact_website'])) {
+                                    if (count($profile) > 0 || count($description) > 0) {
+                                        if ($profile) {
+                                            foreach ($profile as $p) {
+                                              // echo "<pre>"; print_r();die();
                                                     ?>
                                                     <div class="profile-job-profile-button clearfix box_search_module" style="height: 16%;">
                                                         <div class="profile-job-post-location-name-rec">
@@ -191,20 +188,23 @@
                                                             </div>
 
 
-
+                                                               
                                                         </div>
                                                     </div>
                                                     <?php
                                                 }
                                             }
-                                        }?>
+
+                                        ?>
                                         <?php
-                                        if ($businessuserdata) {
 
-                                            foreach ($businessuserdata as $p) {
+                                        if ($description) {
+                                                 
+                                            foreach ($description as $p) {
 
+                                           
                                               
-                                                if ($p['product_description']) {
+                                               if (($p['product_description']) || ($p['product_name'])){
                                                     ?>
                                                     <div class="col-md-12 col-sm-12 post-design-box" id="removepost5" style="margin-bottom: 0px; box-shadow: none; border: none;">
                                                         <div class="post_radius_box">  
@@ -495,4 +495,23 @@
 
                                                                         });
 </script>
-
+<script>
+    //select2 autocomplete start for Location
+    $('#searchplace').select2({
+        placeholder: 'Find Your Location',
+        maximumSelectionLength: 1,
+        ajax: {
+            url: "<?php echo base_url(); ?>business_profile/location",
+            dataType: 'json',
+            delay: 250,
+            processResults: function (data) {
+                return {
+                    //alert(data);
+                    results: data
+                };
+            }
+            ,
+            cache: true
+        }
+    });
+</script>

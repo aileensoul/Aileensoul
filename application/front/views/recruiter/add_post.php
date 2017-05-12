@@ -303,14 +303,14 @@
 <script>
 
 </script>
- <script src="<?php echo base_url('js/jquery.js'); ?>"></script> 
+
 <script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
-<script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
-<script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
-<script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
+ <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
+ <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
+ <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
-
-
+<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.min.js') ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
 
 <script>
 
@@ -371,8 +371,7 @@ $('#datepicker').datetimepicker({
   //maxDate:'+1970/01/02' // and tommorow is maximum date calendar
 });
 </script>
-<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.min.js') ?>"></script>
-<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
+
 
 <script type="text/javascript">
 
@@ -387,91 +386,91 @@ $('#datepicker').datetimepicker({
         $("#artpost").validate({
             //ignore: [],
 
-            ignore: '*:not([name])',
+            //ignore: '*:not([name])',
             rules: {
 
                 post_name: {
 
-                    required: true
+                    required: true,
                 },
 
 
                 'skills[]': {
 
-                    require_from_group: [1, ".skill_other"]
+                    require_from_group: [1, ".skill_other"],
 
                 },
                 other_skill: {
 
-                    require_from_group: [1, ".skill_other"]
+                    require_from_group: [1, ".skill_other"],
 
                 },
 
                 year: {
 
-                    required: true
+                    required: true,
                 },
 
                 month: {
 
-                    required: true
+                    required: true,
 
                 },
 
                 position: {
 
-                    required: true
+                    required: true,
 
                 },
 
                 post_desc: {
 
-                    required: true
+                    required: true,
 
                 },
 
                 country: {
 
-                    required: true
+                    required: true,
 
                 },
 
                 state: {
 
-                    required: true
+                    required: true,
 
                 },
 
                 minyear: {
 
-                    require_from_group: [1, ".keyskil"]
+                    require_from_group: [1, ".keyskil"],
                             //required:true 
                 },
 
                 minmonth: {
 
-                    require_from_group: [1, ".keyskil"]
+                    require_from_group: [1, ".keyskil"],
                             // required:true 
                 },
 
                 maxyear: {
 
-                    require_from_group: [1, ".keyskil1"]
+                    require_from_group: [1, ".keyskil1"],
                             //required:true 
                 },
 
                 maxmonth: {
 
-                    require_from_group: [1, ".keyskil1"]
+                    require_from_group: [1, ".keyskil1"],
                             // required:true 
                 },
 
                 last_date: {
 
-                    required: true
+                    required: true,
                             // required:true 
                 },
-                  maxsal: {greaterThan: '#minsal'},
+                  
 
 
             },
@@ -480,82 +479,82 @@ $('#datepicker').datetimepicker({
 
                 post_name: {
 
-                    required: "Post name Is Required."
+                    required: "Post name Is Required.",
 
                 },
                 'skills[]': {
 
-                    require_from_group: "You must either fill out 'skill' or 'other_skill'"
+                    require_from_group: "You must either fill out 'skill' or 'other_skill'",
                 },
 
                 other_skill: {
 
-                    require_from_group: "You must either fill out 'skill' or 'other_skill'"
+                    require_from_group: "You must either fill out 'skill' or 'other_skill'",
                 },
 
                 minyear: {
 
-                    required: "Year Selection Is Required"
+                    required: "Year Selection Is Required",
                 },
 
                 minmonth: {
 
-                    required: "Month no Is Required."
+                    required: "Month no Is Required.",
 
                 },
 
                 position: {
 
-                    required: "Position Selection Is Required"
+                    required: "Position Selection Is Required",
 
                 },
 
                 post_desc: {
 
-                    required: "Post Description Is Required"
+                    required: "Post Description Is Required",
 
                 },
 
                 country: {
 
-                    required: "Country Is Required."
+                    required: "Country Is Required.",
 
                 },
                 state: {
 
-                    required: "State Is Required."
+                    required: "State Is Required.",
 
                 },
 
                 minyear: {
 
-                    require_from_group: "You must either fill out 'month' or 'year'"
+                    require_from_group: "You must either fill out 'month' or 'year'",
 
                 },
 
                 minmonth: {
 
-                    require_from_group: "You must either fill out 'Keyskills' or 'Other Skills'"
+                    require_from_group: "You must either fill out 'Keyskills' or 'Other Skills'",
                 },
 
                 maxyear: {
 
-                    require_from_group: "You must either fill out 'month' or 'year'"
+                    require_from_group: "You must either fill out 'month' or 'year'",
 
                 },
 
                 maxmonth: {
 
-                    require_from_group: "You must either fill out 'Keyskills' or 'Other Skills'"
+                    require_from_group: "You must either fill out 'Keyskills' or 'Other Skills'",
                 },
 
                 last_date: {
 
-                    required: "Last date  Is Required."
+                    required: "Last date  Is Required.",
                 },
 
                 maxsal:{
-                     required: "min salary not greater than maximum salary."
+                     required: "min salary not greater than maximum salary.",
                 }
 
             }
