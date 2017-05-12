@@ -2936,7 +2936,7 @@
 
                                     document.getElementById('editpostsubmit' + abc).style.display = 'none';
 
-
+                                    alert(data.description);
 
                                     $('#' + 'editpostdata' + abc).html(data.title);
                                     $('#' + 'editpostdetails' + abc).html(data.description);
