@@ -311,16 +311,16 @@ $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
     
      $contition_array = array('is_delete' => '0' , 'status' => '1');
 
-     $join_str[0]['table'] = 'messages';
-     $join_str[0]['join_table_id'] = 'messages.message_to';
-     $join_str[0]['from_table_id'] = 'user.user_id';
-     $join_str[0]['join_type'] = '';
+     $join_str1[0]['table'] = 'messages';
+     $join_str1[0]['join_table_id'] = 'messages.message_to';
+     $join_str1[0]['from_table_id'] = 'user.user_id';
+     $join_str1[0]['join_type'] = '';
 
      
      
     $search_condition = "((message_from = '$id' OR message_to = '$id') && (message_to != '$userid'))";
 
-     $seltousr = $this->common->select_data_by_search('user', $search_condition,$contition_array, $data = 'messages.id,message_to,first_name,user_image,message', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str, $groupby = '');
+     $seltousr = $this->common->select_data_by_search('user', $search_condition,$contition_array, $data = 'messages.id,message_to,first_name,user_image,message', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str1, $groupby = '');
 
 
      // slected user chat from
@@ -328,16 +328,16 @@ $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
     
      $contition_array = array('is_delete' => '0' , 'status' => '1');
 
-     $join_str[0]['table'] = 'messages';
-     $join_str[0]['join_table_id'] = 'messages.message_from';
-     $join_str[0]['from_table_id'] = 'user.user_id';
-     $join_str[0]['join_type'] = '';
+     $join_str2[0]['table'] = 'messages';
+     $join_str2[0]['join_table_id'] = 'messages.message_from';
+     $join_str2[0]['from_table_id'] = 'user.user_id';
+     $join_str2[0]['join_type'] = '';
 
      
      
     $search_condition = "((message_from = '$id' OR message_to = '$id') && (message_from != '$userid'))";
 
-     $selfromusr = $this->common->select_data_by_search('user', $search_condition,$contition_array, $data = 'messages.id,message_from,first_name,user_image,message', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str, $groupby = '');
+     $selfromusr = $this->common->select_data_by_search('user', $search_condition,$contition_array, $data = 'messages.id,message_from,first_name,user_image,message', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str2, $groupby = '');
 
 
 $selectuser = array_merge($seltousr,$selfromusr);
@@ -379,14 +379,14 @@ if($i==1) break;
      // message to user
      $contition_array = array('is_delete' => '0' , 'status' => '1','message_to !=' => $userid);
 
-     $join_str[0]['table'] = 'messages';
-     $join_str[0]['join_table_id'] = 'messages.message_to';
-     $join_str[0]['from_table_id'] = 'user.user_id';
-     $join_str[0]['join_type'] = '';
+     $join_str3[0]['table'] = 'messages';
+     $join_str3[0]['join_table_id'] = 'messages.message_to';
+     $join_str3[0]['from_table_id'] = 'user.user_id';
+     $join_str3[0]['join_type'] = '';
      
 $search_condition = "((message_from = '$userid') && (message_to != '$id'))";
 
-     $tolist = $this->common->select_data_by_search('user',$search_condition,$contition_array, $data = 'messages.id,message_to,first_name,user_image,message', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str, $groupby = '');
+     $tolist = $this->common->select_data_by_search('user',$search_condition,$contition_array, $data = 'messages.id,message_to,first_name,user_image,message', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str3, $groupby = '');
 
      // uniq array of tolist  
       foreach($tolist as $k => $v) 
@@ -424,14 +424,14 @@ if($to_list['message_to'] != $id){
     // message from user
     $contition_array = array('is_delete' => '0' , 'status' => '1','message_from !=' => $userid);
 
-    $join_str[0]['table'] = 'messages';
-    $join_str[0]['join_table_id'] = 'messages.message_from';
-    $join_str[0]['from_table_id'] = 'user.user_id';
-    $join_str[0]['join_type'] = '';
+    $join_str4[0]['table'] = 'messages';
+    $join_str4[0]['join_table_id'] = 'messages.message_from';
+    $join_str4[0]['from_table_id'] = 'user.user_id';
+    $join_str4[0]['join_type'] = '';
      
    $search_condition = "((message_to = '$userid') && (message_from != '$id'))";
 
-    $fromlist = $this->common->select_data_by_search('user',$search_condition,$contition_array, $data = 'messages.id,messages.message_from,first_name,user_image,message', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str, $groupby = '');
+    $fromlist = $this->common->select_data_by_search('user',$search_condition,$contition_array, $data = 'messages.id,messages.message_from,first_name,user_image,message', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str4, $groupby = '');
     
 
   // uniq array of fromlist  
@@ -512,15 +512,15 @@ $this->data['smiley_table'] = $smileys;
    // message to user
      $contition_array = array('is_delete' => '0' , 'status' => '1','message_to !=' => $userid);
 
-     $join_str[0]['table'] = 'messages';
-     $join_str[0]['join_table_id'] = 'messages.message_to';
-     $join_str[0]['from_table_id'] = 'user.user_id';
-     $join_str[0]['join_type'] = '';
+     $join_str5[0]['table'] = 'messages';
+     $join_str5[0]['join_table_id'] = 'messages.message_to';
+     $join_str5[0]['from_table_id'] = 'user.user_id';
+     $join_str5[0]['join_type'] = '';
      
     
      $search_condition = "(first_name LIKE '%" . trim($usrsearchdata) . "%')";
 
-     $tolist = $this->common->select_data_by_search('user', $search_condition,$contition_array, $data = 'message_to,first_name,user_image', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
+     $tolist = $this->common->select_data_by_search('user', $search_condition,$contition_array, $data = 'message_to,first_name,user_image', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str5, $groupby = '');
    
     // uniq array of tolist  
       foreach($tolist as $k => $v) 
@@ -556,14 +556,14 @@ $this->data['smiley_table'] = $smileys;
  // message from user
     $contition_array = array('is_delete' => '0' , 'status' => '1','message_from !=' => $userid);
 
-    $join_str[0]['table'] = 'messages';
-    $join_str[0]['join_table_id'] = 'messages.message_from';
-    $join_str[0]['from_table_id'] = 'user.user_id';
-    $join_str[0]['join_type'] = '';
+    $join_str6[0]['table'] = 'messages';
+    $join_str6[0]['join_table_id'] = 'messages.message_from';
+    $join_str6[0]['from_table_id'] = 'user.user_id';
+    $join_str6[0]['join_type'] = '';
      
     $search_condition = "(first_name LIKE '%$usrsearchdata%')";
 
-    $fromlist = $this->common->select_data_by_search('user', $search_condition,$contition_array, $data = 'messages.message_from,first_name,user_image', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
+    $fromlist = $this->common->select_data_by_search('user', $search_condition,$contition_array, $data = 'messages.message_from,first_name,user_image', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str6, $groupby = '');
     
     // uniq array of fromlist  
       foreach($fromlist as $k => $v) 
@@ -656,15 +656,15 @@ public function userlisttwo($id)
    // message to user
      $contition_array = array('is_delete' => '0' , 'status' => '1','message_to !=' => $userid);
 
-     $join_str[0]['table'] = 'messages';
-     $join_str[0]['join_table_id'] = 'messages.message_to';
-     $join_str[0]['from_table_id'] = 'user.user_id';
-     $join_str[0]['join_type'] = '';
+     $join_str7[0]['table'] = 'messages';
+     $join_str7[0]['join_table_id'] = 'messages.message_to';
+     $join_str7[0]['from_table_id'] = 'user.user_id';
+     $join_str7[0]['join_type'] = '';
      
     
      $search_condition = "((first_name LIKE '%" . trim($usrsearchdata) . "%') AND (message_to !='" . $usrid . "' ))";
 
-     $tolist = $this->common->select_data_by_search('user', $search_condition,$contition_array, $data = 'message_to,first_name,user_image', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
+     $tolist = $this->common->select_data_by_search('user', $search_condition,$contition_array, $data = 'message_to,first_name,user_image', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str7, $groupby = '');
    
     // uniq array of tolist  
       foreach($tolist as $k => $v) 
