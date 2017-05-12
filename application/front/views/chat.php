@@ -535,11 +535,11 @@ $('#message').append("<img  src=" + img + " height='20' width='20' >");
 
 
 <script type="text/javascript">
-          var editor = document.querySelector("div");
+   var message = document.querySelector("div");
 
-        editor.addEventListener("keyup", function (){
+        message.addEventListener("keyup", function (){
 
-            newheight = editor.scrollHeight;
-            editor.style.height = newheight + "px";
+            newheight = message.scrollHeight;
+            message.style.height = newheight + "px";
         })  
 </script>

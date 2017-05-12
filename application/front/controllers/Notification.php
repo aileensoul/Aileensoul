@@ -631,7 +631,7 @@ class Notification extends MY_Controller {
         $this->load->view('Notification/freelancer_hire_post', $this->data);
     }
    
-    public function not_header($id) {
+    public function not_header($id="") {
 
         $userid = $this->session->userdata('aileenuser');
 // 1-5 notification start
