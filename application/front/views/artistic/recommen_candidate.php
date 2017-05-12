@@ -90,7 +90,7 @@
                         <div class="common-form">
                             <div class="job-saved-box">
 
-                                <h3>Search Result</h3>
+                                <h3>Search Result of <?php echo ucwords($keyword)?></h3>
                                 <div class="contact-frnd-post">
                                     <div class="job-contact-frnd ">
 
@@ -100,12 +100,12 @@
                              $contition_array = array('post_id' => $key['art_post_id'], 'is_deleted' => '1', 'image_type' => '1');
                               $artmulti = $this->data['artmulti'] = $this->common->select_data_by_condition('post_image', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                                             
-
+                              
                                     foreach ($artuserdata as $key) { 
                                        if($key['art_description'] || $key['art_post'] || count($artmulti) > 0){ 
                                     ?>            
-                                       <!-- <div class="profile-job-post-title-inside clearfix search" style="border: 1px solid #d9d9d9;">
-          <div class="profile-job-profile-button clearfix box_search_module" style="height: 16%;">
+                                        <div class="profile-job-post-title-inside clearfix search" style="border: 1px solid #d9d9d9;">
+          <!-- <div class="profile-job-profile-button clearfix box_search_module" style="height: 16%;">
                                                            
      <div class="profile-job-post-location-name-rec">
           <div class="module_Ssearch" style="display: inline-block; float: left;">
@@ -173,7 +173,7 @@
 
 
 
-     </div> -->
+     </div> --> 
        </div>
        <div class="col-md-12 col-sm-12 post-design-box" id="removepost5" style="margin-bottom: 0px; box-shadow: none; border: none;">
                                     <div class="post_radius_box">  

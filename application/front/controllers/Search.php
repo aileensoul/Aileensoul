@@ -118,39 +118,42 @@ class Search extends CI_Controller {
 
 
             $artpost = $artpostdata['data'] = $this->common->select_data_by_search('art_post', $search_condition, $contition_array, $data = 'art_post.*,art_reg.art_name,art_reg.art_lastname', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
-            // echo "<pre>"; print_r($artpost); die();
+             //echo "<pre>"; print_r($artpost); die();
             $fullname = explode(" ", $searchskill);
 
             // echo "<pre>"; print_r($fullname) ;
             if ($fullname[1] == "") {
-                // echo "pallavi";
+                 echo "pallavi";
 
                 if (count($artskillpost) == 0) {
+                    echo "tt";
                     $unique = array_merge($artpost, $otherdata);
+                   // echo "<pre>";print_r($unique);die();
                 } else {
+                    echo "pqr";
                     $unique = array_merge($artskillpost, $artpost, $otherdata);
                 }
 
                 // $unique=array_merge($artpost,$otherdata);
                 // echo count($unique);
 
-                foreach ($unique as $ke => $arr) {
+//                 foreach ($unique as $ke => $arr) {
 
-                    $postdata[] = $arr;
-                }
-//die();
-                // echo '<pre>'; print_r($postdata); die();
+//                     $postdata[] = $arr;
+//                 }
+// //die();
+//                 // echo '<pre>'; print_r($postdata); die();
 
-                $new = array();
-                foreach ($postdata as $value) {
-                    $new[$value['art_id']] = $value;
-                }
+//                 $new = array();
+//                 foreach ($postdata as $value) {
+//                     $new[$value['art_id']] = $value;
+//                 }
 
 
 
-                // echo "<pre>";print_r($new);die();
+                 //echo "<pre>";print_r($new);die();
             } else {
-                // echo "panalia";
+                 echo "panalia";
                 $search_condition = "(art_name LIKE '%$fullname[0]%' or art_lastname LIKE '%$fullname[1]%')";
 
                 // echo $search_condition;
@@ -169,16 +172,16 @@ class Search extends CI_Controller {
                 // $unique=array_merge($artskillpost,$artpost,$otherdata,$artfullname);
                 // echo count($unique);
 
-                foreach ($unique as $ke => $arr) {
+                // foreach ($unique as $ke => $arr) {
 
 
-                    $postdata[] = $arr;
-                }
+                //     $postdata[] = $arr;
+                // }
 
-                $new = array();
-                foreach ($postdata as $value) {
-                    $new[$value['art_id']] = $value;
-                }
+                // $new = array();
+                // foreach ($postdata as $value) {
+                //     $new[$value['art_id']] = $value;
+                // }
 
 
 
@@ -247,18 +250,18 @@ class Search extends CI_Controller {
                 }
                 // echo count($unique);
 
-                foreach ($unique as $ke => $arr) {
+//                 foreach ($unique as $ke => $arr) {
 
 
-                    $postdata[] = $arr;
-                }
-//die();
-                // echo '<pre>'; print_r($postdata); die();
+//                     $postdata[] = $arr;
+//                 }
+// //die();
+//                 // echo '<pre>'; print_r($postdata); die();
 
-                $new = array();
-                foreach ($postdata as $value) {
-                    $new[$value['art_id']] = $value;
-                }
+//                 $new = array();
+//                 foreach ($postdata as $value) {
+//                     $new[$value['art_id']] = $value;
+//                 }
 
 
 
@@ -283,16 +286,16 @@ class Search extends CI_Controller {
                 }
                 // echo count($unique);
 
-                foreach ($unique as $ke => $arr) {
+                // foreach ($unique as $ke => $arr) {
 
 
-                    $postdata[] = $arr;
-                }
+                //     $postdata[] = $arr;
+                // }
 
-                $new = array();
-                foreach ($postdata as $value) {
-                    $new[$value['art_id']] = $value;
-                }
+                // $new = array();
+                // foreach ($postdata as $value) {
+                //     $new[$value['art_id']] = $value;
+                // }
 
 
 
@@ -300,7 +303,7 @@ class Search extends CI_Controller {
             }
         }
 
-        $this->data['artuserdata'] = $new;
+        $this->data['artuserdata'] = $unique;
 
         // echo "<pre>";print_r($abc);die();
          //echo "<pre>"; print_r($this->data['artuserdata']);die();
