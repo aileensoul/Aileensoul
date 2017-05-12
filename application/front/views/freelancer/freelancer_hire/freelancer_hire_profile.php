@@ -366,7 +366,7 @@ function text2link($text){
                                                 <div class="profile-job-profile-menu">
                                                     <ul class="clearfix">
                                                         <li> <b>Professional Information </b> <span> 
-              <?php echo text2link($freelancerhiredata[0]['professional_info']);?> </span>
+              <?php echo $this->common->make_links($freelancerhiredata[0]['professional_info']);?> </span>
                                                         </li>
                                                       
                                                     

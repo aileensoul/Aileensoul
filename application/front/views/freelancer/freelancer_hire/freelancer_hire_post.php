@@ -479,7 +479,7 @@ echo $freelancer_hire_header2;} ?>
                                                                     <li><b>Other Skill</b><span><?php echo "-"; ?></span></li><?php } ?>
 
                                                                 <li><b>Post Description</b><span><p>
-                                                                            <?php if($post['post_description']){echo text2link($post['post_description']);}else{echo PROFILENA;} ?> </p></span>
+                                                     <?php if($post['post_description']){echo $this->common->make_links($post['post_description']);}else{echo PROFILENA;} ?> </p></span>
                                                                 </li>
                                                                 <li><b>Rate</b><span>
                                                                         <?php if($post['post_rate']){
