@@ -4613,7 +4613,7 @@ echo '<pre>'; print_r($artdata); die();
             $adatacm = $this->data['adatacm'] = $this->common->select_data_by_condition('art_comment_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
             if ($insertdata) {
-
+               
 
                 $imglike .= '<a id="' . $post_image_comment_id . '" onClick="comment_likeimg(this.id)">';
                 $imglike .= ' <i class="fa fa-thumbs-up" aria-hidden="true">';
@@ -4643,25 +4643,26 @@ echo '<pre>'; print_r($artdata); die();
                 $updatdata = $this->db->update('art_comment_image_like ', $data);
 
                 $contition_array = array('post_image_comment_id' => $post_image_comment_id, 'is_unlike' => '0');
-                $adata2 = $this->data['adata2'] = $this->common->select_data_by_condition('art_comment_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                $cdata2 = $this->data['adata2'] = $this->common->select_data_by_condition('art_comment_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
 
 
                 if ($updatdata) {
 
 
+
                     $imglike1 .= '<a id="' . $post_image_comment_id . '" onClick="comment_likeimg(this.id)">';
                     $imglike1 .= '<i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true">';
                     $imglike1 .= '</i>';
                     $imglike1 .= '<span>';
-                    if (count($adata2) > 0) {
-                        $imglike1 .= count($bdata2) . '';
+                    if(count($cdata2) > 0){
+                        $imglike1 .= count($cdata2) . '';
                     }
                     $imglike1 .= '</span>';
                     $imglike1 .= '</a>';
 
 
-                    echo $imglike1;
+                    echo $imglike1; 
                 }
             } else {
 
@@ -4716,7 +4717,7 @@ echo '<pre>'; print_r($artdata); die();
                 $contition_array = array('post_image_comment_id' => $_POST["post_image_comment_id"], 'is_unlike' => '0');
                 $bdata2 = $this->data['bdata2'] = $this->common->select_data_by_condition('art_comment_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-
+       
 
                 if ($updatdata) {
 
