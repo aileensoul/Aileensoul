@@ -222,7 +222,7 @@ responsive image design start -->
 
 <!-- END HEADER -->
 <body   class="page-container-bg-solid page-boxed">
- 
+
     <div class="container" id="paddingtop_fixed">
 
         <div class="row" id="row1" style="display:none;">
@@ -351,7 +351,7 @@ responsive image design start -->
                     $userid = $this->session->userdata('aileenuser');
                     if ($artisticdata[0]['user_id'] == $userid) {
                         ?> 
-                      <!-- <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'art_savepost') { ?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/art_savepost'); ?>">Saved Post</a>                                                                                                                                                                                                </li> -->
+                          <!-- <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'art_savepost') { ?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/art_savepost'); ?>">Saved Post</a>                                                                                                                                                                                                </li> -->
 
                         <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'userlist') { ?> class="active" <?php } ?>><a title="Userlist" href="<?php echo base_url('artistic/userlist'); ?>">Userlist</a>
                         </li>
@@ -632,7 +632,7 @@ responsive image design start -->
                                 ?>
                                 <div class="image_profile">
 
-                                    <img src="<?php echo base_url(ARTPOSTIMAGE .$mi['image_name'])?>" alt="img1">
+                                    <img src="<?php echo base_url(ARTPOSTIMAGE . $mi['image_name']) ?>" alt="img1">
 
                                 </div>
                                 <?php
@@ -644,7 +644,7 @@ responsive image design start -->
 
 
                         <?php } else { ?>
-                          <div class="not_available">  <p>    Photos Not Available</p></div>
+                            <div class="not_available">  <p>    Photos Not Available</p></div>
 
                         <?php } ?>
 
@@ -672,7 +672,7 @@ responsive image design start -->
                             }
                             ?>
                             <?php
-                            $allowesvideo = array('mp4', '3gp', 'avi','ogg','3gp','webm');
+                            $allowesvideo = array('mp4', '3gp', 'avi', 'ogg', '3gp', 'webm');
 
                             foreach ($multiplevideo as $mke => $mval) {
 
@@ -692,7 +692,7 @@ responsive image design start -->
                                     <?php if ($singlearray1[0]['image_name']) { ?>
                                         <td class="image_profile"> 
                                             <video  controls>
-                                                <source src="<?php echo base_url(ARTPOSTIMAGE .$singlearray1[0]['image_name'])?>" type="video/mp4">
+                                                <source src="<?php echo base_url(ARTPOSTIMAGE . $singlearray1[0]['image_name']) ?>" type="video/mp4">
                                                 <source src="movie.ogg" type="video/ogg">
                                                 Your browser does not support the video tag.
                                             </video>
@@ -702,7 +702,7 @@ responsive image design start -->
                                     <?php if ($singlearray1[1]['image_name']) { ?>
                                         <td class="image_profile">
                                             <video  controls>
-                                                <source src="<?php echo base_url(ARTPOSTIMAGE .$singlearray1[1]['image_name'])?>" type="video/mp4">
+                                                <source src="<?php echo base_url(ARTPOSTIMAGE . $singlearray1[1]['image_name']) ?>" type="video/mp4">
                                                 <source src="movie.ogg" type="video/ogg">
                                                 Your browser does not support the video tag.
                                             </video>
@@ -711,7 +711,7 @@ responsive image design start -->
                                     <?php if ($singlearray1[2]['image_name']) { ?>
                                         <td class="image_profile">
                                             <video  controls>
-                                                <source src="<?php echo base_url(ARTPOSTIMAGE .$singlearray1[2]['image_name'])?>" type="video/mp4">
+                                                <source src="<?php echo base_url(ARTPOSTIMAGE . $singlearray1[2]['image_name']) ?>" type="video/mp4">
                                                 <source src="movie.ogg" type="video/ogg">
                                                 Your browser does not support the video tag.
                                             </video>
@@ -723,7 +723,7 @@ responsive image design start -->
                                     <?php if ($singlearray1[3]['image_name']) { ?>
                                         <td class="image_profile"> 
                                             <video  controls>
-                                                <source src="<?php echo base_url(ARTPOSTIMAGE .$singlearray1[3]['image_name'])?>" type="video/mp4">
+                                                <source src="<?php echo base_url(ARTPOSTIMAGE . $singlearray1[3]['image_name']) ?>" type="video/mp4">
                                                 <source src="movie.ogg" type="video/ogg">
                                                 Your browser does not support the video tag.
                                             </video>
@@ -732,7 +732,7 @@ responsive image design start -->
                                     <?php if ($singlearray1[4]['image_name']) { ?>
                                         <td class="image_profile">
                                             <video  controls>
-                                                <source src="<?php echo base_url(ARTPOSTIMAGE .$singlearray1[4]['image_name'])?>" type="video/mp4">
+                                                <source src="<?php echo base_url(ARTPOSTIMAGE . $singlearray1[4]['image_name']) ?>" type="video/mp4">
                                                 <source src="movie.ogg" type="video/ogg">
                                                 Your browser does not support the video tag.
                                             </video>
@@ -741,7 +741,7 @@ responsive image design start -->
                                     <?php if ($singlearray1[5]['image_name']) { ?>
                                         <td class="image_profile">
                                             <video  controls>
-                                                <source src="<?php echo base_url(ARTPOSTIMAGE .$singlearray1[5]['image_name'])?>" type="video/mp4">
+                                                <source src="<?php echo base_url(ARTPOSTIMAGE . $singlearray1[5]['image_name']) ?>" type="video/mp4">
                                                 <source src="movie.ogg" type="video/ogg">
                                                 Your browser does not support the video tag.
                                             </video>
@@ -749,7 +749,7 @@ responsive image design start -->
                                     <?php } ?>
                                 </tr>
                             <?php } else { ?>
-                             <div class="not_available">  <p> Video Not Available</p></div>
+                                <div class="not_available">  <p> Video Not Available</p></div>
                             <?php } ?>
                         </table>
 
@@ -800,7 +800,7 @@ responsive image design start -->
                                             <video  controls>
 
 
-                                                <source src="<?php echo base_url(ARTPOSTIMAGE . $singlearray2[0]['image_name'])?>" type="audio/mp3"">
+                                                <source src="<?php echo base_url(ARTPOSTIMAGE . $singlearray2[0]['image_name']) ?>" type="audio/mp3"">
                                                 <source src="movie.ogg" type="audio/mp3">
                                                 Your browser does not support the audio tag.
                                             </video>
@@ -810,7 +810,7 @@ responsive image design start -->
                                     <?php if ($singlearray2[1]['image_name']) { ?>
                                         <td class="image_profile">
                                             <video  controls>
-                                                <source src="<?php echo base_url(ARTPOSTIMAGE .$singlearray2[1]['image_name'])?>" type="audio/mp3"">
+                                                <source src="<?php echo base_url(ARTPOSTIMAGE . $singlearray2[1]['image_name']) ?>" type="audio/mp3"">
                                                 <source src="movie.ogg" type="audio/mp3">
                                                 Your browser does not support the audio tag.
                                             </video>
@@ -819,7 +819,7 @@ responsive image design start -->
                                     <?php if ($singlearray2[2]['image_name']) { ?>
                                         <td class="image_profile">
                                             <video  controls>
-                                                <source src="<?php echo base_url(ARTPOSTIMAGE .$singlearray2[2]['image_name'])?> type="audio/mp3"">
+                                                <source src="<?php echo base_url(ARTPOSTIMAGE . $singlearray2[2]['image_name']) ?> type="audio/mp3"">
                                                         <source src="movie.ogg" type="audio/mp3">
                                                 Your browser does not support the audio tag.
                                             </video>
@@ -831,7 +831,7 @@ responsive image design start -->
                                     <?php if ($singlearray2[3]['image_name']) { ?>
                                         <td class="image_profile"> 
                                             <video  controls>
-                                                <source src="<?php echo base_url(ARTPOSTIMAGE .$singlearray2[3]['image_name'])?>" type="video/mp4">
+                                                <source src="<?php echo base_url(ARTPOSTIMAGE . $singlearray2[3]['image_name']) ?>" type="video/mp4">
                                                 <source src="movie.ogg" type="audio/mp3">
                                                 Your browser does not support the audio tag.
                                             </video>
@@ -840,7 +840,7 @@ responsive image design start -->
                                     <?php if ($singlearray2[4]['image_name']) { ?>
                                         <td class="image_profile">
                                             <video  controls>
-                                                <source src="<?php echo base_url(ARTPOSTIMAGE .$singlearray2[4]['image_name']) ?>" type="audio/mp3"">
+                                                <source src="<?php echo base_url(ARTPOSTIMAGE . $singlearray2[4]['image_name']) ?>" type="audio/mp3"">
                                                 <source src="movie.ogg" type="audio/mp3">
                                                 Your browser does not support the audio tag.
                                             </video>
@@ -849,7 +849,7 @@ responsive image design start -->
                                     <?php if ($singlearray2[5]['image_name']) { ?>
                                         <td class="image_profile">
                                             <video  controls>
-                                                <source src="<?php echo base_url(ARTPOSTIMAGE .$singlearray2[5]['image_name'])?>" type="audio/mp3"">
+                                                <source src="<?php echo base_url(ARTPOSTIMAGE . $singlearray2[5]['image_name']) ?>" type="audio/mp3"">
                                                 <source src="movie.ogg" type="audio/mp3">
                                                 Your browser does not support the audio tag.
                                             </video>
@@ -912,8 +912,8 @@ responsive image design start -->
 
 
                                         <a href="<?php echo base_url('artistic/creat_pdf/' . $singlearray3[0]['image_id']) ?>"><div class="pdf_img">
-                                                                <img src="<?php echo base_url('images/PDF.jpg')?>" style="height: 100%; width: 100%;">
-                                                            </div></a>
+                                                <img src="<?php echo base_url('images/PDF.jpg') ?>" style="height: 100%; width: 100%;">
+                                            </div></a>
                                     </div>
 
                                     <?php
@@ -924,8 +924,8 @@ responsive image design start -->
                                 ?>
 
                             <?php }else { ?>
-                              <div class="not_available">  <p>    Pdf Not Available</p>
-                              </div>
+                                <div class="not_available">  <p>    Pdf Not Available</p>
+                                </div>
                             <?php } ?>
                         </table>
 
@@ -985,7 +985,7 @@ responsive image design start -->
                        
                            <input type="file" id="files" name="postattach[]" multiple style="display:block;">  </span> -->
                             <div class="col-md-1" style="padding-left: 0px;"><i class=" fa fa-camera "  style="margin: 0px;
-                                  font-size: 27px; cursor: pointer; /* margin-right: -38px; */ margin-top: 25px;"></i> </div>
+                                                                                font-size: 27px; cursor: pointer; /* margin-right: -38px; */ margin-top: 25px;"></i> </div>
 
                         </div>
                         <div class="row"></div>
@@ -1079,39 +1079,39 @@ responsive image design start -->
                                         </div>
 
 
-    <div class="post-design-name fl col-md-9">
-    <ul>
-     <li><span>
-        <?php
-        $firstname = $this->db->get_where('art_reg', array('user_id' => $row['user_id']))->row()->art_name;
-     $lastname = $this->db->get_where('art_reg', array('user_id' => $row['user_id']))->row()->art_lastname;
+                                        <div class="post-design-name fl col-md-9">
+                                            <ul>
+                                                <li><span>
+                                                        <?php
+                                                        $firstname = $this->db->get_where('art_reg', array('user_id' => $row['user_id']))->row()->art_name;
+                                                        $lastname = $this->db->get_where('art_reg', array('user_id' => $row['user_id']))->row()->art_lastname;
 
-        $firstnameposted = $this->db->get_where('art_reg', array('user_id' => $row['posted_user_id']))->row()->art_name;
-         $lastnameposted = $this->db->get_where('art_reg', array('user_id' => $row['posted_user_id']))->row()->art_lastname;
+                                                        $firstnameposted = $this->db->get_where('art_reg', array('user_id' => $row['posted_user_id']))->row()->art_name;
+                                                        $lastnameposted = $this->db->get_where('art_reg', array('user_id' => $row['posted_user_id']))->row()->art_lastname;
                                                         ?>
                                                     </span>
 
                                                     <!-- other user post time name strat-->
 
-        <?php if ($row['posted_user_id']) { ?>
+                                                    <?php if ($row['posted_user_id']) { ?>
 
-            <div class="else_post_d">
-          <a  class="post_dot" title="<?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?>" href="<?php echo base_url('artistic/art_manage_post/' . $row['posted_user_id']); ?>"><?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?> </a><span style="font-weight: 600;"> Posted With 
-             </span><a class="post_dot"  href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>"><?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?></a><span role="presentation" aria-hidden="true" style="color: #91949d; font-size: 14px;"> · </span>
-             <span style="color: #91949d; font-size: 14px;"> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span>
+                                                        <div class="else_post_d">
+                                                            <a  class="post_dot" title="<?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?>" href="<?php echo base_url('artistic/art_manage_post/' . $row['posted_user_id']); ?>"><?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?> </a><span style="font-weight: 600;"> Posted With 
+                                                            </span><a class="post_dot"  href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>"><?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?></a><span role="presentation" aria-hidden="true" style="color: #91949d; font-size: 14px;"> · </span>
+                                                            <span style="color: #91949d; font-size: 14px;"> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span>
                                                         </div>
 
                                                         <!-- other user post time name end-->
-         <?php } else { ?>
+                                                    <?php } else { ?>
 
-<a  class="post_dot" title="<?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?>"   href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>">
-             <?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?>
+                                                        <a  class="post_dot" title="<?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?>"   href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>">
+                                                            <?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?>
 
-</a>
- <div class="datespan">
- <span style="font-weight: 400; font-size: 14px; color: #91949d;""> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span></div>
+                                                        </a>
+                                                        <div class="datespan">
+                                                            <span style="font-weight: 400; font-size: 14px; color: #91949d;""> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span></div>
 
-    <?php } ?>                          
+                                                    <?php } ?>                          
                                                 </li>
                                                 <li>
                                                 <!--     <div id="<?php echo 'editpostdata' . $row['art_post_id']; ?>" style="display:block;">
@@ -1174,10 +1174,9 @@ responsive image design start -->
                                                 </div>
                                                 <div  id="<?php echo 'editpostdetails' . $row['art_post_id']; ?>" style="display:block;">
 
-                                                <?php 
-                                               $text = $this->common->make_links($row['art_description']);
-
-                                                ?>
+                                                    <?php
+                                                    $text = $this->common->make_links($row['art_description']);
+                                                    ?>
                                                     <span class="show"><?php echo $text; ?></span>
                                                 </div>
 
@@ -1214,22 +1213,22 @@ responsive image design start -->
                                                 $filename = $artmultiimage[0]['image_name'];
                                                 $ext = pathinfo($filename, PATHINFO_EXTENSION);
 
-         if (in_array($ext, $allowed)) {
-                ?>
+                                                if (in_array($ext, $allowed)) {
+                                                    ?>
 
                                                     <!-- one image start -->
-            <div id="basic-responsive-image" style="height: 80%; width: 100%;">
-             <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img src="<?php echo base_url(ARTPOSTIMAGE .$artmultiimage[0]['image_name'])?>" style="width: 100%; height: 100%;"> </a>
+                                                    <div id="basic-responsive-image" style="height: 80%; width: 100%;">
+                                                        <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img src="<?php echo base_url(ARTPOSTIMAGE . $artmultiimage[0]['image_name']) ?>" style="width: 100%; height: 100%;"> </a>
                                                     </div>
                                                     <!-- one image end -->
 
                                                 <?php } elseif (in_array($ext, $allowespdf)) { ?>
 
                                                     <!-- one pdf start -->
-             <div>
-            <a href="<?php echo base_url('artistic/creat_pdf/' . $artmultiimage[0]['image_id']) ?>"><div class="pdf_img">
-                <img src="<?php echo base_url('images/PDF.jpg')?>" style="height: 100%; width: 100%;">
-                                </div></a>
+                                                    <div>
+                                                        <a href="<?php echo base_url('artistic/creat_pdf/' . $artmultiimage[0]['image_id']) ?>"><div class="pdf_img">
+                                                                <img src="<?php echo base_url('images/PDF.jpg') ?>" style="height: 100%; width: 100%;">
+                                                            </div></a>
                                                     </div>
                                                     <!-- one pdf end -->
 
@@ -1240,24 +1239,24 @@ responsive image design start -->
                                                         <video width="100%" height="55%" controls>
 
 
-                        <source src="<?php echo base_url(ARTPOSTIMAGE .$artmultiimage[0]['image_name']) ?>" type="video/mp4">
-                        <source src="movie.ogg" type="video/ogg">
-                        Your browser does not support the video tag.
-                         </video>
-                    </div>
+                                                            <source src="<?php echo base_url(ARTPOSTIMAGE . $artmultiimage[0]['image_name']) ?>" type="video/mp4">
+                                                            <source src="movie.ogg" type="video/ogg">
+                                                            Your browser does not support the video tag.
+                                                        </video>
+                                                    </div>
                                                     <!-- one video end -->
 
-                <?php } elseif (in_array($ext, $allowesaudio)) { ?>
+                                                <?php } elseif (in_array($ext, $allowesaudio)) { ?>
 
                                                     <!-- one audio start -->
-                                 <div>
-                        <audio width="120" height="100" controls>
+                                                    <div>
+                                                        <audio width="120" height="100" controls>
 
-                    <source src="<?php echo base_url(ARTPOSTIMAGE . $artmultiimage[0]['image_name']); ?>" type="audio/mp3">
-                    <source src="movie.ogg" type="audio/ogg">
-                        Your browser does not support the audio tag.
+                                                            <source src="<?php echo base_url(ARTPOSTIMAGE . $artmultiimage[0]['image_name']); ?>" type="audio/mp3">
+                                                            <source src="movie.ogg" type="audio/ogg">
+                                                            Your browser does not support the audio tag.
 
-             </audio>
+                                                        </audio>
 
                                                     </div>
 
@@ -1273,7 +1272,7 @@ responsive image design start -->
 
                                                     <!-- two image start -->
                                                     <div  id="two_manage_images_art" >
-                                                        <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="two-columns" src="<?php echo base_url(ARTPOSTIMAGE .$multiimage['image_name']) ?>" > </a>
+                                                        <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="two-columns" src="<?php echo base_url(ARTPOSTIMAGE . $multiimage['image_name']) ?>" > </a>
                                                     </div>
 
                                                     <!-- two image end -->
@@ -1285,14 +1284,14 @@ responsive image design start -->
 
                                                 <!-- three image start -->
                                                 <div id="three_images_art" >
-                                                    <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="three-columns" src="<?php echo base_url(ARTPOSTIMAGE .$artmultiimage[0]['image_name']) ?>" style="width: 100%; height:100%; "> </a>
+                                                    <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="three-columns" src="<?php echo base_url(ARTPOSTIMAGE . $artmultiimage[0]['image_name']) ?>" style="width: 100%; height:100%; "> </a>
                                                 </div>
                                                 <div  id="three_images_2_art">
-                                                    <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="three-columns" src="<?php echo base_url(ARTPOSTIMAGE . $artmultiimage[1]['image_name'])?>" style="width: 100%; height:100%; "> </a>
+                                                    <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="three-columns" src="<?php echo base_url(ARTPOSTIMAGE . $artmultiimage[1]['image_name']) ?>" style="width: 100%; height:100%; "> </a>
                                                 </div>
 
                                                 <div  id="three_images_2_art">
-                                                    <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="three-columns" src="<?php echo base_url(ARTPOSTIMAGE . $artmultiimage[2]['image_name'])?>" style="width: 100%; height:100%; "> </a>
+                                                    <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="three-columns" src="<?php echo base_url(ARTPOSTIMAGE . $artmultiimage[2]['image_name']) ?>" style="width: 100%; height:100%; "> </a>
                                                 </div>
 
                                                 <!-- three image end -->
@@ -1307,7 +1306,7 @@ responsive image design start -->
 
                                                     <!-- four image start -->
                                                     <div id="responsive_manage-images-breakpoints" style="   ">
-                                                        <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="breakpoint" src="<?php echo base_url(ARTPOSTIMAGE . $multiimage['image_name'])?>" style="width: 100%; height: 100%;"> </a>
+                                                        <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="breakpoint" src="<?php echo base_url(ARTPOSTIMAGE . $multiimage['image_name']) ?>" style="width: 100%; height: 100%;"> </a>
 
                                                     </div>
 
@@ -1343,7 +1342,7 @@ responsive image design start -->
                                                 <!-- this div view all image start -->
                                                 <div>
                                                     <div id="responsive-manage_images_3-breakpoints" >
-                                                        <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img src="<?php echo base_url(ARTPOSTIMAGE .$artmultiimage[3]['image_name'])?>" > </a></div>
+                                                        <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img src="<?php echo base_url(ARTPOSTIMAGE . $artmultiimage[3]['image_name']) ?>" > </a></div>
 
 
                                                     <div class="manage_images_view_more" >
@@ -1558,10 +1557,10 @@ responsive image design start -->
                                                             </div>
                                                             <div class="comment-name">
                                                                 <b><?php
-                                                                    echo ucwords($artname);
-                                                                    echo "&nbsp;";
-                                                                    echo ucwords($artlastname);
-                                                                    ?></b><?php echo '</br>'; ?>
+                                                echo ucwords($artname);
+                                                echo "&nbsp;";
+                                                echo ucwords($artlastname);
+                                                                ?></b><?php echo '</br>'; ?>
                                                             </div>
 
                                                             <div class="comment-details" id= "<?php echo "showcomment" . $rowdata['artistic_post_comment_id']; ?>">
@@ -1584,32 +1583,32 @@ responsive image design start -->
                                                             <div class="edit-comment-box">
                                                                 <div class="inputtype-edit-comment">
                                                                     <!--<textarea type="text" class="textarea" name="<?php echo $rowdata['artistic_post_comment_id']; ?>" id="<?php echo "editcomment" . $rowdata['artistic_post_comment_id']; ?>" style="display:none;resize: none;" onClick="commentedit(this.name)"><?php echo $rowdata['comments']; ?></textarea>-->
-         <div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="<?php echo $rowdata['artistic_post_comment_id']; ?>"  id="<?php echo "editcomment" . $rowdata['artistic_post_comment_id']; ?>" placeholder="Enter Your Comment " value= ""  onkeyup="commentedit(<?php echo $rowdata['artistic_post_comment_id']; ?>)"><?php echo $rowdata['comments']; ?></div>
-            <span class="comment-edit-button"><button id="<?php echo "editsubmit" . $rowdata['artistic_post_comment_id']; ?>" style="display:none" onClick="edit_comment(<?php echo $rowdata['artistic_post_comment_id']; ?>)">Save</button></span>
+                                                                    <div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="<?php echo $rowdata['artistic_post_comment_id']; ?>"  id="<?php echo "editcomment" . $rowdata['artistic_post_comment_id']; ?>" placeholder="Enter Your Comment " value= ""  onkeyup="commentedit(<?php echo $rowdata['artistic_post_comment_id']; ?>)"><?php echo $rowdata['comments']; ?></div>
+                                                                    <span class="comment-edit-button"><button id="<?php echo "editsubmit" . $rowdata['artistic_post_comment_id']; ?>" style="display:none" onClick="edit_comment(<?php echo $rowdata['artistic_post_comment_id']; ?>)">Save</button></span>
                                                                 </div>
                                                             </div>
 
-  <div class="art-comment-menu-design"> 
-             <div class="comment-details-menu" id="<?php echo 'likecomment1' . $rowdata['artistic_post_comment_id']; ?>">
-     <a id="<?php echo $rowdata['artistic_post_comment_id']; ?>"   onClick="comment_like1(this.id)">
+                                                            <div class="art-comment-menu-design"> 
+                                                                <div class="comment-details-menu" id="<?php echo 'likecomment1' . $rowdata['artistic_post_comment_id']; ?>">
+                                                                    <a id="<?php echo $rowdata['artistic_post_comment_id']; ?>"   onClick="comment_like1(this.id)">
 
-                 <?php
-                 $userid = $this->session->userdata('aileenuser');
-         $contition_array = array('artistic_post_comment_id' => $rowdata['artistic_post_comment_id'], 'status' => '1');
-                    $artcommentlike = $this->data['artcommentlike'] = $this->common->select_data_by_condition('artistic_post_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-                    $likeuserarray = explode(',', $artcommentlike[0]['artistic_comment_like_user']);
+                                                                        <?php
+                                                                        $userid = $this->session->userdata('aileenuser');
+                                                                        $contition_array = array('artistic_post_comment_id' => $rowdata['artistic_post_comment_id'], 'status' => '1');
+                                                                        $artcommentlike = $this->data['artcommentlike'] = $this->common->select_data_by_condition('artistic_post_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                                                        $likeuserarray = explode(',', $artcommentlike[0]['artistic_comment_like_user']);
 
-             if (!in_array($userid, $likeuserarray)) {
-                          ?>
- <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i> 
-     <?php } else {
-         ?>
-                <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-             <?php }
-   ?>
- <span>
-<?php
-            if ($rowdata['artistic_comment_likes_count'] > 0) {
+                                                                        if (!in_array($userid, $likeuserarray)) {
+                                                                            ?>
+                                                                            <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i> 
+                                                                        <?php } else {
+                                                                            ?>
+                                                                            <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                                                        <?php }
+                                                                        ?>
+                                                                        <span>
+                                                                            <?php
+                                                                            if ($rowdata['artistic_comment_likes_count'] > 0) {
                                                                                 echo $rowdata['artistic_comment_likes_count'];
                                                                             }
                                                                             ?>
@@ -1659,9 +1658,9 @@ responsive image design start -->
 
                                                                 <div class="comment-details-menu">
                                                                     <p> <?php
-                                                                        echo date('d-M-Y', strtotime($rowdata['created_date']));
-                                                                        echo '</br>';
-                                                                        ?>
+                                                                echo date('d-M-Y', strtotime($rowdata['created_date']));
+                                                                echo '</br>';
+                                                                ?>
                                                                     </p></div></div>
                                                         </div>
                                                         <?php
@@ -1716,934 +1715,1044 @@ responsive image design start -->
                                 </div>
                                 <!-- khyati 18-4 end-->
                             </div>
-                            </div>
-                    
-                            <?php
-                        }
-                        ?>
-                    </div>
+                        </div>
 
+                        <?php
+                    }
+                    ?>
                 </div>
 
             </div>
-        </div>     
-        </section>
-        <!-- END CONTAINER -->
-        <!-- BEGIN FOOTER -->
-        <!-- footer start -->
-        <footer>
 
-            <?php echo $footer; ?>
-        </footer>
-        <!-- Bid-modal-2  -->
-        <div class="modal fade message-box" id="bidmodal-2" role="dialog">
-            <div class="modal-dialog modal-lm">
-                <div class="modal-content">
-                    <button type="button" class="modal-close" data-dismiss="modal">&times;</button>         
-                    <div class="modal-body">
-                        <span class="mes">
-                            <div id="popup-form">
-                                <?php echo form_open_multipart(base_url('artistic/user_image_insert'), array('id' => 'userimage', 'name' => 'userimage', 'class' => 'clearfix')); ?>
-                                <input type="file" name="profilepic" accept="image/gif, image/jpeg, image/png" id="profilepic">
-                                <input type="hidden" name="hitext" id="hitext" value="5">
-                                <!--<input type="submit" name="cancel3" id="cancel3" value="Cancel">-->
-                                <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save">
-                                <?php echo form_close(); ?>
-                            </div>
-                        </span>
+        </div>
+    </div>     
+</section>
+<!-- END CONTAINER -->
+<!-- BEGIN FOOTER -->
+<!-- footer start -->
+<footer>
+
+    <?php echo $footer; ?>
+</footer>
+<!-- Bid-modal-2  -->
+<div class="modal fade message-box" id="bidmodal-2" role="dialog">
+    <div class="modal-dialog modal-lm">
+        <div class="modal-content">
+            <button type="button" class="modal-close" data-dismiss="modal">&times;</button>         
+            <div class="modal-body">
+                <span class="mes">
+                    <div id="popup-form">
+                        <?php echo form_open_multipart(base_url('artistic/user_image_insert'), array('id' => 'userimage', 'name' => 'userimage', 'class' => 'clearfix')); ?>
+                        <input type="file" name="profilepic" accept="image/gif, image/jpeg, image/png" id="profilepic">
+                        <input type="hidden" name="hitext" id="hitext" value="5">
+                        <!--<input type="submit" name="cancel3" id="cancel3" value="Cancel">-->
+                        <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save">
+                        <?php echo form_close(); ?>
                     </div>
-                </div>
+                </span>
             </div>
         </div>
-        <!-- Model Popup Close -->
+    </div>
+</div>
+<!-- Model Popup Close -->
 
 
-        <!-- Bid-modal  -->
-        <div class="modal fade message-box biderror" id="bidmodal" role="dialog">
-            <div class="modal-dialog modal-lm">
-                <div class="modal-content">
-                    <button type="button" class="modal-close" data-dismiss="modal">&times;</button>       
-                    <div class="modal-body">
-                        <!--<img class="icon" src="images/dollar-icon.png" alt="" />-->
-                        <span class="mes"></span>
-                    </div>
-                </div>
+<!-- Bid-modal  -->
+<div class="modal fade message-box biderror" id="bidmodal" role="dialog">
+    <div class="modal-dialog modal-lm">
+        <div class="modal-content">
+            <button type="button" class="modal-close" data-dismiss="modal">&times;</button>       
+            <div class="modal-body">
+                <!--<img class="icon" src="images/dollar-icon.png" alt="" />-->
+                <span class="mes"></span>
             </div>
         </div>
-        <!-- Model Popup Close -->
-        <!-- Bid-modal-2  -->
-        <div class="modal fade message-box" id="likeusermodal" role="dialog">
-            <div class="modal-dialog modal-lm">
-                <div class="modal-content">
-                    <button type="button" class="modal-close" data-dismiss="modal">&times;</button>       
-                    <div class="modal-body">
-                        <span class="mes">
-                        </span>
-                    </div>
-                </div>
+    </div>
+</div>
+<!-- Model Popup Close -->
+<!-- Bid-modal-2  -->
+<div class="modal fade message-box" id="likeusermodal" role="dialog">
+    <div class="modal-dialog modal-lm">
+        <div class="modal-content">
+            <button type="button" class="modal-close" data-dismiss="modal">&times;</button>       
+            <div class="modal-body">
+                <span class="mes">
+                </span>
             </div>
         </div>
-        <!-- Model Popup Close -->
-        </body>
-        </html>
+    </div>
+</div>
+<!-- Model Popup Close -->
+</body>
+</html>
 
 
 
-        <!-- footer End -->
-        <!-- script for skill textbox automatic start (option 2)-->
-        <!-- <script src="<?php //echo base_url('js/jquery-ui.min.js');                                       ?>"></script> -->
-        <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
-        <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
-        <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
-        <script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+<!-- footer End -->
+<!-- script for skill textbox automatic start (option 2)-->
+<!-- <script src="<?php //echo base_url('js/jquery-ui.min.js');                                        ?>"></script> -->
+<script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
+<script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
+<script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
+<script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 
 
 
-        <!-- script for skill textbox automatic end (option 2)-->
-        <script>
+<!-- script for skill textbox automatic end (option 2)-->
+<script>
 
-                                                    var data = <?php echo json_encode($demo); ?>;
-                                                    // alert(data);
-
-
-                                                    $(function () {
-                                                        // alert('hi');
-                                                        $("#tags").autocomplete({
-                                                            source: function (request, response) {
-                                                                var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
-                                                                response($.grep(data, function (item) {
-                                                                    return matcher.test(item.label);
-                                                                }));
-                                                            },
-                                                            minLength: 1,
-                                                            select: function (event, ui) {
-                                                                event.preventDefault();
-                                                                $("#tags").val(ui.item.label);
-                                                                $("#selected-tag").val(ui.item.label);
-                                                                // window.location.href = ui.item.value;
-                                                            }
-                                                            ,
-                                                            focus: function (event, ui) {
-                                                                event.preventDefault();
-                                                                $("#tags").val(ui.item.label);
-                                                            }
-                                                        });
-                                                    });
-
-        </script>
+                                            var data = <?php echo json_encode($demo); ?>;
+                                            // alert(data);
 
 
+                                            $(function () {
+                                                // alert('hi');
+                                                $("#tags").autocomplete({
+                                                    source: function (request, response) {
+                                                        var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+                                                        response($.grep(data, function (item) {
+                                                            return matcher.test(item.label);
+                                                        }));
+                                                    },
+                                                    minLength: 1,
+                                                    select: function (event, ui) {
+                                                        event.preventDefault();
+                                                        $("#tags").val(ui.item.label);
+                                                        $("#selected-tag").val(ui.item.label);
+                                                        // window.location.href = ui.item.value;
+                                                    }
+                                                    ,
+                                                    focus: function (event, ui) {
+                                                        event.preventDefault();
+                                                        $("#tags").val(ui.item.label);
+                                                    }
+                                                });
+                                            });
+
+</script>
 
 
-        <script type="text/javascript">
-            function checkvalue() {
-                //alert("hi");
-                var searchkeyword = document.getElementById('tags').value;
-                var searchplace = document.getElementById('searchplace').value;
-                // alert(searchkeyword);
-                // alert(searchplace);
-                if (searchkeyword == "" && searchplace == "") {
-                    //alert('Please enter Keyword');
+
+
+<script type="text/javascript">
+    function checkvalue() {
+        //alert("hi");
+        var searchkeyword = document.getElementById('tags').value;
+        var searchplace = document.getElementById('searchplace').value;
+        // alert(searchkeyword);
+        // alert(searchplace);
+        if (searchkeyword == "" && searchplace == "") {
+            //alert('Please enter Keyword');
+            return false;
+        }
+    }
+</script>
+
+<script>
+    //select2 autocomplete start for skill
+    $('#searchskills').select2({
+
+        placeholder: 'Find Your Skills',
+
+        ajax: {
+
+            url: "<?php echo base_url(); ?>artistic/keyskill",
+            dataType: 'json',
+            delay: 250,
+
+            processResults: function (data) {
+
+                return {
+
+                    results: data
+
+
+                };
+
+            },
+            cache: true
+        }
+    });
+    //select2 autocomplete End for skill
+
+    //select2 autocomplete start for Location
+    $('#searchplace').select2({
+
+        placeholder: 'Find Your Location',
+        maximumSelectionLength: 1,
+        ajax: {
+
+            url: "<?php echo base_url(); ?>artistic/location",
+            dataType: 'json',
+            delay: 250,
+
+            processResults: function (data) {
+
+                return {
+
+                    results: data
+
+
+                };
+
+            },
+            cache: true
+        }
+    });
+    //select2 autocomplete End for Location
+
+
+
+</script>
+
+
+
+<!-- popup form edit start -->
+<script>
+    // Get the modal
+    var modal = document.getElementById('myModal');
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close1")[0];
+
+    // When the user clicks the button, open the modal 
+    btn.onclick = function () {
+        modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
+
+<!-- popup form edit END -->
+
+<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.min.js') ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
+
+
+
+<script type="text/javascript">
+
+    //validation for edit email formate form
+
+    $(document).ready(function () {
+
+        $("#artdesignation").validate({
+
+            rules: {
+
+                designation: {
+
+                    required: true,
+
+                },
+
+            },
+
+            messages: {
+
+                designation: {
+
+                    required: "Designation Is Required.",
+
+                },
+
+            },
+
+        });
+    });
+</script>
+
+
+<!-- post like script start -->
+
+<script type="text/javascript">
+    function post_like(clicked_id)
+    {
+        $.ajax({
+            type: 'POST',
+            url: '<?php echo base_url() . "artistic/like_post" ?>',
+            dataType: 'json',
+            data: 'post_id=' + clicked_id,
+            success: function (data) {
+                $('.' + 'likepost' + clicked_id).html(data.like);
+                $('.likeusername' + clicked_id).html(data.likeuser);
+
+                $('.likeduserlist' + clicked_id).hide();
+                if (data.like_user_count == '0') {
+                    document.getElementById('likeusername' + clicked_id).style.display = "none";
+                } else {
+                    document.getElementById('likeusername' + clicked_id).style.display = "block";
+                }
+                $('#likeusername' + clicked_id).addClass('likeduserlist1');
+            }
+        });
+    }
+</script>
+
+<!--post like script end -->
+
+<!-- comment like script start -->
+
+<script type="text/javascript">
+//    function comment_like(clicked_id)
+//    {
+//
+//        $.ajax({
+//            type: 'POST',
+//            url: '<?php echo base_url() . "artistic/like_comment" ?>',
+//            data: 'post_id=' + clicked_id,
+//            success: function (data) {
+//                $('#' + 'likecomment' + clicked_id).html(data);
+//
+//            }
+//        });
+//    }
+    function comment_like(clicked_id)
+    {
+
+        $.ajax({
+            type: 'POST',
+            url: '<?php echo base_url() . "artistic/like_comment" ?>',
+            data: 'post_id=' + clicked_id,
+            success: function (data) {
+                $('#' + 'likecomment' + clicked_id).html(data);
+
+            }
+        });
+    }
+</script>
+
+<script type="text/javascript">
+//    function comment_like1(clicked_id)
+//    {
+//
+//        $.ajax({
+//            type: 'POST',
+//            url: '<?php echo base_url() . "artistic/like_comment1" ?>',
+//            data: 'post_id=' + clicked_id,
+//            success: function (data) {
+//                $('#' + 'likecomment1' + clicked_id).html(data);
+//
+//            }
+//        });
+//    }
+
+    function comment_like1(clicked_id)
+    {
+
+        $.ajax({
+            type: 'POST',
+            url: '<?php echo base_url() . "artistic/like_comment1" ?>',
+            data: 'post_id=' + clicked_id,
+            success: function (data) {
+                $('#' + 'likecomment1' + clicked_id).html(data);
+
+            }
+        });
+    }
+</script>
+<!--comment like script end -->
+
+<!-- comment delete script start -->
+
+
+<!--
+<script type="text/javascript">
+
+    function comment_deletemodel(abc) {
+
+
+        $('.biderror .mes').html("<div class='pop_content'>Are you sure want to Delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+        $('#bidmodal').modal('show');
+    }
+
+</script>
+
+<script type="text/javascript">
+
+    function comment_deletetwomodel(abc) {
+
+
+        $('.biderror .mes').html("<div class='pop_content'>Are you sure want to Delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deletetwo(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+        $('#bidmodal').modal('show');
+    }
+
+</script>-->
+
+<script type="text/javascript">
+
+    function comment_delete(clicked_id) {
+        $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='comment_deleted(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+        $('#bidmodal').modal('show');
+    }
+
+    function comment_deleted(clicked_id)
+    {
+        var post_delete = document.getElementById("post_delete");
+        //alert(post_delete.value);
+        $.ajax({
+            type: 'POST',
+            url: '<?php echo base_url() . "artistic/delete_comment" ?>',
+            data: 'post_id=' + clicked_id + '&post_delete=' + post_delete.value,
+            dataType: "json",
+            success: function (data) {
+                //alert('.' + 'insertcomment' + clicked_id);
+                alert(data.comment);
+                $('.' + 'insertcomment' + post_delete.value).html(data.comment);
+                $('#' + 'insertcount' + post_delete.value).html(data.count);
+                $('.post-design-commnet-box').show();
+            }
+        });
+    }
+
+    function comment_deletetwo(clicked_id)
+    {
+        $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='comment_deletedtwo(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+        $('#bidmodal').modal('show');
+    }
+
+</script>
+
+<script type="text/javascript">
+    function comment_deletedtwo(clicked_id)
+    {
+        var post_delete1 = document.getElementById("post_deletetwo");
+        $.ajax({
+            type: 'POST',
+            url: '<?php echo base_url() . "artistic/delete_commenttwo" ?>',
+            data: 'post_id=' + clicked_id + '&post_delete=' + post_delete1.value,
+            dataType: "json",
+            success: function (data) {
+
+                // $('.' + 'insertcomment' + post_delete.value).html(data);
+                $('.' + 'insertcommenttwo' + post_delete1.value).html(data.comment);
+                $('#' + 'insertcount' + post_delete1.value).html(data.count);
+                $('.post-design-commnet-box').show();
+
+            }
+        });
+    }
+
+
+//                        function comment_deletetwo(clicked_id)
+//                        {
+//
+//                            var post_delete = document.getElementById("post_delete2");
+//
+//                            $.ajax({
+//                                type: 'POST',
+//                                url: '<?php echo base_url() . "artistic/delete_commenttwo" ?>',
+//                                data: 'post_id=' + clicked_id + '&post_delete=' + post_delete.value,
+//                                success: function (data) {
+//
+//                                    $('#' + 'fourcomment' + post_delete.value).html(data);
+//
+//                                }
+//                            });
+//                        }
+</script>
+
+
+<script type="text/javascript">
+//    function comment_delete(clicked_id)
+//    {
+//
+//        var post_delete = document.getElementById("post_delete");
+//        // alert(post_delete);
+//        $.ajax({
+//            type: 'POST',
+//            url: '<?php echo base_url() . "artistic/delete_comment" ?>',
+//            data: 'post_id=' + clicked_id + '&post_delete=' + post_delete.value,
+//            dataType: "json",
+//            success: function (data) {
+//
+//                // $('.' + 'insertcomment' + post_delete.value).html(data);
+//                $('#' + 'commnetpost' + post_delete.value).html(data.count);
+//                $('.insertcomment' + post_delete.value).html(data.comment);
+//
+//            }
+//        });
+//    }
+
+
+//    function comment_deletetwo(clicked_id)
+//    {
+//
+//        var post_delete = document.getElementById("post_delete2");
+//
+//        $.ajax({
+//            type: 'POST',
+//            url: '<?php echo base_url() . "artistic/delete_commenttwo" ?>',
+//            data: 'post_id=' + clicked_id + '&post_delete=' + post_delete.value,
+//            success: function (data) {
+//
+//                $('#' + 'fourcomment' + post_delete.value).html(data);
+//
+//            }
+//        });
+//    }
+</script>
+
+<!--comment delete script end -->
+
+
+<!-- insert comment using enter -->
+<script type="text/javascript">
+
+//    function insert_comment(clicked_id)
+//    {
+//
+//        var post_comment = document.getElementById("post_comment" + clicked_id);
+//
+//
+//        var x = document.getElementById('threecomment' + clicked_id);
+//        var y = document.getElementById('fourcomment' + clicked_id);
+//
+//
+//        if (post_comment.value == '') {
+//
+//            event.preventDefault();
+//            return false;
+//        } else {
+//
+//
+//            if (x.style.display === 'block' && y.style.display === 'none') {
+//
+//                $.ajax({
+//                    type: 'POST',
+//                    url: '<?php echo base_url() . "artistic/insert_commentthree" ?>',
+//                    data: 'post_id=' + clicked_id + '&comment=' + post_comment.value,
+//                    dataType: "json",
+//                    success: function (data) {
+//                        $('textarea').each(function () {
+//                            $(this).val('');
+//                        });
+//                        //$('.' + 'insertcomment' + clicked_id).html(data);
+//                        $('#' + 'commnetpost' + clicked_id).html(data.count);
+//                        $('.insertcomment' + clicked_id).html(data.comment);
+//                    }
+//                });
+//            } else {
+//
+//                $.ajax({
+//                    type: 'POST',
+//                    url: '<?php echo base_url() . "artistic/insert_comment" ?>',
+//                    data: 'post_id=' + clicked_id + '&comment=' + post_comment.value,
+//                    // dataType: "json",
+//                    success: function (data) {
+//                        $('textarea').each(function () {
+//                            $(this).val('');
+//                        });
+//                        $('#' + 'fourcomment' + clicked_id).html(data);
+//                    }
+//                });
+//            }
+//        }
+//
+//    }
+
+    function insert_comment(clicked_id)
+    {
+        // start khyati code
+        var $field = $('#post_comment' + clicked_id);
+        var post_comment = $('#post_comment' + clicked_id).html();
+
+        $('#post_comment' + clicked_id).html("");
+
+        var x = document.getElementById('threecomment' + clicked_id);
+        var y = document.getElementById('fourcomment' + clicked_id);
+
+        if (post_comment == '') {
+            event.preventDefault();
+            return false;
+        } else {
+            if (x.style.display === 'block' && y.style.display === 'none') {
+                $.ajax({
+                    type: 'POST',
+                    url: '<?php echo base_url() . "artistic/insert_commentthree" ?>',
+                    data: 'post_id=' + clicked_id + '&comment=' + post_comment,
+                    dataType: "json",
+                    success: function (data) {
+                        //$('.' + 'insertcomment' + clicked_id).html(data);
+                        $('#' + 'insertcount' + clicked_id).html(data.count);
+                        $('.insertcomment' + clicked_id).html(data.comment);
+                    }
+                });
+
+            } else {
+
+                $.ajax({
+                    type: 'POST',
+                    url: '<?php echo base_url() . "artistic/insert_comment" ?>',
+                    data: 'post_id=' + clicked_id + '&comment=' + post_comment,
+                    dataType: "json",
+                    success: function (data) {
+                        $('textarea').each(function () {
+                            $(this).val('');
+                        });
+                        $('#' + 'insertcount' + clicked_id).html(data.count);
+                        $('#' + 'fourcomment' + clicked_id).html(data.comment);
+                    }
+                });
+
+            }
+        }
+
+    }
+
+</script>
+
+
+
+<script type="text/javascript">
+
+//    function entercomment(clicked_id)
+//    {
+//         $('#post_comment' + clicked_id).keypress(function (e) {
+//
+//
+//            if (e.keyCode == 13 && !e.shiftKey) {
+//                var val = $('#post_comment' + clicked_id).val();
+//                e.preventDefault();
+//                if (window.preventDuplicateKeyPresses)
+//                    return;
+//                window.preventDuplicateKeyPresses = true;
+//                window.setTimeout(function () {
+//                    window.preventDuplicateKeyPresses = false;
+//                }, 500);
+//               
+//                var x = document.getElementById('threecomment' + clicked_id);
+//                var y = document.getElementById('fourcomment' + clicked_id);
+//
+//
+//                if (val == '') {
+//
+//                    event.preventDefault();
+//                    return false;
+//                } else {
+//                    if (x.style.display === 'block' && y.style.display === 'none') {
+//                        $.ajax({
+//                            type: 'POST',
+//                            url: '<?php echo base_url() . "artistic/insert_commentthree" ?>',
+//                            data: 'post_id=' + clicked_id + '&comment=' + val,
+//                            dataType: "json",
+//                            success: function (data) {
+//                                $('textarea').each(function () {
+//                                    $(this).val('');
+//                                });
+//                                $('#' + 'commnetpost' + clicked_id).html(data.count);
+//                                $('.insertcomment' + clicked_id).html(data.comment);
+//                            }
+//                        });
+//                    } else {
+//
+//                        $.ajax({
+//                            type: 'POST',
+//                            url: '<?php echo base_url() . "artistic/insert_comment" ?>',
+//                            data: 'post_id=' + clicked_id + '&comment=' + val,
+//                            success: function (data) {
+//                                $('textarea').each(function () {
+//                                    $(this).val('');
+//                                });
+//                                $('#' + 'fourcomment' + clicked_id).html(data);
+//                       
+//                            }
+//                        });
+//                    }
+//                }
+//                e.preventDefault();
+//            }
+//        });
+//    }
+
+
+    function entercomment(clicked_id)
+    {
+        $("#post_comment" + clicked_id).click(function () {
+            $(this).prop("contentEditable", true);
+        });
+
+        $('#post_comment' + clicked_id).keypress(function (e) {
+
+            if (e.keyCode == 13 && !e.shiftKey) {
+                e.preventDefault();
+                var sel = $("#post_comment" + clicked_id);
+                var txt = sel.html();
+                if (txt == '') {
                     return false;
                 }
-            }
-        </script>
-
-        <script>
-            //select2 autocomplete start for skill
-            $('#searchskills').select2({
-
-                placeholder: 'Find Your Skills',
-
-                ajax: {
-
-                    url: "<?php echo base_url(); ?>artistic/keyskill",
-                    dataType: 'json',
-                    delay: 250,
-
-                    processResults: function (data) {
-
-                        return {
-
-                            results: data
-
-
-                        };
-
-                    },
-                    cache: true
-                }
-            });
-            //select2 autocomplete End for skill
-
-            //select2 autocomplete start for Location
-            $('#searchplace').select2({
-
-                placeholder: 'Find Your Location',
-                maximumSelectionLength: 1,
-                ajax: {
-
-                    url: "<?php echo base_url(); ?>artistic/location",
-                    dataType: 'json',
-                    delay: 250,
-
-                    processResults: function (data) {
-
-                        return {
-
-                            results: data
-
-
-                        };
-
-                    },
-                    cache: true
-                }
-            });
-            //select2 autocomplete End for Location
-
-
-
-        </script>
-
-
-
-        <!-- popup form edit start -->
-        <script>
-            // Get the modal
-            var modal = document.getElementById('myModal');
-
-            // Get the button that opens the modal
-            var btn = document.getElementById("myBtn");
-
-            // Get the <span> element that closes the modal
-            var span = document.getElementsByClassName("close1")[0];
-
-            // When the user clicks the button, open the modal 
-            btn.onclick = function () {
-                modal.style.display = "block";
-            }
-
-            // When the user clicks on <span> (x), close the modal
-            span.onclick = function () {
-                modal.style.display = "none";
-            }
-
-            // When the user clicks anywhere outside of the modal, close it
-            window.onclick = function (event) {
-                if (event.target == modal) {
-                    modal.style.display = "none";
-                }
-            }
-        </script>
-
-
-        <!-- popup form edit END -->
-
-        <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.min.js') ?>"></script>
-        <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
-
-
-
-        <script type="text/javascript">
-
-            //validation for edit email formate form
-
-            $(document).ready(function () {
-
-                $("#artdesignation").validate({
-
-                    rules: {
-
-                        designation: {
-
-                            required: true,
-
-                        },
-
-                    },
-
-                    messages: {
-
-                        designation: {
-
-                            required: "Designation Is Required.",
-
-                        },
-
-                    },
-
-                });
-            });
-        </script>
-
-
-        <!-- post like script start -->
-
-        <script type="text/javascript">
-            function post_like(clicked_id)
-            {
-                $.ajax({
-                    type: 'POST',
-                    url: '<?php echo base_url() . "artistic/like_post" ?>',
-                    dataType: 'json',
-                    data: 'post_id=' + clicked_id,
-                    success: function (data) {
-                        $('.' + 'likepost' + clicked_id).html(data.like);
-                        $('.likeusername' + clicked_id).html(data.likeuser);
-
-                        $('.likeduserlist' + clicked_id).hide();
-                        if (data.like_user_count == '0') {
-                            document.getElementById('likeusername' + clicked_id).style.display = "none";
-                        } else {
-                            document.getElementById('likeusername' + clicked_id).style.display = "block";
-                        }
-                        $('#likeusername' + clicked_id).addClass('likeduserlist1');
-                    }
-                });
-            }
-        </script>
-
-        <!--post like script end -->
-
-        <!-- comment like script start -->
-
-        <script type="text/javascript">
-        //    function comment_like(clicked_id)
-        //    {
-        //
-        //        $.ajax({
-        //            type: 'POST',
-        //            url: '<?php echo base_url() . "artistic/like_comment" ?>',
-        //            data: 'post_id=' + clicked_id,
-        //            success: function (data) {
-        //                $('#' + 'likecomment' + clicked_id).html(data);
-        //
-        //            }
-        //        });
-        //    }
-            function comment_like(clicked_id)
-            {
-
-                $.ajax({
-                    type: 'POST',
-                    url: '<?php echo base_url() . "artistic/like_comment" ?>',
-                    data: 'post_id=' + clicked_id,
-                    success: function (data) {
-                        $('#' + 'likecomment' + clicked_id).html(data);
-
-                    }
-                });
-            }
-        </script>
-
-        <script type="text/javascript">
-        //    function comment_like1(clicked_id)
-        //    {
-        //
-        //        $.ajax({
-        //            type: 'POST',
-        //            url: '<?php echo base_url() . "artistic/like_comment1" ?>',
-        //            data: 'post_id=' + clicked_id,
-        //            success: function (data) {
-        //                $('#' + 'likecomment1' + clicked_id).html(data);
-        //
-        //            }
-        //        });
-        //    }
-
-            function comment_like1(clicked_id)
-            {
-
-                $.ajax({
-                    type: 'POST',
-                    url: '<?php echo base_url() . "artistic/like_comment1" ?>',
-                    data: 'post_id=' + clicked_id,
-                    success: function (data) {
-                        $('#' + 'likecomment1' + clicked_id).html(data);
-
-                    }
-                });
-            }
-        </script>
-        <!--comment like script end -->
-
-        <!-- comment delete script start -->
-
-
-        <!--
-        <script type="text/javascript">
-        
-            function comment_deletemodel(abc) {
-        
-        
-                $('.biderror .mes').html("<div class='pop_content'>Are you sure want to Delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-                $('#bidmodal').modal('show');
-            }
-        
-        </script>
-        
-        <script type="text/javascript">
-        
-            function comment_deletetwomodel(abc) {
-        
-        
-                $('.biderror .mes').html("<div class='pop_content'>Are you sure want to Delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deletetwo(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-                $('#bidmodal').modal('show');
-            }
-        
-        </script>-->
-
-        <script type="text/javascript">
-
-            function comment_delete(clicked_id) {
-                $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='comment_deleted(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-                $('#bidmodal').modal('show');
-            }
-
-            function comment_deleted(clicked_id)
-            {
-                var post_delete = document.getElementById("post_delete");
-                //alert(post_delete.value);
-                $.ajax({
-                    type: 'POST',
-                    url: '<?php echo base_url() . "artistic/delete_comment" ?>',
-                    data: 'post_id=' + clicked_id + '&post_delete=' + post_delete.value,
-                    dataType: "json",
-                    success: function (data) {
-                        //alert('.' + 'insertcomment' + clicked_id);
-                        alert(data.comment);
-                        $('.' + 'insertcomment' + post_delete.value).html(data.comment);
-                        $('#' + 'insertcount' + post_delete.value).html(data.count);
-                        $('.post-design-commnet-box').show();
-                    }
-                });
-            }
-
-            function comment_deletetwo(clicked_id)
-            {
-                $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='comment_deletedtwo(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-                $('#bidmodal').modal('show');
-            }
-
-        </script>
-
-        <script type="text/javascript">
-            function comment_deletedtwo(clicked_id)
-            {
-                var post_delete1 = document.getElementById("post_deletetwo");
-                $.ajax({
-                    type: 'POST',
-                    url: '<?php echo base_url() . "artistic/delete_commenttwo" ?>',
-                    data: 'post_id=' + clicked_id + '&post_delete=' + post_delete1.value,
-                    dataType: "json",
-                    success: function (data) {
-
-                        // $('.' + 'insertcomment' + post_delete.value).html(data);
-                        $('.' + 'insertcommenttwo' + post_delete1.value).html(data.comment);
-                        $('#' + 'insertcount' + post_delete1.value).html(data.count);
-                        $('.post-design-commnet-box').show();
-
-                    }
-                });
-            }
-
-
-        //                        function comment_deletetwo(clicked_id)
-        //                        {
-        //
-        //                            var post_delete = document.getElementById("post_delete2");
-        //
-        //                            $.ajax({
-        //                                type: 'POST',
-        //                                url: '<?php echo base_url() . "artistic/delete_commenttwo" ?>',
-        //                                data: 'post_id=' + clicked_id + '&post_delete=' + post_delete.value,
-        //                                success: function (data) {
-        //
-        //                                    $('#' + 'fourcomment' + post_delete.value).html(data);
-        //
-        //                                }
-        //                            });
-        //                        }
-        </script>
-
-
-        <script type="text/javascript">
-        //    function comment_delete(clicked_id)
-        //    {
-        //
-        //        var post_delete = document.getElementById("post_delete");
-        //        // alert(post_delete);
-        //        $.ajax({
-        //            type: 'POST',
-        //            url: '<?php echo base_url() . "artistic/delete_comment" ?>',
-        //            data: 'post_id=' + clicked_id + '&post_delete=' + post_delete.value,
-        //            dataType: "json",
-        //            success: function (data) {
-        //
-        //                // $('.' + 'insertcomment' + post_delete.value).html(data);
-        //                $('#' + 'commnetpost' + post_delete.value).html(data.count);
-        //                $('.insertcomment' + post_delete.value).html(data.comment);
-        //
-        //            }
-        //        });
-        //    }
-
-
-        //    function comment_deletetwo(clicked_id)
-        //    {
-        //
-        //        var post_delete = document.getElementById("post_delete2");
-        //
-        //        $.ajax({
-        //            type: 'POST',
-        //            url: '<?php echo base_url() . "artistic/delete_commenttwo" ?>',
-        //            data: 'post_id=' + clicked_id + '&post_delete=' + post_delete.value,
-        //            success: function (data) {
-        //
-        //                $('#' + 'fourcomment' + post_delete.value).html(data);
-        //
-        //            }
-        //        });
-        //    }
-        </script>
-
-        <!--comment delete script end -->
-
-
-        <!-- insert comment using enter -->
-        <script type="text/javascript">
-
-        //    function insert_comment(clicked_id)
-        //    {
-        //
-        //        var post_comment = document.getElementById("post_comment" + clicked_id);
-        //
-        //
-        //        var x = document.getElementById('threecomment' + clicked_id);
-        //        var y = document.getElementById('fourcomment' + clicked_id);
-        //
-        //
-        //        if (post_comment.value == '') {
-        //
-        //            event.preventDefault();
-        //            return false;
-        //        } else {
-        //
-        //
-        //            if (x.style.display === 'block' && y.style.display === 'none') {
-        //
-        //                $.ajax({
-        //                    type: 'POST',
-        //                    url: '<?php echo base_url() . "artistic/insert_commentthree" ?>',
-        //                    data: 'post_id=' + clicked_id + '&comment=' + post_comment.value,
-        //                    dataType: "json",
-        //                    success: function (data) {
-        //                        $('textarea').each(function () {
-        //                            $(this).val('');
-        //                        });
-        //                        //$('.' + 'insertcomment' + clicked_id).html(data);
-        //                        $('#' + 'commnetpost' + clicked_id).html(data.count);
-        //                        $('.insertcomment' + clicked_id).html(data.comment);
-        //                    }
-        //                });
-        //            } else {
-        //
-        //                $.ajax({
-        //                    type: 'POST',
-        //                    url: '<?php echo base_url() . "artistic/insert_comment" ?>',
-        //                    data: 'post_id=' + clicked_id + '&comment=' + post_comment.value,
-        //                    // dataType: "json",
-        //                    success: function (data) {
-        //                        $('textarea').each(function () {
-        //                            $(this).val('');
-        //                        });
-        //                        $('#' + 'fourcomment' + clicked_id).html(data);
-        //                    }
-        //                });
-        //            }
-        //        }
-        //
-        //    }
-
-            function insert_comment(clicked_id)
-            {
-                // start khyati code
-                var $field = $('#post_comment' + clicked_id);
-                var post_comment = $('#post_comment' + clicked_id).html();
 
                 $('#post_comment' + clicked_id).html("");
+
+                if (window.preventDuplicateKeyPresses)
+                    return;
+
+                window.preventDuplicateKeyPresses = true;
+                window.setTimeout(function () {
+                    window.preventDuplicateKeyPresses = false;
+                }, 500);
 
                 var x = document.getElementById('threecomment' + clicked_id);
                 var y = document.getElementById('fourcomment' + clicked_id);
 
-                if (post_comment == '') {
-                    event.preventDefault();
-                    return false;
+                if (x.style.display === 'block' && y.style.display === 'none') {
+                    $.ajax({
+                        type: 'POST',
+                        url: '<?php echo base_url() . "artistic/insert_commentthree" ?>',
+                        data: 'post_id=' + clicked_id + '&comment=' + txt,
+                        dataType: "json",
+                        success: function (data) {
+                            $('textarea').each(function () {
+                                $(this).val('');
+                            });
+                            $('#' + 'insertcount' + clicked_id).html(data.count);
+                            $('.insertcomment' + clicked_id).html(data.comment);
+                        }
+                    });
                 } else {
-                    if (x.style.display === 'block' && y.style.display === 'none') {
-                        $.ajax({
-                            type: 'POST',
-                            url: '<?php echo base_url() . "artistic/insert_commentthree" ?>',
-                            data: 'post_id=' + clicked_id + '&comment=' + post_comment,
-                            dataType: "json",
-                            success: function (data) {
-                                //$('.' + 'insertcomment' + clicked_id).html(data);
-                                $('#' + 'insertcount' + clicked_id).html(data.count);
-                                $('.insertcomment' + clicked_id).html(data.comment);
-                            }
-                        });
-
-                    } else {
-
-                        $.ajax({
-                            type: 'POST',
-                            url: '<?php echo base_url() . "artistic/insert_comment" ?>',
-                            data: 'post_id=' + clicked_id + '&comment=' + post_comment,
-                            dataType: "json",
-                            success: function (data) {
-                                $('textarea').each(function () {
-                                    $(this).val('');
-                                });
-                                $('#' + 'insertcount' + clicked_id).html(data.count);
-                                $('#' + 'fourcomment' + clicked_id).html(data.comment);
-                            }
-                        });
-
-                    }
+                    $.ajax({
+                        type: 'POST',
+                        url: '<?php echo base_url() . "artistic/insert_comment" ?>',
+                        data: 'post_id=' + clicked_id + '&comment=' + txt,
+                        dataType: "json",
+                        success: function (data) {
+                            $('textarea').each(function () {
+                                $(this).val('');
+                            });
+                            $('#' + 'insertcount' + clicked_id).html(data.count);
+                            $('#' + 'fourcomment' + clicked_id).html(data.comment);
+                        }
+                    });
                 }
-
             }
+        });
+        $(".scroll").click(function (event) {
+            event.preventDefault();
+            $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1200);
+        });
+    }
 
-        </script>
+</script>
 
+<!--comment insert script end -->
+<!-- comment edit script start -->
 
+<!-- comment edit box start-->
+<script type="text/javascript">
 
-        <script type="text/javascript">
+//    function comment_editbox(clicked_id) {
+//        document.getElementById('editcomment' + clicked_id).style.display = 'block';
+//        document.getElementById('showcomment' + clicked_id).style.display = 'none';
+//        document.getElementById('editsubmit' + clicked_id).style.display = 'block';
+//        document.getElementById('editbox' + clicked_id).style.display = 'none';
+//        document.getElementById('editcancle' + clicked_id).style.display = 'block';
+//
+//    }
+//
+//    function comment_editcancle(clicked_id) {
+//
+//        document.getElementById('editbox' + clicked_id).style.display = 'block';
+//        document.getElementById('editcancle' + clicked_id).style.display = 'none';
+//
+//        document.getElementById('editcomment' + clicked_id).style.display = 'none';
+//        document.getElementById('showcomment' + clicked_id).style.display = 'block';
+//        document.getElementById('editsubmit' + clicked_id).style.display = 'none';
+//
+//    }
+//    function comment_editboxtwo(clicked_id) {
+//
+//        document.getElementById('editcommenttwo' + clicked_id).style.display = 'block';
+//        document.getElementById('showcommenttwo' + clicked_id).style.display = 'none';
+//        document.getElementById('editsubmittwo' + clicked_id).style.display = 'block';
+//        document.getElementById('editboxtwo' + clicked_id).style.display = 'none';
+//        document.getElementById('editcancletwo' + clicked_id).style.display = 'block';
+//
+//    }
+//
+//
+//
+//    function comment_editcancletwo(clicked_id) {
+//
+//        document.getElementById('editboxtwo' + clicked_id).style.display = 'block';
+//        document.getElementById('editcancletwo' + clicked_id).style.display = 'none';
+//
+//        document.getElementById('editcommenttwo' + clicked_id).style.display = 'none';
+//        document.getElementById('showcommenttwo' + clicked_id).style.display = 'block';
+//        document.getElementById('editsubmittwo' + clicked_id).style.display = 'none';
+//
+//    }
 
-        //    function entercomment(clicked_id)
-        //    {
-        //         $('#post_comment' + clicked_id).keypress(function (e) {
-        //
-        //
-        //            if (e.keyCode == 13 && !e.shiftKey) {
-        //                var val = $('#post_comment' + clicked_id).val();
-        //                e.preventDefault();
-        //                if (window.preventDuplicateKeyPresses)
-        //                    return;
-        //                window.preventDuplicateKeyPresses = true;
-        //                window.setTimeout(function () {
-        //                    window.preventDuplicateKeyPresses = false;
-        //                }, 500);
-        //               
-        //                var x = document.getElementById('threecomment' + clicked_id);
-        //                var y = document.getElementById('fourcomment' + clicked_id);
-        //
-        //
-        //                if (val == '') {
-        //
-        //                    event.preventDefault();
-        //                    return false;
-        //                } else {
-        //                    if (x.style.display === 'block' && y.style.display === 'none') {
-        //                        $.ajax({
-        //                            type: 'POST',
-        //                            url: '<?php echo base_url() . "artistic/insert_commentthree" ?>',
-        //                            data: 'post_id=' + clicked_id + '&comment=' + val,
-        //                            dataType: "json",
-        //                            success: function (data) {
-        //                                $('textarea').each(function () {
-        //                                    $(this).val('');
-        //                                });
-        //                                $('#' + 'commnetpost' + clicked_id).html(data.count);
-        //                                $('.insertcomment' + clicked_id).html(data.comment);
-        //                            }
-        //                        });
-        //                    } else {
-        //
-        //                        $.ajax({
-        //                            type: 'POST',
-        //                            url: '<?php echo base_url() . "artistic/insert_comment" ?>',
-        //                            data: 'post_id=' + clicked_id + '&comment=' + val,
-        //                            success: function (data) {
-        //                                $('textarea').each(function () {
-        //                                    $(this).val('');
-        //                                });
-        //                                $('#' + 'fourcomment' + clicked_id).html(data);
-        //                       
-        //                            }
-        //                        });
-        //                    }
-        //                }
-        //                e.preventDefault();
-        //            }
-        //        });
-        //    }
-
-
-            function entercomment(clicked_id)
-            {
-                $("#post_comment" + clicked_id).click(function () {
-                    $(this).prop("contentEditable", true);
-                });
-
-                $('#post_comment' + clicked_id).keypress(function (e) {
-
-                    if (e.keyCode == 13 && !e.shiftKey) {
-                        e.preventDefault();
-                        var sel = $("#post_comment" + clicked_id);
-                        var txt = sel.html();
-                        if (txt == '') {
-                            return false;
-                        }
-
-                        $('#post_comment' + clicked_id).html("");
-
-                        if (window.preventDuplicateKeyPresses)
-                            return;
-
-                        window.preventDuplicateKeyPresses = true;
-                        window.setTimeout(function () {
-                            window.preventDuplicateKeyPresses = false;
-                        }, 500);
-
-                        var x = document.getElementById('threecomment' + clicked_id);
-                        var y = document.getElementById('fourcomment' + clicked_id);
-
-                        if (x.style.display === 'block' && y.style.display === 'none') {
-                            $.ajax({
-                                type: 'POST',
-                                url: '<?php echo base_url() . "artistic/insert_commentthree" ?>',
-                                data: 'post_id=' + clicked_id + '&comment=' + txt,
-                                dataType: "json",
-                                success: function (data) {
-                                    $('textarea').each(function () {
-                                        $(this).val('');
-                                    });
-                                    $('#' + 'insertcount' + clicked_id).html(data.count);
-                                    $('.insertcomment' + clicked_id).html(data.comment);
-                                }
-                            });
-                        } else {
-                            $.ajax({
-                                type: 'POST',
-                                url: '<?php echo base_url() . "artistic/insert_comment" ?>',
-                                data: 'post_id=' + clicked_id + '&comment=' + txt,
-                                dataType: "json",
-                                success: function (data) {
-                                    $('textarea').each(function () {
-                                        $(this).val('');
-                                    });
-                                    $('#' + 'insertcount' + clicked_id).html(data.count);
-                                    $('#' + 'fourcomment' + clicked_id).html(data.comment);
-                                }
-                            });
-                        }
-                    }
-                });
-                $(".scroll").click(function (event) {
-                    event.preventDefault();
-                    $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1200);
-                });
-            }
-
-        </script>
-
-        <!--comment insert script end -->
-        <!-- comment edit script start -->
-
-        <!-- comment edit box start-->
-        <script type="text/javascript">
-
-        //    function comment_editbox(clicked_id) {
-        //        document.getElementById('editcomment' + clicked_id).style.display = 'block';
-        //        document.getElementById('showcomment' + clicked_id).style.display = 'none';
-        //        document.getElementById('editsubmit' + clicked_id).style.display = 'block';
-        //        document.getElementById('editbox' + clicked_id).style.display = 'none';
-        //        document.getElementById('editcancle' + clicked_id).style.display = 'block';
-        //
-        //    }
-        //
-        //    function comment_editcancle(clicked_id) {
-        //
-        //        document.getElementById('editbox' + clicked_id).style.display = 'block';
-        //        document.getElementById('editcancle' + clicked_id).style.display = 'none';
-        //
-        //        document.getElementById('editcomment' + clicked_id).style.display = 'none';
-        //        document.getElementById('showcomment' + clicked_id).style.display = 'block';
-        //        document.getElementById('editsubmit' + clicked_id).style.display = 'none';
-        //
-        //    }
-        //    function comment_editboxtwo(clicked_id) {
-        //
-        //        document.getElementById('editcommenttwo' + clicked_id).style.display = 'block';
-        //        document.getElementById('showcommenttwo' + clicked_id).style.display = 'none';
-        //        document.getElementById('editsubmittwo' + clicked_id).style.display = 'block';
-        //        document.getElementById('editboxtwo' + clicked_id).style.display = 'none';
-        //        document.getElementById('editcancletwo' + clicked_id).style.display = 'block';
-        //
-        //    }
-        //
-        //
-        //
-        //    function comment_editcancletwo(clicked_id) {
-        //
-        //        document.getElementById('editboxtwo' + clicked_id).style.display = 'block';
-        //        document.getElementById('editcancletwo' + clicked_id).style.display = 'none';
-        //
-        //        document.getElementById('editcommenttwo' + clicked_id).style.display = 'none';
-        //        document.getElementById('showcommenttwo' + clicked_id).style.display = 'block';
-        //        document.getElementById('editsubmittwo' + clicked_id).style.display = 'none';
-        //
-        //    }
-
-            function comment_editbox(clicked_id) {
-                document.getElementById('editcomment' + clicked_id).style.display = 'inline-block';
-                document.getElementById('showcomment' + clicked_id).style.display = 'none';
-                document.getElementById('editsubmit' + clicked_id).style.display = 'inline-block';
-                //document.getElementById('editbox' + clicked_id).style.display = 'none';
-                document.getElementById('editcommentbox' + clicked_id).style.display = 'none';
-                document.getElementById('editcancle' + clicked_id).style.display = 'block';
-                $('.post-design-commnet-box').hide();
-            }
+    function comment_editbox(clicked_id) {
+        document.getElementById('editcomment' + clicked_id).style.display = 'inline-block';
+        document.getElementById('showcomment' + clicked_id).style.display = 'none';
+        document.getElementById('editsubmit' + clicked_id).style.display = 'inline-block';
+        //document.getElementById('editbox' + clicked_id).style.display = 'none';
+        document.getElementById('editcommentbox' + clicked_id).style.display = 'none';
+        document.getElementById('editcancle' + clicked_id).style.display = 'block';
+        $('.post-design-commnet-box').hide();
+    }
 
 
-            function comment_editcancle(clicked_id) {
-                document.getElementById('editcommentbox' + clicked_id).style.display = 'block';
-                document.getElementById('editcancle' + clicked_id).style.display = 'none';
-                document.getElementById('editcomment' + clicked_id).style.display = 'none';
-                document.getElementById('showcomment' + clicked_id).style.display = 'block';
-                document.getElementById('editsubmit' + clicked_id).style.display = 'none';
+    function comment_editcancle(clicked_id) {
+        document.getElementById('editcommentbox' + clicked_id).style.display = 'block';
+        document.getElementById('editcancle' + clicked_id).style.display = 'none';
+        document.getElementById('editcomment' + clicked_id).style.display = 'none';
+        document.getElementById('showcomment' + clicked_id).style.display = 'block';
+        document.getElementById('editsubmit' + clicked_id).style.display = 'none';
 
+        $('.post-design-commnet-box').show();
+    }
+
+    function comment_editboxtwo(clicked_id) {
+
+        $('div[id^=editcommenttwo]').css('display', 'none');
+        $('div[id^=showcommenttwo]').css('display', 'block');
+        $('button[id^=editsubmittwo]').css('display', 'none');
+        $('div[id^=editcommentboxtwo]').css('display', 'block');
+        $('div[id^=editcancletwo]').css('display', 'none');
+
+        document.getElementById('editcommenttwo' + clicked_id).style.display = 'inline-block';
+        document.getElementById('showcommenttwo' + clicked_id).style.display = 'none';
+        document.getElementById('editsubmittwo' + clicked_id).style.display = 'inline-block';
+        document.getElementById('editcommentboxtwo' + clicked_id).style.display = 'none';
+        document.getElementById('editcancletwo' + clicked_id).style.display = 'block';
+        $('.post-design-commnet-box').hide();
+    }
+
+
+    function comment_editcancletwo(clicked_id) {
+
+        document.getElementById('editcommentboxtwo' + clicked_id).style.display = 'block';
+        document.getElementById('editcancletwo' + clicked_id).style.display = 'none';
+
+        document.getElementById('editcommenttwo' + clicked_id).style.display = 'none';
+        document.getElementById('showcommenttwo' + clicked_id).style.display = 'block';
+        document.getElementById('editsubmittwo' + clicked_id).style.display = 'none';
+        $('.post-design-commnet-box').show();
+    }
+
+    function comment_editbox3(clicked_id) { //alert(clicked_id); alert('editcomment' + clicked_id); alert('showcomment' + clicked_id); alert('editsubmit' + clicked_id); 
+        document.getElementById('editcomment3' + clicked_id).style.display = 'block';
+        document.getElementById('showcomment3' + clicked_id).style.display = 'none';
+        document.getElementById('editsubmit3' + clicked_id).style.display = 'block';
+
+        document.getElementById('editcommentbox3' + clicked_id).style.display = 'none';
+        document.getElementById('editcancle3' + clicked_id).style.display = 'block';
+        $('.post-design-commnet-box').hide();
+
+    }
+
+    function comment_editcancle3(clicked_id) {
+
+        document.getElementById('editcommentbox3' + clicked_id).style.display = 'block';
+        document.getElementById('editcancle3' + clicked_id).style.display = 'none';
+
+        document.getElementById('editcomment3' + clicked_id).style.display = 'none';
+        document.getElementById('showcomment3' + clicked_id).style.display = 'block';
+        document.getElementById('editsubmit3' + clicked_id).style.display = 'none';
+
+        $('.post-design-commnet-box').show();
+
+    }
+
+    function comment_editbox4(clicked_id) { //alert(clicked_id); alert('editcomment' + clicked_id); alert('showcomment' + clicked_id); alert('editsubmit' + clicked_id); 
+        document.getElementById('editcomment4' + clicked_id).style.display = 'block';
+        document.getElementById('showcomment4' + clicked_id).style.display = 'none';
+        document.getElementById('editsubmit4' + clicked_id).style.display = 'block';
+
+        document.getElementById('editcommentbox4' + clicked_id).style.display = 'none';
+        document.getElementById('editcancle4' + clicked_id).style.display = 'block';
+
+        $('.post-design-commnet-box').hide();
+
+    }
+
+    function comment_editcancle4(clicked_id) {
+
+        document.getElementById('editcommentbox4' + clicked_id).style.display = 'block';
+        document.getElementById('editcancle4' + clicked_id).style.display = 'none';
+
+        document.getElementById('editcomment4' + clicked_id).style.display = 'none';
+        document.getElementById('showcomment4' + clicked_id).style.display = 'block';
+        document.getElementById('editsubmit4' + clicked_id).style.display = 'none';
+
+        $('.post-design-commnet-box').show();
+
+    }
+
+</script>
+
+<!--comment edit box end-->
+
+<!-- comment edit insert start -->
+<script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
+<script type="text/javascript">
+//    function edit_comment(abc)
+//    {
+//
+//        var post_comment_edit = document.getElementById("editcomment" + abc);
+//
+//        if (post_comment_edit.value == '') {
+//            $('.biderror .mes').html("<div class='pop_content'>Are you sure want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+//            $('#bidmodal').modal('show');
+//
+//        } else {
+//
+//            $.ajax({
+//                type: 'POST',
+//                url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
+//                data: 'post_id=' + abc + '&comment=' + post_comment_edit.value,
+//                success: function (data) {
+//
+//
+//                    document.getElementById('editcomment' + abc).style.display = 'none';
+//                    document.getElementById('showcomment' + abc).style.display = 'block';
+//                    document.getElementById('editsubmit' + abc).style.display = 'none';
+//
+//                    document.getElementById('editbox' + abc).style.display = 'block';
+//                    document.getElementById('editcancle' + abc).style.display = 'none';
+//
+//                    $('#' + 'showcomment' + abc).html(data);
+//
+//
+//
+//                }
+//            });
+//        }
+//    }
+
+
+    function edit_comment(abc)
+    {
+        $("#editcomment" + abc).click(function () {
+            $(this).prop("contentEditable", true);
+        });
+
+        var sel = $("#editcomment" + abc);
+        var txt = sel.html();
+        if (txt == '' || txt == '<br>') {
+            $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+            $('#bidmodal').modal('show');
+            return false;
+        }
+        $.ajax({
+            type: 'POST',
+            url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
+            data: 'post_id=' + abc + '&comment=' + txt,
+            success: function (data) {
+                document.getElementById('editcomment' + abc).style.display = 'none';
+                document.getElementById('showcomment' + abc).style.display = 'block';
+                document.getElementById('editsubmit' + abc).style.display = 'none';
+                document.getElementById('editcommentbox' + abc).style.display = 'block';
+                document.getElementById('editcancle' + abc).style.display = 'none';
+                $('#' + 'showcomment' + abc).html(data);
                 $('.post-design-commnet-box').show();
             }
-
-            function comment_editboxtwo(clicked_id) {
-
-                $('div[id^=editcommenttwo]').css('display', 'none');
-                $('div[id^=showcommenttwo]').css('display', 'block');
-                $('button[id^=editsubmittwo]').css('display', 'none');
-                $('div[id^=editcommentboxtwo]').css('display', 'block');
-                $('div[id^=editcancletwo]').css('display', 'none');
-
-                document.getElementById('editcommenttwo' + clicked_id).style.display = 'inline-block';
-                document.getElementById('showcommenttwo' + clicked_id).style.display = 'none';
-                document.getElementById('editsubmittwo' + clicked_id).style.display = 'inline-block';
-                document.getElementById('editcommentboxtwo' + clicked_id).style.display = 'none';
-                document.getElementById('editcancletwo' + clicked_id).style.display = 'block';
-                $('.post-design-commnet-box').hide();
-            }
+        });
+        $(".scroll").click(function (event) {
+            event.preventDefault();
+            $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1200);
+        });
+    }
+</script>
 
 
-            function comment_editcancletwo(clicked_id) {
+<script type="text/javascript">
+    function edit_comment2(abc)
+    {
 
-                document.getElementById('editcommentboxtwo' + clicked_id).style.display = 'block';
-                document.getElementById('editcancletwo' + clicked_id).style.display = 'none';
+        var post_comment_edit = document.getElementById("editcomment2" + abc);
 
-                document.getElementById('editcommenttwo' + clicked_id).style.display = 'none';
-                document.getElementById('showcommenttwo' + clicked_id).style.display = 'block';
-                document.getElementById('editsubmittwo' + clicked_id).style.display = 'none';
-                $('.post-design-commnet-box').show();
-            }
+        $.ajax({
+            type: 'POST',
+            url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
+            data: 'post_id=' + abc + '&comment=' + post_comment_edit.value,
+            success: function (data) {
 
-            function comment_editbox3(clicked_id) { //alert(clicked_id); alert('editcomment' + clicked_id); alert('showcomment' + clicked_id); alert('editsubmit' + clicked_id); 
-                document.getElementById('editcomment3' + clicked_id).style.display = 'block';
-                document.getElementById('showcomment3' + clicked_id).style.display = 'none';
-                document.getElementById('editsubmit3' + clicked_id).style.display = 'block';
 
-                document.getElementById('editcommentbox3' + clicked_id).style.display = 'none';
-                document.getElementById('editcancle3' + clicked_id).style.display = 'block';
-                $('.post-design-commnet-box').hide();
+                document.getElementById('editcomment2' + abc).style.display = 'none';
+                document.getElementById('showcomment2' + abc).style.display = 'block';
+                document.getElementById('editsubmit2' + abc).style.display = 'none';
+
+                $('#' + 'showcomment' + abc).html(data);
+
+
 
             }
+        });
 
-            function comment_editcancle3(clicked_id) {
+    }
+</script>
 
-                document.getElementById('editcommentbox3' + clicked_id).style.display = 'block';
-                document.getElementById('editcancle3' + clicked_id).style.display = 'none';
+<script type="text/javascript">
 
-                document.getElementById('editcomment3' + clicked_id).style.display = 'none';
-                document.getElementById('showcomment3' + clicked_id).style.display = 'block';
-                document.getElementById('editsubmit3' + clicked_id).style.display = 'none';
+//    function commentedit(abc)
+//    {
+//        $('#editcomment' + abc).keypress(function (e) {
+//            if (e.keyCode == 13 && !e.shiftKey) {
+//                var val = $('#editcomment' + abc).val();
+//                e.preventDefault();
+//
+//                if (window.preventDuplicateKeyPresses)
+//                    return;
+//
+//                window.preventDuplicateKeyPresses = true;
+//                window.setTimeout(function () {
+//                    window.preventDuplicateKeyPresses = false;
+//                }, 500);
+//
+//                if (val == '') {
+//
+//                    $('.biderror .mes').html("<div class='pop_content'>Are you sure want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+//                    $('#bidmodal').modal('show');
+//
+//                } else {
+//
+//                    $.ajax({
+//                        type: 'POST',
+//                        url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
+//                        data: 'post_id=' + abc + '&comment=' + val,
+//                        success: function (data) {
+//
+//
+//                            document.getElementById('editcomment' + abc).style.display = 'none';
+//                            document.getElementById('showcomment' + abc).style.display = 'block';
+//                            document.getElementById('editsubmit' + abc).style.display = 'none';
+//
+//                            document.getElementById('editbox' + abc).style.display = 'block';
+//                            document.getElementById('editcancle' + abc).style.display = 'none';
+//
+//                            $('#' + 'showcomment' + abc).html(data);
+//                        }
+//                    });
+//                }
+//            }
+//        });
+//    }
 
-                $('.post-design-commnet-box').show();
-
-            }
-
-            function comment_editbox4(clicked_id) { //alert(clicked_id); alert('editcomment' + clicked_id); alert('showcomment' + clicked_id); alert('editsubmit' + clicked_id); 
-                document.getElementById('editcomment4' + clicked_id).style.display = 'block';
-                document.getElementById('showcomment4' + clicked_id).style.display = 'none';
-                document.getElementById('editsubmit4' + clicked_id).style.display = 'block';
-
-                document.getElementById('editcommentbox4' + clicked_id).style.display = 'none';
-                document.getElementById('editcancle4' + clicked_id).style.display = 'block';
-
-                $('.post-design-commnet-box').hide();
-
-            }
-
-            function comment_editcancle4(clicked_id) {
-
-                document.getElementById('editcommentbox4' + clicked_id).style.display = 'block';
-                document.getElementById('editcancle4' + clicked_id).style.display = 'none';
-
-                document.getElementById('editcomment4' + clicked_id).style.display = 'none';
-                document.getElementById('showcomment4' + clicked_id).style.display = 'block';
-                document.getElementById('editsubmit4' + clicked_id).style.display = 'none';
-
-                $('.post-design-commnet-box').show();
-
-            }
-
-        </script>
-
-        <!--comment edit box end-->
-
-        <!-- comment edit insert start -->
-        <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
-        <script type="text/javascript">
-        //    function edit_comment(abc)
-        //    {
-        //
-        //        var post_comment_edit = document.getElementById("editcomment" + abc);
-        //
-        //        if (post_comment_edit.value == '') {
-        //            $('.biderror .mes').html("<div class='pop_content'>Are you sure want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-        //            $('#bidmodal').modal('show');
-        //
-        //        } else {
-        //
-        //            $.ajax({
-        //                type: 'POST',
-        //                url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
-        //                data: 'post_id=' + abc + '&comment=' + post_comment_edit.value,
-        //                success: function (data) {
-        //
-        //
-        //                    document.getElementById('editcomment' + abc).style.display = 'none';
-        //                    document.getElementById('showcomment' + abc).style.display = 'block';
-        //                    document.getElementById('editsubmit' + abc).style.display = 'none';
-        //
-        //                    document.getElementById('editbox' + abc).style.display = 'block';
-        //                    document.getElementById('editcancle' + abc).style.display = 'none';
-        //
-        //                    $('#' + 'showcomment' + abc).html(data);
-        //
-        //
-        //
-        //                }
-        //            });
-        //        }
-        //    }
-
-
-            function edit_comment(abc)
-            {
-                $("#editcomment" + abc).click(function () {
-                    $(this).prop("contentEditable", true);
-                });
-
+    function commentedit(abc)
+    {
+        $("#editcomment" + abc).click(function () {
+            $(this).prop("contentEditable", true);
+        });
+        $('#editcomment' + abc).keypress(function (event) {
+            if (event.which == 13 && event.shiftKey != 1) {
+                event.preventDefault();
                 var sel = $("#editcomment" + abc);
                 var txt = sel.html();
                 if (txt == '' || txt == '<br>') {
@@ -2651,6 +2760,12 @@ responsive image design start -->
                     $('#bidmodal').modal('show');
                     return false;
                 }
+                if (window.preventDuplicateKeyPresses)
+                    return;
+                window.preventDuplicateKeyPresses = true;
+                window.setTimeout(function () {
+                    window.preventDuplicateKeyPresses = false;
+                }, 500);
                 $.ajax({
                     type: 'POST',
                     url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
@@ -2665,168 +2780,139 @@ responsive image design start -->
                         $('.post-design-commnet-box').show();
                     }
                 });
-                $(".scroll").click(function (event) {
-                    event.preventDefault();
-                    $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1200);
-                });
             }
-        </script>
+        });
+        $(".scroll").click(function (event) {
+            event.preventDefault();
+            $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1200);
+        });
+    }
+</script>
 
+<script type="text/javascript">
+//    function edit_commenttwo(abc)
+//    {
+//        var post_comment_edit = document.getElementById("editcommenttwo" + abc);
+//        if (post_comment_edit.value == '') {
+//
+//            $('.biderror .mes').html("<div class='pop_content'>Are you sure want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deletetwo(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+//            $('#bidmodal').modal('show');
+//
+//        } else {
+//
+//            $.ajax({
+//                type: 'POST',
+//                url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
+//                data: 'post_id=' + abc + '&comment=' + post_comment_edit.value,
+//                success: function (data) {
+//                    document.getElementById('showcommenttwo' + abc).style.display = 'block';
+//                    document.getElementById('showcommenttwo' + abc).innerHTML = data;
+//                    document.getElementById('editboxtwo' + abc).style.display = 'block';
+//
+//                    document.getElementById('editcommenttwo' + abc).style.display = 'none';
+//
+//                    document.getElementById('editsubmittwo' + abc).style.display = 'none';
+//                    document.getElementById('editcancletwo' + abc).style.display = 'none';
+//
+//                }
+//            });
+//        }
+//
+//    }
 
-        <script type="text/javascript">
-            function edit_comment2(abc)
-            {
+    function edit_commenttwo(abc)
+    {
+        $("#editcommenttwo" + abc).click(function () {
+            $(this).prop("contentEditable", true);
+        });
 
-                var post_comment_edit = document.getElementById("editcomment2" + abc);
-
-                $.ajax({
-                    type: 'POST',
-                    url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
-                    data: 'post_id=' + abc + '&comment=' + post_comment_edit.value,
-                    success: function (data) {
-
-
-                        document.getElementById('editcomment2' + abc).style.display = 'none';
-                        document.getElementById('showcomment2' + abc).style.display = 'block';
-                        document.getElementById('editsubmit2' + abc).style.display = 'none';
-
-                        $('#' + 'showcomment' + abc).html(data);
-
-
-
-                    }
-                });
-
+        var sel = $("#editcommenttwo" + abc);
+        var txt = sel.html();
+        if (txt == '' || txt == '<br>') {
+            $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deletetwo(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+            $('#bidmodal').modal('show');
+            return false;
+        }
+        $.ajax({
+            type: 'POST',
+            url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
+            data: 'post_id=' + abc + '&comment=' + txt,
+            success: function (data) {
+                document.getElementById('editcommenttwo' + abc).style.display = 'none';
+                document.getElementById('showcommenttwo' + abc).style.display = 'block';
+                document.getElementById('editsubmittwo' + abc).style.display = 'none';
+                document.getElementById('editcommentboxtwo' + abc).style.display = 'block';
+                document.getElementById('editcancletwo' + abc).style.display = 'none';
+                $('#' + 'showcommenttwo' + abc).html(data);
+                $('.post-design-commnet-box').show();
             }
-        </script>
+        });
+        $(".scroll").click(function (event) {
+            event.preventDefault();
+            $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1200);
+        });
+    }
+</script>
 
-        <script type="text/javascript">
 
-        //    function commentedit(abc)
-        //    {
-        //        $('#editcomment' + abc).keypress(function (e) {
-        //            if (e.keyCode == 13 && !e.shiftKey) {
-        //                var val = $('#editcomment' + abc).val();
-        //                e.preventDefault();
-        //
-        //                if (window.preventDuplicateKeyPresses)
-        //                    return;
-        //
-        //                window.preventDuplicateKeyPresses = true;
-        //                window.setTimeout(function () {
-        //                    window.preventDuplicateKeyPresses = false;
-        //                }, 500);
-        //
-        //                if (val == '') {
-        //
-        //                    $('.biderror .mes').html("<div class='pop_content'>Are you sure want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-        //                    $('#bidmodal').modal('show');
-        //
-        //                } else {
-        //
-        //                    $.ajax({
-        //                        type: 'POST',
-        //                        url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
-        //                        data: 'post_id=' + abc + '&comment=' + val,
-        //                        success: function (data) {
-        //
-        //
-        //                            document.getElementById('editcomment' + abc).style.display = 'none';
-        //                            document.getElementById('showcomment' + abc).style.display = 'block';
-        //                            document.getElementById('editsubmit' + abc).style.display = 'none';
-        //
-        //                            document.getElementById('editbox' + abc).style.display = 'block';
-        //                            document.getElementById('editcancle' + abc).style.display = 'none';
-        //
-        //                            $('#' + 'showcomment' + abc).html(data);
-        //                        }
-        //                    });
-        //                }
-        //            }
-        //        });
-        //    }
+<script type="text/javascript">
 
-            function commentedit(abc)
-            {
-                $("#editcomment" + abc).click(function () {
-                    $(this).prop("contentEditable", true);
-                });
-                $('#editcomment' + abc).keypress(function (event) {
-                    if (event.which == 13 && event.shiftKey != 1) {
-                        event.preventDefault();
-                        var sel = $("#editcomment" + abc);
-                        var txt = sel.html();
-                        if (txt == '' || txt == '<br>') {
-                            $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-                            $('#bidmodal').modal('show');
-                            return false;
-                        }
-                        if (window.preventDuplicateKeyPresses)
-                            return;
-                        window.preventDuplicateKeyPresses = true;
-                        window.setTimeout(function () {
-                            window.preventDuplicateKeyPresses = false;
-                        }, 500);
-                        $.ajax({
-                            type: 'POST',
-                            url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
-                            data: 'post_id=' + abc + '&comment=' + txt,
-                            success: function (data) {
-                                document.getElementById('editcomment' + abc).style.display = 'none';
-                                document.getElementById('showcomment' + abc).style.display = 'block';
-                                document.getElementById('editsubmit' + abc).style.display = 'none';
-                                document.getElementById('editcommentbox' + abc).style.display = 'block';
-                                document.getElementById('editcancle' + abc).style.display = 'none';
-                                $('#' + 'showcomment' + abc).html(data);
-                                $('.post-design-commnet-box').show();
-                            }
-                        });
-                    }
-                });
-                $(".scroll").click(function (event) {
-                    event.preventDefault();
-                    $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1200);
-                });
-            }
-        </script>
+//    function commentedittwo(abc)
+//    {
+//
+//        $('#editcommenttwo' + abc).keypress(function (e) {
+//       
+//            if (e.keyCode == 13 && !e.shiftKey) {
+//                var val = $('#editcommenttwo' + abc).val();
+//                e.preventDefault();
+//
+//                if (window.preventDuplicateKeyPresses)
+//                    return;
+//
+//                window.preventDuplicateKeyPresses = true;
+//                window.setTimeout(function () {
+//                    window.preventDuplicateKeyPresses = false;
+//                }, 500);
+//
+//                if (val == '') {
+//
+//                    $('.biderror .mes').html("<div class='pop_content'>Are you sure want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deletetwo(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+//                    $('#bidmodal').modal('show');
+//
+//                } else {
+//                    $.ajax({
+//                        type: 'POST',
+//                        url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
+//                        data: 'post_id=' + abc + '&comment=' + val,
+//                        success: function (data) {
+//
+//
+//                            document.getElementById('editcommenttwo' + abc).style.display = 'none';
+//                            document.getElementById('showcommenttwo' + abc).style.display = 'block';
+//                            document.getElementById('editsubmittwo' + abc).style.display = 'none';
+//
+//                            document.getElementById('editboxtwo' + abc).style.display = 'block';
+//                            document.getElementById('editcancletwo' + abc).style.display = 'none';
+//
+//                            $('#' + 'showcommenttwo' + abc).html(data);
+//                        }
+//                    });
+//                }
+//            }
+//            e.preventDefault();
+//        });
+//        
+//    }
 
-        <script type="text/javascript">
-        //    function edit_commenttwo(abc)
-        //    {
-        //        var post_comment_edit = document.getElementById("editcommenttwo" + abc);
-        //        if (post_comment_edit.value == '') {
-        //
-        //            $('.biderror .mes').html("<div class='pop_content'>Are you sure want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deletetwo(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-        //            $('#bidmodal').modal('show');
-        //
-        //        } else {
-        //
-        //            $.ajax({
-        //                type: 'POST',
-        //                url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
-        //                data: 'post_id=' + abc + '&comment=' + post_comment_edit.value,
-        //                success: function (data) {
-        //                    document.getElementById('showcommenttwo' + abc).style.display = 'block';
-        //                    document.getElementById('showcommenttwo' + abc).innerHTML = data;
-        //                    document.getElementById('editboxtwo' + abc).style.display = 'block';
-        //
-        //                    document.getElementById('editcommenttwo' + abc).style.display = 'none';
-        //
-        //                    document.getElementById('editsubmittwo' + abc).style.display = 'none';
-        //                    document.getElementById('editcancletwo' + abc).style.display = 'none';
-        //
-        //                }
-        //            });
-        //        }
-        //
-        //    }
-
-            function edit_commenttwo(abc)
-            {
-                $("#editcommenttwo" + abc).click(function () {
-                    $(this).prop("contentEditable", true);
-                });
-
+    function commentedittwo(abc)
+    {
+        $("#editcommenttwo" + abc).click(function () {
+            $(this).prop("contentEditable", true);
+            //$(this).html("");
+        });
+        $('#editcommenttwo' + abc).keypress(function (event) {
+            if (event.which == 13 && event.shiftKey != 1) {
+                event.preventDefault();
                 var sel = $("#editcommenttwo" + abc);
                 var txt = sel.html();
                 if (txt == '' || txt == '<br>') {
@@ -2834,6 +2920,15 @@ responsive image design start -->
                     $('#bidmodal').modal('show');
                     return false;
                 }
+
+                if (window.preventDuplicateKeyPresses)
+                    return;
+
+                window.preventDuplicateKeyPresses = true;
+                window.setTimeout(function () {
+                    window.preventDuplicateKeyPresses = false;
+                }, 500);
+
                 $.ajax({
                     type: 'POST',
                     url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
@@ -2842,1098 +2937,1012 @@ responsive image design start -->
                         document.getElementById('editcommenttwo' + abc).style.display = 'none';
                         document.getElementById('showcommenttwo' + abc).style.display = 'block';
                         document.getElementById('editsubmittwo' + abc).style.display = 'none';
+
                         document.getElementById('editcommentboxtwo' + abc).style.display = 'block';
                         document.getElementById('editcancletwo' + abc).style.display = 'none';
+
                         $('#' + 'showcommenttwo' + abc).html(data);
                         $('.post-design-commnet-box').show();
-                    }
-                });
-                $(".scroll").click(function (event) {
-                    event.preventDefault();
-                    $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1200);
-                });
-            }
-        </script>
-
-
-        <script type="text/javascript">
-
-        //    function commentedittwo(abc)
-        //    {
-        //
-        //        $('#editcommenttwo' + abc).keypress(function (e) {
-        //       
-        //            if (e.keyCode == 13 && !e.shiftKey) {
-        //                var val = $('#editcommenttwo' + abc).val();
-        //                e.preventDefault();
-        //
-        //                if (window.preventDuplicateKeyPresses)
-        //                    return;
-        //
-        //                window.preventDuplicateKeyPresses = true;
-        //                window.setTimeout(function () {
-        //                    window.preventDuplicateKeyPresses = false;
-        //                }, 500);
-        //
-        //                if (val == '') {
-        //
-        //                    $('.biderror .mes').html("<div class='pop_content'>Are you sure want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deletetwo(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-        //                    $('#bidmodal').modal('show');
-        //
-        //                } else {
-        //                    $.ajax({
-        //                        type: 'POST',
-        //                        url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
-        //                        data: 'post_id=' + abc + '&comment=' + val,
-        //                        success: function (data) {
-        //
-        //
-        //                            document.getElementById('editcommenttwo' + abc).style.display = 'none';
-        //                            document.getElementById('showcommenttwo' + abc).style.display = 'block';
-        //                            document.getElementById('editsubmittwo' + abc).style.display = 'none';
-        //
-        //                            document.getElementById('editboxtwo' + abc).style.display = 'block';
-        //                            document.getElementById('editcancletwo' + abc).style.display = 'none';
-        //
-        //                            $('#' + 'showcommenttwo' + abc).html(data);
-        //                        }
-        //                    });
-        //                }
-        //            }
-        //            e.preventDefault();
-        //        });
-        //        
-        //    }
-
-            function commentedittwo(abc)
-            {
-                $("#editcommenttwo" + abc).click(function () {
-                    $(this).prop("contentEditable", true);
-                    //$(this).html("");
-                });
-                $('#editcommenttwo' + abc).keypress(function (event) {
-                    if (event.which == 13 && event.shiftKey != 1) {
-                        event.preventDefault();
-                        var sel = $("#editcommenttwo" + abc);
-                        var txt = sel.html();
-                        if (txt == '' || txt == '<br>') {
-                            $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deletetwo(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-                            $('#bidmodal').modal('show');
-                            return false;
-                        }
-
-                        if (window.preventDuplicateKeyPresses)
-                            return;
-
-                        window.preventDuplicateKeyPresses = true;
-                        window.setTimeout(function () {
-                            window.preventDuplicateKeyPresses = false;
-                        }, 500);
-
-                        $.ajax({
-                            type: 'POST',
-                            url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
-                            data: 'post_id=' + abc + '&comment=' + txt,
-                            success: function (data) {
-                                document.getElementById('editcommenttwo' + abc).style.display = 'none';
-                                document.getElementById('showcommenttwo' + abc).style.display = 'block';
-                                document.getElementById('editsubmittwo' + abc).style.display = 'none';
-
-                                document.getElementById('editcommentboxtwo' + abc).style.display = 'block';
-                                document.getElementById('editcancletwo' + abc).style.display = 'none';
-
-                                $('#' + 'showcommenttwo' + abc).html(data);
-                                $('.post-design-commnet-box').show();
-
-                            }
-                        });
-                    }
-                });
-                $(".scroll").click(function (event) {
-                    event.preventDefault();
-                    $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1200);
-                });
-            }
-
-        </script>
-
-        <!--comment edit insert script end -->
-
-        <!-- hide and show data start-->
-        <script type="text/javascript">
-            function commentall(clicked_id) {
-
-
-                var x = document.getElementById('threecomment' + clicked_id);
-                var y = document.getElementById('fourcomment' + clicked_id);
-                var z = document.getElementById('insertcount' + clicked_id);
-
-                if (x.style.display === 'block' && y.style.display === 'none') {
-                    x.style.display = 'none';
-                    y.style.display = 'block';
-                    z.style.visibility = 'show';
-                    $.ajax({
-                        type: 'POST',
-                        url: '<?php echo base_url() . "artistic/fourcomment" ?>',
-                        data: 'art_post_id=' + clicked_id,
-                        //alert(data);
-                        success: function (data) {
-                            $('#' + 'fourcomment' + clicked_id).html(data);
-
-                        }
-                    });
-
-                }
-                // } else {
-                //      x.style.display = 'block';
-                //      y.style.display = 'block';
-                //      z.style.display = 'block';
-
-                //      $.ajax({ 
-                //             type:'POST',
-                //             url:'<?php echo base_url() . "artistic/fourcomment" ?>',
-                //             data:'art_post_id='+clicked_id,
-                //             //alert(data);
-                //             success:function(data){
-                //       $('#' + 'threecomment' + clicked_id).html(data);
-
-                //       }
-                //         });
-                // }
-            }
-        </script>
-        <!-- hide and show data end-->
-
-
-
-        <!-- cover image start -->
-        <script>
-            function myFunction() {
-                document.getElementById("upload-demo").style.visibility = "hidden";
-                document.getElementById("upload-demo-i").style.visibility = "hidden";
-                document.getElementById('message1').style.display = "block";
-
-                //setTimeout(function () { location.reload(1); }, 5000);
-
-            }
-
-
-            function showDiv() {
-                document.getElementById('row1').style.display = "block";
-                document.getElementById('row2').style.display = "none";
-            }
-        </script>
-
-        <script type="text/javascript">
-            $uploadCrop = $('#upload-demo').croppie({
-                enableExif: true,
-                viewport: {
-                    width: 1250,
-                    height: 350,
-                    type: 'square'
-                },
-                boundary: {
-                    width: 1250,
-                    height: 350
-                }
-            });
-
-
-            $('.upload-result').on('click', function (ev) {
-                $uploadCrop.croppie('result', {
-                    type: 'canvas',
-                    size: 'viewport'
-                }).then(function (resp) {
-
-                    $.ajax({
-                        url: "<?php echo base_url() ?>artistic/ajaxpro",
-                        type: "POST",
-                        data: {"image": resp},
-                        success: function (data) {
-                            html = '<img src="' + resp + '" />';
-                            if (html)
-                            {
-                                window.location.reload();
-                            }
-                        }
-                    });
-
-                });
-            });
-
-            $('.cancel-result').on('click', function (ev) {
-
-                document.getElementById('row2').style.display = "block";
-                document.getElementById('row1').style.display = "none";
-                document.getElementById('message1').style.display = "none";
-
-            });
-
-            //aarati code start
-            $('#upload').on('change', function () {
-
-                var reader = new FileReader();
-
-                reader.onload = function (e) {
-                    $uploadCrop.croppie('bind', {
-                        url: e.target.result
-                    }).then(function () {
-                        console.log('jQuery bind complete');
-                    });
-
-                }
-                reader.readAsDataURL(this.files[0]);
-
-
-
-            });
-
-            $('#upload').on('change', function () {
-
-                var fd = new FormData();
-                fd.append("image", $("#upload")[0].files[0]);
-
-                $.ajax({
-
-                    url: "<?php echo base_url(); ?>artistic/image",
-                    type: "POST",
-                    data: fd,
-                    processData: false,
-                    contentType: false,
-                    success: function (response) {
-
 
                     }
                 });
+            }
+        });
+        $(".scroll").click(function (event) {
+            event.preventDefault();
+            $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1200);
+        });
+    }
+
+</script>
+
+<!--comment edit insert script end -->
+
+<!-- hide and show data start-->
+<script type="text/javascript">
+    function commentall(clicked_id) {
+
+
+        var x = document.getElementById('threecomment' + clicked_id);
+        var y = document.getElementById('fourcomment' + clicked_id);
+        var z = document.getElementById('insertcount' + clicked_id);
+
+        if (x.style.display === 'block' && y.style.display === 'none') {
+            x.style.display = 'none';
+            y.style.display = 'block';
+            z.style.visibility = 'show';
+            $.ajax({
+                type: 'POST',
+                url: '<?php echo base_url() . "artistic/fourcomment" ?>',
+                data: 'art_post_id=' + clicked_id,
+                //alert(data);
+                success: function (data) {
+                    $('#' + 'fourcomment' + clicked_id).html(data);
+
+                }
             });
 
-            //aarati code end
-        </script>
-        <!-- cover image end -->
+        }
+        // } else {
+        //      x.style.display = 'block';
+        //      y.style.display = 'block';
+        //      z.style.display = 'block';
+
+        //      $.ajax({ 
+        //             type:'POST',
+        //             url:'<?php echo base_url() . "artistic/fourcomment" ?>',
+        //             data:'art_post_id='+clicked_id,
+        //             //alert(data);
+        //             success:function(data){
+        //       $('#' + 'threecomment' + clicked_id).html(data);
+
+        //       }
+        //         });
+        // }
+    }
+</script>
+<!-- hide and show data end-->
 
 
-        <script>
-            /* When the user clicks on the button, 
-             toggle between hiding and showing the dropdown content */
-            function myFunction1(clicked_id) {
-                document.getElementById('myDropdown' + clicked_id).classList.toggle("show");
-            }
 
-            // Close the dropdown if the user clicks outside of it
-            window.onclick = function (event) {
-                if (!event.target.matches('.dropbtn1')) {
+<!-- cover image start -->
+<script>
+    function myFunction() {
+        document.getElementById("upload-demo").style.visibility = "hidden";
+        document.getElementById("upload-demo-i").style.visibility = "hidden";
+        document.getElementById('message1').style.display = "block";
 
-                    var dropdowns = document.getElementsByClassName("dropdown-content1");
-                    var i;
-                    for (i = 0; i < dropdowns.length; i++) {
-                        var openDropdown = dropdowns[i];
-                        if (openDropdown.classList.contains('show')) {
-                            openDropdown.classList.remove('show');
-                        }
+        //setTimeout(function () { location.reload(1); }, 5000);
+
+    }
+
+
+    function showDiv() {
+        document.getElementById('row1').style.display = "block";
+        document.getElementById('row2').style.display = "none";
+    }
+</script>
+
+<script type="text/javascript">
+    $uploadCrop = $('#upload-demo').croppie({
+        enableExif: true,
+        viewport: {
+            width: 1250,
+            height: 350,
+            type: 'square'
+        },
+        boundary: {
+            width: 1250,
+            height: 350
+        }
+    });
+
+
+    $('.upload-result').on('click', function (ev) {
+        $uploadCrop.croppie('result', {
+            type: 'canvas',
+            size: 'viewport'
+        }).then(function (resp) {
+
+            $.ajax({
+                url: "<?php echo base_url() ?>artistic/ajaxpro",
+                type: "POST",
+                data: {"image": resp},
+                success: function (data) {
+                    html = '<img src="' + resp + '" />';
+                    if (html)
+                    {
+                        window.location.reload();
                     }
                 }
-            }
-        </script>
-        <script>
-            /* When the user clicks on the button, 
-             toggle between hiding and showing the dropdown content */
-            function myFunction(clicked_id) {
-                document.getElementById('myDropdown' + clicked_id).classList.toggle("show");
-            }
-
-            // Close the dropdown if the user clicks outside of it
-            window.onclick = function (event) {
-                if (!event.target.matches('.dropbtn2')) {
-
-                    var dropdowns = document.getElementsByClassName("dropdown-content2");
-                    var i;
-                    for (i = 0; i < dropdowns.length; i++) {
-                        var openDropdown = dropdowns[i];
-                        if (openDropdown.classList.contains('show')) {
-                            openDropdown.classList.remove('show');
-                        }
-                    }
-                }
-            }
-        </script>
-
-        <script>
-            $(function () {
-                var showTotalChar = 200, showChar = "More", hideChar = "less";
-                $('.show').each(function () {
-                    var content = $(this).text();
-                    if (content.length > showTotalChar) {
-                        var con = content.substr(0, showTotalChar);
-                        var hcon = content.substr(showTotalChar, content.length - showTotalChar);
-                        var txt = con + '<span class="dots">...</span><span class="morectnt"><span>' + hcon + '</span>&nbsp;&nbsp;<a href="" class="showmoretxt">' + showChar + '</a></span>';
-                        $(this).html(txt);
-                    }
-                });
-                $(".showmoretxt").click(function () {
-                    if ($(this).hasClass("sample")) {
-                        $(this).removeClass("sample");
-                        $(this).text(showChar);
-                    } else {
-                        $(this).addClass("sample");
-                        $(this).text(hideChar);
-                    }
-                    $(this).parent().prev().toggle();
-                    $(this).prev().toggle();
-                    return false;
-                });
-            });
-        </script>
-
-
-        <!-- falguni post in sert script start -->
-
-        <script type="text/javascript">
-
-            $(document).ready(function () {
-                $('.modal-close').on('click', function () {
-                    $('.modal-post').hide();
-                });
             });
 
-        </script>
+        });
+    });
 
-        <!-- falguni script end -->
+    $('.cancel-result').on('click', function (ev) {
 
+        document.getElementById('row2').style.display = "block";
+        document.getElementById('row1').style.display = "none";
+        document.getElementById('message1').style.display = "none";
 
-        <script type="text/javascript">
-            //For blocks or images of size, you can use $(document).ready
-            $(document).ready(function () {
-                $('.blocks').jMosaic({items_type: "li", margin: 0});
-                $('.pictures').jMosaic({min_row_height: 150, margin: 3, is_first_big: true});
+    });
+
+    //aarati code start
+    $('#upload').on('change', function () {
+
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $uploadCrop.croppie('bind', {
+                url: e.target.result
+            }).then(function () {
+                console.log('jQuery bind complete');
             });
 
-            //If this image without attribute WIDTH or HEIGH, you can use $(window).load
-            $(window).load(function () {
-                //$('.pictures').jMosaic({min_row_height: 150, margin: 3, is_first_big: true});
-            });
-
-            //You can update on $(window).resize
-            $(window).resize(function () {
-                //$('.pictures').jMosaic({min_row_height: 150, margin: 3, is_first_big: true});
-                //$('.blocks').jMosaic({items_type: "li", margin: 0});
-            });
-        </script>
+        }
+        reader.readAsDataURL(this.files[0]);
 
 
 
-        <script>
-            function openModal() {
-                document.getElementById('myModal1').style.display = "block";
+    });
+
+    $('#upload').on('change', function () {
+
+        var fd = new FormData();
+        fd.append("image", $("#upload")[0].files[0]);
+
+        $.ajax({
+
+            url: "<?php echo base_url(); ?>artistic/image",
+            type: "POST",
+            data: fd,
+            processData: false,
+            contentType: false,
+            success: function (response) {
+
+
             }
+        });
+    });
 
-            function closeModal() {
-                document.getElementById('myModal1').style.display = "none";
-            }
+    //aarati code end
+</script>
+<!-- cover image end -->
 
-            var slideIndex = 1;
-            showSlides(slideIndex);
 
-            function plusSlides(n) {
-                showSlides(slideIndex += n);
-            }
+<script>
+    /* When the user clicks on the button, 
+     toggle between hiding and showing the dropdown content */
+    function myFunction1(clicked_id) {
+        document.getElementById('myDropdown' + clicked_id).classList.toggle("show");
+    }
 
-            function currentSlide(n) {
-                showSlides(slideIndex = n);
-            }
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function (event) {
+        if (!event.target.matches('.dropbtn1')) {
 
-            function showSlides(n) {
-                var i;
-                var slides = document.getElementsByClassName("mySlides");
-                var dots = document.getElementsByClassName("demo");
-                var captionText = document.getElementById("caption");
-                if (n > slides.length) {
-                    slideIndex = 1
+            var dropdowns = document.getElementsByClassName("dropdown-content1");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
                 }
-                if (n < 1) {
-                    slideIndex = slides.length
+            }
+        }
+    }
+</script>
+<script>
+    /* When the user clicks on the button, 
+     toggle between hiding and showing the dropdown content */
+    function myFunction(clicked_id) {
+        document.getElementById('myDropdown' + clicked_id).classList.toggle("show");
+    }
+
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function (event) {
+        if (!event.target.matches('.dropbtn2')) {
+
+            var dropdowns = document.getElementsByClassName("dropdown-content2");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
                 }
-                for (i = 0; i < slides.length; i++) {
-                    slides[i].style.display = "none";
-                }
-                for (i = 0; i < dots.length; i++) {
-                    dots[i].className = dots[i].className.replace(" active", "");
-                }
-                slides[slideIndex - 1].style.display = "block";
-                dots[slideIndex - 1].className += " active";
-                captionText.innerHTML = dots[slideIndex - 1].alt;
             }
-        </script>
+        }
+    }
+</script>
 
-
-        <!-- falguni script start -->
-
-
-        <!-- remove save post start -->
-
-
-        <script type="text/javascript">
-
-            function deleteownpostmodel(abc) {
-
-
-                $('.biderror .mes').html("<div class='pop_content'>Are you sure want to Delete Your post?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='remove_ownpost(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-                $('#bidmodal').modal('show');
+<script>
+    $(function () {
+        var showTotalChar = 200, showChar = "More", hideChar = "less";
+        $('.show').each(function () {
+            var content = $(this).text();
+            if (content.length > showTotalChar) {
+                var con = content.substr(0, showTotalChar);
+                var hcon = content.substr(showTotalChar, content.length - showTotalChar);
+                var txt = con + '<span class="dots">...</span><span class="morectnt"><span>' + hcon + '</span>&nbsp;&nbsp;<a href="" class="showmoretxt">' + showChar + '</a></span>';
+                $(this).html(txt);
             }
-
-        </script>
-
-
-
-        <script type="text/javascript">
-            function remove_ownpost(abc)
-            {
-
-                $.ajax({
-                    type: 'POST',
-                    url: '<?php echo base_url() . "artistic/art_deletepost" ?>',
-                    data: 'art_post_id=' + abc,
-                    //alert(data);
-                    success: function (data) {
-
-                        $('#' + 'removepost' + abc).html(data);
+        });
+        $(".showmoretxt").click(function () {
+            if ($(this).hasClass("sample")) {
+                $(this).removeClass("sample");
+                $(this).text(showChar);
+            } else {
+                $(this).addClass("sample");
+                $(this).text(hideChar);
+            }
+            $(this).parent().prev().toggle();
+            $(this).prev().toggle();
+            return false;
+        });
+    });
+</script>
 
 
-                    }
-                });
+<!-- falguni post in sert script start -->
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $('.modal-close').on('click', function () {
+            $('.modal-post').hide();
+        });
+    });
+
+</script>
+
+<!-- falguni script end -->
+
+
+<script type="text/javascript">
+    //For blocks or images of size, you can use $(document).ready
+    $(document).ready(function () {
+        $('.blocks').jMosaic({items_type: "li", margin: 0});
+        $('.pictures').jMosaic({min_row_height: 150, margin: 3, is_first_big: true});
+    });
+
+    //If this image without attribute WIDTH or HEIGH, you can use $(window).load
+    $(window).load(function () {
+        //$('.pictures').jMosaic({min_row_height: 150, margin: 3, is_first_big: true});
+    });
+
+    //You can update on $(window).resize
+    $(window).resize(function () {
+        //$('.pictures').jMosaic({min_row_height: 150, margin: 3, is_first_big: true});
+        //$('.blocks').jMosaic({items_type: "li", margin: 0});
+    });
+</script>
+
+
+
+<script>
+    function openModal() {
+        document.getElementById('myModal1').style.display = "block";
+    }
+
+    function closeModal() {
+        document.getElementById('myModal1').style.display = "none";
+    }
+
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("demo");
+        var captionText = document.getElementById("caption");
+        if (n > slides.length) {
+            slideIndex = 1
+        }
+        if (n < 1) {
+            slideIndex = slides.length
+        }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+        captionText.innerHTML = dots[slideIndex - 1].alt;
+    }
+</script>
+
+
+<!-- falguni script start -->
+
+
+<!-- remove save post start -->
+
+
+<script type="text/javascript">
+
+    function deleteownpostmodel(abc) {
+
+
+        $('.biderror .mes').html("<div class='pop_content'>Are you sure want to Delete Your post?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='remove_ownpost(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+        $('#bidmodal').modal('show');
+    }
+
+</script>
+
+
+
+<script type="text/javascript">
+    function remove_ownpost(abc)
+    {
+
+        $.ajax({
+            type: 'POST',
+            url: '<?php echo base_url() . "artistic/art_deletepost" ?>',
+            data: 'art_post_id=' + abc,
+            //alert(data);
+            success: function (data) {
+
+                $('#' + 'removepost' + abc).html(data);
+
 
             }
-        </script>
+        });
 
-        <!-- remove save post end -->
+    }
+</script>
 
-        <!-- remove particular user post start -->
+<!-- remove save post end -->
 
-        <script type="text/javascript">
-            function del_particular_userpost(abc)
-            {
+<!-- remove particular user post start -->
 
-                $.ajax({
-                    type: 'POST',
-                    url: '<?php echo base_url() . "artistic/del_particular_userpost" ?>',
-                    data: 'art_post_id=' + abc,
-                    //alert(data);
-                    success: function (data) {
+<script type="text/javascript">
+    function del_particular_userpost(abc)
+    {
 
-                        $('#' + 'removepost' + abc).html(data);
+        $.ajax({
+            type: 'POST',
+            url: '<?php echo base_url() . "artistic/del_particular_userpost" ?>',
+            data: 'art_post_id=' + abc,
+            //alert(data);
+            success: function (data) {
 
+                $('#' + 'removepost' + abc).html(data);
 
-                    }
-                });
 
             }
-        </script>
+        });
 
-        <!-- remove particular user post end -->
+    }
+</script>
 
-
-
-        <!-- edit post start -->
-
-        <script type="text/javascript">
-            function editpost(abc)
-            {
-        //        document.getElementById('editpostdata' + abc).style.display = 'none';
-        //        document.getElementById('editpostbox' + abc).style.display = 'block';
-        //        document.getElementById('editpostdetails' + abc).style.display = 'none';
-        //        document.getElementById('editpostdetailbox' + abc).style.display = 'block';
-        //        document.getElementById('editpostsubmit' + abc).style.display = 'block';
-
-                document.getElementById('editpostdata' + abc).style.display = 'none';
-                document.getElementById('editpostbox' + abc).style.display = 'block';
-                document.getElementById('editpostdetails' + abc).style.display = 'none', 'display:inline !important';
-                document.getElementById('editpostdetailbox' + abc).style.display = 'block';
-                document.getElementById('editpostsubmit' + abc).style.display = 'block';
-            }
-        </script>
+<!-- remove particular user post end -->
 
 
-        <script type="text/javascript">
-        //    function edit_postinsert(abc)
-        //    {
-        //        var editpostname = document.getElementById("editpostname" + abc);
-        //        var editpostdetails = document.getElementById("editpostdesc" + abc);
-        //        var $field = $('#editpostdesc' + abc);
-        //        var editpostdetails = $('#editpostdesc' + abc).html();
-        //
-        //        $.ajax({
-        //            type: 'POST',
-        //            url: '<?php echo base_url() . "artistic/edit_post_insert" ?>',
-        //            data: 'art_post_id=' + abc + '&art_post=' + editpostname.value + '&art_description=' + editpostdetails,
-        //            dataType: "json",
-        //            success: function (data) {
-        //
-        //                document.getElementById('editpostdata' + abc).style.display = 'block';
-        //                document.getElementById('editpostbox' + abc).style.display = 'none';
-        //                document.getElementById('editpostdetails' + abc).style.display = 'block';
-        //                document.getElementById('editpostdetailbox' + abc).style.display = 'none';
-        //
-        //                document.getElementById('editpostsubmit' + abc).style.display = 'none';
-        //
-        //                $('#' + 'editpostdata' + abc).html(data.title);
-        //                $('#' + 'editpostdetails' + abc).html(data.description);
-        //
-        //            }
-        //        });
-        //
-        //    }
+
+<!-- edit post start -->
+
+<script type="text/javascript">
+    function editpost(abc)
+    {
+//        document.getElementById('editpostdata' + abc).style.display = 'none';
+//        document.getElementById('editpostbox' + abc).style.display = 'block';
+//        document.getElementById('editpostdetails' + abc).style.display = 'none';
+//        document.getElementById('editpostdetailbox' + abc).style.display = 'block';
+//        document.getElementById('editpostsubmit' + abc).style.display = 'block';
+
+        document.getElementById('editpostdata' + abc).style.display = 'none';
+        document.getElementById('editpostbox' + abc).style.display = 'block';
+        document.getElementById('editpostdetails' + abc).style.display = 'none', 'display:inline !important';
+        document.getElementById('editpostdetailbox' + abc).style.display = 'block';
+        document.getElementById('editpostsubmit' + abc).style.display = 'block';
+    }
+</script>
 
 
-            function edit_postinsert(abc)
-            {
+<script type="text/javascript">
+//    function edit_postinsert(abc)
+//    {
+//        var editpostname = document.getElementById("editpostname" + abc);
+//        var editpostdetails = document.getElementById("editpostdesc" + abc);
+//        var $field = $('#editpostdesc' + abc);
+//        var editpostdetails = $('#editpostdesc' + abc).html();
+//
+//        $.ajax({
+//            type: 'POST',
+//            url: '<?php echo base_url() . "artistic/edit_post_insert" ?>',
+//            data: 'art_post_id=' + abc + '&art_post=' + editpostname.value + '&art_description=' + editpostdetails,
+//            dataType: "json",
+//            success: function (data) {
+//
+//                document.getElementById('editpostdata' + abc).style.display = 'block';
+//                document.getElementById('editpostbox' + abc).style.display = 'none';
+//                document.getElementById('editpostdetails' + abc).style.display = 'block';
+//                document.getElementById('editpostdetailbox' + abc).style.display = 'none';
+//
+//                document.getElementById('editpostsubmit' + abc).style.display = 'none';
+//
+//                $('#' + 'editpostdata' + abc).html(data.title);
+//                $('#' + 'editpostdetails' + abc).html(data.description);
+//
+//            }
+//        });
+//
+//    }
 
-                var editpostname = document.getElementById("editpostname" + abc);
-                var editpostdetails = document.getElementById("editpostdesc" + abc);
-                // start khyati code
-                var $field = $('#editpostdesc' + abc);
-                //var data = $field.val();
-                var editpostdetails = $('#editpostdesc' + abc).html();
-                // end khyati code
 
-        if(editpostname.value == '' && editpostdetails == ''){ 
-          $('.biderror .mes').html("<div class='pop_content'>You must either fill title or description.");
+    function edit_postinsert(abc)
+    {
+
+        var editpostname = document.getElementById("editpostname" + abc);
+        var editpostdetails = document.getElementById("editpostdesc" + abc);
+        // start khyati code
+        var $field = $('#editpostdesc' + abc);
+        //var data = $field.val();
+        var editpostdetails = $('#editpostdesc' + abc).html();
+        // end khyati code
+
+        if (editpostname.value == '' && editpostdetails == '') {
+            $('.biderror .mes').html("<div class='pop_content'>You must either fill title or description.");
             $('#bidmodal').modal('show');
 
             document.getElementById('editpostdata' + abc).style.display = 'block';
-             document.getElementById('editpostbox' + abc).style.display = 'none';
-             document.getElementById('editpostdetails' + abc).style.display = 'block';
-              document.getElementById('editpostdetailbox' + abc).style.display = 'none';
+            document.getElementById('editpostbox' + abc).style.display = 'none';
+            document.getElementById('editpostdetails' + abc).style.display = 'block';
+            document.getElementById('editpostdetailbox' + abc).style.display = 'none';
 
-                document.getElementById('editpostsubmit' + abc).style.display = 'none';
-          }else{
+            document.getElementById('editpostsubmit' + abc).style.display = 'none';
+        } else {
 
-                $.ajax({
-                    type: 'POST',
-                    url: '<?php echo base_url() . "artistic/edit_post_insert" ?>',
-                    data: 'art_post_id=' + abc + '&art_post=' + editpostname.value + '&art_description=' + editpostdetails,
-                    dataType: "json",
-                    success: function (data) {
+            $.ajax({
+                type: 'POST',
+                url: '<?php echo base_url() . "artistic/edit_post_insert" ?>',
+                data: 'art_post_id=' + abc + '&art_post=' + editpostname.value + '&art_description=' + editpostdetails,
+                dataType: "json",
+                success: function (data) {
 
-                        document.getElementById('editpostdata' + abc).style.display = 'block';
-                        document.getElementById('editpostbox' + abc).style.display = 'none';
-                        document.getElementById('editpostdetails' + abc).style.display = 'block';
-                        document.getElementById('editpostdetailbox' + abc).style.display = 'none';
+                    document.getElementById('editpostdata' + abc).style.display = 'block';
+                    document.getElementById('editpostbox' + abc).style.display = 'none';
+                    document.getElementById('editpostdetails' + abc).style.display = 'block';
+                    document.getElementById('editpostdetailbox' + abc).style.display = 'none';
 
-                        document.getElementById('editpostsubmit' + abc).style.display = 'none';
-
-
-
-                        $('#' + 'editpostdata' + abc).html(data.title);
-                        $('#' + 'editpostdetails' + abc).html(data.description);
-
-                    }
-                });
-              }
-
-            }
-        </script>
-
-
-        <!-- edit post end -->
-
-        <!-- save post start -->
-
-        <script type="text/javascript">
-            function save_post(abc)
-            {
-                $.ajax({
-                    type: 'POST',
-                    url: '<?php echo base_url() . "artistic/artistic_save" ?>',
-                    data: 'art_post_id=' + abc,
-                    success: function (data) {
-                        $('.' + 'savedpost' + abc).html(data);
-                    }
-                });
-
-            }
-        </script>
-
-        <!-- save post end -->
-
-        <!-- falguni script end -->
-
-
-        <script>
-            // Get the modal
-            var modal = document.getElementById('myModal3');
-
-            // Get the button that opens the modal
-            var btn = document.getElementById("myBtn3");
-
-            // Get the <span> element that closes the modal
-            var span = document.getElementsByClassName("close")[0];
-
-            // When the user clicks the button, open the modal 
-            btn.onclick = function () {
-                modal.style.display = "block";
-            }
-
-            // When the user clicks on <span> (x), close the modal
-            span.onclick = function () {
-                modal.style.display = "none";
-            }
-
-            // When the user clicks anywhere outside of the modal, close it
-            window.onclick = function (event) {
-                if (event.target == modal) {
-                    modal.style.display = "none";
-                }
-            }
-        </script>
-
-
-        <!-- follow user script start -->
-
-        <script type="text/javascript">
-            function remove_post(abc)
-            {
-
-                $.ajax({
-                    type: 'POST',
-                    url: '<?php echo base_url() . "artistic/art_deletepost" ?>',
-                    data: 'art_post_id=' + abc,
-                    //alert(data);
-                    success: function (data) {
-
-                        $('#' + 'removepost' + abc).html(data);
-
-
-                    }
-                });
-
-            }
-        </script>
-
-        <!-- remove save post end -->
-
-
-        <!-- remove particular user post start -->
-
-        <script type="text/javascript">
-
-            function deletepostmodel(abc) {
-
-
-                $('.biderror .mes').html("<div class='pop_content'>Are you sure want to Delete this post From Your Profile?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='del_particular_userpost(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-                $('#bidmodal').modal('show');
-            }
-
-        </script>
-        <script type="text/javascript">
-            function del_particular_userpost(abc)
-            {
-                $.ajax({
-                    type: 'POST',
-                    url: '<?php echo base_url() . "artistic/del_particular_userpost" ?>',
-                    data: 'art_post_id=' + abc,
-                    //alert(data);
-                    success: function (data) {
-
-                        $('#' + 'removepost' + abc).html(data);
-
-
-                    }
-                });
-
-            }
-
-        </script>
+                    document.getElementById('editpostsubmit' + abc).style.display = 'none';
 
 
 
-        <script type="text/javascript">
-            function followuser(clicked_id)
-            { //alert(clicked_id);
+                    $('#' + 'editpostdata' + abc).html(data.title);
+                    $('#' + 'editpostdetails' + abc).html(data.description);
 
-                $.ajax({
-                    type: 'POST',
-                    url: '<?php echo base_url() . "artistic/follow" ?>',
-                    data: 'follow_to=' + clicked_id,
-                    success: function (data) {
-
-                        $('.' + 'fruser' + clicked_id).html(data);
-
-                    }
-                });
-            }
-        </script>
-
-        <!--follow like script end -->
-
-        <!-- Unfollow user script start -->
-
-        <script type="text/javascript">
-            function unfollowuser(clicked_id)
-            {
-
-                $.ajax({
-                    type: 'POST',
-                    url: '<?php echo base_url() . "artistic/unfollow" ?>',
-                    data: 'follow_to=' + clicked_id,
-                    success: function (data) {
-
-                        $('.' + 'fruser' + clicked_id).html(data);
-
-                    }
-                });
-            }
-        </script>
-
-        <!--follow like script end -->
-
-
-        <script>
-            $('#file-fr').fileinput({
-                language: 'fr',
-                uploadUrl: '#',
-                allowedFileExtensions: ['jpg', 'png', 'gif']
-            });
-            $('#file-es').fileinput({
-                language: 'es',
-                uploadUrl: '#',
-                allowedFileExtensions: ['jpg', 'png', 'gif']
-            });
-            $("#file-0").fileinput({
-                'allowedFileExtensions': ['jpg', 'png', 'gif']
-            });
-            $("#file-1").fileinput({
-                uploadUrl: '#', // you must set a valid URL here else you will get an error
-                allowedFileExtensions: ['jpg', 'png', 'gif'],
-                overwriteInitial: false,
-                maxFileSize: 1000,
-                maxFilesNum: 10,
-                //allowedFileTypes: ['image', 'video', 'flash'],
-                slugCallback: function (filename) {
-                    return filename.replace('(', '_').replace(']', '_');
                 }
             });
+        }
 
-            $("#file-3").fileinput({
-                showUpload: false,
-                showCaption: false,
-                browseClass: "btn btn-primary btn-lg",
-                fileType: "any",
-                previewFileIcon: "<i class='glyphicon glyphicon-king'></i>",
-                overwriteInitial: false,
-                initialPreviewAsData: true,
-                initialPreview: [
-                    "http://lorempixel.com/1920/1080/transport/1",
-                    "http://lorempixel.com/1920/1080/transport/2",
-                    "http://lorempixel.com/1920/1080/transport/3",
-                ],
-                initialPreviewConfig: [
-                    {caption: "transport-1.jpg", size: 329892, width: "120px", url: "{$url}", key: 1},
-                    {caption: "transport-2.jpg", size: 872378, width: "120px", url: "{$url}", key: 2},
-                    {caption: "transport-3.jpg", size: 632762, width: "120px", url: "{$url}", key: 3},
-                ],
-            });
-            $("#file-4").fileinput({
-                uploadExtraData: {kvId: '10'}
-            });
-            $(".btn-warning").on('click', function () {
-                var $el = $("#file-4");
-                if ($el.attr('disabled')) {
-                    $el.fileinput('enable');
-                } else {
-                    $el.fileinput('disable');
-                }
-            });
-            $(".btn-info").on('click', function () {
-                $("#file-4").fileinput('refresh', {previewClass: 'bg-info'});
-            });
-
-            $(document).ready(function () {
-                $("#test-upload").fileinput({
-                    'showPreview': false,
-                    'allowedFileExtensions': ['jpg', 'png', 'gif'],
-                    'elErrorContainer': '#errorBlock'
-                });
-                $("#kv-explorer").fileinput({
-                    'theme': 'explorer',
-                    'uploadUrl': '#',
-                    overwriteInitial: false,
-                    initialPreviewAsData: true,
-                    initialPreview: [
-                        "http://lorempixel.com/1920/1080/nature/1",
-                        "http://lorempixel.com/1920/1080/nature/2",
-                        "http://lorempixel.com/1920/1080/nature/3",
-                    ],
-                    initialPreviewConfig: [
-                        {caption: "nature-1.jpg", size: 329892, width: "120px", url: "{$url}", key: 1},
-                        {caption: "nature-2.jpg", size: 872378, width: "120px", url: "{$url}", key: 2},
-                        {caption: "nature-3.jpg", size: 632762, width: "120px", url: "{$url}", key: 3},
-                    ]
-                });
-
-            });
-        </script>
+    }
+</script>
 
 
+<!-- edit post end -->
 
-        <!-- end search validation -->
+<!-- save post start -->
 
-        <script>
-            function updateprofilepopup(id) {
-                $('#bidmodal-2').modal('show');
+<script type="text/javascript">
+    function save_post(abc)
+    {
+        $.ajax({
+            type: 'POST',
+            url: '<?php echo base_url() . "artistic/artistic_save" ?>',
+            data: 'art_post_id=' + abc,
+            success: function (data) {
+                $('.' + 'savedpost' + abc).html(data);
             }
-        </script>
+        });
+
+    }
+</script>
+
+<!-- save post end -->
+
+<!-- falguni script end -->
+
+
+<script>
+    // Get the modal
+    var modal = document.getElementById('myModal3');
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn3");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal 
+    btn.onclick = function () {
+        modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
+
+<!-- follow user script start -->
+
+<script type="text/javascript">
+    function remove_post(abc)
+    {
+
+        $.ajax({
+            type: 'POST',
+            url: '<?php echo base_url() . "artistic/art_deletepost" ?>',
+            data: 'art_post_id=' + abc,
+            //alert(data);
+            success: function (data) {
+
+                $('#' + 'removepost' + abc).html(data);
+
+
+            }
+        });
+
+    }
+</script>
+
+<!-- remove save post end -->
+
+
+<!-- remove particular user post start -->
+
+<script type="text/javascript">
+
+    function deletepostmodel(abc) {
+
+
+        $('.biderror .mes').html("<div class='pop_content'>Are you sure want to Delete this post From Your Profile?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='del_particular_userpost(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+        $('#bidmodal').modal('show');
+    }
+
+</script>
+<script type="text/javascript">
+    function del_particular_userpost(abc)
+    {
+        $.ajax({
+            type: 'POST',
+            url: '<?php echo base_url() . "artistic/del_particular_userpost" ?>',
+            data: 'art_post_id=' + abc,
+            //alert(data);
+            success: function (data) {
+
+                $('#' + 'removepost' + abc).html(data);
+
+
+            }
+        });
+
+    }
+
+</script>
 
 
 
-        <!-- insert post validtation start -->
+<script type="text/javascript">
+    function followuser(clicked_id)
+    { //alert(clicked_id);
+
+        $.ajax({
+            type: 'POST',
+            url: '<?php echo base_url() . "artistic/follow" ?>',
+            data: 'follow_to=' + clicked_id,
+            success: function (data) {
+
+                $('.' + 'fruser' + clicked_id).html(data);
+
+            }
+        });
+    }
+</script>
+
+<!--follow like script end -->
+
+<!-- Unfollow user script start -->
+
+<script type="text/javascript">
+    function unfollowuser(clicked_id)
+    {
+
+        $.ajax({
+            type: 'POST',
+            url: '<?php echo base_url() . "artistic/unfollow" ?>',
+            data: 'follow_to=' + clicked_id,
+            success: function (data) {
+
+                $('.' + 'fruser' + clicked_id).html(data);
+
+            }
+        });
+    }
+</script>
+
+<!--follow like script end -->
 
 
-        <script type="text/javascript">
+<script>
+    $('#file-fr').fileinput({
+        language: 'fr',
+        uploadUrl: '#',
+        allowedFileExtensions: ['jpg', 'png', 'gif']
+    });
+    $('#file-es').fileinput({
+        language: 'es',
+        uploadUrl: '#',
+        allowedFileExtensions: ['jpg', 'png', 'gif']
+    });
+    $("#file-0").fileinput({
+        'allowedFileExtensions': ['jpg', 'png', 'gif']
+    });
+    $("#file-1").fileinput({
+        uploadUrl: '#', // you must set a valid URL here else you will get an error
+        allowedFileExtensions: ['jpg', 'png', 'gif'],
+        overwriteInitial: false,
+        maxFileSize: 1000,
+        maxFilesNum: 10,
+        //allowedFileTypes: ['image', 'video', 'flash'],
+        slugCallback: function (filename) {
+            return filename.replace('(', '_').replace(']', '_');
+        }
+    });
 
-            function imgval() {
+    $("#file-3").fileinput({
+        showUpload: false,
+        showCaption: false,
+        browseClass: "btn btn-primary btn-lg",
+        fileType: "any",
+        previewFileIcon: "<i class='glyphicon glyphicon-king'></i>",
+        overwriteInitial: false,
+        initialPreviewAsData: true,
+        initialPreview: [
+            "http://lorempixel.com/1920/1080/transport/1",
+            "http://lorempixel.com/1920/1080/transport/2",
+            "http://lorempixel.com/1920/1080/transport/3",
+        ],
+        initialPreviewConfig: [
+            {caption: "transport-1.jpg", size: 329892, width: "120px", url: "{$url}", key: 1},
+            {caption: "transport-2.jpg", size: 872378, width: "120px", url: "{$url}", key: 2},
+            {caption: "transport-3.jpg", size: 632762, width: "120px", url: "{$url}", key: 3},
+        ],
+    });
+    $("#file-4").fileinput({
+        uploadExtraData: {kvId: '10'}
+    });
+    $(".btn-warning").on('click', function () {
+        var $el = $("#file-4");
+        if ($el.attr('disabled')) {
+            $el.fileinput('enable');
+        } else {
+            $el.fileinput('disable');
+        }
+    });
+    $(".btn-info").on('click', function () {
+        $("#file-4").fileinput('refresh', {previewClass: 'bg-info'});
+    });
 
-                var fileInput = document.getElementById("test-upload").files;
-                var product_name1 = document.getElementById("test-upload-product").value;
-                var product_description1 = document.getElementById("test-upload-des").value;
-                var product_fileInput1 = document.getElementById("test-upload").value;
+    $(document).ready(function () {
+        $("#test-upload").fileinput({
+            'showPreview': false,
+            'allowedFileExtensions': ['jpg', 'png', 'gif'],
+            'elErrorContainer': '#errorBlock'
+        });
+        $("#kv-explorer").fileinput({
+            'theme': 'explorer',
+            'uploadUrl': '#',
+            overwriteInitial: false,
+            initialPreviewAsData: true,
+            initialPreview: [
+                "http://lorempixel.com/1920/1080/nature/1",
+                "http://lorempixel.com/1920/1080/nature/2",
+                "http://lorempixel.com/1920/1080/nature/3",
+            ],
+            initialPreviewConfig: [
+                {caption: "nature-1.jpg", size: 329892, width: "120px", url: "{$url}", key: 1},
+                {caption: "nature-2.jpg", size: 872378, width: "120px", url: "{$url}", key: 2},
+                {caption: "nature-3.jpg", size: 632762, width: "120px", url: "{$url}", key: 3},
+            ]
+        });
+
+    });
+</script>
 
 
-                if (product_fileInput1 == '' && product_name1 == '' && product_description1 == '')
+
+<!-- end search validation -->
+
+<script>
+    function updateprofilepopup(id) {
+        $('#bidmodal-2').modal('show');
+    }
+</script>
+
+
+
+<!-- insert post validtation start -->
+
+
+<script type="text/javascript">
+
+    function imgval() {
+
+        var fileInput = document.getElementById("test-upload").files;
+        var product_name1 = document.getElementById("test-upload-product").value;
+        var product_description1 = document.getElementById("test-upload-des").value;
+        var product_fileInput1 = document.getElementById("test-upload").value;
+
+
+        if (product_fileInput1 == '' && product_name1 == '' && product_description1 == '')
+        {
+
+            $('.biderror .mes').html("<div class='pop_content'>This post appears to be blank. Please write or attach (photos, videos, audios, pdf) to post.");
+            $('#bidmodal').modal('show');
+            setInterval('window.location.reload()', 10000);
+            // window.location='';
+            event.preventDefault();
+            return false;
+
+        } else {
+
+            for (var i = 0; i < fileInput.length; i++)
+            {
+                var vname = fileInput[i].name;
+                var vfirstname = fileInput[0].name;
+                var ext = vfirstname.split('.').pop();
+                var ext1 = vname.split('.').pop();
+                var allowedExtensions = ['jpg', 'jpeg', 'png', 'gif'];
+                var allowesvideo = ['mp4', 'webm'];
+                var allowesaudio = ['mp3'];
+                var allowespdf = ['pdf'];
+
+                var foundPresent = $.inArray(ext, allowedExtensions) > -1;
+                var foundPresentvideo = $.inArray(ext, allowesvideo) > -1;
+                var foundPresentaudio = $.inArray(ext, allowesaudio) > -1;
+                var foundPresentpdf = $.inArray(ext, allowespdf) > -1;
+
+                if (foundPresent == true)
                 {
+                    var foundPresent1 = $.inArray(ext1, allowedExtensions) > -1;
 
-                    $('.biderror .mes').html("<div class='pop_content'>This post appears to be blank. Please write or attach (photos, videos, audios, pdf) to post.");
+                    if (foundPresent1 == true && fileInput.length <= 10) {
+                    } else {
+
+                        $('.biderror .mes').html("<div class='pop_content'>sorry this is not valid file for this post please try to uplode in new post.");
+                        $('#bidmodal').modal('show');
+                        setInterval('window.location.reload()', 10000);
+                        // window.location='';
+                        event.preventDefault();
+                        return false;
+                    }
+
+                } else if (foundPresentvideo == false) {
+
+                    $('.biderror .mes').html("<div class='pop_content'>This File Format is not supported Please Try to Upload MP4 or WebM files..");
                     $('#bidmodal').modal('show');
                     setInterval('window.location.reload()', 10000);
-                    // window.location='';
                     event.preventDefault();
                     return false;
 
-                } else {
+                } else if (foundPresentvideo == true)
+                {
 
-                    for (var i = 0; i < fileInput.length; i++)
-                    {
-                        var vname = fileInput[i].name;
-                        var vfirstname = fileInput[0].name;
-                        var ext = vfirstname.split('.').pop();
-                        var ext1 = vname.split('.').pop();
-                        var allowedExtensions = ['jpg', 'jpeg', 'png', 'gif'];
-                        var allowesvideo = ['mp4', 'webm'];
-                        var allowesaudio = ['mp3'];
-                        var allowespdf = ['pdf'];
+                    var foundPresent1 = $.inArray(ext1, allowesvideo) > -1;
 
-                        var foundPresent = $.inArray(ext, allowedExtensions) > -1;
-                        var foundPresentvideo = $.inArray(ext, allowesvideo) > -1;
-                        var foundPresentaudio = $.inArray(ext, allowesaudio) > -1;
-                        var foundPresentpdf = $.inArray(ext, allowespdf) > -1;
+                    if (foundPresent1 == true && fileInput.length == 1) {
+                    } else {
+                        $('.biderror .mes').html("<div class='pop_content'>sorry this is not valid file for this post please try to uplode in new post.");
+                        $('#bidmodal').modal('show');
+                        setInterval('window.location.reload()', 10000);
+                        event.preventDefault();
+                        return false;
+                    }
+                } else if (foundPresentaudio == true)
+                {
 
-                        if (foundPresent == true)
-                        {
-                            var foundPresent1 = $.inArray(ext1, allowedExtensions) > -1;
+                    var foundPresent1 = $.inArray(ext1, allowesaudio) > -1;
 
-                            if (foundPresent1 == true && fileInput.length <= 10) {
-                            } else {
+                    if (foundPresent1 == true && fileInput.length == 1) {
+                    } else {
+                        $('.biderror .mes').html("<div class='pop_content'>sorry this is not valid file for this post please try to uplode in new post.");
+                        $('#bidmodal').modal('show');
+                        setInterval('window.location.reload()', 10000);
+                        event.preventDefault();
+                        return false;
+                    }
+                } else if (foundPresentpdf == true)
+                {
 
-                                $('.biderror .mes').html("<div class='pop_content'>sorry this is not valid file for this post please try to uplode in new post.");
-                                $('#bidmodal').modal('show');
-                                setInterval('window.location.reload()', 10000);
-                                // window.location='';
-                                event.preventDefault();
-                                return false;
-                            }
+                    var foundPresent1 = $.inArray(ext1, allowespdf) > -1;
 
-                        }else if(foundPresentvideo == false){  
-
-                                       $('.biderror .mes').html("<div class='pop_content'>This File Format is not supported Please Try to Upload MP4 or WebM files..");
-                                            $('#bidmodal').modal('show');
-                                            setInterval('window.location.reload()', 10000);
-                                            event.preventDefault();
-                                            return false;
-
-                                    }
-
-                         else if (foundPresentvideo == true)
-                        {
-
-                            var foundPresent1 = $.inArray(ext1, allowesvideo) > -1;
-
-                            if (foundPresent1 == true && fileInput.length == 1) {
-                            } else {
-                                $('.biderror .mes').html("<div class='pop_content'>sorry this is not valid file for this post please try to uplode in new post.");
-                                $('#bidmodal').modal('show');
-                                setInterval('window.location.reload()', 10000);
-                                event.preventDefault();
-                                return false;
-                            }
-                        } else if (foundPresentaudio == true)
-                        {
-
-                            var foundPresent1 = $.inArray(ext1, allowesaudio) > -1;
-
-                            if (foundPresent1 == true && fileInput.length == 1) {
-                            } else {
-                                $('.biderror .mes').html("<div class='pop_content'>sorry this is not valid file for this post please try to uplode in new post.");
-                                $('#bidmodal').modal('show');
-                                setInterval('window.location.reload()', 10000);
-                                event.preventDefault();
-                                return false;
-                            }
-                        } else if (foundPresentpdf == true)
-                        {
-
-                            var foundPresent1 = $.inArray(ext1, allowespdf) > -1;
-
-                            if (foundPresent1 == true && fileInput.length == 1) {
+                    if (foundPresent1 == true && fileInput.length == 1) {
 
 
-                                if(product_name1 == ''){
-                               $('.biderror .mes').html("<div class='pop_content'>You have to add pdf title.");
-                              $('#bidmodal').modal('show');
-                              setInterval('window.location.reload()', 10000);
-                             event.preventDefault();
-                               return false;
-                                           }
-                            } else {
-                                $('.biderror .mes').html("<div class='pop_content'>sorry this is not valid file for this post please try to uplode in new post.");
-                                $('#bidmodal').modal('show');
-                                setInterval('window.location.reload()', 10000);
-                                event.preventDefault();
-                                return false;
-                            }
+                        if (product_name1 == '') {
+                            $('.biderror .mes').html("<div class='pop_content'>You have to add pdf title.");
+                            $('#bidmodal').modal('show');
+                            setInterval('window.location.reload()', 10000);
+                            event.preventDefault();
+                            return false;
                         }
+                    } else {
+                        $('.biderror .mes').html("<div class='pop_content'>sorry this is not valid file for this post please try to uplode in new post.");
+                        $('#bidmodal').modal('show');
+                        setInterval('window.location.reload()', 10000);
+                        event.preventDefault();
+                        return false;
                     }
                 }
             }
+        }
+    }
 
-        </script>
+</script>
 
-        <script type="text/javascript">
+<script type="text/javascript">
 
-            $(document).ready(function () {
-                $('.modal-close').on('click', function () {
-                    $('.modal-post').hide();
-                });
-            });
+    $(document).ready(function () {
+        $('.modal-close').on('click', function () {
+            $('.modal-post').hide();
+        });
+    });
 
-        </script>
+</script>
 
 
-        <!-- insert validation end -->
+<!-- insert validation end -->
 
-        <!-- zalak script for more decription strat -->
+<!-- zalak script for more decription strat -->
 
-        <script>
-            $(function () {
-                var showTotalChar = 150, showChar = "More", hideChar = "less";
-                $('.show').each(function () {
-                    var content = $(this).text();
-                    if (content.length > showTotalChar) {
-                        var con = content.substr(0, showTotalChar);
-                        var hcon = content.substr(showTotalChar, content.length - showTotalChar);
-                        var txt = con + '<span class="dots">...</span><span class="morectnt"><span>' + hcon + '</span>&nbsp;&nbsp;<a href="" class="showmoretxt">' + showChar + '</a></span>';
-                        $(this).html(txt);
-                    }
-                });
-                $(".showmoretxt").click(function () {
-                    if ($(this).hasClass("sample")) {
-                        $(this).removeClass("sample");
-                        $(this).text(showChar);
-                    } else {
-                        $(this).addClass("sample");
-                        $(this).text(hideChar);
-                    }
-                    $(this).parent().prev().toggle();
-                    $(this).prev().togg            le();
-                    return false;
-                });
-            });
-        </script>
-
-        <!-- zalak script for more decription end -->
-
-        <!-- textarea js -->
-
-        <script type="text/javascript">
-            function h(e) {
-                $(e).css({
-                    'height': '29px',
-                    'overflow-y': 'hidden'
-                }).height(e.scrollHeight);
+<script>
+    $(function () {
+        var showTotalChar = 150, showChar = "More", hideChar = "less";
+        $('.show').each(function () {
+            var content = $(this).text();
+            if (content.length > showTotalChar) {
+                var con = content.substr(0, showTotalChar);
+                var hcon = content.substr(showTotalChar, content.length - showTotalChar);
+                var txt = con + '<span class="dots">...</span><span class="morectnt"><span>' + hcon + '</span>&nbsp;&nbsp;<a href="" class="showmoretxt">' + showChar + '</a></span>';
+                $(this).html(txt);
             }
-            $('.textarea').each(function () {
-                h(this);
-            }).on('input', function () {
-                h(this);
-            });
-        </script>
+        });
+        $(".showmoretxt").click(function () {
+            if ($(this).hasClass("sample")) {
+                $(this).removeClass("sample");
+                $(this).text(showChar);
+            } else {
+                $(this).addClass("sample");
+                $(this).text(hideChar);
+            }
+            $(this).parent().prev().toggle();
+            $(this).prev().togg            le();
+            return false;
+        });
+    });
+</script>
+
+<!-- zalak script for more decription end -->
+
+<!-- textarea js -->
+
+<script type="text/javascript">
+    function h(e) {
+        $(e).css({
+            'height': '29px',
+            'overflow-y': 'hidden'
+        }).height(e.scrollHeight);
+    }
+    $('.textarea').each(function () {
+        h(this);
+    }).on('input', function () {
+        h(this);
+    });
+</script>
 
 
-        <script type="text/javascript">
-            function likeuserlist(post_id) {
+<script type="text/javascript">
+    function likeuserlist(post_id) {
 
-                $.ajax({
-                    type: 'POST',
-                    url: '<?php echo base_url() . "artistic/likeuserlist" ?>',
-                    data: 'post_id=' + post_id,
-                    dataType: "html",
-                    success: function (data) {
-                        var html_data = data;
-                        $('#likeusermodal .mes').html(html_data);
-                        $('#likeusermodal').modal('show');
-                    }
-                });
-          }
-        </script>
+        $.ajax({
+            type: 'POST',
+            url: '<?php echo base_url() . "artistic/likeuserlist" ?>',
+            data: 'post_id=' + post_id,
+            dataType: "html",
+            success: function (data) {
+                var html_data = data;
+                $('#likeusermodal .mes').html(html_data);
+                $('#likeusermodal').modal('show');
+            }
+        });
+    }
+</script>
 
 
 <!-- scrtipt for count title number start -->
 
 <script language=JavaScript>
-                function check_length(my_form) {
-                    maxLen = 50; // max number of characters allowed
-                    if (my_form.my_text.value.length >= maxLen) {
-                        // Alert message if maximum limit is reached. 
-                        // If required Alert can be removed. 
-                        var msg = "You have reached your maximum limit of characters allowed";
-                        //alert(msg);
-                        // Reached the Maximum length so trim the textarea
-                        my_form.my_text.value = my_form.my_text.value.substring(0, maxLen);
-                    } else { // Maximum length not reached so update the value of my_text counter
-                        my_form.text_num.value = maxLen - my_form.my_text.value.length;
-                    }
-                }
-            </script>
+    function check_length(my_form) {
+        maxLen = 50; // max number of characters allowed
+        if (my_form.my_text.value.length >= maxLen) {
+            // Alert message if maximum limit is reached. 
+            // If required Alert can be removed. 
+            var msg = "You have reached your maximum limit of characters allowed";
+            //alert(msg);
+            // Reached the Maximum length so trim the textarea
+            my_form.my_text.value = my_form.my_text.value.substring(0, maxLen);
+        } else { // Maximum length not reached so update the value of my_text counter
+            my_form.text_num.value = maxLen - my_form.my_text.value.length;
+        }
+    }
+</script>
 <!-- script end -->
-        <style type="text/css">
-            .likeduser{
-                width: 100%;
-                background-color: #00002D;
-            }
-            .likeduser-title{
-                color: #fff;
-                margin-bottom: 5px;
-                padding: 7px;
-            }
-            .likeuser_list{
-                background-color: #ccc;
-                float: left;
-                margin: 0px 6px 5px 9px;
-                padding: 5px;
-                width: 47%;
-                font-size: 14px;
-            }
-            .likeduserlist, .likeduserlist1 {
-                float: left;
-                /*        margin-left: 15px;
-                        margin-right: 15px;*/
-                width: 96%;
-            }
-            div[class^="likeduserlist"]{
+<style type="text/css">
+    .likeduser{
+        width: 100%;
+        background-color: #00002D;
+    }
+    .likeduser-title{
+        color: #fff;
+        margin-bottom: 5px;
+        padding: 7px;
+    }
+    .likeuser_list{
+        background-color: #ccc;
+        float: left;
+        margin: 0px 6px 5px 9px;
+        padding: 5px;
+        width: 47%;
+        font-size: 14px;
+    }
+    .likeduserlist, .likeduserlist1 {
+        float: left;
+        /*        margin-left: 15px;
+                margin-right: 15px;*/
+        width: 96%;
+    }
+    div[class^="likeduserlist"]{
         width: 100% !important;
         background-color: #fff !important;
     }
-            .like_one_other{
-                margin-left: 15px;
-                /*  margin-right: 15px;*/
+    .like_one_other{
+        margin-left: 15px;
+        /*  margin-right: 15px;*/
 
-            }
+    }
 
-        </style>
+</style>
+<!-- This  script use for close dropdown in every post -->
+<script type="text/javascript">
+    $('body').on("click", "*", function (e) {
+        var classNames = $(e.target).attr("class").toString().split(' ').pop();
+        if (classNames != 'fa-ellipsis-v') {
+            $('div[id^=myDropdown]').hide().removeClass('show');
+        }
+
+    });
+
+</script>
+<!-- This  script use for close dropdown in every post -->
