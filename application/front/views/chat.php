@@ -361,7 +361,7 @@ console.log(formattedDate);
        html += '<span class="message-data-name"><i class="fa fa-circle online"></i>' + data.nickname + ' </span>';
         html += '<span class="message-data-time">' + formattedDate + ' </span>';
  html += ' </div>';
-      html += '     <div class="message my-message">' + data.message + '</div>';
+      html += '     <div class="6">' + data.message + '</div>';
       html += '</li>';
 
       $('.' + 'status' + touser).html(data.message);
@@ -528,7 +528,7 @@ function followclose(clicked_id)
 // alert(img.getAttribute('src')); // foo.jpg
 //alert(img.src); 
 var img = img.src;
-$('#message').append("<img  src=" + img + " height='27' width='27' style='margin-top: 7px;'>"); 
+$('#message').append("<img  src=" + img + " height='23' width='23' style='margin-top: 7px;'>"); 
  }
 </script>
 <!-- script for selact smily for message end-->

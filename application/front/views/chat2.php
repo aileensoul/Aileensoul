@@ -563,7 +563,7 @@ function followclose(clicked_id)
 // alert(img.getAttribute('src')); // foo.jpg
 //alert(img.src); 
 var img = img.src;
-$('#message').append("<img  src=" + img + " height='28' width='28' style='margin: 7px;'>"); 
+$('#message').append("<img  src=" + img + " height='23' width='23' style='margin-top: 7px;'>"); 
  
 }
 </script>
