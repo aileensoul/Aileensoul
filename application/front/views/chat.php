@@ -14,6 +14,7 @@ div .comment {
     background-color: #fff;
     /* padding: 10px; */
     font-size: 13px;
+    min-height: 41px;
 }
 </style>
 <?php echo $header; ?>

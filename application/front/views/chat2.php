@@ -20,7 +20,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <link rel="stylesheet" href="<?php echo base_url(); ?>css/style_chat.css" />
 <style type="text/css">
   div .comment {
- 
+min-height: 41px; 
     border: 1px solid #ccc;
     padding-right: 40px!important;
     word-break: break-all;
@@ -29,11 +29,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     font-size: 13px;
 }
 
-common-style.css:1083
-* {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+
 
 </style>
 <body>
