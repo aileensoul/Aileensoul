@@ -411,7 +411,7 @@
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/jquery.jMosaic.css'); ?>">
 
-<!-- <script src="<?php //echo base_url('js/jquery.min.js');                           ?>"></script> -->
+<!-- <script src="<?php //echo base_url('js/jquery.min.js');                            ?>"></script> -->
         <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
         <script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
@@ -671,13 +671,13 @@
 
                                                 if ($businesssave) {
                                                     ?>
-                                                                                                                                                    
-                                                                                                                                                       <a><i class="fa fa-bookmark" aria-hidden="true"></i>Saved Post</a>
-                                                                                                                                                    
+                                                                                                                                                        
+                                                                                                                                                           <a><i class="fa fa-bookmark" aria-hidden="true"></i>Saved Post</a>
+                                                                                                                                                        
                                                 <?php } else { ?>
-                                                                                                                                                    
-                                                                                                                                                       <a id="<?php echo $busienss_data[0]['business_profile_post_id']; ?>" onClick="save_post(this.id)" href="#popup1" class="<?php echo 'savedpost' . $busienss_data[0]['business_profile_post_id']; ?>"><i class="fa fa-bookmark" aria-hidden="true"></i>  Save Post</a>
-                                                                                                                                                    
+                                                                                                                                                        
+                                                                                                                                                           <a id="<?php echo $busienss_data[0]['business_profile_post_id']; ?>" onClick="save_post(this.id)" href="#popup1" class="<?php echo 'savedpost' . $busienss_data[0]['business_profile_post_id']; ?>"><i class="fa fa-bookmark" aria-hidden="true"></i>  Save Post</a>
+                                                                                                                                                        
                                                 <?php } ?> -->
 
                                                 <a href="<?php echo base_url('business_profile/business_profile_contactperson/' . $busienss_data[0]['user_id'] . ''); ?>"><i class="fa fa-user" aria-hidden="true"></i> Contact Person</a>
@@ -744,7 +744,7 @@
 
                                                 <div id="two_images_bui" >
                                                     <img src="<?php echo base_url(BUSPOSTIMAGE . $data['image_name']) ?>" style="width: 100%; height: 100%;" onclick="openModal();
-                                                                    currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
+                                                            currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
                                                 </div>
 
 
@@ -1005,10 +1005,10 @@
                                                                                     </b>
                                                                                 </div>
 
-                                         <div class="comment-details" id= "<?php echo "imgshowcomment" . $rowdata['post_image_comment_id']; ?>">
-                                            <?php
-                                             echo $this->common->make_links($rowdata['comment']);
-                                            ?>
+                                                                                <div class="comment-details" id= "<?php echo "imgshowcomment" . $rowdata['post_image_comment_id']; ?>">
+                                                                                    <?php
+                                                                                    echo $this->common->make_links($rowdata['comment']);
+                                                                                    ?>
                                                                                 </div>
 
 
@@ -1036,7 +1036,7 @@
                                                                                 <div class="art-comment-menu-design"> 
 
                                                                                     <!-- comment like start -->
-                     <div class="comment-details-menu"  id="<?php echo 'imglikecomment' . $rowdata['post_image_comment_id']; ?>">
+                                                                                    <div class="comment-details-menu"  id="<?php echo 'imglikecomment' . $rowdata['post_image_comment_id']; ?>">
 
                                                                                         <a id="<?php echo $rowdata['post_image_comment_id']; ?>"   onClick="imgcomment_like(this.id)">
 
@@ -3541,12 +3541,15 @@
     }
 
 </style>
-
-
+<!-- This  script use for close dropdown in every post -->
 <script type="text/javascript">
-    $('div[id^=myDropdown]').on('click', function () {
-        $('div[id^=myDropdown]').hide().removeClass('show');
+    $('body').on("click", "*", function (e) {
+        var classNames = $(e.target).attr("class").toString().split(' ').pop();
+        if (classNames != 'fa-ellipsis-v') {
+            $('div[id^=myDropdown]').hide().removeClass('show');
+        }
 
     });
-</script>
 
+</script>
+<!-- This  script use for close dropdown in every post -->
