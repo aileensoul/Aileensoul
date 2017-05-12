@@ -368,7 +368,7 @@
                                                             if($cityname || $countryname)
                                                             { 
                                                             ?>
-                                                            <p><i class="fa fa-map-marker" aria-hidden="true">
+              <p title="Address"><i class="fa fa-map-marker" aria-hidden="true">
 
                                                             <?php  echo $cityname .', '. $countryname; ?> 
                                                             </i></p>
@@ -438,9 +438,9 @@
                                                                 </li>
                                                                 <!-- vishang 14-4 start -->
                 <li>
-                                                <b>Required Experience</b>
+                 <b>Required Experience</b>
                                                 <span>
-                                                    <p><?php 
+                                                    <p title="Min - Max"><?php 
 
 
 
@@ -460,7 +460,7 @@
                                                 </span>
                                             </li>
                                                                 
-                                                                   <li><b>Salary</b><span><?php echo $post['min_sal']." - ".$post['max_sal']; ?></span>
+                <li><b>Salary</b><span title="Min - Max"><?php echo $post['min_sal']." - ".$post['max_sal']; ?></span>
                                                                    </li>
                                             
                                                                 <li><b>No of Position</b><span><?php echo $post['post_position']; ?></span>
@@ -554,7 +554,7 @@
                                                             {
                                                             
                                                             ?>
-                                                            <p><i class="fa fa-map-marker" aria-hidden="true">
+         <p title="Address"><i class="fa fa-map-marker" aria-hidden="true">
 
                                                             <?php  echo $cityname .', '. $countryname; ?> 
                                                             </i></p>
@@ -628,7 +628,7 @@
 <li>
                                                 <b>Required Experience</b>
                                                 <span>
-     <p>
+     <p title="Min - Max">
      <?php 
 
 
@@ -649,7 +649,7 @@
                                             </li>
 
                                                               
-                                                                <li><b>Salary</b><span><?php echo $post['min_sal']." - ".$post['max_sal']; ?></span>
+        <li><b>Salary</b><span title="Min - Max"><?php echo $post['min_sal']." - ".$post['max_sal']; ?></span>
                                                                    </li>
                                                                 <li><b>No of Position</b><span><?php echo $post['post_position']; ?></span>
                                                                 </li>
