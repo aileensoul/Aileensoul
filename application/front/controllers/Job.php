@@ -82,7 +82,7 @@ class Job extends MY_Controller {
 
         $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
         $userdata = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
+        //echo "<pre>"; print_r($userdata);die();
         $contition_array = array('status' => '1');
         $this->data['nation'] = $this->common->select_data_by_condition('nation', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -193,7 +193,9 @@ class Job extends MY_Controller {
                     $updatedata = $this->common->update_data($data, 'job_reg', 'user_id', $userid);
                 }
                 $bod = $this->input->post('dob');
+                //echo $bod;
                 $bod = str_replace('/', '-', $bod);
+                //echo "change".$bod;
                 $data = array(
                     'fname' => $this->input->post('fname'),
                     'lname' => $this->input->post('lname'),
@@ -207,6 +209,7 @@ class Job extends MY_Controller {
                     'user_id' => $userid,
                     'modified_date' => date('Y-m-d h:i:s', time())
                 );
+                //echo "<pre>"; print_r($data);die();
 
                 $updatedata = $this->common->update_data($data, 'job_reg', 'user_id', $userid);
                 if ($updatedata) {

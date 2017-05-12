@@ -424,7 +424,7 @@ if ($freelancerpostdata[0]['freelancer_post_area']) {
 
 
 
-                                            <li><b>Describe Your Skill In Brief</b> <span><?php echo $freelancerpostdata[0]['freelancer_post_skill_description']; ?></span> </li>
+                                            <li><b>Describe Your Skill In Brief</b> <span><?php echo $this->common->make_links($freelancerpostdata[0]['freelancer_post_skill_description']); ?></span> </li>
 
                                             <li><b>Total Experience</b> <span><?php echo $freelancerpostdata[0]['freelancer_post_exp_month'] . ' ' . $freelancerpostdata[0]['freelancer_post_exp_year']; ?></span> </li>  
 
@@ -577,7 +577,7 @@ if ($freelancerpostdata[0]['freelancer_post_portfolio_attachment'] != "") {
 if ($freelancerpostdata[0]['freelancer_post_portfolio']) {
     ?>
                                             <li> <b>Description</b> <span><p>
-    <?php echo text2link($freelancerpostdata[0]['freelancer_post_portfolio']); ?> </p></span>
+    <?php echo $this->common->make_links($freelancerpostdata[0]['freelancer_post_portfolio']); ?> </p></span>
                                             </li>
     <?php
 }

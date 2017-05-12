@@ -351,7 +351,7 @@ responsive image design start -->
                     $userid = $this->session->userdata('aileenuser');
                     if ($artisticdata[0]['user_id'] == $userid) {
                         ?> 
-                          <!-- <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'art_savepost') { ?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/art_savepost'); ?>">Saved Post</a>                                                                                                                                                                                                </li> -->
+                                      <!-- <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'art_savepost') { ?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/art_savepost'); ?>">Saved Post</a>                                                                                                                                                                                                </li> -->
 
                         <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'userlist') { ?> class="active" <?php } ?>><a title="Userlist" href="<?php echo base_url('artistic/userlist'); ?>">Userlist</a>
                         </li>
@@ -1557,10 +1557,10 @@ responsive image design start -->
                                                             </div>
                                                             <div class="comment-name">
                                                                 <b><?php
-                                                echo ucwords($artname);
-                                                echo "&nbsp;";
-                                                echo ucwords($artlastname);
-                                                                ?></b><?php echo '</br>'; ?>
+                                                                    echo ucwords($artname);
+                                                                    echo "&nbsp;";
+                                                                    echo ucwords($artlastname);
+                                                                    ?></b><?php echo '</br>'; ?>
                                                             </div>
 
                                                             <div class="comment-details" id= "<?php echo "showcomment" . $rowdata['artistic_post_comment_id']; ?>">
@@ -1658,9 +1658,9 @@ responsive image design start -->
 
                                                                 <div class="comment-details-menu">
                                                                     <p> <?php
-                                                                echo date('d-M-Y', strtotime($rowdata['created_date']));
-                                                                echo '</br>';
-                                                                ?>
+                                                                        echo date('d-M-Y', strtotime($rowdata['created_date']));
+                                                                        echo '</br>';
+                                                                        ?>
                                                                     </p></div></div>
                                                         </div>
                                                         <?php
@@ -1790,7 +1790,7 @@ responsive image design start -->
 
 <!-- footer End -->
 <!-- script for skill textbox automatic start (option 2)-->
-<!-- <script src="<?php //echo base_url('js/jquery-ui.min.js');                                        ?>"></script> -->
+<!-- <script src="<?php //echo base_url('js/jquery-ui.min.js');                                           ?>"></script> -->
 <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
 <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
 <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
@@ -3821,9 +3821,10 @@ responsive image design start -->
 
 <script>
     $(function () {
-        var showTotalChar = 150, showChar = "More", hideChar = "less";
+        var showTotalChar = 200, showChar = "More", hideChar = "less";
         $('.show').each(function () {
-            var content = $(this).text();
+            //var content = $(this).text();
+            var content = $(this).html();
             if (content.length > showTotalChar) {
                 var con = content.substr(0, showTotalChar);
                 var hcon = content.substr(showTotalChar, content.length - showTotalChar);
@@ -3940,9 +3941,16 @@ responsive image design start -->
 <script type="text/javascript">
     $('body').on("click", "*", function (e) {
         var classNames = $(e.target).attr("class").toString().split(' ').pop();
-        if (classNames != 'fa-ellipsis-v') {
-            $('div[id^=myDropdown]').hide().removeClass('show');
+//        alert(classNames);
+        $('div[id^=myDropdown]').hide().removeClass('show');
+//        $('#myModal3').hide();
+        
+        if (classNames == 'fa-ellipsis-v') {
+            $('div[id^=myDropdown]').show().addClass('show');
         }
+//        else if (classNames == 'popup-text' || classNames == 'modal-post' ) {
+//            $('#myModal3').show();
+//        }
 
     });
 

@@ -258,9 +258,10 @@ if ($returnpage == 'job') {
                          <a href="javascript:void(0);" title="<?php echo $postdata[0]['rec_firstname'] . ' ' . $postdata[0]['rec_lastname']; ?>"><h5><?php echo $postdata[0]['rec_firstname'] . ' ' . $postdata[0]['rec_lastname']; ?></h5></a>
         <!-- text head start -->
         <div class="profile-text" >
-
+       
             <?php
             if ($returnpage == '') {
+                //echo "hii";
                 if ($postdata[0]['designation'] == "") {
                     ?>
                                                     <!--<center><a id="myBtn" title="Designation">Designation</a></center>-->
@@ -274,7 +275,8 @@ if ($returnpage == 'job') {
                 }
             }
              else {
-                echo ucwords($postdata[0]['designation']);
+                //echo "hhhhhh";
+                echo ucwords($postdata['designation']);
             }
             ?>
 
