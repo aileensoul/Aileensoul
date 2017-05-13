@@ -1123,7 +1123,7 @@ class Freelancer extends MY_Controller {
 
 //freelancer Portfolio page controller End
 
-    public function freelancer_hire_post($id) {
+    public function freelancer_hire_post($id='') {
         //echo $id."userid is:";
         
         $userid = $this->session->userdata('aileenuser');
