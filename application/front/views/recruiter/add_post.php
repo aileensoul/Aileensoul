@@ -195,7 +195,7 @@
                                     <label class="control-label">Job description:<span style="color:red">*</span></label>
 
 
-                                    <textarea name="post_desc" id="post_desc" rows="4" cols="50"  placeholder="Enter Post Description" style="resize: none;"></textarea>
+                                    <textarea name="post_desc" id="post_desc" rows="4" cols="50"  placeholder="Enter Job Description" style="resize: none;"></textarea>
                                     <?php echo form_error('post_desc'); ?>
                                 </fieldset>
 
@@ -471,6 +471,12 @@ $('#datepicker').datetimepicker({
                     required: true,
                             // required:true 
                 },
+                minsal:{
+                    number: true,
+                },
+                maxsal:{
+                     number: true,
+                },
                   
 
 
@@ -595,7 +601,7 @@ $('#datepicker').datetimepicker({
 
     $('#skills').select2({
 
-        placeholder: 'Find Your Skills',
+        placeholder: 'Enter the skills you want',
 
         ajax: {
 

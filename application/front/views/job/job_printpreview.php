@@ -737,6 +737,7 @@ echo $job_header2;
                                                 <?php
                                                 $total_work_year = 0;
                                                 $total_work_month = 0;
+                                                
                                                 foreach ($job_work as $work) {
                                                     ?>
 
