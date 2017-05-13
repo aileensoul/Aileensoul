@@ -2742,6 +2742,7 @@
             success: function (data) {
 
                 $('#' + 'removepost' + abc).html(data);
+                 window.location= "<?php echo base_url() ?>business_profile/business_profile_post";
 
 
             }
