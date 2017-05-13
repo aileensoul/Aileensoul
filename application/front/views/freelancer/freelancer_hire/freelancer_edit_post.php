@@ -339,6 +339,7 @@
 $('#datepicker').datetimepicker({
   //yearOffset:222,
  // startDate: "2013/02/14",
+ minDate:0,
   lang:'ch',
   timepicker:false,
   format:'d/m/Y',
