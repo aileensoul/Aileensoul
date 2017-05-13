@@ -676,6 +676,12 @@ class Business_profile extends MY_Controller {
 //        echo '<pre>';
 //        print_r($_POST);
 //        print_r($_FILES);
+
+
+        $contition_array = array('user_id' => $userid, 'is_deleted' => '0', 'status' => '1');
+        $userdatacon = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+
 //        exit;
         if ($this->input->post('next') || $this->input->post('submit')) {
 
@@ -721,8 +727,13 @@ class Business_profile extends MY_Controller {
 
             if ($updatdata) {
                 $this->session->set_flashdata('success', 'Image updated successfully');
-                // redirect('business_profile/addmore', refresh);
-                redirect('business_profile/business_profile_post', refresh);
+              
+              if($userdatacon[0]['business_step'] == 4){
+                redirect('business_profile/business_resume', refresh);
+               }
+                else{
+                  redirect('business_profile/business_profile_post', refresh);
+                }
             } else {
                 $this->session->flashdata('error', 'Your data not inserted');
                 redirect('business_profile/image', refresh);
