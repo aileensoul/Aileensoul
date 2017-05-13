@@ -93,7 +93,7 @@ if(count($userlist) > 0){
           <div class="about">
             <div class="name"> 
     <a href="<?php echo base_url() . 'chat/abc/' . $user['user_id']; ?>"><?php echo  $user['first_name'] . "<br>"; ?></a> </div>
-            <div class="<?php echo 'status' . $user['user_id']; ?>" style=" width: 145px;    max-height: 19px;
+            <div class="<?php echo 'status' . $user['user_id']; ?>" style=" width: 145px;    max-height: 25px;
     color: #003;
     white-space: nowrap;
     overflow: hidden;
@@ -148,7 +148,7 @@ if($lstusrdata){?>
           <div class="clearfix">
             <!-- <div class="col-md-3">
               <div class="input-group">
-                <span class="input-group-addon">
+                <span class="input-group-addon">bli
                   Nickname:
                 </span>
                 <input id="nickname" type="text" class="form-control input-sm" placeholder="Nickname..." />
@@ -180,9 +180,9 @@ if($lstusrdata){?>
     bottom: 0;">
 <div id="notification_li1" style="position: absolute;
     bottom: 5px;">
-    <a href="#" id="notificationLink1" style="position: absolute;
+    <a class="smil"  href="#" id="notificationLink1" style="position: absolute;
     bottom: 0;
-    left: -49px;"><i class="em em-blush"></i></a>
+    left: -49px;">   <i class="em em-blush"></i></a>
     
       <div id="notificationContainer1" style="display: none;
     position: relative;margin-bottom: 37px;">
@@ -190,7 +190,7 @@ if($lstusrdata){?>
       <div id="notificationsBody1" class="notifications1">
         <?php $i=0; foreach($smiley_table as $key => $value){ ?>
         
-          <img id="<?php echo $i; ?>" src="<?php echo base_url().'uploads/smileys/' . $value[0]; ?>" height="30" width="30"onClick="followclose(<?php echo $i; ?>)">
+          <img id="<?php echo $i; ?>" src="<?php echo base_url().'uploads/smileys/' . $value[0]; ?>" height="25" width="25"onClick="followclose(<?php echo $i; ?>)">
          
          <?php  $i++; } ?>
       </div>
@@ -547,7 +547,7 @@ function followclose(clicked_id)
 // alert(img.getAttribute('src')); // foo.jpg
 //alert(img.src); 
 var img = img.src;
-$('#message').append("<img  src=" + img + " height='20' width='20' >"); 
+$('#message').append("<img  src=" + img + " height='25' width='25' >"); 
  }
 </script>
 <!-- script for selact smily for message end-->

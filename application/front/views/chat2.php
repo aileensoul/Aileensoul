@@ -27,6 +27,7 @@ min-height: 41px;
     background-color: #fff;
     /* padding: 10px; */
     font-size: 13px;
+max-height: 100px; overflow: scroll;overflow-x: hidden;
 }
 
 
@@ -64,7 +65,7 @@ min-height: 41px;
           <div class="about">
             <div class="name"> 
     <a href="<?php echo base_url() . 'chat/abc/' . $user['user_id']; ?>"><?php echo  $user['first_name'] . "<br>"; ?></a> </div>
-            <div class="<?php echo 'status' . $user['user_id']; ?>" style=" width: 145px;    max-height: 31px;
+            <div class="<?php echo 'status' . $user['user_id']; ?>" style=" width: 145px;    max-height: 25px;
     color: #003;
     white-space: nowrap;
     overflow: hidden;
@@ -95,7 +96,7 @@ if($lstusrdata){?>
           <div class="about">
             <div class="name"> 
     <a href="<?php echo base_url() . 'chat/abc/' . $lstusrdata[0]['user_id']; ?>"><?php echo  $lstusrdata[0]['first_name'] . "<br>"; ?></a> </div>
-            <div class="<?php echo 'status' . $lstusrdata[0]['user_id']; ?>" style=" width: 145px;    max-height: 31px;
+            <div class="<?php echo 'status' . $lstusrdata[0]['user_id']; ?>" style=" width: 145px;    max-height: 25px;
     color: #003;
     white-space: nowrap;
     overflow: hidden;
@@ -124,7 +125,7 @@ if($user['user_id'] != $toid){
             <div class="name"> 
     <a href="<?php echo base_url() . 'chat/abc/' . $user['user_id']; ?>"><?php echo  $user['first_name'] . "<br>"; ?></a> </div>
             <div class="<?php echo 'status' . $user['user_id']; ?>" style=" width: 145px;
-    color: #003;    max-height: 19px;
+    color: #003;    max-height: 25px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -195,8 +196,8 @@ if($lstusrdata){?>
     position: absolute;
    /* border: 1px solid #4E4E4E;*/
     max-height: 80px !important;
-    overflow: scroll;
-    overflow-x: hidden;
+     overflow: scroll;
+    overflow-x: hidden;s
     left: 0; margin-bottom: -50px;">
 
                <!--  <input id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." /> -->
@@ -211,7 +212,7 @@ z-index: 9;
     bottom: 0;">
 <div id="notification_li1" style="position: absolute;
     bottom: 5px;">
-    <a href="#" id="notificationLink1" style="position: absolute;
+    <a class="smil" href="#" id="notificationLink1" style="position: absolute;
     bottom: 0;
     left: -49px;;"><i class="em em-blush"></i></a>
     
@@ -221,7 +222,7 @@ z-index: 9;
       <div id="notificationsBody1" class="notifications1">
         <?php $i=0; foreach($smiley_table as $key => $value){ ?>
         
-          <img id="<?php echo $i; ?>" src="<?php echo base_url().'uploads/smileys/' . $value[0]; ?>" height="30" width="30"onClick="followclose(<?php echo $i; ?>)">
+          <img id="<?php echo $i; ?>" src="<?php echo base_url().'uploads/smileys/' . $value[0]; ?>" height="25" width="25"onClick="followclose(<?php echo $i; ?>)">
          
          <?php  $i++; } ?>
       </div>
@@ -587,7 +588,7 @@ function followclose(clicked_id)
 // alert(img.getAttribute('src')); // foo.jpg
 //alert(img.src); 
 var img = img.src;
-$('#message').append("<img  src=" + img + " height='20' width='20' >"); 
+$('#message').append("<img  src=" + img + " height='25' width='25' >"); 
  
 }
 </script>
