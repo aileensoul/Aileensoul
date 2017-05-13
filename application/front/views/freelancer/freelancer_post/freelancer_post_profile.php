@@ -400,7 +400,7 @@ if ($freelancerpostdata[0]['freelancer_post_city']) {
 <?php
 if ($freelancerpostdata[0]['freelancer_post_area']) {
     ?>
-                                                <li> <b>What Is Your Area</b><span>
+                             <li> <b>Skills</b><span>
     <?php
     $aud = $freelancerpostdata[0]['freelancer_post_area'];
     $aud_res = explode(',', $aud);
