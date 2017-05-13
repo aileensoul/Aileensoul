@@ -3788,10 +3788,11 @@ echo '<pre>'; print_r($artdata); die();
                 $editpost .= '</a></div>';
             }
             if ($this->data['artdata'][0]['art_description']) {
-
+                $com_link = $this->common->make_links($artdata[0]['art_description']);
+                $com_link = substr($com_link, 0, 200);
                 $editpostdes .= '<span class="show">';
-                $editpostdes .= $this->common->make_links($artdata[0]['art_description']);
-                $editpostdes .= '</span>';
+                $editpostdes .= $com_link;
+                $editpostdes .= '<span class="dots">...</span><span class="morectnt"><span></span>&nbsp;&nbsp;<a href="javascript:void(0);" class="showmoretxt">More</a></span></span>';
             }
             //echo $editpost;   echo $editpostdes;
             echo json_encode(
