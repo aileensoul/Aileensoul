@@ -123,7 +123,7 @@ class Search extends CI_Controller {
 
             // echo "<pre>"; print_r($fullname) ;
             if ($fullname[1] == "") {
-                 echo "pallavi";
+                // echo "pallavi";
 
                 if (count($artskillpost) == 0) {
                     echo "tt";
@@ -153,7 +153,7 @@ class Search extends CI_Controller {
 
                  //echo "<pre>";print_r($new);die();
             } else {
-                 echo "panalia";
+                // echo "panalia";
                 $search_condition = "(art_name LIKE '%$fullname[0]%' or art_lastname LIKE '%$fullname[1]%')";
 
                 // echo $search_condition;

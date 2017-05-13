@@ -100,11 +100,96 @@
                              $contition_array = array('post_id' => $key['art_post_id'], 'is_deleted' => '1', 'image_type' => '1');
                               $artmulti = $this->data['artmulti'] = $this->common->select_data_by_condition('post_image', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                                             
+                              foreach($artuserdata as $key){
+                               if($key['art_id']){ ?>
                               
-                                    foreach ($artuserdata as $key) { 
-                                       if($key['art_description'] || $key['art_post'] || count($artmulti) > 0){ 
-                                    ?>            
-                                        <div class="profile-job-post-title-inside clearfix search" style="border: 1px solid #d9d9d9;">
+                                  
+                                  <div class="profile-job-post-title-inside clearfix" style="border: 1px solid #d9d9d9;">
+          <div class="profile-job-profile-button clearfix box_search_module" style="height: 16%;">
+                                                          
+     <div class="profile-job-post-location-name-rec">
+          <div class="module_Ssearch" style="display: inline-block; float: left;">
+             <div class="search_img">
+                           <img src="<?php echo base_url(ARTISTICIMAGE . $key['art_user_image']); ?>" alt=" ">
+                        </div>
+       </div>
+   
+       <div class="designation_rec" style="    float: left;
+    width: 60%;
+    padding-top: 16px;">
+          <ul>
+       <li>
+      <a style="  font-size: 19px;
+         font-weight: 600;" href="<?php echo base_url('artistic/art_manage_post/' . $userlist['user_id'] . ''); ?>" title="<?php echo $key['art_name'].' '.$key['art_lastname'];?>">
+       <?php echo $key['art_name'].' '.$key['art_lastname'];?>
+       </a>
+      </li>
+      
+      <li style="display: block;">
+        <a  class="color-search" style="font-size: 16px;" href="" title="<?php echo $key['art_name'].' '.$key['art_lastname'];?>">
+                <?php  if($key['art_yourart']){echo $key['art_yourart']; }else {echo PROFILENA;}?>             
+           </a>
+       </li>
+         <li style="display: block;">
+         <a  class="color-search" href="">
+           <?php if($key['designation']){echo $key['designation'];} else{echo PROFILENA;} ?>
+         </a>
+
+       </li>
+       <li style="display: block;">
+         <a  class="color-search" href="">
+           <?php
+                  $comma = ", ";
+                  $k = 0;
+                  $aud = $key['art_skill'];
+                  $aud_res = explode(',', $aud);
+                  foreach ($aud_res as $skill) {
+                 if ($k != 0) {
+                 echo $comma;
+                     }
+               $cache_time = $this->db->get_where('skill', array('skill_id' => $skill))->row()->skill;
+               if ($cache_time) {
+               echo $cache_time;
+             } else {
+                echo PROFILENA;
+                }
+                 $k++;
+                }
+               ?>
+         </a>
+
+       </li>
+       <li style="display: block;">
+         <a  class="color-search" href=""><?php echo $key['country'].$key['city']; ?></a>
+       </li>
+         <input type="hidden" name="search" id="search" value="<?php echo $keyword; ?>">
+      
+    </ul>
+      </div>
+      <div class="fl search_button">
+        <button>follow</button>
+        <br>
+         <button>Message</button>
+      </div>
+
+
+
+     </div>
+       </div>
+    <div class="view_more_details">
+                                          <!-- <a href="">View more in Aileensoul's Profile</a> -->
+                                        </div>
+                                
+
+
+         </div>
+                               
+                            <?php   } }  foreach($artuserdata as $key){
+                               if($key['art_description']){ ?>
+
+                        
+
+  <div class="profile-job-post-title-inside clearfix search" style="border: 1px solid #d9d9d9;">
           <!-- <div class="profile-job-profile-button clearfix box_search_module" style="height: 16%;">
                                                            
      <div class="profile-job-post-location-name-rec">
@@ -544,90 +629,11 @@
                                         </div>
 
                                 </div>
-                                <?php } else {?>
-               <div class="profile-job-post-title-inside clearfix" style="border: 1px solid #d9d9d9;">
-          <div class="profile-job-profile-button clearfix box_search_module" style="height: 16%;">
-                                                          
-     <div class="profile-job-post-location-name-rec">
-          <div class="module_Ssearch" style="display: inline-block; float: left;">
-             <div class="search_img">
-                           <img src="<?php echo base_url(ARTISTICIMAGE . $key['art_user_image']); ?>" alt=" ">
-                        </div>
-       </div>
-   
-       <div class="designation_rec" style="    float: left;
-    width: 60%;
-    padding-top: 16px;">
-          <ul>
-       <li>
-      <a style="  font-size: 19px;
-         font-weight: 600;" href="<?php echo base_url('artistic/art_manage_post/' . $userlist['user_id'] . ''); ?>" title="<?php echo $key['art_name'].' '.$key['art_lastname'];?>">
-       <?php echo $key['art_name'].' '.$key['art_lastname'];?>
-       </a>
-      </li>
-      
-      <li style="display: block;">
-        <a  class="color-search" style="font-size: 16px;" href="" title="<?php echo $key['art_name'].' '.$key['art_lastname'];?>">
-                <?php  if($key['art_yourart']){echo $key['art_yourart']; }else {echo PROFILENA;}?>             
-           </a>
-       </li>
-         <li style="display: block;">
-         <a  class="color-search" href="">
-           <?php if($key['designation']){echo $key['designation'];} else{echo PROFILENA;} ?>
-         </a>
-
-       </li>
-       <li style="display: block;">
-         <a  class="color-search" href="">
-           <?php
-                  $comma = ", ";
-                  $k = 0;
-                  $aud = $key['art_skill'];
-                  $aud_res = explode(',', $aud);
-                  foreach ($aud_res as $skill) {
-                 if ($k != 0) {
-                 echo $comma;
-                     }
-               $cache_time = $this->db->get_where('skill', array('skill_id' => $skill))->row()->skill;
-               if ($cache_time) {
-               echo $cache_time;
-             } else {
-                echo PROFILENA;
-                }
-                 $k++;
-                }
-               ?>
-         </a>
-
-       </li>
-       <li style="display: block;">
-         <a  class="color-search" href=""><?php echo $key['country'].$key['city']; ?></a>
-       </li>
-         <input type="hidden" name="search" id="search" value="<?php echo $keyword; ?>">
-      
-    </ul>
-      </div>
-      <div class="fl search_button">
-        <button>follow</button>
-        <br>
-         <button>Message</button>
-      </div>
+                           
 
 
 
-     </div>
-       </div>
-    <div class="view_more_details">
-                                          <a href="">View more in Aileensoul's Profile</a>
-                                        </div>
-                                
-
-
-         </div>
-         <?php }?>
-
-
-<?php }}?>
+                     <?php     }} }?>
                                     </div>
                                     </div>
                                     </div>

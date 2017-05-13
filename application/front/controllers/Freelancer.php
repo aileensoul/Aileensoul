@@ -1934,7 +1934,7 @@ $updatedata = $this->common->insert_data_getid($data, 'notification');
                     $join_str[0]['join_type'] = '';
                      $contition_array = array('freelancer_apply.job_delete' => 0, 'freelancer_apply.user_id' => $userid);
                 
-                $postdata = $this->data['postdata'] = $this->common->select_data_by_condition('freelancer_post', $contition_array, $data ='freelancer_post.*,freelancer_apply.app_id,freelancer_apply.user_id as userid', $sortby = 'app_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
+                $postdata = $this->data['postdata'] = $this->common->select_data_by_condition('freelancer_post', $contition_array, $data ='freelancer_post.*,freelancer_apply.app_id,freelancer_apply.user_id as userid,freelancer_apply.modify_date', $sortby = 'app_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
         
 
 //echo "<pre>"; print_r($postdata); die();
