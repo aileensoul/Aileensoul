@@ -1134,7 +1134,7 @@ class Freelancer extends MY_Controller {
 
 //freelancer Portfolio page controller End
 
-    public function freelancer_hire_post($id='') {
+    public function freelancer_hire_post($id) {
         //echo $id."userid is:";
         
         $userid = $this->session->userdata('aileenuser');
@@ -1683,16 +1683,17 @@ $new = array();
 
         if ($id == $userid || $id == '') {
 
-           // echo "hi"; die();
+            //echo "hi"; die();
 
             $contition_array = array('user_id' => $userid, 'is_delete' => 0, 'status' => 1);
             $freelancerdata = $this->data['freelancerdata'] = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
+            //echo "<pre>"; print_r($freelancerdata);
             $freelancer_post_area = $this->data['freelancerdata'][0]['freelancer_post_area'];
             $postuserarray = explode(',', $freelancer_post_area);
 
             $freelancerdata1 = $this->data['freelancerdata1'] = $this->common->select_data_by_condition('freelancer_post', $contition_array = array(), $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
+           // echo "<pre>"; print_r($freelancerdata1);
 
 
             foreach ($freelancerdata1 as $frov) {
@@ -1700,11 +1701,14 @@ $new = array();
                 $postskill = explode(',', $frov['post_skill']);
 
                 $result = array_intersect($postuserarray, $postskill);
+               // echo "<pre>"; print_r($result);
                 if (count($result) > 0) {
-                    $contition_array = array('post_id' => $frov['post_id'], 'is_delete' => 0, 'status' => 1);
-                    
+                    //echo "hiiiii";
+                    $contition_array = array('post_id' => $frov['post_id'], 'is_delete' => '0', 'status' => '1');
+                    //echo "<pre>"; print_r($contition_array);
                     $frepostdata = $this->data['frepostdata'] = $this->common->select_data_by_condition('freelancer_post', $contition_array, $data = '*', $sortby = 'post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-//                    echo "<pre>";print_r($frepostdata);
+                   // echo "<pre>";print_r($frepostdata);die();
+                   // $freedata[] = $frepostdata;
                     if($frepostdata[0]['user_id'] != $userid) {
                     $freedata[] = $frepostdata;
                     }
@@ -1713,7 +1717,7 @@ $new = array();
             
         } 
         else {
-            //echo "heloo"; die();
+            echo "heloo"; die();
             $contition_array = array('user_id' => $id, 'is_delete' => 0, 'status' => 1);
             $freelancerdata = $this->data['freelancerdata'] = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -1739,7 +1743,7 @@ $new = array();
 
         $this->data['postdetail'] = $freedata;
 
-
+       // echo "<pre>"; print_r($freedata);die();
        // echo "<pre>"; print_r($this->data['postdetail']); die();
 
 
