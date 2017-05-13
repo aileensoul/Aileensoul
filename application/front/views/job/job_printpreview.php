@@ -737,7 +737,7 @@ echo $job_header2;
                                                 <?php
                                                 $total_work_year = 0;
                                                 $total_work_month = 0;
-                                                
+
                                                 foreach ($job_work as $work) {
                                                     ?>
 
@@ -818,7 +818,7 @@ echo $job_header2;
 
                                                         <ul><li> <b> Total Experience </b><span><?php if ($total_work_year != '0' || $total_work_month != '0') { ?> <?php if ($total_work_year != '0') { ?><?php echo $total_work_year; ?> year <?php } ?> <?php if ($total_work_month != '0') { ?><?php echo $total_work_month; ?> month <?php } ?> <?php
                                                                     } else {
-                                                                        echo PROFILENA;
+                                                                        echo 'Fresher';
                                                                     }
                                                                     ?>
                                                                 </span>
