@@ -1894,7 +1894,7 @@ abbr { cursor: help; }
 
 .post-design-product{padding-top: 6px;}
 .profile-box-user .profile-boxProfile-name a{padding-left: 8px; font-size: 14px;}
-.profile-text-bui-user .profile-boxProfile-name a{padding-left: 18px; color: #000033;}
+.profile-text-bui-user .profile-boxProfile-name a{padding-left: 8px; color: #000033;}
 
 .profile-box-menu{padding-right: 2px !important;}
 .profile-box-bui-menu{padding-right: 2px !important;     margin-top: -38px;
@@ -2388,7 +2388,7 @@ border-bottom: 1px solid #000033;
 
 
 
-.profile-company-name a{font-size: 16px;margin-left: 18px;  text-shadow: 0px 10px 26px rgba(230, 230, 230,0.4), 0px 8px 7px rgba(0,0,0,0.1), 0px 11px 14px rgba(230,230,230,0.9);
+.profile-company-name a{font-size: 16px;margin-left: 8px;  text-shadow: 0px 10px 26px rgba(230, 230, 230,0.4), 0px 8px 7px rgba(0,0,0,0.1), 0px 11px 14px rgba(230,230,230,0.9);
                         font-weight: 600; color: #000033;}
 .add-post-button a:hover{color: #ffffff;}
 .buisness-profile-txext {z-index: 1; position: relative; display: inline-block; width: 24%;}
@@ -3969,7 +3969,7 @@ border-bottom: 1px solid #000033;
     */
 }
 
-.profile-box-job-menu{padding-right: 2px !important;     margin-top: -38px;
+.profile-box-job-menu{padding-right: 1px !important;     margin-top: -38px;
                       border-top: 1px solid #d9d9d9;}
 
 .profile-box-job-menu ul li a:hover{background-color: #000033; color: #ffffff;}
@@ -3978,7 +3978,7 @@ border-bottom: 1px solid #000033;
     display: block;
     color: #000033;
     text-align: center;
-       padding: 9px 13px 6px 13px;
+       padding:8px 17px 6px 17px;
     text-decoration: none;
     font-size: 16px;
     color: #000033;
