@@ -203,7 +203,7 @@ if ($returnpage == 'job') {
         <!-- menubar --><div class="profile-main-rec-box-menu  col-md-12 ">
 
             <div class="left-side-menu col-md-2">  </div>
-            <div class="right-side-menu col-md-5">
+            <div class="right-side-menu col-md-7">
                 <ul class="">
 
 
@@ -239,7 +239,7 @@ if ($returnpage == 'job') {
                 </ul>
             </div>
 
-            <div class="col-md-2">
+            <div class="col-md-2"  style="width:23%;">
                 <div class="flw_msg_btn fr">
                    <ul>
                     <?php
