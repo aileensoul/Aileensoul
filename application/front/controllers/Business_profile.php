@@ -2737,7 +2737,7 @@ class Business_profile extends MY_Controller {
                 $cmtinsert .= '<div class="comment-name"><b>' . $companyname . '</b>';
                 $cmtinsert .= '</div>';
                 $cmtinsert .= '<div class="comment-details" id= "showcomment' . $business_profile['business_profile_post_comment_id'] . '"" >';
-                $cmtinsert .= $business_profile['comments'];
+                $cmtinsert .= $this->common->make_links($business_profile['comments']);
                 $cmtinsert .= '</div>';
                 $cmtinsert .= '<div class="edit-comment-box"><div class="inputtype-edit-comment">';
                 //$cmtinsert .= '<textarea type="text" class="textarea" name="' . $business_profile['business_profile_post_comment_id'] . '" id="editcomment' . $business_profile['business_profile_post_comment_id'] . '" style="display:none;resize: none;" onClick="commentedit(this.name)">' . $business_profile['comments'] . '</textarea>';
@@ -2875,7 +2875,7 @@ class Business_profile extends MY_Controller {
                 $cmtinsert .= '<div class="comment-name"><b>' . $companyname . '</b>';
                 $cmtinsert .= '</div>';
                 $cmtinsert .= '<div class="comment-details" id="showcommenttwo' . $business_profile['business_profile_post_comment_id'] . '">';
-                $cmtinsert .= $business_profile['comments'];
+                $cmtinsert .= $this->common->make_links($business_profile['comments']);
                 $cmtinsert .= '</div>';
                 $cmtinsert .= '<div class="edit-comment-box"><div class="inputtype-edit-comment">';
                 //$cmtinsert .= '<textarea type="text" class="textarea" name="' . $business_profile['business_profile_post_comment_id'] . '" id="editcommenttwo' . $business_profile['business_profile_post_comment_id'] . '" style="display:none;resize: none;" onClick="commentedittwo(this.name)">' . $business_profile['comments'] . '</textarea>';
@@ -3313,7 +3313,7 @@ class Business_profile extends MY_Controller {
             $cmtinsert .= '<div class="comment-name"><b>' . ucwords($company_name) . '</b>';
             $cmtinsert .= '</div>';
             $cmtinsert .= '<div class="comment-details" id="showcomment' . $business_profile['business_profile_post_comment_id'] . '">';
-            $cmtinsert .= $business_profile['comments'];
+            $cmtinsert .= $this->common->make_links($business_profile['comments']);
             $cmtinsert .= '</div>';
 
             $cmtinsert .= '<div class="edit-comment-box"><div class="inputtype-edit-comment">';
@@ -3473,7 +3473,7 @@ class Business_profile extends MY_Controller {
             $cmtinsert .= '<div class="comment-name"><b>' . ucwords($company_name) . '</b>';
             $cmtinsert .= '</div>';
             $cmtinsert .= '<div class="comment-details" id= "showcommenttwo' . $business_profile['business_profile_post_comment_id'] . '" >';
-            $cmtinsert .= $business_profile['comments'];
+            $cmtinsert .= $this->common->make_links($business_profile['comments']);
             $cmtinsert .= '</div>';
             $cmtinsert .= '<div class="edit-comment-box"><div class="inputtype-edit-comment">';
             //$cmtinsert .= '<textarea type="text" class="textarea" name="' . $business_profile['business_profile_post_comment_id'] . '" id="editcommenttwo' . $business_profile['business_profile_post_comment_id'] . '" style="display:none;resize: none;" onclick="commentedittwo(this.name)">' . $business_profile['comments'] . '</textarea>';
@@ -3599,7 +3599,7 @@ class Business_profile extends MY_Controller {
             $businessprofiledata = $this->data['businessprofiledata'] = $this->common->select_data_by_condition('business_profile_post_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
             $cmtlike = '<div>';
-            $cmtlike .= $businessprofiledata[0]['comments'];
+            $cmtlike .= $this->common->make_links($businessprofiledata[0]['comments']);
             $cmtlike .= '</div>';
             echo $cmtlike;
         }
@@ -3654,7 +3654,7 @@ class Business_profile extends MY_Controller {
             if ($this->data['businessdata'][0]['product_description']) {
 
                 $editpostdes = '<div>';
-                $editpostdes .= $businessdata[0]['product_description'] . "<br>";
+                $editpostdes .= $this->common->make_links($businessdata[0]['product_description']) . "<br>";
                 $editpostdes .= '</div>';
             }
             //echo $editpost;   echo $editpostdes;
@@ -4200,7 +4200,7 @@ class Business_profile extends MY_Controller {
             $cmtinsert .= '</div>';
 
             $cmtinsert .= '<div class="comment-details" id= "showcomment' . $bus_comment['post_image_comment_id'] . '"" >';
-            $cmtinsert .= $bus_comment['comment'];
+            $cmtinsert .= $this->common->make_links($bus_comment['comment']);
             $cmtinsert .= '</div>';
             $cmtinsert .= '<div contenteditable="true" class="editable_text" name="' . $bus_comment['post_image_comment_id'] . '" id="editcomment' . $bus_comment['post_image_comment_id'] . '" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" onClick="commentedit(' . $bus_comment['post_image_comment_id'] . ')">';
             $cmtinsert .= $bus_comment['comment'];
@@ -4371,7 +4371,7 @@ class Business_profile extends MY_Controller {
             $cmtinsert .= '</div>';
 
             $cmtinsert .= '<div class="comment-details" id= "showcomment' . $bus_comment['post_image_comment_id'] . '"" >';
-            $cmtinsert .= $bus_comment['comment'];
+            $cmtinsert .= $this->common->make_links($bus_comment['comment']);
             $cmtinsert .= '</div>';
             //$cmtinsert .= '<input type="text" name="' . $bus_comment['post_image_comment_id'] . '" id="editcomment' . $bus_comment['post_image_comment_id'] . '"style="display:none;" value="' . $bus_comment['comment'] . ' " onClick="commentedit(this.name)">';
             $cmtinsert .= '<div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="' . $bus_comment['post_image_comment_id'] . '"  id="editcomment' . $bus_comment['post_image_comment_id'] . '" placeholder="Type Message ..."  onkeyup="commentedittwo(' . $bus_comment['post_image_comment_id'] . ')">' . $bus_comment['comment'] . '</div>';
@@ -4539,7 +4539,7 @@ class Business_profile extends MY_Controller {
             $cmtinsert .= '</div>';
 
             $cmtinsert .= '<div class="comment-details" id= "imgshowcommenttwo' . $bus_comment['post_image_comment_id'] . '"" >';
-            $cmtinsert .= $bus_comment['comment'];
+            $cmtinsert .= $this->common->make_links($bus_comment['comment']);
             $cmtinsert .= '</div>';
             $cmtinsert .= '<div class="edit-comment-box"><div class="inputtype-edit-comment">';
             $cmtinsert .= '<div contenteditable="true" class= "editable_text" name="' . $bus_comment['post_image_comment_id'] . '" id="imgeditcommenttwo' . $bus_comment['post_image_comment_id'] . '" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" onkeyup="imgcommentedittwo(' . $bus_comment['post_image_comment_id'] . ')">';
@@ -4704,7 +4704,7 @@ class Business_profile extends MY_Controller {
             $cmtinsert .= '</div>';
 
             $cmtinsert .= '<div class="comment-details" id= "imgshowcomment' . $bus_comment['post_image_comment_id'] . '"" >';
-            $cmtinsert .= $bus_comment['comment'];
+            $cmtinsert .= $this->common->make_links($bus_comment['comment']);
             $cmtinsert .= '</div>';
             $cmtinsert .= '<div class="edit-comment-box"><div class="inputtype-edit-comment">';
             $cmtinsert .= '<div contenteditable="true" class= "editable_text" name="' . $bus_comment['post_image_comment_id'] . '" id="imgeditcomment' . $bus_comment['post_image_comment_id'] . '"style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;"  onkeyup="imgcommentedit(' . $bus_comment['post_image_comment_id'] . ')">';
@@ -5196,7 +5196,7 @@ class Business_profile extends MY_Controller {
             $buseditdata = $this->data['buseditdata'] = $this->common->select_data_by_condition('bus_post_image_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
             $cmtlike = '<div>';
-            $cmtlike .= $buseditdata[0]['comment'] . "";
+            $cmtlike .= $this->common->make_links($buseditdata[0]['comment']) . "";
             $cmtlike .= '</div>';
             echo $cmtlike;
         }
@@ -5239,7 +5239,7 @@ class Business_profile extends MY_Controller {
                 $cmtinsert .= '</div>';
 
                 $cmtinsert .= '<div class="comment-details" id= "imgshowcomment' . $bus_comment['post_image_comment_id'] . '"" >';
-                $cmtinsert .= $bus_comment['comment'];
+                $cmtinsert .= $this->common->make_links($bus_comment['comment']);
                 $cmtinsert .= '</div>';
 
                 $cmtinsert .= '<div class="edit-comment-box"><div class="inputtype-edit-comment">';
@@ -5372,7 +5372,7 @@ class Business_profile extends MY_Controller {
                 $cmtinsert .= '</div>';
 
                 $cmtinsert .= '<div class="comment-details" id= "imgshowcommenttwo' . $bus_comment['post_image_comment_id'] . '">';
-                $cmtinsert .= $bus_comment['comment'];
+                $cmtinsert .= $this->common->make_links($bus_comment['comment']);
                 $cmtinsert .= '</div>';
 
                 $cmtinsert .= '<div class="edit-comment-box"><div class="inputtype-edit-comment">';
@@ -5514,7 +5514,7 @@ class Business_profile extends MY_Controller {
                 $fourdata .= '</div><div class="comment-name"><b>';
                 $fourdata .= '' . ucwords($companyname) . '</br></b></div>';
                 $fourdata .= '<div class="comment-details" id= "showcommenttwo' . $rowdata['business_profile_post_comment_id'] . '">';
-                $fourdata .= '' . $rowdata['comments'] . '</div>';
+                $fourdata .= '' . $this->common->make_links($rowdata['comments']) . '</div>';
                 $fourdata .= '<div class="edit-comment-box"><div class="inputtype-edit-comment">';
                 //$fourdata .= '<textarea type="text" class="textarea" name="' . $rowdata['business_profile_post_comment_id'] . '" id="editcommenttwo' . $rowdata['business_profile_post_comment_id'] . '" style="display:none; resize:none;" onClick="commentedittwo(this.name)">' . $rowdata['comments'] . '</textarea>';
                 $fourdata .= '<div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="' . $rowdata['business_profile_post_comment_id'] . '"  id="editcommenttwo' . $rowdata['business_profile_post_comment_id'] . '" placeholder="Type Message ..."  onkeyup="commentedittwo(' . $rowdata['business_profile_post_comment_id'] . ')">' . $rowdata['comments'] . '</div>';
@@ -5617,7 +5617,7 @@ class Business_profile extends MY_Controller {
                 $fourdata .= '' . ucwords($companyname) . '</br>';
                 $fourdata .= '</b></div>';
                 $fourdata .= '<div class="comment-details" id= "showcommenttwo' . $rowdata['post_image_comment_id'] . '" style="display: block;">';
-                $fourdata .= '' . $rowdata['comment'] . '</br> </div>';
+                $fourdata .= '' . $this->common->make_links($rowdata['comment']) . '</br> </div>';
 
                 $fourdata .= '<div class="col-md-12"><div class="col-md-10">';
 
@@ -5727,7 +5727,7 @@ class Business_profile extends MY_Controller {
                 $fourdata .= '</div><div class="comment-name"><b>';
                 $fourdata .= '' . ucwords($companyname) . '</br></b></div>';
                 $fourdata .= '<div class="comment-details" id= "showcommenttwo' . $rowdata['business_profile_post_comment_id'] . '">';
-                $fourdata .= '' . $rowdata['comments'] . '</div>';
+                $fourdata .= '' . $this->common->make_links($rowdata['comments']) . '</div>';
                 $fourdata .= '<div class="edit-comment-box"><div class="inputtype-edit-comment">';
                 $fourdata .= '<div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="' . $rowdata['business_profile_post_comment_id'] . '"  id="editcommenttwo' . $rowdata['business_profile_post_comment_id'] . '" placeholder="Type Message ..." onkeyup="commentedittwo(' . $rowdata['business_profile_post_comment_id'] . ')">' . $rowdata['comments'] . '</div>';
                 $fourdata .= '<span class="comment-edit-button"><button id="editsubmittwo' . $rowdata['business_profile_post_comment_id'] . '" style="display:none" onClick="edit_commenttwo(' . $rowdata['business_profile_post_comment_id'] . ')">Save</button></span>';
@@ -5955,7 +5955,7 @@ class Business_profile extends MY_Controller {
             $cmtinsert .= '<div class="comment-name"><b>' . ucwords($company_name) . '</b>';
             $cmtinsert .= '</div>';
             $cmtinsert .= '<div class="comment-details" id="showcomment' . $business_profile['business_profile_post_comment_id'] . '">';
-            $cmtinsert .= $business_profile['comments'];
+            $cmtinsert .= $this->common->make_links($business_profile['comments']);
             $cmtinsert .= '</div>';
 
             $cmtinsert .= '<div class="edit-comment-box"><div class="inputtype-edit-comment">';
@@ -6123,7 +6123,7 @@ class Business_profile extends MY_Controller {
             $cmtinsert .= '<div class="comment-name"><b>' . ucwords($company_name) . '</b>';
             $cmtinsert .= '</div>';
             $cmtinsert .= '<div class="comment-details" id= "showcommenttwo' . $business_profile['business_profile_post_comment_id'] . '" >';
-            $cmtinsert .= $business_profile['comments'];
+            $cmtinsert .= $this->common->make_links($business_profile['comments']);
             $cmtinsert .= '</div>';
             $cmtinsert .= '<div class="edit-comment-box"><div class="inputtype-edit-comment">';
             //$cmtinsert .= '<textarea type="text" class="textarea" name="' . $business_profile['business_profile_post_comment_id'] . '" id="editcommenttwo' . $business_profile['business_profile_post_comment_id'] . '" style="display:none;resize: none;" onclick="commentedittwo(this.name)">' . $business_profile['comments'] . '</textarea>';
@@ -6265,7 +6265,7 @@ class Business_profile extends MY_Controller {
                 $cmtinsert .= '<div class="comment-name"><b>' . $companyname . '</b>';
                 $cmtinsert .= '</div>';
                 $cmtinsert .= '<div class="comment-details" id= "showcomment' . $business_profile['business_profile_post_comment_id'] . '"" >';
-                $cmtinsert .= $business_profile['comments'];
+                $cmtinsert .= $this->common->make_links($business_profile['comments']);
                 $cmtinsert .= '</div>';
                 $cmtinsert .= '<div class="edit-comment-box"><div class="inputtype-edit-comment">';
                 //$cmtinsert .= '<textarea type="text" class="textarea" name="' . $business_profile['business_profile_post_comment_id'] . '" id="editcomment' . $business_profile['business_profile_post_comment_id'] . '" style="display:none;resize: none;" onClick="commentedit(this.name)">' . $business_profile['comments'] . '</textarea>';
@@ -6526,7 +6526,7 @@ class Business_profile extends MY_Controller {
                 $cmtinsert .= '<div class="comment-name"><b>' . $companyname . '</b>';
                 $cmtinsert .= '</div>';
                 $cmtinsert .= '<div class="comment-details" id="showcommenttwo' . $business_profile['business_profile_post_comment_id'] . '">';
-                $cmtinsert .= $business_profile['comments'];
+                $cmtinsert .= $this->common->make_links($business_profile['comments']);
                 $cmtinsert .= '</div>';
                 $cmtinsert .= '<div class="edit-comment-box"><div class="inputtype-edit-comment">';
                 //$cmtinsert .= '<textarea type="text" class="textarea" name="' . $business_profile['business_profile_post_comment_id'] . '" id="editcommenttwo' . $business_profile['business_profile_post_comment_id'] . '" style="display:none;resize: none;" onClick="commentedittwo(this.name)">' . $business_profile['comments'] . '</textarea>';
@@ -6659,7 +6659,7 @@ class Business_profile extends MY_Controller {
                 $mulimgfour .= '<div class="comment-details" id="imgshowcommenttwo' . $rowdata['post_image_comment_id'] . '" style="display: block;">';
 
 
-                $mulimgfour .= '' . $rowdata['comment'] . '</br></div>';
+                $mulimgfour .= '' . $this->common->make_links($rowdata['comment']) . '</br></div>';
 
 
 //                $mulimgfour .= '<div class="col-md-12"><div class="col-md-10">';
