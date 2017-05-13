@@ -1,6 +1,107 @@
 <!-- start head -->
 <?php  echo $head; ?>
     <!-- END HEAD -->
+<style>
+    /*body {
+        font-family: Arial, sans-serif;
+        background-size: cover;
+        height: 100vh;
+    }*/
+    /*    .box {
+            width: 40%;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.2);
+            padding: 35px;
+            border: 2px solid #fff;
+            border-radius: 20px/50px;
+            background-clip: padding-box;
+            text-align: center;
+        }*/
+    /* .overlay {
+         position: fixed;
+         top: 0;
+         bottom: 0;
+         left: 0;
+         right: 0;
+         background: rgba(0, 0, 0, 0.7);
+         transition: opacity 500ms;
+         visibility: hidden;
+         opacity: 0;
+         z-index: 10;
+     }*/
+    /*.overlay:target {
+        visibility: visible;
+        opacity: 1;
+    }
+    .popup {
+        margin: 70px auto;
+        padding: 20px;
+        background: #fff;
+        border-radius: 5px;
+        width: 30%;
+        height: 200px;
+        position: relative;
+        transition: all 5s ease-in-out;
+    }*/
+    .okk{
+        text-align: center;
+    }
+    .pop_content .okbtn{
+        position: absolute;
+        transition: all 200ms;
+        font-size: 16px;
+        text-decoration: none;
+        color: #fff;
+        padding: 8px 18px;
+        background-color: #0A2C5D;
+        left: 170px;
+        margin-top: 8px;
+        width: 100px; 
+        border-radius: 8px;
+    }
+    .pop_content .cnclbtn {
+        position: absolute;
+        transition: all 200ms;
+        font-size: 16px;
+        text-decoration: none;
+        color: #fff;
+        padding: 8px 18px;
+        background-color: #0A2C5D;
+        right: 170px;
+        margin-top: 8px;
+        width: 100px;
+        border-radius: 8px;
+    }
+    /*.popup .okbtn {
+        position: absolute;
+        transition: all 200ms;
+        font-size: 26px;
+        font-weight: bold;
+        text-decoration: none;
+        color: #fff;
+        padding: 12px 30px;
+        background-color: darkcyan;
+        margin-left: -45px;
+        margin-top: 15px;
+    }*/
+    .popup .pop_content {
+        text-align: center;
+        margin-top: 40px;
+    }
+    .model_ok_cancel{
+        width:200px !important;
+    }
+    /* @media screen and (max-width: 700px){
+         .box{
+             width: 70%;
+         }
+         .popup{
+             width: 70%;
+         }*/
+    /* }*/
+</style>
+<!--post save success pop up style end -->
+    <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
     <!-- start header -->
 <?php echo $header; ?>
     <!-- END HEADER -->
@@ -222,7 +323,8 @@
             <?php
             $userid = $this->session->userdata('aileenuser');
             $contition_array = array('from_id' => $userid, 'to_id' => $row['user_id'], 'save_type' => 2, 'status' => '0');
-            $data = $this->common->select_data_by_condition('save', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            $savedata = $this->common->select_data_by_condition('save', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            
             // khayti changes start 6-4
             ?>
               <!--<a href="<?php echo base_url('chat/abc/' . $row['user_id']); ?>">Saved</a>-->
@@ -235,23 +337,26 @@
         if($userdata){ ?>
           <a href="javascript:void(0);" class="button invited" id="<?php echo 'invited' . $row['user_id']; ?>" > Invited</a>       
          <?php }else{ ?>
-              <a href="javascript:void(0);" class="button invite_border" id="<?php echo 'invited' . $row['user_id']; ?>" onclick="inviteuser(<?php echo $row['user_id']; ?>)"> Invite</a>
+         <a  href="#" class="button invite_border" id="<?php echo 'invited' . $row['user_id']; ?>" onClick="inviteuserpopup(<?php echo $row['user_id']; ?>)"> Invite</a>
+              <!-- <a href="javascript:void(0);" class="button invite_border" id="<?php echo 'invited' . $row['user_id']; ?>" onclick="inviteuserpopup(<?php echo $row['user_id']; ?>)"> Invite</a> -->
           <?php  } ?>
 
 
-        <?php    if (!$data) {
+        <?php
+            if ($savedata) {
                 ?> 
-         <input type="hidden" name="saveuser"  id="saveuser" value= "<?php echo $data[0]['save_id']; ?>">
-        <!-- pallavi changes 15-4 -->
-        <a id="<?php echo $row['user_id']; ?>" onClick="savepopup(<?php echo$row['user_id']; ?>)" href="javascript:void(0);" class="<?php echo 'saveduser' . $row['user_id']; ?>">Save</a>
-          <!-- pallavi changes end 15-4 -->
-         <!--  <a id="<?php echo $row['user_id']; ?>" onClick="save_user(this.id)" href="#popup1" class="<?php echo 'saveduser' . $row['user_id']; ?>">Save User</a> -->
+                <a class="saved">Saved </a>
+        
                 <?php
             } else {
                 ?>
-         <a class="saved" href="javascript:void(0);" onclick="return false">Saved</a>
-         
-                <?php
+
+     <input type="hidden" id="<?php echo 'hideenuser' . $row['user_id']; ?>" value= "<?php echo $data[0]['save_id']; ?>">
+               
+              <a id="<?php echo $row['user_id']; ?>" onClick="savepopup(<?php echo $row['user_id']; ?>)" href="javascript:void(0);" class="<?php echo 'saveduser' . $row['user_id']; ?>">Save</a>
+          <!-- pallavi changes end 15-4 -->
+         <!--  <a id="<?php echo $row['user_id']; ?>" onClick="save_user(this.id)" href="#popup1" class="<?php echo 'saveduser' . $row['user_id']; ?>">Save User</a> -->
+                          <?php
                                           
             }
           
@@ -291,6 +396,20 @@
     </section>
     <!-- END CONTAINER -->
     <!-- BEGIN FOOTER -->
+    <!-- Model Popup Open -->
+                    <!-- Bid-modal  -->
+                    <div class="modal fade message-box biderror" id="bidmodal" role="dialog">
+                        <div class="modal-dialog modal-lm">
+                            <div class="modal-content">
+                                <button type="button" class="modal-close" data-dismiss="modal">&times;</button>         
+                                <div class="modal-body">
+                                    <!--<img class="icon" src="images/dollar-icon.png" alt="" />-->
+                                    <span class="mes"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Model Popup Close -->
     <!-- BEGIN INNER FOOTER -->
     <?php echo $footer; ?>
     
@@ -306,7 +425,7 @@
             url: '<?php echo base_url() . "freelancer/free_invite_user" ?>',
             data: 'post_id=' + post_id + '&invited_user=' + clicked_id,
             success: function (data) { //alert(data);
-                $('#' + 'invited' + clicked_id).html(data);
+                $('#' + 'invited' + clicked_id).html(data).addClass('button invited').removeClass('button invite_border');
 
             }
         });
@@ -314,6 +433,46 @@
 
    
 </script>
+
+<script type="text/javascript">
+                  function save_user(abc)
+                        {
+                          
+           var saveid = document.getElementById("hideenuser" + abc);
+           //alert(saveid);
+                $.ajax({
+        type: 'POST',
+        url: '<?php echo base_url() . "freelancer/save_user1" ?>',
+        data: 'user_id=' + abc + '&save_id=' + saveid.value,
+        success: function (data) {
+    $('.' + 'saveduser' + abc).html(data).addClass('saved');
+                                }
+                            });
+                        }
+                    </script>
+
+<script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
+
+<script>
+                        function savepopup(id) {
+                          //alert(123);
+                            save_user(id);
+                            //alert(456);
+                      
+            $('.biderror .mes').html("<div class='pop_content'>Your post is successfully saved.");
+            $('#bidmodal').modal('show');
+                        }
+                    </script>
+
+                    <script >
+                  function inviteuserpopup(abc){
+
+    $('.biderror .mes').html("<div class='pop_content'>Do you want to invite this candidate?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='inviteuser(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+    $('#bidmodal').modal('show');
+
+   } 
+
+  </script>
     <!-- end footer -->
  
 

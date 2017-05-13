@@ -1772,7 +1772,8 @@ $new = array();
         $this->load->view('freelancer/freelancer_post/post_apply', $this->data);
     }
 
-     public function save_user1($id, $save_id) { //echo $id; echo $save_id; die();
+     public function save_user1($id, $save_id) { 
+        //echo $id; echo $save_id; die();
         $id = $_POST['user_id'];
 
        // echo $id; die();
