@@ -374,7 +374,7 @@ if ($freelancerpostdata[0]['freelancer_post_city']) {
                                             }
                                             ?>
 
-                                            <li> <b>Postal Address</b><span> <?php echo $freelancerpostdata[0]['freelancer_post_address']; ?> </span>
+                    <li> <b>Postal Address</b><span><p><?php echo $freelancerpostdata[0]['freelancer_post_address']; ?></p>     </span>
                                             </li>
 
                                         </ul>
@@ -424,7 +424,7 @@ if ($freelancerpostdata[0]['freelancer_post_area']) {
 
 
 
-                                            <li><b>Describe Your Skill In Brief</b> <span><?php echo $this->common->make_links($freelancerpostdata[0]['freelancer_post_skill_description']); ?></span> </li>
+                                  <li><b>Describe Your Skill In Brief</b> <span> <p><?php echo $this->common->make_links($freelancerpostdata[0]['freelancer_post_skill_description']); ?> </p> </span> </li>
 
                                             <li><b>Total Experience</b> <span><?php echo $freelancerpostdata[0]['freelancer_post_exp_month'] . ' ' . $freelancerpostdata[0]['freelancer_post_exp_year']; ?></span> </li>  
 
