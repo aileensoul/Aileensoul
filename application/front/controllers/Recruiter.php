@@ -612,7 +612,7 @@ class Recruiter extends MY_Controller {
 
                 //   $contition_array = array('user_id' => $userid);
                 // $userdata =  $this->common->select_data_by_condition('recruiter', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-                // echo '<pre>'; print_r($userdata); die();
+                //echo '<pre>'; print_r($userdata); die();
 
                 if ($userdata) {
                     $step = $userdata[0]['re_step'];
@@ -626,6 +626,11 @@ class Recruiter extends MY_Controller {
                 }
                 $this->load->view('recruiter/company_address', $this->data);
             } else {
+
+
+                $contition_array = array('user_id' => $userid, 're_status' => '1');
+                $userdata = $this->common->select_data_by_condition('recruiter', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                
                 $data = array(
                     're_comp_country' => $this->input->post('country'),
                     're_comp_state' => $this->input->post('state'),
@@ -638,7 +643,12 @@ class Recruiter extends MY_Controller {
                 $insert_id = $this->common->update_data($data, 'recruiter', 'user_id', $userid);
                 if ($insert_id) {
                     $this->session->set_flashdata('success', 'company address inserted successfully');
+
+                    if($userdata[0]['re_step'] == 3){
                     redirect('recruiter/rec_profile', refresh);
+                  }else{
+                    redirect('recruiter/recommen_candidate', refresh);
+                  }
                 } else {
                     $this->session->flashdata('error', 'Sorry!! Your data not inserted');
                     redirect('recruiter/rec_comp_address', refresh);

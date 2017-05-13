@@ -2647,7 +2647,7 @@ class Job extends MY_Controller {
             $data = '*';
 
             $this->data['job_work'] = $this->common->select_data_by_condition('job_add_workexp', $contition_array, $data, $sortby, $orderby, $limit, $offset, $join_str, $groupby);
-            //echo "<pre>";print_r( $this->data['job_work']);die();
+            // echo "<pre>";print_r( $this->data['job_work']);die();
             //for getting other skill data
             $contition_array = array('user_id' => $userid, 'type' => 3, 'status' => 1);
 
@@ -2677,7 +2677,7 @@ class Job extends MY_Controller {
 
 // echo "<pre>"; print_r($this->data['job_edu']); die();
             //for getting data job_add_workexp table
-            $contition_array = array('user_id' => $id, 'experience' => 'Experience', 'status' => '1');
+            $contition_array = array('user_id' => $userid, 'experience' => 'Experience', 'status' => '1');
 
             $data = '*';
 
@@ -3661,6 +3661,14 @@ public function job_applied_post() {
 
         $delete_data = $this->common->delete_data('skill', 'skill_id', $skill_id);
         if ($delete_data) {
+            echo 'ok';
+        }
+    }
+    
+    public function jon_work_delete(){
+        $work_id = $_POST['work_id'];
+        $delete_data = $this->common->delete_data('job_add_workexp', 'work_id', $work_id);
+        if($delete_data){
             echo 'ok';
         }
     }

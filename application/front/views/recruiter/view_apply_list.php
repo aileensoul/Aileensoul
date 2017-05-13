@@ -366,7 +366,7 @@ if ($user_data) {
 
      ?>
 
-            <a href="<?php echo base_url('message/message_chats/' . $row['user_id']); ?>">Message</a>
+            <a href="<?php echo base_url('chat/abc/' . $row['user_id']); ?>">Message</a>
 
             <?php  $contition_array = array('invite_user_id' => $row['user_id'], 'post_id' => $postid);
         $userdata = $this->common->select_data_by_condition('user_invite', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');

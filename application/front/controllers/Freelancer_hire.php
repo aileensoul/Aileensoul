@@ -539,7 +539,11 @@ if(isset($_POST["state_id"]) && !empty($_POST["state_id"])){
 
     {
       
-         $userid = $this->session->userdata('aileenuser');
+     $userid = $this->session->userdata('aileenuser');
+       $contition_array = array('user_id' => $userid, 'is_delete' => '0' , 'status' => '1');
+         $userdata= $this->common->select_data_by_condition('freelancer_hire_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+         
 
         
 
@@ -577,7 +581,12 @@ if(isset($_POST["state_id"]) && !empty($_POST["state_id"])){
       { 
 
          $this->session->set_flashdata('success', 'professional information updated successfully');
-       redirect('freelancer/freelancer_hire_profile', refresh);
+
+         if($userdata[0]['free_hire_step'] == 3){
+           redirect('freelancer/freelancer_hire_profile', refresh);
+       }else{
+        redirect('freelancer/recommen_candidate', refresh);
+       }
       }
       else
       {
