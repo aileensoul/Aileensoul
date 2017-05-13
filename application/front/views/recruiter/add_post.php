@@ -371,14 +371,15 @@ $('#datepicker').datetimepicker({
   //maxDate:'+1970/01/02' // and tommorow is maximum date calendar
 });
 </script>
-
+<script type="text/javascript" src="<?php echo base_url('js/jquery.validate1.15.0..min.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('js/additional-methods1.15.0.min.js'); ?>"></script>
 
 <script type="text/javascript">
 
-    $('#skills').select2();
-    $('#skills').on("change", function (e) {
-        $(e.target).valid();
-    });
+    // $('#skills').select2();
+    // $('#skills').on("change", function (e) {
+    //     $(e.target).valid();
+    // });
     //validation for edit email formate form
 
     $(document).ready(function () {
@@ -386,7 +387,7 @@ $('#datepicker').datetimepicker({
         $("#artpost").validate({
             //ignore: [],
 
-            //ignore: '*:not([name])',
+            ignore: '*:not([name])',
             rules: {
 
                 post_name: {
@@ -492,16 +493,7 @@ $('#datepicker').datetimepicker({
                     require_from_group: "You must either fill out 'skill' or 'other_skill'",
                 },
 
-                minyear: {
-
-                    required: "Year Selection Is Required",
-                },
-
-                minmonth: {
-
-                    required: "Month no Is Required.",
-
-                },
+                
 
                 position: {
 
@@ -534,7 +526,7 @@ $('#datepicker').datetimepicker({
 
                 minmonth: {
 
-                    require_from_group: "You must either fill out 'Keyskills' or 'Other Skills'",
+                    require_from_group: "You must either fill out 'month' or 'year'",
                 },
 
                 maxyear: {
@@ -545,7 +537,7 @@ $('#datepicker').datetimepicker({
 
                 maxmonth: {
 
-                    require_from_group: "You must either fill out 'Keyskills' or 'Other Skills'",
+                    require_from_group: "You must either fill out 'month' or 'year'",
                 },
 
                 last_date: {
