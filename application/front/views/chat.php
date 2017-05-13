@@ -1,3 +1,4 @@
+
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
@@ -92,7 +93,7 @@ if(count($userlist) > 0){
           <div class="about">
             <div class="name"> 
     <a href="<?php echo base_url() . 'chat/abc/' . $user['user_id']; ?>"><?php echo  $user['first_name'] . "<br>"; ?></a> </div>
-            <div class="<?php echo 'status' . $user['user_id']; ?>" style=" width: 145px;    max-height: 31px;
+            <div class="<?php echo 'status' . $user['user_id']; ?>" style=" width: 145px;    max-height: 19px;
     color: #003;
     white-space: nowrap;
     overflow: hidden;
@@ -203,7 +204,7 @@ if($lstusrdata){?>
     
                 <span class="input-group-btn">
         <button class="btn btn-warning btn-sm" id="submit" style="padding: 10px;
-    background: #003; left: -110px;
+    background: #003; left: -91px;
     border: 1px solid #003;position: absolute;bottom: 0;">Send</button>
                 </span>
               </div>
@@ -556,4 +557,19 @@ $('#message').append("<img  src=" + img + " height='20' width='20' >");
             newheight = message.scrollHeight;
             message.style.height = newheight + "px";
         })  
+</script>
+
+
+
+<script type="text/javascript">
+  
+$("#bottom").on("scroll", function()
+{
+    $("#bottomv").html($("#bottom")[0].scrollTop);
+});
+
+$(function()
+{
+  $("#bottom")[0].scrollTop = $("#bottom")[0].scrollHeight - $("#bottom").height();
+});
 </script>

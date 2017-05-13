@@ -19,7 +19,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  
   <link rel="stylesheet" href="<?php echo base_url(); ?>css/style_chat.css" />
 <style type="text/css">
-  div .comment {
+  div .comment { width: 90%;
 min-height: 41px; 
     border: 1px solid #ccc;
     padding-right: 40px!important;
@@ -124,7 +124,7 @@ if($user['user_id'] != $toid){
             <div class="name"> 
     <a href="<?php echo base_url() . 'chat/abc/' . $user['user_id']; ?>"><?php echo  $user['first_name'] . "<br>"; ?></a> </div>
             <div class="<?php echo 'status' . $user['user_id']; ?>" style=" width: 145px;
-    color: #003;    max-height: 31px;
+    color: #003;    max-height: 19px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -188,7 +188,16 @@ if($lstusrdata){?>
               </div>
             </div> -->
               <div class="col-md-12" id="msg_block">
-              <div class="input-group">
+              <div class="input-group" style="width: 94%;
+    background-color: rgba(244, 244, 244, 0.59);
+    font-family: sans-serif;
+    bottom: 0;
+    position: absolute;
+   /* border: 1px solid #4E4E4E;*/
+    max-height: 80px !important;
+    overflow: scroll;
+    overflow-x: hidden;
+    left: 0; margin-bottom: -50px;">
 
                <!--  <input id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." /> -->
                 <form name="blog">
@@ -203,8 +212,8 @@ z-index: 9;
 <div id="notification_li1" style="position: absolute;
     bottom: 5px;">
     <a href="#" id="notificationLink1" style="position: absolute;
-    bottom: 4px;
-    left: -44px;"><i class="em em-blush"></i></a>
+    bottom: 0;
+    left: -91px;"><i class="em em-blush"></i></a>
     
       <div id="notificationContainer1" style="display: none;
     position: relative;margin-bottom: 37px;">
@@ -227,7 +236,7 @@ z-index: 9;
                 <span class="input-group-btn">
         <button class="btn btn-warning btn-sm" id="submit" style="padding: 10px;
     background: #003;
-    border: 1px solid #003;">Send</button>
+    border: 1px solid #003; position: absolute;bottom: 0; right: 41px;">Send</button>
                 </span>
               </div>
             </div>
@@ -579,3 +588,13 @@ $('#message').append("<img  src=" + img + " height='20' width='20' >");
 }
 </script>
 <!-- script for selact smily for message end-->
+
+<script type="text/javascript">
+   var message = document.querySelector("div");
+
+        message.addEventListener("keyup", function (){
+
+            newheight = message.scrollHeight;
+            message.style.height = newheight + "px";
+        })  
+</script>
