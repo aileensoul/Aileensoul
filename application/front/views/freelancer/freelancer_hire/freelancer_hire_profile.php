@@ -347,27 +347,30 @@ function text2link($text){
                                                            
                                                          <li> <b>Pincode </b><span><?php echo $freelancerhiredata[0]['pincode'];?></span>
                                                         </li>
-                                                         <li> <b>Postal Address </b><span> <?php echo $freelancerhiredata[0]['address'];?> </span>
-                                                        </li>
+                 <li> <b>Postal Address </b><span><p> <?php echo $freelancerhiredata[0]['address'];?> 
+                 </p></span>
+                 </li>
                                                       
-                                                    </ul>
-                                                </div>
-                                                </div>
-                                                     <div class="profile-job-post-title clearfix">
-                                                <div class="profile-job-profile-button clearfix">
-                                                 <div class="profile-job-details">
-                                                        <ul>
+                               </ul>
+                         </div>
+                         </div>
+    
+           <div class="profile-job-post-title clearfix">
+            <div class="profile-job-profile-button clearfix">
+               <div class="profile-job-details">
+                    <ul>
           
           <li><p class="details_all_tital ">Professional Information</p></li>
                                                           
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="profile-job-profile-menu">
-                                                    <ul class="clearfix">
-                                                        <li> <b>Professional Information </b> <span> 
-              <?php echo $this->common->make_links($freelancerhiredata[0]['professional_info']);?> </span>
-                                                        </li>
+               </ul>
+                     </div>
+                   </div>
+             <div class="profile-job-profile-menu">
+                  <ul class="clearfix">
+            <li> <b>Professional Information </b> <span> 
+            <p>  <?php echo $this->common->make_links($freelancerhiredata[0]['professional_info']);?> 
+            </p></span>
+            </li>
                                                       
                                                     
                                                     </ul>
