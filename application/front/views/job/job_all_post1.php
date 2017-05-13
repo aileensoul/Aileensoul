@@ -354,7 +354,7 @@
                                                 </li>
 
                      <li>
-                     <a href="#" class="display_inline post_title" >
+                     <a href="#" class="post_title" >
               <?php echo ucwords(text2link($post['post_name'])); ?> </a>   </li>
 
                                                       <li>   
@@ -368,7 +368,7 @@
                                                             if($cityname || $countryname)
                                                             { 
                                                             ?>
-              <p title="Address"><i class="fa fa-map-marker" aria-hidden="true">
+              <p title="Location"><i class="fa fa-map-marker" aria-hidden="true">
 
                                                             <?php  echo $cityname .', '. $countryname; ?> 
                                                             </i></p>
