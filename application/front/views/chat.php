@@ -9,7 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!--- for dispaly div insted of input type start -->
 <style type="text/css">
 div .comment {  
-  width: 90%;
+  width: 94%;
    border: 1px solid #ccc;
     padding-right: 50px!important;
     word-break: break-all;
@@ -182,7 +182,7 @@ if($lstusrdata){?>
     bottom: 5px;">
     <a href="#" id="notificationLink1" style="position: absolute;
     bottom: 0;
-    left: -91px;"><i class="em em-blush"></i></a>
+    left: -49px;"><i class="em em-blush"></i></a>
     
       <div id="notificationContainer1" style="display: none;
     position: relative;margin-bottom: 37px;">
@@ -203,9 +203,13 @@ if($lstusrdata){?>
             </form>
     
                 <span class="input-group-btn">
-        <button class="btn btn-warning btn-sm" id="submit" style="padding: 10px;
-    background: #003; left: -91px;
-    border: 1px solid #003;position: absolute;bottom: 0;">Send</button>
+        <button class="btn btn-warning btn-sm" id="submit" style="    padding: 10px;
+    background: #003;
+    /* left: -91px; */
+    right: -10px;
+    border: 1px solid #003;
+    position: absolute;
+    bottom: 0;">Send</button>
                 </span>
               </div>
             </div>

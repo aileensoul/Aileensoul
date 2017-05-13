@@ -19,7 +19,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  
   <link rel="stylesheet" href="<?php echo base_url(); ?>css/style_chat.css" />
 <style type="text/css">
-  div .comment { width: 90%;
+  div .comment { width: 94%;
 min-height: 41px; 
     border: 1px solid #ccc;
     padding-right: 40px!important;
@@ -213,7 +213,7 @@ z-index: 9;
     bottom: 5px;">
     <a href="#" id="notificationLink1" style="position: absolute;
     bottom: 0;
-    left: -91px;"><i class="em em-blush"></i></a>
+    left: -49px;;"><i class="em em-blush"></i></a>
     
       <div id="notificationContainer1" style="display: none;
     position: relative;margin-bottom: 37px;">
@@ -234,9 +234,13 @@ z-index: 9;
             </form>
     
                 <span class="input-group-btn">
-        <button class="btn btn-warning btn-sm" id="submit" style="padding: 10px;
+        <button class="btn btn-warning btn-sm" id="submit" style="    padding: 10px;
     background: #003;
-    border: 1px solid #003; position: absolute;bottom: 0; right: 41px;">Send</button>
+    /* left: -91px; */
+    right: -10px;
+    border: 1px solid #003;
+    position: absolute;
+    bottom: 0;">Send</button>
                 </span>
               </div>
             </div>

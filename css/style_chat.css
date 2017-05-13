@@ -26,7 +26,7 @@ chat*/
     /* overflow-y: scroll; */
     /* position: absolute; */
     /* top: 30px; */
-    margin-left: -188px;
+    margin-left: -249px;
     width: 250px;
     z-index: 3;
     position: relative;
@@ -61,8 +61,8 @@ chat*/
       }
       #notificationsBody1
       {
-      padding: 33px 0px 0px 0px !important;
-      min-height:300px;
+      padding:6px 0px 3px 5px !important;
+      min-height:275px;
       }
       #notificationFooter1
       {
@@ -85,7 +85,7 @@ chat*/
    border-color: rgba(194, 225, 245, 0);
   border-top-color: #fff;
    bottom: -19px;
-    right: 85px;
+    right: 29px;
 
 }
 
