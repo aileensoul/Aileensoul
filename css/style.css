@@ -2307,21 +2307,38 @@ border-bottom: 1px solid #000033;
 
 /* Style the tab */
 .tablet-hi {
-    overflow: hidden;
+    overflow: hidden;/*
     border: 1px solid #000033;
-    background-color: #000;
+    background-color: #000;*/
+        background: white;
+    overflow: hidden;
+    border-left: 2px solid #d9d9d9;
+    border-right: 2px solid #d9d9d9;
 }
 
 /* Style the links inside the tab */
-.tablet-hi a {
+.tablet-hi a {/*
+    font-size: 17px;
     float: left;
     display: block;
     color: #ffffff;
     text-align: center;
     padding: 14px 55px;
     text-decoration: none;
+    transition: 0.3s;*/
+
+    background: #3b5283;
+    float: left;
+    display: block;
+    color: #ffffff;
+    text-align: center;
+    padding:9px 27px;
+    border-radius: 3px;
+    text-decoration: none;
     transition: 0.3s;
     font-size: 17px;
+    margin-left: 5px;
+    margin-top: 4px;
 }
 
 /* Change background color of links on hover */
