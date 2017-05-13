@@ -268,14 +268,21 @@ $( "#tags" ).autocomplete({
 
 </script>
     <!-- footer end -->
-
+<?php
+$userid = $this->session->userdata('aileenuser');
+ $contition_array = array('user_id' => $userid);
+       
+ $art_reg_data = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = ''); ?>
 <!-- only pdf insert script strat -->
 <script type="text/javascript">
 
 
   function portfolio_form_submit(){  
     
-    //alert(formData);
+
+    var art_step = "<?php echo $art_reg_data[0]['art_step']; ?>";
+
+    
     //var artportfolio = document.getElementById("artportfolio").value;
     var bestofmine = document.getElementById("bestofmine").value;
 
@@ -294,7 +301,11 @@ $( "#tags" ).autocomplete({
                 url:'<?php echo base_url() . "artistic/art_portfolio_insert" ?>',
                  data:'artportfolio='+artportfolio,
                 success:function(data){ 
-                   window.location= "<?php echo base_url() ?>artistic/art_post";  
+                  if(art_step == 4){ 
+                  window.location= "<?php echo base_url() ?>artistic/artistic_profile"; 
+                  }else{ 
+                     window.location= "<?php echo base_url() ?>artistic/art_post"; 
+                  }  
                 }
             }); 
     }
@@ -329,7 +340,12 @@ $( "#tags" ).autocomplete({
                 url:'<?php echo base_url() . "artistic/art_portfolio_insert" ?>',
                  data:'artportfolio='+artportfolio,
                 success:function(data){ 
-                  window.location= "<?php echo base_url() ?>artistic/art_post";  
+
+                  if(art_step == 4){ 
+                  window.location= "<?php echo base_url() ?>artistic/artistic_profile"; 
+                  }else{ 
+                     window.location= "<?php echo base_url() ?>artistic/art_post"; 
+                  } 
                 }
             }); 
    
