@@ -164,7 +164,7 @@ if($lstusrdata){?>
     max-height: 80px !important;
     overflow: scroll;
     overflow-x: hidden;
-    left: 0; margin-bottom: -50px;">
+    left: 0; margin-bottom: -37px;">
 
                <!--  <input id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." /> -->
                 <form name="blog">

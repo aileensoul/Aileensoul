@@ -988,7 +988,7 @@ $( "#tags" ).autocomplete({
                 var numItems = $('.contact-frnd-post .job-contact-frnd').length;
 
                 if (numItems == '0') {
-                    var nodataHtml = "<div class='text-center rio'><h4 class='page-heading  product-listing' style='border:0px;margin-bottom: 11px;'>No Applied Job.</h4></div>";
+                    var nodataHtml = "<div class='text-center rio'><h4 class='page-heading  product-listing' style='border:0px;margin-bottom: 11px;'>No Saved Candidate Found.</h4></div>";
                     $('.contact-frnd-post').html(nodataHtml);
                 }
 
