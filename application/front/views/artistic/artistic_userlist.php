@@ -122,7 +122,7 @@
     ?>     
       <div class="upload-img">
       
-        <label class="cameraButton"><i class="fa fa-camera" aria-hidden="true"></i>
+        <label class="cameraButton"> <span class="tooltiptext">Upload Cover Photo</span> <i class="fa fa-camera" aria-hidden="true"></i>
             <input type="file" id="upload" name="upload" accept="image/*;capture=camera" onclick="showDiv()">
         </label>
              </div>
