@@ -655,7 +655,7 @@
                             <div class="profile-boxProfileCard  module">
                                 <div class="profile-boxProfileCard-cover">     
                                     <a class="profile-boxProfileCard-bg u-bgUserColor a-block" href="<?php echo site_url('artistic/art_manage_post'); ?>" tabindex="-1" aria-hidden="true" rel="noopener">
-                                        <img src="<?php echo base_url(ARTBGIMAGE . $artisticdata[0]['profile_background_main']); ?>" class="bgImage" style="height: 95px; width: 393px; " >
+                                        <img src="<?php echo base_url(ARTBGIMAGE . $artisticdata[0]['profile_background']); ?>" class="bgImage" style="height: 95px; width: 393px; " >
                                     </a>
                                 </div>
 
@@ -710,15 +710,7 @@
                         </div>
                     </div>
                     <!-- cover pic end -->
-                    <?php
-
-                    function text2link($text) {
-                        $text = preg_replace('/(((f|ht){1}t(p|ps){1}:\/\/)[-a-zA-Z0-9@:%_\+.~#?&\/\/=]+)/i', '<a href="\\1" target="_blank" rel="nofollow">\\1</a>', $text);
-                        $text = preg_replace('/([[:space:]()[{}])(www.[-a-zA-Z0-9@:%_\+.~#?&\/\/=]+)/i', '\\1<a href="http://\\2" target="_blank" rel="nofollow">\\2</a>', $text);
-                        $text = preg_replace('/([_\.0-9a-z-]+@([0-9a-z][0-9a-z-]+\.)+[a-z]{2,3})/i', '<a href="mailto:\\1" rel="nofollow" target="_blank">\\1</a>', $text);
-                        return $text;
-                    }
-                    ?>    
+                    
                     <!-- pop up box start-->
                     <div id="popup1" class="overlay">
                         <div class="popup">
@@ -804,7 +796,7 @@
                                             -->
                                             <li> 
                                                 <div id="<?php echo 'editpostdata' . $art_data[0]['art_post_id']; ?>" style="display:block;">
-                                                    <a><?php print text2link($art_data[0]['art_post']); ?></a>
+                                                    <a><?php print $this->common->make_links($art_data[0]['art_post']); ?></a>
                                                 </div>
                                                 <div id="<?php echo 'editpostbox' . $art_data[0]['art_post_id']; ?>" style="display:none;">
                                                     <input type="text" id="<?php echo 'editpostname' . $art_data[0]['art_post_id']; ?>" name="editpostname" value="<?php echo $art_data[0]['art_post']; ?>">
@@ -821,7 +813,7 @@
                                             $userid = $this->session->userdata('aileenuser');
                                             if ($art_data[0]['user_id'] == $userid) {
                                                 ?>
-                                                <a href="<?php echo "#popup2" . $row['art_post_id']; ?>"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete Post</a>
+                                                <a id="<?php echo $art_data[0]['art_post_id']; ?>" onClick="deleteownpostmodel(this.id)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete Post</a>
 
                                                 <a id="<?php echo $art_data[0]['art_post_id']; ?>" onClick="editpost(this.id)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit</a>
                                             <?php } else { ?>
@@ -844,7 +836,7 @@
                                     <div class="post-design-desc">
                                         <span> 
                                             <div id="<?php echo 'editpostdetails' . $art_data[0]['art_post_id']; ?>" style="display:block; margin-bottom: 10px;"><span class="show">
-                                                    <?php print text2link($art_data[0]['art_description']); ?></span>
+                                                    <?php print $this->common->make_links($art_data[0]['art_description']); ?></span>
                                             </div>
                                             <div id="<?php echo 'editpostdetailbox' . $art_data[0]['art_post_id']; ?>" style="display:none;">
                                                 <div style="" contenteditable="true" id="<?php echo 'editpostdesc' . $art_data[0]['art_post_id']; ?>" name="editpostdesc" class="editable_text " ><?php echo $art_data[0]['art_description']; ?>
@@ -2386,6 +2378,18 @@
                     </script>
                     <!-- edit post end -->
                     <!-- remove save post start -->
+
+                    <script type="text/javascript">
+
+                        function deleteownpostmodel(abc) {
+
+
+                            $('.biderror .mes').html("<div class='pop_content'>Are you sure want to Delete Your post?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='remove_post(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+                            $('#bidmodal').modal('show');
+                        }
+
+                    </script>
+
                     <script type="text/javascript">
                         function remove_post(abc)
                         {
@@ -2397,6 +2401,7 @@
                                 success: function (data) {
 
                                     $('#' + 'removepost' + abc).html(data);
+                                    window.location= "<?php echo base_url() ?>artistic/art_post";
                                 }
                             });
                         }
