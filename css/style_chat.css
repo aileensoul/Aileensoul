@@ -4788,7 +4788,7 @@ fieldset .add_post_btns{min-width: 120px;padding:8px 30px 8px;}
       padding-right: 0px!important;
     padding: 20px;
     overflow-y: scroll;
-    height: 516px;
+    height: 492px;
 }
 .people-list ul li {        padding: 24px;
     padding-top: 14px;
@@ -4820,7 +4820,7 @@ fieldset .add_post_btns{min-width: 120px;padding:8px 30px 8px;}
 }
 
 .chat {
-  height: 570px;
+  height: 548px;
   width: 1005px;
   float: left;
     background-color: #444753;
