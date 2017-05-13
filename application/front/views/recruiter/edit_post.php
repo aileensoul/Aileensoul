@@ -89,7 +89,7 @@
 
 
                                     <select style="cursor:pointer;" name="minyear" class="keyskil">
-                                        <option value="">Year</option>
+                                        <option value="<?php echo $postdata[0]['min_year']; ?>"><?php echo $postdata[0]['min_year']; ?> Year</option>
                                         <option value="0">0 Year</option>
                                         <option value="1">1 Year</option>
                                         <option value="2">2 Year</option>
@@ -114,7 +114,7 @@
                                     </select>
                                     
                                     <select style="cursor:pointer;" name="minmonth" class="keyskil">
-                                        <option value="">Month</option>
+                                        <option value="<?php echo $postdata[0]['min_month']; ?>"><?php echo $postdata[0]['min_month']; ?> Month</option>
                                         <option value="0">0 Month</option>
                                         <option value="1">1 Month</option>
                                         <option value="2">2 Month</option>
@@ -135,7 +135,7 @@
 
 
                                       <select style="cursor:pointer;" name="maxyear" class="keyskil1">
-                                        <option value="">Year</option>
+                                        <option value="<?php echo $postdata[0]['max_year']; ?>"><?php echo $postdata[0]['max_year']; ?> Year</option>
                                         <option value="0">0 Year</option>
                                         <option value="1">1 Year</option>
                                         <option value="2">2 Year</option>
@@ -162,7 +162,7 @@
                                       
 
                                     <select style="cursor:pointer;" name="maxmonth" class="keyskil1">
-                                        <option  value="">Month</option>
+                                        <option  value="<?php echo $postdata[0]['max_month']; ?>"><?php echo $postdata[0]['max_month']; ?> Month</option>
                                         <option value="0">0 Month</option>
                                         <option value="1">1 Month</option>
                                         <option value="2">2 Month</option>

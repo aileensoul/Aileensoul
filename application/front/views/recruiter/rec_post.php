@@ -402,7 +402,12 @@ if ($returnpage == 'job') {
                                             </li>
                                             <li><b>Job Description</b><span><p><?php echo $this->common->make_links($post['post_description']); ?></p></span>
                                             </li>
-                                            <li><b>Interview Process</b><span><?php echo $this->common->make_links($post['interview_process']); ?></span>
+                                            <li><b>Interview Process</b><span>
+
+                                            <?php if($post['interview_process'] != ''){?>
+                                            <?php echo $this->common->make_links($post['interview_process']); ?>
+                                               <?php }else{ echo PROFILENA;}?>
+                                            </span>
                                             </li>
                                             <!-- vishang 14-4 start -->
                                             <li>
@@ -560,8 +565,14 @@ if ($returnpage == 'job') {
                                             </li>
                                             <li><b>Job Description</b><span><p><?php echo $this->common->make_links($post['post_description']); ?></p></span>
                                             </li>
-                                            <li><b>Interview Process</b><span><?php echo $this->common->make_links($post['interview_process']); ?></span>
+                                            <li><b>Interview Process</b><span>
+
+                                            <?php if($post['interview_process'] != ''){?>
+                                            <?php echo $this->common->make_links($post['interview_process']); ?>
+                                               <?php }else{ echo PROFILENA; }?> 
+                                            </span>
                                             </li>
+
                                             <!-- vishang 14-4 start -->
                                             <li>
                          <b>Required Experience</b>

@@ -1,4 +1,4 @@
-<!-- start head -->
+start head -->
 <?php echo $head; ?>
 
 <!--post save success pop up style strat -->
@@ -185,7 +185,7 @@ padding-top: 1px;}
 
    <div class="add-post-button">
      
-      <a href="#"><div class="back">
+      <a href="<?php echo base_url('recruiter/rec_post'); ?>"><div class="back">
         <div class="but1">
              Back To Post
         </div>
@@ -303,22 +303,38 @@ if ($user_data) {
                                     </li>
                                  <li><b>Total Experience </b>     <span>  <?php echo $row['experience']; ?></span> </li>
 
-                                 <li><b> Location</b> <span><?php $cache_time  =  $this->db->get_where('cities',array('city_id' => $row['city_permenant']))->row()->city_name;  
-                                                        echo $cache_time; ?></span> </li>
+                                 <li><b> Location</b> <span>
 
-                                                                     <li> <b> Degree </b>
-                                                                                             <span> <?php
-                                                                    $cache_time = $this->db->get_where('degree', array('degree_id' => $p['degree']))->row()->degree_name;
-                                                                    echo $cache_time;
-                                                                    ?> </span>
+                                 <?php if($row['city_permenant']) { ?>
+                                 <?php $cache_time  =  $this->db->get_where('cities',array('city_id' => $row['city_permenant']))->row()->city_name;  
+                                                        echo $cache_time; ?>
+                                       <?php }else{ echo PROFILENA; }?>                   
+                                    </span> </li>
+
+                                             <li> <b> Degree </b>
+                                                 <span>
+                                                  <?php
+
+                                                  if($row['degree']){
+                                                 $cache_time = $this->db->get_where('degree', array('degree_id' => $row['degree']))->row()->degree_name;
+                                                     echo $cache_time;
+                                                   }else{
+                                                    echo PROFILENA;
+                                                   }
+                                                     ?> </span>
 
                                                                 </li>
 
                                                                 <li> <b>Stream </b>
-                                                                    <span><?php
-                                                                    $cache_time = $this->db->get_where('stream', array('stream_id' => $p['stream']))->row()->stream_name;
+                                                                    <span>
+                                                                    <?php
+                                                                    if($row['stream']){
+                                                                    $cache_time = $this->db->get_where('stream', array('stream_id' => $row['stream']))->row()->stream_name;
                                                                     echo $cache_time;
+                                                                  }else{ echo PROFILENA; }
                                                                     ?>
+                                                                 
+                                                 
 </span>
                                                                 </li>
 
@@ -346,25 +362,32 @@ if ($user_data) {
  if($userid != $row['user_id']){ 
              
     $contition_array = array('from_id' => $userid, 'to_id' => $row['user_id'], 'save_type' => 1, 'status' => '0');
-    $data = $this->common->select_data_by_condition('save', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = ''); ?>
+    $savedata = $this->common->select_data_by_condition('save', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+     ?>
+
             <a href="<?php echo base_url('message/message_chats/' . $row['user_id']); ?>">Message</a>
 
             <?php  $contition_array = array('invite_user_id' => $row['user_id'], 'post_id' => $postid);
         $userdata = $this->common->select_data_by_condition('user_invite', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         if($userdata){ ?>
-      <a href="#" class="button invited" id="<?php echo 'invited' . $row['user_id']; ?>" > Invited  </a>      
+      <a href="#" class="button invited" id="<?php echo 'invited' . $row['user_id']; ?>" > Invited</a>      
          <?php }else{ ?>
-              <a href="#"><div class="button invite_border" id="<?php echo 'invited' . $row['user_id']; ?>" onclick="inviteuser(<?php echo $row['user_id']; ?>)"> Invite</div></a>
+
+              <a  href="#" class="button invite_border" id="<?php echo 'invited' . $row['user_id']; ?>" onClick="inviteusermodel(<?php echo $row['user_id']; ?>)"> Invite</a>
+              <!-- <a href="#"><div class="button invite_border" id="<?php echo 'invited' . $row['user_id']; ?>" onClick="inviteuser(<?php echo $row['user_id']; ?>)"> Invite</div></a> -->
  <?php  } ?>
 
 
 
-       <?php if (!$data) { ?> 
-<!--       <div id="invited" onclick="inviteuser()"> Invite</div>          
-       <input type="hidden" id="<?php echo 'hideenuser' . $row['user_id']; ?>" value= "<?php echo $data[0]['save_id']; ?>">-->
-       <a href="#" id="<?php echo $row['user_id']; ?>" onClick="savepopup(<?php echo $row['user_id']; ?>)" href="javascript:void(0);" class="<?php echo 'saveduser' . $row['user_id']; ?>">Save</a>
+       <?php if ($savedata) { ?> 
+<!--        <div id="invited" onclick="inviteuser()"> Invite</div> -->         
+       
+<a class="saved">Saved </a> 
+       
      <?php } else { ?>
-       <a href="#" class="saved">Saved </a> 
+       <input type="hidden" id="<?php echo 'hideenuser' . $row['user_id']; ?>" value= "<?php echo $data[0]['save_id']; ?>"> 
+       <a  id="<?php echo $row['user_id']; ?>" onClick="savepopup(<?php echo $row['user_id']; ?>)" href="javascript:void(0);" class="<?php echo 'saveduser' . $row['user_id']; ?>">Save</a>
         <?php }
          
        
@@ -428,8 +451,8 @@ if ($user_data) {
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
-<link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap-3.min.css'); ?>">
-<link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
+<!-- <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap-3.min.css'); ?>"> -->
+<link rel="stylesheet" href="<?php echo base_url('css/bootstrap.min.css'); ?>" />
 <!-- script for skill textbox automatic end (option 2)-->
 
 <script>
@@ -658,7 +681,7 @@ return false;
                 data:'user_id='+abc + '&save_id='+saveid.value,
                 success:function(data){ 
                 
-                 $('.' + 'saveduser' + abc).html(data);
+                 $('.' + 'saveduser' + abc).html(data).addClass('saved');
                  
 
                 }
@@ -669,34 +692,48 @@ return false;
 
 <!-- save post end -->
 
- <script src="<?php echo base_url('js/bootstrap.min'); ?>"></script>
-                     <script>
-                    function savepopup(id) {
+ <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
+    <script>
+    function savepopup(id) { 
                         
-                        save_user(id);
+      save_user(id);
 //                       
-                        $('.biderror .mes').html("<div class='pop_content'>Your post is successfully saved.");
-                        $('#bidmodal').modal('show');
-                    }
-                    </script>
+    $('.biderror .mes').html("<div class='pop_content'>Candidate successfully saved.");
+        $('#bidmodal').modal('show');
+          }
+        </script>
                     
                     
-                   <script type="text/javascript">
-    
+  <script type="text/javascript">
+   
+
+   function inviteusermodel(abc){
+
+    $('.biderror .mes').html("<div class='pop_content'>Do you want to invite this candidate?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='inviteuser(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+    $('#bidmodal').modal('show');
+
+   } 
+
    function inviteuser(clicked_id)
-    {  var post_id = "<?php echo $postid; ?>";
-       
+    {  
+     
+      var post_id = "<?php echo $postid; ?>";
+        //alert(post_id);
         $.ajax({
             type: 'POST',
             url: '<?php echo base_url() . "recruiter/invite_user" ?>',
             data: 'post_id=' + post_id + '&invited_user=' + clicked_id,
             success: function (data) { //alert(data);
-                $('#' + 'invited' + clicked_id).html(data);
+                $('#' + 'invited' + clicked_id).html(data).addClass('button invited').removeClass('button invite_border');
 
-            }
+              //    $('.biderror .mes').html("<div class='pop_content'>Candidate invite successfully.");
+              // $('#bidmodal').modal('show');
+          }
+           
         });
     }
 
    
 </script>
-<!-- comment like script end -->
+
+<!-- comment like script end

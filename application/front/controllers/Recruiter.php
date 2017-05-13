@@ -960,6 +960,7 @@ class Recruiter extends MY_Controller {
         }
 
         $this->data['user_data'] = $udata;
+
         //echo "<pre>"; print_r($this->data['user_data']); die();
          $contition_array = array('status' => '1', 'is_delete' => '0');
 
@@ -1940,7 +1941,9 @@ public function ajax_designation() {
             'not_from' => 1
             );
         $insert_id = $this->common->insert_data_getid($data, 'notification');
-        echo 'invited';
+
+
+        echo'invited';
         } else {
             echo 'error';
         }
