@@ -642,7 +642,9 @@ $('#datepicker').datetimepicker({
   lang:'ch',
   timepicker:false,
   format:'d/m/Y',
-  formatDate:'Y/m/d'
+  formatDate:'Y/m/d',
+  scrollMonth : false,
+  scrollInput : false
   
 });
 </script>
