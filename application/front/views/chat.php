@@ -93,7 +93,7 @@ if(count($userlist) > 0){
           <div class="about">
             <div class="name"> 
     <a href="<?php echo base_url() . 'chat/abc/' . $user['user_id']; ?>"><?php echo  $user['first_name'] . "<br>"; ?></a> </div>
-            <div class="<?php echo 'status' . $user['user_id']; ?>" style=" width: 145px;    max-height: 25px;
+            <div class="<?php echo 'status' . $user['user_id']; ?>" style=" width: 145px;    max-height: 19px;
     color: #003;
     white-space: nowrap;
     overflow: hidden;
@@ -380,7 +380,7 @@ console.log(formattedDate);
        html += '<span class="message-data-name"><i class="fa fa-circle online"></i>' + data.nickname + ' </span>';
         html += '<span class="message-data-time">' + formattedDate + ' </span>';
  html += ' </div>';
-      html += '     <div class="6">' + data.message + '</div>';
+      html += '     <div class="message my-message">' + data.message + '</div>';
       html += '</li>';
 
       $('.' + 'status' + touser).html(data.message);
