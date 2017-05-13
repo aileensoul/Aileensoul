@@ -2,10 +2,10 @@
 <?php
  $returnpage= $_GET['page'];
  $userid = $this->session->userdata('aileenuser');?>
- <div class="profile-main-rec-box-menu col-sm-12 col-md-12 col-lg-12 ">
+ <div class="profile-main-rec-box-menu col-sm-12 col-md-12 col-lg-12 padding_less_right">
 
 <div class="left-side-menu col-md-2">  </div>
-<div class="right-side-menu col-md-6">  
+<div class="right-side-menu col-md-6 padding_less_right">  
     <ul class="">
                                 <li <?php if($this->uri->segment(1) == 'job' && $this->uri->segment(2) == 'job_printpreview'){?> class="active" <?php } ?>>
 
@@ -35,7 +35,7 @@
 </ul>
 </div>
 
-       <div class="col-md-3">
+       <div class="col-md-3 padding_less_right" style="width: 32%">;
                 <div class="flw_msg_btn fr">
                     <ul>
 

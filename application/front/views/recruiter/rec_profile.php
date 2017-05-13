@@ -275,7 +275,7 @@ body {
                     <!-- menubar --><div class="profile-main-rec-box-menu  col-md-12 ">
 
 <div class="left-side-menu col-md-2">  </div>
-<div class="right-side-menu col-md-5">  
+<div class="right-side-menu col-md-7">  
  <ul class="">
                                   
  <li <?php if($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'rec_profile'){?> class="active" <?php } ?>>
@@ -315,7 +315,7 @@ body {
 </ul>
 </div>
 
-   <div class="col-md-2">
+   <div class="col-md-2" style="width:23%;">
                 <div class="flw_msg_btn fr">
                     <ul>
                     <?php
