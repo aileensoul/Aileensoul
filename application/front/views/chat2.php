@@ -22,11 +22,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   div .comment { width: 94%;
 min-height: 41px; 
     border: 1px solid #ccc;
-    padding-right: 40px!important;
+    padding-right: 50px!important;
     word-break: break-all;
     background-color: #fff;
     /* padding: 10px; */
     font-size: 13px;
+    padding-left: 20px!important;
 max-height: 100px; overflow: scroll;overflow-x: hidden;
 }
 
@@ -111,6 +112,7 @@ if($lstusrdata){?>
 foreach($userlist as $user){
 if($user['user_id'] != $toid){
   ?>
+  <a href="<?php echo base_url() . 'chat/abc/' . $user['user_id']; ?>">
  <li class="clearfix <?php if($user['user_id'] == $toid){ echo "active"; } ?>">
           <?php        if ($user['user_image']) {?>
     <div class="chat_heae_img">
@@ -123,7 +125,7 @@ if($user['user_id'] != $toid){
 <?php  } ?>
           <div class="about">
             <div class="name"> 
-    <a href="<?php echo base_url() . 'chat/abc/' . $user['user_id']; ?>"><?php echo  $user['first_name'] . "<br>"; ?></a> </div>
+    <?php echo  $user['first_name'] . "<br>"; ?></div>
             <div class="<?php echo 'status' . $user['user_id']; ?>" style=" width: 145px;
     color: #003;    max-height: 25px;
     white-space: nowrap;
@@ -133,7 +135,7 @@ if($user['user_id'] != $toid){
            <?php echo  $user['message']; ?>
             </div>
           </div>
-        </li>
+        </li></a> 
 <?php }}
 
 
@@ -167,8 +169,8 @@ if($lstusrdata){?>
 
          <div class="chat-about">
           <div class="chat-with">
-          <?php echo $lstusrdata[0]['first_name'] . ' ' .  $lstusrdata[0]['last_name']; ?> </div>
-          <!-- <div class="chat-num-messages"> Current Work</div> -->
+        <a href="">  <?php echo $lstusrdata[0]['first_name'] . ' ' .  $lstusrdata[0]['last_name']; ?></a>  </div>
+          <div class="chat-num-messages"> Current Work</div>
         </div>
         </div>
         <div class="chat-history">
@@ -214,7 +216,8 @@ z-index: 9;
     bottom: 5px;">
     <a class="smil" href="#" id="notificationLink1" style="position: absolute;
     bottom: 0;
-    left: -49px;;"><i class="em em-blush"></i></a>
+    left: -49px;;">
+    <i class="em em-blush"></i></a>
     
       <div id="notificationContainer1" style="display: none;
     position: relative;margin-bottom: 37px;">

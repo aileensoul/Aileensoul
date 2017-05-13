@@ -20,7 +20,7 @@ div .comment {
     position: relative;
     max-height: 120px;
     overflow-y: scroll;
-    padding-left: 10px!important;
+    padding-left: 20px!important;
 }
 </style>
 <?php echo $header; ?>
@@ -80,6 +80,7 @@ div .comment {
 <?php 
 if(count($userlist) > 0){
  foreach($userlist as $user){ ?>
+ <a href="<?php echo base_url() . 'chat/abc/' . $user['user_id']; ?>">
  <li class="clearfix">
           <?php        if ($user['user_image']) {?>
    <div class="chat_heae_img">
@@ -92,7 +93,7 @@ if(count($userlist) > 0){
 <?php  } ?>
           <div class="about">
             <div class="name"> 
-    <a href="<?php echo base_url() . 'chat/abc/' . $user['user_id']; ?>"><?php echo  $user['first_name'] . "<br>"; ?></a> </div>
+    <?php echo  $user['first_name'] . "<br>"; ?> </div>
             <div class="<?php echo 'status' . $user['user_id']; ?>" style=" width: 145px;    max-height: 19px;
     color: #003;
     white-space: nowrap;
@@ -103,6 +104,7 @@ if(count($userlist) > 0){
             </div>
           </div>
         </li>
+        </a>
 <?php }}else{
   echo 'No user available...';
   } ?>
@@ -133,8 +135,8 @@ if($lstusrdata){?>
 
          <div class="chat-about">
           <div class="chat-with">
-          <?php echo $lstusrdata[0]['first_name'] . ' ' .  $lstusrdata[0]['last_name']; ?> </div>
-          <!-- <div class="chat-num-messages"> Current Work</div> -->
+      <a href="">   <?php echo $lstusrdata[0]['first_name'] . ' ' .  $lstusrdata[0]['last_name']; ?> </a> </div>
+          <div class="chat-num-messages"> Current Work</div>
         </div>
         </div>
         <div class="chat-history">

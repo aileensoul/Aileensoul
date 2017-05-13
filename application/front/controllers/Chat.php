@@ -615,12 +615,13 @@ foreach($userlist as $k => $v)
   $usrsrch =  '<li class="clearfix">';
 
   if ($user['user_image']) {
-   
+    $usrsrch .=' <div class="chat_heae_img">';
 $usrsrch .=  '<img src="' . base_url(USERIMAGE . $user['user_image']) . '" alt="avatar" height="50px" weight="50px" />';
-
+  $usrsrch .='</div>'; 
  } else { 
-
-  $usrsrch .= '<img src="' . base_url(NOIMAGE) . '" alt="" height="50px" weight="50px">'; 
+ $usrsrch .=' <div class="chat_heae_img">';
+  $usrsrch .= '<img src="' . base_url(NOIMAGE) . '" alt="" height="50px" weight="50px">';
+    $usrsrch .='</div>'; 
  } 
 
     $usrsrch .= '<div class="about">';
@@ -631,12 +632,12 @@ $usrsrch .= '</div><div class="status">Current Work</div></div></li>';
 
    }else{
     
-    $usrsrch .= 'No user available.. !!';
+    $usrsrch .= '<div class="notac_a">No user available.. !!</div>';
 
    }
 
  }else{
-  $usrsrch .= 'No user available.. !!';
+  $usrsrch .= '<div class="notac_a">No user available.. !!</div>';
  }
    
 echo $usrsrch;
@@ -759,12 +760,14 @@ foreach($userlist as $k => $v)
   $usrsrch =  '<li class="clearfix">';
 
   if ($user['user_image']) {
-   
+    $usrsrch .='    <div class="chat_heae_img">';
 $usrsrch .=  '<img src="' . base_url(USERIMAGE . $user['user_image']) . '" alt="avatar" height="50px" weight="50px" />';
+  $usrsrch .='</div>';
 
  } else { 
-
+ $usrsrch .='    <div class="chat_heae_img">';
   $usrsrch .= '<img src="' . base_url(NOIMAGE) . '" alt="" height="50px" weight="50px">'; 
+  $usrsrch .='</div>';
  } 
 
     $usrsrch .= '<div class="about">';
@@ -775,12 +778,12 @@ $usrsrch .= '</div><div class="status">Current Work</div></div></li>';
 
    }else{
     
-    $usrsrch .= 'No user available.. !!';
+    $usrsrch .= '<div class="notac_a">No user available.. !!</div>';
 
    }
 
  }else{
-  $usrsrch .= 'No user available.. !!';
+  $usrsrch .= '<div class="notac_a">No user available.. !!</div>';
  }
    
 echo $usrsrch;
