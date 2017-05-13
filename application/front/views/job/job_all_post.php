@@ -352,23 +352,23 @@
                                                     Created Date : <?php echo date('d-M-Y',strtotime($post['created_date'])); ?>
                                                 </li>
                              <li>
-                              <a href="#" title="Post Title" class="display_inline post_title" >
+                              <a href="#" title="Post Title" class=" post_title" >
                               <?php echo ucwords(text2link($post['post_name'])); ?> </a>   </li>
 
                            <li>   
-                                                  <div class="fr lction">
-                                                    <?php $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name;
+                 <div class="fr lction">
+              <?php $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name;
 
 
-                                                     $countryname = $this->db->get_where('countries', array('country_id' => $post['country']))->row()->country_name; ?>
-                                                            <?php  
-                                                            if($cityname || $countryname)
+                 $countryname = $this->db->get_where('countries', array('country_id' => $post['country']))->row()->country_name; ?>
+                                <?php  
+                    if($cityname || $countryname)
                                                             { 
                                                             ?>
     <p title="Address"><i class="fa fa-map-marker" aria-hidden="true">
 
-                                                            <?php  echo $cityname .', '. $countryname; ?> 
-                                                            </i></p>
+                 <?php  echo $cityname .', '. $countryname; ?> 
+                     </i></p>
                                                             
                                                             <?php
                                                              }
@@ -378,7 +378,7 @@
                                                 <?php
                                $cache_time1 = $this->db->get_where('recruiter', array('user_id' => $post['user_id']))->row()->re_comp_name; ?>
 
-                             <a class="display_inline"    href="<?php echo base_url('recruiter/rec_profile/' . $post['user_id'].'?page=job'); ?>" title="<?php echo $cache_time1;?>"><?php
+                             <a class="job_companyname display_inline"    href="<?php echo base_url('recruiter/rec_profile/' . $post['user_id'].'?page=job'); ?>" title="<?php echo $cache_time1;?>"><?php
                                
                               $out = strlen($cache_time1) > 40 ? substr($cache_time1,0,40)."..." : $cache_time1;       
                     echo $out;

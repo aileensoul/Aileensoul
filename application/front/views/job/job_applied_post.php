@@ -353,7 +353,7 @@
                                                     Created Date : <?php echo date('d-M-Y',strtotime($post['created_date'])); ?>
                                                 </li>
                     <li>
-        <a title="Post Title" class="display_inline post_title" href="#" >
+        <a title="Post Title" class=" post_title" href="#" >
                       <?php echo ucwords($this->common->make_links($post['post_name'])); ?> </a>   </li>
 
                     <li>   
