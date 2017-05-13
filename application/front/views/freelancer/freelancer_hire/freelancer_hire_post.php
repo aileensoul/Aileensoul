@@ -414,7 +414,7 @@ echo $freelancer_hire_header2;} ?>
                                    ?>
                             </li>
                      <li>
-                    <a href="#" title="Post Title" class="display_inline post_title ">
+                    <a href="#" title="Post Title" class="post_title ">
                               <?php echo ucwords(text2link($post['post_name'])); ?> </a>   </li>
 
                              <li>   
@@ -422,7 +422,7 @@ echo $freelancer_hire_header2;} ?>
                               <?php $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name; ?>
                               <?php $countryname = $this->db->get_where('countries', array('country_id' => $post['country']))->row()->country_name; ?>
 
-                                <p><i class="fa fa-map-marker" aria-hidden="true">  <?php echo $cityname.","; ?><?php echo $countryname; ?></i></p>
+                                <p title="Location"><i class="fa fa-map-marker" aria-hidden="true">  <?php echo $cityname.","; ?><?php echo $countryname; ?></i></p>
                                  </div>
 
                              <?php
