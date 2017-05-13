@@ -1918,11 +1918,17 @@ class Job extends MY_Controller {
 
         $userdata[] = $_POST;
         $count1 = count($userdata[0]['experience_year']);
-
+        
         if ($this->input->post('previous')) {  //echo "hi";die();
             redirect('job/job_apply_for_update', refresh);
         }
-
+        
+        $post_data = $this->input->post();
+        
+//        echo '<pre>';
+//        print_r($post_data);
+//        exit;
+        
 //Click on Add_More_WorkExp Process start
         if ($this->input->post('add_workexp')) {
 
@@ -1933,7 +1939,6 @@ class Job extends MY_Controller {
             $count = count($jobdata);
 
             if ($count != 5) {
-
                 redirect('job/job_add_workexp', refresh);
             } else {
                 echo "<script>alert('You Can only add 5 Work Experience field');</script>";
@@ -2025,7 +2030,6 @@ class Job extends MY_Controller {
                 //update data at job_add_workexp table end         
 
                 if ($updatedata && $updatedata1) {
-
                     $this->session->set_flashdata('success', 'Work Experience updated successfully');
                     redirect('job/job_curricular_update');
                 } else {
@@ -2084,15 +2088,13 @@ class Job extends MY_Controller {
                 if ($jobdata) {
                     //Edit Multiple field into database Start 
                     for ($x = 0; $x < $count1; $x++) {
-
+                        $exp_data = $userdata[0]['exp_data'][$x];
+                        if($exp_data == 'old'){
                         $files[] = $_FILES;
                         //echo "<pre>";print_r($files);die();
                         $work_certificate = $files['certificate']['name'][$x];
                         //echo  $edu_certificate;die();
-
-
                         if ($work_certificate == "") {
-
                             $data = array(
                                 'work_certificate' => $this->input->post('image_hidden_certificate' . $jobdata[$x]['work_id'])
                             );
@@ -2116,7 +2118,23 @@ class Job extends MY_Controller {
                         );
 
                         $updatedata1 = $this->common->update_data($data, 'job_add_workexp', 'work_id', $jobdata[$x]['work_id']);
+                        }
+                        else{
+                            $data = array(
+                            'user_id' => $userid,
+                            'experience' => $exp,
+                            'experience_year' => $userdata[0]['experience_year'][$x],
+                            'experience_month' => $userdata[0]['experience_month'][$x],
+                            'jobtitle' => $userdata[0]['jobtitle'][$x],
+                            'companyname' => $userdata[0]['companyname'][$x],
+                            'companyemail' => $userdata[0]['companyemail'][$x],
+                            'companyphn' => $userdata[0]['companyphn'][$x],
+                            'work_certificate' => $uploadData[$x]['file_name'],
+                            'status' => 1
+                        );
 
+                        $insert_id = $this->common->insert_data_getid($data, 'job_add_workexp');
+                        }
                         //echo "<pre>";print_r($data);
                     }
                     //Edit Multiple field into database End 

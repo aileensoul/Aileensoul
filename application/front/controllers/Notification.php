@@ -1369,21 +1369,21 @@ $contition_array = array('notification.not_type' => 5, 'notification.not_from' =
 
 //for message notification end
 
-        $notmsg .= '<div class="notification-data">';
-        $notmsg .= '<ul>';
-        $notmsg .= '<li><div class="notification-database">';
-        $notmsg .= '<div class="notification-pic"></div>';
-        $notmsg .= '<div class="notification-data-inside"><h6> Message updates</h6>';
-        $notmsg .= '<div></div></div></div></li>';
+       // $notmsg .= '<div class="notification-data">';
+      //  $notmsg .= '<ul>';
+     //   $notmsg .= '<li><div class="notification-database">';
+     //   $notmsg .= '<div class="notification-pic"></div>';
+      //  $notmsg .= '<div class="notification-data-inside"><h6> Message updates</h6>';
+     //   $notmsg .= '<div></div></div></div></li>';
 
         foreach ($user_message as $msg) {
 
-            $notmsg .= '<a href="' . base_url('chat/abc/' . $msg['not_from_id']) . '" class="clearfix">';
+            $notmsg .= '<a href="' . base_url('chat/abc/' . $msg['not_from_id']) . '" class="clearfix msg_dot">';
             $notmsg .= '<li><div class="notification-database">';
             $notmsg .= '<div class="notification-pic">';
-            $notmsg .= '<img src="' . base_url(USERIMAGE . $msg['user_image']) . '>';
+            $notmsg .= '<img src="' . base_url(USERIMAGE . $msg['user_image']) . '">';
             $notmsg .= '</div><div class="notification-data-inside">';
-            $notmsg .= '<h6>' . ucwords($msg['first_name']) . '" "' . ucwords($msg['last_name']) . '</h6>';
+            $notmsg .= '<h6>' . ucwords($msg['first_name']) . ' ' . ucwords($msg['last_name']) . '</h6>';
             $notmsg .= '<div>';
 
             $contition_array = array('messages.message_from' => $msg['not_from_id'], 'messages.message_to' => $userid);

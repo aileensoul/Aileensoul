@@ -12,6 +12,7 @@ $(window).load(function(){
 <style>
 
   /*style for span id=notification_count start*/
+  .msg_dot{padding: 0!important;}
     #notification_count
     {   padding: 3px;
         background: #0c3168;
