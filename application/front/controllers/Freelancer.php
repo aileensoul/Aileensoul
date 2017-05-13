@@ -1065,6 +1065,13 @@ class Freelancer extends MY_Controller {
 
         $userid = $this->session->userdata('aileenuser');
 
+
+
+        $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
+
+        $userdatacon = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+
         //upload portfolio attachment certificate process start
         $config['upload_path'] = 'uploads/freelancer_portfolio_attachment/';
         $config['allowed_types'] = 'jpg|jpeg|png|gif|pdf';
@@ -1114,7 +1121,11 @@ class Freelancer extends MY_Controller {
 
         if ($updatdata) {
 
+            if($userdatacon[0]['free_post_step'] == 7){
             redirect('freelancer/freelancer_post_profile', refresh);
+           }else{
+             redirect('freelancer/freelancer_apply_post', refresh);
+           }
         } else {
             $this->session->flashdata('error', 'Your data not inserted');
             redirect('freelancer/freelancer_post_portfolio', refresh);
