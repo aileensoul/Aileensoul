@@ -59,8 +59,8 @@
                          ?>
 
                     <fieldset class="full-width">
-                        <label>Post name:<span style="color:red">*</span></label>
-                        <input name="post_name" type="text" id="post_name" placeholder=" Enter Post Name" value="<?php echo $postdata[0]['post_name']; ?>"/>
+                        <label>Post Title:<span style="color:red">*</span></label>
+                        <input name="post_name" type="text" id="post_name" placeholder=" Position [Ex:- Sr. Engineer, Jr. Engineer]" value="<?php echo $postdata[0]['post_name']; ?>"/>
                         <span id="fullname-error"></span>
                         <?php echo form_error('post_name'); ?>
                     </fieldset>
@@ -200,8 +200,12 @@
                 </fieldset>
                 
                 <fieldset  class="full-width">
-                    <label >Post description:<span style="color:red">*</span></label>
-                    <?php echo form_textarea(array('name' => 'post_desc', 'id' => 'varmailformat', 'class' => "ckeditor", 'value' => html_entity_decode($postdata[0]['post_description']))); ?>
+                    <label >Job description:<span style="color:red">*</span></label>
+
+                   <!--  <?php echo form_textarea(array('name' => 'post_desc', 'id' => 'varmailformat', 'class' => "ckeditor", 'value' => html_entity_decode($postdata[0]['post_description']))); ?> -->
+
+                    <textarea name="post_desc" id="varmailformat" rows="4" cols="50"  placeholder="Enter Job Description" style="resize: none;"><?php echo $postdata[0]['post_description']; ?></textarea>
+
                     <?php echo form_error('post_desc'); ?>
                 </fieldset>
                                        
