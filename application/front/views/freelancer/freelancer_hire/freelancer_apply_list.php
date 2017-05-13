@@ -210,7 +210,7 @@
             </a>
           </li>
 
-          <li style="display: block;" ><a href="#" title="" > <?php
+          <li style="display: block;" ><a href="<?php echo base_url('freelancer/freelancer_post_profile/' . $row['user_id'].'?page=freelancer_hire'); ?>" title="" > <?php
                  if ($row['designation']) {
                   echo $row['designation'];
                 } else {
