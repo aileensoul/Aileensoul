@@ -29,7 +29,7 @@
 
                     <div class="add-post-button">
      
-                        <a href="#"><div class="back">
+                        <a href="<?php echo base_url("freelancer/freelancer_hire_post"); ?>"><div class="back">
                           <div class="but1">
                                Back To Post
                           </div>
