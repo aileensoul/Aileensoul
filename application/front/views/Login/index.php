@@ -41,6 +41,13 @@
 </script>
         -->
 
+<!-- forget passwor script css start -->
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<!-- forget passwor script css end -->
 
         <link rel="canonical" href="https://www.aileensoul.com" />
         <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
@@ -151,7 +158,7 @@
                                     <h6>Remember me</h6>
                                 </div>
                                 <div class="forgot" style="margin-top: -54px;">
-                                    <a data-toggle="modal" href="login.html#myModal"> <h6>Forgot Password?</h6></a>
+                                    <a data-toggle="modal" data-target="#myModal"> <h6>Forgot Password?</h6></a>
                                 </div>
 
                             </div>  
@@ -173,7 +180,7 @@
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                            <h4 class="modal-title">Forgott Password</h4>
+                                            <h4 class="modal-title">Forgot Password</h4>
                                         </div>
                                         <div class="modal-body">
                                             <p>Enter your e-mail address below to get your password.</p>
