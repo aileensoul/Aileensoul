@@ -228,7 +228,7 @@ if ($artisticdata[0]['user_id'] == $userid) {
                     $userid  = $this->session->userdata('aileenuser'); 
                     if($artisticdata[0]['user_id'] != $userid){
                       ?>
-            <div class="col-md-2 padding_les">
+            <div class="col-md-2 padding_les" style="width: 24%;">
                 <div class="flw_msg_btn">
                     <ul>
 
