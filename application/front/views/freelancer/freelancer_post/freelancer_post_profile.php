@@ -194,7 +194,7 @@ echo $freelancer_post_header2;
                 </ul>
             </div>
 
-            <div class="col-md-3">
+            <div class="col-md-3" style="width: 32%;">
                 <div class="flw_msg_btn fr">
                     <ul>
                      
