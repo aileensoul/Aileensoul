@@ -2604,6 +2604,14 @@ class Job extends MY_Controller {
     public function job_carrier_insert() {
         $userid = $this->session->userdata('aileenuser');
 
+
+        $contition_array = array('user_id' => $userid, 'is_delete' => 0, 'status' => 1);
+
+
+
+        $userdatacon = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+
         if ($this->input->post('previous')) {
             redirect('job/job_reference_update', refresh);
         }
@@ -2630,7 +2638,11 @@ class Job extends MY_Controller {
             if ($updatedata) {
 
                 $this->session->set_flashdata('success', 'Carrier updated successfully');
+                if($userdatacon[0]['job_step'] == 10){
                 redirect('job/job_printpreview');
+               }else{
+                redirect('job/job_all_post');
+               }
             } else {
                 $this->session->flashdata('error', 'Your data not inserted');
                 redirect('job/job_carrier_update', 'refresh');
