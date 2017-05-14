@@ -1,4 +1,3 @@
-
 <!-- start head -->
 <?php echo $head; ?>
 <!-- END HEAD -->
@@ -133,15 +132,14 @@
                                                 if ($workdata) {
 
                                                     $count = count($workdata);
-                                                    
-                                                    if($count == 0){
+
+                                                    if ($count == 0) {
                                                         // this is use for javascript
                                                         $clone_mathod_count = 1;
-                                                    }
-                                                    else{
+                                                    } else {
                                                         $clone_mathod_count = $count;
                                                     }
-                                                    
+
                                                     for ($x = 0; $x < $count; $x++) {
 
                                                         $experience_year1 = $workdata[$x]['experience_year'];
@@ -151,11 +149,13 @@
                                                         $companyemail1 = $workdata[$x]['companyemail'];
                                                         $companyphn1 = $workdata[$x]['companyphn'];
                                                         $work_certificate1 = $workdata[$x]['work_certificate'];
-                                                        $y = $x+1;
+                                                        $y = $x + 1;
                                                         ?>
-                                                <input type="hidden" name="exp_data[]" value="old" class="exp_data" id="exp_data<?php echo $y; ?>">
-                                                        <div id="input<?php echo $y; ?>" style="margin-bottom:4px;" class="clonedInput">
+                                                        <input type="hidden" name="exp_data[]" value="old" class="exp_data" id="exp_data<?php echo $y; ?>">
+                                                        <div id="input<?php echo $y; ?>" style="margin-bottom:4px;" class="clonedInput job_work_edit_<?php echo $workdata[$x]['work_id']?>">
                                                             <div class="job_work_experience_main_div">
+
+
                                                                 <fieldset class="two-select-box full-width"> 
                                                                     <label>Experience<span style="color:red">*</span></label>
                                                                     <select style="width: 48%; float: left;" name="experience_year[]" id="experience_year" class="experience_year">
@@ -259,8 +259,18 @@
                                                                 }
                                                                 ?>">
 
+
+                                                                <?php if ($y != 1) {
+                                                                    ?>
+                                                                    <div style="float: left;">
+                                                                        <div class="hs-submit full-width fl">
+                                                                            <input type="button" value="Delete" onclick="delete_job_work(<?php echo $workdata[$x]['work_id']; ?>);">
+                                                                        </div>
+                                                                    </div>
+                                                                <?php } ?>
                                                             </div>
                                                         </div>
+
                                                         <?php
                                                     }
                                                     ?>
@@ -346,7 +356,7 @@
                                                         </fieldset> 
 
 
-                <!--                                     <fieldset <?php if ($companyname) { ?> class="error-msg" <?php } ?>> 
+                                        <!--                                     <fieldset <?php if ($companyname) { ?> class="error-msg" <?php } ?>> 
                                                         -->                         <!--  <fieldset class="full-width">  -->             
                                                         <label>Company Name<span style="color:red">*</span></label>
                                                         <input type="text" name="companyname[]" id="companyname"  class="companyname" placeholder="Enter Company Name" value="<?php
@@ -412,9 +422,9 @@
                                                 </div>
 
 
-                                                <?php // echo form_open_multipart(base_url('job/job_work_exp_insert'), array('id' => 'jobseeker_regform2','name' => 'jobseeker_regform2','class'=>'clearfix'));   ?>         
-                 <!--<input type="submit" id="previous" name="previous" value="previous">-->
-                                                <?php // echo form_close();   ?>                                 
+                                                <?php // echo form_open_multipart(base_url('job/job_work_exp_insert'), array('id' => 'jobseeker_regform2','name' => 'jobseeker_regform2','class'=>'clearfix'));    ?>         
+                                         <!--<input type="submit" id="previous" name="previous" value="previous">-->
+                                                <?php // echo form_close();    ?>                                 
 
                                                 <?php
                                             }
@@ -471,7 +481,6 @@
                                                                     }
                                                                 });
                                                             });
-
                     </script>
 
                     <!-- for search validation -->
@@ -495,13 +504,11 @@
                         $('#searchskills').select2({
 
                             placeholder: 'Find Your Skills',
-
                             ajax: {
 
                                 url: "<?php echo base_url(); ?>job/keyskill",
                                 dataType: 'json',
                                 delay: 250,
-
                                 processResults: function (data) {
 
                                     return {
@@ -510,7 +517,6 @@
 
 
                                     };
-
                                 },
                                 cache: true
                             }
@@ -527,7 +533,6 @@
                                 url: "<?php echo base_url(); ?>job/location",
                                 dataType: 'json',
                                 delay: 250,
-
                                 processResults: function (data) {
 
                                     return {
@@ -536,7 +541,6 @@
 
 
                                     };
-
                                 },
                                 cache: true
                             }
@@ -562,18 +566,14 @@
 
                                     'jobtitle[]': {
                                         required: true,
-
                                     },
                                     'companyname[]': {
 
                                         required: true,
-
                                     },
-
                                     'experience_year[]': {
 
                                         required: true,
-
                                     },
                                     // 'experience_month[]': {
 
@@ -584,26 +584,20 @@
                                     'companyemail[]': {
                                         email: true,
                                     },
-
                                 },
-
                                 messages: {
 
                                     'jobtitle[]': {
 
                                         required: "Job title Is Required.",
-
                                     },
                                     'companyname[]': {
 
                                         required: "Company name Is Required.",
-
                                     },
-
                                     'experience_year[]': {
 
                                         required: "Experience year Is Required.",
-
                                     },
                                     // 'experience_month[]': {
 
@@ -613,7 +607,6 @@
                                     'companyemail[]': {
 
                                         email: "Please Enter Valid Email Id.",
-
                                     },
                                 }
 
@@ -630,18 +623,15 @@
                         $('#btnAdd').click(function () {
                             var num = $('.clonedInput').length;
                             var newNum = new Number(num + 1);
-
                             if (newNum > 5)
                             {
 
                                 $('#btnAdd').attr('disabled', 'disabled');
                                 alert("You Can add only 5 fields");
                                 return false;
-
                             }
 
                             var newElem = $('#input' + num).clone().attr('id', 'input' + newNum);
-
                             newElem.children('.exp_data').attr('id', 'exp_data' + newNum).attr('name', 'exp_data[]').attr('value', 'new');
                             newElem.children('.experience_year').attr('id', 'experience_year' + newNum).attr('name', 'experience_year[]');
                             newElem.children('.experience_month').attr('id', 'experience_month' + newNum).attr('name', 'experience_month[]');
@@ -650,33 +640,22 @@
                             newElem.children('.companyemail').attr('id', 'companyemail' + newNum).attr('name', 'companyemail[]');
                             newElem.children('.companyphn').attr('id', 'companyphn' + newNum).attr('name', 'companyphn[]');
                             newElem.children('.certificate').attr('id', 'certificate' + newNum).attr('name', 'certificate[]');
-
                             $('#input' + num).after(newElem);
                             $('#btnRemove').removeAttr('disabled', 'disabled');
-
-
                         });
-
                         $('#btnRemove').on('click', function () {
 
                             var num = $('.clonedInput').length;
-
                             if (num - 1 == <?php echo $clone_mathod_count; ?>)
                             {
 
                                 $('#btnRemove').attr('disabled', 'disabled');
-
-
                             }
                             $('.clonedInput').last().remove();
-
                         });
-
-
                         $('#btnAdd').on('click', function () {
 
                             $('.clonedInput').last().add().find("input:text").val("");
-
                         });
                     </script>
                     <!-- Clone input type End-->
@@ -710,3 +689,19 @@
                             border-bottom: 2px solid #060606;
                         }
                     </style>
+
+                    <script type="text/javascript">
+                        function delete_job_work(work_id) {
+                            $.ajax({
+                                type: 'POST',
+                                url: '<?php echo base_url() . "job/jon_work_delete" ?>',
+                                data: 'work_id=' + work_id,
+                               // dataType: "html",
+                                success: function (data) {
+                                    if(data == 'ok'){
+                                        $('.job_work_edit_' + work_id).remove();
+                                    }
+                                }
+                            });
+                        }
+                    </script>
