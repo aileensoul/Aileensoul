@@ -1001,8 +1001,9 @@ class Job extends MY_Controller {
 
 //Insert Higher Secondary Education Data End
 //Insert Degree Education Data start
-    public function job_education_insert() {
-        // echo "<pre>";print_r($_FILES);die();
+   public function job_education_insert() {
+        //echo "<pre>";print_r($_FILES);
+        //echo "<pre>";print_r($_POST);die();
 
         $userid = $this->session->userdata('aileenuser');
 
@@ -1070,9 +1071,9 @@ class Job extends MY_Controller {
             }
         }
         // Multiple Image insert code End
-        $contition_array = array('user_id' => $userid, 'grad_step' => 1);
-        $jobdata = $this->data['jobdata'] = $this->common->select_data_by_condition('job_add_edu', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
+        $contition_array = array('user_id' => $userid);
+        $jobdata = $this->data['jobdata'] = $this->common->select_data_by_condition('job_graduation', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+       // echo '<pre>'; print_r($jobdata); die();
 
         if ($jobdata) {
 
@@ -1085,7 +1086,7 @@ class Job extends MY_Controller {
                 //echo "<pre>";print_r($files);die();
                 $edu_certificate = $files['certificate']['name'][$x];
                 //echo  $edu_certificate;die();
-
+         //    echo $jobdata[$x]['job_graduation_id']; 
 
                 if ($edu_certificate == "") {
 
@@ -1099,7 +1100,9 @@ class Job extends MY_Controller {
                 }
                 $updatedata = $this->common->update_data($data, 'job_add_edu', 'edu_id', $jobdata[$x]['edu_id']);
 
-
+              $i = $x + 1;
+             // echo $userdata[0]['education_data'][$x]; die();
+              if($userdata[0]['education_data'][$x] == 'old'){
                 $data = array(
                     'user_id' => $userid,
                     'degree' => $userdata[0]['degree'][$x],
@@ -1109,14 +1112,31 @@ class Job extends MY_Controller {
                     'grade' => $userdata[0]['grade'][$x],
                     'percentage' => $userdata[0]['percentage'][$x],
                     'pass_year' => $userdata[0]['pass_year'][$x],
-                    // 'edu_certificate'=>  $uploadData[$x]['file_name'],
-                    'grad_step' => 1
+                    'edu_certificate'=>  $uploadData[$x]['file_name'],
+                 //   'grad_step' => 1
+                    'degree_count' => $i
                 );
-
-                $updatedata1 = $this->common->update_data($data, 'job_add_edu', 'edu_id', $jobdata[$x]['edu_id']);
-
+                // echo '<pre>'; print_r($data);
+                $updatedata1 = $this->common->update_data($data, 'job_graduation', 'job_graduation_id', $jobdata[$x]['job_graduation_id']);
+              }else{
+                  $data = array(
+                    'user_id' => $userid,
+                    'degree' => $userdata[0]['degree'][$x],
+                    'stream' => $userdata[0]['stream'][$x],
+                    'university' => $userdata[0]['university'][$x],
+                    'college' => $userdata[0]['college'][$x],
+                    'grade' => $userdata[0]['grade'][$x],
+                    'percentage' => $userdata[0]['percentage'][$x],
+                    'pass_year' => $userdata[0]['pass_year'][$x],
+                    'edu_certificate'=>  $uploadData[$x]['file_name'],
+                 //   'grad_step' => 1
+                    'degree_count' => $i
+                );
+                // echo '<pre>'; print_r($data);
+                $insert_id = $this->common->insert_data_getid($data, 'job_graduation');
+              }
                 //echo "<pre>";print_r($data);
-            }
+            } //echo "111"; die();
             //Edit Multiple field into database End 
         } else {
 
@@ -1135,13 +1155,13 @@ class Job extends MY_Controller {
                     'percentage' => $userdata[0]['percentage'][$x],
                     'pass_year' => $userdata[0]['pass_year'][$x],
                     'edu_certificate' => $uploadData[$x]['file_name'],
-                    'degree_sequence' => degree . $i,
-                    'stream_sequence' => stream . $i,
-                    'grad_step' => 1,
-                    'status' => 1
+                    //'degree_sequence' => degree . $i,
+                   // 'stream_sequence' => stream . $i,
+                  //  'grad_step' => 1,
+                    'degree_count' => $i
                 );
-                //echo '<pre>'; print_r($data);
-                $insert_id = $this->common->insert_data_getid($data, 'job_add_edu');
+              // echo "222"; die(); //echo '<pre>'; print_r($data);
+                $insert_id = $this->common->insert_data_getid($data, 'job_graduation');
                 $i++;
             }
 
