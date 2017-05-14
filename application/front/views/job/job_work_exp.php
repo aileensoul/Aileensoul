@@ -129,6 +129,7 @@
                                                     <span style="color:red">Fields marked with asterisk (*) are mandatory</span>
                                                 </div>
                                                 <?php
+                                                $clone_mathod_count = 1;
                                                 if ($workdata) {
 
                                                     $count = count($workdata);
@@ -391,7 +392,6 @@
                      
                                                           <fieldset class="full-width"> -->
                                                         <label>Experience Certificate</label>
-                                                        <label>Experience Certificate</label>
                                                         <input type="file" name="certificate[]" id="certificate" class="certificate" placeholder="CERTIFICATE" />&nbsp;&nbsp;&nbsp; 
 
                                                         <?php
@@ -625,12 +625,10 @@
                             var newNum = new Number(num + 1);
                             if (newNum > 5)
                             {
-
                                 $('#btnAdd').attr('disabled', 'disabled');
                                 alert("You Can add only 5 fields");
                                 return false;
                             }
-
                             var newElem = $('#input' + num).clone().attr('id', 'input' + newNum);
                             newElem.children('.exp_data').attr('id', 'exp_data' + newNum).attr('name', 'exp_data[]').attr('value', 'new');
                             newElem.children('.experience_year').attr('id', 'experience_year' + newNum).attr('name', 'experience_year[]').val();
@@ -647,6 +645,7 @@
                             $('#input' + newNum + ' .hs-submit').remove();
                             $("#input" + newNum + ' img').remove();
                         });
+                        
                         $('#btnRemove').on('click', function () {
 
                             var num = $('.clonedInput').length;
@@ -709,3 +708,10 @@
                             });
                         }
                     </script>
+                    
+                    <style type="text/css">
+                        .hs-submit img{
+                            display: none !important;
+                        }
+                    </style>
+                   
