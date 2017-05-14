@@ -158,7 +158,7 @@
 
                                                                 <fieldset class="two-select-box full-width"> 
                                                                     <label>Experience<span style="color:red">*</span></label>
-                                                                    <select style="width: 48%; float: left;" name="experience_year[]" id="experience_year" class="experience_year">
+                                                                    <select style="width: 48%; float: left;" name="experience_year[]" id="experience_year<?php echo $y; ?>" class="experience_year">
                                                                         <option value="" selected option disabled>Year</option>
                                                                         <option value="0 year"  <?php if ($experience_year1 == "0 year") echo 'selected'; ?>>0</option>
                                                                         <option value="1 year"  <?php if ($experience_year1 == "1 year") echo 'selected'; ?>>1</option>
@@ -185,7 +185,7 @@
                                                                     </select>
 
 
-                                                                    <select style="width: 50%;" name="experience_month[]" id="experience_month" class="experience_month">
+                                                                    <select style="width: 50%;" name="experience_month[]" id="experience_month<?php echo $y; ?>" class="experience_month">
                                                                         <option value="" selected option disabled>Month</option>
                                                                         <option value="1 month"  <?php if ($experience_month1 == "1 month") echo 'selected'; ?>>1</option>
                                                                         <option value="2 month"  <?php if ($experience_month1 == "2 month") echo 'selected'; ?>>2</option>
@@ -633,15 +633,19 @@
 
                             var newElem = $('#input' + num).clone().attr('id', 'input' + newNum);
                             newElem.children('.exp_data').attr('id', 'exp_data' + newNum).attr('name', 'exp_data[]').attr('value', 'new');
-                            newElem.children('.experience_year').attr('id', 'experience_year' + newNum).attr('name', 'experience_year[]');
-                            newElem.children('.experience_month').attr('id', 'experience_month' + newNum).attr('name', 'experience_month[]');
+                            newElem.children('.experience_year').attr('id', 'experience_year' + newNum).attr('name', 'experience_year[]').val();
+                            newElem.children('.experience_month').attr('id', 'experience_month' + newNum).attr('name', 'experience_month[]').val();
                             newElem.children('.jobtitle').attr('id', 'jobtitle' + newNum).attr('name', 'jobtitle[]');
                             newElem.children('.companyname').attr('id', 'companyname' + newNum).attr('name', 'companyname[]');
                             newElem.children('.companyemail').attr('id', 'companyemail' + newNum).attr('name', 'companyemail[]');
                             newElem.children('.companyphn').attr('id', 'companyphn' + newNum).attr('name', 'companyphn[]');
-                            newElem.children('.certificate').attr('id', 'certificate' + newNum).attr('name', 'certificate[]');
+                            newElem.children('.certificate').attr('id', 'certificate' + newNum).attr('name', 'certificate[]').val();
                             $('#input' + num).after(newElem);
                             $('#btnRemove').removeAttr('disabled', 'disabled');
+                            $('#input' + newNum + ' .experience_year').val('');
+                            $('#input' + newNum + ' .experience_month').val('');
+                            $('#input' + newNum + ' .hs-submit').remove();
+                            $("#input" + newNum + ' img').remove();
                         });
                         $('#btnRemove').on('click', function () {
 
