@@ -202,12 +202,18 @@
               
          <div class="top-row">
             <div class="field-wrap full-width">
-        <label class="fname_reg">Password<span class="req">*</span></label>
+     <!--    <label class="fname_reg">Password<span class="req">*</span></label> -->
     <input type="password" name="password1" id="password1" class="showpassword2" placeholder="Password *" style="position: relative;">
                       <?php echo form_error('password1'); ?>
             
 
-                    
+                  
+<label for="checkbox_eye"  style="    position: absolute;
+    top: 8px;
+    right: 35px;" >
+  <img style="height: 20px; width: 20px;" src="<?php echo base_url('images/eye.png'); ?>">
+</label>
+
             </div>
         
          <!--    <div class="field-wrap">
@@ -363,32 +369,13 @@ $('#datepicker').datetimepicker({
         }, 180000);
 
 
-//  $(function(){
-//     $(".showpassword").each(function(index,input) {
-//         var $input = $(input);
-//         $('<div class="checkbox2 show" style="display: block;">').append(
-//             $("<input type='checkbox' class='showpasswordcheckbox'  id='password1' style='display: none;' /></div> ").click(function() {
-//                 var change = $(this).is(":checked") ? "text" : "password";
-//                 var rep = $("<input type='" + change + "' />")
-//                     .attr("id", $input.attr("id"))
-//                     .attr("name", $input.attr("name"))
-//                     .attr('class', $input.attr('class'))
-//                     .val($input.val())
-//                     .insertBefore($input);
-//                 $input.remove();
-//                 $input = rep;
-//              })
-//         ).insertAfter($input);
-//     });
-// });
-
 
 
  $(function(){
     $(".showpassword2").each(function(index,input) {
         var $input = $(input);
         $('<div class="checkbox2 show" style="display: block;">').append(
-            $("<input type='checkbox' class='showpasswordcheckbox2'  id='password3' style=''></div> ").click(function() {
+            $("<input type='checkbox' class='showpasswordcheckbox2'  id='checkbox_eye' style='display:none;'></div> ").click(function() {
                 var change = $(this).is(":checked") ? "text" : "password";
                 var rep = $("<input type='" + change + "' />")
                     .attr("id", $input.attr("id"))
