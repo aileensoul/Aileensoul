@@ -104,7 +104,7 @@
                                             <div id="London" class="tabcontent1">
                                                 <?php echo form_open_multipart(base_url('job/job_work_exp_insert'), array('id' => 'jobseeker_regform', 'name' => 'jobseeker_regform', 'class' => 'clearfix')); ?>
                                                 <div>
-                                                    <span style="color:#7f7f7e;padding-left: 8px;">( </span><span style="color:red">*</span><span style="color:#7f7f7e"> )</span> <span style="color:#7f7f7e">Indicates required field</span>
+                                                    <span style="color:#7f7f7e;">( </span><span style="color:red">*</span><span style="color:#7f7f7e"> )</span> <span style="color:#7f7f7e">Indicates required field</span>
                                                 </div>
                                                 <label for="Fresher">
                                                     <input type="radio" id="fresher" name="radio" value="Fresher" checked="checked">
@@ -126,9 +126,10 @@
                                             <div id="Paris" class="tabcontent1">
                                                 <?php echo form_open_multipart(base_url('job/job_work_exp_insert'), array('id' => 'jobseeker_regform1', 'name' => 'jobseeker_regform1', 'class' => 'clearfix')); ?>       
                                                 <div>
-                                                    <span style="color:red">Fields marked with asterisk (*) are mandatory</span>
+                                                     <span style="color:#7f7f7e;">( </span><span style="color:red">*</span><span style="color:#7f7f7e"> )</span> <span style="color:#7f7f7e">Indicates required field</span>
                                                 </div>
                                                 <?php
+                                                $clone_mathod_count = 1;
                                                 if ($workdata) {
 
                                                     $count = count($workdata);
@@ -156,9 +157,9 @@
                                                             <div class="job_work_experience_main_div">
 
 
-                                                                <fieldset class="two-select-box full-width"> 
+                                                                <fieldset class="two-select-box full-width" style="padding: 0px;"> 
                                                                     <label>Experience<span style="color:red">*</span></label>
-                                                                    <select style="width: 48%; float: left;" name="experience_year[]" id="experience_year<?php echo $y; ?>" class="experience_year">
+                                                                    <select style="width: 49%; float: left;" name="experience_year[]" id="experience_year<?php echo $y; ?>" class="experience_year">
                                                                         <option value="" selected option disabled>Year</option>
                                                                         <option value="0 year"  <?php if ($experience_year1 == "0 year") echo 'selected'; ?>>0</option>
                                                                         <option value="1 year"  <?php if ($experience_year1 == "1 year") echo 'selected'; ?>>1</option>
@@ -185,7 +186,7 @@
                                                                     </select>
 
 
-                                                                    <select style="width: 50%;" name="experience_month[]" id="experience_month<?php echo $y; ?>" class="experience_month">
+                                                                    <select style="width: 50%;  margin-right: 5px;" name="experience_month[]" id="experience_month<?php echo $y; ?>" class="experience_month">
                                                                         <option value="" selected option disabled>Month</option>
                                                                         <option value="1 month"  <?php if ($experience_month1 == "1 month") echo 'selected'; ?>>1</option>
                                                                         <option value="2 month"  <?php if ($experience_month1 == "2 month") echo 'selected'; ?>>2</option>
@@ -205,7 +206,7 @@
                                                                 <?php echo form_error('experience_year'); ?>
                                                                 <?php echo form_error('experience_month'); ?>
 
-                                                                <label>Job Title<span style="color:red">*</span></label>
+                                                                <label  style="    margin-top: 6px;">Job Title<span style="color:red">*</span></label>
                                                                 <input type="text" name="jobtitle[]"  class="jobtitle" id="jobtitle"  placeholder="Enter Job Title" value="<?php
                                                                 if ($jobtitle1) {
                                                                     echo $jobtitle1;
@@ -213,7 +214,7 @@
                                                                 ?>"/>&nbsp;&nbsp;&nbsp; <span id="jobtitle-error"> </span>
                                                                        <?php echo form_error('jobtitle'); ?>
 
-                                                                <label>Company Name<span style="color:red">*</span></label>
+                                                                <label style="   margin-top: 6px; margin-left: -11px;">Company Name<span style="color:red">*</span></label>
                                                                 <input type="text" name="companyname[]" id="companyname"  class="companyname" placeholder="Enter Company Name" value="<?php
                                                                 if ($companyname1) {
                                                                     echo $companyname1;
@@ -221,7 +222,7 @@
                                                                 ?>"/>&nbsp;&nbsp;&nbsp; <span id="companyname-error"> </span>
                                                                        <?php echo form_error('companyname'); ?>
 
-                                                                <label>Company Email</label>
+                                                                <label style="  margin-top: 6px;  margin-left: -11px;">Company Email</label>
                                                                 <input type="text" name="companyemail[]" id="companyemail" class="companyemail" placeholder="Enter Company Email" value="<?php
                                                                 if ($companyemail1) {
                                                                     echo $companyemail1;
@@ -229,7 +230,7 @@
                                                                 ?>"/>&nbsp;&nbsp;&nbsp; <span id="companyemail-error"> </span>
 
 
-                                                                <label>Company Phone</label>
+                                                                <label style="  margin-top: 6px;  margin-left: -11px;">Company Phone</label>
                                                                 <input type="text" name="companyphn[]" id="companyphn" class="companyphn" placeholder="Enter Company Phone" value="<?php
                                                                 if ($companyphn1) {
                                                                     echo $companyphn1;
@@ -237,15 +238,16 @@
                                                                 ?>"/>&nbsp;&nbsp;&nbsp; <span id="companyphn-error"> </span>
                                                                        <?php echo form_error('companyphn'); ?>
 
-                                                                <label>Experience Certificate</label>
-                                                                <input type="file" name="certificate[]" id="certificate" class="certificate" placeholder="CERTIFICATE" />&nbsp;&nbsp;&nbsp; 
+                                                                <label style="    margin-top: -14px; display: block;">Experience Certificate</label>
+
+                                                                <input style="width:50%; margin-bottom: 10px; display: inline-block;" type="file" name="certificate[]" id="certificate" class="certificate" placeholder="CERTIFICATE" />&nbsp;&nbsp;&nbsp; 
 
                                                                 <?php
                                                                 if ($work_certificate1) {
                                                                     ?>
-
+                                                                        <div class="img_work_exp" style=" " >
                                                                     <img src="<?php echo base_url(JOBWORKCERTIFICATE . $work_certificate1) ?>" style="width:100px;height:100px;">
-
+</div>
                                                                     <?php
                                                                 }
                                                                 ?>
@@ -262,11 +264,11 @@
 
                                                                 <?php if ($y != 1) {
                                                                     ?>
-                                                                    <div style="float: left;">
-                                                                        <div class="hs-submit full-width fl">
-                                                                            <input type="button" value="Delete" onclick="delete_job_work(<?php echo $workdata[$x]['work_id']; ?>);">
+                                                                  
+                                                                        <div class="hs-submit full-width fl " style="margin-top: 29px;">
+                                                                            <input class="delete_btn" style="min-width: 70px;" type="button" value="Delete" onclick="delete_job_work(<?php echo $workdata[$x]['work_id']; ?>);">
                                                                         </div>
-                                                                    </div>
+                                                                
                                                                 <?php } ?>
                                                             </div>
                                                         </div>
@@ -275,7 +277,7 @@
                                                     }
                                                     ?>
 
-                                                    <div class="hs-submit full-width fl">
+                                                    <div class="hs-submit full-width fl" style="">
 
                                                         <input type="button" id="btnAdd" value=" + ">
                                                         <input type="button" id="btnRemove" value=" - " disabled="disabled">
@@ -283,7 +285,9 @@
                                                     <fieldset class="hs-submit full-width">
                <!--                                     <input type="reset">
                                                    <input type="submit"  id="previous" name="previous" value="previous">-->
-                                                        <input type="submit"  id="next" name="next" value="Next" onclick="document.getElementById('experience1')[0].style.display = 'block';" >
+                                                        <input style="position: absolute;
+    bottom: 8px;
+    right: -183px;" type="submit"  id="next" name="next" value="Next" onclick="document.getElementById('experience1')[0].style.display = 'block';" >
                                                       <!--<input type="submit"  id="add_workexp" name="add_workexp" value="Add More Work Expierence">--> 
 
 
@@ -295,9 +299,9 @@
                                                     ?>
                                                     <!--clone div start-->              
                                                     <div id="input1" style="margin-bottom:4px;" class="clonedInput">
-                                                        <fieldset class="two-select-box full-width"> 
+                                                        <fieldset class="two-select-box full-width" style="padding: 0px; "> 
                                                             <label>Experience<span style="color:red">*</span></label>
-                                                            <select style="width:48%; float: left;" name="experience_year[]" id="experience_year" class="experience_year">
+                                                            <select style="width:49%; float: left; margin-right: 5px;" name="experience_year[]" id="experience_year" class="experience_year">
                                                                 <option value="" selected option disabled>Year</option>
                                                                 <option value="0 year"  <?php if ($experience_year1 == "0 year") echo 'selected'; ?>>0</option>
                                                                 <option value="1 year"  <?php if ($experience_year1 == "1 year") echo 'selected'; ?>>1</option>
@@ -346,7 +350,7 @@
                                                         <!-- /fieldset>
                                                         
                                                                                                 <fieldset class="full-width"> -->
-                                                        <label>Job Title<span style="color:red">*</span></label>
+                                                        <label style="    margin-top: 6px;">Job Title<span style="color:red">*</span></label>
                                                         <input type="text" name="jobtitle[]"  class="jobtitle" id="jobtitle"  placeholder="Enter Job Title" value="<?php
                                                         if ($jobtitle1) {
                                                             echo $jobtitle1;
@@ -358,7 +362,7 @@
 
                                         <!--                                     <fieldset <?php if ($companyname) { ?> class="error-msg" <?php } ?>> 
                                                         -->                         <!--  <fieldset class="full-width">  -->             
-                                                        <label>Company Name<span style="color:red">*</span></label>
+                                                        <label style=" margin-top: 6px;   margin-left: -11px;">Company Name<span style="color:red">*</span></label>
                                                         <input type="text" name="companyname[]" id="companyname"  class="companyname" placeholder="Enter Company Name" value="<?php
                                                         if ($companyname1) {
                                                             echo $companyname1;
@@ -370,7 +374,7 @@
                                                         -->
 
                                                         <!--  <fieldset > -->
-                                                        <label>Company Email</label>
+                                                        <label style="   margin-top: 6px; margin-left: -11px;">Company Email</label>
                                                         <input type="text" name="companyemail[]" id="companyemail" class="companyemail" placeholder="Enter Company Email" value="<?php
                                                         if ($companyemail1) {
                                                             echo $companyemail1;
@@ -380,7 +384,7 @@
                                                         <!--   </fieldset>
                         
                                                                <fieldset >  -->
-                                                        <label>Company Phone</label>
+                                                        <label style="  margin-top: 6px;  margin-left: -11px;">Company Phone</label>
                                                         <input type="text" name="companyphn[]" id="companyphn" class="companyphn" placeholder="Enter Company Phone" value="<?php
                                                         if ($companyphn1) {
                                                             echo $companyphn1;
@@ -390,16 +394,15 @@
                                                         <!--  </fieldset>
                      
                                                           <fieldset class="full-width"> -->
-                                                        <label>Experience Certificate</label>
-                                                        <label>Experience Certificate</label>
-                                                        <input type="file" name="certificate[]" id="certificate" class="certificate" placeholder="CERTIFICATE" />&nbsp;&nbsp;&nbsp; 
+                                                        <label style="      margin-top: -14px;  display: block;">Experience Certificate</label>
+                                                        <input style="width: 50%; margin-bottom: 10px; display: inline-block;" type="file" name="certificate[]" id="certificate" class="certificate" placeholder="CERTIFICATE" />&nbsp;&nbsp;&nbsp; 
 
                                                         <?php
                                                         if ($work_certificate1) {
                                                             ?>
-
+                                                                <div class="img_work_exp" style="">
                                                             <img src="<?php echo base_url(JOBWORKCERTIFICATE . $work_certificate1) ?>" style="width:100px;height:100px;">
-
+</div>
                                                             <?php
                                                         }
                                                         ?>
@@ -415,7 +418,9 @@
                                                         <input type="button" id="btnRemove" value=" - " disabled="disabled">
                                                     </div>
                                                     <fieldset class="hs-submit full-width"> 
-                                                        <input type="submit" id="next" name="next" value="Next" onclick="document.getElementById('experience1')[0].style.display = 'block';">
+                                                        <input style="position: absolute;
+    bottom: 8px;
+    right: -183px;" type="submit" id="next" name="next" value="Next" onclick="document.getElementById('experience1')[0].style.display = 'block';">
                                                     </fieldset> 
 
                                                     <?php echo form_close(); ?> 
@@ -625,12 +630,10 @@
                             var newNum = new Number(num + 1);
                             if (newNum > 5)
                             {
-
                                 $('#btnAdd').attr('disabled', 'disabled');
                                 alert("You Can add only 5 fields");
                                 return false;
                             }
-
                             var newElem = $('#input' + num).clone().attr('id', 'input' + newNum);
                             newElem.children('.exp_data').attr('id', 'exp_data' + newNum).attr('name', 'exp_data[]').attr('value', 'new');
                             newElem.children('.experience_year').attr('id', 'experience_year' + newNum).attr('name', 'experience_year[]').val();
@@ -646,7 +649,11 @@
                             $('#input' + newNum + ' .experience_month').val('');
                             $('#input' + newNum + ' .hs-submit').remove();
                             $("#input" + newNum + ' img').remove();
+                            $("#input" + newNum + ' .img_work_exp').remove();
+
+                            
                         });
+                        
                         $('#btnRemove').on('click', function () {
 
                             var num = $('.clonedInput').length;
@@ -690,7 +697,9 @@
 
                     <style type="text/css">
                         .job_work_experience_main_div{
-                            border-bottom: 2px solid #060606;
+                            margin-top: 10px;
+                               border-bottom: 2px solid #d9d9d9;
+    margin-bottom: 20px;
                         }
                     </style>
 
@@ -709,3 +718,10 @@
                             });
                         }
                     </script>
+                    
+                    <style type="text/css">
+                        .hs-submit img{
+                        display: none !important;
+                        }
+                    </style>
+                   

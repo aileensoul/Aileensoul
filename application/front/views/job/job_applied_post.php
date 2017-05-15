@@ -353,8 +353,8 @@
                                                     Created Date : <?php echo date('d-M-Y',strtotime($post['created_date'])); ?>
                                                 </li>
                     <li>
-        <a title="Post Title" class=" post_title" href="#" >
-                      <?php echo ucwords($this->common->make_links($post['post_name'])); ?> </a>   </li>
+    <a title="Post Title" class=" post_title" href="#" >
+                     <?php echo ucwords($this->common->make_links($post['post_name'])); ?> </a>   </li>
 
                     <li>   
                                                     <div class="fr lction">
@@ -366,7 +366,7 @@
                                                             if($cityname || $countryname)
                                                             { 
                                                             ?>
-       <p title="Address"><i class="fa fa-map-marker" aria-hidden="true">
+       <p title="location"><i class="fa fa-map-marker" aria-hidden="true">
 
                                                             <?php  echo $cityname .', '. $countryname; ?> 
                                                             </i></p>
@@ -378,7 +378,7 @@
                                                     </div>
                                                     <?php
                      $cache_time1 = $this->db->get_where('recruiter', array('user_id' => $post['user_id']))->row()->re_comp_name; ?>
-                    <a  class="display_inline" href="<?php echo base_url('recruiter/rec_profile/' . $post['user_id'].'?page=job'); ?>"  title="<?php echo $cache_time1;?>"><?php
+                    <a  class="job_companyname" href="<?php echo base_url('recruiter/rec_profile/' . $post['user_id'].'?page=job'); ?>"  title="<?php echo $cache_time1;?>"><?php
                     
                         $out = strlen($cache_time1) > 40 ? substr($cache_time1,0,40)."..." : $cache_time1;       
                     echo $out;

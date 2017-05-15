@@ -124,7 +124,7 @@ a:focus { outline: none; text-decoration: none;  }
 
 /* Form Styling Start */
 input, textarea, select {     background: white; border: 2px solid #cacaca; outline: none; padding: 8px 15px; color: #000; font-size: 14px; font-weight: 400; border-radius: 4px;  width: 100%; }
-label { font-size: 16px; font-weight: 400; color: #616060; }
+label { font-size: 16px; font-weight: 400; color: #616060; margin-bottom: 9px;}
 select  {padding: 8px 15px; font-size: 16px; }
 
 input[type=submit], input[type=button], button { background: #000033; border: 2px solid #000033; color: #fff; font-size: 16px; font-weight: 400; cursor: pointer; border: 0; padding: 10px 30px 12px; letter-spacing: 1px;  margin-right: 15px;  -webkit-transition: all 0.4s ease-in-out;
@@ -333,7 +333,7 @@ ul.dropdown-menu li a i { padding-right: 2px; }
 
 .panel-body { border:2px solid #ddd; border-top: 0; background-color: #ffffff; }
 .panel-body label, .common-form fieldset label { margin: 0 0 8px; padding: 0; display: block;}
-.two-select-box select { width: 48%; margin-left: 5px; float: left; } /* v 28-4*/
+.two-select-box select { width: 50%; float: left; } /* v 28-4*/
 .common-form input[type=radio], .common-form input[type=checkbox] { width:auto; margin:0 2px; vertical-align:middle; display:inline-block; }
 
 .form-title h3 { background: #000033; color: #fff; padding: 8px 20px;}
@@ -388,7 +388,7 @@ ul.dropdown-menu li a i { padding-right: 2px; }
 .radio span { display: block; margin-bottom: 5px; }
 .radio input { width: auto; float: left; }
 .radio input[type=radio] { margin: 5px 0 0; }
-.radio label { margin-left: 0px; margin-right: 10px; }
+.radio label { margin-left: 0px; margin-right: 10px;  }
 
 .submit { float: right; }
 .submit input { width: auto; float: right; }
@@ -459,7 +459,7 @@ fieldset.full-width { width: 100%; }
 .hs-submit input { min-width: 150px; width:auto; text-align: center; font-size: 18px; margin-top: 10px; border-color: #000033; text-transform:capitalize; }
 .hs-submit input[type=reset] { border-color: #000033; color: #000033; padding: 8px 12px 11px; }
 .hs-submit input[type=reset]:hover { background: #000033; color: #fff; }
-
+.hs-submit input[type=submit]:hover{opacity: 0.8; background-color: #000033;}
 .hs-submit a { background: #000033; border: 2px solid #000033; color: #fff; font-size: 18px; font-weight: 400; cursor: pointer; border: 0; padding: 10px 30px 12px; letter-spacing: 1px; margin-right: 15px; border-radius: 4px; } 
 .hs-submit a:hover { background: #000; border-color: #000; }
 
@@ -1894,7 +1894,7 @@ abbr { cursor: help; }
 
 .post-design-product{padding-top: 6px;}
 .profile-box-user .profile-boxProfile-name a{padding-left: 8px; font-size: 14px;}
-.profile-text-bui-user .profile-boxProfile-name a{padding-left: 18px; color: #000033;}
+.profile-text-bui-user .profile-boxProfile-name a{padding-left: 8px; color: #000033;}
 
 .profile-box-menu{padding-right: 2px !important;}
 .profile-box-bui-menu{padding-right: 2px !important;     margin-top: -38px;
@@ -2307,25 +2307,43 @@ border-bottom: 1px solid #000033;
 
 /* Style the tab */
 .tablet-hi {
-    overflow: hidden;
+    overflow: hidden;/*
     border: 1px solid #000033;
-    background-color: #000;
+    background-color: #000;*/
+        background: white;
+    overflow: hidden;
+    border-left: 2px solid #d9d9d9;
+    border-right: 2px solid #d9d9d9;
 }
 
 /* Style the links inside the tab */
-.tablet-hi a {
+.tablet-hi a {/*
+    font-size: 17px;
     float: left;
     display: block;
     color: #ffffff;
     text-align: center;
     padding: 14px 55px;
     text-decoration: none;
+    transition: 0.3s;*/
+
+    background: #3b5283;
+    float: left;
+    display: block;
+    color: #ffffff;
+    text-align: center;
+    padding:9px 27px;
+    border-radius: 3px;
+    text-decoration: none;
     transition: 0.3s;
     font-size: 17px;
+    margin-left: 5px;
+    margin-top: 4px;
 }
 
 /* Change background color of links on hover */
 .tablet-hi a:hover {
+    opacity: 0.8;
     background-color: #3f588d;
     color: #ffffff;
 }
@@ -2371,7 +2389,7 @@ border-bottom: 1px solid #000033;
 
 
 
-.profile-company-name a{font-size: 16px;margin-left: 18px;  text-shadow: 0px 10px 26px rgba(230, 230, 230,0.4), 0px 8px 7px rgba(0,0,0,0.1), 0px 11px 14px rgba(230,230,230,0.9);
+.profile-company-name a{font-size: 16px;margin-left: 8px;  text-shadow: 0px 10px 26px rgba(230, 230, 230,0.4), 0px 8px 7px rgba(0,0,0,0.1), 0px 11px 14px rgba(230,230,230,0.9);
                         font-weight: 600; color: #000033;}
 .add-post-button a:hover{color: #ffffff;}
 .buisness-profile-txext {z-index: 1; position: relative; display: inline-block; width: 24%;}
@@ -2970,7 +2988,7 @@ label.cameraButton input[accept*="camera"] {
 }
 
 .tabordion section .label-d {
-    background: #728bc0;
+    background: #3b5283!important;
     color: #fff;
     border: 1px solid #fff;
     cursor: pointer;
@@ -3007,7 +3025,7 @@ label.cameraButton input[accept*="camera"] {
 .job-saved-box_2{height: 100%;    border: 2px solid #efefef;
                  border-top: 0;}
 .tabordion input[name="sections"]:checked + .label-d { 
-    background: #000033;
+    background: #000033!important;
     color: #fff;
 }
 .tabordion input[name="sections"]:checked + label:after { content:"\f00c"; font-family: 'FontAwesome'; position:absolute; top:11px; right:8px; color:#fff; }
@@ -3952,7 +3970,7 @@ border-bottom: 1px solid #000033;
     */
 }
 
-.profile-box-job-menu{padding-right: 2px !important;     margin-top: -38px;
+.profile-box-job-menu{padding-right: 1px !important;     margin-top: -38px;
                       border-top: 1px solid #d9d9d9;}
 
 .profile-box-job-menu ul li a:hover{background-color: #000033; color: #ffffff;}
@@ -3961,7 +3979,7 @@ border-bottom: 1px solid #000033;
     display: block;
     color: #000033;
     text-align: center;
-       padding: 9px 13px 6px 13px;
+       padding:8px 17px 6px 17px;
     text-decoration: none;
     font-size: 16px;
     color: #000033;
@@ -4000,7 +4018,7 @@ border-bottom: 1px solid #000033;
     display: block;
     color: #000033;
     text-align: center;
-       padding: 9px 18px 6px 18px;
+       padding: 8px 17px 6px 17px;
     text-decoration: none;
     font-size: 16px;
     color: #000033;
@@ -4724,3 +4742,15 @@ label.cameraButton:hover
     background-color: rgba(0,0,0,.3);
     -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
 }
+
+.img_work_exp{  height:  100px;
+    width: 100px;
+    display: inline-block;
+    margin-bottom: 10px;
+    margin-top: -26px;}
+
+    .delete_btn{padding: 6px 12px 6px!important; font-size: 13px!important;}
+
+    #btnAdd{ padding: 6px 12px 6px!important;  min-width: 100px!important; }
+    
+    #btnRemove{ padding: 6px 12px 6px!important;  min-width: 100px!important; }
