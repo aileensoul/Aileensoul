@@ -3871,22 +3871,4 @@
 
             </script>
             <!-- This  script use for close dropdown in every post -->
-<script type="text/javascript">
-function removedivphoto()
-{    
-   // alert("falguni");
-  var elems = document.getElementsByClassName("file-preview-frame");
 
-  
-   // alert(elems.value);
-
-
-    for (var k = elems.length - 1; k >= 0; k--) {
-        var parent = elems[k].parentNode;
-        parent.removeChild(elems[k]);
-    }
-
-}
-
-
-</script>
