@@ -180,7 +180,7 @@ if ($returnpage == 'job') {
     <a href="#popup-form" class="fancybox"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>
                         <?php }?> -->
                
-                <?php if ($returnpage != ' ') { ?>
+                <?php if ($returnpage == '') { ?>
                     <a href="javascript:void(0);" onclick="updateprofilepopup();"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>
                 <?php } ?>
 
