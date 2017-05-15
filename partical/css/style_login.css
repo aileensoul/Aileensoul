@@ -325,7 +325,7 @@ bottom: 0;}
     color: #999999;
     font-size: 35px;
     font-weight: bold;
-opacity: 0.6;
+opacity: 0.9!important;
 }
 
 .close:hover,
@@ -643,12 +643,7 @@ text-decoration-line: underline!important;
 }
 
 /* The Close Button */
-.close {
-    color: #aaaaaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
+
 
 .close:hover,
 .close:focus {

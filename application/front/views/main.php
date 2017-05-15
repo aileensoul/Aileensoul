@@ -201,20 +201,22 @@
           </div>
               
          <div class="top-row">
-            <div class="field-wrap full-width">
-     <!--    <label class="fname_reg">Password<span class="req">*</span></label> -->
-    <input type="password" name="password1" id="password1" class="showpassword2" placeholder="Password *" style="position: relative;">
-                      <?php echo form_error('password1'); ?>
+            <div class="field-wrap full-width" style="padding-bottom: 0px;">
+        <label class="fname_reg">Password<span class="req">*</span></label>
+    <input type="password" name="password" id="password" class="showpassword2" placeholder="Password *" s>
+                      <?php echo form_error('password'); ?>
             
 
                   
-<label for="checkbox_eye"  style="    position: absolute;
-    top: 8px;
-    right: 35px;" >
-  <img style="height: 20px; width: 20px;" src="<?php echo base_url('images/eye.png'); ?>">
-</label>
+
 
             </div>
+            <label for="checkbox_eye"  style="      position: absolute;
+    /* top: 8px; */
+    right: 165px;
+    bottom: -25px;" >
+  <img style="height: 20px; width: 20px;" src="<?php echo base_url('images/eye.png'); ?>">
+</label>
         
          <!--    <div class="field-wrap">
                 <label class="fname_reg">Confirm Password<span class="req">*</span></label>
