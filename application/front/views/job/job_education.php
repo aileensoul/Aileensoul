@@ -330,7 +330,7 @@
 
                                                 <fieldset class="full-width">
                                                     <h6 style="font-size: 16px;">Education Certificate:</h6>
-                                                    <input type="file" name="edu_certificate_primary" id="edu_certificate_primary" class="edu_certificate_primary" placeholder="CERTIFICATE" multiple="" />
+                                                    <input  type="file" name="edu_certificate_primary" id="edu_certificate_primary" class="edu_certificate_primary" placeholder="CERTIFICATE" multiple="" />
 
                                                     <?php
                                                     if ($edu_certificate_primary1) {
@@ -652,6 +652,7 @@
                                                         
                                                         <div id="input<?php echo $y ?>" style="margin-bottom:4px;" class="clonedInput job_work_edit_<?php echo $jobgrad[$x]['job_graduation_id']?>">
                                                             <input type="hidden" name="education_data[]" value="old" class="exp_data" id="exp_data<?php echo $y; ?>">
+                                                            <div class="job_work_experience_main_div">
                                                             <fieldset class="">
                                                                 <h6 style="font-size: 16px;">Degree :<span style="color:red">*</span></h6>
                                                                 <select name="degree[]" id="<?php echo $degree_sequence ?>"  class="degree">
@@ -768,6 +769,21 @@
                                                                 ?>" />
                                                                        <?php echo form_error('percentage'); ?>
                                                             </fieldset>
+                                                              <fieldset class="">
+                                                                <h6 style="font-size: 16px;">Education Certificate:</h6>
+                                                                <input style="" type="file" name="certificate[]" id="certificate1" class="certificate" placeholder="CERTIFICATE" multiple="" />&nbsp;&nbsp;&nbsp; <span id="certificate-error"> </span>
+
+                                                                <?php
+                                                                if ($edu_certificate1) {
+                                                                    ?>
+ <div class="img_work_exp" style=" margin-top: 14px;" >
+                                                                    <img src="<?php echo base_url(JOBEDUCERTIFICATE . $edu_certificate1) ?>" style="width:100px;height:100px;">
+</div>
+                                                                    <?php
+                                                                }
+                                                                ?>
+                                                                <?php echo form_error('certificate'); ?>
+                                                            </fieldset>
 
                                                             <fieldset class="">
                                                                 <h6 style="font-size: 16px;">Year Of Passing :<span style="color:red">*</span></h6>
@@ -798,22 +814,7 @@
                                                                 <?php echo form_error('pass_year'); ?>
                                                             </fieldset>
 
-                                                            <fieldset class="full-width">
-                                                                <h6 style="font-size: 16px;">Education Certificate:</h6>
-                                                                <input type="file" name="certificate[]" id="certificate1" class="certificate" placeholder="CERTIFICATE" multiple="" />&nbsp;&nbsp;&nbsp; <span id="certificate-error"> </span>
-
-                                                                <?php
-                                                                if ($edu_certificate1) {
-                                                                    ?>
-
-                                                                    <img src="<?php echo base_url(JOBEDUCERTIFICATE . $edu_certificate1) ?>" style="width:100px;height:100px;">
-
-                                                                    <?php
-                                                                }
-                                                                ?>
-                                                                <?php echo form_error('certificate'); ?>
-                                                            </fieldset>
-
+                                                          
 
                                                             <input type="hidden" name="image_hidden_degree<?php echo $jobgrad[$x]['job_graduation_id']; ?>" value="<?php
                                                             if ($edu_certificate1) {
@@ -829,20 +830,37 @@
                                                                         </div>
                                                                     </div>
                                                                 <?php } ?>
-                                                        </div>
+                                                        </div></div> 
                                                         <?php
                                                     }
                                                     ?>
-                                                <div class="fr">
-                                                <input type="button" id="btnRemove" style="padding: 5px;font-size: 13px;margin-right: 0px;" value=" Remove Education "   />
-                                                </div>
-                                                    <div class="fr">
-                                                        <input type="button" id="btnAdd" style="padding: 5px;font-size: 13px;margin-right: 0px;" value=" Add More Education ">
-                                                    </div>
-                                                   <div class="fr">
-                                                        <input type="submit"  id="next" name="next" value="Submit">
+                                                      <div class="fr img_remove">
+                                                        <input style="padding: 6px 9px 6px;
+    font-size: 14px;" type="submit"  id="next" name="next" value="Submit">
                                                         <!--<input type="submit"  id="add_edu" name="add_edu" value="Add More Education">--> 
                                                     </div>
+
+
+<div style=" display: inline-block; margin-left: 134px;">
+                                                <div class="fr img_remove" style="margin-left: 10px;">
+                                                <input type="button" id="btnRemove" style="padding: 5px;font-size: 13px;margin-right: 0px;" value=" - "   />
+                                                </div>
+                                                    <div class="fr img_remove" >
+                                                        <input type="button" id="btnAdd" style="padding: 5px;font-size: 13px;margin-right: 0px;" value=" + ">
+                                                    </div>
+
+                                                 </div>
+                                                     <fieldset class="hs-submit full-width" style="     right: -24%;
+                                                              position: absolute;
+                                                              bottom: 2.3%;
+                                                              display: inline-block;
+                                                              width: 24%;
+                                                              ">
+
+                                                        <input type="button" id="next" name="next" value="Next" style="font-size: 16px;min-width: 120px;margin-right: 0px;" onclick="next_page()">
+
+                                                    </fieldset>
+
                                                     <?php
                                                 } else {
                                                     ?>
@@ -1017,13 +1035,13 @@
 
                                                     <div class="fl" style="margin-right: 10px;" >
 
-                                                        <input type="button" id="btnAdd" style="padding: 5px;font-size: 13px;margin-right: 0px;" value=" Add More Education " /><br>
+                                                        <input type="button" id="btnAdd" style="padding: 5px;font-size: 13px;margin-right: 0px;" value=" + " /><br>
 
                                                     </div>
 
                                                     <div class="fl">
 
-                                                        <input type="button" id="btnRemove" style="padding: 5px;font-size: 13px;margin-right: 0px;" value=" Remove Education "   />
+                                                        <input type="button" id="btnRemove" style="padding: 5px;font-size: 13px;margin-right: 0px;" value=" - "   />
 
                                                     </div>
 
@@ -1670,3 +1688,12 @@
                             });
                         }
                     </script>
+                    <style type="text/css">
+                        .job_work_experience_main_div{
+                            margin-top: 10px;
+                               border-bottom: 2px solid #d9d9d9;
+    margin-bottom: 20px;
+    display: inline-block;
+                        }
+                        .img_remove img{display: none!important;}
+                    </style>
