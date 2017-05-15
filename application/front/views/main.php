@@ -103,8 +103,33 @@
                                 <input type="hidden" name="hiddenf" id="hiddenf" value="main">
 
                               <span style="font-size: 12px; padding-left: 8px; color: #a0b3b0;">
-                              <a style="font-size: 13px;" data-toggle="modal" href="login.html#myModal"> Forgot Password?</a>
+                              <a style="font-size: 13px;"   id="myBtn"> Forgot Password?</a>
                               </span>
+
+ <div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header" style="    width: 100%;
+    text-align: center;">
+      <span class="close">&times;</span>
+      <label style="color: #a0b3b0;">Forgot Password</label>
+    </div>
+    <div class="modal-body" style="    width: 100%;
+    text-align: center;">
+        <label  style="margin-bottom: 15px; color: #a0b3b0;"> Enter your e-mail address below to get your password.</label>
+                                            <input style="" type="text" name="forgot_email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
+
+    </div>
+    <div class="modal-footer ">
+      <!--  <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+       -->                        <div class="submit_btn">              <input class="btn btn-theme" type="submit" name="submit" value="Submit" /> 
+       </div>
+    </div>
+  </div>
+
+</div>
+
 </div> 
 <div class="col-md-2 reg_button">
                          <input type="submit" value="login" name="">
@@ -725,4 +750,32 @@ function init() {
 
 window.onload = init;
 
+</script>
+
+<script>
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
 </script>

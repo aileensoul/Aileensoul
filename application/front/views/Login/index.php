@@ -180,10 +180,10 @@
   <div class="modal-content">
     <div class="modal-header">
       <span class="close">&times;</span>
-      <label>Forgot Password</label>
+      <label style="color: #a0b3b0;">Forgot Password</label>
     </div>
     <div class="modal-body">
-        <label  style="margin-bottom: 15px;"> Enter your e-mail address below to get your password.</label>
+        <label  style="margin-bottom: 15px; color: #a0b3b0;"> Enter your e-mail address below to get your password.</label>
                                             <input style="" type="text" name="forgot_email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
 
     </div>
