@@ -126,11 +126,11 @@ class Search extends CI_Controller {
                 // echo "pallavi";
 
                 if (count($artskillpost) == 0) {
-                    echo "tt";
+                   // echo "tt";
                     $unique = array_merge($artpost, $otherdata);
                    // echo "<pre>";print_r($unique);die();
                 } else {
-                    echo "pqr";
+                   // echo "pqr";
                     $unique = array_merge($artskillpost, $artpost, $otherdata);
                 }
 
