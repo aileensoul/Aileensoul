@@ -135,17 +135,18 @@
           </div>
               
          <div class="top-row">
-            <div class="field-wrap full-width">
+            <div class="field-wrap full-width" style="padding-bottom: 0px;">
         <label class="fname_reg">Password<span class="req">*</span></label>
     <input type="password" name="password" id="password" class="showpassword" placeholder="Password *" style="position: relative;"  />
                       <?php echo form_error('password'); ?>
             
 
-                        <label for="password1" style="    position: absolute;
-    top: 8px;
-    right: 35px;" ><img style="height: 20px; width: 20px;" src="<?php echo base_url('images/eye.png'); ?>"></label>
+                      
             </div>
-        
+          <label for="password1" style="    position: absolute;
+    /* top: 8px; */
+    right: 165px;
+    bottom: -25px;" ><img style="height: 20px; width: 20px;" src="<?php echo base_url('images/eye.png'); ?>"></label>
           </div>
               
           <div class="top-row">
