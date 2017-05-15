@@ -199,7 +199,8 @@ if($lstusrdata){?>
    /* border: 1px solid #4E4E4E;*/
     max-height: 80px !important;
      overflow: scroll;
-    overflow-x: hidden;s
+    overflow-x: hidden;
+    
     left: 0; margin-bottom: -37px;">
 
                <!--  <input id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." /> -->
