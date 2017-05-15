@@ -277,8 +277,7 @@
                                                     }
                                                     ?>
 
-                                                    <div class="hs-submit full-width fl" style="    clear: both;
-    float: initial;">
+                                                    <div class="hs-submit full-width fl" style="">
 
                                                         <input type="button" id="btnAdd" value=" + ">
                                                         <input type="button" id="btnRemove" value=" - " disabled="disabled">
