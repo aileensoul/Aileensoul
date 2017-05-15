@@ -2777,10 +2777,10 @@ label.cameraButton input[accept*="camera"] {
 .post-design-like-box{background-color: #ffffff;  /* padding-top: 10px;*/  }
 .post-design-commnet-box{padding-left: 22px; background-color: #e6eaef; border: 1px solid #e6eaef; padding-top: 10px; }
 .post-design-menu{border-top: 1px solid #efefef; border-bottom:1px solid #efefef;}
-.post-design-menu ul { font-size: 15px; margin: 0; padding: 0; }
+.post-design-menu ul { margin: 0; padding: 0; }
 .post-design-menu ul li { list-style: none; display: inline-block; padding: 0; margin: 0; position: relative; }
 .post-design-menu ul li a { font-size: 18px; color: #000033; padding: 10px 15px 10px; font-weight: 400; display: block;  }
-/*.post-design-menu ul li a i {cursor: pointer; font-size: 22px;}*/
+.post-design-menu ul li a i {cursor: pointer; font-size: 22px;}
 .post-design-menu ul li a:hover { background: #fff; color: #000033; }
 .post-design-name ul li a h6 { 
     font-weight: 600;
