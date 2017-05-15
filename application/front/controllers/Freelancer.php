@@ -2006,6 +2006,7 @@ $updatedata = $this->common->insert_data_getid($data, 'notification');
 
         $data = array(
             'job_delete' => 1,
+            'job_save' => 3,
             'modify_date' => date('Y-m-d h:i:s', time())
         );
 
@@ -2433,8 +2434,9 @@ $this->load->view('freelancer/freelancer_hire/freelancer_save', $this->data);
 
 //Remove save candidate controller Start
     public function remove_save() {
-        $saveid = $_POST['save_id'];
 
+        $saveid = $_POST['app_id'];
+        //echo $saveid;die();
         $userid = $this->session->userdata('aileenuser');
         // echo $userid;echo $id;die();
 
@@ -2443,7 +2445,7 @@ $this->load->view('freelancer/freelancer_hire/freelancer_save', $this->data);
             'status' => 1
         );
 
-        $updatedata = $this->common->update_data($data, 'save', 'save_id', $saveid);
+        $updatedata = $this->common->update_data($data, 'freelancer_apply', 'app_id', $saveid);
     }
 
 //Remove save candidate controller End
