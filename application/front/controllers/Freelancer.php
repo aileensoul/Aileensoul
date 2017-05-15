@@ -1218,8 +1218,8 @@ $data='freelancer_post.post_id,freelancer_post.post_name,freelancer_post.post_fi
                 }
             }
         }
-
-        foreach($result as $key =>$value){
+$results = array_unique($result);
+        foreach($results as $key =>$value){
             $result1[$key]['label']=$value;
             $result1[$key]['value']=$value;
           }
@@ -1282,8 +1282,8 @@ $data='freelancer_post.post_id,freelancer_post.post_name,freelancer_post.post_fi
                 }
             }
         }
-
-        foreach($result as $key =>$value){
+$results = array_unique($result);
+        foreach($results as $key =>$value){
             $result1[$key]['label']=$value;
             $result1[$key]['value']=$value;
           }
@@ -1519,8 +1519,8 @@ $new = array();
                 }
             }
         }
-
-       foreach($result as $key =>$value){
+        $results = array_unique($result);
+       foreach($results as $key =>$value){
             $result1[$key]['label']=$value;
             $result1[$key]['value']=$value;
           }
@@ -1600,8 +1600,8 @@ $new = array();
                 }
             }
         }
-
-        foreach($result as $key =>$value){
+$results = array_unique($result);
+        foreach($results as $key =>$value){
             $result1[$key]['label']=$value;
             $result1[$key]['value']=$value;
           }
@@ -2087,7 +2087,37 @@ $updatedata = $this->common->update_data($data, 'freelancer_apply', 'app_id', $a
         //echo '<pre>'; print_r($postdata); die();
 // khyati chnages end
 
+// code for search
+        $contition_array = array('status' => '1', 'is_delete' => '0');
+        $field = $this->data['results'] = $this->common->select_data_by_condition('category', $contition_array, $data = 'category_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        $contition_array = array('status' => '1', 'is_delete' => '0');
 
+        $freelancer_postdata = $this->data['results'] = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = 'freelancer_post_otherskill,designation', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        // echo "<pre>"; print_r($results_recruiter);die();
+
+        $contition_array = array('status' => '1', 'type' => '1');
+
+        $skill = $this->data['skill'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        $unique = array_merge($field, $skill, $freelancer_postdata);
+        // echo count($unique);
+        // $this->data['demo']=$unique;
+       
+       foreach ($unique as $key => $value) {
+            foreach ($value as $ke => $val) {
+                if ($val != "") {
+                    $result[] = $val;
+                }
+            }
+        }
+        $results = array_unique($result);
+        foreach($results as $key =>$value){
+            $result1[$key]['label']=$value;
+            $result1[$key]['value']=$value;
+          }
+
+         
+$this->data['demo']= array_values($result1);
         $this->load->view('freelancer/freelancer_hire/freelancer_apply_list', $this->data);
     }
 
@@ -2189,8 +2219,8 @@ $updatedata = $this->common->update_data($data, 'freelancer_apply', 'app_id', $a
                 }
             }
         }
-
-        foreach($result as $key =>$value){
+        $results = array_unique($result);
+        foreach($results as $key =>$value){
             $result1[$key]['label']=$value;
             $result1[$key]['value']=$value;
           }
@@ -2419,8 +2449,8 @@ $this->load->view('freelancer/freelancer_hire/freelancer_save', $this->data);
                 }
             }
         }
-
-        foreach($result as $key =>$value){
+        $results = array_unique($result);
+        foreach($results as $key =>$value){
             $result1[$key]['label']=$value;
             $result1[$key]['value']=$value;
           }
