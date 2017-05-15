@@ -199,7 +199,7 @@ label.cameraButton input[accept*="camera"] {
     </ul>
     </div>
 
-    <div class="col-md-3">
+    <div class="col-md-3" style="width:32%;">
                 <div class="flw_msg_btn fr">
                     <ul>
                         <!-- <li class="fruser2">
