@@ -4014,11 +4014,11 @@ border-bottom: 1px solid #000033;
 
 .profile-box-rec-menu ul li a:hover{background-color: #000033; color: #ffffff;}
 .profile-box-rec-menu ul li a {
-    margin-right:2px;
+    margin-right:3px;
     display: block;
     color: #000033;
     text-align: center;
-       padding: 8px 17px 6px 17px;
+       padding: 6px 19px 6px 19px;
     text-decoration: none;
     font-size: 16px;
     color: #000033;
@@ -4406,7 +4406,7 @@ word-break: break-all;
 
 /*v 1-5-17 start */
 .fullwidth_experience select { width: 49%;}
-.rec_menubox ul { width: 278px; }
+.rec_menubox ul { width: 295px; }
 .fullwidth_experienc{margin-left: 0px;}
 /* v  1-5-17 end*/
 
@@ -4460,7 +4460,7 @@ word-break: break-all;
   left: 7px;
   visibility: visible;
 }
-.dropdown-menu{left: -50px!important;}
+.dropdown-menu{left: -23px!important;}
 
 /* vishang 4-5-17 */
 

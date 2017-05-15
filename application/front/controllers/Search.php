@@ -1082,8 +1082,8 @@ public function business_search() {
                 }
             }
         }
-
-        foreach ($result as $key => $value) {
+        $results = array_unique($result);
+        foreach ($results as $key => $value) {
             $result1[$key]['label'] = $value;
             $result1[$key]['value'] = $value;
         }
@@ -1483,6 +1483,7 @@ public function business_search() {
             $contition_array = array('status' => '1');
             $recdata = $userdata['data'] = $this->common->select_data_by_condition('freelancer_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
             // echo "<pre>"; print_r($recdata); 
+            
 
             foreach ($skilldata as $key) {
                 $id = $key['skill_id'];

@@ -617,7 +617,8 @@
                                                                                 <li>
                                                                                 </li> 
                                                                             </ul> 
-                                                                        </div>  
+                                                                        </div> 
+                                                                        <?php /* ?>
                                                                         <div class="dropdown1">
                                                                             <a onclick="myFunction(5)" class="dropbtn1 dropbtn1 fa fa-ellipsis-v">
                                                                             </a>
@@ -633,18 +634,16 @@
                                                                                 </a>
                                                                             </div>
                                                                         </div>
-                                                                        <div class="post-design-desc ">
+                                                                        <?php */ ?>
+                                                                        <div class="post-design-desc">
                                                                             <div>
                                                                                 <div id="editpostdata5" style="display:block;">
-                                                                                    <a style="margin-bottom: 0px;     font-size: 16px">
+                                                                                    <a style="margin-bottom: 0px; font-size: 16px">
                                                                                         <?php echo ucwords($p['product_name']); ?>
-
-
                                                                                     </a>
                                                                                 </div>
                                                                                 <div id="editpostbox5" style="display:none;">
                                                                                     <input type="text" id="editpostname5" name="editpostname" placeholder="Product Name" value="zalak">
-
                                                                                 </div>
                                                                             </div>                    
 

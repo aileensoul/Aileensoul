@@ -371,7 +371,7 @@ if ($user_data) {
             <?php  $contition_array = array('invite_user_id' => $row['user_id'], 'post_id' => $postid);
         $userdata = $this->common->select_data_by_condition('user_invite', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         if($userdata){ ?>
-      <a href="#" class="button invited" id="<?php echo 'invited' . $row['user_id']; ?>" > Invited</a>      
+      <a href="#" class="button invited" id="<?php echo 'invited' . $row['user_id']; ?>" style="cursor: default;"> Invited</a>      
          <?php }else{ ?>
 
               <a  href="#" class="button invite_border" id="<?php echo 'invited' . $row['user_id']; ?>" onClick="inviteusermodel(<?php echo $row['user_id']; ?>)"> Invite</a>
@@ -724,7 +724,10 @@ return false;
             url: '<?php echo base_url() . "recruiter/invite_user" ?>',
             data: 'post_id=' + post_id + '&invited_user=' + clicked_id,
             success: function (data) { //alert(data);
-                $('#' + 'invited' + clicked_id).html(data).addClass('button invited').removeClass('button invite_border');
+                $('#' + 'invited' + clicked_id).html(data).addClass('invited').removeClass('invite_border').removeAttr("onclick");
+
+               $('#' + 'invited' + clicked_id).css('cursor', 'default');
+
 
               //    $('.biderror .mes').html("<div class='pop_content'>Candidate invite successfully.");
               // $('#bidmodal').modal('show');

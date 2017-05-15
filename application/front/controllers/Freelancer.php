@@ -110,7 +110,8 @@ class Freelancer extends MY_Controller {
                 }
             }
         }
-        foreach($result as $key =>$value){
+        $results = array_unique($result);
+        foreach($results as $key =>$value){
             $result1[$key]['label']=$value;
             $result1[$key]['value']=$value;
           }
@@ -341,7 +342,8 @@ class Freelancer extends MY_Controller {
                 }
             }
         }
-        foreach($result as $key =>$value){
+        $results = array_unique($result);
+        foreach($results as $key =>$value){
             $result1[$key]['label']=$value;
             $result1[$key]['value']=$value;
           }
@@ -545,7 +547,8 @@ class Freelancer extends MY_Controller {
                 }
             }
         }
-        foreach($result as $key =>$value){
+        $results = array_unique($result);
+        foreach($results as $key =>$value){
             $result1[$key]['label']=$value;
             $result1[$key]['value']=$value;
           }
@@ -672,7 +675,8 @@ class Freelancer extends MY_Controller {
                 }
             }
         }
-        foreach($result as $key =>$value){
+        $results = array_unique($result);
+        foreach($results as $key =>$value){
             $result1[$key]['label']=$value;
             $result1[$key]['value']=$value;
           }
@@ -792,7 +796,8 @@ class Freelancer extends MY_Controller {
                 }
             }
         }
-        foreach($result as $key =>$value){
+        $results = array_unique($result);
+        foreach($results as $key =>$value){
             $result1[$key]['label']=$value;
             $result1[$key]['value']=$value;
           }
@@ -919,7 +924,8 @@ class Freelancer extends MY_Controller {
                 }
             }
         }
-        foreach($result as $key =>$value){
+        $results = array_unique($result);
+        foreach($results as $key =>$value){
             $result1[$key]['label']=$value;
             $result1[$key]['value']=$value;
           }
@@ -1048,7 +1054,8 @@ class Freelancer extends MY_Controller {
                 }
             }
         }
-        foreach($result as $key =>$value){
+        $results = array_unique($result);
+        foreach($results as $key =>$value){
             $result1[$key]['label']=$value;
             $result1[$key]['value']=$value;
           }
@@ -1746,7 +1753,7 @@ $results = array_unique($result);
        // echo "<pre>"; print_r($freedata);die();
        // echo "<pre>"; print_r($this->data['postdetail']); die();
 
-
+//code for search
         $contition_array = array('status' => '1', 'is_delete' => '0');
 
         $freelancer_postdata = $this->data['results'] = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = 'designation,freelancer_post_otherskill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
@@ -1773,7 +1780,8 @@ $results = array_unique($result);
                 }
             }
         }
-        foreach($result as $key =>$value){
+        $results = array_unique($result);
+        foreach($results as $key =>$value){
             $result1[$key]['label']=$value;
             $result1[$key]['value']=$value;
           }
@@ -1981,8 +1989,8 @@ $updatedata = $this->common->insert_data_getid($data, 'notification');
                 }
             }
         }
-        
-        foreach($result as $key =>$value){
+        $results = array_unique($result);
+        foreach($results as $key =>$value){
            
             $result1[$key]['label']=$value;
             $result1[$key]['value']=$value;
@@ -2277,7 +2285,8 @@ $this->load->view('freelancer/freelancer_hire/freelancer_save', $this->data);
                 }
             }
         }
-        foreach($result as $key =>$value){
+        $results = array_unique($result);
+        foreach($results as $key =>$value){
             $result1[$key]['label']=$value;
             $result1[$key]['value']=$value;
           }
@@ -2520,7 +2529,8 @@ $this->load->view('freelancer/freelancer_hire/freelancer_save', $this->data);
                 }
             }
         }
-        foreach($result as $key =>$value){
+        $results = array_unique($result);
+        foreach($results as $key =>$value){
             $result1[$key]['label']=$value;
             $result1[$key]['value']=$value;
           }

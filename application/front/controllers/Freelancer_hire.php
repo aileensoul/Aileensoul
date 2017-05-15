@@ -108,8 +108,8 @@ class Freelancer_hire extends MY_Controller {
                 }
             }
         }
-
-       foreach($result as $key =>$value){
+$results = array_unique($result);
+       foreach($results as $key =>$value){
             $result1[$key]['label']=$value;
             $result1[$key]['value']=$value;
           }
@@ -325,8 +325,8 @@ public function check_email() {
                 }
             }
         }
-
-       foreach($result as $key =>$value){
+        $results = array_unique($result);
+       foreach($results as $key =>$value){
             $result1[$key]['label']=$value;
             $result1[$key]['value']=$value;
           }
@@ -519,8 +519,8 @@ if(isset($_POST["state_id"]) && !empty($_POST["state_id"])){
                 }
             }
         }
-
-       foreach($result as $key =>$value){
+$results = array_unique($result);
+       foreach($results as $key =>$value){
 
             $result1[$key]['label']=$value;
             $result1[$key]['value']=$value;

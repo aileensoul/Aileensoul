@@ -931,6 +931,8 @@
                                                         <img src="<?php echo base_url(ARTPOSTIMAGE . $artdata['image_name']) ?>" style="width:100%; height: 70%;">
                                                     </div>
                                                     <!-- 9-5 like comment start -->
+                                                    
+                                                    <?php if(count($databus1) > 1){ ?>
                                                     <div class="post-design-like-box col-md-12">
                                                         <div class="post-design-menu">
                                                             <!-- like comment div start -->
@@ -1251,6 +1253,9 @@
                                                         </div>
                                                     </div>
                                                     <!-- 9-5 like comment end -->
+                                                    <?php
+                                                    }
+                                                    ?>
                                                 </div>
                                                 <?php
                                                 $i++;
