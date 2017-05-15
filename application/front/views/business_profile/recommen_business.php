@@ -191,6 +191,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/demo.css'); ?>">
         <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/3.3.0/select2.css'); ?>">
         <link href="<?php echo base_url() ?>css/fileinput.css" media="all" rel="stylesheet" type="text/css"/>
@@ -1169,6 +1170,20 @@
         });
     }
     );
+</script>
+<script src="<?php echo base_url('js/jquery.highlite.js'); ?>"></script>
+
+<script type="text/javascript">
+                                                                            var text = document.getElementById("search").value;
+//alert(text);
+
+                                                                            $(".search").highlite({
+
+                                                                                text: text
+
+
+
+                                                                            });
 </script>
 <script type="text/javascript">
     function checkvalue() {
@@ -2836,5 +2851,25 @@
         
     });
 
+</script>
+<script>
+    /* When the user clicks on the button, 
+     toggle between hiding and showing the dropdown content */
+    function myFunction(clicked_id) {
+        document.getElementById('myDropdown' + clicked_id).classList.toggle("show");
+    }
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function (event) {
+        if (!event.target.matches('.dropbtn1')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content1");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }
 </script>
 <!-- This  script use for close dropdown in every post -->
