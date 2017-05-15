@@ -203,8 +203,8 @@
          <div class="top-row">
             <div class="field-wrap full-width" style="padding-bottom: 0px;">
         <label class="fname_reg">Password<span class="req">*</span></label>
-    <input type="password" name="password1" id="password1" class="showpassword2" placeholder="Password *" s>
-                      <?php echo form_error('password1'); ?>
+    <input type="password" name="password" id="password" class="showpassword2" placeholder="Password *" s>
+                      <?php echo form_error('password'); ?>
             
 
                   
