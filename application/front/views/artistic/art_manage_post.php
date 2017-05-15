@@ -1449,6 +1449,7 @@ responsive image design start -->
                                                 $likeuser = $commnetcount[0]['art_like_user'];
                                                 $countlike = $commnetcount[0]['art_likes_count'] - 1;
                                                 $likelistarray = explode(',', $likeuser);
+                                                $likelistarray = array_reverse($likelistarray);
                                                 $art_fname = $this->db->get_where('art_reg', array('user_id' => $likelistarray[0], 'status' => 1))->row()->art_name;
                                                 $art_lname = $this->db->get_where('art_reg', array('user_id' => $likelistarray[0], 'status' => 1))->row()->art_lastname;
                                                 ?>
@@ -1494,6 +1495,7 @@ responsive image design start -->
                                             $likeuser = $commnetcount[0]['art_like_user'];
                                             $countlike = $commnetcount[0]['art_likes_count'] - 1;
                                             $likelistarray = explode(',', $likeuser);
+                                            $likelistarray = array_reverse($likelistarray);
                                             $art_fname = $this->db->get_where('art_reg', array('user_id' => $likelistarray[0], 'status' => 1))->row()->art_name;
                                             $art_lname = $this->db->get_where('art_reg', array('user_id' => $likelistarray[0], 'status' => 1))->row()->art_lastname;
                                             ?>
