@@ -2798,7 +2798,7 @@ label.cameraButton input[accept*="camera"] {
 .textbuis{    resize: none;
 
     margin-top: 10px;}
-.post-design-name ul { font-size: 0; margin: 0; padding: 0; }
+.post-design-name ul { font-size: 0; margin: 0; padding: 0!important; }
 .post-design-name ul li { list-style: none;  padding: 0; margin: 0; position: relative; }
 .post-design-name ul li a {    
     color: #000000;

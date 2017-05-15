@@ -1407,8 +1407,8 @@ public function business_search() {
                 }
             }
         }
-
-        foreach ($result as $key => $value) {
+        $results = array_unique($result);
+        foreach ($results as $key => $value) {
             $result1[$key]['label'] = $value;
             $result1[$key]['value'] = $value;
         }
@@ -1957,8 +1957,8 @@ public function business_search() {
                 }
             }
         }
-
-        foreach ($result as $key => $value) {
+        $results = array_unique($result);
+        foreach ($results as $key => $value) {
             $result1[$key]['label'] = $value;
             $result1[$key]['value'] = $value;
         }
