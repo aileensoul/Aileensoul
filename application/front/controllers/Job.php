@@ -1094,7 +1094,7 @@ class Job extends MY_Controller {
                     $data = array(
                         'edu_certificate' => $this->input->post('image_hidden_degree' . $jobdata[$x]['job_graduation_id'])
                     );
-                } else { echo 2; die();
+                } else { 
                     $data = array(
                         'edu_certificate' => $uploadData[$x]['file_name']
                     );

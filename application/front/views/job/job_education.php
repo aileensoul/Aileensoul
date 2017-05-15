@@ -687,7 +687,7 @@
                                                             <fieldset class="">
                                                                 <h6 style="font-size: 16px;">Stream :<span style="color:red">*</span></h6>
                                                                 <select name="stream[]" id="<?php echo $stream_sequence ?>" class="stream" >
-
+                                                                    <option value="">Select Degree first</option>
                                                                     <?php
                                                                     if ($stream1) {
                                                                         foreach ($stream_data as $cnt) {
@@ -882,7 +882,7 @@
                                                               <fieldset class=""> -->
                                                         <h6 style="font-size: 16px;">Stream :<span style="color:red">*</span></h6>
                                                         <select name="stream[]" id="stream1" class="stream" >
-
+                                                            <option value="">Select Degree first</option>
                                                             <?php
                                                             if ($stream1) {
                                                                 foreach ($stream_data as $cnt) {
@@ -1545,7 +1545,7 @@
                             $('#btnRemove').removeAttr('disabled', 'disabled');
                             $('#input' + newNum + ' #pass_year1').val('0');   
                             $('#input' + newNum + ' .degree').val('0'); 
-                            $('#input' + newNum + ' .stream').val('0'); 
+                            $('#input' + newNum + ' .stream').val('');
                             $('#input' + newNum + ' .university').val('0'); 
                             $('#input' + newNum + ' #percentage1').val(''); 
                             $('#input' + newNum + ' .exp_data').val(''); 
