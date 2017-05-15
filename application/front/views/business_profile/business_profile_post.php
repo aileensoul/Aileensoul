@@ -15,7 +15,7 @@
         color: #fff;
         padding: 8px 18px;
         background-color: #0A2C5D;
-        left: 168px;
+        left: 168 px;
         margin-top: 8px;
         width: 100px; 
         border-radius: 8px;
