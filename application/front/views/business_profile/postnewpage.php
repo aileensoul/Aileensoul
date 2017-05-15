@@ -828,7 +828,9 @@
 
                                                     <!-- like comment start -->
 
-
+<?php
+if(count($databus1) > 1){ 
+?>
                                                     <div>
                                                         <div class="post-design-like-box col-md-12">
                                                             <div class="post-design-menu">
@@ -1173,7 +1175,9 @@
                                                         <!-- insert comment code end -->
 
                                                     </div>
-
+<?php
+}
+?>
                                                     <!-- like comment end -->
 
                                                 </div>
