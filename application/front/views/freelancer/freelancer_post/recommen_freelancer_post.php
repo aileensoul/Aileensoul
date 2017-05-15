@@ -393,14 +393,7 @@ function text2link($text) {
                               <a href="#" title="Post Title" class="post_title " >
                               <?php echo ucwords(text2link($post['post_name'])); ?> </a>   </li>
 
-                             <!-- <li>   
-                               <div class="fr lction">
-                              <?php $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name; ?>
-                              <?php $countryname = $this->db->get_where('countries', array('country_id' => $post['country']))->row()->country_name; ?>
-
-                                <p><span title="Location"><i class="fa fa-map-marker" aria-hidden="true">  <?php echo $cityname.","; ?><?php echo $countryname; ?></i> </span></p>
-                                 </div>
-                               </li> -->
+                             
 
                          <?php
                 $firstname = $this->db->get_where('freelancer_hire_reg', array('user_id' => $post['user_id']))->row()->fullname;
