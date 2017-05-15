@@ -59,7 +59,7 @@ echo $freelancer_post_header2;
 
 <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
 
-<link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap-3.min.css'); ?>">
+<!-- <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap-3.min.css'); ?>"> -->
 <link rel="stylesheet" href="<?php echo base_url('assets/css/croppie.css'); ?>">
 
 <!-- END HEADER -->
@@ -206,12 +206,13 @@ echo $freelancer_post_header2;
    $data = $this->common->select_data_by_condition('save', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
   if($userid != $this->uri->segment(3)){ 
       if($this->uri->segment(3) != ""){
-    if (!$data) { ?> 
+    if (!$data) {  ?> 
                         <li> 
                             <input type="hidden" id="<?php echo 'hideenuser' . $this->uri->segment(3); ?>" value= "<?php echo $this->uri->segment(3); ?>">
                     <a id="<?php echo $this->uri->segment(3); ?>" onClick="savepopup(<?php echo $this->uri->segment(3); ?>)" href="javascript:void(0);" class="<?php echo 'saveduser' . $this->uri->segment(3); ?>">
                         Save
                     </a> 
+                    
                         </li> <?php } else{ ?>
                         <li> 
                            <a class="saved">Saved </a> 
@@ -602,6 +603,19 @@ if ($freelancerpostdata[0]['freelancer_post_portfolio']) {
     <footer>
 <?php echo $footer; ?>
     </footer>
+<!-- Bid-modal  -->
+  <div class="modal fade message-box biderror" id="bidmodal" role="dialog">
+                    <div class="modal-dialog modal-lm">
+                        <div class="modal-content">
+                            <button type="button" class="modal-close" data-dismiss="modal">&times;</button>         
+                            <div class="modal-body">
+                                <!--<img class="icon" src="images/dollar-icon.png" alt="" />-->
+                                <span class="mes"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Model Popup Close -->
 
 
 <!-- Bid-modal-2  -->
@@ -939,29 +953,31 @@ if ($freelancerpostdata[0]['freelancer_post_portfolio']) {
                                 $("a.designation").click(divClicked);
                             });
                         </script>
-                        
-                        <!-- save post start -->
-                    <script type="text/javascript">
-                        function save_user(abc)
+
+                <script type="text/javascript">
+                  function save_user(abc)
                         {
-                            var saveid = document.getElementById("saveuser");
-                            $.ajax({
-                                type: 'POST',
-                                url: '<?php echo base_url() . "freelancer/save_user" ?>',
-                                data: 'user_id=' + abc + 'save_id=' + saveid.value,
-                                success: function (data) {
-                                    $('.' + 'saveduser' + abc).html(data).addClass('saved');
+           var saveid = document.getElementById("hideenuser" + abc);
+                $.ajax({
+        type: 'POST',
+        url: '<?php echo base_url() . "freelancer/save_user1" ?>',
+        data: 'user_id=' + abc + '&save_id=' + saveid.value,
+        success: function (data) {
+    $('.' + 'saveduser' + abc).html(data).addClass('saved');
                                 }
                             });
                         }
                     </script>
+                        
+                        
                     <!-- pallavi changes 15-4 -->
                         
                    <script>
                         function savepopup(id) {
-
+                            //alert(id);
+                            //alert(123);
                             save_user(id);
-//                       
+                            //alert(456);
                             $('.biderror .mes').html("<div class='pop_content'>Your post is successfully saved.");
                             $('#bidmodal').modal('show');
                         }

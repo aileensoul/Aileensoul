@@ -825,7 +825,7 @@ $( "#tags" ).autocomplete({
 
 <script type="text/javascript">
 
-<!-- remove save post start -->
+// <!-- remove save post start -->
 
     function remove_post(abc)
     {

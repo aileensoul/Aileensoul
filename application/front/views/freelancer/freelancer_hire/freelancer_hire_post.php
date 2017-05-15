@@ -541,20 +541,25 @@ $freelancerapply1 = $this->data['freelancerapply'] = $this->common->select_data_
 <input type="hidden" id="<?php echo 'allpost' . $post['post_id']; ?>" value="all">
 
  <input type="hidden" id="<?php echo 'userid' . $post['post_id']; ?>" value="<?php echo $post['user_id']; ?>">
-                <a class="applypost button" href="javascript:void(0);"  class= "<?php echo 'applypost' . $post['post_id']; ?>  button" onclick="applypopup(<?php echo $post['post_id'] ?>,<?php echo $post['user_id'] ?>)">Apply</a>
+                <!-- <a class="applypost button" href="javascript:void(0);"  class= "<?php echo 'applypost' . $post['post_id']; ?>  button" onclick="applypopup(<?php echo $post['post_id'] ?>,<?php echo $post['user_id'] ?>)">Apply</a> -->
+                <a href="javascript:void(0);"  class= "<?php echo 'applypost' . $post['post_id']; ?>  button" onclick="applypopup(<?php echo $post['post_id'] ?>,<?php echo $this->uri->segment(3); ?>)">Apply</a>
                                                                     </li> 
                 <li>
                 <?php
 $userid = $this->session->userdata('aileenuser');
             
-$contition_array = array('from_id' => $userid, 'to_id' => $post['user_id'],'save_type' => 2,'status'=> 0);
-$data = $this->common->select_data_by_condition('save', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+// $contition_array = array('from_id' => $userid, 'to_id' => $post['user_id'],'save_type' => 2,'status'=> 0);
+// $data = $this->common->select_data_by_condition('save', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+$contition_array = array('user_id' => $userid, 'job_save' => '2', 'post_id ' => $post['post_id'], 'job_delete' => '1');
+ $data = $this->data['jobsave'] = $this->common->select_data_by_condition('freelancer_apply', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
             if ($data){
                 ?>
        <a class="saved  button">Saved</a>
     <?php } else { ?>
                 <input type="hidden" name="saveuser"  id="saveuser" value= "<?php echo $data[0]['save_id']; ?>"> 
-<a id="<?php echo $post['user_id']; ?>" onClick="savepopup(<?php echo $post['user_id']; ?>)" href="javascript:void(0);" class="<?php echo 'saveduser' . $post['user_id']; ?> applypost button">Save</a>
+<a id="<?php echo $post['post_id']; ?>" onClick="savepopup(<?php echo $post['post_id']; ?>)" href="javascript:void(0);" class="<?php echo 'savedpost' . $post['post_id']; ?> applypost button">Save</a>
 
                 <?php }?>
                 <?php }?>
@@ -943,7 +948,21 @@ $( "#tags" ).autocomplete({
 
 
         <!-- popup form edit END -->
+<script type="text/javascript">
+                    function save_post(abc)
+                    {
+                       // alert(abc);
+                        $.ajax({
+                            type: 'POST',
+                            url: '<?php echo base_url() . "freelancer/save_user" ?>',
+                            data: 'post_id=' + abc,
+                            success: function (data) {
+                                $('.' + 'savedpost' + abc).html(data).addClass('saved');
+                            }
+                        });
 
+                    }
+                </script>
 
         <!-- remove own post start -->
 
@@ -984,14 +1003,23 @@ $( "#tags" ).autocomplete({
                         $('.biderror .mes').html("<div class='pop_content'>Your post is successfully saved.");
                         $('#bidmodal').modal('show');
                     }
-            function applypopup(postid, userid) {
+            // function applypopup(postid, userid) {
 
-                // alert(postid);
-                // alert(userid);
+            //     // alert(postid);
+            //     // alert(userid);
                
-                $('.biderror .mes').html("<div class='pop_content'>Are you sure want to apply this post?<div class='model_ok_cancel'><a class='okbtn' id=" + postid + " onClick='apply_post(" + postid + "," + userid + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+            //     $('.biderror .mes').html("<div class='pop_content'>Are you sure want to apply this post?<div class='model_ok_cancel'><a class='okbtn' id=" + postid + " onClick='apply_post(" + postid + "," + userid + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+            //             $('#bidmodal').modal('show');
+            //         }
+
+
+            function applypopup(postid, userid) {
+                //alert(postid);
+               // alert(userid);
+                        $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to apply this post?<div class='model_ok_cancel'><a class='okbtn' id=" + postid + " onClick='apply_post(" + postid + "," + userid + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
                         $('#bidmodal').modal('show');
                     }
+           
                    
                     </script>
 <script>
@@ -1001,7 +1029,7 @@ $( "#tags" ).autocomplete({
         $('#bidmodal').modal('show');
     }
 </script>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     function apply_post(abc)
     {
     var alldata = document.getElementById("allpost" + abc);
@@ -1018,7 +1046,30 @@ $( "#tags" ).autocomplete({
             }
     });
     }
-                        </script>
+                        </script> -->
+                        <script type="text/javascript">
+                    function apply_post(abc, xyz) {
+                        //var alldata = document.getElementById("allpost" + abc);
+                        var alldata = 'all';
+                        //var user = document.getElementById("userid" + abc);
+                        var user = xyz;
+
+                        $.ajax({
+                            type: 'POST',
+                            url: '<?php echo base_url() . "freelancer/apply_insert" ?>',
+//                            data: 'post_id=' + abc + '&allpost=' + alldata.value + '&userid=' + user.value,
+                            data: 'post_id=' + abc + '&allpost=' + alldata + '&userid=' + user,
+                            success: function (data) {
+                                $('.savedpost' + abc).hide();
+                                $('.applypost' + abc).html(data);
+                                $('.applypost' + abc).attr('disabled', 'disabled');
+                                $('.applypost' + abc).attr('onclick', 'myFunction()');
+                                $('.applypost' + abc).addClass('applied');
+                            }
+                        });
+                    }
+                </script>
+
  <script>
                             function divClicked() {
                                 var divHtml = $(this).html();

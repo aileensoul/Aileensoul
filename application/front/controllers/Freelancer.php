@@ -2091,11 +2091,13 @@ $updatedata = $this->common->update_data($data, 'freelancer_apply', 'app_id', $a
     }
 
     public function save_user() {
+        //echo "hi";
 
          $id = $_POST['post_id'];
-
+         //echo $id;
 
         $userid = $this->session->userdata('aileenuser');
+      // echo $userid;
 
         $contition_array = array('post_id' => $id, 'user_id' => $userid, 'is_delete' => 0);
         $userdata = $this->common->select_data_by_condition('freelancer_apply', $contition_array, $data = '*', $sortby = 'post_id', $orderby = 'asc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
