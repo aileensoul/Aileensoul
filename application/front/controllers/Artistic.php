@@ -3171,7 +3171,7 @@ class Artistic extends MY_Controller {
                 $countlike = $commnetcount[0]['art_likes_count'] - 1;
 
                 $likelistarray = explode(',', $likeuser);
-
+             //   $likelistarray = array_reverse($likelistarray);
 
                 foreach ($likelistarray as $key => $value) {
                     $art_fname1 = $this->db->get_where('art_reg', array('user_id' => $value, 'status' => 1))->row()->art_name;
@@ -3196,7 +3196,7 @@ class Artistic extends MY_Controller {
                 $countlike = $commnetcount[0]['art_likes_count'] - 1;
 
                 $likelistarray = explode(',', $likeuser);
-
+                $likelistarray = array_reverse($likelistarray);
                 $art_fname = $this->db->get_where('art_reg', array('user_id' => $likelistarray[0], 'status' => 1))->row()->art_name;
 
                 $art_lname = $this->db->get_where('art_reg', array('user_id' => $likelistarray[0], 'status' => 1))->row()->art_lastname;
@@ -3278,7 +3278,7 @@ class Artistic extends MY_Controller {
                 $countlike = $commnetcount[0]['art_likes_count'] - 1;
 
                 $likelistarray = explode(',', $likeuser);
-
+              //  $likelistarray = array_reverse($likelistarray);
 //        echo '<pre>';
 //        print_r($likelistarray);
 //        exit;
@@ -3310,7 +3310,7 @@ class Artistic extends MY_Controller {
                 $countlike = $commnetcount[0]['art_likes_count'] - 1;
 
                 $likelistarray = explode(',', $likeuser);
-
+                $likelistarray = array_reverse($likelistarray);
                 $art_fname12 = $this->db->get_where('art_reg', array('user_id' => $likelistarray[0], 'status' => 1))->row()->art_name;
                 $art_lname12 = $this->db->get_where('art_reg', array('user_id' => $likelistarray[0], 'status' => 1))->row()->art_lastname;
 
@@ -5521,6 +5521,7 @@ class Artistic extends MY_Controller {
         $countlike = $commnetcount[0]['art_likes_count'] - 1;
 
         $likelistarray = explode(',', $likeuser);
+       // $likelistarray = array_reverse($likelistarray);
         echo '<div class="likeduser">';
         echo '<div class="likeduser-title">User List</div>';
         foreach ($likelistarray as $key => $value) {

@@ -828,6 +828,7 @@
                                                 $likeuser = $commnetcount[0]['art_like_user'];
                                                 $countlike = $commnetcount[0]['art_likes_count'] - 1;
                                                 $likelistarray = explode(',', $likeuser);
+                                               // $likelistarray = array_reverse($likelistarray);
                                                 foreach ($likelistarray as $key1 => $value) {
                                                     $art_fname1 = $this->db->get_where('art_reg', array('user_id' => $value, 'status' => 1))->row()->art_name;
                                                     $art_lname1 = $this->db->get_where('art_reg', array('user_id' => $value, 'status' => 1))->row()->art_lastname;
@@ -843,6 +844,7 @@
                                                     $countlike = $commnetcount[0]['art_likes_count'] - 1;
 
                                                     $likelistarray = explode(',', $likeuser);
+                                                    $likelistarray = array_reverse($likelistarray);
                                                     $art_fname = $this->db->get_where('art_reg', array('user_id' => $likelistarray[0], 'status' => 1))->row()->art_name;
                                                     $art_lname = $this->db->get_where('art_reg', array('user_id' => $likelistarray[0], 'status' => 1))->row()->art_lastname;
                                                     ?>
@@ -874,6 +876,7 @@
                                             $likeuser = $commnetcount[0]['art_like_user'];
                                             $countlike = $commnetcount[0]['art_likes_count'] - 1;
                                             $likelistarray = explode(',', $likeuser);
+                                          //  $likelistarray = array_reverse($likelistarray);
                                             foreach ($likelistarray as $key2 => $value) {
                                                 $art_fname1 = $this->db->get_where('art_reg', array('user_id' => $value, 'status' => 1))->row()->art_name;
                                                 $art_lname1 = $this->db->get_where('art_reg', array('user_id' => $value, 'status' => 1))->row()->art_lastname;
@@ -889,6 +892,7 @@
                                                 $countlike = $commnetcount[0]['art_likes_count'] - 1;
 
                                                 $likelistarray = explode(',', $likeuser);
+                                                $likelistarray = array_reverse($likelistarray);
                                                 $art_fname = $this->db->get_where('art_reg', array('user_id' => $likelistarray[0], 'status' => 1))->row()->art_name;
                                                 $art_lname = $this->db->get_where('art_reg', array('user_id' => $likelistarray[0], 'status' => 1))->row()->art_lastname;
                                                 ?>

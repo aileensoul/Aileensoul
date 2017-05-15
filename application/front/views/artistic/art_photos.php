@@ -841,6 +841,7 @@
                                                                             <?php
                                                                             $contition_array = array('post_image_id' => $artdata['image_id'], 'is_delete' => '0');
                                                                             $commnetcount = $this->common->select_data_by_condition('art_post_image_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                                                          //  echo '<pre>'; print_r($commnetcount);
                                                                             ?>
 
                                                                             <a onClick="commentallimg(this.id)" id="<?php echo $artdata['image_id']; ?>">
@@ -881,7 +882,7 @@
                                                                     <a href="javascript:void(0);"  onclick="likeuserlistimg(<?php echo $artdata['image_id']; ?>);">
                                                                         <?php
                                                                     $contition_array = array('post_image_id' => $artdata['image_id'], 'is_unlike' => '0');
-                                                                    $commnetcount = $this->common->select_data_by_condition('art_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                                                    $commnetcount = $this->common->select_data_by_condition('art_post_image_like', $contition_array, $data = '*', $sortby = 'post_image_like_id', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
                                                                       
                                                                       $art_fname = $this->db->get_where('art_reg', array('user_id' => $commnetcount[0]['user_id'], 'status' => 1))->row()->art_name;
@@ -911,7 +912,7 @@
                                                             <div class="<?php echo "likeusernameimg" . $artdata['image_id']; ?>" id="<?php echo "likeusernameimg" . $artdata['image_id']; ?>" style="display:none">
                                                                 <?php
                                                                  $contition_array = array('post_image_id' => $artdata['image_id'], 'is_unlike' => '0');
-                                                                 $commnetcount = $this->common->select_data_by_condition('art_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                                                 $commnetcount = $this->common->select_data_by_condition('art_post_image_like', $contition_array, $data = '*', $sortby = 'post_image_like_id', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                                                                   // echo '<pre>'; print_r($commnetcount);
                                                                     foreach ($commnetcount as $comment) {
                                                                        $art_fname1 = $this->db->get_where('art_reg', array('user_id' => $comment['user_id'], 'status' => 1))->row()->art_name;
