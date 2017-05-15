@@ -1893,7 +1893,7 @@ abbr { cursor: help; }
 
 
 .post-design-product{padding-top: 6px;}
-.profile-box-user .profile-boxProfile-name a{padding-left: 8px; font-size: 14px;}
+.profile-box-user .profile-boxProfile-name a{padding-left: 8px; font-size: 13px;}
 .profile-text-bui-user .profile-boxProfile-name a{padding-left: 8px; color: #000033;}
 
 .profile-box-menu{padding-right: 2px !important;}
@@ -2094,13 +2094,14 @@ border-bottom: 1px solid #000033;
 }
 .profile-box-bui-menu li a:hover{background-color: #000033; color: #ffffff;}
 .profile-box-bui-menu li a {
-    margin-right:1px;
+   
+    margin-right: 1px;
     display: block;
     color: #000033;
     text-align: center;
-    padding: -1px 12px;
+    padding: 2px 12px;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 13px;
     color: #000033;
     font-weight: 600;
 
@@ -2389,7 +2390,7 @@ border-bottom: 1px solid #000033;
 
 
 
-.profile-company-name a{font-size: 16px;margin-left: 8px;  text-shadow: 0px 10px 26px rgba(230, 230, 230,0.4), 0px 8px 7px rgba(0,0,0,0.1), 0px 11px 14px rgba(230,230,230,0.9);
+.profile-company-name a{font-size: 13px;margin-left: 8px;  text-shadow: 0px 10px 26px rgba(230, 230, 230,0.4), 0px 8px 7px rgba(0,0,0,0.1), 0px 11px 14px rgba(230,230,230,0.9);
                         font-weight: 600; color: #000033;}
 .add-post-button a:hover{color: #ffffff;}
 .buisness-profile-txext {z-index: 1; position: relative; display: inline-block; width: 24%;}
@@ -3186,7 +3187,7 @@ follow box*/
         /* top: 0; */
         /* right: 0; */
         margin-right: 10px}
-
+.seeall a:hover{ text-decoration-line: underline; }
 .saved, .applied{ color: #fff !important; background-color: #000033 !important;  pointer-events: none; font-weight: bold;}
 
 .image_profile{height: 120px; float: left;
