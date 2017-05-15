@@ -203,7 +203,7 @@
          <div class="top-row">
             <div class="field-wrap full-width">
         <label class="fname_reg">Password<span class="req">*</span></label>
-    <input type="password" name="password1" id="password1" class="showpassword" placeholder="Password *" style="position: relative;">
+    <input type="password" name="password1" id="password1" class="showpassword2" placeholder="Password *" style="position: relative;">
                       <?php echo form_error('password'); ?>
             
 
@@ -390,7 +390,7 @@ $('#datepicker').datetimepicker({
     $(".showpassword2").each(function(index,input) {
         var $input = $(input);
         $('<div class="checkbox2 show" style="display: block;">').append(
-            $("<input type='checkbox' class='showpasswordcheckbox2' /><h6>Show Password</h6></div> ").click(function() {
+            $("<input type='checkbox' class='showpasswordcheckbox2'  id='password1' style=' display: none;></div> ").click(function() {
                 var change = $(this).is(":checked") ? "text" : "password";
                 var rep = $("<input type='" + change + "' />")
                     .attr("id", $input.attr("id"))
