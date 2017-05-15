@@ -263,7 +263,14 @@
                                                 <a href="<?php echo base_url('freelancer/freelancer_hire_profile'); ?>" title="<?php echo $freehiredata[0]['fullname'] . " " . $freehiredata[0]['username']; ?>"> <?php echo ucwords($freehiredata[0]['fullname']) . ' ' . ucwords($freehiredata[0]['username']); ?></a>  
                                             </span>
 
-
+<div class="profile-boxProfile-name">
+          <a href="<?php echo base_url('freelancer/freelancer_hire_profile'); ?>" title="<?php echo $freehiredata[0]['fullname'] . " " . $freehiredata[0]['username']; ?>"><?php
+           if ($freehiredata[0]['designation']) {
+            echo $freehiredata[0]['designation'];
+                 } else {
+            echo "Designation";
+                }
+           ?></a></div>
                                            
 
                                         </div>
