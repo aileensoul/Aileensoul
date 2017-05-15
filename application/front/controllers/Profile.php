@@ -137,7 +137,7 @@ class Profile extends CI_Controller {
 
      public function sendEmail($app_name = '', $app_email = '', $to_email = '', $subject = '', $mail_body = '') {
 
-
+     //echo "hii"; die();
         //Loading E-mail Class
         $this->load->library('email');
 

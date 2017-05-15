@@ -162,23 +162,47 @@
                                 </div>
 
                             </div>  
-                            <?php
-                            $form_attribute = array('name' => 'forgot', 'method' => 'post', 'class' => 'forgot_password', 'id' => 'forgot_password');
-                            echo form_open('profile/forgot_password', $form_attribute);
-                            ?>
+                           
 
                             <button type="submit" id="btnShow" name="login" value="Login" class="button button-block" style="background:#87ceff!important; background-repeat: no-repeat; background-position: right center">Log In</button>
                             <div class="c_account">
                                 <span style="font-size: 14px;">Don't have an account?</span>
                                 <a  href="<?php echo base_url('registration'); ?>">Create an account</a>
                             </div>
-                            <!-- Modal -->
+    
 
-                            <div id="myModal" class="modal">
+                </div>
+
+            </div>
+
+        </div>
+        </form>
+
+
+
+        </div>
+        </div>
+
+
+        </div>       
+
+  </section>
+
+  <!-- Modal strat-->
+
+<div id="myModal" class="modal">
 
   <!-- Modal content -->
+
+  
+
   <div class="modal-content">
     <div class="modal-header">
+
+     <?php
+        $form_attribute = array('name' => 'forgot', 'method' => 'post', 'class' => 'forgot_password', 'id' => 'forgot_password');
+        echo form_open('profile/forgot_password', $form_attribute);
+    ?>
       <span class="close">&times;</span>
       <label style="color: #a0b3b0;">Forgot Password</label>
     </div>
@@ -189,26 +213,18 @@
     </div>
     <div class="modal-footer ">
       <!--  <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
-       -->                        <div class="submit_btn">              <input class="btn btn-theme" type="submit" name="submit" value="Submit" /> 
+       -->                        <div class="submit_btn">              
+       <input class="btn btn-theme" type="submit" name="submit" value="Submit" /> 
        </div>
+
     </div>
+    </form>
   </div>
 
 </div>
-                    </form>
+                
+<!-- model end -->
 
-                </div>
-
-            </div>
-
-        </div>
-        </form>
-        </div>
-        </div>
-
-
-        </div>
-  </section>
   <footer style="background-color: #f2f4f4;">
         <div class="container">
             <div class="row">
