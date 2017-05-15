@@ -153,7 +153,7 @@
         <div id="login2"> 
 
            
-<?php echo form_open_multipart(base_url('registration/reg_insert'),array('id' => 'regform','name' => 'regform','class' => "clearfix", 'autocomplete' => "off"));
+<?php echo form_open_multipart(base_url('registration/reg_insert'),array('id' => 'regform','name' => 'regform','class' => "clearfix"));
   
   if ($this->session->flashdata('error')) 
                {
@@ -187,7 +187,7 @@
           <div class="top-row">
             <div class="field-wrap full-width">
              <label class="fname_reg">Email Address <span class="req">*</span></label>
-             <input type="text" name="email" id="email" placeholder="" value="<?php if($email){ echo $email; }?>" autocomplete="off">
+             <input type="text" name="email" id="email" placeholder="" value="">
               <?php echo form_error('email'); ?>
             </div>
         
@@ -202,14 +202,18 @@
               
          <div class="top-row">
             <div class="field-wrap full-width">
-        <label class="fname_reg">Password<span class="req">*</span></label>
-    <input type="password" name="password" id="password" class="showpassword" placeholder="Password *" style="position: relative;" autocomplete="off">
-                      <?php echo form_error('password'); ?>
+     <!--    <label class="fname_reg">Password<span class="req">*</span></label> -->
+    <input type="password" name="password1" id="password1" class="showpassword2" placeholder="Password *" style="position: relative;">
+                      <?php echo form_error('password1'); ?>
             
 
-                        <label for="password1" style="    position: absolute;
+                  
+<label for="checkbox_eye"  style="    position: absolute;
     top: 8px;
-    right: 35px;" ><img style="height: 20px; width: 20px;" src="<?php echo base_url('images/eye.png'); ?>"></label>
+    right: 35px;" >
+  <img style="height: 20px; width: 20px;" src="<?php echo base_url('images/eye.png'); ?>">
+</label>
+
             </div>
         
          <!--    <div class="field-wrap">
@@ -365,32 +369,13 @@ $('#datepicker').datetimepicker({
         }, 180000);
 
 
- $(function(){
-    $(".showpassword").each(function(index,input) {
-        var $input = $(input);
-        $('<div class="checkbox2 show" style="display: block;">').append(
-            $("<input type='checkbox' class='showpasswordcheckbox'  id='password1' style='display: none;' /></div> ").click(function() {
-                var change = $(this).is(":checked") ? "text" : "password";
-                var rep = $("<input type='" + change + "' />")
-                    .attr("id", $input.attr("id"))
-                    .attr("name", $input.attr("name"))
-                    .attr('class', $input.attr('class'))
-                    .val($input.val())
-                    .insertBefore($input);
-                $input.remove();
-                $input = rep;
-             })
-        ).insertAfter($input);
-    });
-});
-
 
 
  $(function(){
     $(".showpassword2").each(function(index,input) {
         var $input = $(input);
         $('<div class="checkbox2 show" style="display: block;">').append(
-            $("<input type='checkbox' class='showpasswordcheckbox2' /><h6>Show Password</h6></div> ").click(function() {
+            $("<input type='checkbox' class='showpasswordcheckbox2'  id='checkbox_eye' style='display:none;'></div> ").click(function() {
                 var change = $(this).is(":checked") ? "text" : "password";
                 var rep = $("<input type='" + change + "' />")
                     .attr("id", $input.attr("id"))
@@ -726,4 +711,16 @@ $('#datepicker').datetimepicker({
 $(document).ready(function() {
   $('.field-wrap input').phAnim();
 });
+</script>
+
+<script type="text/javascript">
+function init() {
+   
+    document.getElementById("regform").reset();
+    $('#regform').find('input[type=password]').reset();
+}
+
+
+window.onload = init;
+
 </script>

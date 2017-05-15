@@ -73,7 +73,7 @@ class Registration extends CI_Controller {
         $this->form_validation->set_rules('fname', 'Firstname', 'required');
         $this->form_validation->set_rules('lname', 'Lastname', 'required');
         $this->form_validation->set_rules('email', 'Store  email', 'required|valid_email');
-        $this->form_validation->set_rules('password', 'Password', 'trim|required');
+        $this->form_validation->set_rules('password1', 'Password', 'trim|required');
         // $this->form_validation->set_rules('password2', 'Confirm Password', 'trim|required|matches[password]');
         $this->form_validation->set_rules('datepicker','DOB','required'); 
         $this->form_validation->set_rules('gen', 'Gender', 'required');
@@ -102,7 +102,7 @@ class Registration extends CI_Controller {
                  'first_name' => $this->input->post('fname'),
                  'last_name' => $this->input->post('lname'),
                  'user_email' => $this->input->post('email'),
-                 'user_password' => md5($this->input->post('password')),
+                 'user_password' => md5($this->input->post('password1')),
                  'user_dob' => $this->input->post('datepicker'),
                  'user_gender' => $this->input->post('gen'),
                  'user_agree' => '1',

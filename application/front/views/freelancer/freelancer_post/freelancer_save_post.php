@@ -838,13 +838,13 @@ $( "#tags" ).autocomplete({
 
     function remove_post(abc)
     {
-        // alert(abc);     
+         alert(abc);     
 
 
     var savepara = 'save';
         $.ajax({
             type: 'POST',
-            url: '<?php echo base_url() . "freelancer/remove_save" ?>',
+            url: '<?php echo base_url() . "freelancer/freelancer_delete_apply" ?>',
             data: 'app_id=' + abc + '&para=' + savepara,
             success: function (data) {
                 $('#' + 'postdata' + abc).html(data);
