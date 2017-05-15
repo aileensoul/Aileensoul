@@ -540,6 +540,9 @@ class Job extends MY_Controller {
 
                 $contition_array = array('user_id' => $userid, 'grad_step' => 1, 'status' => 1);
                 $jobdata1 = $this->data['jobdata1'] = $this->common->select_data_by_condition('job_add_edu', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                
+                 $contition_array = array('user_id' => $userid);
+                $jobgrad = $this->data['jobgrad'] = $this->common->select_data_by_condition('job_graduation', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                 // echo "<pre>";print_r( $this->data['jobdata']);die();
             }
         }
@@ -1002,7 +1005,7 @@ class Job extends MY_Controller {
 //Insert Higher Secondary Education Data End
 //Insert Degree Education Data start
    public function job_education_insert() {
-        //echo "<pre>";print_r($_FILES);
+      // echo "<pre>";print_r($_FILES);
         //echo "<pre>";print_r($_POST);die();
 
         $userid = $this->session->userdata('aileenuser');
@@ -1073,11 +1076,9 @@ class Job extends MY_Controller {
         // Multiple Image insert code End
         $contition_array = array('user_id' => $userid);
         $jobdata = $this->data['jobdata'] = $this->common->select_data_by_condition('job_graduation', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-       // echo '<pre>'; print_r($jobdata); die();
+       //echo '<pre>'; print_r($jobdata); die();
  
         if ($jobdata) {
-
-
 
             //Edit Multiple field into database Start 
             for ($x = 0; $x < $count1; $x++) {
@@ -1087,18 +1088,18 @@ class Job extends MY_Controller {
                 $edu_certificate = $files['certificate']['name'][$x];
                 //echo  $edu_certificate;die();
          //    echo $jobdata[$x]['job_graduation_id']; 
-
+//echo $edu_certificate;
                 if ($edu_certificate == "") {
-
+                  // echo $jobdata[$x]['job_graduation_id']; echo 1; die();
                     $data = array(
-                        'edu_certificate' => $this->input->post('image_hidden_degree' . $jobdata[$x]['edu_id'])
+                        'edu_certificate' => $this->input->post('image_hidden_degree' . $jobdata[$x]['job_graduation_id'])
                     );
-                } else {
+                } else { echo 2; die();
                     $data = array(
                         'edu_certificate' => $uploadData[$x]['file_name']
                     );
                 }
-                $updatedata = $this->common->update_data($data, 'job_add_edu', 'edu_id', $jobdata[$x]['edu_id']);
+                $updatedata = $this->common->update_data($data, 'job_graduation', 'job_graduation_id', $jobdata[$x]['job_graduation_id']);
 
               $i = $x + 1;
              // echo $userdata[0]['education_data'][$x]; die();
@@ -1112,7 +1113,7 @@ class Job extends MY_Controller {
                     'grade' => $userdata[0]['grade'][$x],
                     'percentage' => $userdata[0]['percentage'][$x],
                     'pass_year' => $userdata[0]['pass_year'][$x],
-                    'edu_certificate'=>  $uploadData[$x]['file_name'],
+                   // 'edu_certificate'=>  $uploadData[$x]['file_name'],
                  //   'grad_step' => 1
                     'degree_count' => $i
                 );
@@ -3703,7 +3704,13 @@ public function job_applied_post() {
         if($delete_data){
             echo 'ok';
         }
+    } 
+    public function job_edu_delete(){
+        $grade_id = $_POST['grade_id'];
+        $delete_data = $this->common->delete_data('job_graduation', 'job_graduation_id', $grade_id);
+        if($delete_data){
+            echo 'ok';
+        }
     }
-
 //reactivate accont end    
 }

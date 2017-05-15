@@ -625,21 +625,21 @@
 
                                                 <?php
                                                 $predefine_data = 1;
-                                                if ($jobdata1) {
-                                                    $count = count($jobdata1);
+                                                if ($jobgrad) {
+                                                    $count = count($jobgrad);
                                                     //echo"<pre>";print_r($jobdata1);die();
                                                     for ($x = 0; $x < $count; $x++) {
 
-                                                        $degree1 = $jobdata1[$x]['degree'];
-                                                        $stream1 = $jobdata1[$x]['stream'];
-                                                        $university1 = $jobdata1[$x]['university'];
-                                                        $college1 = $jobdata1[$x]['college'];
-                                                        $grade1 = $jobdata1[$x]['grade'];
-                                                        $percentage1 = $jobdata1[$x]['percentage'];
-                                                        $pass_year1 = $jobdata1[$x]['pass_year'];
-                                                        $degree_sequence = $jobdata1[$x]['degree_sequence'];
-                                                        $stream_sequence = $jobdata1[$x]['stream_sequence'];
-                                                        $edu_certificate1 = $jobdata1[$x]['edu_certificate'];
+                                                        $degree1 = $jobgrad[$x]['degree'];
+                                                        $stream1 = $jobgrad[$x]['stream'];
+                                                        $university1 = $jobgrad[$x]['university'];
+                                                        $college1 = $jobgrad[$x]['college'];
+                                                        $grade1 = $jobgrad[$x]['grade'];
+                                                        $percentage1 = $jobgrad[$x]['percentage'];
+                                                        $pass_year1 = $jobgrad[$x]['pass_year'];
+                                                        $degree_sequence = $jobgrad[$x]['degree_sequence'];
+                                                        $stream_sequence = $jobgrad[$x]['stream_sequence'];
+                                                        $edu_certificate1 = $jobgrad[$x]['edu_certificate']; 
 
                                                         $y = $x + 1;
                                                         
@@ -650,7 +650,7 @@
                                                         }
                                                         ?>   
                                                         
-                                                        <div id="input<?php echo $y ?>" style="margin-bottom:4px;" class="clonedInput">
+                                                        <div id="input<?php echo $y ?>" style="margin-bottom:4px;" class="clonedInput job_work_edit_<?php echo $jobgrad[$x]['job_graduation_id']?>">
                                                             <input type="hidden" name="education_data[]" value="old" class="exp_data" id="exp_data<?php echo $y; ?>">
                                                             <fieldset class="">
                                                                 <h6 style="font-size: 16px;">Degree :<span style="color:red">*</span></h6>
@@ -815,23 +815,33 @@
                                                             </fieldset>
 
 
-                                                            <input type="hidden" name="image_hidden_degree<?php echo $jobdata1[$x]['edu_id']; ?>" value="<?php
+                                                            <input type="hidden" name="image_hidden_degree<?php echo $jobgrad[$x]['job_graduation_id']; ?>" value="<?php
                                                             if ($edu_certificate1) {
                                                                 echo $edu_certificate1;
                                                             }
                                                             ?>">
+                                                            
+                                                            <?php if ($y != 1) {
+                                                                    ?>
+                                                                    <div style="float: left;">
+                                                                        <div class="hs-submit full-width fl">
+                                                                            <input type="button" value="Delete" onclick="delete_job_exp(<?php echo $jobgrad[$x]['job_graduation_id']; ?>);">
+                                                                        </div>
+                                                                    </div>
+                                                                <?php } ?>
                                                         </div>
                                                         <?php
                                                     }
                                                     ?>
+                                                <div class="fr">
+                                                <input type="button" id="btnRemove" style="padding: 5px;font-size: 13px;margin-right: 0px;" value=" Remove Education "   />
+                                                </div>
                                                     <div class="fr">
                                                         <input type="button" id="btnAdd" style="padding: 5px;font-size: 13px;margin-right: 0px;" value=" Add More Education ">
                                                     </div>
-                                                    <div class="fr">
+                                                   <div class="fr">
                                                         <input type="submit"  id="next" name="next" value="Submit">
                                                         <!--<input type="submit"  id="add_edu" name="add_edu" value="Add More Education">--> 
-
-
                                                     </div>
                                                     <?php
                                                 } else {
@@ -1646,15 +1656,15 @@
                         } 
                     </style>-->
                     <script type="text/javascript">
-                        function delete_job_work(work_id) {
+                        function delete_job_exp(grade_id) {
                             $.ajax({
                                 type: 'POST',
-                                url: '<?php echo base_url() . "job/jon_work_delete" ?>',
-                                data: 'work_id=' + work_id,
+                                url: '<?php echo base_url() . "job/job_edu_delete" ?>',
+                                data: 'grade_id=' + grade_id,
                                 // dataType: "html",
                                 success: function (data) {
                                     if (data == 'ok') {
-                                        $('.job_work_edit_' + work_id).remove();
+                                        $('.job_work_edit_' + grade_id).remove();
                                     }
                                 }
                             });
