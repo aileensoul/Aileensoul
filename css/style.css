@@ -528,7 +528,7 @@ fieldset.full-width { width: 100%; }
 
 
 
-#row1 {margin: 0 auto; border: 1px solid #d9d9d9; position: relative; height: 350px; overflow: hidden; }
+#row1 {margin: 0 auto; border: 1px solid #d9d9d9; border-top:none;  position: relative; height: 350px; overflow: hidden; }
 
 .cover-pic { position: absolute !important; left: 25px; top: 0; z-index: 99; }
 .cover-pic .btn { display: block; }
@@ -2782,7 +2782,7 @@ label.cameraButton input[accept*="camera"] {
 .post-design-menu ul li { list-style: none; display: inline-block; padding: 0; margin: 0; position: relative; }
 .post-design-menu ul li a { font-size: 18px; color: #000033; padding: 10px 15px 10px; font-weight: 400; display: block;  }
 .post-design-menu ul li a i {cursor: pointer; font-size: 22px;}
-.post-design-menu ul li a:hover {border-radius: 30%; background: #fff; color: #000033; pa}
+.post-design-menu ul li a:hover {border-radius: 10%; background: #d9d9d9; color: #000033; }
 .post-design-name ul li a h6 { 
     font-weight: 600;
 }
@@ -3747,6 +3747,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2c539e', end
 .padding_less_right{padding-right:0px; }
 
 #padding_dash #row1 .text-center{padding-left: 0px!important;}
+#paddingtop_fixed #row1 .text-center{padding-left: 0px!important;}
 .flw_msg_btn ul li button{ 
     width: 90px;
     padding: 8px 0px;
