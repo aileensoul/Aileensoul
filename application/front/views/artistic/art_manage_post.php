@@ -542,17 +542,17 @@ responsive image design start -->
                             </tr>
 
                             <tr>
-                                <td class="business_data_td1"><i class="fa fa-lightbulb-o" aria-hidden="true"></i></td>
+                                <td class="business_data_td1 detaile_map"><i class="fa fa-lightbulb-o" aria-hidden="true"></i></td>
                                 <td class="business_data_td2"><span><?php echo $artisticdata[0]['art_yourart']; ?></span></td>
                             </tr>
 
                             <tr>
-                                <td class="business_data_td1"><i class="fa fa-file-text" aria-hidden="true"></i></td>
+                                <td class="business_data_td1 detaile_map"><i class="fa fa-file-text" aria-hidden="true"></i></td>
                                 <td class="business_data_td2"><span><?php echo $this->common->make_links($artisticdata[0]['art_desc_art']); ?></span></td>
                             </tr>
 
                             <tr>
-                                <td class="business_data_td1"><i class="fa fa-envelope-o" aria-hidden="true"></i></td>
+                                <td class="business_data_td1 detaile_map"><i class="fa fa-envelope-o" aria-hidden="true"></i></td>
                                 <td class="business_data_td2"><span><?php echo $artisticdata[0]['art_email']; ?></span></td>
                             </tr>
                             <tr>
