@@ -350,14 +350,7 @@ if ($freepostdata[0]['designation']) {
                                 <div class="contact-frnd-post">
                                     <!-- <div > -->
                                         <!-- start -->
-                                        <?php
-                                        function text2link($text) {
-                                            $text = preg_replace('/(((f|ht){1}t(p|ps){1}:\/\/)[-a-zA-Z0-9@:%_\+.~#?&\/\/=]+)/i', '<a href="\\1" target="_blank" rel="nofollow">\\1</a>', $text);
-                                            $text = preg_replace('/([[:space:]()[{}])(www.[-a-zA-Z0-9@:%_\+.~#?&\/\/=]+)/i', '\\1<a href="http://\\2" target="_blank" rel="nofollow">\\2</a>', $text);
-                                            $text = preg_replace('/([_\.0-9a-z-]+@([0-9a-z][0-9a-z-]+\.)+[a-z]{2,3})/i', '<a href="mailto:\\1" rel="nofollow" target="_blank">\\1</a>', $text);
-                                            return $text;
-                                        }
-                                        ?>
+                                        
                                         <?php
                                    
                                         if($postdetail){
@@ -366,36 +359,14 @@ if ($freepostdata[0]['designation']) {
                                                 ?>
                                                 <div class="job-post-detail clearfix">
                                                     <!-- pop up box start-->
-                               <div id="popup1" class="overlay">
-                                       <div class="popup">
-                                        <div class="pop_content">
-                                         Your Post is Successfully Saved.
-                                 <p class="okk"><a class="okbtn" href="#">Ok</a></p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                               
                                                 
-   <div class="job-contact-frnd ">
-                                        <div class="profile-job-post-detail clearfix" id="<?php echo "removeapply" . $post['post_id']; ?>">
+                                    <div class="job-contact-frnd ">
+                                        <div class="profile-job-post-detail clearfix" style="margin-bottom: 0px;" id="<?php echo "removeapply" . $post['post_id']; ?>">
                                             <div class="profile-job-post-title-inside clearfix">
 
 
-                                                <!-- pop up box start-->
-                                                <!-- <div id="<?php echo 'popup3' . $post['post_id']; ?>" class="overlay">
-                                                    <div class="popup"> -->
-<!-- khati changes 11-4 start -->
-                                                        <!-- div class="pop_content">
-                                                            Are You Sure want to delete this post?.
-
-                                                            <p class="okk"><a class="okbtn" id="<?php echo $post['post_id']; ?>" onClick="remove_post(this.id)" href="#">Yes</a></p>
-
-                                                            <p class="okk"><a class="cnclbtn" href="#">No</a></p>
-
-                                                        </div> -->
-<!-- khati changes 11-4 end -->
-                                                   <!--  </div>
-                                                </div> -->
-                                                <!-- pop up box end-->
+                                                
                   <div class="profile-job-post-title clearfix" style="margin-bottom:0px">
                   <div class="profile-job-profile-button clearfix">
                      <div class="profile-job-details col-md-12">
@@ -407,7 +378,7 @@ if ($freepostdata[0]['designation']) {
                             </li>
                              <li>
                               <a href="#" title="Post Title" class="display_inline" style="font-size: 19px;font-weight: 600;cursor: default;">
-                              <?php echo ucwords(text2link($post['post_name'])); ?> </a>   </li>
+                              <?php echo ucwords($post['post_name']); ?> </a>   </li>
 
                              <li>   
                                <div class="fr lction">
@@ -464,7 +435,7 @@ if ($freepostdata[0]['designation']) {
                                                                     <li><b>Other Skill</b><span><?php echo "-"; ?></span></li><?php } ?>
 
                                                                 <li><b>Post Description</b><span><p>
-                         <?php if($post['post_description']){echo text2link($post['post_description']);}else{echo PROFILENA;} ?> </p></span>
+                         <?php if($post['post_description']){echo $post['post_description'];}else{echo PROFILENA;} ?> </p></span>
                                                                 </li>
                                                                 <li><b>Rate</b><span>
                                   <?php if($post['post_rate']){
@@ -547,7 +518,11 @@ $userid = $this->session->userdata('aileenuser');
 
                                                 </div>
 
-                                                        <?php }
+                                                       
+                                    </div>
+
+
+                                     <?php }
                                         } }else{
                                             ?>
                                          <div class="text-center rio">
@@ -555,7 +530,6 @@ $userid = $this->session->userdata('aileenuser');
                                             </div>
                                         <?php
                                         } ?> 
-                                    </div>
                                     <div class="col-md-1">
                                     </div>
                                 </div>
