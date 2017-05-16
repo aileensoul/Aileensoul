@@ -453,7 +453,7 @@ if ($freepostdata[0]['designation']) {
                                                                     <b>Required Experience</b>
                                                             <span>
                         <?php if($post['post_exp_month'] ||  $post['post_exp_year']){
-            echo $post['post_exp_year'];   ?> &nbsp;&nbsp;<?php  echo $post['post_exp_month'];}
+            echo $post['post_exp_year'].".";?>&nbsp;<?php  echo $post['post_exp_month']." Year";}
                 else{echo PROFILENA;} ?>
                                                                     </span>
                                                                 </li>
@@ -498,7 +498,7 @@ $userid = $this->session->userdata('aileenuser');
  $data = $this->data['jobsave'] = $this->common->select_data_by_condition('freelancer_apply', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
             if ($data){
                 ?>
-       <a class="saved  button">Saved</a>
+       <a class="saved  button <?php echo 'savedpost' . $post['post_id']; ?>">Saved</a>
     <?php } else { ?>
              
 <a id="<?php echo $post['post_id']; ?>" onClick="savepopup(<?php echo $post['post_id']; ?>)" href="javascript:void(0);" class="<?php echo 'savedpost' . $post['post_id']; ?> button">Save</a>
