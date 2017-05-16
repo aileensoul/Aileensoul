@@ -418,8 +418,10 @@
                                                         <div class="profile-job-profile-button clearfix box_search_module" style="height: 16%;">
                                                             <div class="profile-job-post-location-name-rec">
                                                                 <div class="module_Ssearch" style="display: inline-block; float: left;">
-                                                                    <div class="search_img">
-                                                                        <img src="<?php echo base_url(USERIMAGE . $p['business_user_image']); ?>" alt="" >
+                                                    <div class="search_img">
+                                                    <a style="  font-size: 19px;
+                                                   font-weight: 600;" href="<?php echo base_url('business_profile/business_profile_manage_post/' . $p['business_slug']); ?>" title="">
+                                                         <img src="<?php echo base_url(USERIMAGE . $p['business_user_image']); ?>" alt="" > </a>
                                                                     </div>
                                                                 </div>
                                                                 <div class="designation_rec" style="    float: left;
@@ -447,10 +449,10 @@
                                                                             </a>
                                                                         </li>
                                                                         <li style="display: block;">
-                                                                            <a  class="color-search">
-                                                                                <?php
-                                                                                $cityname = $this->db->get_where('cities', array('city_id' => $p['city']))->row()->city_name;
-                                                                                $countryname = $this->db->get_where('countries', array('country_id' => $p['country']))->row()->country_name;
+                                          <a  class="color-search">
+                              <?php
+                                  $cityname = $this->db->get_where('cities', array('city_id' => $p['city']))->row()->city_name;
+                                             $countryname = $this->db->get_where('countries', array('country_id' => $p['country']))->row()->country_name;
                                                                                 ?>
                                                                                 <?php
                                                                                 if ($cityname || $countryname) {
@@ -562,20 +564,32 @@
                                                                             $userimageposted = $this->db->get_where('business_profile', array('user_id' => $p['posted_user_id']))->row()->business_user_image;
                                                                             ?>
 
+                                                                            <?php
+                                                                                $slugname = $this->db->get_where('business_profile', array('user_id' => $p['user_id'], 'status' => 1))->row()->business_slug;
+
+                                                                                $slugnameposted = $this->db->get_where('business_profile', array('user_id' => $p['posted_user_id'], 'status' => 1))->row()->business_slug;
+                                                                                ?>
+
                                                                             <?php if ($p['posted_user_id']) {
                                                                                 ?>
 
-                                                                                <?php if ($userimageposted) { ?>
-                                                                                    <img src="<?php echo base_url(USERIMAGE . $userimageposted); ?>" name="image_src" id="image_src" />
-                                                                                <?php } else { ?>
-                                                                                    <img alt="" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
-                                                                                <?php } ?>
+                                                          <?php if ($userimageposted) { ?>
+                                                          <a class="post_dot" href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugnameposted); ?>" title="">
+                                                             <img src="<?php echo base_url(USERIMAGE . $userimageposted); ?>" name="image_src" id="image_src" />
+                                                             </a>
+                                                                 <?php } else { ?>
+                                                                 <a class="post_dot" href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugnameposted); ?>" title="">
 
-                                                                            <?php } else { ?>
-                                                                                <?php if ($business_userimage) { ?>
-                                                                                    <img  src="<?php echo base_url(USERIMAGE . $business_userimage); ?>"  alt="">
-                                                                                <?php } else { ?>
-                                                                                    <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
+                                                              <img alt="" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
+                                                                 <?php } ?> </a>
+
+                                                                 <?php } else { ?>
+                                                           <?php if ($business_userimage) { ?>
+                                                           <a class="post_dot" href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>" title="">
+                                                          <img  src="<?php echo base_url(USERIMAGE . $business_userimage); ?>"  alt=""> </a>
+                                                             <?php } else { ?>
+                                                             <a class="post_dot" href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>" title="">
+                                                              <img src="<?php echo base_url(NOIMAGE); ?>" alt=""> </a>
                                                                                     <?php
                                                                                 }
                                                                             }
@@ -586,12 +600,12 @@
 
                                                                                 <li>
                                                                                 </li>
-                                                                                <?php
+                                                                                <!-- <?php
                                                                                 $slugname = $this->db->get_where('business_profile', array('user_id' => $p['user_id'], 'status' => 1))->row()->business_slug;
-                                                                                ?>
+                                                                                ?> -->
                                                                                 <li>
                                                                                     <div class="post-design-product">
-                                                                                        <a class="post_dot" href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>" title=""><?php echo ucwords($p['company_name']); ?>
+                                              <a class="post_dot" href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>" title=""><?php echo ucwords($p['company_name']); ?>
                                                                                         </a>
                                                                                         <div class="datespan">  <span style="font-weight: 400;
                                                                                                                       font-size: 14px;
