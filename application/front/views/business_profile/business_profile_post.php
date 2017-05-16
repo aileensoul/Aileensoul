@@ -766,15 +766,7 @@
                     <!-- popup end -->    
                     <div class="col-md-7 col-sm-7 all-form-content ">
                         <!-- body content start-->
-                        <?php
-
-                        function text2link($text) {
-                            $text = preg_replace('/(((f|ht){1}t(p|ps){1}:\/\/)[-a-zA-Z0-9@:%_\+.~#?&\/\/=]+)/i', '<a href="\\1" target="_blank" rel="nofollow">\\1</a>', $text);
-                            $text = preg_replace('/([[:space:]()[{}])(www.[-a-zA-Z0-9@:%_\+.~#?&\/\/=]+)/i', '\\1<a href="http://\\2" target="_blank" rel="nofollow">\\2</a>', $text);
-                            $text = preg_replace('/([_\.0-9a-z-]+@([0-9a-z][0-9a-z-]+\.)+[a-z]{2,3})/i', '<a href="mailto:\\1" rel="nofollow" target="_blank">\\1</a>', $text);
-                            return $text;
-                        }
-                        ?>
+                       
                         <?php
 //echo "<pre>"; print_r($businessprofiledata); die();
                         foreach ($businessprofiledata as $row) {
@@ -826,11 +818,11 @@
 
                                                 <?php } else { ?>
                                                     <?php if ($business_userimage) { ?>
-                                                    <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugnameposted); ?>">
+                                                    <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>">
                                                         <img  src="<?php echo base_url(USERIMAGE . $business_userimage); ?>"  alt="">
                                                         </a>
                                                     <?php } else { ?>
-                                                    <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugnameposted); ?>">
+                                                    <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>">
                                                         <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
                                                         </a>
                                                         <?php

@@ -69,7 +69,7 @@
                                 <fieldset class="full-width" <?php if ($skills) { ?> class="error-msg" <?php } ?>>
                                     <label class="control-label">Skills:<span style="color:red">*</span></label>
 
-                                    <select class="skill_other" name="skills[]" id="skills" multiple="multiple" >
+                                    <select class="skill_other" name="skills[]" id="skills" multiple="multiple">
                                     </select> 
                                     <?php echo form_error('skills'); ?>
                                 </fieldset>
@@ -256,7 +256,7 @@
 
                                 <fieldset <?php if ($maxsal) { ?> class="error-msg" <?php } ?>>
                                     <label class="control-label">Max salary:(Per Year)</label>
-                                    <input name="maxsal" type="text" id="maxsal" onblur='CheckValue11()'  placeholder="Enter Maximum salary" /><span id="fullname-error"></span>
+                                    <input name="maxsal" type="text" id="maxsal" placeholder="Enter Maximum salary" /><span id="fullname-error"></span>
 <?php echo form_error('maxsal'); ?>
                                 </fieldset>
 
@@ -408,6 +408,7 @@ $.validator.addMethod("greaterThan",
                 'skills[]': {
 
                     require_from_group: [1, ".skill_other"],
+
 
                 },
                 other_skill: {
@@ -827,14 +828,4 @@ $.validator.addMethod("greaterThan",
     });
 //select2 autocomplete End for Location
 </script>
-<!-- <script>
-var CheckValue11 = function() { //alert('hi');
-   var firstBox = $('#minsal').val();
-   var secondBox = $('#maxsal').val();
-  
-  if (parseInt(secondBox) < parseInt(firstBox)){
-  alert('box 1 cannot be greater than box 2');
-  return false;
-    }
-   }   
-  </script> -->
+
