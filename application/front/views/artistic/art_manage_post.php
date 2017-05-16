@@ -1070,10 +1070,12 @@ responsive image design start -->
                                             ?>
 
                                             <?php if ($row['posted_user_id']) { ?>
-                                                <img src="<?php echo base_url(ARTISTICIMAGE . $userimageposted); ?>" name="image_src" id="image_src" / >
+                                            <a  class="post_dot" title="<?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?>" href="<?php echo base_url('artistic/art_manage_post/' . $row['posted_user_id']); ?>">
+                                                <img src="<?php echo base_url(ARTISTICIMAGE . $userimageposted); ?>" name="image_src" id="image_src" / > </a>
 
                                                  <?php } else { ?>
-                                                     <img src="<?php echo base_url(ARTISTICIMAGE . $userimage); ?>" name="image_src" id="image_src" / >
+                                                 <a class="post_dot"  href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>">
+                                                     <img src="<?php echo base_url(ARTISTICIMAGE . $userimage); ?>" name="image_src" id="image_src" / > </a>
 
                                                  <?php } ?>
                                         </div>
@@ -1548,6 +1550,7 @@ responsive image design start -->
                                                             <div class="post-design-pro-comment-img"> 
                                                                 <?php $art_userimage = $this->db->get_where('art_reg', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->art_user_image; ?>
                                                                 <?php if ($art_userimage) { ?>
+                                                                <a href="<?php echo base_url('artistic/art_manage_post/' . $rowdata['user_id'] . ''); ?>">
                                                                     <img  src="<?php echo base_url(ARTISTICIMAGE . $art_userimage); ?>"  alt="">
                                                                     <?php
                                                                 } else {
@@ -3744,14 +3747,6 @@ responsive image design start -->
                         return false;
                     }
 
-                } else if (foundPresentvideo == false) {
-
-                    $('.biderror .mes').html("<div class='pop_content'>This File Format is not supported Please Try to Upload MP4 or WebM files..");
-                    $('#bidmodal').modal('show');
-                    setInterval('window.location.reload()', 10000);
-                    event.preventDefault();
-                    return false;
-
                 } else if (foundPresentvideo == true)
                 {
 
@@ -3801,6 +3796,15 @@ responsive image design start -->
                         return false;
                     }
                 }
+                else if (foundPresentvideo == false) {
+
+                    $('.biderror .mes').html("<div class='pop_content'>This File Format is not supported Please Try to Upload MP4 or WebM files..");
+                    $('#bidmodal').modal('show');
+                    setInterval('window.location.reload()', 10000);
+                    event.preventDefault();
+                    return false;
+
+                } 
             }
         }
     }
