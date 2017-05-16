@@ -208,7 +208,7 @@
     </div>
     <div class="modal-body">
         <label  style="margin-bottom: 15px; color: #a0b3b0;"> Enter your e-mail address below to get your password.</label>
-                                            <input style="" type="text" name="forgot_email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
+                                            <input style="" type="text" id="forgot_email" name="forgot_email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
 
     </div>
     <div class="modal-footer ">
