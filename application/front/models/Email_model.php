@@ -93,7 +93,7 @@ class Email_model extends CI_Model {
         // attachment
         //if ($attachment_url != NULL)
         //  $this->email->attach( $attachment_url );
-            
+          //  echo $to; die();
          $this->email->from('aileensoul@gmail.com', 'Aileensoul');
         $this->email->to($to);
         $this->email->reply_to('no-replay@aileensoul.com', 'Explendid Videos');
@@ -101,7 +101,7 @@ class Email_model extends CI_Model {
         $this->email->message($msg);
         $this->email->send();
    
-        //echo $this->email->print_debugger(); die();
+        echo $this->email->print_debugger(); die();
     }
     
 

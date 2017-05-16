@@ -15,7 +15,7 @@
         color: #fff;
         padding: 8px 18px;
         background-color: #0A2C5D;
-        left: 170px;
+        left: 168 px;
         margin-top: 8px;
         width: 100px; 
         border-radius: 8px;
@@ -369,7 +369,7 @@
                                             </span>
                                             <?php $category = $this->db->get_where('industry_type', array('industry_id' => $businessdata[0]['industriyal'], 'status' => 1))->row()->industry_name; ?>
                                             <div class="profile-boxProfile-name">
-                                                <a style="padding-left: 1px;" href="<?php echo base_url('business_profile/business_profile_manage_post/'); ?> " title="<?php echo ucwords($businessdata[0]['company_name']); ?>" >
+                                                <a style="padding-left: 4px;" href="<?php echo base_url('business_profile/business_profile_manage_post/'); ?> " title="<?php echo ucwords($businessdata[0]['company_name']); ?>" >
                                                     <b> <?php echo $category; ?></b>
                                                 </a>
                                             </div>

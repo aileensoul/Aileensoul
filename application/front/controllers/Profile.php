@@ -10,7 +10,7 @@ class Profile extends CI_Controller {
 //        if (!$this->session->userdata('user_id')) {
 //            redirect('login', 'refresh');
 //        }
-        
+         $this->load->model('email_model');
         
         include ('include.php');
     }
@@ -115,8 +115,17 @@ class Profile extends CI_Controller {
                 
                 $rand_password = rand(100000, 999999);
                 $email_formate = $this->common->select_data_by_id('emails', 'emailid', '2', 'varsubject,varmailformat');
+                //echo "<pre>"; print_r($email_formate); die();
+
                 $mail_body = str_replace("%name%", $forgot_email_check[0]['rec_firstname'] . $forgot_email_check[0]['rec_lastname'] , str_replace("%user_email%", $forgot_email_check[0]['rec_email'], str_replace("%password%",   $rand_password, stripslashes($email_formate[0]['varmailformat']))));
-                $this->sendEmail($this->data['main_site_name'], $this->data['main_site_email'], $forgot_email, $email_formate[0]['varsubject'], $mail_body);
+
+                $msg = "foooffff";
+$subject = "password";
+
+echo $forgot_email;
+                $this->email_model->do_email($msg, $subject,'raval.khyati13@gmail.com','');
+die();
+            $this->sendEmail($this->data['main_site_name'], $this->data['main_site_email'], $forgot_email, $email_formate[0]['varsubject'], $mail_body);
 
                
 
@@ -136,8 +145,8 @@ class Profile extends CI_Controller {
 
 
      public function sendEmail($app_name = '', $app_email = '', $to_email = '', $subject = '', $mail_body = '') {
-
-
+//echo $to_email; die(); 
+     //echo "hii"; die();
         //Loading E-mail Class
         $this->load->library('email');
 
@@ -175,7 +184,7 @@ class Profile extends CI_Controller {
         $config['charset'] = "utf-8";
         $config['mailtype'] = "html";
         $config['newline'] = "\r\n";
-
+ echo '<pre>'; print_r($config); die();
         $this->email->initialize($config);
         $this->email->from($config['smtp_user'], $app_name);
         $this->email->to($to_email);
@@ -186,9 +195,9 @@ class Profile extends CI_Controller {
         $this->email->message(html_entity_decode($mail_body));
 
         if ($this->email->send()) {
-            return true;
+            return true; 
         } else {
-            return FALSE;
+            return FALSE; 
         }
     }
 

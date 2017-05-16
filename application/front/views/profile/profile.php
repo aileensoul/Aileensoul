@@ -42,7 +42,7 @@
 			<fieldset>				
 
 						<label>Birthday:</label>
-                        <input type="text" name="dob" id="datepicker" placeholder="dd/mm/yyyy"   autocomplete="off" value="<?php echo date('Y-m-d', strtotime($userdata[0]['user_dob']))?>" >
+                        <input type="text" name="datepicker" id="datepicker" placeholder="dd/mm/yyyy"   autocomplete="off" value="<?php echo date('Y-m-d', strtotime($userdata[0]['user_dob']))?>" >
 
 					<!-- <input name="dob"  type="date" id="date" class="form-control"  value="<?php //echo date('Y-m-d', strtotime($userdata[0]['user_dob']))?>"   onblur="return email_id();"/> <span id="email-error"></span> -->
 					
@@ -52,9 +52,9 @@
 
                     <fieldset>
                       <label>Gender</label>
-                      <input type="radio" name="gender" value="M" <?php if($userdata[0]['user_gender'] == M){ echo 'checked'; } ?>>Male
-                      <input type="radio" name="gender" value="F" <?php if($userdata[0]['user_gender'] == F){ echo 'checked'; } ?>>Female
-                    <input type="radio" name="gender" value="O" <?php if($userdata[0]['user_gender'] == O){ echo 'checked'; } ?>> Other
+                      <input type="radio" id="gen" name="gender" value="M" <?php if($userdata[0]['user_gender'] == M){ echo 'checked'; } ?>>Male
+                      <input type="radio" id="gen" name="gender" value="F" <?php if($userdata[0]['user_gender'] == F){ echo 'checked'; } ?>>Female
+                    <input type="radio" id="gen" name="gender" value="O" <?php if($userdata[0]['user_gender'] == O){ echo 'checked'; } ?>> Other
   
                      
 					<?php echo form_error('gender'); ?>
@@ -76,7 +76,7 @@
                     <fieldset class="hs-submit full-width">
 
 
-                        <input type="reset" value="Reset" name="cancel">
+                        <!-- <input type="reset" value="Reset" name="cancel"> -->
                       <input type="submit" value="submit" name="submit" id="submit">
                       								
                     </fieldset>
@@ -138,4 +138,90 @@ $('#datepicker').datetimepicker({
         </div> -->
         <?php echo $footer;  ?>
     </footer>
+
+
+<script type="text/javascript" src="<?php echo base_url('js/jquery-1.11.1.min.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo base_url() ?>js/jquery.validate.min.js"></script>
+<script type="text/javascript">
+                               $(document).ready(function () { 
+
+                $("#basicinfo").validate({
+
+                    rules: {
+                      
+                        first_name: {
+
+                            required: true,
+                            //pattern: /^[A-Za-z]{0,}$/
+                        },
+                        last_name: {
+
+                            required: true,
+                             //pattern: /^[A-Za-z]{0,}$/
+                        },
+                        email: {
+
+                            required: true,
+                            email:true,
+                             remote: {
+                                url: "<?php echo site_url() . 'registration/check_email' ?>",
+                                type: "post",
+                                data: {
+                                    email: function () {
+                                     // alert("hi");
+                                        return $("#email").val();
+                                    },
+                                    '<?php echo $this->security->get_csrf_token_name(); ?>': '<?php echo $this->security->get_csrf_hash(); ?>',
+                                },
+                              },
+                        },
+                        
+                        datepicker: {
+
+                            required: true
+                            // date: true
+                        },
+                        gen: {
+
+                            required: true,
+                        }
+                       
+                    },
+
+                    messages: {
+
+                      
+                        first_name: {
+
+                            required: "First Name Is Required.",
+                            
+                        },
+                        last_name: {
+
+                            required: "Last Name Is Required."
+                        },
+                         email: {
+
+                            required: "Email Address Is Required.",
+                             email:"Please Enter Valid Email Id.",
+                              remote: "Email already exists"
+                        },
+                        
+                         datepicker: {
+
+                            required: "Date of Birth Is Required."
+
+                        },
+                         
+                        gen: {
+
+                            required: "Gender Is Required."
+                        }
+                 
+                    },
+
+                });
+                   });
+
+</script>
     
