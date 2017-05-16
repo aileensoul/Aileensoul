@@ -315,7 +315,8 @@ body {
 </ul>
 </div>
 
-   <div class="col-md-2" style="width:23%;">
+   <div class="col-md-2" style="    width: 24%;
+    padding-right: 0px!important;">
                 <div class="flw_msg_btn fr">
                     <ul>
                     <?php
