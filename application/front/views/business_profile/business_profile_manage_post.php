@@ -3559,11 +3559,11 @@
             </script>
             <script type="text/javascript">
 
-                $(document).ready(function () {
-                    $('.modal-close').on('click', function () {
-                        $('.modal-post').hide();
-                    });
-                });
+                // $(document).ready(function () {
+                //     $('.modal-close').on('click', function () {
+                //         $('.modal-post').hide();
+                //     });
+                // });
 
             </script>
 
