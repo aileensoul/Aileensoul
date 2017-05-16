@@ -527,7 +527,7 @@
                                             </li>
 
                                             <li>
-                                                <a href="<?php echo base_url('chat/abc/' . $businessdata1[0]['user_id']); ?>">Message</a></li>
+                                                <a style="margin-top: 7px;" href="<?php echo base_url('chat/abc/' . $businessdata1[0]['user_id']); ?>">Message</a></li>
                                         <?php } ?>
 
                                     </ul>   
