@@ -1136,8 +1136,8 @@
                                                         ?>
 
                                                         <!-- one image start -->
-                                                        <div id="basic-responsive-image" style="height: 80%; width: 100%;">
-                                                            <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img src="<?php echo base_url(ARTPOSTIMAGE . $artmultiimage[0]['image_name']) ?>" style="width: 100%; height: 100%;"> </a>
+                                                        <div id="basic-responsive-image">
+                                                            <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img style="width: 100%; height: auto; min-height: initial;" src="<?php echo base_url(ARTPOSTIMAGE . $artmultiimage[0]['image_name']) ?>" > </a>
                                                         </div>
                                                         <!-- one image end -->
 
