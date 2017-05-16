@@ -838,7 +838,7 @@ $( "#tags" ).autocomplete({
 
     function remove_post(abc)
     {
-         alert(abc);     
+         //alert(abc);     
 
 
     var savepara = 'save';
@@ -851,7 +851,7 @@ $( "#tags" ).autocomplete({
                 $('#' + 'postdata' + abc).parent().removeClass();
                 var numItems = $('.contact-frnd-post .job-contact-frnd').length;
                 if (numItems == '0') {
-                    var nodataHtml = "<div class='text-center rio'><h4 class='page-heading  product-listing' style='border:0px;margin-bottom: 11px;'>No Saved Job Found.</h4></div>";
+                    var nodataHtml = "<div class='text-center rio'><h4 class='page-heading  product-listing' style='border:0px;margin-bottom: 11px;'>No Saved Posts Found.</h4></div>";
                     $('.contact-frnd-post').html(nodataHtml);
                 }
             }

@@ -301,15 +301,7 @@ Details</a>
                     <h3>Applied Posts</h3>
                     <div class="contact-frnd-post">
 
-<?php
-
-function text2link($text) {
-    $text = preg_replace('/(((f|ht){1}t(p|ps){1}:\/\/)[-a-zA-Z0-9@:%_\+.~#?&\/\/=]+)/i', '<a href="\\1" target="_blank" rel="nofollow">\\1</a>', $text);
-    $text = preg_replace('/([[:space:]()[{}])(www.[-a-zA-Z0-9@:%_\+.~#?&\/\/=]+)/i', '\\1<a href="http://\\2" target="_blank" rel="nofollow">\\2</a>', $text);
-    $text = preg_replace('/([_\.0-9a-z-]+@([0-9a-z][0-9a-z-]+\.)+[a-z]{2,3})/i', '<a href="mailto:\\1" rel="nofollow" target="_blank">\\1</a>', $text);
-    return $text;
-}
-?>                               
+                         
                         <?php
                         if ($postdata) {
 
@@ -319,24 +311,7 @@ function text2link($text) {
                                     <div class="job-detail clearfix" id="<?php echo "removeapply" . $post['app_id']; ?>">
 
 
-                                        <!-- pop up box start-->
-                                        <div id="<?php echo 'popup3' . $post['app_id']; ?>" class="overlay">
-                                            <div class="popup">
-
-                                                <div class="pop_content">
-                                                    Are You Sure you want to delete this post?.
-
-                                                    <input type="hidden" id="<?php echo 'removehidden' . $post['app_id']; ?>" value="applied">
-
-                                                    <p class="okk"><a class="okbtn" id="<?php echo $post['app_id']; ?>" onClick="remove_post(this.id)" href="#">OK</a></p>
-
-                                                    <p class="okk"><a class="cnclbtn" href="#">Cancle</a></p>
-
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                        <!-- pop up box end-->
+                                        
 
 
                                               
@@ -345,39 +320,26 @@ function text2link($text) {
                                             <div class="profile-job-post-title-inside clearfix">
 
 
-                                                <!-- pop up box start-->
-                                                <!-- <div id="<?php echo 'popup3' . $post['post_id']; ?>" class="overlay">
-                                                    <div class="popup"> -->
-<!-- khati changes 11-4 start -->
-                                                        <!-- div class="pop_content">
-                                                            Are You Sure want to delete this post?.
-
-                                                            <p class="okk"><a class="okbtn" id="<?php echo $post['post_id']; ?>" onClick="remove_post(this.id)" href="#">Yes</a></p>
-
-                                                            <p class="okk"><a class="cnclbtn" href="#">No</a></p>
-
-                                                        </div> -->
-<!-- khati changes 11-4 end -->
-                                                   <!--  </div>
-                                                </div> -->
-                                                <!-- pop up box end-->
+                                                
                   <div class="profile-job-post-title clearfix" style="margin-bottom:0px">
                   <div class="profile-job-profile-button clearfix">
                      <div class="profile-job-details col-md-12">
                           <ul>
                            <li class="fr">
                               Applied Date : <?php 
-                                                if($post['modify_date'])
+                                                if($post['modify_date'] != 0000-00-00)
                                                     { 
 
                                                     echo date('d-M-Y', strtotime($post['modify_date'])); 
+                                                    }else{
+                                                       echo date('d-M-Y', strtotime($post['created_date']));  
                                                     }
                                                     
                                                     ?>
                             </li>
                              <li>
                               <a href="#" title="Post Title" class="post_title">
-                              <?php echo ucwords(text2link($post['post_name'])); ?> </a>   </li>
+                              <?php echo ucwords( $this->common->make_links($post['post_name'])); ?> </a>   </li>
 
                             <!--  <li>   
                                <div class="fr lction">
@@ -442,7 +404,7 @@ function text2link($text) {
                                                                     <li><b>Other Skill</b><span><?php echo "-"; ?></span></li><?php } ?>
 
                                                                 <li><b>Post Description</b><span><p>
-                                                                            <?php if($post['post_description']){echo text2link($post['post_description']);}else{echo PROFILENA;} ?> </p></span>
+                                                                            <?php if($post['post_description']){echo  $this->common->make_links($post['post_description']);}else{echo PROFILENA;} ?> </p></span>
                                                                 </li>
                                                                 <li><b>Rate</b><span>
                                                                         <?php if($post['post_rate']){
