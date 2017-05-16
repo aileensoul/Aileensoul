@@ -349,7 +349,6 @@ class Search extends CI_Controller {
             foreach ($value as $ke => $val) {
                 if ($val != "") {
 
-
                     $result[] = $val;
                 }
             }
@@ -359,10 +358,6 @@ class Search extends CI_Controller {
         $unique_items = array_unique($result);
         // echo "<pre>";print_r($unique_items);die();
         $this->data['demo'] = array_values($unique_items);
-
-
-
-
 
         $this->load->view('artistic/recommen_candidate', $this->data);
     }
