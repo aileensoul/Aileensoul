@@ -284,9 +284,11 @@
                                                 <li class="fl" style="padding-left: 0px;">
                                                     <div class="follow-img">
                                                         <?php if ($user['art_user_image'] != '') { ?>
-                                                            <img src="<?php echo base_url(ARTISTICIMAGE . $user['art_user_image']); ?>" height="50px" width="50px" alt="" >
+                                                        <a href="<?php echo base_url('artistic/art_manage_post/' . $user['user_id']); ?>">
+                                                            <img src="<?php echo base_url(ARTISTICIMAGE . $user['art_user_image']); ?>" height="50px" width="50px" alt="" > </a>
                                                         <?php } else { ?>
-                                                            <img alt="" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
+                                                        <a href="<?php echo base_url('artistic/art_manage_post/' . $user['user_id']); ?>">
+                                                            <img alt="" src="<?php echo base_url(NOIMAGE); ?>" alt="" /> </a>
                                                         <?php } ?> 
                                                     </div>
                                                 </li>

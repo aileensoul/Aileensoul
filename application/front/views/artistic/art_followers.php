@@ -371,15 +371,19 @@ if($status == 0 || $status == " "){?>
 
                             <li class="fl" style="padding-left: 0px;">
                             <div class="follow-img">
+                            <?php 
+                 $followerid =  $this->db->get_where('art_reg',array('art_id' => $user['follow_from']))->row()->user_id; ?>
+
 
                             <?php 
                  $followerusername =  $this->db->get_where('art_reg',array('art_id' => $user['follow_from']))->row()->art_user_image; ?>
 
                                   <?php if($followerusername != ''){ ?>
-                            <img src="<?php echo base_url(ARTISTICIMAGE . $followerusername);?>" height="50px" width="50px" alt="" >
+                                  <a href="<?php echo base_url('artistic/art_manage_post/'.$followerid); ?>">
+                            <img src="<?php echo base_url(ARTISTICIMAGE . $followerusername);?>" height="50px" width="50px" alt="" > </a>
                             <?php } else { ?>
-
-                            <img alt=""  src="<?php echo base_url(NOIMAGE); ?>" alt="" />
+                            <a href="<?php echo base_url('artistic/art_manage_post/'.$followerid); ?>">
+                            <img alt=""  src="<?php echo base_url(NOIMAGE); ?>" alt="" /></a>
 
                             
 
@@ -394,9 +398,7 @@ if($status == 0 || $status == " "){?>
                  $followername =  $this->db->get_where('art_reg',array('art_id' => $user['follow_from']))->row()->art_name;
                  $art_lastname =  $this->db->get_where('art_reg',array('art_id' => $user['follow_from']))->row()->art_lastname;  ?>
 
-                 <?php 
-                 $followerid =  $this->db->get_where('art_reg',array('art_id' => $user['follow_from']))->row()->user_id; ?>
-
+                 
                                 <a href="<?php echo base_url('artistic/art_manage_post/'.$followerid); ?>"><?php echo ucwords($followername); echo "&nbsp;"; echo ucwords($art_lastname);?></a></div>
                             </li>
                             
