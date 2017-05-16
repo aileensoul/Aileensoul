@@ -381,6 +381,14 @@ $('#skils').select2().select2('val', complex)
 // });
             //validation for edit email formate form
 
+
+$.validator.addMethod("greaterThan",
+    function(value, max, min){
+        return parseInt(value) > parseInt($(min).val());
+    }, "minimum salary not greater than maximum salary"
+);
+
+
             $(document).ready(function () { 
 
                 $("#basicinfo").validate({
@@ -470,6 +478,13 @@ $('#skils').select2().select2('val', complex)
                             
                             required: true
                             
+                        },
+                        minsal:{
+                            number: true,
+                        },
+                        maxsal:{
+                           number: true,
+                            greaterThan: '#minsal'
                         },
 
                        
