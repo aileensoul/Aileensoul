@@ -3136,15 +3136,7 @@
                                             return false;
                                         }
 
-                                    } else if (foundPresentvideo == false) {
-
-                                        $('.biderror .mes').html("<div class='pop_content'>This File Format is not supported Please Try to Upload MP4 or WebM files..");
-                                        $('#bidmodal').modal('show');
-                                        setInterval('window.location.reload()', 10000);
-                                        event.preventDefault();
-                                        return false;
-
-                                    } else if (foundPresentvideo == true)
+                                    }  else if (foundPresentvideo == true)
                                     {
 
                                         var foundPresent1 = $.inArray(ext1, allowesvideo) > -1;
@@ -3191,6 +3183,16 @@
                                             event.preventDefault();
                                             return false;
                                         }
+                                    }
+
+                                    else if (foundPresentvideo == false) {
+
+                                        $('.biderror .mes').html("<div class='pop_content'>This File Format is not supported Please Try to Upload MP4 or WebM files..");
+                                        $('#bidmodal').modal('show');
+                                        setInterval('window.location.reload()', 10000);
+                                        event.preventDefault();
+                                        return false;
+
                                     }
 
                                 }
