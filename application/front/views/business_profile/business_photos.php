@@ -919,18 +919,21 @@
                                                                             $busmulimage = $this->common->select_data_by_condition('bus_post_image_comment', $contition_array, $data = '*', $sortby = 'post_image_comment_id', $orderby = 'DESC', $limit = '1', $offset = '', $join_str = array(), $groupby = '');
 
                                                                             if ($busmulimage) {
-                                                                                foreach ($busmulimage as $rowdata) {
-                                                                                    $companyname = $this->db->get_where('business_profile', array('user_id' => $rowdata['user_id']))->row()->company_name;
+                                           foreach ($busmulimage as $rowdata) {
+                                  $companyname = $this->db->get_where('business_profile', array('user_id' => $rowdata['user_id']))->row()->company_name;
                                                                                     ?>
+                                        <?php $slug =  $this->db->get_where('business_profile',array('user_id' => $rowdata['user_id']))->row()->business_slug;?>
+
 
                                                                                     <div class="all-comment-comment-box">
 
                                                                                         <div class="post-design-pro-comment-img"> 
-                                                                                            <?php
-                                                                                            $business_userimage = $this->db->get_where('business_profile', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->business_user_image;
+                                                                         <?php
+                                                          $business_userimage = $this->db->get_where('business_profile', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->business_user_image;
                                                                                             ?>
-
-                                                                                            <img  src="<?php echo base_url(USERIMAGE . $business_userimage); ?>"  alt="">
+<a href="<?php echo base_url('business_profile/business_profile_manage_post/'.$slug); ?>">
+                                                          <img  src="<?php echo base_url(USERIMAGE . $business_userimage); ?>"  alt="">
+                                                                                            </a>
                                                                                         </div>
 
                                                                                         <div class="comment-name">

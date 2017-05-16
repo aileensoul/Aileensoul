@@ -406,9 +406,12 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
 
                  ?>
                                 <?php if($followerimage != ''){ ?>
+                                <a href="<?php echo base_url('business_profile/business_profile_manage_post/'.$followerslug); ?>">
                            <img src="<?php echo base_url(USERIMAGE . $followerimage);?>" height="50px" width="50px" alt="" >
+                           </a>
                             <?php } else { ?>
-                            <img alt="" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
+                            <a href="<?php echo base_url('business_profile/business_profile_manage_post/'.$followerslug); ?>">
+                            <img alt="" src="<?php echo base_url(NOIMAGE); ?>" alt="" /></a>
                             <?php } ?> 
                             </div>
                             </li>

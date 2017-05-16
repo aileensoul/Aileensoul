@@ -376,9 +376,17 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
 
                             <li class="fl">
                             <div class="follow-img">
+                            <?php $slug =  $this->db->get_where('business_profile',array('business_profile_id' => $user['follow_to']))->row()->business_slug;?>
+
                                  <?php if($this->db->get_where('business_profile',array('business_profile_id' => $user['follow_to']))->row()->business_user_image != ''){ ?>
+
+                                 
+                                 <a href="<?php echo base_url('business_profile/business_profile_manage_post/'.$slug); ?>">
+
                            <img src="<?php echo base_url(USERIMAGE . $this->db->get_where('business_profile',array('business_profile_id' => $user['follow_to']))->row()->business_user_image);?>" height="50px" width="50px" alt="" >
+                           </a>
                             <?php } else { ?>
+                            <a href="<?php echo base_url('business_profile/business_profile_manage_post/'.$slug); ?>">
                             <img alt="" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
                             <?php } ?> 
                             </div>
@@ -387,8 +395,8 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
                              <div class="">
                          <div class="follow-li-text " style="padding: 0;">
 
-                         <?php $slug =  $this->db->get_where('business_profile',array('business_profile_id' => $user['follow_to']))->row()->business_slug;?>
-
+                         <!-- <?php $slug =  $this->db->get_where('business_profile',array('business_profile_id' => $user['follow_to']))->row()->business_slug;?>
+ -->
                                 <a href="<?php echo base_url('business_profile/business_profile_manage_post/'.$slug); ?>"><?php echo  $this->db->get_where('business_profile',array('business_profile_id' => $user['follow_to']))->row()->company_name;?></a></div>
 
 
