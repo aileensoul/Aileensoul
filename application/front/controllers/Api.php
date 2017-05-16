@@ -9,12 +9,14 @@ class Api extends CI_Controller {
 		parent::__construct();
 		
 		$this->load->model('Chat_model');
+                $this->load->model('common');
 	}
 	
 	
 	public function send_message($id)
 	{   $userid  = $this->session->userdata('aileenuser'); 
 		$message = $this->input->get('message', null);
+		$message = $this->common->make_links($message);
 		$nickname = $this->input->get('nickname', '');
 		$guid = $this->input->get('guid', '');
 		

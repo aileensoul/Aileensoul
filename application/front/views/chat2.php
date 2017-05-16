@@ -206,8 +206,7 @@ if($lstusrdata){?>
                <!--  <input id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." /> -->
                 <form name="blog">
                
-                <div class="comment" contentEditable="true" name="comments" id="message" style="position: relative;">
-                </div>
+                <div class="comment" contentEditable="true" name="comments" id="message"  style="position: relative;"></div>
 <div for="smily" style="position: absolute;
 z-index: 9; 
     top: 7px;
@@ -281,9 +280,7 @@ z-index: 9;
                <!--  <input id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." /> -->
                 <form name="blog">
                
-               <div class="form-control input-sm" contentEditable="true" name="comments" id="message  smily" style="position: relative;">
-            
-              </div>
+               <div class="form-control input-sm" contentEditable="true" name="comments"  id="message  smily" style="position: relative;"></div>
 <div for="smily" style="position: absolute;
     top: 7px;
     right: 61px;
@@ -380,12 +377,38 @@ var sendChat = function (message, callback) {
 
   var fname = '<?php echo $logfname; ?>';
   var lname = '<?php echo $loglname; ?>';
-  
-  $.getJSON('<?php echo base_url() . 'api/send_message/' . $toid ?>?message=' + message + '&nickname='  + fname + ' ' + lname +  '&guid=' + getCookie('user_guid'), function (data){
+  var message = message;
+  var str = message.replace(/&nbsp;/g, "");
+  var str = str.replace(/ /g, "");
+//   alert(str);
+     if(str == '<div><br></div><div><br></div>' || str == '<div><br></div>'){
+//      //   alert('11111');
+      return false;
+     }else{
+//        // alert('2222');
+         $.getJSON('<?php echo base_url() . 'api/send_message/' . $toid ?>?message=' + str + '&nickname='  + fname + ' ' + lname +  '&guid=' + getCookie('user_guid'), function (data){
     callback();
-  });
+  }); 
+     }
+  $('#message').keypress(function (e) { 
+                               
+                                if (e.keyCode == 13 && !e.shiftKey) {
+                                    e.preventDefault();// alert('4444');
+                                    var sel = $("#message");
+                                    var txt = sel.html();
+                                    if (txt == '') {//alert('5555');
+      return false;
+    }else{
+       $.getJSON('<?php echo base_url() . 'api/send_message/' . $toid ?>?message=' + txt + '&nickname='  + fname + ' ' + lname +  '&guid=' + getCookie('user_guid'), function (data){
+    callback();
+  }); 
+    }
+        }
+                                     }); 
+                                     
+                    
 }
- 
+
 var append_chat_data = function (chat_data) {
   chat_data.forEach(function (data) {
     var is_me = data.guid == getCookie('user_guid');
