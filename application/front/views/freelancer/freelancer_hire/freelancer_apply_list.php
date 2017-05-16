@@ -338,9 +338,9 @@
  <?php  $contition_array = array('invite_user_id' => $row['user_id'], 'post_id' => $postid, 'profile' => 'freelancer');
         $userdata = $this->common->select_data_by_condition('user_invite', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         if($userdata){ ?>
-          <a href="javascript:void(0);" class="button invited" id="<?php echo 'invited' . $row['user_id']; ?>" > Invited</a>       
+          <a href="javascript:void(0);" class="button invited" id="<?php echo 'invited' . $row['user_id']; ?>" style="cursor: default;"> Selected</a>       
          <?php }else{ ?>
-         <a  href="#" class="button invite_border" id="<?php echo 'invited' . $row['user_id']; ?>" onClick="inviteuserpopup(<?php echo $row['user_id']; ?>)"> Invite</a>
+         <a  href="#" class="button invite_border" id="<?php echo 'invited' . $row['user_id']; ?>" onClick="inviteuserpopup(<?php echo $row['user_id']; ?>)"> Select</a>
               <!-- <a href="javascript:void(0);" class="button invite_border" id="<?php echo 'invited' . $row['user_id']; ?>" onclick="inviteuserpopup(<?php echo $row['user_id']; ?>)"> Invite</a> -->
           <?php  } ?>
 
@@ -485,7 +485,8 @@ function checkvalue(){
             url: '<?php echo base_url() . "freelancer/free_invite_user" ?>',
             data: 'post_id=' + post_id + '&invited_user=' + clicked_id,
             success: function (data) { //alert(data);
-                $('#' + 'invited' + clicked_id).html(data).addClass('button invited').removeClass('button invite_border');
+                $('#' + 'invited' + clicked_id).html(data).addClass('invited').removeClass('invite_border').removeAttr("onclick");
+                 $('#' + 'invited' + clicked_id).css('cursor', 'default');
 
             }
         });
@@ -548,20 +549,20 @@ $('#searchplace').select2({
 <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
 
 <script>
-                        function savepopup(id) {
+function savepopup(id) {
                           //alert(123);
-                            save_user(id);
+    save_user(id);
                             //alert(456);
                       
-            $('.biderror .mes').html("<div class='pop_content'>Your post is successfully saved.");
-            $('#bidmodal').modal('show');
-                        }
-                    </script>
+  $('.biderror .mes').html("<div class='pop_content'>Candidate Successfully save.");
+  $('#bidmodal').modal('show');
+ }
+ </script>
 
-                    <script >
-                  function inviteuserpopup(abc){
+<script >
+function inviteuserpopup(abc){
 
-    $('.biderror .mes').html("<div class='pop_content'>Do you want to invite this candidate?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='inviteuser(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+    $('.biderror .mes').html("<div class='pop_content'>Do you want to select this candidate?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='inviteuser(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
     $('#bidmodal').modal('show');
 
    } 

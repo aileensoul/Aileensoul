@@ -201,7 +201,7 @@ label.cameraButton input[accept*="camera"] {
 
 <div class="left-side-menu col-md-2">   </div>
         
-       <div class="profile-main-box-buis-menu  col-md-8">  
+       <div class="profile-main-box-buis-menu  col-md-7">  
  <ul class="">
  
                                     <li <?php if($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'art_manage_post'){?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/art_manage_post/'.$artisticdata[0]['user_id']); ?>"> Dashboard</a>
@@ -262,7 +262,50 @@ $followingotherdata = $this->data['followingotherdata'] =  $this->common->select
                                 </ul>
 
 </div>
+  <?php 
+                    $userid  = $this->session->userdata('aileenuser'); 
+                    if($artisticdata[0]['user_id'] != $userid){
+                      ?>
+            <div class="col-md-2 padding_les" style="width: 24%;">
+                <div class="flw_msg_btn">
+                    <ul>
 
+                        <li class="<?php echo "fruser" . $artisticdata[0]['art_id']; ?>">
+
+<?php
+$userid = $this->session->userdata('aileenuser');
+
+$contition_array = array('user_id' => $userid, 'status' => '1');
+
+$bup_id = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+$status = $this->db->get_where('follow', array('follow_type' => 1, 'follow_from' => $bup_id[0]['art_id'], 'follow_to' => $artisticdata[0]['art_id']))->row()->follow_status;
+//echo "<pre>"; print_r($status); die();
+
+if ($status == 0 || $status == " ") {
+    ?>
+
+                                <div id= "followdiv">
+                                    <button id="<?php echo "follow" . $artisticdata[0]['art_id']; ?>" onClick="followuser(<?php echo $artisticdata[0]['art_id']; ?>)">Follow</a>
+                                </div>
+<?php } elseif ($status == 1) { ?>
+                                <div id= "unfollowdiv">
+                                    <button id="<?php echo "unfollow" . $artisticdata[0]['art_id']; ?>" onClick="unfollowuser(<?php echo $artisticdata[0]['art_id']; ?>)"> Following</a>
+                                </div>
+
+
+<?php } ?>
+                        </li>
+
+                        <li>
+                            <a href="<?php echo base_url('chat/abc/' . $artisticdata[0]['user_id']); ?>">Message</a></li>
+
+                    </ul>
+                </div>
+            </div>
+            <?php
+                    }
+            ?>
 </div>
 
               <!-- pickup -->
@@ -683,3 +726,45 @@ $( "#tags" ).autocomplete({
 //aarati code end
 </script>
 <!-- cover image end -->
+
+
+<!-- follow user script start -->
+
+<script type="text/javascript">
+    function followuser(clicked_id)
+    { //alert(clicked_id);
+
+        $.ajax({
+            type: 'POST',
+            url: '<?php echo base_url() . "artistic/follow" ?>',
+            data: 'follow_to=' + clicked_id,
+            success: function (data) {
+
+                $('.' + 'fruser' + clicked_id).html(data);
+
+            }
+        });
+    }
+</script>
+
+<!--follow like script end -->
+
+<!-- Unfollow user script start -->
+
+<script type="text/javascript">
+    function unfollowuser(clicked_id)
+    {
+
+        $.ajax({
+            type: 'POST',
+            url: '<?php echo base_url() . "artistic/unfollow" ?>',
+            data: 'follow_to=' + clicked_id,
+            success: function (data) {
+
+                $('.' + 'fruser' + clicked_id).html(data);
+
+            }
+        });
+    }
+</script>
+

@@ -306,7 +306,7 @@ echo $freelancer_hire_header2;} ?>
                 <div class="flw_msg_btn fr">
                     <ul>
      <?php $userid = $this->session->userdata('aileenuser');
-                        if($userid != $this->uri->segment(3)){ ?>
+                        if($userid != $freelancerpostdata[0]['user_id']){ ?>
                         <li> <a href="<?php echo base_url('chat/abc/' . $this->uri->segment(3)); ?>">Message</a> </li>
                        <?php } ?>
                     </ul>
@@ -511,7 +511,7 @@ echo $freelancer_hire_header2;} ?>
                                             <b>Required Experience</b>
                                                      <span>
                                              <?php if($post['post_exp_month'] ||  $post['post_exp_year']){
-            echo $post['post_exp_year'].".";?>&nbsp;&nbsp;<?php  echo $post['post_exp_month']." Year";}
+            echo $post['post_exp_year'].".";?>&nbsp;<?php  echo $post['post_exp_month']." Year";}
                 else{echo PROFILENA;} ?> 
                                                                     </span>
                                                                 </li>
@@ -570,7 +570,7 @@ $contition_array = array('user_id' => $userid, 'job_save' => '2', 'post_id ' => 
 
             if ($data){
                 ?>
-       <a class="saved  button">Saved</a>
+       <a class="saved  button <?php echo 'savedpost' . $post['post_id']; ?>">Saved</a>
     <?php } else { ?>
                 <input type="hidden" name="saveuser"  id="saveuser" value= "<?php echo $data[0]['save_id']; ?>"> 
 <a id="<?php echo $post['post_id']; ?>" onClick="savepopup(<?php echo $post['post_id']; ?>)" href="javascript:void(0);" class="<?php echo 'savedpost' . $post['post_id']; ?> applypost button">Save</a>

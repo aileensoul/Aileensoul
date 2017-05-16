@@ -311,11 +311,11 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
                                     if ($status == 0 || $status == " ") {
                                         ?>
                                         <div class="msg_flw_btn_1" id= "followdiv">
-                                            <button  id="<?php echo "follow" . $businessdata1[0]['business_profile_id']; ?>" onClick="followuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Follow</button>
+                                            <button style="margin-top: 7px;" id="<?php echo "follow" . $businessdata1[0]['business_profile_id']; ?>" onClick="followuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Follow</button>
                                         </div>
                                     <?php } elseif ($status == 1) { ?>
                                         <div class="msg_flw_btn_1" id= "unfollowdiv">
-                                            <button id="<?php echo "unfollow" . $businessdata1[0]['business_profile_id']; ?>" onClick="unfollowuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Following </button>
+                                            <button style="margin-top: 7px;" id="<?php echo "unfollow" . $businessdata1[0]['business_profile_id']; ?>" onClick="unfollowuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Following </button>
                                         </div>
                                     <?php } ?>
                                 </div>         
@@ -324,7 +324,7 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
                             </li>
 
                             <li>
-                                <a href="<?php echo base_url('chat/abc/' . $businessdata1[0]['user_id']); ?>">Message</a></li>
+                                <a style="margin-top: 7px;" href="<?php echo base_url('chat/abc/' . $businessdata1[0]['user_id']); ?>">Message</a></li>
                                    <?php } ?>
 
 
@@ -376,9 +376,17 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
 
                             <li class="fl">
                             <div class="follow-img">
+                            <?php $slug =  $this->db->get_where('business_profile',array('business_profile_id' => $user['follow_to']))->row()->business_slug;?>
+
                                  <?php if($this->db->get_where('business_profile',array('business_profile_id' => $user['follow_to']))->row()->business_user_image != ''){ ?>
+
+                                 
+                                 <a href="<?php echo base_url('business_profile/business_profile_manage_post/'.$slug); ?>">
+
                            <img src="<?php echo base_url(USERIMAGE . $this->db->get_where('business_profile',array('business_profile_id' => $user['follow_to']))->row()->business_user_image);?>" height="50px" width="50px" alt="" >
+                           </a>
                             <?php } else { ?>
+                            <a href="<?php echo base_url('business_profile/business_profile_manage_post/'.$slug); ?>">
                             <img alt="" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
                             <?php } ?> 
                             </div>
@@ -387,8 +395,8 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
                              <div class="">
                          <div class="follow-li-text " style="padding: 0;">
 
-                         <?php $slug =  $this->db->get_where('business_profile',array('business_profile_id' => $user['follow_to']))->row()->business_slug;?>
-
+                         <!-- <?php $slug =  $this->db->get_where('business_profile',array('business_profile_id' => $user['follow_to']))->row()->business_slug;?>
+ -->
                                 <a href="<?php echo base_url('business_profile/business_profile_manage_post/'.$slug); ?>"><?php echo  $this->db->get_where('business_profile',array('business_profile_id' => $user['follow_to']))->row()->company_name;?></a></div>
 
 

@@ -424,7 +424,7 @@ $freelancerapply1 = $this->data['freelancerapply'] = $this->common->select_data_
                               <?php $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name; ?>
                               <?php $countryname = $this->db->get_where('countries', array('country_id' => $post['country']))->row()->country_name; ?>
 
-                                <p title="Location"><i class="fa fa-map-marker" aria-hidden="true">  <?php echo $cityname.","; ?><?php echo $countryname; ?></i></p>
+                                <p title="Location"><i class="fa fa-map-marker" aria-hidden="true">  <?php if ($cityname){echo $cityname.","; }?><?php if ($countryname) {echo $countryname; }?></i></p>
                                  </div>
                             </li>
                     <!-- vishang 14-4 end -->    
@@ -485,7 +485,7 @@ $freelancerapply1 = $this->data['freelancerapply'] = $this->common->select_data_
                                                                     <b>Required Experience</b>
                                                                     <span>
                                                                         <?php if($post['post_exp_month'] ||  $post['post_exp_year']){
-            echo $post['post_exp_year'];   ?>&nbsp;&nbsp;<?php  echo $post['post_exp_month'];}
+            echo $post['post_exp_year'].".";?>&nbsp;<?php  echo $post['post_exp_month']." Year";}
                 else{echo PROFILENA;} ?>
                                                                     </span>
                                                                 </li>
@@ -838,7 +838,7 @@ $( "#tags" ).autocomplete({
 
     function remove_post(abc)
     {
-         alert(abc);     
+         //alert(abc);     
 
 
     var savepara = 'save';
@@ -851,7 +851,7 @@ $( "#tags" ).autocomplete({
                 $('#' + 'postdata' + abc).parent().removeClass();
                 var numItems = $('.contact-frnd-post .job-contact-frnd').length;
                 if (numItems == '0') {
-                    var nodataHtml = "<div class='text-center rio'><h4 class='page-heading  product-listing' style='border:0px;margin-bottom: 11px;'>No Saved Job Found.</h4></div>";
+                    var nodataHtml = "<div class='text-center rio'><h4 class='page-heading  product-listing' style='border:0px;margin-bottom: 11px;'>No Saved Posts Found.</h4></div>";
                     $('.contact-frnd-post').html(nodataHtml);
                 }
             }

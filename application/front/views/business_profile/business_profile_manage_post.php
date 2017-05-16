@@ -514,11 +514,11 @@
                                                     if ($status == 0 || $status == " ") {
                                                         ?>
                                                         <div class="msg_flw_btn_1" id= "followdiv">
-                                                            <button  id="<?php echo "follow" . $businessdata1[0]['business_profile_id']; ?>" onClick="followuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Follow</button>
+                                                            <button style="margin-top: 7px;" id="<?php echo "follow" . $businessdata1[0]['business_profile_id']; ?>" onClick="followuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Follow</button>
                                                         </div>
                                                     <?php } elseif ($status == 1) { ?>
                                                         <div class="msg_flw_btn_1" id= "unfollowdiv">
-                                                            <button id="<?php echo "unfollow" . $businessdata1[0]['business_profile_id']; ?>" onClick="unfollowuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Following </button>
+                                                            <button style="margin-top: 7px;" id="<?php echo "unfollow" . $businessdata1[0]['business_profile_id']; ?>" onClick="unfollowuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Following </button>
                                                         </div>
                                                     <?php } ?>
                                                 </div>         
@@ -527,7 +527,7 @@
                                             </li>
 
                                             <li>
-                                                <a href="<?php echo base_url('chat/abc/' . $businessdata1[0]['user_id']); ?>">Message</a></li>
+                                                <a style="margin-top: 7px;" href="<?php echo base_url('chat/abc/' . $businessdata1[0]['user_id']); ?>">Message</a></li>
                                         <?php } ?>
 
                                     </ul>   
@@ -1010,8 +1010,8 @@
                                     <img alt=""  src="<?php echo base_url(NOIMAGE); ?>" alt="" />
                                 <?php } ?>
                             </div>
-                            <div id="myBtn1"  class="editor-content col-md-11 popup-text" data-placeholder="Post Your Product...."  >
-                                
+                            <div id="myBtn1"  class="editor-content col-md-11 popup-text"   >
+                                <span>Post Your Product....</span>
                               <!--  <span class="fr">
                                 <input type="file" id="FileID" style="display:none;">
                                  <label for="FileID"><i class=" fa fa-camera fa"  style=" margin: 8px; cursor:pointer">  </i>
@@ -1191,9 +1191,8 @@
                                             <?php if ($row['posted_user_id']) { ?>
                                                 <li>
                                                     <div class="else_post_d">
-                                                        <div class="post-design-product" class="post_dot" title="<?php echo ucwords($companynameposted); ?>" href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugnameposted); ?>"><?php echo ucwords($companynameposted); ?></a> <span style="font-weight: 600;"> Posted With </span> <a class="post_dot" href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>"><?php echo ucwords($companyname); ?></a> <span  style="font-weight: 400;
-                                                                                                                                                                                                                font-size: 14px;
-                                                                                                                                                                                                                color: #91949d;"><?php echo date('d-M-Y', strtotime($row['created_date'])); ?> </span> </div></div></li>
+                                                        <div class="post-design-product">
+                                                        <a style="max-width: 40%;" class="post_dot" title="<?php echo ucwords($companynameposted); ?>" href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugnameposted); ?>"><?php echo ucwords($companynameposted); ?></a> <p style="display: inline-block; font-weight: 600;"> Posted With </p> <a style=" font-size: 15px;                    line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; " " href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>"><?php echo ucwords($companyname); ?></a> <span  style="font-weight: 400;                                                                       font-size: 14px;color: #91949d;"><?php echo date('d-M-Y', strtotime($row['created_date'])); ?> </span> </div></div></li>
 
 
                                             <?php } else { ?>
@@ -3495,15 +3494,7 @@
                                     return false;
                                 }
 
-                            } else if (foundPresentvideo == false) {
-
-                                $('.biderror .mes').html("<div class='pop_content'>This File Format is not supported Please Try to Upload MP4 or WebM files..");
-                                $('#bidmodal').modal('show');
-                                setInterval('window.location.reload()', 10000);
-                                event.preventDefault();
-                                return false;
-
-                            } else if (foundPresentvideo == true)
+                            }  else if (foundPresentvideo == true)
                             {
 
                                 var foundPresent1 = $.inArray(ext1, allowesvideo) > -1;
@@ -3551,6 +3542,15 @@
                                     return false;
                                 }
                             }
+                            else if (foundPresentvideo == false) {
+
+                                $('.biderror .mes').html("<div class='pop_content'>This File Format is not supported Please Try to Upload MP4 or WebM files..");
+                                $('#bidmodal').modal('show');
+                                setInterval('window.location.reload()', 10000);
+                                event.preventDefault();
+                                return false;
+
+                            }
 
                         }
                     }
@@ -3559,11 +3559,11 @@
             </script>
             <script type="text/javascript">
 
-                $(document).ready(function () {
-                    $('.modal-close').on('click', function () {
-                        $('.modal-post').hide();
-                    });
-                });
+                // $(document).ready(function () {
+                //     $('.modal-close').on('click', function () {
+                //         $('.modal-post').hide();
+                //     });
+                // });
 
             </script>
 

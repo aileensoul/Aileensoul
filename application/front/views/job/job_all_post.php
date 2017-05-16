@@ -317,16 +317,7 @@
                             <h3>Recommended Job</h3>
                             
                             <div class="contact-frnd-post">
-                                <?php
-
-                                function text2link($text) {
-                                    $text = preg_replace('/(((f|ht){1}t(p|ps){1}:\/\/)[-a-zA-Z0-9@:%_\+.~#?&\/\/=]+)/i', '<a href="\\1" target="_blank" rel="nofollow">\\1</a>', $text);
-                                    $text = preg_replace('/([[:space:]()[{}])(www.[-a-zA-Z0-9@:%_\+.~#?&\/\/=]+)/i', '\\1<a href="http://\\2" target="_blank" rel="nofollow">\\2</a>', $text);
-                                    $text = preg_replace('/([_\.0-9a-z-]+@([0-9a-z][0-9a-z-]+\.)+[a-z]{2,3})/i', '<a href="mailto:\\1" rel="nofollow" target="_blank">\\1</a>', $text);
-                                    return $text;
-                                }
-                                ?>
-
+                            
 
                                 <?php
                                 if ($falguni == 1) {
@@ -352,8 +343,8 @@
                                                     Created Date : <?php echo date('d-M-Y',strtotime($post['created_date'])); ?>
                                                 </li>
                              <li>
-                              <a href="#" title="Post Title" class=" post_title" >
-                              <?php echo ucwords(text2link($post['post_name'])); ?> </a>   </li>
+                              <a href="#" title="<?php echo ucwords($post['post_name']); ?> " class=" post_title" >
+                              <?php echo ucwords($this->common->make_links($post['post_name'])); ?> </a>   </li>
 
                            <li>   
                  <div class="fr lction">

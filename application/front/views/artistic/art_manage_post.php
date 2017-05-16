@@ -457,13 +457,20 @@ responsive image design start -->
                     ?>
 
                     <?php if ($artisticdata[0]['user_id'] == $userid) { ?>
-                        <a id="myBtn">Designation</a>
+                        <a id="designation" class="designation" title="Designation">Designation</a>
+
                     <?php } ?>
 
                 <?php } else { ?> 
 
                     <?php if ($artisticdata[0]['user_id'] == $userid) { ?>
-                        <a id="myBtn"><?php echo ucwords($artisticdata[0]['designation']); ?></a>
+
+                    <a id="designation" class="designation" title="<?php echo ucwords($artisticdata[0]['designation']); ?>">
+                    <?php echo ucwords($artisticdata[0]['designation']); ?>
+                        
+                    </a>
+
+                        <!-- <a id="myBtn"><?php echo ucwords($artisticdata[0]['designation']); ?></a> -->
                     <?php } else { ?>
                         <a><?php echo ucwords($artisticdata[0]['designation']); ?></a>
                     <?php } ?>
@@ -472,10 +479,10 @@ responsive image design start -->
 
 
                 <!-- The Modal -->
-                <div id="myModal" class="modal">
+                <!-- <div id="myModal" class="modal"> -->
                     <!-- Modal content -->
-                    <div class="col-md-2"></div>
-                    <div class="modal-content col-md-8">
+                    <!-- <div class="col-md-2"></div> -->
+                    <!-- <div class="modal-content col-md-8">
                         <span class="close">&times;</span>
                         <fieldset></fieldset>
                         <?php echo form_open(base_url('artistic/art_designation/'), array('id' => 'artdesignation', 'name' => 'artdesignation', 'class' => 'clearfix')); ?>
@@ -489,9 +496,9 @@ responsive image design start -->
 
 
 
-                    </div>
+                    </div> -->
 
-                    <div class="col-md-2"></div>
+                    <!-- <div class="col-md-2"></div> -->
 
                 </div>
 
@@ -943,7 +950,7 @@ responsive image design start -->
                                                                margin-top: 6px;
                                                                ">
                         </div>
-                        <div id="myBtn3"  class="editor-content col-md-11 popup-text" contenteditable>
+                        <div id="myBtn3"  class="editor-content col-md-11 popup-text">
                             <span> Post Your Art....</span> 
                           <!--  <span class="fr">
                             <input type="file" id="FileID" style="display:none;">
@@ -1070,10 +1077,12 @@ responsive image design start -->
                                             ?>
 
                                             <?php if ($row['posted_user_id']) { ?>
-                                                <img src="<?php echo base_url(ARTISTICIMAGE . $userimageposted); ?>" name="image_src" id="image_src" / >
+                                            <a  class="post_dot" title="<?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?>" href="<?php echo base_url('artistic/art_manage_post/' . $row['posted_user_id']); ?>">
+                                                <img src="<?php echo base_url(ARTISTICIMAGE . $userimageposted); ?>" name="image_src" id="image_src" / > </a>
 
                                                  <?php } else { ?>
-                                                     <img src="<?php echo base_url(ARTISTICIMAGE . $userimage); ?>" name="image_src" id="image_src" / >
+                                                 <a class="post_dot"  href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>">
+                                                     <img src="<?php echo base_url(ARTISTICIMAGE . $userimage); ?>" name="image_src" id="image_src" / > </a>
 
                                                  <?php } ?>
                                         </div>
@@ -1250,7 +1259,7 @@ responsive image design start -->
 
                                                     <!-- one audio start -->
                                                     <div>
-                                                        <audio width="120" height="100" controls>
+                                                        <audio width="100%" height="100" controls>
 
                                                             <source src="<?php echo base_url(ARTPOSTIMAGE . $artmultiimage[0]['image_name']); ?>" type="audio/mp3">
                                                             <source src="movie.ogg" type="audio/ogg">
@@ -1548,6 +1557,7 @@ responsive image design start -->
                                                             <div class="post-design-pro-comment-img"> 
                                                                 <?php $art_userimage = $this->db->get_where('art_reg', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->art_user_image; ?>
                                                                 <?php if ($art_userimage) { ?>
+                                                                <a href="<?php echo base_url('artistic/art_manage_post/' . $rowdata['user_id'] . ''); ?>">
                                                                     <img  src="<?php echo base_url(ARTISTICIMAGE . $art_userimage); ?>"  alt="">
                                                                     <?php
                                                                 } else {
@@ -1802,6 +1812,44 @@ responsive image design start -->
 
 
 <!-- script for skill textbox automatic end (option 2)-->
+
+
+<script type="text/javascript">
+                            function divClicked() {
+                                var divHtml = $(this).html();
+                                var editableText = $("<textarea />");
+                                editableText.val(divHtml);
+                                $(this).replaceWith(editableText);
+                                editableText.focus();
+                                // setup the blur event for this new textarea
+                                editableText.blur(editableTextBlurred);
+                            }
+
+                            function editableTextBlurred() {
+                                var html = $(this).val();
+                                var viewableText = $("<a>");
+                                viewableText.html(html);
+                                $(this).replaceWith(viewableText);
+                                // setup the click event for this new div
+                                viewableText.click(divClicked);
+
+                                $.ajax({
+                                    url: "<?php echo base_url(); ?>artistic/art_designation",
+                                    type: "POST",
+                                    data: {"designation": html},
+                                    success: function (response) {
+
+                                    }
+                                });
+                            }
+
+                            $(document).ready(function () {
+                            // alert("hi");
+                                $("a.designation").click(divClicked);
+                            });
+                        </script>
+
+<!-- designation script end -->
 <script>
 
                                             var data = <?php echo json_encode($demo); ?>;
@@ -3744,14 +3792,6 @@ responsive image design start -->
                         return false;
                     }
 
-                } else if (foundPresentvideo == false) {
-
-                    $('.biderror .mes').html("<div class='pop_content'>This File Format is not supported Please Try to Upload MP4 or WebM files..");
-                    $('#bidmodal').modal('show');
-                    setInterval('window.location.reload()', 10000);
-                    event.preventDefault();
-                    return false;
-
                 } else if (foundPresentvideo == true)
                 {
 
@@ -3801,6 +3841,15 @@ responsive image design start -->
                         return false;
                     }
                 }
+                else if (foundPresentvideo == false) {
+
+                    $('.biderror .mes').html("<div class='pop_content'>This File Format is not supported Please Try to Upload MP4 or WebM files..");
+                    $('#bidmodal').modal('show');
+                    setInterval('window.location.reload()', 10000);
+                    event.preventDefault();
+                    return false;
+
+                } 
             }
         }
     }
@@ -3809,11 +3858,11 @@ responsive image design start -->
 
 <script type="text/javascript">
 
-    $(document).ready(function () {
-        $('.modal-close').on('click', function () {
-            $('.modal-post').hide();
-        });
-    });
+    // $(document).ready(function () {
+    //     $('.modal-close').on('click', function () {
+    //         $('.modal-post').hide();
+    //     });
+    // });
 
 </script>
 
@@ -3844,7 +3893,7 @@ responsive image design start -->
                 $(this).text(hideChar);
             }
             $(this).parent().prev().toggle();
-            $(this).prev().togg            le();
+            $(this).prev().toggle();
             return false;
         });
     });
@@ -3958,4 +4007,7 @@ responsive image design start -->
     });
 
 </script>
+
+
+
 <!-- This  script use for close dropdown in every post -->

@@ -175,8 +175,7 @@
                         background-color: #fff;
                         font-size: 16px;
                         height: 10%;}
-    .popup-textarea{border-bottom: 5px solid #ced5df;}
-
+   
 </style>
 <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
 <link href="<?php echo base_url() ?>css/fileinput.css" media="all" rel="stylesheet" type="text/css"/>
@@ -487,8 +486,9 @@
 
                                                                 <div class=" col-md-12 follow_left_box_main" id="<?php echo "fad" . $userlist['art_id']; ?>">                   
                                                                     <div class="post-design-pro-img_follow">
+                                                                      <a href="<?php echo base_url('artistic/art_manage_post/' . $userlist['user_id'] . ''); ?>">
 
-                                                                        <img  src="<?php echo base_url(ARTISTICIMAGE . $userlist['art_user_image']); ?>"  alt="">
+                                                                        <img  src="<?php echo base_url(ARTISTICIMAGE . $userlist['art_user_image']); ?>"  alt=""> </a>
 
                                                                     </div>
 
@@ -577,8 +577,8 @@
 
                                                                 <div class=" col-md-12 follow_left_box_main" id="<?php echo "fad" . $userlist['art_id']; ?>">                   
                                                                     <div class="post-design-pro-img_follow">
-
-                                                                        <img  src="<?php echo base_url(ARTISTICIMAGE . $userlist['art_user_image']); ?>"  alt="">
+                                                                      <a href="<?php echo base_url('artistic/art_manage_post/' . $userlist['user_id'] . ''); ?>">
+                                                                        <img  src="<?php echo base_url(ARTISTICIMAGE . $userlist['art_user_image']); ?>"  alt=""> </a>
 
                                                                     </div>
 
@@ -663,8 +663,9 @@
 
                                                                 <div class=" col-md-12 follow_left_box_main" id="<?php echo "fad" . $userlist['art_id']; ?>">                   
                                                                     <div class="post-design-pro-img_follow">
+                                                                      <a href="<?php echo base_url('artistic/art_manage_post/' . $userlist['user_id'] . ''); ?>">
 
-                                                                        <img  src="<?php echo base_url(ARTISTICIMAGE . $userlist['art_user_image']); ?>"  alt="">
+                                                                        <img  src="<?php echo base_url(ARTISTICIMAGE . $userlist['art_user_image']); ?>"  alt=""> </a>
 
                                                                     </div>
 
@@ -748,8 +749,9 @@
 
                                                                 <div class=" col-md-12 follow_left_box_main" id="<?php echo "fad" . $userlist['art_id']; ?>">                   
                                                                     <div class="post-design-pro-img_follow">
+                                                                      <a href="<?php echo base_url('artistic/art_manage_post/' . $userlist['user_id'] . ''); ?>">
 
-                                                                        <img  src="<?php echo base_url(ARTISTICIMAGE . $userlist['art_user_image']); ?>"  alt="">
+                                                                        <img  src="<?php echo base_url(ARTISTICIMAGE . $userlist['art_user_image']); ?>"  alt=""> </a>
 
                                                                     </div>
 
@@ -837,7 +839,7 @@
                             <div class="main-text-area col-md-12">
                                 <div class="popup-img col-md-1"> <img  src="<?php echo base_url(ARTISTICIMAGE . $artisticdata[0]['art_user_image']); ?>"  alt="">
                                 </div>
-                                <div id="myBtn"  class="editor-content col-md-11 popup-text" contenteditable>
+                                <div id="myBtn"  class="editor-content col-md-11 popup-text">
                                     <span > Post Your Art....</span> 
                                   <!--  <span class="fr">
                                     <input type="file" id="FileID" style="display:none;">
@@ -963,11 +965,13 @@
                                                 ?>
 
                                                 <?php if ($row['posted_user_id']) { ?>
+                                                <a class="post_dot" title="<?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?>" href="<?php echo base_url('artistic/art_manage_post/' . $row['posted_user_id']); ?>">
                                                     <img src="<?php echo base_url(ARTISTICIMAGE . $userimageposted); ?>" name="image_src" id="image_src" / >
+                                                    </a>
 
                                                      <?php } else { ?>
-
-                                                         <img  src="<?php echo base_url(ARTISTICIMAGE . $art_userimage); ?>"  alt=""> 
+                                                     <a  class="post_dot" title="" href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>">
+                                                         <img  src="<?php echo base_url(ARTISTICIMAGE . $art_userimage); ?>"  alt=""> </a>
 
                                                 <?php } ?>
                                             </div>
@@ -1151,7 +1155,7 @@
 
                                                         <!-- one video start -->
                                                         <div>
-                                                            <video width="320" height="240" controls>
+                                                            <video width="100%" height="240" controls>
 
                                                                 <source src="<?php echo base_url(ARTPOSTIMAGE . $artmultiimage[0]['image_name']) ?>" type="video/mp4">
                                                                 <source src="movie.ogg" type="video/ogg">
@@ -1164,7 +1168,7 @@
 
                                                         <!-- one audio start -->
                                                         <div>
-                                                            <audio width="120" height="100" controls>
+                                                            <audio width="100%" height="100" controls>
 
                                                                 <source src="<?php echo base_url(ARTPOSTIMAGE . $artmultiimage[0]['image_name']) ?>" type="audio/mp3">
                                                                 <source src="movie.ogg" type="audio/ogg">
@@ -1459,11 +1463,17 @@
                                                                     $art_userimage = $this->db->get_where('art_reg', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->art_user_image;
                                                                     ?>
                                                                     <?php if ($art_userimage) { ?>
+                                                                    
+                                                                    <a href="<?php echo base_url('artistic/art_manage_post/' . $rowdata['user_id'] . ''); ?>">
                                                                         <img  src="<?php echo base_url(ARTISTICIMAGE . $art_userimage); ?>"  alt="">
+                                                                        </a>
                                                                         <?php
                                                                     } else {
                                                                         ?>
+                                                                        <a href="<?php echo base_url('artistic/art_manage_post/' . $rowdata['user_id'] . ''); ?>">
+
                                                                         <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
+                                                                        </a>+6
                                                                         <?php
                                                                     }
                                                                     ?>
@@ -3126,15 +3136,7 @@
                                             return false;
                                         }
 
-                                    } else if (foundPresentvideo == false) {
-
-                                        $('.biderror .mes').html("<div class='pop_content'>This File Format is not supported Please Try to Upload MP4 or WebM files..");
-                                        $('#bidmodal').modal('show');
-                                        setInterval('window.location.reload()', 10000);
-                                        event.preventDefault();
-                                        return false;
-
-                                    } else if (foundPresentvideo == true)
+                                    }  else if (foundPresentvideo == true)
                                     {
 
                                         var foundPresent1 = $.inArray(ext1, allowesvideo) > -1;
@@ -3183,6 +3185,16 @@
                                         }
                                     }
 
+                                    else if (foundPresentvideo == false) {
+
+                                        $('.biderror .mes').html("<div class='pop_content'>This File Format is not supported Please Try to Upload MP4 or WebM files..");
+                                        $('#bidmodal').modal('show');
+                                        setInterval('window.location.reload()', 10000);
+                                        event.preventDefault();
+                                        return false;
+
+                                    }
+
                                 }
                             }
                         }
@@ -3190,11 +3202,11 @@
                     </script>
                     <script type="text/javascript">
 
-                        $(document).ready(function () {
-                            $('.modal-close').on('click', function () {
-                                $('.modal-post').hide();
-                            });
-                        });
+                        // $(document).ready(function () {
+                        //     $('.modal-close').on('click', function () {
+                        //         $('.modal-post').hide();
+                        //     });
+                        // });
 
                     </script>
 

@@ -298,7 +298,10 @@
      <div class="profile-job-post-location-name-rec">
           <div class="module_Ssearch" style="display: inline-block; float: left;">
              <div class="search_img">
+             <a href="<?php echo base_url('artistic/art_manage_post/' . $key['user_id'] . ''); ?>">
+
                            <img src="<?php echo base_url(ARTISTICIMAGE . $key['art_user_image']); ?>" alt=" ">
+                           </a>
                         </div>
        </div>
    
@@ -496,8 +499,12 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <img src="http://localhost/aileensoul/uploads/user_image/photo2.jpg" alt="">
-                                                                                                </div>
+                                                <a href="<?php echo base_url('artistic/art_manage_post/' . $key['user_id'] . ''); ?>">
+
+                                                <img src="<?php echo base_url(ARTISTICIMAGE . $key['art_user_image']); ?>" name="image_src" id="image_src" / >
+                                                </a>
+                                                <!-- <img src="http://localhost/aileensoul/uploads/user_image/photo2.jpg" alt="">
+ -->                                                                                                </div>
                                             <div class="post-design-name fl col-md-9">
                                                 <ul>
                                                     
@@ -506,7 +513,7 @@
 
                                                                                                             <li>
                                             <div class="post-design-product">
-                      <a class="post_dot" href="<?php echo site_url('artistic/art_manage_post'); ?>" title="<?php echo $key['art_name'].' '.$key['art_lastname'];?>">
+                      <a class="post_dot" href="<?php echo base_url('artistic/art_manage_post/' . $key['user_id'] . ''); ?>" title="<?php echo $key['art_name'].' '.$key['art_lastname'];?>">
 
                             <?php echo $key['art_name'].' '.$key['art_lastname'];?>
 

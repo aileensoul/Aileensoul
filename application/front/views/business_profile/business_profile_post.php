@@ -45,15 +45,6 @@
         width:200px !important;
     }
 
-    /*
-        @media screen and (max-width: 700px){
-            .box{
-                width: 70%;
-            }
-            .popup{
-                width: 70%;
-            }
-        } */
 
 
 </style>
@@ -435,9 +426,15 @@
                                                                 <div class=" col-md-12 follow_left_box_main" id="<?php echo "fad" . $userlist['business_profile_id']; ?>">                   
                                                                     <div class="post-design-pro-img_follow">
                                                                         <?php if ($userlist['business_user_image']) { ?>
+                                                                        <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>" title="<?php echo ucwords($userlist['company_name']); ?>">
+
                                                                             <img  src="<?php echo base_url(USERIMAGE . $userlist['business_user_image']); ?>"  alt="">
+                                                                            </a>
                                                                         <?php } else { ?>
+                                                                        <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>" title="<?php echo ucwords($userlist['company_name']); ?>">
+
                                                                             <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo ucwords($userlist['company_name']); ?>">
+                                                                            </a>
                                                                         <?php } ?>
                                                                     </div>
                                                                     <div class="post-design-name_follow fl">
@@ -494,7 +491,10 @@
                                                             <div class="profile-job-post-title-inside clearfix">
                                                                 <div class=" col-md-12 follow_left_box_main" id="<?php echo "fad" . $userlist['business_profile_id']; ?>">                   
                                                                     <div class="post-design-pro-img_follow">
+                                                                    <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>" title="<?php echo ucwords($userlist['company_name']); ?>">
+
                                                                         <img  src="<?php echo base_url(USERIMAGE . $userlist['business_user_image']); ?>"  alt="">
+                                                                        </a>
                                                                     </div>
                                                                     <div class="post-design-name_follow fl">
                                                                         <ul>
@@ -550,7 +550,9 @@
                                                             <div class="profile-job-post-title-inside clearfix">
                                                                 <div class=" col-md-12 follow_left_box_main" id="<?php echo "fad" . $userlist['business_profile_id']; ?>">                   
                                                                     <div class="post-design-pro-img_follow">
+                                                                    <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>">
                                                                         <img  src="<?php echo base_url(USERIMAGE . $userlist['business_user_image']); ?>"  alt="">
+                                                                        </a>
                                                                     </div>
                                                                     <div class="post-design-name_follow fl">
                                                                         <ul>
@@ -605,7 +607,8 @@
                                                             <div class="profile-job-post-title-inside clearfix">
                                                                 <div class=" col-md-12 follow_left_box_main" id="<?php echo "fad" . $userlist['business_profile_id']; ?>">                   
                                                                     <div class="post-design-pro-img_follow">
-                                                                        <img  src="<?php echo base_url(USERIMAGE . $userlist['business_user_image']); ?>"  alt="">
+                                                                    <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>">
+                                                                        <img  src="<?php echo base_url(USERIMAGE . $userlist['business_user_image']); ?>"  alt=""> </a>
                                                                     </div>
                                                                     <div class="post-design-name_follow fl">
                                                                         <ul>
@@ -676,7 +679,7 @@
                                         <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
                                     <?php } ?>
                                 </div>
-                                <div id="myBtn"  class="editor-content col-md-11 popup-text" contenteditable>
+                                <div id="myBtn"  class="editor-content col-md-11 popup-text">
                                     <span> Post Your Product....
                                     </span> 
                                 </div>
@@ -763,15 +766,7 @@
                     <!-- popup end -->    
                     <div class="col-md-7 col-sm-7 all-form-content ">
                         <!-- body content start-->
-                        <?php
-
-                        function text2link($text) {
-                            $text = preg_replace('/(((f|ht){1}t(p|ps){1}:\/\/)[-a-zA-Z0-9@:%_\+.~#?&\/\/=]+)/i', '<a href="\\1" target="_blank" rel="nofollow">\\1</a>', $text);
-                            $text = preg_replace('/([[:space:]()[{}])(www.[-a-zA-Z0-9@:%_\+.~#?&\/\/=]+)/i', '\\1<a href="http://\\2" target="_blank" rel="nofollow">\\2</a>', $text);
-                            $text = preg_replace('/([_\.0-9a-z-]+@([0-9a-z][0-9a-z-]+\.)+[a-z]{2,3})/i', '<a href="mailto:\\1" rel="nofollow" target="_blank">\\1</a>', $text);
-                            return $text;
-                        }
-                        ?>
+                       
                         <?php
 //echo "<pre>"; print_r($businessprofiledata); die();
                         foreach ($businessprofiledata as $row) {
@@ -804,21 +799,32 @@
                                                 $business_userimage = $this->db->get_where('business_profile', array('user_id' => $row['user_id'], 'status' => 1))->row()->business_user_image;
                                                 $userimageposted = $this->db->get_where('business_profile', array('user_id' => $row['posted_user_id']))->row()->business_user_image;
                                                 ?>
+                                                <?php $slugname = $this->db->get_where('business_profile', array('user_id' => $row['user_id'], 'status' => 1))->row()->business_slug;
+                                                $slugnameposted = $this->db->get_where('business_profile', array('user_id' => $row['posted_user_id'], 'status' => 1))->row()->business_slug;
+                                                ?>
 
                                                 <?php if ($row['posted_user_id']) {
                                                     ?>
 
                                                     <?php if ($userimageposted) { ?>
+                                                    <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugnameposted); ?>">
                                                         <img src="<?php echo base_url(USERIMAGE . $userimageposted); ?>" name="image_src" id="image_src" />
+                                                        </a>
                                                     <?php } else { ?>
+                                                    <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugnameposted); ?>">
                                                         <img alt="" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
+                                                        </a>
                                                     <?php } ?>
 
                                                 <?php } else { ?>
                                                     <?php if ($business_userimage) { ?>
+                                                    <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>">
                                                         <img  src="<?php echo base_url(USERIMAGE . $business_userimage); ?>"  alt="">
+                                                        </a>
                                                     <?php } else { ?>
+                                                    <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>">
                                                         <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
+                                                        </a>
                                                         <?php
                                                     }
                                                 }
@@ -844,9 +850,19 @@
                                                         <li>
                                                             <div class="else_post_d">
                                                                 <div class="post-design-product">
-                                                                    <div><a style=" max-width: 26%; width: auto;  font-size: 18px;  display: inline-block; line-height: 24px; font-weight: 600;  color: #000033;  margin-bottom: 4px; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; " href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugnameposted); ?>"><?php echo ucwords($companynameposted); ?></a>
-                                                                    </div> <span style="font-weight: 600;"> Posted With </span> <a style=" font-size: 18px;
-                                                                                                                                   line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; " href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>"><?php echo ucwords($companyname); ?></a> <span  style="font-weight: 400; cursor: default;"><?php echo date('d-M-Y', strtotime($row['created_date'])); ?> </span> </div></div>
+                                                                    <a style="
+    max-width: 26%;
+    width: auto;
+    font-size: 18px;
+    display: inline-block;
+    line-height: 15px;
+    font-weight: 600;
+    color: #000033;
+    margin-bottom: -3px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap; " href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugnameposted); ?>"><?php echo ucwords($companynameposted); ?></a>
+                                                                 <p style="font-weight: 600; display: inline-block;"> Posted With </p> <a style=" font-size: 15px;                    line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; " href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>"><?php echo ucwords($companyname); ?></a> <span  style="font-weight: 400;  cursor: default;"><?php echo date('d-M-Y', strtotime($row['created_date'])); ?> </span> </div></div>
                                                         </li>
                                                     <?php } else { ?>
                                                         <li>
@@ -977,7 +993,7 @@
                                                     <?php } elseif (in_array($ext, $allowesvideo)) { ?>
                                                         <!-- one video start -->
                                                         <div>
-                                                            <video width="320" height="240" controls>
+                                                            <video width="100%" height="240" controls>
                                                                 <source src="<?php echo base_url(BUSPOSTIMAGE . $businessmultiimage[0]['image_name']); ?>" type="video/mp4">
                                                                 <source src="movie.ogg" type="video/ogg">
                                                                 Your browser does not support the video tag.
@@ -987,7 +1003,7 @@
                                                     <?php } elseif (in_array($ext, $allowesaudio)) { ?>
                                                         <!-- one audio start -->
                                                         <div>
-                                                            <audio width="120" height="100" controls>
+                                                            <audio width="100%" height="100" controls>
                                                                 <source src="<?php echo base_url(BUSPOSTIMAGE . $businessmultiimage[0]['image_name']); ?>" type="audio/mp3">
                                                                 <source src="movie.ogg" type="audio/ogg">
                                                                 Your browser does not support the audio tag.
@@ -1232,6 +1248,9 @@
                                                     if ($businessprofiledata) {
                                                         foreach ($businessprofiledata as $rowdata) {
                                                             $companyname = $this->db->get_where('business_profile', array('user_id' => $rowdata['user_id']))->row()->company_name;
+
+                                                            $slugname1 = $this->db->get_where('business_profile', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->business_slug;
+
                                                             ?>
                                                             <div class="all-comment-comment-box">
                                                                 <div class="post-design-pro-comment-img"> 
@@ -1239,9 +1258,14 @@
                                                                     $business_userimage = $this->db->get_where('business_profile', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->business_user_image;
                                                                     ?>
                                                                     <?php if ($business_userimage) { ?>
-                                                                        <img  src="<?php echo base_url(USERIMAGE . $business_userimage); ?>"  alt="">
+                                                                    <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname1); ?>">
+
+                                                                        <img  src="<?php echo base_url(USERIMAGE . $business_userimage); ?>"  alt=""> </a>
                                                                     <?php } else { ?>
+                                                                    <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname1); ?>">
+
                                                                         <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
+                                                                        </a>
                                                                     <?php } ?>
                                                                 </div>
                                                                 <div class="comment-name">
@@ -2907,14 +2931,6 @@
                         event.preventDefault();
                         return false;
                     }
-                } else if (foundPresentvideo == false) {
-
-                    $('.biderror .mes').html("<div class='pop_content'>This File Format is not supported Please Try to Upload MP4 or WebM files..");
-                    $('#bidmodal').modal('show');
-                    setInterval('window.location.reload()', 10000);
-                    event.preventDefault();
-                    return false;
-
                 } else if (foundPresentvideo == true)
                 {
                     var foundPresent1 = $.inArray(ext1, allowesvideo) > -1;
@@ -2957,17 +2973,26 @@
                         return false;
                     }
                 }
+                else if (foundPresentvideo == false) {
+
+                    $('.biderror .mes').html("<div class='pop_content'>This File Format is not supported Please Try to Upload MP4 or WebM files..");
+                    $('#bidmodal').modal('show');
+                    setInterval('window.location.reload()', 10000);
+                    event.preventDefault();
+                    return false;
+
+                } 
             }
         }
     }
 </script>
 <script type="text/javascript">
 
-    $(document).ready(function () {
-        $('.modal-close').on('click', function () {
-            $('.modal-post').hide();
-        });
-    });
+    // $(document).ready(function () {
+    //     $('.modal-close').on('click', function () {
+    //         $('.modal-post').hide();
+    //     });
+    // });
 
 </script>
 <!-- post insert developing code end  -->
