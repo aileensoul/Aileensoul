@@ -1822,7 +1822,7 @@ class Business_profile extends MY_Controller {
             if ($update) {
 
                 $follow = '<div id="unfollowdiv" class="user_btn">';
-                $follow .= '<button class= "bg_following" id="unfollow' . $business_id . '" onClick="unfollowuser(' . $business_id . ')">
+                $follow .= '<button style="margin-top: 7px;" class= "bg_following" id="unfollow' . $business_id . '" onClick="unfollowuser(' . $business_id . ')">
                               Following
                       </button>';
                 $follow .= '</div>';
@@ -1852,7 +1852,7 @@ class Business_profile extends MY_Controller {
             // end notoification
             if ($insert) {
                 $follow = '<div id="unfollowdiv" class="user_btn">';
-                $follow .= '<button class="bg_following" id="unfollow' . $business_id . '" onClick="unfollowuser(' . $business_id . ')">
+                $follow .= '<button style="margin-top: 7px;" class="bg_following" id="unfollow' . $business_id . '" onClick="unfollowuser(' . $business_id . ')">
                                Following
                       </button>';
                 $follow .= '</div>';
@@ -1886,7 +1886,7 @@ class Business_profile extends MY_Controller {
             if ($update) {
 
                 $unfollow = '<div id="followdiv " class="user_btn">';
-                $unfollow .= '<button id="follow' . $business_id . '" onClick="followuser(' . $business_id . ')">
+                $unfollow .= '<button style="margin-top: 7px;" id="follow' . $business_id . '" onClick="followuser(' . $business_id . ')">
                                Follow 
                       </button>';
                 $unfollow .= '</div>';

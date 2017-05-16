@@ -2234,7 +2234,7 @@
                             });
 
                             $('#post_comment' + clicked_id).keypress(function (e) {
-
+                               
                                 if (e.keyCode == 13 && !e.shiftKey) {
                                     e.preventDefault();
                                     var sel = $("#post_comment" + clicked_id);
@@ -3403,3 +3403,26 @@
 
                     </script>
                     <!-- This  script use for close dropdown in every post -->
+                    
+                    <!-- multi image add post khyati end -->
+<script language=JavaScript>
+
+    function check_length(my_form)
+    {
+        maxLen = 50;
+        // max number of characters allowed
+        if (my_form.my_text.value.length >= maxLen) {
+            // Alert message if maximum limit is reached. 
+            // If required Alert can be removed. 
+            var msg = "You have reached your maximum limit of characters allowed";
+            alert(msg);
+            // Reached the Maximum length so trim the textarea
+            my_form.my_text.value = my_form.my_text.value.substring(0, maxLen);
+        } else {
+            // Maximum length not reached so update the value of my_text counter
+            my_form.text_num.value = maxLen - my_form.my_text.value.length;
+        }
+    }
+    //-->
+</script>
+<!--- khyati change end-->

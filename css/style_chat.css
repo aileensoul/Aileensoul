@@ -5067,7 +5067,7 @@ color: #003;
 
 /* Overwrite the default to keep the scrollbar always visible */
 
-.chat .chat-history::-webkit-scrollbar {
+/*.chat .chat-history::-webkit-scrollbar {
     -webkit-appearance: none;
     width: 5px;
 }
@@ -5076,7 +5076,7 @@ color: #003;
     border-radius: 4px;
     background-color: rgba(0,0,0,.3);
     -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
-}
+}*/
 .chat_nobcx{border: 1px solid #e4e5e7; float: left;}
 .people-list ul::-webkit-scrollbar {
     -webkit-appearance: none;

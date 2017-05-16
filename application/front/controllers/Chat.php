@@ -244,7 +244,7 @@ $this->data['userlist'] = array_merge($return_arraysel,$userlist);
 $smileys = _get_smiley_array();
 $this->data['smiley_table'] = $smileys;
 // smily end
-
+//die();
     $this->load->view('chat',$this->data);
   }
 
@@ -814,6 +814,11 @@ echo $usrsrch;
      return  $array=$ret;
 
 
+  }
+  
+  public  function scroll(&$array, $key) {
+     $this->load->view('scroll');
+  
   }
 
 }

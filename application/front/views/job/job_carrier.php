@@ -94,6 +94,19 @@
                                            <textarea name ="carrier" id="carrier" rows="4" cols="50" placeholder="Enter Carrier" style="resize: none;"><?php if($carrier1){ echo $carrier1; } ?></textarea>
                                          <?php echo form_error('carrier'); ?>
                           	         </fieldset>
+
+        <?php
+
+     $userid = $this->session->userdata('aileenuser');
+
+
+        $contition_array = array('user_id' => $userid, 'is_delete' => 0, 'status' => 1);
+
+
+
+        $userdatacon = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = ''); 
+                                     if($userdatacon[0]['job_step'] != 10){
+                                      ?>
                                     <fieldset class="full-width">                           
                                      <b> Declaration: </b>
                                      <div class="job_carrier_checkbox">
@@ -103,7 +116,8 @@
                                         <?php echo form_error('checkbox') ?>
                                     </div>
 
-                                </fieldset>          
+                                </fieldset> 
+                                <?php }else{}?>         
 
                                  <fieldset class="hs-submit full-width">
 
