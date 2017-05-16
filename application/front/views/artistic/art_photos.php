@@ -968,12 +968,13 @@
                                                                                 $companyname = $this->db->get_where('art_reg', array('user_id' => $rowdata['user_id']))->row()->art_name;
                                                                                 ?>
                                                                                 <div class="all-comment-comment-box">
-                                                                                    <div class="post-design-pro-comment-img"> 
-                                                                                        <?php
-                                                                                        $art_userimage = $this->db->get_where('art_reg', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->art_user_image;
+                                                         <div class="post-design-pro-comment-img"> 
+                                                                      <?php
+                                                    $art_userimage = $this->db->get_where('art_reg', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->art_user_image;
                                                                                         ?>
-
+                                                            <a href="<?php echo base_url('artistic/art_manage_post/' . $rowdata['user_id'] . ''); ?>">
                                                                                         <img  src="<?php echo base_url(ARTISTICIMAGE . $art_userimage); ?>"  alt="">
+                                                                                        </a>
                                                                                     </div>
                                                                                     <div class="comment-name">
                                                                                         <b>  <?php
