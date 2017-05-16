@@ -3121,6 +3121,7 @@ class Business_profile extends MY_Controller {
                 $countlike = $commnetcount[0]['business_likes_count'] - 1;
 
                 $likelistarray = explode(',', $likeuser);
+                $likelistarray = array_reverse($likelistarray);
 
                 $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $likelistarray[0], 'status' => 1))->row()->company_name;
 
@@ -3195,7 +3196,7 @@ class Business_profile extends MY_Controller {
                 $countlike = $commnetcount[0]['business_likes_count'] - 1;
 
                 $likelistarray = explode(',', $likeuser);
-
+                $likelistarray = array_reverse($likelistarray); 
                 foreach ($likelistarray as $key => $value) {
                     $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $value, 'status' => 1))->row()->company_name;
                     //  $cmtlikeuser .= '<a href="' . base_url('business_profile/business_resume/' . $value) . '">';
