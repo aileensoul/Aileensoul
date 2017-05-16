@@ -435,9 +435,15 @@
                                                                 <div class=" col-md-12 follow_left_box_main" id="<?php echo "fad" . $userlist['business_profile_id']; ?>">                   
                                                                     <div class="post-design-pro-img_follow">
                                                                         <?php if ($userlist['business_user_image']) { ?>
+                                                                        <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>" title="<?php echo ucwords($userlist['company_name']); ?>">
+
                                                                             <img  src="<?php echo base_url(USERIMAGE . $userlist['business_user_image']); ?>"  alt="">
+                                                                            </a>
                                                                         <?php } else { ?>
+                                                                        <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>" title="<?php echo ucwords($userlist['company_name']); ?>">
+
                                                                             <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo ucwords($userlist['company_name']); ?>">
+                                                                            </a>
                                                                         <?php } ?>
                                                                     </div>
                                                                     <div class="post-design-name_follow fl">
@@ -494,7 +500,10 @@
                                                             <div class="profile-job-post-title-inside clearfix">
                                                                 <div class=" col-md-12 follow_left_box_main" id="<?php echo "fad" . $userlist['business_profile_id']; ?>">                   
                                                                     <div class="post-design-pro-img_follow">
+                                                                    <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>" title="<?php echo ucwords($userlist['company_name']); ?>">
+
                                                                         <img  src="<?php echo base_url(USERIMAGE . $userlist['business_user_image']); ?>"  alt="">
+                                                                        </a>
                                                                     </div>
                                                                     <div class="post-design-name_follow fl">
                                                                         <ul>
@@ -550,7 +559,9 @@
                                                             <div class="profile-job-post-title-inside clearfix">
                                                                 <div class=" col-md-12 follow_left_box_main" id="<?php echo "fad" . $userlist['business_profile_id']; ?>">                   
                                                                     <div class="post-design-pro-img_follow">
+                                                                    <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>">
                                                                         <img  src="<?php echo base_url(USERIMAGE . $userlist['business_user_image']); ?>"  alt="">
+                                                                        </a>
                                                                     </div>
                                                                     <div class="post-design-name_follow fl">
                                                                         <ul>
@@ -605,7 +616,8 @@
                                                             <div class="profile-job-post-title-inside clearfix">
                                                                 <div class=" col-md-12 follow_left_box_main" id="<?php echo "fad" . $userlist['business_profile_id']; ?>">                   
                                                                     <div class="post-design-pro-img_follow">
-                                                                        <img  src="<?php echo base_url(USERIMAGE . $userlist['business_user_image']); ?>"  alt="">
+                                                                    <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>">
+                                                                        <img  src="<?php echo base_url(USERIMAGE . $userlist['business_user_image']); ?>"  alt=""> </a>
                                                                     </div>
                                                                     <div class="post-design-name_follow fl">
                                                                         <ul>
@@ -676,7 +688,7 @@
                                         <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
                                     <?php } ?>
                                 </div>
-                                <div id="myBtn"  class="editor-content col-md-11 popup-text" contenteditable>
+                                <div id="myBtn"  class="editor-content col-md-11 popup-text">
                                     <span> Post Your Product....
                                     </span> 
                                 </div>
@@ -804,21 +816,32 @@
                                                 $business_userimage = $this->db->get_where('business_profile', array('user_id' => $row['user_id'], 'status' => 1))->row()->business_user_image;
                                                 $userimageposted = $this->db->get_where('business_profile', array('user_id' => $row['posted_user_id']))->row()->business_user_image;
                                                 ?>
+                                                <?php $slugname = $this->db->get_where('business_profile', array('user_id' => $row['user_id'], 'status' => 1))->row()->business_slug;
+                                                $slugnameposted = $this->db->get_where('business_profile', array('user_id' => $row['posted_user_id'], 'status' => 1))->row()->business_slug;
+                                                ?>
 
                                                 <?php if ($row['posted_user_id']) {
                                                     ?>
 
                                                     <?php if ($userimageposted) { ?>
+                                                    <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugnameposted); ?>">
                                                         <img src="<?php echo base_url(USERIMAGE . $userimageposted); ?>" name="image_src" id="image_src" />
+                                                        </a>
                                                     <?php } else { ?>
+                                                    <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugnameposted); ?>">
                                                         <img alt="" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
+                                                        </a>
                                                     <?php } ?>
 
                                                 <?php } else { ?>
                                                     <?php if ($business_userimage) { ?>
+                                                    <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugnameposted); ?>">
                                                         <img  src="<?php echo base_url(USERIMAGE . $business_userimage); ?>"  alt="">
+                                                        </a>
                                                     <?php } else { ?>
+                                                    <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugnameposted); ?>">
                                                         <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
+                                                        </a>
                                                         <?php
                                                     }
                                                 }
@@ -1232,6 +1255,9 @@
                                                     if ($businessprofiledata) {
                                                         foreach ($businessprofiledata as $rowdata) {
                                                             $companyname = $this->db->get_where('business_profile', array('user_id' => $rowdata['user_id']))->row()->company_name;
+
+                                                            $slugname1 = $this->db->get_where('business_profile', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->business_slug;
+
                                                             ?>
                                                             <div class="all-comment-comment-box">
                                                                 <div class="post-design-pro-comment-img"> 
@@ -1239,9 +1265,14 @@
                                                                     $business_userimage = $this->db->get_where('business_profile', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->business_user_image;
                                                                     ?>
                                                                     <?php if ($business_userimage) { ?>
-                                                                        <img  src="<?php echo base_url(USERIMAGE . $business_userimage); ?>"  alt="">
+                                                                    <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname1); ?>">
+
+                                                                        <img  src="<?php echo base_url(USERIMAGE . $business_userimage); ?>"  alt=""> </a>
                                                                     <?php } else { ?>
+                                                                    <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname1); ?>">
+
                                                                         <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
+                                                                        </a>
                                                                     <?php } ?>
                                                                 </div>
                                                                 <div class="comment-name">
@@ -2963,11 +2994,11 @@
 </script>
 <script type="text/javascript">
 
-    $(document).ready(function () {
-        $('.modal-close').on('click', function () {
-            $('.modal-post').hide();
-        });
-    });
+    // $(document).ready(function () {
+    //     $('.modal-close').on('click', function () {
+    //         $('.modal-post').hide();
+    //     });
+    // });
 
 </script>
 <!-- post insert developing code end  -->
