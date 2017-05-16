@@ -384,6 +384,13 @@ $('#datepicker').datetimepicker({
     // });
     //validation for edit email formate form
 
+
+$.validator.addMethod("greaterThan",
+    function(value, max, min){
+        return parseInt(value) > parseInt($(min).val());
+    }, "minimum salary not greater than maximum salary"
+);
+
     $(document).ready(function () {
 
         $("#artpost").validate({
@@ -478,9 +485,10 @@ $('#datepicker').datetimepicker({
                 },
                 maxsal:{
                      number: true,
+                     greaterThan: '#minsal'
                 },
-                  
-
+                
+                
 
             },
 
@@ -553,9 +561,9 @@ $('#datepicker').datetimepicker({
                     required: "Last date  Is Required.",
                 },
 
-                maxsal:{
-                     required: "min salary not greater than maximum salary.",
-                }
+                // maxsal:{
+                //      required: "min salary not greater than maximum salary.",
+                // }
 
             }
 
@@ -819,14 +827,14 @@ $('#datepicker').datetimepicker({
     });
 //select2 autocomplete End for Location
 </script>
-<script>
+<!-- <script>
 var CheckValue11 = function() { //alert('hi');
    var firstBox = $('#minsal').val();
    var secondBox = $('#maxsal').val();
-   alert(secondBox); alert(firstBox);
+  
   if (parseInt(secondBox) < parseInt(firstBox)){
   alert('box 1 cannot be greater than box 2');
   return false;
     }
    }   
-  </script>
+  </script> -->
