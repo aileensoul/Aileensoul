@@ -267,9 +267,13 @@ label.cameraButton input[accept*="camera"] {
                             <li class="fl">
                             <div class="follow-img">
                                 <?php if($user['business_user_image'] != ''){ ?>
+                                <a href="<?php echo base_url('business_profile/business_profile_manage_post/'.$user['business_slug']); ?>">
                            <img src="<?php echo base_url(USERIMAGE . $user['business_user_image']);?>" height="50px" width="50px" alt="" >
+                           </a>
                             <?php } else { ?>
+                            <a href="<?php echo base_url('business_profile/business_profile_manage_post/'.$user['business_slug']); ?>">
                             <img alt="" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
+                            </a>
                             <?php } ?> 
                             </div>
                             </li>
