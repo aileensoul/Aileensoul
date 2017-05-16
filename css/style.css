@@ -1892,7 +1892,7 @@ abbr { cursor: help; }
     text-overflow: ellipsis;} 
 
 
-.post-design-product{padding-top: 6px;}
+.post-design-product{/*padding-top: 6px;*/}
 .profile-box-user .profile-boxProfile-name a{padding-left: 8px; font-size: 13px;}
 .profile-text-bui-user .profile-boxProfile-name a{padding-left: 8px; color: #000033;}
 
@@ -2757,7 +2757,7 @@ label.cameraButton input[accept*="camera"] {
 .post_radius_box{border-radius: 5px;}
 .post-design-top
 { border-radius: 5px; padding: 5px; padding-bottom: 0px; background-color: #ffffff;   border: 1px solid #efefef; border-bottom: none; }
-.post-design-pro-img{height: 55px; width: 70px; display: inline-block; float: left; padding: 4px 4px 4px 16px;}
+.post-design-pro-img{height: 55px; width: 70px; display: inline-block; float: left; padding: 4px 6px 4px 8px;}
 .post-design-pro-img img{ height: 100%; width: 100%; border: 1px solid #efefef; }
 
 .post-design-proo-img{display: inline-block; width: 42px; height: 42px;float: left;/* padding: 10px 10px 10px 6px;*/}
@@ -4701,18 +4701,19 @@ fieldset .add_post_btns{min-width: 120px;padding:8px 30px 8px;}
 
 
 .cameraButton .tooltiptext {
-     visibility: hidden;
+     
+    visibility: hidden;
     width: 180px;
     background-color: black;
     color: #fff;
     opacity: 0.6;
     text-align: center;
-    padding: 10px 0;
+    padding: 13px 0px 10px;
     position: absolute;
     z-index: 1;
     font-weight: 800;
-    margin-top: 25px;  
-    top: -5px;
+    margin-top: 25px;
+    top: -8px;
     right: 110%;
 }
 
