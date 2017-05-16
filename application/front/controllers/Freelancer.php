@@ -2474,7 +2474,7 @@ $this->load->view('freelancer/freelancer_hire/freelancer_save', $this->data);
 //Remove save candidate controller Start
     public function remove_save() {
 
-        $saveid = $_POST['app_id'];
+        $saveid = $_POST['save_id'];
         //echo $saveid;die();
         $userid = $this->session->userdata('aileenuser');
         // echo $userid;echo $id;die();
@@ -2484,7 +2484,7 @@ $this->load->view('freelancer/freelancer_hire/freelancer_save', $this->data);
             'status' => 1
         );
 
-        $updatedata = $this->common->update_data($data, 'freelancer_apply', 'app_id', $saveid);
+        $updatedata = $this->common->update_data($data, 'save', 'save_id', $saveid);
     }
 
 //Remove save candidate controller End
@@ -3000,7 +3000,7 @@ $this->load->view('freelancer/freelancer_hire/freelancer_save', $this->data);
             'not_from' => 4 
             );
         $insert_id = $this->common->insert_data_getid($data, 'notification');
-        echo 'invited';
+        echo 'Selected';
         } else {
             echo 'error';
         }
