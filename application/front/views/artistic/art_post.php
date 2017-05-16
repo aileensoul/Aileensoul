@@ -486,8 +486,9 @@
 
                                                                 <div class=" col-md-12 follow_left_box_main" id="<?php echo "fad" . $userlist['art_id']; ?>">                   
                                                                     <div class="post-design-pro-img_follow">
+                                                                      <a href="<?php echo base_url('artistic/art_manage_post/' . $userlist['user_id'] . ''); ?>">
 
-                                                                        <img  src="<?php echo base_url(ARTISTICIMAGE . $userlist['art_user_image']); ?>"  alt="">
+                                                                        <img  src="<?php echo base_url(ARTISTICIMAGE . $userlist['art_user_image']); ?>"  alt=""> </a>
 
                                                                     </div>
 
@@ -576,8 +577,8 @@
 
                                                                 <div class=" col-md-12 follow_left_box_main" id="<?php echo "fad" . $userlist['art_id']; ?>">                   
                                                                     <div class="post-design-pro-img_follow">
-
-                                                                        <img  src="<?php echo base_url(ARTISTICIMAGE . $userlist['art_user_image']); ?>"  alt="">
+                                                                      <a href="<?php echo base_url('artistic/art_manage_post/' . $userlist['user_id'] . ''); ?>">
+                                                                        <img  src="<?php echo base_url(ARTISTICIMAGE . $userlist['art_user_image']); ?>"  alt=""> </a>
 
                                                                     </div>
 
@@ -662,8 +663,9 @@
 
                                                                 <div class=" col-md-12 follow_left_box_main" id="<?php echo "fad" . $userlist['art_id']; ?>">                   
                                                                     <div class="post-design-pro-img_follow">
+                                                                      <a href="<?php echo base_url('artistic/art_manage_post/' . $userlist['user_id'] . ''); ?>">
 
-                                                                        <img  src="<?php echo base_url(ARTISTICIMAGE . $userlist['art_user_image']); ?>"  alt="">
+                                                                        <img  src="<?php echo base_url(ARTISTICIMAGE . $userlist['art_user_image']); ?>"  alt=""> </a>
 
                                                                     </div>
 
@@ -747,8 +749,9 @@
 
                                                                 <div class=" col-md-12 follow_left_box_main" id="<?php echo "fad" . $userlist['art_id']; ?>">                   
                                                                     <div class="post-design-pro-img_follow">
+                                                                      <a href="<?php echo base_url('artistic/art_manage_post/' . $userlist['user_id'] . ''); ?>">
 
-                                                                        <img  src="<?php echo base_url(ARTISTICIMAGE . $userlist['art_user_image']); ?>"  alt="">
+                                                                        <img  src="<?php echo base_url(ARTISTICIMAGE . $userlist['art_user_image']); ?>"  alt=""> </a>
 
                                                                     </div>
 
@@ -962,11 +965,13 @@
                                                 ?>
 
                                                 <?php if ($row['posted_user_id']) { ?>
+                                                <a class="post_dot" title="<?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?>" href="<?php echo base_url('artistic/art_manage_post/' . $row['posted_user_id']); ?>">
                                                     <img src="<?php echo base_url(ARTISTICIMAGE . $userimageposted); ?>" name="image_src" id="image_src" / >
+                                                    </a>
 
                                                      <?php } else { ?>
-
-                                                         <img  src="<?php echo base_url(ARTISTICIMAGE . $art_userimage); ?>"  alt=""> 
+                                                     <a  class="post_dot" title="" href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>">
+                                                         <img  src="<?php echo base_url(ARTISTICIMAGE . $art_userimage); ?>"  alt=""> </a>
 
                                                 <?php } ?>
                                             </div>
@@ -1458,11 +1463,17 @@
                                                                     $art_userimage = $this->db->get_where('art_reg', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->art_user_image;
                                                                     ?>
                                                                     <?php if ($art_userimage) { ?>
+                                                                    
+                                                                    <a href="<?php echo base_url('artistic/art_manage_post/' . $rowdata['user_id'] . ''); ?>">
                                                                         <img  src="<?php echo base_url(ARTISTICIMAGE . $art_userimage); ?>"  alt="">
+                                                                        </a>
                                                                         <?php
                                                                     } else {
                                                                         ?>
+                                                                        <a href="<?php echo base_url('artistic/art_manage_post/' . $rowdata['user_id'] . ''); ?>">
+
                                                                         <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
+                                                                        </a>
                                                                         <?php
                                                                     }
                                                                     ?>
