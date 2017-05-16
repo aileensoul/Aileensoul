@@ -263,8 +263,20 @@ padding-top: 1px;}
                <div style="display: inline-block; float: left;">
              
                 <div  class="buisness-profile-pic-candidate ">
-                <img src="<?php echo base_url(USERIMAGE . $p['job_user_image']); ?>" alt="" >
-                      </div>
+                <?php
+                if ($p['job_user_image']) {
+               ?>
+           <a href="<?php echo base_url('job/job_printpreview/' . $p['user_id'].'?page=recruiter'); ?>" title=" <?php echo $p['fname'] . ' ' . $p['lname']; ?>"> 
+           <img src="<?php echo base_url(USERIMAGE . $p['job_user_image']); ?>" alt="<?php echo $p[0]['fname'] . ' ' . $p[0]['lname']; ?>">
+            </a>
+             <?php
+            } else {
+              ?>
+              <a href="<?php echo base_url('job/job_printpreview/' . $p['user_id'].'?page=recruiter'); ?>" title=" <?php echo $p['fname'] . ' ' . $p['lname']; ?>"> 
+           <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo $p[0]['fname'] . ' ' . $p[0]['lname']; ?>"> </a>
+             <?php
+                }
+               ?>                      </div>
                   </div> 
 
 
