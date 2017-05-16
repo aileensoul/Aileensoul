@@ -76,7 +76,7 @@
         color: #fff;
         padding: 8px 18px;
         background-color: #0A2C5D;
-        left: 170px;
+        left: 168px;
         margin-top: 8px;
         width: 100px; 
         border-radius: 8px;
@@ -118,6 +118,7 @@
     .model_ok_cancel{
         width:200px !important;
     }
+    
 
     /*
         @media screen and (max-width: 700px){
@@ -3339,7 +3340,7 @@
                         function comment_deletedimg(clicked_id)
                         {
                             var post_delete = document.getElementById("post_deleteimg");
-                            alert(post_delete.value);
+                          //  alert(post_delete.value);
                             $.ajax({
                                 type: 'POST',
                                 url: '<?php echo base_url() . "artistic/delete_commentimg" ?>',
