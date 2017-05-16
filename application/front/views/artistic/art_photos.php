@@ -2617,3 +2617,46 @@ if ($status == 0 || $status == " ") {
                    
 
 <!-- 9-5 khyati image script  emd --> 
+
+
+<!-- follow user script start -->
+
+<script type="text/javascript">
+    function followuser(clicked_id)
+    { //alert(clicked_id);
+
+        $.ajax({
+            type: 'POST',
+            url: '<?php echo base_url() . "artistic/follow" ?>',
+            data: 'follow_to=' + clicked_id,
+            success: function (data) {
+
+                $('.' + 'fruser' + clicked_id).html(data);
+
+            }
+        });
+    }
+</script>
+
+<!--follow like script end -->
+
+<!-- Unfollow user script start -->
+
+<script type="text/javascript">
+    function unfollowuser(clicked_id)
+    {
+
+        $.ajax({
+            type: 'POST',
+            url: '<?php echo base_url() . "artistic/unfollow" ?>',
+            data: 'follow_to=' + clicked_id,
+            success: function (data) {
+
+                $('.' + 'fruser' + clicked_id).html(data);
+
+            }
+        });
+    }
+</script>
+
+

@@ -2431,3 +2431,47 @@
     }
 
 </style>
+
+
+<!-- follow user script start -->
+
+            <script type="text/javascript">
+                function followuser(clicked_id)
+                {
+
+                    $.ajax({
+                        type: 'POST',
+                        url: '<?php echo base_url() . "business_profile/follow" ?>',
+                        data: 'follow_to=' + clicked_id,
+                        success: function (data) {
+
+                            $('.' + 'fr' + clicked_id).html(data);
+
+                        }
+                    });
+                }
+            </script>
+
+            <!-- follow user script end -->
+
+
+            <!-- Unfollow user script start -->
+
+            <script type="text/javascript">
+                function unfollowuser(clicked_id)
+                {
+
+                    $.ajax({
+                        type: 'POST',
+                        url: '<?php echo base_url() . "business_profile/unfollow" ?>',
+                        data: 'follow_to=' + clicked_id,
+                        success: function (data) {
+
+                            $('.' + 'fr' + clicked_id).html(data);
+
+                        }
+                    });
+                }
+            </script>
+
+            <!-- Unfollow user script end -->

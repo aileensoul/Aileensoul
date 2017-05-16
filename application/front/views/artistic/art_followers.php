@@ -298,7 +298,7 @@ if($status == 0 || $status == " "){?>
     if($artisticdata[0]['user_id'] == $userid){ 
     ?>
 
-                     <a id="myBtn">Designation</a>
+                     <a id="designation" class="designation" title="Designation">
 <?php }?>
 
                      <?php }else{?> 
@@ -307,7 +307,7 @@ if($status == 0 || $status == " "){?>
     $userid = $this->session->userdata('aileenuser');
     if($artisticdata[0]['user_id'] == $userid){ 
     ?>
-                      <a id="myBtn"><?php echo ucwords($artisticdata[0]['designation']); ?></a>
+                      <a id="designation" class="designation" title="<?php echo ucwords($artisticdata[0]['designation']); ?>"><?php echo ucwords($artisticdata[0]['designation']); ?></a>
 <?php } else{?>
               <a><?php echo ucwords($artisticdata[0]['designation']); ?></a>
 <?php }?>
@@ -316,9 +316,10 @@ if($status == 0 || $status == " "){?>
                   
 
                     <!-- The Modal -->
-                    <div id="myModal" class="modal">
-                      <!-- Modal content --><div class="col-md-2"></div>
-                      <div class="modal-content col-md-8">
+                    <!-- <div id="myModal" class="modal"> -->
+                      <!-- Modal content -->
+                      <!-- <div class="col-md-2"></div> -->
+                      <!-- <div class="modal-content col-md-8">
                         <span class="close">&times;</span>
                         <fieldset></fieldset>
                          <?php echo form_open(base_url('artistic/art_designation/'), array('id' => 'artdesignation','name' => 'artdesignation', 'class' => 'clearfix')); ?>
@@ -332,9 +333,9 @@ if($status == 0 || $status == " "){?>
   
                     
                      
-                    </div>
-                    <div class="col-md-2"></div>
-              </div>
+                    </div> -->
+                    <!-- <div class="col-md-2"></div> -->
+              <!-- </div> -->
             </div>
              
 
@@ -512,7 +513,43 @@ if($status == 0 || $status == " "){?>
   <script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 
- 
+ <!-- designation script start -->
+<script type="text/javascript">
+                            function divClicked() {
+                                var divHtml = $(this).html();
+                                var editableText = $("<textarea />");
+                                editableText.val(divHtml);
+                                $(this).replaceWith(editableText);
+                                editableText.focus();
+                                // setup the blur event for this new textarea
+                                editableText.blur(editableTextBlurred);
+                            }
+
+                            function editableTextBlurred() {
+                                var html = $(this).val();
+                                var viewableText = $("<a>");
+                                viewableText.html(html);
+                                $(this).replaceWith(viewableText);
+                                // setup the click event for this new div
+                                viewableText.click(divClicked);
+
+                                $.ajax({
+                                    url: "<?php echo base_url(); ?>artistic/art_designation",
+                                    type: "POST",
+                                    data: {"designation": html},
+                                    success: function (response) {
+
+                                    }
+                                });
+                            }
+
+                            $(document).ready(function () {
+                            // alert("hi");
+                                $("a.designation").click(divClicked);
+                            });
+                        </script>
+
+<!-- designation script end -->
  
 <!-- script for skill textbox automatic end (option 2)-->
 <script>
