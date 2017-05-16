@@ -161,45 +161,46 @@
                                                                     <label>Experience<span style="color:red">*</span></label>
                                                                     <select style="width: 46%; margin-right: 43px; float: left;" name="experience_year[]" id="experience_year<?php echo $y; ?>" class="experience_year">
                                                                         <option value="" selected option disabled>Year</option>
-                                                                        <option value="0 year"  <?php if ($experience_year1 == "0 year") echo 'selected'; ?>>0</option>
-                                                                        <option value="1 year"  <?php if ($experience_year1 == "1 year") echo 'selected'; ?>>1</option>
-                                                                        <option value="2 year"  <?php if ($experience_year1 == "2 year") echo 'selected'; ?>>2</option>
-                                                                        <option value="3 year"  <?php if ($experience_year1 == "3 year") echo 'selected'; ?>>3</option>
-                                                                        <option value="4 year"  <?php if ($experience_year1 == "4 year") echo 'selected'; ?>>4</option>
-                                                                        <option value="5 year"  <?php if ($experience_year1 == "5 year") echo 'selected'; ?>>5</option>
-                                                                        <option value="6 year"  <?php if ($experience_year1 == "6 year") echo 'selected'; ?>>6</option>
-                                                                        <option value="7 year"  <?php if ($experience_year1 == "7 year") echo 'selected'; ?>>7</option>  
-                                                                        <option value="8 year"  <?php if ($experience_year1 == "8 year") echo 'selected'; ?>>8</option>
-                                                                        <option value="9 year"  <?php if ($experience_year1 == "9 year") echo 'selected'; ?>>9</option> 
-                                                                        <option value="10 year"  <?php if ($experience_year1 == "10 year") echo 'selected'; ?>>10</option>
-                                                                        <option value="11 year"  <?php if ($experience_year1 == "11 year") echo 'selected'; ?>>11</option> 
-                                                                        <option value="12 year"  <?php if ($experience_year1 == "12 year") echo 'selected'; ?>>12</option>
-                                                                        <option value="13 year"  <?php if ($experience_year1 == "13 year") echo 'selected'; ?>>13</option> 
-                                                                        <option value="14 year"  <?php if ($experience_year1 == "14 year") echo 'selected'; ?>>14</option>
-                                                                        <option value="15 year"  <?php if ($experience_year1 == "15 year") echo 'selected'; ?>>15</option>
-                                                                        <option value="16 year"  <?php if ($experience_year1 == "16 year") echo 'selected'; ?>>16</option>
-                                                                        <option value="17 year"  <?php if ($experience_year1 == "17 year") echo 'selected'; ?>>17</option>
-                                                                        <option value="18 year"  <?php if ($experience_year1 == "18 year") echo 'selected'; ?>>18</option>
-                                                                        <option value="19 year"  <?php if ($experience_year1 == "19 year") echo 'selected'; ?>>19</option>
-                                                                        <option value="20 year"  <?php if ($experience_year1 == "20 year") echo 'selected'; ?>>20</option>
+                                                                        <option value="0 year"  <?php if ($experience_year1 == "0 year") echo 'selected'; ?>>0 year</option>
+                                                                        <option value="1 year"  <?php if ($experience_year1 == "1 year") echo 'selected'; ?>>1 year</option>
+                                                                        <option value="2 year"  <?php if ($experience_year1 == "2 year") echo 'selected'; ?>>2 year</option>
+                                                                        <option value="3 year"  <?php if ($experience_year1 == "3 year") echo 'selected'; ?>>3 year</option>
+                                                                        <option value="4 year"  <?php if ($experience_year1 == "4 year") echo 'selected'; ?>>4 year</option>
+                                                                        <option value="5 year"  <?php if ($experience_year1 == "5 year") echo 'selected'; ?>>5 year</option>
+                                                                        <option value="6 year"  <?php if ($experience_year1 == "6 year") echo 'selected'; ?>>6 year</option>
+                                                                        <option value="7 year"  <?php if ($experience_year1 == "7 year") echo 'selected'; ?>>7 year</option>  
+                                                                        <option value="8 year"  <?php if ($experience_year1 == "8 year") echo 'selected'; ?>>8 year</option>
+                                                                        <option value="9 year"  <?php if ($experience_year1 == "9 year") echo 'selected'; ?>>9 year</option> 
+                                                                        <option value="10 year"  <?php if ($experience_year1 == "10 year") echo 'selected'; ?>>10 year</option>
+                                                                        <option value="11 year"  <?php if ($experience_year1 == "11 year") echo 'selected'; ?>>11 year</option> 
+                                                                        <option value="12 year"  <?php if ($experience_year1 == "12 year") echo 'selected'; ?>>12 year</option>
+                                                                        <option value="13 year"  <?php if ($experience_year1 == "13 year") echo 'selected'; ?>>13 year</option> 
+                                                                        <option value="14 year"  <?php if ($experience_year1 == "14 year") echo 'selected'; ?>>14 year</option>
+                                                                        <option value="15 year"  <?php if ($experience_year1 == "15 year") echo 'selected'; ?>>15 year</option>
+                                                                        <option value="16 year"  <?php if ($experience_year1 == "16 year") echo 'selected'; ?>>16 year</option>
+                                                                        <option value="17 year"  <?php if ($experience_year1 == "17 year") echo 'selected'; ?>>17 year</option>
+                                                                        <option value="18 year"  <?php if ($experience_year1 == "18 year") echo 'selected'; ?>>18 year</option>
+                                                                        <option value="19 year"  <?php if ($experience_year1 == "19 year") echo 'selected'; ?>>19 year</option>
+                                                                        <option value="20 year"  <?php if ($experience_year1 == "20 year") echo 'selected'; ?>>20 year</option>
 
                                                                     </select>
 
 
                                                                     <select style="width: 46%;" name="experience_month[]" id="experience_month<?php echo $y; ?>" class="experience_month">
                                                                         <option value="" selected option disabled>Month</option>
-                                                                        <option value="1 month"  <?php if ($experience_month1 == "1 month") echo 'selected'; ?>>1</option>
-                                                                        <option value="2 month"  <?php if ($experience_month1 == "2 month") echo 'selected'; ?>>2</option>
-                                                                        <option value="3 month"  <?php if ($experience_month1 == "3 month") echo 'selected'; ?>>3</option>
-                                                                        <option value="4 month"  <?php if ($experience_month1 == "4 month") echo 'selected'; ?>>4</option>
-                                                                        <option value="5 month"  <?php if ($experience_month1 == "5 month") echo 'selected'; ?>>5</option>
-                                                                        <option value="6 month"  <?php if ($experience_month1 == "6 month") echo 'selected'; ?>>6</option>
-                                                                        <option value="7 month"  <?php if ($experience_month1 == "7 month") echo 'selected'; ?>>7</option>
-                                                                        <option value="8 month"  <?php if ($experience_month1 == "8 month") echo 'selected'; ?>>8</option>
-                                                                        <option value="9 month"  <?php if ($experience_month1 == "9 month") echo 'selected'; ?>>9</option>
-                                                                        <option value="10 month"  <?php if ($experience_month1 == "10 month") echo 'selected'; ?>>10</option>
-                                                                        <option value="11 month"  <?php if ($experience_month1 == "11 month") echo 'selected'; ?>>11</option>
-                                                                        <option value="12 month"  <?php if ($experience_month1 == "12 month") echo 'selected'; ?>>12</option>
+                                                                        <option value="0 month"  <?php if ($experience_month1 == "0 month") echo 'selected'; ?>>0 month</option>
+                                                                        <option value="1 month"  <?php if ($experience_month1 == "1 month") echo 'selected'; ?>>1 month</option>
+                                                                        <option value="2 month"  <?php if ($experience_month1 == "2 month") echo 'selected'; ?>>2 month</option>
+                                                                        <option value="3 month"  <?php if ($experience_month1 == "3 month") echo 'selected'; ?>>3 month</option>
+                                                                        <option value="4 month"  <?php if ($experience_month1 == "4 month") echo 'selected'; ?>>4 month</option>
+                                                                        <option value="5 month"  <?php if ($experience_month1 == "5 month") echo 'selected'; ?>>5 month</option>
+                                                                        <option value="6 month"  <?php if ($experience_month1 == "6 month") echo 'selected'; ?>>6 month</option>
+                                                                        <option value="7 month"  <?php if ($experience_month1 == "7 month") echo 'selected'; ?>>7 month</option>
+                                                                        <option value="8 month"  <?php if ($experience_month1 == "8 month") echo 'selected'; ?>>8 month</option>
+                                                                        <option value="9 month"  <?php if ($experience_month1 == "9 month") echo 'selected'; ?>>9 month</option>
+                                                                        <option value="10 month"  <?php if ($experience_month1 == "10 month") echo 'selected'; ?>>10 month</option>
+                                                                        <option value="11 month"  <?php if ($experience_month1 == "11 month") echo 'selected'; ?>>11 month</option>
+                                                                        <option value="12 month"  <?php if ($experience_month1 == "12 month") echo 'selected'; ?>>12 month</option>
 
                                                                     </select>
                                                                 </fieldset>
@@ -303,45 +304,46 @@
                                                             <label>Experience<span style="color:red">*</span></label>
                                                             <select style="width:46%; float: left; margin-right: 43px;" name="experience_year[]" id="experience_year" class="experience_year">
                                                                 <option value="" selected option disabled>Year</option>
-                                                                <option value="0 year"  <?php if ($experience_year1 == "0 year") echo 'selected'; ?>>0</option>
-                                                                <option value="1 year"  <?php if ($experience_year1 == "1 year") echo 'selected'; ?>>1</option>
-                                                                <option value="2 year"  <?php if ($experience_year1 == "2 year") echo 'selected'; ?>>2</option>
-                                                                <option value="3 year"  <?php if ($experience_year1 == "3 year") echo 'selected'; ?>>3</option>
-                                                                <option value="4 year"  <?php if ($experience_year1 == "4 year") echo 'selected'; ?>>4</option>
-                                                                <option value="5 year"  <?php if ($experience_year1 == "5 year") echo 'selected'; ?>>5</option>
-                                                                <option value="6 year"  <?php if ($experience_year1 == "6 year") echo 'selected'; ?>>6</option>
-                                                                <option value="7 year"  <?php if ($experience_year1 == "7 year") echo 'selected'; ?>>7</option>  
-                                                                <option value="8 year"  <?php if ($experience_year1 == "8 year") echo 'selected'; ?>>8</option>
-                                                                <option value="9 year"  <?php if ($experience_year1 == "9 year") echo 'selected'; ?>>9</option> 
-                                                                <option value="10 year"  <?php if ($experience_year1 == "10 year") echo 'selected'; ?>>10</option>
-                                                                <option value="11 year"  <?php if ($experience_year1 == "11 year") echo 'selected'; ?>>11</option> 
-                                                                <option value="12 year"  <?php if ($experience_year1 == "12 year") echo 'selected'; ?>>12</option>
-                                                                <option value="13 year"  <?php if ($experience_year1 == "13 year") echo 'selected'; ?>>13</option> 
-                                                                <option value="14 year"  <?php if ($experience_year1 == "14 year") echo 'selected'; ?>>14</option>
-                                                                <option value="15 year"  <?php if ($experience_year1 == "15 year") echo 'selected'; ?>>15</option>
-                                                                <option value="16 year"  <?php if ($experience_year1 == "16 year") echo 'selected'; ?>>16</option>
-                                                                <option value="17 year"  <?php if ($experience_year1 == "17 year") echo 'selected'; ?>>17</option>
-                                                                <option value="18 year"  <?php if ($experience_year1 == "18 year") echo 'selected'; ?>>18</option>
-                                                                <option value="19 year"  <?php if ($experience_year1 == "19 year") echo 'selected'; ?>>19</option>
-                                                                <option value="20 year"  <?php if ($experience_year1 == "20 year") echo 'selected'; ?>>20</option>
+                                                                <option value="0 year"  <?php if ($experience_year1 == "0 year") echo 'selected'; ?>>0 year</option>
+                                                                <option value="1 year"  <?php if ($experience_year1 == "1 year") echo 'selected'; ?>>1 year</option>
+                                                                <option value="2 year"  <?php if ($experience_year1 == "2 year") echo 'selected'; ?>>2 year</option>
+                                                                <option value="3 year"  <?php if ($experience_year1 == "3 year") echo 'selected'; ?>>3 year</option>
+                                                                <option value="4 year"  <?php if ($experience_year1 == "4 year") echo 'selected'; ?>>4 year</option>
+                                                                <option value="5 year"  <?php if ($experience_year1 == "5 year") echo 'selected'; ?>>5 year</option>
+                                                                <option value="6 year"  <?php if ($experience_year1 == "6 year") echo 'selected'; ?>>6 year</option>
+                                                                <option value="7 year"  <?php if ($experience_year1 == "7 year") echo 'selected'; ?>>7 year</option>  
+                                                                <option value="8 year"  <?php if ($experience_year1 == "8 year") echo 'selected'; ?>>8 year</option>
+                                                                <option value="9 year"  <?php if ($experience_year1 == "9 year") echo 'selected'; ?>>9 year</option> 
+                                                                <option value="10 year"  <?php if ($experience_year1 == "10 year") echo 'selected'; ?>>10 year</option>
+                                                                <option value="11 year"  <?php if ($experience_year1 == "11 year") echo 'selected'; ?>>11 year</option> 
+                                                                <option value="12 year"  <?php if ($experience_year1 == "12 year") echo 'selected'; ?>>12 year</option>
+                                                                <option value="13 year"  <?php if ($experience_year1 == "13 year") echo 'selected'; ?>>13 year</option> 
+                                                                <option value="14 year"  <?php if ($experience_year1 == "14 year") echo 'selected'; ?>>14 year</option>
+                                                                <option value="15 year"  <?php if ($experience_year1 == "15 year") echo 'selected'; ?>>15 year</option>
+                                                                <option value="16 year"  <?php if ($experience_year1 == "16 year") echo 'selected'; ?>>16 year</option>
+                                                                <option value="17 year"  <?php if ($experience_year1 == "17 year") echo 'selected'; ?>>17 year</option>
+                                                                <option value="18 year"  <?php if ($experience_year1 == "18 year") echo 'selected'; ?>>18 year</option>
+                                                                <option value="19 year"  <?php if ($experience_year1 == "19 year") echo 'selected'; ?>>19 year</option>
+                                                                <option value="20 year"  <?php if ($experience_year1 == "20 year") echo 'selected'; ?>>20 year</option>
 
                                                             </select>
 
 
                                                             <select style="width:46%;" name="experience_month[]" id="experience_month" class="experience_month">
                                                                 <option value="" selected option disabled>Month</option>
-                                                                <option value="1 month"  <?php if ($experience_month1 == "1 month") echo 'selected'; ?>>1</option>
-                                                                <option value="2 month"  <?php if ($experience_month1 == "2 month") echo 'selected'; ?>>2</option>
-                                                                <option value="3 month"  <?php if ($experience_month1 == "3 month") echo 'selected'; ?>>3</option>
-                                                                <option value="4 month"  <?php if ($experience_month1 == "4 month") echo 'selected'; ?>>4</option>
-                                                                <option value="5 month"  <?php if ($experience_month1 == "5 month") echo 'selected'; ?>>5</option>
-                                                                <option value="6 month"  <?php if ($experience_month1 == "6 month") echo 'selected'; ?>>6</option>
-                                                                <option value="7 month"  <?php if ($experience_month1 == "7 month") echo 'selected'; ?>>7</option>
-                                                                <option value="8 month"  <?php if ($experience_month1 == "8 month") echo 'selected'; ?>>8</option>
-                                                                <option value="9 month"  <?php if ($experience_month1 == "9 month") echo 'selected'; ?>>9</option>
-                                                                <option value="10 month"  <?php if ($experience_month1 == "10 month") echo 'selected'; ?>>10</option>
-                                                                <option value="11 month"  <?php if ($experience_month1 == "11 month") echo 'selected'; ?>>11</option>
-                                                                <option value="12 month"  <?php if ($experience_month1 == "12 month") echo 'selected'; ?>>12</option>
+                                                                <option value="0 month"  <?php if ($experience_month1 == "0 month") echo 'selected'; ?>>0 month</option>
+                                                                <option value="1 month"  <?php if ($experience_month1 == "1 month") echo 'selected'; ?>>1 month</option>
+                                                                <option value="2 month"  <?php if ($experience_month1 == "2 month") echo 'selected'; ?>>2 month</option>
+                                                                <option value="3 month"  <?php if ($experience_month1 == "3 month") echo 'selected'; ?>>3 month</option>
+                                                                <option value="4 month"  <?php if ($experience_month1 == "4 month") echo 'selected'; ?>>4 month</option>
+                                                                <option value="5 month"  <?php if ($experience_month1 == "5 month") echo 'selected'; ?>>5 month</option>
+                                                                <option value="6 month"  <?php if ($experience_month1 == "6 month") echo 'selected'; ?>>6 month</option>
+                                                                <option value="7 month"  <?php if ($experience_month1 == "7 month") echo 'selected'; ?>>7 month</option>
+                                                                <option value="8 month"  <?php if ($experience_month1 == "8 month") echo 'selected'; ?>>8 month</option>
+                                                                <option value="9 month"  <?php if ($experience_month1 == "9 month") echo 'selected'; ?>>9 month</option>
+                                                                <option value="10 month"  <?php if ($experience_month1 == "10 month") echo 'selected'; ?>>10 month</option>
+                                                                <option value="11 month"  <?php if ($experience_month1 == "11 month") echo 'selected'; ?>>11 month</option>
+                                                                <option value="12 month"  <?php if ($experience_month1 == "12 month") echo 'selected'; ?>>12 month</option>
 
                                                             </select>
                                                         </fieldset>
