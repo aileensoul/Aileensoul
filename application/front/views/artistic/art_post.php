@@ -1473,7 +1473,7 @@
                                                                         <a href="<?php echo base_url('artistic/art_manage_post/' . $rowdata['user_id'] . ''); ?>">
 
                                                                         <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
-                                                                        </a>
+                                                                        </a>+6
                                                                         <?php
                                                                     }
                                                                     ?>
