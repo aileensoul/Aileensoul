@@ -306,7 +306,7 @@ echo $freelancer_hire_header2;} ?>
                 <div class="flw_msg_btn fr">
                     <ul>
      <?php $userid = $this->session->userdata('aileenuser');
-                        if($userid != $this->uri->segment(3)){ ?>
+                        if($userid != $freelancerpostdata[0]['user_id']){ ?>
                         <li> <a href="<?php echo base_url('chat/abc/' . $this->uri->segment(3)); ?>">Message</a> </li>
                        <?php } ?>
                     </ul>
