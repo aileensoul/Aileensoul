@@ -424,7 +424,7 @@ $freelancerapply1 = $this->data['freelancerapply'] = $this->common->select_data_
                               <?php $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name; ?>
                               <?php $countryname = $this->db->get_where('countries', array('country_id' => $post['country']))->row()->country_name; ?>
 
-                                <p title="Location"><i class="fa fa-map-marker" aria-hidden="true">  <?php echo $cityname.","; ?><?php echo $countryname; ?></i></p>
+                                <p title="Location"><i class="fa fa-map-marker" aria-hidden="true">  <?php if ($cityname){echo $cityname.","; }?><?php if ($countryname) {echo $countryname; }?></i></p>
                                  </div>
                             </li>
                     <!-- vishang 14-4 end -->    

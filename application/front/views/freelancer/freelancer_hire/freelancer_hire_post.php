@@ -570,7 +570,7 @@ $contition_array = array('user_id' => $userid, 'job_save' => '2', 'post_id ' => 
 
             if ($data){
                 ?>
-       <a class="saved  button">Saved</a>
+       <a class="saved  button <?php echo 'savedpost' . $post['post_id']; ?>">Saved</a>
     <?php } else { ?>
                 <input type="hidden" name="saveuser"  id="saveuser" value= "<?php echo $data[0]['save_id']; ?>"> 
 <a id="<?php echo $post['post_id']; ?>" onClick="savepopup(<?php echo $post['post_id']; ?>)" href="javascript:void(0);" class="<?php echo 'savedpost' . $post['post_id']; ?> applypost button">Save</a>
