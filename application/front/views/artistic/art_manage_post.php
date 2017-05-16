@@ -943,7 +943,7 @@ responsive image design start -->
                                                                margin-top: 6px;
                                                                ">
                         </div>
-                        <div id="myBtn3"  class="editor-content col-md-11 popup-text" contenteditable>
+                        <div id="myBtn3"  class="editor-content col-md-11 popup-text">
                             <span> Post Your Art....</span> 
                           <!--  <span class="fr">
                             <input type="file" id="FileID" style="display:none;">
@@ -3809,11 +3809,11 @@ responsive image design start -->
 
 <script type="text/javascript">
 
-    $(document).ready(function () {
-        $('.modal-close').on('click', function () {
-            $('.modal-post').hide();
-        });
-    });
+    // $(document).ready(function () {
+    //     $('.modal-close').on('click', function () {
+    //         $('.modal-post').hide();
+    //     });
+    // });
 
 </script>
 

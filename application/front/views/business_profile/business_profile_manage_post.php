@@ -9,6 +9,22 @@
         text-align: center;
     }
 
+
+#myBtn1[placeholder]:empty:before {
+    content: attr(placeholder);
+    color: #555; 
+}div[data-placeholder]:not(:focus):not([data-div-placeholder-content]):before {
+
+    content: attr(data-placeholder);
+
+    float: left;
+
+    margin-left: 2px;
+
+    color: #b3b3b3;
+
+}
+
     .pop_content .okbtn{
         position: absolute;
         transition: all 200ms;
@@ -994,8 +1010,8 @@
                                     <img alt=""  src="<?php echo base_url(NOIMAGE); ?>" alt="" />
                                 <?php } ?>
                             </div>
-                            <div id="myBtn1"  class="editor-content col-md-11 popup-text"  contenteditable>
-                                <span> Post Your Product....</span> 
+                            <div id="myBtn1"  class="editor-content col-md-11 popup-text" data-placeholder="Post Your Product...."  >
+                                
                               <!--  <span class="fr">
                                 <input type="file" id="FileID" style="display:none;">
                                  <label for="FileID"><i class=" fa fa-camera fa"  style=" margin: 8px; cursor:pointer">  </i>
@@ -3543,11 +3559,11 @@
             </script>
             <script type="text/javascript">
 
-                $(document).ready(function () {
-                    $('.modal-close').on('click', function () {
-                        $('.modal-post').hide();
-                    });
-                });
+                // $(document).ready(function () {
+                //     $('.modal-close').on('click', function () {
+                //         $('.modal-post').hide();
+                //     });
+                // });
 
             </script>
 
