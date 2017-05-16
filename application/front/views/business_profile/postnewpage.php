@@ -741,57 +741,56 @@
                                             if (in_array($ext, $allowed)) {
                                                 ?>
 
-<?php    if (count($businessmultiimage) == 1) { ?>
-                                                    <?php
-                                                    foreach ($businessmultiimage as $multiimage) {
-                                                        ?>
+<?php   if (count($businessmultiimage) == 1) { ?>
+                                                   
                                                         <!-- two image start -->
                                                        <div id="basic-responsive-image" style="height: 50%;" >
                                                     <img src="<?php echo base_url(BUSPOSTIMAGE . $data['image_name']) ?>" style="width: 100%; height: 100%;" onclick="openModal();
                                                             currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
                                                 </div>
                                                         <!-- two image end -->
-                                                    <?php } ?>
+                                                  
                                                 <?php } ?>
                                                 
 
-                                            <?php    if (count($businessmultiimage) == 2) { ?>
-                                                    <?php
-                                                    foreach ($businessmultiimage as $multiimage) {
-                                                        ?>
+                                            <?php    if (count($businessmultiimage) == 2) {?>
+                                                    
                                                         <!-- two image start -->
-                                                       <div id="basic-responsive-image" style="height: 50%;" >
+                                                       <div id="two_images_bui" style="height: 50%;" >
                                                     <img src="<?php echo base_url(BUSPOSTIMAGE . $data['image_name']) ?>" style="width: 100%; height: 100%;" onclick="openModal();
                                                             currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
                                                 </div>
                                                         <!-- two image end -->
                                                     <?php } ?>
-                                                <?php } ?>
+                                                
+
+
                                                 <?php    if (count($businessmultiimage) == 3) { ?>
-                                                    <?php
-                                                    foreach ($businessmultiimage as $multiimage) {
+                                                    <?php 
+                                                 //   foreach ($businessmultiimage as $multiimage) {
                                                         ?>
                                                         <!-- two image start -->
-                                                       <div id="basic-responsive-image" style="height: 50%;" >
+                                                       <div id="three_images_art" style="height: 40%;
+    width: 33.3%;
+    display: inline-block;
+    float: left;" >
                                                     <img src="<?php echo base_url(BUSPOSTIMAGE . $data['image_name']) ?>" style="width: 100%; height: 100%;" onclick="openModal();
                                                             currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
                                                 </div>
                                                         <!-- two image end -->
-                                                    <?php } ?>
+                                                    <?php// } ?>
                                                 <?php } ?>
 
 <?php    if (count($businessmultiimage) == 4) { ?>
-                                                    <?php
-                                                    foreach ($businessmultiimage as $multiimage) {
-                                                        ?>
+                                                    
                                                         <!-- two image start -->
-                                                       <div id="basic-responsive-image" style="height: 50%;" >
+                                                       <div id="two_images_bui" style="height: 50%;" >
                                                     <img src="<?php echo base_url(BUSPOSTIMAGE . $data['image_name']) ?>" style="width: 100%; height: 100%;" onclick="openModal();
                                                             currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
                                                 </div>
                                                         <!-- two image end -->
                                                     <?php } ?>
-                                                <?php } ?>
+                                                
 
                                             <?php } elseif (in_array($ext, $allowespdf)) { ?>
 

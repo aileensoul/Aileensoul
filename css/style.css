@@ -229,8 +229,8 @@ ul.sub-menu li a i { padding-right: 5px; }
 .title-section { padding: 42px 0; }
 .midd-section { background: url(../images/freelancer-bg.jpg) no-repeat; background-size: cover; padding: 100px 0; }
 .midd-section h2 { font-size: 36px; margin-bottom: 30px; }
-.freelancer-midd { padding: 70px 0 135px; 
-                   height: 84%; }
+.freelancer-midd { 
+                   height: 100%; }
 
  .about_btm{margin-top: 15%;}                  
 .freelancer-midd .title-section { padding-bottom:114px; }
@@ -3216,7 +3216,7 @@ follow box*/
 .profile-boxProfileCard  h5 i:hover{text-decoration: underline;}*/
 .buisness_he_module{ padding-left: 5px;display: table;
                      width: 100%;}
-.business_data_td2{padding-bottom: 7px;}
+.business_data_td2{padding-bottom: 7px; word-break: break-all;}
 .post_img_mul{position: relative;}
 .post_img_mul1{    background-color: rgba(0, 0, 0, .2);
                    bottom: 0;

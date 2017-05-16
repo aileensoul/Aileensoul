@@ -89,11 +89,11 @@
                         <div class="pushmenu pushmenu-left">
                       
    <div class="col-md-4 reg_form">
-                        <input type="text" name="user_name" id="user_name" placeholder="Email Address" value="<?php if (isset($_COOKIE['user_name'])) { echo $_COOKIE['user_name']; } ?>">
+                        <input type="text" tabindex="1" name="user_name" id="user_name" placeholder="Email Address" value="<?php if (isset($_COOKIE['user_name'])) { echo $_COOKIE['user_name']; } ?>">
 
                         <div class="checkbox2" style="display: block;">
 
-                        <input type="checkbox" class="fl" name="remember" style="display: inline-block;padding: 2px; width: 6%; margin-left: 5px;margin-top: 5px;">
+                        <input type="checkbox"  tabindex="2"  class="fl" name="remember" style="display: inline-block;padding: 2px; width: 6%; margin-left: 5px;margin-top: 5px;">
                                      <span class="" style="font-size: 13px; padding-left: 8px; color: #a0b3b0;">Remember me</span>
                         </div>
         </div> 
@@ -106,29 +106,7 @@
                               <a style="font-size: 13px;"   id="myBtn"> Forgot Password?</a>
                               </span>
 
- <div id="myModal" class="modal">
 
-  <!-- Modal content -->
-  <div class="modal-content">
-    <div class="modal-header" style="    width: 100%;
-    text-align: center;">
-      <span class="close">&times;</span>
-      <label style="color: #a0b3b0;">Forgot Password</label>
-    </div>
-    <div class="modal-body" style="    width: 100%;
-    text-align: center;">
-        <label  style="margin-bottom: 15px; color: #a0b3b0;"> Enter your e-mail address below to get your password.</label>
-                                            <input style="" type="text" name="forgot_email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
-
-    </div>
-    <div class="modal-footer ">
-      <!--  <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
-       -->                        <div class="submit_btn">              <input class="btn btn-theme" type="submit" name="submit" value="Submit" /> 
-       </div>
-    </div>
-  </div>
-
-</div>
 
 </div> 
 <div class="col-md-2 reg_button">
@@ -147,6 +125,37 @@
             </div>
         </div>
     </header>
+
+    <div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header" style="    width: 100%;
+    text-align: center;">
+
+    <?php
+        $form_attribute = array('name' => 'forgot', 'method' => 'post', 'class' => 'forgot_password', 'id' => 'forgot_password');
+        echo form_open('profile/forgot_password', $form_attribute);
+    ?>
+
+      <span class="close">&times;</span>
+      <label style="color: #a0b3b0;">Forgot Password</label>
+    </div>
+    <div class="modal-body" style="    width: 100%;
+    text-align: center;">
+        <label  style="margin-bottom: 15px; color: #a0b3b0;"> Enter your e-mail address below to get your password.</label>
+                                            <input style="" type="text" name="forgot_email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
+
+    </div>
+    <div class="modal-footer ">
+      <!--  <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+       -->                        <div class="submit_btn">              <input class="btn btn-theme" type="submit" name="submit" value="Submit" /> 
+       </div>
+    </div>
+    </form>
+  </div>
+
+</div>
     <section class="buttonset">
         <div id="nav_list"></div>
     </section>
@@ -562,6 +571,30 @@ $('#datepicker').datetimepicker({
                                     
           });
 
+
+
+  
+   $(document).ready(function () { aletr("hii");
+          /* validation */
+          $("#forgot_password").validate({
+              rules: {
+                  forgot_email: {
+                      required: true,
+                        }
+                  
+                        },
+            messages:  {
+                    forgot_email: {
+                    required: "Please Enter Email Address",
+                      }
+
+                    
+                   },
+                });
+            /* validation */
+                                    
+          });
+
             //login validation end
 
             //pattern validation at fname and lname start//
@@ -779,3 +812,4 @@ window.onclick = function(event) {
     }
 }
 </script>
+
