@@ -175,8 +175,7 @@
                         background-color: #fff;
                         font-size: 16px;
                         height: 10%;}
-    .popup-textarea{border-bottom: 5px solid #ced5df;}
-
+   
 </style>
 <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
 <link href="<?php echo base_url() ?>css/fileinput.css" media="all" rel="stylesheet" type="text/css"/>
@@ -837,7 +836,7 @@
                             <div class="main-text-area col-md-12">
                                 <div class="popup-img col-md-1"> <img  src="<?php echo base_url(ARTISTICIMAGE . $artisticdata[0]['art_user_image']); ?>"  alt="">
                                 </div>
-                                <div id="myBtn"  class="editor-content col-md-11 popup-text" contenteditable>
+                                <div id="myBtn"  class="editor-content col-md-11 popup-text">
                                     <span > Post Your Art....</span> 
                                   <!--  <span class="fr">
                                     <input type="file" id="FileID" style="display:none;">
@@ -3190,11 +3189,11 @@
                     </script>
                     <script type="text/javascript">
 
-                        $(document).ready(function () {
-                            $('.modal-close').on('click', function () {
-                                $('.modal-post').hide();
-                            });
-                        });
+                        // $(document).ready(function () {
+                        //     $('.modal-close').on('click', function () {
+                        //         $('.modal-post').hide();
+                        //     });
+                        // });
 
                     </script>
 
