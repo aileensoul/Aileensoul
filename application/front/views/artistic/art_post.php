@@ -1155,7 +1155,7 @@
 
                                                         <!-- one video start -->
                                                         <div>
-                                                            <video width="320" height="240" controls>
+                                                            <video width="100%" height="240" controls>
 
                                                                 <source src="<?php echo base_url(ARTPOSTIMAGE . $artmultiimage[0]['image_name']) ?>" type="video/mp4">
                                                                 <source src="movie.ogg" type="video/ogg">
@@ -1168,7 +1168,7 @@
 
                                                         <!-- one audio start -->
                                                         <div>
-                                                            <audio width="120" height="100" controls>
+                                                            <audio width="100%" height="100" controls>
 
                                                                 <source src="<?php echo base_url(ARTPOSTIMAGE . $artmultiimage[0]['image_name']) ?>" type="audio/mp3">
                                                                 <source src="movie.ogg" type="audio/ogg">

@@ -4596,7 +4596,14 @@ fieldset .add_post_btns{min-width: 120px;padding:8px 30px 8px;}
     width: 40%;
     padding: 5px;}
     #paddingtop_fixed{padding-top:84px!important;}
-    .profile-job-details .post_title {   font-size: 19px; font-weight: 600; width: 430px; word-break: break-word; cursor: default; }
+    .profile-job-details .post_title {       font-size: 19px;
+    font-weight: 600;
+    width: 472px;
+    word-break: break-word;
+    cursor: default;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;}
     
     .profile-job-details .job_companyname 
     {  width: 350px;
