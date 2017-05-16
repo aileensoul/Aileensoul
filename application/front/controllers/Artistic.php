@@ -3884,7 +3884,7 @@ class Artistic extends MY_Controller {
             $contition_array = array('user_id' => $id, 'status' => '1');
 
 
-            $artisticdata = $this->data['artisticdata'] = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            $artisticdata = $this->data['artisticdata'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
 
 
