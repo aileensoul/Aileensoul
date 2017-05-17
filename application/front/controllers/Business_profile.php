@@ -32,7 +32,7 @@ class Business_profile extends MY_Controller {
             $contition_array = array('status' => 1);
             $this->data['countries'] = $this->common->select_data_by_condition('countries', $contition_array, $data = '*', $sortby = 'country_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-            //for getting state data
+            //for gxetting state data
             $contition_array = array('status' => 1);
             $this->data['states'] = $this->common->select_data_by_condition('states', $contition_array, $data = '*', $sortby = 'state_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
