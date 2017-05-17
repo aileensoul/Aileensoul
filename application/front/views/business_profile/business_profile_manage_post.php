@@ -1103,15 +1103,6 @@
 
 
                     <?php
-
-                    function text2link($text) {
-                        $text = preg_replace('/(((f|ht){1}t(p|ps){1}:\/\/)[-a-zA-Z0-9@:%_\+.~#?&\/\/=]+)/i', '<a href="\\1" target="_blank" rel="nofollow">\\1</a>', $text);
-                        $text = preg_replace('/([[:space:]()[{}])(www.[-a-zA-Z0-9@:%_\+.~#?&\/\/=]+)/i', '\\1<a href="http://\\2" target="_blank" rel="nofollow">\\2</a>', $text);
-                        $text = preg_replace('/([_\.0-9a-z-]+@([0-9a-z][0-9a-z-]+\.)+[a-z]{2,3})/i', '<a href="mailto:\\1" rel="nofollow" target="_blank">\\1</a>', $text);
-                        return $text;
-                    }
-                    ?>
-                    <?php
 //echo "<pre>"; print_r($business_profile_data); die();
                     foreach ($business_profile_data as $row) {
                         ?>
@@ -1215,42 +1206,52 @@
 
                                         </ul> 
                                     </div>  
-                                    <div class="dropdown2">
-                                        <a onClick="myFunction1(<?php echo $row['business_profile_post_id']; ?>)" class="dropbtn2 dropbtn2 fa fa-ellipsis-v"></a>
-                                        <div id="<?php echo "myDropdown" . $row['business_profile_post_id']; ?>" class="dropdown-content2">
+    <div class="dropdown2">
+            <a onClick="myFunction1(<?php echo $row['business_profile_post_id']; ?>)" class="dropbtn2 dropbtn2 fa fa-ellipsis-v"></a>
+             <div id="<?php echo "myDropdown" . $row['business_profile_post_id']; ?>" class="dropdown-content2">
 
 
-                                            <?php if ($this->session->userdata('aileenuser') == $row['user_id']) { ?> 
+
+        <?php if($row['posted_user_id'] != 0){
+
+                  if($this->session->userdata('aileenuser') == $row['posted_user_id']){
+                    ?>
+             <a onclick="user_postdelete(<?php echo $row['business_profile_post_id']; ?>)">
+                <i class="fa fa-trash-o" aria-hidden="true">
+                  </i> Delete Post
+            </a>
+            <a id="<?php echo $row['business_profile_post_id']; ?>" onClick="editpost(this.id)">
+            <i class="fa fa-pencil-square-o" aria-hidden="true">
+             </i>Edit
+            </a>
+
+            <?php }else{
+                ?>
+           
+           <a onclick="user_postdelete(<?php echo $row['business_profile_post_id']; ?>)">
+                <i class="fa fa-trash-o" aria-hidden="true">
+                  </i> Delete Post
+            </a>
+        <a href="<?php echo base_url('business_profile/business_profile_contactperson/' . $row['posted_user_id'] . ''); ?>">
+            <i class="fa fa-user" aria-hidden="true">
+            </i> Contact Person
+             </a>
+
+            <?php } }else{?>
+            <?php if ($this->session->userdata('aileenuser') == $row['user_id']) { ?> 
 
 
-                                                <a onclick="user_postdelete(<?php echo $row['business_profile_post_id']; ?>)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete Post</a>
+                 <a onclick="user_postdelete(<?php echo $row['business_profile_post_id']; ?>)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete Post</a>
 
-                                                <a id="<?php echo $row['business_profile_post_id']; ?>" onClick="editpost(this.id)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit</a>
+                 <a id="<?php echo $row['business_profile_post_id']; ?>" onClick="editpost(this.id)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit</a>
 
-                                            <?php } else { ?>
-                                                                                                                                                                                                            <!-- <a href="<?php //echo "#popup5" . $row['business_profile_post_id'];                          ?>"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete Post</a> -->
+                <?php } else { ?>
+                               
 
-
-                                                <!-- <?php
-                                                $userid = $this->session->userdata('aileenuser');
-                                                $contition_array = array('user_id' => $userid, 'business_save' => '1', 'post_id ' => $row['business_profile_post_id']);
-                                                $businesssave = $this->data['businesssave'] = $this->common->select_data_by_condition('business_profile_save', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
-                                                if ($businesssave) {
-                                                    ?>
-                                                                                                                                                
-                                                                                                                                                   <a><i class="fa fa-bookmark" aria-hidden="true"></i>Saved Post</a>
-                                                                                                                                                
-                                                <?php } else { ?>
-                                                                                                                                                
-                                                                                                                                                   <a id="<?php echo $row['business_profile_post_id']; ?>" onClick="save_post(this.id)" href="#popup1" class="<?php echo 'savedpost' . $row['business_profile_post_id']; ?>"><i class="fa fa-bookmark" aria-hidden="true"></i>  Save Post</a> 
-                                                                                                                                                
-                                                <?php } ?> -->
-
-                                                <a href="<?php echo base_url('business_profile/business_profile_contactperson/' . $row['user_id'] . ''); ?>"><i class="fa fa-user" aria-hidden="true"></i> Contact Person</a>
-                                            <?php } ?>
-                                        </div>
-                                    </div>
+             <a href="<?php echo base_url('business_profile/business_profile_contactperson/' . $row['user_id'] . ''); ?>"><i class="fa fa-user" aria-hidden="true"></i> Contact Person</a>
+                 <?php } }?>
+        </div>
+    </div>
 
 
 

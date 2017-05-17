@@ -388,8 +388,8 @@ console.log(formattedDate);
       var html = ' <li class="clearfix">';
       html += '   <div class="message-data align-right">';
           html += '    <span class="message-data-time" >' + formattedDate + '</span>&nbsp; &nbsp;';
-             html += '    <span  class="message-data-name"  >' + fname + 
-             ' ' + lname + '</span> <i class="fa fa-circle me"></i>';
+             html += '    <span  class="message-data-name fr"  >' + fname + 
+             ' ' + lname + '  <i class="fa fa-circle me"></i></span>';
         html += ' </div>';
 
    
@@ -406,7 +406,7 @@ var formattedDate = ('0' + date.getDate()).slice(-2) + '/' + ('0' + (date.getMon
 console.log(formattedDate);
 
       var html = '<li> <div class="message-data">';
-       html += '<span class="message-data-name"><i class="fa fa-circle online"></i>' + data.nickname + ' </span>';
+       html += '<span class="message-data-name fl" ><i class="fa fa-circle online"></i>' + data.nickname + ' </span>';
         html += '<span class="message-data-time">' + formattedDate + ' </span>';
  html += ' </div>';
       html += '     <div class="message my-message">' + data.message + '</div>';

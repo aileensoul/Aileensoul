@@ -21,7 +21,27 @@
         border-radius: 8px;
     }
 
+/*  Ripple */
 
+.ripple {
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(0);
+  position: absolute;
+  opacity: 1;
+}
+.rippleEffect {
+    animation: rippleDrop .6s linear;
+}
+
+@keyframes rippleDrop {
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
     .pop_content .cnclbtn {
         position: absolute;
         transition: all 200ms;
@@ -437,33 +457,33 @@
                                                                             </a>
                                                                         <?php } ?>
                                                                     </div>
-                                                                    <div class="post-design-name_follow fl">
-                                                                        <ul>
-                                                                            <li>
-                                                                                <div class="post-design-product_follow">
-                                                                                    <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>" title="<?php echo ucwords($userlist['company_name']); ?>">
-                                                                                        <h6>
-                                                                                            <?php echo ucwords($userlist['company_name']);
-                                                                                            ?>
-                                                                                        </h6>
-                                                                                    </a> 
-                                                                                </div>
-                                                                            </li>
-                                                                            <li>
-                                                                                <div class="post-design-product_follow_main" style="display:block;">
-                                                                                    <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>" title="<?php echo ucwords($userlist['company_name']); ?>">
-                                                                                        <p>
-                                                                                            <?php echo $category; ?>
-                                                                                        </p>
-                                                                                    </a>
-                                                                                </div>
-                                                                            </li>
-                                                                        </ul> 
-                                                                    </div>  
-                                                                    <div class="follow_left_box_main_btn">
-                                                                        <div class="<?php echo "fr" . $userlist['business_profile_id']; ?>">
-                                                                            <button id="<?php echo "followdiv" . $userlist['business_profile_id']; ?>" onClick="followuser(<?php echo $userlist['business_profile_id']; ?>)">Follow
-                                                                            </button>
+                             <div class="post-design-name_follow fl">
+                          <ul>
+                        <li>
+                         <div class="post-design-product_follow">
+                          <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>" title="<?php echo ucwords($userlist['company_name']); ?>">
+                                  <h6>
+                                <?php echo ucwords($userlist['company_name']);
+                                  ?>
+                           </h6>
+                      </a> 
+                 </div>
+                 </li>
+                 <li>
+           <div class="post-design-product_follow_main" style="display:block;">
+           <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>" title="<?php echo ucwords($userlist['company_name']); ?>">
+                  <p>
+          <?php echo $category; ?>
+             </p>
+           </a>
+            </div>
+           </li>
+       </ul> 
+           </div>  
+         <div class="follow_left_box_main_btn">
+  <div class="<?php echo "fr" . $userlist['business_profile_id']; ?>">
+  <button id="<?php echo "followdiv" . $userlist['business_profile_id']; ?>" onClick="followuser(<?php echo $userlist['business_profile_id']; ?>)">Follow
+       </button>
                                                                         </div>
                                                                     </div>
                                                                     <span class="Follow_close" onClick="followclose(<?php echo $userlist['business_profile_id']; ?>)">
@@ -499,24 +519,24 @@
                                                                     <div class="post-design-name_follow fl">
                                                                         <ul>
                                                                             <li>
-                                                                                <div class="post-design-product_follow">
-                                                                                    <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>" title="<?php echo ucwords($userlist['company_name']); ?>">
-                                                                                        <h6>
-                                                                                            <?php echo ucwords($userlist['company_name']);
-                                                                                            ?>
-                                                                                        </h6>
-                                                                                    </a> 
-                                                                                </div>
-                                                                            </li>
-                                                                            <li>
-                                                                                <div class="post-design-product_follow_main" style="display:block;">
-                                                                                    <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>" title="<?php echo ucwords($userlist['company_name']); ?>">
-                                                                                        <p>
-                                                                                            <?php echo $category; ?>
-                                                                                        </p>
-                                                                                    </a>
-                                                                                </div>
-                                                                            </li>
+             <div class="post-design-product_follow">
+                          <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>" title="<?php echo ucwords($userlist['company_name']); ?>">
+                        <h6>
+               <?php echo ucwords($userlist['company_name']);
+               ?>
+             </h6>
+              </a> 
+            </div>
+             </li>
+              <li>
+              <div class="post-design-product_follow_main" style="display:block;">
+                     <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>" title="<?php echo ucwords($userlist['company_name']); ?>">
+                             <p>
+                                 <?php echo $category; ?>
+                            </p>
+                    </a>
+            </div>
+              </li>
                                                                         </ul> 
                                                                     </div>  
                                                                     <div class="follow_left_box_main_btn">
@@ -557,21 +577,21 @@
                                                                     <div class="post-design-name_follow fl">
                                                                         <ul>
                                                                             <li>
-                                                                                <div class="post-design-product_follow">
-                                                                                    <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>">
-                                                                                        <h6>
-                                                                                            <?php echo ucwords($userlist['company_name']); ?>
-                                                                                        </h6>
-                                                                                    </a> 
-                                                                                </div>
-                                                                            </li>
-                                                                            <li>
-                                                                                <div class="post-design-product_follow_main" style="display:block;">
-                                                                                    <a>
-                                                                                        <p>
-                                                                                            <?php echo $category; ?>
-                                                                                        </p>
-                                                                                    </a>
+                                <div class="post-design-product_follow">
+                                 <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>">
+                     <h6>
+                    <?php echo ucwords($userlist['company_name']); ?>
+                     </h6>
+                  </a> 
+             </div>
+            </li>
+         <li>
+              <div class="post-design-product_follow_main" style="display:block;">
+                  <a>
+                   <p>
+                      <?php echo $category; ?>
+                   </p>
+                  </a>
                                                                                 </div>
                                                                             </li>
                                                                         </ul> 
@@ -613,20 +633,20 @@
                                                                     <div class="post-design-name_follow fl">
                                                                         <ul>
                                                                             <li>
-                                                                                <div class="post-design-product_follow">
-                                                                                    <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>">
-                                                                                        <h6>
-                                                                                            <?php echo ucwords($userlist['company_name']); ?>
-                                                                                        </h6>
-                                                                                    </a> 
-                                                                                </div>
-                                                                            </li>
-                                                                            <li>
-                                                                                <div class="post-design-product_follow_main" style="display:block;">
-                                                                                    <a>
-                                                                                        <p>
-                                                                                            <?php echo $category; ?>
-                                                                                        </p>
+             <div class="post-design-product_follow">
+             <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>">
+            <h6>
+                 <?php echo ucwords($userlist['company_name']); ?>
+            </h6>
+             </a> 
+             </div>
+              </li>
+               <li>
+                          <div class="post-design-product_follow_main" style="display:block;">
+                             <a>
+                                  <p>
+                                        <?php echo $category; ?>
+                                </p>
                                                                                     </a>
                                                                                 </div>
                                                                             </li>
@@ -869,10 +889,8 @@
                                                             <div class="post-design-product">
                                                                 <a class="post_dot"  href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>" title="<?php echo ucwords($companyname); ?>";>
                                                                     <?php echo ucwords($companyname); ?>  </a>
-                                                                <div class="datespan">  <span style="font-weight: 400;
-                                                                                              font-size: 14px;
-                                                                                              color: #91949d; cursor: default;"> 
-                                                                                              <?php echo date('d-M-Y', strtotime($row['created_date'])); ?>
+                                        <div class="datespan"> <span style="font-weight: 400; font-size: 14px; color: #91949d; cursor: default;"> 
+                                        <?php echo date('d-M-Y', strtotime($row['created_date'])); ?>
                                                                     </span></div>
 
                                                             </div>
@@ -894,42 +912,61 @@
                                                     </li> 
                                                 </ul> 
                                             </div>  
-                                            <div class="dropdown1">
-                                                <a onClick="myFunction(<?php echo $row['business_profile_post_id']; ?>)" class="dropbtn1 dropbtn1 fa fa-ellipsis-v">
-                                                </a>
-                                                <div id="<?php echo "myDropdown" . $row['business_profile_post_id']; ?>" class="dropdown-content1">
-                                                    <?php if ($this->session->userdata('aileenuser') == $row['user_id']) { ?> 
-                                                        <a onclick="user_postdelete(<?php echo $row['business_profile_post_id']; ?>)">
-                                                            <i class="fa fa-trash-o" aria-hidden="true">
-                                                            </i> Delete Post
-                                                        </a>
-                                                        <a id="<?php echo $row['business_profile_post_id']; ?>" onClick="editpost(this.id)">
-                                                            <i class="fa fa-pencil-square-o" aria-hidden="true">
-                                                            </i>Edit
-                                                        </a>
-                                                    <?php } else { ?>
-                                                        <a onclick="user_postdeleteparticular(<?php echo $row['business_profile_post_id']; ?>)">
-                                                            <i class="fa fa-trash-o" aria-hidden="true">
-                                                            </i> Delete Post
-                                                        </a>
-                                                        <!-- <?php
-                                                        $userid = $this->session->userdata('aileenuser');
-                                                        $contition_array = array('user_id' => $userid, 'business_save' => '1', 'post_id ' => $row['business_profile_post_id']);
-                                                        $businesssave = $this->data['businesssave'] = $this->common->select_data_by_condition('business_profile_save', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-                                                        if ($businesssave) {
-                                                            ?>
-                                                                                                                                                                                                                        <a><i class="fa fa-bookmark" aria-hidden="true"></i>Saved Post</a>
-                                                        <?php } else { ?>
-                                                                                                                                                                                                                        <a id="<?php echo $row['business_profile_post_id']; ?>" onClick="save_post(this.id)" href="#popup1" class="<?php echo 'savedpost' . $row['business_profile_post_id']; ?>"><i class="fa fa-bookmark" aria-hidden="true"></i>  Save Post</a>
-                                                        <?php } ?>
-                                                        -->
-                                                        <a href="<?php echo base_url('business_profile/business_profile_contactperson/' . $row['user_id'] . ''); ?>">
-                                                            <i class="fa fa-user" aria-hidden="true">
-                                                            </i> Contact Person
-                                                        </a>
-                                                    <?php } ?>
-                                                </div>
-                                            </div>
+<div class="dropdown1">
+    <a onClick="myFunction(<?php echo $row['business_profile_post_id']; ?>)" class="dropbtn1 dropbtn1 fa fa-ellipsis-v">
+     </a>
+            <div id="<?php echo "myDropdown" . $row['business_profile_post_id']; ?>" class="dropdown-content1">
+
+            <?php if($row['posted_user_id'] != 0){
+
+                  if($this->session->userdata('aileenuser') == $row['posted_user_id']){
+                    ?>
+             <a onclick="user_postdelete(<?php echo $row['business_profile_post_id']; ?>)">
+                <i class="fa fa-trash-o" aria-hidden="true">
+                  </i> Delete Post
+            </a>
+            <a id="<?php echo $row['business_profile_post_id']; ?>" onClick="editpost(this.id)">
+            <i class="fa fa-pencil-square-o" aria-hidden="true">
+             </i>Edit
+            </a>
+
+            <?php }else{
+                ?>
+           
+           <a onclick="user_postdelete(<?php echo $row['business_profile_post_id']; ?>)">
+                <i class="fa fa-trash-o" aria-hidden="true">
+                  </i> Delete Post
+            </a>
+        <a href="<?php echo base_url('business_profile/business_profile_contactperson/' . $row['posted_user_id'] . ''); ?>">
+            <i class="fa fa-user" aria-hidden="true">
+            </i> Contact Person
+             </a>
+
+            <?php } }else{?>
+            <?php if ($this->session->userdata('aileenuser') == $row['user_id']) { ?> 
+            <a onclick="user_postdelete(<?php echo $row['business_profile_post_id']; ?>)">
+                <i class="fa fa-trash-o" aria-hidden="true">
+                  </i> Delete Post
+            </a>
+            <a id="<?php echo $row['business_profile_post_id']; ?>" onClick="editpost(this.id)">
+            <i class="fa fa-pencil-square-o" aria-hidden="true">
+             </i>Edit
+            </a>
+            <?php } else { ?>
+            <a onclick="user_postdeleteparticular(<?php echo $row['business_profile_post_id']; ?>)">
+            <i class="fa fa-trash-o" aria-hidden="true">
+            </i> Delete Post
+            </a>
+                                                        
+            <a href="<?php echo base_url('business_profile/business_profile_contactperson/' . $row['user_id'] . ''); ?>">
+            <i class="fa fa-user" aria-hidden="true">
+            </i> Contact Person
+             </a>
+            <?php } }?>
+
+
+        </div>
+    </div>
                                             <div class="post-design-desc ">
                                                 <div>
                                                     <div id="<?php echo 'editpostdata' . $row['business_profile_post_id']; ?>" style="display:block;">
@@ -1097,7 +1134,7 @@
                                             <div class="post-design-menu">
                                                 <ul>
                                                     <li class="<?php echo 'likepost' . $row['business_profile_post_id']; ?>">
-                                                        <a id="<?php echo $row['business_profile_post_id']; ?>"   onClick="post_like(this.id)">
+                                                        <a id="<?php echo $row['business_profile_post_id']; ?>" class="like_ripple"  onClick="post_like(this.id)">
                                                             <?php
                                                             $userid = $this->session->userdata('aileenuser');
                                                             $contition_array = array('business_profile_post_id' => $row['business_profile_post_id'], 'status' => '1');
@@ -3145,11 +3182,11 @@
         width: 100% !important;
         background-color: #fff !important;
     }
-    .like_one_other{
-        margin-left: 15px;
+    /*.like_one_other{
+        margin-left: 15px;*/
         /*  margin-right: 15px;*/
 
-    }
+    /*}*/
 
 </style>
 <!-- This  script use for close dropdown in every post -->
@@ -3164,3 +3201,40 @@
 
 </script>
 <!-- This  script use for close dropdown in every post -->
+<script type="text/javascript">
+    $(".like_ripple").click(function (e) {
+  
+  // Remove any old one
+  $(".ripple").remove();
+
+  // Setup
+  var posX = $(this).offset().left,
+      posY = $(this).offset().top,
+      buttonWidth = $(this).width(),
+      buttonHeight =  $(this).height();
+  
+  // Add the element
+  $(this).prepend("<span class='ripple'></span>");
+
+  
+ // Make it round!
+  if(buttonWidth >= buttonHeight) {
+    buttonHeight = buttonWidth;
+  } else {
+    buttonWidth = buttonHeight; 
+  }
+  
+  // Get the center of the element
+  var x = e.pageX - posX - buttonWidth / 2;
+  var y = e.pageY - posY - buttonHeight / 2;
+  
+ 
+  // Add the ripples CSS and start the animation
+  $(".ripple").css({
+    width: buttonWidth,
+    height: buttonHeight,
+    top: y + 'px',
+    left: x + 'px'
+  }).addClass("rippleEffect");
+});
+</script>

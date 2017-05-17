@@ -237,7 +237,7 @@
          <div class="top-row">
             <div class="field-wrap full-width" style="padding-bottom: 0px;">
         <label class="fname_reg">Password<span class="req">*</span></label>
-    <input type="password" name="password" id="password" class="showpassword2" placeholder="Password *" s>
+    <input type="password" name="password" id="password" class="showpassword2" placeholder="" s>
                       <?php echo form_error('password'); ?>
             
 
@@ -264,7 +264,7 @@
               <label class="fname_reg">
               Date of Birth<span class="req">*</span></label>
               </label>
-              <input type="text" name="datepicker" id="datepicker" placeholder="dd/mm/yyyy"   autocomplete="off" >
+              <input type="text" name="datepicker" id="datepicker" placeholder=""   autocomplete="off" >
             </div>
 <!--                    <div class="field-wrap" id="gen">
                 <label class="label_gen">Gender</label>
