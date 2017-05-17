@@ -1423,7 +1423,8 @@ class Artistic extends MY_Controller {
             'not_to_id' => $id,
             'not_read' => 2,
             'not_product_id' => $insertdata,
-            'not_from' => 3
+            'not_from' => 3,
+            'not_created_date' => date('y-m-d h:i:s')
         );
 
         $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -1771,7 +1772,8 @@ class Artistic extends MY_Controller {
                 'not_to_id' => $followuserid[0]['user_id'],
                 'not_read' => 2,
                 'not_product_id' => $follow[0]['follow_id'],
-                'not_from' => 3
+                'not_from' => 3,
+                'not_created_date' => date('y-m-d h:i:s')
             );
 //echo '<pre>'; print_r($data); die();
             $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -1805,7 +1807,8 @@ class Artistic extends MY_Controller {
                 'not_to_id' => $followuserid[0]['user_id'],
                 'not_read' => 2,
                 'not_product_id' => $insert,
-                'not_from' => 3
+                'not_from' => 3,
+                'not_created_date' => date('y-m-d h:i:s')
             );
 
             $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -1883,7 +1886,8 @@ class Artistic extends MY_Controller {
                 'not_to_id' => $art_id,
                 'not_read' => 2,
                 'not_product_id' => $follow[0]['follow_id'],
-                'not_from' => 3
+                'not_from' => 3,
+                'not_created_date' => date('y-m-d h:i:s')
             );
 
             $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -1917,7 +1921,8 @@ class Artistic extends MY_Controller {
                 'not_to_id' => $art_id,
                 'not_read' => 2,
                 'not_product_id' => $insert,
-                'not_from' => 3
+                'not_from' => 3,
+                'not_created_date' => date('y-m-d h:i:s')
             );
 
             $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -2632,7 +2637,8 @@ class Artistic extends MY_Controller {
                     'not_read' => 2,
                     'not_product_id' => $post_id,
                     'not_from' => 3,
-                    'not_img' => 3
+                    'not_img' => 3,
+                    'not_created_date' => date('y-m-d h:i:s')
                 );
 
                 $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -2759,7 +2765,8 @@ class Artistic extends MY_Controller {
                     'not_read' => 2,
                     'not_product_id' => $post_id,
                     'not_from' => 3,
-                    'not_img' => 3
+                    'not_img' => 3,
+                    'not_created_date' => date('y-m-d h:i:s')
                 );
 
                 $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -3142,7 +3149,8 @@ class Artistic extends MY_Controller {
                     'not_read' => 2,
                     'not_product_id' => $post_id,
                     'not_from' => 3,
-                    'not_img' => 2
+                    'not_img' => 2,
+                    'not_created_date' => date('y-m-d h:i:s')
                 );
 
                 $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -3388,7 +3396,8 @@ class Artistic extends MY_Controller {
                 'not_read' => 2,
                 'not_product_id' => $insert_id,
                 'not_from' => 3,
-                'not_img' => 1
+                'not_img' => 1,
+                'not_created_date' => date('y-m-d h:i:s')
             );
 
             $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -3544,7 +3553,8 @@ class Artistic extends MY_Controller {
                 'not_read' => 2,
                 'not_product_id' => $insert_id,
                 'not_from' => 3,
-                'not_img' => 1
+                'not_img' => 1,
+                'not_created_date' => date('y-m-d h:i:s')
             );
             //echo "<pre>"; print_r($notificationdata); 
             $insert_id_notification = $this->common->insert_data_getid($notificationdata, 'notification');
@@ -4048,7 +4058,8 @@ class Artistic extends MY_Controller {
                     'not_read' => 2,
                     'not_product_id' => $post_image,
                     'not_from' => 3,
-                    'not_img' => 5
+                    'not_img' => 5,
+                    'not_created_date' => date('y-m-d h:i:s')
                 );
 
                 $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -4192,7 +4203,8 @@ class Artistic extends MY_Controller {
                         'not_read' => 2,
                         'not_product_id' => $post_image,
                         'not_from' => 3,
-                        'not_img' => 5
+                        'not_img' => 5,
+                        'not_created_date' => date('y-m-d h:i:s')
                     );
 
                     $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -4310,7 +4322,8 @@ class Artistic extends MY_Controller {
                 'not_read' => 2,
                 'not_product_id' => $insert_id,
                 'not_from' => 3,
-                'not_img' => 4
+                'not_img' => 4,
+                'not_created_date' => date('y-m-d h:i:s')
             );
             //echo "<pre>"; print_r($datanotification); die();
             $insert_id_notification = $this->common->insert_data_getid($datanotification, 'notification');
@@ -4481,7 +4494,8 @@ class Artistic extends MY_Controller {
                 'not_read' => 2,
                 'not_product_id' => $insert_id,
                 'not_from' => 3,
-                'not_img' => 4
+                'not_img' => 4,
+                'not_created_date' => date('y-m-d h:i:s')
             );
 
             $insert_id_notification = $this->common->insert_data_getid($datanotification, 'notification');
@@ -4644,7 +4658,8 @@ class Artistic extends MY_Controller {
                     'not_read' => 2,
                     'not_product_id' => $post_image_comment_id,
                     'not_from' => 3,
-                    'not_img' => 6
+                    'not_img' => 6,
+                    'not_created_date' => date('y-m-d h:i:s')
                 );
                 //echo "<pre>"; print_r($data); die();
                 $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -4747,7 +4762,8 @@ class Artistic extends MY_Controller {
                         'not_read' => 2,
                         'not_product_id' => $post_image_comment_id,
                         'not_from' => 3,
-                        'not_img' => 6
+                        'not_img' => 6,
+                        'not_created_date' => date('y-m-d h:i:s')
                     );
                     //echo "<pre>"; print_r($data); die();
                     $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -4826,7 +4842,8 @@ class Artistic extends MY_Controller {
                     'not_read' => 2,
                     'not_product_id' => $insertdata,
                     'not_from' => 3,
-                    'not_img' => 6
+                    'not_img' => 6,
+                    'not_created_date' => date('y-m-d h:i:s')
                 );
                 //echo "<pre>"; print_r($data); die();
                 $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -4927,7 +4944,8 @@ class Artistic extends MY_Controller {
                         'not_read' => 2,
                         'not_product_id' => $post_image_comment_id,
                         'not_from' => 3,
-                        'not_img' => 6
+                        'not_img' => 6,
+                        'not_created_date' => date('y-m-d h:i:s')
                     );
                     //echo "<pre>"; print_r($data); die();
                     $insert_id = $this->common->insert_data_getid($data, 'notification');
