@@ -29,6 +29,8 @@ min-height: 41px;
     font-size: 13px;
     padding-left: 20px!important;
 max-height: 100px; overflow: scroll;overflow-x: hidden;
+padding-top: 10px;
+overflow-y: auto;
 }
 
 
@@ -174,7 +176,7 @@ if($lstusrdata){?>
         </div>
         </div>
         <div class="chat-history">
-        <ul class="" id="received">
+        <ul  id="received" class="padding_less_right">
           
         </ul>
 
@@ -265,7 +267,7 @@ z-index: 9;
         </div>
         </div>
         <div class="chat-history">
-        <ul class="" id="received">
+        <ul id="received" class="padding_less_right">
           
         </ul>
 

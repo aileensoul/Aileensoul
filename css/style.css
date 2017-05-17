@@ -98,7 +98,7 @@ a:focus { outline: none; text-decoration: none;  }
 .header2 ul li a:hover {     background: #08234a;
                              color: #fff; }
 .header2 ul li a.active { position:relative; /*background:#000033; */  background:#08234a; color: #ffffff;}
-.header2  ul li.active a { background:#0a2c5d; color: #ffffff; }
+.header2  ul li.active a {/* background:#0a2c5d;*/ color: #ffffff; }
 
 /* header2*/
 .header2 {       backface-visibility: hidden;
@@ -599,7 +599,7 @@ ul.business_pf_ct_person_detail li b {font-size: 16px; display: inline-block; wi
 #notificationLink { position:relative; z-index:1; }
 #notificationLink span {    
     padding: 3px;
-    background: #0c3168;
+    background: #003;
     color: #ffffff;
     font-weight: bold;
     margin-left: 7px;
@@ -612,7 +612,7 @@ ul.business_pf_ct_person_detail li b {font-size: 16px; display: inline-block; wi
     top: 9px;
     line-height: normal;
     right: 11px;}
-
+#message_count{}
 #notificationLink:hover span { background:#000033; color:#fff; z-index:-1; }
 
 /* Artistic */
@@ -2757,16 +2757,17 @@ label.cameraButton input[accept*="camera"] {
 .post_radius_box{border-radius: 5px;}
 .post-design-top
 { border-radius: 5px; padding: 5px; padding-bottom: 0px; background-color: #ffffff;   border: 1px solid #efefef; border-bottom: none; }
-.post-design-pro-img{height: 55px; width: 70px; display: inline-block; float: left; padding: 4px 6px 4px 8px;}
+.post-design-pro-img{height: 55px; width: 70px; display: inline-block; float: left; padding: 4px 5px 4px 17px;}
 .post-design-pro-img img{ height: 100%; width: 100%; border: 1px solid #efefef; }
 
-.post-design-proo-img{display: inline-block; width: 42px; height: 42px;float: left;/* padding: 10px 10px 10px 6px;*/}
+.post-design-proo-img{display: inline-block; width: 40px; height: 39px;float: left;/* padding: 10px 10px 10px 6px;*/}
 
 
 .post-design-proo-img img{ height: 100%; width:100%;  }
 .post-design-mid{ background-color: #ffffff; border-bottom: 6px solid #f6f4f5;
                   background-color: #ffffff;
-
+padding-left: 19px;
+padding-right: 19px;
                   border: 1px solid #efefef;
                   border-bottom: none;
                   border-top: none;
@@ -2775,8 +2776,8 @@ label.cameraButton input[accept*="camera"] {
 .post-design-pro-comment-img img{ height: 100%; width: 100%;  }
 
 .post-design-product-img {padding:10px 5px 10px 5px; width: 100%; height: 350px;}
-.post-design-like-box{background-color: #ffffff;  /* padding-top: 10px;*/  }
-.post-design-commnet-box{padding-left: 22px; background-color: #e6eaef; border: 1px solid #e6eaef; padding-top: 10px; }
+.post-design-like-box{background-color: #ffffff;  /* padding-top: 10px;*/ padding-left: 23px; padding-right: 23px;  }
+.post-design-commnet-box{padding-left: 23px; background-color: #e6eaef; padding-right: 23px; border: 1px solid #e6eaef; padding-top: 10px; }
 .post-design-menu{border-top: 1px solid #efefef; border-bottom:1px solid #efefef;}
 .post-design-menu ul { margin: 0; padding: 0; }
 .post-design-menu ul li { list-style: none; display: inline-block; padding: 0; margin: 0; position: relative; }
@@ -2836,6 +2837,7 @@ label.cameraButton input[accept*="camera"] {
 .dropdown1 a {color: #000000;padding: 5px 10px;cursor: pointer;}
 .dropdown1 .fa-ellipsis-v {color: #999999;}
 .dropdown1 {
+    padding-right: 11px;
     float: right;
     position: relative;
     display: inline-block;
@@ -2916,9 +2918,9 @@ label.cameraButton input[accept*="camera"] {
     text-decoration: none;
 }
 .art-all-comment{    background-color: #e6eaef;
-  padding-right: 2px !important;
+  padding-right: 23px !important;
                      padding-top: 10px;
-                     padding-left: 22px;
+                     padding-left: 23px;
                      border: 1px solid #efefef;
                      border-bottom: none; }
 .buisness-profile-pic-candidate{width: 50px; margin-top: 5px; height: 50px; margin-left: 20px;margin-bottom: 6px; display: inline-block;}
@@ -2945,7 +2947,7 @@ label.cameraButton input[accept*="camera"] {
                               border-radius: 3px;
                               letter-spacing: 0px;
                               }
-                              .comment-edit-butn button{    padding: 10px 10px 10px;
+                              .comment-edit-butn button{    padding: 8.5px 10px 8.5px;
                               border-radius: 3px;
                               letter-spacing: 0px;
                               margin-left: -11px;}
@@ -2970,7 +2972,7 @@ label.cameraButton input[accept*="camera"] {
            
 
 }
-.inputtype-comment{margin-bottom: 10px;}
+.inputtype-comment{margin-bottom: 10px; padding-left: 10px!important;}
 .all-comment-comment-box span{color: #999999;}
 /*education new design*/
 .tabordion {
@@ -3395,7 +3397,7 @@ follow box*/
 
 #responsive_buis-images-breakpoints{float: left;
                                     height: 200px;
-                                    width: 347px;
+                                    width: 48.8%;
                                     margin: 4px;
                                     display: inline-block;}
 #responsive_buis-images_3-breakpoints{float: left;
@@ -3430,7 +3432,7 @@ follow box*/
 #two_images_bui {
     float: left;
     height: 55%;
-    width: 347px;
+    width: 48.8%;
     margin: 4px;
 }
 
@@ -3873,7 +3875,7 @@ body.modal-open{ padding: 0 !important; overflow: visible;  position: absolute; 
 
 
 .like_other{display:block; padding-left: 23px; background-color: #fff;}
-.like_one_other{font-weight: 400; padding: 5px; display: inline-block;}
+.like_one_other{font-weight: 400; padding-left: 23px!important; padding: 5px; display: inline-block;}
 
 
 
@@ -4409,7 +4411,7 @@ input:-moz-placeholder { color:#999; font-size: 15px; }
   background: white;
     border: 2px solid #cacaca;
     outline: none;
-    padding: 8px 15px;
+    padding: 6.5px 15px;
     color: #000;
     font-size: 14px;
     font-weight: 400;
@@ -4780,3 +4782,4 @@ label.cameraButton:hover
 
     #btnRemove{ padding: 6px 12px 6px!important;  min-width: 100px!important; }
     .images_art_post .basic-responsive-image img{width: 100%; height: auto; min-height: initial;}
+    #basic-responsive-image{padding-left: 4px; padding-right: 4px;}

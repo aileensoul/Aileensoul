@@ -20,7 +20,9 @@ div .comment {
     position: relative;
     max-height: 120px;
     overflow-y: scroll;
+    padding-top: 10px;
     padding-left: 20px!important;
+    overflow-y: auto;
 }
 </style>
 <?php echo $header; ?>
@@ -140,7 +142,7 @@ if($lstusrdata){?>
         </div>
         </div>
         <div class="chat-history">
-        <ul class="" id="received">
+        <ul  id="received" class="padding_less_right">
           
         </ul>
 
@@ -227,7 +229,7 @@ if($lstusrdata){?>
         </div>
         </div>
         <div class="chat-history">
-        <ul class="" id="received">
+        <ul  id="received" class="padding_less_right">
          </ul>
       </div>
        <div class="panel-footer">

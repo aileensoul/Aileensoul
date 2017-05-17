@@ -51,7 +51,7 @@ $(window).load(function(){
     #message_count
     {
         padding: 3px;
-        background: #0c3168;
+        background: #003;
         color: #ffffff;
         font-weight: bold;
         margin-left: 7px;

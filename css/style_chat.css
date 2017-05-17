@@ -3814,6 +3814,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2c539e', end
 .padding_les{padding-right: 0px; padding-left: 0px;}
 .padding_less_left{padding-left: 0px;}
 .padding_less_right{padding-right:0px; }
+.chat .chat-history ul{padding: 0px!important;}
 .flw_msg_btn ul li button{ width: 90px;
                            padding: 8px 0px; background: rgb(44,83,158); /* Old browsers */
 background: -moz-linear-gradient(top, rgba(44,83,158,1) 0%, rgba(44,83,158,1) 100%); /* FF3.6-15 */
