@@ -994,7 +994,7 @@
 
                                             </div> 
                                         </div>
-                                        <div class="post-design-mid col-md-12">
+                                        <div class="post-design-mid col-md-12" style="padding-right: 20px;">
                                             <!-- multiple image code  start-->
                                             <div>
                                                 <?php
