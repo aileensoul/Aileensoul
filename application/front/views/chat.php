@@ -78,7 +78,7 @@ div .comment {
       <ul class="list">
 
 <!-- loop start -->
-<div id="userlist">
+<div id="userlist" >
 <?php 
 if(count($userlist) > 0){
  foreach($userlist as $user){ ?>
@@ -481,7 +481,12 @@ $(document).ready(function() {
           
         var val = $('#user_search').val();
       
-      // khyati chnages  start
+     if(val == " "){
+        // alert("heeee");
+         document.getElementById('userlist').style.display = 'block';  
+         return false;
+     }
+        // khyati chnages  start
              
        $.ajax({ 
                 type:'POST',
