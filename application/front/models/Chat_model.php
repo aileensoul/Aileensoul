@@ -24,6 +24,7 @@ class Chat_model extends CI_Model {
                         'not_read' => 2,
                         'not_img' => 0,
 			'not_product_id' => $msg_insert_id,
+                        'not_created_date' => date('y-m-d h:i:s'),
 			
 		);
 		  
