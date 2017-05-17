@@ -615,7 +615,7 @@
 
                             <div  class="">  
                                 <div class="post-design-top col-md-12" >  
-                                    <div class="post-design-pro-img col-md-2"> 
+                                    <div class="post-design-pro-img col-md-2" style="padding-left: 17px;"> 
                                         <?php
                                         $business_userimage = $this->db->get_where('business_profile', array('user_id' => $busienss_data[0]['user_id'], 'status' => 1))->row()->business_user_image;
 
@@ -753,7 +753,7 @@
              </div>
         </div>
 
-                                    <div class="post-design-desc ">
+                                    <div class="post-design-desc " style="padding: 5px 17px 5px 17px;">
                                         <div id="<?php echo 'editpostdata' . $busienss_data[0]['business_profile_post_id']; ?>" style="display:block;">
                                             <a  style="margin-bottom: 0px;   font-weight: 600;  font-size: 16px"><?php echo $this->common->make_links($busienss_data[0]['product_name']); ?></a>
                                         </div>
