@@ -3463,7 +3463,9 @@ public function job_applied_post() {
 
 //job user end
     //deactivate user start
-    public function deactivate($id) {
+    public function deactivate() {
+
+        $id = $_POST['id'];
 
         $data = array(
             'status' => 0
@@ -3486,15 +3488,15 @@ public function job_applied_post() {
 
         $update3 = $this->common->update_data($data, 'skill', 'user_id', $id);
 
-        if ($update && $update1 && $update2 && $update3) {
+        // if ($update && $update1 && $update2 && $update3) {
 
 
-            $this->session->set_flashdata('success', 'You are deactivate successfully.');
-            redirect('dashboard', 'refresh');
-        } else {
-            $this->session->flashdata('error', 'Sorry!! Your are not deactivate!!');
-            redirect('job', 'refresh');
-        }
+        //     $this->session->set_flashdata('success', 'You are deactivate successfully.');
+        //     redirect('dashboard', 'refresh');
+        // } else {
+        //     $this->session->flashdata('error', 'Sorry!! Your are not deactivate!!');
+        //     redirect('job', 'refresh');
+        // }
     }
 
 // deactivate user end
