@@ -476,12 +476,34 @@
 
                                                                     </ul>
                                                                 </div>
-                                                                <div class="fl search_button">
-                                                                    <button>follow</button>
-                                                                    <br>
-                                                                    <button onclick="window.location.href = '<?php echo base_url('chat/abc/' . $p['user_id']); ?>'"> Message</button>
 
-                                                                </div>
+
+
+ <div class="fl search_button">
+
+<div class="<?php echo "fruser" . $p['business_profile_id']; ?>">
+<?php  $status  =  $this->db->get_where('follow',array('follow_type' => 2, 'follow_from' => $businessdata[0]['business_profile_id'], 'follow_to'=>$p['business_profile_id'] ))->row()->follow_status; 
+
+if($status == 0 || $status == " "){?>
+ 
+ <div id= "followdiv " class="user_btn">
+
+            <button id="<?php echo "follow" . $p['business_profile_id']; ?>" onClick="followuser(<?php echo $p['business_profile_id']; ?>)">
+                               Follow 
+                            </button></div>
+
+                            <?php }elseif($status == 1){ ?>
+
+                                   <div id= "unfollowdiv"  class="user_btn" > 
+           <button class="bg_following" id="<?php echo "unfollow" . $p['business_profile_id']; ?>" onClick="unfollowuser(<?php echo $p['business_profile_id']; ?>) ">
+                               Following 
+                            </button></div>
+                                <?php } ?>
+</div>
+         <br>
+     <button onclick="window.location.href = '<?php echo base_url('chat/abc/' . $p['user_id']); ?>'"> Message</button>
+
+   </div>
 
 
 
@@ -2449,19 +2471,41 @@
 <!-- remove particular user post end -->
 <!-- follow user script start -->
 <script type="text/javascript">
-    function followuser(clicked_id)
-    {
+function followuser(clicked_id)
+{
+  
+   $.ajax({
+                type:'POST',
+                url:'<?php echo base_url() . "business_profile/follow" ?>',
+                 data:'follow_to='+clicked_id,
+                success:function(data){ 
 
-        $.ajax({
-            type: 'POST',
-            url: '<?php echo base_url() . "business_profile/follow" ?>',
-            data: 'follow_to=' + clicked_id,
-            success: function (data) {
-                $('.' + 'fr' + clicked_id).html(data);
-                $("#fad" + clicked_id).fadeOut(6000);
-            }
-        });
-    }
+               $('.' + 'fruser' + clicked_id).html(data);
+                    
+                }
+            }); 
+}
+</script>
+
+<!--follow like script end -->
+
+<!-- Unfollow user script start -->
+
+<script type="text/javascript">
+function unfollowuser(clicked_id)
+{
+  
+   $.ajax({
+                type:'POST',
+                url:'<?php echo base_url() . "business_profile/unfollow" ?>',
+                 data:'follow_to='+clicked_id,
+                success:function(data){ 
+
+               $('.' + 'fruser' + clicked_id).html(data);
+                    
+                }
+            }); 
+}
 </script>
 <script type="text/javascript">
     function followclose(clicked_id)

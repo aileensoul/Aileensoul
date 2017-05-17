@@ -358,9 +358,33 @@
     </ul>
       </div>
       <div class="fl search_button">
-        <button>follow</button>
+
+
+      <div class="<?php echo "fruser" . $key['art_id']; ?>">
+<?php  $status  =  $this->db->get_where('follow',array('follow_type' => 2, 'follow_from' => $artdata[0]['art_id'], 'follow_to'=>$key['art_id'] ))->row()->follow_status; 
+
+if($status == 0 || $status == " "){?>
+ 
+ <div id= "followdiv " class="user_btn">
+
+            <button id="<?php echo "follow" . $key['art_id']; ?>" onClick="followuser(<?php echo $key['art_id']; ?>)">
+                               Follow 
+                            </button></div>
+
+                            <?php }elseif($status == 1){ ?>
+
+                                   <div id= "unfollowdiv"  class="user_btn" > 
+           <button class="bg_following" id="<?php echo "unfollow" . $key['art_id']; ?>" onClick="unfollowuser(<?php echo $key['art_id']; ?>) ">
+                               Following 
+                            </button></div>
+                                <?php } ?>
+</div>
+
+
+
+
         <br>
-         <button>Message</button>
+         <button onclick="window.location.href = '<?php echo base_url('chat/abc/' . $key['user_id']); ?>'"> Message</button>
       </div>
 
 
@@ -2544,29 +2568,46 @@
 
                     <!-- follow user script start -->
 
-                    <script type="text/javascript">
-                        function followuser(clicked_id)
-                        {
+  <script type="text/javascript">
+    function followuser(clicked_id)
+    {
 
-                            $("#fad" + clicked_id).fadeOut(6000);
+        $.ajax({
+            type: 'POST',
+            url: '<?php echo base_url() . "artistic/follow" ?>',
+            data: 'follow_to=' + clicked_id,
+            success: function (data) {
 
+                $('.' + 'fruser' + clicked_id).html(data);
 
-                            $.ajax({
-                                type: 'POST',
-                                url: '<?php echo base_url() . "artistic/follow" ?>',
-                                data: 'follow_to=' + clicked_id,
-                                success: function (data) {
+            }
+        });
+    }
+</script>
 
-                                    $('.' + 'fr' + clicked_id).html(data);
+<!--follow like script end -->
 
-                                }
+<!-- Unfollow user script start -->
 
+<script type="text/javascript">
+    function unfollowuser(clicked_id)
+    {
 
-                            });
+        $.ajax({
+            type: 'POST',
+            url: '<?php echo base_url() . "artistic/unfollow" ?>',
+            data: 'follow_to=' + clicked_id,
+            success: function (data) {
 
-                        }
+                $('.' + 'fruser' + clicked_id).html(data);
 
-                    </script>
+            }
+        });
+    }
+</script>
+
+<!--follow like script end -->
+
 
 
                     <script type="text/javascript">
