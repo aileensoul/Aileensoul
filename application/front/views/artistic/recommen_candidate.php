@@ -281,7 +281,7 @@
                                 <h3>Search Result of <?php echo ucwords($keyword)?></h3>
                                 <div class="contact-frnd-post">
                                     <div class="job-contact-frnd ">
-
+  <div class="profile-job-post-title-inside clearfix" style="border: 1px solid #d9d9d9;">
                        <?php if($artuserdata){
 
                                   
@@ -292,8 +292,8 @@
                                if($key['art_id']){ ?>
                               
                                   
-                                  <div class="profile-job-post-title-inside clearfix" style="border: 1px solid #d9d9d9;">
-          <div class="profile-job-profile-button clearfix box_search_module" style="height: 16%;">
+                                
+          <div class="profile-job-profile-button clearfix box_search_module" style="height: 16%; border-bottom: none;">
                                                           
      <div class="profile-job-post-location-name-rec">
           <div class="module_Ssearch" style="display: inline-block; float: left;">
@@ -391,9 +391,7 @@ if($status == 0 || $status == " "){?>
 
      </div>
        </div>
-    <div class="view_more_details">
-                                          <!-- <a href="">View more in Aileensoul's Profile</a> -->
-                                        </div>
+ 
                                 
 
 
@@ -404,7 +402,7 @@ if($status == 0 || $status == " "){?>
 
                         
 
-  <div class="profile-job-post-title-inside clearfix search" style="border: 1px solid #d9d9d9;">
+  <div class="profile-job-post-title-inside clearfix search" style="border:none;">
           <!-- <div class="profile-job-profile-button clearfix box_search_module" style="height: 16%;">
                                                            
      <div class="profile-job-post-location-name-rec">
@@ -477,7 +475,7 @@ if($status == 0 || $status == " "){?>
        </div>
        <div class="col-md-12 col-sm-12 post-design-box" id="removepost5" style="margin-bottom: 0px; box-shadow: none; border: none;">
                                     <div class="post_radius_box">  
-                                        <div class="post-design-search-top col-md-12" style="background-color: none!important;">  
+                                        <div class="post-design-search-top col-md-12" style="border:none;background-color: none!important;">  
                                             <div class="post-design-pro-img col-md-2"> 
                                               
                                                 <div id="popup1" class="overlay">
@@ -794,9 +792,9 @@ if($status == 0 || $status == " "){?>
             
                                         </div> 
                                         
-                                        <div class="post-design-like-box col-md-12" style="border: none;">
-                                            <div class="post-design-menu">
-                                                <ul>
+                                              <div class="post-design-like-box col-md-12 padding_less" style="padding-left: 0px; padding-right: 0px;" >
+                                                                        <div class="post-design-menu">
+                                                                            <ul>
                                            <!-- khyati 18-4 start-->
                                          <div class="post-design-like-box col-md-12">
                                             <div class="post-design-menu">

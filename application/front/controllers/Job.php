@@ -2602,7 +2602,7 @@ class Job extends MY_Controller {
         $this->load->view('job/job_carrier', $this->data);
     }
 
-    public function job_carrier_insert() {
+    public function job_carrier_insert() { 
         $userid = $this->session->userdata('aileenuser');
 
 
@@ -2618,9 +2618,13 @@ class Job extends MY_Controller {
         }
 
 
-
-        $this->form_validation->set_rules('checkbox', 'Checkbox', 'required');
+        if($userdatacon[0]['job_step'] == 10){
         $this->form_validation->set_rules('carrier', 'Carrier', 'required');
+       
+         }else{
+         $this->form_validation->set_rules('checkbox', 'Checkbox', 'required');
+        $this->form_validation->set_rules('carrier', 'Carrier', 'required');
+            }
 
 
         if ($this->form_validation->run() == FALSE) {
@@ -2632,7 +2636,7 @@ class Job extends MY_Controller {
                 'job_step' => 10,
             );
 
-
+            
             $updatedata = $this->common->update_data($data, 'job_reg', 'user_id', $userid);
 
 

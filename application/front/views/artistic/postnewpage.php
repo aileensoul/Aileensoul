@@ -1050,7 +1050,7 @@
                                                                 $art_fname = $this->db->get_where('art_reg', array('user_id' => $commnetcount[0]['user_id'], 'status' => 1))->row()->art_name;
                                                                 $art_lname = $this->db->get_where('art_reg', array('user_id' => $commnetcount[0]['user_id'], 'status' => 1))->row()->art_lastname;
                                                                 ?>
-                                                                <div class="like_one_other">
+                                                                <div class="like_one_other" style="margin-left: 1px;">
                                                                     <?php
                                                                     echo ucwords($art_fname);
                                                                     echo "&nbsp;";
@@ -1091,7 +1091,7 @@
                                                             $art_fname = $this->db->get_where('art_reg', array('user_id' => $commnetcount[0]['user_id'], 'status' => 1))->row()->art_name;
                                                             $art_lname = $this->db->get_where('art_reg', array('user_id' => $commnetcount[0]['user_id'], 'status' => 1))->row()->art_lastname;
                                                             ?>
-                                                            <div class="like_one_other">
+                                                            <div class="like_one_other" style="margin-left: 1px;">
                                                                 <?php
                                                                 echo ucwords($art_fname);
                                                                 echo "&nbsp;";
@@ -3711,8 +3711,8 @@
                             background-color: #fff !important;
                         }
                         .like_one_other{
-                            margin-left: 15px;
-                            /*  margin-right: 15px;*/
+                           /* margin-left: 15px;
+                        */    /*  margin-right: 15px;*/
 
                         }
 

@@ -2425,7 +2425,7 @@
         width: 96%;
     }
     .like_one_other, .like_one_other_img{
-        margin-left: 15px;
+        margin-left: 25px;
         /*  margin-right: 15px;*/
 
     }

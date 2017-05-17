@@ -1474,7 +1474,7 @@ responsive image design start -->
                                                     echo ucwords($art_lname);
                                                     echo "&nbsp;";
                                                     ?>
-                                                    <?php
+                                                       <?php
                                                     if (count($likelistarray) > 1) {
                                                         ?>
                                                         <?php echo "and"; ?>
@@ -3987,9 +3987,9 @@ responsive image design start -->
         width: 100% !important;
         background-color: #fff !important;
     }
-    .like_one_other{
+    .like_one_other{/*
         margin-left: 15px;
-        /*  margin-right: 15px;*/
+*/        /*  margin-right: 15px;*/
 
     }
 

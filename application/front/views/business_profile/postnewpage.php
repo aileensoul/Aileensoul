@@ -1065,7 +1065,7 @@ if(count($databus1) > 1){
                                                                 $countlike = count($commneteduser) - 1;
                                                                 $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $commneteduser[0]['user_id'], 'status' => 1))->row()->company_name;
                                                                 ?>
-                                                                <div class="like_one_other_img">
+                                                                <div class="like_one_other_img" style="">
                                                                     <?php
                                                                     echo ucwords($business_fname1);
                                                                     echo "&nbsp;";
@@ -3652,8 +3652,8 @@ if(count($databus1) > 1){
         width: 100% !important;
         background-color: #fff !important;
     }
-    .like_one_other, .like_one_other_img{
-        margin-left: 15px;
+    .like_one_other_img{
+        margin-left: 25px;
         /*  margin-right: 15px;*/
 
     }
