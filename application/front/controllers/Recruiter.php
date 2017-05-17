@@ -661,6 +661,10 @@ class Recruiter extends MY_Controller {
         //echo "falguni"; die();
         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
 
+        $contition_array = array('user_id' => $userid, 'is_delete' => 0);
+           $this->data['postdataone'] = $this->common->select_data_by_condition('recruiter', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
+           //echo "<pre>"; print_r($this->data['postdata']); die();
+
         if ($id == $userid || $id == '') {
             //echo "hii"; die();
             $join_str[0]['table'] = 'recruiter';
@@ -674,7 +678,10 @@ class Recruiter extends MY_Controller {
            //echo "<pre>"; print_r($this->data['postdata']); die();
 
         } else { 
-            //echo "hello"; die();
+            //echo "hello"; die()
+            ;
+      $contition_array = array('user_id' => $id, 'is_delete' => 0);
+           $this->data['postdataone'] = $this->common->select_data_by_condition('recruiter', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
             
             $join_str[0]['table'] = 'recruiter';
             $join_str[0]['join_table_id'] = 'recruiter.user_id';
