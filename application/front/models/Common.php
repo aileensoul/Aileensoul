@@ -722,6 +722,7 @@ class Common extends CI_Model {
  }
  
  public  function time_elapsed_string($datetime, $full = false) { 
+     $this->load->helper('date');
     $now = new DateTime;
     $ago = new DateTime($datetime);
     $diff = $now->diff($ago);

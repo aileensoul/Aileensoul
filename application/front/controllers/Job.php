@@ -3112,7 +3112,8 @@ class Job extends MY_Controller {
                 'not_to_id' => $notid,
                 'not_read' => 2,
                 'not_from' => 2,
-                'not_product_id' => $app_id
+                'not_product_id' => $app_id,
+                'not_created_date' => date('y-m-d h:i:s'),
             );
 
             $updatedata = $this->common->insert_data_getid($data, 'notification');
@@ -3150,7 +3151,8 @@ class Job extends MY_Controller {
                 'not_to_id' => $notid,
                 'not_read' => 2,
                 'not_from' => 2,
-                'not_product_id' => $insert_id
+                'not_product_id' => $insert_id,
+                'not_created_date' => date('y-m-d h:i:s'),
             );
 
             $updatedata = $this->common->insert_data_getid($data, 'notification');

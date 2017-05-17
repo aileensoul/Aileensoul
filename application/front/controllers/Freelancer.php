@@ -1878,7 +1878,8 @@ $results = array_unique($result);
                 'not_to_id' => $notid,
                 'not_read' => 2,
                 'not_from' => 6,
-                'not_product_id' => $app_id
+                'not_product_id' => $app_id,
+                'not_created_date' => date('y-m-d h:i:s'),
             );
 
 $updatedata = $this->common->insert_data_getid($data, 'notification');
@@ -1914,7 +1915,8 @@ $updatedata = $this->common->insert_data_getid($data, 'notification');
                 'not_to_id' => $notid,
                 'not_read' => 2,
                 'not_from' => 6,
-                'not_product_id' => $insert_id
+                'not_product_id' => $insert_id,
+                'not_created_date' => date('y-m-d h:i:s'),
             );
 
             $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -2655,6 +2657,7 @@ $this->load->view('freelancer/freelancer_hire/freelancer_save', $this->data);
             'not_read' => 2,
             'not_from' => 5,
             'not_product_id' => $appid,
+            'not_created_date' => date('y-m-d h:i:s'),
         );
 
         $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -2997,7 +3000,8 @@ $this->load->view('freelancer/freelancer_hire/freelancer_save', $this->data);
             'not_read' => 2,
             'not_status' => 0,
             'not_product_id' => $insert_id,
-            'not_from' => 4 
+            'not_from' => 4,
+            'not_created_date' => date('y-m-d h:i:s'),
             );
         $insert_id = $this->common->insert_data_getid($data, 'notification');
         echo 'Selected';
