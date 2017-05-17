@@ -618,9 +618,41 @@
                                     <div class="post-design-pro-img col-md-2"> 
                                         <?php
                                         $business_userimage = $this->db->get_where('business_profile', array('user_id' => $busienss_data[0]['user_id'], 'status' => 1))->row()->business_user_image;
+
+                                         $userimageposted = $this->db->get_where('business_profile', array('user_id' => $busienss_data[0]['posted_user_id']))->row()->business_user_image;
+
                                         ?>
 
-                                        <img  src="<?php echo base_url(USERIMAGE . $business_userimage); ?>"  alt="">
+                                        <?php $slugname = $this->db->get_where('business_profile', array('user_id' => $busienss_data[0]['user_id'], 'status' => 1))->row()->business_slug;
+                                            $slugnameposted = $this->db->get_where('business_profile', array('user_id' => $busienss_data[0]['posted_user_id'], 'status' => 1))->row()->business_slug;
+                                                ?>
+
+                                               <?php if ($row['posted_user_id']) {
+                                                    ?>
+
+                                                    <?php if ($userimageposted) { ?>
+                                                    <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugnameposted); ?>">
+                                                        <img src="<?php echo base_url(USERIMAGE . $userimageposted); ?>" name="image_src" id="image_src" />
+                                                        </a>
+                                                    <?php } else { ?>
+                                                    <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugnameposted); ?>">
+                                                        <img alt="" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
+                                                        </a>
+                                                    <?php } ?>
+
+                                                <?php } else { ?>
+                                                    <?php if ($business_userimage) { ?>
+                                                    <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>">
+                                                        <img  src="<?php echo base_url(USERIMAGE . $business_userimage); ?>"  alt="">
+                                                        </a>
+                                                    <?php } else { ?>
+                                                    <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>">
+                                                        <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
+                                                        </a>
+                                                        <?php
+                                                    }
+                                                }
+                                                ?>
                                     </div>
 
 
@@ -637,53 +669,89 @@
 
 
                                             $category = $this->db->get_where('industry_type', array('industry_id' => $categoryid, 'status' => 1))->row()->industry_name;
+
+                                             $companynameposted = $this->db->get_where('business_profile', array('user_id' => $busienss_data[0]['posted_user_id']))->row()->company_name;
+
+                                                    $slugnameposted = $this->db->get_where('business_profile', array('user_id' => $busienss_data[0]['posted_user_id'], 'status' => 1))->row()->business_slug;
                                             ?>
 
+                <?php if ($busienss_data[0]['posted_user_id']) { ?>
+                     <li>
+                        <div class="else_post_d">
+                            <div class="post-design-product">
+                            <a style="
+    max-width: 26%;
+    width: auto;
+    font-size: 18px;
+    display: inline-block;
+    line-height: 15px;
+    font-weight: 600;
+    color: #000033;
+    margin-bottom: -3px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap; " href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugnameposted); ?>"><?php echo ucwords($companynameposted); ?></a>
+                                                                 <p style="font-weight: 600; display: inline-block;"> Posted With </p> <a style=" font-size: 15px;                    line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; " href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>"><?php echo ucwords($companyname); ?></a> <span  style="font-weight: 400;  cursor: default;"><?php echo date('d-M-Y', strtotime($row['created_date'])); ?> </span> </div></div>
+                                                        </li>
+                                                    <?php } else { ?>
                                             <li><div class="post-design-product"><a class="post_dot" href="<?php echo base_url('business_profile/business_resume/' . $slugname); ?>"> <span class="span_main_name">  <?php echo ucwords($companyname); ?> </span> </a>
 
                                                     <span> <?php echo date('d-M-Y', strtotime($busienss_data[0]['created_date'])); ?></span></div></li>
 
-
+                                                    <?php }?>
                                             <li><div class="post-design-product"><a><?php echo ucwords($category); ?></a></div></li>
 
                                         </ul> 
                                     </div>  
 
 
-                                    <div class="dropdown1">
-                                        <a onClick="myFunction(<?php echo $busienss_data[0]['business_profile_post_id']; ?>)" class="dropbtn1 dropbtn1 fa fa-ellipsis-v"></a>
-                                        <div id="<?php echo "myDropdown" . $busienss_data[0]['business_profile_post_id']; ?>" class="dropdown-content1">
+<div class="dropdown1">
+ <a onClick="myFunction(<?php echo $busienss_data[0]['business_profile_post_id']; ?>)" class="dropbtn1 dropbtn1 fa fa-ellipsis-v"></a>
+        <div id="<?php echo "myDropdown" . $busienss_data[0]['business_profile_post_id']; ?>" class="dropdown-content1">
 
-                                            <?php if ($this->session->userdata('aileenuser') == $busienss_data[0]['user_id']) { ?> 
+ <?php if($busienss_data[0]['posted_user_id'] != 0){ 
 
-                                                <a onclick="user_postdelete(<?php echo $busienss_data[0]['business_profile_post_id']; ?>)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete Post</a>
+                  if($this->session->userdata('aileenuser') == $busienss_data[0]['posted_user_id']){
+                    ?>
+             <a onclick="user_postdelete(<?php echo $busienss_data[0]['business_profile_post_id']; ?>)">
+                <i class="fa fa-trash-o" aria-hidden="true">
+                  </i> Delete Post
+            </a>
+            <a id="<?php echo $busienss_data[0]['business_profile_post_id']; ?>" onClick="editpost(this.id)">
+            <i class="fa fa-pencil-square-o" aria-hidden="true">
+             </i>Edit
+            </a>
 
-                                                <a id="<?php echo $busienss_data[0]['business_profile_post_id']; ?>" onClick="editpost(this.id)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit</a>
+            <?php }else{
+                ?>
+           
+           <a onclick="user_postdelete(<?php echo $busienss_data[0]['business_profile_post_id']; ?>)">
+                <i class="fa fa-trash-o" aria-hidden="true">
+                  </i> Delete Post
+            </a>
+        <a href="<?php echo base_url('business_profile/business_profile_contactperson/' . $busienss_data[0]['posted_user_id'] . ''); ?>">
+            <i class="fa fa-user" aria-hidden="true">
+            </i> Contact Person
+             </a>
 
-                                            <?php } else { ?>
-                                                <a onclick="user_postdeleteparticular(<?php echo $busienss_data[0]['business_profile_post_id']; ?>)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete Post</a>
+            <?php } }else{?>
+
+         <?php if ($this->session->userdata('aileenuser') == $busienss_data[0]['user_id']) { ?> 
+
+            <a onclick="user_postdelete(<?php echo $busienss_data[0]['business_profile_post_id']; ?>)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete Post</a>
+
+                <a id="<?php echo $busienss_data[0]['business_profile_post_id']; ?>" onClick="editpost(this.id)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit</a>
+
+                <?php } else { ?>
+                     <a onclick="user_postdeleteparticular(<?php echo $busienss_data[0]['business_profile_post_id']; ?>)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete Post</a>
 
 
-                                                <!-- <?php
-                                                $userid = $this->session->userdata('aileenuser');
-                                                $contition_array = array('user_id' => $userid, 'business_save' => '1', 'post_id ' => $busienss_data[0]['business_profile_post_id']);
-                                                $businesssave = $this->data['businesssave'] = $this->common->select_data_by_condition('business_profile_save', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-                                                if ($businesssave) {
-                                                    ?>
-                                                                                                                                                        
-                                                                                                                                                           <a><i class="fa fa-bookmark" aria-hidden="true"></i>Saved Post</a>
-                                                                                                                                                        
-                                                <?php } else { ?>
-                                                                                                                                                        
-                                                                                                                                                           <a id="<?php echo $busienss_data[0]['business_profile_post_id']; ?>" onClick="save_post(this.id)" href="#popup1" class="<?php echo 'savedpost' . $busienss_data[0]['business_profile_post_id']; ?>"><i class="fa fa-bookmark" aria-hidden="true"></i>  Save Post</a>
-                                                                                                                                                        
-                                                <?php } ?> -->
+                <a href="<?php echo base_url('business_profile/business_profile_contactperson/' . $busienss_data[0]['user_id'] . ''); ?>"><i class="fa fa-user" aria-hidden="true"></i> Contact Person</a>
+                     <?php } }?>
 
-                                                <a href="<?php echo base_url('business_profile/business_profile_contactperson/' . $busienss_data[0]['user_id'] . ''); ?>"><i class="fa fa-user" aria-hidden="true"></i> Contact Person</a>
-                                            <?php } ?>
-                                        </div>
-                                    </div>
+             </div>
+        </div>
 
                                     <div class="post-design-desc ">
                                         <div id="<?php echo 'editpostdata' . $busienss_data[0]['business_profile_post_id']; ?>" style="display:block;">
@@ -729,7 +797,7 @@
                                         $i = 1;
                                         foreach ($businessmultiimage as $data) {
 
-
+                                            //echo '<pre>'; print_r($businessmultiimage); die();
 
                                             $allowed = array('gif', 'png', 'jpg');
                                             $allowespdf = array('pdf');
@@ -789,10 +857,13 @@
                                                             currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
                                                 </div>
                                                         <!-- two image end -->
-                                                    <?php } ?>
+                                                    <?php }else{ ?>
                                                 
-
-                                            <?php } elseif (in_array($ext, $allowespdf)) { ?>
+                                      <div id="two_images_bui" style="height: 50%;" >
+                                                    <img src="<?php echo base_url(BUSPOSTIMAGE . $data['image_name']) ?>" style="width: 100%; height: 100%;" onclick="openModal();
+                                                            currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
+                                                </div>
+                                            <?php } } elseif (in_array($ext, $allowespdf)) { ?>
 
                                                 <!-- one pdf start -->
                                                 <div>
@@ -877,15 +948,15 @@ if(count($databus1) > 1){
                                                             <div class="post-design-menu">
                                                                 <ul>
                                                                     <li class="<?php echo 'likepostimg' . $busdata['image_id']; ?>">
-                                                                        <a id="<?php echo $busdata['image_id']; ?>" onClick="mulimg_like(this.id)">
-                                                                            <?php
-                                                                            $userid = $this->session->userdata('aileenuser');
-                                                                            $contition_array = array('post_image_id' => $busdata['image_id'], 'user_id' => $userid, 'is_unlike' => 0);
+                                             <a id="<?php echo $busdata['image_id']; ?>" onClick="mulimg_like(this.id)">
+                                             <?php
+                                        $userid = $this->session->userdata('aileenuser');
+                                         $contition_array = array('post_image_id' => $busdata['image_id'], 'user_id' => $userid, 'is_unlike' => 0);
 
-                                                                            $activedata = $this->data['activedata'] = $this->common->select_data_by_condition('bus_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                     $activedata = $this->data['activedata'] = $this->common->select_data_by_condition('bus_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-                                                                            if ($activedata) {
-                                                                                ?>
+                                         if ($activedata) {
+                                             ?>
                                                                                 <i class="fa fa-thumbs-up" aria-hidden="true"></i>
                                                                             <?php } else { ?>
                                                                                 <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>
