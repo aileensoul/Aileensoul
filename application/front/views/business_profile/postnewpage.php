@@ -615,7 +615,7 @@
 
                             <div  class="">  
                                 <div class="post-design-top col-md-12" >  
-                                    <div class="post-design-pro-img col-md-2"> 
+                                    <div class="post-design-pro-img col-md-2" style="padding-left: 17px;"> 
                                         <?php
                                         $business_userimage = $this->db->get_where('business_profile', array('user_id' => $busienss_data[0]['user_id'], 'status' => 1))->row()->business_user_image;
 
@@ -627,7 +627,7 @@
                                             $slugnameposted = $this->db->get_where('business_profile', array('user_id' => $busienss_data[0]['posted_user_id'], 'status' => 1))->row()->business_slug;
                                                 ?>
 
-                                               <?php if ($row['posted_user_id']) {
+                                               <?php if ($busienss_data[0]['posted_user_id']) {
                                                     ?>
 
                                                     <?php if ($userimageposted) { ?>
@@ -753,7 +753,7 @@
              </div>
         </div>
 
-                                    <div class="post-design-desc ">
+                                    <div class="post-design-desc " style="padding: 5px 17px 5px 17px;">
                                         <div id="<?php echo 'editpostdata' . $busienss_data[0]['business_profile_post_id']; ?>" style="display:block;">
                                             <a  style="margin-bottom: 0px;   font-weight: 600;  font-size: 16px"><?php echo $this->common->make_links($busienss_data[0]['product_name']); ?></a>
                                         </div>
@@ -2732,30 +2732,30 @@ if(count($databus1) > 1){
 <script src="jquery-1.8.2.js"></script>
 <script>
     $(function () {
-        var showTotalChar = 200, showChar = "more", hideChar = "less";
-        $('.show').each(function () {
-            //var content = $(this).text();
-            var content = $(this).html();
-            if (content.length > showTotalChar) {
-                var con = content.substr(0, showTotalChar);
-                var hcon = content.substr(showTotalChar, content.length - showTotalChar);
-                var txt = con + '<span class="dots">...</span><span class="morectnt"><span>' + hcon + '</span>&nbsp;&nbsp;<a href="" class="showmoretxt">' + showChar + '</a></span>';
-                $(this).html(txt);
-            }
-        });
-        $(".showmoretxt").click(function () {
-            if ($(this).hasClass("sample")) {
-                $(this).removeClass("sample");
-                $(this).text(showChar);
-            } else {
-                $(this).addClass("sample");
-                $(this).text(hideChar);
-            }
-            $(this).parent().prev().toggle();
-            $(this).prev().toggle();
-            return false;
-        });
-    });
+                var showTotalChar = 150, showChar = "More", hideChar = "less";
+                $('.show').each(function () {
+                    //var content = $(this).text();
+                    var content = $(this).html();
+                    if (content.length > showTotalChar) {
+                        var con = content.substr(0, showTotalChar);
+                        var hcon = content.substr(showTotalChar, content.length - showTotalChar);
+                        var txt = con + '<span class="dots">...</span><span class="morectnt"><span>' + hcon + '</span>&nbsp;&nbsp;<a href="" class="showmoretxt">' + showChar + '</a></span>';
+                        $(this).html(txt);
+                    }
+                });
+                $(".showmoretxt").click(function () {
+                    if ($(this).hasClass("sample")) {
+                        $(this).removeClass("sample");
+                        $(this).text(showChar);
+                    } else {
+                        $(this).addClass("sample");
+                        $(this).text(hideChar);
+                    }
+                    $(this).parent().prev().toggle();
+                    $(this).prev().toggle();
+                    return false;
+                });
+            });
 </script>
 
 <script>

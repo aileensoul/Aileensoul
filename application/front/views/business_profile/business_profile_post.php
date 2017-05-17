@@ -231,7 +231,7 @@
         <!-- further and less -->
         <script>
             $(function () {
-                var showTotalChar = 200, showChar = "More", hideChar = "less";
+                var showTotalChar = 150, showChar = "More", hideChar = "less";
                 $('.show').each(function () {
                     //var content = $(this).text();
                     var content = $(this).html();
@@ -994,7 +994,7 @@
 
                                             </div> 
                                         </div>
-                                        <div class="post-design-mid col-md-12">
+                                        <div class="post-design-mid col-md-12" style="padding-right: 20px;">
                                             <!-- multiple image code  start-->
                                             <div>
                                                 <?php

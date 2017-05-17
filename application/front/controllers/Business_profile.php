@@ -994,6 +994,9 @@ class Business_profile extends MY_Controller {
             }
         }
 
+        $postdata = array_unique($postdata, SORT_REGULAR);
+
+
         $new = array();
         foreach ($postdata as $value) {
             $new[$value['business_profile_post_id']] = $value;
@@ -1405,7 +1408,8 @@ class Business_profile extends MY_Controller {
             'not_to_id' => $id,
             'not_read' => 2,
             'not_product_id' => $insertdata,
-            'not_from' => 3
+            'not_from' => 3,
+            'not_created_date' => date('y-m-d h:i:s')
         );
 
         $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -1813,7 +1817,8 @@ class Business_profile extends MY_Controller {
                 'not_to_id' => $busdatatoid[0]['user_id'],
                 'not_read' => 2,
                 'not_product_id' => $follow[0]['follow_id'],
-                'not_from' => 6
+                'not_from' => 6,
+                'not_created_date' => date('y-m-d h:i:s')
             );
 
             $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -1845,7 +1850,8 @@ class Business_profile extends MY_Controller {
                 'not_to_id' => $busdatatoid[0]['user_id'],
                 'not_read' => 2,
                 'not_product_id' => $insert,
-                'not_from' => 6
+                'not_from' => 6,
+                'not_created_date' => date('y-m-d h:i:s')
             );
 
             $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -1929,7 +1935,8 @@ class Business_profile extends MY_Controller {
                 'not_to_id' => $busdatatoid[0]['user_id'],
                 'not_read' => 2,
                 'not_product_id' => $follow[0]['follow_id'],
-                'not_from' => 6
+                'not_from' => 6,
+                'not_created_date' => date('y-m-d h:i:s')
             );
 
             $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -1961,7 +1968,8 @@ class Business_profile extends MY_Controller {
                 'not_to_id' => $busdatatoid[0]['user_id'],
                 'not_read' => 2,
                 'not_product_id' => $insert,
-                'not_from' => 6
+                'not_from' => 6,
+                'not_created_date' => date('y-m-d h:i:s')
             );
 
             $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -2516,7 +2524,8 @@ class Business_profile extends MY_Controller {
                         'not_read' => 2,
                         'not_product_id' => $post_id,
                         'not_from' => 6,
-                        'not_img' => 3
+                        'not_img' => 3,
+                        'not_created_date' => date('y-m-d h:i:s')
                     );
 
 
@@ -2643,7 +2652,8 @@ class Business_profile extends MY_Controller {
                         'not_read' => 2,
                         'not_product_id' => $post_id,
                         'not_from' => 6,
-                        'not_img' => 3
+                        'not_img' => 3,
+                        'not_created_date' => date('y-m-d h:i:s')
                     );
 
                     $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -3054,7 +3064,8 @@ class Business_profile extends MY_Controller {
                         'not_read' => 2,
                         'not_product_id' => $post_id,
                         'not_from' => 6,
-                        'not_img' => 2
+                        'not_img' => 2,
+                        'not_created_date' => date('y-m-d h:i:s')
                     );
                     //echo "<pre>"; print_r($data); die();
 
@@ -3296,7 +3307,8 @@ class Business_profile extends MY_Controller {
                 'not_read' => 2,
                 'not_product_id' => $insert_id,
                 'not_from' => 6,
-                'not_img' => 1
+                'not_img' => 1,
+                'not_created_date' => date('y-m-d h:i:s')
             );
             //echo "<pre>"; print_r($notificationdata); 
             $insert_id_notification = $this->common->insert_data_getid($notificationdata, 'notification');
@@ -3461,7 +3473,8 @@ class Business_profile extends MY_Controller {
                 'not_read' => 2,
                 'not_product_id' => $insert_id,
                 'not_from' => 6,
-                'not_img' => 1
+                'not_img' => 1,
+                'not_created_date' => date('y-m-d h:i:s')
             );
             //echo "<pre>"; print_r($notificationdata); 
             $insert_id_notification = $this->common->insert_data_getid($notificationdata, 'notification');
@@ -3916,7 +3929,8 @@ class Business_profile extends MY_Controller {
                     'not_read' => 2,
                     'not_product_id' => $post_image,
                     'not_from' => 6,
-                    'not_img' => 5
+                    'not_img' => 5,
+                    'not_created_date' => date('y-m-d h:i:s')
                 );
 
                 $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -4074,7 +4088,8 @@ class Business_profile extends MY_Controller {
                             'not_read' => 2,
                             'not_product_id' => $post_image,
                             'not_from' => 6,
-                            'not_img' => 5
+                            'not_img' => 5,
+                            'not_created_date' => date('y-m-d h:i:s')
                         );
 
                         $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -4181,7 +4196,8 @@ class Business_profile extends MY_Controller {
                 'not_read' => 2,
                 'not_product_id' => $insert_id,
                 'not_from' => 6,
-                'not_img' => 4
+                'not_img' => 4,
+                'not_created_date' => date('y-m-d h:i:s')
             );
             //echo "<pre>"; print_r($datanotification); die();
             $insert_id_notification = $this->common->insert_data_getid($datanotification, 'notification');
@@ -4352,7 +4368,8 @@ class Business_profile extends MY_Controller {
                 'not_read' => 2,
                 'not_product_id' => $insert_id,
                 'not_from' => 6,
-                'not_img' => 4
+                'not_img' => 4,
+                'not_created_date' => date('y-m-d h:i:s')
             );
 
             $insert_id_notification = $this->common->insert_data_getid($datanotification, 'notification');
@@ -4519,7 +4536,8 @@ class Business_profile extends MY_Controller {
                 'not_read' => 2,
                 'not_product_id' => $insert_id,
                 'not_from' => 6,
-                'not_img' => 4
+                'not_img' => 4,
+                'not_created_date' => date('y-m-d h:i:s')
             );
 
             $insert_id_notification = $this->common->insert_data_getid($datanotification, 'notification');
@@ -4685,7 +4703,8 @@ class Business_profile extends MY_Controller {
                 'not_read' => 2,
                 'not_product_id' => $insert_id,
                 'not_from' => 6,
-                'not_img' => 4
+                'not_img' => 4,
+                'not_created_date' => date('y-m-d h:i:s')
             );
             //echo "<pre>"; print_r($datanotification); die();
             $insert_id_notification = $this->common->insert_data_getid($datanotification, 'notification');
@@ -4862,7 +4881,8 @@ class Business_profile extends MY_Controller {
                     'not_read' => 2,
                     'not_product_id' => $post_image_comment_id,
                     'not_from' => 6,
-                    'not_img' => 6
+                    'not_img' => 6,
+                    'not_created_date' => date('y-m-d h:i:s')
                 );
                 //echo "<pre>"; print_r($datanotification); die();
                 $insert_id = $this->common->insert_data_getid($datanotification, 'notification');
@@ -4971,7 +4991,8 @@ class Business_profile extends MY_Controller {
                             'not_read' => 2,
                             'not_product_id' => $post_image_comment_id,
                             'not_from' => 6,
-                            'not_img' => 6
+                            'not_img' => 6,
+                            'not_created_date' => date('y-m-d h:i:s')
                         );
                         //echo "<pre>"; print_r($data); die();
                         $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -5051,7 +5072,8 @@ class Business_profile extends MY_Controller {
                     'not_read' => 2,
                     'not_product_id' => $post_image_comment_id,
                     'not_from' => 6,
-                    'not_img' => 6
+                    'not_img' => 6,
+                    'not_created_date' => date('y-m-d h:i:s')
                 );
                 //echo "<pre>"; print_r($datanotification); die();
                 $insert_id = $this->common->insert_data_getid($datanotification, 'notification');
@@ -5154,7 +5176,8 @@ class Business_profile extends MY_Controller {
                             'not_read' => 2,
                             'not_product_id' => $post_image_comment_id,
                             'not_from' => 6,
-                            'not_img' => 6
+                            'not_img' => 6,
+                            'not_created_date' => date('y-m-d h:i:s')
                         );
 
                         $insert_id = $this->common->insert_data_getid($datanotification, 'notification');
@@ -5938,7 +5961,8 @@ class Business_profile extends MY_Controller {
                 'not_read' => 2,
                 'not_product_id' => $insert_id,
                 'not_from' => 6,
-                'not_img' => 1
+                'not_img' => 1,
+                'not_created_date' => date('y-m-d h:i:s')
             );
             //echo "<pre>"; print_r($notificationdata); 
             $insert_id_notification = $this->common->insert_data_getid($notificationdata, 'notification');
@@ -6111,7 +6135,8 @@ class Business_profile extends MY_Controller {
                 'not_read' => 2,
                 'not_product_id' => $insert_id,
                 'not_from' => 6,
-                'not_img' => 1
+                'not_img' => 1,
+                'not_created_date' => date('y-m-d h:i:s')
             );
             //echo "<pre>"; print_r($notificationdata); 
             $insert_id_notification = $this->common->insert_data_getid($notificationdata, 'notification');
