@@ -1474,7 +1474,7 @@ responsive image design start -->
                                                     echo ucwords($art_lname);
                                                     echo "&nbsp;";
                                                     ?>
-                                                    <?php
+                                                       <?php
                                                     if (count($likelistarray) > 1) {
                                                         ?>
                                                         <?php echo "and"; ?>

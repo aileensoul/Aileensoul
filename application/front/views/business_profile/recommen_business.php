@@ -2892,7 +2892,7 @@ function unfollowuser(clicked_id)
         background-color: #fff !important;
     }
     .like_one_other{
-        margin-left: 15px;
+     /*   margin-left: 15px;*/
         /*  margin-right: 15px;*/
 
     }
