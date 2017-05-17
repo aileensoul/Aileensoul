@@ -3721,7 +3721,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2c539e', end
                          border:1px solid #dcdcdc;
                          display:inline-block;
                          cursor:pointer;
-                         color:#9C9999;
+                         color:#9C9999!important;
                          font-family:Arial;
                          font-size:13px;
                          margin-top: 3px;
@@ -4614,7 +4614,7 @@ fieldset .add_post_btns{min-width: 120px;padding:8px 30px 8px;}
     #paddingtop_fixed_job{padding-top: 30px!important;}
     .profile-job-details .post_title {       font-size: 19px;
     font-weight: 600;
-    width: 472px;
+    width: 442px;
     word-break: break-word;
     cursor: default;
     overflow: hidden;

@@ -21,7 +21,27 @@
         border-radius: 8px;
     }
 
+/*  Ripple */
 
+.ripple {
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(0);
+  position: absolute;
+  opacity: 1;
+}
+.rippleEffect {
+    animation: rippleDrop .6s linear;
+}
+
+@keyframes rippleDrop {
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
     .pop_content .cnclbtn {
         position: absolute;
         transition: all 200ms;
@@ -1097,7 +1117,7 @@
                                             <div class="post-design-menu">
                                                 <ul>
                                                     <li class="<?php echo 'likepost' . $row['business_profile_post_id']; ?>">
-                                                        <a id="<?php echo $row['business_profile_post_id']; ?>"   onClick="post_like(this.id)">
+                                                        <a id="<?php echo $row['business_profile_post_id']; ?>" class="like_ripple"  onClick="post_like(this.id)">
                                                             <?php
                                                             $userid = $this->session->userdata('aileenuser');
                                                             $contition_array = array('business_profile_post_id' => $row['business_profile_post_id'], 'status' => '1');
@@ -3164,3 +3184,40 @@
 
 </script>
 <!-- This  script use for close dropdown in every post -->
+<script type="text/javascript">
+    $(".like_ripple").click(function (e) {
+  
+  // Remove any old one
+  $(".ripple").remove();
+
+  // Setup
+  var posX = $(this).offset().left,
+      posY = $(this).offset().top,
+      buttonWidth = $(this).width(),
+      buttonHeight =  $(this).height();
+  
+  // Add the element
+  $(this).prepend("<span class='ripple'></span>");
+
+  
+ // Make it round!
+  if(buttonWidth >= buttonHeight) {
+    buttonHeight = buttonWidth;
+  } else {
+    buttonWidth = buttonHeight; 
+  }
+  
+  // Get the center of the element
+  var x = e.pageX - posX - buttonWidth / 2;
+  var y = e.pageY - posY - buttonHeight / 2;
+  
+ 
+  // Add the ripples CSS and start the animation
+  $(".ripple").css({
+    width: buttonWidth,
+    height: buttonHeight,
+    top: y + 'px',
+    left: x + 'px'
+  }).addClass("rippleEffect");
+});
+</script>
