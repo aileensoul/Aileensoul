@@ -627,7 +627,7 @@
                                             $slugnameposted = $this->db->get_where('business_profile', array('user_id' => $busienss_data[0]['posted_user_id'], 'status' => 1))->row()->business_slug;
                                                 ?>
 
-                                               <?php if ($row['posted_user_id']) {
+                                               <?php if ($busienss_data[0]['posted_user_id']) {
                                                     ?>
 
                                                     <?php if ($userimageposted) { ?>

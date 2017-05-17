@@ -759,14 +759,29 @@
                                     <div class="post-design-pro-img col-md-2"> 
                                         <?php
                                         $art_userimage = $this->db->get_where('art_reg', array('user_id' => $art_data[0]['user_id'], 'status' => 1))->row()->art_user_image;
+
+                                        $userimageposted = $this->db->get_where('art_reg', array('user_id' => $art_data[0]['posted_user_id']))->row()->art_user_image;
                                         ?>
-                                        <img  src="<?php echo base_url(ARTISTICIMAGE . $art_userimage); ?>"  alt=""> 
+                                         <?php if ($art_data[0]['posted_user_id']) { ?>
+                                            <a  class="post_dot" title="<?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?>" href="<?php echo base_url('artistic/art_manage_post/' . $row['posted_user_id']); ?>">
+                                                <img src="<?php echo base_url(ARTISTICIMAGE . $userimageposted); ?>" name="image_src" id="image_src" / > </a>
+
+                                                 <?php } else { ?>
+                                                 <a class="post_dot"  href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>">
+                                                     <img src="<?php echo base_url(ARTISTICIMAGE . $userimage); ?>" name="image_src" id="image_src" / > </a>
+
+                                                 <?php } ?>
                                     </div>
                                     <div class="post-design-name fl col-md-10">
                                         <ul>
                                             <?php
                                             $firstname = $this->db->get_where('art_reg', array('user_id' => $art_data[0]['user_id']))->row()->art_name;
                                             $lastname = $this->db->get_where('art_reg', array('user_id' => $art_data[0]['user_id']))->row()->art_lastname;
+
+                                             $firstnameposted = $this->db->get_where('art_reg', array('user_id' => $art_data[0]['posted_user_id']))->row()->art_name;
+                                             $lastnameposted = $this->db->get_where('art_reg', array('user_id' => $art_data[0]['posted_user_id']))->row()->art_lastname;
+
+
                                             $userskill = $this->db->get_where('art_reg', array('user_id' => $art_data[0]['user_id']))->row()->art_skill;
                                             $aud = $userskill;
                                             $aud_res = explode(',', $aud);
@@ -778,20 +793,25 @@
                                             $listFinal = implode(', ', $skill1);
                                             ?>
 
-                                            <li><div class="post-design-product">
-                                                    <a class="post_dot" 
-                                                       href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>"><?php
-                                                           echo ucwords($firstname);
-                                                           print "&nbsp;&nbsp;";
-                                                           echo ucwords($lastname);
-                                                           ?> </a>
+                                            <li><?php if ($art_data[0]['posted_user_id']) { ?>
 
+                                                        <div class="else_post_d">
+                                                            <a  class="post_dot" title="<?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?>" href="<?php echo base_url('artistic/art_manage_post/' . $art_data[0]['posted_user_id']); ?>"><?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?> </a><span style="font-weight: 600;"> Posted With 
+                                                            </span><a class="post_dot"  href="<?php echo base_url('artistic/art_manage_post/' . $art_data[0]['user_id']); ?>"><?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?></a><span role="presentation" aria-hidden="true" style="color: #91949d; font-size: 14px;"> · </span>
+                                                            <span style="color: #91949d; font-size: 14px;"> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span>
+                                                        </div>
 
-                                                    <div class="datespan">
-                                                        <span style="font-weight: 400;
-                                                              font-size: 14px;
-                                                              color: #91949d;""> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span></div>
-                                                </div></li>
+                                                        <!-- other user post time name end-->
+                                                    <?php } else { ?>
+
+                                                        <a  class="post_dot" title="<?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?>"   href="<?php echo base_url('artistic/art_manage_post/' . $art_data[0]['user_id']); ?>">
+                                                            <?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?>
+
+                                                        </a>
+                                                        <div class="datespan">
+                                                            <span style="font-weight: 400; font-size: 14px; color: #91949d;""> <?php echo date('d-M-Y', strtotime($art_data[0]['created_date'])); ?></span></div>
+
+                                                    <?php } ?>                 </li>
                                             <!-- 
                                             <li><div class="post-design-product"><a><?php //echo $listFinal ;    ?> </a></div></li>
                                             -->
@@ -807,33 +827,44 @@
                                         </ul> 
                                     </div>  
 
-                                    <div class="dropdown1">
-                                        <a onClick="myFunction(<?php echo $art_data[0]['art_post_id']; ?>)" class="dropbtn1 dropbtn1 fa fa-ellipsis-v"></a>
-                                        <div id="<?php echo "myDropdown" . $art_data[0]['art_post_id']; ?>" class="dropdown-content1">
-                                            <?php
-                                            $userid = $this->session->userdata('aileenuser');
-                                            if ($art_data[0]['user_id'] == $userid) {
-                                                ?>
-                                                <a id="<?php echo $art_data[0]['art_post_id']; ?>" onClick="deleteownpostmodel(this.id)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete Post</a>
+     <div class="dropdown1">
+     <a onClick="myFunction(<?php echo $art_data[0]['art_post_id']; ?>)" class="dropbtn1 dropbtn1 fa fa-ellipsis-v"></a>
+     <div id="<?php echo "myDropdown" . $art_data[0]['art_post_id']; ?>" class="dropdown-content1">
 
-                                                <a id="<?php echo $art_data[0]['art_post_id']; ?>" onClick="editpost(this.id)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit</a>
-                                            <?php } else { ?>
-                                                <a href="<?php echo "#popup5" . $row['art_post_id']; ?>"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete Post</a>
-                                                <?php
-                                                $userid = $this->session->userdata('aileenuser');
-                                                $contition_array = array('user_id' => $userid, 'post_save' => '1', 'post_id ' => $row['art_post_id']);
-                                                $artsave = $this->data['artsave'] = $this->common->select_data_by_condition('art_post_save', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-                                                if ($artsave) {
-                                                    ?>
-                                                    <a><i class="fa fa-bookmark" aria-hidden="true"></i>Saved Post</a>
-                                                <?php } else { ?>
-                                                    <a id="<?php echo $row['art_post_id']; ?>" onClick="save_post(this.id)" href="#popup1" class="<?php echo 'savedpost' . $row['art_post_id']; ?>"><i class="fa fa-bookmark" aria-hidden="true"></i>Save Post</a>
-                                                <?php } ?>
-                                                <a href="<?php echo base_url('artistic/artistic_contactperson/' . $art_data[0]['user_id'] . ''); ?>"><i class="fa fa-user" aria-hidden="true"></i> Contact Person</a>
-                                            <?php } ?>
-                                        </div>
-                                    </div>
+     <?php if($art_data[0]['posted_user_id'] != 0){
+
+                  if($this->session->userdata('aileenuser') == $art_data[0]['posted_user_id']){
+                    ?>
+             <a id="<?php echo $art_data[0]['art_post_id']; ?>" onClick="deleteownpostmodel(this.id)"><i class="fa fa-trash-o" aria-hidden="true"></i>Delete Post</a>
+
+                 <a id="<?php echo $art_data[0]['art_post_id']; ?>" onClick="editpost(this.id)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit</a>
+
+            <?php }else{
+                ?>
+           
+           <a id="<?php echo $art_data[0]['art_post_id']; ?>" onClick="deleteownpostmodel(this.id)"><i class="fa fa-trash-o" aria-hidden="true"></i>Delete Post</a>
+
+              <a href="<?php echo base_url('artistic/artistic_contactperson/' . $art_data[0]['user_id'] . ''); ?>"><i class="fa fa-user" aria-hidden="true"></i> Contact Person</a>
+
+            <?php } }else{?>  
+
+
+
+    <?php
+     $userid = $this->session->userdata('aileenuser');
+        if ($art_data[0]['user_id'] == $userid) {
+     ?>
+    <a id="<?php echo $art_data[0]['art_post_id']; ?>" onClick="deleteownpostmodel(this.id)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete Post</a>
+
+     <a id="<?php echo $art_data[0]['art_post_id']; ?>" onClick="editpost(this.id)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit</a>
+    <?php } else { ?>
+        <a href="<?php echo "#popup5" . $row['art_post_id']; ?>"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete Post</a>
+                                                
+        <a href="<?php echo base_url('artistic/artistic_contactperson/' . $art_data[0]['user_id'] . ''); ?>"><i class="fa fa-user" aria-hidden="true"></i> Contact Person</a>
+        <?php } }?>
+     </div>
+</div>
                                     <div class="post-design-desc">
                                         <span> 
                                             <div id="<?php echo 'editpostdetails' . $art_data[0]['art_post_id']; ?>" style="display:block; margin-bottom: 10px;"><span class="show">
