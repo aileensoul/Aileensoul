@@ -103,36 +103,49 @@ class Profile extends CI_Controller {
     
 
      public function forgot_password() { 
-       $forgot_email = $this->input->post('forgot_email'); 
+      $forgot_email = $this->input->post('forgot_email'); 
 
 
         if ($forgot_email != '') {
 
-            $forgot_email_check = $this->common->select_data_by_id('recruiter', 'rec_email', $forgot_email, '*', '');
+            $forgot_email_check = $this->common->select_data_by_id('user', 'user_email', $forgot_email, '*', '');
 
-
+          //echo '<pre>'; print_r($forgot_email_check); die();
             if (count($forgot_email_check) > 0) {
                 
-                $rand_password = rand(100000, 999999);
-                $email_formate = $this->common->select_data_by_id('emails', 'emailid', '2', 'varsubject,varmailformat');
-                //echo "<pre>"; print_r($email_formate); die();
+           $rand_password = rand(100000, 999999);
+           
+         $email= $forgot_email_check[0]['user_email'];
+         $username= $forgot_email_check[0]['user_name'];
+         $firstname= $forgot_email_check[0]['first_name'];
+         $lastname= $forgot_email_check[0]['last_name'];
+            
+            $toemail= $forgot_email; 
+            
+           $msg = "Hey !" . $username ."<br/>"; 
+           $msg .=  " " . $firstname . " " . $lastname . ",";
+           $msg .= "this is your new password..";
+           $msg .= "<br>"; 
+           $msg .= " " . $rand_password . " "; 
+           
+          // echo $msg; die();
+            $subject = "Forgot password";
 
-                $mail_body = str_replace("%name%", $forgot_email_check[0]['rec_firstname'] . $forgot_email_check[0]['rec_lastname'] , str_replace("%user_email%", $forgot_email_check[0]['rec_email'], str_replace("%password%",   $rand_password, stripslashes($email_formate[0]['varmailformat']))));
 
-                $msg = "foooffff";
-$subject = "password";
+   $mail = $this->email_model->do_email($msg, $subject,$toemail,'');
+//die();
+   $data = array(
+                'user_password' => md5($rand_password)
+                 );
 
-echo $forgot_email;
-                $this->email_model->do_email($msg, $subject,'raval.khyati13@gmail.com','');
-die();
-            $this->sendEmail($this->data['main_site_name'], $this->data['main_site_email'], $forgot_email, $email_formate[0]['varsubject'], $mail_body);
-
-               
-
+     
+    $updatdata =   $this->common->update_data($data,'user','user_id',$forgot_email_check[0]['user_id']);
+             
+    echo "hiiiddddii"; die();   
                 $this->session->set_flashdata('success', '<div class="alert alert-success">Password successfully send in your email id.</div>');
                 redirect('login', 'refresh');
             } else {
-
+             //  echo "2222"; die();
                 $this->session->set_flashdata('error', '<div class="alert alert-danger">Please enter register email id.</div>');
                 redirect('login', 'refresh');
             }
@@ -184,7 +197,7 @@ die();
         $config['charset'] = "utf-8";
         $config['mailtype'] = "html";
         $config['newline'] = "\r\n";
- echo '<pre>'; print_r($config); die();
+// echo '<pre>'; print_r($config); die();
         $this->email->initialize($config);
         $this->email->from($config['smtp_user'], $app_name);
         $this->email->to($to_email);
