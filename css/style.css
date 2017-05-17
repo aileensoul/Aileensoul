@@ -2757,8 +2757,8 @@ label.cameraButton input[accept*="camera"] {
 .post_radius_box{border-radius: 5px;}
 .post-design-top
 { border-radius: 5px; padding: 5px; padding-bottom: 0px; background-color: #ffffff;   border: 1px solid #efefef; border-bottom: none; }
-.post-design-pro-img{height: 55px; width: 70px; display: inline-block; float: left; padding: 4px 5px 4px 17px;}
-.post-design-pro-img img{ height: 100%; width: 100%; border: 1px solid #efefef; }
+.post-design-pro-img{   padding-left: 20px; margin-right: -53px; display: inline-block; float: left; /*padding: 4px 5px 4px 17px;*/}
+.post-design-pro-img img{ height:50px; width: 50px; border: 1px solid #efefef; }
 
 .post-design-proo-img{display: inline-block; width: 40px; height: 39px;float: left;/* padding: 10px 10px 10px 6px;*/}
 
@@ -2811,7 +2811,7 @@ padding-right: 23px;
     line-height: 16px;
     display: block;}
 
-.post-design-desc{clear: both; padding: 0px 18px 0px 18px;  text-align: justify; margin-bottom: 10px; word-break: break-word;word-break: break-all;}
+.post-design-desc{clear: both; padding: 5px 23px 5px 23px;  text-align: justify;  word-break: break-word;word-break: break-all;}
 .post-design-product-img img {width: 100%; height: 100%; border:1px solid #cccccc; border-radius: 3px;}
 .popup-comment{padding: 8px;  }
 
@@ -3435,7 +3435,8 @@ padding-bottom: 1px;
     float: left;
     height: 55%;
     width: 48.8%;
-    margin: 4px;
+    margin-right:  1px;
+    margin-bottom: 1px;
 }
 
 .profile-head-text_dg{font-size: 28px;
@@ -4615,7 +4616,7 @@ fieldset .add_post_btns{min-width: 120px;padding:8px 30px 8px;}
     width: 40%;
     padding: 5px;}
     #paddingtop_fixed{padding-top:84px!important;}
-    #paddingtop_fixed_job{padding-top: 30px!important;}
+    #paddingtop_fixed_job{padding-top: 80px!important;}
     .profile-job-details .post_title {       font-size: 19px;
     font-weight: 600;
     width: 442px;

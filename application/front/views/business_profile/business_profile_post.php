@@ -231,7 +231,7 @@
         <!-- further and less -->
         <script>
             $(function () {
-                var showTotalChar = 200, showChar = "More", hideChar = "less";
+                var showTotalChar = 150, showChar = "More", hideChar = "less";
                 $('.show').each(function () {
                     //var content = $(this).text();
                     var content = $(this).html();
