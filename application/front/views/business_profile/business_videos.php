@@ -132,7 +132,7 @@ label.cameraButton input[accept*="camera"] {
     $userid = $this->session->userdata('aileenuser');
     if ($businessdata1[0]['user_id'] == $userid) {
         ?>
-<div class="container">    
+   
     <div class="upload-img">
 
 
@@ -142,7 +142,7 @@ label.cameraButton input[accept*="camera"] {
     </div>
 
     <?php } ?>
-        <!-- coer image end-->
+        <!-- coer image end--><div class="container"> 
             <div class="profile-photo">
             <div class="buisness-menu">
               <div class="profile-pho-bui">
