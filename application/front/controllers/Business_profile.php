@@ -994,6 +994,9 @@ class Business_profile extends MY_Controller {
             }
         }
 
+        $postdata = array_unique($postdata, SORT_REGULAR);
+
+
         $new = array();
         foreach ($postdata as $value) {
             $new[$value['business_profile_post_id']] = $value;
