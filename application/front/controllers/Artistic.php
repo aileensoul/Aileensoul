@@ -943,15 +943,21 @@ class Artistic extends MY_Controller {
         }
 
 
-        foreach ($unique_user as $k => $v) {
-            foreach ($unique_user as $key => $value) {
-                foreach ($value as $datak => $datav) {
-                    if ($k != $datak && $v['user_id'] == $datav['user_id']) {
-                        unset($unique_user[$k]);
-                    }
-                }
-            }
-        }
+        // foreach ($unique_user as $k => $v) { 
+        //     foreach ($unique_user as $key => $value) {
+        //         foreach ($value as $datak => $datav) {
+        //             // echo "<pre>"; print_r($k); 
+        //             // echo "<pre>"; print_r($datak); 
+        //             // echo "<pre>"; print_r($v['user_id']); 
+        //             // echo "<pre>"; print_r($datav['user_id']); die(); 
+        //             if ($k != $datak && $v['user_id'] == $datav['user_id']) {
+        //                 unset($unique_user[$k]);
+        //             }
+        //         }
+        //     }
+        // }  
+
+        // echo "<pre>"; print_r($unique_user); die();
 
         foreach ($unique_user as $key1 => $val1) {
             foreach ($val1 as $ke => $va) {
@@ -959,6 +965,10 @@ class Artistic extends MY_Controller {
                 $qbc[] = $va;
             }
         }
+
+
+       $qbc = array_unique($qbc, SORT_REGULAR);
+         //echo "<pre>"; print_r($qbc); die();
 
         // sorting start
 
@@ -976,7 +986,7 @@ class Artistic extends MY_Controller {
         // print_r($qbc);
         // exit;
         $this->data['finalsorting'] = $qbc;
-
+   //echo "<pre>"; print_r($this->data['finalsorting'] ); die();
 
         // sorting end
 // code for search
@@ -1063,7 +1073,7 @@ class Artistic extends MY_Controller {
             $contition_array = array('user_id' => $id, 'is_delete' => 0);
             $this->data['artsdata'] = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = 'art_post_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         }
-        //echo "<pre>"; print_r($this->data['artisticdata']); die();
+        //echo "<pre>"; print_r($this->data['artsdata']); die();
         // code for search
         $contition_array = array('status' => '1', 'is_delete' => '0');
 
@@ -1072,7 +1082,7 @@ class Artistic extends MY_Controller {
 
 
         $return_array = array();
-        //  //echo  $return_array;
+          //echo  $return_array;
 
         foreach ($artdata as $get) {
             $return = array();
