@@ -688,34 +688,72 @@ class Business_profile extends MY_Controller {
             /* if (empty($_FILES['image1']['name'])) {
 
               } else { */
-            if (count($_FILES) > 0) {
-                $config['upload_path'] = 'uploads/business_profile_images/';
-                $config['allowed_types'] = 'jpg|jpeg|png|gif';
+//            if (count($_FILES) > 0) {
+//                $config['upload_path'] = 'uploads/business_profile_images/';
+//                $config['allowed_types'] = 'jpg|jpeg|png|gif';
+//
+//                $config['file_name'] = $_FILES['image1']['name'];
+//
+//
+//                //Load upload library and initialize configuration
+//                $this->load->library('upload', $config);
+//                $this->upload->initialize($config);
+//
+//                if ($this->upload->do_upload('image1')) {
+//                    $uploadData = $this->upload->data();
+//
+//                    $picture = $uploadData['file_name'];
+//                } else {
+//                    $picture = '';
+//                }
+//            }
 
-                $config['file_name'] = $_FILES['image1']['name'];
+         // changes start 17-5 
+            
+             $config = array(
+            'upload_path' => 'uploads/business_profile_images/',
+            'max_size' => 1024 * 100,
+            'allowed_types' => 'gif|jpeg|jpg|png'
+        );
+        $images = array();
+        $this->load->library('upload');
+
+        $files = $_FILES;
+        $count = count($_FILES['image1']['name']);
 
 
-                //Load upload library and initialize configuration
-                $this->load->library('upload', $config);
-                $this->upload->initialize($config);
+        for ($i = 0; $i < $count; $i++) {
 
-                if ($this->upload->do_upload('image1')) {
-                    $uploadData = $this->upload->data();
+            $_FILES['image1']['name'] = $files['image1']['name'][$i];
+            $_FILES['image1']['type'] = $files['image1']['type'][$i];
+            $_FILES['image1']['tmp_name'] = $files['image1']['tmp_name'][$i];
+            $_FILES['image1']['error'] = $files['image1']['error'][$i];
+            $_FILES['image1']['size'] = $files['image1']['size'][$i];
 
-                    $picture = $uploadData['file_name'];
-                } else {
-                    $picture = '';
-                }
+            $fileName = $_FILES['image1']['name'];
+            $images[] = $fileName;
+            $config['file_name'] = $fileName;
+            // echo $config['file_name'];die();
+
+            $this->upload->initialize($config);
+            $this->upload->do_upload();
+            if ($this->upload->do_upload('image1')) {
+                $fileData = $this->upload->data();
+                $uploadData[$i]['file_name'] = $fileData['file_name'];
+            } else {
+                $uploadData[$i]['file_name'] = '';
             }
-
-            if ($picture) {
+            
+            
+            
+            if ($uploadData[$i]['file_name']) {//echo 1;
 
                 $data = array(
-                    'business_profile_image' => $picture,
+                    'business_profile_image' => $uploadData[$i]['file_name'],
                     'modified_date' => date('Y-m-d', time()),
                     'business_step' => 4
                 );
-            } else {
+            } else {// echo 2;
 
                 $data = array(
                     'business_profile_image' => $this->input->post('filename'),
@@ -724,20 +762,44 @@ class Business_profile extends MY_Controller {
                 );
             }
             $updatdata = $this->common->update_data($data, 'business_profile', 'user_id', $userid);
-
-            if ($updatdata) {
-                $this->session->set_flashdata('success', 'Image updated successfully');
-              
-              if($userdatacon[0]['business_step'] == 4){
-                redirect('business_profile/business_resume', refresh);
-               }
-                else{
-                  redirect('business_profile/business_profile_post', refresh);
-                }
-            } else {
-                $this->session->flashdata('error', 'Your data not inserted');
-                redirect('business_profile/image', refresh);
-            }
+        } //die();
+        // Multiple Image insert code End
+            
+            
+        // changes end 17-5    
+            
+            
+            
+//            if ($picture) {
+//
+//                $data = array(
+//                    'business_profile_image' => $uploadData[$i]['file_name'],
+//                    'modified_date' => date('Y-m-d', time()),
+//                    'business_step' => 4
+//                );
+//            } else {
+//
+//                $data = array(
+//                    'business_profile_image' => $this->input->post('filename'),
+//                    'modified_date' => date('Y-m-d', time()),
+//                    'business_step' => 4
+//                );
+//            }
+//            $updatdata = $this->common->update_data($data, 'business_profile', 'user_id', $userid);
+//
+//            if ($updatdata) {
+//                $this->session->set_flashdata('success', 'Image updated successfully');
+//              
+//              if($userdatacon[0]['business_step'] == 4){
+//                redirect('business_profile/business_resume', refresh);
+//               }
+//                else{
+//                  redirect('business_profile/business_profile_post', refresh);
+//                }
+//            } else {
+//                $this->session->flashdata('error', 'Your data not inserted');
+//                redirect('business_profile/image', refresh);
+//            }
         }
     }
 

@@ -78,12 +78,12 @@
 
                                 <fieldset class="full-width">
                                     <label>Images:</label>
-                                    <input type="file"  name="image1" id="image1"> 
+                                    <input type="file"  name="image1[]" id="image1" multiple/> 
 
-                                    <?php if($image1){ 
-                                        ?>
+                                    <?php if($image1){ ?>
                                             <input type="hidden" name="filename" id="filename" value="<?php echo $image1; ?>">
-                                            <img src="<?php echo base_url(BUSINESSPROFILEIMAGE.$image1)?>" style="width:100px;height:100px;"><br/><br/>
+                                            <img src="<?php echo base_url(BUSINESSPROFILEIMAGE.$image1)?>" style="width:100px;height:100px;">
+                                            <br/><br/>
                                         <?php } ?>
                                    
                                 </fieldset>
