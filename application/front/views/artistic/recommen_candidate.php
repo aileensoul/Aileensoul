@@ -293,7 +293,7 @@
                               
                                   
                                   <div class="profile-job-post-title-inside clearfix" style="border: 1px solid #d9d9d9;">
-          <div class="profile-job-profile-button clearfix box_search_module" style="height: 16%;">
+          <div class="profile-job-profile-button clearfix box_search_module" style="height: 16%; border-bottom: none;">
                                                           
      <div class="profile-job-post-location-name-rec">
           <div class="module_Ssearch" style="display: inline-block; float: left;">
