@@ -1,6 +1,8 @@
 <!-- start head -->
 <?php echo $head; ?>
-
+<style type="text/css">
+    #popup-form img{display: none;}
+</style>
 
 <!--post save success pop up style strat -->
 <style>
@@ -515,7 +517,7 @@
                             if ($businessdata1[0]['user_id'] == $userid) {
                                 ?>
 
-                                <a href="#popup-form" class="fancybox"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>
+                                <a href="javascript:void(0);" onclick="updateprofilepopup();"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>
                             <?php } ?>
 
 
@@ -1196,6 +1198,31 @@
 </div>
 </section>
 
+
+
+<!-- Bid-modal-2  -->
+                        <div class="modal fade message-box" id="bidmodal-2" role="dialog">
+                            <div class="modal-dialog modal-lm">
+                                <div class="modal-content">
+                                    <button type="button" class="modal-close" data-dismiss="modal">&times;</button>       
+                                    <div class="modal-body">
+                                        <span class="mes">
+                                            <div id="popup-form">
+                                                <?php echo form_open_multipart(base_url('business_profile/user_image_insert'), array('id' => 'userimage','name' => 'userimage', 'class' => 'clearfix')); ?>
+                                                <input type="file" name="profilepic" accept="image/gif, image/jpeg, image/png" id="profilepic">
+                                                <input type="hidden" name="hitext" id="hitext" value="9">
+
+                                                <img id="preview" src="#" alt="your image" style="border: 2px solid rgb(204, 204, 204); display: none; margin: 0 auto; margin-top: 5px;padding: 5px;"/>
+                                                <!--<input type="submit" name="cancel3" id="cancel3" value="Cancel">-->
+                                                <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save">
+                                                <?php echo form_close(); ?>
+                                            </div>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Model Popup Close -->
 
 
 <!-- Bid-modal  -->
@@ -2460,3 +2487,35 @@
             </script>
 
             <!-- Unfollow user script end -->
+
+
+<script>
+    function updateprofilepopup(id) {
+        $('#bidmodal-2').modal('show');
+         }
+</script>
+
+            <!-- script for profile pic strat -->
+<script type="text/javascript">
+    
+
+     function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            
+            reader.onload = function (e) {
+            
+            document.getElementById('preview').style.display = 'block';
+                $('#preview').attr('src', e.target.result);
+            }
+            
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    
+    $("#profilepic").change(function(){
+        readURL(this);
+    });
+</script>
+
+<!-- script for profile pic end -->

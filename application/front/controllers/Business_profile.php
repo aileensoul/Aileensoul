@@ -1570,7 +1570,16 @@ $contition_array = array('status' => '1', 'is_deleted' => '0');
                     redirect('business_profile/followers', refresh);
                 } elseif ($this->input->post('hitext') == 8) {
                     redirect('business_profile/following', refresh);
+                }elseif ($this->input->post('hitext') == 9) {
+                    redirect('business_profile/business_photos', refresh);
+                }elseif ($this->input->post('hitext') == 10) {
+                    redirect('business_profile/business_videos', refresh);
+                }elseif ($this->input->post('hitext') == 11) {
+                    redirect('business_profile/business_audios', refresh);
+                }elseif ($this->input->post('hitext') == 12) {
+                    redirect('business_profile/business_pdf', refresh);
                 }
+
             } else {
                 $this->session->flashdata('error', 'Your data not inserted');
                 redirect('business_profile/business_profile_post', refresh);
