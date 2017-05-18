@@ -628,7 +628,7 @@ class Business_profile extends MY_Controller {
 
 
 // code for search
-        $contition_array = array('status' => '1', 'is_deleted' => '0');
+$contition_array = array('status' => '1', 'is_deleted' => '0');
 
 
         $businessdata = $this->data['results'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'company_name,other_industrial,other_business_type', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
@@ -673,9 +673,9 @@ class Business_profile extends MY_Controller {
     public function image_insert() {
 
         $userid = $this->session->userdata('aileenuser');
-//        echo '<pre>';
-//        print_r($_POST);
-//        print_r($_FILES);
+      // echo '<pre>';
+       // print_r($_POST);
+      //  print_r($_FILES); die();
 
 
         $contition_array = array('user_id' => $userid, 'is_deleted' => '0', 'status' => '1');
@@ -721,6 +721,7 @@ class Business_profile extends MY_Controller {
         $files = $_FILES;
         $count = count($_FILES['image1']['name']);
 
+         
 
         for ($i = 0; $i < $count; $i++) {
 
@@ -2312,8 +2313,9 @@ class Business_profile extends MY_Controller {
 
 // end of user list
     //deactivate user start
-    public function deactivate($id) {
-
+    public function deactivate() {
+       
+        $id = $_POST['id'];
 
         $data = array(
             'status' => 0
@@ -2321,15 +2323,15 @@ class Business_profile extends MY_Controller {
 
         $update = $this->common->update_data($data, 'business_profile', 'user_id', $id);
 
-        if ($update) {
-
-
-            $this->session->set_flashdata('success', 'You are deactivate successfully.');
-            redirect('dashboard', 'refresh');
-        } else {
-            $this->session->flashdata('error', 'Sorry!! Your are not deactivate!!');
-            redirect('business_profile', 'refresh');
-        }
+//        if ($update) {
+//
+//
+//            $this->session->set_flashdata('success', 'You are deactivate successfully.');
+//            redirect('dashboard', 'refresh');
+//        } else {
+//            $this->session->flashdata('error', 'Sorry!! Your are not deactivate!!');
+//            redirect('business_profile', 'refresh');
+//        }
     }
 
 // deactivate user end

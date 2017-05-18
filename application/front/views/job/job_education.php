@@ -266,8 +266,9 @@
                                                 <?php
                                                 $contition_array = array('user_id' => $userid, 'status' => 1);
                                                 $jobdata = $this->data['jobdata'] = $this->common->select_data_by_condition('job_add_edu', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-                                                //echo '<pre>'; print_r($jobdata); die();
+                                            //echo '<pre>'; print_r($jobdata); die();
                                                 $board_primary1 = $jobdata[0]['board_primary'];
+                                               // echo $board_primary1; die();
                                                 $school_primary1 = $jobdata[0]['school_primary'];
                                                 $percentage_primary1 = $jobdata[0]['percentage_primary'];
                                                 $pass_year_primary1 = $jobdata[0]['pass_year_primary'];
