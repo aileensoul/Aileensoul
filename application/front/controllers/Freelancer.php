@@ -2668,8 +2668,9 @@ $this->load->view('freelancer/freelancer_hire/freelancer_save', $this->data);
 
 //invite user  at home page click on applied person controller End
 //deactivate user start for work
-    public function deactivate($id) {
-
+    public function deactivate() {
+        
+        $id =$_POST['id'];
 
         $data = array(
             'status' => 0
@@ -2677,21 +2678,22 @@ $this->load->view('freelancer/freelancer_hire/freelancer_save', $this->data);
 
         $update = $this->common->update_data($data, 'freelancer_post_reg', 'user_id', $id);
 
-        if ($update) {
+        // if ($update) {
 
 
-            $this->session->set_flashdata('success', 'You are deactivate successfully.');
-            redirect('dashboard', 'refresh');
-        } else {
-            $this->session->flashdata('error', 'Sorry!! Your are not deactivate!!');
-            redirect('freelancer/freelancer_post', 'refresh');
-        }
+        //     $this->session->set_flashdata('success', 'You are deactivate successfully.');
+        //     redirect('dashboard', 'refresh');
+        // } else {
+        //     $this->session->flashdata('error', 'Sorry!! Your are not deactivate!!');
+        //     redirect('freelancer/freelancer_post', 'refresh');
+        // }
     }
 
 // deactivate user end
 //deactivate user start for hire
-    public function deactivate_hire($id) {
+    public function deactivate_hire() {
 
+    $id =$_POST['id'];
 
         $data = array(
             'status' => 0
@@ -2699,15 +2701,15 @@ $this->load->view('freelancer/freelancer_hire/freelancer_save', $this->data);
 
         $update = $this->common->update_data($data, 'freelancer_hire_reg', 'user_id', $id);
 
-        if ($update) {
+        // if ($update) {
 
 
-            $this->session->set_flashdata('success', 'You are deactivate successfully.');
-            redirect('dashboard', 'refresh');
-        } else {
-            $this->session->flashdata('error', 'Sorry!! Your are not deactivate!!');
-            redirect('freelancer/freelancer_hire_profile', 'refresh');
-        }
+        //     $this->session->set_flashdata('success', 'You are deactivate successfully.');
+        //     redirect('dashboard', 'refresh');
+        // } else {
+        //     $this->session->flashdata('error', 'Sorry!! Your are not deactivate!!');
+        //     redirect('freelancer/freelancer_hire_profile', 'refresh');
+        // }
     }
 
 // deactivate user end
