@@ -680,34 +680,19 @@
                 </div>
             </div>
         </div>
-    </div>
+   
 
 
-</div>
+<div class="container">
 
 
-
-
-
-<div class="user-midd-section">
-    <div class="container">
-        <div class="row">
-
-            <div class="col-md-3">
+ <div class="user-midd-section"  style="">
 
 
 
-            </div>
-
-
-
-        </div>
-
-    </div>
-    <div class="user-midd-section">
-        <div class="container "  style="border: 1px solid #d9d9d9;padding-right: 0px;">
-            <div class="row">
-
+       <!--  <div class="container "  style="border: 1px solid #d9d9d9;padding-right: 0px;"> -->
+            <!-- <div class="row" style="margin-right: 0px;">
+ -->
 
                 <div  class="col-sm-12 border_tag padding_low_data padding_les" >
 
@@ -721,7 +706,7 @@
                         </ul>
                     </div>
 
-                    <div class="col-xs-9" style="padding-left: 0; height: 100%; border-left: 1px solid #d9d9d9">
+                    <div class="col-xs-9 padding_les" style=" height: 100%; border-left: 1px solid #d9d9d9">
 
                         <!-- Tab panes -->
                         <div class="tab-content">
@@ -750,7 +735,7 @@
                                                 if ($databus) {
                                                     foreach ($databus as $data) {
                                                         ?>
-                                                        <img src="<?php echo base_url(BUSPOSTIMAGE . $data['image_name']) ?>" onclick="openModal();currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor" width="600" height="669"/>
+                                                        <img src="<?php echo base_url(BUSPOSTIMAGE . $data['image_name']) ?>" onclick="openModal();currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor" width="550" height="669"/>
 
                                                         <?php
                                                         $i++;

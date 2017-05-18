@@ -4,18 +4,7 @@
 
 <!--post save success pop up style strat -->
 <style>
-body {
-  font-family: Arial, sans-serif;
-  background-size: cover;
-  height: 100vh;
-}
-/*!
- * bootstrap-vertical-tabs - v1.2.2
- * https://dbtek.github.io/bootstrap-vertical-tabs
- * 2016-12-02
- * Copyright (c) 2016 İsmail Demirbilek
- * License: MIT
- */
+
 .tabs-left, .tabs-right {
   border-bottom: none;
   padding-top: 2px;
@@ -520,29 +509,10 @@ label.cameraButton input[accept*="camera"] {
   
   </div>
 
-
-
-        
+  <div class="container "  >
   
-        <div class="user-midd-section">
-            <div class="container">
-                <div class="row">
-                   
-                    <div class="col-md-3">
-                        
-                    
-   </div>
-                     
-
-
-</div>
-
-               </div>
-<div class="user-midd-section">
-           <div class="container "  style="border: 1px solid #d9d9d9;">
-                <div class="row">
-
-
+    
+<div class="user-midd-section"  style="border: 1px solid #d9d9d9;">
       <div  class="col-sm-12 border_tag padding_low_data " >
       
         <div class="col-xs-3 padding_low_data padding_les padding_les"> <!-- required for floating -->
@@ -554,7 +524,7 @@ label.cameraButton input[accept*="camera"] {
             <li class="active">    <a href="<?php echo base_url('business_profile/business_pdf/'.$businessdata1[0]['business_slug']) ?>" data-toggle="tab"><i class="fa fa-file-pdf-o" aria-hidden="true"></i>  Pdf</a></li>
           </ul>
         </div>
-<div class="col-xs-9" style="padding-left: 0; height: 100%; border-left: 1px solid #d9d9d9">
+<div class="col-xs-9 padding_les" style="padding-left: 0; height: 100%; border-left: 1px solid #d9d9d9">
 
           <!-- Tab panes -->
           <div class="tab-content">

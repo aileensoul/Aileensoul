@@ -2,70 +2,11 @@
 <?php echo $head; ?>
 
 <style>
-    /*body {
-        font-family: Arial, sans-serif;
-        background-size: cover;
-        height: 100vh;
-    }
 
-    .box {
-        width: 40%;
-        margin: 0 auto;
-        background: rgba(255,255,255,0.2);
-        padding: 35px;
-        border: 2px solid #fff;
-        border-radius: 20px/50px;
-        background-clip: padding-box;
-        text-align: center;
-    }
-
-    .overlay {
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: rgba(0, 0, 0, 0.3);
-        transition: opacity 500ms;
-        visibility: hidden;
-        opacity: 0;
-        z-index: 10;
-    }
-    .overlay:target {
-        visibility: visible;
-        opacity: 1;
-    }
-
-    .popup {
-        margin: 70px auto;
-        padding: 20px;
-        background: #fff;
-        border-radius: 5px;
-        width: 30%;
-        height: 200px;
-        position: relative;
-        transition: all 5s ease-in-out;
-    }
-    */
     .okk{
         text-align: center;
     }
 
-    /*   .popup .okbtn{
-           position: absolute;
-           transition: all 200ms;
-           font-size: 18px;
-           font-weight: bold;
-           text-decoration: none;
-           color: #fff;
-           padding: 8px 18px;
-           background-color: darkcyan;
-           left: 25px;
-           margin-top: 15px;
-           width: 100px; 
-           border-radius: 8px;
-       }
-    */
     .pop_content .okbtn{
         position: absolute;
         transition: all 200ms;
@@ -80,20 +21,6 @@
         border-radius: 8px;
     }
 
-    /*  .popup .cnclbtn {
-          position: absolute;
-          transition: all 200ms;
-          font-size: 18px;
-          font-weight: bold;
-          text-decoration: none;
-          color: #fff;
-          padding: 8px 18px;
-          background-color: darkcyan;
-          right: 25px;
-          margin-top: 15px;
-          width: 100px;
-          border-radius: 8px;
-      } */
     .pop_content .cnclbtn {
         position: absolute;
         transition: all 200ms;
@@ -116,7 +43,7 @@
     .model_ok_cancel{
         width:200px !important;
     }
-
+.user-midd-section{height: 100%;}
     /*
         @media screen and (max-width: 700px){
             .box{
@@ -126,6 +53,7 @@
                 width: 70%;
             }
         } */
+}
 
 
 </style>
@@ -744,21 +672,11 @@ if ($status == 0 || $status == " ") {
 
 </div>
 
-<div class="user-midd-section">
-    <div class="container">
-        <div class="row">
+      <div class="container " >
+     <div class="user-midd-section"  style="border: 1px solid #d9d9d9;">
 
-            <div class="col-md-3">
 
-            </div>
-
-        </div>
-
-    </div>
-    <div class="user-midd-section">
-        <div class="container "  style="border: 1px solid #d9d9d9;    padding-right: 0px; ">
-            <div class="row">
-
+  
 
                 <div  class="col-sm-12 border_tag padding_low_data padding_les" >
 
@@ -772,7 +690,7 @@ if ($status == 0 || $status == " ") {
                         </ul>
                     </div>
 
-                    <div class="col-xs-9" style="padding-left: 0; height: 100%; border-left: 1px solid #d9d9d9">
+                    <div class="col-xs-9 padding_less" style="padding-left: 0;padding-right: 0; height: 100%; border-left: 1px solid #d9d9d9">
 
                         <!-- Tab panes -->
                         <div class="tab-content">

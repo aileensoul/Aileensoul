@@ -333,23 +333,13 @@ label.cameraButton input[accept*="camera"] {
 
         
   
-        <div class="user-midd-section">
-            <div class="container">
-                <div class="row">
-                   
-                    <div class="col-md-3">
-                 
-                    
-   </div>
-                     
+    
+                    <div class="container ">
+ <div class="user-midd-section"  style="">
 
 
-</div>
 
-               </div>
-<div class="user-midd-section">
-         <div class="container "  style="border: 1px solid #d9d9d9;">
-                <div class="row">
+    
 
 
       <div  class="col-sm-12 border_tag padding_low_data  padding_les" >
@@ -364,7 +354,7 @@ label.cameraButton input[accept*="camera"] {
           </ul>
         </div>
 
-      <div class="col-xs-9" style="padding-left: 0; height: 100%; border-left: 1px solid #d9d9d9">
+      <div class="col-xs-9 padding_les" style="padding-left: 0; height: 100%; border-left: 1px solid #d9d9d9">
 
           <!-- Tab panes -->
           <div class="tab-content">

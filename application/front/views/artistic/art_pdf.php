@@ -320,24 +320,11 @@ if ($status == 0 || $status == " ") {
 
 
         
-  
-        <div class="user-midd-section">
-            <div class="container">
-                <div class="row">
-                   
-                    <div class="col-md-3">
-                        
-                    
-   </div>
-                     
+        <div class="container " >
+    <div class="user-midd-section"  style="">
 
 
-</div>
 
-               </div>
-<div class="user-midd-section">
-               <div class="container " style="border: 1px solid #d9d9d9;">
-                <div class="row">
 
 
       <div  class="col-sm-12 border_tag padding_low_data padding_les" >
@@ -351,8 +338,8 @@ if ($status == 0 || $status == " ") {
             <li class="active">    <a href="<?php echo base_url('artistic/art_pdf/'.$artisticdata[0]['user_id']) ?>" data-toggle="tab"><i class="fa fa-file-pdf-o" aria-hidden="true"></i>  Pdf</a></li>
           </ul>
         </div>
-<div class="col-xs-9 padding_less_right" style="padding-left: 0;  border-left: 1px solid #d9d9d9">
 
+                    <div class="col-xs-9 padding_less" style="padding-left: 0;padding-right: 0; height: 100%; border-left: 1px solid #d9d9d9">
           <!-- Tab panes -->
           <div class="tab-content">
             <div class="tab-pane active" id="home"><div class="common-form">
