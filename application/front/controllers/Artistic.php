@@ -3237,8 +3237,12 @@ class Artistic extends MY_Controller {
                 //$cmtlikeuser .= '<div class="fl" style=" padding-left: 22px;" >';
                 $cmtlikeuser .= '<div class="like_one_other">';
 
-                $cmtlikeuser .= '' . ucwords($art_fname) . '&nbsp;' . ucwords($art_lname) . '&nbsp;';
 
+                if($userid == $likelistarray[0]){
+                  $cmtlikeuser .= 'You';
+                }else{
+                $cmtlikeuser .= '' . ucwords($art_fname) . '&nbsp;' . ucwords($art_lname) . '&nbsp;';
+                 }
                 $cmtlikeuser .= '</div>';
 
 

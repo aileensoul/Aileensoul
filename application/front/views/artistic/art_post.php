@@ -413,16 +413,16 @@
                                                                         <ul>
 
 
-                                                                            <li><div class="post-design-product_follow">
-                                                                                    <a href="<?php echo base_url('artistic/art_manage_post/' . $userlist['user_id'] . ''); ?>">
-                                                                                        <h6>
-                                                                                            <?php
-                                                                                            echo ucwords($userlist['art_name']);
-                                                                                            echo"&nbsp;";
-                                                                                            echo ucwords($userlist['art_lastname']);
-                                                                                            ?>
-                                                                                        </h6>
-                                                                                    </a> </div></li>
+                                  <li><div class="post-design-product_follow">
+                                 <a href="<?php echo base_url('artistic/art_manage_post/' . $userlist['user_id'] . ''); ?>">
+                                     <h6>
+                                     <?php
+                                        echo ucwords($userlist['art_name']);
+                                             echo"&nbsp;";
+                                        echo ucwords($userlist['art_lastname']);
+                                     ?>
+                                        </h6>
+                                    </a> </div></li>
 
 
                                                                             <li>
@@ -1288,22 +1288,31 @@
                                                     $art_fname = $this->db->get_where('art_reg', array('user_id' => $likelistarray[0], 'status' => 1))->row()->art_name;
                                                     $art_lname = $this->db->get_where('art_reg', array('user_id' => $likelistarray[0], 'status' => 1))->row()->art_lastname;
                                                     ?>
-                                                    <div class="like_one_other">
-                                                        <?php
-                                                        echo ucwords($art_fname);
-                                                        echo "&nbsp;";
-                                                        echo ucwords($art_lname);
-                                                        echo "&nbsp;";
-                                                        ?>
-                                                        <?php
-                                                        if (count($likelistarray) > 1) {
-                                                            echo "and ";
-                                                            echo $countlike;
-                                                            echo "&nbsp;";
-                                                            echo "others";
-                                                        }
-                                                        ?>
-                                                    </div>
+                        <div class="like_one_other">
+                         <?php
+
+                         $userid = $this->session->userdata('aileenuser');
+
+                         if($userid == $likelistarray[0]){
+                         
+                         echo "You";
+                          
+                         }else{
+                          echo ucwords($art_fname);
+                          echo "&nbsp;";
+                          echo ucwords($art_lname);
+                          echo "&nbsp;";  
+                         }
+                         ?>
+                         <?php
+                        if (count($likelistarray) > 1) {
+                          echo "and ";
+                          echo $countlike;
+                         echo "&nbsp;";
+                         echo "others";
+                        }
+                     ?>
+                    </div>
                                                 </a>
                                             </div>
                                             <?php
