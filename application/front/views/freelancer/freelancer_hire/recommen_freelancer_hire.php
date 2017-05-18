@@ -290,11 +290,12 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div  class="add-post-button">
+                             <div  class="add-post-button">
 
                             <a class="btn btn-3 btn-3b" href="<?php echo base_url('freelancer/freelancer_add_post'); ?>"><i class="fa fa-plus" aria-hidden="true"></i>  Add Post</a>
                         </div>
+                        </div>
+                       
 
                     </div>
 

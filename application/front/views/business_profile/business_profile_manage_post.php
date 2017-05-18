@@ -519,11 +519,11 @@
                                                     if ($status == 0 || $status == " ") {
                                                         ?>
                                                         <div class="msg_flw_btn_1" id= "followdiv">
-                                                            <button style="margin-top: 7px;" id="<?php echo "follow" . $businessdata1[0]['business_profile_id']; ?>" onClick="followuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Follow</button>
+                                                            <button id="<?php echo "follow" . $businessdata1[0]['business_profile_id']; ?>" onClick="followuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Follow</button>
                                                         </div>
                                                     <?php } elseif ($status == 1) { ?>
                                                         <div class="msg_flw_btn_1" id= "unfollowdiv">
-                                                            <button style="margin-top: 7px;" id="<?php echo "unfollow" . $businessdata1[0]['business_profile_id']; ?>" onClick="unfollowuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Following </button>
+                                                            <button  id="<?php echo "unfollow" . $businessdata1[0]['business_profile_id']; ?>" onClick="unfollowuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Following </button>
                                                         </div>
                                                     <?php } ?>
                                                 </div>         
@@ -532,7 +532,7 @@
                                             </li>
 
                                             <li>
-                                                <a style="margin-top: 7px;" href="<?php echo base_url('chat/abc/' . $businessdata1[0]['user_id']); ?>">Message</a></li>
+                                                <a  href="<?php echo base_url('chat/abc/' . $businessdata1[0]['user_id']); ?>">Message</a></li>
                                         <?php } ?>
 
                                     </ul>   
@@ -1111,23 +1111,9 @@
 //echo "<pre>"; print_r($business_profile_data); die();
                     foreach ($business_profile_data as $row) {
                         ?>
+                        <div id="<?php echo "removeownpost" . $row['business_profile_post_id']; ?>">
 
-                        <div class="job-post-detail clearfix" id="<?php echo "removeownpost" . $row['business_profile_post_id']; ?>">
-
-
-
-                            <!-- pop up box start-->
-                            <div id="popup1" class="overlay">
-                                <div class="popup">
-
-                                    <div class="pop_content">
-                                        Your Post is Successfully Saved.
-                                        <p class="okk"><a class="okbtn" href="#">Ok</a></p>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <!-- pop up box end-->
+                        <div class="job-post-detail clearfix">
 
 
 
@@ -1810,7 +1796,7 @@
                                 <!-- comment end -->
                             </div>
 
-                        </div>
+                        </div> </div>
 
                     <?php } ?>
 
