@@ -837,7 +837,7 @@ text-align: center*/;
 .profile-job-details ul li { list-style: none; /* display: inline-block; */ position: relative; padding-left: 0px; margin: 0; }
 .profile-job-details ul li a {  padding-left:0px; font-weight: bold; display: block; color:#000033;}
 .profile-job-details ul li a:hover {  padding-left:0px; font-weight: bold; display: block; text-decoration: none;}
-.profile-job-details ul li p { margin-bottom: 0; }
+.profile-job-details ul li p { margin-bottom: 0; display: inline-block;}
 
 .profile-job-details { font-size:18px; }
 
