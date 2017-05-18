@@ -1,6 +1,6 @@
 .highlight {
-
-  background-color: yellow;
+display: inline-block;
+  background-color:#a01b01 ;
 white-space: nowrap;
   border-radius: .125em;
 
