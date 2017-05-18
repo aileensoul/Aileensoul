@@ -1,4 +1,53 @@
 
+
+<style>
+  
+    .okk{
+        text-align: center;
+    }
+
+    .pop_content .okbtn{
+        position: absolute;
+        transition: all 200ms;
+        font-size: 16px;
+        text-decoration: none;
+        color: #fff;
+        padding: 8px 18px;
+        background-color: #0A2C5D;
+        left: 170px;
+        margin-top: 8px;
+        width: 100px; 
+        border-radius: 8px;
+    }
+
+  
+    .pop_content .cnclbtn {
+        position: absolute;
+        transition: all 200ms;
+        font-size: 16px;
+        text-decoration: none;
+        color: #fff;
+        padding: 8px 18px;
+        background-color: #0A2C5D;
+        right: 170px;
+        margin-top: 8px;
+        width: 100px;
+        border-radius: 8px;
+    }
+
+    .popup .pop_content {
+        text-align: center;
+        margin-top: 40px;
+
+    }
+    .model_ok_cancel{
+        width:200px !important;
+    }
+
+
+
+</style>
+
 <!--post save success pop up style strat -->
 <style>
 body {
@@ -132,7 +181,11 @@ body {
   <div class="dropdown-content_hover" id="dropdown-content_hover">
       <a href="<?php echo base_url('recruiter/rec_profile'); ?>"><i class="fa fa-user" aria-hidden="true"></i> View Profile</a>
      <a href="<?php echo base_url('recruiter/rec_basic_information'); ?>"><i class="fa fa-pencil" aria-hidden="true"></i> Edit Profile</a>
-    <a href="#popup2"><i class="fa fa-minus-circle" aria-hidden="true"></i> Deactive Profile</a>
+
+     <?php
+      $userid = $this->session->userdata('aileenuser');
+      ?>
+    <a onClick="deactivate(<?php echo $userid; ?>)"><i class="fa fa-minus-circle" aria-hidden="true"></i> Deactive Profile</a>
   </div>
 </div>
 </li>
@@ -153,22 +206,20 @@ body {
     </header>
 
 
-<!-- pop up box start-->
-<div id="popup2" class="overlay">
-  <div class="popup">
-    
-    <div class="pop_content">
-      Are You Sure want to deactivate your Recruiter_profile?.
+ <!-- Bid-modal  -->
+          <div class="modal fade message-box biderror" id="bidmodal" role="dialog">
+              <div class="modal-dialog modal-lm">
+                  <div class="modal-content">
+                     <button type="button" class="modal-close" data-dismiss="modal">&times;</button>       
+                        <div class="modal-body">
+                         <!--<img class="icon" src="images/dollar-icon.png" alt="" />-->
+                      <span class="mes"></span>
+                    </div>
+                </div>
+          </div>
+       </div>
+                    <!-- Model Popup Close -->
 
-      <p class="okk"><a class="okbtnpop" id="<?php echo $row['business_profile_post_id']; ?>" href="<?php echo base_url('recruiter/deactivate/'.$this->session->userdata('aileenuser')); ?>">OK</a></p>
-
-      <p class="okk"><a class="cnclbtn" href="#">Cancle</a></p>
-
-    </div>
-
-  </div>
-</div>
-<!-- pop up box end-->
 
 
     <script type="text/javascript">
@@ -196,3 +247,28 @@ $(document).ready(function() {
  
 });
 </script>
+
+
+<script type="text/javascript">
+
+  function deactivate(clicked_id) { 
+      $('.biderror .mes').html("<div class='pop_content'> Are You Sure want to deactivate your Recruiter_profile?.<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='deactivate_profile(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+          $('#bidmodal').modal('show');
+ }
+
+ function deactivate_profile(clicked_id){
+
+                  $.ajax({
+                      type: 'POST',
+                      url: '<?php echo base_url() . "recruiter/deactivate" ?>',
+                      data: 'id=' + clicked_id,
+                        success: function (data) {
+                          window.location= "<?php echo base_url() ?>dashboard";
+                                    
+                                }
+                            });
+
+
+
+ }
+ </script>
