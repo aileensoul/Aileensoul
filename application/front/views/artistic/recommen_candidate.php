@@ -177,7 +177,7 @@
       </div>
       <div class="fl search_button">
         <div class="<?php echo "fruser" . $key['art_id']; ?>">
-<?php  $status  =  $this->db->get_where('follow',array('follow_type' => 2, 'follow_from' => $artdata[0]['art_id'], 'follow_to'=>$key['art_id'] ))->row()->follow_status; 
+<?php  $status  =  $this->db->get_where('follow',array('follow_type' => 1, 'follow_from' => $artdata[0]['art_id'], 'follow_to'=>$key['art_id'] ))->row()->follow_status; 
 
 if($status == 0 || $status == " "){?>
  
