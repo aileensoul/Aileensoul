@@ -511,7 +511,13 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
                                                 <div class="profile-job-profile-menu">
                                                     <ul class="clearfix">
                                                          <li>
-                                                         <div  class="buisness-profile-pic"><img src="<?php echo base_url(BUSINESSPROFILEIMAGE . $businessdata1[0]['business_profile_image']);?>" alt="" >
+                                                         <div  class="buisness-profile-pic">
+
+
+                                                         <img src="<?php echo base_url(BUSINESSPROFILEIMAGE . $businessdata1[0]['business_profile_image']);?>" alt="" >
+
+
+                                                         
                             							</div>		</a></li>
                                                     </ul>
                                                 </div>
