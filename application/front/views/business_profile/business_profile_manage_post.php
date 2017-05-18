@@ -1,4 +1,9 @@
 <!-- start head -->
+
+<style type="text/css">
+    #popup-form img{display: none;}
+</style>
+
 <?php echo $head; ?>
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/gyc.css'); ?>">
@@ -1853,6 +1858,8 @@
                                     <input type="hidden" name="hitext" id="hitext" value="5">
                                     <!--<input type="submit" name="cancel3" id="cancel3" value="Cancel">-->
                                     <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save">
+
+                                     <img id="preview" src="#" alt="your image" style="border: 2px solid rgb(204, 204, 204); display: none; margin: 0 auto; margin-top: 5px;padding: 5px;"/>
                                     <?php echo form_close(); ?>
                                 </div>
                             </span>
@@ -3889,3 +3896,27 @@
             </script>
             <!-- This  script use for close dropdown in every post -->
 
+<!-- script for profile pic strat -->
+<script type="text/javascript">
+    
+
+     function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            
+            reader.onload = function (e) {
+            
+            document.getElementById('preview').style.display = 'block';
+                $('#preview').attr('src', e.target.result);
+            }
+            
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    
+    $("#profilepic").change(function(){
+        readURL(this);
+    });
+</script>
+
+<!-- script for profile pic end -->

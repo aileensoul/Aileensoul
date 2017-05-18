@@ -80,12 +80,29 @@
                                     <label>Images:</label>
                                     <input type="file"  name="image1[]" id="image1" multiple/> 
 
-                                    <?php if($image1){ ?>
+                                    <?php if(count($busimage) > 0){
+                                        $y = 0;
+                                        foreach($busimage as $image){ 
+                                          $y = $y +1;?>
+                                    <div class="job_work_edit_<?php echo $image['image_id']?>">
                                             <input type="hidden" name="filedata[]" id="filename" value="old">
-                                            <input type="hidden" name="filename" id="filename" value="<?php echo $image1; ?>">
-                                            <img src="<?php echo base_url(BUSINESSPROFILEIMAGE.$image1)?>" style="width:100px;height:100px;">
+                                            <input type="hidden" name="filename[]" id="filename" value="<?php echo $image['image_name']; ?>">
+                                            <input type="hidden" name="imageid[]" id="filename" value="<?php echo $image['image_id']; ?>">
+                                            <img src="<?php echo base_url(BUSINESSPROFILEIMAGE.$image['image_name'])?>" style="width:100px;height:100px;">
                                             <br/><br/>
-                                        <?php } ?>
+                                            
+                                             <?php if ($y != 1) {
+                                                                    ?>
+                                                                    <div style="float: left;">
+                                                                        <div class="hs-submit full-width fl">
+                                                                            <input type="button" value="Delete" onclick="delete_job_exp(<?php echo $image['image_id']; ?>);">
+                                                                        </div>
+                                                                    </div>
+                                                                <?php } ?>
+                                              </div>
+                                        <?php }} ?>
+                                           
+                                             
                                    
                                 </fieldset>
                                 
@@ -217,4 +234,20 @@ $('#searchplace').select2({
 <script type="text/javascript"> 
  $(".alert").delay(3200).fadeOut(300);
 </script>
+
+<script type="text/javascript">
+                        function delete_job_exp(grade_id) {
+                            $.ajax({
+                                type: 'POST',
+                                url: '<?php echo base_url() . "business_profile/bus_img_delete" ?>',
+                                data: 'grade_id=' + grade_id,
+                                // dataType: "html",
+                                success: function (data) {
+                                    if (data == 'ok') {
+                                        $('.job_work_edit_' + grade_id).remove();
+                                    }
+                                }
+                            });
+                        }
+                    </script>
     <!-- footer end -->
