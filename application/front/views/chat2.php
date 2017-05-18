@@ -427,7 +427,7 @@ console.log(formattedDate);
         var html = ' <li class="clearfix">';
   html += '   <div class="message-data align-right">';
           html += '    <span class="message-data-time" >' + formattedDate + '</span>&nbsp; &nbsp;';
-             html += '    <span  class="message-data-name"  >' + data.nickname + '</span> <i class="fa fa-circle me"></i>';
+             html += '    <span  class="message-data-name fr"  >' + data.nickname + ' <i class="fa fa-circle me"></i></span>';
         html += ' </div>';
             //html += ' <div class="chat-body clearfix">';
               html += '     <div class="message other-message float-right">' + data.message + '</div>';
@@ -444,7 +444,7 @@ console.log(formattedDate);
 
 
        var html = '<li> <div class="message-data">';
-       html += '<span class="message-data-name"><i class="fa fa-circle online"></i>' + data.nickname + ' </span>';
+       html += '<span class="message-data-name fl"><i class="fa fa-circle online"></i>' + data.nickname + ' </span>';
         html += '<span class="message-data-time">' + formattedDate + ' </span>';
  html += ' </div>';
       html += '     <div class="message my-message">' + data.message + '</div>';

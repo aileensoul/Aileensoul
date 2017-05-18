@@ -353,7 +353,8 @@
                           Created Date: <?php echo date('d-M-Y',strtotime($post['created_date'])); ?>
                                                 </li>
 
-                     <li>
+                    
+                              <li class="text_overflow">
                      <a href="#" class="post_title" >
               <?php echo ucwords(text2link($post['post_name'])); ?> </a>   </li>
 
@@ -538,7 +539,7 @@
                                         Created Date : <?php echo date('d-M-Y',strtotime($post['created_date'])); ?>
                                     </li>
 
-                              <li>
+                              <li class="text_overflow">
                   <a href="#" class="display_inline post_title">
               <?php echo ucwords(text2link($post['post_name'])); ?> </a>                                        </li>
 

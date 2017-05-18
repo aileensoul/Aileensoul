@@ -3472,21 +3472,21 @@ public function job_applied_post() {
         );
 
         $update = $this->common->update_data($data, 'job_reg', 'user_id', $id);
-        $data = array(
-            'status' => 0
-        );
+        // $data = array(
+        //     'status' => 0
+        // );
 
-        $update1 = $this->common->update_data($data, 'job_add_edu', 'user_id', $id);
-        $data = array(
-            'status' => 0
-        );
+        // $update1 = $this->common->update_data($data, 'job_add_edu', 'user_id', $id);
+        // $data = array(
+        //     'status' => 0
+        // );
 
-        $update2 = $this->common->update_data($data, 'job_add_workexp', 'user_id', $id);
-        $data = array(
-            'status' => 0
-        );
+        // $update2 = $this->common->update_data($data, 'job_add_workexp', 'user_id', $id);
+        // $data = array(
+        //     'status' => 0
+        // );
 
-        $update3 = $this->common->update_data($data, 'skill', 'user_id', $id);
+        // $update3 = $this->common->update_data($data, 'skill', 'user_id', $id);
 
         // if ($update && $update1 && $update2 && $update3) {
 

@@ -1,5 +1,13 @@
 <!-- start head -->
 <?php echo $head; ?>
+
+
+<style type="text/css">
+    #popup-form img{display: none;}
+</style>
+
+
+
 <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap-3.min.css'); ?>">
 
 <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
@@ -1105,7 +1113,7 @@ responsive image design start -->
                                                     <?php if ($row['posted_user_id']) { ?>
 
                                                         <div class="else_post_d">
-                                                            <a  class="post_dot" style="width: 30%;" title="<?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?>" href="<?php echo base_url('artistic/art_manage_post/' . $row['posted_user_id']); ?>"><?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?> </a><span style="font-weight: 600;"> Posted With 
+                                                            <a  class="post_dot" style="max-width: 30%;" title="<?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?>" href="<?php echo base_url('artistic/art_manage_post/' . $row['posted_user_id']); ?>"><?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?> </a><span style="font-weight: 600;"> Posted With 
                                                             </span><a class="post_dot1"  href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>"><?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?></a><span role="presentation" aria-hidden="true" style="color: #91949d; font-size: 14px;"> · </span>
                                                             <span style="color: #91949d; font-size: 14px;"> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span>
                                                         </div>
@@ -1762,6 +1770,8 @@ responsive image design start -->
                         <?php echo form_open_multipart(base_url('artistic/user_image_insert'), array('id' => 'userimage', 'name' => 'userimage', 'class' => 'clearfix')); ?>
                         <input type="file" name="profilepic" accept="image/gif, image/jpeg, image/png" id="profilepic">
                         <input type="hidden" name="hitext" id="hitext" value="5">
+
+                        <img id="preview" src="#" alt="your image" style="border: 2px solid rgb(204, 204, 204); display: none; margin: 0 auto; margin-top: 5px;padding: 5px;"/>
                         <!--<input type="submit" name="cancel3" id="cancel3" value="Cancel">-->
                         <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save">
                         <?php echo form_close(); ?>
@@ -4016,3 +4026,28 @@ responsive image design start -->
 
 
 <!-- This  script use for close dropdown in every post -->
+
+<!-- script for profile pic strat -->
+<script type="text/javascript">
+    
+
+     function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            
+            reader.onload = function (e) {
+            
+            document.getElementById('preview').style.display = 'block';
+                $('#preview').attr('src', e.target.result);
+            }
+            
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    
+    $("#profilepic").change(function(){
+        readURL(this);
+    });
+</script>
+
+<!-- script for profile pic end -->

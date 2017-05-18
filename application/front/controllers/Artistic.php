@@ -1521,6 +1521,14 @@ class Artistic extends MY_Controller {
                     redirect('artistic/following', refresh);
                 } elseif ($this->input->post('hitext') == 8) {
                     redirect('artistic/followers', refresh);
+                }elseif ($this->input->post('hitext') == 9) {
+                    redirect('artistic/art_photos', refresh);
+                }elseif ($this->input->post('hitext') == 10) {
+                    redirect('artistic/art_videos', refresh);
+                }elseif ($this->input->post('hitext') == 11) {
+                    redirect('artistic/art_audios', refresh);
+                }elseif ($this->input->post('hitext') == 12) {
+                    redirect('artistic/art_pdf', refresh);
                 }
             } else {
                 $this->session->flashdata('error', 'Your data not inserted');

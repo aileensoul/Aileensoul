@@ -2,12 +2,16 @@
 <?php  echo $head; ?>
 
 <!--post save success pop up style strat -->
+
+<style type="text/css">
+    #popup-form img{display: none;}
+</style>
 <style>
-body {
+/*body {
   font-family: Arial, sans-serif;
   background-size: cover;
   height: 100vh;
-}
+}*/
 
 .box {
   width: 40%;
@@ -703,6 +707,8 @@ function text2link($text){
                         <?php echo form_open_multipart(base_url('recruiter/user_image_insert'), array('id' => 'userimage', 'name' => 'userimage', 'class' => 'clearfix')); ?>
                         <input type="file" name="profilepic" accept="image/gif, image/jpeg, image/png" id="profilepic">
                         <input type="hidden" name="hitext" id="hitext" value="2">
+
+                        <img id="preview" src="#" alt="your image" style="border: 2px solid rgb(204, 204, 204); display: none; margin: 0 auto; margin-top: 5px;padding: 5px;"/>
                         <!-- <input type="submit" name="cancel3" id="cancel2" value="Cancel"> -->
                         <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save">
                         <?php echo form_close(); ?>
@@ -1007,4 +1013,29 @@ function myFunction() {
                                 $("a.designation").click(divClicked);
                             });
                         </script>
-                      
+    
+
+    <!-- script for profile pic strat -->
+<script type="text/javascript">
+    
+
+     function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            
+            reader.onload = function (e) {
+            
+            document.getElementById('preview').style.display = 'block';
+                $('#preview').attr('src', e.target.result);
+            }
+            
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    
+    $("#profilepic").change(function(){
+        readURL(this);
+    });
+</script>
+
+<!-- script for profile pic end -->                  
