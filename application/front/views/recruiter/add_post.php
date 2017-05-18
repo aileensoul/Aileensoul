@@ -249,13 +249,13 @@
                                 </fieldset>
 
                                 <fieldset <?php if ($minsal) { ?> class="error-msg" <?php } ?>>
-                                    <label class="control-label">Min salary:(Per Year)<!-- <span style="color:red">*</span> --></label>
+                                    <label class="control-label">Min salary:(Per Year) <span style="color:red">*</span></label>
                                     <input name="minsal" type="text" id="minsal" placeholder="Enter Minimum salary" /><span id="fullname-error"></span>
 <?php echo form_error('minsal'); ?>
                                 </fieldset>
 
                                 <fieldset <?php if ($maxsal) { ?> class="error-msg" <?php } ?>>
-                                    <label class="control-label">Max salary:(Per Year)</label>
+                                    <label class="control-label">Max salary:(Per Year)<span style="color:red">*</span></label>
                                     <input name="maxsal" type="text" id="maxsal" placeholder="Enter Maximum salary" /><span id="fullname-error"></span>
 <?php echo form_error('maxsal'); ?>
                                 </fieldset>
@@ -482,11 +482,10 @@ $.validator.addMethod("greaterThan",
                             // required:true 
                 },
                 minsal:{
-                    number: true,
+                    required: true,
                 },
                 maxsal:{
-                     number: true,
-                     greaterThan: '#minsal'
+                    required: true,
                 },
                 
                 
@@ -561,10 +560,13 @@ $.validator.addMethod("greaterThan",
 
                     required: "Last date  Is Required.",
                 },
+                 minsal:{
+                      required: "Enter minimum Salary",
+                 },
 
-                // maxsal:{
-                //      required: "min salary not greater than maximum salary.",
-                // }
+                 maxsal:{
+                      required: "Enter maximum Salary",
+                 }
 
             }
 

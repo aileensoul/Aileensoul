@@ -449,9 +449,11 @@ $('#submit').click(function (e) {
   var $field = $('#message');
   //var data = $field.val();
   var data = $('#message').html();
+     
+     if(data == ""){ 
+      return false;
+  }
   $("#message").html("");
-  
- 
   $field.addClass('disabled').attr('disabled', 'disabled');
   sendChat(data, function (){
     $field.val('').removeClass('disabled').removeAttr('disabled');

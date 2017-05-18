@@ -785,7 +785,7 @@ ul.business_pf_ct_person_detail li b {font-size: 16px; display: inline-block; wi
 .profile-job-post-location-name-rec ul { padding: 0; font-size: 0; }
 .profile-job-post-location-name-rec ul li { padding: 6px 3px 0 8px; margin: 0; list-style: none;  display: inline-block;}
 .profile-job-post-location-name-rec ul li i { padding-right: 5px; }
-.profile-job-post-location-name-rec ul li a{color: #000033;}
+.profile-job-post-location-name-rec ul li a{color: #000033; display: inline-block;}
 
 .profile-job-details { float:left; padding-left:20px; }
 .profile-job-post-detail .profile-job-post-title .button { margin-right: 4px; margin-left: 4px; padding: 3px 16px;  background-color:#ffffff; text-transform: capitalize; color:#000033; border:2px solid #000033; float: right; font-size: 14px;}
@@ -2960,6 +2960,7 @@ label.cameraButton input[accept*="camera"] {
 .comment-details-menu p{ color: #999999; font-weight: 400;}
 .comment-details-menu a:hover{text-decoration:underline; }
 .comment-edit-butn{padding: 0px 0px 6px 0px;}
+.comment-edit-butn button{position: absolute; bottom: 12px;}
 .comment-edit-button button{  padding: 9px 10px 9px;
                               border-radius: 3px;
                               letter-spacing: 0px;
@@ -2976,6 +2977,7 @@ label.cameraButton input[accept*="camera"] {
                               padding:2px;
                               line-height: 33px;}
                               /*/ ankit css change on 29-4-2017 /*/
+                              .modal-backdrop.in{opacity: 0.0!important;}
 .inputtype-edit-comment textarea{  resize:none;
                               overflow:hidden;
                               font-size:18px;

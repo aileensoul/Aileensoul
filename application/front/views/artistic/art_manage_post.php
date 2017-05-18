@@ -1,5 +1,13 @@
 <!-- start head -->
 <?php echo $head; ?>
+
+
+<style type="text/css">
+    #popup-form img{display: none;}
+</style>
+
+
+
 <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap-3.min.css'); ?>">
 
 <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
@@ -1720,13 +1728,13 @@ responsive image design start -->
                                         ?>
                                     </div>
                                     <div class="">
-                                        <div id="content" class="col-md-10 inputtype-comment" style="padding-left: 7px;">
+                                        <div id="content" class="col-md-12 inputtype-comment" style="width: 80%; padding-left: 7px;">
                                             <div contenteditable="true" class="editable_text" type="text" name="<?php echo $row['art_post_id']; ?>"  id="<?php echo "post_comment" . $row['art_post_id']; ?>" placeholder="Type Comment ..." value= "" onClick="entercomment(<?php echo $row['art_post_id']; ?>)"></div>
                                         </div>    
                                         <?php echo form_error('post_comment'); ?>
 
-                                        <div class="col-md-1 comment-edit-butn">   
-                                            <button id="<?php echo $row['art_post_id']; ?>" onClick="insert_comment(this.id)">Comment</button> </div>
+                                        <div class="comment-edit-butn">   
+                                            <button style="position: absolute; bottom: 12px;" id="<?php echo $row['art_post_id']; ?>" onClick="insert_comment(this.id)">Comment</button> </div>
                                     </div>
 
                                 </div>
@@ -1762,6 +1770,8 @@ responsive image design start -->
                         <?php echo form_open_multipart(base_url('artistic/user_image_insert'), array('id' => 'userimage', 'name' => 'userimage', 'class' => 'clearfix')); ?>
                         <input type="file" name="profilepic" accept="image/gif, image/jpeg, image/png" id="profilepic">
                         <input type="hidden" name="hitext" id="hitext" value="5">
+
+                        <img id="preview" src="#" alt="your image" style="border: 2px solid rgb(204, 204, 204); display: none; margin: 0 auto; margin-top: 5px;padding: 5px;"/>
                         <!--<input type="submit" name="cancel3" id="cancel3" value="Cancel">-->
                         <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save">
                         <?php echo form_close(); ?>
@@ -4016,3 +4026,28 @@ responsive image design start -->
 
 
 <!-- This  script use for close dropdown in every post -->
+
+<!-- script for profile pic strat -->
+<script type="text/javascript">
+    
+
+     function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            
+            reader.onload = function (e) {
+            
+            document.getElementById('preview').style.display = 'block';
+                $('#preview').attr('src', e.target.result);
+            }
+            
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    
+    $("#profilepic").change(function(){
+        readURL(this);
+    });
+</script>
+
+<!-- script for profile pic end -->
