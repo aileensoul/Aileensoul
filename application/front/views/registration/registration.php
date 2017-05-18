@@ -50,7 +50,7 @@
 
                 <div class="row">
                     <div class="col-md-4 col-sm-5">
-                        <div class="logo"><a href="<?php echo base_url('dashboard') ?>"><!-- <img src="<?php// echo base_url('images/logo.png'); ?>"> --> <span style="color: #87ceff; font-size: 41px;">Aileensoul</span></a></div>
+                        <div class="logo"><a href="<?php echo base_url('main') ?>"><!-- <img src="<?php// echo base_url('images/logo.png'); ?>"> --> <span style="color: #87ceff; font-size: 41px;">Aileensoul</span></a></div>
                     </div>
                     <div class="col-md-7 col-sm-7 header-left-menu">
 
@@ -194,7 +194,7 @@
             <div class="row">
                 <div class="col-md-6" style="padding: 12px;">
                 <div class="footer-menu pull-left">
-                    <p>copyright 2017 | by <a href="#" style="color: #000033">Aileensoul</a></p>
+                    <p>copyright 2017 | by <a href="<?php echo base_url('main'); ?>" style="color: #000033">Aileensoul</a></p>
                 </div>
                 </div>
                 <div class="col-md-6">
@@ -617,3 +617,19 @@ $(document).ready(function() {
   $('.field-wrap input').phAnim();
 });
 </script>
+
+<!-- save browser password email reset start -->
+
+<script type="text/javascript">
+function init() {
+   
+    document.getElementById("regform").reset();
+    $('#regform').find('input[type=password]').reset();
+}
+
+
+window.onload = init;
+
+</script>
+
+<!-- save browser password email reset end -->
