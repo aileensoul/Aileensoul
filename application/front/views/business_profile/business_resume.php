@@ -729,7 +729,7 @@ popup -->
 
                                                  <img id="preview" src="#" alt="your image" style="border: 2px solid rgb(204, 204, 204); display: none; margin: 0 auto; margin-top: 5px;padding: 5px;"/>
                                                 <!--<input type="submit" name="cancel3" id="cancel3" value="Cancel">-->
-                                                <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save">
+                                                <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save"  style="margin-top:32px!important;">
                                                 <?php echo form_close(); ?>
                                             </div>
                                         </span>
@@ -1074,3 +1074,41 @@ function showSlides(n) {
   captionText.innerHTML = dots[slideIndex-1].alt;
 }
 </script>
+
+
+
+<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
+
+
+<script type="text/javascript">
+
+            //validation for edit email formate form
+
+            $(document).ready(function () { 
+
+                $("#userimage").validate({
+
+                    rules: {
+
+                        profilepic: {
+
+                            required: true,
+                         
+                        },
+  
+
+                    },
+
+                    messages: {
+
+                        profilepic: {
+
+                            required: "Photo Required",
+                            
+                        },
+
+                },
+
+                });
+                   });
+  </script>
