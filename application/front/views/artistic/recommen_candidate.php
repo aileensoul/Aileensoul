@@ -260,6 +260,7 @@
                                             </li>
                                                 <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'following') { ?> class="active" <?php } ?>><a title="Following" href="<?php echo base_url('artistic/following'); ?>">Following<br>(<?php echo (count($followingdata)); ?>)</a>
                                             </li>
+                                            <!-- <input type="hidden" name="search" id="search" value="<?php echo $keyword; ?>"> -->
                                             </ul>
                                         </div>
                                     </div>
@@ -281,7 +282,7 @@
                                 <h3>Search Result of <?php echo ucwords($keyword)?></h3>
                                 <div class="contact-frnd-post">
                                     <div class="job-contact-frnd ">
-  <div class="profile-job-post-title-inside clearfix" style="border: 1px solid #d9d9d9;">
+  <div class="profile-job-post-title-inside clearfix " style="border: 1px solid #d9d9d9;">
                        <?php if($artuserdata){
 
                                   
@@ -293,7 +294,7 @@
                               
                                   
                                 
-          <div class="profile-job-profile-button clearfix box_search_module" style="height: 16%; border-bottom: none;">
+          <div class="profile-job-profile-button clearfix box_search_module search" style="height: 16%; border-bottom: none;">
                                                           
      <div class="profile-job-post-location-name-rec">
           <div class="module_Ssearch" style="display: inline-block; float: left;">
@@ -401,79 +402,11 @@ if($status == 0 || $status == " "){?>
                                if($key['art_description']){ ?>
 
                         
-
+<!-- 
   <div class="profile-job-post-title-inside clearfix search" style="border:none;">
-          <!-- <div class="profile-job-profile-button clearfix box_search_module" style="height: 16%;">
-                                                           
-     <div class="profile-job-post-location-name-rec">
-          <div class="module_Ssearch" style="display: inline-block; float: left;">
-             <div class="search_img">
-                           <img src="<?php echo base_url(ARTISTICIMAGE . $key['art_user_image']); ?>" alt=" ">
-                        </div>
-       </div>
-   
-       <div class="designation_rec" style="    float: left;
-    width: 60%;
-    padding-top: 16px;">
-          <ul>
-       <li>
-      <a style="  font-size: 19px;
-         font-weight: 600;" href="<?php echo base_url('artistic/art_manage_post/' . $userlist['user_id'] . ''); ?>" title="<?php echo $key['art_name'].' '.$key['art_lastname'];?>">
-       <?php echo $key['art_name'].' '.$key['art_lastname'];?></a>
-       </a>
-      </li>
-      
-      <li style="display: block;">
-        <a  class="color-search" style="font-size: 16px;" href="<?php echo site_url('artistic/art_manage_post'); ?>" title="<?php echo $key['art_name'].' '.$key['art_lastname'];?>">
-                <?php  if($key['art_yourart']){echo $key['art_yourart']; }else {echo PROFILENA;}?>
-           </a>
-       </li>
-         <li style="display: block;">
-         <a  class="color-search" href="<?php echo site_url('artistic/art_manage_post'); ?>">
-           <?php if($key['designation']){echo $key['designation'];} else{echo PROFILENA;} ?>
-         </a>
-
-       </li>
-       <li style="display: block;">
-         <a  class="color-search" href="">
-           <?php
-                  $comma = ", ";
-                  $k = 0;
-                  $aud = $key['art_skill'];
-                  $aud_res = explode(',', $aud);
-                  foreach ($aud_res as $skill) {
-                 if ($k != 0) {
-                 echo $comma;
-                     }
-               $cache_time = $this->db->get_where('skill', array('skill_id' => $skill))->row()->skill;
-               if ($cache_time) {
-               echo $cache_time;
-             } else {
-                echo PROFILENA;
-                }
-                 $k++;
-                }
-               ?> 
-         </a>
-
-       </li>
-       <li style="display: block;">
-         <a  class="color-search" href=""><?php echo $key['country'].$key['city']; ?></a>
-       </li>
-      
-    </ul>
-      </div>
-      <div class="fl search_button">
-        <button>follow</button>
-        <br>
-         <button>Message</button>
-      </div>
-
-
-
-     </div> --> 
-       </div>
-       <div class="col-md-12 col-sm-12 post-design-box" id="removepost5" style="margin-bottom: 0px; box-shadow: none; border: none;">
+           
+       </div> -->
+       <div class="col-md-12 col-sm-12 post-design-box search" id="removepost5" style="margin-bottom: 0px; box-shadow: none; border: none;">
                                     <div class="post_radius_box">  
                                         <div class="post-design-search-top col-md-12" style="border:none;background-color: none!important;">  
                                             <div class="post-design-pro-img col-md-2"> 
@@ -525,13 +458,10 @@ if($status == 0 || $status == " "){?>
 
                                                 <img src="<?php echo base_url(ARTISTICIMAGE . $key['art_user_image']); ?>" name="image_src" id="image_src" / >
                                                 </a>
-                                                <!-- <img src="http://localhost/aileensoul/uploads/user_image/photo2.jpg" alt="">
- -->                                                                                                </div>
+                                                                     </div>
                                             <div class="post-design-name fl col-md-9">
                                                 <ul>
-                                                    
-                                                    <li>
-                                                    </li>
+                                                
 
                                                                                                             <li>
                                             <div class="post-design-product">
@@ -568,8 +498,7 @@ if($status == 0 || $status == " "){?>
                                                                                                   </a>
                                                         </div>
                                                     </li>
-                                                    <li>
-                                                    </li> 
+                                                     
                                                 </ul> 
                                             </div>  
                                             <?php
@@ -792,13 +721,13 @@ if($status == 0 || $status == " "){?>
             
                                         </div> 
                                         
-                                              <div class="post-design-like-box col-md-12 padding_less" style="padding-left: 0px; padding-right: 0px;" >
+                                           <!--    <div class="post-design-like-box col-md-12 padding_less" style="padding-left: 0px; padding-right: 0px;" >
                                                                         <div class="post-design-menu">
-                                                                            <ul>
-                                           <!-- khyati 18-4 start-->
+                                                                          --> 
+                                          
                                          <div class="post-design-like-box col-md-12">
                                             <div class="post-design-menu">
-                                                <!-- like comment div start -->
+                                                
                                                 <ul>
 
                                                     <li class="<?php echo 'likepost' . $key['art_post_id']; ?>">
@@ -839,14 +768,14 @@ if($status == 0 || $status == " "){?>
                                                         </a>
                                                     </li>
                                                 </ul>
-                                                <!-- like comment div end -->
+
                                             </div>
                                         </div>
 
 
-                                        <!-- like user list start -->
+                                       
 
-                                        <!-- pop up box start-->
+                                        
                                         <?php
                                         if ($key['art_likes_count'] > 0) {
                                             ?>
@@ -857,13 +786,13 @@ if($status == 0 || $status == " "){?>
                                                 $likeuser = $commnetcount[0]['art_like_user'];
                                                 $countlike = $commnetcount[0]['art_likes_count'] - 1;
                                                 $likelistarray = explode(',', $likeuser);
-                                               // $likelistarray = array_reverse($likelistarray);
+                                              
                                                 foreach ($likelistarray as $key1 => $value) {
                                                     $art_fname1 = $this->db->get_where('art_reg', array('user_id' => $value, 'status' => 1))->row()->art_name;
                                                     $art_lname1 = $this->db->get_where('art_reg', array('user_id' => $value, 'status' => 1))->row()->art_lastname;
                                                     ?>
                                                 <?php } ?>
-                                                <!-- pop up box end-->
+                                                
                                                 <a href="javascript:void(0);"  onclick="likeuserlist(<?php echo $key['art_post_id']; ?>);">
                                                     <?php
                                                     $contition_array = array('art_post_id' => $key['art_post_id'], 'status' => '1', 'is_delete' => '0');
@@ -897,7 +826,7 @@ if($status == 0 || $status == " "){?>
                                             </div>
                                             <?php
                                         }
-                                        ?> <?php // echo $key['art_post_id']; ?> 
+                                        ?> <?php  ?> 
                                         <div class="<?php echo "likeusername" . $key['art_post_id']; ?>" id="<?php echo "likeusername" . $key['art_post_id']; ?>" style="display:none">
                                             <?php
                                             $contition_array = array('art_post_id' => $key['art_post_id'], 'status' => '1', 'is_delete' => '0');
@@ -905,13 +834,13 @@ if($status == 0 || $status == " "){?>
                                             $likeuser = $commnetcount[0]['art_like_user'];
                                             $countlike = $commnetcount[0]['art_likes_count'] - 1;
                                             $likelistarray = explode(',', $likeuser);
-                                          //  $likelistarray = array_reverse($likelistarray);
+                                         
                                             foreach ($likelistarray as $key2 => $value) {
                                                 $art_fname1 = $this->db->get_where('art_reg', array('user_id' => $value, 'status' => 1))->row()->art_name;
                                                 $art_lname1 = $this->db->get_where('art_reg', array('user_id' => $value, 'status' => 1))->row()->art_lastname;
                                                 ?>
                                             <?php } ?>
-                                            <!-- pop up box end-->
+                                            
                                             <a href="javascript:void(0);"  onclick="likeuserlist(<?php echo $key['art_post_id']; ?>);">
                                                 <?php
                                                 $contition_array = array('art_post_id' => $key['art_post_id'], 'status' => '1', 'is_delete' => '0');
@@ -943,28 +872,23 @@ if($status == 0 || $status == " "){?>
                                                 </div>
                                             </a>
                                         </div>
-                                        <!-- like user list end -->
+                                       
 
-                                        <?php
-//                                        $contition_array = array('art_post_id' => $row['art_post_id'], 'status' => '1');
-//                                        $artdatacondition = $this->data['artdata'] = $this->common->select_data_by_condition('artistic_post_comment', $contition_array, $data = '*', $sortby = 'artistic_post_comment_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-//                                        if ($artdatacondition) {
-//                                            
-                                        ?>
+                                                                          
 
                                         <div class="art-all-comment col-md-12">
-                                            <!-- 18-4 all comment start--> 
+                                            
                                             <div id="<?php echo "fourcomment" . $key['art_post_id']; ?>" style="display:none">
                                             </div>
 
-                                            <!-- khyati changes start -->
+                                            
 
                                             <div  id="<?php echo "threecomment" . $key['art_post_id']; ?>" style="display:block">
                                                 <div class="<?php echo 'insertcomment' . $key['art_post_id']; ?>">
                                                     <?php
                                                     $contition_array = array('art_post_id' => $key['art_post_id'], 'status' => '1');
                                                     $artdata = $this->data['artdata'] = $this->common->select_data_by_condition('artistic_post_comment', $contition_array, $data = '*', $sortby = 'artistic_post_comment_id', $orderby = 'DESC', $limit = '1', $offset = '', $join_str = array(), $groupby = '');
-    // echo '<pre>'; print_r($artdata);
+    
                                                     if ($artdata) {
                                                         foreach ($artdata as $rowdata) {
                                                             $artname = $this->db->get_where('art_reg', array('user_id' => $rowdata['user_id']))->row()->art_name;
@@ -998,17 +922,7 @@ if($status == 0 || $status == " "){?>
                                                                            ?></b><?php echo '</br>'; ?></div>
 
                                            <div class="comment-details" id="<?php echo "showcomment" . $rowdata['artistic_post_comment_id']; ?>"><?php  echo $this->common->make_links($rowdata['comments']); ?></div>
-                                                                <!--                                                                        <div class="col-md-12">
-                                                                                                                                            <div class="col-md-10">
-                                                                                                                                                <div contenteditable="true"   class="editable_text" name="<?php echo $rowdata['artistic_post_comment_id']; ?>" id="<?php echo "editcomment" . $rowdata['artistic_post_comment_id']; ?>" style="display:none;-webkit-min-height: 40px;" onClick="commentedit(<?php echo $rowdata['artistic_post_comment_id']; ?>)" style="height:50px;" ><?php echo $rowdata['comments']; ?></div>
-                                                                                                                                            </div>
-                                                                
-                                                                                                                                            <div class="col-md-2 comment-edit-button">
-                                                                                                                                                <button id="<?php echo "editsubmit" . $rowdata['artistic_post_comment_id']; ?>" style="display:none" onClick="edit_comment(<?php echo $rowdata['artistic_post_comment_id']; ?>)">Comment</button>
-                                                                                                                                            </div>
-                                                                
-                                                                                                                                        </div>-->
-                                                                <div class="edit-comment-box">
+                     <div class="edit-comment-box">
                                                                     <div class="inputtype-edit-comment">
                                                                         <div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="<?php echo $rowdata['artistic_post_comment_id']; ?>"  id="editcomment<?php echo $rowdata['artistic_post_comment_id']; ?>" placeholder="Enter Your Comment " value= ""  onkeyup="commentedit(<?php echo $rowdata['artistic_post_comment_id']; ?>)"><?php echo $rowdata['comments']; ?></div>
                                                                         <span class="comment-edit-button"><button id="<?php echo "editsubmit" . $rowdata['artistic_post_comment_id']; ?>" style="display:none" onClick="edit_comment(<?php echo $rowdata['artistic_post_comment_id']; ?>)">Save</button></span>
@@ -1085,11 +999,7 @@ if($status == 0 || $status == " "){?>
 
                                                                     <div class="comment-details-menu">
                                                                         <p> <?php
-                                                                            /*   $new_date = date('Y-m-d H:i:s',strtotime($rowdata['created_date']));
-                                                                             */
-                                                                            /*              $new_time = $this->time_elapsed_string($new_date);
-                                                                             */
-//              echo $new_time. '<br>';
+                                                                            
                                                                             echo date('d-M-Y', strtotime($rowdata['created_date']));
                                                                             echo '</br>';
                                                                             ?>
@@ -1102,14 +1012,12 @@ if($status == 0 || $status == " "){?>
 
                                                 </div>
                                             </div>
-                                            <!-- khyati changes end -->
-
-                                            <!-- all comment end-->
+                                            
 
 
                                         </div>
 
-                                            <?php //  }  ?>
+                                            <?php   ?>
                                         <div class="post-design-commnet-box col-md-12">
                                             <?php
                                             $userid = $this->session->userdata('aileenuser');
@@ -1136,17 +1044,11 @@ if($status == 0 || $status == " "){?>
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- khyati 18-4 end-->
+
 
                                        
                                        
-                                    </div> </div>
-<!--                                    <div class="view_more_details">
-                                          <a href="">View more in Aileensoul's Profile</a>
-                                        </div>-->
-
-                                </div>
-                           
+                                    </div>
 
 
 
@@ -1166,7 +1068,7 @@ if($status == 0 || $status == " "){?>
                             <div class="modal-content">
                                 <button type="button" class="modal-close" data-dismiss="modal">&times;</button>       
                                 <div class="modal-body">
-                                    <!--<img class="icon" src="images/dollar-icon.png" alt="" />-->
+                                   
                                     <span class="mes"></span>
                                 </div>
                             </div>
@@ -1250,6 +1152,20 @@ if($status == 0 || $status == " "){?>
 
                     </script>
 
+
+<script src="<?php echo base_url('js/jquery.highlite.js'); ?>"></script>
+
+<script type="text/javascript">
+           var text = document.getElementById("search").value;
+//alert(text);
+
+                 $(".search").highlite({
+
+                  text: text
+
+
+    });
+</script>
                     <script type="text/javascript">
                         function checkvalue() {
                             //alert("hi");

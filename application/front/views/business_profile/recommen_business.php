@@ -1209,16 +1209,15 @@ if($status == 0 || $status == " "){?>
 <script src="<?php echo base_url('js/jquery.highlite.js'); ?>"></script>
 
 <script type="text/javascript">
-                                                                            var text = document.getElementById("search").value;
+           var text = document.getElementById("search").value;
 //alert(text);
 
-                                                                            $(".search").highlite({
+                 $(".search").highlite({
 
-                                                                                text: text
+                  text: text
 
 
-
-                                                                            });
+    });
 </script>
 <script type="text/javascript">
     function checkvalue() {
