@@ -4,11 +4,8 @@
 
 <!--post save success pop up style strat -->
 <style>
-  
-    .okk{
-        text-align: center;
-    }
-
+.profile-box{width: 32%;}
+.profile-box-bui-menu li a{margin-right: 2.5px;}
     .pop_content .okbtn{
         position: absolute;
         transition: all 200ms;

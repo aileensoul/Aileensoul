@@ -1885,7 +1885,7 @@ $contition_array = array('status' => '1', 'is_deleted' => '0');
             if ($update) {
 
                 $follow = '<div id="unfollowdiv" class="user_btn">';
-                $follow .= '<button style="margin-top: 7px;" class= "bg_following" id="unfollow' . $business_id . '" onClick="unfollowuser(' . $business_id . ')">
+                $follow .= '<button class= "bg_following" id="unfollow' . $business_id . '" onClick="unfollowuser(' . $business_id . ')">
                               Following
                       </button>';
                 $follow .= '</div>';
@@ -1916,7 +1916,7 @@ $contition_array = array('status' => '1', 'is_deleted' => '0');
             // end notoification
             if ($insert) {
                 $follow = '<div id="unfollowdiv" class="user_btn">';
-                $follow .= '<button style="margin-top: 7px;" class="bg_following" id="unfollow' . $business_id . '" onClick="unfollowuser(' . $business_id . ')">
+                $follow .= '<button class="bg_following" id="unfollow' . $business_id . '" onClick="unfollowuser(' . $business_id . ')">
                                Following
                       </button>';
                 $follow .= '</div>';

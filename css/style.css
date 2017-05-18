@@ -2095,7 +2095,7 @@ border-bottom: 1px solid #000033;
 .profile-box-bui-menu li a:hover{background-color: #000033; color: #ffffff;}
 .profile-box-bui-menu li a {
    
-    margin-right: 1px;
+    margin-right: 3px;
     display: block;
     color: #000033;
     text-align: center;
@@ -4029,11 +4029,11 @@ border-bottom: 1px solid #000033;
 
 .profile-box-job-menu ul li a:hover{background-color: #000033; color: #ffffff;}
 .profile-box-job-menu ul li a {
-    margin-right:2px;
+    margin-right:8px;
     display: block;
     color: #000033;
     text-align: center;
-       padding:8px 17px 6px 17px;
+       padding:8px 15px 6px 15px;
     text-decoration: none;
     font-size: 16px;
     color: #000033;
@@ -4068,11 +4068,11 @@ border-bottom: 1px solid #000033;
 
 .profile-box-rec-menu ul li a:hover{background-color: #000033; color: #ffffff;}
 .profile-box-rec-menu ul li a {
-    margin-right:3px;
+    margin-right:10px;
     display: block;
     color: #000033;
     text-align: center;
-       padding: 6px 19px 6px 19px;
+       padding: 6px 16px 6px 16px;
     text-decoration: none;
     font-size: 16px;
     color: #000033;
