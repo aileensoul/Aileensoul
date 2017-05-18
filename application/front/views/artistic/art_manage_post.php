@@ -1059,21 +1059,9 @@ responsive image design start -->
 
                         if (!in_array($userid, $likeuserarray)) {
                             ?>
-                            <div class="profile-job-post-detail clearfix"  id="<?php echo "removepost" . $row['art_post_id']; ?>">
+                            <div id="<?php echo "removepost" . $row['art_post_id']; ?>">
+                            <div class="profile-job-post-detail clearfix">
                                 <div class=" post-design-box">
-
-                                    <!-- pop up box start-->
-                                    <div id="popup1" class="overlay">
-                                        <div class="popup">
-
-                                            <div class="pop_content">
-                                                Your Post is Successfully Saved.
-                                                <p class="okk"><a class="okbtn" href="#">Ok</a></p>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <!-- pop up box end-->
 
 
                                     <div class="post-design-top col-md-12" >  
@@ -1741,9 +1729,10 @@ responsive image design start -->
                                 <!-- khyati 18-4 end-->
                             </div>
                         </div>
+                        </div>
 
                         <?php
-                    }
+                    } 
                     ?>
                 </div>
 
