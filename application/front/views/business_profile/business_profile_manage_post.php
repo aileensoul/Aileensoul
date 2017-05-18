@@ -1111,23 +1111,9 @@
 //echo "<pre>"; print_r($business_profile_data); die();
                     foreach ($business_profile_data as $row) {
                         ?>
+                        <div id="<?php echo "removeownpost" . $row['business_profile_post_id']; ?>">
 
-                        <div class="job-post-detail clearfix" id="<?php echo "removeownpost" . $row['business_profile_post_id']; ?>">
-
-
-
-                            <!-- pop up box start-->
-                            <div id="popup1" class="overlay">
-                                <div class="popup">
-
-                                    <div class="pop_content">
-                                        Your Post is Successfully Saved.
-                                        <p class="okk"><a class="okbtn" href="#">Ok</a></p>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <!-- pop up box end-->
+                        <div class="job-post-detail clearfix">
 
 
 
@@ -1810,7 +1796,7 @@
                                 <!-- comment end -->
                             </div>
 
-                        </div>
+                        </div> </div>
 
                     <?php } ?>
 
