@@ -135,4 +135,8 @@ public function image()
       }
 
     }
+
+    public function khyatii(){
+      $this->load->view('khyati/khyati1');
+    }
   }

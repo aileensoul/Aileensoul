@@ -278,6 +278,7 @@ foreach ($postskill as $post_key => $post_value) {
     //validation for edit email formate form
 
     $(document).ready(function () {
+       // alert("hi");
 
         $("#jobseeker_regform").validate({
             ignore: [],

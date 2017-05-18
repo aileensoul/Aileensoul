@@ -1,4 +1,4 @@
-
+ 
 <!-- start head -->
 <?php echo $head; ?>
 <!-- END HEAD -->
@@ -219,13 +219,13 @@ if ($this->session->flashdata('success')) {
         margin-bottom: 5px;
     }    
 </style>
+<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.min.js') ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
 
-<script type="text/javascript" src="<?php echo base_url('js/jquery-1.11.1.min.js'); ?>"></script>
-<script type="text/javascript" src="<?php echo base_url('js/jquery.validate1.15.0..min.js'); ?>"></script>
-<script type="text/javascript" src="<?php echo base_url('js/additional-methods1.15.0.min.js'); ?>"></script>
+
 
 <!-- script for js validation start-->
-<script src="<?php echo base_url('js/jquery.js'); ?>"></script>
+<script src="<?php echo base_url('js/jquery.js'); ?>"></script> 
 <script type="text/javascript" src="<?php echo base_url('js/jquery-ui.js') ?>"></script>
 <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
 <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
@@ -336,7 +336,7 @@ if ($this->session->flashdata('success')) {
 
 
 <!-- script for clear textbox start-->
-<script type="text/javascript" src="<?php echo base_url('js/jquery.clearsearch-1.0.4.js'); ?>"></script>
+<!-- <script type="text/javascript" src="<?php// echo base_url('js/jquery.clearsearch-1.0.4.js'); ?>"></script> -->
 <!-- script for clear textbox End-->
 
 
@@ -347,59 +347,59 @@ if ($this->session->flashdata('success')) {
 //select2 autocomplete End for skill
 </script>
 
-
 <script type="text/javascript">
 
 
     $(document).ready(function () {
+       
 
-        $("#jobseeker_regform").validate({
-            ignore: '*:not([name])',
+     $("#jobseeker_regform").validate({
+             ignore: '*:not([name])',
 
             rules: {
 
+
                 'skills[]': {
 
-                    require_from_group: [1, ".keyskil"]
+                    require_from_group: [1, ".keyskil"],
                             //required:true 
                 },
 
                 other_skill: {
 
-                    require_from_group: [1, ".keyskil"]
+                    require_from_group: [1, ".keyskil"],
                             // required:true 
                 }
             },
 
-            messages: {
+       messages: {
 
                 'skills[]': {
 
-                    require_from_group: "You must either fill out 'Keyskills' or 'Other Skills'"
+                    require_from_group: "You must either fill out 'Keyskills' or 'Other Skills'",
 
                 },
 
                 other_skill: {
 
-                    require_from_group: "You must either fill out 'Keyskills' or 'Other Skills'"
+                    require_from_group: "You must either fill out 'Keyskills' or 'Other Skills'",
                 }
             }
 
         });
-
-    });
+          });
 //validation end
 
 //clear textbox start
-    $(function () {
-        // init plugin (with callback)
-        $('#other_skill').clearSearch({
-            callback: function () {
-                console.log("search cleared");
-            }
-        });
+    // $(function () {
+    //     // init plugin (with callback)
+    //     $('#other_skill').clearSearch({
+    //         callback: function () {
+    //             console.log("search cleared");
+    //         }
+    //     });
 
-    });
+    // });
 //clear textbox End
 
     $('#add_field').click(function (e) {
