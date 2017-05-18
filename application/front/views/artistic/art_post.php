@@ -93,7 +93,7 @@
                         height: 10%;}
    
 </style>
-<link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
+<!--<link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
 <link href="<?php echo base_url() ?>css/fileinput.css" media="all" rel="stylesheet" type="text/css"/>
 <link href="<?php echo base_url() ?>js/themes/explorer/theme.css" media="all" rel="stylesheet" type="text/css"/>
 <script src="<?php echo base_url() ?>js/jquery-2.0.3.min.js" type="text/javascript"></script>
@@ -102,14 +102,27 @@
 <script src="<?php echo base_url() ?>js/themes/explorer/theme.js" type="text/javascript"></script>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />-->
 
+ <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('dragdrop/fileinput.css'); ?>">
+   <link href="<?php echo base_url('dragdrop/themes/explorer/theme.css'); ?>" media="all" rel="stylesheet" type="text/css"/>
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <script src="<?php echo base_url('dragdrop/js/plugins/sortable.js'); ?>"></script>
+     <script src="<?php echo base_url('dragdrop/js/fileinput.js'); ?>"></script>
+      <script src="<?php echo base_url('dragdrop/js/locales/fr.js'); ?>"></script>
+       <script src="<?php echo base_url('dragdrop/js/locales/es.js'); ?>"></script>
+        <script src="<?php echo base_url('dragdrop/themes/explorer/theme.js'); ?>"></script>
+    	 
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
 <!-- start header -->
-<?php echo $header; ?>
+<?php //echo $header; ?>
 <!-- END HEADER -->
-<script src="<?php echo base_url('assets/js/jquery.js'); ?>"></script>
-<script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
-<?php echo $art_header2; ?>
+<!--<script src="<?php echo base_url('assets/js/jquery.js'); ?>"></script>
+<script src="<?php echo base_url('js/fb_login.js'); ?>"></script>-->
+<?php //echo $art_header2; ?>
 
 <!DOCTYPE html>
 <html>
@@ -798,37 +811,14 @@
                                    <!--   <span class="fr">
                                
                                    <input type="file" id="files" name="postattach[]" multiple style="display:block;">  </span> -->
-                                    <div class="col-md-1"><i class=" fa fa-camera "  style="margin: 0px;
-                                                             font-size: 27px;
-                                                             cursor: pointer;
-                                                             /* margin-right: -38px; */
-                                                             margin-top: 20px;"></i> </div>
+                                    <div class="col-md-12"> <div class="form-group">
+   <input id="file-1" type="file" multiple class="file" data-overwrite-initial="false" data-min-file-count="2">
+   </div></div>
 
                                 </div>
-                                <div class="row"></div>
-                                <div  id="text"  class="editor-content col-md-12 popup-textarea" >
-                                    <textarea id="test-upload_des" name="product_desc" class="description" placeholder="Enter Description"></textarea>
-
-                                    <output id="list"></output>
-                                </div>
-                                <div class="print_privew_post">
-
-                                </div>
-                                <div class="popup-social-icon">
-                                    <ul class="editor-header">
-
-                                        <li>
-                                            <input type="file" class="file" style="display:block;" id="test-upload" style="display:none;" name="postattach[]" multiple>
-                                            <label for="test-upload"><i class=" fa fa-camera "  style=" margin: 8px; cursor:pointer"> Photo</i><i class=" fa fa-video-camera"  style=" margin: 8px; cursor:pointer"> Video </i> <i class="fa fa-music "  style=" margin: 8px; cursor:pointer"> Audio </i><i class=" fa fa-file-pdf-o fa-2x"  style=" margin: 8px; cursor:pointer"> PDF </i> </label>
-
-
-                                        </li>
-                                    </ul>
-
-
-                                </div>
-                                <div class="fr">
-                                    <button type="submit"  value="Submit">Post</button>    </div>
+                                
+                                
+                                
                                 <?php echo form_close(); ?>
                             </div>
                         </div>
@@ -1613,15 +1603,83 @@
                     </body>
 
                     </html>
-
+ <script>
+    $('#file-fr').fileinput({
+        language: 'fr',
+        uploadUrl: '#',
+        allowedFileExtensions: ['jpg', 'png', 'gif']
+    });
+    $('#file-es').fileinput({
+        language: 'es',
+        uploadUrl: '#',
+        allowedFileExtensions: ['jpg', 'png', 'gif']
+    });
+    
+    $("#file-1").fileinput({
+        uploadUrl: '#', // you must set a valid URL here else you will get an error
+        allowedFileExtensions: ['jpg', 'png', 'gif'],
+        overwriteInitial: false,
+        maxFileSize: 1000,
+        maxFilesNum: 10,
+        //allowedFileTypes: ['image', 'video', 'flash'],
+        slugCallback: function (filename) {
+            return filename.replace('(', '_').replace(']', '_');
+        }
+    });
+    /*
+     $(".file").on('fileselect', function(event, n, l) {
+     alert('File Selected. Name: ' + l + ', Num: ' + n);
+     });
+     */
+    
+    $(".btn-warning").on('click', function () {
+        var $el = $("#file-4");
+        if ($el.attr('disabled')) {
+            $el.fileinput('enable');
+        } else {
+            $el.fileinput('disable');
+        }
+    });
+    // $(".btn-info").on('click', function () {
+    //     $("#file-4").fileinput('refresh', {previewClass: 'bg-info'});
+    // });
+    /*
+     $('#file-4').on('fileselectnone', function() {
+     alert('Huh! You selected no files.');
+     });
+     $('#file-4').on('filebrowse', function() {
+     alert('File browse clicked for #file-4');
+     });
+     */
+    $(document).ready(function () {
+        $("#test-upload").fileinput({
+            'showPreview': false,
+            'allowedFileExtensions': ['jpg', 'png', 'gif'],
+            'elErrorContainer': '#errorBlock'
+        });
+        $("#kv-explorer").fileinput({
+            'theme': 'explorer',
+            'uploadUrl': '#',
+            overwriteInitial: false,
+            initialPreviewAsData: true,
+           
+           
+        });
+        /*
+         $("#test-upload").on('fileloaded', function(event, file, previewId, index) {
+         alert('i = ' + index + ', id = ' + previewId + ', file = ' + file.name);
+         });
+         */
+    });
+</script>
                     <!-- script for skill textbox automatic start (option 2)-->
 
-                    <script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
+<!--                    <script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
                     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
                     <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
                     <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
                     <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>-->
 
 
                     <!-- script for skill textbox automatic end (option 2)-->
@@ -3218,57 +3276,7 @@
                     </script>
 
 
-                    <script type="text/javascript">
-                        $('#file-fr').fileinput({
-                            language: 'fr',
-                            uploadUrl: '#',
-                            allowedFileExtensions: ['jpg', 'png', 'gif']
-                        });
-                        $('#file-es').fileinput({
-                            language: 'es',
-                            uploadUrl: '#',
-                            allowedFileExtensions: ['jpg', 'png', 'gif']
-                        });
-                        $("#file-0").fileinput({
-                            'allowedFileExtensions': ['jpg', 'png', 'gif']
-                        });
-                        $("#file-1").fileinput({
-                            uploadUrl: '#', // you must set a valid URL here else you will get an error
-                            allowedFileExtensions: ['jpg', 'png', 'gif'],
-                            overwriteInitial: false,
-                            maxFileSize: 1000,
-                            maxFilesNum: 10,
-                            //allowedFileTypes: ['image', 'video', 'flash'],
-                            slugCallback: function (filename) {
-                                return filename.replace('(', '_').replace(']', '_');
-                            }
-                        });
-
-                        $(document).ready(function () {
-                            $("#test-upload").fileinput({
-                                'showPreview': false,
-                                'allowedFileExtensions': ['jpg', 'png', 'gif'],
-                                'elErrorContainer': '#errorBlock'
-                            });
-                            $("#kv-explorer").fileinput({
-                                'theme': 'explorer',
-                                'uploadUrl': '#',
-                                overwriteInitial: false,
-                                initialPreviewAsData: true,
-                                initialPreview: [
-                                    "http://lorempixel.com/1920/1080/nature/1",
-                                    "http://lorempixel.com/1920/1080/nature/2",
-                                    "http://lorempixel.com/1920/1080/nature/3",
-                                ],
-                                initialPreviewConfig: [
-                                    {caption: "nature-1.jpg", size: 329892, width: "120px", url: "{$url}", key: 1},
-                                    {caption: "nature-2.jpg", size: 872378, width: "120px", url: "{$url}", key: 2},
-                                    {caption: "nature-3.jpg", size: 632762, width: "120px", url: "{$url}", key: 3},
-                                ]
-                            });
-
-                        });
-                    </script>
+                   
 
                     <script type="text/javascript">
                         function likeuserlist(post_id) {

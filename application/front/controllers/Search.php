@@ -305,7 +305,7 @@ class Search extends CI_Controller {
 
         $this->data['artuserdata'] = $unique;
 
-        // echo "<pre>";print_r($abc);die();
+         //echo "<pre>";print_r($this->data['artuserdata']);die();
          //echo "<pre>"; print_r($this->data['artuserdata']);die();
         // code for search
         $contition_array = array('status' => '1', 'is_delete' => '0');
