@@ -7,7 +7,7 @@
         if (!text) { return false; }
         
         var regex = new RegExp("(" + text + ")", "gi");
-        var highlight = '<span class="highlight">$1</span>';
+        var highlight = '<p class="highlight">$1</p>';
         
         // Highlight matches
         var traverseElement = function (element) {
