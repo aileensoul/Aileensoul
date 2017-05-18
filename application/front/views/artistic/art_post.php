@@ -852,7 +852,8 @@
 
                             if (!in_array($userid, $likeuserarray)) {
                                 ?>
-                                <div class="col-md-12 col-sm-12 post-design-box"   id="<?php echo "removepost" . $row['art_post_id']; ?>">
+                                <div id="<?php echo "removepost" . $row['art_post_id']; ?>">
+                                <div class="col-md-12 col-sm-12 post-design-box">
                                     <div class="post_radius_box">
                                         <div class="post-design-top col-md-12" id= "showpost">  
                                             <div class="post-design-pro-img col-md-2"> 
@@ -1512,7 +1513,7 @@
                                                                             echo '</br>';
                                                                             ?>
                                                                         </p></div></div>
-                                                            </div>
+                                                            </div> </div>
                                                             <?php
                                                         }
                                                     }
