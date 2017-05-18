@@ -700,7 +700,9 @@ $contition_array = array('status' => '1', 'is_deleted' => '0');
        
         $contition_array = array('user_id' => $userid, 'is_delete' => '0');
         $userdatacon = $this->common->select_data_by_condition('bus_image', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
+        
+        
+        
         if ($this->input->post('next') || $this->input->post('submit')) {
 
           
@@ -1613,7 +1615,7 @@ $contition_array = array('status' => '1', 'is_deleted' => '0');
         $businessdata = $this->data['results'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'company_name,other_industrial,other_business_type', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
         // echo "<pre>";print_r($businessdata);die();
 
-
+      
         $contition_array = array('status' => '1', 'is_delete' => '0');
 
 
@@ -1625,6 +1627,11 @@ $contition_array = array('status' => '1', 'is_deleted' => '0');
 
         $industrytype = $this->data['results'] = $this->common->select_data_by_condition('industry_type', $contition_array, $data = 'industry_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
         // echo "<pre>";print_r($industrytype);die();
+        
+        
+        $contition_array = array('user_id' => $userid, 'is_delete' => '0');
+        $this->data['busimagedata'] = $this->common->select_data_by_condition('bus_image', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        
         $unique = array_merge($businessdata, $businesstype, $industrytype);
         foreach ($unique as $key => $value) {
             foreach ($value as $ke => $val) {
