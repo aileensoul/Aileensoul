@@ -76,7 +76,7 @@
 
                 <div class="row">
                     <div class="col-md-5 col-sm-5">
-                        <div class="logo"><a href="<?php echo base_url('dashboard') ?>"><!-- <img src="<?php// echo base_url('images/logo.png'); ?>"> --> <span style="color: #87ceff; font-size: 41px;">Aileensoul</span></a></div>
+                        <div class="logo"><a href="<?php echo base_url('main') ?>"><!-- <img src="<?php// echo base_url('images/logo.png'); ?>"> --> <span style="color: #87ceff; font-size: 41px;">Aileensoul</span></a></div>
                     </div>
 
 <!-- start login data -->
@@ -264,7 +264,7 @@
               <label class="fname_reg">
               Date of Birth<span class="req">*</span></label>
               </label>
-              <input type="text" name="datepicker" id="datepicker" placeholder=""   autocomplete="off" >
+              <input type="text" name="datepicker" id="datepicker" placeholder="dd-mm-yyyy"   autocomplete="off" >
             </div>
 <!--                    <div class="field-wrap" id="gen">
                 <label class="label_gen">Gender</label>
@@ -380,8 +380,8 @@ $('#datepicker').datetimepicker({
   startDate: "2013/02/14",
   lang:'ch',
   timepicker:false,
-  format:'d/m/Y',
-  formatDate:'Y/m/d'
+  format:'d-M-Y',
+  formatDate:'Y/m/d',
   //minDate:'-1970/01/02', // yesterday is minimum date
   //maxDate:'+1970/01/02' // and tommorow is maximum date calendar
 });
@@ -773,6 +773,8 @@ $(document).ready(function() {
 });
 </script>
 
+
+<!-- save browser password email reset start -->
 <script type="text/javascript">
 function init() {
    
@@ -784,6 +786,9 @@ function init() {
 window.onload = init;
 
 </script>
+
+
+<!-- save browser password email reset end -->
 
 <script>
 // Get the modal

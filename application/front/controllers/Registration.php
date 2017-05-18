@@ -61,9 +61,12 @@ class Registration extends CI_Controller {
     public function reg_insert()
     {
 
+        $bod = $this->input->post('datepicker');
+                $bod = str_replace('/', '-', $bod);
+
        if ($this->session->userdata('fbuser')) {
           $this->session->unset_userdata('fbuser');
-    }
+       }
         //echo "<pre>";print_r($_POST);die();
         //form validation rule for registration
 
@@ -103,7 +106,8 @@ class Registration extends CI_Controller {
                  'last_name' => $this->input->post('lname'),
                  'user_email' => $this->input->post('email'),
                  'user_password' => md5($this->input->post('password')),
-                 'user_dob' => $this->input->post('datepicker'),
+                 
+                   'user_dob' => date('Y-m-d', strtotime($bod)),
                  'user_gender' => $this->input->post('gen'),
                  'user_agree' => '1',
                  'is_delete' => '0',

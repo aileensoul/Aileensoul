@@ -594,7 +594,7 @@ $freelancerapply1 = $this->data['freelancerapply'] = $this->common->select_data_
                                                  
                                                 <input type="hidden" name="hitext" id="hitext" value="2">
                                                 <!--<input type="submit" name="cancel3" id="cancel3" value="Cancel">-->
-                                                <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save">
+                                                <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save"  style="margin-top:32px!important;">
                                                 <?php echo form_close(); ?>
                                             </div>
                                         </span>
@@ -991,3 +991,40 @@ $( "#tags" ).autocomplete({
 </script>
 
 <!-- script for profile pic end -->
+
+
+<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
+
+
+<script type="text/javascript">
+
+            //validation for edit email formate form
+
+            $(document).ready(function () { 
+
+                $("#userimage").validate({
+
+                    rules: {
+
+                        profilepic: {
+
+                            required: true,
+                         
+                        },
+  
+
+                    },
+
+                    messages: {
+
+                        profilepic: {
+
+                            required: "Photo Required",
+                            
+                        },
+
+                },
+
+                });
+                   });
+  </script>

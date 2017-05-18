@@ -1,184 +1,8 @@
 <!-- start head -->
 <?php  echo $head; ?>
     <!-- END HEAD -->
- <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/demo.css'); ?>">
-<!--post save success pop up style strat -->
-<style>
-    /*body {
-        font-family: Arial, sans-serif;
-        background-size: cover;
-        height: 100vh;
-    }
-
-    .box {
-        width: 40%;
-        margin: 0 auto;
-        background: rgba(255,255,255,0.2);
-        padding: 35px;
-        border: 2px solid #fff;
-        border-radius: 20px/50px;
-        background-clip: padding-box;
-        text-align: center;
-    }
-
-    .overlay {
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: rgba(0, 0, 0, 0.3);
-        transition: opacity 500ms;
-        visibility: hidden;
-        opacity: 0;
-        z-index: 10;
-    }
-    .overlay:target {
-        visibility: visible;
-        opacity: 1;
-    }
-
-    .popup {
-        margin: 70px auto;
-        padding: 20px;
-        background: #fff;
-        border-radius: 5px;
-        width: 30%;
-        height: 200px;
-        position: relative;
-        transition: all 5s ease-in-out;
-    }
-    */
-    .okk{
-        text-align: center;
-    }
-
-    /*   .popup .okbtn{
-           position: absolute;
-           transition: all 200ms;
-           font-size: 18px;
-           font-weight: bold;
-           text-decoration: none;
-           color: #fff;
-           padding: 8px 18px;
-           background-color: darkcyan;
-           left: 25px;
-           margin-top: 15px;
-           width: 100px; 
-           border-radius: 8px;
-       }
-    */
-    .pop_content .okbtn{
-        position: absolute;
-        transition: all 200ms;
-        font-size: 16px;
-        text-decoration: none;
-        color: #fff;
-        padding: 8px 18px;
-        background-color: #0A2C5D;
-        left: 170px;
-        margin-top: 8px;
-        width: 100px; 
-        border-radius: 8px;
-    }
-
-    /*  .popup .cnclbtn {
-          position: absolute;
-          transition: all 200ms;
-          font-size: 18px;
-          font-weight: bold;
-          text-decoration: none;
-          color: #fff;
-          padding: 8px 18px;
-          background-color: darkcyan;
-          right: 25px;
-          margin-top: 15px;
-          width: 100px;
-          border-radius: 8px;
-      } */
-    .pop_content .cnclbtn {
-        position: absolute;
-        transition: all 200ms;
-        font-size: 16px;
-        text-decoration: none;
-        color: #fff;
-        padding: 8px 18px;
-        background-color: #0A2C5D;
-        right: 170px;
-        margin-top: 8px;
-        width: 100px;
-        border-radius: 8px;
-    }
-
-    .popup .pop_content {
-        text-align: center;
-        margin-top: 40px;
-
-    }
-    .model_ok_cancel{
-        width:200px !important;
-    }
-
-    /*
-        @media screen and (max-width: 700px){
-            .box{
-                width: 70%;
-            }
-            .popup{
-                width: 70%;
-            }
-        } */
-
-
-</style>
-
-<!--post save success pop up style end -->
-
-<style type="text/css">
-
-    .thumb {
-        width:99px;
-        height: 99px;
-        margin: 0.2em -0.7em 0 0;
-    }
-    .remove_thumb {
-        position: relative;
-        top: -38px;
-        right: 5px;
-        background: black;
-        color: white;
-        border-radius: 50px;
-        font-size: 1.5em;
-        padding: 0 0.3em 0;
-        text-align: center;
-        cursor: pointer;
-    }
-    .remove_thumb:before {
-        content: "Ã—";
-    }
-    .popup-textarea .description{
-        width: 100%;
-        height: auto;
-        min-height: 30%;
-        color: #999999;
-        padding: 12px 20px;
-        box-sizing: border-box;
-        /* border: 2px solid #ccc; */
-        border-radius: 4px;
-        background-color: #fff;
-        font-size: 16px;
-        resize: none;
-        border: none;
-    }
-    .post_product_name{ resize: none;
-                        border: 1px solid #d9d9d9;
-                        background-color: #fff;
-                        font-size: 16px;
-                        height: 10%;}
-    .popup-textarea{border-bottom: 5px solid #ced5df;}
-
-</style>
-<link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
+ 
+ <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
 <link href="<?php echo base_url() ?>css/fileinput.css" media="all" rel="stylesheet" type="text/css"/>
 <link href="<?php echo base_url() ?>js/themes/explorer/theme.css" media="all" rel="stylesheet" type="text/css"/>
 <script src="<?php echo base_url() ?>js/jquery-2.0.3.min.js" type="text/javascript"></script>
@@ -188,8 +12,9 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/demo.css'); ?>">
 
-<!-- start header -->
+
     <!-- start header -->
 <?php echo $header; ?>
     <!-- END HEADER -->
@@ -201,16 +26,15 @@
                 <div class="row">
 
 
-       <div class="col-md-4">
-       <div class="profile-box profile-box-left">
+       <div class="col-md-4"><div class="profile-box profile-box-left">
 
    <div class="full-box-module">    
                                 <div class="profile-boxProfileCard  module">
                                     <div class="profile-boxProfileCard-cover">    
                                         <a class="profile-boxProfileCard-bg u-bgUserColor a-block"
-                                           href="<?php echo site_url('artistic/art_manage_post'); ?>"
-                                           tabindex="-1" aria-hidden="true" rel="noopener" title="<?php echo $businessdata[0]['company_name']; ?>">
-                                            
+                                           href="<?php echo base_url('artistic/art_manage_post'); ?>"
+                                           tabindex="-1" aria-hidden="true" rel="noopener" title="<?php echo ucwords($artdata[0]['art_name']) . ' ' . ucwords($artdata[0]['art_lastname']); ?>">
+                                            <!-- box image start -->
                                             <?php if ($artdata[0]['profile_background'] != '') { ?>
                                                 <img src="<?php echo base_url(ARTBGIMAGE . $artdata[0]['profile_background']); ?>" class="bgImage" alt=""  style="height: 95px; width: 100%; ">
                                                 <?php
@@ -222,7 +46,7 @@
                                     </div>
                                     <div class="profile-boxProfileCard-content clearfix">
                                         <div class="buisness-profile-txext col-md-4">
-                                            <a class="profile-boxProfilebuisness-avatarLink2 a-inlineBlock" href="<?php echo base_url('artistic/art_manage_post'); ?>" title="" tabindex="-1" aria-hidden="true" rel="noopener" >
+                                            <a class="profile-boxProfilebuisness-avatarLink2 a-inlineBlock" href="<?php echo base_url('artistic/art_manage_post'); ?>" title="<?php echo ucwords($artdata[0]['art_name']) . ' ' . ucwords($artdata[0]['art_lastname']); ?>" tabindex="-1" aria-hidden="true" rel="noopener" >
                                                 <?php
                                                 if ($artdata[0]['art_user_image']) {
                                                     ?>
@@ -230,37 +54,45 @@
                                                 <?php } else { ?>
                                                     <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
                                                 <?php } ?>                           
-                                               
+                                                <!-- 
+                        <img class="profile-boxProfileCard-avatarImage js-action-profile-avatar" src="images/imgpsh_fullsize (2).jpg" alt="" style="    height: 68px;
+                        width: 68px;">
+                                                -->
                                             </a>
                                         </div>
                                         <div class="profile-box-user  profile-text-bui-user  fr col-md-9">
                                             <span class="profile-company-name ">
-                                                <a style="margin-left: 3px;" href="<?php echo base_url('artistic/art_manage_post'); ?> " title="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>"> 
+                                                <a style="margin-left: 3px;" href="<?php echo base_url('artistic/art_manage_post'); ?>" title="<?php echo ucwords($artdata[0]['art_name']) . ' ' . ucwords($artdata[0]['art_lastname']); ?>"> 
                                                     <?php echo ucwords($artdata[0]['art_name']) . ' ' . ucwords($artdata[0]['art_lastname']); ?>
                                                 </a> 
                                             </span>
-                                            
+                                            <?php $category = $this->db->get_where('industry_type', array('industry_id' => $businessdata[0]['industriyal'], 'status' => 1))->row()->industry_name; ?>
                                             <div class="profile-boxProfile-name">
                                                 <a style="padding-left: 1px;" href="<?php echo base_url('artistic/art_manage_post'); ?> " title="<?php echo ucwords($artdata[0]['art_name']) . ' ' . ucwords($artdata[0]['art_lastname']); ?>" >
-                                                    <b> <?php
+                                                    <b> 
+                                                    <?php
                                                 if ($artdata[0]['designation']) {
                                                     echo ucwords($artdata[0]['designation']);
                                                 } else {
                                                     echo "Designation";
                                                 }
-                                                ?></b>
+                                                ?>
+                                                      
+                                                    </b>
                                                 </a>
                                             </div>
                                         </div>
                                         <div class="profile-box-bui-menu  col-md-12">
                                             <ul class="">
-                                                <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'art_savepost') { ?> class="active" <?php } ?>><a title="Dashboard" href="<?php echo base_url('artistic/art_manage_post'); ?>"> Dashboard</a>
-                                            </li>
-                                                <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'followers') { ?> class="active" <?php } ?>><a title="Followers" href="<?php echo base_url('artistic/followers'); ?>">Followers <br>(<?php echo (count($followerdata)); ?>)</a>
-                                            </li>
-                                                <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'following') { ?> class="active" <?php } ?>><a title="Following" href="<?php echo base_url('artistic/following'); ?>">Following<br>(<?php echo (count($followingdata)); ?>)</a>
-                                            </li>
-                                            <!-- <input type="hidden" name="search" id="search" value="<?php echo $keyword; ?>"> -->
+                                                <li 
+                                                    <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'art_savepost') { ?> class="active" <?php } ?>><a title="Dashboard" href="<?php echo base_url('artistic/art_manage_post'); ?>"> Dashboard</a>
+                                                </li>
+                                                <li 
+                                                    <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'followers') { ?> class="active" <?php } ?>><a title="Followers" href="<?php echo base_url('artistic/followers'); ?>">Followers <br>(<?php echo (count($followerdata)); ?>)</a>
+                                                </li>
+                                                <li 
+                                                    <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'following') { ?> class="active" <?php } ?>><a title="Following" href="<?php echo base_url('artistic/following'); ?>">Following<br>(<?php echo (count($followingdata)); ?>)</a>
+                                                </li>
                                             </ul>
                                         </div>
                                     </div>
@@ -272,9 +104,9 @@
    
 </div>
 </div>
+<!-- left side box close -->
 
-
-
+<input type="hidden" name="search" id="search" value="<?php echo $keyword; ?>">
    <div class="col-md-7 col-sm-7 all-form-content" style="height: 150%;">
                         <div class="common-form">
                             <div class="job-saved-box">
@@ -282,27 +114,21 @@
                                 <h3>Search Result of <?php echo ucwords($keyword)?></h3>
                                 <div class="contact-frnd-post">
                                     <div class="job-contact-frnd ">
-  <div class="profile-job-post-title-inside clearfix " style="border: 1px solid #d9d9d9;">
-                       <?php if($artuserdata){
-
-                                  
-                             $contition_array = array('post_id' => $key['art_post_id'], 'is_deleted' => '1', 'image_type' => '1');
-                              $artmulti = $this->data['artmulti'] = $this->common->select_data_by_condition('post_image', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-                                            
-                              foreach($artuserdata as $key){
-                               if($key['art_id']){ ?>
+<!-- main data start -->
+                            
+                                       <div class="profile-job-post-title-inside clearfix" style="border: 1px solid #d9d9d9;">
+                                       <?php if($artuserdata){
+                              foreach ($artuserdata as $key) {
+                                if($key['art_id']){
                               
-                                  
-                                
-          <div class="profile-job-profile-button clearfix box_search_module search" style="height: 16%; border-bottom: none;">
-                                                          
+                              ?>
+
+                                                 <div class="profile-job-profile-button clearfix box_search_module search" style="height: 16%;">
+                                                            
      <div class="profile-job-post-location-name-rec">
           <div class="module_Ssearch" style="display: inline-block; float: left;">
              <div class="search_img">
-             <a href="<?php echo base_url('artistic/art_manage_post/' . $key['user_id'] . ''); ?>">
-
                            <img src="<?php echo base_url(ARTISTICIMAGE . $key['art_user_image']); ?>" alt=" ">
-                           </a>
                         </div>
        </div>
    
@@ -312,14 +138,14 @@
           <ul>
        <li>
       <a style="  font-size: 19px;
-         font-weight: 600;" href="<?php echo base_url('artistic/art_manage_post/' . $userlist['user_id'] . ''); ?>" title="<?php echo $key['art_name'].' '.$key['art_lastname'];?>">
+         font-weight: 600;" href="" title=" dhaval shah">
        <?php echo $key['art_name'].' '.$key['art_lastname'];?>
        </a>
       </li>
       
       <li style="display: block;">
-        <a  class="color-search" style="font-size: 16px;" href="" title="<?php echo $key['art_name'].' '.$key['art_lastname'];?>">
-                <?php  if($key['art_yourart']){echo $key['art_yourart']; }else {echo PROFILENA;}?>             
+        <a  class="color-search" style="font-size: 16px;" href="" title="IAS">
+               <?php  if($key['art_yourart']){echo $key['art_yourart']; }else {echo PROFILENA;}?>
            </a>
        </li>
          <li style="display: block;">
@@ -352,17 +178,16 @@
 
        </li>
        <li style="display: block;">
-         <a  class="color-search" href=""><?php echo $key['country'].$key['city']; ?></a>
+         <a  class="color-search" href="">
+         <?php echo $key['country'].$key['city']; ?>
+         </a>
        </li>
-         <input type="hidden" name="search" id="search" value="<?php echo $keyword; ?>">
       
     </ul>
       </div>
       <div class="fl search_button">
-
-
-      <div class="<?php echo "fruser" . $key['art_id']; ?>">
-<?php  $status  =  $this->db->get_where('follow',array('follow_type' => 2, 'follow_from' => $artdata[0]['art_id'], 'follow_to'=>$key['art_id'] ))->row()->follow_status; 
+        <div class="<?php echo "fruser" . $key['art_id']; ?>">
+<?php  $status  =  $this->db->get_where('follow',array('follow_type' => 1, 'follow_from' => $artdata[0]['art_id'], 'follow_to'=>$key['art_id'] ))->row()->follow_status; 
 
 if($status == 0 || $status == " "){?>
  
@@ -380,10 +205,6 @@ if($status == 0 || $status == " "){?>
                             </button></div>
                                 <?php } ?>
 </div>
-
-
-
-
         <br>
          <button onclick="window.location.href = '<?php echo base_url('chat/abc/' . $key['user_id']); ?>'"> Message</button>
       </div>
@@ -392,25 +213,16 @@ if($status == 0 || $status == " "){?>
 
      </div>
        </div>
- 
-                                
-
-
-         </div>
-                               
-                            <?php   } }  foreach($artuserdata as $key){ 
-                               if($key['art_description']){ ?>
-
-                        
-<!-- 
-  <div class="profile-job-post-title-inside clearfix search" style="border:none;">
-           
-       </div> -->
+       <?php }}?><h3>Posts</h3>
+       <?php foreach ($artuserdata as $key) {
+         if($key['art_description']){
+       
+       ?>
        <div class="col-md-12 col-sm-12 post-design-box search" id="removepost5" style="margin-bottom: 0px; box-shadow: none; border: none;">
                                     <div class="post_radius_box">  
-                                        <div class="post-design-search-top col-md-12" style="border:none;background-color: none!important;">  
+                                        <div class="post-design-search-top col-md-12" style="background-color: none!important;">  
                                             <div class="post-design-pro-img col-md-2"> 
-                                              
+                                                
                                                 <div id="popup1" class="overlay">
                                                     <div class="popup">
                                                         <div class="pop_content">
@@ -438,7 +250,7 @@ if($status == 0 || $status == " "){?>
                                                         </div>
                                                     </div>
                                                 </div>
-                                               
+                                                
                                                 <div id="popup55" class="overlay">
                                                     <div class="popup">
                                                         <div class="pop_content">
@@ -454,30 +266,23 @@ if($status == 0 || $status == " "){?>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <a href="<?php echo base_url('artistic/art_manage_post/' . $key['user_id'] . ''); ?>">
-
-                                                <img src="<?php echo base_url(ARTISTICIMAGE . $key['art_user_image']); ?>" name="image_src" id="image_src" / >
-                                                </a>
-                                                                     </div>
+                                                           <img src="<?php echo base_url(ARTISTICIMAGE . $key['art_user_image']); ?>" alt="">
+                                                                                                </div>
                                             <div class="post-design-name fl col-md-9">
                                                 <ul>
-                                                
+                                                    
+                                                    <li>
+                                                    </li>
 
                                                                                                             <li>
-                                            <div class="post-design-product">
-                      <a class="post_dot" href="<?php echo base_url('artistic/art_manage_post/' . $key['user_id'] . ''); ?>" title="<?php echo $key['art_name'].' '.$key['art_lastname'];?>">
-
-                            <?php echo $key['art_name'].' '.$key['art_lastname'];?>
-
-                             </a>
-                                       <div class="datespan"> 
-                                        <span style="font-weight: 400;
+                                                            <div class="post-design-product">
+                                                                <a class="post_dot" href="<?php echo base_url('artistic/art_manage_post/' . $key['user_id'] . ''); ?>" title="<?php echo $key['art_name'].' '.$key['art_lastname'];?>" >
+                                                                    <?php echo $key['art_name'].' '.$key['art_lastname'];?>
+                                                                      </a>
+                                                                <div class="datespan">  <span style="font-weight: 400;
                                                     font-size: 14px;
                                                     color: #91949d; cursor: default;"> 
-                                           <?php echo date('d-M-Y', strtotime($key['created_date'])); ?>
-                                                   
-
-                                                                        </span></div>
+                                                                        <?php echo date('d-M-Y', strtotime($key['created_date'])); ?>                                                                    </span></div>
 
                                                             </div>
 
@@ -489,21 +294,13 @@ if($status == 0 || $status == " "){?>
                                                     <li>
                                                         <div class="post-design-product">
                                                             <a href="javascript:void(0);" style=" color: #000033; font-weight: 400; cursor: default;" title="Category">
-                                                 <?php echo $key['art_post'];?>                                                   </a>
+                                                                <?php echo $key['art_post'];?>                                                            </a>
                                                         </div>
                                                     </li>
                                                     <li>
-                                                        <div class="post-design-product">
-                                                            <a href="javascript:void(0);" style=" color: #000033; font-weight: 400; cursor: default;" title="">
-                                                                                                  </a>
-                                                        </div>
-                                                    </li>
-                                                     
+                                                    </li> 
                                                 </ul> 
                                             </div>  
-                                            <?php
-                                            /*
-                                            ?>
                                             <div class="dropdown1">
                                                 <a onclick="myFunction(5)" class="dropbtn1 dropbtn1 fa fa-ellipsis-v">
                                                 </a>
@@ -519,15 +316,11 @@ if($status == 0 || $status == " "){?>
                                                         </a>
                                                                                                     </div>
                                             </div>
-                                            <?php
-                                            */
-                                            ?>
-                                            
                                             <div class="post-design-desc ">
                                                 <div>
                                                     <div id="editpostdata5" style="display:block;">
                                                         <a style="margin-bottom: 0px;     font-size: 16px">
-                                                          </a>
+                                                            <?php echo $key['art_description'];?>                                                        </a>
                                                     </div>
                                                     <div id="editpostbox5" style="display:none;">
                                                         <input type="text" id="editpostname5" name="editpostname" placeholder="Product Name" value="zalak">
@@ -535,13 +328,12 @@ if($status == 0 || $status == " "){?>
                                                 </div>                    
 
                                                 <div id="editpostdetails5" style="display:block;">
-                                                    <span class="show">
-                                                    <?php echo $key['art_description'];?> 
-                                                          </span>
+                                                    <span class="show"> 
+                                                         </span>
                                                 </div>
                                                 <div id="editpostdetailbox5" style="display:none;">
                                                   
-                                                    <div contenteditable="true" id="editpostdesc5" placeholder="Product Description" class="textbuis  editable_text" name="editpostdesc">     </div>                  
+                                                    <div contenteditable="true" id="editpostdesc5" placeholder="Product Description" class="textbuis  editable_text" name="editpostdesc"></div>                  
                                                 </div>
                                                 <button class="fr" id="editpostsubmit5" style="display:none;margin: 5px 0; border-radius: 3px;" onclick="edit_postinsert(5)">Save
                                                 </button>
@@ -550,9 +342,9 @@ if($status == 0 || $status == " "){?>
                                         </div>
                                         
                                         <div class="post-design-mid col-md-12" style="border: none;">
-            
-             <div>                                     
-                                  <div class="mange_post_image">
+                                            
+                                            <div>                                                                                                                                                           
+                                                        <div class="mange_post_image">
                                             <?php
                                             $contition_array = array('post_id' => $key['art_post_id'], 'is_deleted' => '1', 'image_type' => '1');
                                             $artmultiimage = $this->data['artmultiimage'] = $this->common->select_data_by_condition('post_image', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -716,18 +508,14 @@ if($status == 0 || $status == " "){?>
 
                                             </div>
 
-                                        </div>     
-              </div>
-            
-                                        </div> 
-                                        
-                                           <!--    <div class="post-design-like-box col-md-12 padding_less" style="padding-left: 0px; padding-right: 0px;" >
-                                                                        <div class="post-design-menu">
-                                                                          --> 
-                                          
-                                         <div class="post-design-like-box col-md-12">
+                                        </div>
+                                                              <div>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="post-design-like-box col-md-12" style="border: none;">
                                             <div class="post-design-menu">
-                                                
                                                 <ul>
 
                                                     <li class="<?php echo 'likepost' . $key['art_post_id']; ?>">
@@ -771,12 +559,7 @@ if($status == 0 || $status == " "){?>
 
                                             </div>
                                         </div>
-
-
-                                       
-
-                                        
-                                        <?php
+                                                                                <?php
                                         if ($key['art_likes_count'] > 0) {
                                             ?>
                                             <div class="likeduserlist<?php echo $key['art_post_id'] ?>">
@@ -826,7 +609,9 @@ if($status == 0 || $status == " "){?>
                                             </div>
                                             <?php
                                         }
-                                        ?> <?php  ?> 
+                                        ?> <?php  ?>
+
+
                                         <div class="<?php echo "likeusername" . $key['art_post_id']; ?>" id="<?php echo "likeusername" . $key['art_post_id']; ?>" style="display:none">
                                             <?php
                                             $contition_array = array('art_post_id' => $key['art_post_id'], 'status' => '1', 'is_delete' => '0');
@@ -872,17 +657,11 @@ if($status == 0 || $status == " "){?>
                                                 </div>
                                             </a>
                                         </div>
-                                       
-
-                                                                          
-
+                                        
                                         <div class="art-all-comment col-md-12">
-                                            
                                             <div id="<?php echo "fourcomment" . $key['art_post_id']; ?>" style="display:none">
                                             </div>
-
                                             
-
                                             <div  id="<?php echo "threecomment" . $key['art_post_id']; ?>" style="display:block">
                                                 <div class="<?php echo 'insertcomment' . $key['art_post_id']; ?>">
                                                     <?php
@@ -1012,19 +791,15 @@ if($status == 0 || $status == " "){?>
 
                                                 </div>
                                             </div>
-                                            
-
-
                                         </div>
-
-                                            <?php   ?>
+                                        <?php   ?>
+                                        
                                         <div class="post-design-commnet-box col-md-12">
-                                            <?php
+                                        <?php
                                             $userid = $this->session->userdata('aileenuser');
                                             $art_userimage = $this->db->get_where('art_reg', array('user_id' => $userid, 'status' => 1))->row()->art_user_image;
                                             ?>
-                                            <div class="post-design-proo-img">
-                                                <?php if ($art_userimage) { ?>
+                                            <div class="post-design-proo-img">                                                                     <?php if ($art_userimage) { ?>
                                                     <img src="<?php echo base_url(ARTISTICIMAGE . $art_userimage); ?>" name="image_src" id="image_src" />
                                                     <?php
                                                 } else {
@@ -1033,10 +808,10 @@ if($status == 0 || $status == " "){?>
                                                     <?php
                                                 }
                                                 ?>
-                                            </div>
+                                                                                            </div>
                                             <div class="">
-                                                <div id="content" class="col-md-10 inputtype-comment" style="padding-left: 7px !important;">
-                                                    <div contenteditable="true" style="min-height:37px !important; margin-top: 0px!important" class="editable_text" name="<?php echo $key['art_post_id']; ?>"  id="<?php echo "post_comment" . $key['art_post_id']; ?>" placeholder="Type Message ..." onClick="entercomment(<?php echo $key['art_post_id']; ?>)"></div>
+                                                <div id="content" class="col-md-10  inputtype-comment" style="padding-left: 7px;">
+                                                    <div contenteditable="true" style="min-height:37px !important; margin-top: 0px!important" class="editable_text" name="<?php echo $key['art_post_id']; ?>" id="<?php echo "post_comment" . $key['art_post_id']; ?>" placeholder="Type Message ..." onclick="entercomment(<?php echo $key['art_post_id']; ?>)"></div>
                                                 </div>
                                                 <?php echo form_error('post_comment'); ?>
                                                 <div class="col-md-1 comment-edit-butn">   
@@ -1045,24 +820,28 @@ if($status == 0 || $status == " "){?>
                                             </div>
                                         </div>
 
-
                                        
                                        
-                                    </div>
+
+                                    
+                                </div>
+                                
+
+         </div>
+         <?php }}}?>
 
 
 
-                     <?php     }} }?>
                                     </div>
                                     </div>
                                     </div>
                                     </div>
                                     </div>
-                                 
+                                   <!--  col-md-7 close -->
 </div>
 </div>
 </div>
-         <!-- Bid-modal  -->
+<!-- Bid-modal  -->
                     <div class="modal fade message-box biderror" id="bidmodal" role="dialog">
                         <div class="modal-dialog modal-lm">
                             <div class="modal-content">
@@ -1094,7 +873,19 @@ if($status == 0 || $status == " "){?>
 
                     </html>
 
+<script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
+                    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+                    <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
+                    <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
+                    <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+
+
 <script src="<?php echo base_url('js/jquery.highlite.js'); ?>"></script>
+
+
+
+
 
 <script type="text/javascript">
                                                                         var text = document.getElementById("search").value;
@@ -1108,22 +899,13 @@ if($status == 0 || $status == " "){?>
 
                                                                         });
 </script>
- <script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
-                    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-                    <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
-                    <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
-                    <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 
 
 
-<!--like comment script start-->
-
-
-                    <script>
+<script>
 
                                                 var data = <?php echo json_encode($demo); ?>;
-                                                //alert(data);
+                                                alert(data);
 
 
                                                 $(function () {
@@ -1151,21 +933,6 @@ if($status == 0 || $status == " "){?>
                                                 });
 
                     </script>
-
-
-<script src="<?php echo base_url('js/jquery.highlite.js'); ?>"></script>
-
-<script type="text/javascript">
-           var text = document.getElementById("search").value;
-//alert(text);
-
-                 $(".search").highlite({
-
-                  text: text
-
-
-    });
-</script>
                     <script type="text/javascript">
                         function checkvalue() {
                             //alert("hi");
@@ -1179,7 +946,6 @@ if($status == 0 || $status == " "){?>
                             }
                         }
                     </script>
-
                     <script>
                         //select2 autocomplete start for skill
                         $('#searchskills').select2({
@@ -1236,8 +1002,7 @@ if($status == 0 || $status == " "){?>
 
 
                     </script>
-
-                    <!-- popup form edit start -->
+<!-- popup form edit start -->
 
                     <script>
                         // Get the modal
@@ -1267,13 +1032,9 @@ if($status == 0 || $status == " "){?>
                         }
                     </script>
 
-
-                    <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.min.js') ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.min.js') ?>"></script>
                     <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
-
-
-
-                    <script type="text/javascript">
+<script type="text/javascript">
 
                         //validation for edit email formate form
 
@@ -1345,10 +1106,7 @@ if($status == 0 || $status == " "){?>
                     </script>
 
                     <!-- javascript validation End -->
-
-
-
-                    <!-- post like script start -->
+ <!-- post like script start -->
 
                     <script type="text/javascript">
                         function post_like(clicked_id)
@@ -1375,8 +1133,7 @@ if($status == 0 || $status == " "){?>
                     </script>
 
                     <!--post like script end -->
-
-                    <!-- comment like script start -->
+<!-- comment like script start -->
 
                     <script type="text/javascript">
                         function comment_like(clicked_id)
@@ -1413,8 +1170,7 @@ if($status == 0 || $status == " "){?>
                     <!--comment like script end -->
 
                     <!-- comment delete script start -->
-
-                    <script type="text/javascript">
+<script type="text/javascript">
 
                         function comment_delete(clicked_id) {
                             $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='comment_deleted(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
@@ -1446,8 +1202,7 @@ if($status == 0 || $status == " "){?>
                         }
 
                     </script>
-
-                    <script type="text/javascript">
+<script type="text/javascript">
                         function comment_deletedtwo(clicked_id)
                         {
                             var post_delete1 = document.getElementById("post_deletetwo");
@@ -1488,8 +1243,7 @@ if($status == 0 || $status == " "){?>
 
                     <!--comment delete script end -->
 
-
-                    <!-- comment insert script start -->
+<!-- comment insert script start -->
                     <!-- insert comment using comment button-- > 
                     <!-- insert comment using enter -->
                     <script type="text/javascript">
@@ -1600,8 +1354,7 @@ if($status == 0 || $status == " "){?>
                         }
 
                     </script>
-
-                    <script type="text/javascript">
+<script type="text/javascript">
 
 //                        function entercomment(clicked_id)
 //                        {
@@ -1737,8 +1490,7 @@ if($status == 0 || $status == " "){?>
                     <!--comment insert script end -->
 
                     <!-- comment edit script start -->
-
-                    <!-- comment edit box start-->
+<!-- comment edit box start-->
                     <script type="text/javascript">
 
                         function comment_editbox(clicked_id) {
@@ -1842,8 +1594,7 @@ if($status == 0 || $status == " "){?>
                     </script>
 
                     <!--comment edit box end-->
-
-                    <!-- comment edit insert start -->
+<!-- comment edit insert start -->
                     <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
                     <script type="text/javascript">
                         //                        function edit_comment(abc)
@@ -1903,9 +1654,7 @@ if($status == 0 || $status == " "){?>
                             });
                         }
                     </script>
-
-
-                    <script type="text/javascript">
+<script type="text/javascript">
 
                         //                        function commentedit(abc)
                         //                        {
@@ -1980,8 +1729,7 @@ if($status == 0 || $status == " "){?>
                         }
                     </script>
 
-
-                    <script type="text/javascript">
+<script type="text/javascript">
                         //                        function edit_commenttwo(abc)
                         //                        {
                         //                            var post_comment_edit = document.getElementById("editcommenttwo" + abc);
@@ -2038,9 +1786,7 @@ if($status == 0 || $status == " "){?>
                             });
                         }
                     </script>
-
-
-                    <script type="text/javascript">
+<script type="text/javascript">
 
                         //                        function commentedittwo(abc)
                         //                        {
@@ -2123,8 +1869,7 @@ if($status == 0 || $status == " "){?>
                     </script>
 
                     <!--comment edit insert script end -->
-
-                    <!-- hide and show data start-->
+<!-- hide and show data start-->
                     <script type="text/javascript">
                         function commentall(clicked_id) {
                             var x = document.getElementById('threecomment' + clicked_id);
@@ -2165,7 +1910,6 @@ if($status == 0 || $status == " "){?>
                     </script>
                     <!-- hide and show data end-->
 
-
                     <!-- popup box for post start -->
 
                     <script>
@@ -2198,7 +1942,7 @@ if($status == 0 || $status == " "){?>
 
                     <!-- popup form end-->
 
-                    <script>
+<script>
                         /* When the user clicks on the button, 
                          toggle between hiding and showing the dropdown content */
                         function myFunction(clicked_id) {
@@ -2220,9 +1964,7 @@ if($status == 0 || $status == " "){?>
                             }
                         }
                     </script>
-
-
-                    <!-- further and less -->
+ <!-- further and less -->
                     <script>
                         $(function () {
                             var showTotalChar = 200, showChar = "More", hideChar = "less";
@@ -2251,9 +1993,7 @@ if($status == 0 || $status == " "){?>
                         });
                     </script>
 
-
-
-                    <!-- multi image add post khyati start -->
+<!-- multi image add post khyati start -->
 
                     <script type="text/javascript">
                         //alert("a");
@@ -2335,9 +2075,7 @@ if($status == 0 || $status == " "){?>
                             document.getElementById('editpostsubmit' + abc).style.display = 'block';
                         }
                     </script>
-
-
-                    <script type="text/javascript">
+<script type="text/javascript">
                         function edit_postinsert(abc)
                         {
 
@@ -2381,11 +2119,7 @@ if($status == 0 || $status == " "){?>
 
                         }
                     </script>
-
-
-
-                    <!-- edit post end -->
-                    <!-- save post start -->
+<!-- save post start -->
 
                     <script type="text/javascript">
                         function save_post(abc)
@@ -2407,8 +2141,7 @@ if($status == 0 || $status == " "){?>
                     </script>
 
                     <!-- save post end -->
-
-                    <!-- remove save post start -->
+<!-- remove save post start -->
                     <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
 
                     <script type="text/javascript">
@@ -2421,8 +2154,7 @@ if($status == 0 || $status == " "){?>
                         }
 
                     </script>
-
-                    <script type="text/javascript">
+<script type="text/javascript">
                         function remove_post(abc)
                         {
 
@@ -2441,11 +2173,7 @@ if($status == 0 || $status == " "){?>
 
                         }
                     </script>
-
-                    <!-- remove save post end -->
-
-
-                    <!-- remove particular user post start -->
+ <!-- remove particular user post start -->
 
                     <script type="text/javascript">
 
@@ -2456,8 +2184,7 @@ if($status == 0 || $status == " "){?>
                             $('#bidmodal').modal('show');
                         }
 
-                    </script>
-                    <script type="text/javascript">
+                    </script><script type="text/javascript">
                         function del_particular_userpost(abc)
                         {
                             $.ajax({
@@ -2480,12 +2207,11 @@ if($status == 0 || $status == " "){?>
                     <!-- remove particular user post end -->
 
 
-                    <!-- follow user script start -->
 
-  <script type="text/javascript">
+ <script type="text/javascript">
     function followuser(clicked_id)
     {
-
+      //alert(clicked_id);
         $.ajax({
             type: 'POST',
             url: '<?php echo base_url() . "artistic/follow" ?>',
@@ -2519,23 +2245,14 @@ if($status == 0 || $status == " "){?>
         });
     }
 </script>
-
-<!--follow like script end -->
-
-
-
-                    <script type="text/javascript">
+<script type="text/javascript">
                         function followclose(clicked_id)
                         {
                             $("#fad" + clicked_id).fadeOut(3000);
                         }
                     </script>
                     <!--follow like script end -->
-
-
-
-
-                    <!-- insert post validtation start -->
+<!-- insert post validtation start -->
 
                     <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
                     <script type="text/javascript">
@@ -2663,11 +2380,7 @@ if($status == 0 || $status == " "){?>
                         });
 
                     </script>
-
-                    <!-- insert validation end -->
-                    <!-- 
-                    textarea js -->
-                    <script type="text/javascript">
+<script type="text/javascript">
                         function contentedit(clicked_id) {
                             //var $field = $('#post_comment' + clicked_id);
                             //var data = $field.val();
@@ -2738,8 +2451,7 @@ if($status == 0 || $status == " "){?>
                         }
                     </script>
 
-
-                    <script type="text/javascript">
+<script type="text/javascript">
                         $('#file-fr').fileinput({
                             language: 'fr',
                             uploadUrl: '#',
@@ -2790,8 +2502,7 @@ if($status == 0 || $status == " "){?>
 
                         });
                     </script>
-
-                    <script type="text/javascript">
+<script type="text/javascript">
                         function likeuserlist(post_id) {
 
                             $.ajax({
@@ -2809,8 +2520,7 @@ if($status == 0 || $status == " "){?>
 
                         }
                     </script>
-
-                    <style type="text/css">
+<style type="text/css">
                         .likeduser{
                             width: 100%;
                             background-color: #00002D;
@@ -2845,4 +2555,3 @@ if($status == 0 || $status == " "){?>
                         }
 
                     </style>
-                    

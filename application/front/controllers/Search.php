@@ -355,9 +355,13 @@ class Search extends CI_Controller {
         }
         // $this->data['demo']=$result;
         // echo "<pre>";print_r($return_array);
-        $unique_items = array_unique($result);
-        // echo "<pre>";print_r($unique_items);die();
-        $this->data['demo'] = array_values($unique_items);
+        $results = array_unique($result);
+        foreach ($results as $key => $value) {
+            $result1[$key]['label'] = $value;
+            $result1[$key]['value'] = $value;
+        }
+
+        $this->data['demo'] = array_values($result1);
 
         $this->load->view('artistic/recommen_candidate', $this->data);
     }

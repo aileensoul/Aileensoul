@@ -871,7 +871,7 @@
 
                                                         <!-- <fieldset class=""> -->
                                                         <h6 style="font-size: 16px;">Degree :<span style="color:red">*</span></h6>
-                                                        <select name="degree[]" id="degree1" class="degree">
+                                                        <select name="degree[]" id="degree1" class="degree error">
                                                             <option value="0">Select your degree</option>
 
                                                             <?php

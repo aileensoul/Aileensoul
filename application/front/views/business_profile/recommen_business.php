@@ -523,6 +523,7 @@ if($status == 0 || $status == " "){?>
                                                     }
                                                 }
                                                 ?>
+                                                <h2> Posts </h2>
                                                 <?php
                                                 if ($description) {
 

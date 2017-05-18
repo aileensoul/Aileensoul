@@ -911,10 +911,15 @@ class Artistic extends MY_Controller {
 //data fatch using login user last post start
         $contition_array = array('art_post.user_id' => $userid, 'art_post.status' => '1', 'art_post.is_delete' => '0');
 
-        $this->data['art_userdata'] = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = 'art_post_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        $art_userdata = $this->data['art_userdata'] = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = 'art_post_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
+        if(count($art_userdata) > 0 ){
         $userabc[][] = $this->data['art_userdata'][0];
-
+        }else{
+           $userabc[] = $this->data['art_userdata'][0]; 
+        }
+        //echo "<pre>"; print_r($userabc); die();
+        //echo "<pre>"; print_r($skillabc);  die();
 
 //data fatch using login user last post end
 //echo count($skillabc);
@@ -923,17 +928,18 @@ class Artistic extends MY_Controller {
 //echo count($followerabc); 
 
 
-        if (count($skillabc) == 0 && count($userabc) != 0) {
+        if (count($skillabc) == 0 && count($userabc) != 0) { 
             $unique = $userabc;
-        } elseif (count($userabc) == 0 && count($skillabc) != 0) {
+        } elseif (count($userabc) == 0 && count($skillabc) != 0) { 
             $unique = $skillabc;
-        } elseif (count($userabc) != 0 && count($skillabc) != 0) {
+        } elseif (count($userabc) != 0 && count($skillabc) != 0) { 
             $unique = array_merge($skillabc, $userabc);
         }
 
+        //echo "<pre>"; print_r($userabc); die();
         //echo count($followerabc);  echo count($unique); die();
 
-        if (count($followerabc) == 0 && count($unique) != 0) {
+        if (count($followerabc) == 0 && count($unique) != 0) { 
             $unique_user = $unique;
         } elseif (count($unique) == 0 && count($followerabc) != 0) {
 
@@ -957,7 +963,7 @@ class Artistic extends MY_Controller {
         //     }
         // }  
 
-        // echo "<pre>"; print_r($unique_user); die();
+        //echo "<pre>"; print_r($unique); die();
 
         foreach ($unique_user as $key1 => $val1) {
             foreach ($val1 as $ke => $va) {

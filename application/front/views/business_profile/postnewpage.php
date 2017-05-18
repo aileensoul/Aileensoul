@@ -1273,11 +1273,11 @@ if(count($databus1) > 1){
 
 
                                                             <div class="">
-                                                                <div class="col-md-10 inputtype-comment" style="padding-left: 7px;">
+                                                                <div class="col-md-12 inputtype-comment" style="width: 80%; padding-left: 7px;">
                                                                     <div contenteditable="true" class="editable_text" name="<?php echo $busdata['image_id']; ?>" id="<?php echo "post_imgcomment" . $busdata['image_id']; ?>" placeholder="Type Comment ..." onkeyup="entercommentimg(<?php echo $busdata['image_id']; ?>)"></div>
                                                                 </div>
 
-                                                                <div class="col-md-1 comment-edit-butn">                                      
+                                                                <div class="comment-edit-butn">                                      
                                                                     <button id="<?php echo $busdata['image_id']; ?>" onClick="insert_commentimg(this.id)">Comment</button>
 
                                                                 </div>
@@ -1732,9 +1732,9 @@ if(count($databus1) > 1){
 
 
                                     <div class="">
-                                        <div class="col-md-10 inputtype-comment" style="    padding-left: 7px;">
+                                        <div class="col-md-12 inputtype-comment" style="  width: 80%;  padding-left: 7px;">
                                             <div contenteditable="true" class="editable_text" name="<?php echo $busienss_data[0]['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $busienss_data[0]['business_profile_post_id']; ?>" placeholder="Type Message ..." value= "" onClick="entercomment(<?php echo $busienss_data[0]['business_profile_post_id']; ?>)"></div></div>
-                                        <div class="col-md-1 comment-edit-butn">        
+                                        <div class="comment-edit-butn">        
                                             <button id="<?php echo $busienss_data[0]['business_profile_post_id']; ?>" onClick="insert_comment(this.id)">Comment</button></div>
                                     </div>
 

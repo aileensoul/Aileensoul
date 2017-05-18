@@ -4,11 +4,8 @@
 
 <!--post save success pop up style strat -->
 <style>
-  
-    .okk{
-        text-align: center;
-    }
-
+.profile-box{width: 32%;}
+.profile-box-bui-menu li a{margin-right: 2.5px;}
     .pop_content .okbtn{
         position: absolute;
         transition: all 200ms;
@@ -765,7 +762,7 @@
                     <!-- cover pic end -->
 
                     <!-- popup start -->
-                    <div class="col-md-7 col-sm-7 all-form-content">
+                    <div class="col-md-7 col-sm-7 all-form-content fixed_left">
 
                         <div class="post-editor col-md-12">
                             <div class="main-text-area col-md-12">
@@ -828,12 +825,14 @@
                     </div>
                     <!-- popup end -->
 
-                    <div class="col-md-7 col-sm-7 all-form-content">
+                    <div class="col-md-7 col-sm-7 all-form-content fixed_left">
 
 
 
                         <!--like comment start -->
+
                         <?php
+                        
                         foreach ($finalsorting as $row) {
 
                             $userid = $this->session->userdata('aileenuser');
@@ -845,7 +844,8 @@
 
                             if (!in_array($userid, $likeuserarray)) {
                                 ?>
-                                <div class="col-md-12 col-sm-12 post-design-box"   id="<?php echo "removepost" . $row['art_post_id']; ?>">
+                                <div id="<?php echo "removepost" . $row['art_post_id']; ?>">
+                                <div class="col-md-12 col-sm-12 post-design-box">
                                     <div class="post_radius_box">
                                         <div class="post-design-top col-md-12" id= "showpost">  
                                             <div class="post-design-pro-img col-md-2"> 
@@ -1505,7 +1505,7 @@
                                                                             echo '</br>';
                                                                             ?>
                                                                         </p></div></div>
-                                                            </div>
+                                                            </div> </div>
                                                             <?php
                                                         }
                                                     }
