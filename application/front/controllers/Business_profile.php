@@ -622,7 +622,9 @@ class Business_profile extends MY_Controller {
             $step = $userdata[0]['business_step'];
 
             if ($step == 4 || ($step >= 1 && $step <= 4) || $step > 4) {
-                $this->data['image1'] = $userdata[0]['business_profile_image'];
+        $contition_array = array('user_id' => $userid, 'is_delete' => '0');
+        $this->data['busimage'] = $this->common->select_data_by_condition('bus_image', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        //echo '<pre>'; print_r($busimage); die();
             }
         }
 
@@ -673,41 +675,35 @@ $contition_array = array('status' => '1', 'is_deleted' => '0');
     public function image_insert() {
 
         $userid = $this->session->userdata('aileenuser');
-      // echo '<pre>';
-       // print_r($_POST);
-      //  print_r($_FILES); die();
+      $count1 = count($this->input->post('filedata'));
+     
+      for ($x = 0; $x < $count1; $x++) {
+      if($_POST['filedata'][$x] == 'old'){ 
+         
+          $data = array(
+                    'image_name' => $_POST['filename'][$x],
+                   );
+                  $updatdata = $this->common->update_data($data, 'bus_image', 'image_id', $_POST['imageid'][$x]);
+            }
+            
+            if($_POST['filedata'][$x]){
+                  $data = array(
+                    'modified_date' => date('Y-m-d', time()),
+                    'business_step' => 4
+                );
+           
+            $updatdata = $this->common->update_data($data, 'business_profile', 'user_id', $userid);
+        }
 
+        }
+        
+       
+        $contition_array = array('user_id' => $userid, 'is_delete' => '0');
+        $userdatacon = $this->common->select_data_by_condition('bus_image', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-        $contition_array = array('user_id' => $userid, 'is_deleted' => '0', 'status' => '1');
-        $userdatacon = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
-
-//        exit;
         if ($this->input->post('next') || $this->input->post('submit')) {
 
-            /* if (empty($_FILES['image1']['name'])) {
-
-              } else { */
-//            if (count($_FILES) > 0) {
-//                $config['upload_path'] = 'uploads/business_profile_images/';
-//                $config['allowed_types'] = 'jpg|jpeg|png|gif';
-//
-//                $config['file_name'] = $_FILES['image1']['name'];
-//
-//
-//                //Load upload library and initialize configuration
-//                $this->load->library('upload', $config);
-//                $this->upload->initialize($config);
-//
-//                if ($this->upload->do_upload('image1')) {
-//                    $uploadData = $this->upload->data();
-//
-//                    $picture = $uploadData['file_name'];
-//                } else {
-//                    $picture = '';
-//                }
-//            }
-
+          
          // changes start 17-5 
             
              $config = array(
@@ -747,23 +743,29 @@ $contition_array = array('status' => '1', 'is_deleted' => '0');
             
             
             
-            if ($uploadData[$i]['file_name']) {//echo 1;
-
+            if ($uploadData[$i]['file_name']) {
+//echo $uploadData[$i]['file_name'];
                 $data = array(
-                    'business_profile_image' => $uploadData[$i]['file_name'],
+                    'image_name' => $uploadData[$i]['file_name'],
+                    'user_id' => $userid,
+                    'created_date' => date('y-m-d h:i:s'),
+                    'is_delete' => 0
+                );
+                
+                 $insert_id = $this->common->insert_data_getid($data, 'bus_image');
+                 } 
+                 
+                 
+                 if($uploadData[$i]['file_name']){
+                  $data = array(
                     'modified_date' => date('Y-m-d', time()),
                     'business_step' => 4
-                );
-            } else {// echo 2;
-
-                $data = array(
-                    'business_profile_image' => $this->input->post('filename'),
-                    'modified_date' => date('Y-m-d', time()),
-                    'business_step' => 4
-                );
-            }
+                   );
+           
             $updatdata = $this->common->update_data($data, 'business_profile', 'user_id', $userid);
-        } //die();
+        }
+        
+        } 
         // Multiple Image insert code End
             
             
@@ -771,36 +773,20 @@ $contition_array = array('status' => '1', 'is_deleted' => '0');
             
             
             
-//            if ($picture) {
-//
-//                $data = array(
-//                    'business_profile_image' => $uploadData[$i]['file_name'],
-//                    'modified_date' => date('Y-m-d', time()),
-//                    'business_step' => 4
-//                );
-//            } else {
-//
-//                $data = array(
-//                    'business_profile_image' => $this->input->post('filename'),
-//                    'modified_date' => date('Y-m-d', time()),
-//                    'business_step' => 4
-//                );
-//            }
-//            $updatdata = $this->common->update_data($data, 'business_profile', 'user_id', $userid);
-//
-//            if ($updatdata) {
-//                $this->session->set_flashdata('success', 'Image updated successfully');
-//              
-//              if($userdatacon[0]['business_step'] == 4){
-//                redirect('business_profile/business_resume', refresh);
-//               }
-//                else{
-//                  redirect('business_profile/business_profile_post', refresh);
-//                }
-//            } else {
-//                $this->session->flashdata('error', 'Your data not inserted');
-//                redirect('business_profile/image', refresh);
-//            }
+
+            if ($updatdata) {
+                $this->session->set_flashdata('success', 'Image updated successfully');
+              
+              if($userdatacon[0]['business_step'] == 4){
+                redirect('business_profile/business_resume', refresh);
+               }
+                else{
+                  redirect('business_profile/business_profile_post', refresh);
+                }
+            } else {
+                $this->session->flashdata('error', 'Your data not inserted');
+                redirect('business_profile/image', refresh);
+            }
         }
     }
 
@@ -6883,6 +6869,15 @@ $contition_array = array('status' => '1', 'is_deleted' => '0');
             echo '</a></div>';
         }
         echo '<div>';
+    }
+    
+    
+    public function bus_img_delete(){
+        $grade_id = $_POST['grade_id'];
+        $delete_data = $this->common->delete_data('bus_image', 'image_id', $grade_id);
+        if($delete_data){
+            echo 'ok';
+        }
     }
 
 }
