@@ -981,10 +981,16 @@
                                                                 ?>
                                                                 <div class="like_one_other" style="margin-left: 1px;">
                                                                     <?php
+
+                                                                    if($userid == $commnetcount[0]['user_id']){
+                                                                        echo "You";
+
+                                                                    }else{
                                                                     echo ucwords($art_fname);
                                                                     echo "&nbsp;";
                                                                     echo ucwords($art_lname);
                                                                     echo "&nbsp;";
+                                                                   }
                                                                     ?>
                                                                     <?php
                                                                     if (count($commnetcount) > 1) {
@@ -1022,10 +1028,15 @@
                                                             ?>
                                                             <div class="like_one_other" style="margin-left: 1px;">
                                                                 <?php
+                                                                if($userid == $commnetcount[0]['user_id']){
+                                                                    echo "You";
+
+                                                                }else{
                                                                 echo ucwords($art_fname);
                                                                 echo "&nbsp;";
                                                                 echo ucwords($art_lname);
                                                                 echo "&nbsp;";
+                                                                }
                                                                 ?>
                                                                 <?php
                                                                 if (count($commnetcount) > 1) {
@@ -1314,10 +1325,15 @@
                                             ?>
                                             <div class="like_one_other">
                                                 <?php
+                                                if($userid == $likelistarray[0]){
+                                                echo "You";
+
+                                                }else{
                                                 echo ucwords($art_fname);
                                                 echo "&nbsp;";
                                                 echo ucwords($art_lname);
                                                 echo "&nbsp;";
+                                                }
                                                 ?>
                                                 <?php
                                                 if (count($likelistarray) > 1) {
