@@ -1275,11 +1275,11 @@
                                                             ?>
                                                         </div>
                                                         <div class="">
-                                                            <div id="content" class="col-md-10 inputtype-comment" style="padding-left: 7px !important;">
+                                                            <div id="content" class="col-md-12 inputtype-comment" style="padding-left: 7px !important; width: 80%;">
                                                                 <div contenteditable="true" style="min-height:37px !important; margin-top: 0px!important" class="editable_text" name="<?php echo $artdata['image_id']; ?>"  id="<?php echo "post_commentimg" . $artdata['image_id']; ?>" placeholder="Type Message ..." onkeyup="entercommentimg(<?php echo $artdata['image_id']; ?>)"></div>
                                                             </div>
     <?php echo form_error('post_commentimg'); ?>
-                                                            <div class="col-md-1 comment-edit-butn">   
+                                                            <div class="comment-edit-butn">   
                                                                 <button id="<?php echo $artdata['image_id']; ?>" onClick="insert_commentimg(this.id)">Comment</button> 
                                                             </div>
                                                         </div>
@@ -1627,11 +1627,11 @@
                                         ?>
                                     </div>
                                     <div class="">
-                                        <div id="content" class="col-md-10 inputtype-comment" style="padding-left: 7px !important;">
+                                        <div id="content" class="col-md-12 inputtype-comment" style="width: 80%; padding-left: 7px !important;">
                                             <div contenteditable="true" style="min-height:37px !important; margin-top: 0px!important" class="editable_text" name="<?php echo $art_data[0]['art_post_id']; ?>"  id="<?php echo "post_comment" . $art_data[0]['art_post_id']; ?>" placeholder="Type Message ..." onClick="entercomment(<?php echo $art_data[0]['art_post_id']; ?>)"></div>
                                         </div>
 <?php echo form_error('post_comment'); ?>
-                                        <div class="col-md-1 comment-edit-butn">   
+                                        <div class=" comment-edit-butn">   
                                             <button id="<?php echo $art_data[0]['art_post_id']; ?>" onClick="insert_comment(this.id)">Comment</button> 
                                         </div>
                                     </div>
