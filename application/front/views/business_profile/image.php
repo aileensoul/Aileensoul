@@ -81,6 +81,7 @@
                                     <input type="file"  name="image1[]" id="image1" multiple/> 
 
                                     <?php if($image1){ ?>
+                                            <input type="hidden" name="filedata[]" id="filename" value="old">
                                             <input type="hidden" name="filename" id="filename" value="<?php echo $image1; ?>">
                                             <img src="<?php echo base_url(BUSINESSPROFILEIMAGE.$image1)?>" style="width:100px;height:100px;">
                                             <br/><br/>

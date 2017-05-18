@@ -673,9 +673,9 @@ $contition_array = array('status' => '1', 'is_deleted' => '0');
     public function image_insert() {
 
         $userid = $this->session->userdata('aileenuser');
-       echo '<pre>';
-        print_r($_POST);
-        print_r($_FILES); die();
+      // echo '<pre>';
+       // print_r($_POST);
+      //  print_r($_FILES); die();
 
 
         $contition_array = array('user_id' => $userid, 'is_deleted' => '0', 'status' => '1');
@@ -721,6 +721,7 @@ $contition_array = array('status' => '1', 'is_deleted' => '0');
         $files = $_FILES;
         $count = count($_FILES['image1']['name']);
 
+         
 
         for ($i = 0; $i < $count; $i++) {
 
