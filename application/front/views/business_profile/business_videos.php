@@ -4,6 +4,62 @@
 <style type="text/css">
     #popup-form img{display: none;}
 </style>
+
+<style>
+    .okk{
+        text-align: center;
+    }
+
+    .pop_content .okbtn{
+        position: absolute;
+        transition: all 200ms;
+        font-size: 16px;
+        text-decoration: none;
+        color: #fff;
+        padding: 8px 18px;
+        background-color: #0A2C5D;
+        left: 170px;
+        margin-top: 8px;
+        width: 100px; 
+        border-radius: 8px;
+    }
+
+
+    .pop_content .cnclbtn {
+        position: absolute;
+        transition: all 200ms;
+        font-size: 16px;
+        text-decoration: none;
+        color: #fff;
+        padding: 8px 18px;
+        background-color: #0A2C5D;
+        right: 170px;
+        margin-top: 8px;
+        width: 100px;
+        border-radius: 8px;
+    }
+
+    .popup .pop_content {
+        text-align: center;
+        margin-top: 40px;
+
+    }
+    .model_ok_cancel{
+        width:200px !important;
+    }
+
+    /*
+        @media screen and (max-width: 700px){
+            .box{
+                width: 70%;
+            }
+            .popup{
+                width: 70%;
+            }
+        } */
+
+
+</style>
 <!--post save success pop up style end -->
 
 <link rel="stylesheet" href="<?php echo base_url('css/bootstrap.min.css'); ?>" />
@@ -458,7 +514,7 @@ label.cameraButton input[accept*="camera"] {
 </section>
 <!-- Bid-modal-2  -->
                         <div class="modal fade message-box" id="bidmodal-2" role="dialog">
-                            <div class="modal-dialog modal-lm">
+                            <div class="modal-dialog modal-lm" style="z-index: 9999;">
                                 <div class="modal-content">
                                     <button type="button" class="modal-close" data-dismiss="modal">&times;</button>       
                                     <div class="modal-body">

@@ -634,7 +634,7 @@ label.cameraButton input[accept*="camera"] {
 </section>
 <!-- Bid-modal-2  -->
                         <div class="modal fade message-box" id="bidmodal-2" role="dialog">
-                            <div class="modal-dialog modal-lm">
+                            <div class="modal-dialog modal-lm" style="z-index: 9999;">
                                 <div class="modal-content">
                                     <button type="button" class="modal-close" data-dismiss="modal">&times;</button>       
                                     <div class="modal-body">
