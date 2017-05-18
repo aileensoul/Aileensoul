@@ -2224,22 +2224,23 @@ class Artistic extends MY_Controller {
 
 // end of user lidt
     //deactivate user start
-    public function deactivate($id) {
+    public function deactivate() {
 
+        $id = $_POST['id'];
         $data = array(
             'status' => 0
         );
 
         $update = $this->common->update_data($data, 'art_reg', 'user_id', $id);
 
-        if ($update) {
+        // if ($update) {
 
-            $this->session->set_flashdata('success', 'You are deactivate successfully.');
-            redirect('dashboard', 'refresh');
-        } else {
-            $this->session->flashdata('error', 'Sorry!! Your are not deactivate!!');
-            redirect('artistic', 'refresh');
-        }
+        //     $this->session->set_flashdata('success', 'You are deactivate successfully.');
+        //     redirect('dashboard', 'refresh');
+        // } else {
+        //     $this->session->flashdata('error', 'Sorry!! Your are not deactivate!!');
+        //     redirect('artistic', 'refresh');
+        // }
     }
 
 // deactivate user end
