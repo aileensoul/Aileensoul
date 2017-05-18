@@ -452,7 +452,7 @@ $('#submit').click(function (e) {
      
      if(data == ""){ 
       return false;
-         }
+  }
   $("#message").html("");
   $field.addClass('disabled').attr('disabled', 'disabled');
   sendChat(data, function (){
