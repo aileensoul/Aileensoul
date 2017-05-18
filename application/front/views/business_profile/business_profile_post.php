@@ -784,7 +784,7 @@
                         </div>
                     </div>
                     <!-- popup end -->    
-                    <div class="col-md-7 col-sm-7 all-form-content ">
+                    <div class="col-md-7 col-sm-7 all-form-content  fixed_left" >
                         <!-- body content start-->
                        
                         <?php

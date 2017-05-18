@@ -752,7 +752,7 @@
                     <!-- cover pic end -->
 
                     <!-- popup start -->
-                    <div class="col-md-7 col-sm-7 all-form-content">
+                    <div class="col-md-7 col-sm-7 all-form-content fixed_left">
 
                         <div class="post-editor col-md-12">
                             <div class="main-text-area col-md-12">
@@ -838,7 +838,7 @@
                     </div>
                     <!-- popup end -->
 
-                    <div class="col-md-7 col-sm-7 all-form-content">
+                    <div class="col-md-7 col-sm-7 all-form-content fixed_left">
 
 
 
