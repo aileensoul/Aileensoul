@@ -796,7 +796,8 @@
                             $likeuserarray = explode(',', $businessdelete[0]['delete_post']);
                             if (!in_array($userid, $likeuserarray)) {
                                 ?>
-                                <div class="col-md-12 col-sm-12 post-design-box"  id="<?php echo "removepost" . $row['business_profile_post_id']; ?>">
+                                <div id="<?php echo "removepost" . $row['business_profile_post_id']; ?>">
+                                <div class="col-md-12 col-sm-12 post-design-box">
                                     <div  class="post_radius_box">  
                                         <div class="post-design-top col-md-12" >  
                                             <div class="post-design-pro-img col-md-2"> 
@@ -1441,7 +1442,7 @@
                                         </div>
                                         <!-- comment end -->
                                     </div>
-                                </div>
+                                </div></div>
                                 <?php
                             }
                         }
