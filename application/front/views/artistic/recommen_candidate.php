@@ -145,7 +145,8 @@
       
       <li style="display: block;">
         <a  class="color-search" style="font-size: 16px;" href="" title="IAS">
-               <?php  if($key['art_yourart']){echo $key['art_yourart']; }else {echo PROFILENA;}?>
+
+               
            </a>
        </li>
          <li style="display: block;">
@@ -179,7 +180,10 @@
        </li>
        <li style="display: block;">
          <a  class="color-search" href="">
-         <?php echo $key['country'].$key['city']; ?>
+         <?php $country = $this->db->get_where('countries', array('country_id' => $key['art_country']))->row()->country_name;
+         $city = $this->db->get_where('cities', array('city_id' => $key['art_city']))->row()->city_name;
+         ?>
+         <?php echo $country.",".$city; ?>
          </a>
        </li>
       

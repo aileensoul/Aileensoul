@@ -1207,8 +1207,13 @@
                                                     ?>
                                                     <div class="like_one_other">
                                                         <?php
+                                                        if($userid == $value){
+                                                            echo "You";
+                                                             echo "&nbsp;";
+                                                        }else{
                                                         echo ucwords($business_fname1);
                                                         echo "&nbsp;";
+                                                         }
                                                         ?>
                                                         <?php
                                                         if (count($likelistarray) > 1) {

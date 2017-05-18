@@ -1022,11 +1022,16 @@ if(count($databus1) > 1){
                                                                     $countlike = count($commneteduser) - 1;
                                                                     $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $commneteduser[0]['user_id'], 'status' => 1))->row()->company_name;
                                                                     ?>
-                                                                    <div class="like_one_other_img">
-                                                                        <?php
-                                                                        echo ucwords($business_fname1);
-                                                                        echo "&nbsp;";
-                                                                        ?>
+                                 <div class="like_one_other_img">
+                                <?php
+                                if($userid == $commneteduser[0]['user_id']){
+                                echo "You";
+                                echo "&nbsp;";
+                                }else{
+                                echo ucwords($business_fname1);
+                                echo "&nbsp;";
+                                }
+                                ?>
                                                                         <?php
                                                                         if (count($commneteduser) > 1) {
                                                                             ?>
@@ -1412,8 +1417,13 @@ if(count($databus1) > 1){
                                             ?>
                                             <div class="like_one_other">
                                                 <?php
+                                                if($userid == $value){
+                                                echo "You";
+                                                echo "&nbsp;";
+                                                }else{
                                                 echo ucwords($business_fname1);
                                                 echo "&nbsp;";
+                                                 }
                                                 ?>
                                                 <?php
                                                 if (count($likelistarray) > 1) {

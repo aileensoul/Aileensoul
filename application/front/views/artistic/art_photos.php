@@ -852,13 +852,19 @@ if ($status == 0 || $status == " ") {
                                                                       $art_fname = $this->db->get_where('art_reg', array('user_id' => $commnetcount[0]['user_id'], 'status' => 1))->row()->art_name;
                                                                       $art_lname = $this->db->get_where('art_reg', array('user_id' => $commnetcount[0]['user_id'], 'status' => 1))->row()->art_lastname;
                                                                         ?>
-                                                                        <div class="like_one_other">
-                                                                            <?php
-                                                                            echo ucwords($art_fname);
-                                                                            echo "&nbsp;";
-                                                                            echo ucwords($art_lname);
-                                                                            echo "&nbsp;";
-                                                                            ?>
+                <div class="like_one_other">
+                <?php
+
+                if($userid == $commnetcount[0]['user_id']){
+
+                    echo "You";
+                }else{
+                     echo ucwords($art_fname);
+                      echo "&nbsp;";
+                        echo ucwords($art_lname);
+                    echo "&nbsp;";
+                    }
+                    ?>
                                                                             <?php
                                                                             if (count($commnetcount) > 1) {
                                                                                 echo "and ";

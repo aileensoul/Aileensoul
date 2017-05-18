@@ -3204,7 +3204,13 @@ $contition_array = array('status' => '1', 'is_deleted' => '0');
 
                 // $cmtlikeuser .= '<div class="fl" style=" padding-left: 22px;" >';
                 $cmtlikeuser .= '<div class="like_one_other">';
+
+                if($userid == $likelistarray[0]){
+                 $cmtlikeuser .= 'You';
+                }else{
                 $cmtlikeuser .= '' . ucwords($business_fname1) . '&nbsp;';
+                }
+
                 $cmtlikeuser .= '</div>';
                 if (count($likelistarray) > 1) {
 
