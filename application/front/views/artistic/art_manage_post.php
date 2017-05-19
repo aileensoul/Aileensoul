@@ -1131,7 +1131,7 @@ responsive image design start -->
                                             </ul> 
                                         </div>  
 <div class="dropdown2">
-    <a onClick="mynFunction(<?php echo $row['art_post_id']; ?>)" id="post_mod_<?php echo $row['art_post_id']; ?>" class="dropbtn2 dropbtn2 fa fa-ellipsis-v"></a>
+         <a onClick="myFunction(<?php echo $row['art_post_id']; ?>)" class="dropbtn2 dropbtn2 fa fa-ellipsis-v"></a>
     <div id="<?php echo "myDropdown" . $row['art_post_id']; ?>" class="dropdown-content2">
 
        <?php if($row['posted_user_id'] != 0){
@@ -3225,9 +3225,8 @@ responsive image design start -->
 <script>
     /* When the user clicks on the button, 
      toggle between hiding and showing the dropdown content */
-    function mynFunction(clicked_id) {
+    function myFunction(clicked_id) {
         document.getElementById('myDropdown' + clicked_id).classList.toggle("show");
-        
     }
 
     // Close the dropdown if the user clicks outside of it
@@ -4033,19 +4032,16 @@ responsive image design start -->
 <script type="text/javascript">
     $('body').on("click", "*", function (e) {
         var classNames = $(e.target).attr("class").toString().split(' ').pop();
-        var idNames = $(e.target).attr("id").toString().split('_').pop();
-        
+//        alert(classNames);
+        $('div[id^=myDropdown]').hide().removeClass('show');
+//        $('#myModal3').hide();
         
         if (classNames == 'fa-ellipsis-v') {
-            //$('div[id^=myDropdown]').show().addClass('show');
-            
-//            $('div[id^=myDropdown]').toggle("show");
-            $('div[id^=myDropdown]').hide().removeClass('show');
-            document.getElementById('myDropdown' + idNames).classList.toggle("show");
+            $('div[id^=myDropdown]').show().addClass('show');
         }
-        else{
-            $('div[id^=myDropdown]').hide().removeClass('show');
-        }
+//        else if (classNames == 'popup-text' || classNames == 'modal-post' ) {
+//            $('#myModal3').show();
+//        }
 
     });
 
