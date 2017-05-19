@@ -9,7 +9,7 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
 <link rel="stylesheet" href="<?php echo base_url('css/bootstrap.min.css') ?>" />
 <?php if ($freepostdata[0]['user_id'] && $freepostdata[0]['free_post_step'] == '7'){ 
-     echo $freelancer_post_header2;; } ?>
+     echo $freelancer_post_header2; } ?>
 
 <!-- End header -->
 

@@ -14,7 +14,7 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
 <!-- pallavi code start 15-4 -->
-<?php if ($freehiredata[0]['user_id'] && $freehiredata[0]['free_hire_step'] == '3'){ 
+<?php if ($freehiredata[0]['free_hire_step'] == '3'){ 
      echo $freelancer_hire_header2; } ?> 
      <!-- pallavi code end 15-4 -->
 

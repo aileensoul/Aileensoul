@@ -71,7 +71,7 @@ else
 	$db['default']['hostname'] = 'aileensoul.cbvikcrdjma8.us-west-2.rds.amazonaws.com';
 	$db['default']['username'] = 'aileensoul';
 	$db['default']['password'] = 'aileensouldb';
-	$db['default']['database'] = 'aileensoul';
+	$db['default']['database'] = 'aileensoul'; // for developer : aileensouldeveloper
 	$db['default']['dbdriver'] = 'mysqli';
 	$db['default']['dbprefix'] = 'ailee_';
 	$db['default']['pconnect'] = TRUE;

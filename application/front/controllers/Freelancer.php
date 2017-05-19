@@ -2259,7 +2259,10 @@ $this->load->view('freelancer/freelancer_hire/freelancer_save', $this->data);
         $join_str[0]['join_type'] = '';
 
        $contition_array = array('freelancer_apply.job_delete' => 1, 'freelancer_apply.user_id' => $userid, 'freelancer_apply.job_save' => 2);
-        $this->data['postdetail'] = $this->common->select_data_by_condition('freelancer_apply', $contition_array, $data = '*', $sortby = 'app_id', $orderby = '', $limit = '', $offset = '', $join_str, $groupby ='');
+        $this->data['postdetail'] = $this->common->select_data_by_condition('freelancer_apply', $contition_array, $data = '*', $sortby = 'freelancer_apply.modify_date', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby ='');
+
+
+        // code for search
 
         $contition_array = array('status' => '1', 'is_delete' => '0');
 

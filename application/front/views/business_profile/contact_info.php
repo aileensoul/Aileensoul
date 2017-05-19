@@ -11,7 +11,9 @@
 <?php echo $header; ?>
     <!-- END HEADER -->
 <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
-    <?php echo $business_header2; ?>
+    <?php if($businessdata[0]['business_step'] == 4){?>
+<?php echo $business_header2; ?>
+<?php }?>
     <body class="page-container-bg-solid page-boxed">
 
       <section>

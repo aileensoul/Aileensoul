@@ -116,14 +116,15 @@
                                     <div class="job-contact-frnd ">
 <!-- main data start -->
                             
-                                       <div class="profile-job-post-title-inside clearfix" style="border: 1px solid #d9d9d9;">
+                                       <div class="profile-job-post-title-inside clearfix">
+                                       <h3 style="margin: 20px 0;">Profile</h3>
                                        <?php if($artuserdata){
                               foreach ($artuserdata as $key) {
                                 if($key['art_id']){
                               
                               ?>
 
-                                                 <div class="profile-job-profile-button clearfix box_search_module search" style="height: 16%;">
+                                                 <div class="profile-job-profile-button clearfix box_search_module search" style="height: 14%;border: 1px solid #efefef;margin-bottom: 10px;">
                                                             
      <div class="profile-job-post-location-name-rec">
           <div class="module_Ssearch" style="display: inline-block; float: left;">
@@ -217,12 +218,12 @@ if($status == 0 || $status == " "){?>
 
      </div>
        </div>
-       <?php }}?><h3>Posts</h3>
+       <?php }}?><h3 style="margin: 20px 0;">Posts</h3>
        <?php foreach ($artuserdata as $key) {
          if($key['art_description']){
        
        ?>
-       <div class="col-md-12 col-sm-12 post-design-box search" id="removepost5" style="margin-bottom: 0px; box-shadow: none; border: none;">
+       <div class="col-md-12 col-sm-12 post-design-box search" id="removepost5" style=" box-shadow: none;">
                                     <div class="post_radius_box">  
                                         <div class="post-design-search-top col-md-12" style="background-color: none!important;">  
                                             <div class="post-design-pro-img col-md-2"> 
