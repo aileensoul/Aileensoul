@@ -8,7 +8,10 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
     <!-- start header -->
 <?php echo $header; ?>
+
+<?php if($recdata[0]['re_step'] == 3){?>
     <?php echo $recruiter_header2; ?>
+<?php }?>
     <!-- END HEADER -->
     <body class="page-container-bg-solid page-boxed">
 
