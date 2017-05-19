@@ -48,9 +48,9 @@
                     <div class="col-md-3 col-sm-4">
                         <div class="left-side-bar">
                             <ul>
-                                <li><a href="<?php echo base_url('business_profile/business_information_update'); ?>">Business information</a></li> 
+                                <li><a href="<?php echo base_url('business_profile/business_information_update'); ?>">Business Information</a></li> 
 
-                                <li <?php if($this->uri->segment(1) == 'business_profile'){?> class="active" <?php } ?>><a href="#">Contact information</a></li>
+                                <li <?php if($this->uri->segment(1) == 'business_profile'){?> class="active" <?php } ?>><a href="#">Contact Information</a></li>
 
                                 <li class="<?php if($businessdata[0]['business_step'] < '2'){echo "khyati";}?>"><a href="<?php echo base_url('business_profile/description'); ?>">Description</a></li>
 
@@ -76,7 +76,7 @@
 
                         <div class="common-form">
                         <h3>
-                            Contact information
+                            Contact Information
                         </h3>
                         
                             <?php echo form_open(base_url('business_profile/contact_information_insert'), array('id' => 'contactinfo','name' => 'contactinfo','class' => 'clearfix')); ?>

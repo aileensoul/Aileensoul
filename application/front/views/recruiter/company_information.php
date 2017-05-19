@@ -47,9 +47,9 @@
                         <div class="left-side-bar">
                             <ul>
                                 
-                                <li><a href="<?php echo base_url('recruiter/rec_basic_information'); ?>">Basic information</a></li>
-                             <li <?php if($this->uri->segment(1) == 'recruiter'){?> class="active" <?php } ?>><a href="#">Company information</a></li>
-                             <li class="<?php if($recdata[0]['re_step'] < '2'){echo "khyati";}?>"><a href="<?php echo base_url('recruiter/rec_comp_address'); ?>">Company address</a></li>
+                                <li><a href="<?php echo base_url('recruiter/rec_basic_information'); ?>">Basic Information</a></li>
+                             <li <?php if($this->uri->segment(1) == 'recruiter'){?> class="active" <?php } ?>><a href="#">Company Information</a></li>
+                             <li class="<?php if($recdata[0]['re_step'] < '2'){echo "khyati";}?>"><a href="<?php echo base_url('recruiter/rec_comp_address'); ?>">Company Address</a></li>
                                 
                             </ul>
                         </div>
@@ -67,7 +67,7 @@
                     </div>
                      <!--- middle section start -->
 			    <div class="common-form">
-                <h3>Company information</h3>
+                <h3>Company Information</h3>
 				 <?php echo form_open(base_url('recruiter/company_info_store'), array('id' => 'basicinfo','name' => 'basicinfo','class' => 'clearfix')); ?>
                                 <!-- <div>
                                    <span style="color:#7f7f7e;padding-left: 8px;">( </span><span style="color:red">*</span><span style="color:#7f7f7e"> )</span> <span style="color:#7f7f7e">Indicates required field</span>

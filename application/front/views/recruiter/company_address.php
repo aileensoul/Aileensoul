@@ -51,9 +51,9 @@
                         <div class="left-side-bar">
                             <ul>
                                 
-                                <li><a href="<?php echo base_url('recruiter/rec_basic_information'); ?>">Basic information</a></li>
-                             <li><a href="<?php echo base_url('recruiter/company_info_form'); ?>">Company information</a></li>
-                             <li <?php if($this->uri->segment(1) == 'recruiter'){?> class="active" <?php } ?>><a href="#">Company address</a></li>
+                                <li><a href="<?php echo base_url('recruiter/rec_basic_information'); ?>">Basic Information</a></li>
+                             <li><a href="<?php echo base_url('recruiter/company_info_form'); ?>">Company Information</a></li>
+                             <li <?php if($this->uri->segment(1) == 'recruiter'){?> class="active" <?php } ?>><a href="#">Company Address</a></li>
                             </ul>
                         </div>
                     </div>
@@ -71,7 +71,7 @@
 
                     <!--- middle section start -->
                       <div class="common-form">
-                      <h3>Company address</h3>
+                      <h3>Company Address</h3>
                  <?php echo form_open(base_url('recruiter/comp_address_store'), array('id' => 'basicinfo','name' => 'basicinfo','class' => 'clearfix')); ?>
 
                               <!-- <div>
