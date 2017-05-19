@@ -369,7 +369,7 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
                                 <h3> Following</h3>
                                  <div class="contact-frnd-post">
                               
-                              <?php if(count($userlist ) > 0){?>
+                              <?php if(count($userlist ) > 0){ ?>
                         <?php foreach ($userlist as $user) { ?>
                                   <div class="job-contact-frnd" id="<?php echo "removefollow" . $user['follow_to']; ?>">
 
@@ -407,10 +407,22 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
                                 <!-- category start -->
                                 <div>
 
-                                <?php  $category =  $this->db->get_where('industry_type',array('industry_id' => $user['industriyal'], 'status' => 1))->row()->industry_name;  ?>
+                                <?php  
+                                $categoryid =  $this->db->get_where('business_profile',array('business_profile_id' => $user['follow_to'], 'status' => 1))->row()->industriyal;
+
+                                $category =  $this->db->get_where('industry_type',array('industry_id' =>  $categoryid, 'status' => 1))->row()->industry_name; 
+                                 $othercategory =  $this->db->get_where('business_profile',array('business_profile_id' => $user['follow_to'], 'status' => 1))->row()->other_industrial;
+
+                                 ?>
          
          
-                               <a><?php echo $category; ?></a>
+                               <a><?php 
+                               if($category){
+                                       echo $category; 
+                               }else{
+                               echo  $othercategory; 
+                                }
+                               ?></a>
      
                                 </div>
 
