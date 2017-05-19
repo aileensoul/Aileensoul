@@ -1506,7 +1506,9 @@ a:hover, a:active, a:focus {
 
 }
 #notificationFooter {
-  
+  position: absolute;
+    bottom: 0;
+    width: 100%;
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f9f9f9), color-stop(1, #e9e9e9));
     background: -moz-linear-gradient(top, #f9f9f9 5%, #e9e9e9 100%);
     background: -webkit-linear-gradient(top, #f9f9f9 5%, #e9e9e9 100%);
@@ -4034,13 +4036,13 @@ li.fr a{
 border-bottom: 1px solid #000033;
     */
 }
-
+ #lan-error{top: 69px!important; border:2px solid red;}
 .profile-box-job-menu{padding-right: 1px !important;     margin-top: -38px;
                       border-top: 1px solid #d9d9d9;}
 
 .profile-box-job-menu ul li a:hover{background-color: #000033; color: #ffffff;}
 .profile-box-job-menu ul li a {
-    margin-right:8px;
+    margin-right:7.6px;
     display: block;
     color: #000033;
     text-align: center;
@@ -4054,7 +4056,7 @@ border-bottom: 1px solid #000033;
 
 /*
  rec left box*/
-
+#erroe_nn label select .error{border: 2px solid red!important;}
 
 
 .profile-box-rec-menu ul {

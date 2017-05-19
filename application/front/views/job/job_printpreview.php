@@ -4,6 +4,34 @@ echo $head;
 <style type="text/css">
     
     #popup-form img{display: none;}
+    #fade{
+    display: none;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    z-index:1001;
+    -moz-opacity: 0.7;
+    opacity:.70;
+    filter: alpha(opacity=70);
+}
+#light{
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 200px;
+    margin-left: -150px;
+    margin-top: -100px;                 
+    padding: 10px;
+    border: 2px solid #FFF;
+    background: #CCC;
+    z-index:1002;
+    overflow:visible;
+}
 </style>
 <!-- <style type="text/css" media="screen">
     #row2 { overflow: hidden; width: 100%; }
@@ -405,6 +433,14 @@ echo $job_header2;
                                                         <li> <b>Education Certificate </b><span> 
                                      <img src="<?php echo base_url(JOBEDUCERTIFICATE . $job_edu[0]['edu_certificate_primary']) ?>" style="width:100px;height:100px;"></span>
                                                         </li>
+
+<a href="#" onclick="lightbox_open();">Open lightbox</a>
+<div id="light">
+     <img src="<?php echo base_url(JOBEDUCERTIFICATE . $job_edu[0]['edu_certificate_primary']) ?>" style="width:100px;height:100px;">
+    
+</div>
+<div id="fade" onClick="lightbox_close();"></div> 
+
 
                                                         <?php
                                                     }
@@ -1393,4 +1429,26 @@ echo $job_header2;
 
                 });
                    });
+  </script>
+
+
+  <script type="text/javascript">
+window.document.onkeydown = function (e)
+{
+    if (!e){
+        e = event;
+    }
+    if (e.keyCode == 27){
+        lightbox_close();
+    }
+}
+  function lightbox_open(){
+    window.scrollTo(0,0);
+    document.getElementById('light').style.display='block';
+    document.getElementById('fade').style.display='block';  
+}
+      function lightbox_close(){
+    document.getElementById('light').style.display='none';
+    document.getElementById('fade').style.display='none';
+}
   </script>
