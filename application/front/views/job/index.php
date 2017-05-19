@@ -15,7 +15,10 @@
  -->
 <!-- start header -->
 <?php echo $header; ?>
+
+<?php if($jobdata[0]['job_step'] == 10){ ?>
 <?php echo $job_header2; ?>
+<?php } ?>
 <!-- END HEADER -->
 
 <body class="page-container-bg-solid page-boxed">

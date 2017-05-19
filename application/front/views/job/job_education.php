@@ -146,7 +146,9 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
 
+<?php if($jobdata[0]['job_step'] == 10){ ?>
 <?php echo $job_header2; ?>
+<?php } ?>
 <!-- END HEADER -->
 
 <body class="page-container-bg-solid page-boxed">

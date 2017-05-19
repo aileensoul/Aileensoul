@@ -472,14 +472,14 @@ echo $job_header2;
 
 
                                                 <?php
-                                                foreach ($job_edu as $job1) {
-                                                    if ($job1['degree']) {
+                                                foreach ($job_graduation as $graduation) {
+                                                    if ($graduation['degree']) {
                                                         ?>
 
 
                                                         <li> <b> Degree</b> <span>
                                                                 <?php
-                                                                $cache_time = $this->db->get_where('degree', array('degree_id' => $job1['degree']))->row()->degree_name;
+                                                                $cache_time = $this->db->get_where('degree', array('degree_id' => $graduation['degree']))->row()->degree_name;
                                                                 echo $cache_time;
                                                                 ?> 
                                                             </span>
@@ -487,7 +487,7 @@ echo $job_header2;
 
                                                         <li> <b>Stream </b><span>
                                                                 <?php
-                                                                $cache_time = $this->db->get_where('stream', array('stream_id' => $job1['stream']))->row()->stream_name;
+                                                                $cache_time = $this->db->get_where('stream', array('stream_id' => $graduation['stream']))->row()->stream_name;
                                                                 echo $cache_time;
                                                                 ?>
                                                             </span>
@@ -495,30 +495,30 @@ echo $job_header2;
 
                                                         <li><b> University</b> <span>
                                                                 <?php
-                                                                $cache_time = $this->db->get_where('university', array('university_id' => $job1['university']))->row()->university_name;
+                                                                $cache_time = $this->db->get_where('university', array('university_id' => $graduation['university']))->row()->university_name;
                                                                 echo $cache_time;
                                                                 ?>
                                                             </span> </li>
 
-                                                        <li> <b>College  </b><span><?php echo $job1['college']; ?></span>
+                                                        <li> <b>College  </b><span><?php echo $graduation['college']; ?></span>
                                                         </li>
 
-                                                        <li> <b>Grade </b><span><?php echo $job1['grade']; ?></span>
+                                                        <li> <b>Grade </b><span><?php echo $graduation['grade']; ?></span>
                                                         </li>
 
-                                                        <li> <b>Percentage </b><span><?php echo $job1['percentage']; ?></span>
+                                                        <li> <b>Percentage </b><span><?php echo $graduation['percentage']; ?></span>
                                                         </li>
 
-                                                        <li> <b>Year Of Passing </b><span><?php echo $job1['pass_year']; ?></span>
+                                                        <li> <b>Year Of Passing </b><span><?php echo $graduation['pass_year']; ?></span>
                                                         </li>
 
 
 
                                                         <?php
-                                                        if ($job1['edu_certificate'] != "") {
+                                                        if ($graduation['edu_certificate'] != "") {
                                                             ?>
                                                             <li> <b>Education Certificate </b><span> 
-                                                                    <img src="<?php echo base_url(JOBEDUCERTIFICATE . $job1['edu_certificate']) ?>" style="width:100px;height:100px;"></span>
+                                                                    <img src="<?php echo base_url(JOBEDUCERTIFICATE . $graduation['edu_certificate']) ?>" style="width:100px;height:100px;"></span>
                                                             </li>
 
                                                             <?php
