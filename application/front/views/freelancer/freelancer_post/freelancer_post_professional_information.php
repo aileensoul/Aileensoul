@@ -369,6 +369,11 @@ $( "#tags" ).autocomplete({
                     required: true,
 
                 },
+                 experience_month: {
+
+                    required: true,
+
+                },
 
             },
 
@@ -406,6 +411,11 @@ $( "#tags" ).autocomplete({
                 experience_year: {
 
                     required: "Experience year is required.",
+
+                },
+                 experience_month: {
+
+                    required: "Experience month is required.",
 
                 },
             }
