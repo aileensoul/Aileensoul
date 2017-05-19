@@ -74,7 +74,9 @@ class Profile extends CI_Controller {
             //     }
 
             $post_data = $this->input->post();
-            $dob = str_replace('/', '-', $post_data['dob']);
+           // echo "<pre>"; print_r($post_data);
+            $dob = str_replace('/', '-', $post_data['datepicker']);
+           // echo $dob;die();
             
             $data = array(
                 'first_name' => $this->input->post('first_name'),

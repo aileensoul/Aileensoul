@@ -4155,14 +4155,18 @@ class Artistic extends MY_Controller {
                                                        $art_fname = $this->db->get_where('art_reg', array('user_id' => $commnetcount[0]['user_id'], 'status' => 1))->row()->art_name;
                                                        $art_lname = $this->db->get_where('art_reg', array('user_id' => $commnetcount[0]['user_id'], 'status' => 1))->row()->art_lastname;
                                                                        
-                                                        $cmtlikeuser .= '<div class="like_one_other">';
-                                                                            
-                                                            $cmtlikeuser .= '' . ucwords($art_fname) . '';
-                                                            $cmtlikeuser .= '&nbsp;';
-                                                            $cmtlikeuser .= '' . ucwords($art_lname) . '';
-                                                            $cmtlikeuser .= '&nbsp;';
-                                                                            
-                                                                            if (count($commnetcount) > 1) {
+                $cmtlikeuser .= '<div class="like_one_other">';
+                  
+                  if($userid == $commnetcount[0]['user_id']){
+
+                    $cmtlikeuser .= 'You'; 
+                  } else{                                                         
+                $cmtlikeuser .= '' . ucwords($art_fname) . '';
+                $cmtlikeuser .= '&nbsp;';
+                 $cmtlikeuser .= '' . ucwords($art_lname) . '';
+                $cmtlikeuser .= '&nbsp;';
+                  }                                                          
+                if (count($commnetcount) > 1) {
                                                             $cmtlikeuser .= 'and ';
                                                             $cmtlikeuser .= '' . count($commnetcount) - 1 . '';
                                                             $cmtlikeuser .= '&nbsp;';
@@ -4270,14 +4274,17 @@ class Artistic extends MY_Controller {
                                                        $art_fname = $this->db->get_where('art_reg', array('user_id' => $commnetcount[0]['user_id'], 'status' => 1))->row()->art_name;
                                                        $art_lname = $this->db->get_where('art_reg', array('user_id' => $commnetcount[0]['user_id'], 'status' => 1))->row()->art_lastname;
                                                                        
-                                                        $cmtlikeuser .= '<div class="like_one_other">';
-                                                                            
-                                                            $cmtlikeuser .= '' . ucwords($art_fname) . '';
-                                                            $cmtlikeuser .= '&nbsp;';
-                                                            $cmtlikeuser .= '' . ucwords($art_lname) . '';
-                                                            $cmtlikeuser .= '&nbsp;';
-                                                                            
-                                                                            if (count($commnetcount) > 1) {
+                        $cmtlikeuser .= '<div class="like_one_other">';
+                          
+                          if($userid == $commnetcount[0]['user_id']){
+                          $cmtlikeuser .= 'You';
+                          } else{                                                 
+                        $cmtlikeuser .= '' . ucwords($art_fname) . '';
+                        $cmtlikeuser .= '&nbsp;';
+                        $cmtlikeuser .= '' . ucwords($art_lname) . '';
+                        $cmtlikeuser .= '&nbsp;';
+                         }                                                   
+                        if (count($commnetcount) > 1) {
                                                             $cmtlikeuser .= 'and ';
                                                             $cmtlikeuser .= '' . count($commnetcount) - 1 . '';
                                                             $cmtlikeuser .= '&nbsp;';
@@ -5183,7 +5190,7 @@ class Artistic extends MY_Controller {
         $contition_array = array('post_image_id' => $post_delete, 'is_delete' => '0');
         $artcomment = $this->common->select_data_by_condition('art_post_image_comment', $contition_array, $data = '*', $sortby = 'post_image_comment_id', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-       // echo "<pre>"; print_r($artcomment); die();
+     //   echo "<pre>"; print_r($artcomment); die();
         if(count($artcomment) > 0){
         foreach ($artcomment as $art_comment) {
 
@@ -5579,5 +5586,179 @@ class Artistic extends MY_Controller {
         }
         echo '<div>';
     }
+     // khyati changes start 19-5
+     public function insert_commentimg() {
 
+        $userid = $this->session->userdata('aileenuser');
+
+        $post_image_id = $_POST["post_image_id"];
+        $post_comment = $_POST["comment"];
+
+
+        //$contition_array = array('post_image_id' => $_POST["post_image_id"], 'is_unlike' => '0');
+        $contition_array = array('image_id' => $_POST["post_image_id"], 'is_deleted' => '1');
+        $artimg = $this->data['artimg'] = $this->common->select_data_by_condition('post_image', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+        $contition_array = array('art_post_id' => $artimg[0]["post_id"], 'is_delete' => 0);
+        $artpostid = $this->data['artpostid'] = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+        //echo "<pre>"; print_r($artpostid); die();
+
+        $data = array(
+            'user_id' => $userid,
+            'post_image_id' => $post_image_id,
+            'comment' => $post_comment,
+            'created_date' => date('Y-m-d', time()),
+            'is_delete' => 0
+        );
+        $insert_id = $this->common->insert_data_getid($data, 'art_post_image_comment');
+
+        // insert notification
+
+        if ($artpostid[0]['user_id'] == $userid) {
+            
+        } else {
+            $datanotification = array(
+                'not_type' => 6,
+                'not_from_id' => $userid,
+                'not_to_id' => $artpostid[0]['user_id'],
+                'not_read' => 2,
+                'not_product_id' => $insert_id,
+                'not_from' => 3,
+                'not_img' => 4,
+                'not_created_date' => date('y-m-d h:i:s')
+            );
+            //echo "<pre>"; print_r($datanotification); die();
+            $insert_id_notification = $this->common->insert_data_getid($datanotification, 'notification');
+        }
+        // end notoification
+
+        $contition_array = array('post_image_id' => $post_image_id, 'is_delete' => '0');
+        $artcomment = $this->common->select_data_by_condition('art_post_image_comment', $contition_array, $data = '*', $sortby = 'post_image_comment_id', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+        // count of artcomment
+
+        $contition_array = array('post_image_id' => $post_image_id, 'is_delete' => '0');
+        $artcont = $this->common->select_data_by_condition('art_post_image_comment', $contition_array, $data = '*', $sortby = 'post_image_comment_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+          $cmtinsert = '<div class="insertcommentimgtwo' . $post_image_id . '">';
+         //echo "<pre>"; print_r($artcomment); die();
+        foreach ($artcomment as $art_comment) {
+
+            $art_name = $this->db->get_where('art_reg', array('user_id' => $art_comment['user_id']))->row()->art_name;
+
+            $art_userimage = $this->db->get_where('art_reg', array('user_id' => $art_comment['user_id'], 'status' => 1))->row()->art_user_image;
+
+            $cmtinsert .= '<div class="all-comment-comment-box">';
+            $cmtinsert .= '<div class="post-design-pro-comment-img">';
+            $cmtinsert .= '<img  src="' . base_url(ARTISTICIMAGE . $art_userimage) . '" alt="">  </div>';
+
+            $cmtinsert .= '<div class="comment-name"><b>' . $art_name . '</b>';
+            $cmtinsert .= '</div>';
+
+            $cmtinsert .= '<div class="comment-details" id= "showcommentimgtwo' . $art_comment['post_image_comment_id'] . '"" >';
+            $cmtinsert .= $this->common->make_links($art_comment['comment']);
+            $cmtinsert .= '</div>';
+            $cmtinsert .= '<div contenteditable="true" class="editable_text" name="' . $art_comment['post_image_comment_id'] . '" id="editcommentimgtwo' . $art_comment['post_image_comment_id'] . '"style="display:none;" onkeyup="commenteditimgtwo(' . $art_comment['post_image_comment_id'] . ')">';
+
+            $cmtinsert .= '' . $art_comment['comment'] . '';
+            $cmtinsert .= '</div>';
+
+            $cmtinsert .= '<button id="editsubmitimgtwo' . $art_comment['post_image_comment_id'] . '" style="display:none;" onClick="edit_commentimgtwo(' . $art_comment['post_image_comment_id'] . ')">Comment</button><div class="art-comment-menu-design"> <div class="comment-details-menu" id="likecommentimg' . $art_comment['post_image_comment_id'] . '">';
+
+            $cmtinsert .= '<a id="' . $art_comment['post_image_comment_id'] . '"';
+            $cmtinsert .= 'onClick="comment_likeimgtwo(this.id)">';
+
+            $contition_array = array('post_image_comment_id' => $art_comment['post_image_comment_id'], 'user_id' => $userid, 'is_unlike' => 0);
+
+            $artcommentlike1 = $this->common->select_data_by_condition('art_comment_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+            if (count($artcommentlike1) == 0) {
+                $cmtinsert .= '<i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>';
+            } else {
+
+                $cmtinsert .= '<i class="fa fa-thumbs-up" aria-hidden="true"></i>';
+            }
+
+            $cmtinsert .= '<span>';
+
+            $contition_array = array('post_image_comment_id' => $art_comment['post_image_comment_id'], 'is_unlike' => '0');
+            $mulcountlike = $this->data['mulcountlike'] = $this->common->select_data_by_condition('art_comment_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+
+            if (count($mulcountlike) > 0) {
+                //echo count($mulcountlike); 
+            }
+            $cmtinsert .= '</span>';
+            $cmtinsert .= '</a></div>';
+
+            $userid = $this->session->userdata('aileenuser');
+            if ($art_comment['user_id'] == $userid) {
+
+                $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
+                $cmtinsert .= '<div class="comment-details-menu">';
+
+
+                $cmtinsert .= '<div id="editcommentboximgtwo' . $art_comment['post_image_comment_id'] . '"style="display:block;">';
+
+                $cmtinsert .= '<a id="' . $art_comment['post_image_comment_id'] . '"';
+                $cmtinsert .= 'onClick="comment_editboximgtwo(this.id)">';
+                $cmtinsert .= 'Edit';
+                $cmtinsert .= '</a></div>';
+
+                $cmtinsert .= '<div id="editcancleimgtwo' . $art_comment['post_image_comment_id'] . '"style="display:none;">';
+
+                $cmtinsert .= '<a id="' . $art_comment['post_image_comment_id'] . '"';
+                $cmtinsert .= 'onClick="comment_editcancleimgtwo(this.id)">';
+                $cmtinsert .= 'Cancel';
+                $cmtinsert .= '</a></div>';
+
+                $cmtinsert .= '</div>';
+            }
+            $userid = $this->session->userdata('aileenuser');
+
+
+            $userid = $this->session->userdata('aileenuser');
+
+            $art_userid = $this->db->get_where('art_post', array('art_post_id' => $art_comment['post_image_id'], 'status' => 1))->row()->user_id;
+
+
+            if ($art_comment['user_id'] == $userid || $art_userid == $userid) {
+
+
+                $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
+                $cmtinsert .= '<div class="comment-details-menu">';
+
+
+                $cmtinsert .= '<input type="hidden" name="post_deleteimgtwo"';
+               // $cmtinsert .= 'id="post_deleteimg' . $art_comment['post_image_comment_id'] . '"';
+                $cmtinsert .= 'id="post_deleteimgtwo"';
+                $cmtinsert .= 'value= "' . $art_comment['post_image_id'] . '">';
+                $cmtinsert .= '<a id="' . $art_comment['post_image_comment_id'] . '"';
+                $cmtinsert .= 'onClick="comment_deleteimgtwo(this.id)">';
+                $cmtinsert .= 'Delete';
+                $cmtinsert .= '</a></div>';
+            }
+
+            $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
+            $cmtinsert .= '<div class="comment-details-menu">';
+            $cmtinsert .= '<p>' . $art_comment['created_date'] . '</p></div></div></div>';
+
+
+            if (count($artcont) > 1) {
+                // comment aount variable start
+                $cmtcount = '<a onClick="commentallimg(this.id)" id="' . $post_image_id . '">';
+                $cmtcount .= '<i class="fa fa-comment-o" aria-hidden="true">';
+                $cmtcount .= ' ' . count($artcont) . '';
+                $cmtcount .= '</i></a>';
+            }
+            // comment count variable end 
+        }
+        $cmtinsert .= '</div>';
+        //   echo $cmtinsert;
+        echo json_encode(
+                array("comment" => $cmtinsert,
+                    "count" => $cmtcount));
+    }
+    // khyati changes end 19-5
 }
