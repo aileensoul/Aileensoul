@@ -35,7 +35,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div class="reactivatebox">
 			
 		<div class="reactivate_header">
-		 <center><h2> Are You Want to Reactivate Your Old Profile? </h2></center>
+		 <center><h2>Are you sure you want to reactive your recruiter profile? </h2></center>
 		</div>
 		<div class="reactivate_btn_y">
 		<a href="<?php echo base_url('recruiter/reactivate'); ?>">Yes</a>
