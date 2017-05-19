@@ -4155,14 +4155,18 @@ class Artistic extends MY_Controller {
                                                        $art_fname = $this->db->get_where('art_reg', array('user_id' => $commnetcount[0]['user_id'], 'status' => 1))->row()->art_name;
                                                        $art_lname = $this->db->get_where('art_reg', array('user_id' => $commnetcount[0]['user_id'], 'status' => 1))->row()->art_lastname;
                                                                        
-                                                        $cmtlikeuser .= '<div class="like_one_other">';
-                                                                            
-                                                            $cmtlikeuser .= '' . ucwords($art_fname) . '';
-                                                            $cmtlikeuser .= '&nbsp;';
-                                                            $cmtlikeuser .= '' . ucwords($art_lname) . '';
-                                                            $cmtlikeuser .= '&nbsp;';
-                                                                            
-                                                                            if (count($commnetcount) > 1) {
+                $cmtlikeuser .= '<div class="like_one_other">';
+                  
+                  if($userid == $commnetcount[0]['user_id']){
+
+                    $cmtlikeuser .= 'You'; 
+                  } else{                                                         
+                $cmtlikeuser .= '' . ucwords($art_fname) . '';
+                $cmtlikeuser .= '&nbsp;';
+                 $cmtlikeuser .= '' . ucwords($art_lname) . '';
+                $cmtlikeuser .= '&nbsp;';
+                  }                                                          
+                if (count($commnetcount) > 1) {
                                                             $cmtlikeuser .= 'and ';
                                                             $cmtlikeuser .= '' . count($commnetcount) - 1 . '';
                                                             $cmtlikeuser .= '&nbsp;';
@@ -4270,14 +4274,17 @@ class Artistic extends MY_Controller {
                                                        $art_fname = $this->db->get_where('art_reg', array('user_id' => $commnetcount[0]['user_id'], 'status' => 1))->row()->art_name;
                                                        $art_lname = $this->db->get_where('art_reg', array('user_id' => $commnetcount[0]['user_id'], 'status' => 1))->row()->art_lastname;
                                                                        
-                                                        $cmtlikeuser .= '<div class="like_one_other">';
-                                                                            
-                                                            $cmtlikeuser .= '' . ucwords($art_fname) . '';
-                                                            $cmtlikeuser .= '&nbsp;';
-                                                            $cmtlikeuser .= '' . ucwords($art_lname) . '';
-                                                            $cmtlikeuser .= '&nbsp;';
-                                                                            
-                                                                            if (count($commnetcount) > 1) {
+                        $cmtlikeuser .= '<div class="like_one_other">';
+                          
+                          if($userid == $commnetcount[0]['user_id']){
+                          $cmtlikeuser .= 'You';
+                          } else{                                                 
+                        $cmtlikeuser .= '' . ucwords($art_fname) . '';
+                        $cmtlikeuser .= '&nbsp;';
+                        $cmtlikeuser .= '' . ucwords($art_lname) . '';
+                        $cmtlikeuser .= '&nbsp;';
+                         }                                                   
+                        if (count($commnetcount) > 1) {
                                                             $cmtlikeuser .= 'and ';
                                                             $cmtlikeuser .= '' . count($commnetcount) - 1 . '';
                                                             $cmtlikeuser .= '&nbsp;';
