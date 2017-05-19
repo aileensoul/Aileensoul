@@ -4043,7 +4043,14 @@ $contition_array = array('status' => '1', 'is_deleted' => '0');
                 $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $commneteduser[0]['user_id'], 'status' => 1))->row()->company_name;
 
                 $imglikeuser .= '<div class="like_one_other_img">';
+                if($userid == $commneteduser[0]['user_id']){
+
+                    $imglikeuser .= 'You';
+                }else{
+
                 $imglikeuser .= '' . ucwords($business_fname1) . '&nbsp;';
+                  }
+
                 if (count($commneteduser) > 1) {
 
                     $imglikeuser .= 'and';
@@ -4106,7 +4113,14 @@ $contition_array = array('status' => '1', 'is_deleted' => '0');
                     $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $commneteduser[0]['user_id'], 'status' => 1))->row()->company_name;
 
                     $imglikeuser1 .= '<div class="like_one_other_img">';
+
+                    if($userid == $commneteduser[0]['user_id']){
+
+                         $imglikeuser1 .= 'You';
+                    }else{
                     $imglikeuser1 .= '' . ucwords($business_fname1) . '&nbsp;';
+                     }
+
                     if (count($commneteduser) > 1) {
 
                         $imglikeuser1 .= 'and';
@@ -4206,7 +4220,14 @@ $contition_array = array('status' => '1', 'is_deleted' => '0');
                     $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $commneteduser[0]['user_id'], 'status' => 1))->row()->company_name;
 
                     $imglikeuser1 .= '<div class="like_one_other_img">';
+
+                    if($userid == $commneteduser[0]['user_id']){
+
+                        $imglikeuser1 .= 'You';
+                    }else{
                     $imglikeuser1 .= '' . ucwords($business_fname1) . '&nbsp;';
+                      }
+
                     if (count($commneteduser) > 1) {
 
                         $imglikeuser1 .= 'and';

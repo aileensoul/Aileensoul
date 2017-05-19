@@ -2,8 +2,50 @@
 <!-- start head -->
 <?php echo $head; ?>
 <!-- END HEAD -->
+<style type="text/css">
+ .okk{
+        text-align: center;
+    }
+     .pop_content .okbtn{
+        position: absolute;
+        transition: all 200ms;
+        font-size: 16px;
+        text-decoration: none;
+        color: #fff;
+        padding: 8px 18px;
+        background-color: #0A2C5D;
+        left: 170px;
+        margin-top: 8px;
+        width: 100px; 
+        border-radius: 8px;
+    }
+      .pop_content .cnclbtn {
+        position: absolute;
+        transition: all 200ms;
+        font-size: 16px;
+        text-decoration: none;
+        color: #fff;
+        padding: 8px 18px;
+        background-color: #0A2C5D;
+        right: 170px;
+        margin-top: 8px;
+        width: 100px;
+        border-radius: 8px;
+    }
+
+   .popup .pop_content {
+        text-align: center;
+        margin-top: 40px;
+
+    }
+      .model_ok_cancel{
+        width:200px !important;
+    }
+
+</style>
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/3.3.0/select2.css" rel="stylesheet" /> 
+<link rel="stylesheet" href="<?php echo base_url('css/bootstrap.min.css'); ?>" />
 
 <!-- start header -->
 <?php echo $header; ?> 
@@ -213,7 +255,16 @@ if ($this->session->flashdata('success')) {
     </section>
     <!-- END CONTAINER -->
 
-
+<div class="modal fade message-box biderror" id="bidmodalskill" role="dialog">
+                    <div class="modal-dialog modal-lm">
+                        <div class="modal-content">
+                        <button  type="button" class="modal-close" data-dismiss="modal" onclick="closemodel()">&times;</button>         
+                            <div class="modal-body">
+                                <span class="mes"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
 </body>
 </html>
@@ -343,8 +394,8 @@ if ($this->session->flashdata('success')) {
 <!-- script for clear textbox End-->
 <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.min.js') ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
-
-
+<script type="text/javascript" src="<?php echo base_url('js/additional-methods1.15.0.min.js'); ?>"></script>
+<script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
 <script type="text/javascript">
 //select2 autocomplete start for skill
     var complex = <?php echo json_encode($selectdata); ?>;
@@ -363,7 +414,7 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
      $("#jobseeker_regform").validate({
       //  alert(456);
 
-             //ignore: '*:not([name])',
+             ignore: '*:not([name])',
 
             rules: {
 
@@ -427,17 +478,24 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
             type: "POST",
             url: "<?php echo base_url(); ?>job/other_skill_insert",
             data: postData, //assign the var here 
-            success: function (msg) {
-                alert(msg);
+            success: function () {
+                $('.biderror .mes').html("<div class='pop_content'>Skill Inserted Successfully.");
+                 $('#bidmodalskill').modal('show');
+
                 $("#other_keyskill").val('');
-                if (msg == "Skill Inserted Successfully")
-                {
-                    window.location.reload(true);
-                }
+                // if (msg == "Skill Inserted Successfully")
+                // {
+                    //window.location.reload(true);
+                   // window.location= "<?php echo base_url() ?>job/job_skill_update";
+                //}
 
             }
         });
     });
+
+
+
+
 
     $('#add_field1').click(function (e) {
 
@@ -456,13 +514,15 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
             type: "POST",
             url: "<?php echo base_url(); ?>job/other_skill_insert",
             data: postData, //assign the var here 
-            success: function (msg) {
-                alert(msg);
+            success: function () {
+                $('.biderror .mes').html("<div class='pop_content'>Skill inserted successfully.");
+                 $('#bidmodalskill').modal('show');
+
                 $("#other_keyskill1").val('');
-                if (msg == "Skill Inserted Successfully")
-                {
-                    window.location.reload(true);
-                }
+                // if (msg == "Skill Inserted Successfully")
+                // {
+                //     window.location.reload(true);
+                // }
             }
 
         });
@@ -491,7 +551,14 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
     });
 
 
+ function closemodel(){
+    window.location= "<?php echo base_url() ?>job/job_skill_update";
+ }
+
 </script>
+
+
+
 
 <script type="text/javascript"> 
  $(".alert").delay(3200).fadeOut(300);
