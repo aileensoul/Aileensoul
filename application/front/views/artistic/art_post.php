@@ -94,22 +94,7 @@
                         height: 10%;}
    
 </style>
-<!--<link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
-<link href="<?php echo base_url() ?>css/fileinput.css" media="all" rel="stylesheet" type="text/css"/>
-<link href="<?php echo base_url() ?>js/themes/explorer/theme.css" media="all" rel="stylesheet" type="text/css"/>
-<script src="<?php echo base_url() ?>js/jquery-2.0.3.min.js" type="text/javascript"></script>
-<script src="<?php echo base_url() ?>js/plugins/sortable.js" type="text/javascript"></script>
-<script src="<?php echo base_url() ?>js/fileinput.js" type="text/javascript"></script>
-<script src="<?php echo base_url() ?>js/themes/explorer/theme.js" type="text/javascript"></script>
-<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />-->
 
- <!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">-->
-    
-    	 
-    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>-->
-<!-- start header -->
 <?php echo $header; ?>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('dragdrop/fileinput.css'); ?>">
    <link href="<?php echo base_url('dragdrop/themes/explorer/theme.css'); ?>" media="all" rel="stylesheet" type="text/css"/>

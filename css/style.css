@@ -2992,6 +2992,11 @@ label.cameraButton input[accept*="camera"] {
            
 
 }
+.edu_sec{    font-size: 17px;
+    font-weight: 600;
+    padding: 10px 10px 10px 10px;
+    text-decoration: underline;
+    color: #003;}
 .inputtype-comment{margin-bottom: 10px; padding-left: 10px!important;}
 .all-comment-comment-box span{color: #999999;}
 /*education new design*/

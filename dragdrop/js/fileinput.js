@@ -428,7 +428,7 @@
                 '    </div>\n' +
                 '</div>';
             tClose = '<div class="close fileinput-remove">&times;</div>\n';
-            tFileIcon = '<i class="glyphicon glyphicon-file kv-caption-icon"></i>';
+            tFileIcon = '<i class="fa fa-file kv-caption-icon"></i>';
             tCaption = '<div tabindex="500" class="form-control file-caption {class}">\n' +
                 '   <div class="file-caption-name"></div>\n' +
                 '</div>\n';
@@ -3615,7 +3615,7 @@
         defaultPreviewContent: null,
         customLayoutTags: {},
         customPreviewTags: {},
-        previewFileIcon: '<i class="glyphicon glyphicon-file"></i>',
+        previewFileIcon: '<i class="fa fa-file" aria-hidden="true"></i>',
         previewFileIconClass: 'file-other-icon',
         previewFileIconSettings: {},
         previewFileExtSettings: {},
@@ -3643,7 +3643,7 @@
         resizeIfSizeMoreThan: 0, // in KB
         minFileSize: 0,
         maxFileSize: 0,
-        maxFilePreviewSize: 25600, // 25 MB
+        maxFilePreviewSize: 25600000, // 25 MB
         minFileCount: 0,
         maxFileCount: 0,
         validateInitialCount: false,
@@ -3688,18 +3688,18 @@
         msgNoFilesSelected: 'No files selected',
         msgCancelled: 'Cancelled',
         msgZoomModalHeading: 'Detailed Preview',
-        msgSizeTooSmall: 'File "{name}" (<b>{size} KB</b>) is too small and must be larger than <b>{minSize} KB</b>.',
+        msgSizeTooSmall: '',
         msgSizeTooLarge: '',
-        msgFilesTooLess: 'You must select at least <b>{n}</b> {files} to upload.',
-        msgFilesTooMany: 'Number of files selected for upload <b>({n})</b> exceeds maximum allowed limit of <b>{m}</b>.',
-        msgFileNotFound: 'File "{name}" not found!',
-        msgFileSecured: 'Security restrictions prevent reading the file "{name}".',
-        msgFileNotReadable: 'File "{name}" is not readable.',
-        msgFilePreviewAborted: 'File preview aborted for "{name}".',
-        msgFilePreviewError: 'An error occurred while reading the file "{name}".',
-        msgInvalidFileName: 'Invalid or unsupported characters in file name "{name}".',
-        msgInvalidFileType: 'Invalid type for file "{name}". Only "{types}" files are supported.',
-        msgInvalidFileExtension: 'Invalid extension for file "{name}". Only "{extensions}" files are supported.',
+        msgFilesTooLess: '',
+        msgFilesTooMany: '',
+        msgFileNotFound: '',
+        msgFileSecured: '',
+        msgFileNotReadable: '',
+        msgFilePreviewAborted: '',
+        msgFilePreviewError: '',
+        msgInvalidFileName: '',
+        msgInvalidFileType: '',
+        msgInvalidFileExtension: '',
         msgFileTypes: {
             'image': 'image',
             'html': 'HTML',
