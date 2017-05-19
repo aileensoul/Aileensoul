@@ -24,7 +24,10 @@
              $contition_array = array('user_id' => $userid, 'status' => '1');
              $artdata = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
              
-             if($artdata[0]['art_step'] == 4){ }else{
+             if($artdata[0]['art_step'] == 4){ ?>
+
+ <div class="col-md-6 col-sm-8"><h3>You are updating your Artistic Profile.</h3></div>
+                <?php }else{
 
              ?>
 
