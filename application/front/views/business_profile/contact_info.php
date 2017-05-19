@@ -116,8 +116,8 @@
 
                                 <fieldset>
                                     <label>Contact Website:</label>
-                                    <input name="contactwebsite" type="text" id="contactwebsite" placeholder="Enter Contact website" value="<?php if($contactwebsite1){ echo $contactwebsite1; } ?>"/>
-                                 
+                                    <input name="contactwebsite" type="url" id="contactwebsite" placeholder="Enter Contact website" value="<?php if($contactwebsite1){ echo $contactwebsite1; } ?>"/>
+                                                                     
                                 </fieldset>
                                 
 
