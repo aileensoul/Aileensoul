@@ -326,6 +326,11 @@ $( "#tags" ).autocomplete({
 
     //validation for edit email formate form
 
+jQuery.validator.addMethod("noSpace", function(value, element) { 
+      return value == '' || value.trim().length != 0;  
+    }, "No space please and don't leave it empty");
+
+
     $(document).ready(function () {
 
         $("#freelancer_post_professional").validate({
@@ -354,13 +359,15 @@ $( "#tags" ).autocomplete({
 
                 otherskill: {
 
-                    require_from_group: [1, ".keyskil"]
+                    require_from_group: [1, ".keyskil"],
+                    noSpace: true
                             // required:true 
                 },
 
                 skill_description: {
 
                     required: true,
+                    noSpace: true
 
                 },
 

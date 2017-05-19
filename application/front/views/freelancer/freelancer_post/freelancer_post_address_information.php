@@ -320,6 +320,12 @@ $( "#tags" ).autocomplete({
 
         //validation for edit email formate form
 
+jQuery.validator.addMethod("noSpace", function(value, element) { 
+      return value == '' || value.trim().length != 0;  
+    }, "No space please and don't leave it empty");
+
+
+
         $(document).ready(function () {
 
             $("#freelancer_post_addressinfo").validate({
@@ -329,6 +335,7 @@ $( "#tags" ).autocomplete({
                     country: {
 
                         required: true,
+
 
                     },
 
@@ -341,6 +348,7 @@ $( "#tags" ).autocomplete({
                     postaladdress: {
 
                         required: true,
+                        noSpace: true
 
                     },
                 },
