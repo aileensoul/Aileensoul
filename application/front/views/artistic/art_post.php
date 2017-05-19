@@ -75,7 +75,7 @@
     .popup-textarea .description{
         width: 100%;
         height: auto;
-        min-height: 30%;
+        min-height: 25%;
         color: #999999;
         padding: 12px 20px;
         box-sizing: border-box;
@@ -105,20 +105,21 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />-->
 
  <!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">-->
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url('dragdrop/fileinput.css'); ?>">
+    
+    	 
+    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>-->
+<!-- start header -->
+<?php echo $header; ?>
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('dragdrop/fileinput.css'); ?>">
    <link href="<?php echo base_url('dragdrop/themes/explorer/theme.css'); ?>" media="all" rel="stylesheet" type="text/css"/>
     
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
+<!--  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+ -->
     <script src="<?php echo base_url('dragdrop/js/plugins/sortable.js'); ?>"></script>
      <script src="<?php echo base_url('dragdrop/js/fileinput.js'); ?>"></script>
       <script src="<?php echo base_url('dragdrop/js/locales/fr.js'); ?>"></script>
        <script src="<?php echo base_url('dragdrop/js/locales/es.js'); ?>"></script>
         <script src="<?php echo base_url('dragdrop/themes/explorer/theme.js'); ?>"></script>
-    	 
-    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>-->
-<!-- start header -->
-<?php echo $header; ?>
 <!-- END HEADER -->
 <!--<script src="<?php echo base_url('assets/js/jquery.js'); ?>"></script>
 <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>-->
@@ -796,7 +797,7 @@
 
                                 <?php echo form_open_multipart(base_url('artistic/art_post_insert/'), array('id' => 'artpostform', 'name' => 'artpostform', 'class' => 'clearfix', 'onsubmit' => "imgval(event)")); ?>
 
-                                <div class="main-text-area col-md-12" >
+                               <div class="main-text-area col-md-12" >
                                     <div class="popup-img col-md-1"> <img  src="<?php echo base_url(ARTISTICIMAGE . $artisticdata[0]['art_user_image']); ?>"  alt="">
                                     </div>
                                     <div id="myBtn"  class="editor-content col-md-10 popup-text" >
@@ -811,14 +812,43 @@
                                    <!--   <span class="fr">
                                
                                    <input type="file" id="files" name="postattach[]" multiple style="display:block;">  </span> -->
-                                    <div class="col-md-12"> <div class="form-group">
-   <input id="file-1" type="file" multiple class="file" data-overwrite-initial="false" data-min-file-count="2">
-   </div></div>
+                                    <div class="col-md-1"><i class=" fa fa-camera "  style="margin: 0px;
+                                                             font-size: 27px;
+                                                             cursor: pointer;
+                                                             /* margin-right: -38px; */
+                                                             margin-top: 20px;"></i> </div>
 
                                 </div>
-                                
-                                
-                                
+
+  <div class="row"></div>
+                                <div  id="text"  class="editor-content col-md-12 popup-textarea" >
+                                    <textarea id="test-upload_des" name="product_desc" class="description" placeholder="Enter Description"></textarea>
+
+                                    <output id="list"></output>
+                                </div>
+                                   <!--   <span class="fr">
+                               
+                                   <input type="file" id="files" name="postattach[]" multiple style="display:block;">  </span> -->
+
+                                    <div class="popup-social-icon">
+                                    <ul class="editor-header">
+
+                                        <li>
+                                    <div class="col-md-12"> <div class="form-group">
+   <input id="file-1" type="file" class="file" name="postattach[]"  multiple class="file" data-overwrite-initial="false" data-min-file-count="2" style="display: none;">
+   </div></div>
+
+
+     <label for="file-1"><i class=" fa fa-camera "  style=" margin: 8px; cursor:pointer"> Photo</i><i class=" fa fa-video-camera"  style=" margin: 8px; cursor:pointer"> Video </i> <i class="fa fa-music "  style=" margin: 8px; cursor:pointer"> Audio </i><i class=" fa fa-file-pdf-o "  style=" margin: 8px; cursor:pointer"> PDF </i> </label>
+
+                             
+                                   </li>
+                                    </ul>
+
+
+                                </div>
+                                <div class="fr">
+                                    <button type="submit"  value="Submit">Post</button>    </div>
                                 <?php echo form_close(); ?>
                             </div>
                         </div>

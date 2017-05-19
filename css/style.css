@@ -2529,7 +2529,7 @@ border-bottom: 1px solid #000033;
 .post-editor .popup-social-icon ul { font-size: 0; margin: 0; padding: 0; display: inline-block; }
 .post-editor .popup-social-icon ul li { list-style: none; display: inline-block; padding: 0px 20px 0px 20px; margin: 0; position: relative; }
 /*.popup-textarea{height: 300px; border-bottom: 4px solid #ced5df; border-top: 4px solid #ced5df; }
-*/.post-editor .popup-social-icon ul li i {font-size: 20px; color: #0a2c5d; padding: 5px;}
+*/.post-editor .popup-social-icon ul li i {font-size: 20px; color: #616060; padding: 5px;}
 .buisness-popup-img{display: inline-block; margin-top: 25px;}
 
 
@@ -2793,7 +2793,7 @@ label.cameraButton input[accept*="camera"] {
 .post-design-product-img {padding:10px 5px 10px 5px; width: 100%; height: 350px;}
 .post-design-like-box{background-color: #ffffff;  /* padding-top: 10px;*/ padding-left: 23px; padding-right: 23px;  }
 .post-design-commnet-box{padding-left: 23px; background-color: #e6eaef; padding-right: 23px; border: 1px solid #e6eaef; padding-top: 10px; }
-.post-design-menu{border-top: 1px solid #efefef;/* border-bottom:1px solid #efefef;*/}
+.post-design-menu{border-top: 1px solid #efefef;border-bottom:1px solid #efefef;}
 .post-design-menu ul { margin: 0; padding: 0; }
 .post-design-menu ul li { list-style: none; display: inline-block; padding: 0; margin: 0; position: relative; }
 .post-design-menu ul li a { font-size: 18px; color: #000033; padding: 10px 15px 10px; font-weight: 400; display: block;  }
@@ -2826,7 +2826,7 @@ label.cameraButton input[accept*="camera"] {
     line-height: 16px;
     display: block;}
 
-.post-design-desc{clear: both; padding:5px 17px 5px 17px;  text-align: justify;  word-break: break-word;word-break: break-all;}
+.post-design-desc{clear: both; padding:5px 20px 5px 20px;  text-align: justify;  word-break: break-word;word-break: break-all;}
 .post-design-product-img img {width: 100%; height: 100%; border:1px solid #cccccc; border-radius: 3px;}
 .popup-comment{padding: 8px;  }
 
@@ -2961,12 +2961,12 @@ label.cameraButton input[accept*="camera"] {
 .comment-details-menu p{ color: #999999; font-weight: 400;}
 .comment-details-menu a:hover{text-decoration:underline; }
 .comment-edit-butn{padding: 0px 0px 6px 0px;}
-.comment-edit-butn button{position: absolute; bottom: 12px;}
+.comment-edit-butn button{position: absolute; bottom: 11px;}
 .comment-edit-button button{  padding: 9px 10px 9px;
                               border-radius: 3px;
                               letter-spacing: 0px;
                               }
-                              .comment-edit-butn button{    padding: 8.5px 10px 8.5px;
+                              .comment-edit-butn button{    padding: 7.5px 10px 7.5px;
                               border-radius: 3px;
                               letter-spacing: 0px;
                               margin-left: -11px;}
@@ -3206,7 +3206,7 @@ follow box*/
 .follow_box_ul_li{border-bottom: 1px solid #d9d9d9;}
 .follow_box_ul_li:last-child{border-bottom:none;}
 
-.profile-boxProfileCard_follow  {position: relative;height: 268px;overflow:hidden;}
+.profile-boxProfileCard_follow  {position: relative;max-height: 268px;height: auto; overflow:hidden;}
 .seeall{float: right;
         margin-top: -30px;
         /* position: absolute; */
@@ -4617,7 +4617,7 @@ fieldset .add_post_btns{min-width: 120px;padding:8px 30px 8px;}
     width: 110px;
     display: inline-block; }
     .search_img img{height: 100%; width: 100%;}
-    .search_button{margin-top: 31px;
+    .search_button{margin-top: 25px;
     margin-left: 23px;}
     .search_button button{    margin-bottom: 6px;
     width: 90px;

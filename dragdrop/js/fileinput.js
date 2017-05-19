@@ -3619,7 +3619,7 @@
         previewFileIconClass: 'file-other-icon',
         previewFileIconSettings: {},
         previewFileExtSettings: {},
-        buttonLabelClass: 'hidden-xs',
+       // buttonLabelClass: 'hidden-xs',
         browseIcon: '<i class="glyphicon glyphicon-folder-open"></i>&nbsp;',
         browseClass: 'btn btn-primary',
         removeIcon: '<i class="glyphicon glyphicon-trash"></i>',
