@@ -2683,7 +2683,14 @@ class Job extends MY_Controller {
 
             $this->data['job_edu'] = $this->common->select_data_by_condition('job_add_edu', $contition_array, $data, $sortby, $orderby, $limit, $offset, $join_str, $groupby);
 
+            //for getting data of graduation table
+              $contition_array = array('user_id' => $userid);
 
+            $data = '*';
+
+            $this->data['job_graduation'] = $this->common->select_data_by_condition('job_graduation', $contition_array, $data, $sortby, $orderby, $limit, $offset, $join_str, $groupby);
+
+          //  echo "<pre>"; print_r($this->data['job_graduation']); die();
             //for getting data job_add_workexp table
             $contition_array = array('user_id' => $userid, 'experience' => 'Experience', 'status' => '1');
 
@@ -2717,7 +2724,11 @@ class Job extends MY_Controller {
         $contition_array = array('user_id' => $id, 'status' => 1);
          $this->data['job_edu'] = $this->common->select_data_by_condition('job_add_edu', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
+ $contition_array = array('user_id' => $userid);
 
+            $data = '*';
+
+            $this->data['job_graduation'] = $this->common->select_data_by_condition('job_graduation', $contition_array, $data, $sortby, $orderby, $limit, $offset, $join_str, $groupby);
 // echo "<pre>"; print_r($this->data['job_edu']); die();
             //for getting data job_add_workexp table
             $contition_array = array('user_id' => $userid, 'experience' => 'Experience', 'status' => '1');
