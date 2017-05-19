@@ -394,8 +394,14 @@ if ($this->session->flashdata('success')) {
 <!-- script for clear textbox End-->
 <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.min.js') ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
+<<<<<<< HEAD
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/3.3.0/select2.js"></script>
+=======
 <script type="text/javascript" src="<?php echo base_url('js/additional-methods1.15.0.min.js'); ?>"></script>
 <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
+>>>>>>> 930a77f8d5478561600ab741e8ad40c84b4431d4
 <script type="text/javascript">
 //select2 autocomplete start for skill
     var complex = <?php echo json_encode($selectdata); ?>;
@@ -563,4 +569,5 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
 <script type="text/javascript"> 
  $(".alert").delay(3200).fadeOut(300);
 </script>
+
 
