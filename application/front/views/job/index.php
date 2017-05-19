@@ -20,7 +20,9 @@
 <?php echo $job_header2; ?>
 <?php } ?>
 <!-- END HEADER -->
-
+<style type="text/css">
+   
+</style>
 <body class="page-container-bg-solid page-boxed">
 
     <section>
@@ -218,10 +220,10 @@ if (count($nation) > 0) {
                                     <?php echo form_error('nationality'); ?>
                                 </fieldset>
 
-                                <fieldset <?php if ($language) { ?> class="error-msg" <?php } ?>>
+                                <fieldset id="erroe_nn" <?php if ($language) { ?> class="error-msg" <?php } ?>>
                                     <label>Languages Known:<span style="color:red">*</span></label> 
 
-             <select name="language[]" id ="lan" multiple="multiple" style="width: 100%"  required="true" >
+             <select name="language[]" id ="lan" multiple="multiple" style="width: 100%"  required="true"  >
 
 <?php foreach ($language1 as $language) { ?>
                                             <option value="<?php echo $language['language_id']; ?>"><?php echo $language['language_name']; ?></option>

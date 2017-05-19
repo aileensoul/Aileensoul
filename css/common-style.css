@@ -2548,6 +2548,7 @@ select[multiple],
 select[size] {
   /*height: auto;*/
   max-height: 28px !important;
+  min-height: 28px!important;
 }
 input[type="file"]:focus,
 input[type="radio"]:focus,

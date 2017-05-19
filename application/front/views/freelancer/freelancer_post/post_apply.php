@@ -308,12 +308,12 @@ if ($freepostdata[0]['designation']) {
 </div>
 <div class="profile-box-user  profile-text-bui-user  fr col-md-9">
             <span class="profile-company-name ">
-                                         <a style="font-size: 18px; font-weight: 600;" href="<?php echo base_url('freelancer/freelancer_post_profile'); ?>"><?php echo ucwords($userdata[0]['first_name']) . ' ' . ucwords($userdata[0]['last_name']); ?></a>
+                                         <a style="" href="<?php echo base_url('freelancer/freelancer_post_profile'); ?>"><?php echo ucwords($userdata[0]['first_name']) . ' ' . ucwords($userdata[0]['last_name']); ?></a>
                                         </span>
        
          
          <div class="profile-boxProfile-name">
-        <a style=" font-weight: 600; font-size: 15px;" href="<?php echo base_url('freelancer/freelancer_post_profile'); ?>"><?php
+        <a style="" href="<?php echo base_url('freelancer/freelancer_post_profile'); ?>"><?php
 if ($freepostdata[0]['designation']) {
     echo ucwords($freepostdata[0]['designation']);
 } else {

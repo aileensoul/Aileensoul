@@ -48,9 +48,9 @@
                     <div class="col-md-3 col-sm-4">
                         <div class="left-side-bar">
                             <ul>
-                                <li><a href="<?php echo base_url('business_profile/business_information_update'); ?>">Business information</a></li>
+                                <li><a href="<?php echo base_url('business_profile/business_information_update'); ?>">Business Information</a></li>
 
-                                <li><a href="<?php echo base_url('business_profile/contact_information'); ?>">Contact information</a></li>
+                                <li><a href="<?php echo base_url('business_profile/contact_information'); ?>">Contact Information</a></li>
 
                                 <li <?php if ($this->uri->segment(1) == 'business_profile') { ?> class="active" <?php } ?>><a href="#">Description</a></li>
 
