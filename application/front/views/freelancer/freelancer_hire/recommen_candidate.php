@@ -717,7 +717,7 @@
                         function savepopup(id) {
                             save_user(id);
                       
-            $('.biderror .mes').html("<div class='pop_content'>Your post is successfully saved.");
+            $('.biderror .mes').html("<div class='pop_content'>Freelancer successfully saved.");
             $('#bidmodal').modal('show');
                         }
                     </script>

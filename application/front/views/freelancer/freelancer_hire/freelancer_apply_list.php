@@ -554,7 +554,7 @@ function savepopup(id) {
     save_user(id);
                             //alert(456);
                       
-  $('.biderror .mes').html("<div class='pop_content'>Candidate Successfully save.");
+  $('.biderror .mes').html("<div class='pop_content'>Freelancer successfully saved.");
   $('#bidmodal').modal('show');
  }
  </script>
@@ -562,7 +562,7 @@ function savepopup(id) {
 <script >
 function inviteuserpopup(abc){
 
-    $('.biderror .mes').html("<div class='pop_content'>Do you want to select this candidate?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='inviteuser(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+    $('.biderror .mes').html("<div class='pop_content'>Do you want to select this freelancer for your project?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='inviteuser(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
     $('#bidmodal').modal('show');
 
    } 
