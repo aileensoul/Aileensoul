@@ -1189,7 +1189,15 @@
                                                     </div></li>
                                             <?php } ?>
 
-                                            <li><div class="post-design-product"> <a title="Category" style="cursor: default; color: #000033; font-weight: 400;"> <?php echo ucwords($category); ?></a> </div></li>
+                                            <li><div class="post-design-product"> <a title="Category" style="cursor: default; color: #000033; font-weight: 400;"> 
+                                            <?php 
+                                            if($category){
+
+                                                 echo ucwords($category);
+                                            }else{
+                                            echo ucwords($row['other_industrial']); }?>
+                                                
+                                            </a> </div></li>
 
                                             <li>
 
