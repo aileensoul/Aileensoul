@@ -2381,7 +2381,7 @@ if ($status == 0 || $status == " ") {
                         function comment_deletedimgtwo(clicked_id)
                         { 
                             var post_delete1 = document.getElementById("post_deleteimgtwo");
-                            alert(post_delete1.value);
+                           // alert(post_delete1.value);
                             $.ajax({
                                 type: 'POST',
                                 url: '<?php echo base_url() . "artistic/delete_commenttwoimg" ?>',
