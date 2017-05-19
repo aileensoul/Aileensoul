@@ -118,11 +118,11 @@
     	 
     <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>-->
 <!-- start header -->
-<?php //echo $header; ?>
+<?php echo $header; ?>
 <!-- END HEADER -->
 <!--<script src="<?php echo base_url('assets/js/jquery.js'); ?>"></script>
 <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>-->
-<?php //echo $art_header2; ?>
+<?php echo $art_header2; ?>
 
 <!DOCTYPE html>
 <html>
