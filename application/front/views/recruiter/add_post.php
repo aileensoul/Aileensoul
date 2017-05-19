@@ -391,6 +391,11 @@ $.validator.addMethod("greaterThan",
     }, "minimum salary not greater than maximum salary"
 );
 
+
+    jQuery.validator.addMethod("noSpace", function(value, element) { 
+      return value == '' || value.trim().length != 0;  
+    }, "No space please and don't leave it empty");
+
     $(document).ready(function () {
 
         $("#artpost").validate({
@@ -402,6 +407,7 @@ $.validator.addMethod("greaterThan",
                 post_name: {
 
                     required: true,
+                    noSpace: true
                 },
 
 
@@ -414,6 +420,7 @@ $.validator.addMethod("greaterThan",
                 other_skill: {
 
                     require_from_group: [1, ".skill_other"],
+                    noSpace: true
 
                 },
 
@@ -431,12 +438,14 @@ $.validator.addMethod("greaterThan",
                 position: {
 
                     required: true,
+                    noSpace: true
 
                 },
 
                 post_desc: {
 
                     required: true,
+                    noSpace: true
 
                 },
 
@@ -483,9 +492,11 @@ $.validator.addMethod("greaterThan",
                 },
                 minsal:{
                     required: true,
+                    noSpace: true
                 },
                 maxsal:{
                     required: true,
+                    noSpace: true
                 },
                 
                 
