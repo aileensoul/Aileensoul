@@ -4,6 +4,7 @@
 
 <!--post save success pop up style strat -->
 <style>
+.modal-post{z-index: 1!important;}
 .profile-box{width: 32%;}
 .profile-box-bui-menu li a{margin-right: 2.5px;}
     .pop_content .okbtn{
@@ -1603,8 +1604,8 @@
 
 
                     <!-- Bid-modal  -->
-                    <div class="modal fade message-box biderror" id="bidmodal" role="dialog">
-                        <div class="modal-dialog modal-lm">
+                    <div class="modal fade message-box biderror" id="bidmodal" role="dialog" style="" >
+                        <div class="modal-dialog modal-lm" >
                             <div class="modal-content">
                                 <button type="button" class="modal-close" data-dismiss="modal">&times;</button>       
                                 <div class="modal-body">
@@ -1617,7 +1618,7 @@
                     <!-- Model Popup Close -->
 
                     <!-- Bid-modal-2  -->
-                    <div class="modal fade message-box" id="likeusermodal" role="dialog">
+                    <div class="modal fade message-box" id="likeusermodal" role="dialog" style="">
                         <div class="modal-dialog modal-lm">
                             <div class="modal-content">
                                 <button type="button" class="modal-close" data-dismiss="modal">&times;</button>       
@@ -3107,10 +3108,10 @@
 
                         function imgval(event) {
                             //var fileInput = document.getElementById('test-upload');
-                            var fileInput = document.getElementById("test-upload").files;
+                            var fileInput = document.getElementById("file-1").files;
                             var product_name = document.getElementById("test-upload_product").value;
                             var product_description = document.getElementById("test-upload_des").value;
-                            var product_fileInput = document.getElementById("test-upload").value;
+                            var product_fileInput = document.getElementById("file-1").value;
 
 
                             if (product_fileInput == '' && product_name == '' && product_description == '')

@@ -1690,7 +1690,7 @@ abbr { cursor: help; }
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    z-index: 6; /* Sit on top */
     padding-top: 100px; /* Location of the box */
     left: 0;
     top: 0;
@@ -3832,7 +3832,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2c539e', end
 
 /*checkout modalpopup */
 body.modal-open{ padding: 0 !important; overflow: visible;  position: absolute;  width: 100%;  height:100%;}
-.modal-close{height: 30px !important; width: 30px !important; background: #0A2C5D !important; color: #fff !important; font-size: 24px !important; border: 1px solid #0A2C5D !important;  border-radius: 50% !important;  position: absolute !important;   top: -15px !important;  right: -15px !important;  line-height: 22px !important;   padding: 0 !important;    margin: 0 !important;    text-align: center !important; z-index: 10 !important;}
+.modal-close{height: 30px !important; width: 30px !important; background: #0A2C5D !important; color: #fff !important; font-size: 24px !important; border: 1px solid #0A2C5D !important;  border-radius: 50% !important;  position: absolute !important;   top: -15px !important;  right: -15px !important;  line-height: 22px !important;   padding: 0 !important;    margin: 0 !important;    text-align: center !important; z-index: 7 !important;}
 .modal.checkout .modal-header{ background: #02caca; padding: 15px 8%;}
 .modal.checkout .checkout-top::before, .modal.checkout .checkout-top::after{background: #fff; top: 30px;}
 .modal.checkout .checkout-step label{color: #fff;}
