@@ -382,7 +382,7 @@ echo $job_header2;
                                         <?php if($job_edu){?>
                                         <div class="profile-job-profile-menu " id="job_education">
                                             <ul class="clearfix">
-
+                     <h5 style="text-decoration: underline; text-align: center; margin: 5px;">Primary Address</h5>
                                                 <?php
                                                 if ($job_edu[0]['board_primary']) {
                                                     ?>
@@ -411,7 +411,7 @@ echo $job_header2;
                                                 }
                                                 ?>
 
-
+                           <h5 style="text-decoration: underline; text-align: center; margin: 5px;">Secondary Address</h5>
                                                 <?php
                                                 if ($job_edu[0]['board_secondary']) {
                                                     ?>
@@ -438,7 +438,7 @@ echo $job_header2;
                                                     }
                                                 }
                                                 ?>
-
+<h5 style="text-decoration: underline; text-align: center; margin: 5px;">Higher secondary Address</h5>
                                                 <?php
                                                 if ($job_edu[0]['board_higher_secondary']) {
                                                     ?>
@@ -469,11 +469,13 @@ echo $job_header2;
                                                 }
                                                 ?>
 
-
+<h5 style="text-decoration: underline; text-align: center; margin: 5px;">graduation</h5>
 
                                                 <?php
+
                                                 foreach ($job_graduation as $graduation) {
                                                     if ($graduation['degree']) {
+
                                                         ?>
 
 
