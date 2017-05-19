@@ -379,6 +379,12 @@ $('#searchplace').select2({
 
             //validation for edit email formate form
 
+
+             jQuery.validator.addMethod("noSpace", function(value, element) { 
+      return value == '' || value.trim().length != 0;  
+    }, "No space please and don't leave it empty");
+
+
             $(document).ready(function () { 
 
                 $("#businessinfo").validate({
@@ -388,7 +394,7 @@ $('#searchplace').select2({
                         companyname: {
 
                             required: true,
-                             
+                             noSpace: true
                            
                         },
 
@@ -410,6 +416,7 @@ $('#searchplace').select2({
                          business_address: {
 
                             required: true,
+                            noSpace: true
                             
                            
                         },
