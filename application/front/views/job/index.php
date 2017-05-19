@@ -232,7 +232,7 @@ if (count($nation) > 0) {
                                 <fieldset <?php if ($dob) { ?> class="error-msg" <?php } ?>>
                                     <label>Date of Birth<span style="color:red">*</span></label>
                                 
-                                    <input type="text" name="dob" id="datepicker" placeholder="dd-MM-yyyy"   autocomplete="off" value="<?php echo date('d/m/Y',strtotime($job[0]['user_dob'])); ?>" >
+                                    <input type="text" name="dob" id="datepicker" placeholder="dd-MM-yyyy"   autocomplete="off" value="<?php echo date('d/m/Y',strtotime($dob1)); ?>" >
 <?php echo form_error('dob'); ?>
                                 </fieldset>
 
