@@ -488,7 +488,8 @@ $freelancerapply1 = $this->data['freelancerapply'] = $this->common->select_data_
                                                                     <b>Required Experience</b>
                                                                     <span>
                                                                         <?php if($post['post_exp_month'] ||  $post['post_exp_year']){
-            echo $post['post_exp_year'].".";?>&nbsp;<?php  echo $post['post_exp_month']." Year";}
+          echo $post['post_exp_year'].'.'.$post['post_exp_month']. '  Year';
+}
                 else{echo PROFILENA;} ?>
                                                                     </span>
                                                                 </li>
