@@ -2,6 +2,8 @@
 <!-- END HEAD -->
 <!-- start header -->
 <?php echo $header; ?>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/3.3.0/select2.css" rel="stylesheet" /> 
+
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
@@ -255,8 +257,8 @@
    <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
     <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
     <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
-
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+ 
 
 <!-- script for skill textbox automatic end (option 2)-->
  <script>
@@ -290,13 +292,7 @@ $( "#tags" ).autocomplete({
 </script>
 
 
-<script>
 
-    var complex = <?php echo json_encode($selectdata); ?>;
-//alert(complex);
-    $("#skill1").select2().select2('val', complex)
-
-</script>
 <script>
                     
                     //select2 autocomplete start for Location
@@ -319,9 +315,18 @@ $( "#tags" ).autocomplete({
                     //select2 autocomplete End for Location
                 </script>
 
-<!-- <script type="text/javascript" src="<?php echo base_url('js/jquery-1.11.1.min.js'); ?>"></script> -->
+
 <script type="text/javascript" src="<?php echo base_url('js/jquery.validate1.15.0..min.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('js/additional-methods1.15.0.min.js'); ?>"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/3.3.0/select2.js"></script>
+
+<script>
+
+    var complex = <?php echo json_encode($selectdata); ?>;
+//alert(complex);
+    $("#skill1").select2().select2('val', complex)
+
+</script>
 <script type="text/javascript">
 
     //validation for edit email formate form

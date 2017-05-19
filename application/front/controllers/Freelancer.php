@@ -492,7 +492,12 @@ class Freelancer extends MY_Controller {
         $userid = $this->session->userdata('aileenuser');
 
         $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
-        $userdata = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        $userdata = $this->data['postdata'] = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+
+         $skildata = explode(',', $this->data['postdata'][0]['freelancer_post_area']);
+          // echo "<pre>"; print_r($skildata); die();
+        $this->data['selectdata'] = $skildata;
 
 
         $contition_array = array('status' => 1);
@@ -516,8 +521,8 @@ class Freelancer extends MY_Controller {
                 $this->data['experience_month1'] = $userdata[0]['freelancer_post_exp_month'];
             }
         }
-        $skildata = explode(',', $userdata[0]['freelancer_post_area']);
-        $this->data['selectdata'] = $skildata;
+        // $skildata = explode(',', $userdata[0]['freelancer_post_area']);
+        // $this->data['selectdata'] = $skildata;
 
 
 
