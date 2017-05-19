@@ -432,7 +432,9 @@ function checkvalue(){
 <!-- javascript validation start -->
    <script type="text/javascript">
 
-           
+           jQuery.validator.addMethod("noSpace", function(value, element) { 
+      return value == '' || value.trim().length != 0;  
+    }, "No space please and don't leave it empty");
 
             $(document).ready(function () { 
 
@@ -445,6 +447,7 @@ function checkvalue(){
                         post_name: {
 
                             required: true,
+                            noSpace: true
                            
                         },
 
@@ -456,7 +459,8 @@ function checkvalue(){
 
                         other_skill: {
                             
-                           require_from_group: [1, ".keyskil"]
+                           require_from_group: [1, ".keyskil"],
+                          noSpace: true
                             // required:true 
                         },
                         fields_req:{
@@ -466,6 +470,7 @@ function checkvalue(){
                        post_desc: {
 
                             required: true,
+                           noSpace: true
                            
                         },
                         last_date:{
@@ -476,6 +481,7 @@ function checkvalue(){
                         },
                         rate:{
                           required:true,
+                          noSpace: true
                         },
                         country:{
                           required:true,
