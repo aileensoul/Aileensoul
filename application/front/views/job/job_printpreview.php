@@ -386,7 +386,7 @@ echo $job_header2;
                                                 <?php
                                                 if ($job_edu[0]['board_primary']) {
                                                     ?>
-
+                                                    <h6 class="edu_sec">Primary Education</h6>
                                                     <li> <b>Board </b><span> <?php echo $job_edu[0]['board_primary']; ?></span>
                                                     </li>
 
@@ -415,6 +415,8 @@ echo $job_header2;
                                                 <?php
                                                 if ($job_edu[0]['board_secondary']) {
                                                     ?>
+
+                                                  <h6 class="edu_sec">Secondary Education</h6>
                                                     <li> <b>Board </b><span> <?php echo $job_edu[0]['board_secondary']; ?></span>
                                                     </li>
 
@@ -442,6 +444,7 @@ echo $job_header2;
                                                 <?php
                                                 if ($job_edu[0]['board_higher_secondary']) {
                                                     ?>
+                                                    <h6 class="edu_sec">Higher secondary Education</h6>
                                                     <li> <b>Board </b><span> <?php echo $job_edu[0]['board_higher_secondary']; ?></span>
                                                     </li>
 
@@ -471,11 +474,13 @@ echo $job_header2;
 
 
 
+
+                                                        <h6 class="edu_sec">Graduation</h6>
+
                                                 <?php
                                                 foreach ($job_graduation as $graduation) {
                                                     if ($graduation['degree']) {
                                                         ?>
-
 
                                                         <li> <b> Degree</b> <span>
                                                                 <?php
