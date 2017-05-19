@@ -45,11 +45,11 @@
                     <div class="col-md-3 col-sm-4">
                         <div class="left-side-bar">
                             <ul>
-                                <li <?php if($this->uri->segment(1) == 'artistic'){?> class="active" <?php } ?>><a href="#">Basic information</a></li>
+                                <li <?php if($this->uri->segment(1) == 'artistic'){?> class="active" <?php } ?>><a href="#">Basic Information</a></li>
 
                                 <li class="<?php if($artdata[0]['art_step'] < '1'){echo "khyati";}?>"><a href="<?php echo base_url('artistic/art_address'); ?>">Address</a></li>
 
-                                <li class="<?php if($artdata[0]['art_step'] < '1'){echo "khyati";}?>"><a href="<?php echo base_url('artistic/art_information'); ?>">Art information</a></li>
+                                <li class="<?php if($artdata[0]['art_step'] < '1'){echo "khyati";}?>"><a href="<?php echo base_url('artistic/art_information'); ?>">Art Information</a></li>
 
                                 <li class="<?php if($artdata[0]['art_step'] < '1'){echo "khyati";}?>"><a href="<?php echo base_url('artistic/art_portfolio'); ?>">Portfolio</a></li>
 
@@ -73,7 +73,7 @@
 
                         <div class="common-form clearfix">
                          <h3>
-                            Basic information
+                            Basic Information
                         </h3>
                         
                             <?php echo form_open(base_url('artistic/art_basic_information_insert'), array('id' => 'artbasicinfo','name' => 'artbasicinfo', 'class' => 'clearfix')); ?>
