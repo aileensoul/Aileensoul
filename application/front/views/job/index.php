@@ -420,6 +420,12 @@ if (count($nation) > 0) {
 
     $(document).ready(function () {
 
+ jQuery.validator.addMethod("noSpace", function(value, element) { 
+      return value == '' || value.trim().length != 0;  
+    }, "No space please and don't leave it empty");
+
+
+
         $("#jobseeker_regform").validate({
 
             ignore: ".language",
@@ -428,12 +434,14 @@ if (count($nation) > 0) {
                 fname: {
 
                     required: true,
+                    noSpace: true
 
                 },
 
                 lname: {
 
                     required: true,
+                    noSpace: true
 
                 },
 

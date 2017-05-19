@@ -3463,13 +3463,13 @@
                         function comment_deletedimgtwo(clicked_id)
                         {
                             var post_delete1 = document.getElementById("post_deleteimgtwo");
-                            alert(post_delete1.value);
+                          //  alert(post_delete1.value);
                             $.ajax({
                                 type: 'POST',
                                 url: '<?php echo base_url() . "artistic/delete_commenttwoimg" ?>',
                                 data: 'post_image_comment_id=' + clicked_id + '&post_delete=' + post_delete1.value,
                                 dataType: "json",
-                                success: function (data) {
+                                success: function (data) {// alert(data);
 
                                     $('.' + 'insertcommentimgtwo' + post_delete1.value).html(data.comment);
                                     $('#' + 'insertcountimg' + post_delete1.value).html(data.count);
