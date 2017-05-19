@@ -9,7 +9,8 @@
     
 
 <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
-<?php echo $art_header2; ?>
+<?php if($artdata[0]['art_step'] == 4){?>
+    <?php echo $art_header2; }?>
 
     <!-- END HEADER -->
     <body class="page-container-bg-solid page-boxed">

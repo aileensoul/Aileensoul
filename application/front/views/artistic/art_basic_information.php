@@ -4,7 +4,9 @@
     <!-- start header -->
 <?php echo $header; ?>
     <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
-    <?php echo $art_header2; ?>
+
+<?php if($artdata[0]['art_step'] == 4){?>
+    <?php echo $art_header2; }?>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
     <!-- END HEADER -->
