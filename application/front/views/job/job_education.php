@@ -1230,6 +1230,11 @@
                     <script type="text/javascript">
                         $().ready(function () {
 
+jQuery.validator.addMethod("noSpace", function(value, element) { 
+      return value == '' || value.trim().length != 0;  
+    }, "No space please and don't leave it empty");
+
+
                             $("#jobseeker_regform_primary").validate({
 
                                 rules: {
@@ -1237,12 +1242,14 @@
                                     board_primary: {
 
                                         required: true,
+                                        noSpace: true
 
                                     },
 
                                     school_primary: {
 
                                         required: true,
+                                        noSpace: true
 
                                     },
 
@@ -1294,6 +1301,10 @@
 
                     <script type="text/javascript">
                         $().ready(function () {
+                            jQuery.validator.addMethod("noSpace", function(value, element) { 
+      return value == '' || value.trim().length != 0;  
+    }, "No space please and don't leave it empty");
+
 
                             $("#jobseeker_regform_secondary").validate({
 
@@ -1302,12 +1313,14 @@
                                     board_secondary: {
 
                                         required: true,
+                                        noSpace: true
 
                                     },
 
                                     school_secondary: {
 
                                         required: true,
+                                        noSpace: true
 
                                     },
 
@@ -1360,6 +1373,11 @@
                     <script type="text/javascript">
                         $().ready(function () {
 
+                            jQuery.validator.addMethod("noSpace", function(value, element) { 
+      return value == '' || value.trim().length != 0;  
+    }, "No space please and don't leave it empty");
+
+
                             $("#jobseeker_regform_higher_secondary").validate({
 
                                 rules: {
@@ -1367,17 +1385,20 @@
                                     board_higher_secondary: {
 
                                         required: true,
+                                        noSpace: true
 
                                     },
                                     stream_higher_secondary: {
 
                                         required: true,
+                                        noSpace: true
 
                                     },
 
                                     school_higher_secondary: {
 
                                         required: true,
+                                        noSpace: true
 
                                     },
 
@@ -1437,6 +1458,11 @@
                     <script type="text/javascript">
                         $().ready(function () {
 
+                            jQuery.validator.addMethod("noSpace", function(value, element) { 
+      return value == '' || value.trim().length != 0;  
+    }, "No space please and don't leave it empty");
+
+
                             $("#jobseeker_regform").validate({
 
                                 rules: {
@@ -1462,11 +1488,13 @@
                                     'college[]': {
 
                                         required: true,
+                                        noSpace: true
 
                                     },
                                     'grade[]': {
 
                                         required: true,
+                                        noSpace: true
 
                                     },
                                     'percentage[]': {

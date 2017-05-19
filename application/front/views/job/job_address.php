@@ -622,6 +622,10 @@
 
     //validation for edit email formate form
 
+    jQuery.validator.addMethod("noSpace", function(value, element) { 
+      return value == '' || value.trim().length != 0;  
+    }, "No space please and don't leave it empty");
+
     $(document).ready(function () {
 
         $("#jobseeker_regform").validate({
@@ -643,6 +647,7 @@
                 address: {
 
                     required: true,
+                    noSpace: true
 
                 },
 
@@ -661,6 +666,7 @@
                 address_permenant: {
 
                     required: true,
+                    noSpace: true
 
                 },
 

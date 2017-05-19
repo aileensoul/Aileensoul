@@ -354,7 +354,9 @@ if ($this->session->flashdata('success')) {
 
 <script type="text/javascript">
 
-
+jQuery.validator.addMethod("noSpace", function(value, element) { 
+      return value == '' || value.trim().length != 0;  
+    }, "No space please and don't leave it empty");
     $(document).ready(function () {
        
         //alert(123);
@@ -375,6 +377,7 @@ if ($this->session->flashdata('success')) {
                 other_skill: {
 
                     require_from_group: [1, ".keyskil"],
+                    noSpace: true
                             // required:true 
                 }
             },
