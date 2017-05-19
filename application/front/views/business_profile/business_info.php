@@ -97,7 +97,7 @@
 
                                 <fieldset class="full-width" <?php if($companyname) {  ?> class="error-msg" <?php } ?>>
                                     <label>Company Name:<span style="color:red">*</span></label>
-                                    <input name="companyname" type="text" id="companyname" placeholder="Enter company Name" value="<?php if($companyname1){ echo $companyname1; } ?>"/>
+                                    <input name="companyname" type="text" id="companyname" placeholder="Enter Company Name" value="<?php if($companyname1){ echo $companyname1; } ?>"/>
                                     <?php echo form_error('companyname'); ?>
                                 </fieldset>
                                 
