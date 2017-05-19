@@ -177,7 +177,7 @@
                             </fieldset>
 
                             <fieldset  class="" <?php if ($experience_year) { ?> class="error-msg" <?php } ?>>
-                                <label>Total experience :<span style="color:red">*</span></label>  <select name="experience_year" placeholder="Year" id="experience_year" class="experience_year col-md-5" style="margin-right: 5px;">
+                                <label>Total experience :<span style="color:red">*</span></label>  <select name="experience_year" placeholder="Year" id="experience_year" class="experience_year col-md-5 day" style="margin-right: 5px;">
 
                                     <option value="" selected option disabled>Year</option>
                                     <option value="0 year"  <?php if ($experience_year1 == "0 year") echo 'selected'; ?>>0 Year</option>
@@ -205,7 +205,7 @@
                                 </select>
 
 
-                                <select name="experience_month" id="experience_month" placeholder="Month" class="experience_month col-md-5" style="margin-right: 5px;">
+                                <select name="experience_month" id="experience_month" placeholder="Month" class="experience_month col-md-5 day" style="margin-right: 5px;">
                                     <option value="" selected option disabled>Month</option>
                                     <option value="0 month"  <?php if ($experience_month1 == "0 month") echo 'selected'; ?>>0 Month</option>
                                     <option value="1 month"  <?php if ($experience_month1 == "1 month") echo 'selected'; ?>>1 Month</option>
@@ -376,16 +376,21 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
 
                 },
 
-                experience_year: {
+               
+            
 
-                    required: true,
+                    experience_year: {
+                            
+                          require_from_group: [1, ".day"] 
+                          //required:true 
+                        }, 
 
-                },
-                 experience_month: {
-
-                    required: true,
-
-                },
+                        experience_month: {
+                            
+                           require_from_group: [1, ".day"],
+                          noSpace: true
+                            // required:true 
+                        },
 
             },
 
@@ -420,16 +425,19 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
 
                 },
 
-                experience_year: {
+              
 
-                    required: "Experience year is required.",
+                 experience_year: {
 
-                },
-                 experience_month: {
+                            require_from_group: "You must either fill out 'experience year' or 'experience month'"
 
-                    required: "Experience month is required.",
+                        },
 
-                },
+                        experience_month: {
+
+                            require_from_group: "You must either fill out 'experience year' or 'experience month'"
+
+                        },
             }
 
         });
