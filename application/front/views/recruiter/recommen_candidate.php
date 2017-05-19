@@ -681,7 +681,7 @@ $data = $this->common->select_data_by_condition('save', $contition_array, $data 
                         function savepopup(id) {
                             save_user(id);
                       
-            $('.biderror .mes').html("<div class='pop_content'>Your post is successfully saved.");
+            $('.biderror .mes').html("<div class='pop_content'>Candidate successfully saved.");
             $('#bidmodal').modal('show');
                         }
                     </script>
