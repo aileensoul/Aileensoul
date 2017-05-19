@@ -343,7 +343,7 @@ label.cameraButton input[accept*="camera"] {
          
                                <a><?php 
 
-                               if($user['industriyal']){
+                               if($category){
                                 echo $category;
                                }else{
                               echo $user['other_industrial'];

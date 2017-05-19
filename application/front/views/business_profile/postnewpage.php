@@ -547,7 +547,12 @@
                                             <?php $category = $this->db->get_where('industry_type', array('industry_id' => $businessdata[0]['industriyal'], 'status' => 1))->row()->industry_name; ?>
                                             <div class="profile-boxProfile-name">
                                                 <a style="padding-left: 1px;" href="<?php echo base_url('business_profile/business_profile_manage_post/'); ?> " title="<?php echo ucwords($businessdata[0]['company_name']); ?>" >
-                                                    <b> <?php echo $category; ?></b>
+                                                    <b> <?php 
+                                                    if($category){
+                                                        echo $category;
+                                                    }else{
+                                                    echo $businessdata[0]['other_industrial'];
+                                                    } ?></b>
                                                 </a>
                                             </div>
                                         </div>
@@ -699,7 +704,16 @@
                                                     <span> <?php echo date('d-M-Y', strtotime($busienss_data[0]['created_date'])); ?></span></div></li>
 
                                                     <?php }?>
-                                            <li><div class="post-design-product"><a><?php echo ucwords($category); ?></a></div></li>
+                                            <li><div class="post-design-product"><a>
+                                            <?php 
+                                            if($category){
+                                                 echo ucwords($category);
+                                            }else{
+                                            echo ucwords($busienss_data[0]['other_industrial']);
+                                               }
+                                             ?>
+                                                
+                                            </a></div></li>
 
                                         </ul> 
                                     </div>  
