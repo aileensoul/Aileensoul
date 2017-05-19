@@ -54,8 +54,8 @@
                       <label>Gender</label>
                       <input type="radio" id="gen" name="gender" value="M" <?php if($userdata[0]['user_gender'] == M){ echo 'checked'; } ?>>Male
                       <input type="radio" id="gen" name="gender" value="F" <?php if($userdata[0]['user_gender'] == F){ echo 'checked'; } ?>>Female
-                    <input type="radio" id="gen" name="gender" value="O" <?php if($userdata[0]['user_gender'] == O){ echo 'checked'; } ?>> Other
-  
+                    <!-- <input type="radio" id="gen" name="gender" value="O" <?php if($userdata[0]['user_gender'] == O){ echo 'checked'; } ?>> Other
+ -->  
                      
 					<?php echo form_error('gender'); ?>
 					</fieldset>
@@ -163,17 +163,7 @@ $('#datepicker').datetimepicker({
 
                             required: true,
                             email:true,
-                             remote: {
-                                url: "<?php echo site_url() . 'registration/check_email' ?>",
-                                type: "post",
-                                data: {
-                                    email: function () {
-                                     // alert("hi");
-                                        return $("#email").val();
-                                    },
-                                    '<?php echo $this->security->get_csrf_token_name(); ?>': '<?php echo $this->security->get_csrf_hash(); ?>',
-                                },
-                              },
+                             
                         },
                         
                         datepicker: {
@@ -204,7 +194,7 @@ $('#datepicker').datetimepicker({
 
                             required: "Email Address Is Required.",
                              email:"Please Enter Valid Email Id.",
-                              remote: "Email already exists"
+                             
                         },
                         
                          datepicker: {

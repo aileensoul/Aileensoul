@@ -262,6 +262,12 @@ $( "#tags" ).autocomplete({
 
             //validation for edit email formate form
 
+
+ jQuery.validator.addMethod("noSpace", function(value, element) { 
+      return value == '' || value.trim().length != 0;  
+    }, "No space please and don't leave it empty");
+
+
             $(document).ready(function () { 
 
                 $("#artbasicinfo").validate({
@@ -271,12 +277,14 @@ $( "#tags" ).autocomplete({
                         firstname: {
 
                             required: true,
+                            noSpace: true
                         },
 
 
                         lastname: {
 
                             required: true,
+                            noSpace: true
                         },
 
 
