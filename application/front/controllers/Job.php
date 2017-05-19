@@ -89,7 +89,6 @@ class Job extends MY_Controller {
         $contition_array = array('status' => 1);
         $this->data['language1'] = $this->common->select_data_by_condition('language', $contition_array, $data = '*', $sortby = 'language_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-
         if ($userdata) {
             $step = $userdata[0]['job_step'];
 
@@ -105,6 +104,8 @@ class Job extends MY_Controller {
                 $this->data['gender1'] = $userdata[0]['gender'];
             }
         }
+
+     // echo "<pre>"; print_r($this->data['dob1']); die();
 
         $skildata = explode(',', $userdata[0]['language']);
         $this->data['selectdata'] = $skildata;
@@ -172,6 +173,10 @@ class Job extends MY_Controller {
 
         $language = $this->input->post('language');
 
+          $bod = $this->input->post('dob');
+                //echo $bod;
+        $bod = str_replace('/', '-', $bod);
+
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('job/index');
         } else {
@@ -192,9 +197,7 @@ class Job extends MY_Controller {
                     );
                     $updatedata = $this->common->update_data($data, 'job_reg', 'user_id', $userid);
                 }
-                $bod = $this->input->post('dob');
-                //echo $bod;
-                $bod = str_replace('/', '-', $bod);
+              
                 //echo "change".$bod;
                 $data = array(
                     'fname' => $this->input->post('fname'),
@@ -209,7 +212,8 @@ class Job extends MY_Controller {
                     'user_id' => $userid,
                     'modified_date' => date('Y-m-d h:i:s', time())
                 );
-                //echo "<pre>"; print_r($data);die();
+                
+              // echo "hi"; echo "<pre>"; print_r($data);die();
 
                 $updatedata = $this->common->update_data($data, 'job_reg', 'user_id', $userid);
                 if ($updatedata) {
@@ -229,7 +233,7 @@ class Job extends MY_Controller {
                     'marital_status' => $this->input->post('marital_status'),
                     'nationality' => $this->input->post('nationality'),
                     'language' => implode(",", $language),
-                    'dob' => $this->input->post('dob'),
+                    'dob' => date('Y-m-d', strtotime($bod)),
                     'gender' => $this->input->post('gender'),
                     'status' => 1,
                     'is_delete' => 0,
@@ -237,6 +241,8 @@ class Job extends MY_Controller {
                     'user_id' => $userid,
                     'job_step' => 1
                 );
+               //echo "hello"; echo "<pre>"; print_r($data);die();
+
 
                 $insert_id = $this->common->insert_data_getid($data, 'job_reg');
                 if ($insert_id) {

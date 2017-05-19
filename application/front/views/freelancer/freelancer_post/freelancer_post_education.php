@@ -28,7 +28,11 @@
              $contition_array = array('user_id' => $userid, 'status' => '1');
              $freepostdata = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
              
-             if($freepostdata[0]['free_post_step'] == 7){ }else{
+             if($freepostdata[0]['free_post_step'] == 7){ ?> 
+
+
+<div class="col-md-6 col-sm-8"><h3>You are updating your Freelancer Profile.</h3></div>
+                <?php }else{
 
              ?>
 

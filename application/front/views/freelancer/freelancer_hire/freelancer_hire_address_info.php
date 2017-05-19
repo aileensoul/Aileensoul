@@ -35,7 +35,10 @@
              $contition_array = array('user_id' => $userid, 'status' => '1');
              $freehiredata = $this->common->select_data_by_condition('freelancer_hire_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
              
-             if($freehiredata[0]['free_hire_step'] == 3){ }else{
+             if($freehiredata[0]['free_hire_step'] == 3){ ?>
+<div class="col-md-6 col-sm-8"><h3>You are updating your Freelancer Profile.</h3></div>
+
+             <?php }else{
 
              ?>
 

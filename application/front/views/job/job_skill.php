@@ -222,8 +222,6 @@ if ($this->session->flashdata('success')) {
         margin-bottom: 5px;
     }    
 </style>
-<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.min.js') ?>"></script>
-<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
 
 
 
@@ -341,6 +339,8 @@ if ($this->session->flashdata('success')) {
 <!-- script for clear textbox start-->
 <!-- <script type="text/javascript" src="<?php// echo base_url('js/jquery.clearsearch-1.0.4.js'); ?>"></script> -->
 <!-- script for clear textbox End-->
+<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.min.js') ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
 
 
 <script type="text/javascript">
@@ -355,9 +355,11 @@ if ($this->session->flashdata('success')) {
 
     $(document).ready(function () {
        
-
+        //alert(123);
      $("#jobseeker_regform").validate({
-             ignore: '*:not([name])',
+      //  alert(456);
+
+             //ignore: '*:not([name])',
 
             rules: {
 

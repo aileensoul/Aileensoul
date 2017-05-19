@@ -284,7 +284,8 @@ foreach ($postskill as $post_key => $post_value) {
        // alert("hi");
 
         $("#jobseeker_regform").validate({
-            ignore: [],
+           
+            //ignore: [],
             rules: {
 
                 ApplyFor: {
