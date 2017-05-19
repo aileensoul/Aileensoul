@@ -341,7 +341,15 @@ label.cameraButton input[accept*="camera"] {
                                 <?php  $category =  $this->db->get_where('industry_type',array('industry_id' => $user['industriyal'], 'status' => 1))->row()->industry_name;  ?>
          
          
-                               <a><?php echo $category; ?></a>
+                               <a><?php 
+
+                               if($user['industriyal']){
+                                echo $category;
+                               }else{
+                              echo $user['other_industrial'];
+                                 }
+
+                               ?></a>
      
                                 </div>
 
