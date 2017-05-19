@@ -954,9 +954,8 @@ responsive image design start -->
 
                 <div class="post-editor col-md-12">
                     <div class="main-text-area col-md-12">
-                        <div class="popup-img col-md-1"> <img  src="<?php echo base_url(ARTISTICIMAGE . $artisticdata[0]['art_user_image']); ?>"  alt="" style=" margin-left: -7px;
-                                                               margin-top: 6px;
-                                                               ">
+                 <div class="popup-img col-md-1"> <img  src="<?php echo base_url(ARTISTICIMAGE . $artisticdata[0]['art_user_image']); ?>"  alt="" style=" margin-left: -7px;
+                                                      margin-top: 6px;">
                         </div>
                         <div id="myBtn3"  class="editor-content col-md-11 popup-text">
                             <span> Post Your Art....</span> 
@@ -1171,7 +1170,6 @@ responsive image design start -->
 
         </div>
  </div>
-
 
                                         <div class="post-design-desc ">
                                             <span> 
@@ -1994,7 +1992,6 @@ responsive image design start -->
         }
     }
 </script>
-
 
 <!-- popup form edit END -->
 
