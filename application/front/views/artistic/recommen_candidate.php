@@ -139,7 +139,7 @@
           <ul>
        <li>
       <a style="  font-size: 19px;
-         font-weight: 600;" href="" title=" dhaval shah">
+         font-weight: 600;" href="" title="<?php echo $key['art_name'].' '.$key['art_lastname'];?>">
        <?php echo $key['art_name'].' '.$key['art_lastname'];?>
        </a>
       </li>

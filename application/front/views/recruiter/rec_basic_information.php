@@ -165,6 +165,10 @@
 
             //validation for edit email formate form
 
+             jQuery.validator.addMethod("noSpace", function(value, element) { 
+      return value == '' || value.trim().length != 0;  
+    }, "No space please and don't leave it empty");
+
             $(document).ready(function () { 
 
                 $("#basicinfo").validate({
@@ -174,17 +178,20 @@
                         first_name: {
 
                             required: true,
+                            noSpace: true
                            
                         },
 
                          last_name: {
 
                             required: true,
+                            noSpace: true
                            
                         },
                        
                       email: {
                             required: true,
+                           
                             email: true,
                             remote: {
                                 url: "<?php echo site_url() . 'recruiter/check_email' ?>",
@@ -202,6 +209,7 @@
 
                             number: true,
                             required: true,
+                            
                             
                         },
                        
