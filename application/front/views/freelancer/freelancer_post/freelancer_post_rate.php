@@ -45,11 +45,11 @@
                     <div class="col-md-3 col-sm-3">
                         <div class="left-side-bar">
                             <ul>
-                                <li><a href="<?php echo base_url('freelancer/freelancer_post_basic_information'); ?>">Basic Info</a></li> 
+                                <li><a href="<?php echo base_url('freelancer/freelancer_post_basic_information'); ?>">Basic Information</a></li> 
 
-                                <li><a href="<?php echo base_url('freelancer/freelancer_post_address_information'); ?>">Address Info</a></li>
+                                <li><a href="<?php echo base_url('freelancer/freelancer_post_address_information'); ?>">Address Information</a></li>
 
-                                <li><a href="<?php echo base_url('freelancer/freelancer_post_professional_information'); ?>">Professional Info</a></li>
+                                <li><a href="<?php echo base_url('freelancer/freelancer_post_professional_information'); ?>">Professional Information</a></li>
 
                                 <li <?php if ($this->uri->segment(1) == 'freelancer') { ?> class="active" <?php } ?>><a href="#">Rate</a></li>
 
