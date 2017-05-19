@@ -46,11 +46,11 @@
                     <div class="col-md-3 col-sm-4">
                         <div class="left-side-bar">
                             <ul>
-                                <li><a href="<?php echo base_url('artistic/art_basic_information_update'); ?>">Basic information</a></li>
+                                <li><a href="<?php echo base_url('artistic/art_basic_information_update'); ?>">Basic Information</a></li>
 
                                 <li><a href="<?php echo base_url('artistic/art_address'); ?>">Address</a></li>
 
-                                <li <?php if($this->uri->segment(1) == 'artistic'){?> class="active" <?php } ?>><a href="#">Art information</a></li>
+                                <li <?php if($this->uri->segment(1) == 'artistic'){?> class="active" <?php } ?>><a href="#">Art Information</a></li>
 
                                 <li class="<?php if($artdata[0]['art_step'] < '3'){echo "khyati";}?>"><a href="<?php echo base_url('artistic/art_portfolio'); ?>">Portfolio</a></li>
 
@@ -74,7 +74,7 @@
 
                         <div class="common-form">
                          <h3>
-                            Art information
+                            Art Information
                         </h3>
                         
                             <?php echo form_open(base_url('artistic/art_information_insert'), array('id' => 'artinfo','name' => 'artinfo','class' => 'clearfix')); ?>

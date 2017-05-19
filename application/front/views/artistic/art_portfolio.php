@@ -46,11 +46,11 @@
                     <div class="col-md-3 col-sm-4">
                         <div class="left-side-bar">
                             <ul>
-                                <li><a href="<?php echo base_url('artistic/art_basic_information_update'); ?>">Basic information</a></li>
+                                <li><a href="<?php echo base_url('artistic/art_basic_information_update'); ?>">Basic Information</a></li>
 
                                 <li><a href="<?php echo base_url('artistic/art_address'); ?>">Address</a></li>
 
-                                <li><a href="<?php echo base_url('artistic/art_information'); ?>">Art information</a></li>
+                                <li><a href="<?php echo base_url('artistic/art_information'); ?>">Art Information</a></li>
 
                                 <li <?php if($this->uri->segment(1) == 'artistic'){?> class="active" <?php } ?>><a href="#">Portfolio</a></li>
   

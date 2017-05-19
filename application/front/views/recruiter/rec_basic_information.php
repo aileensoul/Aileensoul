@@ -47,11 +47,11 @@
                         <div class="left-side-bar">
                             <ul>
                                 
-                            <li <?php if($this->uri->segment(1) == 'recruiter'){?> class="active" <?php } ?>><a href="#">Basic information</a></li>
+                            <li <?php if($this->uri->segment(1) == 'recruiter'){?> class="active" <?php } ?>><a href="#">Basic Information</a></li>
                             
-                             <li  class="<?php if($recdata[0]['re_step'] < '1'){echo "khyati";}?>"><a href="<?php echo base_url('recruiter/company_info_form'); ?>">Company information</a></li>
+                             <li  class="<?php if($recdata[0]['re_step'] < '1'){echo "khyati";}?>"><a href="<?php echo base_url('recruiter/company_info_form'); ?>">Company Information</a></li>
                             
-                             <li class="<?php if($recdata[0]['re_step'] < '1'){echo "khyati";}?>"><a href="<?php echo base_url('recruiter/rec_comp_address'); ?>">Company address</a></li>
+                             <li class="<?php if($recdata[0]['re_step'] < '1'){echo "khyati";}?>"><a href="<?php echo base_url('recruiter/rec_comp_address'); ?>">Company Address</a></li>
                                 
                             </ul>
                         </div>
@@ -70,7 +70,7 @@
 
                     <!--- middle section start -->
                      <div class="common-form">
-                     <h3>Basic information</h3>
+                     <h3>Basic Information</h3>
                  <?php echo form_open(base_url('recruiter/basic_information'), array('id' => 'basicinfo','name' => 'basicinfo','class' => 'clearfix')); ?>
 
                               <!-- <div>

@@ -57,7 +57,7 @@
 
                                 <li class="<?php if ($freepostdata[0]['free_post_step'] < '1') {
     echo "khyati";
-} ?>"><a href="<?php echo base_url('freelancer/freelancer_post_professional_information'); ?>">Professional Info</a></li>
+} ?>"><a href="<?php echo base_url('freelancer/freelancer_post_professional_information'); ?>">Professional Information</a></li>
 
                                 <li class="<?php if ($freepostdata[0]['free_post_step'] < '1') {
     echo "khyati";
