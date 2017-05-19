@@ -1471,11 +1471,13 @@ $new = array();
         $contition_array = array('user_id' => $userid, 'is_delete' => 0, 'status' => 1);
         $freelancerhiredata = $this->data['freelancerhiredata'] = $this->common->select_data_by_condition('freelancer_post', $contition_array, $data = '*', $sortby = 'post_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-
         $post_skill = $this->data['freelancerhiredata'][0]['post_skill'];
         $postuserarray = explode(',', $post_skill);
+         // echo "<pre>"; print_r($postuserarray); die();
+        $contition_array = array('user_id' => $userid, 'is_delete' => 0, 'status' => 1);
 
-        $candidate = $this->data['candidate'] = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array = array(), $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        $candidate = $this->data['candidate'] = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+       //echo "<pre>"; print_r($candidate); die();
 
 
         foreach ($candidate as $frcan) {
@@ -1496,7 +1498,7 @@ $new = array();
 //        die();
 
         $this->data['candidatefreelancer'] = $freecandidate;
-        // echo "<pre>"; print_r($this->data['candidatefreelancer']); die();
+       // echo "<pre>"; print_r($this->data['candidatefreelancer']); die();
 // code for search
         $contition_array = array('status' => '1', 'is_delete' => '0');
 
