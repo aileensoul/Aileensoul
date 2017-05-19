@@ -197,6 +197,9 @@
 
             //validation for edit email formate form
 
+jQuery.validator.addMethod("noSpace", function(value, element) { 
+      return value == '' || value.trim().length != 0;  
+    }, "No space please and don't leave it empty");
             $(document).ready(function () { 
 
                 $("#basicinfo").validate({
@@ -206,6 +209,7 @@
                         comp_name: {
 
                             required: true,
+                            noSpace: true
                            
                         },
 
