@@ -1681,7 +1681,7 @@ class Recruiter extends MY_Controller {
         $this->load->view('recruiter/abc');
     }
 
-    public function recommen_candidate() {
+    public function recommen_candidate_pallavi() {
 
         $userid = $this->session->userdata('aileenuser');
 
@@ -1689,16 +1689,16 @@ class Recruiter extends MY_Controller {
 
         $contition_array = array('user_id' => $userid, 'is_delete' => 0, 'status' => 1);
         $recruiterdata = $this->data['recruiterdata'] = $this->common->select_data_by_condition('rec_post', $contition_array, $data = '*', $sortby = 'post_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-        //echo "<pre>"; print_r($this->data['recruiterdata']); die();
+        echo "<pre>"; print_r($this->data['recruiterdata']); 
 
         $contition_array = array('user_id' => $userid, 'is_delete' => 0, 're_status' => 1);
          $this->data['recruiterdata1'] = $this->common->select_data_by_condition('recruiter', $contition_array, $data = '*', $sortby = '', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-        // echo "<pre>"; print_r($this->data['recruiterdata1']); die();
+         echo "<pre>"; print_r($this->data['recruiterdata1']);
         //fetch candidate using skill start     
         $post_skill = $this->data['recruiterdata'][0]['post_skill'];
         $postuserarray = explode(',', $post_skill);
-        //print_r($postuserarray); die();
+        print_r($postuserarray);
 
 
 
@@ -1718,7 +1718,7 @@ class Recruiter extends MY_Controller {
     
         $candidate = $this->data['candidate'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 
-     // echo "<pre>"; print_r($candidate); die();
+      echo "<pre>"; print_r($candidate);
         // echo "<pre>"; print_r($candidate1); die();
         //  $contition_array = array('status' => '1');
         // $candidate = $this->data['edudata'] = $this->common->select_data_by_condition('job_add_edu', $contition_array, $data='*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
@@ -1727,7 +1727,7 @@ class Recruiter extends MY_Controller {
         foreach ($candidate as $jobcan) {  //echo "123"; die();
             $keyskill = explode(',', $jobcan['keyskill']);
             $result = array_intersect($postuserarray, $keyskill);
-            //print_r($result); 
+            echo "<pre>";print_r($result); 
             // if(count($result) > 0){ //echo "falguni"; die();
 
             $contition_array = array('job_id' => $jobcan['job_id'], 'is_delete' => 0, 'status' => 1);
@@ -1735,18 +1735,20 @@ class Recruiter extends MY_Controller {
 
             $jobrec = $this->data['jobrec'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = 'job_id', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-            // echo "<pre>"; print_r($this->data['jobrec']); die();
+            // echo "<pre>"; print_r($this->data['jobrec']); 
             // $jobskill[] = $this->data['jobrec'];
             //} 
         } // echo "<pre>"; print_r($jobskill); die();
 //fetch candidate using skill end
 //fetch candidate using location start
         //echo $this->data['recruiterdata'][0]['city']; die();
+       // echo "<pre>"; print_r($this->data['jobrec']); die();
         $contition_array = array('city_id' => $this->data['recruiterdata'][0]['city'], 'is_delete' => 0, 'status' => 1);
 
         $candidatelocation = $this->data['candidatelocation'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-
+        //echo "<pre>";print_r($candidatelocation);
+        die();
 
         $canlocation[] = $candidatelocation;
 
@@ -1783,8 +1785,12 @@ class Recruiter extends MY_Controller {
 // array merge end
 
         $this->data['candidatejob'] = $new;
+       // echo "<pre>";print_r($this->data['candidatejob']);die();
 
       // echo "<pre>"; print_r($this->data['candidatejob']); die();
+
+
+        //code for search
 
         $contition_array = array('status' => '1', 'user_id' => $userid);
 
@@ -1837,6 +1843,75 @@ class Recruiter extends MY_Controller {
         $this->data['demo'] = array_values($result1);
 
         $this->load->view('recruiter/recommen_candidate', $this->data);
+    }
+
+
+
+    public function recommen_candidate() {
+
+        $userid = $this->session->userdata('aileenuser');
+       // echo $userid;
+
+        $contition_array = array('user_id' => $userid, 'is_delete' => 0, 'status' => 1);
+        $recruiterdata = $this->data['recruiterdata'] = $this->common->select_data_by_condition('rec_post', $contition_array, $data = '*', $sortby = 'post_id', $orderby = 'DESC', $limit = '1', $offset = '', $join_str = array(), $groupby = '');
+       // echo "<pre>"; print_r($this->data['recruiterdata']); 
+
+
+        $contition_array = array('user_id' => $userid, 'is_delete' => 0, 're_status' => 1);
+         $this->data['recruiterdata1'] = $this->common->select_data_by_condition('recruiter', $contition_array, $data = '*', $sortby = '', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+        // echo "<pre>"; print_r($this->data['recruiterdata1']);
+
+
+         $post_skill = $this->data['recruiterdata'][0]['post_skill'];
+        $postuserarray = explode(',', $post_skill);
+        //print_r($postuserarray);
+
+
+
+        $join_str = array(
+            array(
+                'join_type' => '',
+                'table' => 'job_add_edu',
+                'join_table_id' => 'job_reg.user_id',
+                'from_table_id' => 'job_add_edu.user_id'),
+            array(
+                'join_type' => '',
+                'table' => 'job_add_workexp',
+                'join_table_id' => 'job_reg.user_id',
+                'from_table_id' => 'job_add_workexp.user_id')
+        );
+         $contition_array = array('job_reg.user_id !=' => $userid);
+
+    
+        $candidate = $this->data['candidate'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+//echo "<pre>"; print_r($candidate);die();
+        
+
+
+        foreach ($candidate as $jobcan) {  //echo "123"; die();
+            $keyskill = explode(',', $jobcan['keyskill']);
+            $result = array_intersect($postuserarray, $keyskill);
+           // echo "<pre>";print_r($result); 
+           
+      if($result){
+
+            $contition_array = array('job_id' => $jobcan['job_id'], 'is_delete' => 0, 'status' => 1);
+
+
+            $jobrec = $this->data['jobrec'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = 'job_id', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            $canlocation[] = $jobrec;
+         }
+             
+        }
+
+     //echo "<pre>"; print_r($canlocation); die();
+        $this->data['candidatejob'] = $canlocation;
+        //echo "<pre>"; print_r($this->data['candidatejob']);die();
+        $this->load->view('recruiter/recommen_candidate', $this->data);
+
+
     }
 
 // cover pic controller
