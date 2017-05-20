@@ -243,68 +243,7 @@
 
 
                     <div class="profile-box profile-box-left col-md-4">
-                        <?php /* ?>
-                          <div class="full-box-module">
-
-
-
-                          <div class="profile-boxProfileCard  module">
-                          <div class="profile-boxProfileCard-cover">
-                          <a class="profile-boxProfileCard-bg u-bgUserColor a-block" href="<?php echo site_url('artistic/art_manage_post'); ?>" tabindex="-1"
-                          aria-hidden="true" rel="noopener">
-                          <img src="<?php echo base_url(ARTBGIMAGE . $artisticdata[0]['profile_background_main']);?>" class="bgImage" style="    height: 95px;
-                          width: 393px; " >
-
-                          </a></div>
-                          <div class="profile-box-menu-2 fr col-md-12">
-                          <div class="left- col-md-2"></div>
-                          <div  class="right-section col-md-10">
-                          <ul class="">
-                          <li <?php if($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'art_savepost'){?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/art_manage_post'); ?>"> Dashboard</a>
-                          </li>
-
-
-
-                          <li <?php if($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'followers'){?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/followers'); ?>">Followers <br>(<?php echo (count($followerdata)); ?>)</a>
-                          </li>
-
-                          <li <?php if($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'following'){?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/following'); ?>">Following<br>(<?php echo (count($followingdata)); ?>)</a>
-                          </li>
-
-
-                          </ul>
-                          </div>
-                          </div>
-                          <div class="profile-boxProfileCard-content">
-                          <div class="buisness-profile-txext ">
-                          <a class="profile-boxProfileCard-avatarLink a-inlineBlock profile-img-set" href="<?php echo site_url('artistic/art_manage_post'); ?>" title="zalak" tabindex="-1" aria-hidden="true" rel="noopener">
-
-                          <!-- box image start -->
-                          <img src="<?php echo base_url(ARTISTICIMAGE . $artisticdata[0]['art_user_image']);?>" class="bgImage"  style="" >
-                          <!-- box image end -->
-                          </a>
-                          </div>
-                          <div class="profile-box-user">
-                          <span class="profile-box-name ">
-                          <a href="<?php echo site_url('artistic/art_manage_post'); ?>"> <?php echo ucwords($artisticdata[0]['art_name']) .' '.  ucwords($artisticdata[0]['art_lastname']); ?></a>
-                          </span>
-                          <div class="profile-boxProfile-name">
-                          <a href="<?php echo site_url('artistic/art_manage_post'); ?>">
-                          <?php if($artisticdata[0]['designation']){
-                          echo ucwords($artisticdata[0]['designation']);
-                          }
-                          else{
-                          echo "Designation";
-                          }?></a></div>
-
-                          </div>
-                          <div id="profile-box-profile-prompt"></div>
-
-                          </div>
-                          </div>
-                          </div>
-
-                          <?php */ ?>
+                        <?php ?>
 
                         <div class="full-box-module">    
 
