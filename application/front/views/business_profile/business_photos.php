@@ -745,24 +745,25 @@
                                                 } else {
                                                     ?>
 
-                                                    <div style="position: relative;">
 
 
 
-                                                        <!-- <div class="not_text" style=" top: 70;     position: absolute;
+                                                     <!-- <div style="position: relative;">
+
+
+
+                                                         <div class="not_text" style=" top: 70;     position: absolute;
                                             columns: #000033;
                                             color: #728bc0;
                                             font-size: 19px;
                                             font-weight: 600;
-                                            left: 362;"><img src="<?php echo base_url('images/020-c.png'); ?>" style= "padding: 20px;
-                                            height: 200px;
-                                            width: 200px;
+                                            left: 362;"><img src="<?php echo base_url('images/020-c.png'); ?>"
                                             " ><span style="position: absolute;
                                                left: 19px;
                                             top: 184px;
                                         
-                                        ">Photo not avalible</span></div> -->
-                                                    </div>
+                                        ">Photo not avalible</span></div>
+                                                    </div> -->
                                                 <?php } ?>
 
                                             </div>

@@ -633,7 +633,7 @@
                                     ?>
                                     <tr>
                                         <td class="business_data_td1"><i class="fa fa-globe"></i></td>
-                                        <td class="business_data_td2 website"><span><a target="_blank" href="<?php echo $businessdata1[0]['contact_website']; ?>"> <?php echo $businessdata1[0]['contact_website']; ?></a></span></td>
+                                        <td class="business_data_td2 website"><span><a target="_blank" href="https://<?php echo $businessdata1[0]['contact_website'];?>"> <?php echo $this->common->make_links($businessdata1[0]['contact_website']);?></a></span></td>
                                     </tr>
 
                                 <?php } ?>
