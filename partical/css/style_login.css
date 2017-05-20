@@ -6,7 +6,10 @@
 html {
 /*  overflow-y: scroll;*/
 }
-
+input::-webkit-input-placeholder { color:#a0b3b0;font-size: 15px; }
+input::-moz-placeholder { color:#a0b3b0; font-size: 15px;} /* firefox 19+ */
+input:-ms-input-placeholder { color:#a0b3b0; font-size: 15px;} /* ie */
+input:-moz-placeholder { color:#a0b3b0;font-size: 15px; }
 body {
   background: #c1bdba;
   font-family: 'Lato', sans-serif;
