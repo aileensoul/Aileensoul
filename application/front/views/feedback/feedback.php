@@ -313,7 +313,7 @@
             <div class="row">
                 <div class="col-md-6" style="padding: 12px;">
                 <div class="footer-menu pull-left">
-                    <p>copyright 2017 | by <a href="<?php echo base_url('main') ?>" style="color: #000033">Aileensoul</a></p>
+                    <p>&copy; 2017 | by <a href="<?php echo base_url('main') ?>" style="color: #000033">Aileensoul</a></p>
                 </div>
                 </div>
                 <div class="col-md-6">
@@ -420,13 +420,13 @@ $(document).ready(function () {
             {
             
             contact_email: {
-            required: "Enter Email",
+            required: "Email Is Required.",
             },
             contact_subject: {
-            required: "Enter Subject",
+            required: "Subject Is Required.",
             },
             contact_message: {
-            required: "Enter Message",
+            required: "Message Is Required.",
             }
         },
      });
