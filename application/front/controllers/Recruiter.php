@@ -1909,6 +1909,62 @@ class Recruiter extends MY_Controller {
      //echo "<pre>"; print_r($canlocation); die();
         $this->data['candidatejob'] = $canlocation;
         //echo "<pre>"; print_r($this->data['candidatejob']);die();
+
+
+//code for search
+
+        $contition_array = array('status' => '1', 'user_id' => $userid);
+
+        $edudata = $this->data['edudata'] = $this->common->select_data_by_condition('job_add_edu', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
+
+
+        $contition_array = array('status' => '1', 'is_delete' => '0');
+
+
+        $recdata = $this->data['results'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'other_skill,designation', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        $contition_array = array('status' => '1');
+
+        $jobdata = $this->data['results'] = $this->common->select_data_by_condition('job_add_workexp', $contition_array, $data = 'jobtitle', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+
+        $contition_array = array('status' => '1');
+
+        $degreedata = $this->data['results'] = $this->common->select_data_by_condition('degree', $contition_array, $data = 'degree_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+
+        $contition_array = array('status' => '1');
+
+        $streamdata = $this->data['results'] = $this->common->select_data_by_condition('stream', $contition_array, $data = 'stream_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+
+        $contition_array = array('status' => '1', 'type' => '1');
+
+        $skill = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        // echo "<pre>"; print_r($artpost);die();
+
+
+        $uni = array_merge($recdata, $jobdata, $degreedata, $streamdata, $skill, $edudata);
+        //   echo count($unique);
+
+
+        foreach ($uni as $key => $value) {
+            foreach ($value as $ke => $val) {
+                if ($val != "") {
+                    $result[] = $val;
+                }
+            }
+        }
+        foreach ($result as $key => $value) {
+            $result1[$key]['label'] = $value;
+            $result1[$key]['value'] = $value;
+        }
+
+
+        $this->data['demo'] = array_values($result1);
+
+
+        
         $this->load->view('recruiter/recommen_candidate', $this->data);
 
 
