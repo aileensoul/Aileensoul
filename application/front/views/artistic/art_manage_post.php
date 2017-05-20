@@ -209,22 +209,34 @@ responsive image design start -->
 
 
 </style>
-<link href="<?php echo base_url() ?>css/fileinput.css" media="all" rel="stylesheet" type="text/css"/>
-<link href="<?php echo base_url() ?>js/themes/explorer/theme.css" media="all" rel="stylesheet" type="text/css"/>
-<script src="<?php echo base_url() ?>js/jquery-2.0.3.min.js" type="text/javascript"></script>
-<script src="<?php echo base_url() ?>js/plugins/sortable.js" type="text/javascript"></script>
-<script src="<?php echo base_url() ?>js/fileinput.js" type="text/javascript"></script>
-<script src="<?php echo base_url() ?>js/themes/explorer/theme.js" type="text/javascript"></script>
-<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
+<!-- <link href="<?php //echo base_url() ?>css/fileinput.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="<?php //echo base_url() ?>js/themes/explorer/theme.css" media="all" rel="stylesheet" type="text/css"/>
+<script src="<?php// echo base_url() ?>js/jquery-2.0.3.min.js" type="text/javascript"></script>
+<script src="<?php// echo base_url() ?>js/plugins/sortable.js" type="text/javascript"></script>
+<script src="<?php //echo base_url() ?>js/fileinput.js" type="text/javascript"></script>
+<script src="<?php //echo base_url() ?>js/themes/explorer/theme.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="<?php // echo base_url('css/timeline.css'); ?>"> -->
 
 
 
 <!-- END HEAD -->
 <!-- start header -->
 <?php echo $header; ?>
-
-<script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('dragdrop/fileinput.css'); ?>">
+   <link href="<?php echo base_url('dragdrop/themes/explorer/theme.css'); ?>" media="all" rel="stylesheet" type="text/css"/>
+    
+<!--  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+ -->
+    <script src="<?php echo base_url('dragdrop/js/plugins/sortable.js'); ?>"></script>
+     <script src="<?php echo base_url('dragdrop/js/fileinput.js'); ?>"></script>
+      <script src="<?php echo base_url('dragdrop/js/locales/fr.js'); ?>"></script>
+       <script src="<?php echo base_url('dragdrop/js/locales/es.js'); ?>"></script>
+        <script src="<?php echo base_url('dragdrop/themes/explorer/theme.js'); ?>"></script>
+<!-- END HEADER -->
+<!--<script src="<?php echo base_url('assets/js/jquery.js'); ?>"></script>
+<script src="<?php echo base_url('js/fb_login.js'); ?>"></script>-->
 <?php echo $art_header2; ?>
+
 
 <link rel="stylesheet" type="text/css" href="../css/jquery.jMosaic.css">
 
@@ -879,7 +891,7 @@ responsive image design start -->
                     </div>
                 </div>
                 <div class="full-box-module business_data">
-                    <div class="profile-boxProfileCard  module">
+                    <div class="profile-boxProfileCard  module pdf_box">
                         <table class="business_data_table">
                             <div class="head_details">
                                 <a href="<?php echo base_url('artistic/art_pdf/' . $artisticdata[0]['user_id']) ?>"> <h5><i class="fa fa-file-pdf-o" aria-hidden="true"></i>  PDF</h5></a>
@@ -1024,8 +1036,15 @@ responsive image design start -->
                             <ul class="editor-header">
 
                                 <li>
-                                    <input type="file" class="file" style="display:block;" id="test-upload" style="display:none;" name="postattach[]" multiple>
+                                 <!--    <input type="file" class="file" style="display:block;" id="test-upload" style="display:none;" name="postattach[]" multiple>
                                     <label for="test-upload"><i class=" fa fa-camera "  style=" margin: 8px; cursor:pointer"> Photo</i><i class=" fa fa-video-camera"  style=" margin: 8px; cursor:pointer"> Video </i> <i class="fa fa-music "  style=" margin: 8px; cursor:pointer"> Audio </i><i class=" fa fa-file-pdf-o fa-2x"  style=" margin: 8px; cursor:pointer"> PDF </i> </label>
+ -->
+ <div class="col-md-12"> <div class="form-group">
+   <input id="file-1" type="file" class="file" name="postattach[]"  multiple class="file" data-overwrite-initial="false" data-min-file-count="2" style="display: none;">
+   </div></div>
+
+
+     <label for="file-1"><i class=" fa fa-camera "  style=" margin: 8px; cursor:pointer"> Photo</i><i class=" fa fa-video-camera"  style=" margin: 8px; cursor:pointer"> Video </i> <i class="fa fa-music "  style=" margin: 8px; cursor:pointer"> Audio </i><i class=" fa fa-file-pdf-o "  style=" margin: 8px; cursor:pointer"> PDF </i> </label>
 
 
                                 </li>
@@ -1809,10 +1828,18 @@ responsive image design start -->
 <!-- footer End -->
 <!-- script for skill textbox automatic start (option 2)-->
 <!-- <script src="<?php //echo base_url('js/jquery-ui.min.js');                                           ?>"></script> -->
+
 <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
-<script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
+
+<!-- <script src="<?php// echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
+ -->
 <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
+
+
 <script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script>
+
+
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 
 
@@ -3779,10 +3806,10 @@ responsive image design start -->
 
     function imgval() {
 
-        var fileInput = document.getElementById("test-upload").files;
+        var fileInput = document.getElementById("file-1").files;
         var product_name1 = document.getElementById("test-upload-product").value;
         var product_description1 = document.getElementById("test-upload-des").value;
-        var product_fileInput1 = document.getElementById("test-upload").value;
+        var product_fileInput1 = document.getElementById("file-1").value;
 
 
         if (product_fileInput1 == '' && product_name1 == '' && product_description1 == '')
@@ -3820,7 +3847,7 @@ responsive image design start -->
                     if (foundPresent1 == true && fileInput.length <= 10) {
                     } else {
 
-                        $('.biderror .mes').html("<div class='pop_content'>sorry this is not valid file for this post please try to uplode in new post.");
+                        $('.biderror .mes').html("<div class='pop_content'>sorry , this is not valid file for this post please try to upload in new post.");
                         $('#bidmodal').modal('show');
                         setInterval('window.location.reload()', 10000);
                         // window.location='';
@@ -3835,7 +3862,7 @@ responsive image design start -->
 
                     if (foundPresent1 == true && fileInput.length == 1) {
                     } else {
-                        $('.biderror .mes').html("<div class='pop_content'>sorry this is not valid file for this post please try to uplode in new post.");
+                        $('.biderror .mes').html("<div class='pop_content'>sorry , this is not valid file for this post please try to upload in new post.");
                         $('#bidmodal').modal('show');
                         setInterval('window.location.reload()', 10000);
                         event.preventDefault();
@@ -3848,7 +3875,7 @@ responsive image design start -->
 
                     if (foundPresent1 == true && fileInput.length == 1) {
                     } else {
-                        $('.biderror .mes').html("<div class='pop_content'>sorry this is not valid file for this post please try to uplode in new post.");
+                        $('.biderror .mes').html("<div class='pop_content'>sorry , this is not valid file for this post please try to upload in new post.");
                         $('#bidmodal').modal('show');
                         setInterval('window.location.reload()', 10000);
                         event.preventDefault();
@@ -3870,7 +3897,7 @@ responsive image design start -->
                             return false;
                         }
                     } else {
-                        $('.biderror .mes').html("<div class='pop_content'>sorry this is not valid file for this post please try to uplode in new post.");
+                        $('.biderror .mes').html("<div class='pop_content'>sorry , this is not valid file for this post please try to upload in new post.");
                         $('#bidmodal').modal('show');
                         setInterval('window.location.reload()', 10000);
                         event.preventDefault();

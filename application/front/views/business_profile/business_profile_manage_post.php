@@ -1109,6 +1109,7 @@
 
                     <?php
 //echo "<pre>"; print_r($business_profile_data); die();
+                    if(count($business_profile_data)>0){
                     foreach ($business_profile_data as $row) {
                         ?>
                         <div id="<?php echo "removeownpost" . $row['business_profile_post_id']; ?>">
@@ -1811,7 +1812,12 @@
 
                         </div> </div>
 
-                    <?php } ?>
+                    <?php } } else{?>
+<div class="text-center rio">
+                                    <h4 class="page-heading  product-listing" style="border:0px;margin-bottom: 11px;">No Post Found.</h4>
+                                </div>
+                    
+                    <?php }?>
 
 
                 </div>

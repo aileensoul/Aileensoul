@@ -3074,7 +3074,7 @@
                                         if (foundPresent1 == true && fileInput.length <= 10) {
                                         } else {
 
-                                            $('.biderror .mes').html("<div class='pop_content'>sorry this is not valid file for this post please try to uplode in new post.");
+                                            $('.biderror .mes').html("<div class='pop_content'>sorry , this is not valid file for this post please try to upload in new post.");
                                             $('#bidmodal').modal('show');
                                             setInterval('window.location.reload()', 10000);
                                             // window.location='';
@@ -3089,7 +3089,7 @@
 
                                         if (foundPresent1 == true && fileInput.length == 1) {
                                         } else {
-                                            $('.biderror .mes').html("<div class='pop_content'>sorry this is not valid file for this post please try to uplode in new post.");
+                                            $('.biderror .mes').html("<div class='pop_content'>sorry , this is not valid file for this post please try to upload in new post.");
                                             $('#bidmodal').modal('show');
                                             setInterval('window.location.reload()', 10000);
                                             event.preventDefault();
@@ -3102,7 +3102,7 @@
 
                                         if (foundPresent1 == true && fileInput.length == 1) {
                                         } else {
-                                            $('.biderror .mes').html("<div class='pop_content'>sorry this is not valid file for this post please try to uplode in new post.");
+                                            $('.biderror .mes').html("<div class='pop_content'>sorry , this is not valid file for this post please try to upload in new post.");
                                             $('#bidmodal').modal('show');
                                             setInterval('window.location.reload()', 10000);
                                             event.preventDefault();
@@ -3123,7 +3123,7 @@
                                                 return false;
                                             }
                                         } else {
-                                            $('.biderror .mes').html("<div class='pop_content'>sorry this is not valid file for this post please try to uplode in new post.");
+                                            $('.biderror .mes').html("<div class='pop_content'>sorry , this is not valid file for this post please try to upload in new post.");
                                             $('#bidmodal').modal('show');
                                             setInterval('window.location.reload()', 10000);
                                             event.preventDefault();

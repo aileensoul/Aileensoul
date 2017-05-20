@@ -1790,6 +1790,7 @@ abbr { cursor: help; }
 
     /*border-radius: 6px*/
 }
+.pdf_box{display: table; width: 100%;}
 .profile-boxProfileCard--withoutStats {
     padding-bottom: 10px
 }
