@@ -424,7 +424,7 @@
                         <?php } ?>
                     </div>
                     <!-- PICKUP -->
-                    <!-- menubar --><div class="buisness-data-menu  col-md-12 ">
+                    <!-- menubar --><div class="business-data-menu  col-md-12 padding_less_right ">
 
                         <div class="left-side-menu col-md-1">   </div>
 
@@ -1044,7 +1044,7 @@
                             <?php echo form_open_multipart(base_url('business_profile/business_profile_addpost_insert/' . 'manage/' . $businessdata1[0]['user_id']), array('id' => 'artpostform', 'name' => 'artpostform', 'class' => 'clearfix', 'onsubmit' => "imgval(event)")); ?>
 
                             <div class="main-text-area col-md-12"  >
-                                <div class="popup-img col-md-1"> <img  src="<?php echo base_url(USERIMAGE . $businessdata1[0]['business_user_image']); ?>"  alt="">
+                                <div class="popup-img-in col-md-1"> <img  src="<?php echo base_url(USERIMAGE . $businessdata1[0]['business_user_image']); ?>"  alt="">
                                 </div>
                                 <div id="myBtn1"  class="editor-content col-md-10 popup-text" >
                                        <!-- <textarea name="product_title" placeholder="Post Your Product...."></textarea>  -->
@@ -1188,7 +1188,7 @@
                                                 <li>
                                                     <div class="else_post_d">
                                                         <div class="post-design-product">
-                                                        <a style="max-width: 40%;" class="post_dot" title="<?php echo ucwords($companynameposted); ?>" href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugnameposted); ?>"><?php echo ucwords($companynameposted); ?></a> <p style="display: inline-block; font-weight: 600;"> Posted With </p> <a style=" font-size: 15px;                    line-height: 20px; font-weight: 600; color: #000033; margin-bottom: 4px; " " href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>"><?php echo ucwords($companyname); ?></a> <span  style="font-weight: 400;                                                                       font-size: 14px;color: #91949d;"><?php echo date('d-M-Y', strtotime($row['created_date'])); ?> </span> </div></div></li>
+                                                        <a style="max-width: 40%;" class="post_dot" title="<?php echo ucwords($companynameposted); ?>" href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugnameposted); ?>"><?php echo ucwords($companynameposted); ?></a> <p style="display: inline-block; color: #91949d; font-weight: 600;"> Posted With </p> <a style=" font-size: 15px;                    line-height: 20px; font-weight: 600; color: #000033; margin-bottom: 4px; " " href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>"><?php echo ucwords($companyname); ?></a> <span  style="font-weight: 400;  color: #999;                                                                     font-size: 14px;color: #91949d;"><?php echo date('d-M-Y', strtotime($row['created_date'])); ?> </span> </div></div></li>
 
 
                                             <?php } else { ?>
@@ -3512,7 +3512,7 @@
                                 if (foundPresent1 == true && fileInput.length <= 10) {
                                 } else {
 
-                                    $('.biderror .mes').html("<div class='pop_content'>sorry this is not valid file for this post please try to uplode in new post.");
+                                    $('.biderror .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
                                     $('#bidmodal').modal('show');
                                     setInterval('window.location.reload()', 10000);
                                     // window.location='';
@@ -3527,7 +3527,7 @@
 
                                 if (foundPresent1 == true && fileInput.length == 1) {
                                 } else {
-                                    $('.biderror .mes').html("<div class='pop_content'>sorry this is not valid file for this post please try to uplode in new post.");
+                                    $('.biderror .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
                                     $('#bidmodal').modal('show');
                                     setInterval('window.location.reload()', 10000);
                                     event.preventDefault();
@@ -3540,7 +3540,7 @@
 
                                 if (foundPresent1 == true && fileInput.length == 1) {
                                 } else {
-                                    $('.biderror .mes').html("<div class='pop_content'>sorry this is not valid file for this post please try to uplode in new post.");
+                                    $('.biderror .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
                                     $('#bidmodal').modal('show');
                                     setInterval('window.location.reload()', 10000);
                                     event.preventDefault();
@@ -3561,7 +3561,7 @@
                                         return false;
                                     }
                                 } else {
-                                    $('.biderror .mes').html("<div class='pop_content'>sorry this is not valid file for this post please try to uplode in new post.");
+                                    $('.biderror .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
                                     $('#bidmodal').modal('show');
                                     setInterval('window.location.reload()', 10000);
                                     event.preventDefault();

@@ -996,7 +996,7 @@ responsive image design start -->
                         <?php echo form_open_multipart(base_url('artistic/art_post_insert/' . 'manage/' . $artisticdata[0]['user_id']), array('id' => 'artpostform', 'name' => 'artpostform', 'class' => 'clearfix', 'onsubmit' => "return imgval();")); ?>
 
                         <div class="main-text-area col-md-12" >
-                            <div class="popup-img col-md-1"> <img  src="<?php echo base_url(ARTISTICIMAGE . $artisticdata[0]['art_user_image']); ?>"  alt="">
+                            <div class="popup-img-in col-md-1"> <img  src="<?php echo base_url(ARTISTICIMAGE . $artisticdata[0]['art_user_image']); ?>"  alt="">
                             </div>
                             <div id="myBtn3"  class="editor-content col-md-10 popup-text" >
                                    <!-- <textarea name="product_title" placeholder="Post Your Product...."></textarea>  -->
@@ -1119,7 +1119,7 @@ responsive image design start -->
                                                     <?php if ($row['posted_user_id']) { ?>
 
                                                         <div class="else_post_d">
-                                                            <a  class="post_dot" style="max-width: 30%;" title="<?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?>" href="<?php echo base_url('artistic/art_manage_post/' . $row['posted_user_id']); ?>"><?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?> </a><span style="font-weight: 600;"> Posted With 
+                                                            <a  class="post_dot" style="max-width: 30%;" title="<?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?>" href="<?php echo base_url('artistic/art_manage_post/' . $row['posted_user_id']); ?>"><?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?> </a><span style="font-weight: 600; color: #91949d;"> Posted With 
                                                             </span><a class="post_dot1"  href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>"><?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?></a><span role="presentation" aria-hidden="true" style="color: #91949d; font-size: 14px;"> · </span>
                                                             <span style="color: #91949d; font-size: 14px;"> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span>
                                                         </div>
@@ -3853,7 +3853,7 @@ responsive image design start -->
                     if (foundPresent1 == true && fileInput.length <= 10) {
                     } else {
 
-                        $('.biderror .mes').html("<div class='pop_content'>sorry , this is not valid file for this post please try to upload in new post.");
+                        $('.biderror .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
                         $('#bidmodal').modal('show');
                         setInterval('window.location.reload()', 10000);
                         // window.location='';
@@ -3868,7 +3868,7 @@ responsive image design start -->
 
                     if (foundPresent1 == true && fileInput.length == 1) {
                     } else {
-                        $('.biderror .mes').html("<div class='pop_content'>sorry , this is not valid file for this post please try to upload in new post.");
+                        $('.biderror .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
                         $('#bidmodal').modal('show');
                         setInterval('window.location.reload()', 10000);
                         event.preventDefault();
@@ -3881,7 +3881,7 @@ responsive image design start -->
 
                     if (foundPresent1 == true && fileInput.length == 1) {
                     } else {
-                        $('.biderror .mes').html("<div class='pop_content'>sorry , this is not valid file for this post please try to upload in new post.");
+                        $('.biderror .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
                         $('#bidmodal').modal('show');
                         setInterval('window.location.reload()', 10000);
                         event.preventDefault();
@@ -3903,7 +3903,7 @@ responsive image design start -->
                             return false;
                         }
                     } else {
-                        $('.biderror .mes').html("<div class='pop_content'>sorry , this is not valid file for this post please try to upload in new post.");
+                        $('.biderror .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
                         $('#bidmodal').modal('show');
                         setInterval('window.location.reload()', 10000);
                         event.preventDefault();
