@@ -230,7 +230,7 @@
             <div class="row">
                 <div class="col-md-6" style="padding: 12px;">
                 <div class="footer-menu pull-left">
-                    <p>copyright 2017 | by <a href="<?php echo base_url('main'); ?>" style="color: #000033">Aileensoul</a></p>
+                    <p>&copy; 2017 | by <a href="<?php echo base_url('main'); ?>" style="color: #000033">Aileensoul</a></p>
                 </div>
                 </div>
                 <div class="col-md-6">
