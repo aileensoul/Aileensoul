@@ -523,6 +523,23 @@
                     $k = 0;
                     $aud = $rec['keyskill'];
                     $aud_res = explode(',', $aud);
+
+                    if(!$rec['keyskill']){
+
+                        echo $rec['other_skill'];
+
+                    }else if(!$rec['other_skill']){
+
+                       foreach ($aud_res as $skill) {
+                    if ($k != 0) {
+                       echo $comma;
+                      }
+                    $cache_time = $this->db->get_where('skill', array('skill_id' => $skill))->row()->skill;
+                     echo $cache_time;
+                     $k++;
+                        }  
+
+                    }else if($rec['keyskill'] && $rec['other_skill']){
                     foreach ($aud_res as $skill) {
                     if ($k != 0) {
                        echo $comma;
@@ -530,12 +547,15 @@
                     $cache_time = $this->db->get_where('skill', array('skill_id' => $skill))->row()->skill;
                      echo $cache_time;
                      $k++;
-                        }
-                     ?>    </span>
+                        } echo "," . $rec['other_skill']; }
+
+                     ?>    
+
+                     </span>
                    </li>
                                                       
 
- <?php
+ <!-- <?php
                                                                 if ($rec['other_skill']) {
                                                                     ?>
                                                                     <li><b>Other Skill</b><span>
@@ -543,7 +563,7 @@
                                                                     </span></li>
                                                                     <?php
                                                                 }
-                                                                ?>
+                                                                ?> -->
 
            <li> <b> Total Experience</b>
                <span>

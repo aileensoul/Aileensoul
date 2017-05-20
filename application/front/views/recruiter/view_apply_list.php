@@ -275,23 +275,45 @@ if ($user_data) {
                                                         
 
                                          <li> <b> Skill</b> <span>
-                                                        <?php 
+                       <?php 
+                          $comma = ", ";
+                          $k = 0;
+                         $aud=$row['keyskill'];
+                         $aud_res=explode(',',$aud);
 
-                                                        $aud=$row['keyskill'];
-                                                        $aud_res=explode(',',$aud);
-                                                        foreach ($aud_res as $skill)
-                                                        {
-                                                
-                                                            $cache_time  =  $this->db->get_where('skill',array('skill_id' => $skill))->row()->skill;  
-                                                            echo $cache_time; 
+                         if(!$row['keyskill']){
 
-                                                        }
-                                                        ?></span>
-                                                        </li>
+                          echo $row['other_skill'];
+                         }else if(!$row['other_skill']){
+
+                          foreach ($aud_res as $skill)
+                           {
+                                 if ($k != 0) {
+                                  echo $comma;
+                                  }               
+                                $cache_time  =  $this->db->get_where('skill',array('skill_id' => $skill))->row()->skill;  
+                                    echo $cache_time; 
+                                     $k++;
+                            }
+                            
+                         }else if($row['keyskill'] && $row['other_skill']){
+                          foreach ($aud_res as $skill)
+                           {
+                                 if ($k != 0) {
+                                  echo $comma;
+                                  }               
+                                $cache_time  =  $this->db->get_where('skill',array('skill_id' => $skill))->row()->skill;  
+                                    echo $cache_time; 
+                                     $k++;
+                            } echo ",". $row['other_skill'];}
+
+
+                              ?></span>
+                              </li>
                                                       
 
 
-                                     <li><b>Other Skill </b> 
+                                     <!-- <li><b>Other Skill </b> 
                                     <span> <?php
                                      if($row['other_skill']){
                                     echo ucwords($row['other_skill']);
@@ -300,7 +322,7 @@ if ($user_data) {
                                     } 
                                       ?></span>
                                                        
-                                    </li>
+                                    </li> -->
                                  <li><b>Total Experience </b>     <span>  <?php echo $row['experience']; ?></span> </li>
 
                                  <li><b> Location</b> <span>
