@@ -687,7 +687,7 @@
                             <a style="
     max-width: 26%;
     width: auto;
-    font-size: 18px;
+    font-size: 15px;
     display: inline-block;
     line-height: 15px;
     font-weight: 600;
@@ -696,7 +696,7 @@
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap; " href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugnameposted); ?>"><?php echo ucwords($companynameposted); ?></a>
-                                                                 <p style="font-weight: 600; display: inline-block;"> Posted With </p> <a style=" font-size: 15px;                    line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; " href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>"><?php echo ucwords($companyname); ?></a> <span  style="font-weight: 400;  cursor: default;"><?php echo date('d-M-Y', strtotime($row['created_date'])); ?> </span> </div></div>
+                                                                 <p style="font-weight: 600; color: #91949d; display: inline-block;"> Posted With </p> <a style=" font-size: 15px;                    line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; " href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>"><?php echo ucwords($companyname); ?></a> <span  style="font-weight: 400; color: #91949d;  cursor: default;"><?php echo date('d-M-Y', strtotime($row['created_date'])); ?> </span> </div></div>
                                                         </li>
                                                     <?php } else { ?>
                                             <li><div class="post-design-product"><a class="post_dot" href="<?php echo base_url('business_profile/business_resume/' . $slugname); ?>"> <span class="span_main_name">  <?php echo ucwords($companyname); ?> </span> </a>
@@ -1160,7 +1160,7 @@ if(count($databus1) > 1){
 
                                                                                 <div class="edit-comment-box">
                                                                                     <div class="inputtype-edit-comment">
-                                                                                        <div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="<?php echo $rowdata['post_image_comment_id']; ?>"  id="<?php echo "imgeditcomment" . $rowdata['post_image_comment_id']; ?>" placeholder="Enter Your Comment " value= ""  onkeyup="imgcommentedit(<?php echo $rowdata['post_image_comment_id']; ?>)"><?php echo $rowdata['comment']; ?></div>
+                                                                                        <div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="<?php echo $rowdata['post_image_comment_id']; ?>"  id="<?php echo "imgeditcomment" . $rowdata['post_image_comment_id']; ?>" placeholder="Add a Comment ... " value= ""  onkeyup="imgcommentedit(<?php echo $rowdata['post_image_comment_id']; ?>)"><?php echo $rowdata['comment']; ?></div>
                                                                                         <span class="comment-edit-button"><button id="<?php echo "imgeditsubmit" . $rowdata['post_image_comment_id']; ?>" style="display:none" onClick="imgedit_comment(<?php echo $rowdata['post_image_comment_id']; ?>)">Save</button></span>
                                                                                     </div>
                                                                                 </div>
@@ -1757,7 +1757,7 @@ if(count($databus1) > 1){
 
                                     <div class="">
                                         <div class="col-md-12 inputtype-comment" style="  width: 80%;  padding-left: 7px;">
-                                            <div contenteditable="true" class="editable_text" name="<?php echo $busienss_data[0]['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $busienss_data[0]['business_profile_post_id']; ?>" placeholder="Type Message ..." value= "" onClick="entercomment(<?php echo $busienss_data[0]['business_profile_post_id']; ?>)"></div></div>
+                                            <div contenteditable="true" class="editable_text" name="<?php echo $busienss_data[0]['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $busienss_data[0]['business_profile_post_id']; ?>" placeholder="Add a Comment ..." value= "" onClick="entercomment(<?php echo $busienss_data[0]['business_profile_post_id']; ?>)"></div></div>
                                         <div class="comment-edit-butn">        
                                             <button id="<?php echo $busienss_data[0]['business_profile_post_id']; ?>" onClick="insert_comment(this.id)">Comment</button></div>
                                     </div>

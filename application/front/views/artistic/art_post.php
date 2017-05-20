@@ -750,7 +750,7 @@
                                 <?php echo form_open_multipart(base_url('artistic/art_post_insert/'), array('id' => 'artpostform', 'name' => 'artpostform', 'class' => 'clearfix', 'onsubmit' => "imgval(event)")); ?>
 
                                <div class="main-text-area col-md-12" >
-                                    <div class="popup-img col-md-1"> <img  src="<?php echo base_url(ARTISTICIMAGE . $artisticdata[0]['art_user_image']); ?>"  alt="">
+                                    <div class="popup-img-in col-md-1"> <img  src="<?php echo base_url(ARTISTICIMAGE . $artisticdata[0]['art_user_image']); ?>"  alt="">
                                     </div>
                                     <div id="myBtn"  class="editor-content col-md-10 popup-text" >
                                            <!-- <textarea name="product_title" placeholder="Post Your Product...."></textarea>  -->
@@ -901,11 +901,11 @@
                                                             <?php if ($row['posted_user_id']) { ?>
                                                                 <div class="else_post_d">
                                                                     <a style="max-width: 30%;" class="post_dot" title="<?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?>" href="<?php echo base_url('artistic/art_manage_post/' . $row['posted_user_id']); ?>"><?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?> </a>
-                                                                    <p style="display: inline-block; font-weight: 600;"> Posted With 
+                                                                    <p style="display: inline-block; font-weight: 600; color: #91949d;"> Posted With 
                                                                     </p><a  class="post_dot1" href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>"><?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?></a>
 
 
-                                                                    <span style="color: #91949d;font-size: 14px;"> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span>
+                                                                    <span style="color: #91949d;font-size: 14px; color: #91949d;"> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span>
                                                                 </div>
                                                                 <!-- other user post time name end-->
                                                             <?php } else { ?>
@@ -994,7 +994,7 @@
 </div>
                                             <div class="post-design-desc ">
                                                 <span> 
-                                                    <div  id="<?php echo 'editpostdetails' . $row['art_post_id']; ?>" style="display:block ; padding-bottom: 10px;">
+                                                    <div  id="<?php echo 'editpostdetails' . $row['art_post_id']; ?>" style="display:block ; ">
                                                         <?php
                                                         $text = $this->common->make_links($row['art_description']);
                                                         ?>
@@ -1530,7 +1530,7 @@
                                             </div>
                                             <div class="">
                                                 <div id="content" class="col-md-12 inputtype-comment" style="padding-left: 7px !important; width: 80%;">
-                                                    <div contenteditable="true" style="min-height:37px !important; margin-top: 0px!important" class="editable_text" name="<?php echo $row['art_post_id']; ?>"  id="<?php echo "post_comment" . $row['art_post_id']; ?>" placeholder="Type Message ..." onClick="entercomment(<?php echo $row['art_post_id']; ?>)"></div>
+                                                    <div contenteditable="true" style="min-height:37px !important; margin-top: 0px!important" class="editable_text" name="<?php echo $row['art_post_id']; ?>"  id="<?php echo "post_comment" . $row['art_post_id']; ?>" placeholder="Add a Comment ..." onClick="entercomment(<?php echo $row['art_post_id']; ?>)"></div>
                                                 </div>
         <?php echo form_error('post_comment'); ?>
                                                 <div class=" comment-edit-butn" >   
@@ -3110,7 +3110,7 @@
                                         if (foundPresent1 == true && fileInput.length <= 10) {
                                         } else {
 
-                                            $('.biderror .mes').html("<div class='pop_content'>sorry , this is not valid file for this post please try to upload in new post.");
+                                            $('.biderror .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
                                             $('#bidmodal').modal('show');
                                             setInterval('window.location.reload()', 10000);
                                             // window.location='';
@@ -3125,7 +3125,7 @@
 
                                         if (foundPresent1 == true && fileInput.length == 1) {
                                         } else {
-                                            $('.biderror .mes').html("<div class='pop_content'>sorry , this is not valid file for this post please try to upload in new post.");
+                                            $('.biderror .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
                                             $('#bidmodal').modal('show');
                                             setInterval('window.location.reload()', 10000);
                                             event.preventDefault();
@@ -3138,7 +3138,7 @@
 
                                         if (foundPresent1 == true && fileInput.length == 1) {
                                         } else {
-                                            $('.biderror .mes').html("<div class='pop_content'>sorry , this is not valid file for this post please try to upload in new post.");
+                                            $('.biderror .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
                                             $('#bidmodal').modal('show');
                                             setInterval('window.location.reload()', 10000);
                                             event.preventDefault();
@@ -3159,7 +3159,7 @@
                                                 return false;
                                             }
                                         } else {
-                                            $('.biderror .mes').html("<div class='pop_content'>sorry , this is not valid file for this post please try to upload in new post.");
+                                            $('.biderror .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
                                             $('#bidmodal').modal('show');
                                             setInterval('window.location.reload()', 10000);
                                             event.preventDefault();

@@ -725,7 +725,7 @@
                                             <li><?php if ($art_data[0]['posted_user_id']) { ?>
 
                                                         <div class="else_post_d">
-                                                            <a  class="post_dot" title="<?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?>" href="<?php echo base_url('artistic/art_manage_post/' . $art_data[0]['posted_user_id']); ?>"><?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?> </a><span style="font-weight: 600;"> Posted With 
+                                                            <a  class="post_dot" title="<?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?>" href="<?php echo base_url('artistic/art_manage_post/' . $art_data[0]['posted_user_id']); ?>"><?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?> </a><span style="color: #91949d; font-weight: 600;"> Posted With 
                                                             </span><a class="post_dot"  href="<?php echo base_url('artistic/art_manage_post/' . $art_data[0]['user_id']); ?>"><?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?></a><span role="presentation" aria-hidden="true" style="color: #91949d; font-size: 14px;"> · </span>
                                                             <span style="color: #91949d; font-size: 14px;"> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span>
                                                         </div>
@@ -1216,7 +1216,7 @@
                                                         </div>
                                                         <div class="">
                                                             <div id="content" class="col-md-12 inputtype-comment" style="padding-left: 7px !important; width: 80%;">
-                                                                <div contenteditable="true" style="min-height:37px !important; margin-top: 0px!important" class="editable_text" name="<?php echo $artdata['image_id']; ?>"  id="<?php echo "post_commentimg" . $artdata['image_id']; ?>" placeholder="Type Message ..." onkeyup="entercommentimg(<?php echo $artdata['image_id']; ?>)"></div>
+                                                                <div contenteditable="true" style="min-height:37px !important; margin-top: 0px!important" class="editable_text" name="<?php echo $artdata['image_id']; ?>"  id="<?php echo "post_commentimg" . $artdata['image_id']; ?>" placeholder="Add a Comment ..." onkeyup="entercommentimg(<?php echo $artdata['image_id']; ?>)"></div>
                                                             </div>
     <?php echo form_error('post_commentimg'); ?>
                                                             <div class="comment-edit-butn">   
@@ -1573,7 +1573,7 @@
                                     </div>
                                     <div class="">
                                         <div id="content" class="col-md-12 inputtype-comment" style="width: 80%; padding-left: 7px !important;">
-                                            <div contenteditable="true" style="min-height:37px !important; margin-top: 0px!important" class="editable_text" name="<?php echo $art_data[0]['art_post_id']; ?>"  id="<?php echo "post_comment" . $art_data[0]['art_post_id']; ?>" placeholder="Type Message ..." onClick="entercomment(<?php echo $art_data[0]['art_post_id']; ?>)"></div>
+                                            <div contenteditable="true" style="min-height:37px !important; margin-top: 0px!important" class="editable_text" name="<?php echo $art_data[0]['art_post_id']; ?>"  id="<?php echo "post_comment" . $art_data[0]['art_post_id']; ?>" placeholder="Add a Comment ..." onClick="entercomment(<?php echo $art_data[0]['art_post_id']; ?>)"></div>
                                         </div>
 <?php echo form_error('post_comment'); ?>
                                         <div class=" comment-edit-butn">   

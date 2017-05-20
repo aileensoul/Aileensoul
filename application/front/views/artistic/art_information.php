@@ -4,7 +4,7 @@
 <style type="text/css">
   
   .keyskill_border_deactivte {
-  border: 1px solid red;
+  border: 0px solid red;
 
 }
 
@@ -375,14 +375,17 @@ $( "#tags" ).autocomplete({
 
 <script type="text/javascript">
   
-function imgval(){ alert("falguni");
+function imgval(){ 
 
- 
-        
-        //$("#skils").addClass("keyskill_border");
-    
-   
-   document.getElementByClassName("keyskill_border_deactivte").style.display = "none";
+ var skill_main = document.getElementById("skils").value;
+ var skill_other = document.getElementById("other_skill").value;
+
+     if(skill_main =='' && skill_other == ''){
+  $($("#skils").select2("container")).removeClass("keyskill_border_deactivte");
+
+  $($("#skils").select2("container")).addClass("keyskill_border_active");
+  }
+  
   
   }
 </script>

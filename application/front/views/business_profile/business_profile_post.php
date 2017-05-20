@@ -753,7 +753,7 @@
                             <div class="post-editor col-md-12">
                                 <?php echo form_open_multipart(base_url('business_profile/business_profile_addpost_insert/'), array('id' => 'artpostform', 'name' => 'artpostform', 'class' => 'clearfix', 'onsubmit' => "return imgval(event)")); ?>
                                 <div class="main-text-area col-md-12" >
-                                    <div class="popup-img col-md-1"> 
+                                    <div class="popup-img-in col-md-1"> 
                                         <img  src="<?php echo base_url(USERIMAGE . $businessdata[0]['business_user_image']); ?>"  alt="">
                                     </div>
                                     <div id="myBtn1"  class="editor-content col-md-10 popup-text" >
@@ -916,7 +916,7 @@
                                                                     <a style="
     max-width: 26%;
     width: auto;
-    font-size: 18px;
+    font-size: 15px;
     display: inline-block;
     line-height: 15px;
     font-weight: 600;
@@ -925,7 +925,7 @@
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap; " href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugnameposted); ?>"><?php echo ucwords($companynameposted); ?></a>
-                                                                 <p style="font-weight: 600; display: inline-block;"> Posted With </p> <a style=" font-size: 15px;                    line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; " href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>"><?php echo ucwords($companyname); ?></a> <span  style="font-weight: 400;  cursor: default;"><?php echo date('d-M-Y', strtotime($row['created_date'])); ?> </span> </div></div>
+                                                                 <p style="font-weight: 600;  color: #91949d; display: inline-block;"> Posted With </p> <a style=" font-size: 15px;                    line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; " href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>"><?php echo ucwords($companyname); ?></a> <span  style="font-weight: 400; color: #91949d;  cursor: default;"><?php echo date('d-M-Y', strtotime($row['created_date'])); ?> </span> </div></div>
                                                         </li>
                                                     <?php } else { ?>
                                                         <li>
@@ -1485,7 +1485,7 @@
                                             </div>
                                             <div class="">
                                                 <div id="content" class="col-md-12  inputtype-comment" style="padding-left: 7px; width: 80%;">
-                                                    <div contenteditable="true" style="min-height:37px !important; margin-top: 0px!important" class="editable_text" name="<?php echo $row['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $row['business_profile_post_id']; ?>" placeholder="Type Message ..." onClick="entercomment(<?php echo $row['business_profile_post_id']; ?>)"></div>
+                                                    <div contenteditable="true" style="min-height:37px !important; margin-top: 0px!important" class="editable_text" name="<?php echo $row['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $row['business_profile_post_id']; ?>" placeholder="Add a Comment ..." onClick="entercomment(<?php echo $row['business_profile_post_id']; ?>)"></div>
                                                 </div>
                                                 <?php echo form_error('post_comment'); ?> 
                                                 <div class="comment-edit-butn">       
@@ -3022,7 +3022,7 @@
                     var foundPresent1 = $.inArray(ext1, allowedExtensions) > -1;
                     if (foundPresent1 == true && fileInput.length <= 10) {
                     } else {
-                        $('.biderror .mes').html("<div class='pop_content'>sorry this is not valid file for this post please try to uplode in new post.");
+                        $('.biderror .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
                         $('#bidmodal').modal('show');
                         setInterval('window.location.reload()', 10000);
                         // window.location='';
@@ -3034,7 +3034,7 @@
                     var foundPresent1 = $.inArray(ext1, allowesvideo) > -1;
                     if (foundPresent1 == true && fileInput.length == 1) {
                     } else {
-                        $('.biderror .mes').html("<div class='pop_content'>sorry this is not valid file for this post please try to uplode in new post.");
+                        $('.biderror .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
                         $('#bidmodal').modal('show');
                         setInterval('window.location.reload()', 10000);
                         event.preventDefault();
@@ -3045,7 +3045,7 @@
                     var foundPresent1 = $.inArray(ext1, allowesaudio) > -1;
                     if (foundPresent1 == true && fileInput.length == 1) {
                     } else {
-                        $('.biderror .mes').html("<div class='pop_content'>sorry this is not valid file for this post please try to uplode in new post.");
+                        $('.biderror .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
                         $('#bidmodal').modal('show');
                         setInterval('window.location.reload()', 10000);
                         event.preventDefault();
@@ -3064,7 +3064,7 @@
                             return false;
                         }
                     } else {
-                        $('.biderror .mes').html("<div class='pop_content'>sorry this is not valid file for this post please try to uplode in new post.");
+                        $('.biderror .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
                         $('#bidmodal').modal('show');
                         setInterval('window.location.reload()', 10000);
                         event.preventDefault();

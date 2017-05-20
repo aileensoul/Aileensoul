@@ -391,29 +391,48 @@
                                <li> <b> Skills</b> <span> 
                                   <?php
                                    $comma = ", ";
-                                                                        $k = 0;
-                                                                        $aud = $post['post_skill'];
-                                                                        $aud_res = explode(',', $aud);
-                                                                        foreach ($aud_res as $skill) {
-                                                                            if ($k != 0) {
-                                                                                echo $comma;
-                                                                            }
-                                                                            $cache_time = $this->db->get_where('skill', array('skill_id' => $skill))->row()->skill;
+                                   $k = 0;
+                                   $aud = $post['post_skill'];
+                                   $aud_res = explode(',', $aud);
+
+                                   if(!$post['post_skill']){
+
+                                    echo $post['other_skill'];
+
+                                   }else if(!$post['other_skill']){
 
 
-                                                                            echo $cache_time;
-                                                                            $k++;
-                                                                        }
-                                                                        ?>       
-                                                                    </span>
-                                                                </li>
+                                    foreach ($aud_res as $skill) {
+                                     if ($k != 0) {
+                                        echo $comma;
+                                    }
+                                $cache_time = $this->db->get_where('skill', array('skill_id' => $skill))->row()->skill;
+
+                                echo $cache_time;
+                                $k++;
+                                 }
+
+                                 
+                                   }else if($post['post_skill'] && $post['other_skill']){
+                                    foreach ($aud_res as $skill) {
+                                     if ($k != 0) {
+                                        echo $comma;
+                                    }
+                                $cache_time = $this->db->get_where('skill', array('skill_id' => $skill))->row()->skill;
+
+                                echo $cache_time;
+                                $k++;
+                                 }echo ',' . $post['other_skill'];}
+                             ?>       
+                    </span>
+             </li>
 
 
-                                                                <?php if ($post['other_skill']) { ?>
+                                                               <!--  <?php if ($post['other_skill']) { ?>
                                                                     <li><b>Other Skill</b><span><?php echo $post['other_skill']; ?></span>
                                                                     </li>
                                                                 <?php } else { ?>
-                                                                    <li><b>Other Skill</b><span><?php echo "-"; ?></span></li><?php } ?>
+                                                                    <li><b>Other Skill</b><span><?php echo "-"; ?></span></li><?php } ?> -->
 
                                                                 <li><b>Job Description</b><span><p>
                                                                             <?php echo $this->common->make_links($post['post_description']); ?> </p></span>

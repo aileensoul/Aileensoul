@@ -2193,7 +2193,7 @@ border-bottom: 1px solid #000033;
 .flw_msg_btn{}
 .post-design-name ul li .post_dot{    max-width: 80%;
     width: auto;
-    font-size: 18px;
+    font-size: 16px;
     display: inline-block;
     font-weight: 600;
     color: #000033;
@@ -2393,7 +2393,7 @@ border-bottom: 1px solid #000033;
 
 .topright:hover {color: red;}
 
-.buisness-data-menu{
+.business-data-menu{
     /* border-bottom: 1px solid #d9d9d9; */
     border-top: 1px solid #d9d9d9;
     /* z-index: -1;
@@ -2431,12 +2431,25 @@ border-bottom: 1px solid #000033;
     margin-top: 7px;
     margin-bottom: 5px;
 }
-.popup-text span{color: #999999; font-weight: 600; font-size: 22px;}
+.popup-img-in img{       border: 2px solid #ffffff;
+   
+    border: 2px solid #ffffff;
+    height: 50px;
+    width: 50px;
+    margin-left: 4px;
+    margin-top: 7px;
+    margin-bottom: 5px;
+}
+.popup-text span{    color: #999999;
+    /* font-weight: 600; */
+    font-size: 21px;}
 .popup-text textarea{height: 8%; width: 100%; resize: none; border: none;}
 .post-editor .popup-textarea p{color: #999999;}
 .post-editor .popup-text span i{font-size: 25px; color: #0a2c5d; }
 .popup-img{    padding-left: 2px !important; padding-right: 0px;}
-.popup-text{padding: 16px; padding-top: 21px;}
+.popup-img-in{    padding-left: 2px !important; padding-right: 0px; padding-top: 8px;}
+
+.popup-text{padding: 16px; padding-top: 18px;}
 .main-text-area{background-color: #ffffff; margin: 4px 0px 4px 0px; border-radius: 4px;    padding-left: 4px !important;}
 /* The Modal (background) */
 .modal-post {
@@ -2502,7 +2515,7 @@ border-bottom: 1px solid #000033;
   height: auto;
         min-height: 30%;
     color: #000;
-    padding: 12px 20px;
+    padding: 12px 20px 0px 0px;
     box-sizing: border-box;
     /* border: 2px solid #ccc; */
     border-radius: 4px;
@@ -2530,7 +2543,7 @@ border-bottom: 1px solid #000033;
 
 .popup-social-icon{background-color: #ffffff; margin-bottom: 10px;}
 .post-editor .popup-social-icon ul { font-size: 0; margin: 0; padding: 0; display: inline-block; }
-.post-editor .popup-social-icon ul li { list-style: none; display: inline-block; padding: 0px 20px 0px 20px; margin: 0; position: relative; }
+.post-editor .popup-social-icon ul li { list-style: none; display: inline-block; padding: 0px 20px 0px 2px; margin: 0; position: relative; }
 /*.popup-textarea{height: 300px; border-bottom: 4px solid #ced5df; border-top: 4px solid #ced5df; }
 */.post-editor .popup-social-icon ul li i {font-size: 20px; color: #616060; padding: 5px;}
 .buisness-popup-img{display: inline-block; margin-top: 25px;}
@@ -2774,7 +2787,7 @@ label.cameraButton input[accept*="camera"] {
 .post_radius_box{border-radius: 3px;}
 .post-design-top
 {/* border-radius: 5px; */ padding-top: 10px!important; border-top-left-radius: 3px; border-top-right-radius: 3px; padding: 5px; padding-bottom: 0px; background-color: #ffffff;  /* border: 1px solid #efefef;*/ border-bottom: none; }
-.post-design-pro-img{   padding-left: 17px; margin-right: -53px; display: inline-block; float: left; /*padding: 4px 5px 4px 17px;*/}
+.post-design-pro-img{ padding-top: 5px;  padding-left: 17px; margin-right: -53px; display: inline-block; float: left; /*padding: 4px 5px 4px 17px;*/}
 .post-design-pro-img img{ height:50px; width: 50px; border: 1px solid #efefef; }
 
 .post-design-proo-img{display: inline-block; width: 40px; height: 39px;float: left;/* padding: 10px 10px 10px 6px;*/}
@@ -2829,7 +2842,7 @@ label.cameraButton input[accept*="camera"] {
     line-height: 16px;
     display: block;}
 
-.post-design-desc{clear: both; padding:5px 20px 5px 20px;  text-align: justify;  word-break: break-word;word-wrap: break-word;}
+.post-design-desc{clear: both; padding:5px 20px 0px 20px;  text-align: justify;  word-break: break-word;word-wrap: break-word;}
 .post-design-product-img img {width: 100%; height: 100%; border:1px solid #cccccc; border-radius: 3px;}
 .popup-comment{padding: 8px;  }
 
@@ -2955,7 +2968,7 @@ label.cameraButton input[accept*="camera"] {
     /* width: 12em; */
     overflow: hidden;
     text-overflow: ellipsis;
-  font-size: 17px;
+  font-size: 15px;
      font-weight: 600;
      display: inline-block;margin-left: 10px; }
 .art-comment-menu-design{    padding: 5px 1px 0px 30px;margin-left: 19px; }
@@ -3179,7 +3192,7 @@ label.cameraButton input[accept*="camera"] {
 
 /*
 follow box*/
-.post-design-pro-img_follow{height:70px; width: 70px; display: inline-block; float: left; padding:11px 4px 0px 8px;}
+.post-design-pro-img_follow{height:70px; width: 70px; display: inline-block; float: left; padding:11px 4px 0px 8px; }
 .post-design-pro-img_follow img{ height: 100%; width: 100%; border: 1px solid #efefef; }
 .post-design-name_follow{width: 43%; overflow: hidden;}
 .post-design-name_follow ul { font-size: 0; margin: 0; padding: 0; }
@@ -3250,7 +3263,7 @@ follow box*/
 .profile-boxProfileCard  h5 i:hover{text-decoration: underline;}*/
 .buisness_he_module{ padding-left: 5px;display: table;
                      width: 100%;}
-.business_data_td2{padding-bottom: 7px;word-wrap: break-word;word-wrap: break-word;}
+.business_data_td2{padding-bottom: 12px;word-wrap: break-word;word-wrap: break-word;}
 .post_img_mul{position: relative;}
 .post_img_mul1{    background-color: rgba(0, 0, 0, .2);
                    bottom: 0;
@@ -3759,30 +3772,37 @@ footer .footer-menu li a:hover{
 .flw_msg_btn{
     /* padding-left: 10px; */
     width: 82%;
-    margin-top: 9px;
+    margin-top: 4px;
     /* margin-left: -1px; */}
     .flw_msg_btn ul li .fr{padding-left:10px;  }
 .flw_msg_btn ul li a{   letter-spacing: 1px;
+       letter-spacing: 1px;
     width: 90px;
-    padding: 8px 15px; background: rgb(44,83,158); /* Old browsers */
-background: -moz-linear-gradient(top, rgba(255, 255, 255,1) 0%,rgba(255, 255, 255,1) 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(top, rgba(255, 255, 255,1) 0%,rgba(255, 255, 255,1) 100%);
-background: linear-gradient(to bottom,  rgba(255, 255, 255,1) 0%,rgba(255, 255, 255,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2c539e', endColorstr='#2c539e',GradientType=0 ); /* IE6-9 */
-                           -moz-border-radius:6px;
-                           -webkit-border-radius:6px;
-                         border:1px solid #dcdcdc;
-                         display:inline-block;
-                         cursor:pointer;
-                         color:#9C9999!important;
-                         font-family:Arial;
-                         font-size:13px;
-                         margin-top: 3px;
-    box-shadow: 2px -2px 8px #9C9999;
-    -webkit-box-shadow: 0px 1px 7px #9c9999;
+    padding: 8px 15px;
+    background: rgb(44,83,158);
+    background: -moz-linear-gradient(top, rgba(255, 255, 255,1) 0%,rgba(255, 255, 255,1) 100%);
+    background: -webkit-linear-gradient(top, rgba(255, 255, 255,1) 0%,rgba(255, 255, 255,1) 100%);
+    background: linear-gradient(to bottom, rgba(255, 255, 255,1) 0%,rgba(255, 255, 255,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2c539e', endColorstr='#2c539e',GradientType=0 );
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border: 1px solid #dcdcdc;
+    display: inline-block;
+    cursor: pointer;
+    color: #9C9999!important;
+    font-family: Arial;
+    font-size: 13px;
+    margin-top: 3px;
+    /* box-shadow: 2px -2px 8px #9C9999; */
+    /* -webkit-box-shadow: 0px 1px 7px #9c9999; */
     -o-box-shadow: inset 0px 0px 50px 0px #ABABAB,5px 5px 5px 1px #242424;
-                         font-weight:bold;text-decoration:none;
+    font-weight: bold;
+    text-decoration: none;
                       }
+                      .rio{    background-color: white;
+    padding: 25px;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;}
 .flw_msg_btn ul li a:hover{
     -webkit-transform: none;
     transform: none;
@@ -3802,19 +3822,19 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2c539e', end
 #padding_dash #row1 .text-center{padding-left: 0px!important;}
 #paddingtop_fixed #row1 .text-center{padding-left: 0px!important;}
 .flw_msg_btn ul li button{ 
-    width: 90px;
+     width: 90px;
     padding: 8px 0px;
-        box-shadow: 2px -2px 8px #9C9999;
-    -webkit-box-shadow: 0px 1px 7px #9c9999;
+    /* box-shadow: 2px -2px 8px #9C9999; */
+    /* -webkit-box-shadow: 0px 1px 7px #9c9999; */
     -o-box-shadow: inset 0px 0px 50px 0px #ABABAB,5px 5px 5px 1px #242424;
     background: rgb(44,83,158);
-    background: -moz-linear-gradient(top,  rgba(255, 255, 255,1) 0%,rgba(255, 255, 255,1) 100%);
+    background: -moz-linear-gradient(top, rgba(255, 255, 255,1) 0%,rgba(255, 255, 255,1) 100%);
     background: -webkit-linear-gradient(top, rgba(255, 255, 255,1) 0%,rgba(255, 255, 255,1) 100%);
-    background: linear-gradient(to bottom,  rgba(255, 255, 255,1) 0%,rgba(255, 255, 255,1) 100%);   
+    background: linear-gradient(to bottom, rgba(255, 255, 255,1) 0%,rgba(255, 255, 255,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2c539e', endColorstr='#2c539e',GradientType=0 );
     -moz-border-radius: 6px;
     -webkit-border-radius: 6px;
-    border-radius: 6px;
+    border-radius: 4px;
     border: 1px solid #dcdcdc;
     display: inline-block;
     cursor: pointer;

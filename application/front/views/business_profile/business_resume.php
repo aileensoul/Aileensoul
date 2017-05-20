@@ -358,7 +358,7 @@ if($status == 0 || $status == " "){?>
                     
               </div>
                 <!-- PICKUP -->
-                                   <!-- menubar --><div class="buisness-data-menu  col-md-12 ">
+                                   <!-- menubar --><div class="business-data-menu  col-md-12 padding_less_right">
 
 <div class="left-side-menu col-md-2">   </div>
         
