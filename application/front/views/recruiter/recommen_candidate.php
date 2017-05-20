@@ -309,33 +309,50 @@
          <div class="profile-job-post-title clearfix">
              <div class="profile-job-profile-menu">
                 <ul>
-                     <?php
-                  if ($row['keyskill']) {
-                        ?>
+                     
                 <li><b>Skills</b>
                        <span>
-                                                                            <?php
-                                                                            $comma = ",";
-                                                                            $k = 0;
-                                                                            $aud = $row['keyskill'];
-                                                                            $aud_res = explode(',', $aud);
-                                                                            $count_aud_res = count($aud_res);
-                                                                            foreach ($aud_res as $skill) {
-                                                                                $cache_time = $this->db->get_where('skill', array('skill_id' => $skill))->row()->skill;
-                                                                                echo $cache_time;
-                                                                                if ($k != ($count_aud_res - 1)) {
-                                                                                    echo $comma;
-                                                                                    echo '&nbsp';
-                                                                                }
-                                                                                $k++;
-                                                                            }
-                                                                            ?>       
-                                                                        </span>
+                      <?php
+                         $comma = ",";
+                         $k = 0;
+                         $aud = $row['keyskill'];
+                         $aud_res = explode(',', $aud);
+                         $count_aud_res = count($aud_res);
+
+                         if(!$row['keyskill']){
+
+                          echo $row['other_skill'];
+                         }else if(!$row['other_skill']){
+
+
+
+                          foreach ($aud_res as $skill) {
+                            $cache_time = $this->db->get_where('skill', array('skill_id' => $skill))->row()->skill;
+                                  echo $cache_time;
+                                    if ($k != ($count_aud_res - 1)) {
+                                           echo $comma;
+                                           echo '&nbsp';
+                                         }
+                                       $k++;
+                                   }
+
+                         }else if($row['keyskill'] && $row['other_skill']){
+
+
+                          foreach ($aud_res as $skill) {
+                            $cache_time = $this->db->get_where('skill', array('skill_id' => $skill))->row()->skill;
+                                  echo $cache_time;
+                                    if ($k != ($count_aud_res - 1)) {
+                                           echo $comma;
+                                           echo '&nbsp';
+                                         }
+                                       $k++;
+                                   } echo "," . $row['other_skill']; }
+                                   ?>       
+                    </span>
                                                                     </li>
-                                                                    <?php
-                                                                }
-                                                                ?>
-                                                                <?php
+                                                                    
+                                                               <!--  <?php
                                                                 if ($row['other_skill']) {
                                                                     ?>
                                                                     <li><b>Other Skill</b><span>
@@ -343,7 +360,7 @@
                                                                         </span></li>
                                                                     <?php
                                                                 }
-                                                                ?>
+                                                                ?> -->
           <li> <b> Total Experience</b>
               <span>
                    <?php

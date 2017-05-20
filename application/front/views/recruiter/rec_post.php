@@ -374,7 +374,7 @@ if ($returnpage == 'job') {
                                                                  
                                                             echo $out;?> </a>
                                                 </li>
-                                                <li><a class="display_inline" title="Recruiter Name" href="#"> <?php echo $post['rec_firstname']; ?> </a></li>
+                                                <li><a class="display_inline" title="Recruiter Name" href="#"> <?php echo ucwords($post['rec_firstname']).''.ucwords($post['rec_lastname']); ?> </a></li>
                                                 <!-- vishang 14-4 end -->    
                                             </ul>
                                         </div>
@@ -382,27 +382,45 @@ if ($returnpage == 'job') {
                                     <div class="profile-job-profile-menu">
                                         <ul class="clearfix">
                                             <li> <b> Skills</b> <span> 
-                                                <?php
-                                   $comma = ", ";
-                                                                        $k = 0;
-                                                                        $aud = $post['post_skill'];
-                                                                        $aud_res = explode(',', $aud);
-                                                                        foreach ($aud_res as $skill) {
-                                                                            if ($k != 0) {
-                                                                                echo $comma;
-                                                                            }
-                                                                            $cache_time = $this->db->get_where('skill', array('skill_id' => $skill))->row()->skill;
+                    <?php
+                     $comma = ", ";
+                     $k = 0;
+                     $aud = $post['post_skill'];
+                    $aud_res = explode(',', $aud);
+
+                    if(!$post['post_skill']){
+
+                        echo $post['other_skill'];
+
+                    }else if(!$post['other_skill']){
+                        foreach ($aud_res as $skill) {
+                         if ($k != 0) {
+                             echo $comma;
+                             }
+                    $cache_time = $this->db->get_where('skill', array('skill_id' => $skill))->row()->skill;
 
 
-                                                                            echo $cache_time;
-                                                                            $k++;
-                                                                        }
-                                                                        ?>     
+                         echo $cache_time;
+                          $k++;
+                        }
+
+                    }else if($post['post_skill'] && $post['other_skill']){
+                    foreach ($aud_res as $skill) {
+                         if ($k != 0) {
+                             echo $comma;
+                             }
+                    $cache_time = $this->db->get_where('skill', array('skill_id' => $skill))->row()->skill;
+
+
+                         echo $cache_time;
+                          $k++;
+                        } echo ",". $post['other_skill']; }
+                  ?>     
                                                 
                                                 </span>
                                             </li>
-                                            <li><b>Other Skill</b><span> <?php if($post['other_skill'] != ''){ echo $post['other_skill']; } else{ echo PROFILENA;} ?></span>
-                                            </li>
+                                            <!-- <li><b>Other Skill</b><span> <?php if($post['other_skill'] != ''){ echo $post['other_skill']; } else{ echo PROFILENA;} ?></span>
+                                            </li> -->
                                             <li><b>Job Description</b><span><p><?php echo $this->common->make_links($post['post_description']); ?></p></span>
                                             </li>
                                             <li><b>Interview Process</b><span>
@@ -537,7 +555,7 @@ if ($returnpage == 'job') {
                                                             echo $out;
                                                      ?> </a>
                                                 </li>
-                                                <li><a class="display_inline" title="Recruiter Name" href="#"> <?php echo $post['rec_firstname']; ?> </a></li>
+                                                <li><a class="display_inline" title="Recruiter Name" href="#"> <?php echo ucwords($post['rec_firstname']) . ' '.ucwords($post['rec_lastname']) ; ?> </a></li>
                                                 <!-- vishang 14-4 end -->    
                                             </ul>
                                         </div>
@@ -545,27 +563,48 @@ if ($returnpage == 'job') {
                                     <div class="profile-job-profile-menu">
                                         <ul class="clearfix">
                                             <li> <b> Skills</b> <span> 
-                                                <?php
-                                   $comma = ", ";
-                                                                        $k = 0;
-                                                                        $aud = $post['post_skill'];
-                                                                        $aud_res = explode(',', $aud);
-                                                                        foreach ($aud_res as $skill) {
-                                                                            if ($k != 0) {
-                                                                                echo $comma;
-                                                                            }
-                                                                            $cache_time = $this->db->get_where('skill', array('skill_id' => $skill))->row()->skill;
+                             <?php
+                            $comma = ", ";
+                            $k = 0;
+                            $aud = $post['post_skill'];
+                            $aud_res = explode(',', $aud);
+
+                            if(!$post['post_skill']){
+
+                                echo $post['other_skill'];
+
+                            }else if(!$post['other_skill']){
 
 
-                                                                            echo $cache_time;
-                                                                            $k++;
-                                                                        }
-                                                                        ?>     
+                                foreach ($aud_res as $skill) {
+                             if ($k != 0) {
+                                echo $comma;
+                            }
+                            $cache_time = $this->db->get_where('skill', array('skill_id' => $skill))->row()->skill;
+
+
+                            echo $cache_time;
+                                $k++;
+                            }
+
+
+                            }else if($post['post_skill'] && $post['other_skill']){
+                            foreach ($aud_res as $skill) {
+                             if ($k != 0) {
+                                echo $comma;
+                            }
+                            $cache_time = $this->db->get_where('skill', array('skill_id' => $skill))->row()->skill;
+
+
+                            echo $cache_time;
+                                $k++;
+                            } echo ",". $post['other_skill']; }
+                        ?>     
                                                 
                                                 </span>
                                             </li>
-                                            <li><b>Other Skill</b><span> <?php if($post['other_skill'] != ''){ echo $post['other_skill']; } else{ echo PROFILENA;} ?></span>
-                                            </li>
+                                            <!-- <li><b>Other Skill</b><span> <?php if($post['other_skill'] != ''){ echo $post['other_skill']; } else{ echo PROFILENA;} ?></span>
+                                            </li> -->
                                             <li><b>Job Description</b><span><p><?php echo $this->common->make_links($post['post_description']); ?></p></span>
                                             </li>
                                             <li><b>Interview Process</b><span>
