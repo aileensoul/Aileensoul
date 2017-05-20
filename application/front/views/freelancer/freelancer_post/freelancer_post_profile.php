@@ -416,7 +416,16 @@ if ($freelancerpostdata[0]['freelancer_post_area']) {
         $skill1[] = $cache_time;
     }
     $listFinal = implode(', ', $skill1);
-    echo $listFinal;
+
+    if(!$listFinal){
+
+    echo $freelancerpostdata[0]['freelancer_post_otherskill'];
+    }else if(!$freelancerpostdata[0]['freelancer_post_otherskill']){
+
+        echo $listFinal;
+    }else if($listFinal && $freelancerpostdata[0]['freelancer_post_otherskill']){
+    echo $listFinal .','.$freelancerpostdata[0]['freelancer_post_otherskill'];
+      }
     ?>     
                                                     </span>
                                                 </li>
@@ -424,9 +433,9 @@ if ($freelancerpostdata[0]['freelancer_post_area']) {
                                                     }
                                                     ?>
 
-                                                    <?php if ($freelancerpostdata[0]['freelancer_post_otherskill']) { ?>
+                                                    <!-- <?php if ($freelancerpostdata[0]['freelancer_post_otherskill']) { ?>
                                                 <li><b>Other Skill</b> <span><?php echo $freelancerpostdata[0]['freelancer_post_otherskill']; ?></span> </li>
-                                                    <?php } ?>
+                                                    <?php } ?> -->
 
 
 

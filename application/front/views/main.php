@@ -519,7 +519,7 @@ $('#datepicker').datetimepicker({
                         },
                          password2: {
 
-                            required: "Please provide a Confirm Password",
+                            required: "Confirm Password Is Required.",
                              minlength: "Your password must be at least 6 characters long",
                              maxlength: "Your password must be less than 20 characters",
                              equalTo: "Please enter the same password as above"
@@ -559,11 +559,11 @@ $('#datepicker').datetimepicker({
                         },
             messages:  {
                     user_name: {
-                    required: "Please Enter Email Address",
+                    required: "Email Address Is Required.",
                       },
 
                     password: {
-                    required: "Please Enter Password",
+                    required: "Password Is Required.",
                            }
                    },
                 });
@@ -574,7 +574,7 @@ $('#datepicker').datetimepicker({
 
 
   
-   $(document).ready(function () { aletr("hii");
+   $(document).ready(function () { //aletr("hii");
           /* validation */
           $("#forgot_password").validate({
               rules: {
@@ -585,7 +585,7 @@ $('#datepicker').datetimepicker({
                         },
             messages:  {
                     forgot_email: {
-                    required: "Please Enter Email Address",
+                    required: "Email Address Is Required.",
                       }
 
                     

@@ -202,26 +202,28 @@
 <!-- END HEAD -->
 <!-- start header -->
 <?php echo $header; ?>
-<script src="<?php echo base_url('js/fb_login.js'); ?>">
-</script>
+<!-- <script src="<?php echo base_url('js/fb_login.js'); ?>">
+</script> -->
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('dragdrop/fileinput.css'); ?>">
+   <link href="<?php echo base_url('dragdrop/themes/explorer/theme.css'); ?>" media="all" rel="stylesheet" type="text/css"/>
+    
+<!--  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+ -->
+    <script src="<?php echo base_url('dragdrop/js/plugins/sortable.js'); ?>"></script>
+     <script src="<?php echo base_url('dragdrop/js/fileinput.js'); ?>"></script>
+      <script src="<?php echo base_url('dragdrop/js/locales/fr.js'); ?>"></script>
+       <script src="<?php echo base_url('dragdrop/js/locales/es.js'); ?>"></script>
+        <script src="<?php echo base_url('dragdrop/themes/explorer/theme.js'); ?>"></script>
 <!-- END HEADER -->
 <?php echo $business_header2 ?>
 <!DOCTYPE html>
 <html>
     <head>
+       
+
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/3.3.0/select2.css'); ?>">
-        <link href="<?php echo base_url() ?>css/fileinput.css" media="all" rel="stylesheet" type="text/css"/>
-        <link href="<?php echo base_url() ?>js/themes/explorer/theme.css" media="all" rel="stylesheet" type="text/css"/>
-        <script src="<?php echo base_url() ?>js/jquery-2.0.3.min.js" type="text/javascript">
-        </script>
-        <script src="<?php echo base_url() ?>js/plugins/sortable.js" type="text/javascript">
-        </script>
-        <script src="<?php echo base_url() ?>js/fileinput.js" type="text/javascript">
-        </script>
-        <script src="<?php echo base_url() ?>js/themes/explorer/theme.js" type="text/javascript">
-        </script>
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
@@ -790,7 +792,7 @@
                                 <div class="popup-social-icon">
                                     <ul class="editor-header">
                                         <li>
-                                            <label for="test-upload">
+                                          <!--   <label for="test-upload">
                                                 <input type="file" class="file" style="display:block;" id="test-upload" style="display:none;" name="postattach[]" multiple>
                                                 <i class=" fa fa-camera "  style=" margin: 8px; cursor:pointer"> Photo
                                                 </i>
@@ -801,7 +803,16 @@
                                                 <i class=" fa fa-file-pdf-o fa-2x"  style=" margin: 8px; cursor:pointer"> PDF 
                                                 </i> 
                                             </label>
+ -->
 
+  <div class="col-md-12"> <div class="form-group">
+   <input id="file-1" type="file" class="file" name="postattach[]"  multiple class="file" data-overwrite-initial="false" data-min-file-count="2" style="display: none;">
+   </div></div>
+
+
+     <label for="file-1"><i class=" fa fa-camera "  style=" margin: 8px; cursor:pointer"> Photo</i><i class=" fa fa-video-camera"  style=" margin: 8px; cursor:pointer"> Video </i> <i class="fa fa-music "  style=" margin: 8px; cursor:pointer"> Audio </i><i class=" fa fa-file-pdf-o "  style=" margin: 8px; cursor:pointer"> PDF </i> </label>
+
+                             
                                         </li>
                                     </ul>
                                 </div>
@@ -1532,7 +1543,7 @@
 </html>
 <script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
 <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
-<script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
+<!-- <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script> -->
 <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 <!-- script for skill textbox automatic end (option 2)-->
@@ -2967,10 +2978,10 @@
 <script type="text/javascript">
     function imgval(event) {
 
-        var fileInput = document.getElementById("test-upload").files;
+        var fileInput = document.getElementById("file-1").files;
         var product_name = document.getElementById("test-upload-product").value;
         var product_description = document.getElementById("test-upload-des").value;
-        var product_fileInput = document.getElementById("test-upload").value;
+        var product_fileInput = document.getElementById("file-1").value;
 
 
         if (product_fileInput == '' && product_name == '' && product_description == '')
@@ -3281,3 +3292,4 @@
   }).addClass("rippleEffect");
 });
 </script>
+

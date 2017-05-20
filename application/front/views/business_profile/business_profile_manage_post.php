@@ -177,16 +177,33 @@
 
 <!--post save success pop up style end -->
 
+<!-- start header -->
+<?php echo  $header; ?>
+<script src="<?php echo base_url('js/fb_login.js'); ?>">
+</script>
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('dragdrop/fileinput.css'); ?>">
+   <link href="<?php echo base_url('dragdrop/themes/explorer/theme.css'); ?>" media="all" rel="stylesheet" type="text/css"/>
+
+    <script src="<?php echo base_url('dragdrop/js/plugins/sortable.js'); ?>"></script>
+     <script src="<?php echo base_url('dragdrop/js/fileinput.js'); ?>"></script>
+      <script src="<?php echo base_url('dragdrop/js/locales/fr.js'); ?>"></script>
+       <script src="<?php echo base_url('dragdrop/js/locales/es.js'); ?>"></script>
+        <script src="<?php echo base_url('dragdrop/themes/explorer/theme.js'); ?>"></script>
+
+
+
+<!-- script for cropiee immage End-->
+<link rel="stylesheet" href="<?php echo base_url('assets/css/croppie.css'); ?>">
+
+<!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" /> -->
+
+<!-- END HEADER -->
+
+<?php echo $business_header2 ?>
 
 <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/3.3.0/select2.css'); ?>">
-<link href="<?php echo base_url() ?>css/fileinput.css" media="all" rel="stylesheet" type="text/css"/>
-<link href="<?php echo base_url() ?>js/themes/explorer/theme.css" media="all" rel="stylesheet" type="text/css"/>
-<script src="<?php echo base_url() ?>js/jquery-2.0.3.min.js" type="text/javascript"></script>
-<script src="<?php echo base_url() ?>js/plugins/sortable.js" type="text/javascript"></script>
-<script src="<?php echo base_url() ?>js/fileinput.js" type="text/javascript"></script>
-<script src="<?php echo base_url() ?>js/themes/explorer/theme.js" type="text/javascript"></script>
-<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>"> 
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
@@ -224,21 +241,6 @@
 </style>
 <!-- END HEAD -->
 
-<!-- start header -->
-<?php echo $header; ?>
-<script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
-
- <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
-
-
-<!-- script for cropiee immage End-->
-<link rel="stylesheet" href="<?php echo base_url('assets/css/croppie.css'); ?>">
-
-<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
-
-<!-- END HEADER -->
-
-<?php echo $business_header2 ?>
 
 
 <body   class="page-container-bg-solid page-boxed">
@@ -1085,9 +1087,20 @@
                                 <ul class="editor-header">
 
                                     <li>
-                                        <input type="file" class="file" style="display:block;" id="test-upload" style="display:none;" name="postattach[]" multiple>
+                                      <!--   <input type="file" class="file" style="display:block;" id="test-upload" style="display:none;" name="postattach[]" multiple>
                                         <label for="test-upload"><i class=" fa fa-camera "  style=" margin: 8px; cursor:pointer"> Photo</i><i class=" fa fa-video-camera"  style=" margin: 8px; cursor:pointer"> Video </i> <i class="fa fa-music "  style=" margin: 8px; cursor:pointer"> Audio </i><i class=" fa fa-file-pdf-o fa-2x"  style=" margin: 8px; cursor:pointer"> PDF </i> </label>
+ -->
 
+
+
+<div class="col-md-12"> <div class="form-group">
+   <input id="file-1" type="file" class="file" name="postattach[]"  multiple class="file" data-overwrite-initial="false" data-min-file-count="2" style="display: none;">
+   </div></div>
+
+
+     <label for="file-1"><i class=" fa fa-camera "  style=" margin: 8px; cursor:pointer"> Photo</i><i class=" fa fa-video-camera"  style=" margin: 8px; cursor:pointer"> Video </i> <i class="fa fa-music "  style=" margin: 8px; cursor:pointer"> Audio </i><i class=" fa fa-file-pdf-o "  style=" margin: 8px; cursor:pointer"> PDF </i> </label>
+
+      
 
                                     </li>
                                 </ul>
@@ -1898,7 +1911,7 @@
 <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
             <script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
             <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
-            <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
+           <!--  <script src="<?php //echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
             <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
 
             <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
@@ -3457,10 +3470,10 @@
 
                     //var fileInput = document.getElementById('test-upload');
 
-                    var fileInput = document.getElementById("test-upload").files;
+                    var fileInput = document.getElementById("file-1").files;
                     var product_name = document.getElementById("test-upload_product").value;
                     var product_description = document.getElementById("test-upload_des").value;
-                    var product_fileInput = document.getElementById("test-upload").value;
+                    var product_fileInput = document.getElementById("file-1").value;
 
 
 
