@@ -677,6 +677,12 @@ $contition_array = array('status' => '1', 'is_deleted' => '0');
         $userid = $this->session->userdata('aileenuser');
       $count1 = count($this->input->post('filedata'));
      
+
+      $contition_array = array('user_id' => $userid, 'is_deleted' => '0', 'status' => '1');
+
+      $businessdata = $this->data['businessdata'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+
       for ($x = 0; $x < $count1; $x++) {
       if($_POST['filedata'][$x] == 'old'){ 
          
@@ -700,7 +706,7 @@ $contition_array = array('status' => '1', 'is_deleted' => '0');
        
         $contition_array = array('user_id' => $userid, 'is_delete' => '0');
         $userdatacon = $this->common->select_data_by_condition('bus_image', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-        
+        //echo "<pre>"; print_r($userdatacon); die();
         
         
         if ($this->input->post('next') || $this->input->post('submit')) {
@@ -779,10 +785,10 @@ $contition_array = array('status' => '1', 'is_deleted' => '0');
             if ($updatdata) {
                 $this->session->set_flashdata('success', 'Image updated successfully');
               
-              if($userdatacon[0]['business_step'] == 4){
+              if($businessdata[0]['business_step'] == 4){ 
                 redirect('business_profile/business_resume', refresh);
                }
-                else{
+                else{ 
                   redirect('business_profile/business_profile_post', refresh);
                 }
             } else {
