@@ -264,7 +264,7 @@
               <label class="fname_reg">
               Date of Birth<span class="req">*</span></label>
               </label>
-              <input type="text" name="datepicker" id="datepicker" placeholder="dd-mm-yyyy"   autocomplete="off" >
+              <input type="text" name="datepicker" id="datepicker"  autocomplete="off" >
             </div>
 <!--                    <div class="field-wrap" id="gen">
                 <label class="label_gen">Gender</label>
@@ -273,7 +273,7 @@
         <input type="radio" name="gender" id="female" value="female">Female
             </div>        -->
             <div class="field-wrap" id="gen">
-           <span class="gen_lbl">Gender<span class="req">*</span>: </span>    
+           <!-- <span class="gen_lbl">Gender<span class="req">*</span>: </span>     -->
                       <input type="radio" name="gen" id="gen" value="M" <?php if($gender == 'M'){ echo 'checked'; }?>>Male
                       <input type="radio" name="gen" id="gen" value="F" <?php if($gender == 'F'){ echo 'checked'; }?>>Female
                       <?php echo form_error('gen'); ?>
@@ -311,7 +311,7 @@
             <div class="row">
                 <div class="col-md-6" style="padding: 12px;">
                 <div class="footer-menu pull-left">
-                    <p>copyright 2017 | by <a href="#" style="color: #000033">Aileensoul</a></p>
+                    <p>&copy; 2017 | by <a href="#" style="color: #000033">Aileensoul</a></p>
                 </div>
                 </div>
                 <div class="col-md-6">
@@ -513,7 +513,7 @@ $('#datepicker').datetimepicker({
                         },
                          password: {
 
-                            required: "Please provide a Password.",
+                            required: "Password Is Required.",
                             minlength: "Your password must be at least 6 characters long",
                             maxlength: "Your password must be less than 20 characters"
                         },

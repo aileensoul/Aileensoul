@@ -310,6 +310,8 @@
                                         rules: {
                                             user_name: {
                                                 required: true,
+                                               email:true,
+
                                             },
                                             password: {
                                                 required: true,
@@ -318,10 +320,11 @@
                                         messages:
                                                 {
                                                     user_name: {
-                                                        required: "Please Enter Email Address",
+                                                        required: "Email Address Is Required.",
+                                                         email:"Please Enter Valid Email Id.",
                                                     },
                                                     password: {
-                                                        required: "Please Enter Password",
+                                                        required: "Password Is Required.",
                                                     }
                                                 },
                                     });
