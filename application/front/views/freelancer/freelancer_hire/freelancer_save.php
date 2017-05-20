@@ -453,30 +453,45 @@
             $k = 0;
             $aud = $rec['freelancer_post_area'];
             $aud_res = explode(',', $aud);
+
+            if(!$rec['freelancer_post_area']){
+                echo $rec['freelancer_post_otherskill'];
+            } else if(!$rec['freelancer_post_otherskill']){
             foreach ($aud_res as $skill) {
                 if ($k != 0) {
                     echo $comma;
                 }
                 $cache_time = $this->db->get_where('skill', array('skill_id' => $skill))->row()->skill;
 
-                if($cache_time){
                     echo $cache_time;
-                }
-                    else{
-                        echo PROFILENA; 
-                    }
+                
                 $k++;
+            } } else if($rec['freelancer_post_area'] && $rec['freelancer_post_otherskill']){
+
+                foreach ($aud_res as $skill) {
+                if ($k != 0) {
+                    echo $comma;
+                }
+                $cache_time = $this->db->get_where('skill', array('skill_id' => $skill))->row()->skill;
+
+                    echo $cache_time;
+                
+                $k++;
+            } echo "," . $rec['freelancer_post_otherskill'];
+
             }
+
+
             ?>       </span>
 
                                                                     </li>
 
 
            
-                                                                    <li><b>Other Skill</b><span>
+                                                                    <!-- <li><b>Other Skill</b><span>
         <?php  if($rec['freelancer_post_otherskill']){echo $rec['freelancer_post_otherskill'];} 
         else{echo PROFILENA;}?></span>
-                                                                </li>
+                                                                </li> -->
 
         <?php $cityname = $this->db->get_where('cities', array('city_id' => $rec['freelancer_post_city']))->row()->city_name; ?>
 

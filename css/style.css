@@ -2771,9 +2771,9 @@ label.cameraButton input[accept*="camera"] {
 
 /*post design*/
 .post-design-box{ padding-left: 0px; border-radius: 3px; padding-right: 0px; border: 1px solid #d9d9d9;  margin-bottom: 20px; /* box-shadow: 2px 8px 20px 0px #bfbfbf*/}
-.post_radius_box{border-radius: 5px;}
+.post_radius_box{border-radius: 3px;}
 .post-design-top
-{/* border-radius: 5px; */border-top-left-radius: 3px; border-top-right-radius: 3px; padding: 5px; padding-bottom: 0px; background-color: #ffffff;  /* border: 1px solid #efefef;*/ border-bottom: none; }
+{/* border-radius: 5px; */ padding-top: 10px!important; border-top-left-radius: 3px; border-top-right-radius: 3px; padding: 5px; padding-bottom: 0px; background-color: #ffffff;  /* border: 1px solid #efefef;*/ border-bottom: none; }
 .post-design-pro-img{   padding-left: 17px; margin-right: -53px; display: inline-block; float: left; /*padding: 4px 5px 4px 17px;*/}
 .post-design-pro-img img{ height:50px; width: 50px; border: 1px solid #efefef; }
 
@@ -2794,14 +2794,14 @@ label.cameraButton input[accept*="camera"] {
 .post-design-pro-comment-img img{ height: 100%; width: 100%;  }
 
 .post-design-product-img {padding:10px 5px 10px 5px; width: 100%; height: 350px;}
-.post-design-like-box{background-color: #ffffff;  /* padding-top: 10px;*/ padding-left: 23px; padding-right: 23px;  }
+.post-design-like-box{background-color: #ffffff;   padding-top: 10px; padding-left: 23px; padding-right: 23px;  }
 .post-design-commnet-box{padding-left: 23px; background-color: #e6eaef; padding-right: 23px; border: 1px solid #e6eaef; padding-top: 10px; }
 .post-design-menu{border-top: 1px solid #efefef;border-bottom:1px solid #efefef;}
 .post-design-menu ul { margin: 0; padding: 0; }
 .post-design-menu ul li { list-style: none; display: inline-block; padding: 0; margin: 0; position: relative; }
-.post-design-menu ul li a { font-size: 18px; color: #000033; padding: 10px 15px 10px; font-weight: 400; display: block;  }
-.post-design-menu ul li a i {cursor: pointer; font-size: 22px;}
-.post-design-menu ul li a:hover {border-radius: 10%; background: #d9d9d9; color: #000033; }
+.post-design-menu ul li a { font-size: 19px; color: #000033; margin-right: 18px!important;padding: 4px 5px 4px 0px!important;font-weight: 400; display: block;  }
+.post-design-menu ul li a i {cursor: pointer; font-size: 19px; /*padding: 10px 5px 10px 5px;*/}
+.post-design-menu ul li a i:hover {border-radius: 10%; color: #999; }
 .post-design-name ul li a h6 { 
     font-weight: 600;
 }
@@ -2855,7 +2855,7 @@ label.cameraButton input[accept*="camera"] {
 .dropdown1 a {color: #000000;padding: 5px 10px;cursor: pointer;}
 .dropdown1 .fa-ellipsis-v {color: #999999;}
 .dropdown1 {
-    padding-right: 11px;
+   /* padding-right: 11px;*/
     float: right;
     position: relative;
     display: inline-block;
@@ -3299,9 +3299,9 @@ follow box*/
 #responsive-images-breakpoints img{height: 100%; width: 100%;}
 
 #two_images_art{  float: left;
-                  height: 55%;
-                  width:308px;
-                  margin: 4px;}
+    height: 55%;
+    width: 49.7%;
+    margin: 1px;}
 #two_images_art img{height: 100%; width: 100%;}
 
 #three_images_art{ width: 100%; height: 35%;/* padding-right: 3px; padding-left: 4px;*/}
@@ -3926,7 +3926,7 @@ body.modal-open{ padding: 0 !important; overflow: visible;  position: absolute; 
 
 
 .like_other{display:block; padding-left: 23px; background-color: #fff;}
-.like_one_other{font-weight: 400; padding-left: 24px!important; padding: 5px; display: inline-block;}
+.like_one_other{font-weight: 400; padding-left: 24px!important; padding: 1px; display: inline-block;}
 
 
 

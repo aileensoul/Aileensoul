@@ -263,7 +263,7 @@
                                     <div class="buisness-profile-txext col-md-4">
                                         <a class="profile-boxProfilebuisness-avatarLink2 a-inlineBlock" href="<?php echo site_url('artistic/art_manage_post'); ?>" title="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>" tabindex="-1" aria-hidden="true" rel="noopener">
                                             <!-- box image start -->
-                                            <?php if ($artisticdata['art_user_image']) {?>
+                                            <?php if ($artisticdata[0]['art_user_image']) {?>
                                             <img src="<?php echo base_url(ARTISTICIMAGE . $artisticdata[0]['art_user_image']); ?>" class="bgImage"  alt="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>" style="    height: 77px;
                                                  width: 71px;
                                                  z-index: 3;
@@ -1085,7 +1085,7 @@
                                                         ?>
 
                                                         <!-- two image start -->
-                                                        <div  id="two_images_art" style="width: 48.8%;">
+                                                        <div  id="two_images_art" >
                                                             <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="two-columns" src="<?php echo base_url(ARTPOSTIMAGE . $multiimage['image_name']) ?>" > </a>
                                                         </div>
 
@@ -1198,7 +1198,7 @@
                                                                 <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>
                                                             <?php } else {
                                                                 ?>
-                                                                <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                                                <i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i>
                                                             <?php }
                                                             ?>
                                                             <span>
@@ -1433,7 +1433,7 @@
                                                                                 <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i> 
                                                                             <?php } else {
                                                                                 ?>
-                                                                                <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                                                                <i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i>
                                                                             <?php }
                                                                             ?>
                                                                             <span>
