@@ -2829,7 +2829,7 @@ label.cameraButton input[accept*="camera"] {
     line-height: 16px;
     display: block;}
 
-.post-design-desc{clear: both; padding:5px 20px 5px 20px;  text-align: justify;  word-break: break-word;word-wrap: break-word;}
+.post-design-desc{clear: both; padding:5px 20px 0px 20px;  text-align: justify;  word-break: break-word;word-wrap: break-word;}
 .post-design-product-img img {width: 100%; height: 100%; border:1px solid #cccccc; border-radius: 3px;}
 .popup-comment{padding: 8px;  }
 

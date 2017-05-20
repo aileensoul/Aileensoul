@@ -994,7 +994,7 @@
 </div>
                                             <div class="post-design-desc ">
                                                 <span> 
-                                                    <div  id="<?php echo 'editpostdetails' . $row['art_post_id']; ?>" style="display:block ; padding-bottom: 10px;">
+                                                    <div  id="<?php echo 'editpostdetails' . $row['art_post_id']; ?>" style="display:block ; ">
                                                         <?php
                                                         $text = $this->common->make_links($row['art_description']);
                                                         ?>
@@ -1530,7 +1530,7 @@
                                             </div>
                                             <div class="">
                                                 <div id="content" class="col-md-12 inputtype-comment" style="padding-left: 7px !important; width: 80%;">
-                                                    <div contenteditable="true" style="min-height:37px !important; margin-top: 0px!important" class="editable_text" name="<?php echo $row['art_post_id']; ?>"  id="<?php echo "post_comment" . $row['art_post_id']; ?>" placeholder="Type Message ..." onClick="entercomment(<?php echo $row['art_post_id']; ?>)"></div>
+                                                    <div contenteditable="true" style="min-height:37px !important; margin-top: 0px!important" class="editable_text" name="<?php echo $row['art_post_id']; ?>"  id="<?php echo "post_comment" . $row['art_post_id']; ?>" placeholder="Add a Comment ..." onClick="entercomment(<?php echo $row['art_post_id']; ?>)"></div>
                                                 </div>
         <?php echo form_error('post_comment'); ?>
                                                 <div class=" comment-edit-butn" >   
