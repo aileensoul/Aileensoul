@@ -613,9 +613,9 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
                                                           } else{ echo $businessdata1[0]['other_industrial']; }  ?></span>
                                                         </li>
 
-                                                         <li> <b>Other Category</b><span><?php echo  
+                                                         <!-- <li> <b>Other Category</b><span><?php echo  
                                                         $this->db->get_where('industry_type',array('industry_id' => $businessdata1[0]['industriyal']))->row()->industry_name;  ?></span>
-                                                        </li>
+                                                        </li> -->
                                                        
       <li><b>Details Of Your buisness </b> 
       <span>
