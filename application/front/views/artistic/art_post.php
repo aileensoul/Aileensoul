@@ -249,20 +249,29 @@
 
                             <div class="profile-boxProfileCard  module">
                                 <div class="profile-boxProfileCard-cover">     
-                                    <a class="profile-boxProfileCard-bg u-bgUserColor a-block" href="<?php echo site_url('artistic/art_manage_post'); ?>" tabindex="-1" aria-hidden="true" rel="noopener">
-                                        <img src="<?php echo base_url(ARTBGIMAGE . $artisticdata[0]['profile_background']); ?>" class="bgImage" style="height: 95px; width: 393px; " >
+                                    <a class="profile-boxProfileCard-bg u-bgUserColor a-block" href="<?php echo site_url('artistic/art_manage_post'); ?>" tabindex="-1" aria-hidden="true" rel="noopener" title="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>">
+                                    <?php if($artisticdata['profile_background']){?>
+                                        <img src="<?php echo base_url(ARTBGIMAGE . $artisticdata[0]['profile_background']); ?>" alt ="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>" class="bgImage" style="height: 95px; width: 393px; " >
+                                        <?php } else {?>
+                                        <img src="<?php echo base_url(WHITEIMAGE); ?>" class="bgImage" alt="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>"  style="height: 95px;
+                                                     width: 100%;">
+                                        <?php }?>
                                     </a>
                                 </div>
 
                                 <div class="profile-boxProfileCard-content clearfix">
                                     <div class="buisness-profile-txext col-md-4">
-                                        <a class="profile-boxProfilebuisness-avatarLink2 a-inlineBlock" href="<?php echo site_url('artistic/art_manage_post'); ?>" title="zalak" tabindex="-1" aria-hidden="true" rel="noopener">
+                                        <a class="profile-boxProfilebuisness-avatarLink2 a-inlineBlock" href="<?php echo site_url('artistic/art_manage_post'); ?>" title="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>" tabindex="-1" aria-hidden="true" rel="noopener">
                                             <!-- box image start -->
-                                            <img src="<?php echo base_url(ARTISTICIMAGE . $artisticdata[0]['art_user_image']); ?>" class="bgImage" style="    height: 77px;
+                                            <?php if ($artisticdata['art_user_image']) {?>
+                                            <img src="<?php echo base_url(ARTISTICIMAGE . $artisticdata[0]['art_user_image']); ?>" class="bgImage"  alt="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>" style="    height: 77px;
                                                  width: 71px;
                                                  z-index: 3;
                                                  position: relative;
                                                  " >
+                                                 <?php } else {?> 
+                                                 <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>">
+                                                 <?php }?>
                                             <!-- box image end -->
                                         </a>
                                     </div>
@@ -341,9 +350,16 @@
 
                                                                 <div class=" col-md-12 follow_left_box_main" id="<?php echo "fad" . $userlist['art_id']; ?>">                   
                                                                     <div class="post-design-pro-img_follow">
-                                                                      <a href="<?php echo base_url('artistic/art_manage_post/' . $userlist['user_id'] . ''); ?>">
+                             <a href="<?php echo base_url('artistic/art_manage_post/' . $userlist['user_id'] . ''); ?>" title="<?php echo ucwords($userlist['art_name']); echo"&nbsp;"; echo ucwords($userlist['art_lastname']);?>">
+                                     <?php if($userlist['art_user_image']){?>
+                                 <img  src="<?php echo base_url(ARTISTICIMAGE . $userlist['art_user_image']); ?>"  alt="<?php echo ucwords($userlist['art_name']);
+                                             echo"&nbsp;";
+                                        echo ucwords($userlist['art_lastname']);?>" > 
+                                                                        <?php } else {?>
+<img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo ucwords($userlist['art_name']); echo"&nbsp;"; echo ucwords($userlist['art_lastname']); ?>">
 
-                                                                        <img  src="<?php echo base_url(ARTISTICIMAGE . $userlist['art_user_image']); ?>"  alt=""> </a>
+                                                                        <?php }?>
+                                                                        </a>
 
                                                                     </div>
 
@@ -431,9 +447,15 @@
                                                             <div class="profile-job-post-title-inside clearfix">
 
                                                                 <div class=" col-md-12 follow_left_box_main" id="<?php echo "fad" . $userlist['art_id']; ?>">                   
-                                                                    <div class="post-design-pro-img_follow">
-                                                                      <a href="<?php echo base_url('artistic/art_manage_post/' . $userlist['user_id'] . ''); ?>">
-                                                                        <img  src="<?php echo base_url(ARTISTICIMAGE . $userlist['art_user_image']); ?>"  alt=""> </a>
+                                      <div class="post-design-pro-img_follow">
+                             <a href="<?php echo base_url('artistic/art_manage_post/' . $userlist['user_id'] . ''); ?>" title="<?php echo ucwords($userlist['art_name']); echo"&nbsp;";echo ucwords($userlist['art_lastname']); ?>">
+                             <?php if($userlist['art_user_image']){?>
+                                 <img  src="<?php echo base_url(ARTISTICIMAGE . $userlist['art_user_image']); ?>"  alt="<?php echo ucwords($userlist['art_name']); echo"&nbsp;";echo ucwords($userlist['art_lastname']); ?>">
+                                 <?php } else {?> 
+                                 <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo ucwords($userlist['art_name']); echo"&nbsp;";echo ucwords($userlist['art_lastname']); ?>">
+
+                                 <?php }?>
+                                 </a>
 
                                                                     </div>
 
@@ -518,9 +540,11 @@
 
                                                                 <div class=" col-md-12 follow_left_box_main" id="<?php echo "fad" . $userlist['art_id']; ?>">                   
                                                                     <div class="post-design-pro-img_follow">
-                                                                      <a href="<?php echo base_url('artistic/art_manage_post/' . $userlist['user_id'] . ''); ?>">
-
-                                                                        <img  src="<?php echo base_url(ARTISTICIMAGE . $userlist['art_user_image']); ?>"  alt=""> </a>
+                                                                      <a href="<?php echo base_url('artistic/art_manage_post/' . $userlist['user_id'] . ''); ?>" title="<?php echo ucwords($userlist['art_name']); echo"&nbsp;";echo ucwords($userlist['art_lastname']); ?>">
+                                                        <?php if($userlist['art_user_image']){?>
+                                     <img  src="<?php echo base_url(ARTISTICIMAGE . $userlist['art_user_image']); ?>"  alt="<?php echo ucwords($userlist['art_name']); echo"&nbsp;";echo ucwords($userlist['art_lastname']); ?>"> <?php } else {?>
+                                     <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo ucwords($userlist['art_name']); echo"&nbsp;";echo ucwords($userlist['art_lastname']); ?>">
+                                     <?php }?></a>
 
                                                                     </div>
 
@@ -604,9 +628,12 @@
 
                                                                 <div class=" col-md-12 follow_left_box_main" id="<?php echo "fad" . $userlist['art_id']; ?>">                   
                                                                     <div class="post-design-pro-img_follow">
-                                                                      <a href="<?php echo base_url('artistic/art_manage_post/' . $userlist['user_id'] . ''); ?>">
-
-                                                                        <img  src="<?php echo base_url(ARTISTICIMAGE . $userlist['art_user_image']); ?>"  alt=""> </a>
+                                                                      <a href="<?php echo base_url('artistic/art_manage_post/' . $userlist['user_id'] . ''); ?>" title="<?php echo ucwords($userlist['art_name']); echo"&nbsp;";echo ucwords($userlist['art_lastname']); ?>">
+                                                                      <?php if($userlist['art_user_image']){?>
+                                         <img  src="<?php echo base_url(ARTISTICIMAGE . $userlist['art_user_image']); ?>"  alt="<?php echo ucwords($userlist['art_name']); echo"&nbsp;";echo ucwords($userlist['art_lastname']); ?>">
+                                                                        <?php } else {?> 
+                                          <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo ucwords($userlist['art_name']); echo"&nbsp;";echo ucwords($userlist['art_lastname']); ?>">
+                                                                        <?php }?></a>
 
                                                                     </div>
 
