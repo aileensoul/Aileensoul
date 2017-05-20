@@ -2770,10 +2770,10 @@ label.cameraButton input[accept*="camera"] {
 .profile-boxProfileCard-cover{border: 1px solid #efefef; border-bottom: none;}
 
 /*post design*/
-.post-design-box{ padding-left: 0px; padding-right: 0px; border: 1px solid #efefef;  margin-bottom: 20px; /* box-shadow: 2px 8px 20px 0px #bfbfbf*/}
+.post-design-box{ padding-left: 0px; border-radius: 3px; padding-right: 0px; border: 1px solid #d9d9d9;  margin-bottom: 20px; /* box-shadow: 2px 8px 20px 0px #bfbfbf*/}
 .post_radius_box{border-radius: 5px;}
 .post-design-top
-{/* border-radius: 5px; */padding: 5px; padding-bottom: 0px; background-color: #ffffff;  /* border: 1px solid #efefef;*/ border-bottom: none; }
+{/* border-radius: 5px; */border-top-left-radius: 3px; border-top-right-radius: 3px; padding: 5px; padding-bottom: 0px; background-color: #ffffff;  /* border: 1px solid #efefef;*/ border-bottom: none; }
 .post-design-pro-img{   padding-left: 17px; margin-right: -53px; display: inline-block; float: left; /*padding: 4px 5px 4px 17px;*/}
 .post-design-pro-img img{ height:50px; width: 50px; border: 1px solid #efefef; }
 

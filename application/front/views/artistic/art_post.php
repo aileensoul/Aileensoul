@@ -787,7 +787,7 @@
                         <!--like comment start -->
 
                         <?php
-                        
+                        if(count($finalsorting)>0){
                         foreach ($finalsorting as $row) {
 
                             $userid = $this->session->userdata('aileenuser');
@@ -1517,8 +1517,17 @@
 
                                 <?php
                             }
-                        }
+                        }}else{
                         ?>
+
+
+                                <div class="text-center rio">
+                                    <h4 class="page-heading  product-listing" style="border:0px;margin-bottom: 11px;">No Post Found.</h4>
+                                </div>
+
+
+
+                        <?php }?>
                         <!-- like commnet end -->
                     </div>
                     </section>

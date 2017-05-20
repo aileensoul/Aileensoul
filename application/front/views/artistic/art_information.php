@@ -1,5 +1,18 @@
 
 <?php  echo $head; ?>
+
+<style type="text/css">
+  
+  .keyskill_border_deactivte {
+  border: 1px solid red;
+
+}
+
+.keyskill_border_active {
+  border: 1px solid red;
+
+}
+</style>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/3.3.0/select2.css'); ?>">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
@@ -77,7 +90,7 @@
                             Art Information
                         </h3>
                         
-                            <?php echo form_open(base_url('artistic/art_information_insert'), array('id' => 'artinfo','name' => 'artinfo','class' => 'clearfix')); ?>
+                            <?php echo form_open(base_url('artistic/art_information_insert'), array('id' => 'artinfo','name' => 'artinfo','class' => 'clearfix', 'onsubmit' => "imgval()")); ?>
                             <div>
                                    <span style="color:#7f7f7e;padding-left: 8px;">( </span><span style="color:red">*</span><span style="color:#7f7f7e"> )</span> <span style="color:#7f7f7e">Indicates required field</span>
                                 </div>
@@ -93,7 +106,7 @@
                                     <fieldset class="full-width" <?php if($skills) {  ?> class="error-msg" <?php } ?> >
                                         <label>Art<span style="color:red">*</span></label>
                                        
-                                          <select name="skills[]" id ="skils" class="keyskil" multiple="multiple" style="width:100%;">
+                                          <select name="skills[]" id ="skils" class="keyskil keyskill_border_deactivte" multiple="multiple" style="width:100%;">
                                        <?php foreach ($skill as $ski) { ?>
                                       <option value="<?php echo $ski['skill_id']; ?>"><?php echo $ski['skill']; ?></option>
                                     <?php } ?>
@@ -359,6 +372,20 @@ $( "#tags" ).autocomplete({
     
   </script>
 
+
+<script type="text/javascript">
+  
+function imgval(){ alert("falguni");
+
+ 
+        
+        //$("#skils").addClass("keyskill_border");
+    
+   
+   document.getElementByClassName("keyskill_border_deactivte").style.display = "none";
+  
+  }
+</script>
 <script>
 
 var complex = <?php echo json_encode($selectdata); ?>;

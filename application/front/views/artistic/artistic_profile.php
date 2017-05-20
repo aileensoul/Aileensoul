@@ -444,12 +444,23 @@ foreach ($aud_res as $skill) {
     $skill1[] = $cache_time;
 }
 $listFinal = implode(', ', $skill1);
+
+if(!$listFinal){
+
+  echo $artisticdata[0]['other_skill'];  
+
+}else if(!$artisticdata[0]['other_skill']){
+
+echo $listFinal;  
+}else if($listFinal && $artisticdata[0]['other_skill']){
 echo $listFinal . ',' . $artisticdata[0]['other_skill'];
+}
+
 ?>     
                                                 </span>
                                             </li>
 
-                                            <li> <b> Other Art </b> 
+                                            <!-- <li> <b> Other Art </b> 
 
                                                     <?php if ($artisticdata[0]['other_skill']) { ?>
 
@@ -465,7 +476,7 @@ echo $listFinal . ',' . $artisticdata[0]['other_skill'];
                                                         <?php echo PROFILENA;
                                                         ?>  </span>
 <?php } ?>
-                                            </li>
+                                            </li> -->
 
                                             <li> <b> Speciality in Art </b> <span> <?php echo $artisticdata[0]['art_yourart']; ?> </span>
                                             </li>
