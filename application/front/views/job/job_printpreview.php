@@ -696,28 +696,64 @@ echo $job_header2;
                                                 </div>
                                                 <div class="profile-job-profile-menu">
                                                     <ul class="clearfix">
-                                                        <?php
-                                                        if ($job[0]['keyskill']) {
-                                                            ?>
+                                                        
                                                             <li> <b> Skill</b> <span>
-                                                                    <?php
-                                                                    $aud = $job[0]['keyskill'];
+                    <?php
+                     $aud = $job[0]['keyskill'];
 
-                                                                    $aud_res = explode(',', $aud);
-                                                                    foreach ($aud_res as $skill) {
+                     $aud_res = explode(',', $aud);
 
-                                                                        $cache_time = $this->db->get_where('skill', array('skill_id' => $skill))->row()->skill;
-                                                                        $skill1[] = $cache_time;
-                                                                    }
-                                                                    $listFinal = implode(', ', $skill1);
-                                                                    echo $listFinal;
-                                                                    ?>     
+                     if(!$job[0]['keyskill']){
+
+
+                        foreach ($other_skill as $skill1) {
+                         $skill2[] = $skill1['skill']; 
+                         
+                          }
+                       $listFinalother = implode(', ', $skill2);
+                       echo $listFinalother;
+                                                                   
+
+                     }else if(!$other_skill){
+
+                        foreach ($aud_res as $skill) {
+
+                  $cache_time = $this->db->get_where('skill', array('skill_id' => $skill))->row()->skill;
+                        $skill1[] = $cache_time;
+                    }
+                    $listFinal = implode(', ', $skill1);
+
+
+
+                    echo $listFinal;
+                   } 
+
+                     else if($job[0]['keyskill'] && $other_skill){
+                     foreach ($aud_res as $skill) {
+
+                  $cache_time = $this->db->get_where('skill', array('skill_id' => $skill))->row()->skill;
+                        $skill1[] = $cache_time;
+                    }
+                    $listFinal = implode(', ', $skill1);
+
+
+                    foreach ($other_skill as $skill1) {
+                         $skill2[] = $skill1['skill']; 
+                         
+                          }
+                       $listFinalother = implode(', ', $skill2);
+                       //echo $listFinalother;
+
+
+                    echo $listFinal .',' . $listFinalother;
+                   }
+                      ?>     
                                                                 </span>
                                                             </li>
 
 
-                                                            <?php
-                                                        }
+                                                           <!--  <?php
+                                                      
 
                                                         if ($other_skill) {
                                                             ?>
@@ -737,7 +773,7 @@ echo $job_header2;
                                                             <?php
                                                         }
                                                         ?>
-
+ -->
 
                                                     </ul>
                                                 </div>
