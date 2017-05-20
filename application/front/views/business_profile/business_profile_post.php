@@ -830,6 +830,7 @@
                        
                         <?php
 //echo "<pre>"; print_r($businessprofiledata); die();
+                        if(count($businessprofiledata)>0){
                         foreach ($businessprofiledata as $row) {
                             $userid = $this->session->userdata('aileenuser');
                             $contition_array = array('business_profile_post_id' => $row['business_profile_post_id'], 'status' => '1');
@@ -1498,8 +1499,14 @@
                                 </div></div>
                                 <?php
                             }
-                        }
+                        } }else {
                         ?>
+
+<div class="text-center rio">
+                                    <h4 class="page-heading  product-listing" style="border:0px;margin-bottom: 11px;">No Post Found.</h4>
+                                </div>
+                        
+                        <?php }?>
                         <!-- body content end-->
                     </div>
                 </div>
