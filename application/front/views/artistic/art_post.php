@@ -1085,7 +1085,7 @@
                                                         ?>
 
                                                         <!-- two image start -->
-                                                        <div  id="two_images_art" style="width: 48.8%;">
+                                                        <div  id="two_images_art" >
                                                             <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="two-columns" src="<?php echo base_url(ARTPOSTIMAGE . $multiimage['image_name']) ?>" > </a>
                                                         </div>
 
@@ -1198,7 +1198,7 @@
                                                                 <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>
                                                             <?php } else {
                                                                 ?>
-                                                                <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                                                <i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i>
                                                             <?php }
                                                             ?>
                                                             <span>
@@ -1433,7 +1433,7 @@
                                                                                 <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i> 
                                                                             <?php } else {
                                                                                 ?>
-                                                                                <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                                                                <i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i>
                                                                             <?php }
                                                                             ?>
                                                                             <span>
