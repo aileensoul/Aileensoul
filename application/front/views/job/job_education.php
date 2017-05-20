@@ -660,7 +660,7 @@
                                                             <fieldset class="">
                                                                 <h6 style="font-size: 16px;">Degree :<span style="color:red">*</span></h6>
                                                                 <select name="degree[]" id="<?php echo $degree_sequence ?>"  class="degree">
-                                                                    <option value="0">Select your degree</option>
+                                                                    <option value="0">Select your Degree</option>
 
                                                                     <?php
                                                                     //if(count($degree_data) > 0){ //echo"hii";die();
@@ -692,7 +692,7 @@
                                                             <fieldset class="">
                                                                 <h6 style="font-size: 16px;">Stream :<span style="color:red">*</span></h6>
                                                                 <select name="stream[]" id="<?php echo $stream_sequence ?>" class="stream" >
-                                                                    <option value="">Select Degree first</option>
+                                                                    <option value="">Select Degree First</option>
                                                                     <?php
                                                                     if ($stream1) {
                                                                         foreach ($stream_data as $cnt) {
@@ -703,7 +703,7 @@
                                                                     }
                                                                     else {
                                                                         ?>
-                                                                        <option value="0">Select Degree first</option>
+                                                                        <option value="0">Select Degree First</option>
                                                                         <?php
                                                                     }
                                                                     ?>
@@ -840,7 +840,7 @@
                                                     ?>
                                                       <div class="fr img_remove">
                                                         <input style="padding: 6px 9px 6px;
-    font-size: 14px;" type="submit"  id="next" name="next" value="Submit">
+    font-size: 14px;" type="Submit"  id="next" name="next" value="Submit">
                                                         <!--<input type="submit"  id="add_edu" name="add_edu" value="Add More Education">--> 
                                                     </div>
 
@@ -875,7 +875,7 @@
                                                         <!-- <fieldset class=""> -->
                                                         <h6 style="font-size: 16px;">Degree :<span style="color:red">*</span></h6>
                                                         <select name="degree[]" id="degree1" class="degree error">
-                                                            <option value="0">Select your degree</option>
+                                                            <option value="0">Select your Degree</option>
 
                                                             <?php
                                                             //if(count($degree_data) > 0){ //echo"hii";die();
@@ -904,7 +904,7 @@
                                                               <fieldset class=""> -->
                                                         <h6 style="font-size: 16px;">Stream :<span style="color:red">*</span></h6>
                                                         <select name="stream[]" id="stream1" class="stream" >
-                                                            <option value="">Select Degree first</option>
+                                                            <option value="">Select Degree First</option>
                                                             <?php
                                                             if ($stream1) {
                                                                 foreach ($stream_data as $cnt) {
@@ -915,7 +915,7 @@
                                                             }
                                                             else {
                                                                 ?>
-                                                                <option value="0">Select Degree first</option>
+                                                                <option value="0">Select Degree First</option>
                                                                 <?php
                                                             }
                                                             ?>
@@ -1050,7 +1050,7 @@
                                                     </div>
 
                                                     <div class="fr">
-                                                        <input type="submit"  id="next" name="next" value="submit" style="padding: 5px 9px;margin-right: 0px;">
+                                                        <input type="Submit"  id="next" name="next" value="Submit" style="padding: 5px 9px;margin-right: 0px;">
                                                     </div> 
                                                     <br>
                                                     <fieldset class="hs-submit full-width" style="     right: -24%;
