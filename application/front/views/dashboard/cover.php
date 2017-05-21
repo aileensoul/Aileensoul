@@ -212,7 +212,7 @@
                 $image_ori = $userdata[0]['user_image'];
                 if ($image_ori) {
                     ?>
-                    <img src="<?php echo base_url(USERIMAGE . $userdata[0]['user_image']); ?>" alt="" >
+                    <img src="<?php echo base_url(USERTHUMBIMAGE . $userdata[0]['user_image']); ?>" alt="" >
 
 <?php } else { ?>
 

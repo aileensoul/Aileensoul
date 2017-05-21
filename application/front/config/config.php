@@ -539,3 +539,31 @@ $config['employer_web_image'] = 'admin/../uploads/employer/main/';
 //category photo 
 $config['addon_image'] = 'uploads/addon/main/';
 $config['addon_web_image'] = 'admin/../uploads/addon/main/';
+
+
+
+// user background image
+$config['user_bg_main_upload_path'] = 'uploads/user_bg/main/';
+$config['user_bg_allowed_types'] = 'gif|jpg|jpeg|png|pdf|bmp|jpe';
+$config['user_bg_main_max_size'] = '800000'; //in KB
+$config['user_bg_main_max_width'] = '2500';
+$config['user_bg_main_max_height'] = '1800';
+//Path to upload Users's Thumbnail File
+$config['user_bg_thumb_upload_path'] = 'uploads/user_bg/thumbs/';
+$config['user_bg_thumb_width'] = '400';
+$config['user_bg_thumb_height'] = '100';
+
+// user profile image
+
+$config['user_main_upload_path'] = 'uploads/user_image/main/';
+$config['user_main_allowed_types'] = 'jpg|jpeg|png|gif|mp4|3gp|mpeg|mpg|mpe|qt|mov|avi|pdf';
+$config['user_main_max_size'] = '800000'; //in KB
+$config['user_main_max_width'] = '2500';
+$config['user_main_max_height'] = '1800';
+//Path to upload Users's Thumbnail File
+$config['user_thumb_upload_path'] = 'uploads/user_image/thumbs/';
+$config['user_thumb_width'] = '160';
+$config['user_thumb_height'] = '160';
+
+
+

@@ -40,9 +40,14 @@ define('ARTISTICUPLOAD', SITEPATH.'uploads/art_images/');
 define('USERUPLOAD', SITEPATH.'uploads/user_image/');
 
 
-define('USERIMAGE', 'uploads/user_image/');
+define('USERIMAGE', 'uploads/user_image/main/');
+define('USERTHUMBIMAGE', 'uploads/user_image/thumbs/');
+
 define('WHITEIMAGE', 'uploads/white.png');
-define('USERBGIMAGE', 'uploads/user_bg/');
+
+define('USERBGIMAGE', 'uploads/user_bg/main/');
+define('USERBGTHUMBIMAGE', 'uploads/user_bg/thumb/');
+
 define('NOIMAGE', 'uploads/avatar.png');
 
 //define name for uploads folder =>job_work_certificate
