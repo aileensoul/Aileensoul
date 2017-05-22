@@ -93,17 +93,17 @@
                                             <input type="hidden" name="filedata[]" id="filename" value="old">
                                             <input type="hidden" name="filename[]" id="filename" value="<?php echo $image['image_name']; ?>">
                                             <input type="hidden" name="imageid[]" id="filename" value="<?php echo $image['image_id']; ?>">
-                                            <img src="<?php echo base_url(BUSINESSPROFILEIMAGE.$image['image_name'])?>" style="width:100px;height:100px;">
+                                            <img src="<?php echo base_url($this->config->item('bus_profile_main_upload_path').$image['image_name'])?>" style="width:100px;height:100px;">
                                             <br/><br/>
                                             
-                                             <?php if ($y != 1) {
+                                             <?php // if ($y != 1) {
                                                                     ?>
                                                                     <div style="float: left;">
                                                                         <div class="hs-submit full-width fl">
                                                                             <input type="button" value="Delete" onclick="delete_job_exp(<?php echo $image['image_id']; ?>);">
                                                                         </div>
                                                                     </div>
-                                                                <?php } ?>
+                                                                <?php // } ?>
                                               </div>
                                         <?php }} ?>
                                            

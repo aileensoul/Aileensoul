@@ -111,14 +111,14 @@
                         <div class="common-form">
                             <div class="job-saved-box">
 
-                                <h3>Search Result of <?php echo ucwords($keyword)?></h3>
+                                <h3 style="background-color: #fff; text-align: center; color: #003;">Search Result of <?php echo ucwords($keyword)?></h3>
                                 <!-- <div class="contact-frnd-post"> -->
                                     <div class="job-contact-frnd ">
 <!-- main data start -->
                             
                                        <div class="profile-job-post-title-inside clearfix">
                                       
-<div class="profile_search" style="background-color: white; margin-bottom: 10px;"> 
+<div class="profile_search" style="background-color: white; margin-bottom: 10px; margin-top: 10px;"> 
 
                                        <h4 class="search_head">Profiles</h4>
                                        <div class="inner_search">
@@ -227,7 +227,7 @@ if($status == 0 || $status == " "){?>
 </div>
 
 </div>
-<div class="col-md-12 profile_search " style="float: left; background-color: white; margin-bottom: 10px; padding:0px!important;"> 
+<div class="col-md-12 profile_search " style="float: left; background-color: white; margin-top: 10px; margin-bottom: 10px; padding:0px!important;"> 
        <h4 class="search_head">Posts</h4>
        <div class="inner_search">
 
@@ -2566,7 +2566,7 @@ if($status == 0 || $status == " "){?>
                             background-color: #fff !important;
                         }
                         .like_one_other{
-                            margin-left: 15px;
+                           /* margin-left: 15px;*/
                             /*  margin-right: 15px;*/
 
                         }

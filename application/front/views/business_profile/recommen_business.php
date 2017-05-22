@@ -402,13 +402,21 @@
                         <div class="common-form">
                             <div class="job-saved-box">
 
-                                <h3>Search Result of Business</h3>
-                                <div class="contact-frnd-post">
+                                
+                                <h3 style="background-color: #fff; text-align: center; color: #003;">Search Result of Business</h3>
+                         <!--        <div class="contact-frnd-post"> -->
                                     <div class="job-contact-frnd ">
 
 
 
-                                        <div class="profile-job-post-title-inside clearfix search" style="border: 1px solid #d9d9d9;">
+                                        <div class="profile-job-post-title-inside clearfix search" style="">
+
+
+<div class="profile_search" style="background-color: white; margin-bottom: 10px; margin-top: 10px;"> 
+
+                                       <h4 class="search_head">Profiles</h4>
+                                       <div class="inner_search">
+
                                             <?php
                                             if (count($profile) > 0 || count($description) > 0) {
                                                 if ($profile) {
@@ -506,8 +514,9 @@ if($status == 0 || $status == " "){?>
    </div>
 
 
-
-                                                            </div>
+</div>
+  
+                                                          </div>
                                                         </div>
                                                         <?php
                                                         /*
@@ -523,7 +532,10 @@ if($status == 0 || $status == " "){?>
                                                     }
                                                 }
                                                 ?>
-                                                <h2> Posts </h2>
+                                                <div class="col-md-12 profile_search " style="float: left; background-color: white; margin-top: 10px; margin-bottom: 10px; padding:0px!important;"> 
+                                                   <h4 class="search_head">Posts</h4>
+       <div class="inner_search" style="float: left;">
+
                                                 <?php
                                                 if ($description) {
 
@@ -533,7 +545,7 @@ if($status == 0 || $status == " "){?>
 
                                                         if (($p['product_description']) || ($p['product_name'])) {
                                                             ?>
-                                                            <div class="col-md-12 col-sm-12 post-design-box" id="removepost5" style="margin-bottom: 0px; box-shadow: none; border: none;">
+                                                            <div class="col-md-12 col-sm-12 post-design-box" id="removepost5" style="margin-bottom: 0px; box-shadow: none; ">
                                                                 <div class="post_radius_box">  
                                                                     <div class="post-design-search-top col-md-12" style="background-color: none!important;">  
                                                                         <div class="post-design-pro-img col-md-2"> 
@@ -1089,7 +1101,7 @@ if($status == 0 || $status == " "){?>
                                                                                 <div contenteditable="true" style="min-height:37px !important; margin-top: 0px!important" class="editable_text" name="<?php echo $p['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $p['business_profile_post_id']; ?>" placeholder="Type Message ..." onClick="entercomment(<?php echo $p['business_profile_post_id']; ?>)"></div>
                                                                             </div>
                                                                             <?php echo form_error('post_comment'); ?> 
-                                                                            <div class="col-md-1 comment-edit-butn">       
+                                                                            <div class="comment-edit-butn">       
                                                                                 <button id="<?php echo $p['business_profile_post_id']; ?>" onClick="insert_comment(this.id)">Comment
                                                                                 </button>
                                                                             </div>

@@ -459,18 +459,15 @@ echo $job_header2;
                                                     }
                                                 }
                                                 ?>
-
+<?php if($job_graduation) { ?>
 <h5 style="text-decoration: underline; text-align: center; margin: 5px;">graduation</h5>
 
 
-                                                       
+  <!--khyati chnages 22-5 start-->                                                     
 
- <?php
-                              $i = 1;
-                                                foreach ($job_graduation as $graduation) {
-                                                    if ($graduation['degree']) {
-
-                                                        ?>
+ <?php                                    $i = 1;
+                   foreach ($job_graduation as $graduation) {
+                                                    if ($graduation['degree']) {  ?>
                                            <div id="<?php echo $i; ?>" class="tabcontent data_exp">
                                                         <li> <b> Degree</b> <span>
                                                                 <?php
@@ -545,7 +542,7 @@ echo $job_header2;
    <?php } ?></div>
 
                                             </ul>
-                                        </div>
+</div> <?php } ?>
 <!--khyati 22-5 chanegs end-->
 
                                         <?php
@@ -777,6 +774,7 @@ echo $job_header2;
                                                     </ul>
                                                 </div>
                                             </div>
+                               <?php if($job_work){ ?>    
                                             <div class="profile-job-post-title clearfix">
                                                 <div class="profile-job-profile-button clearfix">
                                                     <div class="profile-job-details">
@@ -786,14 +784,15 @@ echo $job_header2;
 
                                                         </ul>
                                                     </div>
-                                                </div>
+                                              
                                                 <?php
                                                 $total_work_year = 0;
                                                 $total_work_month = 0;
-
+                                                 $i = 6;
+                                                 
                                                 foreach ($job_work as $work) {
                                                     ?>
-
+                                                      <div id="<?php echo $i; ?>" class="tabcontent data_exp">
                                                     <div class="profile-job-profile-menu" id="job_workexp">
 
                                                         <ul class="clearfix">
@@ -852,6 +851,10 @@ echo $job_header2;
                                                                 <li> <b>Experience Certificate  </b><span>
                                                                         <img src="<?php echo base_url(JOBWORKCERTIFICATE . $work['work_certificate']) ?>" style="width:100px;height:100px;"></span>
                                                                 </li>
+                                                                
+                                                                  <li> <div>
+      <a class="example-image-link" style="width: 200px; height: 200px;" href="http://localhost/aileensoul/uploads/user_bg/main/16711487_1337552009638693_3483784836973951976_n.jpg" data-lightbox="example-1">hiii</a>
+                                                              </div></li>
 
                                                                 <?php
                                                             }
@@ -862,9 +865,10 @@ echo $job_header2;
                                                         $total_work_year += $work['experience_year'];
                                                         $total_work_month += $work['experience_month'];
                                                         ?>
+                                                   </div>
+                                                      </div>
 
-
-                                                        <?php
+                                                        <?php $i++;
                                                     }
                                                     ?>
                                                     <div class="profile-job-profile-menu" id="job_workexp">
@@ -879,7 +883,24 @@ echo $job_header2;
                                                         </ul>
                                                     </div>
                                                 </div>
+                                                 <!--khyati chnages 22-5 start-->                                                     
 
+  <div class="tab pagi_exp">
+    <?php if(count($job_work) >= 1){ ?>   
+  <button class="tablinks" onclick="openCity(event, '6')">1</button>
+    <?php } if(count($job_work) >= 2){ ?>
+   <button class="tablinks" onclick="openCity(event, '7')">2</button>
+   <?php } if(count($job_work) >= 3){ ?>
+  <button class="tablinks" onclick="openCity(event, '8')">3</button>
+  <?php } if(count($job_work) >= 4){ ?>
+  <button class="tablinks" onclick="openCity(event, '9')">4</button>
+    <?php } if(count($job_work) >= 5){ ?>
+  <button class="tablinks" onclick="openCity(event, '10')">5</button>
+    <?php }?>
+    </div>       
+                                            </ul>
+                                        </div>
+                               <!--khyati 22-5 chanegs end--> </div> <?php } ?>
                                                 <div class="profile-job-post-title clearfix">
                                                     <div class="profile-job-profile-button clearfix">
                                                         <div class="profile-job-details">

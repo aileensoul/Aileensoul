@@ -711,7 +711,7 @@ class Business_profile extends MY_Controller {
             // changes start 17-5 
 
             $config = array(
-                'upload_path' => 'uploads/business_profile_images/',
+                'upload_path' => $this->config->item('bus_profile_main_upload_path'),
                 'max_size' => 1024 * 100,
                 'allowed_types' => 'gif|jpeg|jpg|png'
             );
@@ -720,8 +720,6 @@ class Business_profile extends MY_Controller {
 
             $files = $_FILES;
             $count = count($_FILES['image1']['name']);
-
-
 
             for ($i = 0; $i < $count; $i++) {
 
