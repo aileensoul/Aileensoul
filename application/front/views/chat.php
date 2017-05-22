@@ -9,7 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!--- for dispaly div insted of input type start -->
 <style type="text/css">
 div .comment {  
-  width: 94%;
+  width: 100%;
    border: 1px solid #ccc;
     padding-right: 50px!important;
     word-break: break-all;
@@ -234,11 +234,58 @@ if($lstusrdata){?>
       </div>
        <div class="panel-footer">
           <div class="clearfix">
-            <div class="col-md-9" id="msg_block">
-              <div class="input-group">
-                <input id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." />
+            <div class="col-md-11" id="msg_block">
+          
+              <div class="input-group" style="width: 94%;
+    background-color: rgba(244, 244, 244, 0.59);
+    font-family: sans-serif;
+    bottom: 0;
+    position: absolute;
+   /* border: 1px solid #4E4E4E;*/
+    max-height: 80px !important;
+    overflow: scroll;
+    overflow-x: hidden;
+    left: 0; margin-bottom: -37px;">
+               <!--  <input style="    min-height: 41px;
+    height: auto; position: relative;" id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." /> -->
+ <div class="comment" contentEditable="true" name="comments" id="message" style="position: relative;"></div>
+
+  <div for="smily" style="      position: absolute;
+    top: 7px;
+    right: 0px;
+    bottom: 3px;
+    z-index: 2;">
+<div id="notification_li1" style="position: absolute;
+    bottom: 5px;">
+    <a class="smil"  href="#" id="notificationLink1" style="position: absolute;
+    bottom: 0;
+    left: -49px;">   <i class="em em-blush"></i></a>
+    
+      <div id="notificationContainer1" style="display: none;
+    position: relative;margin-bottom: 37px;">
+     
+      <div id="notificationsBody1" class="notifications1">
+        <?php $i=0; foreach($smiley_table as $key => $value){ ?>
+        
+          <img id="<?php echo $i; ?>" src="<?php echo base_url().'uploads/smileys/' . $value[0]; ?>" height="25" width="25"onClick="followclose(<?php echo $i; ?>)">
+         
+         <?php  $i++; } ?>
+      </div>
+     
+      </div>
+
+    </div>
+
+</div>
+
                 <span class="input-group-btn">
-        <button class="btn btn-warning btn-sm" id="submit">Send</button>
+      <button class="btn btn-warning btn-sm" id="submit" style="    padding: 10px;
+    background: #003;
+    /* left: -91px; */
+/*    right: -10px;*/
+    border: 1px solid #003;
+    position: absolute;
+    bottom: 0;">Send</button>
                 </span>
               </div>
             </div>

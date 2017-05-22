@@ -306,7 +306,13 @@ z-index: 9;
             </form>
     
                 <span class="input-group-btn">
-        <button class="btn btn-warning btn-sm" id="submit" style="padding: 10px">Send</button>
+       <button class="btn btn-warning btn-sm" id="submit" style="    padding: 10px;
+    background: #003;
+    /* left: -91px; */
+    right: -10px;
+    border: 1px solid #003;
+    position: absolute;
+    bottom: 0;">Send</button>
                 </span>
               </div>
             </div>
