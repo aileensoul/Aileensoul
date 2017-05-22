@@ -3424,30 +3424,92 @@ public function job_applied_post() {
         }
 
         if (empty($_FILES['profilepic']['name'])) {
+           // echo "hi"; die();
             $this->form_validation->set_rules('profilepic', 'Upload profilepic', 'required');
         } else {
-            $config['upload_path'] = 'uploads/user_image/';
-            $config['allowed_types'] = 'jpg|jpeg|png|gif|mp4|3gp|mpeg|mpg|mpe|qt|mov|avi|pdf';
+          
+            // $config['upload_path'] = 'uploads/user_image/';
+            // $config['allowed_types'] = 'jpg|jpeg|png|gif|mp4|3gp|mpeg|mpg|mpe|qt|mov|avi|pdf';
 
-            $config['file_name'] = $_FILES['profilepic']['name'];
+            // $config['file_name'] = $_FILES['profilepic']['name'];
 
-            $this->load->library('upload', $config);
-            $this->upload->initialize($config);
+            // $this->load->library('upload', $config);
+            // $this->upload->initialize($config);
 
-            if ($this->upload->do_upload('profilepic')) {
-                $uploadData = $this->upload->data();
+            // if ($this->upload->do_upload('profilepic')) {
+            //     $uploadData = $this->upload->data();
 
-                $picture = $uploadData['file_name'];
+            //     $picture = $uploadData['file_name'];
+            // } else {
+            //     $picture = '';
+            // }
+             $job_image = '';
+            $job['upload_path'] = $this->config->item('job_profile_main_upload_path');
+            $job['allowed_types'] = $this->config->item('job_profile_main_allowed_types');
+            $job['max_size'] = $this->config->item('job_profile_main_max_size');
+            $job['max_width'] = $this->config->item('job_profile_main_max_width');
+            $job['max_height'] = $this->config->item('job_profile_main_max_height');
+            $this->load->library('upload');
+            $this->upload->initialize($job);
+            //Uploading Image
+            $this->upload->do_upload('profilepic');
+            //Getting Uploaded Image File Data
+            $imgdata = $this->upload->data();
+            $imgerror = $this->upload->display_errors();
+            if ($imgerror == '') {
+                //Configuring Thumbnail 
+                $job_thumb['image_library'] = 'gd2';
+                $job_thumb['source_image'] = $job['upload_path'] . $imgdata['file_name'];
+                $job_thumb['new_image'] = $this->config->item('job_profile_thumb_upload_path') . $imgdata['file_name'];
+                $job_thumb['create_thumb'] = TRUE;
+                $job_thumb['maintain_ratio'] = TRUE;
+                $job_thumb['thumb_marker'] = '';
+                $job_thumb['width'] = $this->config->item('job_profile_thumb_width');
+                //$user_thumb['height'] = $this->config->item('user_thumb_height');
+                $job_thumb['height'] = 2;
+                $job_thumb['master_dim'] = 'width';
+                $job_thumb['quality'] = "100%";
+                $job_thumb['x_axis'] = '0';
+                $job_thumb['y_axis'] = '0';
+                //Loading Image Library
+                $this->load->library('image_lib', $job_thumb);
+                $dataimage = $imgdata['file_name'];
+                //Creating Thumbnail
+                $this->image_lib->resize();
+                $thumberror = $this->image_lib->display_errors();
             } else {
-                $picture = '';
+
+                $thumberror = '';
+            }
+            if ($imgerror != '' || $thumberror != '') {
+                 
+
+                $error[0] = $imgerror;
+                $error[1] = $thumberror;
+            } else {
+                 
+
+                $error = array();
+            }
+            if ($error) {
+               
+                $this->session->set_flashdata('error', $error[0]);
+                $redirect_url = site_url('job');
+                redirect($redirect_url, 'refresh');
+            } else {
+              
+
+                $job_image = $imgdata['file_name'];
             }
 
+
+
             $data = array(
-                'job_user_image' => $picture,
+                'job_user_image' => $job_image,
                 'modified_date' => date('Y-m-d', time())
             );
 
-
+// echo "<pre>"; print_r($data); die();
             $updatdata = $this->common->update_data($data, 'job_reg', 'user_id', $userid);
 
             if ($updatdata) {
