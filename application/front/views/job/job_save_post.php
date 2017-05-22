@@ -265,7 +265,7 @@
 
             <div class="user-pic">
                 <?php if ($jobdata[0]['job_user_image'] != '') { ?>
-                    <img src="<?php echo base_url(USERIMAGE . $jobdata[0]['job_user_image']); ?>" alt="" >
+                    <img src="<?php echo base_url($this->config->item('job_profile_thumb_upload_path') . $jobdata[0]['job_user_image']); ?>" alt="" >
                 <?php } else { ?>
                     <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
                 <?php } ?>
