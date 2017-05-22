@@ -2566,7 +2566,7 @@ $contition_array = array('user_id' => $userid);
         }
 
 
-                
+
 
                 $freelancer_post_userimage = $imgdata['file_name'];
             }
@@ -3151,6 +3151,7 @@ $contition_array = array('user_id' => $userid);
         $data = array(
             'profile_background' => $imageName
         );
+        //echo "<pre>";print_r($data);die();
 
         $update = $this->common->update_data($data, 'freelancer_post_reg', 'user_id', $userid);
 
@@ -3159,42 +3160,42 @@ $contition_array = array('user_id' => $userid);
         echo '<img src="' . $this->data['jobdata'][0]['profile_background'] . '" />';
     }
 
-    public function image_work() {
-        $userid = $this->session->userdata('aileenuser');
+    // public function image_work() {
+    //     $userid = $this->session->userdata('aileenuser');
 
-        $config['upload_path'] = $this->config->item('free_post_bg_main_upload_path');
-        $config['allowed_types'] = $this->config->item('free_post_bg_main_allowed_types');
+    //     $config['upload_path'] = $this->config->item('free_post_bg_main_upload_path');
+    //     $config['allowed_types'] = $this->config->item('free_post_bg_main_allowed_types');
 
-        $config['file_name'] = $_FILES['image']['name'];
+    //     $config['file_name'] = $_FILES['image']['name'];
 
-        //Load upload library and initialize configuration
-        $this->load->library('upload', $config);
-        $this->upload->initialize($config);
+    //     //Load upload library and initialize configuration
+    //     $this->load->library('upload', $config);
+    //     $this->upload->initialize($config);
 
-        if ($this->upload->do_upload('image')) {
+    //     if ($this->upload->do_upload('image')) {
 
-            $uploadData = $this->upload->data();
+    //         $uploadData = $this->upload->data();
 
-            $image = $uploadData['file_name'];
-        } else {
+    //         $image = $uploadData['file_name'];
+    //     } else {
 
-            $image = '';
-        }
+    //         $image = '';
+    //     }
 
 
-        $data = array(
-            'profile_background_main' => $image,
-            'modify_date ' => date('Y-m-d h:i:s', time())
-        );
+    //     $data = array(
+    //         'profile_background_main' => $image,
+    //         'modify_date ' => date('Y-m-d h:i:s', time())
+    //     );
 
-        $updatedata = $this->common->update_data($data, 'freelancer_post_reg', 'user_id', $userid);
+    //     $updatedata = $this->common->update_data($data, 'freelancer_post_reg', 'user_id', $userid);
 
-        if ($updatedata) {
-            echo $userid;
-        } else {
-            echo "welcome";
-        }
-    }
+    //     if ($updatedata) {
+    //         echo $userid;
+    //     } else {
+    //         echo "welcome";
+    //     }
+    // }
 
     // cover pic end
 
