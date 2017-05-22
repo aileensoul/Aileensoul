@@ -2346,6 +2346,32 @@ $this->load->view('freelancer/freelancer_hire/freelancer_save', $this->data);
             //     $picture = '';
             // }
 
+
+$contition_array = array('user_id' => $userid);
+        $user_reg_data = $this->common->select_data_by_condition('user', $contition_array, $data = 'profile_background,profile_background_main', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+        $user_reg_prev_image = $user_reg_data[0]['profile_background'];
+        $user_reg_prev_main_image = $user_reg_data[0]['profile_background_main'];
+
+        if ($user_reg_prev_image != '') {
+            $user_image_main_path = $this->config->item('user_bg_main_upload_path');
+            $user_bg_full_image = $user_image_main_path . $user_reg_prev_image;
+            if (isset($user_bg_full_image)) {
+                unlink($user_bg_full_image);
+            }
+            
+            $user_image_thumb_path = $this->config->item('user_bg_thumb_upload_path');
+            $user_bg_thumb_image = $user_image_thumb_path . $user_reg_prev_image;
+            if (isset($user_bg_thumb_image)) {
+                unlink($user_bg_thumb_image);
+            }
+        }
+        
+
+
+
+
+
             $freelancer_hire_userimage = '';
             $user['upload_path'] = $this->config->item('free_hire_profile_main_upload_path');
             $user['allowed_types'] = $this->config->item('free_hire_profile_main_allowed_types');
@@ -2395,6 +2421,31 @@ $this->load->view('freelancer/freelancer_hire/freelancer_save', $this->data);
                 $redirect_url = site_url('dashboard');
                 redirect($redirect_url, 'refresh');
             } else {
+
+                $contition_array = array('user_id' => $userid);
+        $user_reg_data = $this->common->select_data_by_condition('freelancer_hire_reg', $contition_array, $data = 'freelancer_hire_user_image', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+        $user_reg_prev_image = $user_reg_data[0]['freelancer_hire_user_image'];
+        
+
+        if ($user_reg_prev_image != '') {
+            $user_image_main_path = $this->config->item('free_hire_profile_main_upload_path');
+            $user_bg_full_image = $user_image_main_path . $user_reg_prev_image;
+            if (isset($user_bg_full_image)) {
+                unlink($user_bg_full_image);
+            }
+            
+            $user_image_thumb_path = $this->config->item('free_hire_profile_thumb_upload_path');
+            $user_bg_thumb_image = $user_image_thumb_path . $user_reg_prev_image;
+            if (isset($user_bg_thumb_image)) {
+                unlink($user_bg_thumb_image);
+            }
+        }
+
+
+
+
+
                 $freelancer_hire_userimage = $imgdata['file_name'];
             }
 
@@ -2810,8 +2861,8 @@ $this->load->view('freelancer/freelancer_hire/freelancer_save', $this->data);
 // khyati start
 
 
-                        $config['upload_path'] = 'uploads/user_image/';
-                        $config['allowed_types'] = 'jpg|jpeg|png|gif|mp4|3gp|mpeg|mpg|mpe|qt|mov|avi|pdf';
+                        $config['upload_path'] = $this->config->item('free_hire_bg_main_upload_path');
+                        $config['allowed_types'] = $this->config->item('free_hire_bg_main_allowed_types');
                         // $config['file_name'] = $_FILES['picture']['name'];
                         $config['file_name'] = $_FILES['photoimg']['name'];
                         //$config['max_size'] = '1000000000000000';
@@ -2834,7 +2885,7 @@ $this->load->view('freelancer/freelancer_hire/freelancer_save', $this->data);
 
                         $update = $this->common->update_data($data, 'freelancer_hire_reg', 'user_id', $session_uid);
                         if ($update) {
-                            $path = base_url('uploads/user_image/');
+                            $path = base_url($this->config->item('free_hire_bg_main_upload_path'));
                             echo $bgSave . '<img src="' . $path . $picture . '"  id="timelineBGload" class="headerimage ui-corner-all" style="top:0px"/>';
                         } else {
                             echo "Fail upload folder with read access.";
@@ -2877,14 +2928,61 @@ $this->load->view('freelancer/freelancer_hire/freelancer_save', $this->data);
 // cover pic controller
 
     public function ajaxpro_hire() {
+        //echo "hiiii";die();
         $userid = $this->session->userdata('aileenuser');
+
+        
+
+$contition_array = array('user_id' => $userid);
+        $user_reg_data = $this->common->select_data_by_condition('freelancer_hire_reg', $contition_array, $data = 'profile_background,profile_background_main', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+        $user_reg_prev_image = $user_reg_data[0]['profile_background'];
+        $user_reg_prev_main_image = $user_reg_data[0]['profile_background_main'];
+
+        if ($user_reg_prev_image != '') {
+            $user_image_main_path = $this->config->item('free_hire_bg_main_upload_path');
+            $user_bg_full_image = $user_image_main_path . $user_reg_prev_image;
+            if (isset($user_bg_full_image)) {
+                unlink($user_bg_full_image);
+            }
+            
+            $user_image_thumb_path = $this->config->item('free_hire_bg_thumb_upload_path');
+            $user_bg_thumb_image = $user_image_thumb_path . $user_reg_prev_image;
+            if (isset($user_bg_thumb_image)) {
+                unlink($user_bg_thumb_image);
+            }
+        }
+        if ($user_reg_prev_main_image != '') {
+            $user_image_original_path = $this->config->item('free_hire_bg_original_upload_path');
+            $user_bg_origin_image = $user_image_original_path . $user_reg_prev_main_image;
+            if (isset($user_bg_origin_image)) {
+                unlink($user_bg_origin_image);
+            }
+        }
+
 
         $data = $_POST['image'];
 
 
+        // $imageName = time() . '.png';
+        // $base64string = $data;
+        // file_put_contents('uploads/free_hire_bg/' . $imageName, base64_decode(explode(',', $base64string)[1]));
+
+
+$user_bg_path = $this->config->item('free_hire_bg_main_upload_path');
         $imageName = time() . '.png';
         $base64string = $data;
-        file_put_contents('uploads/free_hire_bg/' . $imageName, base64_decode(explode(',', $base64string)[1]));
+        file_put_contents($user_bg_path . $imageName, base64_decode(explode(',', $base64string)[1]));
+
+        $user_thumb_path = $this->config->item('free_hire_bg_thumb_upload_path');
+        $user_thumb_width = $this->config->item('free_hire_bg_thumb_width');
+        $user_thumb_height = $this->config->item('free_hire_bg_thumb_height');
+
+        $upload_image = $user_bg_path . $imageName;
+
+        $thumb_image_uplode = $this->thumb_img_uplode($upload_image, $imageName, $user_thumb_path, $user_thumb_width, $user_thumb_height);
+
+
 
         $data = array(
             'profile_background' => $imageName
@@ -2900,8 +2998,8 @@ $this->load->view('freelancer/freelancer_hire/freelancer_save', $this->data);
     public function image_hire() {
         $userid = $this->session->userdata('aileenuser');
 
-        $config['upload_path'] = 'uploads/free_hire_bg';
-        $config['allowed_types'] = 'jpg|jpeg|png|gif';
+        $config['upload_path'] = $this->config->item('free_hire_bg_original_upload_path');
+        $config['allowed_types'] = $this->config->item('free_hire_bg_main_allowed_types');
 
         $config['file_name'] = $_FILES['image']['name'];
 

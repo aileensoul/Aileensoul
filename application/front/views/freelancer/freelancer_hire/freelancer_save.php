@@ -242,7 +242,7 @@
                         ?>
 
                         <div class="bg-images">
-                            <img src="<?php echo base_url(FREEHIREIMG . $image[0]['profile_background']); ?>" name="image_src" id="image_src" / >
+                            <img src="<?php echo base_url($this->config->item('free_hire_bg_main_upload_path').$image[0]['profile_background']);?>" name="image_src" id="image_src" / >
                         </div>  <?php
                     } else {
                         ?>
