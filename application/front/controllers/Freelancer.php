@@ -2329,25 +2329,81 @@ $this->load->view('freelancer/freelancer_hire/freelancer_save', $this->data);
         if (empty($_FILES['profilepic']['name'])) {
             $this->form_validation->set_rules('profilepic', 'Upload profilepic', 'required');
         } else {
-            $config['upload_path'] = 'uploads/user_image/';
-            $config['allowed_types'] = 'jpg|jpeg|png|gif|mp4|3gp|mpeg|mpg|mpe|qt|mov|avi|pdf';
+            // $config['upload_path'] = 'uploads/user_image/';
+            // $config['allowed_types'] = 'jpg|jpeg|png|gif|mp4|3gp|mpeg|mpg|mpe|qt|mov|avi|pdf';
 
-            $config['file_name'] = $_FILES['profilepic']['name'];
+            // $config['file_name'] = $_FILES['profilepic']['name'];
 
-            //Load upload library and initialize configuration
-            $this->load->library('upload', $config);
-            $this->upload->initialize($config);
+            // //Load upload library and initialize configuration
+            // $this->load->library('upload', $config);
+            // $this->upload->initialize($config);
 
-            if ($this->upload->do_upload('profilepic')) {
-                $uploadData = $this->upload->data();
+            // if ($this->upload->do_upload('profilepic')) {
+            //     $uploadData = $this->upload->data();
 
-                $picture = $uploadData['file_name'];
+            //     $picture = $uploadData['file_name'];
+            // } else {
+            //     $picture = '';
+            // }
+
+            $freelancer_hire_userimage = '';
+            $user['upload_path'] = $this->config->item('free_hire_profile_main_upload_path');
+            $user['allowed_types'] = $this->config->item('free_hire_profile_main_allowed_types');
+            $user['max_size'] = $this->config->item('free_hire_profile_main_max_size');
+            $user['max_width'] = $this->config->item('free_hire_profile_main_max_width');
+            $user['max_height'] = $this->config->item('free_hire_profile_main_max_height');
+            $this->load->library('upload');
+            $this->upload->initialize($user);
+            //Uploading Image
+            $this->upload->do_upload('profilepic');
+            //Getting Uploaded Image File Data
+            $imgdata = $this->upload->data();
+            $imgerror = $this->upload->display_errors();
+            //echo "$imgerror";die();
+            if ($imgerror == '') {
+                //Configuring Thumbnail 
+                $user_thumb['image_library'] = 'gd2';
+                $user_thumb['source_image'] = $user['upload_path'] . $imgdata['file_name'];
+                $user_thumb['new_image'] = $this->config->item('free_hire_profile_thumb_upload_path') . $imgdata['file_name'];
+                $user_thumb['create_thumb'] = TRUE;
+                $user_thumb['maintain_ratio'] = TRUE;
+                $user_thumb['thumb_marker'] = '';
+                $user_thumb['width'] = $this->config->item('free_hire_profile_thumb_width');
+                //$user_thumb['height'] = $this->config->item('user_thumb_height');
+                $user_thumb['height'] = 2;
+                $user_thumb['master_dim'] = 'width';
+                $user_thumb['quality'] = "100%";
+                $user_thumb['x_axis'] = '0';
+                $user_thumb['y_axis'] = '0';
+                //Loading Image Library
+                $this->load->library('image_lib', $user_thumb);
+                $dataimage = $imgdata['file_name'];
+                //Creating Thumbnail
+                $this->image_lib->resize();
+                $thumberror = $this->image_lib->display_errors();
             } else {
-                $picture = '';
+                $thumberror = '';
+            }
+            if ($imgerror != '' || $thumberror != '') {
+                $error[0] = $imgerror;
+                $error[1] = $thumberror;
+            } else {
+                $error = array();
+            }
+            if ($error) {
+                $this->session->set_flashdata('error', $error[0]);
+                $redirect_url = site_url('dashboard');
+                redirect($redirect_url, 'refresh');
+            } else {
+                $freelancer_hire_userimage = $imgdata['file_name'];
             }
 
+
+
+
+
             $data = array(
-                'freelancer_hire_user_image' => $picture,
+                'freelancer_hire_user_image' => $freelancer_hire_userimage,
                 'modified_date' => date('Y-m-d', time())
             );
 

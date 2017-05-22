@@ -148,7 +148,7 @@ label.cameraButton input[accept*="camera"] {
 
                         <div class="user-pic">
                         <?php if($freelancerhiredata[0]['freelancer_hire_user_image'] != ''){ ?>
-                           <img src="<?php echo base_url(USERIMAGE . $freelancerhiredata[0]['freelancer_hire_user_image']);?>" alt="" >
+                           <img src="<?php echo base_url($this->config->item('free_hire_profile_thumb_upload_path').$freelancerhiredata[0]['freelancer_hire_user_image']);?>" alt="" >
                             <?php } else { ?>
                             <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
                             <?php } ?>
@@ -409,7 +409,7 @@ function text2link($text){
                                                 <?php echo form_open_multipart(base_url('freelancer/user_image_insert'), array('id' => 'userimage','name' => 'userimage', 'class' => 'clearfix')); ?>
                                                 <input type="file" name="profilepic" accept="image/gif, image/jpeg, image/png" id="profilepic">
                                                 <input type="hidden" name="hitext" id="hitext" value="4">
-
+                                                
                                                 <img id="preview" src="#" alt="your image" style="border: 2px solid rgb(204, 204, 204); display: none; margin: 0 auto; margin-top: 5px;padding: 5px;"/>
                                                 <!--<input type="submit" name="cancel3" id="cancel3" value="Cancel">-->
                                                 <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save" style="margin-top:32px!important;">

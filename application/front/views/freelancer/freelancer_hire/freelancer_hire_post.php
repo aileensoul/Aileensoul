@@ -255,7 +255,7 @@ echo $freelancer_hire_header2;} ?>
 
             <div class="user-pic">
                 <?php if ($freelancerpostdata[0]['freelancer_hire_user_image'] != '') { ?>
-                    <img src="<?php echo base_url(USERIMAGE . $freelancerpostdata[0]['freelancer_hire_user_image']); ?>" alt="" >
+                    <img src="<?php echo base_url($this->config->item('free_hire_profile_thumb_upload_path').$freelancerpostdata[0]['freelancer_hire_user_image']);?>" alt="" >
                 <?php } else { ?>
                     <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
                 <?php } ?>
