@@ -39,6 +39,7 @@ class Job extends MY_Controller {
             $userid = $this->session->userdata('aileenuser');
             $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
             $this->data['job'] = $this->common->select_data_by_condition('user', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+           // echo "<pre>"; print_r($this->data['job']); die();
 
 
             $contition_array = array('user_id' => $userid, 'status' => '1');
@@ -81,7 +82,7 @@ class Job extends MY_Controller {
         $userid = $this->session->userdata('aileenuser');
 
         $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
-        $userdata = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        $userdata= $this->data['userdata'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         //echo "<pre>"; print_r($userdata);die();
         $contition_array = array('status' => '1');
         $this->data['nation'] = $this->common->select_data_by_condition('nation', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
