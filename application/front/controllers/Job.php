@@ -617,26 +617,93 @@ class Job extends MY_Controller {
 
 //Insert Primary Education Data start
     public function job_education_primary_insert() {
+
         $userid = $this->session->userdata('aileenuser');
         $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
         $jobdata = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-        //upload education certificate process start
-        $config['upload_path'] = 'uploads/job_edu_certificate/';
-        $config['allowed_types'] = 'jpg|jpeg|png|gif|pdf';
-        $config['file_name'] = $_FILES['edu_certificate_primary']['name'];
+        // //upload education certificate process start
+        // $config['upload_path'] = 'uploads/job_edu_certificate/';
+        // $config['allowed_types'] = 'jpg|jpeg|png|gif|pdf';
+        // $config['file_name'] = $_FILES['edu_certificate_primary']['name'];
 
-        //Load upload library and initialize configuration
-        $this->load->library('upload', $config);
-        $this->upload->initialize($config);
+        // //Load upload library and initialize configuration
+        // $this->load->library('upload', $config);
+        // $this->upload->initialize($config);
 
-        if ($this->upload->do_upload('edu_certificate_primary')) {
-            $uploadData = $this->upload->data();
-            $certificate = $uploadData['file_name'];
-        } else {
-            $certificate = '';
-        }
+        // if ($this->upload->do_upload('edu_certificate_primary')) {
+        //     $uploadData = $this->upload->data();
+        //     $certificate = $uploadData['file_name'];
+        // } else {
+        //     $certificate = '';
+        // }
         //upload education certificate process End
+
+        $job_certificate = '';
+            $job['upload_path'] = $this->config->item('job_edu_main_upload_path');
+            $job['allowed_types'] = $this->config->item('job_edu_main_allowed_types');
+            $job['max_size'] = $this->config->item('job_edu_main_max_size');
+            $job['max_width'] = $this->config->item('job_edu_main_max_width');
+            $job['max_height'] = $this->config->item('job_edu_main_max_height');
+            $this->load->library('upload');
+            $this->upload->initialize($job);
+            //Uploading Image
+            $this->upload->do_upload('edu_certificate_primary');
+            //Getting Uploaded Image File Data
+            $imgdata = $this->upload->data();
+            $imgerror = $this->upload->display_errors();
+            if ($imgerror == '') {
+               
+                //Configuring Thumbnail 
+                $job_thumb['image_library'] = 'gd2';
+                $job_thumb['source_image'] = $job['upload_path'] . $imgdata['file_name'];
+                $job_thumb['new_image'] = $this->config->item('job_edu_thumb_upload_path') . $imgdata['file_name'];
+                $job_thumb['create_thumb'] = TRUE;
+                $job_thumb['maintain_ratio'] = TRUE;
+                $job_thumb['thumb_marker'] = '';
+                $job_thumb['width'] = $this->config->item('job_edu_thumb_width');
+                //$user_thumb['height'] = $this->config->item('user_thumb_height');
+                $job_thumb['height'] = 2;
+                $job_thumb['master_dim'] = 'width';
+                $job_thumb['quality'] = "100%";
+                $job_thumb['x_axis'] = '0';
+                $job_thumb['y_axis'] = '0';
+                //Loading Image Library
+                $this->load->library('image_lib', $job_thumb);
+                $dataimage = $imgdata['file_name'];
+                //Creating Thumbnail
+                $this->image_lib->resize();
+                $thumberror = $this->image_lib->display_errors();
+            } else {
+               
+
+
+                $thumberror = '';
+            }
+            if ($imgerror != '' || $thumberror != '') {
+                 
+ 
+                $error[0] = $imgerror;
+                $error[1] = $thumberror;
+            } else {
+                  
+                $error = array();
+            }
+            if ($error) {
+              
+
+               
+                $this->session->set_flashdata('error', $error[0]);
+                $redirect_url = site_url('job');
+                redirect($redirect_url, 'refresh');
+            } else {
+             
+
+                $job_certificate = $imgdata['file_name'];
+            }
+
+           
+
 
         $contition_array = array('user_id' => $userid);
         $userdata = $this->common->select_data_by_condition('job_add_edu', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -650,10 +717,10 @@ class Job extends MY_Controller {
                 );
             } else {
                 $data = array(
-                    'edu_certificate_primary' => $certificate
+                    'edu_certificate_primary' => $job_certificate
                 );
             }
-
+ //echo "<pre>"; print_r($data); die();
             $updatedata = $this->common->update_data($data, 'job_add_edu', 'user_id', $userid);
 
             $data = array(
@@ -751,25 +818,88 @@ class Job extends MY_Controller {
         $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
         $jobdata = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-        //upload education certificate process start
-        $config['upload_path'] = 'uploads/job_edu_certificate/';
-        $config['allowed_types'] = 'jpg|jpeg|png|gif|pdf';
-        // $config['file_name'] = $_FILES['picture']['name'];
-        $config['file_name'] = $_FILES['edu_certificate_secondary']['name'];
+        // //upload education certificate process start
+        // $config['upload_path'] = 'uploads/job_edu_certificate/';
+        // $config['allowed_types'] = 'jpg|jpeg|png|gif|pdf';
+        // // $config['file_name'] = $_FILES['picture']['name'];
+        // $config['file_name'] = $_FILES['edu_certificate_secondary']['name'];
 
-        //Load upload library and initialize configuration
-        $this->load->library('upload', $config);
-        $this->upload->initialize($config);
+        // //Load upload library and initialize configuration
+        // $this->load->library('upload', $config);
+        // $this->upload->initialize($config);
 
-        if ($this->upload->do_upload('edu_certificate_secondary')) {
-            $uploadData = $this->upload->data();
-            //$picture = $uploadData['file_name']."-".date("Y_m_d H:i:s");
-            $certificate = $uploadData['file_name'];
-            // echo $certificate;die();
-        } else {
-            $certificate = '';
-        }
+        // if ($this->upload->do_upload('edu_certificate_secondary')) {
+        //     $uploadData = $this->upload->data();
+        //     //$picture = $uploadData['file_name']."-".date("Y_m_d H:i:s");
+        //     $certificate = $uploadData['file_name'];
+        //     // echo $certificate;die();
+        // } else {
+        //     $certificate = '';
+        // }
         //upload education certificate process End
+
+          $job_certificate = '';
+            $job['upload_path'] = $this->config->item('job_edu_main_upload_path');
+            $job['allowed_types'] = $this->config->item('job_edu_main_allowed_types');
+            $job['max_size'] = $this->config->item('job_edu_main_max_size');
+            $job['max_width'] = $this->config->item('job_edu_main_max_width');
+            $job['max_height'] = $this->config->item('job_edu_main_max_height');
+            $this->load->library('upload');
+            $this->upload->initialize($job);
+            //Uploading Image
+            $this->upload->do_upload('edu_certificate_secondary');
+            //Getting Uploaded Image File Data
+            $imgdata = $this->upload->data();
+            $imgerror = $this->upload->display_errors();
+            if ($imgerror == '') {
+               
+                //Configuring Thumbnail 
+                $job_thumb['image_library'] = 'gd2';
+                $job_thumb['source_image'] = $job['upload_path'] . $imgdata['file_name'];
+                $job_thumb['new_image'] = $this->config->item('job_edu_thumb_upload_path') . $imgdata['file_name'];
+                $job_thumb['create_thumb'] = TRUE;
+                $job_thumb['maintain_ratio'] = TRUE;
+                $job_thumb['thumb_marker'] = '';
+                $job_thumb['width'] = $this->config->item('job_edu_thumb_width');
+                //$user_thumb['height'] = $this->config->item('user_thumb_height');
+                $job_thumb['height'] = 2;
+                $job_thumb['master_dim'] = 'width';
+                $job_thumb['quality'] = "100%";
+                $job_thumb['x_axis'] = '0';
+                $job_thumb['y_axis'] = '0';
+                //Loading Image Library
+                $this->load->library('image_lib', $job_thumb);
+                $dataimage = $imgdata['file_name'];
+                //Creating Thumbnail
+                $this->image_lib->resize();
+                $thumberror = $this->image_lib->display_errors();
+            } else {
+               
+
+
+                $thumberror = '';
+            }
+            if ($imgerror != '' || $thumberror != '') {
+                 
+ 
+                $error[0] = $imgerror;
+                $error[1] = $thumberror;
+            } else {
+                  
+                $error = array();
+            }
+            if ($error) {
+              
+
+               
+                $this->session->set_flashdata('error', $error[0]);
+                $redirect_url = site_url('job');
+                redirect($redirect_url, 'refresh');
+            } else {
+             
+
+                $job_certificate = $imgdata['file_name'];
+            }
 
         $contition_array = array('user_id' => $userid);
         $userdata = $this->common->select_data_by_condition('job_add_edu', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -783,7 +913,7 @@ class Job extends MY_Controller {
                 );
             } else {
                 $data = array(
-                    'edu_certificate_secondary' => $certificate
+                    'edu_certificate_secondary' => $job_certificate
                 );
             }
             $updatedata = $this->common->update_data($data, 'job_add_edu', 'user_id', $userid);
@@ -880,26 +1010,91 @@ class Job extends MY_Controller {
         $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
         $jobdata = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-        //upload education certificate process start
-        $config['upload_path'] = 'uploads/job_edu_certificate/';
-        $config['allowed_types'] = 'jpg|jpeg|png|gif|pdf';
-        // $config['file_name'] = $_FILES['picture']['name'];
-        $config['file_name'] = $_FILES['edu_certificate_higher_secondary']['name'];
+        // //upload education certificate process start
+        // $config['upload_path'] = 'uploads/job_edu_certificate/';
+        // $config['allowed_types'] = 'jpg|jpeg|png|gif|pdf';
+        // // $config['file_name'] = $_FILES['picture']['name'];
+        // $config['file_name'] = $_FILES['edu_certificate_higher_secondary']['name'];
 
-        //Load upload library and initialize configuration
-        $this->load->library('upload', $config);
-        $this->upload->initialize($config);
+        // //Load upload library and initialize configuration
+        // $this->load->library('upload', $config);
+        // $this->upload->initialize($config);
 
-        if ($this->upload->do_upload('edu_certificate_higher_secondary')) {
-            $uploadData = $this->upload->data();
-            //$picture = $uploadData['file_name']."-".date("Y_m_d H:i:s");
-            $certificate = $uploadData['file_name'];
-            // echo $certificate;die();
-        } else {
-            $certificate = '';
-        }
+        // if ($this->upload->do_upload('edu_certificate_higher_secondary')) {
+        //     $uploadData = $this->upload->data();
+        //     //$picture = $uploadData['file_name']."-".date("Y_m_d H:i:s");
+        //     $certificate = $uploadData['file_name'];
+        //     // echo $certificate;die();
+        // } else {
+        //     $certificate = '';
+        // }
         //upload education certificate process End
 
+  $job_certificate = '';
+            $job['upload_path'] = $this->config->item('job_edu_main_upload_path');
+            $job['allowed_types'] = $this->config->item('job_edu_main_allowed_types');
+            $job['max_size'] = $this->config->item('job_edu_main_max_size');
+            $job['max_width'] = $this->config->item('job_edu_main_max_width');
+            $job['max_height'] = $this->config->item('job_edu_main_max_height');
+            $this->load->library('upload');
+            $this->upload->initialize($job);
+            //Uploading Image
+            $this->upload->do_upload('edu_certificate_higher_secondary');
+            //Getting Uploaded Image File Data
+            $imgdata = $this->upload->data();
+            $imgerror = $this->upload->display_errors();
+            if ($imgerror == '') {
+               
+               
+                //Configuring Thumbnail 
+                $job_thumb['image_library'] = 'gd2';
+                $job_thumb['source_image'] = $job['upload_path'] . $imgdata['file_name'];
+                $job_thumb['new_image'] = $this->config->item('job_edu_thumb_upload_path') . $imgdata['file_name'];
+                $job_thumb['create_thumb'] = TRUE;
+                $job_thumb['maintain_ratio'] = TRUE;
+                $job_thumb['thumb_marker'] = '';
+                $job_thumb['width'] = $this->config->item('job_edu_thumb_width');
+                //$user_thumb['height'] = $this->config->item('user_thumb_height');
+                $job_thumb['height'] = 2;
+                $job_thumb['master_dim'] = 'width';
+                $job_thumb['quality'] = "100%";
+                $job_thumb['x_axis'] = '0';
+                $job_thumb['y_axis'] = '0';
+                //Loading Image Library
+                $this->load->library('image_lib', $job_thumb);
+                $dataimage = $imgdata['file_name'];
+                //Creating Thumbnail
+                $this->image_lib->resize();
+                $thumberror = $this->image_lib->display_errors();
+            } else {
+               
+  
+
+                $thumberror = '';
+            }
+            if ($imgerror != '' || $thumberror != '') {
+                 
+ 
+                $error[0] = $imgerror;
+                $error[1] = $thumberror;
+            } else {
+              
+                  
+                $error = array();
+            }
+            if ($error) {
+              
+  
+                $this->session->set_flashdata('error', $error[0]);
+                $redirect_url = site_url('job');
+                redirect($redirect_url, 'refresh');
+            } else {
+             
+ 
+                $job_certificate = $imgdata['file_name'];
+            }
+
+             //echo "<pre>"; print_r($job_certificate); die();
         $contition_array = array('user_id' => $userid);
         $userdata = $this->common->select_data_by_condition('job_add_edu', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -912,7 +1107,7 @@ class Job extends MY_Controller {
                 );
             } else {
                 $data = array(
-                    'edu_certificate_higher_secondary' => $certificate
+                    'edu_certificate_higher_secondary' => $job_certificate
                 );
             }
             $updatedata = $this->common->update_data($data, 'job_add_edu', 'user_id', $userid);
@@ -3630,25 +3825,58 @@ public function job_applied_post() {
     public function ajaxpro() {
         $userid = $this->session->userdata('aileenuser');
 
-        $data = $_POST['image'];
-
-        $imageName = time() . '.png';
-        $base64string = $data;
-        file_put_contents('uploads/job_bg/' . $imageName, base64_decode(explode(',', $base64string)[1]));
-
         $contition_array = array('user_id' => $userid);
         $job_reg_data = $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'profile_background', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-        $job_reg_prev_image = $job_reg_data[0]['profile_background'];
+        // $job_reg_prev_image = $job_reg_data[0]['profile_background'];
+
+        // if ($job_reg_prev_image != '') {
+        //     $job_image_path = 'uploads/job_bg/';
+        //     $job_bg_full_image = $job_image_path . $job_reg_prev_image;
+        //     if (isset($job_bg_full_image)) {
+        //         unlink($job_bg_full_image);
+        //     }
+        // }
+
+          $job_reg_prev_image = $job_reg_data[0]['profile_background'];
+        $job_reg_prev_main_image = $job_reg_data[0]['profile_background_main'];
 
         if ($job_reg_prev_image != '') {
-            $job_image_path = 'uploads/job_bg/';
-            $job_bg_full_image = $job_image_path . $job_reg_prev_image;
+            $job_image_main_path = $this->config->item('job_bg_main_upload_path');
+            $job_bg_full_image = $job_image_main_path . $job_reg_prev_image;
             if (isset($job_bg_full_image)) {
                 unlink($job_bg_full_image);
             }
+            
+            $job_image_thumb_path = $this->config->item('job_bg_thumb_upload_path');
+            $job_bg_thumb_image = $job_image_thumb_path . $job_reg_prev_image;
+            if (isset($job_bg_thumb_image)) {
+                unlink($job_bg_thumb_image);
+            }
         }
+        if ($job_reg_prev_main_image != '') {
+            $job_image_original_path = $this->config->item('job_bg_original_upload_path');
+            $job_bg_origin_image = $job_image_original_path . $user_reg_prev_main_image;
+            if (isset($job_bg_origin_image)) {
+                unlink($job_bg_origin_image);
+            }
+        }
+        
+        $data = $_POST['image'];
 
+
+        $job_bg_path = $this->config->item('job_bg_main_upload_path');
+        $imageName = time() . '.png';
+        $base64string = $data;
+        file_put_contents($job_bg_path . $imageName, base64_decode(explode(',', $base64string)[1]));
+
+        $job_thumb_path = $this->config->item('job_bg_thumb_upload_path');
+        $job_thumb_width = $this->config->item('job_bg_thumb_width');
+        $job_thumb_height = $this->config->item('job_bg_thumb_height');
+
+        $upload_image = $job_bg_path . $imageName;
+
+        $thumb_image_uplode = $this->thumb_img_uplode($upload_image, $imageName, $job_thumb_path, $job_thumb_width, $job_thumb_height);
         $data = array(
             'profile_background' => $imageName
         );
@@ -3663,37 +3891,37 @@ public function job_applied_post() {
     public function image() {
         $userid = $this->session->userdata('aileenuser');
 
-        $config['upload_path'] = 'uploads/job_bg';
-        $config['allowed_types'] = 'jpg|jpeg|png|gif';
-
+        $config['upload_path'] = $this->config->item('job_bg_original_upload_path');
+        $config['allowed_types'] = $this->config->item('job_bg_allowed_types');
         $config['file_name'] = $_FILES['image']['name'];
 
         //Load upload library and initialize configuration
         $this->load->library('upload', $config);
         $this->upload->initialize($config);
-
+        //echo $this->upload->do_upload('photo'); die();
         if ($this->upload->do_upload('image')) {
 
             $uploadData = $this->upload->data();
-
+            //$picture = $uploadData['file_name']."-".date("Y_m_d H:i:s");
             $image = $uploadData['file_name'];
+            //echo $certificate;die();
         } else {
-
+            // echo "welcome";die();
             $image = '';
         }
 
-        $contition_array = array('user_id' => $userid);
-        $job_reg_data = $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'profile_background_main', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        // $contition_array = array('user_id' => $userid);
+        // $job_reg_data = $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'profile_background_main', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-        $job_reg_prev_image = $job_reg_data[0]['profile_background_main'];
+        // $job_reg_prev_image = $job_reg_data[0]['profile_background_main'];
 
-        if ($job_reg_prev_image != '') {
-            $job_image_path = 'uploads/job_bg/';
-            $job_bg_full_image = $job_image_path . $job_reg_prev_image;
-            if (isset($job_bg_full_image)) {
-                unlink($job_bg_full_image);
-            }
-        }
+        // if ($job_reg_prev_image != '') {
+        //     $job_image_path = 'uploads/job_bg/';
+        //     $job_bg_full_image = $job_image_path . $job_reg_prev_image;
+        //     if (isset($job_bg_full_image)) {
+        //         unlink($job_bg_full_image);
+        //     }
+        // }
 
         $data = array(
             'profile_background_main' => $image,

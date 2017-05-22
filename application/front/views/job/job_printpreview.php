@@ -71,7 +71,7 @@ echo $job_header2;
                     $image_ori = $image[0]['profile_background'];
                     if ($image_ori) {
                         ?>
-                        <img src="<?php echo base_url(JOBBGIMAGE . $image[0]['profile_background']); ?>" name="image_src" id="image_src" / >
+                        <img src="<?php echo base_url($this->config->item('job_bg_main_upload_path') . $image[0]['profile_background']); ?>" name="image_src" id="image_src" / >
                         <?php
                     } else {
                         ?>
@@ -369,10 +369,16 @@ echo $job_header2;
                                                     if ($job_edu[0]['edu_certificate_primary'] != "") {
                                                         ?>
                                                         <li> <b>Education Certificate </b><span> 
-                                     <img src="<?php echo base_url(JOBEDUCERTIFICATE . $job_edu[0]['edu_certificate_primary']) ?>" style="width:100px;height:100px;"></span>
+                                     <img src="<?php echo base_url($this->config->item('job_edu_thumb_upload_path')  . $job_edu[0]['edu_certificate_primary']) ?>" style="width:100px;height:100px;"></span>
                                                         </li>
 
 
+<!-- <a href="#" onclick="lightbox_open();">Open lightbox</a> -->
+<!-- <div id="light">
+     <img src="<?php echo base_url($this->config->item('job_edu_thumb_upload_path')  . $job_edu[0]['edu_certificate_primary']) ?>" style="width:100px;height:100px;">
+    
+</div> -->
+<div id="fade" onClick="lightbox_close();"></div> 
 
 
 
@@ -403,7 +409,7 @@ echo $job_header2;
                                                     if ($job_edu[0]['edu_certificate_secondary'] != "") {
                                                         ?>
                                                         <li> <b>Education Certificate </b><span> 
-                                                                <img src="<?php echo base_url(JOBEDUCERTIFICATE . $job_edu[0]['edu_certificate_secondary']) ?>" style="width:100px;height:100px;"></span>
+                                                                <img src="<?php echo base_url($this->config->item('job_edu_thumb_upload_path')  . $job_edu[0]['edu_certificate_secondary']) ?>" style="width:100px;height:100px;"></span>
                                                         </li>
 
                                                         <?php
@@ -434,7 +440,7 @@ echo $job_header2;
                                                     if ($job_edu[0]['edu_certificate_higher_secondary'] != "") {
                                                         ?>
                                                         <li> <b>Education Certificate </b><span> 
-                                                                <img src="<?php echo base_url(JOBEDUCERTIFICATE . $job_edu[0]['edu_certificate_higher_secondary']) ?>" style="width:100px;height:100px;"></span>
+                                                                <img src="<?php echo base_url($this->config->item('job_edu_thumb_upload_path')  . $job_edu[0]['edu_certificate_higher_secondary']) ?>" style="width:100px;height:100px;"></span>
                                                         </li>
 
                                                         <li>

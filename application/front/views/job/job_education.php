@@ -340,7 +340,7 @@
                                                     if ($edu_certificate_primary1) {
                                                         ?>
 
-                                                        <img src="<?php echo base_url(JOBEDUCERTIFICATE . $edu_certificate_primary1) ?>" style="width:100px;height:100px;">
+                                                        <img src="<?php echo base_url($this->config->item('job_edu_thumb_upload_path')  . $edu_certificate_primary1) ?>" style="width:100px;height:100px;">
 
                                                         <?php
                                                     }
@@ -453,7 +453,7 @@
                                                     if ($edu_certificate_secondary1) {
                                                         ?>
 
-                                                        <img src="<?php echo base_url(JOBEDUCERTIFICATE . $edu_certificate_secondary1) ?>" style="width:100px;height:100px;">
+                                                        <img src="<?php echo base_url($this->config->item('job_edu_thumb_upload_path')  . $edu_certificate_secondary1) ?>" style="width:100px;height:100px;">
 
                                                         <?php
                                                     }
@@ -582,7 +582,7 @@
                                                     if ($edu_certificate_higher_secondary1) {
                                                         ?>
 
-                                                        <img src="<?php echo base_url(JOBEDUCERTIFICATE . $edu_certificate_higher_secondary1) ?>" style="width:100px;height:100px;">
+                                                        <img src="<?php echo base_url($this->config->item('job_edu_thumb_upload_path')  . $edu_certificate_higher_secondary1) ?>" style="width:100px;height:100px;">
 
                                                         <?php
                                                     }

@@ -232,7 +232,7 @@
                     if ($image_ori) {
                         ?>
                         
-                            <img src="<?php echo base_url(JOBBGIMAGE . $image[0]['profile_background']); ?>" name="image_src" id="image_src" / >
+                            <img src="<?php echo base_url($this->config->item('job_bg_main_upload_path')  . $image[0]['profile_background']); ?>" name="image_src" id="image_src" / >
                         <?php
                     } else {
                         ?>

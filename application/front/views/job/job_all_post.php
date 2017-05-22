@@ -251,7 +251,7 @@
                                          if ($jobdata[0]['profile_background'] != '') {
                                                                                           ?>
                                             <!-- box image start -->
-                          <img src="<?php echo base_url(JOBBGIMAGE . $jobdata[0]['profile_background']); ?>" class="bgImage" alt="<?php echo $jobdata[0]['fname']; ?>" >
+                          <img src="<?php echo base_url($this->config->item('job_bg_thumb_upload_path') . $jobdata[0]['profile_background']); ?>" class="bgImage" alt="<?php echo $jobdata[0]['fname']; ?>" >
                                             <!-- box image end -->
                                             <?php
                                         } else {
@@ -268,7 +268,7 @@
                                             <?php
                                             if ($jobdata[0]['job_user_image']) {
                                                 ?>
-                                                <img src="<?php echo base_url(USERIMAGE . $jobdata[0]['job_user_image']); ?>" alt="<?php echo $jobdata[0]['fname']; ?> " >
+                                                <img src="<?php echo base_url($this->config->item('job_profile_thumb_upload_path') . $jobdata[0]['job_user_image']); ?>" alt="<?php echo $jobdata[0]['fname']; ?> " >
                                                      <?php
                                                  } else {
                                                      ?>
