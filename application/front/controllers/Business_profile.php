@@ -2086,7 +2086,7 @@ $contition_array = array('status' => '1', 'is_deleted' => '0');
                 //                Follow 
                 //       </button>';
                 // $unfollow .= '</div>';
-                $unfollow = '<button id="unfollowdiv" onClick="followuser_two(' . $business_id . ')">
+                $unfollow = '<button class="bg_following"  id="unfollowdiv" onClick="followuser_two(' . $business_id . ')">
                                Follow 
                       </button>';
                 echo $unfollow;
