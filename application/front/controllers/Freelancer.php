@@ -1074,6 +1074,7 @@ class Freelancer extends MY_Controller {
     }
 
     public function freelancer_post_portfolio_insert() {
+       // echo "hii";die();
 
         $userid = $this->session->userdata('aileenuser');
 
@@ -1085,8 +1086,8 @@ class Freelancer extends MY_Controller {
 
 
         //upload portfolio attachment certificate process start
-        $config['upload_path'] = 'uploads/freelancer_portfolio_attachment/';
-        $config['allowed_types'] = 'jpg|jpeg|png|gif|pdf';
+        $config['upload_path'] = $this->config->item('free_portfolio_main_upload_path');
+        $config['allowed_types'] = $this->config->item('free_portfolio_main_allowed_types');
         // $config['file_name'] = $_FILES['picture']['name'];
         $config['file_name'] = $_FILES['portfolio_attachment']['name'];
 
