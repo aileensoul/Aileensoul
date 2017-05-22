@@ -229,9 +229,8 @@ class Dashboard extends MY_Controller {
     public function image() {
         $userid = $this->session->userdata('aileenuser');
 
-        $config['upload_path'] = 'uploads/user_bg/original';
-        $config['allowed_types'] = 'jpg|jpeg|png|gif';
-        // $config['file_name'] = $_FILES['picture']['name'];
+        $config['upload_path'] = $this->config->item('user_bg_original_upload_path');
+        $config['allowed_types'] = $this->config->item('user_bg_allowed_types');
         $config['file_name'] = $_FILES['image']['name'];
 
         //Load upload library and initialize configuration

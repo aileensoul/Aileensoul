@@ -178,12 +178,12 @@
                     if ($image_ori) {
                         ?>
                         <div class="bg-images">
-                            <img src="<?php echo base_url(USERBGIMAGE . $userdata[0]['profile_background']); ?>" name="image_src" id="image_src" / ></div>
+                            <img src="<?php echo base_url($this->config->item('user_bg_main_upload_path'). $userdata[0]['profile_background']); ?>" name="image_src" id="image_src" / ></div>
                         <?php
                     } else {
                         ?>
                         <div class="bg-images">
-                            <img src="<?php echo WHITEIMAGE; ?>" name="image_src" id="image_src" / ></div>
+                            <img src="<?php echo WHITEIMAGE; ?>" name="image_src" id="image_src" alt="WHITE IMAGE" /></div>
                     <?php }
                     ?>
 
@@ -212,7 +212,7 @@
                 $image_ori = $userdata[0]['user_image'];
                 if ($image_ori) {
                     ?>
-                    <img src="<?php echo base_url(USERTHUMBIMAGE . $userdata[0]['user_image']); ?>" alt="" >
+                    <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $userdata[0]['user_image']); ?>" alt="" >
 
 <?php } else { ?>
 

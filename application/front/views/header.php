@@ -425,7 +425,7 @@ $(window).load(function(){
                                     <a class="dropbtn action-button shadow animate" href="javascript:void(0)" type="button" id="menu1" data-toggle="dropdown" >
                                         <!-- <div id="hi" class="notifications"> -->
                                         <?php if ($userdata[0]['user_image'] != '') { ?>
-                                            <img alt="" class="img-circle" src="<?php echo base_url(USERTHUMBIMAGE . $userdata[0]['user_image']); ?>" height="50" width="50" alt="Smiley face" />
+                                            <img alt="" class="img-circle" src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $userdata[0]['user_image']); ?>" height="50" width="50" alt="Smiley face" />
                                         <?php } else { ?>
                                             <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" height="50" width="50" alt="Smiley face" />
                                         <?php } ?>
