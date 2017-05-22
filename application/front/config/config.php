@@ -714,4 +714,98 @@ $config['free_post_bg_thumb_height'] = '150';
 $config['free_post_bg_original_upload_path'] = 'uploads/freelancer_post_bg/original/';
 
 
+// BUSINESS PROFILE IMAGE
+$config['free_post_profile_main_upload_path'] = 'uploads/freelancer_post_profile/main/';
+$config['free_post_profile_main_allowed_types'] = 'jpg|jpeg|png|gif|pdf';
+$config['free_post_profile_main_max_size'] = '800000'; //in KB
+$config['free_post_profile_main_max_width'] = '2500';
+$config['free_post_profile_main_max_height'] = '1800';
 
+// BUSINESS PROFILE IMAGE THUMBS
+$config['free_post_profile_thumb_upload_path'] = 'uploads/freelancer_post_profile/thumbs/';
+$config['free_post_profile_thumb_width'] = '160';
+$config['free_post_profile_thumb_height'] = '160';
+
+
+// BUSINESS PROFILE BACKGROUND
+$config['free_post_bg_main_upload_path'] = 'uploads/freelancer_post_bg/main/';
+$config['free_post_bg_main_allowed_types'] = 'jpg|jpeg|png|gif|pdf';
+$config['free_post_bg_main_max_size'] = '800000'; //in KB
+$config['free_post_bg_main_max_width'] = '2500';
+$config['free_post_bg_main_max_height'] = '1800';
+
+// BUSINESS PROFILE BACKGROUND THUMBS
+$config['free_post_bg_thumb_upload_path'] = 'uploads/freelancer_post_bg/thumbs/';
+$config['free_post_bg_thumb_width'] = '400';
+$config['free_post_bg_thumb_height'] = '150';
+
+// BUSINESS PROFILE BACKGROUND ORIGINAL
+$config['free_post_bg_original_upload_path'] = 'uploads/freelancer_post_bg/original/';
+
+
+// BUSINESS POST 
+$config['bus_post_main_upload_path'] = 'uploads/business_post/main/';
+$config['bus_post_main_allowed_types'] = 'gif|jpeg|jpg|png|pdf|mp4|mp3|avi|ogg|3gp|webm';
+$config['bus_post_main_max_size'] = '800000'; //in KB
+$config['bus_post_main_max_width'] = '2500';
+$config['bus_post_main_max_height'] = '1800';
+
+// BUSINESS POST THUMBS
+$config['bus_post_thumb_upload_path'] = 'uploads/business_post/thumbs/';
+$config['bus_post_thumb_width'] = '160';
+$config['bus_post_thumb_height'] = '160';
+
+
+// ARTISTIC PROFILE IMAGE
+$config['art_profile_main_upload_path'] = 'uploads/artistic_profile/main/';
+$config['art_profile_main_allowed_types'] = 'jpg|jpeg|png|gif|pdf';
+$config['art_profile_main_max_size'] = '800000'; //in KB
+$config['art_profile_main_max_width'] = '2500';
+$config['art_profile_main_max_height'] = '1800';
+
+// ARTISTIC PROFILE IMAGE THUMBS
+$config['art_profile_thumb_upload_path'] = 'uploads/artistic_profile/thumbs/';
+$config['art_profile_thumb_width'] = '160';
+$config['art_profile_thumb_height'] = '160';
+
+
+// ARTISTIC PROFILE BACKGROUND
+$config['art_bg_main_upload_path'] = 'uploads/artistic_bg/main/';
+$config['art_bg_main_allowed_types'] = 'jpg|jpeg|png|gif|pdf';
+$config['art_bg_main_max_size'] = '800000'; //in KB
+$config['art_bg_main_max_width'] = '2500';
+$config['art_bg_main_max_height'] = '1800';
+
+// ARTISTIC PROFILE BACKGROUND THUMBS
+$config['art_bg_thumb_upload_path'] = 'uploads/artistic_bg/thumbs/';
+$config['art_bg_thumb_width'] = '400';
+$config['art_bg_thumb_height'] = '150';
+
+// ARTISTIC PROFILE BACKGROUND ORIGINAL
+$config['art_bg_original_upload_path'] = 'uploads/artistic_bg/original/';
+
+
+// ARTISTIC PORTFOLIO
+$config['art_portfolio_main_upload_path'] = 'uploads/artistic_portfolio/main/';
+$config['art_portfolio_main_allowed_types'] = 'pdf';
+$config['art_portfolio_main_max_size'] = '800000'; //in KB
+$config['art_portfolio_main_max_width'] = '2500';
+$config['art_portfolio_main_max_height'] = '1800';
+
+// ARTISTIC PORTFOLIO THUMBS
+$config['art_portfolio_thumb_upload_path'] = 'uploads/artistic_portfolio/thumbs/';
+$config['art_portfolio_thumb_width'] = '160';
+$config['art_portfolio_thumb_height'] = '160';
+
+
+// ARTISTIC POST 
+$config['art_post_main_upload_path'] = 'uploads/artistic_post/main/';
+$config['art_post_main_allowed_types'] = 'gif|jpeg|jpg|png|pdf|mp4|mp3|avi|ogg|3gp|webm';
+$config['art_post_main_max_size'] = '800000'; //in KB
+$config['art_post_main_max_width'] = '2500';
+$config['art_post_main_max_height'] = '1800';
+
+// ARTISTIC POST THUMBS
+$config['art_post_thumb_upload_path'] = 'uploads/artistic_post/thumbs/';
+$config['art_post_thumb_width'] = '160';
+$config['art_post_thumb_height'] = '160';

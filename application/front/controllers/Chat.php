@@ -250,6 +250,7 @@ $this->data['smiley_table'] = $smileys;
 
   public function abc($id)
   { 
+      
    // khyati 25-4 changes start
 $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
    

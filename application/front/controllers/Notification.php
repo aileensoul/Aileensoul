@@ -1345,36 +1345,463 @@ $contition_array = array('notification.not_type' => 5, 'notification.not_from' =
         echo $notification;
     }
 
-    public function msg_header($id) {
+    public function msg_header($id = "") {
+    
+     
+        // khyati 22-5 chnages start
+      if($id == ""){ 
+    $this->data['userid'] =  $userid = $this->session->userdata('aileenuser');
 
-        //for message notification start
-        $userid = $this->session->userdata('aileenuser');
-        $contition_array = array('notification.not_type' => 2, 'notification.not_to_id' => $userid);
-        $join_str = array(array(
-                'join_type' => '',
-                'table' => 'messages',
-                'join_table_id' => 'notification.not_product_id',
-                'from_table_id' => 'messages.id'),
-            array(
-                'join_type' => '',
-                'table' => 'user',
-                'join_table_id' => 'notification.not_from_id',
-                'from_table_id' => 'user.user_id')
-        );
-        $data = array('notification.*', ' messages.*', ' user.user_id', 'user.first_name', 'user.user_image', 'user.last_name');
+    $loginuser = $this->common->select_data_by_id('user', 'user_id', $userid, $data = 'first_name,last_name');
+    
+    $this->data['logfname'] = $loginuser[0]['first_name'];
+    $this->data['loglname'] = $loginuser[0]['last_name'];
+   
+    // last message user fetch
+    
+    $contition_array = array('id !=' => '');
 
-       $user_message =  $this->data['user_message'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'messages.id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = 'not_from_id');
- //echo '<pre>';print_r($this->data['user_message']); die();
-        $this->data['message_count'] = count($this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'messages.id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = 'not_from_id'));
+    $search_condition = "(message_from = '$userid' OR message_to = '$userid')";
 
-//for message notification end
+    $lastuser = $this->common->select_data_by_search('messages', $search_condition,$contition_array, $data = 'messages.message_from,message_to,id', $sortby = 'id', $orderby = 'DESC', $limit = '1', $offset = '', $join_str = '', $groupby = '');
+    
+    if($lastuser[0]['message_from'] == $userid){
+     
+  $lstusr =    $this->data['lstusr'] = $lastuser[0]['message_to'];
+    }else{
+    
+  $lstusr =  $this->data['lstusr'] = $lastuser[0]['message_from'];
+    }
 
-       // $notmsg .= '<div class="notification-data">';
-      //  $notmsg .= '<ul>';
-     //   $notmsg .= '<li><div class="notification-database">';
-     //   $notmsg .= '<div class="notification-pic"></div>';
-      //  $notmsg .= '<div class="notification-data-inside"><h6> Message updates</h6>';
-     //   $notmsg .= '<div></div></div></div></li>';
+
+    if($lstusr){
+    $lastuser = $this->common->select_data_by_id('user', 'user_id', $lstusr, $data = 'first_name,last_name');
+    
+    $this->data['lstfname'] = $lastuser[0]['first_name'];
+    $this->data['lstlname'] = $lastuser[0]['last_name'];
+    }
+   
+     $contition_array = array('is_delete' => '0' , 'status' => '1');
+
+     $join_str1[0]['table'] = 'messages';
+     $join_str1[0]['join_table_id'] = 'messages.message_to';
+     $join_str1[0]['from_table_id'] = 'user.user_id';
+     $join_str1[0]['join_type'] = '';
+    
+    $search_condition = "((message_from = '$lstusr' OR message_to = '$lstusr') && (message_to != '$userid'))";
+
+     $seltousr = $this->common->select_data_by_search('user', $search_condition,$contition_array, $data = 'messages.id,message_to,first_name,user_image,message', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str1, $groupby = '');
+
+
+     // slected user chat from
+
+    
+     $contition_array = array('is_delete' => '0' , 'status' => '1');
+
+     $join_str2[0]['table'] = 'messages';
+     $join_str2[0]['join_table_id'] = 'messages.message_from';
+     $join_str2[0]['from_table_id'] = 'user.user_id';
+     $join_str2[0]['join_type'] = '';
+
+     
+     
+    $search_condition = "((message_from = '$lstusr' OR message_to = '$lstusr') && (message_from != '$userid'))";
+
+     $selfromusr = $this->common->select_data_by_search('user', $search_condition,$contition_array, $data = 'messages.id,message_from,first_name,user_image,message', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str2, $groupby = '');
+
+
+$selectuser = array_merge($seltousr,$selfromusr);
+$selectuser =  $this->aasort($selectuser,"id");
+
+ 
+// replace name of message_to in user_id in select user
+
+
+   $return_arraysel = array();
+$i=0;
+    foreach($selectuser as $k => $sel_list){
+        $return = array();
+       $return = $sel_list;
+
+if($sel_list['message_to']){ 
+     
+       $return['user_id'] = $sel_list['message_to'];
+       $return['first_name'] = $sel_list['first_name'];
+       $return['user_image'] = $sel_list['user_image'];
+       $return['message'] = $sel_list['message'];
+      
+       unset($return['message_to']);
+      
+}else{ 
+
+       $return['user_id'] = $sel_list['message_from'];
+       $return['first_name'] = $sel_list['first_name'];
+       $return['user_image'] = $sel_list['user_image'];
+       $return['message'] = $sel_list['message'];
+
+      
+       unset($return['message_from']);
+      }
+array_push($return_arraysel, $return);
+$i++;
+if($i==1) break;
+    } 
+
+
+    // khyati 24-4 end 
+
+     // message to user
+   
+ $contition_array = array('is_delete' => '0' , 'status' => '1','message_to !=' => $userid);
+
+     $join_str3[0]['table'] = 'messages';
+     $join_str3[0]['join_table_id'] = 'messages.message_to';
+     $join_str3[0]['from_table_id'] = 'user.user_id';
+     $join_str3[0]['join_type'] = '';
+     
+$search_condition = "((message_from = '$userid') && (message_to != '$lstusr'))";
+
+     $tolist = $this->common->select_data_by_search('user',$search_condition,$contition_array, $data = 'messages.id,message_to,first_name,user_image,message', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str3, $groupby = '');
+
+ 
+
+// uniq array of tolist  
+foreach($tolist as $k => $v) 
+{
+    foreach($tolist as $key => $value) 
+    {
+        if($k != $key && $v['message_to'] == $value['message_to'])
+        {
+             unset($tolist[$k]);
+        }
+    }
+}
+
+ // replace name of message_to in user_id
+
+   $return_arrayto = array();
+
+    foreach($tolist as $to_list){
+if($to_list['message_to'] != $lstusr){
+      $return = array();
+      $return = $to_list;
+
+      $return['user_id'] = $to_list['message_to'];
+      $return['first_name'] = $to_list['first_name'];
+      $return['user_image'] = $to_list['user_image'];
+      $return['message'] = $to_list['message'];
+      
+      unset($return['message_to']);
+     array_push($return_arrayto, $return);
+}
+    } 
+
+    // message from user
+    $contition_array = array('is_delete' => '0' , 'status' => '1','message_from !=' => $userid);
+
+    $join_str4[0]['table'] = 'messages';
+    $join_str4[0]['join_table_id'] = 'messages.message_from';
+    $join_str4[0]['from_table_id'] = 'user.user_id';
+    $join_str4[0]['join_type'] = '';
+
+    $search_condition = "((message_to = '$userid') && (message_from != '$lstusr'))";
+     
+   
+    $fromlist = $this->common->select_data_by_search('user',$search_condition,$contition_array, $data = 'messages.id,messages.message_from,first_name,user_image,message', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str4, $groupby = '');
+      
+
+  // uniq array of fromlist  
+      foreach($fromlist as $k => $v) 
+{
+    foreach($fromlist as $key => $value) 
+    {
+        if($k != $key && $v['message_from'] == $value['message_from'])
+        {
+             unset($fromlist[$k]);
+        }
+    }
+}
+
+// replace name of message_to in user_id
+
+   $return_arrayfrom = array();
+
+    foreach($fromlist as $from_list){
+if($to_list['message_from'] != $lstusr){
+      $return = array();
+      $return = $from_list;
+
+      $return['user_id'] = $from_list['message_from'];
+      $return['first_name'] = $from_list['first_name'];
+      $return['user_image'] = $from_list['user_image'];
+      $return['message'] = $from_list['message'];
+
+      
+      unset($return['message_from']);
+     array_push($return_arrayfrom, $return);
+}
+    } 
+
+ $userlist = array_merge($return_arrayto,$return_arrayfrom);
+ 
+
+
+   // uniq array of fromlist  
+foreach($userlist as $k => $v) 
+{
+    foreach($userlist as $key => $value) 
+    {
+        if($k != $key && $v['user_id'] == $value['user_id'])
+        {
+             unset($userlist[$k]);
+        }
+    }
+}
+
+$userlist =  $this->aasort($userlist,"id");
+
+$user_message = array_merge($return_arraysel,$userlist);
+
+      }else{ 
+          $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
+   
+   // last user if $id is null
+
+    $contition_array = array('id !=' => '');
+
+    $search_condition = "(message_from = '$userid' OR message_to = '$userid')";
+
+    $lastchat = $this->common->select_data_by_search('messages', $search_condition,$contition_array, $data = 'messages.message_from,message_to,id', $sortby = 'id', $orderby = 'DESC', $limit = '1', $offset = '', $join_str = '', $groupby = '');
+      
+  if($id){     
+  
+  $toid =  $this->data['toid'] = $id;
+  
+  }elseif($lastchat[0]['message_from'] == $userid){
+     
+  $toid =    $this->data['toid'] = $lastchat[0]['message_to'];
+  }else{
+    
+  $toid =  $this->data['toid'] = $lastchat[0]['message_from'];
+    }
+
+   // khyati 22-4 changes end
+
+    $loginuser = $this->common->select_data_by_id('user', 'user_id', $userid, $data = 'first_name,last_name');
+    
+    $this->data['logfname'] = $loginuser[0]['first_name'];
+    $this->data['loglname'] = $loginuser[0]['last_name'];
+   
+    // last message user fetch
+    
+    $contition_array = array('id !=' => '');
+
+    $search_condition = "(message_from = '$id' OR message_to = '$id')";
+
+    $lastuser = $this->common->select_data_by_search('messages', $search_condition,$contition_array, $data = 'messages.message_from,message_to,id', $sortby = 'id', $orderby = 'DESC', $limit = '1', $offset = '', $join_str = '', $groupby = '');
+    
+    if($lastuser[0]['message_from'] == $userid){
+     
+  $lstusr =    $this->data['lstusr'] = $lastuser[0]['message_to'];
+    }else{
+    
+  $lstusr =  $this->data['lstusr'] = $lastuser[0]['message_from'];
+    }
+
+// last user first name last name
+    if($lstusr){
+    $lastuser = $this->common->select_data_by_id('user', 'user_id', $lstusr, $data = 'first_name,last_name');
+    
+    $this->data['lstfname'] = $lastuser[0]['first_name'];
+    $this->data['lstlname'] = $lastuser[0]['last_name'];
+    }
+    //khyati changes starrt 20-4
+    
+    // slected user chat to
+
+    
+     $contition_array = array('is_delete' => '0' , 'status' => '1');
+
+     $join_str1[0]['table'] = 'messages';
+     $join_str1[0]['join_table_id'] = 'messages.message_to';
+     $join_str1[0]['from_table_id'] = 'user.user_id';
+     $join_str1[0]['join_type'] = '';
+
+     
+     
+    $search_condition = "((message_from = '$id' OR message_to = '$id') && (message_to != '$userid'))";
+
+     $seltousr = $this->common->select_data_by_search('user', $search_condition,$contition_array, $data = 'messages.id,message_to,first_name,user_image,message', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str1, $groupby = '');
+
+
+     // slected user chat from
+
+    
+     $contition_array = array('is_delete' => '0' , 'status' => '1');
+
+     $join_str2[0]['table'] = 'messages';
+     $join_str2[0]['join_table_id'] = 'messages.message_from';
+     $join_str2[0]['from_table_id'] = 'user.user_id';
+     $join_str2[0]['join_type'] = '';
+
+     
+     
+    $search_condition = "((message_from = '$id' OR message_to = '$id') && (message_from != '$userid'))";
+
+     $selfromusr = $this->common->select_data_by_search('user', $search_condition,$contition_array, $data = 'messages.id,message_from,first_name,user_image,message', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str2, $groupby = '');
+
+
+$selectuser = array_merge($seltousr,$selfromusr);
+$selectuser =  $this->aasort($selectuser,"id");
+
+
+// replace name of message_to in user_id in select user
+
+   $return_arraysel = array();
+$i=0;
+    foreach($selectuser as $k => $sel_list){
+        $return = array();
+       $return = $sel_list;
+
+if($sel_list['message_to']){ 
+     
+       $return['user_id'] = $sel_list['message_to'];
+       $return['first_name'] = $sel_list['first_name'];
+       $return['user_image'] = $sel_list['user_image'];
+       $return['message'] = $sel_list['message'];
+      
+       unset($return['message_to']);
+      
+}else{ 
+
+       $return['user_id'] = $sel_list['message_from'];
+       $return['first_name'] = $sel_list['first_name'];
+       $return['user_image'] = $sel_list['user_image'];
+       $return['message'] = $sel_list['message'];
+
+      
+       unset($return['message_from']);
+      }
+array_push($return_arraysel, $return);
+$i++;
+if($i==1) break;
+    } 
+
+     // message to user
+     $contition_array = array('is_delete' => '0' , 'status' => '1','message_to !=' => $userid);
+
+     $join_str3[0]['table'] = 'messages';
+     $join_str3[0]['join_table_id'] = 'messages.message_to';
+     $join_str3[0]['from_table_id'] = 'user.user_id';
+     $join_str3[0]['join_type'] = '';
+     
+$search_condition = "((message_from = '$userid') && (message_to != '$id'))";
+
+     $tolist = $this->common->select_data_by_search('user',$search_condition,$contition_array, $data = 'messages.id,message_to,first_name,user_image,message', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str3, $groupby = '');
+
+     // uniq array of tolist  
+      foreach($tolist as $k => $v) 
+{ 
+    foreach($tolist as $key => $value) 
+    { 
+      
+        if($k != $key && $v['message_to'] == $value['message_to'])
+        {
+             unset($tolist[$k]);
+        }
+    }
+}
+
+ // replace name of message_to in user_id
+
+   $return_arrayto = array();
+
+    foreach($tolist as $to_list){
+if($to_list['message_to'] != $id){
+      $return = array();
+      $return = $to_list;
+
+      $return['user_id'] = $to_list['message_to'];
+      $return['first_name'] = $to_list['first_name'];
+      $return['user_image'] = $to_list['user_image'];
+       $return['message'] = $to_list['message'];
+
+      
+      unset($return['message_to']);
+     array_push($return_arrayto, $return);
+}
+    } 
+
+    // message from user
+    $contition_array = array('is_delete' => '0' , 'status' => '1','message_from !=' => $userid);
+
+    $join_str4[0]['table'] = 'messages';
+    $join_str4[0]['join_table_id'] = 'messages.message_from';
+    $join_str4[0]['from_table_id'] = 'user.user_id';
+    $join_str4[0]['join_type'] = '';
+     
+   $search_condition = "((message_to = '$userid') && (message_from != '$id'))";
+
+    $fromlist = $this->common->select_data_by_search('user',$search_condition,$contition_array, $data = 'messages.id,messages.message_from,first_name,user_image,message', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str4, $groupby = '');
+    
+
+  // uniq array of fromlist  
+      foreach($fromlist as $k => $v) 
+{  
+    foreach($fromlist as $key => $value) 
+   { 
+         if($k != $key && $v['message_from'] == $value['message_from'] )
+         { 
+              unset($fromlist[$k]);
+         }
+
+       }
+}
+
+// replace name of message_to in user_id
+
+   $return_arrayfrom = array();
+
+    foreach($fromlist as $from_list){
+if($from_list['message_from'] != $id){
+      $return = array();
+      $return = $from_list;
+
+      $return['user_id'] = $from_list['message_from'];
+      $return['first_name'] = $from_list['first_name'];
+      $return['user_image'] = $from_list['user_image'];
+       $return['message'] = $from_list['message'];
+
+      
+      unset($return['message_from']);
+     array_push($return_arrayfrom, $return);
+}
+    } 
+
+   
+
+ $userlist = array_merge($return_arrayto,$return_arrayfrom);
+ 
+
+   // uniq array of fromlist  
+foreach($userlist as $k => $v) 
+{
+    foreach($userlist as $key => $value) 
+    {
+        if($k != $key && $v['user_id'] == $value['user_id'])
+        {
+             unset($userlist[$k]);
+        }
+    }
+}
+
+
+$userlist =  $this->aasort($userlist,"id");
+
+$user_message = array_merge($return_arraysel,$userlist);
+      }
+        // khyati 22-5 chnages end
+        
 
         foreach ($user_message as $msg) {
 
@@ -1385,16 +1812,12 @@ $contition_array = array('notification.not_type' => 5, 'notification.not_from' =
             $notmsg .= '</div><div class="notification-data-inside">';
             $notmsg .= '<h6>' . ucwords($msg['first_name']) . ' ' . ucwords($msg['last_name']) . '</h6>';
             $notmsg .= '<div>';
-
-            $contition_array = array('messages.message_from' => $msg['not_from_id'], 'messages.message_to' => $userid);
-            $data = array(' messages.*');
-            $messages = $this->common->select_data_by_condition('messages', $contition_array, $data, $sortby = 'id', $orderby = 'desc', $limit = '', $offset = '', $join_str = "", $groupby = '');
-           // echo '<pre>'; print_r($messages); 
-            $contition_array = array('not_product_id' => $messages[0]['id']);
-            $data = array(' notification.*');
-            $not = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = "", $groupby = '');
            
-           // $notmsg .= ''. $messages[0]['message'] . '';
+           $contition_array = array('not_product_id' => $msg['id']);
+           $data = array(' notification.*');
+           $not = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = "", $groupby = '');
+           
+            $notmsg .= ''. $msg['message'] . '';
 
             $notmsg .= '</div><div >' . $this->common->time_elapsed_string($not[0]['not_created_date'], $full = false)  . '</div>';
             $notmsg .= '</div></div></li></a>';
@@ -1403,5 +1826,27 @@ $contition_array = array('notification.not_type' => 5, 'notification.not_from' =
 
         echo $notmsg;
     }
+     
+    // khyati changes start 7-4
+    public  function aasort(&$array, $key) {
+      $sorter=array();    $ret=array();    reset($array); 
 
+         foreach ($array as $ii => $va) {       
+
+          $sorter[$ii]=$va[$key];    
+
+        }   
+
+         arsort($sorter);  
+
+           foreach ($sorter as $ii => $va) {    
+
+               $ret[$ii]=$array[$ii];   
+
+                }  
+
+     return  $array=$ret;
+
+
+  }
 }
