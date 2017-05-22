@@ -185,7 +185,7 @@
           .stkiy { width: 90%; }
           .dropdown_hover { padding: 8px 40px 3px 8px; }
           .dropdown-content_hover { left: -5px; }
-
+           .dropdown_hover #art_profile { font-size: 11px; }
 
     /*   header2 off */   
 
