@@ -1,6 +1,6 @@
 <!-- start head -->
 <?php echo $head; ?>
-
+<script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
 <style type="text/css">
     #popup-form img{display: none;}
 </style>
@@ -177,7 +177,7 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/select2.min.css'); ?>">
 <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />-->
 <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
-<script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
+
 <!-- start header -->
 <?php echo $header; ?>
 <!-- END HEADER -->
@@ -933,7 +933,7 @@
         var alldata = 'all';
         //var user = document.getElementById("userid" + abc);
         var user = <?php echo $aileenuser_id; ?>;
-        //alert(user);
+        alert(user);
         var appid = xyz;
 
         $.ajax({

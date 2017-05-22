@@ -623,7 +623,6 @@ class Job extends MY_Controller {
         //upload education certificate process start
         $config['upload_path'] = 'uploads/job_edu_certificate/';
         $config['allowed_types'] = 'jpg|jpeg|png|gif|pdf';
-        // $config['file_name'] = $_FILES['picture']['name'];
         $config['file_name'] = $_FILES['edu_certificate_primary']['name'];
 
         //Load upload library and initialize configuration
@@ -632,9 +631,7 @@ class Job extends MY_Controller {
 
         if ($this->upload->do_upload('edu_certificate_primary')) {
             $uploadData = $this->upload->data();
-            //$picture = $uploadData['file_name']."-".date("Y_m_d H:i:s");
             $certificate = $uploadData['file_name'];
-            // echo $certificate;die();
         } else {
             $certificate = '';
         }
@@ -2576,6 +2573,8 @@ class Job extends MY_Controller {
 
 
         $userdata = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+    echo "<pre>"; print_r($userdata); die();
         if ($userdata) {
             $step = $userdata[0]['job_step'];
             if ($step == 10 || ($step >= 1 && $step <= 10)) {

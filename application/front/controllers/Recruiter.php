@@ -1718,7 +1718,10 @@ class Recruiter extends MY_Controller {
     
         $candidate = $this->data['candidate'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 
+
+    // echo "<pre>"; print_r($candidate); die();
       echo "<pre>"; print_r($candidate);
+
         // echo "<pre>"; print_r($candidate1); die();
         //  $contition_array = array('status' => '1');
         // $candidate = $this->data['edudata'] = $this->common->select_data_by_condition('job_add_edu', $contition_array, $data='*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
@@ -1727,7 +1730,10 @@ class Recruiter extends MY_Controller {
         foreach ($candidate as $jobcan) {  //echo "123"; die();
             $keyskill = explode(',', $jobcan['keyskill']);
             $result = array_intersect($postuserarray, $keyskill);
+           // print_r($result); die();
+
             echo "<pre>";print_r($result); 
+
             // if(count($result) > 0){ //echo "falguni"; die();
 
             $contition_array = array('job_id' => $jobcan['job_id'], 'is_delete' => 0, 'status' => 1);

@@ -111,7 +111,7 @@
                                                     <span style="color:#7f7f7e;">( </span><span style="color:red">*</span><span style="color:#7f7f7e"> )</span> <span style="color:#7f7f7e">Indicates required field</span>
                                                 </div>
                                                 <label for="Fresher">
-                                                    <input type="radio" id="fresher" name="radio" value="Fresher" checked="checked">
+                                                    <input type="checkbox" id="fresher" name="radio" value="Fresher" <?php echo ($userdata[0]['experience'] == 'Fresher') ? 'checked' : '' ?>>
                                                     Fresher&nbsp;&nbsp;
                                                 </label>
                                                 <fieldset class="hs-submit full-width">

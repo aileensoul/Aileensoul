@@ -1,18 +1,22 @@
 
 <?php  echo $head; ?>
 
+<!-- select 2 validation border start -->
 <style type="text/css">
   
-  .keyskill_border_deactivte {
+  /*.keyskill_border_deactivte {
   border: 0px solid red;
 
-}
+}*/
 
 .keyskill_border_active {
   border: 1px solid red;
 
 }
 </style>
+
+<!-- select 2 validation border end -->
+
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/3.3.0/select2.css'); ?>">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
@@ -106,7 +110,7 @@
                                     <fieldset class="full-width" <?php if($skills) {  ?> class="error-msg" <?php } ?> >
                                         <label>Art<span style="color:red">*</span></label>
                                        
-                                          <select name="skills[]" id ="skils" class="keyskil keyskill_border_deactivte" multiple="multiple" style="width:100%;">
+                                          <select name="skills[]" id ="skils" class="keyskil" multiple="multiple" style="width:100%;">
                                        <?php foreach ($skill as $ski) { ?>
                                       <option value="<?php echo $ski['skill_id']; ?>"><?php echo $ski['skill']; ?></option>
                                     <?php } ?>
@@ -381,13 +385,13 @@ function imgval(){
  var skill_other = document.getElementById("other_skill").value;
 
      if(skill_main =='' && skill_other == ''){
-  $($("#skils").select2("container")).removeClass("keyskill_border_deactivte");
+  //$($("#skils").select2("container")).removeClass("keyskill_border_deactivte");
 
   $($("#skils").select2("container")).addClass("keyskill_border_active");
   }
-  
-  
+   
   }
+
 </script>
 <script>
 

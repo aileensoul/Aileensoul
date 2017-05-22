@@ -552,6 +552,11 @@ $config['user_bg_main_max_height'] = '1800';
 $config['user_bg_thumb_upload_path'] = 'uploads/user_bg/thumbs/';
 $config['user_bg_thumb_width'] = '400';
 $config['user_bg_thumb_height'] = '100';
+//Path to upload Users's Thumbnail File
+$config['user_bg_original_upload_path'] = 'uploads/user_bg/original/';
+
+
+
 
 // user profile image
 
@@ -565,5 +570,29 @@ $config['user_thumb_upload_path'] = 'uploads/user_image/thumbs/';
 $config['user_thumb_width'] = '160';
 $config['user_thumb_height'] = '160';
 
+// job education
+
+$config['job_edu_main_upload_path'] = 'uploads/job_education/main/';
+$config['job_edu_main_allowed_types'] = 'jpg|jpeg|png|gif|pdf';
+$config['job_edu_main_max_size'] = '800000'; //in KB
+$config['job_edu_main_max_width'] = '2500';
+$config['job_edu_main_max_height'] = '1800';
+//Path to upload Job education's Thumbnail File
+$config['job_edu_thumb_upload_path'] = 'uploads/job_education/thumbs/';
+$config['job_edu_thumb_width'] = '150';
+$config['job_edu_thumb_height'] = '150';
 
 
+// job work experience
+
+$config['job_work_main_upload_path'] = 'uploads/job_work/main/';
+$config['job_work_main_allowed_types'] = 'jpg|jpeg|png|gif|pdf';
+$config['job_work_main_max_size'] = '800000'; //in KB
+$config['job_work_main_max_width'] = '2500';
+$config['job_work_main_max_height'] = '1800';
+//Path to upload Job work's Thumbnail File
+$config['job_work_thumb_upload_path'] = 'uploads/job_work/thumbs/';
+$config['job_work_thumb_width'] = '150';
+$config['job_work_thumb_height'] = '150';
+
+// 

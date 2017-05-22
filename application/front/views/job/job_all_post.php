@@ -1,6 +1,7 @@
 <!-- start head -->
 <?php echo $head; ?>
 
+<script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
 
 <!--post save success pop up style strat -->
 <style>
@@ -140,7 +141,6 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/select2.min.css'); ?>">
 <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />-->
 <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
-<script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
 
 
 
@@ -332,7 +332,7 @@
 
                                             <div class="job-contact-frnd ">
 
-                                                <div class="profile-job-post-detail clearfix" id="<?php echo "postdata" . $post['post_id']; ?>">
+                                                <div class="profile-job-post-detail clearfix" id="<?php echo "applypost" . $post['app_id']; ?>">
 
                                                     <!-- vishang 14-4 end -->
                 <div class="profile-job-post-title clearfix">
@@ -522,7 +522,7 @@
                                             <?php
                                         }
                                     } else {
-                                        echo 'no data available';
+                                        echo 'No Data Available';
                                     }
                                 } else {
                                     if (count($postdetail) > 0) {
@@ -531,7 +531,7 @@
 
                                             <div class="job-contact-frnd ">
 
-                                                <div class="profile-job-post-detail clearfix" id="<?php echo "postdata" . $post['post_id']; ?>">
+                                                <div class="profile-job-post-detail clearfix" id="<?php echo "applypost" . $post['app_id']; ?>">
 
                                                     <div class="profile-job-post-title-inside clearfix">
                                                         <div class="profile-job-post-location-name">
@@ -902,10 +902,14 @@
 
                 <script type="text/javascript">
                     function apply_post(abc, xyz) {
+                       // alert(abc);
+                        //alert(xyz);
                         //var alldata = document.getElementById("allpost" + abc);
                         var alldata = 'all';
                         //var user = document.getElementById("userid" + abc);
                         var user = xyz;
+                      //  alert(user);
+
 
                         $.ajax({
                             type: 'POST',

@@ -11,8 +11,8 @@ $(window).load(function(){
 <!-- style for span id=notification_count start-->
 <style>
 
-  /*style for span id=notification_count start*/
-  .msg_dot{padding: 0!important;}
+    /*style for span id=notification_count start*/
+    .msg_dot{padding: 0!important;}
     #notification_count
     {   padding: 3px;
         background: #0c3168;
@@ -363,7 +363,7 @@ $(window).load(function(){
                     <div class="col-md-4 col-sm-5">
                         <!-- <div class="logo"><a href="<?php echo base_url('dashboard') ?>"><img src="<?php echo base_url('images/logo-white.png'); ?>"></a></div> -->
                         <div class="logo">
-                           <a href="<?php echo base_url('dashboard') ?>"> <h2  style="color: white;">Aileensoul</h2></a>
+                            <a href="<?php echo base_url('dashboard') ?>"> <h2  style="color: white;">Aileensoul</h2></a>
                         </div>
                     </div>
                     <div class="col-md-8 col-sm-7 header-left-menu">
@@ -376,7 +376,7 @@ $(window).load(function(){
   <!-- <li><a href="#" id="notificationLink" onclick = "return getNotification()">Notification <i class="fa fa-bell-slash-o" aria-hidden="true"></i>
       <span id="notification_count"></span>
   </a></li> -->
-<!-- general notification start -->
+                                <!-- general notification start -->
                                 <li id="notification_li">
                                     <a class="action-button shadow animate" href="javascript:void(0)" id="notificationLink" onclick = "return Notificationheader();">Notification <i class="fa fa-bell-slash-o" aria-hidden="true"></i>
 
@@ -386,20 +386,20 @@ $(window).load(function(){
                                         <div id="notificationTitle">Notifications</div>
 
                                         <div id="notificationsBody" class="notifications">
-                                
-                                        
-                                    </div>
-                                </li>
-<!-- general notification end -->
-                                    <?php
-                                    $userid = $this->session->userdata('aileenuser');
-                                    ?>
 
-                            <!-- <li><a href="<?php //echo base_url('message/message_chat/')     ?>">Message <i class="fa fa-commenting" aria-hidden="true"></i></a></li> -->
+
+                                        </div>
+                                </li>
+                                <!-- general notification end -->
+                                <?php
+                                $userid = $this->session->userdata('aileenuser');
+                                ?>
+
+                            <!-- <li><a href="<?php //echo base_url('message/message_chat/')      ?>">Message <i class="fa fa-commenting" aria-hidden="true"></i></a></li> -->
                                 <li id="Inbox_link">
-<?php if ($message_count) { ?>
-                                               <!--  <span class="badge bg-theme"><?php echo $message_count; ?></span> -->
-<?php } ?>
+                                    <?php if ($message_count) { ?>
+                                                   <!--  <span class="badge bg-theme"><?php echo $message_count; ?></span> -->
+                                    <?php } ?>
                                     <a class="action-button shadow animate" href="#" id="InboxLink" onclick = "return getmsgNotification()">Messages<i class="fa fa-commenting" aria-hidden="true"></i>
                                         <span id="message_count"></span>
                                     </a>
@@ -409,14 +409,14 @@ $(window).load(function(){
                                             <div id="notificationTitle">Messages</div>
 
                                             <div id="notificationsmsgBody" class="notificationsmsg">
-                       
+
 
                                             </div>
                                             <div id="InboxFooter"><a href="<?php echo base_url('chat') ?>">See All</a></div>
                                         </div>
                                 </li>
 
-                           <!--  <li><a href="<?php //echo base_url('friendrequest')     ?>">Friend Request <i class="fa fa-user" aria-hidden="true"></i></a></li> -->
+                           <!--  <li><a href="<?php //echo base_url('friendrequest')      ?>">Friend Request <i class="fa fa-user" aria-hidden="true"></i></a></li> -->
 
                                 <!-- BEGIN USER LOGIN DROPDOWN -->
                                 <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
@@ -424,15 +424,15 @@ $(window).load(function(){
 
                                     <a class="dropbtn action-button shadow animate" href="javascript:void(0)" type="button" id="menu1" data-toggle="dropdown" >
                                         <!-- <div id="hi" class="notifications"> -->
-<?php if ($userdata[0]['user_image'] != '') { ?>
-                                        <img alt="" class="img-circle" src="<?php echo base_url(USERTHUMBIMAGE . $userdata[0]['user_image']); ?>" height="50" width="50" alt="Smiley face" />
-                                            <?php } else { ?>
-                                        <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" height="50" width="50" alt="Smiley face" />
-                                            <?php } ?>
+                                        <?php if ($userdata[0]['user_image'] != '') { ?>
+                                            <img alt="" class="img-circle" src="<?php echo base_url(USERTHUMBIMAGE . $userdata[0]['user_image']); ?>" height="50" width="50" alt="Smiley face" />
+                                        <?php } else { ?>
+                                            <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" height="50" width="50" alt="Smiley face" />
+                                        <?php } ?>
 
                                         <span class="username username-hide-on-mobile"> <?php
                                             if (isset($userdata[0]['first_name'])) {
-                                            echo $userdata[0]['first_name'];
+                                                echo $userdata[0]['first_name'];
                                             }
                                             ?> </span>
                                         <i class="fa fa-angle-down" ></i>
@@ -482,12 +482,12 @@ $(window).load(function(){
 
     <!-- script for update all read notification start-->
     <script type="text/javascript">
-            
-    function Notificationheader(){
-              getNotification();
-               notheader();
-                  
-    }
+
+        function Notificationheader() {
+            getNotification();
+            notheader();
+
+        }
         function getNotification() {
             // first click alert('here'); 
 
@@ -497,46 +497,46 @@ $(window).load(function(){
                 //data: {uid: 12341234}, //this sends the user-id to php as a post variable, in php it can be accessed as $_POST['uid']
                 success: function (data) {
                     data = JSON.parse(data);
-                   //alert(data);
+                    //alert(data);
                     //update some fields with the updated data
                     //you can access the data like 'data["driver"]'
                 }
             });
 
         }
-        
+
         function notheader()
-                        {
+        {
 
-                           // $("#fad" + clicked_id).fadeOut(6000);
-
-
-                            $.ajax({
-                                type: 'POST',
-                                url: '<?php echo base_url() . "notification/not_header" ?>',
-                                data: '',
-                                success: function (data) {
-                               //    alert(data);
-                                   $('#' + 'notificationsBody').html(data);
-
-                                }
+            // $("#fad" + clicked_id).fadeOut(6000);
 
 
-                            });
+            $.ajax({
+                type: 'POST',
+                url: '<?php echo base_url() . "notification/not_header" ?>',
+                data: '',
+                success: function (data) {
+                    //    alert(data);
+                    $('#' + 'notificationsBody').html(data);
 
-                        }
+                }
+
+
+            });
+
+        }
 
     </script>
     <!-- script for update all read notification end -->
 
     <!-- script for update all read notification start-->
     <script type="text/javascript">
-        
-        function getmsgNotification(){
-              msgNotification();
-               msgheader();
-                  
-    }
+
+        function getmsgNotification() {
+            msgNotification();
+            msgheader();
+
+        }
 
         function msgNotification() {
             // first click alert('here'); 
@@ -554,27 +554,27 @@ $(window).load(function(){
             });
 
         }
-        
+
         function msgheader()
-                        {
+        {
 
-                           // $("#fad" + clicked_id).fadeOut(6000);
-
-
-                            $.ajax({
-                                type: 'POST',
-                                url: '<?php echo base_url() . "notification/msg_header" ?>',
-                                data: '',
-                                success: function (data) {
-                               //    alert(data);
-                                   $('#' + 'notificationsmsgBody').html(data);
-
-                                }
+            // $("#fad" + clicked_id).fadeOut(6000);
 
 
-                            });
+            $.ajax({
+                type: 'POST',
+                url: '<?php echo base_url() . "notification/msg_header" ?>',
+                data: '',
+                success: function (data) {
+                    //    alert(data);
+                    $('#' + 'notificationsmsgBody').html(data);
 
-                        }
+                }
+
+
+            });
+
+        }
     </script>
     <!-- script for update all read notification end -->
 <!-- <script>
@@ -602,7 +602,7 @@ window.onclick = function(event) {
     -->
 
     <!-- Extra js if not work then add Start-->
-    <!-- <script type="text/javascript" src="<?php //echo base_url('js/jquery.min-notification.js');     ?>"></script> -->
+    <!-- <script type="text/javascript" src="<?php //echo base_url('js/jquery.min-notification.js');      ?>"></script> -->
     <!-- Extra js if not work then add End-->
 
 
