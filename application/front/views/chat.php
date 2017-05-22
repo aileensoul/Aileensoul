@@ -1,7 +1,4 @@
 
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,26 +42,6 @@ div .comment {
 
   <link rel="stylesheet" href="<?php echo base_url(); ?>css/style_chat.css" />
   
-  
-  <!-- <script type="text/javascript">   
-    $( document ).ready ( function () {
-      
-      $('#nickname').keyup(function() {
-        var nickname = $(this).val();
-        
-        if(nickname == ''){
-          $('#msg_block').hide();
-        }else{
-          $('#msg_block').show();
-        }
-      });
-      
-      // initial nickname check
-      $('#nickname').trigger('keyup');
-    });
-    
-  </script> -->
- 
 </head>
 <body>
 
