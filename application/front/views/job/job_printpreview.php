@@ -1,70 +1,7 @@
 <?php
 echo $head;
 ?>
-<style type="text/css">
-    
-    #popup-form img{display: none;}
-    #fade{
-    display: none;
-    position: fixed;
-    top: 0%;
-    left: 0%;
-    width: 100%;
-    height: 100%;
-    background-color: #000;
-    z-index:1001;
-    -moz-opacity: 0.7;
-    opacity:.70;
-    filter: alpha(opacity=70);
-}
-#light{
-    display: none;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 300px;
-    height: 200px;
-    margin-left: -150px;
-    margin-top: -100px;                 
-    padding: 10px;
-    border: 2px solid #FFF;
-    background: #CCC;
-    z-index:1002;
-    overflow:visible;
-}
-</style>
-<!-- <style type="text/css" media="screen">
-    #row2 { overflow: hidden; width: 100%; }
-    #row2 img { height: 350px;width: 100%; }
-    .upload-img{    float: right;
-                    position: relative;
-                    margin-top: -135px;
-                    right: 50px; }
 
-    label.cameraButton {
-        display: inline-block;
-        margin: 1em 0;
-        cursor: pointer;
-        /* Styles to make it look like a button */
-        padding: 0.5em;
-        border: 2px solid #666;
-        border-color: #EEE #CCC #CCC #EEE;
-        background-color: #DDD;
-        opacity: 0.7;
-    }
-
-    /* Look like a clicked/depressed button */
-    label.cameraButton:active {
-        border-color: #CCC #EEE #EEE #CCC;
-    }
-
-    /* This is the part that actually hides the 'Choose file' text box for camera inputs */
-    label.cameraButton input[accept*="camera"] {
-        display: none;
-    }
-
-
-</style> -->
 <!-- END HEAD -->
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
@@ -415,7 +352,7 @@ echo $job_header2;
                                                 <?php
                                                 if ($job_edu[0]['board_primary']) {
                                                     ?>
-                                                    <h6 class="edu_sec">Primary Education</h6>
+                                                  
                                                     <li> <b>Board </b><span> <?php echo $job_edu[0]['board_primary']; ?></span>
                                                     </li>
 
@@ -435,12 +372,8 @@ echo $job_header2;
                                      <img src="<?php echo base_url(JOBEDUCERTIFICATE . $job_edu[0]['edu_certificate_primary']) ?>" style="width:100px;height:100px;"></span>
                                                         </li>
 
-<a href="#" onclick="lightbox_open();">Open lightbox</a>
-<div id="light">
-     <img src="<?php echo base_url(JOBEDUCERTIFICATE . $job_edu[0]['edu_certificate_primary']) ?>" style="width:100px;height:100px;">
-    
-</div>
-<div id="fade" onClick="lightbox_close();"></div> 
+
+
 
 
                                                         <?php
@@ -453,7 +386,7 @@ echo $job_header2;
                                                 if ($job_edu[0]['board_secondary']) {
                                                     ?>
 
-                                                  <h6 class="edu_sec">Secondary Education</h6>
+                                               
                                                     <li> <b>Board </b><span> <?php echo $job_edu[0]['board_secondary']; ?></span>
                                                     </li>
 
@@ -481,7 +414,7 @@ echo $job_header2;
                                                 <?php
                                                 if ($job_edu[0]['board_higher_secondary']) {
                                                     ?>
-                                                    <h6 class="edu_sec">Higher secondary Education</h6>
+                                                 
                                                     <li> <b>Board </b><span> <?php echo $job_edu[0]['board_higher_secondary']; ?></span>
                                                     </li>
 
@@ -504,6 +437,14 @@ echo $job_header2;
                                                                 <img src="<?php echo base_url(JOBEDUCERTIFICATE . $job_edu[0]['edu_certificate_higher_secondary']) ?>" style="width:100px;height:100px;"></span>
                                                         </li>
 
+                                                        <li>
+                                                              <div>
+      <a class="example-image-link" style="width: 200px; height: 200px;" href="http://lokeshdhakar.com/projects/lightbox2/images/image-1.jpg" data-lightbox="example-1">hiii</a>
+     
+    </div>
+     
+                                                        </li>
+
                                                         <?php
                                                     }
                                                 }
@@ -512,9 +453,10 @@ echo $job_header2;
 <h5 style="text-decoration: underline; text-align: center; margin: 5px;">graduation</h5>
 
 
-                                                        <h6 class="edu_sec">Graduation</h6>
+                                                       
 
-                                                <?php
+<div id="1" class="tabcontent data_exp">
+     <?php
 
                                                 foreach ($job_graduation as $graduation) {
                                                     if ($graduation['degree']) {
@@ -575,6 +517,33 @@ echo $job_header2;
                                                     }
                                                 }
                                                 ?>
+</div>
+
+<div id="2" class="tabcontent data_exp">
+  <div>Paris</div>
+  <p>Paris is the capital of France.</p> 
+</div>
+
+<div id="3" class="tabcontent data_exp">
+  <div>Tokyo</div>
+  <p>Tokyo is the capital of Japan.</p>
+</div>
+<div id="4" class="tabcontent data_exp">
+  <div>4</div>
+  <p>Tokyo is the capital xxof Japan.</p>
+</div>
+<div id="5" class="tabcontent data_exp">
+  <div>5</div>
+  <p>Tokyo is the capitaddddl of Japan.</p>
+</div>
+                                       <div class="tab pagi_exp">
+  <button class="tablinks" onclick="openCity(event, '1')">1</button>
+  <button class="tablinks" onclick="openCity(event, '2')">2</button>
+  <button class="tablinks" onclick="openCity(event, '3')">3</button>
+  <button class="tablinks" onclick="openCity(event, '4')">4</button>
+  <button class="tablinks" onclick="openCity(event, '5')">5</button>
+</div>
+
                                             </ul>
                                         </div>
 
@@ -1042,8 +1011,10 @@ echo $job_header2;
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 
 
+                <script src="<?php echo base_url('js/light-box/lightbox-plus-jquery.min.js');?>"></script>
                 <script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script>
                 <link rel="stylesheet" href="<?php echo base_url('assets/css/croppie.css'); ?>">
+                  <link rel="stylesheet" href="<?php echo base_url('css/lightbox.min.css'); ?>">
 
                         <!-- script for skill textbox automatic end (option 2)-->
                         <script>
@@ -1471,23 +1442,28 @@ echo $job_header2;
   </script>
 
 
+ 
+
+
   <script type="text/javascript">
-window.document.onkeydown = function (e)
-{
-    if (!e){
-        e = event;
+      function openCity(evt, cityName) {
+    // Declare all variables
+    var i, tabcontent, tablinks;
+
+    // Get all elements with class="tabcontent" and hide them
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
     }
-    if (e.keyCode == 27){
-        lightbox_close();
+
+    // Get all elements with class="tablinks" and remove the class "active"
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
     }
-}
-  function lightbox_open(){
-    window.scrollTo(0,0);
-    document.getElementById('light').style.display='block';
-    document.getElementById('fade').style.display='block';  
-}
-      function lightbox_close(){
-    document.getElementById('light').style.display='none';
-    document.getElementById('fade').style.display='none';
+
+    // Show the current tab, and add an "active" class to the button that opened the tab
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
 }
   </script>
