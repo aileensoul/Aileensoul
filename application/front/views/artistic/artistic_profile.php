@@ -65,7 +65,7 @@
                 <div class="col-md-12 cover-pic" style="padding-top: 25px;text-align: center;">
                     <button class="btn btn-success cancel-result">Cancel</button>
 
-                    <button class="btn btn-success set-btn upload-result" onclick="myFunction()">Upload Image</button>
+                    <button class="btn btn-success set-btn upload-result" onclick="myFunction()">Save</button>
 
                     <div id="message1" style="display:none;">
                         <div id="floatBarsG">

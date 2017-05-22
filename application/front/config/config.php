@@ -586,7 +586,7 @@ $config['job_bg_thumb_width'] = '400';
 $config['job_bg_thumb_height'] = '150';
 
 // JOB BACKGROUND ORIGINAL IMAGE
-$config['job_bg_thumb_upload_path'] = 'uploads/job_bg/original/';
+$config['job_bg_original_upload_path'] = 'uploads/job_bg/original/';
 
 
 // JOB EDUCATION CERTIFICATE
@@ -752,8 +752,8 @@ $config['bus_post_main_max_height'] = '1800';
 
 // BUSINESS POST THUMBS
 $config['bus_post_thumb_upload_path'] = 'uploads/business_post/thumbs/';
-$config['bus_post_thumb_width'] = '160';
-$config['bus_post_thumb_height'] = '160';
+$config['bus_post_thumb_width'] = '300';
+$config['bus_post_thumb_height'] = '300';
 
 
 // ARTISTIC PROFILE IMAGE
