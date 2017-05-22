@@ -2574,11 +2574,12 @@ class Job extends MY_Controller {
 
         $userdata = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-    echo "<pre>"; print_r($userdata); die();
+    //echo "<pre>"; print_r($userdata); die();
         if ($userdata) {
             $step = $userdata[0]['job_step'];
             if ($step == 10 || ($step >= 1 && $step <= 10)) {
                 $this->data['carrier1'] = $userdata[0]['carrier'];
+                 $this->data['declaration1'] = $userdata[0]['declaration'];
             }
         }
        
@@ -2632,7 +2633,7 @@ class Job extends MY_Controller {
         $this->form_validation->set_rules('carrier', 'Carrier', 'required');
        
          }else{
-         $this->form_validation->set_rules('checkbox', 'Checkbox', 'required');
+         $this->form_validation->set_rules('declaration', 'declaration', 'required');
         $this->form_validation->set_rules('carrier', 'Carrier', 'required');
             }
 
@@ -2642,6 +2643,7 @@ class Job extends MY_Controller {
         } else {
             $data = array(
                 'carrier' => $this->input->post('carrier'),
+                 'declaration' => $this->input->post('declaration'),
                 'modified_date' => date('Y-m-d h:i:s', time()),
                 'job_step' => 10,
             );
