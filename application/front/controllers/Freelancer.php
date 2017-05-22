@@ -1479,7 +1479,7 @@ $new = array();
         $post_skill = $this->data['freelancerhiredata'][0]['post_skill'];
         $postuserarray = explode(',', $post_skill);
          // echo "<pre>"; print_r($postuserarray); die();
-        $contition_array = array('user_id' => $userid, 'is_delete' => 0, 'status' => 1);
+        $contition_array = array('is_delete' => 0, 'status' => 1);
 
         $candidate = $this->data['candidate'] = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
        //echo "<pre>"; print_r($candidate); die();
@@ -1488,7 +1488,7 @@ $new = array();
         foreach ($candidate as $frcan) {
             $freelancer_post_area = explode(',', $frcan['freelancer_post_area']);
             $result = array_intersect($postuserarray, $freelancer_post_area);
-
+            
             if (count($result) > 0) {
 
                 $contition_array = array('freelancer_post_reg_id' => $frcan['freelancer_post_reg_id'], 'is_delete' => 0, 'status' => 1);
