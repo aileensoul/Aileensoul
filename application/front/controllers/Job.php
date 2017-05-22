@@ -1874,7 +1874,7 @@ class Job extends MY_Controller {
         $contition_array = array('user_id' => $userid, 'is_delete' => 0, 'status' => 1);
 
 
-        $userdata = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        $userdata = $this->data['userdata'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
         if ($userdata) {
             $step = $userdata[0]['job_step'];
@@ -1885,7 +1885,7 @@ class Job extends MY_Controller {
                 $workdata = $this->data['workdata'] = $this->common->select_data_by_condition('job_add_workexp', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
             }
         }
-        //echo "<pre>";print_r($jobdata);die();
+       // echo "<pre>";print_r($userdata);die();
         // code for search
         $contition_array = array('re_status' => '1');
 

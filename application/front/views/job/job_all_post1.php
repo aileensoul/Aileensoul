@@ -519,7 +519,7 @@
                                             <?php
                                         }
                                     } else {
-                                        echo 'no data available';
+                                        echo 'No Data Available';
                                     }
                                 } else {
                                     if (count($postdetail) > 0) {
