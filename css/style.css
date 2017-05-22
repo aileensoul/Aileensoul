@@ -4708,8 +4708,8 @@ fieldset .add_post_btns{min-width: 120px;padding:10px 30px 9px;}
     search result*/
 
  .search_img{    margin: 4px 3px 2px 7px;
-    height: 110px;
-    width: 110px;
+    height: 100px;
+    width: 100px;
     display: inline-block; }
     .search_img img{height: 100%; width: 100%;}
     .search_button{margin-top: 14px;
