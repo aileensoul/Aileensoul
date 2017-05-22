@@ -3039,12 +3039,52 @@ $user_bg_path = $this->config->item('free_hire_bg_main_upload_path');
     public function ajaxpro_work() {
         $userid = $this->session->userdata('aileenuser');
 
+
+$contition_array = array('user_id' => $userid);
+        $user_reg_data = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = 'profile_background,profile_background_main', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+        $user_reg_prev_image = $user_reg_data[0]['profile_background'];
+        $user_reg_prev_main_image = $user_reg_data[0]['profile_background_main'];
+
+        if ($user_reg_prev_image != '') {
+            $user_image_main_path = $this->config->item('free_post_bg_main_upload_path');
+            $user_bg_full_image = $user_image_main_path . $user_reg_prev_image;
+            if (isset($user_bg_full_image)) {
+                unlink($user_bg_full_image);
+            }
+            
+            $user_image_thumb_path = $this->config->item('free_post_bg_thumb_upload_path');
+            $user_bg_thumb_image = $user_image_thumb_path . $user_reg_prev_image;
+            if (isset($user_bg_thumb_image)) {
+                unlink($user_bg_thumb_image);
+            }
+        }
+        if ($user_reg_prev_main_image != '') {
+            $user_image_original_path = $this->config->item('free_post_bg_original_upload_path');
+            $user_bg_origin_image = $user_image_original_path . $user_reg_prev_main_image;
+            if (isset($user_bg_origin_image)) {
+                unlink($user_bg_origin_image);
+            }
+        }
+
+
+
+
         $data = $_POST['image'];
 
 
+        $user_bg_path = $this->config->item('free_post_bg_main_upload_path');
         $imageName = time() . '.png';
         $base64string = $data;
-        file_put_contents('uploads/free_work_bg/' . $imageName, base64_decode(explode(',', $base64string)[1]));
+        file_put_contents($user_bg_path . $imageName, base64_decode(explode(',', $base64string)[1]));
+
+        $user_thumb_path = $this->config->item('free_post_bg_thumb_upload_path');
+        $user_thumb_width = $this->config->item('free_post_bg_thumb_width');
+        $user_thumb_height = $this->config->item('free_post_bg_thumb_height');
+
+        $upload_image = $user_bg_path . $imageName;
+
+        $thumb_image_uplode = $this->thumb_img_uplode($upload_image, $imageName, $user_thumb_path, $user_thumb_width, $user_thumb_height);
 
         $data = array(
             'profile_background' => $imageName
@@ -3060,8 +3100,8 @@ $user_bg_path = $this->config->item('free_hire_bg_main_upload_path');
     public function image_work() {
         $userid = $this->session->userdata('aileenuser');
 
-        $config['upload_path'] = 'uploads/free_work_bg';
-        $config['allowed_types'] = 'jpg|jpeg|png|gif';
+        $config['upload_path'] = $this->config->item('free_post_bg_main_upload_path');
+        $config['allowed_types'] = $this->config->item('free_post_bg_main_allowed_types');
 
         $config['file_name'] = $_FILES['image']['name'];
 
@@ -3081,7 +3121,8 @@ $user_bg_path = $this->config->item('free_hire_bg_main_upload_path');
 
 
         $data = array(
-            'profile_background_main' => $image
+            'profile_background_main' => $image,
+            'modify_date ' => date('Y-m-d h:i:s', time())
         );
 
         $updatedata = $this->common->update_data($data, 'freelancer_post_reg', 'user_id', $userid);
