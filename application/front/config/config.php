@@ -641,7 +641,7 @@ $config['rec_bg_thumb_width'] = '400';
 $config['rec_bg_thumb_height'] = '150';
 
 // RECRUITER BACKGROUND ORIGINAL IMAGE
-$config['rec_bg_thumb_upload_path'] = 'uploads/recruiter_bg/original/';
+$config['rec_bg_original_upload_path'] = 'uploads/recruiter_bg/original/';
 
 
 // FREELANCER PORTFOLIO ATTACHMENT 

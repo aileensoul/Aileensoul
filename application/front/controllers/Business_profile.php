@@ -2661,7 +2661,7 @@ class Business_profile extends MY_Controller {
     public function imagedata() {
         $userid = $this->session->userdata('aileenuser');
 
-        $config['upload_path'] = 'uploads/bus_bg';
+        $config['upload_path'] = $this->config->item('bus_bg_original_upload_path');
         $config['allowed_types'] = 'jpg|jpeg|png|gif';
 
         $config['file_name'] = $_FILES['image']['name'];

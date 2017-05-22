@@ -137,7 +137,7 @@ if ($returnpage == 'job') {
                         ?>
 
                         <div class="bg-images">
-                            <img src="<?php echo base_url(RECBGIMAGE . $image[0]['profile_background']); ?>" name="image_src" id="image_src" / ></div>
+                            <img src="<?php echo base_url($this->config->item('rec_bg_main_upload_path') . $image[0]['profile_background']); ?>" name="image_src" id="image_src" / ></div>
                         <?php
                     } else {
                         ?>
@@ -172,7 +172,7 @@ if ($returnpage == 'job') {
               <?php 
              
               if($postdataone[0]['recruiter_user_image'] != '' ){ ?>
-                           <img src="<?php echo base_url(USERIMAGE . $postdataone[0]['recruiter_user_image']);?>" alt="" >
+                           <img src="<?php echo base_url($this->config->item('rec_profile_thumb_upload_path') . $postdataone[0]['recruiter_user_image']);?>" alt="" >
                             <?php } else { ?>
                             <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
                             <?php } ?>

@@ -258,7 +258,7 @@
                     if ($image_ori) {
                         ?>
                         <div class="bg-images">
-                            <img src="<?php echo base_url(RECBGIMAGE . $image[0]['profile_background']); ?>" name="image_src" id="image_src" / ></div>
+                            <img src="<?php echo base_url($this->config->item('rec_bg_main_upload_path') . $image[0]['profile_background']); ?>" name="image_src" id="image_src" / ></div>
                         <?php
                     } else {
                         ?>
@@ -291,7 +291,7 @@
 
             <div class="user-pic">
                 <?php if ($recruiterdata[0]['recruiter_user_image'] != '') { ?>
-                    <img src="<?php echo base_url(USERIMAGE . $recruiterdata[0]['recruiter_user_image']); ?>" alt="" >
+                    <img src="<?php echo base_url($this->config->item('rec_profile_thumb_upload_path') . $recruiterdata[0]['recruiter_user_image']); ?>" alt="" >
                 <?php } else { ?>
                     <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
                 <?php } ?>
@@ -454,7 +454,7 @@
                  if ($rec['job_user_image']) {
                     ?>
                <a href="<?php echo base_url('job/job_printpreview/' . $rec['user_id'].'?page=recruiter'); ?>" title="<?php echo $this->db->get_where('job_reg', array('user_id' => $rec['to_id']))->row()->fname . ' ' . $this->db->get_where('job_reg', array('user_id' => $rec['to_id']))->row()->lname; ?>"> 
-               <img src="<?php echo base_url(USERIMAGE . $rec['job_user_image']); ?>" alt="<?php echo $rec[0]['fname']. ' ' . $rec[0]['lname']; ?>">
+               <img src="<?php echo base_url($this->config->item('job_profile_thumb_upload_path') . $rec['job_user_image']); ?>" alt="<?php echo $rec[0]['fname']. ' ' . $rec[0]['lname']; ?>">
                      <?php
                        } else {
                           ?> </a>
