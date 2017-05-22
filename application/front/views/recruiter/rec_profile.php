@@ -181,7 +181,7 @@
         <div class="col-md-12 cover-pic" style="padding-top: 25px;text-align: center;">
         <button class="btn btn-success  cancel-result" onclick="">Cancel</button>
    
-        <button class="btn btn-success  upload-result set-btn" onclick="myFunction()">Upload Image</button>
+        <button class="btn btn-success  upload-result set-btn" onclick="myFunction()">Save</button>
 
         <div id="message1" style="display:none;">
            <div id="floatBarsG">
@@ -297,9 +297,9 @@
 
                                        <li <?php if($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'rec_post'){?> class="active" <?php } ?>>
                                            <?php if($returnpage == 'job'){ ?>
-                                           <a title="Candidate Post" href="<?php echo base_url('recruiter/rec_post/'.$this->uri->segment(3).'?page='.$returnpage); ?>">Post</a>
+                                           <a title="Post" href="<?php echo base_url('recruiter/rec_post/'.$this->uri->segment(3).'?page='.$returnpage); ?>">Post</a>
                                            <?php } else {?>
-                                           <a title="Candidate Post" href="<?php echo base_url('recruiter/rec_post'); ?>">Post</a>
+                                           <a title="Post" href="<?php echo base_url('recruiter/rec_post'); ?>">Post</a>
                                            <?php }?>
                                     </li>
 
