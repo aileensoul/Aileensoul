@@ -439,7 +439,7 @@ echo $job_header2;
 
                                                         <li>
                                                               <div>
-      <a class="example-image-link" href="http://lokeshdhakar.com/projects/lightbox2/images/image-1.jpg" data-lightbox="example-1">hiii</a>
+      <a class="example-image-link" style="width: 200px; height: 200px;" href="http://lokeshdhakar.com/projects/lightbox2/images/image-1.jpg" data-lightbox="example-1">hiii</a>
      
     </div>
      
@@ -1011,8 +1011,10 @@ echo $job_header2;
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 
 
+                <script src="<?php echo base_url('js/light-box/lightbox-plus-jquery.min.js');?>"></script>
                 <script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script>
                 <link rel="stylesheet" href="<?php echo base_url('assets/css/croppie.css'); ?>">
+                  <link rel="stylesheet" href="<?php echo base_url('css/lightbox.min.css'); ?>">
 
                         <!-- script for skill textbox automatic end (option 2)-->
                         <script>
