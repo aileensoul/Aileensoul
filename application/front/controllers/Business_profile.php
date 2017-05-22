@@ -414,28 +414,26 @@ class Business_profile extends MY_Controller {
             $contition_array = array('user_id' => $userid, 'status' => '1');
             $userdata = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-             if ($userdata[0]['business_step'] == 4) {
+            if ($userdata[0]['business_step'] == 4) {
                 $data = array(
-                'contact_person' => $this->input->post('contactname'),
-                'contact_mobile' => $this->input->post('contactmobile'),
-                'contact_email' => $this->input->post('email'),
-                'contact_website' => $this->input->post('contactwebsite'),
-                'modified_date' => date('Y-m-d', time()),
-                //'business_step' => 2
-            );
+                    'contact_person' => $this->input->post('contactname'),
+                    'contact_mobile' => $this->input->post('contactmobile'),
+                    'contact_email' => $this->input->post('email'),
+                    'contact_website' => $this->input->post('contactwebsite'),
+                    'modified_date' => date('Y-m-d', time()),
+                        //'business_step' => 2
+                );
+            } else {
 
-             }else{
-
-            $data = array(
-                'contact_person' => $this->input->post('contactname'),
-                'contact_mobile' => $this->input->post('contactmobile'),
-                'contact_email' => $this->input->post('email'),
-                'contact_website' => $this->input->post('contactwebsite'),
-                'modified_date' => date('Y-m-d', time()),
-                'business_step' => 2
-            );
-
-          }
+                $data = array(
+                    'contact_person' => $this->input->post('contactname'),
+                    'contact_mobile' => $this->input->post('contactmobile'),
+                    'contact_email' => $this->input->post('email'),
+                    'contact_website' => $this->input->post('contactwebsite'),
+                    'modified_date' => date('Y-m-d', time()),
+                    'business_step' => 2
+                );
+            }
             $updatdata = $this->common->update_data($data, 'business_profile', 'user_id', $userid);
 
 
@@ -571,33 +569,31 @@ class Business_profile extends MY_Controller {
 
 
                 $contition_array = array('user_id' => $userid, 'status' => '1');
-            $userdata = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                $userdata = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-             if ($userdata[0]['business_step'] == 4) {
-                $data = array(
-                    'business_type' => $this->input->post('business_type'),
-                    'industriyal' => $this->input->post('industriyal'),
-                    'subindustriyal' => $this->input->post('subindustriyal'),
-                    'other_business_type' => $this->input->post('bustype'),
-                    'other_industrial' => $this->input->post('indtype'),
-                    'details' => $this->input->post('business_details'),
-                    'modified_date' => date('Y-m-d', time()),
-                    //'business_step' => 3
-                );
-
-
-               }else{
-                $data = array(
-                    'business_type' => $this->input->post('business_type'),
-                    'industriyal' => $this->input->post('industriyal'),
-                    'subindustriyal' => $this->input->post('subindustriyal'),
-                    'other_business_type' => $this->input->post('bustype'),
-                    'other_industrial' => $this->input->post('indtype'),
-                    'details' => $this->input->post('business_details'),
-                    'modified_date' => date('Y-m-d', time()),
-                    'business_step' => 3
-                );
-               }
+                if ($userdata[0]['business_step'] == 4) {
+                    $data = array(
+                        'business_type' => $this->input->post('business_type'),
+                        'industriyal' => $this->input->post('industriyal'),
+                        'subindustriyal' => $this->input->post('subindustriyal'),
+                        'other_business_type' => $this->input->post('bustype'),
+                        'other_industrial' => $this->input->post('indtype'),
+                        'details' => $this->input->post('business_details'),
+                        'modified_date' => date('Y-m-d', time()),
+                            //'business_step' => 3
+                    );
+                } else {
+                    $data = array(
+                        'business_type' => $this->input->post('business_type'),
+                        'industriyal' => $this->input->post('industriyal'),
+                        'subindustriyal' => $this->input->post('subindustriyal'),
+                        'other_business_type' => $this->input->post('bustype'),
+                        'other_industrial' => $this->input->post('indtype'),
+                        'details' => $this->input->post('business_details'),
+                        'modified_date' => date('Y-m-d', time()),
+                        'business_step' => 3
+                    );
+                }
                 $updatdata = $this->common->update_data($data, 'business_profile', 'user_id', $userid);
 
                 if ($updatdata) {
@@ -622,15 +618,15 @@ class Business_profile extends MY_Controller {
             $step = $userdata[0]['business_step'];
 
             if ($step == 4 || ($step >= 1 && $step <= 4) || $step > 4) {
-        $contition_array = array('user_id' => $userid, 'is_delete' => '0');
-        $this->data['busimage'] = $this->common->select_data_by_condition('bus_image', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-        //echo '<pre>'; print_r($busimage); die();
+                $contition_array = array('user_id' => $userid, 'is_delete' => '0');
+                $this->data['busimage'] = $this->common->select_data_by_condition('bus_image', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                //echo '<pre>'; print_r($busimage); die();
             }
         }
 
 
 // code for search
-$contition_array = array('status' => '1', 'is_deleted' => '0');
+        $contition_array = array('status' => '1', 'is_deleted' => '0');
 
 
         $businessdata = $this->data['results'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'company_name,other_industrial,other_business_type', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
@@ -675,122 +671,123 @@ $contition_array = array('status' => '1', 'is_deleted' => '0');
     public function image_insert() {
 
         $userid = $this->session->userdata('aileenuser');
-      $count1 = count($this->input->post('filedata'));
-     
+        $count1 = count($this->input->post('filedata'));
 
-      $contition_array = array('user_id' => $userid, 'is_deleted' => '0', 'status' => '1');
+        for ($x = 0; $x < $count1; $x++) {
+            if ($_POST['filedata'][$x] == 'old') {
 
-      $businessdata = $this->data['businessdata'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-
-
-      for ($x = 0; $x < $count1; $x++) {
-      if($_POST['filedata'][$x] == 'old'){ 
-         
-          $data = array(
+                $data = array(
                     'image_name' => $_POST['filename'][$x],
-                   );
-                  $updatdata = $this->common->update_data($data, 'bus_image', 'image_id', $_POST['imageid'][$x]);
+                );
+                $updatdata = $this->common->update_data($data, 'bus_image', 'image_id', $_POST['imageid'][$x]);
             }
-            
-            if($_POST['filedata'][$x]){
-                  $data = array(
+
+            if ($_POST['filedata'][$x]) {
+                $data = array(
                     'modified_date' => date('Y-m-d', time()),
                     'business_step' => 4
                 );
-           
-            $updatdata = $this->common->update_data($data, 'business_profile', 'user_id', $userid);
+
+                $updatdata = $this->common->update_data($data, 'business_profile', 'user_id', $userid);
+            } else {
+                $data = array(
+                    'modified_date' => date('Y-m-d', time()),
+                    'business_step' => 4
+                );
+
+                $updatdata = $this->common->update_data($data, 'business_profile', 'user_id', $userid);
+            }
         }
 
-        }
-        
-       
+
         $contition_array = array('user_id' => $userid, 'is_delete' => '0');
         $userdatacon = $this->common->select_data_by_condition('bus_image', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-        //echo "<pre>"; print_r($userdatacon); die();
-        
-        
+
+
+
         if ($this->input->post('next') || $this->input->post('submit')) {
 
-          
-         // changes start 17-5 
-            
-             $config = array(
-            'upload_path' => 'uploads/business_profile_images/',
-            'max_size' => 1024 * 100,
-            'allowed_types' => 'gif|jpeg|jpg|png'
-        );
-        $images = array();
-        $this->load->library('upload');
 
-        $files = $_FILES;
-        $count = count($_FILES['image1']['name']);
+            // changes start 17-5 
 
-         
+            $config = array(
+                'upload_path' => 'uploads/business_profile_images/',
+                'max_size' => 1024 * 100,
+                'allowed_types' => 'gif|jpeg|jpg|png'
+            );
+            $images = array();
+            $this->load->library('upload');
 
-        for ($i = 0; $i < $count; $i++) {
+            $files = $_FILES;
+            $count = count($_FILES['image1']['name']);
 
-            $_FILES['image1']['name'] = $files['image1']['name'][$i];
-            $_FILES['image1']['type'] = $files['image1']['type'][$i];
-            $_FILES['image1']['tmp_name'] = $files['image1']['tmp_name'][$i];
-            $_FILES['image1']['error'] = $files['image1']['error'][$i];
-            $_FILES['image1']['size'] = $files['image1']['size'][$i];
 
-            $fileName = $_FILES['image1']['name'];
-            $images[] = $fileName;
-            $config['file_name'] = $fileName;
-            // echo $config['file_name'];die();
 
-            $this->upload->initialize($config);
-            $this->upload->do_upload();
-            if ($this->upload->do_upload('image1')) {
-                $fileData = $this->upload->data();
-                $uploadData[$i]['file_name'] = $fileData['file_name'];
-            } else {
-                $uploadData[$i]['file_name'] = '';
-            }
-            
-            
-            
-            if ($uploadData[$i]['file_name']) {
+            for ($i = 0; $i < $count; $i++) {
+
+                $_FILES['image1']['name'] = $files['image1']['name'][$i];
+                $_FILES['image1']['type'] = $files['image1']['type'][$i];
+                $_FILES['image1']['tmp_name'] = $files['image1']['tmp_name'][$i];
+                $_FILES['image1']['error'] = $files['image1']['error'][$i];
+                $_FILES['image1']['size'] = $files['image1']['size'][$i];
+
+                $fileName = $_FILES['image1']['name'];
+                $images[] = $fileName;
+                $config['file_name'] = $fileName;
+                // echo $config['file_name'];die();
+
+                $this->upload->initialize($config);
+                $this->upload->do_upload();
+                if ($this->upload->do_upload('image1')) {
+                    $fileData = $this->upload->data();
+                    $uploadData[$i]['file_name'] = $fileData['file_name'];
+                } else {
+                    $uploadData[$i]['file_name'] = '';
+                }
+
+
+
+                if ($uploadData[$i]['file_name']) {
 //echo $uploadData[$i]['file_name'];
-                $data = array(
-                    'image_name' => $uploadData[$i]['file_name'],
-                    'user_id' => $userid,
-                    'created_date' => date('y-m-d h:i:s'),
-                    'is_delete' => 0
-                );
-                
-                 $insert_id = $this->common->insert_data_getid($data, 'bus_image');
-                 } 
-                 
-                 
-                 if($uploadData[$i]['file_name']){
-                  $data = array(
-                    'modified_date' => date('Y-m-d', time()),
-                    'business_step' => 4
-                   );
-           
-            $updatdata = $this->common->update_data($data, 'business_profile', 'user_id', $userid);
-        }
-        
-        } 
-        // Multiple Image insert code End
-            
-            
-        // changes end 17-5    
-            
-            
-            
+                    $data = array(
+                        'image_name' => $uploadData[$i]['file_name'],
+                        'user_id' => $userid,
+                        'created_date' => date('y-m-d h:i:s'),
+                        'is_delete' => 0
+                    );
+
+                    $insert_id = $this->common->insert_data_getid($data, 'bus_image');
+                }
+
+
+                if ($uploadData[$i]['file_name']) {
+                    $data = array(
+                        'modified_date' => date('Y-m-d', time()),
+                        'business_step' => 4
+                    );
+
+                    $updatdata = $this->common->update_data($data, 'business_profile', 'user_id', $userid);
+                } else {
+                    $data = array(
+                        'modified_date' => date('Y-m-d', time()),
+                        'business_step' => 4
+                    );
+
+                    $updatdata = $this->common->update_data($data, 'business_profile', 'user_id', $userid);
+                }
+            }
+            // Multiple Image insert code End
+            // changes end 17-5    
 
             if ($updatdata) {
                 $this->session->set_flashdata('success', 'Image updated successfully');
-              
-              if($businessdata[0]['business_step'] == 4){ 
+
+                // if($userdatacon[0]['business_step'] == 4){
                 redirect('business_profile/business_resume', refresh);
-               }
-                else{ 
-                  redirect('business_profile/business_profile_post', refresh);
-                }
+                //   }
+                // } else{
+                //    redirect('business_profile/business_profile_post', refresh);
+                //  }
             } else {
                 $this->session->flashdata('error', 'Your data not inserted');
                 redirect('business_profile/image', refresh);
@@ -1124,21 +1121,16 @@ $contition_array = array('status' => '1', 'is_deleted' => '0');
         $userid = $this->session->userdata('aileenuser');
         $user_name = $this->session->userdata('user_name');
 
-
-
         $contition_array = array('user_id' => $userid, 'status' => '1');
-
         $this->data['slug_data'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-        //echo "<pre>"; print_r($this->data['slug_data']); die();
+
         $slug_id = $this->data['slug_data'][0]['business_slug'];
-        //echo  $slug_id ; die();
         if ($id == $slug_id || $id == '') {
 
             $contition_array = array('business_slug' => $slug_id, 'status' => '1');
             $businessdata1 = $this->data['businessdata1'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
             $contition_array = array('user_id' => $businessdata1[0]['user_id'], 'status' => 1, 'is_delete' => '0');
-
             $this->data['business_profile_data'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data, $sortby = 'business_profile_post_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
             //echo "<pre>"; print_r($this->data['business_profile_data']); die();
@@ -1262,9 +1254,8 @@ $contition_array = array('status' => '1', 'is_deleted' => '0');
         $insert_id = $this->common->insert_data_getid($data, 'business_profile_post');
         //echo $insert_id; die(); 
         $config = array(
-            'upload_path' => 'uploads/bus_post_image/',
-            //'max_size' => 2500000000000,
-            'allowed_types' => 'gif|jpeg|jpg|png|pdf|mp4|mp3|avi|ogg|3gp|webm',
+            'upload_path' => $this->config->item('bus_post_main_upload_path'),
+            'allowed_types' => $this->config->item('bus_post_main_allowed_types'),
             'overwrite' => true,
             'remove_spaces' => true);
         $images = array();
@@ -1284,24 +1275,41 @@ $contition_array = array('status' => '1', 'is_deleted' => '0');
 
             $store = $_FILES['postattach']['name'];
 
-            $store_ext = explode('.',$store);
+            $store_ext = explode('.', $store);
             $store_ext = end($store_ext);
 
-
-             //$store_ext = pathinfo($store, PATHINFO_EXTENSION);
-            // $store = preg_replace('/[&\+\s]/i', '_', $store);
-            // $store = str_replace(' ', '_', $store);
-            // $store = str_replace('-', '_', $store);
-            // $fileName = $title . '_' .$store;
-            $fileName = 'file_'.$title.'_'.$this->random_string().'.'.$store_ext;
+            $fileName = 'file_' . $title . '_' . $this->random_string() . '.' . $store_ext;
 
             $images[] = $fileName;
             $config['file_name'] = $fileName;
 
             $this->upload->initialize($config);
             $this->upload->do_upload();
-            if ($this->upload->do_upload('postattach')) {//echo "hello"; die();
-                $return['data'][] = $this->upload->data();
+
+            $imgdata = $this->upload->data();
+
+            if ($this->upload->do_upload('postattach')) {
+
+                $business_profile_post_thumb['image_library'] = 'gd2';
+                $business_profile_post_thumb['source_image'] = $config['upload_path'] . $imgdata['file_name'];
+                $business_profile_post_thumb['new_image'] = $this->config->item('bus_post_thumb_upload_path') . $imgdata['file_name'];
+                $business_profile_post_thumb['create_thumb'] = TRUE;
+                $business_profile_post_thumb['maintain_ratio'] = TRUE;
+                $business_profile_post_thumb['thumb_marker'] = '';
+                $business_profile_post_thumb['width'] = $this->config->item('bus_post_thumb_width');
+                $business_profile_post_thumb['height'] = 2;
+                $business_profile_post_thumb['master_dim'] = 'width';
+                $business_profile_post_thumb['quality'] = "100%";
+                $business_profile_post_thumb['x_axis'] = '0';
+                $business_profile_post_thumb['y_axis'] = '0';
+                //Loading Image Library
+                $this->load->library('image_lib', $business_profile_post_thumb);
+                $dataimage = $imgdata['file_name'];
+                //Creating Thumbnail
+                $this->image_lib->resize();
+                $thumberror = $this->image_lib->display_errors();
+
+                $return['data'][] = $imgdata;
                 $return['status'] = "success";
                 $return['msg'] = sprintf($this->lang->line('success_item_added'), "Image", "uploaded");
 
@@ -1349,8 +1357,8 @@ $contition_array = array('status' => '1', 'is_deleted' => '0');
         } else {
 
 
-            $config['upload_path'] = 'uploads/business_profile_images/';
-            $config['allowed_types'] = 'jpg|jpeg|png|gif|mp4|3gp|pdf';
+            $config['upload_path'] = $this->config->item('bus_post_main_upload_path');
+            $config['allowed_types'] = $this->config->item('bus_post_main_allowed_types');
 
             $config['file_name'] = $_FILES['image']['name'];
             $config['upload_max_filesize'] = '40M';
@@ -1361,6 +1369,27 @@ $contition_array = array('status' => '1', 'is_deleted' => '0');
 
             if ($this->upload->do_upload('image')) {
                 $uploadData = $this->upload->data();
+
+                //Configuring Thumbnail 
+                $business_post_thumb['image_library'] = 'gd2';
+                $business_post_thumb['source_image'] = $config['upload_path'] . $uploadData['file_name'];
+                $business_post_thumb['new_image'] = $this->config->item('user_thumb_upload_path') . $imgdata['file_name'];
+                $business_post_thumb['create_thumb'] = TRUE;
+                $business_post_thumb['maintain_ratio'] = TRUE;
+                $business_post_thumb['thumb_marker'] = '';
+                $business_post_thumb['width'] = $this->config->item('user_thumb_width');
+                //$user_thumb['height'] = $this->config->item('user_thumb_height');
+                $business_post_thumb['height'] = 2;
+                $business_post_thumb['master_dim'] = 'width';
+                $business_post_thumb['quality'] = "100%";
+                $business_post_thumb['x_axis'] = '0';
+                $business_post_thumb['y_axis'] = '0';
+                //Loading Image Library
+                $this->load->library('image_lib', $user_thumb);
+                $dataimage = $imgdata['file_name'];
+                //Creating Thumbnail
+                $this->image_lib->resize();
+                $thumberror = $this->image_lib->display_errors();
 
                 $picture = $uploadData['file_name'];
             } else {
@@ -1578,16 +1607,15 @@ $contition_array = array('status' => '1', 'is_deleted' => '0');
                     redirect('business_profile/followers', refresh);
                 } elseif ($this->input->post('hitext') == 8) {
                     redirect('business_profile/following', refresh);
-                }elseif ($this->input->post('hitext') == 9) {
+                } elseif ($this->input->post('hitext') == 9) {
                     redirect('business_profile/business_photos', refresh);
-                }elseif ($this->input->post('hitext') == 10) {
+                } elseif ($this->input->post('hitext') == 10) {
                     redirect('business_profile/business_videos', refresh);
-                }elseif ($this->input->post('hitext') == 11) {
+                } elseif ($this->input->post('hitext') == 11) {
                     redirect('business_profile/business_audios', refresh);
-                }elseif ($this->input->post('hitext') == 12) {
+                } elseif ($this->input->post('hitext') == 12) {
                     redirect('business_profile/business_pdf', refresh);
                 }
-
             } else {
                 $this->session->flashdata('error', 'Your data not inserted');
                 redirect('business_profile/business_profile_post', refresh);
@@ -1621,7 +1649,7 @@ $contition_array = array('status' => '1', 'is_deleted' => '0');
         $businessdata = $this->data['results'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'company_name,other_industrial,other_business_type', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
         // echo "<pre>";print_r($businessdata);die();
 
-      
+
         $contition_array = array('status' => '1', 'is_delete' => '0');
 
 
@@ -1633,11 +1661,11 @@ $contition_array = array('status' => '1', 'is_deleted' => '0');
 
         $industrytype = $this->data['results'] = $this->common->select_data_by_condition('industry_type', $contition_array, $data = 'industry_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
         // echo "<pre>";print_r($industrytype);die();
-        
-        
+
+
         $contition_array = array('user_id' => $userid, 'is_delete' => '0');
         $this->data['busimagedata'] = $this->common->select_data_by_condition('bus_image', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-        
+
         $unique = array_merge($businessdata, $businesstype, $industrytype);
         foreach ($unique as $key => $value) {
             foreach ($value as $ke => $val) {
@@ -1861,8 +1889,8 @@ $contition_array = array('status' => '1', 'is_deleted' => '0');
 
         $artdata = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-        
-       $contition_array = array('business_profile_id' => $business_id, 'is_deleted' => 0, 'status' => 1);
+
+        $contition_array = array('business_profile_id' => $business_id, 'is_deleted' => 0, 'status' => 1);
 
         $busdatatoid = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -1981,7 +2009,7 @@ $contition_array = array('status' => '1', 'is_deleted' => '0');
 
         $artdata = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-         $contition_array = array('business_profile_id' => $business_id, 'is_deleted' => 0, 'status' => 1);
+        $contition_array = array('business_profile_id' => $business_id, 'is_deleted' => 0, 'status' => 1);
 
         $busdatatoid = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -2322,7 +2350,7 @@ $contition_array = array('status' => '1', 'is_deleted' => '0');
 // end of user list
     //deactivate user start
     public function deactivate() {
-       
+
         $id = $_POST['id'];
 
         $data = array(
@@ -3211,10 +3239,10 @@ $contition_array = array('status' => '1', 'is_deleted' => '0');
                 // $cmtlikeuser .= '<div class="fl" style=" padding-left: 22px;" >';
                 $cmtlikeuser .= '<div class="like_one_other">';
 
-                if($userid == $likelistarray[0]){
-                 $cmtlikeuser .= 'You';
-                }else{
-                $cmtlikeuser .= '' . ucwords($business_fname1) . '&nbsp;';
+                if ($userid == $likelistarray[0]) {
+                    $cmtlikeuser .= 'You';
+                } else {
+                    $cmtlikeuser .= '' . ucwords($business_fname1) . '&nbsp;';
                 }
 
                 $cmtlikeuser .= '</div>';
@@ -3285,7 +3313,7 @@ $contition_array = array('status' => '1', 'is_deleted' => '0');
                 $countlike = $commnetcount[0]['business_likes_count'] - 1;
 
                 $likelistarray = explode(',', $likeuser);
-                $likelistarray = array_reverse($likelistarray); 
+                $likelistarray = array_reverse($likelistarray);
                 foreach ($likelistarray as $key => $value) {
                     $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $value, 'status' => 1))->row()->company_name;
                     //  $cmtlikeuser .= '<a href="' . base_url('business_profile/business_resume/' . $value) . '">';
@@ -4049,13 +4077,13 @@ $contition_array = array('status' => '1', 'is_deleted' => '0');
                 $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $commneteduser[0]['user_id'], 'status' => 1))->row()->company_name;
 
                 $imglikeuser .= '<div class="like_one_other_img">';
-                if($userid == $commneteduser[0]['user_id']){
+                if ($userid == $commneteduser[0]['user_id']) {
 
                     $imglikeuser .= 'You';
-                }else{
+                } else {
 
-                $imglikeuser .= '' . ucwords($business_fname1) . '&nbsp;';
-                  }
+                    $imglikeuser .= '' . ucwords($business_fname1) . '&nbsp;';
+                }
 
                 if (count($commneteduser) > 1) {
 
@@ -4086,7 +4114,7 @@ $contition_array = array('status' => '1', 'is_deleted' => '0');
 
                 $contition_array = array('post_image_id' => $_POST["post_image_id"], 'is_unlike' => '0');
                 $bdata2 = $this->data['bdata2'] = $this->common->select_data_by_condition('bus_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-                
+
                 if ($updatdata) {
 
                     $imglike1 = '<li>';
@@ -4120,12 +4148,12 @@ $contition_array = array('status' => '1', 'is_deleted' => '0');
 
                     $imglikeuser1 .= '<div class="like_one_other_img">';
 
-                    if($userid == $commneteduser[0]['user_id']){
+                    if ($userid == $commneteduser[0]['user_id']) {
 
-                         $imglikeuser1 .= 'You';
-                    }else{
-                    $imglikeuser1 .= '' . ucwords($business_fname1) . '&nbsp;';
-                     }
+                        $imglikeuser1 .= 'You';
+                    } else {
+                        $imglikeuser1 .= '' . ucwords($business_fname1) . '&nbsp;';
+                    }
 
                     if (count($commneteduser) > 1) {
 
@@ -4133,7 +4161,7 @@ $contition_array = array('status' => '1', 'is_deleted' => '0');
                         $imglikeuser1 .= ' ' . $countlike . ' others';
                     }
                     $imglikeuser1 .= '</div>';
-                    
+
                     $imglikeuser1 .= '</a>';
                     $like_user_count1 = count($commneteduser);
                     echo json_encode(
@@ -4146,13 +4174,12 @@ $contition_array = array('status' => '1', 'is_deleted' => '0');
                     'modify_date' => date('Y-m-d', time()),
                     'is_unlike' => 0
                 );
-                
+
                 $this->db->where('post_image_id', $post_image);
                 $this->db->where('user_id', $userid);
-                $updatdata =  $this->db->update('bus_post_image_like', $data);
+                $updatdata = $this->db->update('bus_post_image_like', $data);
 
                 //$updatdata = $this->common->update_data($data, 'bus_post_image_like', 'post_image_id', $post_image);
-
                 // insert notification
                 if ($likepostid[0]['user_id'] == $userid) {
                     
@@ -4227,12 +4254,12 @@ $contition_array = array('status' => '1', 'is_deleted' => '0');
 
                     $imglikeuser1 .= '<div class="like_one_other_img">';
 
-                    if($userid == $commneteduser[0]['user_id']){
+                    if ($userid == $commneteduser[0]['user_id']) {
 
                         $imglikeuser1 .= 'You';
-                    }else{
-                    $imglikeuser1 .= '' . ucwords($business_fname1) . '&nbsp;';
-                      }
+                    } else {
+                        $imglikeuser1 .= '' . ucwords($business_fname1) . '&nbsp;';
+                    }
 
                     if (count($commneteduser) > 1) {
 
@@ -6919,12 +6946,11 @@ $contition_array = array('status' => '1', 'is_deleted' => '0');
         }
         echo '<div>';
     }
-    
-    
-    public function bus_img_delete(){
+
+    public function bus_img_delete() {
         $grade_id = $_POST['grade_id'];
         $delete_data = $this->common->delete_data('bus_image', 'image_id', $grade_id);
-        if($delete_data){
+        if ($delete_data) {
             echo 'ok';
         }
     }
