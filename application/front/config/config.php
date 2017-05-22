@@ -552,6 +552,11 @@ $config['user_bg_main_max_height'] = '1800';
 $config['user_bg_thumb_upload_path'] = 'uploads/user_bg/thumbs/';
 $config['user_bg_thumb_width'] = '400';
 $config['user_bg_thumb_height'] = '100';
+//Path to upload Users's Thumbnail File
+$config['user_bg_original_upload_path'] = 'uploads/user_bg/original/';
+
+
+
 
 // user profile image
 

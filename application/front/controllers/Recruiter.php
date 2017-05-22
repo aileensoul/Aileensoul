@@ -1903,10 +1903,26 @@ class Recruiter extends MY_Controller {
            
       if($result){
 
-            $contition_array = array('job_id' => $jobcan['job_id'], 'is_delete' => 0, 'status' => 1);
+// $join_str = array(
+//             array(
+//                 'join_type' => '',
+//                 'table' => 'job_add_edu',
+//                 'join_table_id' => 'job_reg.user_id',
+//                 'from_table_id' => 'job_add_edu.user_id'),
+//             array(
+//                 'join_type' => '',
+//                 'table' => 'job_add_workexp',
+//                 'join_table_id' => 'job_reg.user_id',
+//                 'from_table_id' => 'job_add_workexp.user_id')
+//         );
+
+            $contition_array = array('user_id' => $jobcan['user_id'], 'is_delete' => 0, 'status' => 1);
 
 
-            $jobrec = $this->data['jobrec'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = 'job_id', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            $jobrec = $this->data['jobrec'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '', $sortby = 'job_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
+
+
+
             $canlocation[] = $jobrec;
          }
              
@@ -1970,7 +1986,7 @@ class Recruiter extends MY_Controller {
         $this->data['demo'] = array_values($result1);
 
 
-        
+
         $this->load->view('recruiter/recommen_candidate', $this->data);
 
 
