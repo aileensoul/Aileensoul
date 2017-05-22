@@ -164,17 +164,32 @@ class Dashboard extends MY_Controller {
 
 
         $contition_array = array('user_id' => $userid);
-        $user_reg_data = $this->common->select_data_by_condition('user', $contition_array, $data = 'profile_background', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        $user_reg_data = $this->common->select_data_by_condition('user', $contition_array, $data = 'profile_background,profile_background_main', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
         $user_reg_prev_image = $user_reg_data[0]['profile_background'];
+        $user_reg_prev_main_image = $user_reg_data[0]['profile_background_main'];
 
         if ($user_reg_prev_image != '') {
-            $user_image_path = 'uploads/user_bg/';
-            $user_bg_full_image = $user_image_path . $user_reg_prev_image;
+            $user_image_main_path = $this->config->item('user_bg_main_upload_path');
+            $user_bg_full_image = $user_image_main_path . $user_reg_prev_image;
             if (isset($user_bg_full_image)) {
                 unlink($user_bg_full_image);
             }
+            
+            $user_image_thumb_path = $this->config->item('user_bg_thumb_upload_path');
+            $user_bg_thumb_image = $user_image_thumb_path . $user_reg_prev_image;
+            if (isset($user_bg_thumb_image)) {
+                unlink($user_bg_thumb_image);
+            }
         }
+        if ($user_reg_prev_main_image != '') {
+            $user_image_original_path = $this->config->item('user_bg_original_upload_path');
+            $user_bg_origin_image = $user_image_original_path . $user_reg_prev_main_image;
+            if (isset($user_bg_origin_image)) {
+                unlink($user_bg_origin_image);
+            }
+        }
+        
         $data = $_POST['image'];
 
 // $img = str_replace('data:image/png;base64,', '', $img);
@@ -201,14 +216,11 @@ class Dashboard extends MY_Controller {
 
         $thumb_image_uplode = $this->thumb_img_uplode($upload_image, $imageName, $user_thumb_path, $user_thumb_width, $user_thumb_height);
 
-
         $data = array(
             'profile_background' => $imageName
         );
 
-
         $update = $this->common->update_data($data, 'user', 'user_id', $userid);
-
         $this->data['userdata'] = $this->common->select_data_by_id('user', 'user_id', $userid, $data = '*', $join_str = array());
 
         echo '<img src="' . $this->data['userdata'][0]['profile_background'] . '" />';
