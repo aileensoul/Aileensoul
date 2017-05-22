@@ -563,7 +563,7 @@ $(window).load(function(){
 
             $.ajax({
                 type: 'POST',
-                url: '<?php echo base_url() . "notification/msg_header" ?>',
+                url: '<?php echo base_url() . "notification/msg_header/" . $this->uri->segment(3) . "" ?>',
                 data: '',
                 success: function (data) {
                     //    alert(data);
