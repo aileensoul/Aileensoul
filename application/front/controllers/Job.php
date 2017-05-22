@@ -1304,9 +1304,9 @@ class Job extends MY_Controller {
         // Multiple Image insert code start
 
         $config = array(
-            'upload_path' => 'uploads/job_edu_certificate/',
-            'max_size' => 1024 * 100,
-            'allowed_types' => 'gif|jpeg|jpg|png'
+            'upload_path' => $this->config->item('job_edu_main_upload_path'),
+            'allowed_types' => $this->config->item('job_edu_main_allowed_types'),
+            'max_size' => $this->config->item('job_edu_main_max_size')
         );
         $images = array();
         $this->load->library('upload');
