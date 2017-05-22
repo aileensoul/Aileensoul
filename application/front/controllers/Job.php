@@ -2573,6 +2573,8 @@ class Job extends MY_Controller {
 
 
         $userdata = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+    echo "<pre>"; print_r($userdata); die();
         if ($userdata) {
             $step = $userdata[0]['job_step'];
             if ($step == 10 || ($step >= 1 && $step <= 10)) {
