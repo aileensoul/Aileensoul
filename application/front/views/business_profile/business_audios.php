@@ -407,7 +407,7 @@ label.cameraButton input[accept*="camera"] {
                  ?>
 
                             <audio controls>
-                            <source src="<?php echo base_url(BUSPOSTIMAGE.$audiov['image_name']); ?>" type="audio/ogg">
+                            <source src="<?php echo base_url($this->config->item('bus_post_main_upload_path').$audiov['image_name']); ?>" type="audio/ogg">
                             <source src="movie.ogg" type="audio/mpeg">
                            Your browser does not support the audio tag.
                             </audio>

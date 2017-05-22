@@ -591,7 +591,7 @@
                                                                 <div class=" col-md-12 follow_left_box_main" id="<?php echo "fad" . $userlist['business_profile_id']; ?>">                   
                                                                     <div class="post-design-pro-img_follow">
                                                                     <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>">
-                                                                        <img  src="<?php echo base_url(USERIMAGE . $userlist['business_user_image']); ?>"  alt="">
+                                                                        <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $userlist['business_user_image']); ?>"  alt="">
                                                                         </a>
                                                                     </div>
                                                                     <div class="post-design-name_follow fl">
@@ -654,7 +654,7 @@
                                                                 <div class=" col-md-12 follow_left_box_main" id="<?php echo "fad" . $userlist['business_profile_id']; ?>">                   
                                                                     <div class="post-design-pro-img_follow">
                                                                     <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>">
-                                                                        <img  src="<?php echo base_url(USERIMAGE . $userlist['business_user_image']); ?>"  alt=""> </a>
+                                                                        <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $userlist['business_user_image']); ?>"  alt=""> </a>
                                                                     </div>
                                                                     <div class="post-design-name_follow fl">
                                                                         <ul>
@@ -871,7 +871,7 @@
 
                                                     <?php if ($userimageposted) { ?>
                                                     <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugnameposted); ?>">
-                                                        <img src="<?php echo base_url(USERIMAGE . $userimageposted); ?>" name="image_src" id="image_src" />
+                                                        <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $userimageposted); ?>" name="image_src" id="image_src" />
                                                         </a>
                                                     <?php } else { ?>
                                                     <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugnameposted); ?>">
@@ -882,7 +882,7 @@
                                                 <?php } else { ?>
                                                     <?php if ($business_userimage) { ?>
                                                     <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>">
-                                                        <img  src="<?php echo base_url(USERIMAGE . $business_userimage); ?>"  alt="">
+                                                        <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage); ?>"  alt="">
                                                         </a>
                                                     <?php } else { ?>
                                                     <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>">
@@ -1064,7 +1064,7 @@
                                                         <!-- one image start -->
                                                         <div id="basic-responsive-image" style="height: 50%; width: 100%;">
                                                             <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>">
-                                                                <img src="<?php echo base_url(BUSPOSTIMAGE . $businessmultiimage[0]['image_name']) ?>" style="width: 100%; height: 100%;"> 
+                                                                <img src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $businessmultiimage[0]['image_name']) ?>" style="width: 100%; height: 100%;"> 
                                                             </a>
                                                         </div>
                                                         <!-- one image end -->
@@ -1081,7 +1081,7 @@
                                                         <!-- one video start -->
                                                         <div>
                                                             <video width="100%" height="240" controls>
-                                                                <source src="<?php echo base_url(BUSPOSTIMAGE . $businessmultiimage[0]['image_name']); ?>" type="video/mp4">
+                                                                <source src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $businessmultiimage[0]['image_name']); ?>" type="video/mp4">
                                                                 <source src="movie.ogg" type="video/ogg">
                                                                 Your browser does not support the video tag.
                                                             </video>
@@ -1091,7 +1091,7 @@
                                                         <!-- one audio start -->
                                                         <div>
                                                             <audio width="100%" height="100" controls>
-                                                                <source src="<?php echo base_url(BUSPOSTIMAGE . $businessmultiimage[0]['image_name']); ?>" type="audio/mp3">
+                                                                <source src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $businessmultiimage[0]['image_name']); ?>" type="audio/mp3">
                                                                 <source src="movie.ogg" type="audio/ogg">
                                                                 Your browser does not support the audio tag.
                                                             </audio>
@@ -1105,7 +1105,7 @@
                                                         <!-- two image start -->
                                                         <div  id="two_images_bui" >
                                                             <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>">
-                                                                <img class="two-columns" src="<?php echo base_url(BUSPOSTIMAGE . $multiimage['image_name']) ?>" style="width: 100%; height: 100%;"> 
+                                                                <img class="two-columns" src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $multiimage['image_name']) ?>" style="width: 100%; height: 100%;"> 
                                                             </a>
                                                         </div>
                                                         <!-- two image end -->
@@ -1114,17 +1114,17 @@
                                                     <!-- three image start -->
                                                     <div id="three_images_art" >
                                                         <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>">
-                                                            <img class="three-columns" src="<?php echo base_url(BUSPOSTIMAGE . $businessmultiimage[0]['image_name']) ?>" style="width: 100%; height:100%; "> 
+                                                            <img class="three-columns" src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $businessmultiimage[0]['image_name']) ?>" style="width: 100%; height:100%; "> 
                                                         </a>
                                                     </div>
                                                     <div style="width: 49.4%; height: 35%; float: left; margin-top: 4px; margin-right: 3px;">
                                                         <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>">
-                                                            <img class="three-columns" src="<?php echo base_url(BUSPOSTIMAGE . $businessmultiimage[1]['image_name']) ?>" style="width: 100%; height:100%; "> 
+                                                            <img class="three-columns" src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $businessmultiimage[1]['image_name']) ?>" style="width: 100%; height:100%; "> 
                                                         </a>
                                                     </div>
                                                     <div style="width: 49.4%; height: 35%; float: left; margin-top: 4px; margin-right: 3px;">
                                                         <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_post_id']) ?>">
-                                                            <img class="three-columns" src="<?php echo base_url(BUSPOSTIMAGE . $businessmultiimage[2]['image_name']) ?>" style="width: 100%; height:100%; "> 
+                                                            <img class="three-columns" src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $businessmultiimage[2]['image_name']) ?>" style="width: 100%; height:100%; "> 
                                                         </a>
                                                     </div>
                                                     <!-- three image end -->
@@ -1135,7 +1135,7 @@
                                                         <!-- four image start -->
                                                         <div id="responsive_buis-images-breakpoints" style="   ">
                                                             <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>">
-                                                                <img class="breakpoint" src="<?php echo base_url(BUSPOSTIMAGE . $multiimage['image_name']) ?>" style="width: 100%; height: 100%;"> 
+                                                                <img class="breakpoint" src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $multiimage['image_name']) ?>" style="width: 100%; height: 100%;"> 
                                                             </a>
                                                         </div>
                                                         <!-- four image end -->
@@ -1149,7 +1149,7 @@
                                                         <div>
                                                             <div id="responsive_buis-images-breakpoints">
                                                                 <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>">
-                                                                    <img src="<?php echo base_url(BUSPOSTIMAGE . $multiimage['image_name']) ?>" style="width: 100%; height: 100%;"> 
+                                                                    <img src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $multiimage['image_name']) ?>" style="width: 100%; height: 100%;"> 
                                                                 </a>
                                                             </div>
                                                         </div>
@@ -1164,7 +1164,7 @@
                                                     <div>
                                                         <div id="responsive_buis-images_3-breakpoints" >
                                                             <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>">
-                                                                <img src="<?php echo base_url(BUSPOSTIMAGE . $businessmultiimage[3]['image_name']) ?>" style="width: 100%; height: 100%;"> 
+                                                                <img src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $businessmultiimage[3]['image_name']) ?>" style="width: 100%; height: 100%;"> 
                                                             </a>
                                                         </div>
                                                         <div class="bui_images_view_more" >
@@ -1352,7 +1352,7 @@
                                                                     <?php if ($business_userimage) { ?>
                                                                     <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname1); ?>">
 
-                                                                        <img  src="<?php echo base_url(USERIMAGE . $business_userimage); ?>"  alt=""> </a>
+                                                                        <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage); ?>"  alt=""> </a>
                                                                     <?php } else { ?>
                                                                     <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname1); ?>">
 
@@ -1478,7 +1478,7 @@
                                                 $business_userimage = $this->db->get_where('business_profile', array('user_id' => $userid, 'status' => 1))->row()->business_user_image;
                                                 ?>
                                                 <?php if ($business_userimage) { ?>
-                                                    <img  src="<?php echo base_url(USERIMAGE . $business_userimage); ?>"  alt="">
+                                                    <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage); ?>"  alt="">
                                                 <?php } else { ?>
                                                     <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
                                                 <?php } ?>
