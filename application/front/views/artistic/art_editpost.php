@@ -90,7 +90,7 @@
                                                          
                                                           ?>
                                                          
-                                                       <img src="<?php echo base_url(ARTISTICIMAGE.$artdata[0]['art_attachment'])?>" style="width:100px;height:100px;"> 
+                                                       <img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path').$artdata[0]['art_attachment'])?>" style="width:100px;height:100px;"> 
                                                           <?php
                                                        }
                                                        elseif(in_array($ext,$allowespdf))
@@ -105,7 +105,7 @@
                                                        ?>
 
                                                         <video width="320" height="240" controls>
-                                                          <source src="<?php echo base_url(ARTISTICIMAGE.$artdata[0]['art_attachment']); ?>" type="video/mp4">
+                                                          <source src="<?php echo base_url($this->config->item('art_post_main_upload_path').$artdata[0]['art_attachment']); ?>" type="video/mp4">
                                                           <source src="movie.ogg" type="video/ogg">
                                                           Your browser does not support the video tag.
                                                        </video>

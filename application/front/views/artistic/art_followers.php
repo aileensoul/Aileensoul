@@ -148,7 +148,7 @@ label.cameraButton input[accept*="camera"] {
 
                         <div class="user-pic">
                         <?php if($artisticdata[0]['art_user_image'] != ''){ ?>
-                           <img src="<?php echo base_url(ARTISTICIMAGE . $artisticdata[0]['art_user_image']);?>" alt="" >
+                           <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image']);?>" alt="" >
                             <?php } else { ?>
                             <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
                             <?php } ?>
@@ -386,7 +386,7 @@ if($status == 0 || $status == " "){?>
 
                                   <?php if($followerusername != ''){ ?>
                                   <a href="<?php echo base_url('artistic/art_manage_post/'.$followerid); ?>">
-                            <img src="<?php echo base_url(ARTISTICIMAGE . $followerusername);?>" height="50px" width="50px" alt="" > </a>
+                            <img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $followerusername);?>" height="50px" width="50px" alt="" > </a>
                             <?php } else { ?>
                             <a href="<?php echo base_url('artistic/art_manage_post/'.$followerid); ?>">
                             <img alt=""  src="<?php echo base_url(NOIMAGE); ?>" alt="" /></a>

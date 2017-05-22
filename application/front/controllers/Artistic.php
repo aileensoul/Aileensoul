@@ -1169,9 +1169,9 @@ class Artistic extends MY_Controller {
         $insert_id = $this->common->insert_data_getid($data, 'art_post');
         //echo $insert_id; die(); 
         $config = array(
-            'upload_path' => 'uploads/khyati_images/',
+            'upload_path' => $this->config->item('art_post_main_upload_path'),
             'max_size' => 2500000000000,
-            'allowed_types' => 'gif|jpeg|jpg|png|pdf|mp4|mp3|avi|ogg|3gp|webm'
+            'allowed_types' => $this->config->item('art_post_main_allowed_types')
                 //'overwrite' => true,
                 //'remove_spaces' => true
         );
@@ -1212,7 +1212,31 @@ class Artistic extends MY_Controller {
 
             $this->upload->initialize($config);
             $this->upload->do_upload();
-            if ($this->upload->do_upload('postattach')) {//echo "hello"; die();
+            if ($this->upload->do_upload('postattach')) {
+                
+                $response['result'][] = $this->upload->data();
+                $art_post_thumb[$i]['image_library'] = 'gd2';
+                $art_post_thumb[$i]['source_image'] = $this->config->item('art_post_main_upload_path') . $response['result'][$i]['file_name'];
+                $art_post_thumb[$i]['new_image'] = $this->config->item('art_post_thumb_upload_path') . $response['result'][$i]['file_name'];
+                $art_post_thumb[$i]['create_thumb'] = TRUE;
+                $art_post_thumb[$i]['maintain_ratio'] = TRUE;
+                $art_post_thumb[$i]['thumb_marker'] = '';
+                $art_post_thumb[$i]['width'] = $this->config->item('art_post_thumb_width');
+                //$product_thumb[$i]['height'] = $this->config->item('product_thumb_height');
+                $art_post_thumb[$i]['height'] = 2;
+                $art_post_thumb[$i]['master_dim'] = 'width';
+                $art_post_thumb[$i]['quality'] = "100%";
+                $art_post_thumb[$i]['x_axis'] = '0';
+                $art_post_thumb[$i]['y_axis'] = '0';
+                $instanse = "image_$i";
+                //Loading Image Library
+                $this->load->library('image_lib', $art_post_thumb[$i], $instanse);
+                $dataimage = $response['result'][$i]['file_name'];
+                //Creating Thumbnail
+                $this->$instanse->resize();
+                $response['error'][] = $thumberror = $this->$instanse->display_errors();
+                
+                
                 $return['data'][] = $this->upload->data();
                 $return['status'] = "success";
                 $return['msg'] = sprintf($this->lang->line('success_item_added'), "Image", "uploaded");
