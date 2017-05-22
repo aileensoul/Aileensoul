@@ -103,7 +103,7 @@ label.cameraButton input[accept*="camera"] {
            {
             ?>
            <div class="bg-images">
-            <img src="<?php echo base_url(BUSBGIMG . $image[0]['profile_background']);?>" name="image_src" id="image_src" / >
+            <img src="<?php echo base_url($this->config->item('bus_bg_main_upload_path') . $image[0]['profile_background']);?>" name="image_src" id="image_src" / >
           </div>
             <?php
            }
@@ -139,7 +139,7 @@ label.cameraButton input[accept*="camera"] {
 
                 <div class="user-pic">
                         <?php if($businessdata[0]['business_user_image'] != ''){ ?>
-                           <img src="<?php echo base_url(USERIMAGE . $businessdata[0]['business_user_image']);?>" alt="" >
+                           <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $businessdata[0]['business_user_image']);?>" alt="" >
                             <?php } else { ?>
                             <img alt=""  src="<?php echo base_url(NOIMAGE); ?>" alt="" />
                             <?php } ?>
@@ -321,7 +321,7 @@ label.cameraButton input[accept*="camera"] {
                             <div class="follow-img">
                                 <?php if($user['business_user_image'] != ''){ ?>
                                 <a href="<?php echo base_url('business_profile/business_profile_manage_post/'.$user['business_slug']); ?>">
-                           <img src="<?php echo base_url(USERIMAGE . $user['business_user_image']);?>" height="50px" width="50px" alt="" >
+                           <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $user['business_user_image']);?>" height="50px" width="50px" alt="" >
                            </a>
                             <?php } else { ?>
                             <a href="<?php echo base_url('business_profile/business_profile_manage_post/'.$user['business_slug']); ?>">

@@ -299,7 +299,7 @@
                     if ($image_ori) {
                         ?>
                         <div class="bg-images">
-                            <img src="<?php echo base_url(BUSBGIMG . $image_ori); ?>" name="image_src" id="image_src" / ></div>
+                            <img src="<?php echo base_url($this->config->item('bus_bg_main_upload_path') . $image_ori); ?>" name="image_src" id="image_src" / ></div>
                         <?php
                     } else {
                         ?>
@@ -336,7 +336,7 @@
 
                         <div class="user-pic">
                             <?php if ($businessdata1[0]['business_user_image'] != '') { ?>
-                                <img src="<?php echo base_url(USERIMAGE . $businessdata1[0]['business_user_image']); ?>" alt="" >
+                                <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $businessdata1[0]['business_user_image']); ?>" alt="" >
                             <?php } else { ?>
                                 <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
                             <?php } ?>
@@ -1012,7 +1012,7 @@
                     <div class="post-editor col-md-12">
                         <div class="main-text-area col-md-12">
                             <div class="popup-img col-md-1"> 
-                                <?php if ($businessdata1[0]['business_user_image']) { ?><img  src="<?php echo base_url(USERIMAGE . $businessdata1[0]['business_user_image']); ?>"  alt="">
+                                <?php if ($businessdata1[0]['business_user_image']) { ?><img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $businessdata1[0]['business_user_image']); ?>"  alt="">
                                 <?php } else { ?>
                                     <img alt=""  src="<?php echo base_url(NOIMAGE); ?>" alt="" />
                                 <?php } ?>
@@ -1044,7 +1044,7 @@
                             <?php echo form_open_multipart(base_url('business_profile/business_profile_addpost_insert/' . 'manage/' . $businessdata1[0]['user_id']), array('id' => 'artpostform', 'name' => 'artpostform', 'class' => 'clearfix', 'onsubmit' => "imgval(event)")); ?>
 
                             <div class="main-text-area col-md-12"  >
-                                <div class="popup-img-in col-md-1"> <img  src="<?php echo base_url(USERIMAGE . $businessdata1[0]['business_user_image']); ?>"  alt="">
+                                <div class="popup-img-in col-md-1"> <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $businessdata1[0]['business_user_image']); ?>"  alt="">
                                 </div>
                                 <div id="myBtn1"  class="editor-content col-md-10 popup-text" >
                                        <!-- <textarea name="product_title" placeholder="Post Your Product...."></textarea>  -->
@@ -1145,7 +1145,7 @@
                                         <?php if ($row['posted_user_id']) { ?>
 
                                             <?php if ($userimageposted) { ?>
-                                                <img src="<?php echo base_url(USERIMAGE . $userimageposted); ?>" name="image_src" id="image_src" />
+                                                <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $userimageposted); ?>" name="image_src" id="image_src" />
                                             <?php } else { ?>
                                                 <img alt="" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
                                             <?php } ?>
@@ -1153,7 +1153,7 @@
                                         <?php } else { ?>
 
                                             <?php if ($userimage) { ?>
-                                                <img src="<?php echo base_url(USERIMAGE . $userimage); ?>" name="image_src" id="image_src" />
+                                                <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $userimage); ?>" name="image_src" id="image_src" />
                                             <?php } else { ?>
                                                 <img alt="" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
                                                 <?php
@@ -1661,7 +1661,7 @@
                                                             $business_userimage = $this->db->get_where('business_profile', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->business_user_image;
                                                             ?>
                                                             <?php if ($business_userimage) { ?>
-                                                                <img  src="<?php echo base_url(USERIMAGE . $business_userimage); ?>"  alt="">
+                                                                <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage); ?>"  alt="">
                                                             <?php } else { ?>
                                                                 <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
                                                             <?php } ?>
@@ -1798,7 +1798,7 @@
                                         $business_userimage = $this->db->get_where('business_profile', array('user_id' => $userid, 'status' => 1))->row()->business_user_image;
                                         ?>
                                         <?php if ($business_userimage) { ?>
-                                            <img  src="<?php echo base_url(USERIMAGE . $business_userimage); ?>"  alt="">
+                                            <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage); ?>"  alt="">
                                         <?php } else { ?>
                                             <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
                                         <?php } ?>

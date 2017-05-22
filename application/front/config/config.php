@@ -715,32 +715,32 @@ $config['free_post_bg_original_upload_path'] = 'uploads/freelancer_post_bg/origi
 
 
 // BUSINESS PROFILE IMAGE
-$config['free_post_profile_main_upload_path'] = 'uploads/freelancer_post_profile/main/';
-$config['free_post_profile_main_allowed_types'] = 'jpg|jpeg|png|gif|pdf';
-$config['free_post_profile_main_max_size'] = '800000'; //in KB
-$config['free_post_profile_main_max_width'] = '2500';
-$config['free_post_profile_main_max_height'] = '1800';
+$config['bus_profile_main_upload_path'] = 'uploads/business_profile/main/';
+$config['bus_profile_main_allowed_types'] = 'jpg|jpeg|png|gif|pdf';
+$config['bus_profile_main_max_size'] = '800000'; //in KB
+$config['bus_profile_main_max_width'] = '2500';
+$config['bus_profile_main_max_height'] = '1800';
 
 // BUSINESS PROFILE IMAGE THUMBS
-$config['free_post_profile_thumb_upload_path'] = 'uploads/freelancer_post_profile/thumbs/';
-$config['free_post_profile_thumb_width'] = '160';
-$config['free_post_profile_thumb_height'] = '160';
+$config['bus_profile_thumb_upload_path'] = 'uploads/business_profile/thumbs/';
+$config['bus_profile_thumb_width'] = '160';
+$config['bus_profile_thumb_height'] = '160';
 
 
 // BUSINESS PROFILE BACKGROUND
-$config['free_post_bg_main_upload_path'] = 'uploads/freelancer_post_bg/main/';
-$config['free_post_bg_main_allowed_types'] = 'jpg|jpeg|png|gif|pdf';
-$config['free_post_bg_main_max_size'] = '800000'; //in KB
-$config['free_post_bg_main_max_width'] = '2500';
-$config['free_post_bg_main_max_height'] = '1800';
+$config['bus_bg_main_upload_path'] = 'uploads/business_bg/main/';
+$config['bus_bg_main_allowed_types'] = 'jpg|jpeg|png|gif|pdf';
+$config['bus_bg_main_max_size'] = '800000'; //in KB
+$config['bus_bg_main_max_width'] = '2500';
+$config['bus_bg_main_max_height'] = '1800';
 
 // BUSINESS PROFILE BACKGROUND THUMBS
-$config['free_post_bg_thumb_upload_path'] = 'uploads/freelancer_post_bg/thumbs/';
-$config['free_post_bg_thumb_width'] = '400';
-$config['free_post_bg_thumb_height'] = '150';
+$config['bus_bg_thumb_upload_path'] = 'uploads/business_bg/thumbs/';
+$config['bus_bg_thumb_width'] = '400';
+$config['bus_bg_thumb_height'] = '150';
 
 // BUSINESS PROFILE BACKGROUND ORIGINAL
-$config['free_post_bg_original_upload_path'] = 'uploads/freelancer_post_bg/original/';
+$config['bus_bg_original_upload_path'] = 'uploads/business_bg/original/';
 
 
 // BUSINESS POST 

@@ -98,7 +98,7 @@ label.cameraButton input[accept*="camera"] {
            {
             ?>
             <div class="bg-images">
-            <img src="<?php echo base_url(BUSBGIMG . $image[0]['profile_background']);?>" name="image_src" id="image_src" / ></div>
+            <img src="<?php echo base_url($this->config->item('bus_bg_main_upload_path') . $image[0]['profile_background']);?>" name="image_src" id="image_src" / ></div>
             <?php
            }
            else
@@ -136,7 +136,7 @@ label.cameraButton input[accept*="camera"] {
 
                 <div class="user-pic">
                         <?php if($businessdata1[0]['business_user_image'] != ''){ ?>
-                           <img src="<?php echo base_url(USERIMAGE . $businessdata1[0]['business_user_image']);?>" alt="" >
+                           <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $businessdata1[0]['business_user_image']);?>" alt="" >
                             <?php } else { ?>
                             <img alt=""  src="<?php echo base_url(NOIMAGE); ?>" alt="" />
                             <?php } ?>
@@ -387,7 +387,7 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
                                  
                                  <a href="<?php echo base_url('business_profile/business_profile_manage_post/'.$slug); ?>">
 
-                           <img src="<?php echo base_url(USERIMAGE . $this->db->get_where('business_profile',array('business_profile_id' => $user['follow_to']))->row()->business_user_image);?>" height="50px" width="50px" alt="" >
+                           <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $this->db->get_where('business_profile',array('business_profile_id' => $user['follow_to']))->row()->business_user_image);?>" height="50px" width="50px" alt="" >
                            </a>
                             <?php } else { ?>
                             <a href="<?php echo base_url('business_profile/business_profile_manage_post/'.$slug); ?>">

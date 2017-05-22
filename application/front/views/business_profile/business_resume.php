@@ -189,7 +189,7 @@ label.cameraButton input[accept*="camera"] {
         <div class="col-md-12 cover-pic" style="padding-top: 25px;text-align: center;">
             <button class="btn btn-success cancel-result" onclick="" >Cancel</button>
     
-        <button class="btn btn-success upload-result" onclick="myFunction()">Upload Image</button>
+        <button class="btn btn-success upload-result fr" onclick="myFunction()">Upload Image</button>
 
         <div id="message1" style="display:none;">
            <div id="floatBarsG">
@@ -229,7 +229,7 @@ label.cameraButton input[accept*="camera"] {
            {
             ?>
             <div class="bg-images">
-            <img src="<?php echo base_url(BUSBGIMG . $image[0]['profile_background']);?>" name="image_src" id="image_src" / ></div>
+            <img src="<?php echo base_url($this->config->item('bus_bg_main_upload_path') . $image[0]['profile_background']);?>" name="image_src" id="image_src" / ></div>
             <?php
            }
            else
@@ -268,7 +268,7 @@ label.cameraButton input[accept*="camera"] {
 
                 <div class="user-pic">
                         <?php if($businessdata1[0]['business_user_image'] != ''){ ?>
-                           <img src="<?php echo base_url(USERIMAGE . $businessdata1[0]['business_user_image']);?>" alt="" >
+                           <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $businessdata1[0]['business_user_image']);?>" alt="" >
                             <?php } else { ?>
                             <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
                             <?php } ?>
