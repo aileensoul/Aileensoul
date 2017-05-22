@@ -265,7 +265,7 @@
 
 
 
-                                <fieldset style="padding: 4px 3px;" class="hs-submit">
+                                <fieldset style="padding: 25px 3px;" class="hs-submit">
 
                                  <a class="add_post_btnc" href="javascript:history.back()">Cancel</a>
                                     <!--<input type="reset" >-->

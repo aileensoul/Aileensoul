@@ -143,7 +143,7 @@
                 <div class="col-md-12 cover-pic" style="padding-top: 25px;text-align: center;">
                     <button class="btn btn-success  cancel-result" onclick="myFunction()">Cancel</button>
 
-                    <button class="btn btn-success upload-result fr" onclick="myFunction()">Upload Image</button>
+                    <button class="btn btn-success upload-result fr" onclick="myFunction()">Save</button>
 
                     <div id="message1" style="display:none;">
                         <div class="loader"><div id="floatBarsG">
