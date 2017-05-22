@@ -465,12 +465,9 @@ echo $job_header2;
 
   <!--khyati chnages 22-5 start-->                                                     
 
- <?php
-                                                 $i = 1;
+ <?php                                    $i = 1;
                                                 foreach ($job_graduation as $graduation) {
-                                                    if ($graduation['degree']) {
-
-                                                        ?>
+                                                    if ($graduation['degree']) {  ?>
                                            <div id="<?php echo $i; ?>" class="tabcontent data_exp">
                                                         <li> <b> Degree</b> <span>
                                                                 <?php
