@@ -206,7 +206,7 @@ label.cameraButton input[accept*="camera"] {
                    
               </div>
                 <!-- PICKUP -->
-                                   <!-- menubar --><div class="buisness-data-menu  col-md-12 ">
+                                   <!-- menubar --><div class="business-data-menu  col-md-12 ">
 
 <div class="left-side-menu col-md-2">   </div>
         
@@ -279,7 +279,7 @@ label.cameraButton input[accept*="camera"] {
                         if ($businessdata1[0]['user_id'] != $userid) {
                             ?>
                             <div class="col-md-3 padding_les">
-                                <div class="flw_msg_btn fr">
+                                <div class="flw_msg_btn fr top_follow">
                                     <ul>
                                         <li>
                                             <div class="<?php echo "fr" . $businessdata1[0]['business_profile_id']; ?>">
@@ -304,7 +304,7 @@ label.cameraButton input[accept*="camera"] {
                                                         </div>
                                                     <?php } elseif ($status == 1) { ?>
                                                         <div class="msg_flw_btn_1" id= "unfollowdiv">
-                                                            <button  id="<?php echo "unfollow" . $businessdata1[0]['business_profile_id']; ?>" onClick="unfollowuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Following </button>
+                                                            <button class="active_flw" id="<?php echo "unfollow" . $businessdata1[0]['business_profile_id']; ?>" onClick="unfollowuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Following </button>
                                                         </div>
                                                     <?php } ?>
                                                 </div>         
@@ -313,7 +313,7 @@ label.cameraButton input[accept*="camera"] {
                                             </li>
 
                                             <li>
-                                                <a style="margin-top: 7px;" href="<?php echo base_url('chat/abc/' . $businessdata1[0]['user_id']); ?>">Message</a></li>
+                                                <a style="" href="<?php echo base_url('chat/abc/' . $businessdata1[0]['user_id']); ?>">Message</a></li>
                                         <?php } ?>
 
                                     </ul>   

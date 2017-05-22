@@ -39,7 +39,7 @@
                    
 
                  <?php echo form_open(base_url('recruiter/update_post/' . $postdata[0]['post_id'] ), array('id' => 'basicinfo','name' => 'basicinfo','class' => 'clearfix')); ?>
-                 <div><span style="color:red">Fields marked with asterisk (*) are mandatory</span></div>
+                 <div> <span class="required_field" >( <span style="color: red">*</span> ) Indicates required field</span></div>
                  <?php
                          $post_name =  form_error('post_name');
                          $skills =  form_error('skills');
@@ -187,7 +187,7 @@
                              else
                              {
                           ?>
-                          <input type="checkbox" style="cursor:pointer;" name="fresher" value="1" style="width: 5%;" >Fresher can also apply..!
+                          <input type="checkbox" style="cursor:pointer;width:4%" name="fresher" value="1" style="width: 5%;" >Fresher can also apply..!
                           <?php 
                         }
                         ?>

@@ -500,7 +500,7 @@
                         if ($businessdata1[0]['user_id'] != $userid) {
                             ?>
                             <div class="col-md-3 padding_les">
-                                <div class="flw_msg_btn fr">
+                                <div class="flw_msg_btn fr top_follow">
                                     <ul>
                                         <li>
                                             <div class="<?php echo "fr" . $businessdata1[0]['business_profile_id']; ?>">
@@ -525,7 +525,7 @@
                                                         </div>
                                                     <?php } elseif ($status == 1) { ?>
                                                         <div class="msg_flw_btn_1" id= "unfollowdiv">
-                                                            <button  id="<?php echo "unfollow" . $businessdata1[0]['business_profile_id']; ?>" onClick="unfollowuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Following </button>
+                                                            <button class="active_flw"  id="<?php echo "unfollow" . $businessdata1[0]['business_profile_id']; ?>" onClick="unfollowuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Following </button>
                                                         </div>
                                                     <?php } ?>
                                                 </div>         
