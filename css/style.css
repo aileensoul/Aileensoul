@@ -120,7 +120,9 @@ a:focus { outline: none; text-decoration: none;  }
 
 .top_follow{margin-top: 9px!important;}
 
-#art_profile{letter-spacing: 1.2;}
+#art_profile{letter-spacing: 1.2; }
+
+.dropdown_hover #art_profile { font-size: 13px; }
 
 /* Form Styling Start */
 input, textarea, select {     background: white; border: 2px solid #cacaca; outline: none; padding: 8px 15px; color: #000; font-size: 14px; font-weight: 400; border-radius: 4px;  width: 100%; }
@@ -4785,7 +4787,7 @@ fieldset .add_post_btns{min-width: 120px;padding:10px 30px 9px;}
     .header2 input::-moz-placeholder { font-size: 16px; line-height: 16px; } / Firefox 19+ /
     .header2 input::-moz-placeholder { font-size: 14px; line-height: 3;}  / Firefox 18- /
    
-     .header2 .profiletitle { font-size: 13px; }
+     .profiletitle { font-size: 13px; }
   .required_field { padding-left: 8px; font-size: 16px; color: #7f7f7e; }
   .common-form form input::-webkit-input-placeholder 
                {    font-size: 15px; line-height: 3;  }
