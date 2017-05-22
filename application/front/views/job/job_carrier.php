@@ -111,19 +111,19 @@
 
 
         $userdatacon = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = ''); 
-                                     if($userdatacon[0]['job_step'] != 10){
+                                    
                                       ?>
                                     <fieldset class="full-width">                           
                                      <b> Declaration: </b>
                                      <div class="job_carrier_checkbox">
-                                     <input type="checkbox" id="checkbox"  name="checkbox" >
+                                     <input type="checkbox" id="checkbox"  name="declaration" value="declaration"  <?php echo ($declaration1 == 'declaration') ? 'checked' : '' ?>>
                                          I here by Declare that all the above Information are true and correct to best of my knowledge                     
                                        
                                         <?php echo form_error('checkbox') ?>
                                     </div>
 
                                 </fieldset> 
-                                <?php }else{}?>         
+                                      
 
                                  <fieldset class="hs-submit full-width">
 
@@ -288,7 +288,7 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
                            
                         }, 
 
-                         checkbox: {
+                         declaration: {
 
                             required: true,
                            
@@ -303,7 +303,7 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
                            required: "Carrier Is Required.",
                             
                         },
-                         checkbox: {
+                         declaration: {
 
                             required: "click on terms and condition Is Required.",
                             

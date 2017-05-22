@@ -35,7 +35,7 @@
 </ul>
 </div>
 
-       <div class="col-md-3 padding_less_right" style="width: 32%">;
+       <div class="col-md-3 padding_less_right" style="width: 32%">
                 <div class="flw_msg_btn fr">
                     <ul>
 
