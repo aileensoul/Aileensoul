@@ -4652,7 +4652,8 @@ input:-moz-placeholder { color:#999; font-size: 15px; }
         display: none;
     }
         /* ^ job printprivew */
-
+.profile-job-post-title-inside .profile_search{background-color: white; margin-top: 10px;
+    padding-bottom: 10px; padding: 10px;}
 .profile-boxProfileCard-bg img { height: 95PX ; width: 100%; }
 
 .profile-job-details ul li{list-style: none;}
@@ -4713,9 +4714,30 @@ fieldset .add_post_btns{min-width: 120px;padding:10px 30px 9px;}
     .search_button{margin-top: 14px;
     margin-left: 23px;}
     .search_button button{  
+   
+    letter-spacing: 1px;
     width: 90px;
-    padding: 8px 0px;
-    margin-top: 0px;}
+    padding: 8px 8px;
+    background: rgb(44,83,158);
+    background: -moz-linear-gradient(top, rgba(255, 255, 255,1) 0%,rgba(255, 255, 255,1) 100%);
+    background: -webkit-linear-gradient(top, rgba(255, 255, 255,1) 0%,rgba(255, 255, 255,1) 100%);
+    background: linear-gradient(to bottom, rgba(255, 255, 255,1) 0%,rgba(255, 255, 255,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2c539e', endColorstr='#2c539e',GradientType=0 );
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    border: 1px solid #dcdcdc;
+    display: inline-block;
+    cursor: pointer;
+    color: #9C9999;
+    font-family: Arial;
+    font-size: 13px;
+    margin-top: 3px;
+    /* box-shadow: 2px -2px 8px #9C9999; */
+    /* -webkit-box-shadow: 0px 1px 7px #9c9999; */
+    -o-box-shadow: inset 0px 0px 50px 0px #ABABAB,5px 5px 5px 1px #242424;
+    font-weight: bold;
+    text-decoration: none;}
     .box_search_module{    background-color: white!important;
     padding: 4px 0px!important;/*
     box-shadow: 6p 12px 44px 4px #bfbfbf!important;*/
