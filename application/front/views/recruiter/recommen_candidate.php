@@ -316,7 +316,7 @@
                 <li><b>Skills</b>
                        <span>
                       <?php
-                         $comma = ",";
+                         $comma = ", ";
                          $k = 0;
                          $aud = $row['keyskill'];
                          $aud_res = explode(',', $aud);
@@ -334,7 +334,7 @@
                                   echo $cache_time;
                                     if ($k != ($count_aud_res - 1)) {
                                            echo $comma;
-                                           echo '&nbsp';
+                                          
                                          }
                                        $k++;
                                    }
@@ -350,7 +350,7 @@
                                            echo '&nbsp';
                                          }
                                        $k++;
-                                   } echo "," . $row['other_skill']; }
+                                   } echo ", " . $row['other_skill']; }
                                    ?>       
                     </span>
                                                                     </li>

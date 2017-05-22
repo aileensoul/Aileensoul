@@ -547,7 +547,7 @@
                     $cache_time = $this->db->get_where('skill', array('skill_id' => $skill))->row()->skill;
                      echo $cache_time;
                      $k++;
-                        } echo "," . $rec['other_skill']; }
+                        } echo ", " . $rec['other_skill']; }
 
                      ?>    
 

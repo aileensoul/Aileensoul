@@ -2968,12 +2968,12 @@ label.cameraButton input[accept*="camera"] {
     /* width: 12em; */
     overflow: hidden;
     text-overflow: ellipsis;
-  font-size: 15px;
+  font-size: 13px;
      font-weight: 600;
      display: inline-block;margin-left: 10px; }
 .art-comment-menu-design{    padding: 5px 1px 0px 30px;margin-left: 19px; }
 
-.comment-details-menu a{cursor: pointer; color: #999999; font-weight: 400;}
+.comment-details-menu a{cursor: pointer; color: #999999; font-weight: 400; font-size: 13px;}
 .comment-details-menu p{ color: #999999; font-weight: 400;}
 .comment-details-menu a:hover{text-decoration:underline; }
 .comment-edit-butn{padding: 0px 0px 6px 0px;}
@@ -3230,6 +3230,32 @@ follow box*/
     -o-box-shadow: inset 0px 0px 50px 0px #ABABAB,5px 5px 5px 1px #242424;
     font-weight: bold;
     text-decoration: none;}
+
+.user_btn   button{ letter-spacing: 1px;
+    
+    width: 87px;
+    padding: 5px 7px;
+    background: rgb(44,83,158);
+    background: -moz-linear-gradient(top, rgba(255, 255, 255,1) 0%,rgba(255, 255, 255,1) 100%);
+    background: -webkit-linear-gradient(top, rgba(255, 255, 255,1) 0%,rgba(255, 255, 255,1) 100%);
+    background: linear-gradient(to bottom, rgba(255, 255, 255,1) 0%,rgba(255, 255, 255,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2c539e', endColorstr='#2c539e',GradientType=0 );
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    border: 1px solid #dcdcdc;
+    display: inline-block;
+    cursor: pointer;
+    color: #9C9999;
+    font-family: Arial;
+    font-size: 13px;
+    margin-top: 3px;
+    /* box-shadow: 2px -2px 8px #9C9999; */
+    /* -webkit-box-shadow: 0px 1px 7px #9c9999; */
+    -o-box-shadow: inset 0px 0px 50px 0px #ABABAB,5px 5px 5px 1px #242424;
+    font-weight: bold;
+    text-decoration: none; }
+
     .follow_left_box_main_btn button:hover{ -webkit-transform: none;
     transform: none;
      background: -webkit-linear-gradient(top, rgba(255, 255, 255,1) 0%,rgba(255, 255, 255,1) 100%);
