@@ -163,16 +163,29 @@
 
 @media (min-width: 768px) and (max-width: 1024px) 
   {  
-
+.fixed_left{left: 0 !important;}
      .row4 { margin-right: 0px; margin-left: 0px; }
     
+     /*header1 on*/
+     .header ul { margin-right: 10px; }
+     .header ul li a { font-size: 11px; padding: 10px 12px; }
+     .header .dropdown-menu { left: -40px; }
+     .header ul li.dropdown-user ul li a { padding: 2px; font-size: 11px; }
+
+
+     /* header1 off*/      
+
      /*  header2 on */
          .header2 input::-webkit-input-placeholder 
                {    font-size: 12px; line-height: 3;  }
           .header2 input::-moz-placeholder { font-size: 13px; line-height: 13px; } /* Firefox 19+ */
           .header2 input:-moz-placeholder { font-size: 14px; line-height: 3;}  /* Firefox 18- */
           .header2 .profiletitle { font-size: 11px; }
-          .header2 ul li a { font-size: 11px; }
+          .header2 ul li a { font-size: 11px; padding: 3px 10px; }
+          .stkiy { width: 90%; }
+          .dropdown_hover { padding: 8px 40px 3px 8px; }
+          .dropdown-content_hover { left: -5px; }
+
 
     /*   header2 off */   
 
@@ -180,12 +193,12 @@
         .required_field { font-size: 13px; }
         .common-form fieldset label { margin: 0 0 2px; }
           label { font-size: 12px; }
-          input, textarea, select { padding: 3px 9px; font-size: 13px; }
+          input, textarea, select { padding: 2px 9px; font-size: 12px; }
           .common-form form input::-webkit-input-placeholder 
                {    font-size: 12px; line-height: 3;  }
-           select { padding: 3px 9px; font-size: 13px; }
+           select { padding: 2px 9px; font-size: 12px; }
            .common-form input[type=radio], .common-form input[type=checkbox] { height: 11px; }
-           .select2-container--default .select2-selection--multiple .select2-selection__rendered li { margin-top: 2px; margin-bottom: 2px;}
+           .select2-container--default .select2-selection--multiple .select2-selection__rendered li { margin-top: 2px; font-size: 12px; margin-bottom: 2px;}
             .radio_check_text { font-size: 14px; }
            .job_address_btn { min-width: 50px !important; font-size: 15px !important; padding: 5px 14px !important;}
            input[type=submit], input[type=button], button  { padding: 6px 22px 6px; font-size: 15px; }
@@ -205,13 +218,13 @@
   	 /*profile leftbar start*/
 
   	     /*job on */
-    .buisness-profile-txext {   max-width: 25% !important; }
-    .profile-box-job-menu { margin-top: -25px; height: 6%; }
+    .buisness-profile-txext {   max-width: 21% !important; }
+    .profile-box-job-menu { margin-top: -17px; height: 6%; }
     .profile-box-job-menu ul { float: left; margin-left: 26%; }
     .profile-box-job-menu ul li { padding-left: 0px; }
     .profile-box-job-menu ul li a {  padding: 9px 8px 6px 8px; margin-right: 1px; font-size: 13px; }
     .profile-boxProfileCard-cover { height: 8%; }
-    .profile-boxProfileCard-bg img { height: 100%; width: 100%; }
+    .profile-boxProfileCard-bg img { height: auto; width: 100%; }
     .profile-boxProfileCard-content .buisness-profile-txext a img { height: 100%; width: 100%; }
      .profile-boxProfilebuisness-avatarLink2 { height: 10%; width: 96%; }
      .left-side-bar ul li a { font-size: 12px; }
@@ -219,10 +232,10 @@
          /*job off */
 
           /* recruter on*/
-        .profile-box-rec-menu { margin-top: -25px; height: 6%; }
-      .profile-box-rec-menu ul { float: left; margin-left: 24%; }
+        .profile-box-rec-menu { margin-top: -17px; height: 6%; }
+      .profile-box-rec-menu ul { float: left; margin-left: 21%; }
      .profile-box-rec-menu ul li {     padding-left: 7px;  }
-     .profile-box-rec-menu ul li a { padding: 9px 8px 6px 8px; font-size: 13px; }
+     .profile-box-rec-menu ul li a { padding: 9px 7px 6px 8px; font-size: 13px; }
      .job-menu-profile1 a h5 { font-size: 20px; }
      .job-menu-profile1 a { font-size: 17px; }
      .job-menu-profile1 h5 { font-weight: 600; }
@@ -263,7 +276,7 @@
       /* job on */
       
            .profile-job-details ul li { font-size: 12px; }
-           .profile-job-details .post_title { font-size: 16px; }
+           .profile-job-details .post_title { font-size: 16px; width: 60%; }
            .profile-job-post-detail .profile-job-post-title .button { padding: 1px 12px; font-size: 12px;  }
            .profile-job-post-detail .profile-job-post-title .save_saved_btn {padding: 1px 5px 1px !important; width: 65px;}
 

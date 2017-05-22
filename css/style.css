@@ -4751,7 +4751,7 @@ fieldset .add_post_btns{min-width: 120px;padding:8px 30px 8px;}
     #paddingtop_fixed_job{padding-top: 80px!important;}
     .profile-job-details .post_title {       font-size: 19px;
     font-weight: 600;
-    width: 442px;
+    width: 60%;
     word-break: break-word;
     word-wrap: break-word;
     cursor: default;
