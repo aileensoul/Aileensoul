@@ -3539,13 +3539,13 @@ padding-bottom: 1px;
     margin-bottom: 10px;
 
 }
-.msg_flw_btn_1 button{ background: #728bc0;
+.msg_flw_btn_1 button{/* background: #728bc0;*/
                        width: 100%;
                        border-radius: 3px;
                        padding: 8px 16px 8px;
                        border-radius: 3px;}
-.msg_flw_btn_2 a{     width: 100%;
-                      background: #728bc0;
+.msg_flw_btn_2 a{     width: 100%;/*
+                      background: #728bc0;*/
                       border-radius: 3px;
                       padding: 10px 19px 10px;
                       border-radius: 3px;
@@ -3771,7 +3771,7 @@ footer .footer-menu li a:hover{
 
 .flw_msg_btn{
     /* padding-left: 10px; */
-    width: 82%;
+    width: 62%;
     margin-top: 4px;
     /* margin-left: -1px; */}
     .flw_msg_btn ul li .fr{padding-left:10px;  }
@@ -3784,8 +3784,9 @@ footer .footer-menu li a:hover{
     background: -webkit-linear-gradient(top, rgba(255, 255, 255,1) 0%,rgba(255, 255, 255,1) 100%);
     background: linear-gradient(to bottom, rgba(255, 255, 255,1) 0%,rgba(255, 255, 255,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2c539e', endColorstr='#2c539e',GradientType=0 );
-    -moz-border-radius: 6px;
-    -webkit-border-radius: 6px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
     border: 1px solid #dcdcdc;
     display: inline-block;
     cursor: pointer;
@@ -3832,8 +3833,8 @@ footer .footer-menu li a:hover{
     background: -webkit-linear-gradient(top, rgba(255, 255, 255,1) 0%,rgba(255, 255, 255,1) 100%);
     background: linear-gradient(to bottom, rgba(255, 255, 255,1) 0%,rgba(255, 255, 255,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2c539e', endColorstr='#2c539e',GradientType=0 );
-    -moz-border-radius: 6px;
-    -webkit-border-radius: 6px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
     border-radius: 4px;
     border: 1px solid #dcdcdc;
     display: inline-block;
@@ -4170,8 +4171,8 @@ input:-moz-placeholder { color:#999; font-size: 15px; }
 
 .post-design-name ul li .else_post_d a{display: inline-block;}
 
-
-.bg_following{    background-color: cornflowerblue!important;}
+.flw_with{width: 29%;}
+.bg_following{  background:#003!important; color: #fff!important;  background-color: #003!important;}
 
 .add_tag_design{text-align: center;
   padding-bottom: 6px;

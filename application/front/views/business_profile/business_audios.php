@@ -278,7 +278,7 @@ label.cameraButton input[accept*="camera"] {
 
                         if ($businessdata1[0]['user_id'] != $userid) {
                             ?>
-                            <div class="col-md-3 padding_les">
+                            <div class="col-md-3 padding_les flw_with">
                                 <div class="flw_msg_btn fr top_follow">
                                     <ul>
                                         <li>
@@ -304,7 +304,7 @@ label.cameraButton input[accept*="camera"] {
                                                         </div>
                                                     <?php } elseif ($status == 1) { ?>
                                                         <div class="msg_flw_btn_1" id= "unfollowdiv">
-                                                            <button class="active_flw" id="<?php echo "unfollow" . $businessdata1[0]['business_profile_id']; ?>" onClick="unfollowuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Following </button>
+                                                            <button class="bg_following" id="<?php echo "unfollow" . $businessdata1[0]['business_profile_id']; ?>" onClick="unfollowuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Following </button>
                                                         </div>
                                                     <?php } ?>
                                                 </div>         
