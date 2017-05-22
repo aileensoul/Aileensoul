@@ -445,7 +445,7 @@ echo $job_header2;
 
                                                         <li>
                                                               <div>
-      <a class="example-image-link" style="width: 200px; height: 200px;" href="http://lokeshdhakar.com/projects/lightbox2/images/image-1.jpg" data-lightbox="example-1">hiii</a>
+      <a class="example-image-link" style="width: 200px; height: 200px;" href="http://localhost/aileensoul/uploads/user_bg/main/16711487_1337552009638693_3483784836973951976_n.jpg" data-lightbox="example-1">hiii</a>
      
     </div>
      
@@ -461,14 +461,13 @@ echo $job_header2;
 
                                                        
 
-<div id="1" class="tabcontent data_exp">
-     <?php
-
+ <?php
+                              $i = 1;
                                                 foreach ($job_graduation as $graduation) {
                                                     if ($graduation['degree']) {
 
                                                         ?>
-
+                                           <div id="<?php echo $i; ?>" class="tabcontent data_exp">
                                                         <li> <b> Degree</b> <span>
                                                                 <?php
                                                                 $cache_time = $this->db->get_where('degree', array('degree_id' => $graduation['degree']))->row()->degree_name;
@@ -518,40 +517,32 @@ echo $job_header2;
                                                         ?>
 
 
-
+                                                        </div>
                                                         <?php
                                                     }
+                                                    $i++;
                                                 }
-                                                ?>
-</div>
+                                                ?>                                                  
 
-<div id="2" class="tabcontent data_exp">
-  <div>Paris</div>
-  <p>Paris is the capital of France.</p> 
-</div>
-
-<div id="3" class="tabcontent data_exp">
-  <div>Tokyo</div>
-  <p>Tokyo is the capital of Japan.</p>
-</div>
-<div id="4" class="tabcontent data_exp">
-  <div>4</div>
-  <p>Tokyo is the capital xxof Japan.</p>
-</div>
-<div id="5" class="tabcontent data_exp">
-  <div>5</div>
-  <p>Tokyo is the capitaddddl of Japan.</p>
-</div>
-                                       <div class="tab pagi_exp">
+    <div class="tab pagi_exp">
+        <?php if(count($job_graduation) >= 1 ){ ?>
   <button class="tablinks" onclick="openCity(event, '1')">1</button>
+        <?php } ?>
+   <?php if(count($job_graduation) >= 2 ){ ?>
   <button class="tablinks" onclick="openCity(event, '2')">2</button>
+   <?php } if(count($job_graduation) >= 3 ){ ?>
   <button class="tablinks" onclick="openCity(event, '3')">3</button>
+   <?php } ?>
+   <?php if(count($job_graduation) >= 4 ){ ?>
   <button class="tablinks" onclick="openCity(event, '4')">4</button>
+   <?php } ?>
+   <?php if(count($job_graduation) >= 5 ){ ?>
   <button class="tablinks" onclick="openCity(event, '5')">5</button>
-</div>
+   <?php } ?></div>
 
                                             </ul>
                                         </div>
+<!--khyati 22-5 chanegs end-->
 
                                         <?php
                                         if ($job[0]['project_name'] != "" || $job[0]['project_duration'] != "" || $job[0]['project_description'] != "" || $job[0]['training_as'] != "" || $job[0]['training_duration'] != "" || $job[0]['training_organization'] != "") {
