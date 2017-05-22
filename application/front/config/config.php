@@ -641,7 +641,7 @@ $config['rec_bg_thumb_width'] = '400';
 $config['rec_bg_thumb_height'] = '150';
 
 // RECRUITER BACKGROUND ORIGINAL IMAGE
-$config['rec_bg_thumb_upload_path'] = 'uploads/recruiter_bg/original/';
+$config['rec_bg_original_upload_path'] = 'uploads/recruiter_bg/original/';
 
 
 // FREELANCER PORTFOLIO ATTACHMENT 
@@ -752,8 +752,8 @@ $config['bus_post_main_max_height'] = '1800';
 
 // BUSINESS POST THUMBS
 $config['bus_post_thumb_upload_path'] = 'uploads/business_post/thumbs/';
-$config['bus_post_thumb_width'] = '300';
-$config['bus_post_thumb_height'] = '300';
+$config['bus_post_thumb_width'] = '350';
+$config['bus_post_thumb_height'] = '200';
 
 
 // ARTISTIC PROFILE IMAGE
@@ -807,5 +807,5 @@ $config['art_post_main_max_height'] = '1800';
 
 // ARTISTIC POST THUMBS
 $config['art_post_thumb_upload_path'] = 'uploads/artistic_post/thumbs/';
-$config['art_post_thumb_width'] = '160';
-$config['art_post_thumb_height'] = '160';
+$config['art_post_thumb_width'] = '350';
+$config['art_post_thumb_height'] = '200';

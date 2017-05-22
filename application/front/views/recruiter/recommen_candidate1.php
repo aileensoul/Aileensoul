@@ -136,7 +136,7 @@ padding-top: 1px;}
                                        if ($recdata[0]['profile_background'] != '') {
                                            ?>
                                         <!-- box image start -->
-                                        <img src="<?php echo base_url(JOBBGIMAGE . $recdata[0]['profile_background']); ?>" class="bgImage" alt="<?php echo  $recdata[0]['rec_firstname'] . ' ' . $recdata[0]['rec_lastname']; ?>"  style="height: 95px;
+                                        <img src="<?php echo base_url($this->config->item('rec_bg_thumb_upload_path')  . $recdata[0]['profile_background']); ?>" class="bgImage" alt="<?php echo  $recdata[0]['rec_firstname'] . ' ' . $recdata[0]['rec_lastname']; ?>"  style="height: 95px;
                                              width: 100%;">
                                         <!-- box image end -->
                                         <?php
@@ -180,7 +180,7 @@ padding-top: 1px;}
                                             <?php
                                             if ($recdata[0]['recruiter_user_image']) {
                                                 ?>
-                                                <img src="<?php echo base_url(USERIMAGE . $recdata[0]['recruiter_user_image']); ?>" alt="<?php echo $recdata[0]['rec_firstname']. ' ' . $recdata[0]['rec_lastname']; ?>">
+                                                <img src="<?php echo base_url($this->config->item('rec_profile_thumb_upload_path') . $recdata[0]['recruiter_user_image']); ?>" alt="<?php echo $recdata[0]['rec_firstname']. ' ' . $recdata[0]['rec_lastname']; ?>">
                                                 <?php
                                             } else {
                                                 ?>
@@ -268,7 +268,7 @@ padding-top: 1px;}
                 if ($p['job_user_image']) {
                ?>
            <a href="<?php echo base_url('job/job_printpreview/' . $p['user_id'].'?page=recruiter'); ?>" title=" <?php echo $p['fname'] . ' ' . $p['lname']; ?>"> 
-           <img src="<?php echo base_url(USERIMAGE . $p['job_user_image']); ?>" alt="<?php echo $p[0]['fname'] . ' ' . $p[0]['lname']; ?>">
+           <img src="<?php echo base_url($this->config->item('job_profile_thumb_upload_path')  . $p['job_user_image']); ?>" alt="<?php echo $p[0]['fname'] . ' ' . $p[0]['lname']; ?>">
             </a>
              <?php
             } else {

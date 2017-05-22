@@ -466,7 +466,7 @@ label.cameraButton input[accept*="camera"] {
 
              <td class="vidoe_tag"> 
                  <video controls>
-                    <source src="<?php echo base_url(BUSPOSTIMAGE.$videov['image_name']); ?>" type="video/mp4">
+                    <source src="<?php echo base_url($this->config->item('bus_post_main_upload_path').$videov['image_name']); ?>" type="video/mp4">
                     <source src="movie.ogg" type="video/ogg">
                Your browser does not support the video tag.
                   </video>

@@ -119,7 +119,7 @@ echo $freelancer_post_header2;
                     if ($image_ori) {
                         ?>
                         <div class="bg-images">
-                            <img src="<?php echo base_url(FREEWORKIMG . $image[0]['profile_background']); ?>" name="image_src" id="image_src" / ></div>
+                            <img src="<?php echo base_url($this->config->item('free_post_bg_main_upload_path') . $image[0]['profile_background']); ?>" name="image_src" id="image_src" / ></div>
                         <?php
                     } else {
                         ?>
@@ -151,7 +151,7 @@ echo $freelancer_post_header2;
 
             <div class="user-pic">
 <?php if ($freelancerpostdata[0]['freelancer_post_user_image'] != '') { ?>
-                    <img src="<?php echo base_url(USERIMAGE . $freelancerpostdata[0]['freelancer_post_user_image']); ?>" alt="" >
+                    <img src="<?php echo base_url($this->config->item('free_post_profile_thumb_upload_path') . $freelancerpostdata[0]['freelancer_post_user_image']); ?>" alt="" >
                 <?php } else { ?>
                     <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
                 <?php } ?>

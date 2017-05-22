@@ -1349,29 +1349,109 @@ class Recruiter extends MY_Controller {
             $this->form_validation->set_rules('profilepic', 'Upload profilepic', 'required');
             //$picture = '';
         } else {
-       // echo "hii";die();
-            $config['upload_path'] = 'uploads/user_image/';
-            $config['allowed_types'] = 'jpg|jpeg|png|gif|mp4|3gp|mpeg|mpg|mpe|qt|mov|avi|pdf';
-            // $config['file_name'] = $_FILES['picture']['name'];
-            $config['file_name'] = $_FILES['profilepic']['name'];
-            //$config['max_size'] = '1000000000000000';
-            //Load upload library and initialize configuration
-            $this->load->library('upload', $config);
-            $this->upload->initialize($config);
+       // // echo "hii";die();
+       //      $config['upload_path'] = 'uploads/user_image/';
+       //      $config['allowed_types'] = 'jpg|jpeg|png|gif|mp4|3gp|mpeg|mpg|mpe|qt|mov|avi|pdf';
+       //      // $config['file_name'] = $_FILES['picture']['name'];
+       //      $config['file_name'] = $_FILES['profilepic']['name'];
+       //      //$config['max_size'] = '1000000000000000';
+       //      //Load upload library and initialize configuration
+       //      $this->load->library('upload', $config);
+       //      $this->upload->initialize($config);
 
-            if ($this->upload->do_upload('profilepic')) {
-               // echo "h";die();
+       //      if ($this->upload->do_upload('profilepic')) {
+       //         // echo "h";die();
 
-                $uploadData = $this->upload->data();
-                //$picture = $uploadData['file_name']."-".date("Y_m_d H:i:s");
-                $picture = $uploadData['file_name'];
+       //          $uploadData = $this->upload->data();
+       //          //$picture = $uploadData['file_name']."-".date("Y_m_d H:i:s");
+       //          $picture = $uploadData['file_name'];
+       //      } else {
+       //          //echo "hii";die();
+       //          $picture = '';
+       //      }
+
+              $recruiter_image = '';
+            $recruiter['upload_path'] = $this->config->item('rec_profile_main_upload_path');
+            $recruiter['allowed_types'] = $this->config->item('rec_profile_main_allowed_types');
+            $recruiter['max_size'] = $this->config->item('rec_profile_main_max_size');
+            $recruiter['max_width'] = $this->config->item('rec_profile_main_max_width');
+            $recruiter['max_height'] = $this->config->item('rec_profile_main_max_height');
+            $this->load->library('upload');
+            $this->upload->initialize($recruiter);
+            //Uploading Image
+            $this->upload->do_upload('profilepic');
+            //Getting Uploaded Image File Data
+            $imgdata = $this->upload->data();
+            $imgerror = $this->upload->display_errors();
+            if ($imgerror == '') {
+                //Configuring Thumbnail 
+                $recruiter_thumb['image_library'] = 'gd2';
+                $recruiter_thumb['source_image'] = $recruiter['upload_path'] . $imgdata['file_name'];
+                $recruiter_thumb['new_image'] = $this->config->item('rec_profile_thumb_upload_path') . $imgdata['file_name'];
+                $recruiter_thumb['create_thumb'] = TRUE;
+                $recruiter_thumb['maintain_ratio'] = TRUE;
+                $recruiter_thumb['thumb_marker'] = '';
+                $recruiter_thumb['width'] = $this->config->item('rec_profile_thumb_width');
+                //$user_thumb['height'] = $this->config->item('user_thumb_height');
+                $recruiter_thumb['height'] = 2;
+                $recruiter_thumb['master_dim'] = 'width';
+                $recruiter_thumb['quality'] = "100%";
+                $recruiter_thumb['x_axis'] = '0';
+                $recruiter_thumb['y_axis'] = '0';
+                //Loading Image Library
+                $this->load->library('image_lib', $recruiter_thumb);
+                $dataimage = $imgdata['file_name'];
+                //Creating Thumbnail
+                $this->image_lib->resize();
+                $thumberror = $this->image_lib->display_errors();
             } else {
-                //echo "hii";die();
-                $picture = '';
+
+                $thumberror = '';
+            }
+            if ($imgerror != '' || $thumberror != '') {
+                 
+
+                $error[0] = $imgerror;
+                $error[1] = $thumberror;
+            } else {
+                 
+
+                $error = array();
+            }
+            if ($error) {
+               
+                $this->session->set_flashdata('error', $error[0]);
+                $redirect_url = site_url('job');
+                redirect($redirect_url, 'refresh');
+            } else {
+               $contition_array = array('user_id' => $userid);
+        $recruiter_reg_data = $this->common->select_data_by_condition('recruiter', $contition_array, $data = 'recruiter_user_image', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+        $recruiter_reg_prev_image = $recruiter_reg_data[0]['recruiter_user_image'];
+        
+
+            if ($recruiter_reg_prev_image != '') {
+            $recruiter_image_main_path = $this->config->item('rec_profile_main_upload_path');
+            $recruiter_bg_full_image = $recruiter_image_main_path . $recruiter_reg_prev_image;
+            if (isset($recruiter_bg_full_image)) {
+                unlink($recruiter_bg_full_image);
+            }
+            
+            $recruiter_image_thumb_path = $this->config->item('rec_profile_thumb_upload_path');
+            $recruiter_bg_thumb_image = $recruiter_image_thumb_path . $recruiter_reg_prev_image;
+            if (isset($recruiter_bg_thumb_image)) {
+                unlink($recruiter_bg_thumb_image);
             }
 
+
+        }
+
+                $recruiter_image = $imgdata['file_name'];
+            }
+
+
             $data = array(
-                'recruiter_user_image' => $picture,
+                'recruiter_user_image' => $recruiter_image,
                 'modify_date' => date('Y-m-d', time())
             );
             //echo "<pre>"; print_r($data);die();
@@ -1997,11 +2077,48 @@ class Recruiter extends MY_Controller {
     public function ajaxpro() {
         $userid = $this->session->userdata('aileenuser');
 
+       
+        $contition_array = array('user_id' => $userid);
+        $rec_reg_data = $this->common->select_data_by_condition('recruiter', $contition_array, $data = 'profile_background', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+ $rec_reg_prev_image = $rec_reg_data[0]['profile_background'];
+        $rec_reg_prev_main_image = $rec_reg_data[0]['profile_background_main'];
+
+        if ($rec_reg_prev_image != '') {
+            $rec_image_main_path = $this->config->item('rec_bg_main_upload_path');
+            $rec_bg_full_image = $rec_image_main_path . $rec_reg_prev_image;
+            if (isset($rec_bg_full_image)) {
+                unlink($rec_bg_full_image);
+            }
+            
+            $rec_image_thumb_path = $this->config->item('rec_bg_thumb_upload_path');
+            $rec_bg_thumb_image = $rec_image_thumb_path . $rec_reg_prev_image;
+            if (isset($rec_bg_thumb_image)) {
+                unlink($rec_bg_thumb_image);
+            }
+        }
+        if ($rec_reg_prev_main_image != '') {
+            $rec_image_original_path = $this->config->item('rec_bg_original_upload_path');
+            $rec_bg_origin_image = $rec_image_original_path . $rec_reg_prev_main_image;
+            if (isset($rec_bg_origin_image)) {
+                unlink($rec_bg_origin_image);
+            }
+        }
+        
         $data = $_POST['image'];
 
+
+        $rec_bg_path = $this->config->item('rec_bg_main_upload_path');
         $imageName = time() . '.png';
         $base64string = $data;
-        file_put_contents('uploads/rec_bg/' . $imageName, base64_decode(explode(',', $base64string)[1]));
+        file_put_contents($rec_bg_path . $imageName, base64_decode(explode(',', $base64string)[1]));
+
+        $rec_thumb_path = $this->config->item('rec_bg_thumb_upload_path');
+        $rec_thumb_width = $this->config->item('rec_bg_thumb_width');
+        $rec_thumb_height = $this->config->item('rec_bg_thumb_height');
+
+        $upload_image = $rec_bg_path . $imageName;
+
+        $thumb_image_uplode = $this->thumb_img_uplode($upload_image, $imageName, $rec_thumb_path, $rec_thumb_width, $rec_thumb_height);
 
         $data = array(
             'profile_background' => $imageName
@@ -2017,9 +2134,9 @@ class Recruiter extends MY_Controller {
     public function image() {
         $userid = $this->session->userdata('aileenuser');
 
-        $config['upload_path'] = 'uploads/rec_bg';
-        $config['allowed_types'] = 'jpg|jpeg|png|gif';
-        // $config['file_name'] = $_FILES['picture']['name'];
+       
+        $config['upload_path'] = $this->config->item('rec_bg_original_upload_path');
+        $config['allowed_types'] = $this->config->item('rec_bg_allowed_types');
         $config['file_name'] = $_FILES['image']['name'];
 
         //Load upload library and initialize configuration

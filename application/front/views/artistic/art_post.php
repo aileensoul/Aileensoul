@@ -719,7 +719,7 @@
 
                         <div class="post-editor col-md-12">
                             <div class="main-text-area col-md-12">
-                                <div class="popup-img col-md-1"> <img  src="<?php echo base_url(ARTISTICIMAGE . $artisticdata[0]['art_user_image']); ?>"  alt="">
+                                <div class="popup-img col-md-1"> <img  src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image']); ?>"  alt="">
                                 </div>
                                 <div id="myBtn"  class="editor-content col-md-11 popup-text">
                                     <span > Post Your Art....</span> 
@@ -750,7 +750,7 @@
                                 <?php echo form_open_multipart(base_url('artistic/art_post_insert/'), array('id' => 'artpostform', 'name' => 'artpostform', 'class' => 'clearfix', 'onsubmit' => "imgval(event)")); ?>
 
                                <div class="main-text-area col-md-12" >
-                                    <div class="popup-img-in col-md-1"> <img  src="<?php echo base_url(ARTISTICIMAGE . $artisticdata[0]['art_user_image']); ?>"  alt="">
+                                    <div class="popup-img-in col-md-1"> <img  src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image']); ?>"  alt="">
                                     </div>
                                     <div id="myBtn"  class="editor-content col-md-10 popup-text" >
                                            <!-- <textarea name="product_title" placeholder="Post Your Product...."></textarea>  -->

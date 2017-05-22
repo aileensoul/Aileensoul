@@ -111,13 +111,18 @@
                         <div class="common-form">
                             <div class="job-saved-box">
 
-                                <h3>Search Result of <?php echo ucwords($keyword)?></h3>
-                                <div class="contact-frnd-post">
+                                <h3 style="background-color: #fff; text-align: center; color: #003;">Search Result of <?php echo ucwords($keyword)?></h3>
+                                <!-- <div class="contact-frnd-post"> -->
                                     <div class="job-contact-frnd ">
 <!-- main data start -->
                             
                                        <div class="profile-job-post-title-inside clearfix">
-                                       <h4 class="search_head">Profile</h4>
+                                      
+<div class="profile_search" style="background-color: white; margin-bottom: 10px; margin-top: 10px;"> 
+
+                                       <h4 class="search_head">Profiles</h4>
+                                       <div class="inner_search">
+
                                        <?php if($artuserdata){
                               foreach ($artuserdata as $key) {
                                 if($key['art_id']){
@@ -218,7 +223,14 @@ if($status == 0 || $status == " "){?>
 
      </div>
        </div>
-       <?php }}?><h4 class="search_head">Posts</h4>
+       <?php }}?>
+</div>
+
+</div>
+<div class="col-md-12 profile_search " style="float: left; background-color: white; margin-top: 10px; margin-bottom: 10px; padding:0px!important;"> 
+       <h4 class="search_head">Posts</h4>
+       <div class="inner_search">
+
        <?php foreach ($artuserdata as $key) {
          if($key['art_description']){
        
@@ -819,7 +831,7 @@ if($status == 0 || $status == " "){?>
                                                     <div contenteditable="true" style="min-height:37px !important; margin-top: 0px!important" class="editable_text" name="<?php echo $key['art_post_id']; ?>" id="<?php echo "post_comment" . $key['art_post_id']; ?>" placeholder="Type Message ..." onclick="entercomment(<?php echo $key['art_post_id']; ?>)"></div>
                                                 </div>
                                                 <?php echo form_error('post_comment'); ?>
-                                                <div class="col-md-1 comment-edit-butn">   
+                                                <div class=" comment-edit-butn">   
                                                     <button id="<?php echo $key['art_post_id']; ?>" onClick="insert_comment(this.id)">Comment</button> 
                                                 </div>
                                             </div>
@@ -834,9 +846,9 @@ if($status == 0 || $status == " "){?>
 
          </div>
          <?php }}}?>
+</div>
 
-
-
+</div>
                                     </div>
                                     </div>
                                     </div>
@@ -2554,7 +2566,7 @@ if($status == 0 || $status == " "){?>
                             background-color: #fff !important;
                         }
                         .like_one_other{
-                            margin-left: 15px;
+                           /* margin-left: 15px;*/
                             /*  margin-right: 15px;*/
 
                         }

@@ -737,7 +737,7 @@
                                                 if ($databus) {
                                                     foreach ($databus as $data) {
                                                         ?>
-                                                        <img src="<?php echo base_url(BUSPOSTIMAGE . $data['image_name']) ?>" onclick="openModal();currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor" width="550" height="669"/>
+                                                        <img src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $data['image_name']) ?>" onclick="openModal();currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor" width="550" height="669"/>
 
                                                         <?php
                                                         $i++;
@@ -796,7 +796,7 @@
                                                         <div class="mySlides">
                                                             <div class="numbertext"><?php echo $i ?> / <?php echo count($databus1) ?></div>
                                                             <div>
-                                                                <img src="<?php echo base_url(BUSPOSTIMAGE .$busdata['image_name']) ?>" style="width:100%; height: 70%;">
+                                                                <img src="<?php echo base_url($this->config->item('bus_post_main_upload_path') .$busdata['image_name']) ?>" style="width:100%; height: 70%;">
                                                             </div>
 
                                                             <!-- like comment start -->
@@ -974,7 +974,7 @@
                                                           $business_userimage = $this->db->get_where('business_profile', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->business_user_image;
                                                                                             ?>
 <a href="<?php echo base_url('business_profile/business_profile_manage_post/'.$slug); ?>">
-                                                          <img  src="<?php echo base_url(USERIMAGE . $business_userimage); ?>"  alt="">
+                                                          <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage); ?>"  alt="">
                                                                                             </a>
                                                                                         </div>
 
@@ -1136,7 +1136,7 @@
                                                                         $business_userimage = $this->db->get_where('business_profile', array('user_id' => $userid, 'status' => 1))->row()->business_user_image;
                                                                         ?>
 
-                                                                        <img src="<?php echo base_url(USERIMAGE . $business_userimage); ?>" alt="">
+                                                                        <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage); ?>" alt="">
                                                                     </div>
 
 

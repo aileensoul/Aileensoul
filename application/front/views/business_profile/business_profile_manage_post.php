@@ -696,7 +696,7 @@
                                     ?>
                                     <div class="image_profile">
 
-                                        <img src="<?php echo base_url(BUSPOSTIMAGE . $mi['image_name']) ?>" alt="img1">
+                                        <img src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $mi['image_name']) ?>" alt="img1">
 
                                     </div>
                                     <?php
@@ -763,7 +763,7 @@
                                             <td class="image_profile"> 
                                                 <video  controls>
 
-                                                    <source src="<?php echo base_url(BUSPOSTIMAGE . $singlearray1[0]['image_name']) ?>" type="video/mp4">
+                                                    <source src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $singlearray1[0]['image_name']) ?>" type="video/mp4">
                                                     <source src="movie.ogg" type="video/ogg">
                                                     Your browser does not support the video tag.
                                                 </video>
@@ -773,7 +773,7 @@
                                         <?php if ($singlearray1[1]['image_name']) { ?>
                                             <td class="image_profile">
                                                 <video  controls>
-                                                    <source src="<?php echo base_url(BUSPOSTIMAGE . $singlearray1[1]['image_name']) ?>" type="video/mp4">
+                                                    <source src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $singlearray1[1]['image_name']) ?>" type="video/mp4">
                                                     <source src="movie.ogg" type="video/ogg">
                                                     Your browser does not support the video tag.
                                                 </video>
@@ -782,7 +782,7 @@
                                         <?php if ($singlearray1[2]['image_name']) { ?>
                                             <td class="image_profile">
                                                 <video  controls>
-                                                    <source src="<?php echo base_url(BUSPOSTIMAGE . $singlearray1[2]['image_name']) ?>" type="video/mp4">
+                                                    <source src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $singlearray1[2]['image_name']) ?>" type="video/mp4">
                                                     <source src="movie.ogg" type="video/ogg">
                                                     Your browser does not support the video tag.
                                                 </video>
@@ -794,7 +794,7 @@
                                         <?php if ($singlearray1[3]['image_name']) { ?>
                                             <td class="image_profile"> 
                                                 <video  controls>
-                                                    <source src="<?php echo base_url(BUSPOSTIMAGE . $singlearray1[3]['image_name']) ?>" type="video/mp4">
+                                                    <source src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $singlearray1[3]['image_name']) ?>" type="video/mp4">
                                                     <source src="movie.ogg" type="video/ogg">
                                                     Your browser does not support the video tag.
                                                 </video>
@@ -803,7 +803,7 @@
                                         <?php if ($singlearray1[4]['image_name']) { ?>
                                             <td class="image_profile">
                                                 <video  controls>
-                                                    <source src="<?php echo base_url(BUSPOSTIMAGE . $singlearray1[4]['image_name']) ?>" type="video/mp4">
+                                                    <source src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $singlearray1[4]['image_name']) ?>" type="video/mp4">
                                                     <source src="movie.ogg" type="video/ogg">
                                                     Your browser does not support the video tag.
                                                 </video>
@@ -812,7 +812,7 @@
                                         <?php if ($singlearray1[5]['image_name']) { ?>
                                             <td class="image_profile">
                                                 <video  controls>
-                                                    <source src="<?php echo base_url(BUSPOSTIMAGE . $singlearray1[5]['image_name']) ?>" type="video/mp4">
+                                                    <source src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $singlearray1[5]['image_name']) ?>" type="video/mp4">
                                                     <source src="movie.ogg" type="video/ogg">
                                                     Your browser does not support the video tag.
                                                 </video>
@@ -869,7 +869,7 @@
                                             <td class="image_profile"> 
                                                 <video  controls>
 
-                                                    <source src="<?php echo base_url(BUSPOSTIMAGE . $singlearray2[0]['image_name']) ?>" type="audio/mp3">
+                                                    <source src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $singlearray2[0]['image_name']) ?>" type="audio/mp3">
                                                     <source src="movie.ogg" type="audio/mp3">
                                                     Your browser does not support the audio tag.
                                                 </video>
@@ -879,7 +879,7 @@
                                         <?php if ($singlearray2[1]['image_name']) { ?>
                                             <td class="image_profile">
                                                 <video  controls>
-                                                    <source src="<?php echo base_url(BUSPOSTIMAGE . $singlearray2[1]['image_name']) ?>" type="audio/mp3">
+                                                    <source src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $singlearray2[1]['image_name']) ?>" type="audio/mp3">
                                                     <source src="movie.ogg" type="audio/mp3">
                                                     Your browser does not support the audio tag.
                                                 </video>
@@ -888,7 +888,7 @@
                                         <?php if ($singlearray2[2]['image_name']) { ?>
                                             <td class="image_profile">
                                                 <video  controls>
-                                                    <source src="<?php echo base_url(BUSPOSTIMAGE . $singlearray2[2]['image_name']) ?>" type="audio/mp3">
+                                                    <source src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $singlearray2[2]['image_name']) ?>" type="audio/mp3">
                                                     <source src="movie.ogg" type="audio/mp3">
                                                     Your browser does not support the audio tag.
                                                 </video>
@@ -900,7 +900,7 @@
                                         <?php if ($singlearray2[3]['image_name']) { ?>
                                             <td class="image_profile"> 
                                                 <video  controls>
-                                                    <source src="<?php echo base_url(BUSPOSTIMAGE . $singlearray2[3]['image_name']) ?>" type="audio/mp3">
+                                                    <source src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $singlearray2[3]['image_name']) ?>" type="audio/mp3">
                                                     <source src="movie.ogg" type="audio/mp3">
                                                     Your browser does not support the audio tag.
                                                 </video>
@@ -909,7 +909,7 @@
                                         <?php if ($singlearray2[4]['image_name']) { ?>
                                             <td class="image_profile">
                                                 <video  controls>
-                                                    <source src="<?php echo base_url(BUSPOSTIMAGE . $singlearray2[4]['image_name']) ?>" type="audio/mp3">
+                                                    <source src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $singlearray2[4]['image_name']) ?>" type="audio/mp3">
                                                     <source src="movie.ogg" type="audio/mp3">
                                                     Your browser does not support the audio tag.
                                                 </video>
@@ -918,7 +918,7 @@
                                         <?php if ($singlearray2[5]['image_name']) { ?>
                                             <td class="image_profile">
                                                 <video  controls>
-                                                    <source src="<?php echo base_url(BUSPOSTIMAGE . $singlearray2[5]['image_name']) ?>" type="audio/mp3">
+                                                    <source src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $singlearray2[5]['image_name']) ?>" type="audio/mp3">
                                                     <source src="movie.ogg" type="audio/mp3">
                                                     Your browser does not support the audio tag.
                                                 </video>
@@ -1350,7 +1350,7 @@
                                                 <!-- one video start -->
                                                 <div>
                                                     <video width="100%" height="240" controls>
-                                                        <source src="<?php echo base_url(BUSPOSTIMAGE . $businessmultiimage[0]['image_name']) ?>" type="video/mp4">
+                                                        <source src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $businessmultiimage[0]['image_name']) ?>" type="video/mp4">
                                                         <source src="movie.ogg" type="video/ogg">
                                                         Your browser does not support the video tag.
                                                     </video>
@@ -1363,7 +1363,7 @@
                                                 <div>
                                                     <audio width="120" height="100" controls>
 
-                                                        <source src="<?php echo base_url(BUSPOSTIMAGE . $businessmultiimage[0]['image_name']) ?>" type="audio/mp3">
+                                                        <source src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $businessmultiimage[0]['image_name']) ?>" type="audio/mp3">
                                                         <source src="movie.ogg" type="audio/ogg">
                                                         Your browser does not support the audio tag.
 
@@ -1383,7 +1383,7 @@
 
                                                 <!-- two image start -->
                                                 <div  id="two_manage_images_art" >
-                                                    <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>"><img class="two-columns" src="<?php echo base_url(BUSPOSTIMAGE . $multiimage['image_name']) ?>" style="width: 100%; height: 100%;"> </a>
+                                                    <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>"><img class="two-columns" src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $multiimage['image_name']) ?>" style="width: 100%; height: 100%;"> </a>
                                                 </div>
 
                                                 <!-- two image end -->
@@ -1395,13 +1395,13 @@
 
                                             <!-- three image start -->
                                             <div id="three_images_art" >
-                                                <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>"><img class="three-columns" src="<?php echo base_url(BUSPOSTIMAGE . $businessmultiimage[0]['image_name']) ?>" style="width: 100%; height:100%; "> </a>
+                                                <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>"><img class="three-columns" src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $businessmultiimage[0]['image_name']) ?>" style="width: 100%; height:100%; "> </a>
                                             </div>
                                             <div  id="three_images_2_art">
-                                                <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>"><img class="three-columns" src="<?php echo base_url(BUSPOSTIMAGE . $businessmultiimage[1]['image_name']) ?>" style="width: 100%; height:100%; "> </a>
+                                                <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>"><img class="three-columns" src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $businessmultiimage[1]['image_name']) ?>" style="width: 100%; height:100%; "> </a>
                                             </div>
                                             <div  id="three_images_2_art">
-                                                <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_post_id']) ?>"><img class="three-columns" src="<?php echo base_url(BUSPOSTIMAGE . $businessmultiimage[2]['image_name']) ?>" style="width: 100%; height:100%; "> </a>
+                                                <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_post_id']) ?>"><img class="three-columns" src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $businessmultiimage[2]['image_name']) ?>" style="width: 100%; height:100%; "> </a>
                                             </div>
 
                                             <!-- three image end -->
@@ -1416,7 +1416,7 @@
 
                                                 <!-- four image start -->
                                                 <div id="responsive_manage-images-breakpoints" style="   ">
-                                                    <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>"><img class="breakpoint" src="<?php echo base_url(BUSPOSTIMAGE . $multiimage['image_name']) ?>" style="width: 100%; height: 100%;"> </a>
+                                                    <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>"><img class="breakpoint" src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $multiimage['image_name']) ?>" style="width: 100%; height: 100%;"> </a>
 
                                                 </div>
 
@@ -1437,7 +1437,7 @@
                                                 <!-- five image start -->
                                                 <div>
                                                     <div id="responsive-manage_images_2-breakpoints">
-                                                        <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>"><img src="<?php echo base_url(BUSPOSTIMAGE . $multiimage['image_name']) ?>" style=""> </a>
+                                                        <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>"><img src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $multiimage['image_name']) ?>" style=""> </a>
                                                     </div>
                                                 </div>
 
@@ -1452,7 +1452,7 @@
                                             <!-- this div view all image start -->
                                             <div>
                                                 <div id="responsive-manage_images_3-breakpoints" >
-                                                    <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>"><img src="<?php echo base_url(BUSPOSTIMAGE . $businessmultiimage[3]['image_name']) ?>" style=" width: 100%; height: 100%;"> </a></div>
+                                                    <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>"><img src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $businessmultiimage[3]['image_name']) ?>" style=" width: 100%; height: 100%;"> </a></div>
 
 
                                                 <div class="manage_images_view_more" >
