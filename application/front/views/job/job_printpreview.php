@@ -129,6 +129,7 @@ echo $job_header2;
                       }
                     $contition_array = array('user_id' => $user_id, 'is_delete' => '0', 'status' => '1');
                     $image = $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'profile_background', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                    //echo "<pre>"; print_r($image); die();
 
                     $image_ori = $image[0]['profile_background'];
                     if ($image_ori) {
