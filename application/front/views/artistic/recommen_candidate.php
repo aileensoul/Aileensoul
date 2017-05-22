@@ -118,9 +118,11 @@
                             
                                        <div class="profile-job-post-title-inside clearfix">
                                       
-<div class="profile_search"> 
+<div class="profile_search" style="background-color: white; margin-bottom: 10px;"> 
 
                                        <h4 class="search_head">Profiles</h4>
+                                       <div class="inner_search">
+
                                        <?php if($artuserdata){
                               foreach ($artuserdata as $key) {
                                 if($key['art_id']){
@@ -222,11 +224,13 @@ if($status == 0 || $status == " "){?>
      </div>
        </div>
        <?php }}?>
-
+</div>
 
 </div>
-<div class="col-md-12 profile_search " style="float: left; padding:0px!important;"> 
+<div class="col-md-12 profile_search " style="float: left; background-color: white; margin-bottom: 10px; padding:0px!important;"> 
        <h4 class="search_head">Posts</h4>
+       <div class="inner_search">
+
        <?php foreach ($artuserdata as $key) {
          if($key['art_description']){
        
@@ -844,7 +848,7 @@ if($status == 0 || $status == " "){?>
          <?php }}}?>
 </div>
 
-
+</div>
                                     </div>
                                     </div>
                                     </div>
