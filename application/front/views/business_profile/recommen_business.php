@@ -545,7 +545,7 @@ if($status == 0 || $status == " "){?>
 
                                                         if (($p['product_description']) || ($p['product_name'])) {
                                                             ?>
-                                                            <div class="col-md-12 col-sm-12 post-design-box" id="removepost5" style="margin-bottom: 0px; box-shadow: none; ">
+                                                            <div class="col-md-12 col-sm-12 post-design-box" id="removepost5" style="box-shadow: none; ">
                                                                 <div class="post_radius_box">  
                                                                     <div class="post-design-search-top col-md-12" style="background-color: none!important;">  
                                                                         <div class="post-design-pro-img col-md-2"> 
@@ -1098,7 +1098,7 @@ if($status == 0 || $status == " "){?>
                                                                         </div>
                                                                         <div class="">
                                                                             <div id="content" class="col-md-10  inputtype-comment" style="padding-left: 7px;">
-                                                                                <div contenteditable="true" style="min-height:37px !important; margin-top: 0px!important" class="editable_text" name="<?php echo $p['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $p['business_profile_post_id']; ?>" placeholder="Type Message ..." onClick="entercomment(<?php echo $p['business_profile_post_id']; ?>)"></div>
+                                                                                <div contenteditable="true" style="min-height:37px !important; margin-top: 0px!important" class="editable_text" name="<?php echo $p['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $p['business_profile_post_id']; ?>" placeholder="Add a comment ..." onClick="entercomment(<?php echo $p['business_profile_post_id']; ?>)"></div>
                                                                             </div>
                                                                             <?php echo form_error('post_comment'); ?> 
                                                                             <div class="comment-edit-butn">       
