@@ -634,7 +634,7 @@
                         if ($businessdata1[0]['user_id'] != $userid) {
                             ?>
                             <div class="col-md-3 padding_les">
-                                <div class="flw_msg_btn fr">
+                                <div class="flw_msg_btn fr top_follow">
                                     <ul>
                                         <li>
                                             <div class="<?php echo "fr" . $businessdata1[0]['business_profile_id']; ?>">
@@ -655,11 +655,11 @@
                                                     if ($status == 0 || $status == " ") {
                                                         ?>
                                                         <div class="msg_flw_btn_1" id= "followdiv">
-                                                            <button  style="margin-top: 7px;" id="<?php echo "follow" . $businessdata1[0]['business_profile_id']; ?>" onClick="followuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Follow</button>
+                                                            <button  style="" id="<?php echo "follow" . $businessdata1[0]['business_profile_id']; ?>" onClick="followuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Follow</button>
                                                         </div>
                                                     <?php } elseif ($status == 1) { ?>
                                                         <div class="msg_flw_btn_1" id= "unfollowdiv">
-                                                            <button style="margin-top: 7px;" id="<?php echo "unfollow" . $businessdata1[0]['business_profile_id']; ?>" onClick="unfollowuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Following </button>
+                                                            <button class="active_flw" style="" id="<?php echo "unfollow" . $businessdata1[0]['business_profile_id']; ?>" onClick="unfollowuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Following </button>
                                                         </div>
                                                     <?php } ?>
                                                 </div>         
