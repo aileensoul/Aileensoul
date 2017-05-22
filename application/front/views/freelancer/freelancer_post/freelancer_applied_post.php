@@ -207,7 +207,7 @@
 
             <div class="user-pic">
 <?php if ($jobdata[0]['freelancer_post_user_image'] != '') { ?>
-                    <img src="<?php echo base_url(USERIMAGE . $jobdata[0]['freelancer_post_user_image']); ?>" alt="" >
+                    <img src="<?php echo base_url($this->config->item('free_post_profile_thumb_upload_path') . $jobdata[0]['freelancer_post_user_image']); ?>" alt="" >
                 <?php } else { ?>
                     <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
                 <?php } ?>

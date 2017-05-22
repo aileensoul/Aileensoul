@@ -151,7 +151,7 @@ echo $freelancer_post_header2;
 
             <div class="user-pic">
 <?php if ($freelancerpostdata[0]['freelancer_post_user_image'] != '') { ?>
-                    <img src="<?php echo base_url(USERIMAGE . $freelancerpostdata[0]['freelancer_post_user_image']); ?>" alt="" >
+                    <img src="<?php echo base_url($this->config->item('free_post_profile_thumb_upload_path') . $freelancerpostdata[0]['freelancer_post_user_image']); ?>" alt="" >
                 <?php } else { ?>
                     <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
                 <?php } ?>
