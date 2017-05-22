@@ -414,7 +414,7 @@ if ($returnpage == 'job') {
 
                          echo $cache_time;
                           $k++;
-                        } echo ",". $post['other_skill']; }
+                        } echo ", ". $post['other_skill']; }
                   ?>     
                                                 
                                                 </span>
