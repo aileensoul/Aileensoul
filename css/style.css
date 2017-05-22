@@ -4932,3 +4932,18 @@ label.cameraButton:hover
     text-overflow: ellipsis;}
 /*
 css*/
+
+
+/*
+paginatiom*/
+.pagi_exp .tablinks{    padding: 2px 3px;
+    background-color: white;
+    color: black;
+    }
+    .data_exp{ 
+    padding: 12px 12px!important;
+    /* border: 1px solid #ccc; */
+    border: none!important;}
+    .pagi_exp{margin: 0 auto;
+    text-align: center;}
+    .pagi_exp .tablinks:hover{background-color: #d9d9d9; border-radius: 3px;}
