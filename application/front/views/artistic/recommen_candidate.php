@@ -117,7 +117,7 @@
 <!-- main data start -->
                             
                                        <div class="profile-job-post-title-inside clearfix">
-                                       <h3 style="margin: 20px 0;">Profile</h3>
+                                       <h4 class="search_head">Profile</h4>
                                        <?php if($artuserdata){
                               foreach ($artuserdata as $key) {
                                 if($key['art_id']){
@@ -218,7 +218,7 @@ if($status == 0 || $status == " "){?>
 
      </div>
        </div>
-       <?php }}?><h3 style="margin: 20px 0;">Posts</h3>
+       <?php }}?><h4 class="search_head">Posts</h4>
        <?php foreach ($artuserdata as $key) {
          if($key['art_description']){
        
