@@ -965,8 +965,8 @@ responsive image design start -->
             <div class="col-md-7 col-sm-7 "  >
 
                 <div class="post-editor col-md-12">
-                    <div class="main-text-area col-md-12">
-                 <div class="popup-img col-md-1"> <img  src="<?php echo base_url(ARTISTICIMAGE . $artisticdata[0]['art_user_image']); ?>"  alt="" style=" margin-left: -7px;
+                    <div class="main-text-area col-md-12" style="padding-left: 1px;">
+                 <div class="popup-img col-md-1"> <img  src="<?php echo base_url(ARTISTICIMAGE . $artisticdata[0]['art_user_image']); ?>"  alt="" style="
                                                       margin-top: 6px;">
                         </div>
                         <div id="myBtn3"  class="editor-content col-md-11 popup-text">
@@ -989,7 +989,7 @@ responsive image design start -->
 
                 <!-- Modal content -->
                 <div class="modal-content-post">
-                    <span class="close1">&times;</span>
+                    <span class="close3">&times;</span>
 
                     <div class="post-editor col-md-12">
 
@@ -3586,7 +3586,7 @@ responsive image design start -->
     var btn = document.getElementById("myBtn3");
 
     // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
+    var span = document.getElementsByClassName("close3")[0];
 
     // When the user clicks the button, open the modal 
     btn.onclick = function () {
