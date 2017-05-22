@@ -283,7 +283,7 @@
                                             if ($freehiredata[0]['profile_background'] != '') {
                                                 ?>
                                                 <!-- box image start -->
-              <img src="<?php echo base_url(FREEHIREIMG . $freehiredata[0]['profile_background']); ?>" class="bgImage" alt="<?php echo $freehiredata[0]['fullname'] . " " . $freehiredata[0]['username']; ?>" >
+              <img src="<?php echo base_url($this->config->item('free_hire_bg_main_upload_path') . $freehiredata[0]['profile_background']); ?>" class="bgImage" alt="<?php echo $freehiredata[0]['fullname'] . " " . $freehiredata[0]['username']; ?>" >
                                                 <!-- box image end -->
                                                 <?php
                                             } else {
