@@ -12,7 +12,7 @@
 
 
 <?php if($jobdata[0]['job_step'] == 10){ ?>
-<?php echo $job_header2; ?>
+<?php echo $job_header2_border; ?>
 <?php } ?>
 <!-- END HEADER -->
 

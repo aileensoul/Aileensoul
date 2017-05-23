@@ -147,7 +147,6 @@
 <!-- start header -->
 <?php echo $header; ?>
 
-<?php echo $job_header2; ?>
 <?php echo $job_header2_border; ?>
 <!-- END HEADER -->
 
