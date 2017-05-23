@@ -186,7 +186,7 @@
 									<label>Postal Address:<span style="color:red">*</span></label>
 								
 
-                                <textarea name="address" style="resize: none;overflow: hidden;min-height: 18%;"><?php if($address1){ echo $address1; } ?></textarea>
+                                <textarea id="textarea" name="address" style="resize: none;min-height: 18%;"><?php if($address1){ echo $address1; } ?></textarea>
                                     <?php echo form_error('address'); ?>
                                     <label id="address-error"></label>
 
@@ -223,6 +223,13 @@
     
 </body>
 </html>
+ <script type="text/javascript">
+     var textarea = document.getElementById("textarea");
+
+textarea.onkeyup = function(evt) {
+    this.scrollTop = this.scrollHeight;
+}
+ </script>
 
   <script type="text/javascript" src="<?php echo site_url('js/jquery-ui.js') ?>"></script>
   
@@ -448,3 +455,4 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
  $(".alert").delay(3200).fadeOut(300);
 </script>
  <!-- footer end -->
+
