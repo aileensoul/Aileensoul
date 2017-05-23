@@ -9,7 +9,6 @@
    <?php echo $freelancer_hire_header2; ?>
    <!--  <rash code 7-4 end> -->
 
-
    <!DOCTYPE html>
 <html>
 <head>
@@ -27,6 +26,19 @@
    <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/jquery.datetimepicker.css'); ?>">
    <!-- Calender Css End-->
 
+<!-- select 2 validation border start -->
+<style type="text/css">
+  
+  /*.keyskill_border_deactivte {
+  border: 0px solid red;
+
+}*/
+
+.keyskill_border_active {
+  border: 1px solid red;
+
+}
+</style>
 
 </head>
 <body>
@@ -53,7 +65,7 @@
                                 <h3>Post Your Project</h3> 
                                 
                                 
-                           <?php echo form_open(base_url('freelancer/freelancer_add_post_insert'), array('id' => 'postinfo','name' => 'postinfo','class' => 'clearfix')); ?>
+                           <?php echo form_open(base_url('freelancer/freelancer_add_post_insert'), array('id' => 'postinfo','name' => 'postinfo','class' => 'clearfix', 'onsubmit' => "imgval()")); ?>
                             <div>
                                   <h4> Project Description</h4></div>
 
@@ -419,6 +431,25 @@ function checkvalue(){
     return false;
   }
 }
+</script>
+<script type="text/javascript">
+  
+function imgval(){ 
+
+
+ var skill_main = document.getElementById("skills").value;
+ var skill_other = document.getElementById("other_skill").value;
+ alert();
+ alert();
+
+     if(skill_main =='' && skill_other == ''){
+  //$($("#skils").select2("container")).removeClass("keyskill_border_deactivte");
+
+  $($("#skills").select2("container")).addClass("keyskill_border_active");
+  }
+   
+  }
+
 </script>
 
 

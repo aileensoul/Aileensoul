@@ -199,7 +199,7 @@ label.cameraButton input[accept*="camera"] {
                    
               </div>
                 <!-- PICKUP -->
-                                   <!-- menubar --><div class="buisness-data-menu  col-md-12 ">
+                                   <!-- menubar --><div class="business-data-menu  col-md-12 ">
 
 <div class="left-side-menu col-md-2">   </div>
         

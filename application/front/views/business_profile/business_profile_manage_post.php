@@ -3823,6 +3823,7 @@
                     /*        margin-left: 15px;
                             margin-right: 15px;*/
                     width: 96%;
+                    background-color: #fff !important;
                 }
                 div[class^="likeduserlist"]{
                     width: 100% !important;
