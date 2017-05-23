@@ -104,12 +104,12 @@
                     if ($image_ori) {
                         ?>
                         <div class="bg-images">
-                            <img src="<?php echo base_url(ARTBGIMAGE . $image[0]['profile_background']); ?>" name="image_src" id="image_src" / ></div>
+                            <img src="<?php echo base_url($this->config->item('art_bg_main_upload_path') . $image[0]['profile_background']); ?>" name="image_src" id="image_src" /></div>
                         <?php
                     } else {
                         ?>
                         <div class="bg-images">
-                            <img src="<?php echo base_url(WHITEIMAGE); ?>" name="image_src" id="image_src" / ></div>
+                            <img src="<?php echo base_url(WHITEIMAGE); ?>" name="image_src" id="image_src" /></div>
 <?php }
 ?>
 
@@ -140,7 +140,7 @@ if ($artisticdata[0]['user_id'] == $userid) {
 
             <div class="user-pic">
 <?php if ($artisticdata[0]['art_user_image'] != '') { ?>
-                    <img src="<?php echo base_url(ARTISTICIMAGE . $artisticdata[0]['art_user_image']); ?>" alt="" >
+                    <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image']); ?>" alt="" >
                 <?php } else { ?>
                     <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
                 <?php } ?>
@@ -526,7 +526,7 @@ if ($artisticdata[0]['art_bestofmine']) {
 
     if (in_array($ext, $allowed)) {
         ?>
-                                                            <img src="<?php echo base_url(ARTISTICIMAGE . $artisticdata[0]['art_bestofmine']) ?>">
+                                                            <img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $artisticdata[0]['art_bestofmine']) ?>">
                                                         <?php } elseif (in_array($ext, $allowespdf)) {
                                                             ?>
                                                             <a href="<?php echo base_url('artistic/creat_pdf1/' . $artisticdata[0]['art_id']) ?>">PDF</a>
@@ -535,7 +535,7 @@ if ($artisticdata[0]['art_bestofmine']) {
                                                             ?> 
 
                                                             <video width="320" height="240" controls>
-                                                                <source src="<?php echo base_url(ARTISTICIMAGE . $artisticdata[0]['art_bestofmine']); ?>" type="video/mp4">
+                                                                <source src="<?php echo base_url($this->config->item('art_post_main_upload_path') . $artisticdata[0]['art_bestofmine']); ?>" type="video/mp4">
                                                                 <source src="movie.ogg" type="video/ogg">
                                                                 Your browser does not support the video tag.
                                                             </video>
@@ -544,7 +544,7 @@ if ($artisticdata[0]['art_bestofmine']) {
                                                             ?>
                                                             <audio width="120" height="100" controls>
 
-                                                                <source src="<?php echo base_url(ARTISTICIMAGE . $artisticdata[0]['art_bestofmine']); ?>" type="audio/mp3">
+                                                                <source src="<?php echo base_url($this->config->item('art_post_main_upload_path') . $artisticdata[0]['art_bestofmine']); ?>" type="audio/mp3">
                                                                 <source src="movie.ogg" type="audio/ogg">
                                                                 Your browser does not support the audio tag.
 
@@ -579,7 +579,7 @@ if ($artisticdata[0]['art_bestofmine']) {
 
     if (in_array($ext, $allowed)) {
         ?>
-                                                            <img src="<?php echo base_url(ARTISTICIMAGE . $artisticdata[0]['art_achievement']) ?>">
+                                                            <img src="<?php echo base_url($this->config->item('art_post_main_upload_path') . $artisticdata[0]['art_achievement']) ?>">
                                                         <?php } elseif (in_array($ext, $allowespdf)) {
                                                             ?>
                                                             <a href="<?php echo base_url('artistic/creat_pdf1/' . $artisticdata[0]['art_id']) ?>">PDF</a>
@@ -588,7 +588,7 @@ if ($artisticdata[0]['art_bestofmine']) {
                                                             ?> 
 
                                                             <video width="320" height="240" controls>
-                                                                <source src="<?php echo base_url(ARTISTICIMAGE . $artisticdata[0]['art_achievement']); ?>" type="video/mp4">
+                                                                <source src="<?php echo base_url($this->config->item('art_post_main_upload_path') . $artisticdata[0]['art_achievement']); ?>" type="video/mp4">
                                                                 <source src="movie.ogg" type="video/ogg">
                                                                 Your browser does not support the video tag.
                                                             </video>
@@ -597,7 +597,7 @@ if ($artisticdata[0]['art_bestofmine']) {
                                                             ?>
                                                             <audio width="120" height="100" controls>
 
-                                                                <source src="<?php echo base_url(ARTISTICIMAGE . $artisticdata[0]['art_achievement']); ?>" type="audio/mp3">
+                                                                <source src="<?php echo base_url($this->config->item('art_post_main_upload_path') . $artisticdata[0]['art_achievement']); ?>" type="audio/mp3">
                                                                 <source src="movie.ogg" type="audio/ogg">
                                                                 Your browser does not support the audio tag.
 

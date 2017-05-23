@@ -461,12 +461,12 @@
                     if ($image_ori) {
                         ?>
                         <div class="bg-images">
-                            <img src="<?php echo base_url(ARTBGIMAGE . $image[0]['profile_background']); ?>" name="image_src" id="image_src" / ></div>
+                            <img src="<?php echo base_url($this->config->item('art_bg_main_upload_path') . $image[0]['profile_background']); ?>" name="image_src" id="image_src" /></div>
                         <?php
                     } else {
                         ?>
                         <div class="bg-images">
-                            <img src="<?php echo base_url(WHITEIMAGE); ?>" name="image_src" id="image_src" / ></div>
+                            <img src="<?php echo base_url(WHITEIMAGE); ?>" name="image_src" id="image_src" /></div>
                     <?php }
                     ?>
 
@@ -494,7 +494,7 @@
 
                 <div class="user-pic">
                     <?php if ($artisticdata[0]['art_user_image'] != '') { ?>
-                        <img src="<?php echo base_url(ARTISTICIMAGE . $artisticdata[0]['art_user_image']); ?>" alt="" >
+                        <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image']); ?>" alt="" >
                     <?php } else { ?>
                         <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
                     <?php } ?>
@@ -722,7 +722,7 @@ if ($status == 0 || $status == " ") {
                                                 if ($databus) {
                                                     foreach ($databus as $data) {
                                                         ?>
-                                                        <img src="<?php echo base_url(ARTPOSTIMAGE . $data['image_name']) ?>" onclick="openModal();currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor" width="280" height="300"/>
+                                                        <img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $data['image_name']) ?>" onclick="openModal();currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor" width="280" height="300"/>
 
                                                         <?php
                                                         $i++;
@@ -763,7 +763,7 @@ if ($status == 0 || $status == " ") {
 
                                                         <div class="mySlides">
                                                             <div class="numbertext"><?php echo $i ?> / <?php echo count($databus1) ?></div>
-                                                            <img src="<?php echo base_url(ARTPOSTIMAGE .$artdata['image_name']) ?>" style="width:100%; height: 70%;">
+                                                            <img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') .$artdata['image_name']) ?>" style="width:100%; height: 70%;">
 
                                                             <!-- 8-5 post art_post page data comment design start -->
                                                             <div class="post-design-like-box col-md-12">
@@ -943,7 +943,7 @@ if ($status == 0 || $status == " ") {
                                                     $art_userimage = $this->db->get_where('art_reg', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->art_user_image;
                                                                                         ?>
                                                             <a href="<?php echo base_url('artistic/art_manage_post/' . $rowdata['user_id'] . ''); ?>">
-                                                                                        <img  src="<?php echo base_url(ARTISTICIMAGE . $art_userimage); ?>"  alt="">
+                                                                                        <img  src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage); ?>"  alt="">
                                                                                         </a>
                                                                                     </div>
                                                                                     <div class="comment-name">
@@ -1074,7 +1074,7 @@ if ($status == 0 || $status == " ") {
     ?>
                                                                 <div class="post-design-proo-img">
                                                                     <?php if ($art_userimage) { ?>
-                                                                        <img src="<?php echo base_url(ARTISTICIMAGE . $art_userimage); ?>" name="image_src" id="image_src" />
+                                                                        <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage); ?>" name="image_src" id="image_src" />
                                                                         <?php
                                                                     } else {
                                                                         ?>
