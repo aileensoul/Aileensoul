@@ -89,18 +89,25 @@
                                         $y = 0;
                                         foreach($busimage as $image){ 
                                           $y = $y +1;?>
-                                    <div class="job_work_edit_<?php echo $image['image_id']?>">
+                                    <div class="job_work_edit_<?php echo $image['image_id']?>" id="image_main">
                                             <input type="hidden" name="filedata[]" id="filename" value="old">
                                             <input type="hidden" name="filename[]" id="filename" value="<?php echo $image['image_name']; ?>">
                                             <input type="hidden" name="imageid[]" id="filename" value="<?php echo $image['image_id']; ?>">
-                                            <img src="<?php echo base_url($this->config->item('bus_profile_main_upload_path').$image['image_name'])?>" style="width:100px;height:100px;">
-                                            <br/><br/>
+
+
+                                            <div class="edit_bui_img">
+                                            <img src="<?php echo base_url($this->config->item('bus_profile_main_upload_path').$image['image_name'])?>" >
+                                   </div>
                                             
                                              <?php // if ($y != 1) {
                                                                     ?>
                                                                     <div style="float: left;">
                                                                         <div class="hs-submit full-width fl">
-                                                                            <input type="button" value="Delete" onclick="delete_job_exp(<?php echo $image['image_id']; ?>);">
+                                                                            <input id="bui_img_delete" type="button" value="" onclick="delete_job_exp(<?php echo $image['image_id']; ?>);" style="display: none;"> 
+                                                                           
+                                                                            <div class="bui_close">
+                                                                            <label for="bui_img_delete"><i class="fa fa-times" aria-hidden="true"></i></label>
+                                                                        </div>
                                                                         </div>
                                                                     </div>
                                                                 <?php // } ?>
