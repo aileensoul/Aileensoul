@@ -94,7 +94,7 @@
                                             <input type="hidden" name="filename[]" id="filename" value="<?php echo $image['image_name']; ?>">
                                             <input type="hidden" name="imageid[]" id="filename" value="<?php echo $image['image_id']; ?>">
 
-
+                                            <div class="img_bui_data"> 
                                             <div class="edit_bui_img">
                                             <img src="<?php echo base_url($this->config->item('bus_profile_main_upload_path').$image['image_name'])?>" >
                                    </div>
@@ -111,6 +111,7 @@
                                                                         </div>
                                                                     </div>
                                                                 <?php // } ?>
+                                              </div>
                                               </div>
                                         <?php }} ?>
                                            
