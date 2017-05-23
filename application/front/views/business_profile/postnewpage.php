@@ -1293,7 +1293,7 @@ if(count($databus1) > 1){
 
                                                             <div class="">
                                                                 <div class="col-md-12 inputtype-comment" style="width: 80%; padding-left: 7px;">
-                                                                    <div contenteditable="true" class="editable_text" name="<?php echo $busdata['image_id']; ?>" id="<?php echo "post_imgcomment" . $busdata['image_id']; ?>" placeholder="Type Comment ..." onkeyup="entercommentimg(<?php echo $busdata['image_id']; ?>)"></div>
+                                                                    <div contenteditable="true" class="editable_text" name="<?php echo $busdata['image_id']; ?>" id="<?php echo "post_imgcomment" . $busdata['image_id']; ?>" placeholder="Add a Comment ..." onkeyup="entercommentimg(<?php echo $busdata['image_id']; ?>)"></div>
                                                                 </div>
 
                                                                 <div class="comment-edit-butn">                                      

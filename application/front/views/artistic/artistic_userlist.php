@@ -41,10 +41,6 @@
     label.cameraButton input[accept*="camera"] {
         display: none;
     }
-
-
-
-
 </style>
 <!-- END HEAD -->
 <!-- start header -->
@@ -105,12 +101,12 @@
                     if ($image_ori) {
                         ?>
                         <div class="bg-images">
-                            <img src="<?php echo base_url(ARTBGIMAGE . $image[0]['profile_background']); ?>" name="image_src" id="image_src" / ></div>
+                            <img src="<?php echo base_url($this->config->item('art_bg_main_upload_path') . $image[0]['profile_background']); ?>" name="image_src" id="image_src" /></div>
                         <?php
                     } else {
                         ?>
                         <div class="bg-images">
-                            <img src="<?php echo base_url(WHITEIMAGE); ?>" name="image_src" id="image_src" / ></div>
+                            <img src="<?php echo base_url(WHITEIMAGE); ?>" name="image_src" id="image_src" /></div>
                     <?php }
                     ?>
 
@@ -139,7 +135,7 @@
 
             <div class="user-pic">
                 <?php if ($artisticdata[0]['art_user_image'] != '') { ?>
-                    <img src="<?php echo base_url(ARTISTICIMAGE . $artisticdata[0]['art_user_image']); ?>" alt="" >
+                    <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image']); ?>" alt="" >
                 <?php } else { ?>
                     <img alt=""  src="<?php echo base_url(NOIMAGE); ?>" alt="" />
                 <?php } ?>
@@ -291,7 +287,7 @@
                                                     <div class="follow-img">
                                                         <?php if ($user['art_user_image'] != '') { ?>
                                                         <a href="<?php echo base_url('artistic/art_manage_post/' . $user['user_id']); ?>">
-                                                            <img src="<?php echo base_url(ARTISTICIMAGE . $user['art_user_image']); ?>" height="50px" width="50px" alt="" > </a>
+                                                            <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $user['art_user_image']); ?>" height="50px" width="50px" alt="" > </a>
                                                         <?php } else { ?>
                                                         <a href="<?php echo base_url('artistic/art_manage_post/' . $user['user_id']); ?>">
                                                             <img alt="" src="<?php echo base_url(NOIMAGE); ?>" alt="" /> </a>

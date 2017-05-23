@@ -9,7 +9,7 @@
     <!-- start header -->
 <?php echo $header; ?>
     <?php if($recdata[0]['re_step'] == 3){?>
-    <?php echo $recruiter_header2; ?>
+    <?php echo $recruiter_header2_border; ?>
 <?php }?>
     <!-- END HEADER -->
     <body class="page-container-bg-solid page-boxed">

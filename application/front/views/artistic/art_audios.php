@@ -113,7 +113,7 @@ label.cameraButton input[accept*="camera"] {
                     if ($image_ori) {
                         ?>
                         <div class="bg-images">
-                            <img src="<?php echo base_url(ARTBGIMAGE . $image[0]['profile_background']); ?>" name="image_src" id="image_src" / ></div>
+                            <img src="<?php echo base_url($this->config->item('art_bg_main_upload_path') . $image[0]['profile_background']); ?>" name="image_src" id="image_src" / ></div>
                         <?php
                     } else {
                         ?>
@@ -392,7 +392,7 @@ if ($status == 0 || $status == " ") {
                  ?>
 
                             <audio controls>
-                            <source src="<?php echo base_url(ARTPOSTIMAGE.$audiov['image_name'])?>" type="audio/ogg">
+                            <source src="<?php echo base_url($this->config->item('art_post_main_upload_path').$audiov['image_name'])?>" type="audio/ogg">
                             <source src="movie.ogg" type="audio/mpeg">
                            Your browser does not support the audio tag.
                             </audio>

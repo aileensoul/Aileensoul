@@ -111,7 +111,7 @@ label.cameraButton input[accept*="camera"] {
                     if ($image_ori) {
                         ?>
                         <div class="bg-images">
-                            <img src="<?php echo base_url(ARTBGIMAGE . $image[0]['profile_background']); ?>" name="image_src" id="image_src" / ></div>
+                            <img src="<?php echo base_url($this->config->item('art_bg_main_upload_path') . $image[0]['profile_background']); ?>" name="image_src" id="image_src" / ></div>
                         <?php
                     } else {
                         ?>
@@ -144,7 +144,7 @@ label.cameraButton input[accept*="camera"] {
 
                 <div class="user-pic">
                         <?php if($artisticdata[0]['art_user_image'] != ''){ ?>
-                           <img src="<?php echo base_url(ARTISTICIMAGE . $artisticdata[0]['art_user_image']);?>" alt="" >
+                           <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image']);?>" alt="" >
                             <?php } else { ?>
                             <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
                             <?php } ?>
@@ -410,7 +410,7 @@ if ($status == 0 || $status == " ") {
 
              <div class="vidoe_tag"> 
                  <video controls>
-                    <source src="<?php echo base_url(ARTPOSTIMAGE.$videov['image_name'])?>" type="video/mp4">
+                    <source src="<?php echo base_url($this->config->item('art_post_main_upload_path').$videov['image_name'])?>" type="video/mp4">
                     <source src="movie.ogg" type="video/ogg">
                Your browser does not support the video tag.
                   </video>

@@ -165,7 +165,8 @@
   {  
 .fixed_left{left: 0 !important;}
      .row4 { margin-right: 0px; margin-left: 0px; }
-    
+    .all-form-content { padding-left: 15px !important; }
+
      /*header1 on*/
      .header ul { margin-right: 10px; }
      .header ul li a { font-size: 11px; padding: 10px 12px; }
@@ -313,8 +314,14 @@
      .cameraButton .tooltiptext  { padding: 5px 0px 5px; margin-top: 22px; width: 130px; }
        
           /* cover pic off */     
+     /* popup start*/
+      .modal-content { padding: 10px; }
+      .modal-close { height: 22px!important; width: 22px !important; font-size: 20px!important; top: -12px!important; right: -11px!important; line-height: 20px !important;  }
+      .modal.message-box  span.mes { font-size: 17px; margin: 10px 0; }
+      .pop_content .okbtn { font-size: 14px; padding: 8px 8px; width: 80px; }
+      .pop_content .cnclbtn { font-size: 14px; padding: 8px 8px; width: 80px; }
      
-      
+
 
     }
   /* vishang end*/
