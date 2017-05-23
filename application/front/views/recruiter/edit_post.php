@@ -84,6 +84,14 @@
                         <span id="fullname-error"></span>
                         <?php echo form_error('other_skill'); ?>
                     </fieldset>
+
+                     <fieldset class="full-width">
+                        <label>No of position:<span style="color:red">*</span></label>
+                        <input name="position" type="number" min="1" id="position" value="<?php echo $postdata[0]['post_position']; ?>" onblur="return full_name();"/>
+                        <span id="fullname-error"></span>
+                        <?php echo form_error('position'); ?>
+                </fieldset>
+
                    <fieldset <?php if ($month) { ?> class="error-msg" <?php } ?> class="two-select-box">
                                     <label class="control-label">Minimum experience:<span style="color:red">*</span></label>
 
@@ -192,12 +200,7 @@
                         }
                         ?>
                         </fieldset>
-                <fieldset class="full-width">
-                        <label>No of position:<span style="color:red">*</span></label>
-                        <input name="position" type="number" min="1" id="position" value="<?php echo $postdata[0]['post_position']; ?>" onblur="return full_name();"/>
-                        <span id="fullname-error"></span>
-                        <?php echo form_error('position'); ?>
-                </fieldset>
+               
                 
                 <fieldset  class="full-width">
                     <label >Job description:<span style="color:red">*</span></label>
