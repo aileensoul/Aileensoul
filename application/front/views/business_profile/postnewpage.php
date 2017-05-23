@@ -514,7 +514,7 @@
                                            tabindex="-1" aria-hidden="true" rel="noopener" title="<?php echo $businessdata[0]['company_name']; ?>">
                                             <!-- box image start -->
                                             <?php if ($businessdata[0]['profile_background'] != '') { ?>
-                                                <img src="<?php echo base_url(BUSBGIMG . $businessdata[0]['profile_background']); ?>" class="bgImage" alt="<?php echo $businessdata[0]['company_name']; ?>"  style="height: 95px; width: 100%; ">
+                                                <img src="<?php echo base_url($this->config->item('bus_bg_thumb_upload_path') . $businessdata[0]['profile_background']); ?>" class="bgImage" alt="<?php echo $businessdata[0]['company_name']; ?>"  style="height: 95px; width: 100%; ">
                                                 <?php
                                             } else {
                                                 ?>
@@ -528,7 +528,7 @@
                                                 <?php
                                                 if ($businessdata[0]['business_user_image']) {
                                                     ?>
-                                                    <img  src="<?php echo base_url(USERIMAGE . $businessdata[0]['business_user_image']); ?>"  alt="<?php echo $businessdata[0]['company_name']; ?>" style="height: 77px; width: 71px; z-index: 3; position: relative; ">
+                                                    <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $businessdata[0]['business_user_image']); ?>"  alt="<?php echo $businessdata[0]['company_name']; ?>" style="height: 77px; width: 71px; z-index: 3; position: relative; ">
                                                 <?php } else { ?>
                                                     <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo $businessdata[0]['company_name']; ?>">
                                                 <?php } ?>                           
@@ -637,7 +637,7 @@
 
                                                     <?php if ($userimageposted) { ?>
                                                     <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugnameposted); ?>">
-                                                        <img src="<?php echo base_url(USERIMAGE . $userimageposted); ?>" name="image_src" id="image_src" />
+                                                        <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $userimageposted); ?>" name="image_src" id="image_src" />
                                                         </a>
                                                     <?php } else { ?>
                                                     <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugnameposted); ?>">
@@ -648,7 +648,7 @@
                                                 <?php } else { ?>
                                                     <?php if ($business_userimage) { ?>
                                                     <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>">
-                                                        <img  src="<?php echo base_url(USERIMAGE . $business_userimage); ?>"  alt="">
+                                                        <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage); ?>"  alt="">
                                                         </a>
                                                     <?php } else { ?>
                                                     <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>">
@@ -827,7 +827,7 @@
                                                    
                                                         <!-- two image start -->
                                                        <div id="basic-responsive-image" style="height: 50%;" >
-                                                    <img src="<?php echo base_url(BUSPOSTIMAGE . $data['image_name']) ?>" style="width: 100%; height: 100%;" onclick="openModal();
+                                                    <img src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $data['image_name']) ?>" style="width: 100%; height: 100%;" onclick="openModal();
                                                             currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
                                                 </div>
                                                         <!-- two image end -->
@@ -839,7 +839,7 @@
                                                     
                                                         <!-- two image start -->
                                                        <div id="two_images_bui" style="height: 50%;" >
-                                                    <img src="<?php echo base_url(BUSPOSTIMAGE . $data['image_name']) ?>" style="width: 100%; height: 100%;" onclick="openModal();
+                                                    <img src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $data['image_name']) ?>" style="width: 100%; height: 100%;" onclick="openModal();
                                                             currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
                                                 </div>
                                                         <!-- two image end -->
@@ -856,7 +856,7 @@
     width: 33.3%;
     display: inline-block;
     float: left;" >
-                                                    <img src="<?php echo base_url(BUSPOSTIMAGE . $data['image_name']) ?>" style="width: 100%; height: 100%;" onclick="openModal();
+                                                    <img src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $data['image_name']) ?>" style="width: 100%; height: 100%;" onclick="openModal();
                                                             currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
                                                 </div>
                                                         <!-- two image end -->
@@ -867,14 +867,14 @@
                                                     
                                                         <!-- two image start -->
                                                        <div id="two_images_bui" style="height: 50%;" >
-                                                    <img src="<?php echo base_url(BUSPOSTIMAGE . $data['image_name']) ?>" style="width: 100%; height: 100%;" onclick="openModal();
+                                                    <img src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $data['image_name']) ?>" style="width: 100%; height: 100%;" onclick="openModal();
                                                             currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
                                                 </div>
                                                         <!-- two image end -->
                                                     <?php }else{ ?>
                                                 
                                       <div id="two_images_bui" style="height: 50%;" >
-                                                    <img src="<?php echo base_url(BUSPOSTIMAGE . $data['image_name']) ?>" style="width: 100%; height: 100%;" onclick="openModal();
+                                                    <img src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $data['image_name']) ?>" style="width: 100%; height: 100%;" onclick="openModal();
                                                             currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
                                                 </div>
                                             <?php } } elseif (in_array($ext, $allowespdf)) { ?>
@@ -892,7 +892,7 @@
                                                 <!-- one video start -->
                                                 <div>
                                                     <video width="320" height="240" controls>
-                                                        <source src="<?php echo base_url(BUSPOSTIMAGE . $data['image_name']); ?>" type="video/mp4">
+                                                        <source src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $data['image_name']); ?>" type="video/mp4">
                                                         <source src="movie.ogg" type="video/ogg">
                                                         Your browser does not support the video tag.
                                                     </video>
@@ -905,7 +905,7 @@
                                                 <div>
                                                     <audio width="120" height="100" controls>
 
-                                                        <source src="<?php echo base_url(BUSPOSTIMAGE . $data['image_name']); ?>" type="audio/mp3">
+                                                        <source src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $data['image_name']); ?>" type="audio/mp3">
                                                         <source src="movie.ogg" type="audio/ogg">
                                                         Your browser does not support the audio tag.
 
@@ -949,7 +949,7 @@
                                                 <div class="mySlides">
                                                     <div class="numbertext"><?php echo $i ?> / <?php echo count($databus1) ?></div>
                                                     <div>
-                                                        <img src="<?php echo base_url(BUSPOSTIMAGE . $busdata['image_name']) ?>" style="width:100%; height: 70%;">
+                                                        <img src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $busdata['image_name']) ?>" style="width:100%; height: 70%;">
                                                     </div>
 
                                                     <!-- like comment start -->
@@ -1126,7 +1126,7 @@ if(count($databus1) > 1){
                                                                                     $business_userimage = $this->db->get_where('business_profile', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->business_user_image;
                                                                                     ?>
 
-                                                                                    <img  src="<?php echo base_url(USERIMAGE . $business_userimage); ?>"  alt="">
+                                                                                    <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage); ?>"  alt="">
                                                                                 </div>
 
                                                                                 <div class="comment-name">
@@ -1287,7 +1287,7 @@ if(count($databus1) > 1){
                                                                 $business_userimage = $this->db->get_where('business_profile', array('user_id' => $userid, 'status' => 1))->row()->business_user_image;
                                                                 ?>
 
-                                                                <img src="<?php echo base_url(USERIMAGE . $business_userimage); ?>" alt="">
+                                                                <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage); ?>" alt="">
                                                             </div>
 
 
@@ -1607,7 +1607,7 @@ if(count($databus1) > 1){
                                                             $business_userimage = $this->db->get_where('business_profile', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->business_user_image;
                                                             ?>
 
-                                                            <img  src="<?php echo base_url(USERIMAGE . $business_userimage); ?>"  alt="">
+                                                            <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage); ?>"  alt="">
                                                         </div>
                                                         <div class="comment-name">
 
@@ -1750,7 +1750,7 @@ if(count($databus1) > 1){
                                         $business_userimage = $this->db->get_where('business_profile', array('user_id' => $userid, 'status' => 1))->row()->business_user_image;
                                         ?>
 
-                                        <img  src="<?php echo base_url(USERIMAGE . $business_userimage); ?>"  alt="">
+                                        <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage); ?>"  alt="">
                                     </div>
 
 
