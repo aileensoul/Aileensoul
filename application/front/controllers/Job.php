@@ -796,7 +796,7 @@ class Job extends MY_Controller {
                 'school_primary' => $this->input->post('school_primary'),
                 'percentage_primary' => $this->input->post('percentage_primary'),
                 'pass_year_primary' => $this->input->post('pass_year_primary'),
-                'edu_certificate_primary' => $certificate,
+                'edu_certificate_primary' => $job_certificate,
                 'status' => 1
             );
             // echo '<pre>'; print_r($data);die();
@@ -2551,6 +2551,7 @@ class Job extends MY_Controller {
                 } else {
                     //Add Multiple field into database Start 
                     for ($x = 0; $x < $count1; $x++) {
+                        $work_certificate = $files['certificate']['name'][$x];
 
 
                         $data = array(
