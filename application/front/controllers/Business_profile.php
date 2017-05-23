@@ -1716,7 +1716,7 @@ class Business_profile extends MY_Controller {
         }
     }
 
-    public function business_resume($id) {
+    public function business_resume($id="") {
 
         $userid = $this->session->userdata('aileenuser');
 

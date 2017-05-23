@@ -25,7 +25,9 @@
 
 .column1 {
   float: left;
-  width: 25%;
+  float: left;
+    width: 195px;
+    height: 173px;
 }
 
 /* The Modal (background) */
@@ -482,7 +484,7 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
         <div class="user-midd-section">
             <div class="container">
                 <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-3" style="width: 22%;">
                   
  <!-- <div  class="add-post-button">
     
@@ -496,7 +498,7 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
  
                   
                 </div>
-                    <div class="col-md-8 col-sm-8">
+                    <div class="col-md-7 col-sm-7">
                         <div class="common-form">
                             <div class="job-saved-box">
 
@@ -646,23 +648,29 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
 popup -->
 
 
-<div class="row5">
-  <div class="column1">
+
+
       
      <?php $i =1; foreach($busimagedata as $image){ 
          
          if($i <= 2){?>
-          <img src="<?php echo base_url(BUSINESSPROFILEIMAGE . $image['image_name']);?>" style="width:100%" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+  <div class="column1">
+         <div class="bui_res_i">          <img src="<?php echo base_url(BUSINESSPROFILEIMAGE . $image['image_name']);?>"  onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+         </div>
+</div>
      <?php }else{ ?>
-         <img src="<?php echo base_url(BUSINESSPROFILEIMAGE . $image['image_name']);?>" style="width:100%" onclick="openModal();currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
-         view all
+    <div class="column1">
+  <div class="bui_res_i">  
+         <img src="<?php echo base_url(BUSINESSPROFILEIMAGE . $image['image_name']);?>"  onclick="openModal();currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
+ </div></div>
+         <div class="view_bui"> view all</div>
+         
+
+
      <?php } $i++; if($i == 4){ break; }
          
      } ?>
      
-  </div>
- 
-</div>
 
 <div id="myModal" class="modal">
   <div class="close cursor" onclick="closeModal()">&times;</div>
@@ -691,7 +699,7 @@ popup -->
 
 <!-- 
 popup -->
-                            							</div>		</a></li>
+                            						</li>
                                                     </ul>
                                                 </div>
                                                 </div> 

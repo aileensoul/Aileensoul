@@ -2,13 +2,7 @@
 
     display: inline-block;
     background-color: #87ceff;
-    white-space: nowrap;
+    
     border-radius: .125em;
-    max-width: 60%;
-    height: auto;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-size: 17px;
-
+    
 }

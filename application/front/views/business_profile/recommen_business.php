@@ -423,25 +423,25 @@
                                                     foreach ($profile as $p) {
 //                                                 echo "<pre>"; print_r($p);die();
                                                         ?>
-                                                        <div class="profile-job-profile-button clearfix box_search_module" style="height: 16%;">
-                                                            <div class="profile-job-post-location-name-rec">
-                                                                <div class="module_Ssearch" style="display: inline-block; float: left;">
-                                                    <div class="search_img">
-                                                    <a style="  font-size: 19px;
-                                                   font-weight: 600;" href="<?php echo base_url('business_profile/business_profile_manage_post/' . $p['business_slug']); ?>" title="">
+                                                    <div class="profile-job-profile-button clearfix box_search_module search" style="height: 14%;border: 1px solid #efefef;margin-bottom: 20px!important;">
+                                     
+                                                            
+     <div class="profile-job-post-location-name-rec">
+                                              <div class="module_Ssearch" style="display: inline-block; float: left;">
+                                              <div class="search_img" >
+                                                    <a style=" " href="<?php echo base_url('business_profile/business_profile_manage_post/' . $p['business_slug']); ?>" title="">
                                                          <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $p['business_user_image']); ?>" alt="" > </a>
                                                                     </div>
                                                                 </div>
-                                                                <div class="designation_rec" style="    float: left;
-                                                                     width: 60%;
-                                                                     padding-top: 16px;">
+                                                                 <div class="designation_rec" style="    float: left;
+    width: 60%;
+    padding-top: 16px;">
                                                                     <ul>
-                                                                        <li>
-                                                                            <a style="  font-size: 19px;
-                                                                               font-weight: 600;" href="<?php echo base_url('business_profile/business_profile_manage_post/' . $p['business_slug']); ?>" title=""><?php echo ucwords($p['company_name']); ?></a>
+                                                                        <li style="padding-top: 0px;">
+                                                                            <a  href="<?php echo base_url('business_profile/business_profile_manage_post/' . $p['business_slug']); ?>" title="<?php echo ucwords($p['company_name']); ?>"><?php echo ucwords($p['company_name']); ?></a>
                                                                         </li>
                                                                         <li style="display: block;">
-                                                                            <a  class="color-search" style="font-size: 16px;" title="">
+                                                                            <a  class="color-search" s title="">
                                                                                 <?php
                                                                                 $cache_time = $this->db->get_where('industry_type', array('industry_id' => $p['industriyal']))->row()->industry_name;
                                                                                 echo $cache_time;
@@ -449,7 +449,7 @@
                                                                             </a>
                                                                         </li>
                                                                         <li style="display: block;">
-                                                                            <a  class="color-search">
+                                                                            <a title="" class="color-search">
                                                                                 <?php
                                                                                 $cache_time = $this->db->get_where('business_type', array('type_id' => $p['business_type']))->row()->business_name;
                                                                                 echo $cache_time;
@@ -457,7 +457,7 @@
                                                                             </a>
                                                                         </li>
                                                                         <li style="display: block;">
-                                          <a  class="color-search">
+                                          <a title="" class="color-search">
                               <?php
                                   $cityname = $this->db->get_where('cities', array('city_id' => $p['city']))->row()->city_name;
                                              $countryname = $this->db->get_where('countries', array('country_id' => $p['country']))->row()->country_name;
@@ -478,7 +478,7 @@
                                                                             </a>
                                                                         </li>
                                                                         <li style="display: block;">
-                                                                            <a  class="color-search" style="font-weight: 600;" href="<?php echo $p['contact_website']; ?>" target="_blank"> <?php echo $p['contact_website']; ?></a>
+                                                                            <a title="" class="color-search" style="font-weight: 600;" href="<?php echo $p['contact_website']; ?>" target="_blank"> <?php echo $p['contact_website']; ?></a>
                                                                         </li>
                                                                         <input type="hidden" name="search" id="search" value="<?php echo $keyword; ?>">
 
@@ -508,7 +508,7 @@ if($status == 0 || $status == " "){?>
                             </button></div>
                                 <?php } ?>
 </div>
-         <br>
+     </br>
      <button onclick="window.location.href = '<?php echo base_url('chat/abc/' . $p['user_id']); ?>'"> Message</button>
 
    </div>
@@ -517,7 +517,7 @@ if($status == 0 || $status == " "){?>
 </div>
   
                                                           </div>
-                                                        </div>
+                                                       
                                                         <?php
                                                         /*
                                                           ?>
@@ -532,6 +532,9 @@ if($status == 0 || $status == " "){?>
                                                     }
                                                 }
                                                 ?>
+
+                                                </div>
+                                                </div>
                                                 <div class="col-md-12 profile_search " style="float: left; background-color: white; margin-top: 10px; margin-bottom: 10px; padding:0px!important;"> 
                                                    <h4 class="search_head">Posts</h4>
        <div class="inner_search" style="float: left;">
@@ -545,7 +548,7 @@ if($status == 0 || $status == " "){?>
 
                                                         if (($p['product_description']) || ($p['product_name'])) {
                                                             ?>
-                                                            <div class="col-md-12 col-sm-12 post-design-box" id="removepost5" style="margin-bottom: 0px; box-shadow: none; ">
+                                                            <div class="col-md-12 col-sm-12 post-design-box" id="removepost5" style="box-shadow: none; ">
                                                                 <div class="post_radius_box">  
                                                                     <div class="post-design-search-top col-md-12" style="background-color: none!important;">  
                                                                         <div class="post-design-pro-img col-md-2"> 
@@ -1098,7 +1101,7 @@ if($status == 0 || $status == " "){?>
                                                                         </div>
                                                                         <div class="">
                                                                             <div id="content" class="col-md-10  inputtype-comment" style="padding-left: 7px;">
-                                                                                <div contenteditable="true" style="min-height:37px !important; margin-top: 0px!important" class="editable_text" name="<?php echo $p['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $p['business_profile_post_id']; ?>" placeholder="Type Message ..." onClick="entercomment(<?php echo $p['business_profile_post_id']; ?>)"></div>
+                                                                                <div contenteditable="true" style="min-height:37px !important; margin-top: 0px!important" class="editable_text" name="<?php echo $p['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $p['business_profile_post_id']; ?>" placeholder="Add a comment ..." onClick="entercomment(<?php echo $p['business_profile_post_id']; ?>)"></div>
                                                                             </div>
                                                                             <?php echo form_error('post_comment'); ?> 
                                                                             <div class="comment-edit-butn">       
