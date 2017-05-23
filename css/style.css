@@ -2583,7 +2583,7 @@ border-bottom: 1px solid #000033;
 label.cameraButton i{font-size: 26px}
 #row2 { overflow: hidden; width: 100%; border: 1px solid #d9d9d9; border-top: none;}
 #row2 img { height: 350px;width: 100%; } 
-.upload-img { float: right;
+.upload-img { float: right;z-index: 1;
               position: relative; margin-top: -135px; right: 50px; }
 
 label.cameraButton {
