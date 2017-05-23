@@ -439,8 +439,8 @@ function imgval(){
 
  var skill_main = document.getElementById("skills").value;
  var skill_other = document.getElementById("other_skill").value;
- alert();
- alert();
+ //alert();
+ //alert();
 
      if(skill_main =='' && skill_other == ''){
   //$($("#skils").select2("container")).removeClass("keyskill_border_deactivte");

@@ -2,6 +2,22 @@
 <!-- END HEAD -->
 <!-- start header -->
 <?php echo $header; ?>
+
+<!-- select 2 validation border start -->
+<style type="text/css">
+  
+  /*.keyskill_border_deactivte {
+  border: 0px solid red;
+
+}*/
+
+.keyskill_border_active {
+  border: 1px solid red;
+
+}
+</style>
+
+
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/3.3.0/select2.css" rel="stylesheet" /> 
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
@@ -97,7 +113,7 @@
 
                         <div class="common-form">
                             <h3>Proessional Information</h3>
-                            <?php echo form_open(base_url('freelancer/freelancer_post_professional_information_insert'), array('id' => 'freelancer_post_professional', 'name' => 'freelancer_post_professional', 'class' => 'clearfix')); ?>
+                            <?php echo form_open(base_url('freelancer/freelancer_post_professional_information_insert'), array('id' => 'freelancer_post_professional', 'name' => 'freelancer_post_professional', 'class' => 'clearfix', 'onsubmit' => "imgval()")); ?>
 
                             <div>
                                    <span style="color:#7f7f7e;padding-left: 8px;">( </span><span style="color:red">*</span><span style="color:#7f7f7e"> )</span> <span style="color:#7f7f7e">Indicates required field</span>
@@ -327,6 +343,27 @@ $( "#tags" ).autocomplete({
     $("#skill1").select2().select2('val', complex)
 
 </script>
+
+
+<script type="text/javascript">
+  
+function imgval(){ 
+    //alert(123);
+
+ var skill_main = document.getElementById("skill1").value;
+ var skill_other = document.getElementById("otherskill").value;
+
+     if(skill_main =='' && skill_other == ''){
+  //$($("#skils").select2("container")).removeClass("keyskill_border_deactivte");
+
+  $($("#skill1").select2("container")).addClass("keyskill_border_active");
+  }
+   
+  }
+
+</script>
+
+
 <script type="text/javascript">
 
     //validation for edit email formate form
