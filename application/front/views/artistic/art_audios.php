@@ -146,7 +146,7 @@ label.cameraButton input[accept*="camera"] {
 
                 <div class="user-pic">
                         <?php if($artisticdata[0]['art_user_image'] != ''){ ?>
-                           <img src="<?php echo base_url(ARTISTICIMAGE . $artisticdata[0]['art_user_image']);?>" alt="" >
+                           <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image']);?>" alt="" >
                             <?php } else { ?>
                             <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
                             <?php } ?>

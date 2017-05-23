@@ -330,7 +330,7 @@ responsive image design start -->
 
             <div class="user-pic">
                 <?php if ($artisticdata[0]['art_user_image'] != '') { ?>
-                    <img src="<?php echo base_url(ARTISTICIMAGE . $artisticdata[0]['art_user_image']); ?>" alt="" >
+                    <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image']); ?>" alt="" >
                 <?php } else { ?>
                     <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
                 <?php } ?>
@@ -966,7 +966,7 @@ responsive image design start -->
 
                 <div class="post-editor col-md-12">
                     <div class="main-text-area col-md-12" style="padding-left: 1px;">
-                 <div class="popup-img col-md-1"> <img  src="<?php echo base_url(ARTISTICIMAGE . $artisticdata[0]['art_user_image']); ?>"  alt="" style="
+                 <div class="popup-img col-md-1"> <img  src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image']); ?>"  alt="" style="
                                                       margin-top: 6px;">
                         </div>
                         <div id="myBtn3"  class="editor-content col-md-11 popup-text">
@@ -996,7 +996,7 @@ responsive image design start -->
                         <?php echo form_open_multipart(base_url('artistic/art_post_insert/' . 'manage/' . $artisticdata[0]['user_id']), array('id' => 'artpostform', 'name' => 'artpostform', 'class' => 'clearfix', 'onsubmit' => "return imgval();")); ?>
 
                         <div class="main-text-area col-md-12" >
-                            <div class="popup-img-in col-md-1"> <img  src="<?php echo base_url(ARTISTICIMAGE . $artisticdata[0]['art_user_image']); ?>"  alt="">
+                            <div class="popup-img-in col-md-1"> <img  src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image']); ?>"  alt="">
                             </div>
                             <div id="myBtn3"  class="editor-content col-md-10 popup-text" >
                                    <!-- <textarea name="product_title" placeholder="Post Your Product...."></textarea>  -->
@@ -1092,11 +1092,11 @@ responsive image design start -->
 
                                             <?php if ($row['posted_user_id']) { ?>
                                             <a  class="post_dot" title="<?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?>" href="<?php echo base_url('artistic/art_manage_post/' . $row['posted_user_id']); ?>">
-                                                <img src="<?php echo base_url(ARTISTICIMAGE . $userimageposted); ?>" name="image_src" id="image_src" / > </a>
+                                                <img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $userimageposted); ?>" name="image_src" id="image_src" / > </a>
 
                                                  <?php } else { ?>
                                                  <a class="post_dot"  href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>">
-                                                     <img src="<?php echo base_url(ARTISTICIMAGE . $userimage); ?>" name="image_src" id="image_src" / > </a>
+                                                     <img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $userimage); ?>" name="image_src" id="image_src" / > </a>
 
                                                  <?php } ?>
                                         </div>
@@ -1580,7 +1580,7 @@ responsive image design start -->
                                                                 <?php $art_userimage = $this->db->get_where('art_reg', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->art_user_image; ?>
                                                                 <?php if ($art_userimage) { ?>
                                                                 <a href="<?php echo base_url('artistic/art_manage_post/' . $rowdata['user_id'] . ''); ?>">
-                                                                    <img  src="<?php echo base_url(ARTISTICIMAGE . $art_userimage); ?>"  alt="">
+                                                                    <img  src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $art_userimage); ?>"  alt="">
                                                                     <?php
                                                                 } else {
                                                                     ?>
@@ -1727,7 +1727,7 @@ responsive image design start -->
                                         <?php
                                         if ($art_userimage) {
                                             ?>
-                                            <img src="<?php echo base_url(ARTISTICIMAGE . $art_userimage); ?>" name="image_src" id="image_src" />
+                                            <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage); ?>" name="image_src" id="image_src" />
                                             <?php
                                         } else {
                                             ?>
