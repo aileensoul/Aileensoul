@@ -67,7 +67,7 @@
                                 
                            <?php echo form_open(base_url('freelancer/freelancer_add_post_insert'), array('id' => 'postinfo','name' => 'postinfo','class' => 'clearfix', 'onsubmit' => "imgval()")); ?>
                             <div>
-                                  <h4> Project Description</h4></div>
+                                <h4 class="freelancer_editpost_title"> Project Description</h4></div>
 
                         <!-- <div><span style="color:red">Fields marked with asterisk (*) are mandatory</span></div> --> 
                             
@@ -196,7 +196,7 @@
 
                        
                         <fieldset class="col-md-12">  
-                        <b><h2>Payment For Freelancer : </h2></b>
+                        <b><h2 class="freelancer_editpost_title">Payment For Freelancer : </h2></b>
                          </fieldset>
                          
                           <fieldset style="padding-left: 8px;" class="col-md-4" <?php if($rate) {  ?> class="error-msg" <?php } ?> >
