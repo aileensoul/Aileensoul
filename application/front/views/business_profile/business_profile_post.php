@@ -215,7 +215,7 @@
        <script src="<?php echo base_url('dragdrop/js/locales/es.js'); ?>"></script>
         <script src="<?php echo base_url('dragdrop/themes/explorer/theme.js'); ?>"></script>
 <!-- END HEADER -->
-<?php echo $business_header2 ?>
+<?php echo $business_header2_border; ?>
 <!DOCTYPE html>
 <html>
     <head>

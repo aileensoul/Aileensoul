@@ -27,7 +27,7 @@
 
 <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
 <?php if($artdata[0]['art_step'] == 4){?>
-    <?php echo $art_header2; }?>
+    <?php echo $art_header2_border; }?>
 
     <!-- END HEADER -->
     <body class="page-container-bg-solid page-boxed">
