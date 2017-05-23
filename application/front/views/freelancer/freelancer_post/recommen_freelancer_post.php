@@ -216,7 +216,7 @@
                                        if ($freepostdata[0]['profile_background'] != '') {
                                            ?>
                                         <!-- box image start -->
-                                        <img src="<?php echo base_url(FREEWORKIMG . $freepostdata[0]['profile_background']); ?>" class="bgImage" alt="<?php echo  $freepostdata[0]['freelancer_post_fullname'] . ' ' . $freepostdata[0]['freelancer_post_username']; ?>"  style="height: 95px;
+                                        <img src="<?php echo base_url($this->config->item('free_post_bg_main_upload_path') . $freepostdata[0]['profile_background']); ?>" class="bgImage" alt="<?php echo  $freepostdata[0]['freelancer_post_fullname'] . ' ' . $freepostdata[0]['freelancer_post_username']; ?>"  style="height: 95px;
                                              width: 100%;">
                                         <!-- box image end -->
                                         <?php
@@ -236,9 +236,9 @@
                                                               <a class="profile-boxProfilebuisness-avatarLink2 a-inlineBlock" 
                                                               href="<?php echo base_url('freelancer/freelancer_post_profile/' . $freelancerdata[0]['user_id']); ?>" title="<?php echo $freelancerdata[0]['freelancer_post_fullname']. ' ' . $freelancerdata[0]['freelancer_post_username']; ?>" tabindex="-1" aria-hidden="true" rel="noopener">
                                                    <?php
-                                            if ($freelancerdata[0]['freelancer_post_user_image']) {
+                                            if ($freepostdata[0]['freelancer_post_user_image']) {
                                                 ?>
-                                                 <img src="<?php echo base_url(USERIMAGE . $freelancerdata[0]['freelancer_post_user_image']); ?>" alt="<?php echo $freelancerdata[0]['freelancer_post_fullname']. ' ' . $freelancerdata[0]['freelancer_post_username']; ?>"  style="    height: 77px;
+                                                 <img src="<?php echo base_url($this->config->item('free_post_profile_thumb_upload_path') . $freepostdata[0]['freelancer_post_user_image']); ?>" alt="<?php echo $freepostdata[0]['freelancer_post_fullname']. ' ' . $freepostdata[0]['freelancer_post_username']; ?>"  style="    height: 77px;
     width: 71px;
     z-index: 3;
     position: relative;
@@ -246,7 +246,7 @@
                                                 <?php
                                             } else {
                                                 ?>
-                                                 <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo $freelancerdata[0]['freelancer_post_fullname']. ' ' . $freelancerdata[0]['freelancer_post_username']; ?>"   style="   height: 80px;
+                                                 <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo $freepostdata[0]['freelancer_post_fullname']. ' ' . $freepostdata[0]['freelancer_post_username']; ?>"   style="   height: 80px;
                                                      width: 77px;     z-index: 3;
                                                      position: relative;"> <?php
                                             }
