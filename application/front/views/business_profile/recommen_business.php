@@ -187,7 +187,7 @@
 </style>
 <?php echo $header; ?>
 <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
-<?php echo $business_header2 ?>
+<?php echo $business_header2_border ?>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />

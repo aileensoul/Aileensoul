@@ -105,7 +105,7 @@ padding-top: 1px;}
 <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
 
 <!-- END HEADER -->
-<?php echo $recruiter_header2; ?>
+<?php echo $job_header2_border; ?>
 <!DOCTYPE html>
 <html>
     <head>
