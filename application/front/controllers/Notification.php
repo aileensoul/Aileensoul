@@ -979,7 +979,7 @@ $contition_array = array('notification.not_type' => 5, 'notification.not_from' =
 
                 $notification .= '<li><div class="notification-database">';
                 $notification .= '<div class="notification-pic">';
-                $notification .= '<img src="' . base_url(USERIMAGE . $job['user_image']) . ' " >';
+                $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $job['user_image']) . ' " >';
                 $notification .= '</div><div class="notification-data-inside">';
                 $notification .= '<a href="' . base_url('notification/recruiter_post/' . $job['post_id']) . '"><h6>HI.. !  <font color="blue"><b><i> Rectuiter</i></font></b><b>' . '  ' . $job['first_name'] . ' ' . $job['last_name'] . '</b> invited you for an interview</h6></a>';
                 $notification .= '<div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
