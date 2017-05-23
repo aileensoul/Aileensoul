@@ -82,7 +82,7 @@
                                 <li id="art_profile" <?php if($this->uri->segment(1) == 'job' && $this->uri->segment(2) == 'job_all_post'){?> class="active" <?php } ?>><a href="<?php echo base_url('job/job_all_post'); ?>" title="Home">Home</a>
                                     </li>
                                 <!-- Friend Request Start-->
-
+<!-- <h3>hello</h3> -->
                                      <li>
                                 <!-- Friend Request End-->
 
@@ -114,6 +114,8 @@
         </div>
        </div> 
     </header>
+
+    
 
  <!-- Bid-modal  -->
                     <div class="modal fade message-box biderror" id="bidmodal" role="dialog">
