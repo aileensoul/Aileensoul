@@ -15,7 +15,7 @@
 
 <!-- pallavi code start 15-4 -->
    <?php if ($freehiredata[0]['free_hire_step'] == '3'){ 
-     echo $freelancer_hire_header2; } ?>
+     echo $freelancer_hire_header2_border; } ?>
 <!-- pallavi code end 15-4 -->
 
 <body>

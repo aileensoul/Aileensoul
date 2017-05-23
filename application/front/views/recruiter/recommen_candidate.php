@@ -50,7 +50,7 @@
 <!-- start header -->
 <?php echo $header; ?>
 <!-- END HEADER -->
-<?php echo $recruiter_header2; ?>
+<?php echo $recruiter_header2_border; ?>
 <!DOCTYPE html>
 <html>
     <head>
