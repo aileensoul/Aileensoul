@@ -95,7 +95,7 @@
 <!-- start header -->
 <?php echo $header; ?>
 <!-- END HEADER -->
-<?php echo $freelancer_post_header2; ?>
+<?php echo $freelancer_post_header2_border; ?>
 
 <!DOCTYPE html>
 <html>

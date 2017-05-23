@@ -4,7 +4,7 @@
 <!-- start header -->
 <?php echo $header; ?>
 
-<?php echo $freelancer_hire_header2; ?>
+<?php echo $freelancer_hire_header2_border; ?>
 
 
 <!--post save success pop up style strat -->
