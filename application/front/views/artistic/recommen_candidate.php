@@ -36,7 +36,7 @@
                                            tabindex="-1" aria-hidden="true" rel="noopener" title="<?php echo ucwords($artdata[0]['art_name']) . ' ' . ucwords($artdata[0]['art_lastname']); ?>">
                                             <!-- box image start -->
                                             <?php if ($artdata[0]['profile_background'] != '') { ?>
-                                                <img src="<?php echo base_url(ARTBGIMAGE . $artdata[0]['profile_background']); ?>" class="bgImage" alt=""  style="height: 95px; width: 100%; ">
+                                                <img src="<?php echo base_url($this->config->item('art_bg_main_upload_path') . $artdata[0]['profile_background']); ?>" class="bgImage" alt=""  style="height: 95px; width: 100%; ">
                                                 <?php
                                             } else {
                                                 ?>
@@ -50,7 +50,7 @@
                                                 <?php
                                                 if ($artdata[0]['art_user_image']) {
                                                     ?>
-                                                    <img  src="<?php echo base_url(ARTISTICIMAGE . $artdata[0]['art_user_image']); ?>"  alt="" style="height: 77px; width: 71px; z-index: 3; position: relative; ">
+                                                    <img  src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artdata[0]['art_user_image']); ?>"  alt="" style="height: 77px; width: 71px; z-index: 3; position: relative; ">
                                                 <?php } else { ?>
                                                     <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
                                                 <?php } ?>                           
@@ -134,7 +134,7 @@
      <div class="profile-job-post-location-name-rec">
           <div class="module_Ssearch" style="display: inline-block; float: left;">
              <div class="search_img">
-                           <img src="<?php echo base_url(ARTISTICIMAGE . $key['art_user_image']); ?>" alt=" ">
+                           <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $key['art_user_image']); ?>" alt=" ">
                         </div>
        </div>
    
@@ -283,7 +283,7 @@ if($status == 0 || $status == " "){?>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                           <img src="<?php echo base_url(ARTISTICIMAGE . $key['art_user_image']); ?>" alt="">
+                                                           <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $key['art_user_image']); ?>" alt="">
                                                                                                 </div>
                                             <div class="post-design-name fl col-md-9">
                                                 <ul>
@@ -382,7 +382,7 @@ if($status == 0 || $status == " "){?>
 
                                                    
             <div id="basic-responsive-image" style="height: 80%; width: 100%;">
-             <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img src="<?php echo base_url(ARTPOSTIMAGE .$artmultiimage[0]['image_name'])?>" style="width: 100%; height: 100%;"> </a>
+             <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') .$artmultiimage[0]['image_name'])?>" style="width: 100%; height: 100%;"> </a>
                                                     </div>
                                                     
 
@@ -403,7 +403,7 @@ if($status == 0 || $status == " "){?>
                                                         <video width="100%" height="55%" controls>
 
 
-                        <source src="<?php echo base_url(ARTPOSTIMAGE .$artmultiimage[0]['image_name']) ?>" type="video/mp4">
+                        <source src="<?php echo base_url($this->config->item('art_post_main_upload_path') .$artmultiimage[0]['image_name']) ?>" type="video/mp4">
                         <source src="movie.ogg" type="video/ogg">
                         Your browser does not support the video tag.
                          </video>
@@ -416,7 +416,7 @@ if($status == 0 || $status == " "){?>
                                  <div>
                         <audio width="120" height="100" controls>
 
-                    <source src="<?php echo base_url(ARTPOSTIMAGE . $artmultiimage[0]['image_name']); ?>" type="audio/mp3">
+                    <source src="<?php echo base_url($this->config->item('art_post_main_upload_path') . $artmultiimage[0]['image_name']); ?>" type="audio/mp3">
                     <source src="movie.ogg" type="audio/ogg">
                         Your browser does not support the audio tag.
 
@@ -436,7 +436,7 @@ if($status == 0 || $status == " "){?>
 
                                                     
                                                     <div  id="two_manage_images_art" >
-                                                        <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="two-columns" src="<?php echo base_url(ARTPOSTIMAGE .$multiimage['image_name']) ?>" > </a>
+                                                        <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="two-columns" src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') .$multiimage['image_name']) ?>" > </a>
                                                     </div>
 
                                                     
@@ -448,14 +448,14 @@ if($status == 0 || $status == " "){?>
 
                                               
                                                 <div id="three_images_art" >
-                                                    <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="three-columns" src="<?php echo base_url(ARTPOSTIMAGE .$artmultiimage[0]['image_name']) ?>" style="width: 100%; height:100%; "> </a>
+                                                    <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="three-columns" src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') .$artmultiimage[0]['image_name']) ?>" style="width: 100%; height:100%; "> </a>
                                                 </div>
                                                 <div  id="three_images_2_art">
-                                                    <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="three-columns" src="<?php echo base_url(ARTPOSTIMAGE . $artmultiimage[1]['image_name'])?>" style="width: 100%; height:100%; "> </a>
+                                                    <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="three-columns" src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $artmultiimage[1]['image_name'])?>" style="width: 100%; height:100%; "> </a>
                                                 </div>
 
                                                 <div  id="three_images_2_art">
-                                                    <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="three-columns" src="<?php echo base_url(ARTPOSTIMAGE . $artmultiimage[2]['image_name'])?>" style="width: 100%; height:100%; "> </a>
+                                                    <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="three-columns" src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $artmultiimage[2]['image_name'])?>" style="width: 100%; height:100%; "> </a>
                                                 </div>
 
                                                 
@@ -470,7 +470,7 @@ if($status == 0 || $status == " "){?>
 
                                                     
                                                     <div id="responsive_manage-images-breakpoints" style="   ">
-                                                        <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="breakpoint" src="<?php echo base_url(ARTPOSTIMAGE . $multiimage['image_name'])?>" style="width: 100%; height: 100%;"> </a>
+                                                        <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="breakpoint" src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $multiimage['image_name'])?>" style="width: 100%; height: 100%;"> </a>
 
                                                     </div>
 
@@ -491,7 +491,7 @@ if($status == 0 || $status == " "){?>
                                                     
                                                     <div>
                                                         <div id="responsive-manage_images_2-breakpoints">
-                                                            <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img src="<?php echo base_url(ARTPOSTIMAGE . $multiimage['image_name']) ?>" style=""> </a>
+                                                            <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $multiimage['image_name']) ?>" style=""> </a>
                                                         </div>
                                                     </div>
 
@@ -506,7 +506,7 @@ if($status == 0 || $status == " "){?>
                                                
                                                 <div>
                                                     <div id="responsive-manage_images_3-breakpoints" >
-                                                        <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img src="<?php echo base_url(ARTPOSTIMAGE .$artmultiimage[3]['image_name'])?>" > </a></div>
+                                                        <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') .$artmultiimage[3]['image_name'])?>" > </a></div>
 
 
                                                     <div class="manage_images_view_more" >
@@ -696,7 +696,7 @@ if($status == 0 || $status == " "){?>
                                                                     $art_userimage = $this->db->get_where('art_reg', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->art_user_image;
                                                                     ?>
                                                                     <?php if ($art_userimage) { ?>
-                                                                        <img  src="<?php echo base_url(ARTISTICIMAGE . $art_userimage); ?>"  alt="">
+                                                                        <img  src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage); ?>"  alt="">
                                                                         <?php
                                                                     } else {
                                                                         ?>
@@ -817,7 +817,7 @@ if($status == 0 || $status == " "){?>
                                             $art_userimage = $this->db->get_where('art_reg', array('user_id' => $userid, 'status' => 1))->row()->art_user_image;
                                             ?>
                                             <div class="post-design-proo-img">                                                                     <?php if ($art_userimage) { ?>
-                                                    <img src="<?php echo base_url(ARTISTICIMAGE . $art_userimage); ?>" name="image_src" id="image_src" />
+                                                    <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage); ?>" name="image_src" id="image_src" />
                                                     <?php
                                                 } else {
                                                     ?>
