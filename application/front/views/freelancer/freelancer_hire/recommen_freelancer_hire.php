@@ -222,7 +222,7 @@
                                             if ($freehiredata[0]['profile_background'] != '') {
                                                 ?>
                                                 <!-- box image start -->
-                                                <img src="<?php echo base_url(FREEHIREIMG . $freehiredata[0]['profile_background']); ?>" class="bgImage" alt="<?php echo $freehiredata[0]['fullname'] . " " . $freehiredata[0]['username']; ?>"  style="height: 95px;
+                                                <img src="<?php echo base_url($this->config->item('free_hire_bg_main_upload_path') . $freehiredata[0]['profile_background']); ?>" class="bgImage" alt="<?php echo $freehiredata[0]['fullname'] . " " . $freehiredata[0]['username']; ?>"  style="height: 95px;
                                                      width: 100%;">
                                                 <!-- box image end -->
                                                 <?php
@@ -244,7 +244,7 @@
                                                 <?php
                                                 if ($freehiredata[0]['freelancer_hire_user_image']) {
                                                     ?>
-                                                    <img src="<?php echo base_url(USERIMAGE . $freehiredata[0]['freelancer_hire_user_image']); ?>" alt="<?php echo $freehiredata[0]['fullname'] . " " . $freehiredata[0]['username']; ?>"  style="    height: 77px;
+                                                    <img src="<?php echo base_url($this->config->item('free_hire_profile_thumb_upload_path') . $freehiredata[0]['freelancer_hire_user_image']); ?>" alt="<?php echo $freehiredata[0]['fullname'] . " " . $freehiredata[0]['username']; ?>"  style="    height: 77px;
                                                          width: 71px;
                                                          z-index: 3;
                                                          position: relative;

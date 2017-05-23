@@ -2399,8 +2399,17 @@ $this->load->view('freelancer/freelancer_hire/freelancer_save', $this->data);
             }
             if ($error) {
                 $this->session->set_flashdata('error', $error[0]);
-                $redirect_url = site_url('dashboard');
-                redirect($redirect_url, 'refresh');
+                if ($this->input->post('hitext') == 1) {
+                    redirect('freelancer/freelancer_add_post', refresh);
+                } elseif ($this->input->post('hitext') == 2) {
+                    redirect('freelancer/freelancer_hire_post', refresh);
+                } elseif ($this->input->post('hitext') == 3) {
+                    redirect('freelancer/freelancer_save', refresh);
+                } elseif ($this->input->post('hitext') == 4) {
+                    redirect('freelancer/freelancer_hire_profile', refresh);
+                }
+                // $redirect_url = site_url('dashboard');
+                // redirect($redirect_url, 'refresh');
             } else {
 
                 $contition_array = array('user_id' => $userid);
@@ -2540,8 +2549,15 @@ $freelancer_post_userimage = '';
             }
             if ($error) {
                 $this->session->set_flashdata('error', $error[0]);
-                $redirect_url = site_url('dashboard');
-                redirect($redirect_url, 'refresh');
+                if ($this->input->post('hitext') == 1) {
+                    redirect('freelancer/freelancer_applied_post', refresh);
+                } elseif ($this->input->post('hitext') == 2) {
+                    redirect('freelancer/freelancer_save_post', refresh);
+                } elseif ($this->input->post('hitext') == 3) {
+                    redirect('freelancer/freelancer_post_profile', refresh);
+                }
+                // $redirect_url = site_url('dashboard');
+                // redirect($redirect_url, 'refresh');
             } else {
 
 
