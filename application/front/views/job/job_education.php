@@ -781,7 +781,7 @@
                                                                 if ($edu_certificate1) {
                                                                     ?>
  <div class="img_work_exp" style=" margin-top: 14px;" >
-                                                                    <img src="<?php echo base_url(JOBEDUCERTIFICATE . $edu_certificate1) ?>" style="width:100px;height:100px;">
+                                                                    <img src="<?php echo base_url($this->config->item('job_edu_thumb_upload_path')   . $edu_certificate1) ?>" style="width:100px;height:100px;">
 </div>
                                                                     <?php
                                                                 }
@@ -1024,7 +1024,7 @@
                                                         if ($edu_certificate1) {
                                                             ?>
 
-                                                            <img src="<?php echo base_url(JOBEDUCERTIFICATE . $edu_certificate1) ?>" style="width:100px;height:100px;">
+                                                            <img src="<?php echo base_url($this->config->item('job_edu_thumb_upload_path')   . $edu_certificate1) ?>" style="width:100px;height:100px;">
 
                                                             <?php
                                                         }
