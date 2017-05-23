@@ -35,7 +35,7 @@
 }*/
 
 .keyskill_border_active {
-  border: 1px solid red;
+  border: 3px solid red !important;
 
 }
 </style>
@@ -445,7 +445,7 @@ function imgval(){
      if(skill_main =='' && skill_other == ''){
   //$($("#skils").select2("container")).removeClass("keyskill_border_deactivte");
 
-  $($("#skills").select2("container")).addClass("keyskill_border_active");
+  $("#postinfo .select2-selection").addClass("keyskill_border_active");
   }
    
   }
