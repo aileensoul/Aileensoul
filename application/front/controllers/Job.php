@@ -1418,18 +1418,18 @@ class Job extends MY_Controller {
                 if ($edu_certificate == "") {
                     
                   // echo $jobdata[$x]['job_graduation_id']; echo 1; die();
-                    $data = array(
-                        'edu_certificate' => $this->input->post('image_hidden_degree' . $jobdata[$x]['job_graduation_id'])
-                    );
+                    
+                       $edu_certificate1 = $this->input->post('image_hidden_degree' . $jobdata[$x]['job_graduation_id']);
+                    
                 } else { 
                     
-                    $data = array(
-                        'edu_certificate' =>   $edu_certificate
-                    );
+                    
+                        $edu_certificate1 =   $edu_certificate;
+                    
                 }
 
-               // echo "<pre>"; print_r($data); die();
-                $updatedata = $this->common->update_data($data, 'job_graduation', 'job_graduation_id', $jobdata[$x]['job_graduation_id']);
+               // // echo "<pre>"; print_r($data); die();
+               //  $updatedata = $this->common->update_data($data, 'job_graduation', 'job_graduation_id', $jobdata[$x]['job_graduation_id']);
 
               $i = $x + 1;
              // echo $userdata[0]['education_data'][$x]; die();
@@ -1443,7 +1443,7 @@ class Job extends MY_Controller {
                     'grade' => $userdata[0]['grade'][$x],
                     'percentage' => $userdata[0]['percentage'][$x],
                     'pass_year' => $userdata[0]['pass_year'][$x],
-                 'edu_certificate'=> $edu_certificate,
+                 'edu_certificate'=> $edu_certificate1,
                  //   'grad_step' => 1
                     'degree_count' => $i
                 );
@@ -2502,18 +2502,23 @@ class Job extends MY_Controller {
                         if($exp_data == 'old'){
                         $files[] = $_FILES;
                         //echo "<pre>";print_r($files);die();
-                        $work_certificate = $files['certificate']['name'][$x];
+                         $work_certificate = $files['certificate']['name'][$x];
+
                         //echo  $edu_certificate;die();
                         if ($work_certificate == "") {
-                            $data = array(
-                                'work_certificate' => $this->input->post('image_hidden_certificate' . $jobdata[$x]['work_id'])
-                            );
+                            // $data = array(
+                            //     'work_certificate' => $this->input->post('image_hidden_certificate' . $jobdata[$x]['work_id'])
+                            // );
+
+                            $work_certificate1 = $this->input->post('image_hidden_certificate' . $jobdata[$x]['work_id']);
                         } else {
-                            $data = array(
-                                'work_certificate' =>  $work_certificate
-                            );
+                            // $data = array(
+                            //     'work_certificate' =>  $work_certificate
+                            // );
+                            $work_certificate1 = $work_certificate;
                         }
-                        $updatedata = $this->common->update_data($data, 'job_add_workexp', 'work_id', $jobdata[$x]['work_id']);
+
+                        // $updatedata = $this->common->update_data($data, 'job_add_workexp', 'work_id', $jobdata[$x]['work_id']);
 
                         $data = array(
                             'user_id' => $userid,
@@ -2524,12 +2529,18 @@ class Job extends MY_Controller {
                             'companyname' => $userdata[0]['companyname'][$x],
                             'companyemail' => $userdata[0]['companyemail'][$x],
                             'companyphn' => $userdata[0]['companyphn'][$x],
-                            'work_certificate'=>    $work_certificate
+                            'work_certificate'=>    $work_certificate1
                         );
 
                         $updatedata1 = $this->common->update_data($data, 'job_add_workexp', 'work_id', $jobdata[$x]['work_id']);
+
                         }
                         else{
+
+$files[] = $_FILES;
+                        //echo "<pre>";print_r($files);die();
+                         $work_certificate = $files['certificate']['name'][$x];
+
                             $data = array(
                             'user_id' => $userid,
                             'experience' => $exp,
@@ -2551,9 +2562,8 @@ class Job extends MY_Controller {
                 } else {
                     //Add Multiple field into database Start 
                     for ($x = 0; $x < $count1; $x++) {
-                        $work_certificate = $files['certificate']['name'][$x];
 
-
+                         $work_certificate = $files['certificate']['name'][$x];
                         $data = array(
                             'user_id' => $userid,
                             'experience' => $exp,

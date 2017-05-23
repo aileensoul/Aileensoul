@@ -251,7 +251,7 @@
                                                                 if ($work_certificate1) {
                                                                     ?>
                                                                         <div class="img_work_exp" style=" " >
-                                                                    <img src="<?php echo base_url($this->config->item('job_work_thumb_upload_path')  . $work_certificate1) ?>" style="width:100px;height:100px;">
+                                                                    <img src="<?php echo base_url($this->config->item('job_work_main_upload_path'). $work_certificate1) ?>" style="width:100px;height:100px;">
 </div>
                                                                     <?php
                                                                 }
@@ -407,7 +407,7 @@
                                                         if ($work_certificate1) {
                                                             ?>
                                                                 <div class="img_work_exp" style="">
-                                                            <img src="<?php echo base_url(JOBWORKCERTIFICATE . $work_certificate1) ?>" style="width:100px;height:100px;">
+                                                            <img src="<?php echo base_url($this->config->item('job_work_main_upload_path'). $work_certificate1) ?>" style="width:100px;height:100px;">
 </div>
                                                             <?php
                                                         }
