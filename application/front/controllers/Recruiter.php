@@ -1979,36 +1979,45 @@ class Recruiter extends MY_Controller {
         foreach ($candidate as $jobcan) {  //echo "123"; die();
             $keyskill = explode(',', $jobcan['keyskill']);
             $result = array_intersect($postuserarray, $keyskill);
-           // echo "<pre>";print_r($result); 
+            
            
       if($result){
+        
+$join_str1 = array(
+            array(
+                'join_type' => 'left',
+                'table' => 'job_add_edu',
+                'join_table_id' => 'job_reg.user_id',
+                'from_table_id' => 'job_add_edu.user_id'),
+            array(
+                'join_type' => 'left',
+                'table' => 'job_add_workexp',
+                'join_table_id' => 'job_reg.user_id',
+                'from_table_id' => 'job_add_workexp.user_id')
+        );
 
-// $join_str = array(
-//             array(
-//                 'join_type' => '',
-//                 'table' => 'job_add_edu',
-//                 'join_table_id' => 'job_reg.user_id',
-//                 'from_table_id' => 'job_add_edu.user_id'),
-//             array(
-//                 'join_type' => '',
-//                 'table' => 'job_add_workexp',
-//                 'join_table_id' => 'job_reg.user_id',
-//                 'from_table_id' => 'job_add_workexp.user_id')
-//         );
-
-            $contition_array = array('user_id' => $jobcan['user_id'], 'is_delete' => 0, 'status' => 1);
+            $contition_array = array('job_reg.user_id' => $jobcan['user_id'], 'job_reg.is_delete' => 0, 'job_reg.status' => 1);
 
 
-            $jobrec = $this->data['jobrec'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '', $sortby = 'job_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
-
+            $jobrec = $this->data['jobrec'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '', $sortby = 'job_id', $orderby = 'desc', $limit = '', $offset = '', $join_str1, $groupby = '');
+//echo "<pre>"; Print_r($jobrec);
 
 
             $canlocation[] = $jobrec;
+            
          }
-             
+           
+
         }
 
-     //echo "<pre>"; print_r($canlocation); die();
+    // echo "<pre>"; Print_r($canlocation);die();
+
+
+    // die();   
+
+
+//echo "<pre>"; Print_r($new);die();
+
         $this->data['candidatejob'] = $canlocation;
         //echo "<pre>"; print_r($this->data['candidatejob']);die();
 
