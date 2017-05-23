@@ -43,6 +43,18 @@
     }
 
 </style>
+<style type="text/css">
+  
+  /*.keyskill_border_deactivte {
+  border: 0px solid red;
+
+}*/
+
+.keyskill_border_active {
+  border: 1px solid red !important;
+
+}
+</style>
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/3.3.0/select2.css" rel="stylesheet" /> 
 <link rel="stylesheet" href="<?php echo base_url('css/bootstrap.min.css'); ?>" />
@@ -157,7 +169,7 @@ if ($this->session->flashdata('success')) {
 
                             <div class="common-form">
                                 <h3>Keyskills</h3>
-<?php echo form_open(base_url('job/job_skill_insert'), array('id' => 'jobseeker_regform', 'name' => 'jobseeker_regform', 'class' => 'clearfix')); ?>
+<?php echo form_open(base_url('job/job_skill_insert'), array('id' => 'jobseeker_regform', 'name' => 'jobseeker_regform', 'class' => 'clearfix', 'onsubmit' => "imgval()")); ?>
 
 
                                 <!-- <div>
@@ -562,7 +574,23 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
 
 </script>
 
+<script type="text/javascript">
+  
+function imgval(){ 
+    alert(123);
 
+ var skill_main = document.getElementById("skils").value;
+ var skill_other = document.getElementById("other_keyskill1").value;
+
+     if(skill_main =='' && skill_other == ''){
+  //$($("#skils").select2("container")).removeClass("keyskill_border_deactivte");
+
+  $(".select2-drop-mask").addClass("keyskill_border_active");
+  }
+   
+  }
+
+</script>
 
 
 <script type="text/javascript"> 
