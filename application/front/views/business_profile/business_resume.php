@@ -25,7 +25,8 @@
 
 .column1 {
   float: left;
-  width: 25%;
+  width: 120px;
+height: 120px;
 }
 
 /* The Modal (background) */
@@ -653,13 +654,13 @@ popup -->
          
          if($i <= 2){?>
   <div class="column1">
-         <div class="bui_res_i">          <img src="<?php echo base_url(BUSINESSPROFILEIMAGE . $image['image_name']);?>" style="width:100%" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+         <div class="bui_res_i">          <img src="<?php echo base_url(BUSINESSPROFILEIMAGE . $image['image_name']);?>"  onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
          </div>
 </div>
      <?php }else{ ?>
     <div class="column1">
   <div class="bui_res_i">  
-         <img src="<?php echo base_url(BUSINESSPROFILEIMAGE . $image['image_name']);?>" style="width:100%" onclick="openModal();currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
+         <img src="<?php echo base_url(BUSINESSPROFILEIMAGE . $image['image_name']);?>"  onclick="openModal();currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
  </div></div>
          view all
      <?php } $i++; if($i == 4){ break; }
