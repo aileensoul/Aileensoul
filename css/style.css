@@ -1705,8 +1705,11 @@ abbr { cursor: help; }
 }
 .business_pf_ct_ {background-color: #f8f8f8;}
 
-
-
+.view_bui:hover{text-decoration: underline; cursor: pointer;}
+.view_bui{    display: inline-flex;
+    position: absolute;
+    bottom: 40px;
+    right: 48px;}
 /*popup form for text*/ 
 
 /* The Modal (background) */

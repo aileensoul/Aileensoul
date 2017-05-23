@@ -525,7 +525,7 @@ echo $job_header2;
                                                 }
                                                 ?>                                                  
 
-    <div class="tab pagi_exp">
+    <div class="tab pagi_exp" style="">
         <?php if(count($job_graduation) >= 1 ){ ?>
   <button class="tablinks" onclick="openCity(event, '1')">1</button>
         <?php } ?>
@@ -784,7 +784,7 @@ echo $job_header2;
 
                                                         </ul>
                                                     </div>
-                                              
+                                              </div>
                                                 <?php
                                                 $total_work_year = 0;
                                                 $total_work_month = 0;

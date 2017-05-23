@@ -25,8 +25,9 @@
 
 .column1 {
   float: left;
-  width: 120px;
-height: 120px;
+  float: left;
+    width: 195px;
+    height: 173px;
 }
 
 /* The Modal (background) */
@@ -483,7 +484,7 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
         <div class="user-midd-section">
             <div class="container">
                 <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-3" style="width: 22%;">
                   
  <!-- <div  class="add-post-button">
     
@@ -497,7 +498,7 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
  
                   
                 </div>
-                    <div class="col-md-8 col-sm-8">
+                    <div class="col-md-7 col-sm-7">
                         <div class="common-form">
                             <div class="job-saved-box">
 
@@ -662,7 +663,10 @@ popup -->
   <div class="bui_res_i">  
          <img src="<?php echo base_url(BUSINESSPROFILEIMAGE . $image['image_name']);?>"  onclick="openModal();currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
  </div></div>
-         view all
+         <div class="view_bui"> view all</div>
+         
+
+
      <?php } $i++; if($i == 4){ break; }
          
      } ?>
