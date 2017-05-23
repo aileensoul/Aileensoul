@@ -292,12 +292,12 @@ responsive image design start -->
                 if ($image_ori) {
                     ?>
                     <div class="bg-images">
-                        <img src="<?php echo base_url(ARTBGIMAGE . $image[0]['profile_background']); ?>" name="image_src" id="image_src" / ></div>
+                        <img src="<?php echo base_url($this->config->item('art_bg_main_upload_path') . $image[0]['profile_background']); ?>" name="image_src" id="image_src" / ></div>
                     <?php
                 } else {
                     ?>
                     <div class="bg-images">
-                        <img src="<?php echo base_url(WHITEIMAGE); ?>" name="image_src" id="image_src" / ></div>
+                        <img src="<?php echo base_url(WHITEIMAGE); ?>" name="image_src" id="image_src" alt="WHITE IMAGE" /></div>
                 <?php }
                 ?>
 
@@ -314,15 +314,10 @@ responsive image design start -->
     if ($artisticdata[0]['user_id'] == $userid) {
         ?>   
         <div class="upload-img">
-
             <label class="cameraButton"> <span class="tooltiptext">Upload Cover Photo</span> <i class="fa fa-camera" aria-hidden="true"></i>
                 <input type="file" id="upload" name="upload" accept="image/*;capture=camera" onclick="showDiv()">
             </label>
-
-
         </div>
-
-
     <?php } ?>
 
     <div class="profile-photo">
@@ -659,7 +654,7 @@ responsive image design start -->
                                 ?>
                                 <div class="image_profile">
 
-                                    <img src="<?php echo base_url(ARTPOSTIMAGE . $mi['image_name']) ?>" alt="img1">
+                                    <img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $mi['image_name']) ?>" alt="img1">
 
                                 </div>
                                 <?php
@@ -719,7 +714,7 @@ responsive image design start -->
                                     <?php if ($singlearray1[0]['image_name']) { ?>
                                         <td class="image_profile"> 
                                             <video  controls>
-                                                <source src="<?php echo base_url(ARTPOSTIMAGE . $singlearray1[0]['image_name']) ?>" type="video/mp4">
+                                                <source src="<?php echo base_url($this->config->item('art_post_main_upload_path') . $singlearray1[0]['image_name']) ?>" type="video/mp4">
                                                 <source src="movie.ogg" type="video/ogg">
                                                 Your browser does not support the video tag.
                                             </video>
@@ -729,7 +724,7 @@ responsive image design start -->
                                     <?php if ($singlearray1[1]['image_name']) { ?>
                                         <td class="image_profile">
                                             <video  controls>
-                                                <source src="<?php echo base_url(ARTPOSTIMAGE . $singlearray1[1]['image_name']) ?>" type="video/mp4">
+                                                <source src="<?php echo base_url($this->config->item('art_post_main_upload_path') . $singlearray1[1]['image_name']) ?>" type="video/mp4">
                                                 <source src="movie.ogg" type="video/ogg">
                                                 Your browser does not support the video tag.
                                             </video>
@@ -738,7 +733,7 @@ responsive image design start -->
                                     <?php if ($singlearray1[2]['image_name']) { ?>
                                         <td class="image_profile">
                                             <video  controls>
-                                                <source src="<?php echo base_url(ARTPOSTIMAGE . $singlearray1[2]['image_name']) ?>" type="video/mp4">
+                                                <source src="<?php echo base_url($this->config->item('art_post_main_upload_path') . $singlearray1[2]['image_name']) ?>" type="video/mp4">
                                                 <source src="movie.ogg" type="video/ogg">
                                                 Your browser does not support the video tag.
                                             </video>
@@ -750,7 +745,7 @@ responsive image design start -->
                                     <?php if ($singlearray1[3]['image_name']) { ?>
                                         <td class="image_profile"> 
                                             <video  controls>
-                                                <source src="<?php echo base_url(ARTPOSTIMAGE . $singlearray1[3]['image_name']) ?>" type="video/mp4">
+                                                <source src="<?php echo base_url($this->config->item('art_post_main_upload_path') . $singlearray1[3]['image_name']) ?>" type="video/mp4">
                                                 <source src="movie.ogg" type="video/ogg">
                                                 Your browser does not support the video tag.
                                             </video>
@@ -759,7 +754,7 @@ responsive image design start -->
                                     <?php if ($singlearray1[4]['image_name']) { ?>
                                         <td class="image_profile">
                                             <video  controls>
-                                                <source src="<?php echo base_url(ARTPOSTIMAGE . $singlearray1[4]['image_name']) ?>" type="video/mp4">
+                                                <source src="<?php echo base_url($this->config->item('art_post_main_upload_path') . $singlearray1[4]['image_name']) ?>" type="video/mp4">
                                                 <source src="movie.ogg" type="video/ogg">
                                                 Your browser does not support the video tag.
                                             </video>
@@ -768,7 +763,7 @@ responsive image design start -->
                                     <?php if ($singlearray1[5]['image_name']) { ?>
                                         <td class="image_profile">
                                             <video  controls>
-                                                <source src="<?php echo base_url(ARTPOSTIMAGE . $singlearray1[5]['image_name']) ?>" type="video/mp4">
+                                                <source src="<?php echo base_url($this->config->item('art_post_main_upload_path') . $singlearray1[5]['image_name']) ?>" type="video/mp4">
                                                 <source src="movie.ogg" type="video/ogg">
                                                 Your browser does not support the video tag.
                                             </video>
@@ -827,7 +822,7 @@ responsive image design start -->
                                             <video  controls>
 
 
-                                                <source src="<?php echo base_url(ARTPOSTIMAGE . $singlearray2[0]['image_name']) ?>" type="audio/mp3"">
+                                                <source src="<?php echo base_url($this->config->item('art_post_main_upload_path') . $singlearray2[0]['image_name']) ?>" type="audio/mp3"">
                                                 <source src="movie.ogg" type="audio/mp3">
                                                 Your browser does not support the audio tag.
                                             </video>
@@ -837,7 +832,7 @@ responsive image design start -->
                                     <?php if ($singlearray2[1]['image_name']) { ?>
                                         <td class="image_profile">
                                             <video  controls>
-                                                <source src="<?php echo base_url(ARTPOSTIMAGE . $singlearray2[1]['image_name']) ?>" type="audio/mp3"">
+                                                <source src="<?php echo base_url($this->config->item('art_post_main_upload_path') . $singlearray2[1]['image_name']) ?>" type="audio/mp3"">
                                                 <source src="movie.ogg" type="audio/mp3">
                                                 Your browser does not support the audio tag.
                                             </video>
@@ -846,7 +841,7 @@ responsive image design start -->
                                     <?php if ($singlearray2[2]['image_name']) { ?>
                                         <td class="image_profile">
                                             <video  controls>
-                                                <source src="<?php echo base_url(ARTPOSTIMAGE . $singlearray2[2]['image_name']) ?> type="audio/mp3"">
+                                                <source src="<?php echo base_url($this->config->item('art_post_main_upload_path') . $singlearray2[2]['image_name']) ?> type="audio/mp3"">
                                                         <source src="movie.ogg" type="audio/mp3">
                                                 Your browser does not support the audio tag.
                                             </video>
@@ -858,7 +853,7 @@ responsive image design start -->
                                     <?php if ($singlearray2[3]['image_name']) { ?>
                                         <td class="image_profile"> 
                                             <video  controls>
-                                                <source src="<?php echo base_url(ARTPOSTIMAGE . $singlearray2[3]['image_name']) ?>" type="video/mp4">
+                                                <source src="<?php echo base_url($this->config->item('art_post_main_upload_path') . $singlearray2[3]['image_name']) ?>" type="video/mp4">
                                                 <source src="movie.ogg" type="audio/mp3">
                                                 Your browser does not support the audio tag.
                                             </video>
@@ -867,7 +862,7 @@ responsive image design start -->
                                     <?php if ($singlearray2[4]['image_name']) { ?>
                                         <td class="image_profile">
                                             <video  controls>
-                                                <source src="<?php echo base_url(ARTPOSTIMAGE . $singlearray2[4]['image_name']) ?>" type="audio/mp3"">
+                                                <source src="<?php echo base_url($this->config->item('art_post_main_upload_path') . $singlearray2[4]['image_name']) ?>" type="audio/mp3"">
                                                 <source src="movie.ogg" type="audio/mp3">
                                                 Your browser does not support the audio tag.
                                             </video>
@@ -876,7 +871,7 @@ responsive image design start -->
                                     <?php if ($singlearray2[5]['image_name']) { ?>
                                         <td class="image_profile">
                                             <video  controls>
-                                                <source src="<?php echo base_url(ARTPOSTIMAGE . $singlearray2[5]['image_name']) ?>" type="audio/mp3"">
+                                                <source src="<?php echo base_url($this->config->item('art_post_main_upload_path') . $singlearray2[5]['image_name']) ?>" type="audio/mp3"">
                                                 <source src="movie.ogg" type="audio/mp3">
                                                 Your browser does not support the audio tag.
                                             </video>
@@ -1092,11 +1087,11 @@ responsive image design start -->
 
                                             <?php if ($row['posted_user_id']) { ?>
                                             <a  class="post_dot" title="<?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?>" href="<?php echo base_url('artistic/art_manage_post/' . $row['posted_user_id']); ?>">
-                                                <img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $userimageposted); ?>" name="image_src" id="image_src" / > </a>
+                                                <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $userimageposted); ?>" name="image_src" id="image_src" /> </a>
 
                                                  <?php } else { ?>
                                                  <a class="post_dot"  href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>">
-                                                     <img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $userimage); ?>" name="image_src" id="image_src" / > </a>
+                                                     <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $userimage); ?>" name="image_src" id="image_src" /> </a>
 
                                                  <?php } ?>
                                         </div>
@@ -1266,7 +1261,7 @@ responsive image design start -->
                                                         <video width="100%" height="55%" controls>
 
 
-                                                            <source src="<?php echo base_url(ARTPOSTIMAGE . $artmultiimage[0]['image_name']) ?>" type="video/mp4">
+                                                            <source src="<?php echo base_url($this->config->item('art_post_main_upload_path') . $artmultiimage[0]['image_name']) ?>" type="video/mp4">
                                                             <source src="movie.ogg" type="video/ogg">
                                                             Your browser does not support the video tag.
                                                         </video>
@@ -1279,7 +1274,7 @@ responsive image design start -->
                                                     <div>
                                                         <audio width="100%" height="100" controls>
 
-                                                            <source src="<?php echo base_url(ARTPOSTIMAGE . $artmultiimage[0]['image_name']); ?>" type="audio/mp3">
+                                                            <source src="<?php echo base_url($this->config->item('art_post_main_upload_path') . $artmultiimage[0]['image_name']); ?>" type="audio/mp3">
                                                             <source src="movie.ogg" type="audio/ogg">
                                                             Your browser does not support the audio tag.
 
@@ -1299,7 +1294,7 @@ responsive image design start -->
 
                                                     <!-- two image start -->
                                                     <div  id="two_manage_images_art" >
-                                                        <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="two-columns" src="<?php echo base_url(ARTPOSTIMAGE . $multiimage['image_name']) ?>" > </a>
+                                                        <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="two-columns" src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $multiimage['image_name']) ?>" > </a>
                                                     </div>
 
                                                     <!-- two image end -->
@@ -1311,14 +1306,14 @@ responsive image design start -->
 
                                                 <!-- three image start -->
                                                 <div id="three_images_art" >
-                                                    <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="three-columns" src="<?php echo base_url(ARTPOSTIMAGE . $artmultiimage[0]['image_name']) ?>" style="width: 100%; height:100%; "> </a>
+                                                    <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="three-columns" src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $artmultiimage[0]['image_name']) ?>" style="width: 100%; height:100%; "> </a>
                                                 </div>
                                                 <div  id="three_images_2_art">
-                                                    <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="three-columns" src="<?php echo base_url(ARTPOSTIMAGE . $artmultiimage[1]['image_name']) ?>" style="width: 100%; height:100%; "> </a>
+                                                    <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="three-columns" src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $artmultiimage[1]['image_name']) ?>" style="width: 100%; height:100%; "> </a>
                                                 </div>
 
                                                 <div  id="three_images_2_art">
-                                                    <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="three-columns" src="<?php echo base_url(ARTPOSTIMAGE . $artmultiimage[2]['image_name']) ?>" style="width: 100%; height:100%; "> </a>
+                                                    <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="three-columns" src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $artmultiimage[2]['image_name']) ?>" style="width: 100%; height:100%; "> </a>
                                                 </div>
 
                                                 <!-- three image end -->
@@ -1333,7 +1328,7 @@ responsive image design start -->
 
                                                     <!-- four image start -->
                                                     <div id="responsive_manage-images-breakpoints" style="   ">
-                                                        <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="breakpoint" src="<?php echo base_url(ARTPOSTIMAGE . $multiimage['image_name']) ?>" style="width: 100%; height: 100%;"> </a>
+                                                        <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="breakpoint" src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $multiimage['image_name']) ?>" style="width: 100%; height: 100%;"> </a>
 
                                                     </div>
 
@@ -1354,7 +1349,7 @@ responsive image design start -->
                                                     <!-- five image start -->
                                                     <div>
                                                         <div id="responsive-manage_images_2-breakpoints">
-                                                            <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img src="<?php echo base_url(ARTPOSTIMAGE . $multiimage['image_name']) ?>" style=""> </a>
+                                                            <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $multiimage['image_name']) ?>" style=""> </a>
                                                         </div>
                                                     </div>
 
@@ -1369,7 +1364,7 @@ responsive image design start -->
                                                 <!-- this div view all image start -->
                                                 <div>
                                                     <div id="responsive-manage_images_3-breakpoints" >
-                                                        <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img src="<?php echo base_url(ARTPOSTIMAGE . $artmultiimage[3]['image_name']) ?>" > </a></div>
+                                                        <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $artmultiimage[3]['image_name']) ?>" > </a></div>
 
 
                                                     <div class="manage_images_view_more" >
@@ -1580,7 +1575,7 @@ responsive image design start -->
                                                                 <?php $art_userimage = $this->db->get_where('art_reg', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->art_user_image; ?>
                                                                 <?php if ($art_userimage) { ?>
                                                                 <a href="<?php echo base_url('artistic/art_manage_post/' . $rowdata['user_id'] . ''); ?>">
-                                                                    <img  src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $art_userimage); ?>"  alt="">
+                                                                    <img  src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage); ?>"  alt="">
                                                                     <?php
                                                                 } else {
                                                                     ?>

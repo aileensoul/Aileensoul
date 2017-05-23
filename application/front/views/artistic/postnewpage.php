@@ -585,7 +585,7 @@
                             <div class="profile-boxProfileCard  module">
                                 <div class="profile-boxProfileCard-cover">     
                                     <a class="profile-boxProfileCard-bg u-bgUserColor a-block" href="<?php echo site_url('artistic/art_manage_post'); ?>" tabindex="-1" aria-hidden="true" rel="noopener">
-                                        <img src="<?php echo base_url(ARTBGIMAGE . $artisticdata[0]['profile_background']); ?>" class="bgImage" style="height: 95px; width: 393px; " >
+                                        <img src="<?php echo base_url($this->config->item('art_bg_thumb_upload_path') . $artisticdata[0]['profile_background']); ?>" class="bgImage" style="height: 95px; width: 393px; " >
                                     </a>
                                 </div>
 
@@ -593,7 +593,7 @@
                                     <div class="buisness-profile-txext col-md-4">
                                         <a class="profile-boxProfilebuisness-avatarLink2 a-inlineBlock" href="<?php echo site_url('artistic/art_manage_post'); ?>" title="zalak" tabindex="-1" aria-hidden="true" rel="noopener">
                                             <!-- box image start -->
-                                            <img src="<?php echo base_url(ARTISTICIMAGE . $artisticdata[0]['art_user_image']); ?>" class="bgImage" style="    height: 77px;
+                                            <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image']); ?>" class="bgImage" style="    height: 77px;
                                                  width: 71px;
                                                  z-index: 3;
                                                  position: relative;
@@ -693,11 +693,11 @@
                                         ?>
                                          <?php if ($art_data[0]['posted_user_id']) { ?>
                                             <a  class="post_dot" title="<?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?>" href="<?php echo base_url('artistic/art_manage_post/' . $row['posted_user_id']); ?>">
-                                                <img src="<?php echo base_url(ARTISTICIMAGE . $userimageposted); ?>" name="image_src" id="image_src" / > </a>
+                                                <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $userimageposted); ?>" name="image_src" id="image_src" /> </a>
 
                                                  <?php } else { ?>
                                                  <a class="post_dot"  href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>">
-                                                     <img src="<?php echo base_url(ARTISTICIMAGE . $userimage); ?>" name="image_src" id="image_src" / > </a>
+                                                     <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage); ?>" name="image_src" id="image_src" /> </a>
 
                                                  <?php } ?>
                                     </div>
@@ -835,7 +835,7 @@
                                                 ?>
 
                                                 <div id="basic-responsive-image" style="height: 50%; width: 100%; margin-bottom: 10px;">
-                                                    <img src="<?php echo base_url(ARTPOSTIMAGE . $data['image_name']) ?>" style="width: 100%; height: 100%;" onclick="openModal();
+                                                    <img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $data['image_name']) ?>" style="width: 100%; height: 100%;" onclick="openModal();
                                                             currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
         <!--                                                    <img src="<?php //echo base_url(ARTPOSTIMAGE . str_replace(" ", "_", $data['image_name']))  ?>" style="width: 100%; height: 100%;"  class="hover-shadow cursor">-->
                                                 </div>
@@ -844,7 +844,7 @@
                                                 <!-- one video start -->
                                                 <div>
                                                     <video style="height: 50%; width: 100%; margin-bottom: 10px;"controls>
-                                                        <source src="<?php echo base_url(ARTPOSTIMAGE . $data['image_name']); ?>" type="video/mp4">
+                                                        <source src="<?php echo base_url($this->config->item('art_post_main_upload_path') . $data['image_name']); ?>" type="video/mp4">
                                                         <source src="movie.ogg" type="video/ogg">
                                                         Your browser does not support the video tag.
                                                     </video>
@@ -854,7 +854,7 @@
                                                 <!-- one audio start -->
                                                 <div>
                                                     <audio style="height: 50%; width: 100%; margin-bottom: 10px;" controls>
-                                                        <source src="<?php echo base_url(ARTPOSTIMAGE . $data['image_name']); ?>" type="audio/mp3">
+                                                        <source src="<?php echo base_url($this->config->item('art_profile_main_upload_path') . $data['image_name']); ?>" type="audio/mp3">
                                                         <source src="movie.ogg" type="audio/ogg">
                                                         Your browser does not support the audio tag.
 
@@ -889,7 +889,7 @@
                                                 <div class="mySlides">
                                                     <div class="numbertext"><?php echo $i ?> / <?php echo count($databus1) ?></div>
                                                     <div>
-                                                        <img src="<?php echo base_url(ARTPOSTIMAGE . $artdata['image_name']) ?>" style="width:100%; height: 70%;">
+                                                        <img src="<?php echo base_url($this->config->item('art_post_main_upload_path') . $artdata['image_name']) ?>" style="width:100%; height: 70%;">
                                                     </div>
                                                     <!-- 9-5 like comment start -->
                                                     
@@ -1075,7 +1075,7 @@
                                                                                 $art_userimage = $this->db->get_where('art_reg', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->art_user_image;
                                                                                 ?>
 
-                                                                                <img  src="<?php echo base_url(ARTISTICIMAGE . $art_userimage); ?>"  alt="">
+                                                                                <img  src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage); ?>"  alt="">
                                                                             </div>
                                                                             <div class="comment-name">
                                                                                 <b>  <?php
@@ -1205,7 +1205,7 @@
                                                         ?>
                                                         <div class="post-design-proo-img">
                                                             <?php if ($art_userimage) { ?>
-                                                                <img src="<?php echo base_url(ARTISTICIMAGE . $art_userimage); ?>" name="image_src" id="image_src" />
+                                                                <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage); ?>" name="image_src" id="image_src" />
                                                                 <?php
                                                             } else {
                                                                 ?>
@@ -1418,7 +1418,7 @@
                                                             $art_userimage = $this->db->get_where('art_reg', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->art_user_image;
                                                             ?>
                                                             <?php if ($art_userimage) { ?>
-                                                                <img  src="<?php echo base_url(ARTISTICIMAGE . $art_userimage); ?>"  alt="">
+                                                                <img  src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage); ?>"  alt="">
                                                                 <?php
                                                             } else {
                                                                 ?>
@@ -1562,7 +1562,7 @@
                                     ?>
                                     <div class="post-design-proo-img">
                                         <?php if ($art_userimage) { ?>
-                                            <img src="<?php echo base_url(ARTISTICIMAGE . $art_userimage); ?>" name="image_src" id="image_src" />
+                                            <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage); ?>" name="image_src" id="image_src" />
                                             <?php
                                         } else {
                                             ?>

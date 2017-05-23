@@ -2968,7 +2968,7 @@ class Artistic extends MY_Controller {
                 $cmtinsert .= '<div class="post-design-pro-comment-img">';
 
 
-                $cmtinsert .= '<img  src="' . base_url(ARTISTICIMAGE . $art_userimage) . '" alt="">  </div>';
+                $cmtinsert .= '<img  src="' . base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage) . '" alt="">  </div>';
 
                 $cmtinsert .= '<div class="comment-name"><b>' . ucwords($artname) . '&nbsp;' . ucwords($artlastname) . '</b>';
                 $cmtinsert .= '</div>';
@@ -3089,7 +3089,7 @@ class Artistic extends MY_Controller {
                 $cmtinsert .= '<div class="post-design-pro-comment-img">';
 
 
-                $cmtinsert .= '<img  src="' . base_url(ARTISTICIMAGE . $art_userimage) . '" alt="">  </div>';
+                $cmtinsert .= '<img  src="' . base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage) . '" alt="">  </div>';
 
                 $cmtinsert .= '<div class="comment-name"><b>' . ucwords($artname) . '&nbsp;' . ucwords($artlastname) . '</b>';
                 $cmtinsert .= '</div>';
@@ -3527,7 +3527,7 @@ class Artistic extends MY_Controller {
 
             $cmtinsert .= '<div class="all-comment-comment-box">';
             $cmtinsert .= '<div class="post-design-pro-comment-img">';
-            $cmtinsert .= '<img  src="' . base_url(ARTISTICIMAGE . $art_userimage) . '" alt="">  </div>';
+            $cmtinsert .= '<img  src="' . base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage) . '" alt="">  </div>';
             $cmtinsert .= '<div class="comment-name"><b>' . ucwords($artname) . '&nbsp;' . ucwords($artlastname) . '</b>';
             $cmtinsert .= '</div>';
             $cmtinsert .= '<div class="comment-details" id= "showcommenttwo' . $art['artistic_post_comment_id'] . '" >';
@@ -3691,7 +3691,7 @@ class Artistic extends MY_Controller {
             $cmtinsert .= '<div class="post-design-pro-comment-img">';
 
 
-            $cmtinsert .= '<img  src="' . base_url(ARTISTICIMAGE . $art_userimage) . '" alt="">  </div>';
+            $cmtinsert .= '<img  src="' . base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage) . '" alt="">  </div>';
 
             $cmtinsert .= '<div class="comment-name"><b>' . ucwords($artname) . '&nbsp;' . ucwords($artlastname) . '</b>';
             $cmtinsert .= '</div>';
@@ -4499,7 +4499,7 @@ class Artistic extends MY_Controller {
 
             $cmtinsert = '<div class="all-comment-comment-box">';
             $cmtinsert .= '<div class="post-design-pro-comment-img">';
-            $cmtinsert .= '<img  src="' . base_url(ARTISTICIMAGE . $art_userimage) . '" alt="">  </div>';
+            $cmtinsert .= '<img  src="' . base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage) . '" alt="">  </div>';
 
             $cmtinsert .= '<div class="comment-name"><b>' . $art_name . '</b>';
             $cmtinsert .= '</div>';
@@ -4665,7 +4665,7 @@ class Artistic extends MY_Controller {
 
             $cmtinsert .= '<div class="all-comment-comment-box">';
             $cmtinsert .= '<div class="post-design-pro-comment-img">';
-            $cmtinsert .= '<img  src="' . base_url(ARTISTICIMAGE . $art_userimage) . '" alt="">  </div>';
+            $cmtinsert .= '<img  src="' . base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage) . '" alt="">  </div>';
 
             $cmtinsert .= '<div class="comment-name"><b>' . $art_name . '</b>';
             $cmtinsert .= '</div>';
@@ -5190,7 +5190,7 @@ class Artistic extends MY_Controller {
 
             $cmtinsert .= '<div class="all-comment-comment-box">';
             $cmtinsert .= '<div class="post-design-pro-comment-img">';
-            $cmtinsert .= '<img  src="' . base_url(ARTISTICIMAGE . $art_userimage) . '" alt="">  </div>';
+            $cmtinsert .= '<img  src="' . base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage) . '" alt="">  </div>';
 
             $cmtinsert .= '<div class="comment-name"><b>' . $art_name . '</b>';
             $cmtinsert .= '</div>';
@@ -5325,7 +5325,7 @@ class Artistic extends MY_Controller {
 
                 $cmtinsert .= '<div class="all-comment-comment-box">';
                 $cmtinsert .= '<div class="post-design-pro-comment-img">';
-                $cmtinsert .= '<img  src="' . base_url(ARTISTICIMAGE . $art_userimage) . '" alt="">  </div>';
+                $cmtinsert .= '<img  src="' . base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage) . '" alt="">  </div>';
 
                 $cmtinsert .= '<div class="comment-name"><b>' . $art_name . '</b>';
                 $cmtinsert .= '</div>';
@@ -5465,7 +5465,7 @@ class Artistic extends MY_Controller {
                 $art_userimage = $this->db->get_where('art_reg', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->art_user_image;
 
                 if ($art_userimage) {
-                    $fourdata .= '<img  src="' . base_url(ARTISTICIMAGE . $art_userimage) . '"  alt=""></div>';
+                    $fourdata .= '<img  src="' . base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage) . '"  alt=""></div>';
                 } else {
                     $fourdata .= '<img src="' . base_url(NOIMAGE) . '" alt="">';
                 }
@@ -5572,7 +5572,7 @@ class Artistic extends MY_Controller {
             $art_userimage = $this->db->get_where('art_reg', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->art_user_image;
 
 
-            $fourdata .= '<img  src="' . base_url(ARTISTICIMAGE . $art_userimage) . '"  alt=""></div>';
+            $fourdata .= '<img  src="' . base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage) . '"  alt=""></div>';
 
             $fourdata .= '<div class="comment-name">';
             $fourdata .= '<b>' . ucwords($artname) . '&nbsp' . ucwords($artlastname) . '</b></br> </div>';
@@ -5776,7 +5776,7 @@ class Artistic extends MY_Controller {
 
             $cmtinsert .= '<div class="all-comment-comment-box">';
             $cmtinsert .= '<div class="post-design-pro-comment-img">';
-            $cmtinsert .= '<img  src="' . base_url(ARTISTICIMAGE . $art_userimage) . '" alt="">  </div>';
+            $cmtinsert .= '<img  src="' . base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage) . '" alt="">  </div>';
 
             $cmtinsert .= '<div class="comment-name"><b>' . $art_name . '</b>';
             $cmtinsert .= '</div>';
