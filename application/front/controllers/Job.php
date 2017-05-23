@@ -1284,7 +1284,7 @@ class Job extends MY_Controller {
 
 
             $contition_array = array('user_id' => $userid);
-            $jobdata = $this->data['jobdata'] = $this->common->select_data_by_condition('job_add_edu', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            $jobdata = $this->data['jobdata'] = $this->common->select_data_by_condition('job_graduation', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
             $count = count($jobdata);
 
@@ -1330,14 +1330,74 @@ class Job extends MY_Controller {
 
             $this->upload->initialize($config);
             $this->upload->do_upload();
-            if ($this->upload->do_upload('certificate')) {//echo "hello"; die();
-                $fileData = $this->upload->data();
-                $uploadData[$i]['file_name'] = $fileData['file_name'];
+            // if ($this->upload->do_upload('certificate')) {//echo "hello"; die();
+            //     $fileData = $this->upload->data();
+            //     $uploadData[$i]['file_name'] = $fileData['file_name'];
+            // } else {
+
+            //     $uploadData[$i]['file_name'] = '';
+            // }
+
+             if ($this->upload->do_upload('certificate')) {//echo "hello"; die();
+                $response['result'][] = $this->upload->data();
+                $job_profile_post_thumb[$i]['image_library'] = 'gd2';
+                $job_profile_post_thumb[$i]['source_image'] = $this->config->item('job_edu_main_upload_path') . $response['result'][$i]['file_name'];
+                $job_profile_post_thumb[$i]['new_image'] = $this->config->item('job_edu_thumb_upload_path') . $response['result'][$i]['file_name'];
+                $job_profile_post_thumb[$i]['create_thumb'] = TRUE;
+                $job_profile_post_thumb[$i]['maintain_ratio'] = TRUE;
+                $job_profile_post_thumb[$i]['thumb_marker'] = '';
+                $job_profile_post_thumb[$i]['width'] = $this->config->item('job_edu_thumb_width');
+                //$product_thumb[$i]['height'] = $this->config->item('product_thumb_height');
+                $job_profile_post_thumb[$i]['height'] = 2;
+                $job_profile_post_thumb[$i]['master_dim'] = 'width';
+                $job_profile_post_thumb[$i]['quality'] = "100%";
+                $job_profile_post_thumb[$i]['x_axis'] = '0';
+                $job_profile_post_thumb[$i]['y_axis'] = '0';
+                $instanse = "image_$i";
+                //Loading Image Library
+                $this->load->library('image_lib', $job_profile_post_thumb[$i], $instanse);
+                $dataimage = $response['result'][$i]['file_name'];
+                //Creating Thumbnail
+                $this->$instanse->resize();
+                $response['error'][] = $thumberror = $this->$instanse->display_errors();
+                 // $uploadData[$i]['file_name'] = $fileData['file_name'];
+
+                $return['data'][] = $imgdata;
+                $return['status'] = "success";
+                $return['msg'] = sprintf($this->lang->line('success_item_added'), "Image", "uploaded");
+
+
+         $contition_array = array('user_id' => $userid);
+        $job_reg_data = $this->common->select_data_by_condition('job_graduation', $contition_array, $data = 'edu_certificate', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+        $job_reg_prev_image = $job_reg_data[0]['edu_certificate'];
+        
+
+            if ($job_reg_prev_image != '') {
+            $job_image_main_path = $this->config->item('job_edu_main_upload_path');
+            $job_bg_full_image = $job_image_main_path . $job_reg_prev_image;
+            if (isset($job_bg_full_image)) {
+                unlink($job_bg_full_image);
+            }
+            
+            $job_image_thumb_path = $this->config->item('job_edu_thumb_upload_path');
+            $job_bg_thumb_image = $job_image_thumb_path . $job_reg_prev_image;
+            if (isset($job_bg_thumb_image)) {
+                unlink($job_bg_thumb_image);
+            }
+
+
+        }
+
             } else {
 
-                $uploadData[$i]['file_name'] = '';
+                $dataimage= '';
             }
         }
+       
+//    echo "<pre>";print_r($_FILES);
+// echo "<pre>";print_r($_POST);die();
+   //   echo "hello";  echo "<pre>";print_r($dataimage); 
         // Multiple Image insert code End
         $contition_array = array('user_id' => $userid);
         $jobdata = $this->data['jobdata'] = $this->common->select_data_by_condition('job_graduation', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -1345,25 +1405,30 @@ class Job extends MY_Controller {
  
         if ($jobdata) {
 
+           
             //Edit Multiple field into database Start 
             for ($x = 0; $x < $count1; $x++) {
 
                 $files[] = $_FILES;
                 //echo "<pre>";print_r($files);die();
                 $edu_certificate = $files['certificate']['name'][$x];
-                //echo  $edu_certificate;die();
+           // echo  $edu_certificate;die();
          //    echo $jobdata[$x]['job_graduation_id']; 
 //echo $edu_certificate;
                 if ($edu_certificate == "") {
+                    
                   // echo $jobdata[$x]['job_graduation_id']; echo 1; die();
                     $data = array(
                         'edu_certificate' => $this->input->post('image_hidden_degree' . $jobdata[$x]['job_graduation_id'])
                     );
                 } else { 
+                    
                     $data = array(
-                        'edu_certificate' => $uploadData[$x]['file_name']
+                        'edu_certificate' =>   $edu_certificate
                     );
                 }
+
+               // echo "<pre>"; print_r($data); die();
                 $updatedata = $this->common->update_data($data, 'job_graduation', 'job_graduation_id', $jobdata[$x]['job_graduation_id']);
 
               $i = $x + 1;
@@ -1378,11 +1443,11 @@ class Job extends MY_Controller {
                     'grade' => $userdata[0]['grade'][$x],
                     'percentage' => $userdata[0]['percentage'][$x],
                     'pass_year' => $userdata[0]['pass_year'][$x],
-                   // 'edu_certificate'=>  $uploadData[$x]['file_name'],
+                 'edu_certificate'=> $edu_certificate,
                  //   'grad_step' => 1
                     'degree_count' => $i
                 );
-                // echo '<pre>'; print_r($data);
+                 //echo '<pre>'; print_r($data); die();
                 $updatedata1 = $this->common->update_data($data, 'job_graduation', 'job_graduation_id', $jobdata[$x]['job_graduation_id']);
               }else{
                   $data = array(
@@ -1394,22 +1459,24 @@ class Job extends MY_Controller {
                     'grade' => $userdata[0]['grade'][$x],
                     'percentage' => $userdata[0]['percentage'][$x],
                     'pass_year' => $userdata[0]['pass_year'][$x],
-                    'edu_certificate'=>  $uploadData[$x]['file_name'],
+                    'edu_certificate'=> $edu_certificate,
                  //   'grad_step' => 1
                     'degree_count' => $i
                 );
-                // echo '<pre>'; print_r($data);
+            // echo '<pre>'; print_r($data); die();
                 $insert_id = $this->common->insert_data_getid($data, 'job_graduation');
               }
                 //echo "<pre>";print_r($data);
             } //echo "111"; die();
             //Edit Multiple field into database End 
         } else {
+            //echo "hii"; die();
 
             //Add Multiple field into database Start 
             for ($x = 0; $x < $count1; $x++) {
 
                 $i = $x + 1;
+                 $edu_certificate = $files['certificate']['name'][$x];
                 //echo $x;die();
                 $data = array(
                     'user_id' => $userid,
@@ -1420,7 +1487,7 @@ class Job extends MY_Controller {
                     'grade' => $userdata[0]['grade'][$x],
                     'percentage' => $userdata[0]['percentage'][$x],
                     'pass_year' => $userdata[0]['pass_year'][$x],
-                    'edu_certificate' => $uploadData[$x]['file_name'],
+                    'edu_certificate' => $edu_certificate,
                     //'degree_sequence' => degree . $i,
                    // 'stream_sequence' => stream . $i,
                   //  'grad_step' => 1,
@@ -2204,6 +2271,7 @@ class Job extends MY_Controller {
     }
 
     public function job_work_exp_insert() {
+
         //echo "<pre>";print_r($_POST);die();
         $userid = $this->session->userdata('aileenuser');
 
@@ -2253,22 +2321,22 @@ class Job extends MY_Controller {
                 $companyphn = '';
                 $certificate1 = '';
 
-                $config['upload_path'] = 'uploads/job_work_certificate/';
-                $config['allowed_types'] = 'jpg|jpeg|png|gif|pdf';
+                // $config['upload_path'] = 'uploads/job_work_certificate/';
+                // $config['allowed_types'] = 'jpg|jpeg|png|gif|pdf';
 
-                $config['file_name'] = $_FILES['certificate']['name'];
+                // $config['file_name'] = $_FILES['certificate']['name'];
 
-                //Load upload library and initialize configuration
-                $this->load->library('upload', $config);
-                $this->upload->initialize($config);
+                // //Load upload library and initialize configuration
+                // $this->load->library('upload', $config);
+                // $this->upload->initialize($config);
 
-                if ($this->upload->do_upload('certificate')) {
-                    $uploadData = $this->upload->data();
+                // if ($this->upload->do_upload('certificate')) {
+                //     $uploadData = $this->upload->data();
 
-                    $certificate = $uploadData['file_name'];
-                } else {
-                    $certificate = '';
-                }
+                //     $certificate = $uploadData['file_name'];
+                // } else {
+                //     $certificate = '';
+                // }
 
                 //upload work certificate process end
 
@@ -2335,12 +2403,12 @@ class Job extends MY_Controller {
 
 
 // Multiple Image insert code start
-
-                $config = array(
-                    'upload_path' => 'uploads/job_work_certificate/',
-                    'max_size' => 1024 * 100,
-                    'allowed_types' => 'gif|jpeg|jpg|png'
+            $config = array(
+            'upload_path' => $this->config->item('job_work_main_upload_path'),
+            'allowed_types' => $this->config->item('job_work_main_allowed_types'),
+            'max_size' => $this->config->item('job_work_main_max_size')
                 );
+
                 $images = array();
                 $this->load->library('upload');
 
@@ -2363,12 +2431,63 @@ class Job extends MY_Controller {
 
                     $this->upload->initialize($config);
                     $this->upload->do_upload();
-                    if ($this->upload->do_upload('certificate')) {//echo "hello"; die();
-                        $fileData = $this->upload->data();
-                        $uploadData[$i]['file_name'] = $fileData['file_name'];
-                    } else {
-                        $uploadData[$i]['file_name'] = '';
-                    }
+
+
+                   if ($this->upload->do_upload('certificate')) {//echo "hello"; die();
+                $response['result'][] = $this->upload->data();
+                $job_profile_post_thumb[$i]['image_library'] = 'gd2';
+                $job_profile_post_thumb[$i]['source_image'] = $this->config->item('job_work_main_upload_path') . $response['result'][$i]['file_name'];
+                $job_profile_post_thumb[$i]['new_image'] = $this->config->item('job_work_thumb_upload_path') . $response['result'][$i]['file_name'];
+                $job_profile_post_thumb[$i]['create_thumb'] = TRUE;
+                $job_profile_post_thumb[$i]['maintain_ratio'] = TRUE;
+                $job_profile_post_thumb[$i]['thumb_marker'] = '';
+                $job_profile_post_thumb[$i]['width'] = $this->config->item('job_work_thumb_width');
+                //$product_thumb[$i]['height'] = $this->config->item('product_thumb_height');
+                $job_profile_post_thumb[$i]['height'] = 2;
+                $job_profile_post_thumb[$i]['master_dim'] = 'width';
+                $job_profile_post_thumb[$i]['quality'] = "100%";
+                $job_profile_post_thumb[$i]['x_axis'] = '0';
+                $job_profile_post_thumb[$i]['y_axis'] = '0';
+                $instanse = "image_$i";
+                //Loading Image Library
+                $this->load->library('image_lib', $job_profile_post_thumb[$i], $instanse);
+                $dataimage = $response['result'][$i]['file_name'];
+                //Creating Thumbnail
+                $this->$instanse->resize();
+                $response['error'][] = $thumberror = $this->$instanse->display_errors();
+                 // $uploadData[$i]['file_name'] = $fileData['file_name'];
+
+                $return['data'][] = $imgdata;
+                $return['status'] = "success";
+                $return['msg'] = sprintf($this->lang->line('success_item_added'), "Image", "uploaded");
+
+
+         $contition_array = array('user_id' => $userid);
+        $job_reg_data = $this->common->select_data_by_condition('job_add_workexp', $contition_array, $data = 'work_certificate', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+        $job_reg_prev_image = $job_reg_data[0]['work_certificate'];
+        
+
+            if ($job_reg_prev_image != '') {
+            $job_image_main_path = $this->config->item('job_work_main_upload_path');
+            $job_bg_full_image = $job_image_main_path . $job_reg_prev_image;
+            if (isset($job_bg_full_image)) {
+                unlink($job_bg_full_image);
+            }
+            
+            $job_image_thumb_path = $this->config->item('job_work_thumb_upload_path');
+            $job_bg_thumb_image = $job_image_thumb_path . $job_reg_prev_image;
+            if (isset($job_bg_thumb_image)) {
+                unlink($job_bg_thumb_image);
+            }
+
+
+        }
+
+            } else {
+
+                $dataimage= '';
+            }
                 }
                 // Multiple Image insert code End
 
@@ -2391,7 +2510,7 @@ class Job extends MY_Controller {
                             );
                         } else {
                             $data = array(
-                                'work_certificate' => $uploadData[$x]['file_name']
+                                'work_certificate' =>  $work_certificate
                             );
                         }
                         $updatedata = $this->common->update_data($data, 'job_add_workexp', 'work_id', $jobdata[$x]['work_id']);
@@ -2404,8 +2523,8 @@ class Job extends MY_Controller {
                             'jobtitle' => $userdata[0]['jobtitle'][$x],
                             'companyname' => $userdata[0]['companyname'][$x],
                             'companyemail' => $userdata[0]['companyemail'][$x],
-                            'companyphn' => $userdata[0]['companyphn'][$x]
-                                //'work_certificate'=>  $uploadData[$x]['file_name']
+                            'companyphn' => $userdata[0]['companyphn'][$x],
+                            'work_certificate'=>    $work_certificate
                         );
 
                         $updatedata1 = $this->common->update_data($data, 'job_add_workexp', 'work_id', $jobdata[$x]['work_id']);
@@ -2420,7 +2539,7 @@ class Job extends MY_Controller {
                             'companyname' => $userdata[0]['companyname'][$x],
                             'companyemail' => $userdata[0]['companyemail'][$x],
                             'companyphn' => $userdata[0]['companyphn'][$x],
-                            'work_certificate' => $uploadData[$x]['file_name'],
+                            'work_certificate' =>  $work_certificate,
                             'status' => 1
                         );
 
@@ -2443,7 +2562,7 @@ class Job extends MY_Controller {
                             'companyname' => $userdata[0]['companyname'][$x],
                             'companyemail' => $userdata[0]['companyemail'][$x],
                             'companyphn' => $userdata[0]['companyphn'][$x],
-                            'work_certificate' => $uploadData[$x]['file_name'],
+                            'work_certificate' =>   $work_certificate,
                             'status' => 1
                         );
 
@@ -2511,23 +2630,78 @@ class Job extends MY_Controller {
         $userid = $this->session->userdata('aileenuser');
 
 
-        //upload work certificate process start
-        $config['upload_path'] = 'uploads/job_work_certificate/';
-        $config['allowed_types'] = 'jpg|jpeg|png|gif|pdf';
+       
+        $config = array(
+            'upload_path' => $this->config->item('job_edu_main_upload_path'),
+            'allowed_types' => $this->config->item('job_edu_main_allowed_types'),
+            'file_name' => $_FILES['certificate']['name']
+        );
+        $images = array();
+        $this->load->library('upload');
 
-        $config['file_name'] = $_FILES['certificate']['name'];
+          $fileName = $_FILES['certificate']['name'];
+            $images[] = $fileName;
+            $config['file_name'] = $fileName;
+            // echo $config['file_name'];die();
 
-        //Load upload library and initialize configuration
-        $this->load->library('upload', $config);
-        $this->upload->initialize($config);
+            $this->upload->initialize($config);
+            $this->upload->do_upload();
 
-        if ($this->upload->do_upload('certificate')) {
-            $uploadData = $this->upload->data();
+       if ($this->upload->do_upload('certificate')) {//echo "hello"; die();
+                $response['result'][] = $this->upload->data();
+                $job_profile_post_thumb[$i]['image_library'] = 'gd2';
+                $job_profile_post_thumb[$i]['source_image'] = $this->config->item('job_work_main_upload_path') . $response['result'][$i]['file_name'];
+                $job_profile_post_thumb[$i]['new_image'] = $this->config->item('job_work_thumb_upload_path') . $response['result'][$i]['file_name'];
+                $job_profile_post_thumb[$i]['create_thumb'] = TRUE;
+                $job_profile_post_thumb[$i]['maintain_ratio'] = TRUE;
+                $job_profile_post_thumb[$i]['thumb_marker'] = '';
+                $job_profile_post_thumb[$i]['width'] = $this->config->item('job_work_thumb_width');
+                //$product_thumb[$i]['height'] = $this->config->item('product_thumb_height');
+                $job_profile_post_thumb[$i]['height'] = 2;
+                $job_profile_post_thumb[$i]['master_dim'] = 'width';
+                $job_profile_post_thumb[$i]['quality'] = "100%";
+                $job_profile_post_thumb[$i]['x_axis'] = '0';
+                $job_profile_post_thumb[$i]['y_axis'] = '0';
+                $instanse = "image_$i";
+                //Loading Image Library
+                $this->load->library('image_lib', $job_profile_post_thumb[$i], $instanse);
+                $dataimage = $response['result'][$i]['file_name'];
+                //Creating Thumbnail
+                $this->$instanse->resize();
+                $response['error'][] = $thumberror = $this->$instanse->display_errors();
+                 // $uploadData[$i]['file_name'] = $fileData['file_name'];
 
-            $certificate = $uploadData['file_name'];
-        } else {
-            $certificate = '';
+                $return['data'][] = $imgdata;
+                $return['status'] = "success";
+                $return['msg'] = sprintf($this->lang->line('success_item_added'), "Image", "uploaded");
+
+
+         $contition_array = array('user_id' => $userid);
+        $job_reg_data = $this->common->select_data_by_condition('job_add_workexp', $contition_array, $data = 'work_certificate', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+        $job_reg_prev_image = $job_reg_data[0]['work_certificate'];
+        
+
+            if ($job_reg_prev_image != '') {
+            $job_image_main_path = $this->config->item('job_work_main_upload_path');
+            $job_bg_full_image = $job_image_main_path . $job_reg_prev_image;
+            if (isset($job_bg_full_image)) {
+                unlink($job_bg_full_image);
+            }
+            
+            $job_image_thumb_path = $this->config->item('job_work_thumb_upload_path');
+            $job_bg_thumb_image = $job_image_thumb_path . $job_reg_prev_image;
+            if (isset($job_bg_thumb_image)) {
+                unlink($job_bg_thumb_image);
+            }
+
+
         }
+
+            } else {
+
+                $dataimage= '';
+            }
 
         //upload work certificate process end
 
@@ -2546,7 +2720,7 @@ class Job extends MY_Controller {
                 'companyname' => $this->input->post('companyname'),
                 'companyemail' => $this->input->post('companyemail'),
                 'companyphn' => $this->input->post('companyphn'),
-                'work_certificate' => $certificate
+                'work_certificate' => $dataimage
             );
             $updatedata = $this->common->update_data($data, 'job_add_workexp', 'work_id', $jobdata[0]['work_id']);
         } else {
@@ -2560,7 +2734,7 @@ class Job extends MY_Controller {
                 'companyname' => $this->input->post('companyname'),
                 'companyemail' => $this->input->post('companyemail'),
                 'companyphn' => $this->input->post('companyphn'),
-                'work_certificate' => $certificate,
+                'work_certificate' => $dataimage,
                 'status' => 1
             );
 
