@@ -27,7 +27,7 @@
                 if ($jobdata[0]['job_step'] == 10) { ?>
                   
                   <div class="col-md-6 col-sm-8"><h3>You are updating your Job Profile.</h3></div>
-
+                    <br>
                <?php } else {
                     ?>
                     <div class="col-md-6 col-sm-8"><h3>You are making your Job Profile.</h3></div>
@@ -251,7 +251,7 @@
                                                                 if ($work_certificate1) {
                                                                     ?>
                                                                         <div class="img_work_exp" style=" " >
-                                                                    <img src="<?php echo base_url($this->config->item('job_work_thumb_upload_path')  . $work_certificate1) ?>" style="width:100px;height:100px;">
+                                                                    <img src="<?php echo base_url($this->config->item('job_work_main_upload_path'). $work_certificate1) ?>" style="width:100px;height:100px;">
 </div>
                                                                     <?php
                                                                 }
@@ -407,7 +407,7 @@
                                                         if ($work_certificate1) {
                                                             ?>
                                                                 <div class="img_work_exp" style="">
-                                                            <img src="<?php echo base_url(JOBWORKCERTIFICATE . $work_certificate1) ?>" style="width:100px;height:100px;">
+                                                            <img src="<?php echo base_url($this->config->item('job_work_main_upload_path'). $work_certificate1) ?>" style="width:100px;height:100px;">
 </div>
                                                             <?php
                                                         }
