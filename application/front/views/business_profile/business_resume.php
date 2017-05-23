@@ -646,23 +646,26 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
 popup -->
 
 
-<div class="row5">
-  <div class="column1">
+
+
       
      <?php $i =1; foreach($busimagedata as $image){ 
          
          if($i <= 2){?>
-          <img src="<?php echo base_url(BUSINESSPROFILEIMAGE . $image['image_name']);?>" style="width:100%" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+  <div class="column1">
+         <div class="bui_res_i">          <img src="<?php echo base_url(BUSINESSPROFILEIMAGE . $image['image_name']);?>" style="width:100%" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+         </div>
+</div>
      <?php }else{ ?>
+    <div class="column1">
+  <div class="bui_res_i">  
          <img src="<?php echo base_url(BUSINESSPROFILEIMAGE . $image['image_name']);?>" style="width:100%" onclick="openModal();currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
+ </div></div>
          view all
      <?php } $i++; if($i == 4){ break; }
          
      } ?>
      
-  </div>
- 
-</div>
 
 <div id="myModal" class="modal">
   <div class="close cursor" onclick="closeModal()">&times;</div>
@@ -691,7 +694,7 @@ popup -->
 
 <!-- 
 popup -->
-                            							</div>		</a></li>
+                            						</li>
                                                     </ul>
                                                 </div>
                                                 </div> 
