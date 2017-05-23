@@ -786,7 +786,7 @@ ul.business_pf_ct_person_detail li b {font-size: 16px; display: inline-block; wi
 
 .profile-job-post-location-name-rec ul { padding: 0; font-size: 0; }
 .profile-job-post-location-name-rec ul li {   width: auto;
-    max-width: 88%; white-space: nowrap;
+   /* max-width: 88%;*/ white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis; padding: 6px 3px 0 8px; margin: 0; list-style: none;  display: inline-block;}
 .profile-job-post-location-name-rec ul li i { padding-right: 5px; }
