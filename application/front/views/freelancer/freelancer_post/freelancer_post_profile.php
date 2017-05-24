@@ -970,7 +970,7 @@ if ($freelancerpostdata[0]['freelancer_post_portfolio']) {
                                 var viewableText = $("<a>");
 
                                  if(html == ''){
-                                    html = "Designation";
+                                    html = "Current Work";
                                  }
 
                                 viewableText.html(html);

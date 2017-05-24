@@ -969,7 +969,7 @@ $( "#tags" ).autocomplete({
                                 var html = $(this).val();
                                 var viewableText = $("<a>");
                                    if(html == ''){
-                                    html = "Designation";
+                                    html = "Current Work";
                                  }
                                 viewableText.html(html);
                                 $(this).replaceWith(viewableText);
