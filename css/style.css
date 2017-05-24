@@ -4921,12 +4921,30 @@ fieldset .add_post_btns{min-width: 120px;padding:10px 30px 9px;}
 
 
 
-/*Dhaval Tooltip*/
+/*Dhaval Tooltip 24/ 5*/
 
     
 
+.cameraButton .tooltiptext_rec {    visibility: hidden;    width: 180px;    background-color: black;    color: #fff;    opacity: 0.6;    text-align: center;    padding: 13px 0px 10px;    position: absolute;    z-index: 1;    font-weight: 600;    margin-top: 25px;    top: -8px;    right: 110%;}
 
 
+.cameraButton .tooltiptext_rec::after {content: "";
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent transparent black;
+
+}
+
+.cameraButton:hover .tooltiptext_rec {
+    visibility: visible;
+}
+/* End dhaval*/
+
+/*Dhaval Tooltip */
 .cameraButton .tooltiptext {
      
     visibility: hidden;
@@ -4943,6 +4961,9 @@ fieldset .add_post_btns{min-width: 120px;padding:10px 30px 9px;}
     top: -8px;
     right: 110%;
 }
+
+
+
 
 .cameraButton .tooltiptext::after {
     content: "";
