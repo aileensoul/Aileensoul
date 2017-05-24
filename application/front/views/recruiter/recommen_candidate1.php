@@ -152,63 +152,49 @@ padding-top: 1px;}
 
 
                                         </a></div>
-                                    <div class="profile-box-menu  fr col-md-12">
-                                        <div class="left- col-md-2"></div>
-                                        <div  class="right-section col-md-10">
-                                            <ul class="">
-
-                                                <li <?php if ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'rec_profile') { ?> class="active" <?php } ?>><a href="<?php echo base_url('recruiter/rec_profile'); ?>"> Profile</a>
-                                                </li>                                
-                                                <li <?php if ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'rec_post') { ?> class="active" <?php } ?>><a href="<?php echo base_url('recruiter/rec_post'); ?>">Post</a>
-                                                </li>
-
-
-                                                <li <?php if ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'save_candidate') { ?> class="active" <?php } ?>><a href="<?php echo base_url('recruiter/save_candidate'); ?>">Saved </a>
-                                                </li>
-
-
-                                            </ul>
+                                  
+                                     <div class="profile-boxProfileCard-content clearfix">
+                                        <div class="buisness-profile-txext col-md-4">
+                                      <a class="profile-boxProfilebuisness-avatarLink2 a-inlineBlock"  href="<?php echo base_url('recruiter/rec_profile/' . $recruiterdata1[0]['user_id']); ?>" title="<?php echo $recruiterdata1[0]['rec_firstname'] . ' ' . $recruiterdata1[0]['rec_lastname']; ?>" tabindex="-1" aria-hidden="true" rel="noopener">
+                                                <?php
+//echo "<pre>"; print_r($recruiterdata1); die();
+                                                if ($recruiterdata1[0]['recruiter_user_image'] != '') {
+                                                    // echo "hii"; die();
+                                                    ?>
+                       <img src="<?php echo base_url($this->config->item('rec_profile_thumb_upload_path') . $recruiterdata1[0]['recruiter_user_image']); ?>" alt="<?php echo $recruiterdata1[0]['rec_firstname'] . ' ' . $recruiterdata1[0]['rec_lastname']; ?>" >
+                                   <?php
+                              } else {
+                           ?>
+                       <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo $recruiterdata1[0]['rec_firstname'] . ' ' . $recruiterdata1[0]['rec_lastname']; ?>">
+                            <?php
+                                   }
+                             ?>
+                                            </a>
                                         </div>
-                                    </div>
-                                    <div class="profile-boxProfileCard-content">
-                                        <div class="buisness-profile-txext ">
-                                        <!-- <rash code 12-4 start> -->
-
-                                            <a class="profile-boxProfileCard-avatarLink a-inlineBlock" href="<?php echo base_url('recruiter/rec_profile' . $recdata[0]['user_id']); ?>" title="<?php echo $recdata[0]['rec_firstname']. ' ' . $recdata[0]['rec_lastname']; ?>" tabindex="-1" aria-hidden="true" rel="noopener">
-                                                
-
-                                            <?php
-                                            if ($recdata[0]['recruiter_user_image']) {
-                                                ?>
-                                                <img src="<?php echo base_url($this->config->item('rec_profile_thumb_upload_path') . $recdata[0]['recruiter_user_image']); ?>" alt="<?php echo $recdata[0]['rec_firstname']. ' ' . $recdata[0]['rec_lastname']; ?>">
-                                                <?php
-                                            } else {
-                                                ?>
-                                                <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo $recdata[0]['rec_firstname']. ' ' . $recdata[0]['rec_lastname']; ?>">
-                                                <?php
-                                            }
-                                            ?>
-                                        </a>
-                                        <!-- <rash code 12-4 end> -->
-
-                                            </div>   
-
-                                        <div class="profile-box-user">
-                                            <span class="profile-box-name ">
-                                                <a href="<?php echo site_url('recruiter/rec_profile'); ?>">   <?php echo $recdata[0]['rec_firstname'] . ' ' . $recdata[0]['rec_lastname']; ?></a>
+                                        <div class="profile-box-user  profile-text-bui-user  fr col-md-9">
+                                            <span class="profile-company-name ">
+                                                <a href="<?php echo site_url('recruiter/rec_profile'); ?>" title="<?php echo $recruiterdata1['rec_firstname'] . ' ' . $recruiterdata1['rec_lastname']; ?>">   <?php echo $recruiterdata1[0]['rec_firstname'] . ' ' . $recruiterdata1[0]['rec_lastname']; ?></a>
                                             </span>
                                             <div class="profile-boxProfile-name">
-                                                <a href="<?php echo site_url('recruiter/rec_profile/' . $recdata[0]['user_id']); ?>" ><?php
-                                                    if (ucwords($recdata[0]['designation'])) {
-                                                        echo ucwords($recdata[0]['designation']);
+                                                <a href="<?php echo site_url('recruiter/rec_profile/' . $recruiterdata1[0]['user_id']); ?>" title="<?php echo ucwords($recruiterdata1[0]['designation']); ?>">
+                                                    <?php
+                                                    if (ucwords($recruiterdata1[0]['designation'])) {
+                                                        echo ucwords($recruiterdata1[0]['designation']);
                                                     } else {
                                                         echo "Designation";
                                                     }
-                                                    ?></a>
-                                            </div>                
+                                                    ?></a></div>
                                         </div>
-                                        <div id="profile-box-profile-prompt"></div>
-
+                                        <div class="profile-box-rec-menu  col-md-12">
+                                            <ul class="">
+                                                <li <?php if ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'rec_profile') { ?> class="active" <?php } ?>><a href="<?php echo base_url('recruiter/rec_profile'); ?>"> Profile</a>
+                                                </li>                                                
+                                                <li <?php if ($this->uri->segment(1) == 'filefilefilefilefilefilefilefilefilefilerecruiter' && $this->uri->segment(2) == 'rec_post') { ?> class="active" <?php } ?>><a title="Post" href="<?php echo base_url('recruiter/rec_post'); ?>">Post</a>
+                                                </li>
+                                                <li <?php if ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'save_candidate') { ?> class="active" <?php } ?>><a title="Saved Candidate" href="<?php echo base_url('recruiter/save_candidate'); ?>">Saved </a>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
 

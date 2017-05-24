@@ -781,7 +781,7 @@
                                                                 if ($edu_certificate1) {
                                                                     ?>
  <div class="img_work_exp" style=" margin-top: 14px;" >
-                                                                    <img src="<?php echo base_url($this->config->item('job_edu_thumb_upload_path')   . $edu_certificate1) ?>" style="width:100px;height:100px;">
+                                                                    <img src="<?php echo base_url($this->config->item('job_edu_main_upload_path') . $edu_certificate1) ?>" style="width:100px;height:100px;">
 </div>
                                                                     <?php
                                                                 }
@@ -847,10 +847,10 @@
 
 <div style=" display: inline-block; margin-left: 134px;">
                                                 <div class="fr img_remove" style="margin-left: 10px;">
-                                                <input type="button" id="btnRemove" style="padding: 5px;font-size: 13px;margin-right: 0px;" value=" - "   />
+                                                <input type="button" id="btnRemove" name="btnRemove" style="padding: 5px;font-size: 13px;margin-right: 0px;" value=" - "   />
                                                 </div>
                                                     <div class="fr img_remove" >
-                                                        <input type="button" id="btnAdd" style="padding: 5px;font-size: 13px;margin-right: 0px;" value=" + ">
+                                                        <input type="button" id="btnAdd"  name="btnAdd" style="padding: 5px;font-size: 13px;margin-right: 0px;" value=" + ">
                                                     </div>
 
                                                  </div>
@@ -1024,7 +1024,7 @@
                                                         if ($edu_certificate1) {
                                                             ?>
 
-                                                            <img src="<?php echo base_url($this->config->item('job_edu_thumb_upload_path')   . $edu_certificate1) ?>" style="width:100px;height:100px;">
+                                                            <img src="<?php echo base_url($this->config->item('job_edu_main_upload_path') . $edu_certificate1) ?>" style="width:100px;height:100px;">
 
                                                             <?php
                                                         }

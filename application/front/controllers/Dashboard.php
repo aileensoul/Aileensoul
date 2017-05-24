@@ -11,10 +11,12 @@ class Dashboard extends MY_Controller {
 
         parent::__construct();
         $this->load->model('email_model');
+        $this->data['title'] = "Grow Business Network | Hiring | Search Jobs | Freelance Work | Artistic | It's Free";
         include('include.php');
     }
 
     public function index($id = " ") {
+        
         //   echo '<pre>'; print_r($this->session->all_userdata()); die();
         $this->load->library('form_validation');
         //$userid = $this->session->userdata('aileensoul_front');

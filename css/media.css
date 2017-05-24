@@ -159,6 +159,7 @@
      .profile-job-post-detail .profile-job-post-title .save_saved_btn 
   { padding: 3px 5px 4px !important; width: 75px; text-align: center; }
 
+ 
   
 
 @media (min-width: 768px) and (max-width: 1024px) 
@@ -187,7 +188,7 @@
           .dropdown_hover { padding: 8px 40px 3px 8px; }
           .dropdown-content_hover { left: -5px; }
            .dropdown_hover #art_profile { font-size: 11px; }
-
+           .job-search-box1 input { font-size: 12px; }
     /*   header2 off */   
 
      /* forms start*/
@@ -213,6 +214,10 @@
             .user-pic { height: 125px; width: 115px; }
             .profile-pho { height: 133px; width: 123px; margin-top: -55px; }
              .common-form1 h3 { padding: 3px 15px 3px; font-size: 18px; }
+             .hs-submit a { font-size: 15px; padding: 8px 25px; }
+             .freelancer_editpost_title { font-size: 23px; }
+           
+
             /* forms end*/
            
 
@@ -264,10 +269,12 @@
      .details_all_tital { font-size: 15px; }
   
       .profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li b 
-        { font-size: 11px; font-weight: 600; }
+        { font-size: 11px; font-weight: 600; line-height: 14px; }
        .profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li span
-        { font-size: 11px; }
+        { font-size: 11px; line-height: 14px; }
        .profile-job-profile-menu h5 { font-size: 18px; }
+       .but1 { padding: 5px 15px 6px 2px; font-size: 14px; }
+       .but1:before { font-size: 15px; top: 6px; margin-left: -2px; left: 0%; }
  
     /* profile detail page on */
 
@@ -278,7 +285,7 @@
       
            .profile-job-details ul li { font-size: 12px; }
            .profile-job-details .post_title { font-size: 16px; width: 60%; }
-           .profile-job-post-detail .profile-job-post-title .button { padding: 1px 12px; font-size: 12px;  }
+           .profile-job-post-detail .profile-job-post-title .button { padding: 1px 12px!important; font-size: 12px;  }
            .profile-job-post-detail .profile-job-post-title .save_saved_btn {padding: 1px 5px 1px !important; width: 65px;}
 
       /* job off */
@@ -320,7 +327,12 @@
       .modal.message-box  span.mes { font-size: 17px; margin: 10px 0; }
       .pop_content .okbtn { font-size: 14px; padding: 8px 8px; width: 80px; }
       .pop_content .cnclbtn { font-size: 14px; padding: 8px 8px; width: 80px; }
-     
+      .reactivatebox { height: 135px ; width: 70%; margin-top: 18%; }
+       .reactivate_header h2 { margin: 6px 0px; font-size: 17px; }
+       .reactivate_btn_y { margin-top: 12px; }
+       .reactivate_btn_n { margin-top: 12px; }
+       .reactivate_btn_y a { font-size: 14px; padding: 8px 30px;}
+       .reactivate_btn_n a { font-size: 14px; padding: 8px 30px; }
 
 
     }

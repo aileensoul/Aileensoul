@@ -35,7 +35,7 @@
 }*/
 
 .keyskill_border_active {
-  border: 1px solid red;
+  border: 3px solid red !important;
 
 }
 </style>
@@ -67,7 +67,7 @@
                                 
                            <?php echo form_open(base_url('freelancer/freelancer_add_post_insert'), array('id' => 'postinfo','name' => 'postinfo','class' => 'clearfix', 'onsubmit' => "imgval()")); ?>
                             <div>
-                                  <h4> Project Description</h4></div>
+                                <h4 class="freelancer_editpost_title"> Project Description</h4></div>
 
                         <!-- <div><span style="color:red">Fields marked with asterisk (*) are mandatory</span></div> --> 
                             
@@ -196,7 +196,7 @@
 
                        
                         <fieldset class="col-md-12">  
-                        <b><h2>Payment For Freelancer : </h2></b>
+                        <b><h2 class="freelancer_editpost_title">Payment For Freelancer : </h2></b>
                          </fieldset>
                          
                           <fieldset style="padding-left: 8px;" class="col-md-4" <?php if($rate) {  ?> class="error-msg" <?php } ?> >
@@ -439,13 +439,13 @@ function imgval(){
 
  var skill_main = document.getElementById("skills").value;
  var skill_other = document.getElementById("other_skill").value;
- alert();
- alert();
+ //alert();
+ //alert();
 
      if(skill_main =='' && skill_other == ''){
   //$($("#skils").select2("container")).removeClass("keyskill_border_deactivte");
 
-  $($("#skills").select2("container")).addClass("keyskill_border_active");
+  $("#postinfo .select2-selection").addClass("keyskill_border_active");
   }
    
   }

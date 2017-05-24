@@ -1,5 +1,10 @@
 <?php echo $head; ?>
 
+
+<!-- select 2 validation border start -->
+
+
+
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
@@ -49,7 +54,7 @@
                             <div class="job-saved-box">
                                 <h3>Add New Post</h3>
 
-<?php echo form_open(base_url('recruiter/add_post_store'), array('id' => 'artpost', 'name' => 'artpost', 'class' => 'clearfix')); ?>
+<?php echo form_open(base_url('recruiter/add_post_store'), array('id' => 'artpost', 'name' => 'artpost', 'class' => 'clearfix', 'onsubmit' => "imgval()")); ?>
 
 
 
@@ -312,6 +317,26 @@
 <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.min.js') ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
 
+
+
+<script type="text/javascript">
+  
+function imgval(){ 
+ 
+ var skill_main = document.getElementById("skills").value;
+ var skill_other = document.getElementById("other_skill").value;
+
+ 
+     if(skill_main =='' && skill_other == ''){
+  //$($("#skils").select2("container")).removeClass("keyskill_border_deactivte");
+
+  //$($("#skills").select2("selection")).addClass("keyskill_border_active");
+  $('#artpost .select2-selection').addClass("keyskill_border_active").style('border','1px solid #f00');
+  }
+   
+  }
+
+</script>
 <script>
 
    var data = <?php echo json_encode($demo); ?>;
@@ -375,6 +400,9 @@ $('#datepicker').datetimepicker({
 </script>
 <script type="text/javascript" src="<?php echo base_url('js/jquery.validate1.15.0..min.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('js/additional-methods1.15.0.min.js'); ?>"></script>
+
+
+
 
 <script type="text/javascript">
 
@@ -842,3 +870,12 @@ $.validator.addMethod("greaterThan",
 //select2 autocomplete End for Location
 </script>
 
+
+
+<style type="text/css">
+ 
+.keyskill_border_active {
+  border: 3px solid #f00 !important;
+
+}
+</style>
