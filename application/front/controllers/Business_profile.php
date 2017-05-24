@@ -3018,8 +3018,6 @@ class Business_profile extends MY_Controller {
                 $likeuserarray = explode(',', $businesscommentlike[0]['business_comment_like_user']);
 
                 if (!in_array($userid, $likeuserarray)) {
-
-
                     $cmtinsert .= '<i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>';
                 } else {
                     $cmtinsert .= '<i class="fa fa-thumbs-up" aria-hidden="true"></i>';
