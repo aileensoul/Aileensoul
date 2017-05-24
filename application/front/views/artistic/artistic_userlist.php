@@ -220,7 +220,7 @@
             <?php
             if ($artisticdata[0]['designation'] == '') {
                 ?>
-                <a id="designation" class="designation" title="Designation">Designation</a>
+                <a id="designation" class="designation" title="Designation">Current Work</a>
             <?php } else { ?> 
                 <a id="designation" class="designation" title="<?php echo ucwords($artisticdata[0]['designation']); ?>"><?php echo ucwords($artisticdata[0]['designation']); ?></a>
             <?php } ?>
@@ -423,6 +423,10 @@
                             function editableTextBlurred() {
                                 var html = $(this).val();
                                 var viewableText = $("<a>");
+
+                                if(html == ''){
+                         html = "Current Work";
+                            }
                                 viewableText.html(html);
                                 $(this).replaceWith(viewableText);
                                 // setup the click event for this new div
