@@ -5072,6 +5072,60 @@ audio*/
     overflow: hidden;
     text-overflow: ellipsis;
 cursor: default;}
-=======
 .common_form_set{    border: 1px solid #ddd;border-top: 1;padding: 10px;background-color: white;border-right:1px;border-left:1px;
->>>>>>> d6d9a77d502985e45bdd78bf4978eff8da270f44
+}
+/*
+cover pic css*/
+
+  
+
+
+  #row2 { overflow: hidden; width: 100%; }
+    #row2 img { height: 350px;width: 100%; } 
+    .upload-img { float: right;
+                  position: relative; margin-top: -135px; right: 50px; }
+
+    label.cameraButton {
+        display: inline-block;
+        margin: 1em 0;
+
+        /* Styles to make it look like a button */
+        padding: 0.5em;
+        border: 2px solid #666;
+        border-color: #EEE #CCC #CCC #EEE;
+        background-color: #DDD;
+        opacity: 0.7;
+    }
+
+    /* Look like a clicked/depressed button */
+    label.cameraButton:active {
+        border-color: #CCC #EEE #EEE #CCC;
+    }
+
+    /* This is the part that actually hides the 'Choose file' text box for camera inputs */
+    label.cameraButton input[accept*="camera"] {
+        display: none;
+    }
+.popup_previred img{border: 2px solid rgb(204, 204, 204); display: none; margin: 0 auto; margin-top: 5px;padding: 5px;}
+     .pop_content .cnclbtn {
+                        position: absolute;
+                        transition: all 200ms;
+                        font-size: 16px;
+                        text-decoration: none;
+                        color: #fff;
+                        padding: 8px 18px;
+                        background-color: #0A2C5D;
+                        right: 170px;
+                        margin-top: 8px;
+                        width: 100px;
+                        border-radius: 8px;
+                    }
+
+                    .popup .pop_content {
+                        text-align: center;
+                        margin-top: 40px;
+
+                    }
+                    .model_ok_cancel{
+                        width:200px !important;
+                    } 

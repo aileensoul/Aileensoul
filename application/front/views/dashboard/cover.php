@@ -1,124 +1,8 @@
-<!-- start head --> 
+<!-- head -->
 <?php echo $head; ?>
 
-<!--post save success pop up style strat -->
-<style>
-    
-    #popup-form img{display: none;}
-
-    .box {
-        width: 40%;
-        margin: 0 auto;
-        background: rgba(255,255,255,0.2);
-        padding: 35px;
-        border: 2px solid #fff;
-        border-radius: 20px/50px;
-        background-clip: padding-box;
-        text-align: center;
-    }
-
-
-
-    .overlay {
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: rgba(0, 0, 0, 0.7);
-        transition: opacity 500ms;
-        visibility: hidden;
-        opacity: 0;
-        z-index: 10;
-    }
-    .overlay:target {
-        visibility: visible;
-        opacity: 1;
-    }
-
-    .popup {
-        margin: 70px auto;
-        padding: 20px;
-        background: #fff;
-        border-radius: 5px;
-        width: 30%;
-        height: 200px;
-        position: relative;
-        transition: all 5s ease-in-out;
-    }
-
-    .okk{
-        text-align: center;
-    }
-
-    .popup .okbtn {
-        position: absolute;
-        transition: all 200ms;
-        font-size: 26px;
-        font-weight: bold;
-        text-decoration: none;
-        color: #fff;
-        padding: 12px 30px;
-        background-color: darkcyan;
-        margin: 0 auto;
-        left: 0;
-        right: 0;
-        top: 55%;
-
-    }
-
-    .popup .pop_content {
-        text-align: center;
-        margin-top: 40px;
-
-    }
-
-    @media screen and (max-width: 700px){
-        .box{
-            width: 70%;
-        }
-        .popup{
-            width: 70%;
-        }
-    }
-</style>
-
-<!--post save success pop up style end -->
-
-
-<style type="text/css" media="screen">
-    #row2 { overflow: hidden; width: 100%; }
-    #row2 img { height: 350px;width: 100%; } 
-    .upload-img { float: right;
-                  position: relative; margin-top: -135px; right: 50px; }
-
-    label.cameraButton {
-        display: inline-block;
-        margin: 1em 0;
-
-        /* Styles to make it look like a button */
-        padding: 0.5em;
-        border: 2px solid #666;
-        border-color: #EEE #CCC #CCC #EEE;
-        background-color: #DDD;
-        opacity: 0.7;
-    }
-
-    /* Look like a clicked/depressed button */
-    label.cameraButton:active {
-        border-color: #CCC #EEE #EEE #CCC;
-    }
-
-    /* This is the part that actually hides the 'Choose file' text box for camera inputs */
-    label.cameraButton input[accept*="camera"] {
-        display: none;
-    }
-</style>
-<!-- END HEAD -->
-<!-- start header -->
-
 <?php echo $header; ?>
-
+<!-- head -->
 
 <script src="<?php echo base_url('assets/js/jquery.js'); ?>"></script> 
 <script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script>
@@ -160,7 +44,7 @@
                     </div>
                 </div>
                 <div class="col-md-12"  style="visibility: hidden; ">
-                    <div id="upload-demo-i" style="background:#e1e1e1;width:100%;padding:30px;height:1px;margin-top:30px"></div>
+                    <div id="upload-demo-i"></div>
                 </div>
             </div>
 
@@ -192,7 +76,8 @@
         </div>
        
 
-<div class="container">    
+<div class="container">   
+<div class="row"> 
     <div class="upload-img">
 
 
@@ -200,6 +85,7 @@
             <input type="file" id="upload" name="upload" accept="image/*;capture=camera" onclick="showDiv()">
         </label>
     </div>
+     </div>
 </div>
        
         <!-- coer image end-->
@@ -225,14 +111,7 @@
 
             </div>
         </div>
-        <!--        <div id="popup-form">
-<?php // echo form_open_multipart(base_url('dashboard/user_image_insert'), array('id' => 'userimage', 'name' => 'userimage', 'class' => 'clearfix'));  ?>
-        
-                    <input type="file" name="profilepic" accept="image/gif, image/jpeg, image/png" id="profilepic" required>
-        
-                    <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save">
-<?php // form_close()  ?>   </div>
-            </div>-->
+       
     </div>
     <div class="main-font-name">
         <h5 align="center"> <?php echo ucwords($userdata[0]['first_name']) . ' ' . ucwords($userdata[0]['last_name']); ?></h5>

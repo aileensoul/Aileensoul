@@ -4,134 +4,8 @@
 <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
 
 <!--post save success pop up style strat -->
-<style>
-    /*body {
-        font-family: Arial, sans-serif;
-        background-size: cover;
-        height: 100vh;
-    }
 
-    .box {
-        width: 40%;
-        margin: 0 auto;
-        background: rgba(255,255,255,0.2);
-        padding: 35px;
-        border: 2px solid #fff;
-        border-radius: 20px/50px;
-        background-clip: padding-box;
-        text-align: center;
-    }
-
-    .overlay {
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: rgba(0, 0, 0, 0.3);
-        transition: opacity 500ms;
-        visibility: hidden;
-        opacity: 0;
-        z-index: 10;
-    }
-    .overlay:target {
-        visibility: visible;
-        opacity: 1;
-    }
-
-    .popup {
-        margin: 70px auto;
-        padding: 20px;
-        background: #fff;
-        border-radius: 5px;
-        width: 30%;
-        height: 200px;
-        position: relative;
-        transition: all 5s ease-in-out;
-    }
-    */
-    .okk{
-        text-align: center;
-    }
-
-    /*   .popup .okbtn{
-           position: absolute;
-           transition: all 200ms;
-           font-size: 18px;
-           font-weight: bold;
-           text-decoration: none;
-           color: #fff;
-           padding: 8px 18px;
-           background-color: darkcyan;
-           left: 25px;
-           margin-top: 15px;
-           width: 100px; 
-           border-radius: 8px;
-       }
-    */
-    .pop_content .okbtn{
-        position: absolute;
-        transition: all 200ms;
-        font-size: 16px;
-        text-decoration: none;
-        color: #fff;
-        padding: 8px 18px;
-        background-color: #0A2C5D;
-        left: 170px;
-        margin-top: 8px;
-        width: 100px; 
-        border-radius: 8px;
-    }
-
-    /*  .popup .cnclbtn {
-          position: absolute;
-          transition: all 200ms;
-          font-size: 18px;
-          font-weight: bold;
-          text-decoration: none;
-          color: #fff;
-          padding: 8px 18px;
-          background-color: darkcyan;
-          right: 25px;
-          margin-top: 15px;
-          width: 100px;
-          border-radius: 8px;
-      } */
-    .pop_content .cnclbtn {
-        position: absolute;
-        transition: all 200ms;
-        font-size: 16px;
-        text-decoration: none;
-        color: #fff;
-        padding: 8px 18px;
-        background-color: #0A2C5D;
-        right: 170px;
-        margin-top: 8px;
-        width: 100px;
-        border-radius: 8px;
-    }
-
-    .popup .pop_content {
-        text-align: center;
-        margin-top: 40px;
-
-    }
-    .model_ok_cancel{
-        width:200px !important;
-    }
-
-    /*
-        @media screen and (max-width: 700px){
-            .box{
-                width: 70%;
-            }
-            .popup{
-                width: 70%;
-            }
-        } */
-
-
-</style>
+  
 
 
 
@@ -157,88 +31,7 @@
 
                 <div class="col-md-4">
                     <div class="profile-box profile-box-left">
-                   <!--  <div class="full-box-module">    
-                            <div class="profile-boxProfileCard  module">
-                                <a class="profile-boxProfileCard-bg u-bgUserColor a-block"
-                                   href="<?php echo base_url('job/job_printpreview'); ?>"
-                                   tabindex="-1"
-                                   aria-hidden="true"
-                                   rel="noopener">
-                                       <?php
-                                       if ($jobdata[0]['profile_background'] != '') {
-                                           ?>
-                                         box image start 
-                                        <img src="<?php echo base_url(JOBBGIMAGE . $jobdata[0]['profile_background']); ?>" class="bgImage" alt="<?php echo $jobdata[0]['fname']; ?>"  style="height: 95px;
-                                             width: 100%;">
-                                         box image end 
-                                        <?php
-                                    } else {
-                                        ?>
-                                        <img src="<?php echo base_url(WHITEIMAGE); ?>" class="bgImage" alt="<?php echo $jobdata[0]['fname']; ?>"  style="height: 95px;
-                                             width: 100%;">
-                                             <?php
-                                         }
-                                         ?>
-
-                                </a>
-                                <div class="profile-box-menu  fr col-md-12">
-                                    <div class="left- col-md-2"></div>
-                                    <div  class="right-section col-md-10">
-                                        <ul class="">
-                                            <li <?php if ($this->uri->segment(1) == 'job' && $this->uri->segment(2) == 'job_printpreview') { ?> class="active" <?php } ?>><a href="<?php echo base_url('job/job_printpreview'); ?>"> Profile</a>
-                                            </li>
-                                            <?php if (($this->uri->segment(1) == 'job') && ($this->uri->segment(2) == 'job_all_post' || $this->uri->segment(2) == 'job_printpreview' || $this->uri->segment(2) == 'job_resume' || $this->uri->segment(2) == 'job_save_post' || $this->uri->segment(2) == 'job_applied_post') && ($this->uri->segment(3) == $this->session->userdata('aileenuser') || $this->uri->segment(3) == '')) { ?>
-
-
-                                                <li <?php if ($this->uri->segment(1) == 'job' && $this->uri->segment(2) == 'job_save_post') { ?> class="active" <?php } ?>><a href="<?php echo base_url('job/job_save_post'); ?>">Saved </a>
-                                                </li>
-
-                                                <li <?php if ($this->uri->segment(1) == 'job' && $this->uri->segment(2) == 'job_applied_post') { ?> class="active" <?php } ?>><a href="<?php echo base_url('job/job_applied_post'); ?>">Applied </a>
-                                                </li>
-
-                                            <?php } ?>
-
-
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="profile-boxProfileCard-content">
-                                    <div class="buisness-profile-txext">
-                                        <a class="profile-boxProfileCard-avatarLink a-inlineBlock" href="<?php echo base_url('job/job_printpreview/' . $jobdata[0]['user_id']); ?>" title="<?php echo $jobdata[0]['fname']; ?>" tabindex="-1" aria-hidden="true" rel="noopener">
-                                            <?php
-                                            if ($jobdata[0]['job_user_image']) {
-                                                ?>
-                                                <img src="<?php echo base_url(USERIMAGE . $jobdata[0]['job_user_image']); ?>" alt="<?php echo $jobdata[0]['fname']; ?>">
-                                                <?php
-                                            } else {
-                                                ?>
-                                                <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo $jobdata[0]['fname']; ?>">
-                                                <?php
-                                            }
-                                            ?>
-                                        </a>
-                                    </div>
-                                    <div class="profile-box-user">
-                                        <span class="profile-box-name ">
-                                            <a  href="<?php echo site_url('job/job_printpreview/' . $jobdata[0]['user_id']); ?>">  <?php echo $jobdata[0]['fname'] . ' ' . $jobdata[0]['lname']; ?></a>
-                                        </span>
-                                        <div>
-                                            <span class="profile-box-name"><a href="<?php echo base_url('job/job_printpreview/' . $jobdata[0]['user_id']); ?>"><?php
-                                                    if (ucwords($jobdata[0]['designation'])) {
-                                                        echo ucwords($jobdata[0]['designation']);
-                                                    } else {
-                                                        echo "Current Work";
-                                                    }
-                                                    ?></a></span>
-                                        </div>
-                                    </div>
-                                    <div id="profile-box-profile-prompt"></div>
-
-                                </div>
-                            </div>
-
-                        </div>-->
-                                                    
+                                
                         <div class="full-box-module">    
                             <div class="profile-boxProfileCard  module">
                                 <div class="profile-boxProfileCard-cover">     
@@ -321,11 +114,8 @@
 
                                 <?php
                                 if ($falguni == 1) {
-                                    //foreach ($postdetail as $post_key => $post_value) {
-
+                                
                                     if (count($postdetail) > 0) {
-//                                            echo '<pre>';
-//                                            print_r($post_value);
 
                                         foreach ($postdetail as $post) {
                                             ?> 
@@ -428,12 +218,7 @@
              </li>
 
 
-                                                               <!--  <?php if ($post['other_skill']) { ?>
-                                                                    <li><b>Other Skill</b><span><?php echo $post['other_skill']; ?></span>
-                                                                    </li>
-                                                                <?php } else { ?>
-                                                                    <li><b>Other Skill</b><span><?php echo "-"; ?></span></li><?php } ?> -->
-
+                                                        
                                                                 <li><b>Job Description</b><span><p>
                                                                             <?php echo $this->common->make_links($post['post_description']); ?> </p></span>
                                                                 </li>
@@ -483,13 +268,13 @@
                     $jobsave = $this->data['jobsave'] = $this->common->select_data_by_condition('job_apply', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                    if ($jobsave) {
                           ?>
-                 <!--<button  class="button" disabled>Applied</button>-->
+               
                  <a href="javascript:void(0);" class="button applied">Applied</a>
                        <?php
                   } else {
                        ?>
                  <li class="fr"> 
-               <!--<a href="<?php echo '#popup5' . $post['post_id']; ?>"  class= "<?php echo 'applypost' . $post['post_id']; ?>  button">Apply</a>-->
+          
          <a href="javascript:void(0);"  class= "<?php echo 'applypost' . $post['post_id']; ?>  button" onclick="applypopup(<?php echo $post['post_id'] ?>,<?php echo $post['user_id'] ?>)">Apply</a>
               </li>
               <li class="fr">
@@ -502,7 +287,7 @@
                          ?>
                  <a class="button saved save_saved_btn">Saved</a>
                       <?php } else { ?>       
-                   <!--<a id="<?php echo $post['post_id']; ?>" onClick="save_post(this.id)" href="#popup1" class="<?php echo 'savedpost' . $post['post_id']; ?> button">Save</a>-->
+                  
                                    <a id="<?php echo $post['post_id']; ?>" onClick="savepopup(<?php echo $post['post_id']; ?>)" href="javascript:void(0);" class="<?php echo 'savedpost' . $post['post_id']; ?> button save_saved_btn">Save</a>
                      <?php } ?>
                   </li>
@@ -625,12 +410,7 @@
                                                                     <a href="javascript:void(0);" class="applied button">Applied</a>
                                                                     <?php
                                                                 } else {
-                                                                    ?>
-
-                                                                                                                                <!--                                                                    <input type="hidden" id="<?php echo 'allpost' . $post['post_id']; ?>" value="all">
-                                                                                                                                                                                                    <input type="hidden" id="<?php echo 'userid' . $post['post_id']; ?>" value="<?php echo $post['user_id']; ?>">-->
-
-                                                                                                                                                                                                    <!--<a href="<?php echo '#popup5' . $post['post_id']; ?>"  class= "<?php echo 'applypost' . $post['post_id']; ?>  button">Apply</a>-->   
+                                                                    ?>                                                    
        <a href="javascript:void(0);"  class= "<?php echo 'applypost' . $post['post_id']; ?>  button" onclick="applypopup(<?php echo $post['post_id']; ?>,<?php echo $post['user_id']; ?>)">Apply</a>   
 
                                                                     <?php
@@ -641,9 +421,7 @@
                                                                     if ($jobsave) {
                                                                         ?>
                                                                         <a class="button">Saved</a>
-                                                                    <?php } else { ?>       
-
-                                                                                                                                                                                                                                                            <!--<a id="<?php echo $post['post_id']; ?>" onClick="save_post(this.id)" href="#popup1" class="<?php echo 'savedpost' . $post['post_id']; ?> button">Save</a>-->
+                                                                    <?php } else { ?>                   
                               <a onClick="savepopup(<?php echo $post['post_id']; ?>)" href="javascript:void(0);" class="<?php echo 'savedpost' . $post['post_id']; ?> button">Save</a>
                                                                     <?php } ?>
                                                                     <?php
@@ -673,6 +451,12 @@
                         </div>
                     </div>
                 </div>
+
+                </div>
+
+</div>
+</div>
+</div>
                 </section>
 
                 <!-- Model Popup Open -->
