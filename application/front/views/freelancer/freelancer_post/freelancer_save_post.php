@@ -301,7 +301,7 @@
             if ($freepostdata[0]['designation'] == "") {
 
                 ?> <!--<center><a id="myBtn" title="Designation">Designation</a></center>-->
-                <a id="designation" class="designation" title="Designation">Designation</a>
+                <a id="designation" class="designation" title="Designation">Current Work</a>
             <?php }
              else {
                 ?> 
@@ -968,6 +968,9 @@ $( "#tags" ).autocomplete({
                             function editableTextBlurred() {
                                 var html = $(this).val();
                                 var viewableText = $("<a>");
+                                   if(html == ''){
+                                    html = "Designation";
+                                 }
                                 viewableText.html(html);
                                 $(this).replaceWith(viewableText);
                                 // setup the click event for this new div
