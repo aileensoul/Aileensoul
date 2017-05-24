@@ -3587,7 +3587,6 @@ $files[] = $_FILES;
                 'not_read' => 2,
                 'not_from' => 2,
                 'not_product_id' => $app_id,
-                'not_created_date' => date('y-m-d h:i:s'),
             );
 
             $updatedata = $this->common->insert_data_getid($data, 'notification');

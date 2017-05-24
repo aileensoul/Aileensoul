@@ -936,7 +936,7 @@
         var alldata = 'all';
         //var user = document.getElementById("userid" + abc);
         var user = <?php echo $aileenuser_id; ?>;
-        alert(user);
+      //  alert(user);
         var appid = xyz;
 
         $.ajax({
