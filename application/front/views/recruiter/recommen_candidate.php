@@ -699,7 +699,7 @@ $data = $this->common->select_data_by_condition('save', $contition_array, $data 
                    
                     <script>
                         function savepopup(id) {
-                          alert(id);
+                          //alert(id);
                             save_user(id);
                       
             $('.biderror .mes').html("<div class='pop_content'>Candidate successfully saved.");
