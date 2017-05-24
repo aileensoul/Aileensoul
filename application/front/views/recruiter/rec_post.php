@@ -1113,6 +1113,9 @@ if ($returnpage == 'job') {
                 function editableTextBlurred() {
                     var html = $(this).val();
                     var viewableText = $("<a>");
+                     if(html == ''){
+            html = "Designation";
+        }
                     viewableText.html(html);
                     $(this).replaceWith(viewableText);
                     // setup the click event for this new div

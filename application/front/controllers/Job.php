@@ -4054,41 +4054,41 @@ public function job_applied_post() {
 // deactivate user end
     //enter designation start
 
-    public function job_designation() {  //echo "hello"; die();
-        $userid = $this->session->userdata('aileenuser');
+    // public function job_designation() {  //echo "hello"; die();
+    //     $userid = $this->session->userdata('aileenuser');
 
 
-        $this->form_validation->set_rules('designation', 'Designation', 'required');
+    //     $this->form_validation->set_rules('designation', 'Designation', 'required');
 
 
-        if ($this->form_validation->run() == FALSE) {
-            $this->load->view('job/job_all_post');
-        } else {
-            $data = array(
-                'designation' => $this->input->post('designation'),
-                'modified_date' => date('Y-m-d', time())
-            );
+    //     if ($this->form_validation->run() == FALSE) {
+    //         $this->load->view('job/job_all_post');
+    //     } else {
+    //         $data = array(
+    //             'designation' => $this->input->post('designation'),
+    //             'modified_date' => date('Y-m-d', time())
+    //         );
 
-            $updatdata = $this->common->update_data($data, 'job_reg', 'user_id', $userid);
+    //         $updatdata = $this->common->update_data($data, 'job_reg', 'user_id', $userid);
 
 
-            if ($updatdata) {
+    //         if ($updatdata) {
 
-                if ($this->input->post('hitext') == 1) {
-                    redirect('job/job_all_post', refresh);
-                } elseif ($this->input->post('hitext') == 2) {
-                    redirect('job/job_printpreview', refresh);
-                } elseif ($this->input->post('hitext') == 3) {
-                    redirect('job/job_save_post', refresh);
-                } elseif ($this->input->post('hitext') == 4) {
-                    redirect('job/job_applied_post', refresh);
-                }
-            } else {
-                $this->session->flashdata('error', 'Your data not inserted');
-                redirect('job/job_all_post', refresh);
-            }
-        }
-    }
+    //             if ($this->input->post('hitext') == 1) {
+    //                 redirect('job/job_all_post', refresh);
+    //             } elseif ($this->input->post('hitext') == 2) {
+    //                 redirect('job/job_printpreview', refresh);
+    //             } elseif ($this->input->post('hitext') == 3) {
+    //                 redirect('job/job_save_post', refresh);
+    //             } elseif ($this->input->post('hitext') == 4) {
+    //                 redirect('job/job_applied_post', refresh);
+    //             }
+    //         } else {
+    //             $this->session->flashdata('error', 'Your data not inserted');
+    //             redirect('job/job_all_post', refresh);
+    //         }
+    //     }
+    // }
 
 //designation end
 // cover pic controller
@@ -4215,11 +4215,12 @@ public function job_applied_post() {
             'designation' => $_POST['designation']
         );
         $updatedata = $this->common->update_data($data, 'job_reg', 'user_id', $userid);
-        if ($updatedata) {
-            echo 'ok';
-        } else {
-            echo 'error';
-        }
+        // if ($updatedata) {
+        //     echo 'ok';
+        //    //  redirect('job/ajax_designation', refresh);
+        // } else {
+        //     echo 'error';
+        // }
     }
 
 // cover pic end
