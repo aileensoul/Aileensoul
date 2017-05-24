@@ -20,8 +20,7 @@
         width: 100px; 
         border-radius: 8px;
     }
-
-
+.audio_img{height: 300px; width: 350px; position: relative;}
     .pop_content .cnclbtn {
         position: absolute;
         transition: all 200ms;
@@ -1101,17 +1100,23 @@ if (count($finalsorting) > 0) {
                 <?php } elseif (in_array($ext, $allowesaudio)) { ?>
 
                                                                 <!-- one audio start -->
-                                                                <div>
-                                                                    <audio width="100%" height="100" controls>
+                                                            <div>
+                                                       <div class="audio_main_div">
+                                                                <div class="audio_img">
+                                                                  <img src="<?php echo base_url('images/music-icon.png')?> ">  
+                                                                </div>
+                                                                <div class="audio_source">
+                                                            <audio  controls>
 
                                                                         <source src="<?php echo base_url($this->config->item('art_post_main_upload_path') . $artmultiimage[0]['image_name']) ?>" type="audio/mp3">
                                                                         <source src="movie.ogg" type="audio/ogg">
                                                                         Your browser does not support the audio tag.
-
-                                                                    </audio>
-
+</audio>
+</div>
+                                                                <div class="audio_mp3">
+                                                                   <p title="hellow this is mp3">This text will scroll from right to left</p>
                                                                 </div>
-
+                                                               </div> 
                                                                 <!-- one audio end -->
 
                 <?php } ?>

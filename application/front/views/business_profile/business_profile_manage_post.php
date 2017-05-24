@@ -8,7 +8,7 @@
         color: #a94442;
         margin: 10px 0px !important;
         text-align: center;
-    }
+    }.audio_img{height: 300px; width: 350px; position: relative;}
     #popup-form img{display: none;}
 </style>
 
@@ -199,7 +199,9 @@
 <script src="<?php echo base_url('dragdrop/themes/explorer/theme.js'); ?>"></script>
 
 
-
+    
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/video.css'); ?>">
+    <script src="<?php echo base_url('js/mediaelement-and-player.min.js'); ?>"></script>
 <!-- script for cropiee immage End-->
 <link rel="stylesheet" href="<?php echo base_url('assets/css/croppie.css'); ?>">
 
@@ -769,7 +771,7 @@
 
                                         <?php if ($singlearray1[0]['image_name']) { ?>
                                             <td class="image_profile"> 
-                                                <video  controls>
+                                                <video controls>
 
                                                     <source src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $singlearray1[0]['image_name']) ?>" type="video/mp4">
                                                     <source src="movie.ogg" type="video/ogg">
@@ -1370,7 +1372,7 @@
 
                                                         <!-- one video start -->
                                                         <div>
-                                                            <video width="100%" height="240" controls>
+                                                            <video class="video" width="100%" height="350" controls>
                                                                 <source src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $businessmultiimage[0]['image_name']) ?>" type="video/mp4">
                                                                 <source src="movie.ogg" type="video/ogg">
                                                                 Your browser does not support the video tag.
@@ -1381,17 +1383,23 @@
             <?php } elseif (in_array($ext, $allowesaudio)) { ?>
 
                                                         <!-- one audio start -->
-                                                        <div>
-                                                            <audio width="120" height="100" controls>
+                                                    <div class="audio_main_div">
+                                                                <div class="audio_img">
+                                                                  <img src="<?php echo base_url('images/music-icon.png')?> ">  
+                                                                </div>
+                                                                <div class="audio_source">
+                                                            <audio  controls>
 
                                                                 <source src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $businessmultiimage[0]['image_name']) ?>" type="audio/mp3">
                                                                 <source src="movie.ogg" type="audio/ogg">
                                                                 Your browser does not support the audio tag.
 
                                                             </audio>
-
-                                                        </div>
-
+</div>
+                                                                <div class="audio_mp3">
+                                                                   <p title="hellow this is mp3">This text will scroll from right to left</p>
+                                                                </div>
+                                                               </div> 
                                                         <!-- one audio end -->
 
                                                     <?php } ?>
@@ -4071,3 +4079,13 @@
 //                    $('.alert-danger1').delay(3000).hide('700');
 //                });
             </script>
+
+  <script>
+    $(document).ready(function() {
+        $('.video').mediaelementplayer({
+            alwaysShowControls: false,
+            videoVolume: 'horizontal',
+            features: ['playpause','progress','volume','fullscreen']
+        });
+    });
+    </script>

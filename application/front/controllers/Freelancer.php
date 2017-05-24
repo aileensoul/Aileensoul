@@ -1157,16 +1157,17 @@ class Freelancer extends MY_Controller {
         $join_str[0]['table'] = 'freelancer_hire_reg';
         $join_str[0]['join_table_id'] = 'freelancer_hire_reg.user_id';
         $join_str[0]['from_table_id'] = 'freelancer_post.user_id';
-        $join_str[0]['join_type'] = '';
+        $join_str[0]['join_type'] = 'RIGHT';
 
 
         $contition_array = array('freelancer_post.is_delete'=> '0','freelancer_hire_reg.user_id' => $userid, 'freelancer_hire_reg.status' => '1');
 
-
 $data='freelancer_post.post_id,freelancer_post.post_name,freelancer_post.post_field_req,freelancer_post.post_est_time,freelancer_post.post_skill,freelancer_post.post_other_skill,freelancer_post.post_rate,freelancer_post.post_last_date,freelancer_post.post_description,freelancer_post.user_id,freelancer_post.created_date,freelancer_post.post_currency,freelancer_post.post_rating_type,freelancer_post.country,freelancer_post.city,freelancer_post.post_exp_month,freelancer_post.post_exp_year,freelancer_hire_reg.username,freelancer_hire_reg.fullname,freelancer_hire_reg.designation,freelancer_hire_reg.freelancer_hire_user_image';
         $postdata = $this->data['freelancerpostdata'] = $this->common->select_data_by_condition('freelancer_post', $contition_array, $data, $sortby = 'freelancer_post.post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
-       // echo "<pre>";print_r($postdata);die();
         
+//        echo '<pre>';
+//        print_r($postdata);
+//        exit;
         }
         else{
             $userid=$id;
@@ -1490,9 +1491,9 @@ $new = array();
             $freelancer_post_area = explode(',', $frcan['freelancer_post_area']);
             $result = array_intersect($postuserarray, $freelancer_post_area);
             
-            if (count($result) > 0) {
+            if ($result) {
 
-                $contition_array = array('freelancer_post_reg_id' => $frcan['freelancer_post_reg_id'], 'is_delete' => 0, 'status' => 1);
+                $contition_array = array('freelancer_post_reg_id' => $frcan['freelancer_post_reg_id'], 'is_delete' => 0, 'status' => 1,'free_post_step'=> 7);
 
                 $workcandidate = $this->data['workcandidate'] = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = '*', $sortby = 'freelancer_post_reg_id', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 //                echo "<pre>"; print_r($workcandidate);
@@ -1502,7 +1503,7 @@ $new = array();
             }
         }
 //        die();
-
+//echo "<pre>"; print_r($freecandidate);die();
         $this->data['candidatefreelancer'] = $freecandidate;
        // echo "<pre>"; print_r($this->data['candidatefreelancer']); die();
 // code for search
