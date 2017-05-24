@@ -103,7 +103,7 @@
                                     <label style="cursor:pointer;" class="control-label">Minimum experience:<span style="color:red">*</span></label>
 
 
-                            <select name="minyear" style="cursor:pointer;" class="keyskil">
+                            <select name="minyear" style="cursor:pointer;" class="keyskil" onblur="return full_name();" id="minyear">
                                         <option value="">Year</option>
                                         <option value="0">0 Year</option>
                                         <option value="1">1 Year</option>
@@ -128,7 +128,7 @@
                                         <option value="20">20 Year</option>
                                     </select>
                                     
-                             <select name="minmonth"  style="cursor:pointer;" class="keyskil margin-month ">
+                             <select name="minmonth"  style="cursor:pointer;" class="keyskil margin-month " onblur="return full_name();" id="minmonth">
                                         <option value="">Month</option>
                                         <option value="0">0 Month</option>
                                         <option value="1">1 Month</option>
@@ -149,7 +149,7 @@
                                     <label style="cursor:pointer;" class="control-label">&nbsp;Maximum experience:<span style="color:red">*</span></label>
 
 
-                                      <select name="maxyear" style="cursor:pointer;" class="keyskil1">
+                                      <select name="maxyear" style="cursor:pointer;" class="keyskil1" onblur="return full_name();" id="maxyear">
                                         <option value="">Year</option>
                                         <option value="0">0 Year</option>
                                         <option value="1">1 Year</option>
@@ -176,7 +176,7 @@
 
                                       
 
-                                    <select name="maxmonth" style="cursor:pointer;" class="keyskil1 margin-month ">
+                                    <select name="maxmonth" style="cursor:pointer;" class="keyskil1 margin-month " onblur="return full_name();" id="maxmonth">
                                         <option value="">Month</option>
                                         <option value="0">0 Month</option>
                                         <option value="1">1 Month</option>
@@ -420,6 +420,12 @@ $.validator.addMethod("greaterThan",
     }, "minimum salary not greater than maximum salary"
 );
 
+$.validator.addMethod("greaterThanyear",
+    function(value, max, min){
+        return parseInt(value) >= parseInt($(min).val());
+    }, "minimum year not greater than maximum year"
+);
+
 
     jQuery.validator.addMethod("noSpace", function(value, element) { 
       return value == '' || value.trim().length != 0;  
@@ -505,12 +511,14 @@ $.validator.addMethod("greaterThan",
                 maxyear: {
 
                     require_from_group: [1, ".keyskil1"],
+                    greaterThanyear: '#minyear'
                             //required:true 
                 },
 
                 maxmonth: {
 
                     require_from_group: [1, ".keyskil1"],
+
                             // required:true 
                 },
 

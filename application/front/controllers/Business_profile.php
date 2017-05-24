@@ -3553,7 +3553,7 @@ class Business_profile extends MY_Controller {
                 'not_product_id' => $insert_id,
                 'not_from' => 6,
                 'not_img' => 1,
-                'not_created_date' => date('y-m-d h:i:s')
+                    //    'not_created_date' => date('y-m-d h:i:s')
             );
             //echo "<pre>"; print_r($notificationdata); 
             $insert_id_notification = $this->common->insert_data_getid($notificationdata, 'notification');
@@ -3578,7 +3578,11 @@ class Business_profile extends MY_Controller {
 
             $cmtinsert .= '<div class="all-comment-comment-box">';
             $cmtinsert .= '<div class="post-design-pro-comment-img">';
-            $cmtinsert .= '<img  src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage) . '" alt="">  </div>';
+            if ($business_userimage != '') {
+                $cmtinsert .= '<img  src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage) . '" alt="">  </div>';
+            } else {
+                $cmtinsert .= '<img  src="' . base_url(NOIMAGE) . '" alt="">  </div>';
+            }
             $cmtinsert .= '<div class="comment-name"><b>' . ucwords($company_name) . '</b>';
             $cmtinsert .= '</div>';
             $cmtinsert .= '<div class="comment-details" id="showcomment' . $business_profile['business_profile_post_comment_id'] . '">';
@@ -3719,7 +3723,7 @@ class Business_profile extends MY_Controller {
                 'not_product_id' => $insert_id,
                 'not_from' => 6,
                 'not_img' => 1,
-                'not_created_date' => date('y-m-d h:i:s')
+                    //  'not_created_date' => date('y-m-d h:i:s')
             );
             //echo "<pre>"; print_r($notificationdata); 
             $insert_id_notification = $this->common->insert_data_getid($notificationdata, 'notification');
@@ -3739,7 +3743,11 @@ class Business_profile extends MY_Controller {
 
             $cmtinsert .= '<div class="all-comment-comment-box">';
             $cmtinsert .= '<div class="post-design-pro-comment-img">';
-            $cmtinsert .= '<img  src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage) . '" alt="">  </div>';
+            if ($business_userimage) {
+                $cmtinsert .= '<img  src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage) . '" alt="">  </div>';
+            } else {
+                $cmtinsert .= '<img  src="' . base_url(NOIMAGE) . '" alt="">  </div>';
+            }
             $cmtinsert .= '<div class="comment-name"><b>' . ucwords($company_name) . '</b>';
             $cmtinsert .= '</div>';
             $cmtinsert .= '<div class="comment-details" id= "showcommenttwo' . $business_profile['business_profile_post_comment_id'] . '" >';

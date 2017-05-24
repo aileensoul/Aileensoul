@@ -1054,7 +1054,18 @@
                             <?php echo form_open_multipart(base_url('business_profile/business_profile_addpost_insert/' . 'manage/' . $businessdata1[0]['user_id']), array('id' => 'artpostform', 'name' => 'artpostform', 'class' => 'clearfix', 'onsubmit' => "imgval(event)")); ?>
 
                             <div class="main-text-area col-md-12"  >
-                                <div class="popup-img-in col-md-1"> <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $businessdata1[0]['business_user_image']); ?>"  alt="">
+                                <div class="popup-img-in col-md-1"> 
+                                    <?php
+                                    if($businessdata1[0]['business_user_image'] != ''){
+                                    ?>
+                                    <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $businessdata1[0]['business_user_image']); ?>"  alt="">
+                                    <?php
+                                    }else{
+                                        ?>
+                                    <img  src="<?php echo base_url(NOIMAGE); ?>"  alt="">
+                                    <?php
+                                    }
+                                    ?>
                                 </div>
                                 <div id="myBtn1"  class="editor-content col-md-10 popup-text" >
                                        <!-- <textarea name="product_title" placeholder="Post Your Product...."></textarea>  -->
