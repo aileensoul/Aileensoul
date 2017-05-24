@@ -216,7 +216,10 @@
              .common-form1 h3 { padding: 3px 15px 3px; font-size: 18px; }
              .hs-submit a { font-size: 15px; padding: 8px 25px; }
              .freelancer_editpost_title { font-size: 23px; }
-           
+             .action-buttons { padding: 1px; }
+            .select2-container-multi .select2-choices .select2-search-choice { padding: 2px 4px 4px 13px!important; }
+            .fullwidth_experience select { width: 49%; margin-right: 4px; }
+    
 
             /* forms end*/
            
