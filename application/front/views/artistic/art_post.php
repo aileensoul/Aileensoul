@@ -98,6 +98,8 @@
 <?php echo $header; ?>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('dragdrop/fileinput.css'); ?>">
 <link href="<?php echo base_url('dragdrop/themes/explorer/theme.css'); ?>" media="all" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/video.css'); ?>">
+    <script src="<?php echo base_url('js/mediaelement-and-player.min.js'); ?>"></script>
 
 <!--  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 -->
@@ -110,7 +112,16 @@
 <!--<script src="<?php echo base_url('assets/js/jquery.js'); ?>"></script>
 <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>-->
 <?php echo $art_header2_border; ?>
-
+ 
+    <script>
+    $(document).ready(function() {
+        $('video').mediaelementplayer({
+            alwaysShowControls: false,
+            videoVolume: 'horizontal',
+            features: ['playpause','progress','volume','fullscreen']
+        });
+    });
+    </script>
 <!DOCTYPE html>
 <html>
     <head>
@@ -1036,7 +1047,6 @@ if (count($finalsorting) > 0) {
                                                         </span></div> 
                                                 </div>
                                                 <div class="post-design-mid col-md-12" >  
-
                                                     <!-- multiple image code  start-->
 
                                                     <div class="images_art_post">
@@ -1078,12 +1088,13 @@ if (count($finalsorting) > 0) {
 
                                                                 <!-- one video start -->
                                                                 <div>
-                                                                    <video width="100%" height="240" controls>
+                                                                
 
-                                                                        <source src="<?php echo base_url($this->config->item('art_post_main_upload_path') . $artmultiimage[0]['image_name']) ?>" type="video/mp4">
+                                                                     <video width="100%" height="267" >
+     <source src="<?php echo base_url($this->config->item('art_post_main_upload_path') . $artmultiimage[0]['image_name']) ?>" type="video/mp4">
                                                                         <source src="movie.ogg" type="video/ogg">
-                                                                        Your browser does not support the video tag.
-                                                                    </video>
+    </video>
+
                                                                 </div>
                                                                 <!-- one video end -->
 
