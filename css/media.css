@@ -158,9 +158,9 @@
 
      .profile-job-post-detail .profile-job-post-title .save_saved_btn 
   { padding: 3px 5px 4px !important; width: 75px; text-align: center; }
-
- 
-  
+ /*24-5*/
+   
+  /*24-5*/
 
 @media (min-width: 768px) and (max-width: 1024px) 
   {  
@@ -219,7 +219,7 @@
              .action-buttons { padding: 1px; }
             .select2-container-multi .select2-choices .select2-search-choice { padding: 2px 4px 4px 13px!important; }
             .fullwidth_experience select { width: 49%; margin-right: 4px; }
-    
+            .select2-search-choice-close { top: 3px; }
 
             /* forms end*/
            
