@@ -2785,7 +2785,7 @@ class Business_profile extends MY_Controller {
                 $cmtlike1 = '<a id="' . $businessprofiledata1[0]['business_profile_post_comment_id'] . '" onClick="comment_like(this.id)">';
                 $cmtlike1 .= ' <i class="fa fa-thumbs-up" aria-hidden="true">';
                 $cmtlike1 .= '</i>';
-                $cmtlike1 .= '<span>';
+                $cmtlike1 .= '<span> ';
                 if ($businessprofiledata1[0]['business_comment_likes_count'] > 0) {
                     $cmtlike1 .= $businessprofiledata1[0]['business_comment_likes_count'] . '';
                 }
@@ -2913,7 +2913,7 @@ class Business_profile extends MY_Controller {
                 $cmtlike1 = '<a id="' . $businessprofiledata1[0]['business_profile_post_comment_id'] . '" onClick="comment_like1(this.id)">';
                 $cmtlike1 .= ' <i class="fa fa-thumbs-up" aria-hidden="true">';
                 $cmtlike1 .= '</i>';
-                $cmtlike1 .= '<span>';
+                $cmtlike1 .= '<span> ';
                 if ($businessprofiledata1[0]['business_comment_likes_count'] > 0) {
                     $cmtlike1 .= $businessprofiledata1[0]['business_comment_likes_count'] . '';
                 }
@@ -3028,7 +3028,7 @@ class Business_profile extends MY_Controller {
 
                 $cmtinsert .= '<span>';
                 if ($business_profile['business_comment_likes_count'] > 0) {
-                    $cmtinsert .= '' . $business_profile['business_comment_likes_count'];
+                    $cmtinsert .= ' ' . $business_profile['business_comment_likes_count'];
                 }
                 $cmtinsert .= '</span>';
                 $cmtinsert .= '</a></div>';
@@ -3167,7 +3167,7 @@ class Business_profile extends MY_Controller {
 
                 $cmtinsert .= '<span>';
                 if ($business_profile['business_comment_likes_count'] > 0) {
-                    $cmtinsert .= '' . $business_profile['business_comment_likes_count'];
+                    $cmtinsert .= ' ' . $business_profile['business_comment_likes_count'];
                 }
                 $cmtinsert .= '</span>';
                 $cmtinsert .= '</a></div>';
@@ -3328,7 +3328,7 @@ class Business_profile extends MY_Controller {
                 $cmtlike .= '<a id="' . $businessprofiledata1[0]['business_profile_post_id'] . '" onClick="post_like(this.id)">';
                 $cmtlike .= ' <i class="fa fa-thumbs-up" aria-hidden="true">';
                 $cmtlike .= '</i>';
-                $cmtlike .= '<span>';
+                $cmtlike .= '<span> ';
                 if ($businessprofiledata1[0]['business_likes_count'] > 0) {
                     $cmtlike .= $businessprofiledata1[0]['business_likes_count'] . '';
                 }
@@ -3615,7 +3615,7 @@ class Business_profile extends MY_Controller {
 
             $cmtinsert .= '<span>';
             if ($business_profile['business_comment_likes_count'] > 0) {
-                $cmtinsert .= '' . $business_profile['business_comment_likes_count'];
+                $cmtinsert .= ' ' . $business_profile['business_comment_likes_count'];
             }
             $cmtinsert .= '</span>';
             $cmtinsert .= '</a></div>';
@@ -3773,7 +3773,7 @@ class Business_profile extends MY_Controller {
 
             $cmtinsert .= '<span>';
             if ($business_profile['business_comment_likes_count'] > 0) {
-                $cmtinsert .= '' . $business_profile['business_comment_likes_count'];
+                $cmtinsert .= ' ' . $business_profile['business_comment_likes_count'];
             }
             $cmtinsert .= '</span>';
             $cmtinsert .= '</a></div>';
@@ -4194,7 +4194,7 @@ class Business_profile extends MY_Controller {
                 $imglike .= '<a id="' . $post_image . '" onClick="mulimg_like(this.id)">';
                 $imglike .= ' <i class="fa fa-thumbs-up" aria-hidden="true">';
                 $imglike .= '</i>';
-                $imglike .= '<span>';
+                $imglike .= '<span> ';
                 if (count($bdata1) > 0) {
                     $imglike .= count($bdata1) . '';
                 }
@@ -4368,7 +4368,7 @@ class Business_profile extends MY_Controller {
                     $imglike1 .= '<a id="' . $post_image . '" onClick="mulimg_like(this.id)">';
                     $imglike1 .= '<i class="fa fa-thumbs-up" aria-hidden="true">';
                     $imglike1 .= '</i>';
-                    $imglike1 .= '<span>';
+                    $imglike1 .= '<span> ';
                     if (count($bdata2) > 0) {
                         $imglike1 .= count($bdata2) . '';
                     }
@@ -5165,7 +5165,7 @@ class Business_profile extends MY_Controller {
                 $imglike .= '<a id="' . $post_image_comment_id . '" onClick="imgcomment_like(this.id)">';
                 $imglike .= ' <i class="fa fa-thumbs-up" aria-hidden="true">';
                 $imglike .= '</i>';
-                $imglike .= '<span>';
+                $imglike .= '<span> ';
                 if (count($bdatacm) > 0) {
                     $imglike .= count($bdatacm) . '';
                 }
@@ -5279,7 +5279,7 @@ class Business_profile extends MY_Controller {
                     $imglike1 .= '<a id="' . $post_image_comment_id . '" onClick="imgcomment_like(this.id)">';
                     $imglike1 .= '<i class="fa fa-thumbs-up" aria-hidden="true">';
                     $imglike1 .= '</i>';
-                    $imglike1 .= '<span>';
+                    $imglike1 .= '<span> ';
                     if (count($bdata2) > 0) {
                         $imglike1 .= count($bdata2) . '';
                     }
@@ -5356,7 +5356,7 @@ class Business_profile extends MY_Controller {
                 $imglike .= '<a id="' . $post_image_comment_id . '" onClick="imgcomment_liketwo(this.id)">';
                 $imglike .= ' <i class="fa fa-thumbs-up" aria-hidden="true">';
                 $imglike .= '</i>';
-                $imglike .= '<span>';
+                $imglike .= '<span> ';
                 if (count($bdatacm) > 0) {
                     $imglike .= count($bdatacm) . '';
                 }
@@ -5464,7 +5464,7 @@ class Business_profile extends MY_Controller {
                     $imglike1 .= '<a id="' . $post_image_comment_id . '" onClick="imgcomment_liketwo(this.id)">';
                     $imglike1 .= '<i class="fa fa-thumbs-up" aria-hidden="true">';
                     $imglike1 .= '</i>';
-                    $imglike1 .= '<span>';
+                    $imglike1 .= '<span> ';
                     if (count($bdata2) > 0) {
                         $imglike1 .= count($bdata2) . '';
                     }
@@ -5565,7 +5565,7 @@ class Business_profile extends MY_Controller {
                     $cmtinsert .= '<i class="fa fa-thumbs-up" aria-hidden="true"></i>';
                 }
 
-                $cmtinsert .= '<span>';
+                $cmtinsert .= '<span> ';
 
                 $contition_array = array('post_image_comment_id' => $bus_comment['post_image_comment_id'], 'is_unlike' => '0');
                 $mulcountlike = $this->data['mulcountlike'] = $this->common->select_data_by_condition('bus_comment_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -5701,7 +5701,7 @@ class Business_profile extends MY_Controller {
                     $cmtinsert .= '<i class="fa fa-thumbs-up" aria-hidden="true"></i>';
                 }
 
-                $cmtinsert .= '<span>';
+                $cmtinsert .= '<span> ';
 
                 $contition_array = array('post_image_comment_id' => $bus_comment['post_image_comment_id'], 'is_unlike' => '0');
                 $mulcountlike = $this->data['mulcountlike'] = $this->common->select_data_by_condition('bus_comment_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -5846,7 +5846,7 @@ class Business_profile extends MY_Controller {
                 $fourdata .= '<span>';
 
                 if ($rowdata['business_comment_likes_count'] > 0) {
-                    $fourdata .= '' . $rowdata['business_comment_likes_count'] . '';
+                    $fourdata .= ' ' . $rowdata['business_comment_likes_count'] . '';
                 }
 
                 $fourdata .= '</span></a></div>';
@@ -5943,7 +5943,7 @@ class Business_profile extends MY_Controller {
                 } else {
                     $fourdata .= '<i class="fa fa-thumbs-up" aria-hidden="true"></i>';
                 }
-                $fourdata .= '<span>';
+                $fourdata .= '<span> ';
 
                 $contition_array = array('post_image_comment_id' => $rowdata['post_image_comment_id'], 'is_unlike' => '0');
                 $mulcountlike1 = $this->data['mulcountlike'] = $this->common->select_data_by_condition('bus_comment_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -6052,7 +6052,7 @@ class Business_profile extends MY_Controller {
                 $fourdata .= '<span>';
 
                 if ($rowdata['business_comment_likes_count'] > 0) {
-                    $fourdata .= '' . $rowdata['business_comment_likes_count'] . '';
+                    $fourdata .= ' ' . $rowdata['business_comment_likes_count'] . '';
                 }
 
                 $fourdata .= '</span></a></div>';
@@ -6289,7 +6289,7 @@ class Business_profile extends MY_Controller {
 
             $cmtinsert .= '<span>';
             if ($business_profile['business_comment_likes_count'] > 0) {
-                $cmtinsert .= '' . $business_profile['business_comment_likes_count'];
+                $cmtinsert .= ' ' . $business_profile['business_comment_likes_count'];
             }
             $cmtinsert .= '</span>';
             $cmtinsert .= '</a></div>';
@@ -6455,7 +6455,7 @@ class Business_profile extends MY_Controller {
 
             $cmtinsert .= '<span>';
             if ($business_profile['business_comment_likes_count'] > 0) {
-                $cmtinsert .= '' . $business_profile['business_comment_likes_count'];
+                $cmtinsert .= ' ' . $business_profile['business_comment_likes_count'];
             }
             $cmtinsert .= '</span>';
             $cmtinsert .= '</a></div>';
@@ -6598,7 +6598,7 @@ class Business_profile extends MY_Controller {
 
                 $cmtinsert .= '<span>';
                 if ($business_profile['business_comment_likes_count'] > 0) {
-                    $cmtinsert .= '' . $business_profile['business_comment_likes_count'];
+                    $cmtinsert .= ' ' . $business_profile['business_comment_likes_count'];
                 }
                 $cmtinsert .= '</span>';
                 $cmtinsert .= '</a></div>';
@@ -6860,7 +6860,7 @@ class Business_profile extends MY_Controller {
 
                 $cmtinsert .= '<span>';
                 if ($business_profile['business_comment_likes_count'] > 0) {
-                    $cmtinsert .= '' . $business_profile['business_comment_likes_count'];
+                    $cmtinsert .= ' ' . $business_profile['business_comment_likes_count'];
                 }
                 $cmtinsert .= '</span>';
                 $cmtinsert .= '</a></div>';
@@ -6993,7 +6993,7 @@ class Business_profile extends MY_Controller {
                 } else {
                     $mulimgfour .= '<i class="fa fa-thumbs-up" aria-hidden="true"></i>';
                 }
-                $mulimgfour .= '<span>';
+                $mulimgfour .= '<span> ';
 
                 $contition_array = array('post_image_comment_id' => $rowdata['post_image_comment_id'], 'is_unlike' => '0');
                 $mulcountlike1 = $this->data['mulcountlike'] = $this->common->select_data_by_condition('bus_comment_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
