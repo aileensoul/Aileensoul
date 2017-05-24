@@ -1102,6 +1102,10 @@ if (count($finalsorting) > 0) {
 
                                                                 <!-- one audio start -->
                                                                 <div>
+                                                                <div class="audio_img">
+                                                                    
+                                                                </div>
+                                                                <div class="audio_source">
                                                                     <audio width="100%" height="100" controls>
 
                                                                         <source src="<?php echo base_url($this->config->item('art_post_main_upload_path') . $artmultiimage[0]['image_name']) ?>" type="audio/mp3">
@@ -1109,7 +1113,7 @@ if (count($finalsorting) > 0) {
                                                                         Your browser does not support the audio tag.
 
                                                                     </audio>
-
+                                                                    </div>
                                                                 </div>
 
                                                                 <!-- one audio end -->

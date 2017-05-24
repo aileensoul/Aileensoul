@@ -1109,13 +1109,21 @@
                                                                 <!-- one video end -->
                 <?php } elseif (in_array($ext, $allowesaudio)) { ?>
                                                                 <!-- one audio start -->
-                                                                <div>
-                                                                    <audio width="100%" height="100" controls>
+                                                                <div class="audio_main_div">
+                                                                <div class="audio_img">
+                                                                  <img src="<?php echo base_url('images/music-icon.png')?> ">  
+                                                                </div>
+                                                                <div class="audio_source">
+                                                                    <audio id="audio_player" width="100%" height="100" controls>
                                                                         <source src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $businessmultiimage[0]['image_name']); ?>" type="audio/mp3">
                                                                         <source src="movie.ogg" type="audio/ogg">
                                                                         Your browser does not support the audio tag.
                                                                     </audio>
                                                                 </div>
+                                                                <div class="audio_mp3">
+                                                                   <p title="hellow this is mp3">This text will scroll from right to left</p>
+                                                                </div>
+                                                               </div> 
                                                                 <!-- one audio end -->
                                                             <?php } ?>
                                                         <?php } elseif (count($businessmultiimage) == 2) { ?>
