@@ -315,19 +315,21 @@
     <div class="job-menu-profile">
         <a  href="<?php echo site_url('job/job_printpreview/' . $jobdata[0]['user_id']); ?>"><h5 class="profile-head-text"> <?php echo $jobdata[0]['fname'] . ' ' . $jobdata[0]['lname']; ?></h5></a>
         <!-- text head start -->
+
         <div class="profile-text" >
 
             <?php
             if ($jobdata[0]['designation'] == '') {
                 ?>
                         <!--<center><a id="myBtn" title="Designation">Designation</a></center>-->
-                <center><a id="designation" class="designation" title="Designation">Designation</a></center>
+                <center><a id="designation" class="designation" title="Designation">Current Work</a></center>
             <?php } else {
                 ?> 
                     <!--<a id="myBtn" title="<?php echo ucwords($jobdata[0]['designation']); ?>"><?php echo ucwords($jobdata[0]['designation']); ?></a>-->
                 <a id="designation" class="designation" title="<?php echo ucwords($jobdata[0]['designation']); ?>"><?php echo ucwords($jobdata[0]['designation']); ?></a>
 
             <?php } ?>
+            </div>
 
 
             <!-- The Modal -->
@@ -354,7 +356,8 @@
 
         <!-- text head end -->
 
-    </div><div class="col-md-7 col-sm-7">
+
+    <div class="col-md-7 col-sm-7">
         <div class="common-form">
             <div class="job-saved-box">
                 <h3>Saved Job</h3>
@@ -606,7 +609,7 @@
 
                          <img id="preview" src="#" alt="your image" style="border: 2px solid rgb(204, 204, 204); display: none; margin: 0 auto; margin-top: 5px;padding: 5px;"/>
 
-                        <input type="hidden" name="hitext" id="hitext" value="4">
+                      <!--   <input type="hidden" name="hitext" id="hitext" value="4"> -->
                         <!--<input type="submit" name="cancel3" id="cancel3" value="Cancel">-->
                         <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save" style="margin-top:32px!important;">
                         <?php echo form_close(); ?>
@@ -1051,7 +1054,7 @@
 
 <!-- script for profile pic end -->
 
-<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
+
 
 
 <script type="text/javascript">
