@@ -178,7 +178,7 @@
                             <?php echo form_error('year'); ?>
 
                             <select name="month" id="month">
-                            <option value="">Month</option>
+                            <option value="0">Month</option>
                             <option value="0">0 Month</option>
                             <option value="1">1 Month</option>
                             <option value="2">2 Month</option>

@@ -1648,7 +1648,7 @@ $results = array_unique($result);
         $this->form_validation->set_rules('year', 'Year', 'required');
 
         $this->form_validation->set_rules('country', 'Country', 'required');
-        $this->form_validation->set_rules('city', 'city', 'required');
+        
 
         $this->form_validation->set_rules('last_date', 'Last date', 'required');
 

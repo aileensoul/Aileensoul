@@ -536,11 +536,7 @@ $('#searchplace').select2({
                             required: true,
                            
                         },
-                        city: {
-
-                            required: true,
-                           
-                        },  
+                          
                         last_date:{
                           required:true,
                         }
@@ -606,11 +602,7 @@ $('#searchplace').select2({
                             required: " Country Is Required.",
                             
                         },
-                        city: {
-
-                            required: " City Is Required.",
-                            
-                        },
+                        
                         last_date:{
                           required:"Last Date of apply is required.",
                         }
