@@ -103,7 +103,7 @@
                                     <label style="cursor:pointer;" class="control-label">Minimum experience:<span style="color:red">*</span></label>
 
 
-                            <select name="minyear" style="cursor:pointer;" class="keyskil1">
+                            <select name="minyear" style="cursor:pointer;" class="keyskil">
                                         <option value="">Year</option>
                                         <option value="0">0 Year</option>
                                         <option value="1">1 Year</option>
@@ -128,7 +128,7 @@
                                         <option value="20">20 Year</option>
                                     </select>
                                     
-                             <select name="minmonth"  style="cursor:pointer;" class="keyskil1 margin-month ">
+                             <select name="minmonth"  style="cursor:pointer;" class="keyskil margin-month ">
                                         <option value="">Month</option>
                                         <option value="0">0 Month</option>
                                         <option value="1">1 Month</option>
