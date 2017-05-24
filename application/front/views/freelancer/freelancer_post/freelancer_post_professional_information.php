@@ -12,7 +12,8 @@
 }*/
 
 .keyskill_border_active {
-  border: 1px solid red;
+  border: 2px solid red;
+      border-radius: 5px;
 
 }
 </style>
