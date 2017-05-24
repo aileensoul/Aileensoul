@@ -7,68 +7,9 @@
 
 <!--post save success pop up style strat -->
 <style>
-    /*body {
-        font-family: Arial, sans-serif;
-        background-size: cover;
-        height: 100vh;
-    }
-
-    .box {
-        width: 40%;
-        margin: 0 auto;
-        background: rgba(255,255,255,0.2);
-        padding: 35px;
-        border: 2px solid #fff;
-        border-radius: 20px/50px;
-        background-clip: padding-box;
-        text-align: center;
-    }
-
-    .overlay {
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: rgba(0, 0, 0, 0.3);
-        transition: opacity 500ms;
-        visibility: hidden;
-        opacity: 0;
-        z-index: 10;
-    }
-    .overlay:target {
-        visibility: visible;
-        opacity: 1;
-    }
-
-    .popup {
-        margin: 70px auto;
-        padding: 20px;
-        background: #fff;
-        border-radius: 5px;
-        width: 30%;
-        height: 200px;
-        position: relative;
-        transition: all 5s ease-in-out;
-    }
-    */
+   
            .okk{  text-align: center;  } 
 
-    /*   .popup .okbtn{
-           position: absolute;
-           transition: all 200ms;
-           font-size: 18px;
-           font-weight: bold;
-           text-decoration: none;
-           color: #fff;
-           padding: 8px 18px;
-           background-color: darkcyan;
-           left: 25px;
-           margin-top: 15px;
-           width: 100px; 
-           border-radius: 8px;
-       }
-    */
             .pop_content .okbtn{
                 position: absolute;
                 transition: all 200ms;
@@ -82,22 +23,7 @@
                 width: 100px; 
                 border-radius: 8px;
             } 
-
-    /*  .popup .cnclbtn {
-          position: absolute;
-          transition: all 200ms;
-          font-size: 18px;
-          font-weight: bold;
-          text-decoration: none;
-          color: #fff;
-          padding: 8px 18px;
-          background-color: darkcyan;
-          right: 25px;
-          margin-top: 15px;
-          width: 100px;
-          border-radius: 8px;
-      } */
-            .pop_content .cnclbtn {
+.pop_content .cnclbtn {
                 position: absolute;
                 transition: all 200ms;
                 font-size: 16px;
@@ -119,16 +45,7 @@
             .model_ok_cancel{
                 width:200px !important;
             } 
-    /*
-        @media screen and (max-width: 700px){
-            .box{
-                width: 70%;
-            }
-            .popup{
-                width: 70%;
-            }
-        } */
-
+    
 
 </style>
 
@@ -137,40 +54,6 @@
 
 
 
-<!-- <style type="text/css" media="screen">
-    #row2 { overflow: hidden; width: 100%; }
-    #row2 img { height: 350px;width: 100%; }
-    .upload-img{    float: right;
-                    position: relative;
-                    margin-top: -135px;
-                    right: 50px; }
-
-    label.cameraButton {
-        display: inline-block;
-        margin: 1em 0;
-        cursor: pointer;
-        /* Styles to make it look like a button */
-        padding: 0.5em;
-        border: 2px solid #666;
-        border-color: #EEE #CCC #CCC #EEE;
-        background-color: #DDD;
-        opacity: 0.7;
-    }
-
-    /* Look like a clicked/depressed button */
-    label.cameraButton:active {
-        border-color: #CCC #EEE #EEE #CCC;
-    }
-
-    /* This is the part that actually hides the 'Choose file' text box for camera inputs */
-    label.cameraButton input[accept*="camera"] {
-        display: none;
-    }
-
-
-
-
-</style> -->
 <!-- END HEAD -->
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
@@ -332,32 +215,14 @@
             </div>
 
 
-            <!-- The Modal -->
-            <!--            <div id="myModal" class="modal">
-                             Modal content <div class="col-md-2"></div>
-                            <div class="modal-content col-md-8">
-                                <span class="close">&times;</span>
-                                <fieldset></fieldset>
-            <?php // echo form_open(base_url('job/job_designation/'), array('id' => 'jobdesignation', 'name' => 'jobdesignation', 'class' => 'clearfix')); ?>
-            
-                                <fieldset class="col-md-8"> <input type="text" name="designation" id="designation" placeholder="Enter Your Designation" value="<?php echo $jobdata[0]['designation']; ?>">
-            <?php // echo form_error('designation'); ?>
-                                </fieldset>
-                                <input type="hidden" name="hitext" id="hitext" value="3">
-                                <fieldset class="col-md-2"><input type="submit"  id="submitdes" name="submitdes" value="Submit"></fieldset>
-            <?php // echo form_close(); ?>
-            
-            
-            
-                            </div>
-                            <div class="col-md-2"></div>
-                        </div>-->
+          
         </div>
 
         <!-- text head end -->
 
 
     <div class="col-md-7 col-sm-7">
+    <div class="row">
         <div class="common-form">
             <div class="job-saved-box">
                 <h3>Saved Job</h3>

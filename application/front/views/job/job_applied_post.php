@@ -5,166 +5,8 @@
 <style type="text/css">
     #popup-form img{display: none;}
 </style>
-<style>
-    /*body {
-        font-family: Arial, sans-serif;
-        background-size: cover;
-        height: 100vh;
-    }
-
-    .box {
-        width: 40%;
-        margin: 0 auto;
-        background: rgba(255,255,255,0.2);
-        padding: 35px;
-        border: 2px solid #fff;
-        border-radius: 20px/50px;
-        background-clip: padding-box;
-        text-align: center;
-    }
-
-    .overlay {
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: rgba(0, 0, 0, 0.3);
-        transition: opacity 500ms;
-        visibility: hidden;
-        opacity: 0;
-        z-index: 10;
-    }
-    .overlay:target {
-        visibility: visible;
-        opacity: 1;
-    }
-
-    .popup {
-        margin: 70px auto;
-        padding: 20px;
-        background: #fff;
-        border-radius: 5px;
-        width: 30%;
-        height: 200px;
-        position: relative;
-        transition: all 5s ease-in-out;
-    }
-    */
-         .okk{  text-align: center;   }
-
-    /*   .popup .okbtn{
-           position: absolute;
-           transition: all 200ms;
-           font-size: 18px;
-           font-weight: bold;
-           text-decoration: none;
-           color: #fff;
-           padding: 8px 18px;
-           background-color: darkcyan;
-           left: 25px;
-           margin-top: 15px;
-           width: 100px; 
-           border-radius: 8px;
-       }
-    */
-                .pop_content .okbtn{
-                    position: absolute;
-                    transition: all 200ms;
-                    font-size: 16px;
-                    text-decoration: none;
-                    color: #fff;
-                    padding: 8px 18px;
-                    background-color: #0A2C5D;
-                    left: 170px;
-                    margin-top: 8px;
-                    width: 100px; 
-                    border-radius: 8px;
-                }
-
-    /*  .popup .cnclbtn {
-          position: absolute;
-          transition: all 200ms;
-          font-size: 18px;
-          font-weight: bold;
-          text-decoration: none;
-          color: #fff;
-          padding: 8px 18px;
-          background-color: darkcyan;
-          right: 25px;
-          margin-top: 15px;
-          width: 100px;
-          border-radius: 8px;
-      } */
-                    .pop_content .cnclbtn {
-                        position: absolute;
-                        transition: all 200ms;
-                        font-size: 16px;
-                        text-decoration: none;
-                        color: #fff;
-                        padding: 8px 18px;
-                        background-color: #0A2C5D;
-                        right: 170px;
-                        margin-top: 8px;
-                        width: 100px;
-                        border-radius: 8px;
-                    }
-
-                    .popup .pop_content {
-                        text-align: center;
-                        margin-top: 40px;
-
-                    }
-                    .model_ok_cancel{
-                        width:200px !important;
-                    } 
-
-    /*
-        @media screen and (max-width: 700px){
-            .box{
-                width: 70%;
-            }
-            .popup{
-                width: 70%;
-            }
-        } */
-</style>
-
-<!--post save success pop up style end -->
 
 
-
-<!-- <style type="text/css" media="screen">
-    #row2 { overflow: hidden; width: 100%; }
-    #row2 img { height: 350px;width: 100%; }
-    .upload-img{    float: right;
-                    position: relative;
-                    margin-top: -135px;
-                    right: 50px; }
-
-    label.cameraButton {
-        display: inline-block;
-        margin: 1em 0;
-        cursor: pointer;
-        /* Styles to make it look like a button */
-        padding: 0.5em;
-        border: 2px solid #666;
-        border-color: #EEE #CCC #CCC #EEE;
-        background-color: #DDD;
-        opacity: 0.7;
-    }
-
-    /* Look like a clicked/depressed button */
-    label.cameraButton:active {
-        border-color: #CCC #EEE #EEE #CCC;
-    }
-
-    /* This is the part that actually hides the 'Choose file' text box for camera inputs */
-    label.cameraButton input[accept*="camera"] {
-        display: none;
-    }
-
-</style> -->
 <!-- END HEAD -->
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
@@ -237,21 +79,22 @@
                     } else {
                         ?>
                         
-                            <img src="<?php echo base_url(WHITEIMAGE); ?>" name="image_src" id="image_src" / ></div>
+                            <img src="<?php echo base_url(WHITEIMAGE); ?>" name="image_src" id="image_src" / >
                     <?php }
                     ?>
-                
+                </div>
             </div>
         </div>
-    </div>
-</div>   
+       
 
-<div class="container">    
+<div class="container">  
+ 
     <div class="upload-img">
         <label class="cameraButton"><span class="tooltiptext">Upload Cover Photo</span><i class="fa fa-camera" aria-hidden="true"></i>
             <input type="file" id="upload" name="upload" accept="image/*;capture=camera" onclick="showDiv()">
         </label>
     </div>
+
     <div class="profile-photo">
         <div class="profile-pho">
             <div class="user-pic">
@@ -261,20 +104,14 @@
                 <?php } else { ?>
                     <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
                 <?php } ?>
-            <!--<a href="#popup-form" class="fancybox"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>-->
+            
                 <a href="javascript:void(0);" onclick="updateprofilepopup();"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>
             </div>
-            <!--            <div id="popup-form">
-            <?php //echo form_open_multipart(base_url('job/user_image_insert'), array('id' => 'userimage', 'name' => 'userimage', 'class' => 'clearfix')); ?>
-                            <input type="file" name="profilepic" accept="image/gif, image/jpeg, image/png" id="profilepic">
-                            <input type="hidden" name="hitext" id="hitext" value="3">
-                            <input type="submit" name="cancel3" id="cancel3" value="Cancel">
-                            <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save">
-            <?php //echo form_close(); ?>
-                        </div>-->
+            
 
         </div>
         <!-- menubar -->
+
         <div class="profile-main-rec-box-menu  col-md-12 ">
 
             <div class="left-side-menu col-md-2">  </div>
@@ -284,9 +121,7 @@
                     </li>
                     <?php if (($this->uri->segment(1) == 'job') && ($this->uri->segment(2) == 'job_all_post' || $this->uri->segment(2) == 'job_printpreview' || $this->uri->segment(2) == 'job_resume' || $this->uri->segment(2) == 'job_save_post' || $this->uri->segment(2) == 'job_applied_post') && ($this->uri->segment(3) == $this->session->userdata('aileenuser') || $this->uri->segment(3) == '')) { ?>
 
-                        <!-- <li <?php if ($this->uri->segment(1) == 'job' && $this->uri->segment(2) == 'job_resume') { ?> class="active" <?php } ?>><a title="Resume" href="<?php echo base_url('job/job_resume'); ?>">Resume</a>
-                        </li> -->
-
+                       
                         <li <?php if ($this->uri->segment(1) == 'job' && $this->uri->segment(2) == 'job_save_post') { ?> class="active" <?php } ?>><a title="Saved Job" href="<?php echo base_url('job/job_save_post'); ?>">Saved </a>
                         </li>
 
@@ -305,33 +140,16 @@
                 <?php
                 if ($jobdata[0]['designation'] == '') {
                     ?>
-                            <!--<center><a id="myBtn" title="Designation">Designation</a></center>-->
+                           
                     <center><a id="designation" class="designation" title="Designation">Current Work</a></center>
                 <?php } else {
                     ?> 
-                        <!--<a id="myBtn" title="<?php echo ucwords($jobdata[0]['designation']); ?>"><?php echo ucwords($jobdata[0]['designation']); ?></a>-->
+                       
                     <a id="designation" class="designation" title="<?php echo ucwords($jobdata[0]['designation']); ?>"><?php echo ucwords($jobdata[0]['designation']); ?></a>
 
                 <?php } ?>
 
 
-                <!-- The Modal -->
-<!--                <div id="myModal" class="modal">
-                     Modal content <div class="col-md-2"></div>
-                    <div class="modal-content col-md-8">
-                        <span class="close">&times;</span>
-                        <fieldset></fieldset>
-                        <?php // echo form_open(base_url('job/job_designation/'), array('id' => 'jobdesignation', 'name' => 'jobdesignation', 'class' => 'clearfix')); ?>
-
-                        <fieldset class="col-md-8"> <input type="text" name="designation" id="designation" placeholder="Enter Your Designation" value="<?php echo $jobdata[0]['designation']; ?>">
-                            <?php echo form_error('designation'); ?>
-                        </fieldset>
-                        <input type="hidden" name="hitext" id="hitext" value="4">
-                        <fieldset class="col-md-2"><input type="submit"  id="submitdes" name="submitdes" value="Submit"></fieldset>
-                        <?php // echo form_close(); ?>
-                    </div>
-                    <div class="col-md-2"></div>
-                </div>-->
             </div>
             <!-- text head end -->
         </div>
@@ -438,11 +256,6 @@
                     </li>
 
 
-                                                <!-- <?php if ($post['other_skill']) { ?>
-                                                    <li><b>Other Skill</b><span><?php echo $post['other_skill']; ?></span>
-                                                    </li>
-                                                <?php } else { ?>
-                                                    <li><b>Other Skill</b><span><?php echo "-"; ?></span></li><?php } ?> -->
 
                                                 <li><b>Description</b><span><p>
                                                             <?php echo $this->common->make_links($post['post_description']); ?> </p></span>
@@ -511,7 +324,7 @@
                     } else {
                         ?>
                         <div class="text-center rio">
-                            <h4 class="page-heading  product-listing" style="border:0px;margin-bottom: 11px;">No Applied Job.</h4>
+                            <h4 class="page-heading  product-listing" >No Applied Job.</h4>
                         </div>
                         <?php
                     }
@@ -525,17 +338,8 @@
     </div>
 </div>
 </div>
-
-<div class="user-midd-section">
-    <div class="container">
-        <div class="row"> 
-            <div class="col-md-3 col-sm-3"></div>
-
-
-
-        </div>
     </div>
-</div>
+
 </section>
 <!-- Model Popup Open -->
 <!-- Bid-modal  -->
@@ -561,12 +365,12 @@
                     <div id="popup-form">
                         <?php echo form_open_multipart(base_url('job/user_image_insert'), array('id' => 'userimage', 'name' => 'userimage', 'class' => 'clearfix')); ?>
                         <input type="file" name="profilepic" accept="image/gif, image/jpeg, image/png" id="profilepic">
-
-                         <img id="preview" src="#" alt="your image" style="border: 2px solid rgb(204, 204, 204); display: none; margin: 0 auto; margin-top: 5px;padding: 5px;"/>
-
+                            <div class="popup_previred">
+                         <img id="preview" src="#" alt="your image" />
+                            </div>
                         <input type="hidden" name="hitext" id="hitext" value="3">
                         <!--<input type="submit" name="cancel3" id="cancel3" value="Cancel">-->
-                        <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save" style="margin-top:32px!important;">
+                        <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save" >
                         <?php echo form_close(); ?>
                     </div>
                 </span>
