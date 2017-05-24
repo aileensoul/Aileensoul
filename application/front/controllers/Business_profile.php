@@ -1228,7 +1228,6 @@ class Business_profile extends MY_Controller {
         $this->data['businessdataposted'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'business_slug', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
         if ($para == $userid || $para == '') {
-
             $data = array(
                 'product_name' => $this->input->post('my_text'),
                 'product_description' => $this->input->post('product_desc'),
@@ -1248,9 +1247,16 @@ class Business_profile extends MY_Controller {
                 'posted_user_id' => $userid
             );
         }
-        //echo "<pre>"; print_r($data); die();
-        $insert_id = $this->common->insert_data_getid($data, 'business_profile_post');
-        //echo $insert_id; die(); 
+        //CHECK IF IMAGE POST THEN NAME AND DESCRIPTION IS BLANK THAT TIME POST NOT INSERT AT A TIME.
+        if ($_FILES['postattach']['name'][0] != '') {
+            // CHECK FILE IS PROPER 
+            // if ($data['product_name'] != '' && $data['product_description'] != '') {
+            if ($_FILES['postattach']['error'][0] != '1') {
+                $insert_id = $this->common->insert_data_getid($data, 'business_profile_post');
+            }
+        } else {
+            $insert_id = $this->common->insert_data_getid($data, 'business_profile_post');
+        }
         $config = array(
             'upload_path' => $this->config->item('bus_post_main_upload_path'),
             'allowed_types' => $this->config->item('bus_post_main_allowed_types'),
@@ -1263,87 +1269,87 @@ class Business_profile extends MY_Controller {
         $count = count($_FILES['postattach']['name']);
         $title = time();
 
-        for ($i = 0; $i < $count; $i++) {
+        if ($_FILES['postattach']['name'][0] != '') {
 
-            $_FILES['postattach']['name'] = $files['postattach']['name'][$i];
-            $_FILES['postattach']['type'] = $files['postattach']['type'][$i];
-            $_FILES['postattach']['tmp_name'] = $files['postattach']['tmp_name'][$i];
-            $_FILES['postattach']['error'] = $files['postattach']['error'][$i];
-            $_FILES['postattach']['size'] = $files['postattach']['size'][$i];
+            for ($i = 0; $i < $count; $i++) {
 
-            $store = $_FILES['postattach']['name'];
+                $_FILES['postattach']['name'] = $files['postattach']['name'][$i];
+                $_FILES['postattach']['type'] = $files['postattach']['type'][$i];
+                $_FILES['postattach']['tmp_name'] = $files['postattach']['tmp_name'][$i];
+                $_FILES['postattach']['error'] = $files['postattach']['error'][$i];
+                $_FILES['postattach']['size'] = $files['postattach']['size'][$i];
 
-            $store_ext = explode('.', $store);
-            $store_ext = end($store_ext);
 
-            $fileName = 'file_' . $title . '_' . $this->random_string() . '.' . $store_ext;
+                if ($_FILES['postattach']['error'] == 0) {
 
-            $images[] = $fileName;
-            $config['file_name'] = $fileName;
+                    $store = $_FILES['postattach']['name'];
 
-            $this->upload->initialize($config);
-            $this->upload->do_upload();
+                    $store_ext = explode('.', $store);
+                    $store_ext = end($store_ext);
 
-            $imgdata = $this->upload->data();
+                    $fileName = 'file_' . $title . '_' . $this->random_string() . '.' . $store_ext;
 
-            if ($this->upload->do_upload('postattach')) {
+                    $images[] = $fileName;
+                    $config['file_name'] = $fileName;
 
-                /*    $business_profile_post_thumb['image_library'] = 'gd2';
-                  $business_profile_post_thumb['source_image'] = $config['upload_path'] . $imgdata['file_name'];
-                  $business_profile_post_thumb['new_image'] = $this->config->item('bus_post_thumb_upload_path') . $imgdata['file_name'];
-                  $business_profile_post_thumb['create_thumb'] = TRUE;
-                  $business_profile_post_thumb['maintain_ratio'] = TRUE;
-                  $business_profile_post_thumb['thumb_marker'] = '';
-                  $business_profile_post_thumb['width'] = $this->config->item('bus_post_thumb_width');
-                  $business_profile_post_thumb['height'] = 2;
-                  $business_profile_post_thumb['master_dim'] = 'width';
-                  $business_profile_post_thumb['quality'] = "100%";
-                  $business_profile_post_thumb['x_axis'] = '0';
-                  $business_profile_post_thumb['y_axis'] = '0';
-                  //Loading Image Library
-                  $this->load->library('image_lib', $business_profile_post_thumb);
-                  $dataimage = $imgdata['file_name'];
-                  //Creating Thumbnail
-                  $this->image_lib->resize();
-                  $thumberror = $this->image_lib->display_errors();
-                 */
-                $response['result'][] = $this->upload->data();
-                $business_profile_post_thumb[$i]['image_library'] = 'gd2';
-                $business_profile_post_thumb[$i]['source_image'] = $this->config->item('bus_post_main_upload_path') . $response['result'][$i]['file_name'];
-                $business_profile_post_thumb[$i]['new_image'] = $this->config->item('bus_post_thumb_upload_path') . $response['result'][$i]['file_name'];
-                $business_profile_post_thumb[$i]['create_thumb'] = TRUE;
-                $business_profile_post_thumb[$i]['maintain_ratio'] = TRUE;
-                $business_profile_post_thumb[$i]['thumb_marker'] = '';
-                $business_profile_post_thumb[$i]['width'] = $this->config->item('bus_post_thumb_width');
-                //$product_thumb[$i]['height'] = $this->config->item('product_thumb_height');
-                $business_profile_post_thumb[$i]['height'] = 2;
-                $business_profile_post_thumb[$i]['master_dim'] = 'width';
-                $business_profile_post_thumb[$i]['quality'] = "100%";
-                $business_profile_post_thumb[$i]['x_axis'] = '0';
-                $business_profile_post_thumb[$i]['y_axis'] = '0';
-                $instanse = "image_$i";
-                //Loading Image Library
-                $this->load->library('image_lib', $business_profile_post_thumb[$i], $instanse);
-                $dataimage = $response['result'][$i]['file_name'];
-                //Creating Thumbnail
-                $this->$instanse->resize();
-                $response['error'][] = $thumberror = $this->$instanse->display_errors();
+                    $this->upload->initialize($config);
+                    $this->upload->do_upload();
 
-                $return['data'][] = $imgdata;
-                $return['status'] = "success";
-                $return['msg'] = sprintf($this->lang->line('success_item_added'), "Image", "uploaded");
+                    $imgdata = $this->upload->data();
 
-                $data1 = array(
-                    'image_name' => $fileName,
-                    'image_type' => 2,
-                    'post_id' => $insert_id,
-                    'is_deleted' => 1
-                );
+                    if ($this->upload->do_upload('postattach')) {
 
-                //echo "<pre>"; print_r($data1);
-                $insert_id1 = $this->common->insert_data_getid($data1, 'post_image');
-            }
-        } //die();
+                        $response['result'][] = $this->upload->data();
+                        $business_profile_post_thumb[$i]['image_library'] = 'gd2';
+                        $business_profile_post_thumb[$i]['source_image'] = $this->config->item('bus_post_main_upload_path') . $response['result'][$i]['file_name'];
+                        $business_profile_post_thumb[$i]['new_image'] = $this->config->item('bus_post_thumb_upload_path') . $response['result'][$i]['file_name'];
+                        $business_profile_post_thumb[$i]['create_thumb'] = TRUE;
+                        $business_profile_post_thumb[$i]['maintain_ratio'] = TRUE;
+                        $business_profile_post_thumb[$i]['thumb_marker'] = '';
+                        $business_profile_post_thumb[$i]['width'] = $this->config->item('bus_post_thumb_width');
+                        //$product_thumb[$i]['height'] = $this->config->item('product_thumb_height');
+                        $business_profile_post_thumb[$i]['height'] = 2;
+                        $business_profile_post_thumb[$i]['master_dim'] = 'width';
+                        $business_profile_post_thumb[$i]['quality'] = "100%";
+                        $business_profile_post_thumb[$i]['x_axis'] = '0';
+                        $business_profile_post_thumb[$i]['y_axis'] = '0';
+                        $instanse = "image_$i";
+                        //Loading Image Library
+                        $this->load->library('image_lib', $business_profile_post_thumb[$i], $instanse);
+                        $dataimage = $response['result'][$i]['file_name'];
+                        //Creating Thumbnail
+                        $this->$instanse->resize();
+                        $response['error'][] = $thumberror = $this->$instanse->display_errors();
+
+                        $return['data'][] = $imgdata;
+                        $return['status'] = "success";
+                        $return['msg'] = sprintf($this->lang->line('success_item_added'), "Image", "uploaded");
+
+                        $data1 = array(
+                            'image_name' => $fileName,
+                            'image_type' => 2,
+                            'post_id' => $insert_id,
+                            'is_deleted' => 1
+                        );
+
+                        //echo "<pre>"; print_r($data1);
+                        $insert_id1 = $this->common->insert_data_getid($data1, 'post_image');
+                    }
+                } else {
+                    $this->session->set_flashdata('error', '<div class="col-md-7 col-sm-7 alert alert-danger1">Something went to wrong in uploded file.</div>');
+                    if ($id == manage) {
+
+                        if ($para == $userid || $para == '') {
+                            redirect('business_profile/business_profile_manage_post', refresh);
+                        } else {
+                            redirect('business_profile/business_profile_manage_post/' . $this->data['businessdataposted'][0]['business_slug'], refresh);
+                        }
+                    } else {
+                        redirect('business_profile/business_profile_post', refresh);
+                    }
+                }
+            } //die();
+        }
 
         if ($id == manage) {
 
@@ -1716,7 +1722,7 @@ class Business_profile extends MY_Controller {
         }
     }
 
-    public function business_resume($id="") {
+    public function business_resume($id = "") {
 
         $userid = $this->session->userdata('aileenuser');
 
