@@ -129,7 +129,7 @@ label.cameraButton input[accept*="camera"] {
                 <div class="col-md-12 cover-pic" style="padding-top: 25px;text-align: center;">
                     <button class="btn btn-success  cancel-result" onclick="">Cancel</button>
 
-                    <button class="btn btn-success upload-result fr" onclick="myFunction()">Upload Image</button>
+                    <button class="btn btn-success upload-result fr" onclick="myFunction()">Save</button>
 
                     <div id="message1" style="display:none;">
                         <div class="loader">
@@ -194,7 +194,7 @@ label.cameraButton input[accept*="camera"] {
     <div class="upload-img">
 
 
-        <label class="cameraButton"><i class="fa fa-camera" aria-hidden="true"></i>
+        <label class="cameraButton"><span class="tooltiptext">Upload Cover Photo</span><i class="fa fa-camera" aria-hidden="true"></i>
             <input type="file" id="upload" name="upload" accept="image/*;capture=camera" onclick="showDiv()">
         </label>
     </div>
