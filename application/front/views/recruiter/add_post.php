@@ -54,7 +54,7 @@
                             <div class="job-saved-box">
                                 <h3>Add New Post</h3>
 
-<?php echo form_open(base_url('recruiter/add_post_store'), array('id' => 'artpost', 'name' => 'artpost', 'class' => 'clearfix', 'onsubmit' => "imgval()")); ?>
+<?php echo form_open(base_url('recruiter/add_post_store'), array('id' => 'artpost', 'name' => 'artpost', 'class' => 'clearfix', 'onsubmit' => "return imgval()")); ?>
 
 
 
@@ -103,7 +103,7 @@
                                     <label style="cursor:pointer;" class="control-label">Minimum experience:<span style="color:red">*</span></label>
 
 
-                            <select name="minyear" style="cursor:pointer;" class="keyskil" onblur="return full_name();" id="minyear">
+                            <select name="minyear" style="cursor:pointer;" class="keyskil" id="minyear">
                                         <option value="">Year</option>
                                         <option value="0">0 Year</option>
                                         <option value="1">1 Year</option>
@@ -128,7 +128,7 @@
                                         <option value="20">20 Year</option>
                                     </select>
                                     
-                             <select name="minmonth"  style="cursor:pointer;" class="keyskil margin-month " onblur="return full_name();" id="minmonth">
+                             <select name="minmonth"  style="cursor:pointer;" class="keyskil margin-month " id="minmonth">
                                         <option value="">Month</option>
                                         <option value="0">0 Month</option>
                                         <option value="1">1 Month</option>
@@ -149,7 +149,7 @@
                                     <label style="cursor:pointer;" class="control-label">&nbsp;Maximum experience:<span style="color:red">*</span></label>
 
 
-                                      <select name="maxyear" style="cursor:pointer;" class="keyskil1" onblur="return full_name();" id="maxyear">
+                                      <select name="maxyear" style="cursor:pointer;" class="keyskil1" id="maxyear">
                                         <option value="">Year</option>
                                         <option value="0">0 Year</option>
                                         <option value="1">1 Year</option>
@@ -176,7 +176,7 @@
 
                                       
 
-                                    <select name="maxmonth" style="cursor:pointer;" class="keyskil1 margin-month " onblur="return full_name();" id="maxmonth">
+                                    <select name="maxmonth" style="cursor:pointer;" class="keyskil1 margin-month " id="maxmonth">
                                         <option value="">Month</option>
                                         <option value="0">0 Month</option>
                                         <option value="1">1 Month</option>
@@ -329,11 +329,23 @@ function imgval(){
 
  
      if(skill_main =='' && skill_other == ''){
-  //$($("#skils").select2("container")).removeClass("keyskill_border_deactivte");
-
-  //$($("#skills").select2("selection")).addClass("keyskill_border_active");
+  
   $('#artpost .select2-selection').addClass("keyskill_border_active").style('border','1px solid #f00');
   }
+
+  var minyear = document.getElementById('minyear').value;
+        var minmonth = document.getElementById('minmonth').value;
+        var maxyear = document.getElementById('maxyear').value;
+        var maxmonth = document.getElementById('maxmonth').value;
+
+        var min_exper;
+        min_exper = (minyear * 12) + minmonth ;
+        max_exper = (maxyear * 12) + maxmonth;
+        if(min_exper > max_exper){
+            alert("Minimum experience is not greater than maximum experience");
+            return false;
+
+        }
    
   }
 
@@ -369,6 +381,7 @@ function imgval(){
    });
 
 </script>
+
 <script type="text/javascript">
     function checkvalue() {
         //alert("hi");
@@ -418,12 +431,6 @@ $.validator.addMethod("greaterThan",
     function(value, max, min){
         return parseInt(value) > parseInt($(min).val());
     }, "minimum salary not greater than maximum salary"
-);
-
-$.validator.addMethod("greaterThanyear",
-    function(value, max, min){
-        return parseInt(value) >= parseInt($(min).val());
-    }, "minimum year not greater than maximum year"
 );
 
 
@@ -511,14 +518,12 @@ $.validator.addMethod("greaterThanyear",
                 maxyear: {
 
                     require_from_group: [1, ".keyskil1"],
-                    greaterThanyear: '#minyear'
                             //required:true 
                 },
 
                 maxmonth: {
 
                     require_from_group: [1, ".keyskil1"],
-
                             // required:true 
                 },
 
