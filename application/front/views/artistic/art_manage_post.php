@@ -225,6 +225,8 @@ responsive image design start -->
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('dragdrop/fileinput.css'); ?>">
    <link href="<?php echo base_url('dragdrop/themes/explorer/theme.css'); ?>" media="all" rel="stylesheet" type="text/css"/>
     
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/video.css'); ?>">
+    <script src="<?php echo base_url('js/mediaelement-and-player.min.js'); ?>"></script>
 <!--  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
  -->
     <script src="<?php echo base_url('dragdrop/js/plugins/sortable.js'); ?>"></script>
@@ -1258,7 +1260,7 @@ responsive image design start -->
 
                                                     <!-- one video start -->
                                                     <div class="video_post">
-                                                        <video width="100%" height="55%" controls>
+                                                        <video width="100%" class="video" height="55%" controls>
 
 
                                                             <source src="<?php echo base_url($this->config->item('art_post_main_upload_path') . $artmultiimage[0]['image_name']) ?>" type="video/mp4">
@@ -4105,3 +4107,12 @@ responsive image design start -->
 
 
 
+  <script>
+    $(document).ready(function() {
+        $('.video').mediaelementplayer({
+            alwaysShowControls: false,
+            videoVolume: 'horizontal',
+            features: ['playpause','progress','volume','fullscreen']
+        });
+    });
+    </script>

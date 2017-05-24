@@ -1090,7 +1090,7 @@ if (count($finalsorting) > 0) {
                                                                 <div>
                                                                 
 
-                                                                     <video width="100%" height="267" >
+                                                                     <video width="100%" height="370" >
      <source src="<?php echo base_url($this->config->item('art_post_main_upload_path') . $artmultiimage[0]['image_name']) ?>" type="video/mp4">
                                                                         <source src="movie.ogg" type="video/ogg">
     </video>
@@ -3345,7 +3345,6 @@ if (count($finalsorting) > 0) {
                             /*        margin-left: 15px;
                                     margin-right: 15px;*/
                             width: 96%;
-                            background-color: #fff !important;
                         }
                         div[class^="likeduserlist"]{
                             width: 100% !important;
