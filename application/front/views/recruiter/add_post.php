@@ -256,13 +256,13 @@
 
                                 <fieldset <?php if ($minsal) { ?> class="error-msg" <?php } ?>>
                                     <label class="control-label">Min salary:(Per Year) <span style="color:red">*</span></label>
-                                    <input name="minsal" type="text" id="minsal" placeholder="Enter Minimum salary" /><span id="fullname-error"></span>
+                                    <input name="minsal" type="text" id="minsal" placeholder="Enter Minimum salary" onblur="return full_name(); /><span id="fullname-error"></span>
 <?php echo form_error('minsal'); ?>
                                 </fieldset>
 
                                 <fieldset <?php if ($maxsal) { ?> class="error-msg" <?php } ?>>
                                     <label class="control-label">Max salary:(Per Year)<span style="color:red">*</span></label>
-                                    <input name="maxsal" type="text" id="maxsal" placeholder="Enter Maximum salary" /><span id="fullname-error"></span>
+                                    <input name="maxsal" type="text" id="maxsal" placeholder="Enter Maximum salary" onblur="return full_name();/><span id="fullname-error"></span>
 <?php echo form_error('maxsal'); ?>
                                 </fieldset>
 
@@ -525,7 +525,8 @@ $.validator.addMethod("greaterThan",
                 },
                 maxsal:{
                     required: true,
-                    noSpace: true
+                    noSpace: true,
+                    greaterThan: '#minsal'
                 },
                 
                 
