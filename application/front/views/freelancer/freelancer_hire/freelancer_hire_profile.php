@@ -46,8 +46,9 @@ label.cameraButton input[accept*="camera"] {
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
 <link rel="stylesheet" href="<?php echo base_url('assets/css/croppie.css'); ?>">
-<script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
 <link rel="stylesheet" href="<?php echo base_url('css/bootstrap.min.css'); ?>" />
+<script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
+
   
   
   
@@ -429,16 +430,19 @@ function text2link($text){
 
 <!-- script for skill textbox automatic start (option 2)-->
 
-  <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
+  
+
+    
+
     <script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
    <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
-    
+    <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
     <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
-    
-    <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
-    <script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script>
+
+     <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
+     <script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script>
+
 
 <!-- script for skill textbox automatic end (option 2)-->
 <script>
