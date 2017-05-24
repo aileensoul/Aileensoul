@@ -195,8 +195,8 @@ if ($this->session->flashdata('success')) {
                                 </fieldset>
 
 
-                                <div class="col-md-12" style="padding-left: 8px;">
-                                    <fieldset class="col-md-12" style="padding-left: 0px;">
+                                <div  style="padding-left: 8px;">
+                                    <fieldset class="full-width" style="padding-left: 0px;">
                                         <label>Other skill:</label>
 
                                         <?php
