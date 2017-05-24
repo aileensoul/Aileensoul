@@ -436,26 +436,37 @@ echo $freelancer_hire_header2;} ?>
                 $lastname = $this->db->get_where('freelancer_hire_reg', array('user_id' => $post['user_id']))->row()->username;
                     ?>
 
+
+                         <?php $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name; ?>
+                          <?php $countryname = $this->db->get_where('countries', array('country_id' => $post['country']))->row()->country_name; ?>
+
                             <li>
                             <?php if($returnpage=='freelancer_post') {?>
                             <a class="display_inline" title="<?php echo ucwords($firstname); ?>&nbsp;<?php echo ucwords($lastname); ?>" href="<?php echo base_url('freelancer/freelancer_hire_profile/' . $post['user_id'].'?page=freelancer_post'); ?>"><?php echo ucwords($firstname); ?>&nbsp;<?php echo ucwords($lastname); ?>
                             </a>
-                              <div class="fr lction display_inline">
-                              <?php $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name; ?>
-                              <?php $countryname = $this->db->get_where('countries', array('country_id' => $post['country']))->row()->country_name; ?>
 
-                                <p title="Location"><i class="fa fa-map-marker" aria-hidden="true">  <?php echo $cityname.","; ?><?php echo $countryname; ?></i></p>
+                            <?php if($cityname || $countryname){?>
+                              <div class="fr lction display_inline">
+                              
+                                <p title="Location"><i class="fa fa-map-marker" aria-hidden="true">
+                                <?php if($cityname){?> 
+                                 <?php echo $cityname.","; ?>
+                                 <?php }?>
+                                 <?php echo $countryname; ?></i></p>
                                  </div>
+                                 <?php }?>
                             <?php }  else {?>
                             <a class="display_inline" title="<?php echo ucwords($firstname); ?>&nbsp;<?php echo ucwords($lastname); ?>" href="<?php echo base_url('freelancer/freelancer_hire_profile/' . $post['user_id']); ?>"><?php echo ucwords($firstname); ?>&nbsp;<?php echo ucwords($lastname); ?>
                             </a> 
-
+                            <?php if($cityname || $countryname){?>
                             <div class="fr lction display_inline">
-                              <?php $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name; ?>
-                              <?php $countryname = $this->db->get_where('countries', array('country_id' => $post['country']))->row()->country_name; ?>
-
-                                <p title="Location"><i class="fa fa-map-marker" aria-hidden="true">  <?php echo $cityname.","; ?><?php echo $countryname; ?></i></p>
+                              
+                                <p title="Location"><i class="fa fa-map-marker" aria-hidden="true"> <?php if($cityname){ ?>
+                                 <?php echo $cityname.","; ?>
+                                <?php }?>
+                                <?php echo $countryname; ?></i></p>
                                  </div>
+                                 <?php }?>
                             <?php }?>
                             </li>
                     <!-- vishang 14-4 end -->    
