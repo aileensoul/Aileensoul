@@ -68,7 +68,7 @@
     .modal2 {
         display: none;
         position: fixed;
-        z-index: 1;
+        z-index: 10000;
         padding-top: 100px;
         left: 0;
         top: 0;
@@ -106,6 +106,8 @@
         user-select: none;
         -webkit-user-select: none;
     }
+    .prev:hover{background-color: #fff!important; color: black!important; opacity: 1!important;}
+    .next:hover{background-color: #fff!important; color: black!important; opacity: 1!important;}
 
     /* The Close Button */
     .close2 {
@@ -1088,7 +1090,7 @@ if ($status == 0 || $status == " ") {
                                                                         <div contenteditable="true" style="min-height:37px !important; margin-top: 0px!important" class="editable_text" name="<?php echo $artdata['image_id']; ?>"  id="<?php echo "post_commentimg" . $artdata['image_id']; ?>" placeholder="Type Message ..." onkeyup="entercommentimg(<?php echo $artdata['image_id']; ?>)"></div>
                                                                     </div>
                                                                     <?php echo form_error('post_commentimg'); ?>
-                                                                    <div class="col-md-1 comment-edit-butn">   
+                                                                    <div class=" comment-edit-butn">   
                                                                         <button id="<?php echo $artdata['image_id']; ?>" onClick="insert_commentimg(this.id)">Comment</button> 
                                                                     </div>
                                                                 </div>

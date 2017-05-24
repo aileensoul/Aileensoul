@@ -177,7 +177,7 @@
                             <span id="fullname-error"></span>
                             <?php echo form_error('year'); ?>
 
-                            <select name="month" id="month">
+                            <select class="margin-month " name="month" id="month">
                             <option value="0">Month</option>
                             <option value="0">0 Month</option>
                             <option value="1">1 Month</option>

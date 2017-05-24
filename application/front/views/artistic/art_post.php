@@ -78,7 +78,7 @@
         height: auto;
         min-height: 25%;
         color: #999999;
-        padding: 12px 20px;
+        padding: 12px 0px;
         box-sizing: border-box;
         /* border: 2px solid #ccc; */
         border-radius: 4px;
