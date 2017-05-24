@@ -458,7 +458,7 @@ fieldset.full-width { width: 100%; }
     padding: 0px!important;
     background-color: white;}
 .hs-submit { float: right; text-align: right; }
-.hs-submit input { min-width: 150px; width:auto; text-align: center; font-size: 18px; margin-top: 10px; border-color: #000033; text-transform:capitalize; }
+.hs-submit input { min-width: 150px; width:auto; text-align: center; font-size: 18px; margin-top: 25px; border-color: #000033; text-transform:capitalize; }
 .hs-submit input[type=reset] { border-color: #000033; color: #000033; padding: 8px 12px 11px; }
 .hs-submit input[type=reset]:hover { background: #000033; color: #fff; }
 .hs-submit input[type=submit]:hover{opacity: 0.8; background-color: #000033;}
