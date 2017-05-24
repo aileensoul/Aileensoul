@@ -99,7 +99,7 @@
                                 </fieldset>
 
 
-                                <fieldset <?php if ($month) { ?> class="error-msg" <?php } ?> class="two-select-box">
+                                <fieldset <?php if ($month) { ?> class="error-msg" <?php } ?> class="two-select-box1">
                                     <label style="cursor:pointer;" class="control-label">Minimum experience:<span style="color:red">*</span></label>
 
 
@@ -128,7 +128,7 @@
                                         <option value="20">20 Year</option>
                                     </select>
                                     
-                             <select name="minmonth"  style="cursor:pointer;" class="keyskil1">
+                             <select name="minmonth"  style="cursor:pointer;" class="keyskil1 margin-month ">
                                         <option value="">Month</option>
                                         <option value="0">0 Month</option>
                                         <option value="1">1 Month</option>
@@ -145,7 +145,7 @@
                                 </fieldset>
 
 
-                                <fieldset <?php if ($month) { ?> class="error-msg" <?php } ?> class="two-select-box">
+                                <fieldset <?php if ($month) { ?> class="error-msg" <?php } ?> class="two-select-box1">
                                     <label style="cursor:pointer;" class="control-label">&nbsp;Maximum experience:<span style="color:red">*</span></label>
 
 
@@ -176,7 +176,7 @@
 
                                       
 
-                                    <select name="maxmonth" style="cursor:pointer;" class="keyskil1">
+                                    <select name="maxmonth" style="cursor:pointer;" class="keyskil1 margin-month ">
                                         <option value="">Month</option>
                                         <option value="0">0 Month</option>
                                         <option value="1">1 Month</option>
@@ -191,7 +191,8 @@
                                     <?php echo form_error('month'); ?> &nbsp;&nbsp; <?php echo form_error('year'); ?>
                                 </fieldset>
 
-                                <fieldset style="cursor:pointer;" class="form-group full-width">
+                                <fieldset style="cursor:pointer;
+    margin-top: 5px;margin-left: 15px;" class="form-group full-width">
                                     <input  type="checkbox" name="fresher" value="1"> Fresher can also apply..!
                                 </fieldset>
 
