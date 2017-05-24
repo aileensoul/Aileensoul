@@ -217,6 +217,7 @@ http://vladimirkudinov.com
 /* Progress Bar Handle */
 .mejs-controls .mejs-time-rail .mejs-time-handle {
 	position: absolute;
+	margin-left: 13px;
 	cursor: pointer;
 	width: 16px;
 	height: 18px;

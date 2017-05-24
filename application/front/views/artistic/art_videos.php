@@ -7,6 +7,8 @@
 
 <!--post save success pop up style end -->
 
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/video.css'); ?>">
+    <script src="<?php echo base_url('js/mediaelement-and-player.min.js'); ?>"></script>
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
 
@@ -826,3 +828,12 @@ $( "#tags" ).autocomplete({
                 });
                    });
   </script>
+    <script>
+    $(document).ready(function() {
+        $('video').mediaelementplayer({
+            alwaysShowControls: false,
+            videoVolume: 'horizontal',
+            features: ['playpause','progress','volume','fullscreen']
+        });
+    });
+    </script>
