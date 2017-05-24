@@ -217,6 +217,9 @@
 
 <!--  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 -->
+    
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/video.css'); ?>">
+    <script src="<?php echo base_url('js/mediaelement-and-player.min.js'); ?>"></script>
 <script src="<?php echo base_url('dragdrop/js/plugins/sortable.js'); ?>"></script>
 <script src="<?php echo base_url('dragdrop/js/fileinput.js'); ?>"></script>
 <script src="<?php echo base_url('dragdrop/js/locales/fr.js'); ?>"></script>
@@ -1100,7 +1103,7 @@
                 <?php } elseif (in_array($ext, $allowesvideo)) { ?>
                                                                 <!-- one video start -->
                                                                 <div>
-                                                                    <video width="100%" height="240" controls>
+                                                                    <video width="100%" height="350" controls>
                                                                         <source src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $businessmultiimage[0]['image_name']); ?>" type="video/mp4">
                                                                         <source src="movie.ogg" type="video/ogg">
                                                                         Your browser does not support the video tag.
@@ -3332,3 +3335,13 @@
         $('.alert-danger1').delay(3000).hide('700');
     });
 </script>-->
+
+  <script>
+    $(document).ready(function() {
+        $('video').mediaelementplayer({
+            alwaysShowControls: false,
+            videoVolume: 'horizontal',
+            features: ['playpause','progress','volume','fullscreen']
+        });
+    });
+    </script>
