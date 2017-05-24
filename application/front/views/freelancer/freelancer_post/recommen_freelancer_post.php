@@ -402,13 +402,16 @@ function text2link($text) {
 
                             <li><a class="display_inline" title="<?php echo ucwords($firstname); ?>&nbsp;<?php echo ucwords($lastname); ?>" href="<?php echo base_url('freelancer/freelancer_hire_profile/' . $post['user_id'].'?page=freelancer_post'); ?>"><?php echo ucwords($firstname); ?>&nbsp;<?php echo ucwords($lastname); ?>
                             </a>
-
-                            <div class="fr lction">
-                              <?php $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name; ?>
+<?php $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name; ?>
                               <?php $countryname = $this->db->get_where('countries', array('country_id' => $post['country']))->row()->country_name; ?>
 
-                        <p><span title="Location"><i class="fa fa-map-marker" aria-hidden="true">  <?php echo $cityname.","; ?><?php echo $countryname; ?></i> </span></p>
+                              <?php if($cityname || $countryname){?>
+                            <div class="fr lction">
+                              
+                        <p><span title="Location">
+                        <i class="fa fa-map-marker" aria-hidden="true"> <?php if($cityname){?> <?php echo $cityname.","; ?><?php }?><?php echo $countryname; ?></i> </span></p>
                                  </div>
+                                 <?php }?>
                             </li>
                 
                 </ul>

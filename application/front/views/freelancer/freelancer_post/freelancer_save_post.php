@@ -423,12 +423,16 @@ $freelancerapply1 = $this->data['freelancerapply'] = $this->common->select_data_
                             <li><a class="display_inline" title="<?php echo ucwords($firstname); ?>&nbsp;<?php echo ucwords($lastname); ?>" href="<?php echo base_url('freelancer/freelancer_hire_profile/' . $post['user_id'].'?page=freelancer_post'); ?>"><?php echo ucwords($firstname); ?>&nbsp;<?php echo ucwords($lastname); ?>
                             </a>
                            
-                           <div class="fr lction">
-                              <?php $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name; ?>
+                           <?php $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name; ?>
                               <?php $countryname = $this->db->get_where('countries', array('country_id' => $post['country']))->row()->country_name; ?>
+                              <?php if($cityname || $countryname){?>
 
-                                <p title="Location"><i class="fa fa-map-marker" aria-hidden="true">  <?php if ($cityname){echo $cityname.","; }?><?php if ($countryname) {echo $countryname; }?></i></p>
+                           <div class="fr lction">
+                              
+                                <p title="Location">
+                                <i class="fa fa-map-marker" aria-hidden="true">  <?php if ($cityname){echo $cityname.","; }?><?php if ($countryname) {echo $countryname; }?></i></p>
                                  </div>
+                                 <?php }?>
                             </li>
                     <!-- vishang 14-4 end -->    
                 </ul>
