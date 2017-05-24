@@ -449,7 +449,7 @@ if ($freelancerpostdata[0]['freelancer_post_area']) {
                                                 $month = explode(' ', $freelancerpostdata[0]['freelancer_post_exp_year']);
                                                 $year=$month[0];
                                                 $years=$year + 1;
-                                                echo $years;
+                                                echo $years." Years";
                                                 
                                                 //echo $month[0] + 1. "year";
                                                 } else{
