@@ -728,6 +728,8 @@ $contition_array = array('user_id' => $userid, 'job_save' => '2', 'post_id ' => 
 
 var data= <?php echo json_encode($demo); ?>;
 
+//alert(data);
+
         
 $(function() {
     // alert('hi');

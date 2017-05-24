@@ -474,7 +474,7 @@ responsive image design start -->
                     ?>
 
                     <?php if ($artisticdata[0]['user_id'] == $userid) { ?>
-                        <a id="designation" class="designation" title="Designation">Designation</a>
+                        <a id="designation" class="designation" title="Designation">Current Work    </a>
 
                     <?php } ?>
 
@@ -1864,6 +1864,9 @@ responsive image design start -->
                             function editableTextBlurred() {
                                 var html = $(this).val();
                                 var viewableText = $("<a>");
+                                 if(html == ''){
+                         html = "Current Work";
+                            }
                                 viewableText.html(html);
                                 $(this).replaceWith(viewableText);
                                 // setup the click event for this new div
