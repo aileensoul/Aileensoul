@@ -6,56 +6,9 @@
 echo $head;
 ?>
 
-<style type="text/css">
-    #popup-form img{display: none;}
-</style>
 
 <!--post save success pop up style strat -->
-<style>
-  
-    .okk{
-        text-align: center;
-    }
 
-  
-    .pop_content .okbtn{
-        position: absolute;
-        transition: all 200ms;
-        font-size: 16px;
-        text-decoration: none;
-        color: #fff;
-        padding: 8px 18px;
-        background-color: #0A2C5D;
-        left: 170px;
-        margin-top: 8px;
-        width: 100px; 
-        border-radius: 8px;
-    }
-
-    .pop_content .cnclbtn {
-        position: absolute;
-        transition: all 200ms;
-        font-size: 16px;
-        text-decoration: none;
-        color: #fff;
-        padding: 8px 18px;
-        background-color: #0A2C5D;
-        right: 170px;
-        margin-top: 8px;
-        width: 100px;
-        border-radius: 8px;
-    }
-
-    .popup .pop_content {
-        text-align: center;
-        margin-top: 40px;
-    }
-    .model_ok_cancel{
-        width:200px !important;
-    }
-
-   
-</style>
 
 <!--post save success pop up style end -->
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
@@ -93,7 +46,7 @@ if ($returnpage == 'job') {
                 <div class="col-md-12 text-center">
                     <div id="upload-demo" style="width:100%"></div>
                 </div>
-                <div class="col-md-12 cover-pic" style="padding-top: 25px;text-align: center;">
+                <div class="col-md-12 cover-pic" >
                     <button class="btn btn-success  cancel-result" onclick="">Cancel</button>
 
                     <button class="btn btn-success set-btn upload-result " onclick="myFunction()">Save</button>
@@ -113,7 +66,7 @@ if ($returnpage == 'job') {
                     </div>
                 </div>
                 <div class="col-md-12"  style="visibility: hidden; ">
-                    <div id="upload-demo-i" style="background:#e1e1e1;width:100%;padding:30px;height:300px;margin-top:30px"></div>
+                    <div id="upload-demo-i" ></div>
                 </div>
             </div>
 
@@ -163,8 +116,7 @@ if ($returnpage == 'job') {
         <?php } ?>
 
     </div>
-    <!--     </div>
-    -->
+
     <div class="profile-photo">
         <div class="profile-pho">
 
@@ -176,33 +128,20 @@ if ($returnpage == 'job') {
                             <?php } else { ?>
                             <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
                             <?php } ?>
-                            <!-- <?php 
-                             $userid = $this->session->userdata('aileenuser');
-                            if($recdata[0]['user_id'] == $userid) {?>
-    <a href="#popup-form" class="fancybox"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>
-                        <?php }?> -->
-               
+                           
                 <?php if ($returnpage == '') { ?>
                     <a href="javascript:void(0);" onclick="updateprofilepopup();"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>
                 <?php } ?>
 
             </div>
 
-            <!-- <div id="popup-form">
-            <?php //echo form_open_multipart(base_url('recruiter/user_image_insert'), array('id' => 'userimage', 'name' => 'userimage', 'class' => 'clearfix')); ?>
-                <input type="file" name="profilepic" accept="image/gif, image/jpeg, image/png" id="profilepic">
-                <input type="hidden" name="hitext" id="hitext" value="3">
-                <input type="submit" name="cancel3" id="cancel3" value="Cancel">
-                <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save">
-                </form>
-
-            </div> -->
 
 
         </div>
 
 
-        <!-- menubar --><div class="profile-main-rec-box-menu  col-md-12 ">
+        <!-- menubar -->
+        <div class="profile-main-rec-box-menu  col-md-12 ">
 
             <div class="left-side-menu col-md-2">  </div>
             <div class="right-side-menu col-md-7">
@@ -233,16 +172,14 @@ if ($returnpage == 'job') {
                     <?php if (($this->uri->segment(1) == 'recruiter') && ($this->uri->segment(2) == 'rec_post' || $this->uri->segment(2) == 'rec_profile' || $this->uri->segment(2) == 'add_post' || $this->uri->segment(2) == 'save_candidate') && ($this->uri->segment(3) == $this->session->userdata('aileenuser') || $this->uri->segment(3) == '')) { ?>
                         <li <?php if ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'save_candidate') { ?> class="active" <?php } ?>><a title="Saved Candidate" href="<?php echo base_url('recruiter/save_candidate'); ?>">Saved </a>
                         </li> 
-                        <fa>
-                            </li> 
 
 
                         <?php } ?>   
                 </ul>
             </div>
 
-            <div class="col-md-2"  style="    width: 24%;
-    padding-right: 0px!important;">
+            <div class="col-md-2 padding_less_right"  style="    width: 24%;
+ ">
                 <div class="flw_msg_btn fr">
                    <ul>
                     <?php
@@ -272,7 +209,7 @@ if ($returnpage == 'job') {
                     <?php
                 } else {
                     ?> 
-                    <!--<a id="myBtn" title="<?php echo ucwords($job[0]['designation']); ?>"><?php echo ucwords($job[0]['designation']); ?></a>-->
+                    
                     <a id="designation" class="designation" title="<?php echo ucwords($postdataone[0]['designation']); ?>"><?php echo ucwords($recdata[0]['designation']); ?></a>
                     <?php
                 }
@@ -284,32 +221,9 @@ if ($returnpage == 'job') {
             ?>
 
 
-            <!-- The Modal -->
-            <!--   <div id="myModal" class="modal">
-            <!-- <!-- Modal content --><!-- <div class="col-md-2"></div> -->
-            <!--   <div class="modal-content col-md-8">
-                  <span class="close">&times;</span>
-                  <fieldset></fieldset> 
-            <?php //echo form_open(base_url('recruiter/recruiter_designation/'), array('id' => 'recdesignation', 'name' => 'recdesignation', 'class' => 'clearfix'));   ?> -->
-
-                   <!--  <fieldset class="col-md-8"> <input type="text" name="designation" id="designation" placeholder="Enter Your Designation" value="<?php //echo $recruiterdata[0]['designation'];    ?>"></fieldset>
-                    <input type="hidden" name="hitext" id="hitext" value="2">
-                    <fieldset class="col-md-2"><input type="submit"  id="submitdes" name="submitdes" value="Submit"></fieldset>
-            <?php //echo form_close();  ?>
-
-
-
-                </div> -->
-
-            <!--    <div class="col-md-2">
-
-               </div>
-
-           </div>  -->
-
+        
         </div>
         <div  class="add-post-button">
-<!--   <a href="" class="btn btn-2 btn-2i"><i class="fa fa-plus" aria-hidden="true"></i></a> -->
             <?php if ($returnpage == '') { ?>
                 <a class="btn btn-3 btn-3b" href="<?php echo base_url('recruiter/add_post'); ?>"><i class="fa fa-plus" aria-hidden="true"></i>  Add Post</a>
             <?php } ?>
@@ -687,6 +601,9 @@ if ($returnpage == 'job') {
 
 
 
+</div>
+</div>
+</div>
 
             <!DOCTYPE html>
             <html>
@@ -697,23 +614,6 @@ if ($returnpage == 'job') {
                 </head>
                 <body>
 
-                    <div class="user-midd-section">
-                        <div class="container">
-                            <div class="row">
-
-
-                                <div class="col-md-4">
-
-
-
-                                </div>
-
-
-                                <!--- search end -->
-
-                            </div>
-                        </div>
-                    </div>
                     </section>
                     <footer>
 
@@ -724,7 +624,7 @@ if ($returnpage == 'job') {
                         <div class="modal-content">
                             <button type="button" class="modal-close" data-dismiss="modal">&times;</button>         
                             <div class="modal-body">
-                                <!--<img class="icon" src="images/dollar-icon.png" alt="" />-->
+                             
                                 <span class="mes"></span>
                             </div>
                         </div>
@@ -740,10 +640,11 @@ if ($returnpage == 'job') {
                                             <?php echo form_open_multipart(base_url('recruiter/user_image_insert'), array('id' => 'userimage', 'name' => 'userimage', 'class' => 'clearfix')); ?>
                                             <input type="file" name="profilepic" accept="image/gif, image/jpeg, image/png" id="profilepic">
                                             <input type="hidden" name="hitext" id="hitext" value="1">
-
-                                            <img id="preview" src="#" alt="your image" style="border: 2px solid rgb(204, 204, 204); display: none; margin: 0 auto; margin-top: 5px;padding: 5px;"/>
-                                            <!-- <input type="submit" name="cancel3" id="cancel2" value="Cancel"> -->
-                                            <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save" style="margin-top:32px!important;">
+ <div class="popup_previred">
+                                            <img id="preview" src="#" alt="your image"/>
+                                            </div>
+                                          
+                                            <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save">
                                             <?php echo form_close(); ?>
                                         </div>
                                     </span>
@@ -759,7 +660,7 @@ if ($returnpage == 'job') {
                             <div class="modal-content">
                                 <button type="button" class="modal-close" data-dismiss="modal">&times;</button>         
                                 <div class="modal-body">
-                                    <!--<img class="icon" src="images/dollar-icon.png" alt="" />-->
+                                   
                                     <span class="mes"></span>
                                 </div>
                             </div>
@@ -769,11 +670,7 @@ if ($returnpage == 'job') {
                 </body>
 
             </html>
-            <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script> --> 
-
-
-
-
+           
             <!-- script for skill textbox automatic end (option 2)-->
 
 

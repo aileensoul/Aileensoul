@@ -147,15 +147,7 @@
                         <?php }?>
                         </div>
                        
-                        <!-- <div id="popup-form">
-                        <?php echo form_open_multipart(base_url('recruiter/user_image_insert'), array('id' => 'userimage','name' => 'userimage', 'class' => 'clearfix')); ?>
-                        <input type="file" name="profilepic" accept="image/gif, image/jpeg, image/png" id="profilepic">
-                        <input type="hidden" name="hitext" id="hitext" value="2">
-                        <input type="submit" name="cancel2" id="cancel2" value="Cancel">
-                        <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save">
-                     <?php echo form_close(); ?>
-                      
-                </div> -->
+                     
 
                  </div>
                     <!-- menubar --><div class="profile-main-rec-box-menu  col-md-12 ">

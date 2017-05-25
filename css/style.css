@@ -5103,6 +5103,20 @@ cover pic css*/
 
   
 
+    .pop_content .okbtn{
+        position: absolute;
+        transition: all 200ms;
+        font-size: 16px;
+        text-decoration: none;
+        color: #fff;
+        padding: 8px 18px;
+        background-color: #0A2C5D;
+        left: 170px;
+        margin-top: 8px;
+        width: 100px; 
+        border-radius: 8px;
+    }
+
 
   #row2 { overflow: hidden; width: 100%; }
     #row2 img { height: 350px;width: 100%; } 
@@ -5130,6 +5144,7 @@ cover pic css*/
     label.cameraButton input[accept*="camera"] {
         display: none;
     }
+     #popup-form img{display: none;}
 .popup_previred img{border: 2px solid rgb(204, 204, 204); display: none; margin: 0 auto; margin-top: 5px;padding: 5px;}
      .pop_content .cnclbtn {
                         position: absolute;
