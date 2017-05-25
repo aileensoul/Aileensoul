@@ -218,7 +218,7 @@ hr{ border: none; margin: 20px 0; background:#cacaca; height: 1px; }
 */.header ul li a i {padding-left: 10px; line-height: 18px!important;   }
 .header ul li a:hover {
 background-color: #fff;
-color: #003;
+color: #1b8ab9;
 }
 ul.sub-menu { display: none; position: absolute; top: 100%; right: 0; width: 274px; z-index: 2; box-shadow: 0px 0px 2px 0px #000; }
 ul.sub-menu li { display: block; margin-bottom: 2px; }
@@ -600,7 +600,7 @@ ul.business_pf_ct_person_detail li b {font-size: 16px; display: inline-block; wi
 #notificationLink { position:relative; z-index:1; }
 #notificationLink span {    
     padding: 3px;
-    background: #003;
+    background: #1b8ab9;
     color: #ffffff;
     font-weight: bold;
     margin-left: 7px;
@@ -2470,7 +2470,7 @@ border-bottom: 1px solid #000033;
     font-size: 21px;}
 .popup-text textarea{height: 8%; width: 100%; resize: none; border: none;}
 .post-editor .popup-textarea p{color: #999999;}
-.post-editor .popup-text span i{font-size: 25px; color: #0a2c5d; }
+.post-editor .popup-text span i{font-size: 25px; color: #1b8ab9; }
 .popup-img{    padding-left: 2px !important; padding-right: 0px;}
 .popup-img-in{    padding-left: 2px !important; padding-right: 0px; padding-top: 8px;}
 
@@ -2914,7 +2914,7 @@ label.cameraButton input[accept*="camera"] {
 }
 
 .dropdown-content1 a {
-    color: #0a2c5d;
+    color: #1b8ab9;
     padding: 12px 10px;
     text-decoration: none;
     display: block;
@@ -2947,7 +2947,7 @@ label.cameraButton input[accept*="camera"] {
 }
 
 .dropdown-content2 a {
-    color: #0a2c5d;
+    color: #1b8ab9;
     padding: 12px 10px;
     text-decoration: none;
     display: block;
@@ -3039,7 +3039,7 @@ label.cameraButton input[accept*="camera"] {
     font-weight: 600;
     padding: 10px 10px 10px 10px;
     text-decoration: underline;
-    color: #003;}
+    color: #1b8ab9;}
 .inputtype-comment{margin-bottom: 10px; padding-left: 10px!important;}
 .all-comment-comment-box span{color: #999999;}
 /*education new design*/
@@ -3293,7 +3293,7 @@ follow box*/
     background:linear-gradient(to bottom, #e9e9e9 5%, #f9f9f9 100%);
     filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#e9e9e9', endColorstr='#f9f9f9',GradientType=0);
     background-color:#e9e9e9;
-    color: #003;}
+    color: #1b8ab9;}
 .follow_left_box_main_btn {    display: inline-block;
                                float: left;
 
@@ -3336,12 +3336,12 @@ follow box*/
     padding-left: 10px;     
     padding-right: 12px;
     /* padding-top: 6px; */}
-.business_data_td1 i{    color: #0a2c5d;   font-size: 17px;  display: inline-block; width: 1.25em;text-align: center;}    
+.business_data_td1 i{    color: #1b8ab9;   font-size: 17px;  display: inline-block; width: 1.25em;text-align: center;}    
 .detaile_map{position: relative;}   
 .detaile_map i{position: absolute; top: 0;}
 .profile-boxProfileCard  h5{ font-weight: 600;     margin: 0;
                              padding: 3px 6px 4px;
-                             color: #0a2c5d;
+                             color: #1b8ab9;
                              display: inline-block;
                              line-height: 28px;}
 .head_details{ text-align: center; }
@@ -3903,7 +3903,7 @@ footer .footer-menu li a:hover{
     background:linear-gradient(to bottom, #e9e9e9 5%, #f9f9f9 100%);
     filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#e9e9e9', endColorstr='#f9f9f9',GradientType=0);
     background-color:#e9e9e9;
-    color: #003;}
+    color: #1b8ab9;}
 .padding_les{padding-right: 0px; padding-left: 0px;}
 .padding_less_left{padding-left: 0px;}
 .padding_less_right{padding-right:0px; }
@@ -3950,7 +3950,7 @@ footer .footer-menu li a:hover{
 
 /*checkout modalpopup */
 body.modal-open{ padding: 0 !important; overflow: visible;  position: absolute;  width: 100%;  height:100%;}
-.modal-close{height: 30px !important; width: 30px !important; background: #0A2C5D !important; color: #fff !important; font-size: 24px !important; border: 1px solid #0A2C5D !important;  border-radius: 50% !important;  position: absolute !important;   top: -15px !important;  right: -15px !important;  line-height: 22px !important;   padding: 0 !important;    margin: 0 !important;    text-align: center !important; z-index: 7 !important;}
+.modal-close{height: 30px !important; width: 30px !important; background: #1b8ab9 !important; color: #fff !important; font-size: 24px !important; border: 1px solid #1b8ab9 !important;  border-radius: 50% !important;  position: absolute !important;   top: -15px !important;  right: -15px !important;  line-height: 22px !important;   padding: 0 !important;    margin: 0 !important;    text-align: center !important; z-index: 7 !important;}
 .modal.checkout .modal-header{ background: #02caca; padding: 15px 8%;}
 .modal.checkout .checkout-top::before, .modal.checkout .checkout-top::after{background: #fff; top: 30px;}
 .modal.checkout .checkout-step label{color: #fff;}
@@ -4264,7 +4264,7 @@ input:-moz-placeholder { color:#999; font-size: 15px; }
 .post-design-name ul li .else_post_d a{display: inline-block;}
 
 .flw_with{width: 29%;}
-.bg_following{  background:#003!important; color: #fff!important;  background-color: #003!important;}
+.bg_following{  background:#1b8ab9!important; color: #fff!important;  background-color: #1b8ab9!important;}
 
 .add_tag_design{text-align: center;
   padding-bottom: 6px;
@@ -5109,7 +5109,7 @@ cover pic css*/
         text-decoration: none;
         color: #fff;
         padding: 8px 18px;
-        background-color: #0A2C5D;
+        background-color: #1b8ab9!important;
         left: 170px;
         margin-top: 8px;
         width: 100px; 
@@ -5152,7 +5152,7 @@ cover pic css*/
                         text-decoration: none;
                         color: #fff;
                         padding: 8px 18px;
-                        background-color: #0A2C5D;
+                        background-color: #1b8ab9!important;
                         right: 170px;
                         margin-top: 8px;
                         width: 100px;
@@ -5173,7 +5173,7 @@ cover pic css*/
 
    .display_inline_block { display: inline-block; }
    .tabordion section h6 { font-size: 16px;}
-   .tabordion section .submit_btn { padding: 5px 9px; }
+   .tabordion section .submit_btn { padding: 5px 9px; margin: 15px 0 7px; }
     #jobseeker_regform_secondary { border: none !important; margin-bottom: 0px!important;}
     #jobseeker_regform_higher_secondary { border: none !important; margin-bottom: 0px!important; }
     #jobseeker_regform { border: none !important; margin-bottom: 0px!important; }
@@ -5193,8 +5193,19 @@ cover pic css*/
 .select2-container--default .select2-selection--single .select2-selection__arrow{margin-top: 4px;}
 .red { color: red; }
 
+/*end*/
+
 #upload-demo-i{background:#e1e1e1;width:100%;padding:30px;height:3px;margin-top:30px}
 #upload-demo{width: 100%;}
 .main_art{padding-left: 0;padding-right: 0; height: 100%; border-left: 1px solid #d9d9d9;}
 .not_img{margin-left: 380px; margin-top: 20px;}
 .add_audio{padding: 10px;}
+
+/*Zalak 25-5*/
+.margin_less{ margin:0px!important;}
+.main_pdf_box{margin-left:380px; margin-top: 20px;}
+.grybod{border: 1px solid #d9d9d9!important;}
+.edit_cpmment_edit{display: inline-block;width: 81%;min-height: 37px !important;margin-top: 0px !important;margin-left: 1.5% !important;}
+
+/*Vishang 25-5*/
+.job_education_submitbox { width: 100%; text-align: center; }

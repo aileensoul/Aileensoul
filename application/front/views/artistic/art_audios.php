@@ -288,7 +288,7 @@ if ($status == 0 || $status == " ") {
 
         
         <div class="container " >
-    <div class="user-midd-section">
+    <div class="user-midd-section grybod">
 
 
 
@@ -314,7 +314,7 @@ if ($status == 0 || $status == " ") {
                             <div class="">
 
                                 <h2 class="add_tag_design"> Audio</h2>
-                                <div class="add_audio">
+                              <!--   <div class="add_audio"> -->
                                  <div class="vidoe_tag">
        
                                   <?php

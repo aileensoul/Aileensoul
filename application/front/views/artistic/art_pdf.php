@@ -68,9 +68,9 @@ label.cameraButton input[accept*="camera"] {
 
             <div class="row" id="row1" style="display:none;">
                 <div class="col-md-12 text-center">
-                    <div id="upload-demo" style="width:100%"></div>
+                    <div id="upload-demo" ></div>
                 </div>
-                <div class="col-md-12 cover-pic" style="padding-top: 25px;text-align: center;">
+                <div class="col-md-12 cover-pic">
 
                     <button class="btn btn-success cancel-result">Cancel</button>
                     <button class="btn btn-success set-btn upload-result" onclick="myFunction()">Save</button>
@@ -89,7 +89,7 @@ label.cameraButton input[accept*="camera"] {
                     </div>
                 </div>
                 <div class="col-md-12"  style="visibility: hidden; ">
-                    <div id="upload-demo-i" style="background:#e1e1e1;width:100%;padding:30px;height:1px;margin-top:30px"></div>
+                    <div id="upload-demo-i"></div>
                 </div>
             </div>
 
@@ -323,7 +323,7 @@ if ($status == 0 || $status == " ") {
 
         
         <div class="container " >
-    <div class="user-midd-section"  style="">
+    <div class="user-midd-section grybod" >
 
 
 
@@ -341,14 +341,14 @@ if ($status == 0 || $status == " ") {
           </ul>
         </div>
 
-                    <div class="col-xs-9 padding_less" style="padding-left: 0;padding-right: 0; height: 100%; border-left: 1px solid #d9d9d9">
+                    <div class="col-xs-9 padding_less main_art" >
           <!-- Tab panes -->
           <div class="tab-content">
             <div class="tab-pane active" id="home"><div class="common-form">
                             <div class="">
 
                                 <h2 class="add_tag_design"> PDF</h2>
-                              <div class="" style="padding: 10px;">
+                               <div class="add_audio">
                                  <div class="pictures1">
 
 
@@ -393,10 +393,10 @@ if ($status == 0 || $status == " ") {
                   
               ?>
 
-  <div class="main_box_pdf" style="">
-<div class="main_box_img" style="">
+  <div class="main_box_pdf">
+<div class="main_box_img">
         <a href="<?php echo base_url('artistic/creat_pdf/'.$pdfv['image_id']) ?>">
-        <div class="" style="margin: 0!important;">
+        <div class="margin_less" >
               <img src="<?php echo base_url('images/PDF.jpg')?>" style="height: 100%; width: 100%;">
                                                               
               </div></a> </div> 
@@ -413,7 +413,7 @@ if ($status == 0 || $status == " ") {
 
         <?php } } else{?>
  
-      <div style="margin-left:380px; margin-top: 20px;">
+      <div class="main_pdf_box"  >
                  <div class="not_avali" >
                                 <img src="<?php echo base_url('images/020.png'); ?>" >
                                <div>
@@ -460,10 +460,11 @@ if ($status == 0 || $status == " ") {
                                                 <?php echo form_open_multipart(base_url('artistic/user_image_insert'), array('id' => 'userimage', 'name' => 'userimage', 'class' => 'clearfix')); ?>
                                                 <input type="file" name="profilepic" accept="image/gif, image/jpeg, image/png" id="profilepic">
                                                 <input type="hidden" name="hitext" id="hitext" value="12">
-
-                                                 <img id="preview" src="#" alt="your image" style="border: 2px solid rgb(204, 204, 204); display: none; margin: 0 auto; margin-top: 5px;padding: 5px;"/>
+ <div class="popup_previred">
+                                                 <img id="preview" src="#" alt="your image"/>
+                                                 </div>
                                                 <!--<input type="submit" name="cancel3" id="cancel3" value="Cancel">-->
-                                                <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save" style="margin-top:32px!important;">
+                                                <input type="submit" name="profilepicsubmit" id="profilepicsubmit">
                                                 <?php echo form_close(); ?>
                                             </div>
                                         </span>

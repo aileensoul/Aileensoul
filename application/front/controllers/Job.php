@@ -641,6 +641,7 @@ class Job extends MY_Controller {
         //upload education certificate process End
         $error = '';
         if($_FILES['edu_certificate_primary']['name'] != '' ){
+          
 
         $job_certificate = '';
             $job['upload_path'] = $this->config->item('job_edu_main_upload_path');
@@ -658,6 +659,7 @@ class Job extends MY_Controller {
 
 
             if ($imgerror == '') {
+               // echo "hii"; die();
                 
 
                 //Configuring Thumbnail 
@@ -682,20 +684,23 @@ class Job extends MY_Controller {
                 $thumberror = $this->image_lib->display_errors();
             } else {
                
+               
                 $thumberror = '';
             }
             if ($imgerror != '' || $thumberror != '') {
+
                
  
                 $error[0] = $imgerror;
                 $error[1] = $thumberror;
             } else {
                
+              // echo "string"; die();
                   
                 $error = array();
             }
         }
-            if ($error != '') {
+            if ($error) {
               
  
 
@@ -934,7 +939,7 @@ class Job extends MY_Controller {
             }
 
         }
-            if ($error != '') {
+            if ($error) {
               
 
                

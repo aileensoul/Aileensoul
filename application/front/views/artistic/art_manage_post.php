@@ -1,4 +1,4 @@
-<!-- start head -->
+  <!-- start head -->
 <?php echo $head; ?>
 
 
@@ -10,215 +10,10 @@
 
 <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap-3.min.css'); ?>">
 <link rel="stylesheet" href="<?php echo base_url('assets/css/croppie.css'); ?>">
-<!--<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">-->
 <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
-<!-- 
 
-responsive image design start -->
-<style>/* Responsive Images in Columns */.audio_img{height: 300px; width: 350px; position: relative;}
-    .two-columns {
-        width: 48%;
-        display: inline-block;
-    }
-    .three-columns {
-        width: 32%;
-        display: inline-block;
-    }
-    /* Responsive Images with Conditional Breakpoints  */
-
-    .breakpoint { /* One column for smartphones */
-        max-width: 100%;
-        display: inline-block;
-    }
-    [contenteditable=true]:empty:before{content: attr(placeholder);
-                                        display: block;
-                                        color: #cacaca;}
-    </style>
-    <!-- responsive image end -->
-    <style>
-    /*body {
-        font-family: Arial, sans-serif;
-        background-size: cover;
-        height: 100vh;
-    }
-
-    .box {
-        width: 40%;
-        margin: 0 auto;
-        background: rgba(255,255,255,0.2);
-        padding: 35px;
-        border: 2px solid #fff;
-        border-radius: 20px/50px;
-        background-clip: padding-box;
-        text-align: center;
-    }
-
-    .overlay {
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: rgba(0, 0, 0, 0.3);
-        transition: opacity 500ms;
-        visibility: hidden;
-        opacity: 0;
-        z-index: 10;
-    }
-    .overlay:target {
-        visibility: visible;
-        opacity: 1;
-    }
-
-    .popup {
-        margin: 70px auto;
-        padding: 20px;
-        background: #fff;
-        border-radius: 5px;
-        width: 30%;
-        height: 200px;
-        position: relative;
-        transition: all 5s ease-in-out;
-    }
-    */
-    .okk{
-        text-align: center;
-    }
-
-    /*   .popup .okbtn{
-           position: absolute;
-           transition: all 200ms;
-           font-size: 18px;
-           font-weight: bold;
-           text-decoration: none;
-           color: #fff;
-           padding: 8px 18px;
-           background-color: darkcyan;
-           left: 25px;
-           margin-top: 15px;
-           width: 100px; 
-           border-radius: 8px;
-       }
-    */
-    .pop_content .okbtn{
-        position: absolute;
-        transition: all 200ms;
-        font-size: 16px;
-        text-decoration: none;
-        color: #fff;
-        padding: 8px 18px;
-        background-color: #0A2C5D;
-        left: 170px;
-        margin-top: 8px;
-        width: 100px; 
-        border-radius: 8px;
-    }
-
-    /*  .popup .cnclbtn {
-          position: absolute;
-          transition: all 200ms;
-          font-size: 18px;
-          font-weight: bold;
-          text-decoration: none;
-          color: #fff;
-          padding: 8px 18px;
-          background-color: darkcyan;
-          right: 25px;
-          margin-top: 15px;
-          width: 100px;
-          border-radius: 8px;
-      } */
-    .pop_content .cnclbtn {
-        position: absolute;
-        transition: all 200ms;
-        font-size: 16px;
-        text-decoration: none;
-        color: #fff;
-        padding: 8px 18px;
-        background-color: #0A2C5D;
-        right: 170px;
-        margin-top: 8px;
-        width: 100px;
-        border-radius: 8px;
-    }
-
-    .popup .pop_content {
-        text-align: center;
-        margin-top: 40px;
-
-    }
-    .model_ok_cancel{
-        width:200px !important;
-    }
-
-    /*
-        @media screen and (max-width: 700px){
-            .box{
-                width: 70%;
-            }
-            .popup{
-                width: 70%;
-            }
-        } */
-
-
-</style>
-
-
-<!--post save success pop up style end -->
-
-
-<style type="text/css" media="screen">
-
-    #row2 { overflow: hidden; width: 100%; }
-    #row2 img { height: 350px;width: 100%; }
-    .upload-img{    float: right;
-                    position: relative;
-                    margin-top: -135px;
-                    right: 50px; }
-
-
-    label.cameraButton {
-        display: inline-block;
-        margin: 1em 0;
-        cursor: pointer;
-        /* Styles to make it look like a button */
-        padding: 0.5em;
-        border: 2px solid #666;
-        border-color: #EEE #CCC #CCC #EEE;
-        background-color: #DDD;
-        opacity: 0.7;
-    }
-
-    /* Look like a clicked/depressed button */
-    label.cameraButton:active {
-        border-color: #CCC #EEE #EEE #CCC;
-    }
-
-    /* This is the part that actually hides the 'Choose file' text box for camera inputs */
-    label.cameraButton input[accept*="camera"] {
-        display: none;
-    }
-
-
-
-
-
-
-</style>
-<!-- <link href="<?php //echo base_url() ?>css/fileinput.css" media="all" rel="stylesheet" type="text/css"/>
-<link href="<?php //echo base_url() ?>js/themes/explorer/theme.css" media="all" rel="stylesheet" type="text/css"/>
-<script src="<?php// echo base_url() ?>js/jquery-2.0.3.min.js" type="text/javascript"></script>
-<script src="<?php// echo base_url() ?>js/plugins/sortable.js" type="text/javascript"></script>
-<script src="<?php //echo base_url() ?>js/fileinput.js" type="text/javascript"></script>
-<script src="<?php //echo base_url() ?>js/themes/explorer/theme.js" type="text/javascript"></script>
-<link rel="stylesheet" type="text/css" href="<?php // echo base_url('css/timeline.css'); ?>"> -->
-
-
-
-<!-- END HEAD -->
 <!-- start header -->
 <?php echo $header; ?>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('dragdrop/fileinput.css'); ?>">
@@ -226,15 +21,13 @@ responsive image design start -->
     
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/video.css'); ?>">
     <script src="<?php echo base_url('js/mediaelement-and-player.min.js'); ?>"></script>
-<!--  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
- -->
+
     <script src="<?php echo base_url('dragdrop/js/plugins/sortable.js'); ?>"></script>
      <script src="<?php echo base_url('dragdrop/js/fileinput.js'); ?>"></script>
       <script src="<?php echo base_url('dragdrop/js/locales/fr.js'); ?>"></script>
        <script src="<?php echo base_url('dragdrop/js/locales/es.js'); ?>"></script>
         <script src="<?php echo base_url('dragdrop/themes/explorer/theme.js'); ?>"></script>
-<!-- END HEADER -->
-<!--<script src="<?php echo base_url('assets/js/jquery.js'); ?>"></script>
+pt>
 <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>-->
 <?php echo $art_header2; ?>
 
@@ -334,19 +127,10 @@ responsive image design start -->
                 <?php
                 $userid = $this->session->userdata('aileenuser');
                 if ($artisticdata[0]['user_id'] == $userid) {
-                    ?>                                                                                                                                    <!--<a href="#popup-form" class="fancybox"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>-->
+                    ?>                                                                                                                                    
                     <a href="javascript:void(0);" onclick="updateprofilepopup();"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>
                 <?php } ?>
             </div>
-
-            <!--                <div id="popup-form">
-            <?php // echo form_open_multipart(base_url('artistic/user_image_insert'), array('id' => 'userimage', 'name' => 'userimage', 'class' => 'clearfix'));  ?>
-                                <input type="file" name="profilepic" accept="image/gif, image/jpeg, image/png" id="profilepic">
-                                <input type="hidden" name="hitext" id="hitext" value="5">
-                                <input type="submit" name="cancel5" id="cancel5" value="Cancel">
-                                <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save">
-                                </form>
-                            </div>-->
 
         </div>
         <div class="profile-main-rec-box-menu  col-md-12 padding_les">
@@ -367,7 +151,6 @@ responsive image design start -->
                     $userid = $this->session->userdata('aileenuser');
                     if ($artisticdata[0]['user_id'] == $userid) {
                         ?> 
-                                      <!-- <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'art_savepost') { ?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/art_savepost'); ?>">Saved Post</a>                                                                                                                                                                                                </li> -->
 
                         <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'userlist') { ?> class="active" <?php } ?>><a title="Userlist" href="<?php echo base_url('artistic/userlist'); ?>">Userlist</a>
                         </li>
@@ -493,28 +276,6 @@ responsive image design start -->
 
                 <?php } ?>
 
-
-                <!-- The Modal -->
-                <!-- <div id="myModal" class="modal"> -->
-                    <!-- Modal content -->
-                    <!-- <div class="col-md-2"></div> -->
-                    <!-- <div class="modal-content col-md-8">
-                        <span class="close">&times;</span>
-                        <fieldset></fieldset>
-                        <?php echo form_open(base_url('artistic/art_designation/'), array('id' => 'artdesignation', 'name' => 'artdesignation', 'class' => 'clearfix')); ?>
-
-                        <fieldset class="col-md-8"> <input type="text" name="designation" id="designation" placeholder="Enter Your Designation" value="<?php echo $artisticdata[0]['designation']; ?>">
-                            <?php echo form_error('designation'); ?>
-                        </fieldset>
-                        <input type="hidden" name="hitext" id="hitext" value="5">
-                        <fieldset class="col-md-2"><input type="submit"  id="submitdes" name="submitdes" value="Submit"></fieldset>
-                        <?php echo form_close(); ?>
-
-
-
-                    </div> -->
-
-                    <!-- <div class="col-md-2"></div> -->
 
                 </div>
 
@@ -967,16 +728,10 @@ responsive image design start -->
                         </div>
                         <div id="myBtn3"  class="editor-content col-md-11 popup-text">
                             <span> Post Your Art....</span> 
-                          <!--  <span class="fr">
-                            <input type="file" id="FileID" style="display:none;">
-                             <label for="FileID"><i class=" fa fa-camera fa"  style=" margin: 8px; cursor:pointer">  </i>
-                             </label>
-                              </span>     
-                            -->
+                        
                         </div>
                     </div>
-                    <!-- <div class="fr">
-                        <a class="button">Post</a></div> -->
+                    
                 </div>
             </div>
 
@@ -1003,9 +758,7 @@ responsive image design start -->
                                 </div>
 
                             </div>
-                           <!--   <span class="fr">
-                       
-                           <input type="file" id="files" name="postattach[]" multiple style="display:block;">  </span> -->
+                        
                             <div class="col-md-1" style="padding-left: 0px;"><i class=" fa fa-camera "  style="margin: 0px;
                                                                                 font-size: 27px; cursor: pointer; /* margin-right: -38px; */ margin-top: 25px;"></i> </div>
 
@@ -1032,9 +785,7 @@ responsive image design start -->
                             <ul class="editor-header">
 
                                 <li>
-                                 <!--    <input type="file" class="file" style="display:block;" id="test-upload" style="display:none;" name="postattach[]" multiple>
-                                    <label for="test-upload"><i class=" fa fa-camera "  style=" margin: 8px; cursor:pointer"> Photo</i><i class=" fa fa-video-camera"  style=" margin: 8px; cursor:pointer"> Video </i> <i class="fa fa-music "  style=" margin: 8px; cursor:pointer"> Audio </i><i class=" fa fa-file-pdf-o fa-2x"  style=" margin: 8px; cursor:pointer"> PDF </i> </label>
- -->
+                               
  <div class="col-md-12"> <div class="form-group">
    <input id="file-1" type="file" class="file" name="postattach[]"  multiple class="file" data-overwrite-initial="false" data-min-file-count="2" style="display: none;">
    </div></div>
@@ -1132,16 +883,7 @@ responsive image design start -->
 
                                                     <?php } ?>                          
                                                 </li>
-                                                <li>
-                                                <!-- <div id="<?php echo 'editpostdata' . $row['art_post_id']; ?>" style="display:block;">
-                                                        <a><?php print $row['art_post']; ?></a>
-                                                    </div>
-
-                                                    <div id="<?php echo 'editpostbox' . $row['art_post_id']; ?>" style="display:none; margin-bottom: 10px;">
-                                                        <input type="text" id="<?php echo 'editpostname' . $row['art_post_id']; ?>" name="editpostname" palceholder="Art name" value="<?php echo $row['art_post']; ?>">
-                                                    </div> -->
-                                                </li>
-
+                                               
                                             </ul> 
                                         </div>  
 <div class="dropdown2">
@@ -1334,7 +1076,7 @@ responsive image design start -->
                                                     ?>
 
                                                     <!-- four image start -->
-                                                    <div id="responsive_manage-images-breakpoints" style="   ">
+                                                    <div id="responsive_manage-images-breakpoints">
                                                         <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="breakpoint" src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $multiimage['image_name']) ?>" style="width: 100%; height: 100%;"> </a>
 
                                                     </div>
@@ -1605,20 +1347,10 @@ responsive image design start -->
 //                                                                echo '</br>';
                                                                 ?>
                                                             </div>
-                                                            <!-- <div class="col-md-12">
-                                                               <div class="col-md-10"> 
-                                                           <textarea type="text" name="<?php echo $rowdata['artistic_post_comment_id']; ?>" id="<?php echo "editcomment" . $rowdata['artistic_post_comment_id']; ?>" style="display:none"  onClick="commentedit(this.name)"><?php echo $rowdata['comments']; ?></textarea>                            
-                                                            
-                                                               </div>
-                                                            
-                                                              <div class="col-md-2 comment-edit-button">
-                                                         <button id="<?php echo "editsubmit" . $rowdata['artistic_post_comment_id']; ?>" style="display:none" onClick="edit_comment(<?php echo $rowdata['artistic_post_comment_id']; ?>)">Comment</button>
-                                                        </div>
-                                                            
-                                                          </div>-->
+                                                           
                                                             <div class="edit-comment-box">
                                                                 <div class="inputtype-edit-comment">
-                                                                    <!--<textarea type="text" class="textarea" name="<?php echo $rowdata['artistic_post_comment_id']; ?>" id="<?php echo "editcomment" . $rowdata['artistic_post_comment_id']; ?>" style="display:none;resize: none;" onClick="commentedit(this.name)"><?php echo $rowdata['comments']; ?></textarea>-->
+                                                                 
                                                                     <div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="<?php echo $rowdata['artistic_post_comment_id']; ?>"  id="<?php echo "editcomment" . $rowdata['artistic_post_comment_id']; ?>" placeholder="Add a Comment ..." value= ""  onkeyup="commentedit(<?php echo $rowdata['artistic_post_comment_id']; ?>)"><?php echo $rowdata['comments']; ?></div>
                                                                     <span class="comment-edit-button"><button id="<?php echo "editsubmit" . $rowdata['artistic_post_comment_id']; ?>" style="display:none" onClick="edit_comment(<?php echo $rowdata['artistic_post_comment_id']; ?>)">Save</button></span>
                                                                 </div>
@@ -1788,10 +1520,10 @@ responsive image design start -->
                         <?php echo form_open_multipart(base_url('artistic/user_image_insert'), array('id' => 'userimage', 'name' => 'userimage', 'class' => 'clearfix')); ?>
                         <input type="file" name="profilepic" accept="image/gif, image/jpeg, image/png" id="profilepic">
                         <input type="hidden" name="hitext" id="hitext" value="5">
-
-                        <img id="preview" src="#" alt="your image" style="border: 2px solid rgb(204, 204, 204); display: none; margin: 0 auto; margin-top: 5px;padding: 5px;"/>
-                        <!--<input type="submit" name="cancel3" id="cancel3" value="Cancel">-->
-                        <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save" style="margin-top:32px!important;">
+ <div class="popup_previred">
+                        <img id="preview" src="#" alt="your image" />
+                       </div>
+                        <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save">
                         <?php echo form_close(); ?>
                     </div>
                 </span>
@@ -1808,7 +1540,7 @@ responsive image design start -->
         <div class="modal-content">
             <button type="button" class="modal-close" data-dismiss="modal">&times;</button>       
             <div class="modal-body">
-                <!--<img class="icon" src="images/dollar-icon.png" alt="" />-->
+               
                 <span class="mes"></span>
             </div>
         </div>
@@ -1832,10 +1564,6 @@ responsive image design start -->
 </html>
 
 
-
-<!-- footer End -->
-<!-- script for skill textbox automatic start (option 2)-->
-<!-- <script src="<?php //echo base_url('js/jquery-ui.min.js');                                           ?>"></script> -->
 
 <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
 
