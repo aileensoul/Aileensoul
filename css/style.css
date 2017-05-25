@@ -562,7 +562,7 @@ fieldset.full-width { width: 100%; }
 
 .user-pic { position: relative; z-index: 3; }
 .user-pic a { position: absolute; display: none; }
-.user-pic a i { padding-right: 4px; }
+.user-pic a i { padding-right: 7.1px; }
 .user-pic:hover a { display: block; bottom: 0; background: rgba(0,0,0,0.6); color: #fff; padding: 4px 6.9px; font-size: 12px; }
 
 /*#popup-form { display: none; width: 616px; height: 250px; }*/

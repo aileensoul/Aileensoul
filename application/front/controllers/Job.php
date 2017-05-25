@@ -3490,6 +3490,8 @@ $files[] = $_FILES;
         $contition_array = array('user_id' => $userid, 'is_delete' => 0, 'status' => 1);
         $jobdata = $this->data['jobdata'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         //echo "<pre>"; print_r($jobdata);
+           $job_skill = $this->data['jobdata'][0]['keyskill'];
+            $postuserarray = explode(',', $job_skill);
 // post detail
         $contition_array = array('is_delete' => 0, 'status' => 1 ,'user_id !=' => $userid);
 //        echo "<pre>"; print_r($contition_array);die();
@@ -3500,25 +3502,26 @@ $files[] = $_FILES;
         $newarray = array();
         foreach ($postdata as $post) {
             $skill_id = explode(',', $post['post_skill']);
-            foreach ($skill_id as $skill) {
-                $newarr = array();
-                if ($skill == $jobdata[0]['ApplyFor']) {
+
+              $result = array_intersect($postuserarray, $skill_id);
+            
+                
+                 if (count($result) > 0) { 
+
                     $contition_array = array('post_id' => $post['post_id']);
                     $data = $this->data['data'] = $this->common->select_data_by_condition('rec_post', $contition_array, $data = '*', $sortby = 'post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                    //echo "<pre>"; print_r($data);
                     if($data[0]['user_id'] != $userid ){
                        
-                    $newarr = $data[0];
-                    //$newarray[] = $data;
-                    array_push($newarray, $newarr);
+                    $recommendata[] = $data;
                     }
                 }
-            }
+            
         }
         //echo "<pre>"; print_r($newarray);
 //die();
-        $this->data['postdetail'] = $newarray;
-        // echo "<pre>"; print_r($this->data['postdetail']);die();
+        $this->data['postdetail'] = $recommendata;
+        //echo "<pre>"; print_r($this->data['postdetail']);die();
         $this->data['falguni'] = 1;
 // code for search
         $contition_array = array('re_status' => '1');
