@@ -353,10 +353,10 @@ var sendChat = function (message, callback) {
   var lname = '<?php echo $loglname; ?>';
   var lastusr = '<?php echo $lstusr; ?>';
   
-  var message = message;
-  var str = message.replace(/&nbsp;/g, "");
+  var str = message;
+ // var str = message.replace(/&nbsp;/g, "");
   //var str = str.replace(/<div><br><\/div>/g, "");
-  var str = str.replace(/ /g, "");
+ // var str = str.replace(/ /g, "");
    //alert(str);
      if(str == '<div><br></div><div><br></div>' || str == '<div><br></div>'){
        //  alert('11111');
