@@ -151,7 +151,7 @@
                      <label>Experience:</label>
 
                           <select name="year">
-                            <option value="">Year</option>
+                            <option value="0">Year</option>
                             <option value="0">0 Year</option>
                             <option value="1">1 Year</option>
                             <option value="2">2 Year</option>
