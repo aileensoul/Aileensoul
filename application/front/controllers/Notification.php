@@ -1307,8 +1307,8 @@ class Notification extends MY_Controller {
                 $notification .= '</div></div> </div> </li>';
             }
             
-            $i++;
-            if($i == 10){
+          $i++;
+          if($i == 10){
            break;
             }
         }
