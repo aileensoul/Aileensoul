@@ -367,10 +367,10 @@ var sendChat = function (message, callback) {
     callback();
   });
      }
-  $('#message').keypress(function (e) { 
+  $('#message').keypress(function (event) { 
                                
-                                if (e.keyCode == 13 && !e.shiftKey) {
-                                    e.preventDefault(); //alert('4444');
+                                if (event.keyCode == 13 && !event.shiftKey) {
+                                    event.preventDefault(); //alert('4444');
                                     var sel = $("#message");
                                     var txt = sel.html();
                                     if (txt == '') {//alert('5555');

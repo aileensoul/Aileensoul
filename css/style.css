@@ -536,7 +536,7 @@ fieldset.full-width { width: 100%; }
 .cover-pic .btn { display: block; }
 .croppie-container .cr-viewport { border-color:#f4f4f4; }
 .upload-img { z-index: 2;  margin-top: -75px !important; }
-
+.cover-pic{padding-top: 25px;text-align: center;}
 
 .profile-photo { position: relative; z-index: 0; }
 .profile-text { color:#aba2a2; font-size:16px; word-break: break-word;word-wrap: break-word; width: 100%;}
@@ -962,6 +962,8 @@ ul.buttons li { list-style: none; display: inline-block; padding: 0; margin: 0; 
     width: 100%;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 }
+
+
 .box.collapsed-box .box-body, .box.collapsed-box .box-footer {
     display: none;
 }
@@ -5101,6 +5103,20 @@ cover pic css*/
 
   
 
+    .pop_content .okbtn{
+        position: absolute;
+        transition: all 200ms;
+        font-size: 16px;
+        text-decoration: none;
+        color: #fff;
+        padding: 8px 18px;
+        background-color: #0A2C5D;
+        left: 170px;
+        margin-top: 8px;
+        width: 100px; 
+        border-radius: 8px;
+    }
+
 
   #row2 { overflow: hidden; width: 100%; }
     #row2 img { height: 350px;width: 100%; } 
@@ -5128,6 +5144,7 @@ cover pic css*/
     label.cameraButton input[accept*="camera"] {
         display: none;
     }
+     #popup-form img{display: none;}
 .popup_previred img{border: 2px solid rgb(204, 204, 204); display: none; margin: 0 auto; margin-top: 5px;padding: 5px;}
      .pop_content .cnclbtn {
                         position: absolute;
@@ -5176,3 +5193,5 @@ cover pic css*/
 .select2-container .select2-selection--single .select2-selection__rendered{margin-top: 2px;}
 .select2-container--default .select2-selection--single .select2-selection__arrow{margin-top: 4px;}
 .red { color: red; }
+
+#upload-demo-i{background:#e1e1e1;width:100%;padding:30px;height:3px;margin-top:30px}

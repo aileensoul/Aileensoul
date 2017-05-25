@@ -110,6 +110,7 @@ class Job extends MY_Controller {
 
         $skildata = explode(',', $userdata[0]['language']);
         $this->data['selectdata'] = $skildata;
+        
 
 
 // code for search
