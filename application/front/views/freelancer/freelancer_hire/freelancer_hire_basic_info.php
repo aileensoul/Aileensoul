@@ -278,6 +278,14 @@ $( "#tags" ).autocomplete({
       return value == '' || value.trim().length != 0;  
     }, "No space please and don't leave it empty");
 
+ $.validator.addMethod("regx", function(value, element, regexpr) {          
+    return regexpr.test(value);
+}, "Number, space and special character are not allowed");
+
+ $.validator.addMethod("regx1", function(value, element, regexpr) {          
+    return regexpr.test(value);
+}, "Number, space and special character are not allowed");
+
 
     $(document).ready(function () {
 
@@ -288,14 +296,16 @@ $( "#tags" ).autocomplete({
                 fname: {
 
                     required: true,
-                    noSpace: true
+                    regx:/^[a-zA-Z]+$/,
+
+                   //oSpace: true
 
                 },
 
                 lname: {
 
                     required: true,
-                    noSpace: true
+                    regx:/^[a-zA-Z]+$/,
 
                 },
 
@@ -318,6 +328,7 @@ $( "#tags" ).autocomplete({
 
                     number: true,
                     required: true,
+
                             
                     },
 

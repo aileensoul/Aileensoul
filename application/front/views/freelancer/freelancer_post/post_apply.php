@@ -376,11 +376,12 @@ if ($freepostdata[0]['designation']) {
                             echo trim(date('d-M-Y', strtotime($post['created_date'])));
                                    ?>
                             </li>
+
                              <li>
                               <a href="#" title="Post Title" class="display_inline" style="font-size: 19px;font-weight: 600;cursor: default;">
                               <?php echo ucwords($post['post_name']); ?> </a>   </li>
 
-                             <li>  
+                             <!-- <li>  
                              <?php $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name; ?>
                               <?php $countryname = $this->db->get_where('countries', array('country_id' => $post['country']))->row()->country_name; ?>
                               <?php if($cityname || $countryname){?>
@@ -394,13 +395,30 @@ if ($freepostdata[0]['designation']) {
                                  </div>
                                  <?php }?>
 
+                              </li> -->
+
                              <?php
                 $firstname = $this->db->get_where('freelancer_hire_reg', array('user_id' => $post['user_id']))->row()->fullname;
                 $lastname = $this->db->get_where('freelancer_hire_reg', array('user_id' => $post['user_id']))->row()->username;
                     ?>
-                    </li>
+                    
                             <li><a class="display_inline" title="<?php echo ucwords($firstname); ?>&nbsp;<?php echo ucwords($lastname); ?>" href="<?php echo base_url('freelancer/freelancer_hire_profile/' . $post['user_id'].'?page=freelancer_post'); ?>"><?php echo ucwords($firstname); ?>&nbsp;<?php echo ucwords($lastname); ?>
-                            </a></li>
+                            </a>
+
+                          <?php $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name; ?>
+                              <?php $countryname = $this->db->get_where('countries', array('country_id' => $post['country']))->row()->country_name; ?>
+                              <?php if($cityname || $countryname){?>
+
+ 
+                               <div class="fr lction">
+                              
+                                <p title="Location"><i class="fa fa-map-marker" aria-hidden="true">
+                                <?php if($cityname){
+                                   echo $cityname.","; } ?><?php  echo $countryname; ?></i></p>
+                                 </div>
+                                 <?php }?>
+
+                            </li>
                     <!-- vishang 14-4 end -->    
                 </ul>
              </div>

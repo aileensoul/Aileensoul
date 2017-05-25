@@ -69,9 +69,7 @@
 			    <div class="common-form">
                 <h3>Company Information</h3>
 				 <?php echo form_open(base_url('recruiter/company_info_store'), array('id' => 'basicinfo','name' => 'basicinfo','class' => 'clearfix')); ?>
-                                <!-- <div>
-                                   <span style="color:#7f7f7e;padding-left: 8px;">( </span><span style="color:red">*</span><span style="color:#7f7f7e"> )</span> <span style="color:#7f7f7e">Indicates required field</span>
-                                </div> -->
+                                
 
 				 	<div> <span class="required_field" >( <span style="color: red">*</span> ) Indicates required field</span></div>
 

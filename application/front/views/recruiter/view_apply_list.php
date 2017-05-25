@@ -2,96 +2,7 @@ start head -->
 <?php echo $head; ?>
 
 <!--post save success pop up style strat -->
-<style>
-   /* body {
-        font-family: Arial, sans-serif;
-        background-size: cover;
-        height: 100vh;
-    }*/
-    /*.designation_rec ul li{    display: block;
-    padding-bottom: 10px;
-    padding-left: 10px;
-padding-top: 1px;}
-*/
-    /*.box {
-        width: 40%;
-        margin: 0 auto;
-        background: rgba(255,255,255,0.2);
-        padding: 35px;
-        border: 2px solid #fff;
-        border-radius: 20px/50px;
-        background-clip: padding-box;
-        text-align: center;
-    }*/
 
-    /*.overlay {
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: rgba(0, 0, 0, 0.7);
-        transition: opacity 500ms;
-        visibility: hidden;
-        opacity: 0;
-        z-index: 10;
-    }*/
-   /* .overlay:target {
-        visibility: visible;
-        opacity: 1;
-    }
-
-    .popup {
-        margin: 70px auto;
-        padding: 20px;
-        background: #fff;
-        border-radius: 5px;
-        width: 30%;
-        height: 200px;
-        position: relative;
-        transition: all 5s ease-in-out;
-    }*/
-
-   .okk{
-        text-align: center;
-    }
-     .pop_content .okbtn{
-        position: absolute;
-        transition: all 200ms;
-        font-size: 16px;
-        text-decoration: none;
-        color: #fff;
-        padding: 8px 18px;
-        background-color: #0A2C5D;
-        left: 170px;
-        margin-top: 8px;
-        width: 100px; 
-        border-radius: 8px;
-    }
-      .pop_content .cnclbtn {
-        position: absolute;
-        transition: all 200ms;
-        font-size: 16px;
-        text-decoration: none;
-        color: #fff;
-        padding: 8px 18px;
-        background-color: #0A2C5D;
-        right: 170px;
-        margin-top: 8px;
-        width: 100px;
-        border-radius: 8px;
-    }
-
-   .popup .pop_content {
-        text-align: center;
-        margin-top: 40px;
-
-    }
-      .model_ok_cancel{
-        width:200px !important;
-    }
-
-</style>
 
 <!--post save success pop up style end -->
     <!-- END HEAD -->
@@ -118,70 +29,6 @@ padding-top: 1px;}
     
     <div class="col-md-4">
 
-    <!-- <div class="profile-box profile-box-left">
-<div class="full-box-module">    
-      
-      <div class="profile-boxProfileCard  module">
-<div class="profile-boxProfileCard-cover">  
-    <a class="profile-boxProfileCard-bg u-bgUserColor a-block"
-      href="<?php echo base_url('recruiter/rec_profile'); ?>"
-      tabindex="-1"
-      aria-hidden="true"
-      rel="noopener"> -->
-     <!-- box image start -->
-<!-- <img src="<?php echo base_url(RECBGIMAGE . $recdata[0]['profile_background']);?>" class="bgImage"  style="    height: 95px;
-    width: 100%; " > -->
-<!-- box image end -->
-    <!-- </a></div>
-<div class="profile-box-menu  fr col-md-12">
-<div class="left- col-md-2"></div>
-  <div  class="right-section col-md-10">
-    <ul class="">
-
-    <li <?php if($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'rec_profile'){?> class="active" <?php } ?>><a href="<?php echo base_url('recruiter/rec_profile'); ?>"> Profile</a>
-                                    </li>                                
-                                        <li <?php if($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'rec_post'){?> class="active" <?php } ?>><a href="<?php echo base_url('recruiter/rec_post'); ?>">Post</a>
-                                    </li>
-
-                                 
-  <li <?php if($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'save_candidate'){?> class="active" <?php } ?>><a href="<?php echo base_url('recruiter/save_candidate'); ?>">Saved </a>
-                                    </li>
-
-                                                  
-</ul>
-  </div>
-  </div>
-    <div class="profile-boxProfileCard-content">
-<div class="buisness-profile-txext ">
-<a class="profile-boxProfileCard-avatarLink a-inlineBlock" href="<?php echo base_url('recruiter/rec_profile'); ?>" title="zalak" tabindex="-1" aria-hidden="true" rel="noopener">
-<img src="<?php echo base_url(USERIMAGE . $recdata[0]['recruiter_user_image']);?>" alt=""></a>
-</div>   
-          
-         <div class="profile-box-user">
-         <span class="profile-box-name ">
-           <a href="<?php echo site_url('recruiter/rec_profile'); ?>">   <?php echo $recdata[0]['rec_firstname'] . ' '.$recdata[0]['rec_lastname']; ?></a>
-                                             </span>
-        <div class="profile-boxProfile-name">
-         <a href="<?php echo site_url('recruiter/rec_profile/'.$recdata[0]['user_id']); ?>" ><?php if (ucwords($recdata[0]['designation'])){
-          echo ucwords($recdata[0]['designation']);
-
-          }
-          else{
-            echo "Designation";
-            }  ?></a>
-      </div>                
-      </div>
-          <div id="profile-box-profile-prompt"></div>
-
-    </div>
-   </div>
-
-  </div>
-</div> -->
-  <!-- <div  class="add-post-button">
-   
-        <a class="btn btn-3 btn-3b" href="<?php echo base_url('recruiter/add_post'); ?>"><i class="fa fa-plus" aria-hidden="true"></i>  Add Post</a>
-  </div> -->
 
    <div class="add-post-button">
      
@@ -218,18 +65,6 @@ if ($user_data) {
 <div class="profile-job-post-title-inside clearfix"> <div class="profile-job-profile-button clearfix">
 
 
-    <!-- pop up box start-->
-<!-- <div id="popup1" class="overlay">
-  <div class="popup">
-    
-    <div class="pop_content">
-      Your User is Successfully Saved.
-      <p class="okk"><a class="okbtn" href="#">Ok</a></p>
-    </div>
-
-  </div>
-</div> -->
-<!-- pop up box end-->
 
                                                             <div class="profile-job-post-location-name-rec">
                                                                 <div style="display: inline-block; float: left;">

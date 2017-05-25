@@ -460,8 +460,9 @@ if ($status == 0 || $status == " ") {
                                                 <?php echo form_open_multipart(base_url('artistic/user_image_insert'), array('id' => 'userimage', 'name' => 'userimage', 'class' => 'clearfix')); ?>
                                                 <input type="file" name="profilepic" accept="image/gif, image/jpeg, image/png" id="profilepic">
                                                 <input type="hidden" name="hitext" id="hitext" value="12">
-
-                                                 <img id="preview" src="#" alt="your image" style="border: 2px solid rgb(204, 204, 204); display: none; margin: 0 auto; margin-top: 5px;padding: 5px;"/>
+ <div class="popup_previred">
+                                                 <img id="preview" src="#" alt="your image"/>
+                                                 </div>
                                                 <!--<input type="submit" name="cancel3" id="cancel3" value="Cancel">-->
                                                 <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save" style="margin-top:32px!important;">
                                                 <?php echo form_close(); ?>

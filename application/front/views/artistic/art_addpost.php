@@ -173,13 +173,7 @@ return false;
 </form>
 </div>
 
-<!-- timeline profile picture -->
-<!-- <div id="timelineProfilePic"></div> -->
 
-<!-- timeline title -->
-<!-- <div id="timelineTitle"><?php //echo $name; ?></div> -->
-
-<!-- timeline nav -->
 <div id="timelineNav"></div>
 
 </div>
@@ -313,11 +307,8 @@ return false;
                             <div class="job-saved-box">
                                 <h3>Add New Post</h3>
                               
-                              <!-- <input action="action" type="button" value="Back" onclick="history.back();" /> -->
-
+                         
                             <?php echo form_open_multipart(base_url('artistic/art_post_insert'), array('id' => 'artpost','name' => 'artpost', 'class' => 'clearfix')); ?>
-
-                           <!--  <div><span style="color:red">Fields marked with asterisk (*) are mandatory</span></div> -->
 
                             <?php
                              $postname =  form_error('postname');
@@ -336,7 +327,7 @@ return false;
 
                             <fieldset>
                                     <label>Skills:<span style="color:red">*</span></label>
-                                    <!-- <input name="skills"  type="text" id="skills" placeholder="Enter Skills" /><span id="skills-error"></span> -->
+                                
                                      <select class="left skill-group" name="skills[]" id="skills" multiple="multiple" required>
                                 </select>
                                      <?php echo form_error('skills'); ?> 

@@ -110,7 +110,7 @@ class Job extends MY_Controller {
 
         $skildata = explode(',', $userdata[0]['language']);
         $this->data['selectdata'] = $skildata;
-        
+
 
 
 // code for search
@@ -639,6 +639,9 @@ class Job extends MY_Controller {
         //     $certificate = '';
         // }
         //upload education certificate process End
+        $error = '';
+        if($_FILES['edu_certificate_primary']['name'] != '' ){
+          
 
         $job_certificate = '';
             $job['upload_path'] = $this->config->item('job_edu_main_upload_path');
@@ -653,8 +656,12 @@ class Job extends MY_Controller {
             //Getting Uploaded Image File Data
             $imgdata = $this->upload->data();
             $imgerror = $this->upload->display_errors();
+
+
             if ($imgerror == '') {
-               
+               // echo "hii"; die();
+                
+
                 //Configuring Thumbnail 
                 $job_thumb['image_library'] = 'gd2';
                 $job_thumb['source_image'] = $job['upload_path'] . $imgdata['file_name'];
@@ -677,28 +684,32 @@ class Job extends MY_Controller {
                 $thumberror = $this->image_lib->display_errors();
             } else {
                
-
-
+               
                 $thumberror = '';
             }
             if ($imgerror != '' || $thumberror != '') {
-                 
+
+               
  
                 $error[0] = $imgerror;
                 $error[1] = $thumberror;
             } else {
+               
+              // echo "string"; die();
                   
                 $error = array();
             }
+        }
             if ($error) {
               
+ 
 
                
                 $this->session->set_flashdata('error', $error[0]);
                 $redirect_url = site_url('job');
                 redirect($redirect_url, 'refresh');
             } else {
-
+             
 
         $contition_array = array('user_id' => $userid);
         $job_reg_data = $this->common->select_data_by_condition('job_add_edu', $contition_array, $data = 'edu_certificate_primary', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -727,11 +738,17 @@ class Job extends MY_Controller {
                 $job_certificate = $imgdata['file_name'];
             }
 
+
            
+
+                
 
 
         $contition_array = array('user_id' => $userid);
         $userdata = $this->common->select_data_by_condition('job_add_edu', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+        
+
 
         if ($userdata) {
             $edu_certificate_primary = $_FILES['edu_certificate_primary']['name'];
@@ -790,7 +807,10 @@ class Job extends MY_Controller {
                 $this->session->flashdata('error', 'Your data not inserted');
                 redirect('job/job_education_update', refresh);
             }
-        } else {
+        } 
+
+
+        else {
             $data = array(
                 'user_id' => $userid,
                 'board_primary' => $this->input->post('board_primary'),
@@ -863,6 +883,10 @@ class Job extends MY_Controller {
         // }
         //upload education certificate process End
 
+         $error = '';
+        if($_FILES['edu_certificate_secondary']['name'] != '' ){
+
+
           $job_certificate = '';
             $job['upload_path'] = $this->config->item('job_edu_main_upload_path');
             $job['allowed_types'] = $this->config->item('job_edu_main_allowed_types');
@@ -913,6 +937,8 @@ class Job extends MY_Controller {
                   
                 $error = array();
             }
+
+        }
             if ($error) {
               
 
@@ -1076,6 +1102,8 @@ class Job extends MY_Controller {
         //     $certificate = '';
         // }
         //upload education certificate process End
+          $error = '';
+        if($_FILES['edu_certificate_secondary']['name'] != '' ){
 
   $job_certificate = '';
             $job['upload_path'] = $this->config->item('job_edu_main_upload_path');
@@ -1129,7 +1157,8 @@ class Job extends MY_Controller {
                   
                 $error = array();
             }
-            if ($error) {
+        }
+            if ($error != '') {
               
   
                 $this->session->set_flashdata('error', $error[0]);
