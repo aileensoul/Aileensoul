@@ -665,6 +665,7 @@
                                  <?php
                         //if(count($degree_data) > 0){ //echo"hii";die();
                                if ($degree1) {
+                               
                           foreach ($degree_data as $cnt) {
                                   ?>
                   <option value="<?php echo $cnt['degree_id']; ?>" <?php if ($cnt['degree_id'] == $degree1) echo 'selected'; ?>><?php echo $cnt['degree_name']; ?></option>
@@ -672,6 +673,7 @@
                                    }
                              }
                       else {
+                        //echo "string"; die();
                                ?>
                       <option value="<?php echo $cnt['degree_id']; ?>"><?php echo $cnt['degree_name']; ?></option>
                                                                         <?php
@@ -682,9 +684,12 @@
                                                             </fieldset>
 
                                                             <?php
-                                                            $contition_array = array('status' => 1, 'degree_id' => $degree1);
+                                                            $contition_array = array('status' => 1);
 
                                                             $stream_data = $this->data['stream_data'] = $this->common->select_data_by_condition('stream', $contition_array, $data = '*', $sortby = 'stream_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+                                                            //echo "<pre>"; print_r($stream1); die();
+
                                                             ?>
 
 
@@ -696,9 +701,11 @@
                                            if ($stream1) {
                          foreach ($stream_data as $cnt) {
                                 ?>
-                        <option value="<?php echo $cnt['stream_id']; ?>" <?php if ($cnt['stream_id'] == $stream1) echo 'selected'; ?>><?php echo $cnt['stream_name']; ?></option>
+                        <option value="<?php echo $cnt['stream_id']; ?>" <?php if ($cnt['stream_id'] == $stream1) echo 'selected'; ?>><?php echo $cnt['stream_name'];?></option>
+
+
                                 <?php
-                                     }
+                             }
                               }
                                   else {
                                   ?>
