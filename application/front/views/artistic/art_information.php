@@ -316,6 +316,16 @@ $( "#tags" ).autocomplete({
     }, "No space please and don't leave it empty");
 
 
+            $.validator.addMethod("regx1", function(value, element, regexpr) {          
+    return regexpr.test(value);
+}, "Only space not allow");
+
+
+            $.validator.addMethod("regx", function(value, element, regexpr) {          
+    return regexpr.test(value);
+}, "Only space, only number and only special characters are not allow");
+
+
             $(document).ready(function () { 
 
                 $("#artinfo").validate({ 
@@ -326,7 +336,9 @@ $( "#tags" ).autocomplete({
                         artname: {
 
                             required: true,
-                            noSpace: true
+                            regx1:/^[a-zA-Z\s]*[a-zA-Z]/
+                            //noSpace: true,
+
                          
                         },
 
@@ -338,13 +350,15 @@ $( "#tags" ).autocomplete({
                         other_skill: {
                             
                            require_from_group: [1, ".keyskil"],
+                            
                            noSpace: true
                             
                         },
                        desc_art: {
 
                             required: true,
-                            noSpace: true
+                             regx:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]/
+                           // noSpace: true
                             
                         },
                         

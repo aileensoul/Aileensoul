@@ -268,6 +268,11 @@ $( "#tags" ).autocomplete({
     }, "No space please and don't leave it empty");
 
 
+ $.validator.addMethod("regx", function(value, element, regexpr) {          
+    return regexpr.test(value);
+}, "Number, space and special character are not allowed");
+
+
             $(document).ready(function () { 
 
                 $("#artbasicinfo").validate({
@@ -277,14 +282,16 @@ $( "#tags" ).autocomplete({
                         firstname: {
 
                             required: true,
-                            noSpace: true
+                            regx:/^[a-zA-Z]+$/,
+                            //noSpace: true
                         },
 
 
                         lastname: {
 
                             required: true,
-                            noSpace: true
+                            regx:/^[a-zA-Z]+$/,
+                            //noSpace: true
                         },
 
 
