@@ -8,7 +8,7 @@
         margin: 1em auto;
         width: 80%;
     }
-    .none_aaaart{border: 1px solid #ccc;}
+    .none_aaaart{border: 1px solid #ccc}
     .tabordion {
 
         z-index: 1;
@@ -137,7 +137,7 @@
         }
     }
 
-
+   .job_education_certificate_img { height: 100px; width: 100px; } /* add in style*/
 </style>
 
 <!-- start header -->
@@ -340,10 +340,10 @@
                                                     if ($edu_certificate_primary1) {
                                                         ?>
 
-                                                        <img src="<?php echo base_url($this->config->item('job_edu_thumb_upload_path')  . $edu_certificate_primary1) ?>" style="width:100px;height:100px;">
+            <img src="<?php echo base_url($this->config->item('job_edu_thumb_upload_path')  . $edu_certificate_primary1) ?>"  style="width:100px;height:100px;" class="job_education_certificate_img" >
 
-                                                        <?php
-                                                    }
+                                      <?php
+                                                   }
                                                     ?>
                                                 </fieldset>
 
@@ -355,11 +355,11 @@
                                                     ?>">
                                          <button class="submit_btn">Submit</button>
                                                     <br>
-                                                    <fieldset class="hs-submit full-width" style="    position: absolute;
-                                                              right: -24%;  width: 24%;
-                                                              bottom: 1%;">
+                             <fieldset class="hs-submit full-width" style="    position: absolute;
+                                        right: -24%;  width: 24%;
+                                          bottom: 1%;">
 
-                                                        <input type="button" id="next" name="next" value="Next" style="font-size: 16px;min-width: 120px;" onclick="next_page()">
+                                     <input type="button" id="next" name="next" value="Next" style="font-size: 16px;min-width: 120px;" onclick="next_page()">
 
                                                     </fieldset>
                                                 </div>
@@ -436,7 +436,7 @@
                                                             }
                                                             else {
                                                                 ?>
-                                                                <option value="<?php echo $i ?>"><?php echo $i ?></option>
+                                          <option value="<?php echo $i ?>"><?php echo $i ?></option>
                                                                 <?php
                                                             }
                                                         }
@@ -453,7 +453,7 @@
                                                     if ($edu_certificate_secondary1) {
                                                         ?>
 
-                                                        <img src="<?php echo base_url($this->config->item('job_edu_thumb_upload_path')  . $edu_certificate_secondary1) ?>" style="width:100px;height:100px;">
+                     <img src="<?php echo base_url($this->config->item('job_edu_thumb_upload_path')  . $edu_certificate_secondary1) ?>" style="width:100px;height:100px;" class="job_education_certificate_img ">
 
                                                         <?php
                                                     }
@@ -474,7 +474,7 @@
                                                               right: -24%;  width: 24%;
                                                               bottom: 5%;">
 
-                                                        <input type="button" id="next" name="next" value="Next" style="font-size: 16px;min-width: 120px;" onclick="next_page()">
+                                          <input type="button" id="next" name="next" value="Next" style="font-size: 16px;min-width: 120px;" onclick="next_page()">
 
                                                     </fieldset>
 
@@ -582,7 +582,7 @@
                                                     if ($edu_certificate_higher_secondary1) {
                                                         ?>
 
-                                                        <img src="<?php echo base_url($this->config->item('job_edu_thumb_upload_path')  . $edu_certificate_higher_secondary1) ?>" style="width:100px;height:100px;">
+                 <img src="<?php echo base_url($this->config->item('job_edu_thumb_upload_path')  . $edu_certificate_higher_secondary1) ?>" style="width:100px;height:100px;" class="job_education_certificate_img">
 
                                                         <?php
                                                     }
@@ -659,22 +659,21 @@
                                        <div class="job_work_experience_main_div">
                                                             <fieldset class="">
                                                  <h6>Degree :<span style="color:red">*</span></h6>
-                                                                <select name="degree[]" id="<?php echo $degree_sequence ?>"  class="degree">
-                                                                    <option value="0">Select your Degree</option>
+                             <select name="degree[]" id="<?php echo $degree_sequence ?>"  class="degree">
+                       <option value="0">Select your Degree</option>
 
-                                                                    <?php
-                                                                    //if(count($degree_data) > 0){ //echo"hii";die();
-                                                                    if ($degree1) {
-                                                                        foreach ($degree_data as $cnt) {
-                                                                            ?>
-                                                                            <option value="<?php echo $cnt['degree_id']; ?>" <?php if ($cnt['degree_id'] == $degree1) echo 'selected'; ?>><?php echo $cnt['degree_name']; ?></option>
-
-                                                                            <?php
-                                                                        }
-                                                                    }
-                                                                    else {
-                                                                        ?>
-                                                                        <option value="<?php echo $cnt['degree_id']; ?>"><?php echo $cnt['degree_name']; ?></option>
+                                 <?php
+                        //if(count($degree_data) > 0){ //echo"hii";die();
+                               if ($degree1) {
+                          foreach ($degree_data as $cnt) {
+                                  ?>
+                  <option value="<?php echo $cnt['degree_id']; ?>" <?php if ($cnt['degree_id'] == $degree1) echo 'selected'; ?>><?php echo $cnt['degree_name']; ?></option>
+                              <?php
+                                   }
+                             }
+                      else {
+                               ?>
+                      <option value="<?php echo $cnt['degree_id']; ?>"><?php echo $cnt['degree_name']; ?></option>
                                                                         <?php
                                                                     }
                                                                     ?>
@@ -692,53 +691,48 @@
                                                             <fieldset class="">
                                         <h6>Stream :<span style="color:red">*</span></h6>
                                              <select name="stream[]" id="<?php echo $stream_sequence ?>" class="stream" >
-                                                                    <option value="">Select Degree First</option>
-                                                                    <?php
-                                                                    if ($stream1) {
-                                                                        foreach ($stream_data as $cnt) {
-                                                                            ?>
-                                                                            <option value="<?php echo $cnt['stream_id']; ?>" <?php if ($cnt['stream_id'] == $stream1) echo 'selected'; ?>><?php echo $cnt['stream_name']; ?></option>
-                                                                            <?php
-                                                                        }
-                                                                    }
-                                                                    else {
-                                                                        ?>
-                                                                        <option value="0">Select Degree First</option>
-                                                                        <?php
-                                                                    }
-                                                                    ?>
-
-                                                                    ?>
-
-                                                                </select>
-                                                                <?php echo form_error('stream'); ?> 
+                                            <option value="">Select Degree First</option>
+                                           <?php
+                                           if ($stream1) {
+                         foreach ($stream_data as $cnt) {
+                                ?>
+                        <option value="<?php echo $cnt['stream_id']; ?>" <?php if ($cnt['stream_id'] == $stream1) echo 'selected'; ?>><?php echo $cnt['stream_name']; ?></option>
+                                <?php
+                                     }
+                              }
+                                  else {
+                                  ?>
+                         <option value="0">Select Degree First</option>
+                              <?php
+                                     }
+                                ?>
+                                    ?>
+                       </select>
+                      <?php echo form_error('stream'); ?> 
                                                             </fieldset>      
 
                                                             <fieldset class="">
-                                                <h6>University :<span style="color:red">*</span></h6>
-                                                                <select name="university[]" id="university1" class="university">
+                                                <h6>University :<span style="color:red">*</span></h6>                                    <select name="university[]" id="university1" class="university">
 
-                                                                    <option value="0" selected option disabled>Select your University</option>
+                              <option value="0" selected option disabled>Select your University</option>
 
-                                                                    <?php
-                                                                    if (count($university_data) > 0) {
-                                                                        foreach ($university_data as $cnt) {
-
-                                                                            if ($university1) {
-                                                                                ?>
-                                                                                <option value="<?php echo $cnt['university_id']; ?>" <?php if ($cnt['university_id'] == $university1) echo 'selected'; ?>><?php echo $cnt['university_name']; ?></option>
-                                                                                <?php
-                                                                            }
-                                                                            else {
-                                                                                ?>
-                                                                                <option value="<?php echo $cnt['university_id']; ?>"><?php echo $cnt['university_name']; ?></option>
-
-                                                                                <?php
-                                                                            }
-                                                                        }
-                                                                    }
-                                                                    ?>
-                                                                </select>
+                                    <?php
+                              if (count($university_data) > 0) {
+                              foreach ($university_data as $cnt) {
+                              if ($university1) {
+                                       ?>
+                  <option value="<?php echo $cnt['university_id']; ?>" <?php if ($cnt['university_id'] == $university1) echo 'selected'; ?>><?php echo $cnt['university_name']; ?></option>
+                             <?php
+                                 }
+                        else {
+                                 ?>
+                 <option value="<?php echo $cnt['university_id']; ?>"><?php echo $cnt['university_name']; ?></option>
+                         <?php
+                              }
+                     }
+                          }
+                            ?>
+                  </select>
                                                                 <?php echo form_error('univercity'); ?>
                                                             </fieldset>      
 
@@ -746,42 +740,41 @@
                                                 <h6>College :<span style="color:red">*</span></h6>
 
                                                  <input type="text" name="college[]" id="college1" class="college" placeholder="Enter College" value="<?php
-                                                                if ($college1) {
-                                                                    echo $college1;
-                                                                }
-                                                                ?>">
-                                                                       <?php echo form_error('college'); ?>
+                                            if ($college1) {
+                                             echo $college1;
+                                                 }
+                                                 ?>">
+                                   <?php echo form_error('college'); ?>
                                                             </fieldset>
 
 
                                                             <fieldset class="">
                                           <h6>Grade :<span style="color:red">*</span></h6>
                                    <input type="text" name="grade[]" id="grade1" class="grade" placeholder="Enter Grade" value="<?php
-                                                                if ($grade1) {
-                                                                    echo $grade1;
-                                                                }
-                                                                ?>">
-                                                                       <?php echo form_error('grade'); ?>
-                                                            </fieldset>
-
-                                                            <fieldset class="">
+                                     if ($grade1) {
+                                     echo $grade1;
+                                          }
+                                      ?>">
+                  <?php echo form_error('grade'); ?>
+                                    </fieldset>
+                                <fieldset class="">
                                              <h6>Percentage :<span style="color:red">*</span></h6>
-                                                                <input type="number" name="percentage[]" id="percentage1" class="percentage" placeholder="Enter Percentage"  value="<?php
-                                                                if ($percentage1) {
-                                                                    echo $percentage1;
-                                                                }
-                                                                ?>" />
-                                                                       <?php echo form_error('percentage'); ?>
-                                                            </fieldset>
-                                                              <fieldset class="">
-                                          <h6>Education Certificate:</h6>
-                                                                <input style="" type="file" name="certificate[]" id="certificate1" class="certificate" placeholder="CERTIFICATE" multiple="" />&nbsp;&nbsp;&nbsp; <span id="certificate-error"> </span>
-
-                                                                <?php
-                                                                if ($edu_certificate1) {
-                                                                    ?>
+                          <input type="number" name="percentage[]" id="percentage1" class="percentage" placeholder="Enter Percentage"  value="<?php
+                         if ($percentage1) {
+                            echo $percentage1;
+                           }
+                           ?>" />
+                  <?php echo form_error('percentage'); ?>
+                           </fieldset>
+                       <fieldset class="">
+                      <h6>Education Certificate:</h6>
+                   <input style="" type="file" name="certificate[]" id="certificate1" class="certificate" placeholder="CERTIFICATE" multiple="" />&nbsp;&nbsp;&nbsp; <span id="certificate-error"> </span>
+                          <?php
+                          if ($edu_certificate1) {
+                                ?>
  <div class="img_work_exp" style=" margin-top: 14px;" >
-                                                                    <img src="<?php echo base_url($this->config->item('job_edu_main_upload_path') . $edu_certificate1) ?>" style="width:100px;height:100px;">
+                
+          <img src="<?php echo base_url($this->config->item('job_edu_main_upload_path') . $edu_certificate1) ?>" style="width:100px;height:100px;" class="job_education_certificate_img">
 </div>
                                                                     <?php
                                                                 }
@@ -792,57 +785,51 @@
                                                             <fieldset class="">
                                                    <h6>Year Of Passing :<span style="color:red">*</span></h6>
                                                                 <select name="pass_year[]" id="pass_year1" class="pass_year" >
-                                                                    <option value="0" selected option disabled>--SELECT--</option>
-
-                                                                    <?php
-                                                                    $curYear = date('Y');
-
-                                                                    for ($i = $curYear; $i >= 1900; $i--) {
-                                                                        if ($pass_year1) {
-                                                                            ?>
-
-                                                                            <option value="<?php echo $i ?>" <?php if ($i == $pass_year1) echo 'selected'; ?>><?php echo $i ?></option>
-
-
-                                                                            <?php
-                                                                        }
-                                                                        else {
-                                                                            ?>
-                                                                            <option value="<?php echo $i ?>"><?php echo $i ?></option>
-                                                                            <?php
-                                                                        }
-                                                                    }
-                                                                    ?> 
-
-                                                                </select>
-                                                                <?php echo form_error('pass_year'); ?>
-                                                            </fieldset>
+                <option value="0" selected option disabled>--SELECT--</option>
+                        <?php
+                         $curYear = date('Y');
+              for ($i = $curYear; $i >= 1900; $i--) {
+                 if ($pass_year1) {
+                          ?>
+          <option value="<?php echo $i ?>" <?php if ($i == $pass_year1) echo 'selected'; ?>><?php echo $i ?></option>
+                     <?php
+                            }
+                       else {
+                              ?>
+         <option value="<?php echo $i ?>"><?php echo $i ?></option>
+                 <?php
+                        }
+                            }
+                         ?> 
+       </select>
+                  <?php echo form_error('pass_year'); ?>
+              </fieldset>
 
                                                           
 
-                                                            <input type="hidden" name="image_hidden_degree<?php echo $jobgrad[$x]['job_graduation_id']; ?>" value="<?php
-                                                            if ($edu_certificate1) {
-                                                                echo $edu_certificate1;
-                                                            }
-                                                            ?>">
+         <input type="hidden" name="image_hidden_degree<?php echo $jobgrad[$x]['job_graduation_id']; ?>" value="<?php
+                     if ($edu_certificate1) {
+                     echo $edu_certificate1;
+                     }
+              ?>">
                                                             
-                                                            <?php if ($y != 1) {
-                                                                    ?>
-                                                                    <div style="float: left;">
-                                                                        <div class="hs-submit full-width fl">
-                                                                            <input type="button" value="Delete" onclick="delete_job_exp(<?php echo $jobgrad[$x]['job_graduation_id']; ?>);">
-                                                                        </div>
-                                                                    </div>
-                                                                <?php } ?>
-                                                        </div></div> 
-                                                        <?php
-                                                    }
-                                                    ?>
+                   <?php if ($y != 1) {
+                             ?>
+                     <div style="float: left;">
+            <div class="hs-submit full-width fl">
+               <input type="button" value="Delete" onclick="delete_job_exp(<?php echo $jobgrad[$x]['job_graduation_id']; ?>);">
+                        </div>
+                              </div>
+                                    <?php } ?>
+                           </div></div> 
+                                   <?php
+                                          }
+                                    ?>
                                <div class="fr img_remove">
                         <input  style="padding: 6px 9px 6px;
     font-size: 14px;" class="job_edu_graduation_submit_btn" type="Submit"  id="next" name="next" value="Submit">
-                                                        <!--<input type="submit"  id="add_edu" name="add_edu" value="Add More Education">--> 
-                                                    </div>
+                        <!--<input type="submit"  id="add_edu" name="add_edu" value="Add More Education">--> 
+                                    </div>
 
 
 <div class="display_inline_block" >
