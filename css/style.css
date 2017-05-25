@@ -5190,8 +5190,9 @@ cover pic css*/
 /*Dhaval job apply for*/
 
 .select2-container .select2-selection--single{min-height: 37px;}
-.select2-container .select2-selection--single .select2-selection__rendered{margin-top: 2px;}
+.select2-container .select2-selection--single .select2-selection__rendered{margin-top: 3px;}
 .select2-container--default .select2-selection--single .select2-selection__arrow{margin-top: 4px;}
 .red { color: red; }
 
 #upload-demo-i{background:#e1e1e1;width:100%;padding:30px;height:3px;margin-top:30px}
+#upload-demo{width: 100%;}

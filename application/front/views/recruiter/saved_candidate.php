@@ -51,7 +51,7 @@
 
             <div class="row" id="row1" style="display:none;">
                 <div class="col-md-12 text-center">
-                    <div id="upload-demo" style="width:100%"></div>
+                    <div id="upload-demo"></div>
                 </div>
                 <div class="col-md-12 cover-pic" >
                     <button class="btn btn-success  cancel-result" onclick="">Cancel</button>
@@ -465,11 +465,11 @@
                         <?php echo form_open_multipart(base_url('recruiter/user_image_insert'), array('id' => 'userimage', 'name' => 'userimage', 'class' => 'clearfix')); ?>
                         <input type="file" name="profilepic" accept="image/gif, image/jpeg, image/png" id="profilepic">
                         <input type="hidden" name="hitext" id="hitext" value="3">
- <div class="popup_previred">
+<div>
                         <img id="preview" src="#" alt="your image" />
 </div>
                       <!--   <input type="submit" name="cancel3" id="cancel2" value="Cancel"> -->
-                        <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save" style="margin-top:32px!important;">
+                        <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save">
                         <?php echo form_close(); ?>
                     </div>
                 </span>

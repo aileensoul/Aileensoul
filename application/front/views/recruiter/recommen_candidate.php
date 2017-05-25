@@ -1,45 +1,7 @@
 <!--start head -->
 <?php echo $head; ?>
 <!--post save success pop up style strat -->
-<style>
- 
-    .okk{
-        text-align: center;
-    }
-    .pop_content .okbtn{
-        position: absolute;
-        transition: all 200ms;
-        font-size: 16px;
-        text-decoration: none;
-        color: #fff;
-        padding: 8px 18px;
-        background-color: #0A2C5D;
-        left: 170px;
-        margin-top: 8px;
-        width: 100px; 
-        border-radius: 8px;
-    }
-    .pop_content .cnclbtn {
-        position: absolute;
-        transition: all 200ms;
-        font-size: 16px;
-        text-decoration: none;
-        color: #fff;
-        padding: 8px 18px;
-        background-color: #0A2C5D;
-        right: 170px;
-        margin-top: 8px;
-        width: 100px;
-        border-radius: 8px;
-    }
-    .popup .pop_content {
-        text-align: center;
-        margin-top: 40px;
-    }
-    .model_ok_cancel{
-        width:200px !important;
-    }
-</style>
+
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
@@ -61,104 +23,7 @@
             <div class="container">
                 <div class="row row4">
                     <div class="col-md-4"><div class="profile-box profile-box-left">
-                            <!--                            <div class="full-box-module">    
-                            
-                                                            <div class="profile-boxProfileCard  module">
-                                                                <div class="profile-boxProfileCard-cover">  
-                                                                    <a class="profile-boxProfileCard-bg u-bgUserColor a-block"
-                                                                       href="<?php echo base_url('recruiter/rec_profile'); ?>"
-                                                                       tabindex="-1"
-                                                                       aria-hidden="true"
-                                                                       rel="noopener">
-                                                                    
-                                                                            rash code start 12-4 
-                            <?php
-                            $image_ori = $recruiterdata1[0]['profile_background'];
-                            if ($image_ori) {
-                                //echo "hii"; die();
-                                ?>
-                                                                             box image start 
-                                                                            <img src="<?php echo base_url(RECBGIMAGE . $recruiterdata1[0]['profile_background']); ?>" class="bgImage" alt="<?php echo $recruiterdata1[0]['rec_firstname'] . ' ' . $recruiterdata1[0]['rec_lastname']; ?>"  style="height: 95px;
-                                                                                 width: 100%;">
-                                                                             box image end 
-                                <?php
-                            } else {
-                                ?>
-                         <img src="<?php echo base_url(WHITEIMAGE); ?>" class="bgImage" alt="<?php echo $recruiterdata1[0]['rec_firstname'] . ' ' . $recruiterdata1[0]['rec_lastname']; ?>"  style="height: 95px;
-                                                                                 width: 100%;">
-                                <?php
-                            }
-                            ?>
-                            
-              rash code end 12-4 
-                            
-             </a></div>
-            <div class="profile-box-menu  fr col-md-12">
-          <div class="left- col-md-2"></div>
-      <div  class="right-section col-md-10">
-   <ul class="">
-                            
-        <li <?php if ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'rec_profile') { ?> class="active" <?php } ?>><a href="<?php echo base_url('recruiter/rec_profile'); ?>"> Details</a>
-                              </li>                                
-     <li <?php if ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'rec_post') { ?> class="active" <?php } ?>><a href="<?php echo base_url('recruiter/rec_post'); ?>">Post</a>
-                 </li>
-                            
-                            
- <li <?php if ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'save_candidate') { ?> class="active" <?php } ?>><a href="<?php echo base_url('recruiter/save_candidate'); ?>">Saved </a>
-     </li>
-                            
-                            
-                                                                        </ul>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="profile-boxProfileCard-content">
-                                 <div class="buisness-profile-txext ">
-                         <rash code 12-4 start> 
-                            
-                         <a class="profile-boxProfileCard-avatarLink a-inlineBlock" href="<?php echo base_url('recruiter/rec_profile/' . $recruiterdata1[0]['user_id']); ?>" title="<?php echo $recruiterdata1[0]['rec_firstname'] . ' ' . $recruiterdata1[0]['rec_lastname']; ?>" tabindex="-1" aria-hidden="true" rel="noopener">
-                                                                            
-                            
-                            <?php
-                            //echo "<pre>"; print_r($recruiterdata1); die();
-                            if ($recruiterdata1[0]['recruiter_user_image'] != '') {
-                                // echo "hii"; die();
-                                ?>
-                                                                        >
-                                <?php
-                            } else {
-                                ?>
-                                                                                    <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo $recruiterdata1[0]['rec_firstname'] . ' ' . $recruiterdata1[0]['rec_lastname']; ?>">
-                                <?php
-                            }
-                            ?>
-                                                                    </a>
-                                                                     <rash code 12-4 end> 
-                            
-                            
-                                                                </div>   
-                            
-                                                                    <div class="profile-box-user">
-                                                                        <span class="profile-box-name ">
-                                                                            <a href="<?php echo site_url('recruiter/rec_profile'); ?>" title="<?php echo $recruiterdata1['rec_firstname'] . ' ' . $recruiterdata1['rec_lastname']; ?>">   <?php echo $recruiterdata1[0]['rec_firstname'] . ' ' . $recruiterdata1[0]['rec_lastname']; ?></a>
-                                                                        </span>
-                                                                        <div class="profile-boxProfile-name">
-                                                                            <a href="<?php echo site_url('recruiter/rec_profile/' . $recruiterdata1[0]['user_id']); ?>" title="<?php echo ucwords($recruiterdata1[0]['designation']); ?>">
-                            
-                            <?php
-                            if (ucwords($recruiterdata1[0]['designation'])) {
-                                echo ucwords($recruiterdata1[0]['designation']);
-                            } else {
-                                echo "Designation";
-                            }
-                            ?></a>
-                                                                        </div>                
-                                                                    </div>
-                                                                    <div id="profile-box-profile-prompt"></div>
-                            
-                                                                </div>
-                                                            </div>
-                            
-                                                        </div>-->
+                           
                             <div class="full-box-module">    
                                 <div class="profile-boxProfileCard  module">
                  <div class="profile-boxProfileCard-cover">     <a class="profile-boxProfileCard-bg u-bgUserColor a-block" href="<?php echo base_url('recruiter/rec_profile'); ?>" tabindex="-1" 
