@@ -268,7 +268,7 @@ if ($returnpage == 'job') {
                 ?>
 
                  <div class="fr lction">
-            <p title="Address"><i class="fa fa-map-marker" aria-hidden="true">
+            <p title="Location"><i class="fa fa-map-marker" aria-hidden="true">
 
                                          <?php if($cityname){
                                              echo $cityname .', ';}?>
@@ -459,7 +459,7 @@ if ($returnpage == 'job') {
                   if($cityname || $countryname)
                        { 
                         ?>
-                <p title="Adderss"><i class="fa fa-map-marker" aria-hidden="true">
+                <p title="Location"><i class="fa fa-map-marker" aria-hidden="true">
 
                   <?php  echo $cityname .', '. $countryname; ?> 
                   </i></p>
