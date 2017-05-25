@@ -17,7 +17,7 @@
           <div class="col-md-8">
 
      
-						<div class="common-form">
+						<div class="common-form profile_edit">
 							<h3>Edit Profile</h3>
   
 

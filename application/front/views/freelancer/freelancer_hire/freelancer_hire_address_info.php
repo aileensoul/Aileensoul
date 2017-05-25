@@ -370,6 +370,10 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
     }, "No space please and don't leave it empty");
 
 
+$.validator.addMethod("regx", function(value, element, regexpr) {          
+    return regexpr.test(value);
+}, "Only space, only number and only specila characters are not allow");
+
             $(document).ready(function () { 
 
                 $("#address_info").validate({
@@ -392,7 +396,8 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
                        address: {
 
                             required: true,
-                            noSpace: true
+                            //noSpace: true
+                            regx:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]*$/,
                            
                         }
                         
