@@ -282,9 +282,7 @@ $( "#tags" ).autocomplete({
     return regexpr.test(value);
 }, "Number, space and special character are not allowed");
 
- $.validator.addMethod("regx1", function(value, element, regexpr) {          
-    return regexpr.test(value);
-}, "Number, space and special character are not allowed");
+ 
 
 
     $(document).ready(function () {
