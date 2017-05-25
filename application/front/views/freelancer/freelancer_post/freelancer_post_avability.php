@@ -109,7 +109,7 @@ $work_hour = form_error('work_hour');
 
                             <fieldset class=""<?php if ($work_hour) { ?> class="error-msg" <?php } ?>>
                                 <label>Working hours per week:</label>
-                                <input type="text" name="work_hour" placeholder="Enter working hour" value="<?php if ($work_hour1) {
+                                <input type="number" name="work_hour" placeholder="Enter working hour" value="<?php if ($work_hour1) {
     echo $work_hour1;
 } ?>">
 <?php echo form_error('work_hour'); ?>

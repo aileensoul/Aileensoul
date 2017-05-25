@@ -184,7 +184,7 @@ if (count($university_data) > 0) {
 
                             <fieldset <?php if ($percentage) { ?> class="error-msg" <?php } ?>>
                                 <label>Percentage:<!-- <span style="color:red">*</span> --></label>
-                                <input type="text" name="percentage" placeholder="Enter percentage" value="<?php if ($percentage1) {
+                                <input type="number" name="percentage" placeholder="Enter percentage" value="<?php if ($percentage1) {
     echo $percentage1;
 } ?>">
                                 <?php echo form_error('percentage'); ?>
