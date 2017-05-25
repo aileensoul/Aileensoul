@@ -828,7 +828,7 @@
                                             $filename = $data['image_name'];
                                             $ext = pathinfo($filename, PATHINFO_EXTENSION);
 
-                                            if (in_array($ext, $allowed)) {
+                                            if (in_array($ext, $allowed)) { 
                                                 ?>
 
                                                 <?php if (count($businessmultiimage) == 1) { ?>
@@ -840,10 +840,7 @@
                                                     </div>
                                                     <!-- two image end -->
 
-                                                <?php } ?>
-
-
-                                                <?php if (count($businessmultiimage) == 2) { ?>
+                                                <?php }  elseif(count($businessmultiimage) == 2) { ?>
 
                                                     <!-- two image start -->
                                                     <div id="two_images_bui" style="height: 50%;" >
@@ -851,11 +848,7 @@
                                                                 currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
                                                     </div>
                                                     <!-- two image end -->
-                                                <?php } ?>
-
-
-
-                                                <?php if (count($businessmultiimage) == 3) { ?>
+                                                <?php }  elseif (count($businessmultiimage) == 3) { ?>
                                                     <?php
                                                     //   foreach ($businessmultiimage as $multiimage) {
                                                     ?>
@@ -869,9 +862,7 @@
                                                     </div>
                                                     <!-- two image end -->
                                                     <?php // }    ?>
-                                                <?php } ?>
-
-                                                <?php if (count($businessmultiimage) == 4) { ?>
+                                                <?php } elseif (count($businessmultiimage) == 4) { ?>
 
                                                     <!-- two image start -->
                                                     <div id="two_images_bui" style="height: 50%;" >
@@ -879,7 +870,7 @@
                                                                 currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
                                                     </div>
                                                     <!-- two image end -->
-                                                <?php } else { ?>
+                                                <?php } else {?>
 
                                                     <div id="two_images_bui" style="height: 50%;" >
                                                         <img src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $data['image_name']) ?>" style="width: 100%; height: 100%;" onclick="openModal();
