@@ -577,7 +577,7 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
 <script type="text/javascript">
   
 function imgval(){ 
-    alert(123);
+ //   alert(123);
 
  var skill_main = document.getElementById("skils").value;
  var skill_other = document.getElementById("other_keyskill1").value;
