@@ -112,6 +112,7 @@
                                                 <div>
                                                     <span style="color:#7f7f7e;">( </span><span style="color:red">*</span><span style="color:#7f7f7e"> )</span> <span style="color:#7f7f7e">Indicates required field</span>
                                                 </div>
+                                                <?php //echo $userdata[0]['experience']; die(); ?> 
                                                 <label for="Fresher">
                                                     <input type="checkbox" id="fresher" name="radio" value="Fresher" <?php echo ($userdata[0]['experience'] == 'Fresher') ? 'checked' : '' ?>>
                                                     Fresher&nbsp;&nbsp;
