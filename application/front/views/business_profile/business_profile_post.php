@@ -73,7 +73,7 @@
         width:200px !important;
     }
 
-
+.audio_img{height: 300px; width: 350px; position: relative;}
 
 </style>
 <style type="text/css">
