@@ -314,7 +314,7 @@ if ($status == 0 || $status == " ") {
                             <div class="">
 
                                 <h2 class="add_tag_design"> Audio</h2>
-                                <div class="" style="padding: 10px;">
+                                <div class="add_audio">
                                  <div class="vidoe_tag">
        
                                   <?php
