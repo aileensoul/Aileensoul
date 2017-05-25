@@ -5173,7 +5173,7 @@ cover pic css*/
 
    .display_inline_block { display: inline-block; }
    .tabordion section h6 { font-size: 16px;}
-   .tabordion section .submit_btn { padding: 5px 9px; }
+   .tabordion section .submit_btn { padding: 5px 9px; margin: 15px 0 7px; }
     #jobseeker_regform_secondary { border: none !important; margin-bottom: 0px!important;}
     #jobseeker_regform_higher_secondary { border: none !important; margin-bottom: 0px!important; }
     #jobseeker_regform { border: none !important; margin-bottom: 0px!important; }
@@ -5193,8 +5193,19 @@ cover pic css*/
 .select2-container--default .select2-selection--single .select2-selection__arrow{margin-top: 4px;}
 .red { color: red; }
 
+/*end*/
+
 #upload-demo-i{background:#e1e1e1;width:100%;padding:30px;height:3px;margin-top:30px}
 #upload-demo{width: 100%;}
 .main_art{padding-left: 0;padding-right: 0; height: 100%; border-left: 1px solid #d9d9d9;}
 .not_img{margin-left: 380px; margin-top: 20px;}
 .add_audio{padding: 10px;}
+
+/*Zalak 25-5*/
+.margin_less{ margin:0px!important;}
+.main_pdf_box{margin-left:380px; margin-top: 20px;}
+.grybod{border: 1px solid #d9d9d9!important;}
+.edit_cpmment_edit{display: inline-block;width: 81%;min-height: 37px !important;margin-top: 0px !important;margin-left: 1.5% !important;}
+
+/*Vishang 25-5*/
+.job_education_submitbox { width: 100%; text-align: center; }
