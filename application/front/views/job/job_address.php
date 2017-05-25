@@ -628,6 +628,10 @@
       return value == '' || value.trim().length != 0;  
     }, "No space please and don't leave it empty");
 
+    $.validator.addMethod("regx", function(value, element, regexpr) {          
+    return regexpr.test(value);
+}, "Only space, only number and only special characters are not allow");
+
     $(document).ready(function () {
 
         $("#jobseeker_regform").validate({
@@ -649,7 +653,8 @@
                 address: {
 
                     required: true,
-                    noSpace: true
+                    regx:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]/,
+                    //noSpace: true
 
                 },
 
@@ -668,7 +673,8 @@
                 address_permenant: {
 
                     required: true,
-                    noSpace: true
+                    regx:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]/
+                    //noSpace: true
 
                 },
 
