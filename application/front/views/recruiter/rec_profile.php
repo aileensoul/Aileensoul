@@ -7,11 +7,6 @@
     #popup-form img{display: none;}
 </style>
 <style>
-/*body {
-  font-family: Arial, sans-serif;
-  background-size: cover;
-  height: 100vh;
-}*/
 
 .box {
   width: 40%;
@@ -24,82 +19,6 @@
   text-align: center;
  }
 
-/*.overlay {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.3);
-  transition: opacity 500ms;
-  visibility: hidden;
-  opacity: 0;
-  z-index: 10;
-}
-.overlay:target {
-  visibility: visible;
-  opacity: 1;
-}
-
-.popup {
-    margin: 70px auto;
-    padding: 20px;
-    background: #fff;
-    border-radius: 5px;
-    width: 30%;
-    height: 200px;
-    position: relative;
-    transition: all 5s ease-in-out;
-}
-
-.okk{
-  text-align: center;
-}
-
-.popup .okbtn {
-  position: absolute;
-    transition: all 200ms;
-    font-size: 18px;
-    font-weight: bold;
-    text-decoration: none;
-    color: #fff;
-    padding: 8px 18px;
-    background-color: darkcyan;
-    left: 25px;
-    margin-top: 15px;
-    width: 100px; 
-    border-radius: 8px;
-}
-
-.popup .cnclbtn {
-  position: absolute;
-    transition: all 200ms;
-    font-size: 18px;
-    font-weight: bold;
-    text-decoration: none;
-    color: #fff;
-    padding: 8px 18px;
-    background-color: darkcyan;
-    right: 25px;
-    margin-top: 15px;
-    width: 100px;
-    border-radius: 8px;
-}
-
-.popup .pop_content {
- text-align: center;
- margin-top: 40px;
-  
-}
-
-@media screen and (max-width: 700px){
-  .box{
-    width: 70%;
-  }
-  .popup{
-    width: 70%;
-  }
-}*/
 </style>
 
 <!--post save success pop up style end -->
@@ -111,43 +30,6 @@
 <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap-3.min.css'); ?>">
 <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
 <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
-
-
-<!-- <style type="text/css" media="screen">
-    #row2 { overflow: hidden; width: 100%; }
-    #row2 img { height: 350px;width: 100%; }
-    .upload-img{    float: right;
-                    position: relative;
-                    margin-top: -135px;
-                    right: 50px; }
-
-    label.cameraButton {
-        display: inline-block;
-        margin: 1em 0;
-        cursor: pointer;
-        /* Styles to make it look like a button */
-        padding: 0.5em;
-        border: 2px solid #666;
-        border-color: #EEE #CCC #CCC #EEE;
-        background-color: #DDD;
-        opacity: 0.7;
-    }
-
-    /* Look like a clicked/depressed button */
-    label.cameraButton:active {
-        border-color: #CCC #EEE #EEE #CCC;
-    }
-
-    /* This is the part that actually hides the 'Choose file' text box for camera inputs */
-    label.cameraButton input[accept*="camera"] {
-        display: none;
-    }
-
-
-
-
-</style> -->
-
 <!-- END HEAD -->
     <!-- END HEAD -->
     <!-- start header -->
@@ -178,7 +60,7 @@
         <div class="col-md-12 text-center">
         <div id="upload-demo" style="width:100%"></div>
         </div>
-        <div class="col-md-12 cover-pic" style="padding-top: 25px;text-align: center;">
+        <div class="col-md-12 cover-pic">
         <button class="btn btn-success  cancel-result" onclick="">Cancel</button>
    
         <button class="btn btn-success  upload-result set-btn" onclick="myFunction()">Save</button>
@@ -198,7 +80,7 @@
         </div>
         </div>
         <div class="col-md-12"  style="visibility: hidden; ">
-        <div id="upload-demo-i" style="background:#e1e1e1;width:100%;padding:30px;height:3px;margin-top:30px"></div>
+        <div id="upload-demo-i"></div>
         </div>
       </div>
 
@@ -319,8 +201,8 @@
 </ul>
 </div>
 
-   <div class="col-md-2" style="    width: 24%;
-    padding-right: 0px!important;">
+   <div class="col-md-2 padding_less_right" style="    width: 24%;
+    ">
                 <div class="flw_msg_btn fr">
                     <ul>
                     <?php
@@ -707,10 +589,12 @@ function text2link($text){
                         <?php echo form_open_multipart(base_url('recruiter/user_image_insert'), array('id' => 'userimage', 'name' => 'userimage', 'class' => 'clearfix')); ?>
                         <input type="file" name="profilepic" accept="image/gif, image/jpeg, image/png" id="profilepic">
                         <input type="hidden" name="hitext" id="hitext" value="2">
+                        <div class="popup_previred">
+                                                <img id="preview" src="#" alt="your image" />
+                        </div>
 
-                        <img id="preview" src="#" alt="your image" style="border: 2px solid rgb(204, 204, 204); display: none; margin: 0 auto; margin-top: 5px;padding: 5px;"/>
                         <!-- <input type="submit" name="cancel3" id="cancel2" value="Cancel"> -->
-                        <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save" style="margin-top:32px!important;">
+                        <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save" >
                         <?php echo form_close(); ?>
                     </div>
                 </span>

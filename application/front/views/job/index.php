@@ -4,6 +4,7 @@
 <?php echo $head; ?>
 <!-- END HEAD -->
 <!-- Calender Css Start-->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/3.3.0/select2.css" rel="stylesheet" /> 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/jquery.datetimepicker.css'); ?>">
 <!-- Calender Css End-->
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -282,10 +283,10 @@ if (count($nation) > 0) {
 </html>
 
 <!-- Calender JS Start-->
-<!-- <script src="<?php echo base_url('js/jquery.js'); ?>"></script>
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
- -->
+<script src="<?php echo base_url('js/jquery.js'); ?>"></script>
+<!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 
+ -->
 
 
 
@@ -297,6 +298,9 @@ if (count($nation) > 0) {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 
 <script src="<?php echo base_url('js/jquery.datetimepicker.full.js'); ?>"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/3.3.0/select2.js"></script>
+
+
 <script type="text/javascript">
     $('#datepicker').datetimepicker({
         //yearOffset:222,
