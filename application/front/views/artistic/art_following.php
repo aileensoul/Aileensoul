@@ -13,39 +13,6 @@
 <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
-<style type="text/css" media="screen">
-#row2 { overflow: hidden; width: 100%; }
-#row2 img { height: 350px;width: 100%; }
-.upload-img{    float: right;
-    position: relative;
-    margin-top: -135px;
-    right: 50px; }
-
-   label.cameraButton {
-  display: inline-block;
-  margin: 1em 0;
-
-  /* Styles to make it look like a button */
-  padding: 0.5em;
-  cursor: pointer;
-  border: 2px solid #666;
-  border-color: #EEE #CCC #CCC #EEE;
-  background-color: #DDD;
-  opacity: 0.7;
-}
-
-/* Look like a clicked/depressed button */
-label.cameraButton:active {
-  border-color: #CCC #EEE #EEE #CCC;
-}
-
-/* This is the part that actually hides the 'Choose file' text box for camera inputs */
-label.cameraButton input[accept*="camera"] {
-  display: none;
-}
-
-
-</style>
     <!-- END HEAD -->
     <!-- start header -->
 <?php echo $header; ?>
@@ -59,9 +26,9 @@ label.cameraButton input[accept*="camera"] {
         <div class="container" id="paddingtop_fixed">
       <div class="row" id="row1" style="display:none;">
         <div class="col-md-12 text-center">
-        <div id="upload-demo" style="width:100%"></div>
+        <div id="upload-demo"> </div>
         </div>
-        <div class="col-md-12 cover-pic" style="padding-top: 25px;text-align: center;">
+        <div class="col-md-12 cover-pic" >
             <button class="btn btn-success cancel-result" onclick="" >Cancel</button>
     
         <button class="btn btn-success set-btn upload-result" onclick="myFunction()">Save</button>
@@ -83,7 +50,7 @@ label.cameraButton input[accept*="camera"] {
         </div>
         </div>
         <div class="col-md-12"  style="visibility: hidden; ">
-        <div id="upload-demo-i" style="background:#e1e1e1;width:100%;padding:30px;height:1px;margin-top:30px"></div>
+        <div id="upload-demo-i"></div>
         </div>
       </div>
 
@@ -152,19 +119,10 @@ label.cameraButton input[accept*="camera"] {
     ?>
 
 
-                            <!--<a href="#popup-form" class="fancybox"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>-->
+                            
 <a href="javascript:void(0);" onclick="updateprofilepopup();"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>
                              <?php }?> 
                         </div>
-<!--                       <div id="popup-form">
-                        <?php echo form_open_multipart(base_url('artistic/user_image_insert'), array('id' => 'userimage','name' => 'userimage', 'class' => 'clearfix')); ?>
-                        <input type="file" name="profilepic" accept="image/gif, image/jpeg, image/png" id="profilepic">
-                        <input type="hidden" name="hitext" id="hitext" value="7">
-                        <input type="submit" name="cancel7" id="cancel7" value="Cancel">
-                        <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save">
-                    </form>
-                </div>-->
-
                     </div>
                     <div class="profile-main-rec-box-menu  col-md-12 padding_les ">
 
@@ -185,8 +143,6 @@ label.cameraButton input[accept*="camera"] {
                           { 
                           ?>
 
-                                    <!-- <li <?php if($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'art_savepost'){?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/art_savepost/'.$artisticdata[0]['user_id']); ?>">Saved Post </a>
-                                    </li> -->
                                   
                                      <li <?php if($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'userlist'){?> class="active" <?php } ?>><a title="Userlist" href="<?php echo base_url('artistic/userlist'); ?>">Userlist</a>
                                     </li>
@@ -278,6 +234,7 @@ if($status == 0 || $status == " "){?>
 }
 ?>
 
+
   </div>  
     <!-- menubar -->                
   </div>                   <div class="job-menu-profile">
@@ -312,28 +269,6 @@ if($status == 0 || $status == " "){?>
 
                       <?php }?>
                   
-
-                    <!-- The Modal -->
-                    <!-- <div id="myModal" class="modal"> -->
-                      <!-- Modal content -->
-                      <!-- <div class="col-md-2"></div> -->
-                      <!-- <div class="modal-content col-md-8">
-                        <span class="close">&times;</span>
-                        <fieldset></fieldset>
-                         <?php echo form_open(base_url('artistic/art_designation/'), array('id' => 'artdesignation','name' => 'artdesignation', 'class' => 'clearfix')); ?>
-
-  <fieldset class="col-md-8"> <input type="text" name="designation" id="designation" placeholder="Enter Your Designation" value="<?php echo $artisticdata[0]['designation']; ?>">
-<?php echo form_error('designation'); ?>
-  </fieldset>
-         <input type="hidden" name="hitext" id="hitext" value="7">
-  <fieldset class="col-md-2"><input type="submit"  id="submitdes" name="submitdes" value="Submit"></fieldset>
-                        <?php echo form_close();?>
-  
-                    
-                     
-                    </div> -->
-                    <!-- <div class="col-md-2"></div> -->
-              <!-- </div> -->
             </div>
             
 
@@ -373,7 +308,7 @@ if($status == 0 || $status == " "){?>
                                                 <div class="profile-job-post-location-name">
                                                     <div class="user_lst"><ul>
 
-                            <li class="fl" style="padding-left: 0px;">
+                            <li class="fl padding_les_left">
                             <div class="follow-img">
                                  <?php if($this->db->get_where('art_reg',array('art_id' => $user['follow_to']))->row()->art_user_image != ''){ ?>
                                  <a href="<?php echo base_url('artistic/art_manage_post/'.$art_id); ?>">
@@ -478,17 +413,6 @@ if($status == 0 || $status == " "){?>
         </div>
         </div>
          </div>
-         <div class="user-midd-section">
-            <div class="container">
-                <div class="row">
-                <div class="col-md-3">
-                 
-                </div>
-      
-                                </div>
-
-                        </div>
-                    </div>
     </section>
     <footer>
  <?php echo $footer;  ?>
@@ -515,10 +439,10 @@ if($status == 0 || $status == " "){?>
 <?php echo form_open_multipart(base_url('artistic/user_image_insert'), array('id' => 'userimage', 'name' => 'userimage', 'class' => 'clearfix')); ?>
                         <input type="file" name="profilepic" accept="image/gif, image/jpeg, image/png" id="profilepic">
                         <input type="hidden" name="hitext" id="hitext" value="7">
-
-                        <img id="preview" src="#" alt="your image" style="border: 2px solid rgb(204, 204, 204); display: none; margin: 0 auto; margin-top: 5px;padding: 5px;"/>
-                        <!--<input type="submit" name="cancel3" id="cancel3" value="Cancel">-->
-                        <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save" style="margin-top:32px!important;">
+ <div class="popup_previred">
+                        <img id="preview" src="#" alt="your image" />
+     </div>                   <!--<input type="submit" name="cancel3" id="cancel3" value="Cancel">-->
+                        <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save">
 <?php echo form_close(); ?>
                     </div>
                 </span>
