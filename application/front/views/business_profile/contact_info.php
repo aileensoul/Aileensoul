@@ -101,7 +101,7 @@
 
                                  <fieldset <?php if($contactmobile) {  ?> class="error-msg" <?php } ?>>
                                     <label>Contact Mobile:<span style="color:red">*</span></label>
-                                    <input name="contactmobile" type="text" id="contactmobile" placeholder="Enter contact Mobile" value="<?php if($contactmobile1){ echo $contactmobile1; } ?>"/>
+                                    <input name="contactmobile" type="number" id="contactmobile" placeholder="Enter contact Mobile" value="<?php if($contactmobile1){ echo $contactmobile1; } ?>"/>
                                      <?php echo form_error('contactmobile'); ?> 
                                 </fieldset>
                                
@@ -254,12 +254,14 @@ $('#searchplace').select2({
             //validation for edit email formate form
 
 
-jQuery.validator.addMethod("noSpace", function(value, element) { 
-      return value == '' || value.trim().length != 0;  
-    }, "No space please and don't leave it empty");
+// jQuery.validator.addMethod("noSpace", function(value, element) { 
+//       return value == '' || value.trim().length != 0;  
+//     }, "No space please and don't leave it empty");
 
 
-            
+   $.validator.addMethod("regx", function(value, element, regexpr) {          
+    return regexpr.test(value);
+}, "Only space and only number  are not allow");         
 
             $(document).ready(function () { 
 
@@ -270,7 +272,8 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
                         contactname: {
 
                             required: true,
-                            noSpace: true
+                        regx:/^[a-zA-Z\s]*[a-zA-Z]/
+                            //noSpace: true
                              
                            
                         },
