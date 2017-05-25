@@ -117,7 +117,8 @@
                                 
                                     if (count($postdetail) > 0) {
 
-                                        foreach ($postdetail as $post) {
+                                        foreach ($postdetail as $postdetail1) {
+                                            foreach ($postdetail1 as $post) {
                                             ?> 
 
                                             <div class="job-contact-frnd ">
@@ -306,12 +307,14 @@
                                             </div>
                                             <?php
                                         }
+                                    }
                                     } else {
                                         echo 'No Data Available';
                                     }
                                 } else {
                                     if (count($postdetail) > 0) {
-                                        foreach ($postdetail as $post_key => $post) {
+                                        foreach ($postdetail as $post_key => $postdetail1)
+                                         foreach ($postdetail1 as $post) {
                                             ?> 
 
                                             <div class="job-contact-frnd ">
@@ -438,11 +441,13 @@
                                                 </div>
                                             </div>
                                             <?php
-                                        }
-                                    } else {
+                                        
+                                    } 
+                                }else {
                                         echo 'no data available';
                                     }
                                 }
+
                                 ?>
 
                             </div>
