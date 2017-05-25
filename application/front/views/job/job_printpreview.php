@@ -85,7 +85,7 @@ echo $job_header2;
     </div>
 </div>   
 
-<div class="container">    
+<div class="container">       
     <div class="upload-img ">
 
         <?php if($returnpage == ''){ ?>
@@ -164,6 +164,7 @@ echo $job_header2;
     </div>
 
     <div class="col-md-8 col-sm-8">
+    <div class="row">
         <div class="common-form">
             <div class="job-saved-box">
                 <h3>Details</h3>
@@ -1033,8 +1034,8 @@ echo $job_header2;
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 
 
-                <script src="<?php echo base_url('js/light-box/lightbox-plus-jquery.min.js');?>"></script>
-                <script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script>
+                <!-- <script src="<?php echo base_url('js/light-box/lightbox-plus-jquery.min.js');?>"></script>
+                <script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script> -->
                 <link rel="stylesheet" href="<?php echo base_url('assets/css/croppie.css'); ?>">
                   <link rel="stylesheet" href="<?php echo base_url('css/lightbox.min.css'); ?>">
 
@@ -1338,40 +1339,41 @@ echo $job_header2;
                             }
                         </script>
                         <!-- end search validation -->
-                        <script>
-                            function divClicked() {
-                                var divHtml = $(this).html();
-                                var editableText = $("<textarea />");
-                                editableText.val(divHtml);
-                                $(this).replaceWith(editableText);
-                                editableText.focus();
-                                // setup the blur event for this new textarea
-                                editableText.blur(editableTextBlurred);
-                            }
+                       <script>
+    function divClicked() {
+        var divHtml = $(this).html();
+        var editableText = $("<textarea />");
+        editableText.val(divHtml);
+        $(this).replaceWith(editableText);
+        editableText.focus();
+        // setup the blur event for this new textarea
+        editableText.blur(editableTextBlurred);
+    }
 
-                            function editableTextBlurred() {
-                                var html = $(this).val();
-                                var viewableText = $("<a>");
-                                viewableText.html(html);
-                                $(this).replaceWith(viewableText);
-                                // setup the click event for this new div
-                                viewableText.click(divClicked);
+    function editableTextBlurred() {
+        var html = $(this).val();
+        var viewableText = $("<a>");
+        if(html == ''){
+            html = "Current Work";
+        }
+        viewableText.html(html);
+        $(this).replaceWith(viewableText);
+        // setup the click event for this new div
+        viewableText.click(divClicked);
 
-                                $.ajax({
-                                    url: "<?php echo base_url(); ?>job/ajax_designation",
-                                    type: "POST",
-                                    data: {"designation": html},
-                                    success: function (response) {
+        $.ajax({
+            url: "<?php echo base_url(); ?>job/ajax_designation",
+            type: "POST",
+            data: {"designation": html},
+            success: function (response) {
+            }
+        });
+    }
 
-                                    }
-                                });
-                            }
-
-                            $(document).ready(function () {
-                                $("a.designation").click(divClicked);
-                            });
-                        </script>
-                        
+    $(document).ready(function () {
+        $("a.designation").click(divClicked);
+    });
+</script> 
                         <!-- save post start -->
             <script type="text/javascript">
                   function save_user(abc)
@@ -1392,7 +1394,7 @@ echo $job_header2;
                         function savepopup(id) {
                             save_user(id);
                       
-            $('.biderror .mes').html("<div class='pop_content'>Your post is successfully saved.");
+            $('.biderror .mes').html("<div class='pop_content'>Candidate successfully saved.");
             $('#bidmodal').modal('show');
                         }
                     </script>
@@ -1427,7 +1429,7 @@ echo $job_header2;
 <!-- script for profile pic end -->
 
 
-<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
+
 
 
 <script type="text/javascript">

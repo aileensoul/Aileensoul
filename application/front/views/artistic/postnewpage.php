@@ -43,7 +43,7 @@
         color: #fff;
         padding: 8px 18px;
         background-color: #0A2C5D;
-        right: 170px;
+        right: 163px!important;
         margin-top: 8px;
         width: 100px;
         border-radius: 8px;
@@ -3650,6 +3650,7 @@
                             /*        margin-left: 15px;
                                     margin-right: 15px;*/
                             width: 96%;
+                             background-color: #fff !important;
                         }
                         div[class^="likeduserlist"]{
                             width: 100% !important;

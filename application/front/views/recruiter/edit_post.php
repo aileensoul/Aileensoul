@@ -92,7 +92,7 @@
                         <?php echo form_error('position'); ?>
                 </fieldset>
 
-                   <fieldset <?php if ($month) { ?> class="error-msg" <?php } ?> class="two-select-box">
+                   <fieldset <?php if ($month) { ?> class="error-msg" <?php } ?> class="two-select-box1">
                                     <label class="control-label">Minimum experience:<span style="color:red">*</span></label>
 
 
@@ -121,7 +121,7 @@
                                         <option value="20">20 Year</option>
                                     </select>
                                     
-                                    <select style="cursor:pointer;" name="minmonth" class="keyskil">
+                                    <select style="cursor:pointer;" name="minmonth" class="keyskil margin-month ">
                                         <option value="<?php echo $postdata[0]['min_month']; ?>"><?php echo $postdata[0]['min_month']; ?> Month</option>
                                         <option value="0">0 Month</option>
                                         <option value="1">1 Month</option>
@@ -138,7 +138,7 @@
                                 </fieldset>
 
 
-                                <fieldset <?php if ($month) { ?> class="error-msg" <?php } ?> class="two-select-box">
+                                <fieldset <?php if ($month) { ?> class="error-msg" <?php } ?> class="two-select-box1">
                                     <label class="control-label">&nbsp;Maximum experience:<span style="color:red">*</span></label>
 
 
@@ -169,7 +169,7 @@
 
                                       
 
-                                    <select style="cursor:pointer;" name="maxmonth" class="keyskil1">
+                                    <select style="cursor:pointer;" name="maxmonth" class="keyskil1 margin-month ">
                                         <option  value="<?php echo $postdata[0]['max_month']; ?>"><?php echo $postdata[0]['max_month']; ?> Month</option>
                                         <option value="0">0 Month</option>
                                         <option value="1">1 Month</option>
@@ -183,7 +183,7 @@
                                    <span id="fullname-error"></span>
                                     <?php echo form_error('month'); ?> &nbsp;&nbsp; <?php echo form_error('year'); ?>
                                 </fieldset>
-                        <fieldset class="form-group full-width" style="margin-top: -19px;
+                        <fieldset class="form-group full-width" style="margin-top: 0px;
     margin-bottom: 2px;">
                           <?php
                                 if($postdata[0]['fresher'])

@@ -1248,33 +1248,37 @@ class Recruiter extends MY_Controller {
 
     public function save_candidate() { //echo"hii";die();
         $userid = $this->session->userdata('aileenuser');
+       // echo $userid;
 
         $this->data['recruiterdata'] = $this->common->select_data_by_id('recruiter', 'user_id', $userid, $data = '*', $join_str = array());
+        //echo "<pre>";print_r($this->data['recruiterdata']);die();
 
        // <rash code 12-4 start>
 
         $join_str1 = array(array(
-        'join_type' => '',
+        'join_type' => 'left',
         'table' => 'job_add_edu',
         'join_table_id' => 'save.to_id',
         'from_table_id' => 'job_add_edu.user_id'),
     array(
-        'join_type' => '',
+        'join_type' => 'left',
         'table' => 'job_reg',
         'join_table_id' => 'save.to_id',
         'from_table_id' => 'job_reg.user_id'),
      array(
-        'join_type' => '',
+        'join_type' => 'left',
         'table' => 'job_add_workexp',
         'join_table_id' => 'save.to_id',
         'from_table_id' => 'job_add_workexp.user_id')
 ); 
 
   // <rash code 12-4 end>
-        $contition_array1= array('save.from_id' => $userid, 'save.status' => '0', 'save.save_type' => 1);
-        $this->data['recdata'] = $this->common->select_data_by_condition('save', $contition_array1, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str1, $groupby ='to_id');
+        $contition_array1= array('save.from_id' => $userid, 'save.status' => 0, 'save.save_type' => 1);
+        $this->data['recdata'] = $this->common->select_data_by_condition('save', $contition_array1, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str1, $groupby ='');
 
-        //echo"<pre>"; print_r($this->data['recdata']); die();
+     //   echo"<pre>"; print_r($this->data['recdata']); die();
+
+
         $contition_array = array('status' => '1', 'is_delete' => '0');
 
 
@@ -1999,7 +2003,7 @@ $join_str1 = array(
             $contition_array = array('job_reg.user_id' => $jobcan['user_id'], 'job_reg.is_delete' => 0, 'job_reg.status' => 1);
 
 
-            $jobrec = $this->data['jobrec'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '', $sortby = 'job_id', $orderby = 'desc', $limit = '', $offset = '', $join_str1, $groupby = '');
+            $jobrec = $this->data['jobrec'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'job_reg.*,job_reg.user_id as iduser,job_add_workexp.*,job_add_edu.*', $sortby = 'job_id', $orderby = 'desc', $limit = '', $offset = '', $join_str1, $groupby = '');
 //echo "<pre>"; Print_r($jobrec);
 
 
@@ -2010,7 +2014,7 @@ $join_str1 = array(
 
         }
 
-    // echo "<pre>"; Print_r($canlocation);die();
+     //echo "<pre>"; Print_r($canlocation);die();
 
 
     // die();   

@@ -157,7 +157,7 @@ if ($returnpage == 'job') {
 <div class="container">    
     <div class="upload-img">
         <?php if ($returnpage == '') { ?>
-            <label class="cameraButton"><span class="tooltiptext">Upload Cover Photo</span><i class="fa fa-camera" aria-hidden="true"></i>
+            <label class="cameraButton"><span class="tooltiptext_rec">Upload Cover Photo</span><i class="fa fa-camera" aria-hidden="true"></i>
                 <input type="file" id="upload" name="upload" accept="image/*;capture=camera" onclick="showDiv()">
             </label>
         <?php } ?>
@@ -344,24 +344,30 @@ if ($returnpage == 'job') {
               <a class="post_title" href="#" title="Post Title">
                <?php echo $post['post_name'] ?> </a>     </li>
      
-             <li>   
-                 <div class="fr lction">
-            <?php $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name;
-            $countryname = $this->db->get_where('countries', array('country_id' => $post['country']))->row()->country_name; ?>
-               <?php  
+             <li>  
+             <?php $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name;
+            $countryname = $this->db->get_where('countries', array('country_id' => $post['country']))->row()->country_name; ?> 
+
+            <?php  
              if($cityname || $countryname)
                { 
                 ?>
+
+                 <div class="fr lction">
             <p title="Address"><i class="fa fa-map-marker" aria-hidden="true">
 
-                                                            <?php  echo $cityname .', '. $countryname; ?> 
+                                         <?php if($cityname){
+                                             echo $cityname .', ';}?>
+                                                     <?php 
+                                                echo $countryname; ?> 
                                                             </i></p>
                                                             
-                                                            <?php
+                                                             
+                                                    </div>
+                                                    <?php
                                                              }
 
-                                                             else{}?> 
-                                                    </div>
+                                                             ?>
 
 
 
@@ -1113,6 +1119,9 @@ if ($returnpage == 'job') {
                 function editableTextBlurred() {
                     var html = $(this).val();
                     var viewableText = $("<a>");
+                     if(html == ''){
+            html = "Designation";
+        }
                     viewableText.html(html);
                     $(this).replaceWith(viewableText);
                     // setup the click event for this new div

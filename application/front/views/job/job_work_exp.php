@@ -6,6 +6,8 @@
 <?php echo $header; ?>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
+
 <?php if($jobdata[0]['job_step'] == 10){ ?>
 <?php echo $job_header2_border; ?>
 <?php } ?>
@@ -27,7 +29,7 @@
                 if ($jobdata[0]['job_step'] == 10) { ?>
                   
                   <div class="col-md-6 col-sm-8"><h3>You are updating your Job Profile.</h3></div>
-
+                    <br>
                <?php } else {
                     ?>
                     <div class="col-md-6 col-sm-8"><h3>You are making your Job Profile.</h3></div>
@@ -251,7 +253,7 @@
                                                                 if ($work_certificate1) {
                                                                     ?>
                                                                         <div class="img_work_exp" style=" " >
-                                                                    <img src="<?php echo base_url($this->config->item('job_work_thumb_upload_path')  . $work_certificate1) ?>" style="width:100px;height:100px;">
+                                                                    <img src="<?php echo base_url($this->config->item('job_work_main_upload_path'). $work_certificate1) ?>" style="width:100px;height:100px;">
 </div>
                                                                     <?php
                                                                 }
@@ -407,7 +409,7 @@
                                                         if ($work_certificate1) {
                                                             ?>
                                                                 <div class="img_work_exp" style="">
-                                                            <img src="<?php echo base_url(JOBWORKCERTIFICATE . $work_certificate1) ?>" style="width:100px;height:100px;">
+                                                            <img src="<?php echo base_url($this->config->item('job_work_main_upload_path'). $work_certificate1) ?>" style="width:100px;height:100px;">
 </div>
                                                             <?php
                                                         }
@@ -461,6 +463,8 @@
 
                     <script src="<?php echo base_url('js/jquery.js'); ?>"></script>
                     <script type="text/javascript" src="<?php echo base_url('js/jquery-ui.js') ?>"></script>
+                    <script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
+
                     <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
                     <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
                     <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>

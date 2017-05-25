@@ -1157,16 +1157,17 @@ class Freelancer extends MY_Controller {
         $join_str[0]['table'] = 'freelancer_hire_reg';
         $join_str[0]['join_table_id'] = 'freelancer_hire_reg.user_id';
         $join_str[0]['from_table_id'] = 'freelancer_post.user_id';
-        $join_str[0]['join_type'] = '';
+        $join_str[0]['join_type'] = 'RIGHT';
 
 
         $contition_array = array('freelancer_post.is_delete'=> '0','freelancer_hire_reg.user_id' => $userid, 'freelancer_hire_reg.status' => '1');
 
-
 $data='freelancer_post.post_id,freelancer_post.post_name,freelancer_post.post_field_req,freelancer_post.post_est_time,freelancer_post.post_skill,freelancer_post.post_other_skill,freelancer_post.post_rate,freelancer_post.post_last_date,freelancer_post.post_description,freelancer_post.user_id,freelancer_post.created_date,freelancer_post.post_currency,freelancer_post.post_rating_type,freelancer_post.country,freelancer_post.city,freelancer_post.post_exp_month,freelancer_post.post_exp_year,freelancer_hire_reg.username,freelancer_hire_reg.fullname,freelancer_hire_reg.designation,freelancer_hire_reg.freelancer_hire_user_image';
         $postdata = $this->data['freelancerpostdata'] = $this->common->select_data_by_condition('freelancer_post', $contition_array, $data, $sortby = 'freelancer_post.post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
-       // echo "<pre>";print_r($postdata);die();
         
+//        echo '<pre>';
+//        print_r($postdata);
+//        exit;
         }
         else{
             $userid=$id;
@@ -1490,9 +1491,9 @@ $new = array();
             $freelancer_post_area = explode(',', $frcan['freelancer_post_area']);
             $result = array_intersect($postuserarray, $freelancer_post_area);
             
-            if (count($result) > 0) {
+            if ($result) {
 
-                $contition_array = array('freelancer_post_reg_id' => $frcan['freelancer_post_reg_id'], 'is_delete' => 0, 'status' => 1);
+                $contition_array = array('freelancer_post_reg_id' => $frcan['freelancer_post_reg_id'], 'is_delete' => 0, 'status' => 1,'free_post_step'=> 7);
 
                 $workcandidate = $this->data['workcandidate'] = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = '*', $sortby = 'freelancer_post_reg_id', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 //                echo "<pre>"; print_r($workcandidate);
@@ -1502,7 +1503,7 @@ $new = array();
             }
         }
 //        die();
-
+//echo "<pre>"; print_r($freecandidate);die();
         $this->data['candidatefreelancer'] = $freecandidate;
        // echo "<pre>"; print_r($this->data['candidatefreelancer']); die();
 // code for search
@@ -1648,7 +1649,7 @@ $results = array_unique($result);
         $this->form_validation->set_rules('year', 'Year', 'required');
 
         $this->form_validation->set_rules('country', 'Country', 'required');
-        $this->form_validation->set_rules('city', 'city', 'required');
+        
 
         $this->form_validation->set_rules('last_date', 'Last date', 'required');
 
@@ -1862,9 +1863,12 @@ $results = array_unique($result);
         $contition_array = array('post_id' => $id, 'user_id' => $userid, 'is_delete' => 0);
         $userdata = $this->common->select_data_by_condition('freelancer_apply', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
+       // echo "<pre>";print_r($userdata);
+
         $app_id = $userdata[0]['app_id'];
 
         if ($userdata) {
+            //echo "hello";
 
             $contition_array = array('job_delete' => 1);
             $jobdata = $this->common->select_data_by_condition('freelancer_apply', $contition_array, $data = 'app_id', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -1886,8 +1890,8 @@ $results = array_unique($result);
                 'not_to_id' => $notid,
                 'not_read' => 2,
                 'not_from' => 6,
-                'not_product_id' => $app_id,
-                'not_created_date' => date('y-m-d h:i:s'),
+                'not_product_id' => $app_id
+               
             );
 
 $updatedata = $this->common->insert_data_getid($data, 'notification');
@@ -1907,6 +1911,7 @@ $updatedata = $this->common->insert_data_getid($data, 'notification');
                 'user_id' => $userid,
                 'status' => 1,
                 'created_date' => date('Y-m-d h:i:s', time()),
+                'modify_date' => date('Y-m-d h:i:s', time()),
                 'is_delete' => 0,
                 'job_delete' => 0,
                 'job_save'  => 3
@@ -1924,7 +1929,7 @@ $updatedata = $this->common->insert_data_getid($data, 'notification');
                 'not_read' => 2,
                 'not_from' => 6,
                 'not_product_id' => $insert_id,
-                'not_created_date' => date('y-m-d h:i:s'),
+                
             );
 
             $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -1968,7 +1973,7 @@ $updatedata = $this->common->insert_data_getid($data, 'notification');
                     $join_str[0]['join_type'] = '';
                      $contition_array = array('freelancer_apply.job_delete' => 0, 'freelancer_apply.user_id' => $userid);
                 
-                $postdata = $this->data['postdata'] = $this->common->select_data_by_condition('freelancer_post', $contition_array, $data ='freelancer_post.*,freelancer_apply.app_id,freelancer_apply.user_id as userid,freelancer_apply.modify_date,freelancer_apply.created_date  ', $sortby = 'app_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
+                $postdata = $this->data['postdata'] = $this->common->select_data_by_condition('freelancer_post', $contition_array, $data ='freelancer_post.*,freelancer_apply.app_id,freelancer_apply.user_id as userid,freelancer_apply.modify_date,freelancer_apply.created_date  ', $sortby = 'freelancer_apply.modify_date', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
         
 
 //echo "<pre>"; print_r($postdata); die();

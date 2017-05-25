@@ -243,7 +243,7 @@
       <div class="upload-img">
       
         <?php if($returnpage == ''){ ?>
-      <label class="cameraButton"><span class="tooltiptext">Upload Cover Photo</span><i class="fa fa-camera" aria-hidden="true"></i>
+      <label class="cameraButton"><span class="tooltiptext_rec">Upload Cover Photo</span><i class="fa fa-camera" aria-hidden="true"></i>
             <input type="file" id="upload" name="upload" accept="image/*;capture=camera" onclick="showDiv()">
         </label>
         <?php }?>
@@ -994,6 +994,9 @@ function myFunction() {
                             function editableTextBlurred() {
                                 var html = $(this).val();
                                 var viewableText = $("<a>");
+                                 if(html == ''){
+            html = "Designation";
+        }
                                 viewableText.html(html);
                                 $(this).replaceWith(viewableText);
                                 // setup the click event for this new div

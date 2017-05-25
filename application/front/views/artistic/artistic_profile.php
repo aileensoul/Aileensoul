@@ -292,7 +292,7 @@ if ($artisticdata[0]['designation'] == '') {
                     $userid = $this->session->userdata('aileenuser');
                     if ($artisticdata[0]['user_id'] == $userid) {
                         ?> 
-                        <a id="designation" class="designation" title="Designation">Designation</a>
+                        <a id="designation" class="designation" title="Designation">Current Work</a>
                         <?php } ?>
 
                 <?php } else { ?> 
@@ -703,6 +703,10 @@ if ($artisticdata[0]['art_bestofmine']) {
                             function editableTextBlurred() {
                                 var html = $(this).val();
                                 var viewableText = $("<a>");
+
+                                      if(html == ''){
+                         html = "Current Work";
+                            }
                                 viewableText.html(html);
                                 $(this).replaceWith(viewableText);
                                 // setup the click event for this new div

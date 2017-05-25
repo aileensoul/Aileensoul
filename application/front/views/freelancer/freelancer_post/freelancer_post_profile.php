@@ -242,7 +242,7 @@ echo $freelancer_post_header2;
                 
 
                 ?> <!--<center><a id="myBtn" title="Designation">Designation</a></center>-->
-                <a id="designation" class="designation" title="Designation">Designation</a>
+                <a id="designation" class="designation" title="Designation">Current Work</a>
                 
             <?php }
              else {
@@ -441,7 +441,24 @@ if ($freelancerpostdata[0]['freelancer_post_area']) {
 
                                   <li><b>Describe Your Skill In Brief</b> <span> <p><?php echo $this->common->make_links($freelancerpostdata[0]['freelancer_post_skill_description']); ?> </p> </span> </li>
 
-                                            <li><b>Total Experience</b> <span><?php echo $freelancerpostdata[0]['freelancer_post_exp_month'] . ' ' . $freelancerpostdata[0]['freelancer_post_exp_year']; ?></span> </li>  
+                                            <li><b>Total Experience</b> <span>
+                                            <?php if($freelancerpostdata[0]['freelancer_post_exp_month'] == '12 month' && $freelancerpostdata[0]['freelancer_post_exp_year'] == '0 year')
+                                            { echo "1 year"; 
+                                           } elseif($freelancerpostdata[0]['freelancer_post_exp_year'] != '0 year' && $freelancerpostdata[0]['freelancer_post_exp_month'] == '12 month')
+                                           { 
+                                                $month = explode(' ', $freelancerpostdata[0]['freelancer_post_exp_year']);
+                                                $year=$month[0];
+                                                $years=$year + 1;
+                                                echo $years." Years";
+                                                
+                                                //echo $month[0] + 1. "year";
+                                                } else{
+                                                    echo $freelancerpostdata[0]['freelancer_post_exp_year'] . ' ' . $freelancerpostdata[0]['freelancer_post_exp_month'];
+                                                    }?>
+
+                                            <!-- <?php echo $freelancerpostdata[0]['freelancer_post_exp_year'] . ' ' . $freelancerpostdata[0]['freelancer_post_exp_month']; ?>
+ -->                                                
+                                            </span> </li>  
 
 
                                         </ul>
@@ -951,6 +968,11 @@ if ($freelancerpostdata[0]['freelancer_post_portfolio']) {
                             function editableTextBlurred() {
                                 var html = $(this).val();
                                 var viewableText = $("<a>");
+
+                                 if(html == ''){
+                                    html = "Current Work";
+                                 }
+
                                 viewableText.html(html);
                                 $(this).replaceWith(viewableText);
                                 // setup the click event for this new div

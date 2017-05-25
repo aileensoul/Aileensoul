@@ -277,7 +277,7 @@
     <div class="upload-img">
 
 
-        <label class="cameraButton"><span class="tooltiptext">Upload Cover Photo</span><i class="fa fa-camera" aria-hidden="true"></i>
+        <label class="cameraButton"><span class="tooltiptext_rec">Upload Cover Photo</span><i class="fa fa-camera" aria-hidden="true"></i>
             <input type="file" id="upload" name="upload" accept="image/*;capture=camera" onclick="showDiv()">
         </label>
 
@@ -473,7 +473,7 @@
                 <div class="designation_rec_1 fl ">
              <ul>
                 <li> 
-      <a class="post_name"  href="<?php echo base_url('job/job_printpreview/' . $rec['user_id'].'?page=recruiter'); ?>" title="<?php echo $rec[0]['fname']. ' ' . $rec[0]['lname']; ?>">
+      <a class="post_name"  style="margin-left: -18px;" href="<?php echo base_url('job/job_printpreview/' . $rec['user_id'].'?page=recruiter'); ?>" title="<?php echo $rec[0]['fname']. ' ' . $rec[0]['lname']; ?>">
         <?php echo $this->db->get_where('job_reg', array('user_id' => $rec['to_id']))->row()->fname . ' ' . $this->db->get_where('job_reg', array('user_id' => $rec['to_id']))->row()->lname; ?></a>
                  </li>
    
@@ -493,6 +493,10 @@
                     ?> 
                 </a>
               </li>
+
+
+
+
         </ul>
         </div>
 
@@ -1053,6 +1057,9 @@ $( "#tags" ).autocomplete({
                             function editableTextBlurred() {
                                 var html = $(this).val();
                                 var viewableText = $("<a>");
+                                if(html == ''){
+            html = "Current Work";
+        }
                                 viewableText.html(html);
                                 $(this).replaceWith(viewableText);
                                 // setup the click event for this new div

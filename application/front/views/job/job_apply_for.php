@@ -23,7 +23,7 @@
         <div class="user-midd-section" id="paddingtop_fixed_job">
            
            <div class="common-form1">
-             <div class="col-md-3 col-sm-4"></div>
+           <div class="row">              <div class="col-md-3 col-sm-4"></div>
 
 <?php 
 
@@ -43,9 +43,8 @@
 
                        <?php }?>
             </div>
-            <br>
-            <br>
-            <br> 
+           </div>
+
            
             <div class="container">
                 <div class="row row4">

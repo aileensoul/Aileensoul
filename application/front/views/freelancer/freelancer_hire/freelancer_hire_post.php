@@ -321,7 +321,7 @@ echo $freelancer_hire_header2;} ?>
 
 
         <div class="job-menu-profile1">
-        <h5> <?php echo ucwords($freelancerpostdata[0]['fullname']) . ' ' . ucwords($freelancerpostdata[0]['username']); ?></h5>
+        <h5> <?php echo ucwords($freehiredata[0]['fullname']) . ' ' . ucwords($freehiredata[0]['username']); ?></h5>
 
 
             <div class="profile-text">
@@ -436,26 +436,37 @@ echo $freelancer_hire_header2;} ?>
                 $lastname = $this->db->get_where('freelancer_hire_reg', array('user_id' => $post['user_id']))->row()->username;
                     ?>
 
+
+                         <?php $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name; ?>
+                          <?php $countryname = $this->db->get_where('countries', array('country_id' => $post['country']))->row()->country_name; ?>
+
                             <li>
                             <?php if($returnpage=='freelancer_post') {?>
                             <a class="display_inline" title="<?php echo ucwords($firstname); ?>&nbsp;<?php echo ucwords($lastname); ?>" href="<?php echo base_url('freelancer/freelancer_hire_profile/' . $post['user_id'].'?page=freelancer_post'); ?>"><?php echo ucwords($firstname); ?>&nbsp;<?php echo ucwords($lastname); ?>
                             </a>
-                              <div class="fr lction display_inline">
-                              <?php $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name; ?>
-                              <?php $countryname = $this->db->get_where('countries', array('country_id' => $post['country']))->row()->country_name; ?>
 
-                                <p title="Location"><i class="fa fa-map-marker" aria-hidden="true">  <?php echo $cityname.","; ?><?php echo $countryname; ?></i></p>
+                            <?php if($cityname || $countryname){?>
+                              <div class="fr lction display_inline">
+                              
+                                <p title="Location"><i class="fa fa-map-marker" aria-hidden="true">
+                                <?php if($cityname){?> 
+                                 <?php echo $cityname.","; ?>
+                                 <?php }?>
+                                 <?php echo $countryname; ?></i></p>
                                  </div>
+                                 <?php }?>
                             <?php }  else {?>
                             <a class="display_inline" title="<?php echo ucwords($firstname); ?>&nbsp;<?php echo ucwords($lastname); ?>" href="<?php echo base_url('freelancer/freelancer_hire_profile/' . $post['user_id']); ?>"><?php echo ucwords($firstname); ?>&nbsp;<?php echo ucwords($lastname); ?>
                             </a> 
-
+                            <?php if($cityname || $countryname){?>
                             <div class="fr lction display_inline">
-                              <?php $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name; ?>
-                              <?php $countryname = $this->db->get_where('countries', array('country_id' => $post['country']))->row()->country_name; ?>
-
-                                <p title="Location"><i class="fa fa-map-marker" aria-hidden="true">  <?php echo $cityname.","; ?><?php echo $countryname; ?></i></p>
+                              
+                                <p title="Location"><i class="fa fa-map-marker" aria-hidden="true"> <?php if($cityname){ ?>
+                                 <?php echo $cityname.","; ?>
+                                <?php }?>
+                                <?php echo $countryname; ?></i></p>
                                  </div>
+                                 <?php }?>
                             <?php }?>
                             </li>
                     <!-- vishang 14-4 end -->    
@@ -530,7 +541,9 @@ echo $freelancer_hire_header2;} ?>
                                             <b>Required Experience</b>
                                                      <span>
                                              <?php if($post['post_exp_month'] ||  $post['post_exp_year']){
-            echo $post['post_exp_year'].".";?>&nbsp;<?php  echo $post['post_exp_month']." Year";}
+                                                
+
+            echo $post['post_exp_year'].".";?><?php  echo $post['post_exp_month']." Year";}
                 else{echo PROFILENA;} ?> 
                                                                     </span>
                                                                 </li>
@@ -714,6 +727,8 @@ $contition_array = array('user_id' => $userid, 'job_save' => '2', 'post_id ' => 
         <script>
 
 var data= <?php echo json_encode($demo); ?>;
+
+//alert(data);
 
         
 $(function() {
@@ -1119,6 +1134,9 @@ $( "#tags" ).autocomplete({
                             function editableTextBlurred() {
                                 var html = $(this).val();
                                 var viewableText = $("<a>");
+                                  if(html == ''){
+            html = "Designation";
+        }
                                 viewableText.html(html);
                                 $(this).replaceWith(viewableText);
                                 // setup the click event for this new div

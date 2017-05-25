@@ -1418,18 +1418,18 @@ class Job extends MY_Controller {
                 if ($edu_certificate == "") {
                     
                   // echo $jobdata[$x]['job_graduation_id']; echo 1; die();
-                    $data = array(
-                        'edu_certificate' => $this->input->post('image_hidden_degree' . $jobdata[$x]['job_graduation_id'])
-                    );
+                    
+                       $edu_certificate1 = $this->input->post('image_hidden_degree' . $jobdata[$x]['job_graduation_id']);
+                    
                 } else { 
                     
-                    $data = array(
-                        'edu_certificate' =>   $edu_certificate
-                    );
+                    
+                        $edu_certificate1 =   $edu_certificate;
+                    
                 }
 
-               // echo "<pre>"; print_r($data); die();
-                $updatedata = $this->common->update_data($data, 'job_graduation', 'job_graduation_id', $jobdata[$x]['job_graduation_id']);
+               // // echo "<pre>"; print_r($data); die();
+               //  $updatedata = $this->common->update_data($data, 'job_graduation', 'job_graduation_id', $jobdata[$x]['job_graduation_id']);
 
               $i = $x + 1;
              // echo $userdata[0]['education_data'][$x]; die();
@@ -1443,7 +1443,7 @@ class Job extends MY_Controller {
                     'grade' => $userdata[0]['grade'][$x],
                     'percentage' => $userdata[0]['percentage'][$x],
                     'pass_year' => $userdata[0]['pass_year'][$x],
-                 'edu_certificate'=> $edu_certificate,
+                 'edu_certificate'=> $edu_certificate1,
                  //   'grad_step' => 1
                     'degree_count' => $i
                 );
@@ -2502,18 +2502,23 @@ class Job extends MY_Controller {
                         if($exp_data == 'old'){
                         $files[] = $_FILES;
                         //echo "<pre>";print_r($files);die();
-                        $work_certificate = $files['certificate']['name'][$x];
+                         $work_certificate = $files['certificate']['name'][$x];
+
                         //echo  $edu_certificate;die();
                         if ($work_certificate == "") {
-                            $data = array(
-                                'work_certificate' => $this->input->post('image_hidden_certificate' . $jobdata[$x]['work_id'])
-                            );
+                            // $data = array(
+                            //     'work_certificate' => $this->input->post('image_hidden_certificate' . $jobdata[$x]['work_id'])
+                            // );
+
+                            $work_certificate1 = $this->input->post('image_hidden_certificate' . $jobdata[$x]['work_id']);
                         } else {
-                            $data = array(
-                                'work_certificate' =>  $work_certificate
-                            );
+                            // $data = array(
+                            //     'work_certificate' =>  $work_certificate
+                            // );
+                            $work_certificate1 = $work_certificate;
                         }
-                        $updatedata = $this->common->update_data($data, 'job_add_workexp', 'work_id', $jobdata[$x]['work_id']);
+
+                        // $updatedata = $this->common->update_data($data, 'job_add_workexp', 'work_id', $jobdata[$x]['work_id']);
 
                         $data = array(
                             'user_id' => $userid,
@@ -2524,12 +2529,18 @@ class Job extends MY_Controller {
                             'companyname' => $userdata[0]['companyname'][$x],
                             'companyemail' => $userdata[0]['companyemail'][$x],
                             'companyphn' => $userdata[0]['companyphn'][$x],
-                            'work_certificate'=>    $work_certificate
+                            'work_certificate'=>    $work_certificate1
                         );
 
                         $updatedata1 = $this->common->update_data($data, 'job_add_workexp', 'work_id', $jobdata[$x]['work_id']);
+
                         }
                         else{
+
+$files[] = $_FILES;
+                        //echo "<pre>";print_r($files);die();
+                         $work_certificate = $files['certificate']['name'][$x];
+
                             $data = array(
                             'user_id' => $userid,
                             'experience' => $exp,
@@ -2551,9 +2562,8 @@ class Job extends MY_Controller {
                 } else {
                     //Add Multiple field into database Start 
                     for ($x = 0; $x < $count1; $x++) {
-                        $work_certificate = $files['certificate']['name'][$x];
 
-
+                         $work_certificate = $files['certificate']['name'][$x];
                         $data = array(
                             'user_id' => $userid,
                             'experience' => $exp,
@@ -3577,7 +3587,6 @@ class Job extends MY_Controller {
                 'not_read' => 2,
                 'not_from' => 2,
                 'not_product_id' => $app_id,
-                'not_created_date' => date('y-m-d h:i:s'),
             );
 
             $updatedata = $this->common->insert_data_getid($data, 'notification');
@@ -4044,41 +4053,41 @@ public function job_applied_post() {
 // deactivate user end
     //enter designation start
 
-    public function job_designation() {  //echo "hello"; die();
-        $userid = $this->session->userdata('aileenuser');
+    // public function job_designation() {  //echo "hello"; die();
+    //     $userid = $this->session->userdata('aileenuser');
 
 
-        $this->form_validation->set_rules('designation', 'Designation', 'required');
+    //     $this->form_validation->set_rules('designation', 'Designation', 'required');
 
 
-        if ($this->form_validation->run() == FALSE) {
-            $this->load->view('job/job_all_post');
-        } else {
-            $data = array(
-                'designation' => $this->input->post('designation'),
-                'modified_date' => date('Y-m-d', time())
-            );
+    //     if ($this->form_validation->run() == FALSE) {
+    //         $this->load->view('job/job_all_post');
+    //     } else {
+    //         $data = array(
+    //             'designation' => $this->input->post('designation'),
+    //             'modified_date' => date('Y-m-d', time())
+    //         );
 
-            $updatdata = $this->common->update_data($data, 'job_reg', 'user_id', $userid);
+    //         $updatdata = $this->common->update_data($data, 'job_reg', 'user_id', $userid);
 
 
-            if ($updatdata) {
+    //         if ($updatdata) {
 
-                if ($this->input->post('hitext') == 1) {
-                    redirect('job/job_all_post', refresh);
-                } elseif ($this->input->post('hitext') == 2) {
-                    redirect('job/job_printpreview', refresh);
-                } elseif ($this->input->post('hitext') == 3) {
-                    redirect('job/job_save_post', refresh);
-                } elseif ($this->input->post('hitext') == 4) {
-                    redirect('job/job_applied_post', refresh);
-                }
-            } else {
-                $this->session->flashdata('error', 'Your data not inserted');
-                redirect('job/job_all_post', refresh);
-            }
-        }
-    }
+    //             if ($this->input->post('hitext') == 1) {
+    //                 redirect('job/job_all_post', refresh);
+    //             } elseif ($this->input->post('hitext') == 2) {
+    //                 redirect('job/job_printpreview', refresh);
+    //             } elseif ($this->input->post('hitext') == 3) {
+    //                 redirect('job/job_save_post', refresh);
+    //             } elseif ($this->input->post('hitext') == 4) {
+    //                 redirect('job/job_applied_post', refresh);
+    //             }
+    //         } else {
+    //             $this->session->flashdata('error', 'Your data not inserted');
+    //             redirect('job/job_all_post', refresh);
+    //         }
+    //     }
+    // }
 
 //designation end
 // cover pic controller
@@ -4205,11 +4214,12 @@ public function job_applied_post() {
             'designation' => $_POST['designation']
         );
         $updatedata = $this->common->update_data($data, 'job_reg', 'user_id', $userid);
-        if ($updatedata) {
-            echo 'ok';
-        } else {
-            echo 'error';
-        }
+        // if ($updatedata) {
+        //     echo 'ok';
+        //    //  redirect('job/ajax_designation', refresh);
+        // } else {
+        //     echo 'error';
+        // }
     }
 
 // cover pic end

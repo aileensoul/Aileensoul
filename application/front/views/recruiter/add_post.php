@@ -1,5 +1,10 @@
 <?php echo $head; ?>
 
+
+<!-- select 2 validation border start -->
+
+
+
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
@@ -49,7 +54,7 @@
                             <div class="job-saved-box">
                                 <h3>Add New Post</h3>
 
-<?php echo form_open(base_url('recruiter/add_post_store'), array('id' => 'artpost', 'name' => 'artpost', 'class' => 'clearfix')); ?>
+<?php echo form_open(base_url('recruiter/add_post_store'), array('id' => 'artpost', 'name' => 'artpost', 'class' => 'clearfix', 'onsubmit' => "return imgval()")); ?>
 
 
 
@@ -94,11 +99,11 @@
                                 </fieldset>
 
 
-                                <fieldset <?php if ($month) { ?> class="error-msg" <?php } ?> class="two-select-box">
+                                <fieldset <?php if ($month) { ?> class="error-msg" <?php } ?> class="two-select-box1">
                                     <label style="cursor:pointer;" class="control-label">Minimum experience:<span style="color:red">*</span></label>
 
 
-                                    <select name="minyear" style="cursor:pointer;" class="keyskil">
+                            <select name="minyear" style="cursor:pointer;" class="keyskil" id="minyear">
                                         <option value="">Year</option>
                                         <option value="0">0 Year</option>
                                         <option value="1">1 Year</option>
@@ -123,7 +128,7 @@
                                         <option value="20">20 Year</option>
                                     </select>
                                     
-                                    <select name="minmonth"  style="cursor:pointer;" class="keyskil">
+                             <select name="minmonth"  style="cursor:pointer;" class="keyskil margin-month " id="minmonth">
                                         <option value="">Month</option>
                                         <option value="0">0 Month</option>
                                         <option value="1">1 Month</option>
@@ -140,11 +145,11 @@
                                 </fieldset>
 
 
-                                <fieldset <?php if ($month) { ?> class="error-msg" <?php } ?> class="two-select-box">
+                                <fieldset <?php if ($month) { ?> class="error-msg" <?php } ?> class="two-select-box1">
                                     <label style="cursor:pointer;" class="control-label">&nbsp;Maximum experience:<span style="color:red">*</span></label>
 
 
-                                      <select name="maxyear" style="cursor:pointer;" class="keyskil1">
+                                      <select name="maxyear" style="cursor:pointer;" class="keyskil1" id="maxyear">
                                         <option value="">Year</option>
                                         <option value="0">0 Year</option>
                                         <option value="1">1 Year</option>
@@ -171,7 +176,7 @@
 
                                       
 
-                                    <select name="maxmonth" style="cursor:pointer;" class="keyskil1">
+                                    <select name="maxmonth" style="cursor:pointer;" class="keyskil1 margin-month " id="maxmonth">
                                         <option value="">Month</option>
                                         <option value="0">0 Month</option>
                                         <option value="1">1 Month</option>
@@ -186,7 +191,8 @@
                                     <?php echo form_error('month'); ?> &nbsp;&nbsp; <?php echo form_error('year'); ?>
                                 </fieldset>
 
-                                <fieldset style="cursor:pointer;" class="form-group full-width">
+                                <fieldset style="cursor:pointer;
+    margin-top: 5px;margin-left: 15px;" class="form-group full-width">
                                     <input  type="checkbox" name="fresher" value="1"> Fresher can also apply..!
                                 </fieldset>
 
@@ -250,13 +256,13 @@
 
                                 <fieldset <?php if ($minsal) { ?> class="error-msg" <?php } ?>>
                                     <label class="control-label">Min salary:(Per Year) <span style="color:red">*</span></label>
-                                    <input name="minsal" type="text" id="minsal" placeholder="Enter Minimum salary" /><span id="fullname-error"></span>
+                                    <input name="minsal" type="text" id="minsal" placeholder="Enter Minimum salary" onblur="return full_name(); /><span id="fullname-error"></span>
 <?php echo form_error('minsal'); ?>
                                 </fieldset>
 
                                 <fieldset <?php if ($maxsal) { ?> class="error-msg" <?php } ?>>
                                     <label class="control-label">Max salary:(Per Year)<span style="color:red">*</span></label>
-                                    <input name="maxsal" type="text" id="maxsal" placeholder="Enter Maximum salary" /><span id="fullname-error"></span>
+                                    <input name="maxsal" type="text" id="maxsal" placeholder="Enter Maximum salary" onblur="return full_name();/><span id="fullname-error"></span>
 <?php echo form_error('maxsal'); ?>
                                 </fieldset>
 
@@ -312,6 +318,38 @@
 <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.min.js') ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
 
+
+
+<script type="text/javascript">
+  
+function imgval(){ 
+ 
+ var skill_main = document.getElementById("skills").value;
+ var skill_other = document.getElementById("other_skill").value;
+
+ 
+     if(skill_main =='' && skill_other == ''){
+  
+  $('#artpost .select2-selection').addClass("keyskill_border_active").style('border','1px solid #f00');
+  }
+
+  var minyear = document.getElementById('minyear').value;
+        var minmonth = document.getElementById('minmonth').value;
+        var maxyear = document.getElementById('maxyear').value;
+        var maxmonth = document.getElementById('maxmonth').value;
+
+        var min_exper;
+        min_exper = (minyear * 12) + minmonth ;
+        max_exper = (maxyear * 12) + maxmonth;
+        if(min_exper > max_exper){
+            alert("Minimum experience is not greater than maximum experience");
+            return false;
+
+        }
+   
+  }
+
+</script>
 <script>
 
    var data = <?php echo json_encode($demo); ?>;
@@ -343,6 +381,7 @@
    });
 
 </script>
+
 <script type="text/javascript">
     function checkvalue() {
         //alert("hi");
@@ -375,6 +414,9 @@ $('#datepicker').datetimepicker({
 </script>
 <script type="text/javascript" src="<?php echo base_url('js/jquery.validate1.15.0..min.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('js/additional-methods1.15.0.min.js'); ?>"></script>
+
+
+
 
 <script type="text/javascript">
 
@@ -496,7 +538,8 @@ $.validator.addMethod("greaterThan",
                 },
                 maxsal:{
                     required: true,
-                    noSpace: true
+                    noSpace: true,
+                    greaterThan: '#minsal'
                 },
                 
                 
@@ -842,3 +885,12 @@ $.validator.addMethod("greaterThan",
 //select2 autocomplete End for Location
 </script>
 
+
+
+<style type="text/css">
+ 
+.keyskill_border_active {
+  border: 3px solid #f00 !important;
+
+}
+</style>

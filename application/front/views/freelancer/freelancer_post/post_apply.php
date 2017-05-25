@@ -95,7 +95,7 @@
 <!-- start header -->
 <?php echo $header; ?>
 <!-- END HEADER -->
-<?php echo $freelancer_hire_header2_border; ?>
+<?php echo $freelancer_post_header2_border; ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -380,14 +380,19 @@ if ($freepostdata[0]['designation']) {
                               <a href="#" title="Post Title" class="display_inline" style="font-size: 19px;font-weight: 600;cursor: default;">
                               <?php echo ucwords($post['post_name']); ?> </a>   </li>
 
-                             <li>   
-                               <div class="fr lction">
-                              <?php $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name; ?>
+                             <li>  
+                             <?php $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name; ?>
                               <?php $countryname = $this->db->get_where('countries', array('country_id' => $post['country']))->row()->country_name; ?>
+                              <?php if($cityname || $countryname){?>
 
+ 
+                               <div class="fr lction">
+                              
                                 <p><i class="fa fa-map-marker" aria-hidden="true">
-                                  <?php if ($cityname){echo $cityname.","; } ?><?php if ($countryname){ echo $countryname; }?></i></p>
+                                <?php if($cityname){
+                                   echo $cityname.","; } ?><?php  echo $countryname; ?></i></p>
                                  </div>
+                                 <?php }?>
 
                              <?php
                 $firstname = $this->db->get_where('freelancer_hire_reg', array('user_id' => $post['user_id']))->row()->fullname;

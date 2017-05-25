@@ -1,6 +1,10 @@
 <!-- start head -->
 
 <?php echo $head; ?>
+<link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+
 
 <!--post save success pop up style strat -->
 <style>
@@ -20,8 +24,7 @@
         width: 100px; 
         border-radius: 8px;
     }
-
-
+.audio_img{height: 300px; width: 350px; position: relative;}
     .pop_content .cnclbtn {
         position: absolute;
         transition: all 200ms;
@@ -78,7 +81,7 @@
         height: auto;
         min-height: 25%;
         color: #999999;
-        padding: 12px 20px;
+        padding: 12px 0px;
         box-sizing: border-box;
         /* border: 2px solid #ccc; */
         border-radius: 4px;
@@ -98,6 +101,8 @@
 <?php echo $header; ?>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('dragdrop/fileinput.css'); ?>">
 <link href="<?php echo base_url('dragdrop/themes/explorer/theme.css'); ?>" media="all" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/video.css'); ?>">
+    <script src="<?php echo base_url('js/mediaelement-and-player.min.js'); ?>"></script>
 
 <!--  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 -->
@@ -110,7 +115,16 @@
 <!--<script src="<?php echo base_url('assets/js/jquery.js'); ?>"></script>
 <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>-->
 <?php echo $art_header2_border; ?>
-
+ 
+    <script>
+    $(document).ready(function() {
+        $('video').mediaelementplayer({
+            alwaysShowControls: false,
+            videoVolume: 'horizontal',
+            features: ['playpause','progress','volume','fullscreen']
+        });
+    });
+    </script>
 <!DOCTYPE html>
 <html>
     <head>
@@ -1036,7 +1050,6 @@ if (count($finalsorting) > 0) {
                                                         </span></div> 
                                                 </div>
                                                 <div class="post-design-mid col-md-12" >  
-
                                                     <!-- multiple image code  start-->
 
                                                     <div class="images_art_post">
@@ -1078,29 +1091,36 @@ if (count($finalsorting) > 0) {
 
                                                                 <!-- one video start -->
                                                                 <div>
-                                                                    <video width="100%" height="240" controls>
+                                                                
 
-                                                                        <source src="<?php echo base_url($this->config->item('art_post_main_upload_path') . $artmultiimage[0]['image_name']) ?>" type="video/mp4">
+                                                                     <video width="100%" height="370" >
+     <source src="<?php echo base_url($this->config->item('art_post_main_upload_path') . $artmultiimage[0]['image_name']) ?>" type="video/mp4">
                                                                         <source src="movie.ogg" type="video/ogg">
-                                                                        Your browser does not support the video tag.
-                                                                    </video>
+    </video>
+
                                                                 </div>
                                                                 <!-- one video end -->
 
                 <?php } elseif (in_array($ext, $allowesaudio)) { ?>
 
                                                                 <!-- one audio start -->
-                                                                <div>
-                                                                    <audio width="100%" height="100" controls>
+                                                            <div>
+                                                       <div class="audio_main_div">
+                                                                <div class="audio_img">
+                                                                  <img src="<?php echo base_url('images/music-icon.png')?> ">  
+                                                                </div>
+                                                                <div class="audio_source">
+                                                            <audio  controls>
 
                                                                         <source src="<?php echo base_url($this->config->item('art_post_main_upload_path') . $artmultiimage[0]['image_name']) ?>" type="audio/mp3">
                                                                         <source src="movie.ogg" type="audio/ogg">
                                                                         Your browser does not support the audio tag.
-
-                                                                    </audio>
-
+</audio>
+</div>
+                                                                <div class="audio_mp3">
+                                                                   <p title="hellow this is mp3">This text will scroll from right to left</p>
                                                                 </div>
-
+                                                               </div> 
                                                                 <!-- one audio end -->
 
                 <?php } ?>
@@ -1690,12 +1710,12 @@ if (count($finalsorting) > 0) {
                     </script>
                     <!-- script for skill textbox automatic start (option 2)-->
 
-<!--                    <script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
+                    <script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
                     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
                     <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
                     <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
                     <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>-->
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 
 
                     <!-- script for skill textbox automatic end (option 2)-->
@@ -3334,7 +3354,6 @@ if (count($finalsorting) > 0) {
                             /*        margin-left: 15px;
                                     margin-right: 15px;*/
                             width: 96%;
-                            background-color: #fff !important;
                         }
                         div[class^="likeduserlist"]{
                             width: 100% !important;

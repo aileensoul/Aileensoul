@@ -6,11 +6,12 @@
 </style>
 
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap-3.min.css'); ?>">
-  <link rel="stylesheet" href="<?php echo base_url('assets/css/croppie.css'); ?>">
+<link rel="stylesheet" href="<?php echo base_url('assets/css/croppie.css'); ?>">
+<!--<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">-->
 <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
 <style type="text/css" media="screen">
 #row2 { overflow: hidden; width: 100%; }
 #row2 img { height: 350px;width: 100%; }
@@ -513,7 +514,7 @@ if($status == 0 || $status == " "){?>
 
 
 <!-- script for skill textbox automatic start (option 2)-->
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
  <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
   <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
   <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
@@ -535,6 +536,9 @@ if($status == 0 || $status == " "){?>
                             function editableTextBlurred() {
                                 var html = $(this).val();
                                 var viewableText = $("<a>");
+                                if(html == ''){
+                         html = "Current Work";
+                            }
                                 viewableText.html(html);
                                 $(this).replaceWith(viewableText);
                                 // setup the click event for this new div

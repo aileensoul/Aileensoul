@@ -356,7 +356,7 @@
         if($userdata){ ?>
           <a href="javascript:void(0);" class="button invited" style="letter-spacing: 1px;" id="<?php echo 'invited' . $row['user_id']; ?>" style="cursor: default;"> Selected</a>       
          <?php }else{ ?>
-         <a  href="#" class="button invite_border" id="<?php echo 'invited' . $row['user_id']; ?>" onClick="inviteuserpopup(<?php echo $row['user_id']; ?>)"> Select</a>
+         <a class="button "  href="#" class="button invite_border" id="<?php echo 'invited' . $row['user_id']; ?>" onClick="inviteuserpopup(<?php echo $row['user_id']; ?>)"> Select</a>
               <!-- <a href="javascript:void(0);" class="button invite_border" id="<?php echo 'invited' . $row['user_id']; ?>" onclick="inviteuserpopup(<?php echo $row['user_id']; ?>)"> Invite</a> -->
           <?php  } ?>
 

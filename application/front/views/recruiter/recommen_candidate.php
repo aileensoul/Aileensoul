@@ -266,13 +266,13 @@
                <?php
                 if ($row['job_user_image']) {
                ?>
-           <a href="<?php echo base_url('job/job_printpreview/' . $row['user_id'].'?page=recruiter'); ?>" title=" <?php echo $row['fname'] . ' ' . $row['lname']; ?>"> 
+           <a href="<?php echo base_url('job/job_printpreview/' . $row['iduser'].'?page=recruiter'); ?>" title=" <?php echo $row['fname'] . ' ' . $row['lname']; ?>"> 
            <img src="<?php echo base_url($this->config->item('job_profile_thumb_upload_path') . $row['job_user_image']); ?>" alt="<?php echo $row[0]['fname'] . ' ' . $row[0]['lname']; ?>">
             </a>
              <?php
             } else {
               ?>
-              <a href="<?php echo base_url('job/job_printpreview/' . $row['user_id'].'?page=recruiter'); ?>" title=" <?php echo $row['fname'] . ' ' . $row['lname']; ?>"> 
+              <a href="<?php echo base_url('job/job_printpreview/' . $row['iduser'].'?page=recruiter'); ?>" title=" <?php echo $row['fname'] . ' ' . $row['lname']; ?>"> 
            <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo $row[0]['fname'] . ' ' . $row[0]['lname']; ?>"> </a>
              <?php
                 }
@@ -283,12 +283,12 @@
        <div class="designation_rec fl">
           <ul>
        <li>
-      <a  class="post_name" href="<?php echo base_url('job/job_printpreview/' . $row['user_id'].'?page=recruiter'); ?>" title=" <?php echo $row['fname'] . ' ' . $row['lname']; ?>">
+      <a  class="post_name" href="<?php echo base_url('job/job_printpreview/' . $row['iduser'].'?page=recruiter'); ?>" title=" <?php echo $row['fname'] . ' ' . $row['lname']; ?>">
        <?php echo ucwords($row['fname']) . ' ' . ucwords($row['lname']); ?></a>
       </li>
       
       <li style="display: block;">
-        <a  class="post_designation" href="<?php echo base_url('job/job_printpreview/' . $row['user_id'].'?page=recruiter'); ?>" title="<?php echo $row['designation']; ?>">
+        <a  class="post_designation" href="<?php echo base_url('job/job_printpreview/' . $row['iduser'].'?page=recruiter'); ?>" title="<?php echo $row['designation']; ?>">
             <?php
               if ($row['designation']) {
              ?>
@@ -435,25 +435,25 @@
        <div class="apply-btn fr">
    <?php
  $userid = $this->session->userdata('aileenuser');
-$contition_array = array('from_id' => $userid, 'to_id' => $row['user_id'], 'save_type' => 1, 'status' => '0');
+$contition_array = array('from_id' => $userid, 'to_id' => $row['iduser'], 'save_type' => 1, 'status' => '0');
 $data = $this->common->select_data_by_condition('save', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                                                                 
- if($userid != $row['user_id']){       
+ if($userid != $row['iduser']){       
  if (!$data) {
      ?> 
                      
-    <a href="<?php echo base_url('chat/abc/' . $row['user_id']); ?>">Message</a> 
+    <a href="<?php echo base_url('chat/abc/' . $row['iduser']); ?>">Message</a> 
 
 <!--                     <a href="#">Invite</a>-->
 
-             <input type="hidden" id="<?php echo 'hideenuser' . $row['user_id']; ?>" value= "<?php echo $data[0]['save_id']; ?>">
+             <input type="hidden" id="<?php echo 'hideenuser' . $row['iduser']; ?>" value= "<?php echo $data[0]['save_id']; ?>">
                
-              <a id="<?php echo $row['user_id']; ?>" onClick="savepopup(<?php echo $row['user_id']; ?>)" href="javascript:void(0);" class="<?php echo 'saveduser' . $row['user_id']; ?>">Save</a>
+              <a id="<?php echo $row['iduser']; ?>" onClick="savepopup(<?php echo $row['iduser']; ?>)" href="javascript:void(0);" class="<?php echo 'saveduser' . $row['iduser']; ?>">Save</a>
 
                 <?php
             } else {
                  ?>
-    <a href="<?php echo base_url('chat/abc/' . $row['user_id']); ?>">Message</a> 
+    <a href="<?php echo base_url('chat/abc/' . $row['iduser']); ?>">Message</a> 
 
     <a class="saved">Saved </a> 
                                                         <?php } }
@@ -699,6 +699,11 @@ $data = $this->common->select_data_by_condition('save', $contition_array, $data 
                    
                     <script>
                         function savepopup(id) {
+<<<<<<< HEAD
+                         // alert(id);
+=======
+                          //alert(id);
+>>>>>>> 0bf35d0eb0f7df178d50ec287c94c8ca34dd7206
                             save_user(id);
                       
             $('.biderror .mes').html("<div class='pop_content'>Candidate successfully saved.");

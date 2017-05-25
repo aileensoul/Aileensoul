@@ -9,16 +9,15 @@
 
 
 <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap-3.min.css'); ?>">
-
+<link rel="stylesheet" href="<?php echo base_url('assets/css/croppie.css'); ?>">
+<!--<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">-->
 <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
-<link rel="stylesheet" href="<?php echo base_url('assets/css/croppie.css'); ?>">
-
 <!-- 
 
 responsive image design start -->
-<style>/* Responsive Images in Columns */
+<style>/* Responsive Images in Columns */.audio_img{height: 300px; width: 350px; position: relative;}
     .two-columns {
         width: 48%;
         display: inline-block;
@@ -225,6 +224,8 @@ responsive image design start -->
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('dragdrop/fileinput.css'); ?>">
    <link href="<?php echo base_url('dragdrop/themes/explorer/theme.css'); ?>" media="all" rel="stylesheet" type="text/css"/>
     
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/video.css'); ?>">
+    <script src="<?php echo base_url('js/mediaelement-and-player.min.js'); ?>"></script>
 <!--  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
  -->
     <script src="<?php echo base_url('dragdrop/js/plugins/sortable.js'); ?>"></script>
@@ -472,7 +473,7 @@ responsive image design start -->
                     ?>
 
                     <?php if ($artisticdata[0]['user_id'] == $userid) { ?>
-                        <a id="designation" class="designation" title="Designation">Designation</a>
+                        <a id="designation" class="designation" title="Designation">Current Work    </a>
 
                     <?php } ?>
 
@@ -1258,7 +1259,7 @@ responsive image design start -->
 
                                                     <!-- one video start -->
                                                     <div class="video_post">
-                                                        <video width="100%" height="55%" controls>
+                                                        <video width="100%" class="video" height="55%" controls>
 
 
                                                             <source src="<?php echo base_url($this->config->item('art_post_main_upload_path') . $artmultiimage[0]['image_name']) ?>" type="video/mp4">
@@ -1272,16 +1273,22 @@ responsive image design start -->
 
                                                     <!-- one audio start -->
                                                     <div>
-                                                        <audio width="100%" height="100" controls>
+                                                       <div class="audio_main_div">
+                                                                <div class="audio_img">
+                                                                  <img src="<?php echo base_url('images/music-icon.png')?> ">  
+                                                                </div>
+                                                                <div class="audio_source">
+                                                            <audio  controls>
 
                                                             <source src="<?php echo base_url($this->config->item('art_post_main_upload_path') . $artmultiimage[0]['image_name']); ?>" type="audio/mp3">
                                                             <source src="movie.ogg" type="audio/ogg">
                                                             Your browser does not support the audio tag.
-
-                                                        </audio>
-
-                                                    </div>
-
+</audio>
+</div>
+                                                                <div class="audio_mp3">
+                                                                   <p title="hellow this is mp3">This text will scroll from right to left</p>
+                                                                </div>
+                                                               </div> 
                                                     <!-- one audio end -->
 
                                                 <?php } ?>
@@ -1832,8 +1839,8 @@ responsive image design start -->
 
 <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
 
-<!-- <script src="<?php// echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
- -->
+ <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
+ 
 <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
 
 
@@ -1862,6 +1869,9 @@ responsive image design start -->
                             function editableTextBlurred() {
                                 var html = $(this).val();
                                 var viewableText = $("<a>");
+                                 if(html == ''){
+                         html = "Current Work";
+                            }
                                 viewableText.html(html);
                                 $(this).replaceWith(viewableText);
                                 // setup the click event for this new div
@@ -4105,3 +4115,12 @@ responsive image design start -->
 
 
 
+  <script>
+    $(document).ready(function() {
+        $('.video').mediaelementplayer({
+            alwaysShowControls: false,
+            videoVolume: 'horizontal',
+            features: ['playpause','progress','volume','fullscreen']
+        });
+    });
+    </script>

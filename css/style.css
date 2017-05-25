@@ -458,7 +458,7 @@ fieldset.full-width { width: 100%; }
     padding: 0px!important;
     background-color: white;}
 .hs-submit { float: right; text-align: right; }
-.hs-submit input { min-width: 150px; width:auto; text-align: center; font-size: 18px; margin-top: 10px; border-color: #000033; text-transform:capitalize; }
+.hs-submit input { min-width: 150px; width:auto; text-align: center; font-size: 18px; margin-top: 25px; border-color: #000033; text-transform:capitalize; }
 .hs-submit input[type=reset] { border-color: #000033; color: #000033; padding: 8px 12px 11px; }
 .hs-submit input[type=reset]:hover { background: #000033; color: #fff; }
 .hs-submit input[type=submit]:hover{opacity: 0.8; background-color: #000033;}
@@ -538,7 +538,7 @@ fieldset.full-width { width: 100%; }
 .upload-img { z-index: 2;  margin-top: -75px !important; }
 
 
-.profile-photo { position: relative; z-index: 1; }
+.profile-photo { position: relative; z-index: 0; }
 .profile-text { color:#aba2a2; font-size:16px; word-break: break-word;word-wrap: break-word; width: 100%;}
 .profile-head-text { padding-top:6px; }
 .profile-pho { height:160px; width:160px; background-color: #ffffff; margin-left: 30px; margin-top:-80px; border: 4px solid #ffffff; box-shadow: 0px 0px 2px 2px #dad3cb; }
@@ -2836,9 +2836,11 @@ label.cameraButton input[accept*="camera"] {
 .post-design-menu{border-top: 1px solid #efefef;border-bottom:1px solid #efefef;}
 .post-design-menu ul { margin: 0; padding: 0; }
 .post-design-menu ul li { list-style: none; display: inline-block; padding: 0; margin: 0; position: relative; }
-.post-design-menu ul li a { font-size: 19px; color: #000033; margin-right: 18px!important;padding: 4px 5px 4px 0px!important;font-weight: 400; display: block;  }
+.post-design-menu ul li a {cursor: pointer; color: #000033; margin-right: 18px!important;padding: 4px 5px 4px 0px!important;font-weight: 400; display: block;  }
 .post-design-menu ul li a i {cursor: pointer; font-size: 19px; /*padding: 10px 5px 10px 5px;*/}
 .post-design-menu ul li a i:hover {border-radius: 10%; color: #999; }
+.post-design-menu ul li a:hover{    border-radius: 10%;
+    color: #999; cursor: pointer;}
 .post-design-name ul li a h6 { 
     font-weight: 600;
 }
@@ -2866,7 +2868,7 @@ label.cameraButton input[accept*="camera"] {
     line-height: 16px;
     display: block;}
 
-.post-design-desc{clear: both; padding:5px 20px 0px 20px;  text-align: justify;  word-break: break-word;word-wrap: break-word;}
+.post-design-desc{clear: both; padding:5px 20px 0px 20px;  text-align: justify; /* word-break: break-word;word-wrap: break-word;*/}
 .post-design-product-img img {width: 100%; height: 100%; border:1px solid #cccccc; border-radius: 3px;}
 .popup-comment{padding: 8px;  }
 
@@ -2998,7 +3000,7 @@ label.cameraButton input[accept*="camera"] {
 .art-comment-menu-design{    padding: 5px 1px 0px 30px;margin-left: 19px; }
 
 .comment-details-menu a{cursor: pointer; color: #999999; font-weight: 400; font-size: 13px;}
-.comment-details-menu p{ color: #999999; font-weight: 400;}
+.comment-details-menu p{ color: #999999; font-weight: 400; display: inline-block;}
 .comment-details-menu a:hover{text-decoration:underline; }
 .comment-edit-butn{padding: 0px 0px 6px 0px;}
 .comment-edit-butn button{position: absolute; bottom: 11px;}
@@ -4117,8 +4119,12 @@ li.fr a{
 
 /* 21-4-2017 @nkit */
 
-.select2-container--default .select2-selection--multiple{
+/*.select2-container--default .select2-selection--multiple{
     border:2px solid #cacaca !important;
+}
+*/
+.select2-container--default .select2-selection--multiple{
+    border:2px solid #cacaca;
 }
 /* 21-4-2017 */
 
@@ -4638,6 +4644,7 @@ input:-moz-placeholder { color:#999; font-size: 15px; }
 }
 .dropdown-menu{left: -23px!important;}
 
+
 /* vishang 4-5-17 */
 
 
@@ -4915,12 +4922,30 @@ fieldset .add_post_btns{min-width: 120px;padding:10px 30px 9px;}
 
 
 
-/*Dhaval Tooltip*/
+/*Dhaval Tooltip 24/ 5*/
 
     
 
+.cameraButton .tooltiptext_rec {    visibility: hidden;    width: 180px;    background-color: black;    color: #fff;    opacity: 0.6;    text-align: center;    padding: 13px 0px 10px;    position: absolute;    z-index: 1;    font-weight: 600;    margin-top: 25px;    top: -8px;    right: 110%;}
 
 
+.cameraButton .tooltiptext_rec::after {content: "";
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent transparent black;
+
+}
+
+.cameraButton:hover .tooltiptext_rec {
+    visibility: visible;
+}
+/* End dhaval*/
+
+/*Dhaval Tooltip */
 .cameraButton .tooltiptext {
      
     visibility: hidden;
@@ -4937,6 +4962,9 @@ fieldset .add_post_btns{min-width: 120px;padding:10px 30px 9px;}
     top: -8px;
     right: 110%;
 }
+
+
+
 
 .cameraButton .tooltiptext::after {
     content: "";
@@ -5036,3 +5064,114 @@ border-radius: 3px;
 /dhaval*/
 .headerborder{border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;}
+.two-select-box1 select {width:47%;float:left;}
+.margin-month { margin-left: 10px;}
+<<<<<<< HEAD
+
+
+
+/*
+audio*/
+
+.audio_img{height: 300px; width: 350px; position: relative;}
+.audio_img img{height: 100%; width: 100%;}
+.audio_main_div{margin: 0 auto; width: 50%;}
+.audio_source{position: absolute; bottom: 0;}
+.audio_source audio{width: 350px;}
+.audio_mp3{    width: 46.5%;
+    position: absolute;
+    top: 8px;
+     left: 27%;
+     text-align: center;
+    font-size: 16px;
+    color: #000;
+    font-weight: 600;
+    word-break: all;}
+  .audio_mp3 p{    text-align: center;
+    width: 64%;
+    margin-left: 18%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+cursor: default;}
+.common_form_set{    border: 1px solid #ddd;border-top: 1;padding: 10px;background-color: white;border-right:1px;border-left:1px;
+}
+/*
+cover pic css*/
+
+  
+
+
+  #row2 { overflow: hidden; width: 100%; }
+    #row2 img { height: 350px;width: 100%; } 
+    .upload-img { float: right;
+                  position: relative; margin-top: -135px; right: 50px; }
+
+    label.cameraButton {
+        display: inline-block;
+        margin: 1em 0;
+
+        /* Styles to make it look like a button */
+        padding: 0.5em;
+        border: 2px solid #666;
+        border-color: #EEE #CCC #CCC #EEE;
+        background-color: #DDD;
+        opacity: 0.7;
+    }
+
+    /* Look like a clicked/depressed button */
+    label.cameraButton:active {
+        border-color: #CCC #EEE #EEE #CCC;
+    }
+
+    /* This is the part that actually hides the 'Choose file' text box for camera inputs */
+    label.cameraButton input[accept*="camera"] {
+        display: none;
+    }
+.popup_previred img{border: 2px solid rgb(204, 204, 204); display: none; margin: 0 auto; margin-top: 5px;padding: 5px;}
+     .pop_content .cnclbtn {
+                        position: absolute;
+                        transition: all 200ms;
+                        font-size: 16px;
+                        text-decoration: none;
+                        color: #fff;
+                        padding: 8px 18px;
+                        background-color: #0A2C5D;
+                        right: 170px;
+                        margin-top: 8px;
+                        width: 100px;
+                        border-radius: 8px;
+                    }
+
+                    .popup .pop_content {
+                        text-align: center;
+                        margin-top: 40px;
+
+                    }
+                    .model_ok_cancel{
+                        width:200px !important;
+                    } 
+
+
+  /* vishang 24-5-17 start */
+
+   .display_inline_block { display: inline-block; }
+   .tabordion section h6 { font-size: 16px;}
+   .tabordion section .submit_btn { padding: 5px 9px; }
+    #jobseeker_regform_secondary { border: none !important; margin-bottom: 0px!important;}
+    #jobseeker_regform_higher_secondary { border: none !important; margin-bottom: 0px!important; }
+    #jobseeker_regform { border: none !important; margin-bottom: 0px!important; }
+    .job_edu_graduation_submit_btn { padding: 6px 9px 6px; font-size: 14px; }
+    .job_edu_graduation_removebox { margin-left: 10px; }
+    .job_edu_graduation_removebtn { padding: 5px; font-size: 13px; margin-right: 0px; }
+    .job_edu_graduation_nextbtnbox { right: -24%; position: absolute; bottom: 2.3%; display: inline-block; width: 24% !important; }
+    .job_edu_graduation_nextbtn { font-size: 16px; min-width: 120px; margin-right: 0px; }
+
+
+  /* vishang 24-5-17 end */
+
+/*Dhaval job apply for*/
+
+.select2-container .select2-selection--single{min-height: 35px;}
+
+.red { color: red; }
