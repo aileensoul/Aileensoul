@@ -37,7 +37,7 @@
 
             <div class="row" id="row1" style="display:none;">
                 <div class="col-md-12 text-center">
-                    <div id="upload-demo" style="width:100%"></div>
+                    <div id="upload-demo"></div>
                 </div>
                 <div class="col-md-12 cover-pic" >
 
@@ -285,7 +285,7 @@ if ($status == 0 || $status == " ") {
 </div>
 
       <div class="container " >
-     <div class="user-midd-section"  style="border: 1px solid #d9d9d9;">
+     <div class="user-midd-section grybod" >
 
 
   
@@ -302,7 +302,7 @@ if ($status == 0 || $status == " ") {
                         </ul>
                     </div>
 
-                    <div class="col-xs-9 padding_less" style="padding-left: 0;padding-right: 0; height: 100%; border-left: 1px solid #d9d9d9">
+                    <div class="col-xs-9 padding_less main_art" >
 
                         <!-- Tab panes -->
                         <div class="tab-content">
@@ -572,7 +572,7 @@ if ($status == 0 || $status == " ") {
 
                                                                                     <div class="edit-comment-box">
                                                                                         <div class="inputtype-edit-comment">
-                                                                                            <div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="<?php echo $rowdata['post_image_comment_id']; ?>"  id="editcommentimg<?php echo $rowdata['post_image_comment_id']; ?>" placeholder="Enter Your Comment " value= ""  onkeyup="commenteditimg(<?php echo $rowdata['post_image_comment_id']; ?>)"><?php echo $rowdata['comment']; ?></div>
+                                                                                            <div contenteditable="true"  class="editable_text edit_cpmment_edit" name="<?php echo $rowdata['post_image_comment_id']; ?>"  id="editcommentimg<?php echo $rowdata['post_image_comment_id']; ?>" placeholder="Enter Your Comment " value= ""  onkeyup="commenteditimg(<?php echo $rowdata['post_image_comment_id']; ?>)"><?php echo $rowdata['comment']; ?></div>
                                                                                             <span class="comment-edit-button"><button id="<?php echo "editsubmitimg" . $rowdata['post_image_comment_id']; ?>" style="display:none" onClick="edit_commentimg(<?php echo $rowdata['post_image_comment_id']; ?>)">Save</button></span>
                                                                                         </div>
                                                                                     </div>

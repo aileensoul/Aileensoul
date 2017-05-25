@@ -328,23 +328,8 @@ if ($status == 0 || $status == " ") {
 
         
   
-        <div class="user-midd-section">
-            <div class="container">
-                <div class="row">
-                   
-                    <div class="col-md-3">
-
-              
-                    
-   </div>
-                     
-
-
-</div>
-
-               </div>
       <div class="container " >
-    <div class="user-midd-section"  style="">
+    <div class="user-midd-section grybod" >
 
 
 
@@ -361,11 +346,11 @@ if ($status == 0 || $status == " ") {
         </div>
 
        
-                    <div class="col-xs-9 padding_less" style="padding-left: 0;padding-right: 0; height: 100%; border-left: 1px solid #d9d9d9">   <!-- Tab panes -->
+                    <div class="col-xs-9 padding_less main_art" >   <!-- Tab panes -->
           <div class="tab-content">
             <div class="tab-pane active" id="home"><div class="common-form">
-                            <div class="" >
-
+                            <!-- <div class="add_audio" >
+ -->
                                 <h2 class="add_tag_design"> Video</h2>
 
                              
@@ -420,7 +405,7 @@ if ($status == 0 || $status == " ") {
 
       <?php }   }  else{?>
 
-      <div style="margin-left: 380px; margin-top: 20px;">
+     <div class="main_pdf_box"  >
                 <div class="not_avali" >
                                 <img src="<?php echo base_url('images/010.png'); ?>"  >
                                <div>
