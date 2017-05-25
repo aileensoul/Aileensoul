@@ -301,6 +301,10 @@ $(document).ready(function(){
       return value == '' || value.trim().length != 0;  
     }, "No space please and don't leave it empty");
 
+            $.validator.addMethod("regx", function(value, element, regexpr) {          
+    return regexpr.test(value);
+}, "Only space, only number and only specila characters are not allow");
+
             $(document).ready(function () { 
 
                 $("#basicinfo").validate({
@@ -323,7 +327,8 @@ $(document).ready(function(){
                        
                         postal_address:{
                             required:true,
-                            noSpace: true
+                            regx:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]/
+                           // noSpace: true
                            
                        },
 

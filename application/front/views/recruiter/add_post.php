@@ -57,7 +57,7 @@
 <?php echo form_open(base_url('recruiter/add_post_store'), array('id' => 'artpost', 'name' => 'artpost', 'class' => 'clearfix', 'onsubmit' => "return imgval()")); ?>
 
 
-
+                          <div> <span class="required_field" >( <span style="color: red">*</span> ) Indicates required field</span></div>
                                 <?php
                                 $postname = form_error('postname');
                                 $skills = form_error('skills');
@@ -271,11 +271,11 @@
 
 
 
-                                <fieldset style="padding: 25px 3px;" class="hs-submit">
-
+                                <fieldset style="padding: 3px 3px;" class="hs-submit">
+                                     <input type="submit" id="submit" class="add_post_btns" name="submit" value="Post">
                                  <a class="add_post_btnc" href="javascript:history.back()">Cancel</a>
                                     <!--<input type="reset" >-->
-                                    <input type="submit" id="submit" class="add_post_btns" name="submit" value="Post">
+                                   
                                     <!--<input type="submit" id="Cancel" name="cancel" value="Cancel">-->
                                     
 
