@@ -2470,7 +2470,7 @@ border-bottom: 1px solid #000033;
     font-size: 21px;}
 .popup-text textarea{height: 8%; width: 100%; resize: none; border: none;}
 .post-editor .popup-textarea p{color: #999999;}
-.post-editor .popup-text span i{font-size: 25px; color: #0a2c5d; }
+.post-editor .popup-text span i{font-size: 25px; color: #1b8ab9; }
 .popup-img{    padding-left: 2px !important; padding-right: 0px;}
 .popup-img-in{    padding-left: 2px !important; padding-right: 0px; padding-top: 8px;}
 
@@ -2914,7 +2914,7 @@ label.cameraButton input[accept*="camera"] {
 }
 
 .dropdown-content1 a {
-    color: #0a2c5d;
+    color: #1b8ab9;
     padding: 12px 10px;
     text-decoration: none;
     display: block;
@@ -2947,7 +2947,7 @@ label.cameraButton input[accept*="camera"] {
 }
 
 .dropdown-content2 a {
-    color: #0a2c5d;
+    color: #1b8ab9;
     padding: 12px 10px;
     text-decoration: none;
     display: block;
@@ -3336,12 +3336,12 @@ follow box*/
     padding-left: 10px;     
     padding-right: 12px;
     /* padding-top: 6px; */}
-.business_data_td1 i{    color: #0a2c5d;   font-size: 17px;  display: inline-block; width: 1.25em;text-align: center;}    
+.business_data_td1 i{    color: #1b8ab9;   font-size: 17px;  display: inline-block; width: 1.25em;text-align: center;}    
 .detaile_map{position: relative;}   
 .detaile_map i{position: absolute; top: 0;}
 .profile-boxProfileCard  h5{ font-weight: 600;     margin: 0;
                              padding: 3px 6px 4px;
-                             color: #0a2c5d;
+                             color: #1b8ab9;
                              display: inline-block;
                              line-height: 28px;}
 .head_details{ text-align: center; }
@@ -3950,7 +3950,7 @@ footer .footer-menu li a:hover{
 
 /*checkout modalpopup */
 body.modal-open{ padding: 0 !important; overflow: visible;  position: absolute;  width: 100%;  height:100%;}
-.modal-close{height: 30px !important; width: 30px !important; background: #0A2C5D !important; color: #fff !important; font-size: 24px !important; border: 1px solid #0A2C5D !important;  border-radius: 50% !important;  position: absolute !important;   top: -15px !important;  right: -15px !important;  line-height: 22px !important;   padding: 0 !important;    margin: 0 !important;    text-align: center !important; z-index: 7 !important;}
+.modal-close{height: 30px !important; width: 30px !important; background: #1b8ab9 !important; color: #fff !important; font-size: 24px !important; border: 1px solid #0A2C5D !important;  border-radius: 50% !important;  position: absolute !important;   top: -15px !important;  right: -15px !important;  line-height: 22px !important;   padding: 0 !important;    margin: 0 !important;    text-align: center !important; z-index: 7 !important;}
 .modal.checkout .modal-header{ background: #02caca; padding: 15px 8%;}
 .modal.checkout .checkout-top::before, .modal.checkout .checkout-top::after{background: #fff; top: 30px;}
 .modal.checkout .checkout-step label{color: #fff;}
@@ -4264,7 +4264,7 @@ input:-moz-placeholder { color:#999; font-size: 15px; }
 .post-design-name ul li .else_post_d a{display: inline-block;}
 
 .flw_with{width: 29%;}
-.bg_following{  background:#003!important; color: #fff!important;  background-color: #003!important;}
+.bg_following{  background:#1b8ab9!important; color: #fff!important;  background-color: #1b8ab9!important;}
 
 .add_tag_design{text-align: center;
   padding-bottom: 6px;
@@ -5109,7 +5109,7 @@ cover pic css*/
         text-decoration: none;
         color: #fff;
         padding: 8px 18px;
-        background-color: #0A2C5D;
+        background-color: #1b8ab9;
         left: 170px;
         margin-top: 8px;
         width: 100px; 
@@ -5152,7 +5152,7 @@ cover pic css*/
                         text-decoration: none;
                         color: #fff;
                         padding: 8px 18px;
-                        background-color: #0A2C5D;
+                        background-color: #1b8ab9;
                         right: 170px;
                         margin-top: 8px;
                         width: 100px;

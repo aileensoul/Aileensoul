@@ -301,7 +301,7 @@ hr{ border: none; margin: 20px 0; background:#cacaca; height: 1px; }
 
 .header {     -webkit-transition: all 0.4s ease;
     transition: all 0.4s ease;
-    background: #000033;
+    background: #1b8ab9;
     backface-visibility: hidden;
     border-bottom: 1px solid #e6ecf0;
     border-bottom: 1px solid rgba(0,0,0,0.05);
