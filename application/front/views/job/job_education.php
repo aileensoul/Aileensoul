@@ -347,13 +347,13 @@
                                                     ?>
                                                 </fieldset>
 
-                                                <div class="fr">
-                                                    <input type="hidden" name="image_hidden_primary" value="<?php
-                                                    if ($edu_certificate_primary1) {
-                                                        echo $edu_certificate_primary1;
-                                                    }
-                                                    ?>">
-                                         <button class="submit_btn">Submit</button>
+                 <div class="fr job_education_submitbox">
+                   <input type="hidden" name="image_hidden_primary" value="<?php
+                          if ($edu_certificate_primary1) {
+                           echo $edu_certificate_primary1;
+                               }
+                               ?>">
+                          <button class="submit_btn">Submit</button>
                                                     <br>
                              <fieldset class="hs-submit full-width" style="    position: absolute;
                                         right: -24%;  width: 24%;
@@ -460,13 +460,13 @@
                                                     ?>
                                                 </fieldset>
 
-                                                <div class="fr">
+                                     <div class="fr job_education_submitbox">
 
-                                                    <input type="hidden" name="image_hidden_secondary" value="<?php
-                                                    if ($edu_certificate_secondary1) {
-                                                        echo $edu_certificate_secondary1;
-                                                    }
-                                                    ?>">
+                                      <input type="hidden" name="image_hidden_secondary" value="<?php
+                                      if ($edu_certificate_secondary1) {
+                                           echo $edu_certificate_secondary1;
+                                           }
+                                          ?>">
 
                                      <button class="submit_btn">Submit</button>
                                                     <br>
@@ -589,7 +589,7 @@
                                                     ?>
                                                 </fieldset>
 
-                                                <div class="fr">
+                             <div class="fr job_education_submitbox">
 
                                                     <input type="hidden" name="image_hidden_higher_secondary" value="<?php
                                                     if ($edu_certificate_higher_secondary1) {
@@ -841,16 +841,16 @@
 
 <div class="display_inline_block" >
               <div class="fr img_remove job_edu_graduation_removebox" >
-                        <input class="job_edu_graduation_removebtn" type="button" id="btnRemove" name="btnRemove"  style="padding: 5px;font-size: 13px;margin-right: 0px;" value=" - "   />
+                        <input class="job_edu_graduation_removebtn" type="button" id="btnRemove" name="btnRemove"  value=" - "   />
                                                 </div>
                           <div class="fr img_remove" >
-                           <input type="button" id="btnAdd"  name="btnAdd" style="padding: 5px;font-size: 13px;margin-right: 0px;" value=" + ">
+                           <input type="button" id="btnAdd"  name="btnAdd" class="job_edu_graduation_addbtn"  value=" + ">
                                                     </div>
 
                                                  </div>
          <fieldset class="hs-submit full-width job_edu_graduation_nextbtnbox">
 
-                <input type="button" id="next" name="next" value="Next" style="font-size: 16px;min-width: 120px;margin-right: 0px;" onclick="next_page()">
+                <input type="button" id="next" name="next"          class="job_edu_graduation_nextbtn" value="Next" style="font-size: 16px;min-width: 120px;margin-right: 0px;" onclick="next_page()">
 
                                                     </fieldset>
 
@@ -1026,30 +1026,26 @@
                                                     <!--clone div End-->
 
 
-                                                    <div class="fl" style="margin-right: 10px;" >
+            <div class="fl job_edu_graduation_addbtnbox" >
 
-                                                        <input type="button" id="btnAdd" style="padding: 5px;font-size: 13px;margin-right: 0px;" value=" + " /><br>
+            <input type="button" id="btnAdd" class="job_edu_graduation_addbtn" value=" + " /><br>
 
-                                                    </div>
+             </div>
 
-                                                    <div class="fl">
+                     <div class="fl">
 
-                                                        <input type="button" id="btnRemove" style="padding: 5px;font-size: 13px;margin-right: 0px;" value=" - "   />
+            <input type="button" id="btnRemove" class="job_edu_graduation_removebtn" value=" - "   />
 
-                                                    </div>
+                      </div>
 
-                                                    <div class="fr">
-                                                        <input type="Submit"  id="next" name="next" value="Submit" style="padding: 5px 9px;margin-right: 0px;">
-                                                    </div> 
-                                                    <br>
-                                                    <fieldset class="hs-submit full-width" style="     right: -24%;
-                                                              position: absolute;
-                                                              bottom: 2.3%;
-                                                              display: inline-block;
-                                                              width: 24%;
-                                                              ">
+                  <div class="fr job_edu_graduation_submitposition">
+             <input type="Submit"  id="next" name="next" value="Submit" class="job_edu_graduation_submitbtn" style="padding: 5px 9px;margin-right: 0px;">
+                   </div> 
+                                  <br>
+                <fieldset class="hs-submit full-width"  style="     right: -24%; position: absolute; bottom: 2.3%;
+                  display: inline-block; width: 24%;">
 
-                                                        <input type="button" id="next" name="next" value="Next" style="font-size: 16px;min-width: 120px;margin-right: 0px;" onclick="next_page()">
+                <input type="button" id="next" name="next" value="Next" style="font-size: 16px;min-width: 120px;margin-right: 0px;" onclick="next_page()">
 
                                                     </fieldset>
 

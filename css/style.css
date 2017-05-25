@@ -5003,9 +5003,9 @@ label.cameraButton:hover
 
     .delete_btn{padding: 6px 12px 6px!important; font-size: 13px!important;}
 
-    #btnAdd{ padding: 6px 12px 6px!important;  min-width: 100px!important; }
+    #btnAdd{ padding: 6px 12px 6px!important;  min-width: 49px!important; }
 
-    #btnRemove{ padding: 6px 12px 6px!important;  min-width: 100px!important; }
+    #btnRemove{ padding: 6px 12px 6px!important;  min-width: 49px!important; }
     .images_art_post .basic-responsive-image img{width: 100%; height: auto; min-height: initial;}
 /*    #basic-responsive-image{padding-left: 4px; padding-right: 4px;}*/
 
@@ -5179,9 +5179,9 @@ cover pic css*/
     #jobseeker_regform { border: none !important; margin-bottom: 0px!important; }
     .job_edu_graduation_submit_btn { padding: 6px 9px 6px; font-size: 14px; }
     .job_edu_graduation_removebox { margin-left: 10px; }
-    .job_edu_graduation_removebtn { padding: 5px; font-size: 13px; margin-right: 0px; }
+    .job_edu_graduation_removebtn { padding: 5px !important; font-size: 13px !important; margin-right: 0px !important; }
     .job_edu_graduation_nextbtnbox { right: -24%; position: absolute; bottom: 2.3%; display: inline-block; width: 24% !important; }
-    .job_edu_graduation_nextbtn { font-size: 16px; min-width: 120px; margin-right: 0px; }
+    .job_edu_graduation_nextbtn { font-size: 16px !important; min-width: 120px !important; margin-right: 0px !important; }
 
 
   /* vishang 24-5-17 end */
@@ -5207,5 +5207,10 @@ cover pic css*/
 .grybod{border: 1px solid #d9d9d9!important;}
 .edit_cpmment_edit{display: inline-block;width: 81%;min-height: 37px !important;margin-top: 0px !important;margin-left: 1.5% !important;}
 
-/*Vishang 25-5*/
+/*Vishang 25-5 on */
 .job_education_submitbox { width: 100%; text-align: center; }
+.job_edu_graduation_addbtnbox { margin-right: 10px; }
+.job_edu_graduation_addbtn { padding: 5px !important; font-size: 13px !important; margin-right: 0px !important; }
+.job_edu_graduation_submitposition { margin-right: 150px; }
+.job_edu_graduation_submitbtn { padding: 5px 9px !important; margin-right: 0px !important; }
+/*Vishang 25-5 off */
