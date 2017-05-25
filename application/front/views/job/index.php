@@ -123,7 +123,7 @@
                                 <span style="color:#7f7f7e;padding-left: 8px;">( </span><span style="color:red">*</span><span style="color:#7f7f7e"> )</span> <span style="color:#7f7f7e">Indicates required field</span>
                                 </div> -->
 
-     <div> <span class="required_field" >( <span style="color: red">*</span> ) Indicates required field</span></div>
+     <div> <span class="required_field" >( <span class="red">*</span> ) Indicates required field</span></div>
 
 <?php
 $fname = form_error('fname');
@@ -140,7 +140,7 @@ $gender = form_error('gender');
 
 
                                 <fieldset <?php if ($fname) { ?> class="error-msg" <?php } ?>>
-                                    <label>First Name: <span style="color:red">*</span></label>
+                                    <label>First Name: <span class="red">*</span></label>
                                     <input type="text" name="fname" id="fname" placeholder="Enter First name" value="<?php if ($fname1) {
                                         echo $fname1;
                                     } else {
@@ -150,7 +150,7 @@ $gender = form_error('gender');
                                 </fieldset>
 
                                 <fieldset <?php if ($lname) { ?> class="error-msg" <?php } ?>>  
-                                    <label>Last Name <span style="color:red">*</span></label>
+                                    <label>Last Name <span class="red">*</span></label>
                                     <input type="text" name="lname"  id="lname" placeholder="Enter Last name" value="<?php if ($lname1) {
     echo $lname1;
 } else {
@@ -160,7 +160,7 @@ $gender = form_error('gender');
                                 </fieldset>
 
                                 <fieldset <?php if ($email) { ?> class="error-msg" <?php } ?>>
-                                    <label>Email Address <span style="color:red">*</span></label>
+                                    <label>Email Address <span class="red">*</span></label>
                                     <input type="text" name="email" id="email" placeholder="Enter Email Address"  value="<?php if ($email1) {
     echo $email1;
 } else {
@@ -170,7 +170,7 @@ $gender = form_error('gender');
                                 </fieldset>
 
                                 <fieldset <?php if ($phnno) { ?> class="error-msg" <?php } ?>>
-                                    <label>Phone Number <span style="color:red">*</span></label>
+                                    <label>Phone Number <span class="red">*</span></label>
                                     <input type="text" name="phnno" id="phnno" placeholder="Enter Phone Number" value="<?php if ($phnno1) {
                                             echo $phnno1;
                                         } ?>" /> <span id="phnno-error"> </span>
@@ -178,7 +178,7 @@ $gender = form_error('gender');
                                 </fieldset>
 
                                 <fieldset <?php if ($marital_status) { ?> class="error-msg" <?php } ?>>
-                                    <label>Marital Status <span style="color:red">*</span></label>
+                                    <label>Marital Status <span class="red">*</span></label>
                                     <input type="radio" name="marital_status" value="married" id="marital_status"  <?php echo ($marital_status1 == 'married') ? 'checked' : '' ?>>
                     <span class="radio_check_text">Married</span>
                                     
@@ -190,7 +190,7 @@ $gender = form_error('gender');
                                 </fieldset>
 
                                 <fieldset <?php if ($nationality) { ?> class="error-msg" <?php } ?>>
-                                    <label>Nationality:<span style="color:red">*</span></label>
+                                    <label>Nationality:<span class="red">*</span></label>
 
                                     <select name="nationality" id="nationality">
 
@@ -222,7 +222,7 @@ if (count($nation) > 0) {
                                 </fieldset>
 
                                 <fieldset id="erroe_nn" <?php if ($language) { ?> class="error-msg" <?php } ?>>
-                                    <label>Languages Known:<span style="color:red">*</span></label> 
+                                    <label>Languages Known:<span class="red">*</span></label> 
 
              <select name="language[]" id ="lan" multiple="multiple" style="width: 100%"  required="true"  >
 
@@ -238,7 +238,7 @@ if (count($nation) > 0) {
         
                                 </fieldset>
                                 <fieldset <?php if ($dob) { ?> class="error-msg" <?php } ?>>
-                                    <label>Date of Birth<span style="color:red">*</span></label>
+                                    <label>Date of Birth<span class="red">*</span></label>
                                 
                                     <input type="text" name="dob" id="datepicker" placeholder="dd-MM-yyyy"   autocomplete="off" value="<?php
                                      if($dob1){
@@ -250,7 +250,7 @@ if (count($nation) > 0) {
                                 </fieldset>
 
                                 <fieldset <?php if ($gender) { ?> class="error-msg" <?php } ?>>
-                                    <label>Gender<span style="color:red">*</span></label>
+                                    <label>Gender<span class="red">*</span></label>
                                     <input type="radio" name="gender" value="male" id="gender" <?php echo ($gender1 == 'male') ? 'checked' : '' ?>>Male
                                     <input type="radio" name="gender" value="female" id="gender" <?php echo ($gender1 == 'female') ? 'checked' : '' ?> >Female
                                     <span id="gender-error"> </span>
