@@ -111,11 +111,11 @@
                                 </div> -->
 
                           
-                          <div> <span class="required_field" >( <span style="color: red">*</span> ) Indicates required field</span></div>
+                          <div> <span class="required_field" >( <span class="red">*</span> ) Indicates required field</span></div>
 
 
                                 <fieldset class="full-width">
-                                    <label>Apply For<span style="color:red">*</span></label>
+                                    <label>Apply For<span class="red">*</span></label>
 
 
                                     <select name="ApplyFor" id="ApplyFor" style="width:100%;">
