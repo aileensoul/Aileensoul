@@ -510,9 +510,11 @@ echo $job_header2;
                                                         <?php
                                                         if ($graduation['edu_certificate'] != "") {
                                                             ?>
-                                                            <li> <b>Education Certificate </b><span> 
-                                                                    <img src="<?php echo base_url(JOBEDUCERTIFICATE . $graduation['edu_certificate']) ?>" style="width:100px;height:100px;"></span>
-                                                            </li>
+                                                           
+                                                            
+                                                            <li><b>Education Certificate </b> <span>
+      <a class="example-image-link" href="<?php echo base_url($this->config->item('job_edu_thumb_upload_path') . $graduation['edu_certificate']) ?>" data-lightbox="example-1">certificate<?php echo $i; ?></a>
+                                                              </span></li>
 
                                                             <?php
                                                         }
@@ -528,7 +530,7 @@ echo $job_header2;
 
     <div class="tab pagi_exp" style="">
         <?php if(count($job_graduation) >= 1 ){ ?>
-  <button class="tablinks" onclick="openCity(event, '1')">1</button>
+  <button class="tablinks " onclick="openCity(event, '1')">1</button>
         <?php } ?>
    <?php if(count($job_graduation) >= 2 ){ ?>
   <button class="tablinks" onclick="openCity(event, '2')">2</button>
@@ -849,13 +851,12 @@ echo $job_header2;
                                                             <?php
                                                             if ($work['work_certificate'] != "") {
                                                                 ?>
-                                                                <li> <b>Experience Certificate  </b><span>
-                                                                        <img src="<?php echo base_url(JOBWORKCERTIFICATE . $work['work_certificate']) ?>" style="width:100px;height:100px;"></span>
-                                                                </li>
-                                                                
-                                                                  <li> <div>
-      <a class="example-image-link" style="width: 200px; height: 200px;" href="http://localhost/aileensoul/uploads/user_bg/main/16711487_1337552009638693_3483784836973951976_n.jpg" data-lightbox="example-1">hiii</a>
-                                                              </div></li>
+                                                              
+                                                                  
+                                                              
+                                                              <li><b>Experience Certificate </b> <span>
+      <a class="example-image-link" href="<?php echo base_url($this->config->item('job_edu_thumb_upload_path') . $work['work_certificate']) ?>" data-lightbox="example-1">certificate<?php echo $i; ?></a>
+                                                              </span></li>
 
                                                                 <?php
                                                             }
