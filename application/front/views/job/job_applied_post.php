@@ -141,7 +141,7 @@
                 if ($jobdata[0]['designation'] == '') {
                     ?>
                            
-                    <center><a id="designation" class="designation" title="Designation">Current Work</a></center>
+                    <a id="designation" class="designation" title="Designation">Current Work</a>
                 <?php } else {
                     ?> 
                        
