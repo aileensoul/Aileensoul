@@ -226,7 +226,7 @@
                                                                         if ($rec['freelancer_post_user_image']) {
                                                                             ?>
                                                                             <a href="<?php echo base_url('freelancer/freelancer_post_profile/' . $rec['user_id'] . '?page=freelancer_hire'); ?>" title="<?php echo ucwords($rec['freelancer_post_fullname']) . ' ' . ucwords($rec['freelancer_post_username']); ?>">
-                                                                                <img src="<?php echo base_url(USERIMAGE . $rec['freelancer_post_user_image']); ?>" alt="<?php echo ucwords($rec['freelancer_post_fullname']) . ' ' . ucwords($row['freelancer_post_username']); ?>"> </a>
+                                             <img src="<?php echo base_url($this->config->item('free_post_profile_thumb_upload_path') . $rec['freelancer_post_user_image']); ?>" alt="<?php echo ucwords($rec['freelancer_post_fullname']) . ' ' . ucwords($row['freelancer_post_username']); ?>"> </a>
                                                                             <?php
                                                                         } else {
                                                                             ?>

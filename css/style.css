@@ -94,7 +94,7 @@ a:focus { outline: none; text-decoration: none;  }
 .header2 ul li a {  font-size: 13px; color: #fff; padding: 4px 16px; display: block; }
 .header2 ul li a i{font-size: 12px;padding-left: 0px; }
 
-.header2 ul li a:hover {     background: #08234a;
+.header2 ul li a:hover {     background: #1b8ab9;
                              color: #fff; }
 .header2 ul li a.active { position:relative; /*background:#000033; */  background:#08234a; color: #ffffff;}
 .header2  ul li.active a {/* background:#0a2c5d;*/ color: #ffffff; }
@@ -324,7 +324,7 @@ ul.dropdown-menu li a i { padding-right: 2px; }
     border: 10px solid black;
     border-color: transparent transparent #fff;
     margin-top: -18px;
-   right: 15%;
+   right: 4%;
 }
 /*.dropdown:hover .dropdown-menu { display: block; }*/
 .header ul li.dropdown-user a { padding: 13px; text-transform: capitalize;}
@@ -3221,7 +3221,7 @@ label.cameraButton input[accept*="camera"] {
 follow box*/
 .post-design-pro-img_follow{height:70px; width: 70px; display: inline-block; float: left; padding:11px 1px 0px 8px; }
 .post-design-pro-img_follow img{ height: 100%; width: 100%; border: 1px solid #efefef; }
-.post-design-name_follow{width: 54%; overflow: hidden;}
+.post-design-name_follow{width: 47%; overflow: hidden;}
 .post-design-name_follow ul { font-size: 0; margin: 0; padding: 0; }
 .post-design-name_follow ul li { border-bottom: none;  list-style: none;  padding: 0; margin: 0; position: relative;}
 .post-design-name_follow ul li a {    
@@ -4643,7 +4643,7 @@ input:-moz-placeholder { color:#999; font-size: 15px; }
   left: 7px;
   visibility: visible;
 }
-.dropdown-menu{left: -23px!important;}
+.dropdown-menu{left: -51px!important;}
 
 
 /* vishang 4-5-17 */
@@ -4878,9 +4878,9 @@ fieldset .add_post_btns{min-width: 120px;padding:8px 30px 10px;}
     background-color: #fff;
     min-width: 139px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    margin-top: 3px;
+    margin-top: 6px;
     z-index: 1;
-    left: 18;
+    left: 10;
     border-radius: 4px; }
 .dropdown-content_hover::before{       /* top: -1px; */
     content: '';
@@ -4893,7 +4893,7 @@ fieldset .add_post_btns{min-width: 120px;padding:8px 30px 10px;}
     border-color: transparent transparent #fff;
     margin-top: -18px;
     /* margin-left: 104px; */
-    right: 9px;}
+    right: 4.5px;}
 
 .dropdown_hover .dropdown-content_hover a {color: #000;}
  .pdf_name a:{text-decoration-line: underline;}
@@ -5007,12 +5007,12 @@ label.cameraButton:hover
 
     #btnRemove{ padding: 6px 12px 6px!important;  min-width: 49px!important; }
     .images_art_post .basic-responsive-image img{width: 100%; height: auto; min-height: initial;}
+#basic-responsive-image {height: 50%!important; width: 100%!important;}
 
 
 
 
-
-.basic-responsive-image{height: 50%; width: 100%;}
+.basic-responsive-image{height: 50%!important; width: 100%!important;}
 
 .profile-job-details ul .text_overflow{    width: auto;
     max-width: 70%;
@@ -5313,3 +5313,4 @@ cover pic css*/
 .buis_company-name{margin-left: 3px;}
 .buis_pro_name{padding-left: 4px;}
 .edyrr{margin-bottom: 0px;     font-size: 16px}
+.modal-open .modal{    z-index: 10002;}
