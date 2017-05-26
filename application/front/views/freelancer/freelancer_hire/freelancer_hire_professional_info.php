@@ -235,7 +235,7 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
                         professional_info: {
 
                             required: true,
-                            regx:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]*$/,
+                            regx:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[)[-@./#&+_(,]\w\s]*$/,
 
                             //noSpace: true
                            
