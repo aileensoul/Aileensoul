@@ -71,7 +71,7 @@
 				 <?php echo form_open(base_url('recruiter/company_info_store'), array('id' => 'basicinfo','name' => 'basicinfo','class' => 'clearfix')); ?>
                                 
 
-				 	<div> <span class="required_field" >( <span style="color: red">*</span> ) Indicates required field</span></div>
+				 	<div> <span class="required_field" >( <span class="red">*</span> ) Indicates required field</span></div>
 
 
                     <?php
@@ -84,19 +84,19 @@
                          ?>
                                 
 					<fieldset <?php if($comp_name) {  ?> class="error-msg" <?php } ?>>
-						<label>Company Name:<span style="color:red">*</span></label>
+						<label>Company Name:<span class="red">*</span></label>
 						<input name="comp_name" type="text" id="comp_name" placeholder="Enter Company Name"  value="<?php if($compname){ echo $compname; } ?>"/><span id="fullname-error"></span>
 					</fieldset>
                     <?php echo form_error('comp_name'); ?>
 
                     <fieldset <?php if($comp_email) {  ?> class="error-msg" <?php } ?>>
-						<label>Company Email:<span style="color:red">*</span></label>
+						<label>Company Email:<span class="red">*</span></label>
 							<input name="comp_email" type="text" id="comp_email" placeholder="Enter Company Email" value="<?php if($compemail){ echo $compemail; } ?>" /><span id="fullname-error"></span>
 					</fieldset>
                 <?php echo form_error('comp_email'); ?>
 
 					<fieldset <?php if($comp_num) {  ?> class="error-msg" <?php } ?>>
-						<label>Company Number:<span style="color:red">*</span></label>
+						<label>Company Number:<span class="red">*</span></label>
 						<input name="comp_num"  type="text" id="comp_num" placeholder="Enter Comapny Number" value="<?php if($compnum){ echo $compnum; } ?>"/><span id="email-error"></span>
 					</fieldset>
 					<?php echo form_error('comp_num'); ?>

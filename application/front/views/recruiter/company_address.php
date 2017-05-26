@@ -78,7 +78,7 @@
                                    <span style="color:#7f7f7e;padding-left: 8px;">( </span><span style="color:red">*</span><span style="color:#7f7f7e"> )</span> <span style="color:#7f7f7e">Indicates required field </span>
                                 </div> -->
 
-                   <div> <span class="required_field" >( <span style="color: red">*</span> ) Indicates required field</span></div>
+                   <div> <span class="required_field" >( <span class="red">*</span> ) Indicates required field</span></div>
                      
 
                     <?php
@@ -91,7 +91,7 @@
                          ?>
                                 
                     <fieldset <?php if($country) {  ?> class="error-msg" <?php } ?>>
-                        <label>Country:<span style="color:red">*</span></label>
+                        <label>Country:<span class="red">*</span></label>
                                 
                                         <select name="country" id="country">
                                         <option value="">Select Country</option>
@@ -121,7 +121,7 @@
                     </fieldset>
 
                    <fieldset <?php if($state) {  ?> class="error-msg" <?php } ?>>
-                        <label>state:<span style="color:red">*</span></label>
+                        <label>state:<span class="red">*</span></label>
                         <select name="state" id="state">
                          <?php
                                           
@@ -181,7 +181,7 @@
                     </fieldset>
                     
                     <fieldset <?php if($postal_address) {  ?> class="error-msg" <?php } ?> class="full-width">
-                        <label> Postal address:<span style="color:red">*</span></label>
+                        <label> Postal address:<span class="red">*</span></label>
                         <textarea name="postal_address" id="postal_address" rows="4" cols="50"  placeholder="Enter Address" style="resize: none;"><?php if($postal_address1){ echo $postal_address1; } ?></textarea>                        
                         <?php echo form_error('postal_address'); ?> 
                     </fieldset>

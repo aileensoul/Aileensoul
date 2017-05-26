@@ -24,6 +24,9 @@
 <script src="<?php echo base_url('dragdrop/js/locales/fr.js'); ?>"></script>
 <script src="<?php echo base_url('dragdrop/js/locales/es.js'); ?>"></script>
 <script src="<?php echo base_url('dragdrop/themes/explorer/theme.js'); ?>"></script>
+
+
+
 <!-- END HEADER -->
 <?php echo $business_header2_border; ?>
 <!DOCTYPE html>
@@ -32,13 +35,16 @@
 
 
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
+          <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
         <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/3.3.0/select2.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
-        <!-- <script src="<?php //echo base_url('js/jquery.min.js');                                                              ?>"></script> -->
+      
+ <!-- <script src="<?php echo base_url('js/jquery.min.js');?>"></script>     -->
+        
+      
 
         <!-- further and less -->
         <script>
@@ -1377,15 +1383,99 @@
 <!-- Model Popup Close -->
 </body>
 </html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+
+ 
+
+
 <script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
 <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
 
 
+<script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script> 
+<!-- <script type="text/javascript">jQuery.noConflict();</script> -->
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+<script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script> 
+
+
+<script>
+ 
+jQuery.noConflict();
+ 
+(function( $ ) {
+
+
+     var data = <?php echo json_encode($demo);
+    ?>;
+     //alert(data);
+    $(function () {
+        // alert('hi');
+        $("#tags").autocomplete({
+            source: function (request, response) {
+                var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+                response($.grep(data, function (item) {
+                    return matcher.test(item.label);
+                }));
+            }
+            ,
+            minLength: 1,
+            select: function (event, ui) {
+                event.preventDefault();
+                $("#tags").val(ui.item.label);
+                $("#selected-tag").val(ui.item.label);
+                // window.location.href = ui.item.value;
+            }
+            ,
+            focus: function (event, ui) {
+                event.preventDefault();
+                $("#tags").val(ui.item.label);
+            }
+        });
+    }
+    );
+    
+})( jQuery  );
+ 
+</script>
+
+
 <!-- script for skill textbox automatic end (option 2)-->
 <!-- <script src="http://code.jquery.com/jquery-1.9.1.js"></script> -->
 <!-- <script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script> -->
+
+ <!--  <script type="text/javascript">jQuery.noConflict();</script> -->
+<!-- <script>
+    var data = <?php echo json_encode($demo);
+    ?>;
+    //alert(data);
+    $(function () {
+        // alert('hi');
+        $("#tags").autocomplete({
+            source: function (request, response) {
+                var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+                response($.grep(data, function (item) {
+                    return matcher.test(item.label);
+                }));
+            }
+            ,
+            minLength: 1,
+            select: function (event, ui) {
+                event.preventDefault();
+                $("#tags").val(ui.item.label);
+                $("#selected-tag").val(ui.item.label);
+                // window.location.href = ui.item.value;
+            }
+            ,
+            focus: function (event, ui) {
+                event.preventDefault();
+                $("#tags").val(ui.item.label);
+            }
+        });
+    }
+    );
+</script>
+ -->
+
 
 
 <script>
@@ -1393,6 +1483,9 @@
                                                         $(this).height(0).height(this.scrollHeight);
                                                     }).find('textarea').change();
 </script>
+
+
+
 
 <script type="text/javascript">
     function checkvalue() {
@@ -2805,7 +2898,14 @@
 </script>
 <!-- insert post zalak script end -->
 <!-- post insert developing script start -->
+<script type="text/javascript">
+$(document).ready(function($jquery){
+});
+</script>
+
 <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
+
+
 <script type="text/javascript">
     function imgval(event) {
 
@@ -3043,7 +3143,7 @@
 <script type="text/javascript">
     function user_postdelete(clicked_id)
     {
-        alert(clicked_id);
+       // alert(clicked_id);
 
         $('.biderror .mes').html("<div class='pop_content'> Do You want to delete this post?.<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='remove_post(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
         $('#bidmodal').modal('show');
@@ -3163,38 +3263,4 @@
             features: ['playpause', 'progress', 'volume', 'fullscreen']
         });
     });
-</script>
-
-<script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>  
-<script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
-
-<script>
-    var data = <?php echo json_encode($demo);
-    ?>;
-    //alert(data);
-    $(function () {
-        // alert('hi');
-        $("#tags").autocomplete({
-            source: function (request, response) {
-                var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
-                response($.grep(data, function (item) {
-                    return matcher.test(item.label);
-                }));
-            }
-            ,
-            minLength: 1,
-            select: function (event, ui) {
-                event.preventDefault();
-                $("#tags").val(ui.item.label);
-                $("#selected-tag").val(ui.item.label);
-                // window.location.href = ui.item.value;
-            }
-            ,
-            focus: function (event, ui) {
-                event.preventDefault();
-                $("#tags").val(ui.item.label);
-            }
-        });
-    }
-    );
 </script>

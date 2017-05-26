@@ -1334,9 +1334,11 @@ $results = array_unique($result);
 
   }
 
-public function ajax_dataforcity() { //echo "falguni"; die();
+public function ajax_dataforcity() {
+//echo "hello"; 
+//echo "falguni"; die();
       
-      $_POST["country_id"] = 101;
+     // $_POST["country_id"] = ;
 
        if(isset($_POST["country_id"]) && !empty($_POST["country_id"])){ 
     //Get all state data
@@ -1355,6 +1357,7 @@ public function ajax_dataforcity() { //echo "falguni"; die();
      }
   
      $this->data['city'] = $city;
+     //echo "<pre>"; print_r($this->data['city']);die();
     
     //Count total number of rows
 
