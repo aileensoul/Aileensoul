@@ -7,93 +7,6 @@
     #popup-form img{display: none;}
 </style>
 
-<style>
- 
-.okk{
-        text-align: center;
-    }
-     .pop_content .okbtn{
-        position: absolute;
-        transition: all 200ms;
-        font-size: 16px;
-        text-decoration: none;
-        color: #fff;
-        padding: 8px 18px;
-        background-color: #0A2C5D;
-        left: 170px;
-        margin-top: 8px;
-        width: 100px; 
-        border-radius: 8px;
-    }
-      .pop_content .cnclbtn {
-        position: absolute;
-        transition: all 200ms;
-        font-size: 16px;
-        text-decoration: none;
-        color: #fff;
-        padding: 8px 18px;
-        background-color: #0A2C5D;
-        right: 170px;
-        margin-top: 8px;
-        width: 100px;
-        border-radius: 8px;
-    }  
-
-    .popup .pop_content {
-        text-align: center;
-        margin-top: 40px;
-
-    }
-      .model_ok_cancel{
-        width:200px !important;
-    }
-  
-/*    @media screen and (max-width: 700px){
-        .box{
-            width: 70%;
-        }
-        .popup{
-            width: 70%;
-        }
-    }*/
-</style>
-
-<!--post save success pop up style end -->
-
-<!-- <style type="text/css" media="screen">
-   
-    #row2 { overflow: hidden; width: 100%; }
-   
-    #row2 img { height: 350px;width: 100%; }
-   
-    .upload-img{    float: right;
-                    position: relative;
-                    margin-top: -135px;
-                    right: 50px; }
-
-    label.cameraButton {
-        display: inline-block;
-        margin: 1em 0;
-
-        /* Styles to make it look like a button */
-        padding: 0.5em;
-        border: 2px solid #666;
-        border-color: #EEE #CCC #CCC #EEE;
-        background-color: #DDD;
-        opacity: 0.7;
-    }
-
-    /* Look like a clicked/depressed button */
-    label.cameraButton:active {
-        border-color: #CCC #EEE #EEE #CCC;
-    }
-
-    /* This is the part that actually hides the 'Choose file' text box for camera inputs */
-    label.cameraButton input[accept*="camera"] {
-        display: none;
-    }
-
-</style> -->
 <!-- END HEAD -->
 <!-- start header -->
 <?php echo $header; ?>
@@ -126,9 +39,9 @@
 
             <div class="row" id="row1" style="display:none;">
                 <div class="col-md-12 text-center">
-                    <div id="upload-demo" style="width:100%"></div>
+                    <div id="upload-demo" ></div>
                 </div>
-                <div class="col-md-12 cover-pic" style="padding-top: 25px;text-align: center;">
+                <div class="col-md-12 cover-pic" >
                     <button class="btn btn-success cancel-result" onclick="" >Cancel</button>
 
                     <button class="btn btn-success set-btn upload-result" onclick="myFunction()">Save</button>
@@ -147,7 +60,7 @@
                     </div>
                 </div>
                 <div class="col-md-12"  style="visibility: hidden; ">
-                    <div id="upload-demo-i" style="background:#e1e1e1;width:100%;padding:30px;height:1px;margin-top:30px"></div>
+                    <div id="upload-demo-i" ></div>
                 </div>
             </div>
 
@@ -277,28 +190,7 @@ Details</a>
                 </div>
 
         </div>
-        <!-- The Modal -->
-      <!--   <div id="myModal" class="modal"> -->
-            <!-- Modal content -->
-           <!--  <div class="col-md-2"></div>
-            <div class="modal-content col-md-8">
-                <span class="close">&times;</span>
-                <fieldset></fieldset>
-<?php echo form_open(base_url('freelancer/designation'), array('id' => 'artdesignation', 'name' => 'artdesignation', 'class' => 'clearfix')); ?>
-
-                <fieldset class="col-md-8"> <input type="text" name="designation" id="designation" placeholder="Enter Your Designation" value="<?php echo $userdata[0]['designation']; ?>">
-
-                <?php echo form_error('designation'); ?>
-                </fieldset>
-
-                <input type="hidden" name="hitext" id="hitext" value="1">
-                <fieldset class="col-md-2"><input type="submit"  id="submitdes" name="submitdes" value="Submit"></fieldset>
-                    <?php echo form_close(); ?>
-
-
-
-            </div>
-        </div> -->
+      
 
         <div class="col-md-7 col-sm-7">
             <div class="common-form">
@@ -326,7 +218,7 @@ Details</a>
 
 
                                                 
-                  <div class="profile-job-post-title clearfix" style="margin-bottom:0px">
+                  <div class="profile-job-post-title clearfix margin_btm">
                   <div class="profile-job-profile-button clearfix">
                      <div class="profile-job-details col-md-12">
                           <ul>
@@ -346,14 +238,6 @@ Details</a>
                               <a href="#" title="Post Title" class="post_title">
                               <?php echo ucwords( $this->common->make_links($post['post_name'])); ?> </a>   </li>
 
-                            <!--  <li>   
-                               <div class="fr lction">
-                              <?php $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name; ?>
-                              <?php $countryname = $this->db->get_where('countries', array('country_id' => $post['country']))->row()->country_name; ?>
-
-                                <p title="Location"><i class="fa fa-map-marker" aria-hidden="true">  <?php echo $cityname.","; ?><?php echo $countryname; ?></i></p>
-                                 </div>
-                           </li> -->
                              <?php
                 $firstname = $this->db->get_where('freelancer_hire_reg', array('user_id' => $post['user_id']))->row()->fullname;
                 $lastname = $this->db->get_where('freelancer_hire_reg', array('user_id' => $post['user_id']))->row()->username;
@@ -493,7 +377,7 @@ Details</a>
 } else {
     ?>
                             <div class="text-center rio">
-                                <h4 class="page-heading  product-listing" style="border:0px;margin-bottom: 11px;">No Applied Posts Found.</h4>
+                                <h4 class="page-heading  product-listing" >No Applied Posts Found.</h4>
                             </div>                               
     <?php }
 ?>   
@@ -534,11 +418,13 @@ Details</a>
                                             <div id="popup-form">
                                                 <?php echo form_open_multipart(base_url('freelancer/user_image_add'), array('id' => 'userimage','name' => 'userimage', 'class' => 'clearfix')); ?>
                                                 <input type="file" name="profilepic" accept="image/gif, image/jpeg, image/png" id="profilepic">
+ <div class="popup_previred">
+                                                 <img id="preview" src="#" alt="your image" />
 
-                                                 <img id="preview" src="#" alt="your image" style="border: 2px solid rgb(204, 204, 204); display: none; margin: 0 auto; margin-top: 5px;padding: 5px;"/>
+                                                 </div>
                                                 <input type="hidden" name="hitext" id="hitext" value="1">
-                                                <!--<input type="submit" name="cancel3" id="cancel3" value="Cancel">-->
-                                                <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save"  style="margin-top:32px!important;">
+                                               
+                                                <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save"  >
                                                 <?php echo form_close(); ?>
                                             </div>
                                         </span>
