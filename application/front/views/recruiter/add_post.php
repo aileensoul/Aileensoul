@@ -434,6 +434,11 @@ $.validator.addMethod("greaterThan",
 );
 
 
+$.validator.addMethod("regx", function(value, element, regexpr) {          
+    return regexpr.test(value);
+}, "Only space, only number and only special characters are not allow");
+
+
     jQuery.validator.addMethod("noSpace", function(value, element) { 
       return value == '' || value.trim().length != 0;  
     }, "No space please and don't leave it empty");
@@ -449,7 +454,8 @@ $.validator.addMethod("greaterThan",
                 post_name: {
 
                     required: true,
-                    noSpace: true
+                    regx:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]/
+                    //noSpace: true
                 },
 
 
@@ -487,7 +493,8 @@ $.validator.addMethod("greaterThan",
                 post_desc: {
 
                     required: true,
-                    noSpace: true
+                    regx:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]/
+                    //noSpace: true
 
                 },
 
