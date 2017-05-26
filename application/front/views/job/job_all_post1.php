@@ -461,7 +461,7 @@
                                                 </span>
                                             </li>
                                                                 
-                <li><b>Salary</b><span title="Min - Max"><?php echo $post['min_sal']." - ".$post['max_sal']; ?></span>
+                <li><b>Salary</b><span title="Min - Max"><?php echo $post['min_sal']." - ".$post['max_sal']."Per Year"; ?></span>
                                                                    </li>
                                             
                                                                 <li><b>No of Position</b><span><?php echo $post['post_position']; ?></span>
@@ -544,29 +544,23 @@
               <?php echo ucwords(text2link($post['post_name'])); ?> </a>                                        </li>
 
                                                                     <li>   
-
-                                              <div class="fr lction">
-                                                    <?php $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name;
+                        <?php $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name;
 
 
                                                      $countryname = $this->db->get_where('countries', array('country_id' => $post['country']))->row()->country_name; ?>
-                                                            <?php  
-                                                            if($cityname || $countryname)
-                                                            {
-                                                            
-                                                            ?>
+
+                    <?php if($cityname || $countryname){ ?>
+                                              <div class="fr lction">
+                                                    
+                        
          <p title="Address"><i class="fa fa-map-marker" aria-hidden="true">
 
-                                                            <?php  echo $cityname .', '. $countryname; ?> 
+        <?php if($cityname){echo $cityname .', ';} echo $countryname; ?> 
                                                             </i></p>
                                                             
-                                                            <?php
-                                                             }
-
-                                                             else{
-                                                              
-                                                              }?> 
+                                                            
                                                     </div>
+                                                    <?php }?> 
 
 
 
@@ -650,7 +644,8 @@
                                             </li>
 
                                                               
-        <li><b>Salary</b><span title="Min - Max"><?php echo $post['min_sal']." - ".$post['max_sal']; ?></span>
+        <li><b>Salary</b><span title="Min - Max">
+        <?php echo $post['min_sal']." - ".$post['max_sal']." Per Year"; ?></span>
                                                                    </li>
                                                                 <li><b>No of Position</b><span><?php echo $post['post_position']; ?></span>
                                                                 </li>
