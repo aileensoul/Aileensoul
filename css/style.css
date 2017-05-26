@@ -5007,7 +5007,7 @@ label.cameraButton:hover
 
     #btnRemove{ padding: 6px 12px 6px!important;  min-width: 49px!important; }
     .images_art_post .basic-responsive-image img{width: 100%; height: auto; min-height: initial;}
-
+ #images_art_post .basic-responsive-image img{width: 100%; height: auto; min-height: initial;}
 
 
 
