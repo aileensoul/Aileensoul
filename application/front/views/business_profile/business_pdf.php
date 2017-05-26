@@ -254,9 +254,9 @@ label.cameraButton input[accept*="camera"] {
 
             <div class="row" id="row1" style="display:none;">
                 <div class="col-md-12 text-center">
-                    <div id="upload-demo" style="width:100%"></div>
+                    <div id="upload-demo"></div>
                 </div>
-                <div class="col-md-12 cover-pic" style="padding-top: 25px;text-align: center;">
+                <div class="col-md-12 cover-pic" >
                     <button class="btn btn-success  cancel-result" onclick="">Cancel</button>
 
                     <button class="btn btn-success upload-result fr" onclick="myFunction()">Save</button>
@@ -277,7 +277,7 @@ label.cameraButton input[accept*="camera"] {
                     </div>
                 </div>
                 <div class="col-md-12"  style="visibility: hidden; ">
-                    <div id="upload-demo-i" style="background:#e1e1e1;width:100%;padding:30px;height:1px;margin-top:30px"></div>
+                    <div id="upload-demo-i"></div>
                 </div>
             </div>
 
@@ -515,7 +515,7 @@ label.cameraButton input[accept*="camera"] {
   <div class="container "  >
   
     
-<div class="user-midd-section"  style="border: 1px solid #d9d9d9;">
+<div class="user-midd-section" >
       <div  class="col-sm-12 border_tag padding_low_data " >
       
         <div class="col-xs-3 padding_low_data padding_les padding_les"> <!-- required for floating -->
@@ -527,7 +527,7 @@ label.cameraButton input[accept*="camera"] {
             <li class="active">    <a href="<?php echo base_url('business_profile/business_pdf/'.$businessdata1[0]['business_slug']) ?>" data-toggle="tab"><i class="fa fa-file-pdf-o" aria-hidden="true"></i>  Pdf</a></li>
           </ul>
         </div>
-<div class="col-xs-9 padding_les" style="padding-left: 0; height: 100%; border-left: 1px solid #d9d9d9">
+<div class="col-xs-9 padding_les main_art" >
 
           <!-- Tab panes -->
           <div class="tab-content">
@@ -580,8 +580,8 @@ label.cameraButton input[accept*="camera"] {
                   
               ?>
 
-<div class="main_box_pdf" style="">
-<div class="main_box_img" style="">
+<div class="main_box_pdf">
+<div class="main_box_img">
         <a href="<?php echo base_url('business_profile/creat_pdf/'.$pdfv['image_id']) ?>"><div class="" style="margin: 0!important;">
                 <img src="<?php echo base_url('images/PDF.jpg')?>" style="height: 100%; width: 100%;">
                                                               
@@ -595,7 +595,7 @@ label.cameraButton input[accept*="camera"] {
 </div>
         <?php } } else{?>
 
-          <div style="margin-left: 380px; margin-top: 20px;">
+          <div class="not_img">
                   <div class="not_avali" >
                                 <img src="<?php echo base_url('images/020.png'); ?>"  >
                                <div>
@@ -609,9 +609,7 @@ label.cameraButton input[accept*="camera"] {
 </div>
 </div>
 </div></div>
-            <div class="tab-pane" id="profile">Profile Tab.</div>
-            <div class="tab-pane" id="messages">Messages Tab.</div>
-            <div class="tab-pane" id="settings">Settings Tab.</div>
+           
           </div>
         </div>
 
@@ -645,9 +643,8 @@ label.cameraButton input[accept*="camera"] {
                                                 <input type="file" name="profilepic" accept="image/gif, image/jpeg, image/png" id="profilepic">
                                                 <input type="hidden" name="hitext" id="hitext" value="12">
 
-                                                <img id="preview" src="#" alt="your image" style="border: 2px solid rgb(204, 204, 204); display: none; margin: 0 auto; margin-top: 5px;padding: 5px;"/>
-                                                <!--<input type="submit" name="cancel3" id="cancel3" value="Cancel">-->
-                                                <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save" style="margin-top:32px!important;">
+                                             <div class="popup_previred">    <img id="preview" src="#" alt="your image" /></div>
+                                                <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save" >
                                                 <?php echo form_close(); ?>
                                             </div>
                                         </span>

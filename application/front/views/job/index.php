@@ -13,6 +13,7 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
 <!-- <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/select2.min.css'); ?>">
+
  -->
 <!-- start header -->
 <?php echo $header; ?>
@@ -161,7 +162,7 @@ $gender = form_error('gender');
 
                                 <fieldset <?php if ($email) { ?> class="error-msg" <?php } ?>>
                                     <label>Email Address <span class="red">*</span></label>
-                                    <input type="text" name="email" id="email" placeholder="Enter Email Address"  value="<?php if ($email1) {
+                                    <input type="email" name="email" id="email" placeholder="Enter Email Address"  value="<?php if ($email1) {
     echo $email1;
 } else {
     echo $job[0]['user_email'];
@@ -283,6 +284,7 @@ if (count($nation) > 0) {
 </html>
 
 <!-- Calender JS Start-->
+
 <script src="<?php echo base_url('js/jquery.js'); ?>"></script>
 <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 
@@ -291,15 +293,16 @@ if (count($nation) > 0) {
 
 
 
+
  <script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
  <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
  <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
  <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
+ 
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 
 <script src="<?php echo base_url('js/jquery.datetimepicker.full.js'); ?>"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/3.3.0/select2.js"></script>
-
 
 <script type="text/javascript">
     $('#datepicker').datetimepicker({
@@ -364,6 +367,7 @@ if (count($nation) > 0) {
 </script>
 
 
+
 <script>
 //select2 autocomplete start for skill
     $('#searchskills').select2({
@@ -424,6 +428,7 @@ if (count($nation) > 0) {
 <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.min.js') ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
 <!-- Field Validation Js End -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/3.3.0/select2.js"></script>
 
 
 <!-- javascript validation start -->
@@ -483,6 +488,7 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
 
                             number: true,
                             required: true,
+                            minLength:5
                             
                         },
                         

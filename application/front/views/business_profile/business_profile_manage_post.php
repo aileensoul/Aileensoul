@@ -218,37 +218,6 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
 
-<!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
-
-<!-- <link rel="stylesheet" href="<?php //echo base_url('assets/css/croppie.css');                                   ?>">
---><style type="text/css" media="screen">
-    #row2 { overflow: hidden; width: 100%; }
-    #row2 img { height: 350px;width: 100%; } 
-    .upload-img { float: right;
-                  position: relative; margin-top: -135px; right: 50px; }
-
-    label.cameraButton {
-        display: inline-block;
-        margin: 1em 0;
-        cursor: pointer;
-        /* Styles to make it look like a button */
-        padding: 0.5em;
-        border: 2px solid #666;
-        border-color: #EEE #CCC #CCC #EEE;
-        background-color: #DDD;
-        opacity: 0.7;
-    }
-
-    /* Look like a clicked/depressed button */
-    label.cameraButton:active {
-        border-color: #CCC #EEE #EEE #CCC;
-    }
-
-    /* This is the part that actually hides the 'Choose file' text box for camera inputs */
-    label.cameraButton input[accept*="camera"] {
-        display: none;
-    }
-</style>
 <!-- END HEAD -->
 
 
@@ -261,9 +230,9 @@
 
             <div class="row" id="row1" style="display:none;">
                 <div class="col-md-12 text-center">
-                    <div id="upload-demo" style="width:100%"></div>
+                    <div id="upload-demo" ></div>
                 </div>
-                <div class="col-md-12 cover-pic" style="padding-top: 25px;text-align: center;">
+                <div class="col-md-12 cover-pic" >
                     <button class="btn btn-success  cancel-result" onclick="">Cancel</button>
 
                     <button class="btn btn-success upload-result fr" onclick="myFunction()">Save</button>
@@ -284,7 +253,7 @@
                     </div>
                 </div>
                 <div class="col-md-12"  style="visibility: hidden; ">
-                    <div id="upload-demo-i" style="background:#e1e1e1;width:100%;padding:30px;height:1px;margin-top:30px"></div>
+                    <div id="upload-demo-i"></div>
                 </div>
             </div>
 
@@ -659,7 +628,7 @@
                     <!-- user iamges start-->
 
                     <div class="full-box-module business_data">
-                        <div class="profile-boxProfileCard  module buisness_he_module" style="">
+                        <div class="profile-boxProfileCard  module buisness_he_module" >
 
                             <div class="head_details">
                                 <a href="<?php echo base_url('business_profile/business_photos/' . $businessdata1[0]['business_slug']) ?>">   <h5><i class="fa fa-camera" aria-hidden="true"></i>   Photos</h5></a>
@@ -945,7 +914,7 @@
                     </div>
 
                     <div class="full-box-module business_data">
-                        <div class="profile-boxProfileCard  module buisness_he_module" style="">
+                        <div class="profile-boxProfileCard  module buisness_he_module" >
 
                             <div class="head_details">
                                 <a href="<?php echo base_url('business_profile/business_pdf/' . $businessdata1[0]['business_slug']) ?>">   <h5><i class="fa fa-file-pdf-o" aria-hidden="true"></i>  PDF</h5></a>
@@ -1029,16 +998,10 @@
                             </div>
                             <div id="myBtn1"  class="editor-content col-md-11 popup-text"   >
                                 <span>Post Your Product....</span>
-                              <!--  <span class="fr">
-                                <input type="file" id="FileID" style="display:none;">
-                                 <label for="FileID"><i class=" fa fa-camera fa"  style=" margin: 8px; cursor:pointer">  </i>
-                                 </label>
-                                  </span>     
-                                -->
+                            
                             </div>
                         </div>
-                        <!-- <div class="fr">
-                         <a class="button">Post</a></div> -->
+                       
                     </div>
                 </div>
 
@@ -1076,11 +1039,8 @@
                                     </div>
 
                                 </div>
-                               <!--   <span class="fr">
-                           
-                               <input type="file" id="files" name="postattach[]" multiple style="display:block;">  </span> -->
-                                <div class="col-md-1 padding-left" style="padding-left: 0px;"><i class=" fa fa-camera "  style="margin: 0px;
-                                                                                                 font-size: 27px;
+                            
+                                <div class="col-md-1 padding-left" style="padding-left: 0px;"><i class=" fa fa-camera "  style="margin: 0px;                                                                                                 font-size: 27px;
                                                                                                  cursor: pointer;
                                                                                                  /* margin-right: -38px; */
                                                                                                  margin-top: 25px;"></i> </div>
@@ -1108,10 +1068,7 @@
                                 <ul class="editor-header">
 
                                     <li>
-                                      <!--   <input type="file" class="file" style="display:block;" id="test-upload" style="display:none;" name="postattach[]" multiple>
-                                        <label for="test-upload"><i class=" fa fa-camera "  style=" margin: 8px; cursor:pointer"> Photo</i><i class=" fa fa-video-camera"  style=" margin: 8px; cursor:pointer"> Video </i> <i class="fa fa-music "  style=" margin: 8px; cursor:pointer"> Audio </i><i class=" fa fa-file-pdf-o fa-2x"  style=" margin: 8px; cursor:pointer"> PDF </i> </label>
-                                        -->
-
+                                   
 
 
                                         <div class="col-md-12"> <div class="form-group">
@@ -1305,7 +1262,7 @@
 
                                             <div class="post-design-desc ">
                                                 <div id="<?php echo 'editpostdata' . $row['business_profile_post_id']; ?>" style="display:block;">
-                                                    <a  style="margin-bottom: 0px;   font-weight: 600;  font-size: 16px"><?php echo $this->common->make_links($row['product_name']); ?></a>
+                                                    <a  ><?php echo $this->common->make_links($row['product_name']); ?></a>
                                                 </div>
 
                                                 <div id="<?php echo 'editpostbox' . $row['business_profile_post_id']; ?>" style="display:none;">
@@ -1364,7 +1321,7 @@
                                                         ?>
 
                                                         <!-- one image start -->
-                                                        <div id="basic-responsive-image" style="height: 50%; width: 100%;">
+                                                        <div id="basic-responsive-image" >
                                                             <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>"><img src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $businessmultiimage[0]['image_name']) ?>" style="width: 100%; height: 100%;"> </a>
                                                         </div>
                                                         <!-- one image end -->
@@ -1455,7 +1412,7 @@
                                                         ?>
 
                                                         <!-- four image start -->
-                                                        <div id="responsive_manage-images-breakpoints" style="   ">
+                                                        <div id="responsive_manage-images-breakpoints" >
                                                             <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>"><img class="breakpoint" src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $multiimage['image_name']) ?>" style="width: 100%; height: 100%;"> </a>
 
                                                         </div>
@@ -1477,7 +1434,7 @@
                                                         <!-- five image start -->
                                                         <div>
                                                             <div id="responsive-manage_images_2-breakpoints">
-                                                                <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>"><img src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $multiimage['image_name']) ?>" style=""> </a>
+                                                                <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>"><img src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $multiimage['image_name']) ?>" > </a>
                                                             </div>
                                                         </div>
 
@@ -1732,7 +1689,7 @@
                                                                                                                         </div>-->
                                                                 <div class="edit-comment-box">
                                                                     <div class="inputtype-edit-comment">
-                                                                        <!--<textarea type="text" class="textarea" name="<?php echo $rowdata['business_profile_post_comment_id']; ?>" id="<?php echo "editcomment" . $rowdata['business_profile_post_comment_id']; ?>" style="display:none;resize: none;" onClick="commentedit(this.name)"><?php echo $rowdata['comments']; ?></textarea>-->
+                                                                      
                                                                         <div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="<?php echo $rowdata['business_profile_post_comment_id']; ?>"  id="<?php echo "editcomment" . $rowdata['business_profile_post_comment_id']; ?>" placeholder="Add a Commnet Comment " value= ""  onkeyup="commentedit(<?php echo $rowdata['business_profile_post_comment_id']; ?>)"><?php echo $rowdata['comments']; ?></div>
                                                                         <span class="comment-edit-button"><button id="<?php echo "editsubmit" . $rowdata['business_profile_post_comment_id']; ?>" style="display:none" onClick="edit_comment(<?php echo $rowdata['business_profile_post_comment_id']; ?>)">Save</button></span>
                                                                     </div>
@@ -1846,12 +1803,9 @@
 
 
 
-                                            <div class="">
-                                                <!--                                        <div class="col-md-10  inputtype-comment" style="    padding-left: 7px;">
-                                                                                                <textarea type="text" class="textarea" name="<?php echo $row['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $row['business_profile_post_id']; ?>" placeholder="Type Message ..." value= ""  onClick="entercomment(this.name)"></textarea>
-                                                                                        </div>-->
-                                                <div id="content" class="col-md-12  inputtype-comment" style="width: 80%; padding-left: 7px;">
-                                                    <!--<div contenteditable="true" style="min-height:40px !important; margin-top: 0px!important" class="editable_text" name="<?php echo $row['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $row['business_profile_post_id']; ?>" placeholder="Type Message ..."  onClick="contentedit(<?php echo $row['business_profile_post_id']; ?>)"></div>-->
+                                            <div >
+                                                  <div id="content" class="col-md-12  inputtype-comment" style="width: 80%; padding-left: 7px;">
+                                                   
                                                     <div contenteditable="true" style="min-height:40px !important; margin-top: 0px!important" class="editable_text" name="<?php echo $row['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $row['business_profile_post_id']; ?>" placeholder="Add a Comment... " onClick="entercomment(<?php echo $row['business_profile_post_id']; ?>)"></div>
                                                 </div>
                                                 <?php echo form_error('post_comment'); ?> 
@@ -1918,9 +1872,10 @@
                                     <input type="file" name="profilepic" accept="image/gif, image/jpeg, image/png" id="profilepic">
                                     <input type="hidden" name="hitext" id="hitext" value="5">
                                     <!--<input type="submit" name="cancel3" id="cancel3" value="Cancel">-->
-                                    <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save"  style="margin-top:32px!important;">
-
-                                    <img id="preview" src="#" alt="your image" style="border: 2px solid rgb(204, 204, 204); display: none; margin: 0 auto; margin-top: 5px;padding: 5px;"/>
+                                    <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save" >
+ <div class="popup_previred">
+                                    <img id="preview" src="#" alt="your image" />
+                                    </div>
                                     <?php echo form_close(); ?>
                                 </div>
                             </span>
