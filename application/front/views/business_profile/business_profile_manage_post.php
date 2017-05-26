@@ -1,187 +1,12 @@
 <!-- start head -->
 
-<style type="text/css">
-    .alert-danger1{
-        background-color: #f2dede;
-        border-color: #ebccd1;
-        box-shadow: 0 1px 5px 1px;
-        color: #a94442;
-        margin: 10px 0px !important;
-        text-align: center;
-    }.audio_img{height: 300px; width: 350px; position: relative;}
-    #popup-form img{display: none;}
-</style>
-
 <?php echo $head; ?>
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/gyc.css'); ?>">
 
 <!--post save success pop up style strat -->
-<style>
-    .okk{
-        text-align: center;
-    }
-
-
-    #myBtn1[placeholder]:empty:before {
-        content: attr(placeholder);
-        color: #555; 
-    }div[data-placeholder]:not(:focus):not([data-div-placeholder-content]):before {
-
-        content: attr(data-placeholder);
-
-        float: left;
-
-        margin-left: 2px;
-
-        color: #b3b3b3;
-
-    }
-
-    .pop_content .okbtn{
-        position: absolute;
-        transition: all 200ms;
-        font-size: 16px;
-        text-decoration: none;
-        color: #fff;
-        padding: 8px 18px;
-        background-color: #0A2C5D;
-        left: 170px;
-        margin-top: 8px;
-        width: 100px; 
-        border-radius: 8px;
-    }
-
-
-    .pop_content .cnclbtn {
-        position: absolute;
-        transition: all 200ms;
-        font-size: 16px;
-        text-decoration: none;
-        color: #fff;
-        padding: 8px 18px;
-        background-color: #0A2C5D;
-        right: 170px;
-        margin-top: 8px;
-        width: 100px;
-        border-radius: 8px;
-    }
-
-    .popup .pop_content {
-        text-align: center;
-        margin-top: 40px;
-
-    }
-    .model_ok_cancel{
-        width:200px !important;
-    }
-
-    /*
-        @media screen and (max-width: 700px){
-            .box{
-                width: 70%;
-            }
-            .popup{
-                width: 70%;
-            }
-        } */
-
-
-</style>
 
 <!--post save success pop up style strat -->
-<style>
-
-    .box {
-        width: 40%;
-        margin: 0 auto;
-        background: rgba(255,255,255,0.2);
-        padding: 35px;
-        border: 2px solid #fff;
-        border-radius: 20px/50px;
-        background-clip: padding-box;
-        text-align: center;
-    }
-
-
-
-    .overlay {
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: rgba(0, 0, 0, 0.3);
-        transition: opacity 500ms;
-        visibility: hidden;
-        opacity: 0;
-        z-index: 10;
-    }
-    .overlay:target {
-        visibility: visible;
-        opacity: 1;
-    }
-
-    .popup {
-        margin: 70px auto;
-        padding: 20px;
-        background: #fff;
-        border-radius: 5px;
-        width: 30%;
-        height: 200px;
-        position: relative;
-        transition: all 5s ease-in-out;
-    }
-
-    .okk{
-        text-align: center;
-    }
-
-    .popup .okbtn {
-        position: absolute;
-        transition: all 200ms;
-        font-size: 18px;
-        font-weight: bold;
-        text-decoration: none;
-        color: #fff;
-        padding: 8px 18px;
-        background-color: darkcyan;
-        left: 25px;
-        margin-top: 15px;
-        width: 100px; 
-        border-radius: 8px;
-    }
-
-    .popup .cnclbtn {
-        position: absolute;
-        transition: all 200ms;
-        font-size: 18px;
-        font-weight: bold;
-        text-decoration: none;
-        color: #fff;
-        padding: 8px 18px;
-        background-color: darkcyan;
-        right: 25px;
-        margin-top: 15px;
-        width: 100px;
-        border-radius: 8px;
-    }
-
-    .popup .pop_content {
-        text-align: center;
-        margin-top: 40px;
-
-    }
-
-    @media screen and (max-width: 700px){
-        .box{
-            width: 70%;
-        }
-        .popup{
-            width: 70%;
-        }
-    }
-</style>
 
 <!--post save success pop up style end -->
 
@@ -1034,16 +859,13 @@
                                        <!-- <textarea name="product_title" placeholder="Post Your Product...."></textarea>  -->
                                     <textarea id= "test-upload_product" placeholder="Post Your Product...."  onKeyPress=check_length(this.form); onKeyDown=check_length(this.form); 
                                               name=my_text rows=4 cols=30 class="post_product_name" style="position: relative;"></textarea>
-                                    <div style="position: absolute; top: 21px; right: 19px; border: none;">                   
+                                              <div class="fifty_val">                   
                                         <input size=1 value=50 name=text_num class="text_num" readonly> 
                                     </div>
 
                                 </div>
                             
-                                <div class="col-md-1 padding-left" style="padding-left: 0px;"><i class=" fa fa-camera "  style="margin: 0px;                                                                                                 font-size: 27px;
-                                                                                                 cursor: pointer;
-                                                                                                 /* margin-right: -38px; */
-                                                                                                 margin-top: 25px;"></i> </div>
+                                <div class="col-md-1 padding-left camer_h" ><i class=" fa fa-camera " ></i> </div>
 
                             </div>
                             <div class="row"></div>
@@ -1076,7 +898,12 @@
                                             </div></div>
 
 
-                                        <label for="file-1"><i class=" fa fa-camera "  style=" margin: 8px; cursor:pointer"> Photo</i><i class=" fa fa-video-camera"  style=" margin: 8px; cursor:pointer"> Video </i> <i class="fa fa-music "  style=" margin: 8px; cursor:pointer"> Audio </i><i class=" fa fa-file-pdf-o "  style=" margin: 8px; cursor:pointer"> PDF </i> </label>
+                                        <label for="file-1">
+                                            <i class=" fa fa-camera upload_icon"  > Photo</i>
+                                            <i class=" fa fa-video-camera upload_icon"> Video </i> 
+                                            <i class="fa fa-music upload_icon"> Audio </i>
+                                            <i class=" fa fa-file-pdf-o upload_icon"> PDF </i>
+                                        </label>
 
 
 
@@ -1170,22 +997,24 @@
                                                         <li>
                                                             <div class="else_post_d">
                                                                 <div class="post-design-product">
-                                                                    <a style="max-width: 40%;" class="post_dot" title="<?php echo ucwords($companynameposted); ?>" href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugnameposted); ?>"><?php echo ucwords($companynameposted); ?></a> <p style="display: inline-block; color: #91949d; font-weight: 600;"> Posted With </p> <a style=" font-size: 15px;                    line-height: 20px; font-weight: 600; color: #000033; margin-bottom: 4px; " " href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>"><?php echo ucwords($companyname); ?></a> <span  style="font-weight: 400;  color: #999;                                                                     font-size: 14px;color: #91949d;"><?php echo date('d-M-Y', strtotime($row['created_date'])); ?> </span> </div></div></li>
+                                                                    <a style="max-width: 40%;" class="post_dot" title="<?php echo ucwords($companynameposted); ?>" href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugnameposted); ?>"><?php echo ucwords($companynameposted); ?></a>
+                                                                    <p class="posted_with" > Posted With </p>
+                                                                    <a class="other_name"  href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>"><?php echo ucwords($companyname); ?></a>
+                                                                    <span class="ctre_date"><?php echo date('d-M-Y', strtotime($row['created_date'])); ?> </span> 
+                                                                </div></div></li>
 
 
                                                     <?php } else { ?>
                                                         <li><div class="post-design-product"><a class="post_dot" title="<?php echo ucwords($companyname); ?> " href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>"><?php echo ucwords($companyname); ?> </a>
 
                                                                 <div class="datespan"> 
-                                                                    <span  style="font-weight: 400;
-                                                                           font-size: 14px;
-                                                                           color: #91949d;"><?php echo date('d-M-Y', strtotime($row['created_date'])); ?> </span> 
+                                                                  <span class="ctre_date"><?php echo date('d-M-Y', strtotime($row['created_date'])); ?> </span> 
                                                                 </div>
 
                                                             </div></li>
                                                     <?php } ?>
 
-                                                    <li><div class="post-design-product"> <a title="Category" style="cursor: default; color: #000033; font-weight: 400;"> 
+                                                    <li><div class="post-design-product">   <a class="buuis_desc_a"  title="Category" > 
                                                                 <?php
                                                                 if ($category) {
 
@@ -1678,19 +1507,11 @@
                                                                     //  echo '</br>';
                                                                     ?>
                                                                 </div>
-                                                                <!--                                                        <div class="col-md-12">
-                                                                                                                            <div class="col-md-10">
-                                                                                                                                <textarea type="text" class="textarea" name="<?php echo $rowdata['business_profile_post_comment_id']; ?>" id="<?php echo "editcomment" . $rowdata['business_profile_post_comment_id']; ?>" style="display:none;height: 3.3em;resize: none;" onClick="commentedit(this.name)"><?php echo $rowdata['comments']; ?></textarea>
-                                                                                                                            </div>
-                                                                
-                                                                                                                            <div class="col-md-2 comment-edit-button">
-                                                                                                                                <button id="<?php echo "editsubmit" . $rowdata['business_profile_post_comment_id']; ?>" style="display:none" onClick="edit_comment(<?php echo $rowdata['business_profile_post_comment_id']; ?>)">Comment</button>
-                                                                                                                            </div>
-                                                                                                                        </div>-->
+                                                          
                                                                 <div class="edit-comment-box">
                                                                     <div class="inputtype-edit-comment">
                                                                       
-                                                                        <div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="<?php echo $rowdata['business_profile_post_comment_id']; ?>"  id="<?php echo "editcomment" . $rowdata['business_profile_post_comment_id']; ?>" placeholder="Add a Commnet Comment " value= ""  onkeyup="commentedit(<?php echo $rowdata['business_profile_post_comment_id']; ?>)"><?php echo $rowdata['comments']; ?></div>
+                                                                        <div contenteditable="true"  class="editable_text editav_2" name="<?php echo $rowdata['business_profile_post_comment_id']; ?>"  id="<?php echo "editcomment" . $rowdata['business_profile_post_comment_id']; ?>" placeholder="Add a Commnet Comment " value= ""  onkeyup="commentedit(<?php echo $rowdata['business_profile_post_comment_id']; ?>)"><?php echo $rowdata['comments']; ?></div>
                                                                         <span class="comment-edit-button"><button id="<?php echo "editsubmit" . $rowdata['business_profile_post_comment_id']; ?>" style="display:none" onClick="edit_comment(<?php echo $rowdata['business_profile_post_comment_id']; ?>)">Save</button></span>
                                                                     </div>
                                                                 </div>
@@ -1804,9 +1625,9 @@
 
 
                                             <div >
-                                                  <div id="content" class="col-md-12  inputtype-comment" style="width: 80%; padding-left: 7px;">
+                                                  <div id="content" class="col-md-12  inputtype-comment cmy_2" >
                                                    
-                                                    <div contenteditable="true" style="min-height:40px !important; margin-top: 0px!important" class="editable_text" name="<?php echo $row['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $row['business_profile_post_id']; ?>" placeholder="Add a Comment... " onClick="entercomment(<?php echo $row['business_profile_post_id']; ?>)"></div>
+                                                    <div contenteditable="true" class="editable_text edt_2" name="<?php echo $row['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $row['business_profile_post_id']; ?>" placeholder="Add a Comment... " onClick="entercomment(<?php echo $row['business_profile_post_id']; ?>)"></div>
                                                 </div>
                                                 <?php echo form_error('post_comment'); ?> 
                                                 <div class="comment-edit-butn">       
@@ -1824,7 +1645,7 @@
                     } else {
                         ?>
                         <div class="text-center rio">
-                            <h4 class="page-heading  product-listing" style="border:0px;margin-bottom: 11px;">No Post Found.</h4>
+                            <h4 class="page-heading  product-listing">No Post Found.</h4>
                         </div>
 
                     <?php } ?>

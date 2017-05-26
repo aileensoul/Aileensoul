@@ -70,9 +70,9 @@ label.cameraButton input[accept*="camera"] {
 
             <div class="row" id="row1" style="display:none;">
                 <div class="col-md-12 text-center">
-                    <div id="upload-demo" style="width:100%"></div>
+                    <div id="upload-demo" ></div>
                 </div>
-                <div class="col-md-12 cover-pic" style="padding-top: 25px;text-align: center;">
+                <div class="col-md-12 cover-pic" >
 
                     <button class="btn btn-success cancel-result">Cancel</button>
                     <button class="btn btn-success set-btn upload-result" onclick="myFunction()">Save</button>
@@ -91,7 +91,7 @@ label.cameraButton input[accept*="camera"] {
                     </div>
                 </div>
                 <div class="col-md-12"  style="visibility: hidden; ">
-                    <div id="upload-demo-i" style="background:#e1e1e1;width:100%;padding:30px;height:1px;margin-top:30px"></div>
+                    <div id="upload-demo-i"></div>
                 </div>
             </div>
 
@@ -456,7 +456,7 @@ if ($status == 0 || $status == " ") {
                                                  </div>
                                                 <input type="hidden" name="hitext" id="hitext" value="10">
                                                 <!--<input type="submit" name="cancel3" id="cancel3" value="Cancel">-->
-                                                <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save" style="margin-top:32px!important;">
+                                                <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save">
                                                 <?php echo form_close(); ?>
                                             </div>
                                         </span>

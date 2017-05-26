@@ -41,9 +41,9 @@ pt>
 
         <div class="row" id="row1" style="display:none;">
             <div class="col-md-12 text-center">
-                <div id="upload-demo" style="width:100%"></div>
+                <div id="upload-demo" ></div>
             </div>
-            <div class="col-md-12 cover-pic" style="padding-top: 25px;text-align: center;">
+            <div class="col-md-12 cover-pic" >
                 <button class="btn btn-success cancel-result" onclick="" >Cancel</button>
 
                 <button class="btn btn-success set-btn upload-result" onclick="myFunction()">Save</button>
@@ -63,7 +63,7 @@ pt>
                 </div>
             </div>
             <div class="col-md-12"  style="visibility: hidden; ">
-                <div id="upload-demo-i" style="background:#e1e1e1;width:100%;padding:30px;height:1px;margin-top:30px"></div>
+                <div id="upload-demo-i" ></div>
             </div>
         </div>
 
@@ -161,7 +161,7 @@ pt>
                     $userid = $this->session->userdata('aileenuser');
                     if ($artisticdata[0]['user_id'] == $userid) {
                         ?>
-                        <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'followers') { ?> class="active" <?php } ?>><a title="Followers" style="padding: 12px 15px 2px 15px" href="<?php echo base_url('artistic/followers'); ?>">Followers <br> (<?php echo (count($followerdata)); ?>)</a>
+                        <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'followers') { ?> class="active" <?php } ?>><a title="Followers" class="pad_a" href="<?php echo base_url('artistic/followers'); ?>">Followers <br> (<?php echo (count($followerdata)); ?>)</a>
                         </li>
                         <?php
                     } else {
@@ -170,14 +170,14 @@ pt>
                         $contition_array = array('follow_to' => $artregid, 'follow_status' => '1', 'follow_type' => '1');
                         $followerotherdata = $this->data['followerotherdata'] = $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                         ?> 
-                        <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'followers') { ?> class="active" <?php } ?>><a  title="Followers" style="padding: 12px 15px 2px 15px" href="<?php echo base_url('artistic/followers/' . $artisticdata[0]['user_id']); ?>">Followers <br> (<?php echo (count($followerotherdata)); ?>)</a>
+                        <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'followers') { ?> class="active" <?php } ?>><a  title="Followers" class="pad_a"  href="<?php echo base_url('artistic/followers/' . $artisticdata[0]['user_id']); ?>">Followers <br> (<?php echo (count($followerotherdata)); ?>)</a>
                         </li>
 
                     <?php } ?> 
                     <?php
                     if ($artisticdata[0]['user_id'] == $userid) {
                         ?>        
-                        <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'following') { ?> class="active" <?php } ?>><a title="Following" style="padding: 12px 15px 2px 15px" href="<?php echo base_url('artistic/following'); ?>">Following <br> (<?php echo (count($followingdata)); ?>)</a>
+                        <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'following') { ?> class="active" <?php } ?>><a title="Following" class="pad_a"  href="<?php echo base_url('artistic/following'); ?>">Following <br> (<?php echo (count($followingdata)); ?>)</a>
                         </li>
                         <?php
                     } else {
@@ -186,7 +186,7 @@ pt>
                         $contition_array = array('follow_from' => $artregid, 'follow_status' => '1', 'follow_type' => '1');
                         $followingotherdata = $this->data['followingotherdata'] = $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                         ?>
-                        <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'following') { ?> class="active" <?php } ?>><a title="Following" style="padding: 12px 15px 2px 15px" href="<?php echo base_url('artistic/following/' . $artisticdata[0]['user_id']); ?>">Following <br>  (<?php echo (count($followingotherdata)); ?>)</a>
+                        <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'following') { ?> class="active" <?php } ?>><a title="Following" class="pad_a"  href="<?php echo base_url('artistic/following/' . $artisticdata[0]['user_id']); ?>">Following <br>  (<?php echo (count($followingotherdata)); ?>)</a>
                         </li> 
                     <?php } ?>  
 
@@ -368,7 +368,7 @@ pt>
                 </div>
 
                 <div class="full-box-module business_data">
-                    <div class="profile-boxProfileCard  module buisness_he_module" style="">
+                    <div class="profile-boxProfileCard  module buisness_he_module" >
 
                         <div class="head_details">
                             <a href="<?php echo base_url('artistic/art_photos/' . $artisticdata[0]['user_id']) ?>"><h5><i class="fa fa-camera" aria-hidden="true"></i>   Photos</h5></a>
@@ -723,7 +723,7 @@ pt>
 
                 <div class="post-editor col-md-12">
                     <div class="main-text-area col-md-12" style="padding-left: 1px;">
-                 <div class="popup-img col-md-1"> <img  src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image']); ?>"  alt="" style="
+                 <div class="popup-img col-md-1"> <img  src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image']); ?>"  alt="" 
                                                       margin-top: 6px;">
                         </div>
                         <div id="myBtn3"  class="editor-content col-md-11 popup-text">
@@ -753,14 +753,13 @@ pt>
                                    <!-- <textarea name="product_title" placeholder="Post Your Product...."></textarea>  -->
                                 <textarea id= "test-upload-product" placeholder="Post Your Art...."  onKeyPress=check_length(this.form); onKeyDown=check_length(this.form); 
                                           name=my_text rows=4 cols=30 class="post_product_name"></textarea>
-                                <div style="position: absolute; top: 21px; right: 19px; border: none;">                        
+                                <div class="fifty_val">                      
                                     <input size=1 class="text_num" value=50 name=text_num readonly> 
                                 </div>
 
                             </div>
                         
-                            <div class="col-md-1" style="padding-left: 0px;"><i class=" fa fa-camera "  style="margin: 0px;
-                                                                                font-size: 27px; cursor: pointer; /* margin-right: -38px; */ margin-top: 25px;"></i> </div>
+                            <div class="col-md-1 padding_les_left camer_h"><i class=" fa fa-camera " ></i> </div>
 
                         </div>
                         <div class="row"></div>
@@ -791,7 +790,12 @@ pt>
    </div></div>
 
 
-     <label for="file-1"><i class=" fa fa-camera "  style=" margin: 8px; cursor:pointer"> Photo</i><i class=" fa fa-video-camera"  style=" margin: 8px; cursor:pointer"> Video </i> <i class="fa fa-music "  style=" margin: 8px; cursor:pointer"> Audio </i><i class=" fa fa-file-pdf-o "  style=" margin: 8px; cursor:pointer"> PDF </i> </label>
+     <label for="file-1">
+         <i class=" fa fa-camera upload_icon"> Photo</i>
+         <i class=" fa fa-video-camera upload_icon"> Video </i> 
+         <i class="fa fa-music upload_icon" > Audio </i>
+         <i class="fa fa-file-pdf-o upload_icon"> PDF </i> 
+     </label>
 
 
                                 </li>
@@ -800,7 +804,7 @@ pt>
 
                         </div>
                         <div class="fr">
-                            <button type="submit"  value="Submit" style="margin: 0px;">Post</button>    </div>
+                            <button type="submit"  value="Submit" class="margin_less">Post</button>    </div>
                         <?php echo form_close(); ?>
                     </div>
                 </div>
@@ -866,9 +870,11 @@ pt>
                                                     <?php if ($row['posted_user_id']) { ?>
 
                                                         <div class="else_post_d">
-                                                            <a  class="post_dot" style="max-width: 30%;" title="<?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?>" href="<?php echo base_url('artistic/art_manage_post/' . $row['posted_user_id']); ?>"><?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?> </a><span style="font-weight: 600; color: #91949d;"> Posted With 
-                                                            </span><a class="post_dot1"  href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>"><?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?></a><span role="presentation" aria-hidden="true" style="color: #91949d; font-size: 14px;"> · </span>
-                                                            <span style="color: #91949d; font-size: 14px;"> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span>
+                                                            <a  class="post_dot" style="max-width: 30%;" title="<?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?>" href="<?php echo base_url('artistic/art_manage_post/' . $row['posted_user_id']); ?>"><?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?> </a>
+                                                            <p class="posted_with" > Posted With </p>
+                                      
+                                                            <a class="post_dot1"  href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>"><?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?></a><span role="presentation" aria-hidden="true" style="color: #91949d; font-size: 14px;"> · </span>
+                                                          <span class="ctre_date"> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span>
                                                         </div>
 
                                                         <!-- other user post time name end-->
@@ -879,7 +885,7 @@ pt>
 
                                                         </a>
                                                         <div class="datespan">
-                                                            <span style="font-weight: 400; font-size: 14px; color: #91949d;""> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span></div>
+                                                          <span class="ctre_date"> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span></div>
 
                                                     <?php } ?>                          
                                                 </li>
@@ -982,7 +988,7 @@ pt>
                                                     ?>
 
                                                     <!-- one image start -->
-                                                    <div id="basic-responsive-image" style="height: 80%; width: 100%;">
+                                                    <div id="basic-responsive-image">
                                                         <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img src="<?php echo base_url(ARTPOSTIMAGE . $artmultiimage[0]['image_name']) ?>" style="width: 100%; height: 100%;"> </a>
                                                     </div>
                                                     <!-- one image end -->
@@ -1098,7 +1104,7 @@ pt>
                                                     <!-- five image start -->
                                                     <div>
                                                         <div id="responsive-manage_images_2-breakpoints">
-                                                            <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $multiimage['image_name']) ?>" style=""> </a>
+                                                            <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $multiimage['image_name']) ?>" > </a>
                                                         </div>
                                                     </div>
 
@@ -1471,13 +1477,13 @@ pt>
                                         ?>
                                     </div>
                                     <div class="">
-                                        <div id="content" class="col-md-12 inputtype-comment" style="width: 80%; padding-left: 7px;">
-                                            <div contenteditable="true" class="editable_text" type="text" name="<?php echo $row['art_post_id']; ?>"  id="<?php echo "post_comment" . $row['art_post_id']; ?>" placeholder="Add a Comment ..." value= "" onClick="entercomment(<?php echo $row['art_post_id']; ?>)"></div>
+                                        <div id="content" class="col-md-12 inputtype-comment cmy_2" >
+                                            <div contenteditable="true" class="editable_text edt_2" type="text" name="<?php echo $row['art_post_id']; ?>"  id="<?php echo "post_comment" . $row['art_post_id']; ?>" placeholder="Add a Comment ..." value= "" onClick="entercomment(<?php echo $row['art_post_id']; ?>)"></div>
                                         </div>    
                                         <?php echo form_error('post_comment'); ?>
 
                                         <div class="comment-edit-butn">   
-                                            <button style="position: absolute; bottom: 12px;" id="<?php echo $row['art_post_id']; ?>" onClick="insert_comment(this.id)">Comment</button> </div>
+                                            <button  id="<?php echo $row['art_post_id']; ?>" onClick="insert_comment(this.id)">Comment</button> </div>
                                     </div>
 
                                 </div>
@@ -1491,7 +1497,7 @@ pt>
                     ?>
 
                                 <div class="text-center rio">
-                                    <h4 class="page-heading  product-listing" style="border:0px;margin-bottom: 11px;">No Post Found.</h4>
+                                    <h4 class="page-heading  product-listing" >No Post Found.</h4>
                                 </div>
 
                     <?php }?>
