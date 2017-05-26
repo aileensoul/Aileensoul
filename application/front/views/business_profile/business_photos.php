@@ -5,356 +5,8 @@
 </style>
 
 <!--post save success pop up style strat -->
-<style>
-    .okk{
-        text-align: center;
-    }
 
-    .pop_content .okbtn{
-        position: absolute;
-        transition: all 200ms;
-        font-size: 16px;
-        text-decoration: none;
-        color: #fff;
-        padding: 8px 18px;
-        background-color: #0A2C5D;
-        left: 170px;
-        margin-top: 8px;
-        width: 100px; 
-        border-radius: 8px;
-    }
-
-
-    .pop_content .cnclbtn {
-        position: absolute;
-        transition: all 200ms;
-        font-size: 16px;
-        text-decoration: none;
-        color: #fff;
-        padding: 8px 18px;
-        background-color: #0A2C5D;
-        right: 170px;
-        margin-top: 8px;
-        width: 100px;
-        border-radius: 8px;
-    }
-
-    .popup .pop_content {
-        text-align: center;
-        margin-top: 40px;
-
-    }
-    .model_ok_cancel{
-        width:200px !important;
-    }
-
-    /*
-        @media screen and (max-width: 700px){
-            .box{
-                width: 70%;
-            }
-            .popup{
-                width: 70%;
-            }
-        } */
-
-
-</style>
 <!--post save success pop up style strat -->
-<style>
-
-    /* The Modal (background) */
-    .modal2 {
-        display: none;
-        position: fixed;
-        /*  z-index: 9999999;*/
-        padding-top: 35px;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        background-color: black;
-    }
-
-    /* Modal Content */
-    .modal-content2 {
-        position: relative;
-        background-color: #fefefe;
-        margin: auto;
-        padding: 0;
-        width: 65%;
-        max-width: 1200px;
-    }
-
-
-    /* Next & previous buttons */
-    .prev,
-    .next {
-        cursor: pointer;
-        position: absolute;
-        top: 50%;
-        width: auto;
-        padding: 16px;
-        margin-top: -50px;
-        color: white;
-        font-weight: bold;
-        font-size: 20px;
-        transition: 0.6s ease;
-        border-radius: 0 3px 3px 0;
-        user-select: none;
-        -webkit-user-select: none;
-    }
-
-    /* The Close Button */
-    .close2 {
-        color: white;
-        position: absolute;
-        top: 10px;
-        right: 196px;
-        font-size: 35px;
-        font-weight: bold;
-    }
-
-    .close2:hover,
-    .close2:focus {
-        color: #999;
-        text-decoration: none;
-        cursor: pointer;
-    }
-
-    /* Position the "next button" to the right */
-    .next {
-        right: 0;
-        border-radius: 3px 0 0 3px;
-    }
-
-    /* On hover, add a black background color with a little bit see-through */
-    .prev:hover,
-    .next:hover {
-        background-color: rgba(0, 0, 0, 0.8);
-    }
-
-    /* Number text (1/3 etc) */
-    .numbertext {
-        color: #f2f2f2;
-        font-size: 12px;
-        padding: 8px 12px;
-        position: absolute;
-        top: 0;
-    }
-
-
-    .caption-container {
-        text-align: center;
-        background-color: black;
-        padding: 2px 16px;
-        color: white;
-    }
-
-    .demo {
-        opacity: 0.6;
-    }
-
-    .active,
-    .demo:hover {
-        opacity: 1;
-    }
-
-
-    .hover-shadow:hover {
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
-    }
-    /*!
-     * bootstrap-vertical-tabs - v1.2.2
-     * https://dbtek.github.io/bootstrap-vertical-tabs
-     * 2016-12-02
-     * Copyright (c) 2016 İsmail Demirbilek
-     * License: MIT
-     */
-    .tabs-left, .tabs-right {
-        border-bottom: none;
-        padding-top: 2px;
-    }
-    .tabs-left {
-        /*border-right: 1px solid #ddd;*/
-        padding-top: 15px;
-        height: 100%;
-    }
-    .tabs-right {
-        border-left: 1px solid #ddd;
-    }
-    .tabs-left>li, .tabs-right>li {
-        float: none;
-        margin-bottom: 2px;
-    }
-    .tabs-left>li {
-        margin-right: -1px;
-        padding: 0;
-    }
-    .tabs-right>li {
-        margin-left: -1px;
-    }
-    .tabs-left>li.active>a,
-    .tabs-left>li.active>a:hover,
-    .tabs-left>li.active>a:focus {
-        border-bottom-color: #ddd;
-        border-right-color: transparent;
-    }
-
-    .tabs-right>li.active>a,
-    .tabs-right>li.active>a:hover,
-    .tabs-right>li.active>a:focus {
-        border-bottom: 1px solid #ddd;
-        border-left-color: transparent;
-    }
-    .tabs-left>li>a {
-        /*border-radius: 4px 0 0 4px;*/
-        margin-right: 0;
-        display:block;
-        letter-spacing: 2px;
-        font-size: 18px;
-        font-weight: 600;
-    }
-    .tabs-right>li>a {
-        border-radius: 0 4px 4px 0;
-        margin-right: 0;
-
-    }
-    .sideways {
-        margin-top:50px;
-        border: none;
-        position: relative;
-    }
-    .sideways>li {
-        height: 20px;
-        width: 120px;
-        margin-bottom: 100px;
-    }
-    .sideways>li>a {
-        border-bottom: 1px solid #ddd;
-        border-right-color: transparent;
-        text-align: center;
-        border-radius: 4px 4px 0px 0px;
-    }
-    .sideways>li.active>a,
-    .sideways>li.active>a:hover,
-    .sideways>li.active>a:focus {
-        border-bottom-color: transparent;
-        border-right-color: #ddd;
-        border-left-color: #ddd;
-    }
-    .sideways.tabs-left {
-        left: -50px;
-    }
-    .sideways.tabs-right {
-        right: -50px;
-    }
-    .sideways.tabs-right>li {
-        -webkit-transform: rotate(90deg);
-        -moz-transform: rotate(90deg);
-        -ms-transform: rotate(90deg);
-        -o-transform: rotate(90deg);
-        transform: rotate(90deg);
-    }
-    .sideways.tabs-left>li {
-        -webkit-transform: rotate(-90deg);
-        -moz-transform: rotate(-90deg);
-        -ms-transform: rotate(-90deg);
-        -o-transform: rotate(-90deg);
-        transform: rotate(-90deg);
-    }
-
-    .box {
-        width: 40%;
-        margin: 0 auto;
-        background: rgba(255,255,255,0.2);
-        padding: 35px;
-        border: 2px solid #fff;
-        border-radius: 20px/50px;
-        background-clip: padding-box;
-        text-align: center;
-    }
-
-
-
-    .overlay {
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: rgba(0, 0, 0, 0.3);
-        transition: opacity 500ms;
-        visibility: hidden;
-        opacity: 0;
-        z-index: 10;
-    }
-    .overlay:target {
-        visibility: visible;
-        opacity: 1;
-    }
-
-    .popup {
-        margin: 70px auto;
-        padding: 20px;
-        background: #fff;
-        border-radius: 5px;
-        width: 30%;
-        height: 200px;
-        position: relative;
-        transition: all 5s ease-in-out;
-    }
-
-    .okk{
-        text-align: center;
-    }
-
-    .popup .okbtn {
-        position: absolute;
-        transition: all 200ms;
-        font-size: 18px;
-        font-weight: bold;
-        text-decoration: none;
-        color: #fff;
-        padding: 8px 18px;
-        background-color: darkcyan;
-        left: 25px;
-        margin-top: 15px;
-        width: 100px; 
-        border-radius: 8px;
-    }
-
-    .popup .cnclbtn {
-        position: absolute;
-        transition: all 200ms;
-        font-size: 18px;
-        font-weight: bold;
-        text-decoration: none;
-        color: #fff;
-        padding: 8px 18px;
-        background-color: darkcyan;
-        right: 25px;
-        margin-top: 15px;
-        width: 100px;
-        border-radius: 8px;
-    }
-
-    .popup .pop_content {
-        text-align: center;
-        margin-top: 40px;
-
-    }
-
-    @media screen and (max-width: 700px){
-        .box{
-            width: 70%;
-        }
-        .popup{
-            width: 70%;
-        }
-    }
-</style>
 
 <!--post save success pop up style end -->
 
@@ -367,35 +19,6 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/jquery.jMosaic.css'); ?>">
 <link rel="stylesheet" href="<?php echo base_url('css/bootstrap.min.css') ?>" />  
-<!-- <link rel="stylesheet" href="<?php //echo base_url('assets/css/croppie.css');                     ?>">
---><style type="text/css" media="screen">
-    #row2 { overflow: hidden; width: 100%; }
-    #row2 img { height: 350px;width: 100%; } 
-    .upload-img { float: right;
-                  position: relative; margin-top: -135px; right: 50px; }
-
-    label.cameraButton {
-        display: inline-block;
-        margin: 1em 0;
-        cursor: pointer;
-        /* Styles to make it look like a button */
-        padding: 0.5em;
-        border: 2px solid #666;
-        border-color: #EEE #CCC #CCC #EEE;
-        background-color: #DDD;
-        opacity: 0.7;
-    }
-
-    /* Look like a clicked/depressed button */
-    label.cameraButton:active {
-        border-color: #CCC #EEE #EEE #CCC;
-    }
-
-    /* This is the part that actually hides the 'Choose file' text box for camera inputs */
-    label.cameraButton input[accept*="camera"] {
-        display: none;
-    }
-</style>
 <!-- END HEAD -->
 
 <!-- start header -->
@@ -422,9 +45,9 @@
 
             <div class="row" id="row1" style="display:none;">
                 <div class="col-md-12 text-center">
-                    <div id="upload-demo" style="width:100%"></div>
+                    <div id="upload-demo" ></div>
                 </div>
-                <div class="col-md-12 cover-pic" style="padding-top: 25px;text-align: center;">
+                <div class="col-md-12 cover-pic" >
                     <button class="btn btn-success  cancel-result" onclick="">Cancel</button>
 
                     <button class="btn btn-success upload-result fr" onclick="myFunction()">Save</button>
@@ -445,7 +68,7 @@
                     </div>
                 </div>
                 <div class="col-md-12"  style="visibility: hidden; ">
-                    <div id="upload-demo-i" style="background:#e1e1e1;width:100%;padding:30px;height:1px;margin-top:30px"></div>
+                    <div id="upload-demo-i"></div>
                 </div>
             </div>
 
@@ -655,11 +278,11 @@
                                                     if ($status == 0 || $status == " ") {
                                                         ?>
                                                         <div class="msg_flw_btn_1" id= "followdiv">
-                                                            <button  style="" id="<?php echo "follow" . $businessdata1[0]['business_profile_id']; ?>" onClick="followuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Follow</button>
+                                                            <button   id="<?php echo "follow" . $businessdata1[0]['business_profile_id']; ?>" onClick="followuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Follow</button>
                                                         </div>
                                                     <?php } elseif ($status == 1) { ?>
                                                         <div class="msg_flw_btn_1" id= "unfollowdiv">
-                                                            <button class="bg_following" style="" id="<?php echo "unfollow" . $businessdata1[0]['business_profile_id']; ?>" onClick="unfollowuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Following </button>
+                                                            <button class="bg_following" id="<?php echo "unfollow" . $businessdata1[0]['business_profile_id']; ?>" onClick="unfollowuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Following </button>
                                                         </div>
                                                     <?php } ?>
                                                 </div>         
@@ -688,13 +311,10 @@
         <div class="container">
 
 
-            <div class="user-midd-section"  style="">
+            <div class="user-midd-section"  >
 
 
 
-                <!--  <div class="container "  style="border: 1px solid #d9d9d9;padding-right: 0px;"> -->
-                <!-- <div class="row" style="margin-right: 0px;">
-                -->
 
                 <div  class="col-sm-12 border_tag padding_low_data padding_les" >
 
@@ -708,7 +328,7 @@
                         </ul>
                     </div>
 
-                    <div class="col-xs-9 padding_les" style=" height: 100%; border-left: 1px solid #d9d9d9">
+                    <div class="col-xs-9 padding_les main_art" >
 
                         <!-- Tab panes -->
                         <div class="tab-content">
@@ -748,22 +368,7 @@
 
 
 
-                                                    <!-- <div style="position: relative;">
-
-
-
-                                                        <div class="not_text" style=" top: 70;     position: absolute;
-                                           columns: #000033;
-                                           color: #728bc0;
-                                           font-size: 19px;
-                                           font-weight: 600;
-                                           left: 362;"><img src="<?php echo base_url('images/020-c.png'); ?>"
-                                           " ><span style="position: absolute;
-                                              left: 19px;
-                                           top: 184px;
-                                       
-                                       ">Photo not avalible</span></div>
-                                                   </div> -->
+                                               
                                                 <?php } ?>
 
                                             </div>
@@ -1218,10 +823,10 @@
                         <?php echo form_open_multipart(base_url('business_profile/user_image_insert'), array('id' => 'userimage', 'name' => 'userimage', 'class' => 'clearfix')); ?>
                         <input type="file" name="profilepic" accept="image/gif, image/jpeg, image/png" id="profilepic">
                         <input type="hidden" name="hitext" id="hitext" value="9">
-
-                        <img id="preview" src="#" alt="your image" style="border: 2px solid rgb(204, 204, 204); display: none; margin: 0 auto; margin-top: 5px;padding: 5px;"/>
-                        <!--<input type="submit" name="cancel3" id="cancel3" value="Cancel">-->
-                        <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save"  style="margin-top:32px!important;">
+ <div class="popup_previred">
+                        <img id="preview" src="#" alt="your image"/>
+                       </div>
+                        <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save" >
                         <?php echo form_close(); ?>
                     </div>
                 </span>

@@ -5,61 +5,6 @@
     #popup-form img{display: none;}
 </style>
 
-<style>
-    .okk{
-        text-align: center;
-    }
-
-    .pop_content .okbtn{
-        position: absolute;
-        transition: all 200ms;
-        font-size: 16px;
-        text-decoration: none;
-        color: #fff;
-        padding: 8px 18px;
-        background-color: #0A2C5D;
-        left: 170px;
-        margin-top: 8px;
-        width: 100px; 
-        border-radius: 8px;
-    }
-
-
-    .pop_content .cnclbtn {
-        position: absolute;
-        transition: all 200ms;
-        font-size: 16px;
-        text-decoration: none;
-        color: #fff;
-        padding: 8px 18px;
-        background-color: #0A2C5D;
-        right: 170px;
-        margin-top: 8px;
-        width: 100px;
-        border-radius: 8px;
-    }
-
-    .popup .pop_content {
-        text-align: center;
-        margin-top: 40px;
-
-    }
-    .model_ok_cancel{
-        width:200px !important;
-    }
-
-    /*
-        @media screen and (max-width: 700px){
-            .box{
-                width: 70%;
-            }
-            .popup{
-                width: 70%;
-            }
-        } */
-
-
-</style>
 <!--post save success pop up style end -->
 
 <link rel="stylesheet" href="<?php echo base_url('css/bootstrap.min.css'); ?>" />
@@ -68,37 +13,7 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/jquery.jMosaic.css'); ?>">
-  
-<!-- <link rel="stylesheet" href="<?php //echo base_url('assets/css/croppie.css'); ?>">
- --><style type="text/css" media="screen">
-#row2 { overflow: hidden; width: 100%; }
-#row2 img { height: 350px;width: 100%; } 
-.upload-img { float: right;
-    position: relative; margin-top: -135px; right: 50px; }
-
-   label.cameraButton {
-  display: inline-block;
-  margin: 1em 0;
-cursor: pointer;
-  /* Styles to make it look like a button */
-  padding: 0.5em;
-  border: 2px solid #666;
-  border-color: #EEE #CCC #CCC #EEE;
-  background-color: #DDD;
-  opacity: 0.7;
-}
-
-/* Look like a clicked/depressed button */
-label.cameraButton:active {
-  border-color: #CCC #EEE #EEE #CCC;
-}
-
-/* This is the part that actually hides the 'Choose file' text box for camera inputs */
-label.cameraButton input[accept*="camera"] {
-  display: none;
-}
-</style>
-    <!-- END HEAD -->
+      <!-- END HEAD -->
 
     <!-- start header -->
 <?php echo $header; ?>
@@ -124,9 +39,9 @@ label.cameraButton input[accept*="camera"] {
 
             <div class="row" id="row1" style="display:none;">
                 <div class="col-md-12 text-center">
-                    <div id="upload-demo" style="width:100%"></div>
+                    <div id="upload-demo" ></div>
                 </div>
-                <div class="col-md-12 cover-pic" style="padding-top: 25px;text-align: center;">
+                <div class="col-md-12 cover-pic" >
                     <button class="btn btn-success  cancel-result" onclick="">Cancel</button>
 
                     <button class="btn btn-success upload-result fr" onclick="myFunction()">Save</button>
@@ -147,7 +62,7 @@ label.cameraButton input[accept*="camera"] {
                     </div>
                 </div>
                 <div class="col-md-12"  style="visibility: hidden; ">
-                    <div id="upload-demo-i" style="background:#e1e1e1;width:100%;padding:30px;height:1px;margin-top:30px"></div>
+                    <div id="upload-demo-i"></div>
                 </div>
             </div>
 
@@ -396,7 +311,7 @@ label.cameraButton input[accept*="camera"] {
   
                <div class="container "  >
 
- <div class="user-midd-section"  style="">
+ <div class="user-midd-section"  >
 
 
 
@@ -414,7 +329,7 @@ label.cameraButton input[accept*="camera"] {
           </ul>
         </div>
 
-        <div class="col-xs-9 padding_les" style="padding-left: 0; height: 100%; border-left: 1px solid #ccc">
+        <div class="col-xs-9 padding_les main_art" >
           <!-- Tab panes -->
           <div class="tab-content">
             <div class="tab-pane active" id="home"><div class="common-form">
@@ -474,7 +389,7 @@ label.cameraButton input[accept*="camera"] {
 
       <?php }   }  else{?>
 
-      <div style="margin-left: 380px; margin-top: 20px;">
+      <div class="not_img">
                   <div class="not_avali" >
                                 <img src="<?php echo base_url('images/010.png'); ?>"  >
                                <div>
@@ -523,10 +438,10 @@ label.cameraButton input[accept*="camera"] {
                                                 <?php echo form_open_multipart(base_url('business_profile/user_image_insert'), array('id' => 'userimage','name' => 'userimage', 'class' => 'clearfix')); ?>
                                                 <input type="file" name="profilepic" accept="image/gif, image/jpeg, image/png" id="profilepic">
                                                 <input type="hidden" name="hitext" id="hitext" value="10">
-
-                                                <img id="preview" src="#" alt="your image" style="border: 2px solid rgb(204, 204, 204); display: none; margin: 0 auto; margin-top: 5px;padding: 5px;"/>
-                                                <!--<input type="submit" name="cancel3" id="cancel3" value="Cancel">-->
-                                                <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save" style="margin-top:32px!important;">
+ <div class="popup_previred">
+                                                <img id="preview" src="#" alt="your image""/>
+                                                </div>
+                                                <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save" >
                                                 <?php echo form_close(); ?>
                                             </div>
                                         </span>

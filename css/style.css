@@ -5228,3 +5228,41 @@ cover pic css*/
 
 }
 .free_attc{width:100px;height:100px;display: block;}
+    .alert-danger1{
+        background-color: #f2dede;
+        border-color: #ebccd1;
+        box-shadow: 0 1px 5px 1px;
+        color: #a94442;
+        margin: 10px 0px !important;
+        text-align: center;
+    }
+      #edit{
+        min-height: 30px;
+        padding: 5px;
+        overflow: hidden;
+        cursor: text;
+        background: #BBB;
+        border: 5px solid;
+        border-radius: 10px;
+        width:300px;
+        text-align: left;
+    }    .thumb {
+        width:99px;
+        height: 99px;
+        margin: 0.2em -0.7em 0 0;
+    }
+    .remove_thumb {
+        position: relative;
+        top: -38px;
+        right: 5px;
+        background: black;
+        color: white;
+        border-radius: 50px;
+        font-size: 1.5em;
+        padding: 0 0.3em 0;
+        text-align: center;
+        cursor: pointer;
+    }
+    .remove_thumb:before {
+        content: "×";
+    }
