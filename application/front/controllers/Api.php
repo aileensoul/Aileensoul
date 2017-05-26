@@ -13,8 +13,10 @@ class Api extends CI_Controller {
 	}
 	
 	
-	public function send_message($id)
-	{   $userid  = $this->session->userdata('aileenuser'); 
+	public function send_message($id='')
+	{   
+            
+            $userid  = $this->session->userdata('aileenuser'); 
 		$message = $this->input->get('message', null);
 		//$message = $this->common->make_links($message);
 		$message = $message;
