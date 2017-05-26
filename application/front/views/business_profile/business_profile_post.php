@@ -181,21 +181,18 @@
              <?php } else { ?> <div class="data_img_2"> 
                                                     <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo $businessdata[0]['company_name']; ?>">
              </div>  <?php } ?>                           
-                                                <!-- 
-                        <img class="profile-boxProfileCard-avatarImage js-action-profile-avatar" src="images/imgpsh_fullsize (2).jpg" alt="" style="    height: 68px;
-                        width: 68px;">
-                                                -->
+                                             
                                             </a>
                                         </div>
                                         <div class="profile-box-user  profile-text-bui-user  fr col-md-9">
                                             <span class="profile-company-name ">
-                                                <a style="margin-left: 3px;" href="<?php echo base_url('business_profile/business_profile_manage_post/'); ?> " title="<?php echo ucwords($businessdata[0]['company_name']); ?>"> 
+                                                <a class="buis_company-name" href="<?php echo base_url('business_profile/business_profile_manage_post/'); ?> " title="<?php echo ucwords($businessdata[0]['company_name']); ?>"> 
                                                     <?php echo ucwords($businessdata[0]['company_name']); ?>
                                                 </a> 
                                             </span>
                                             <?php $category = $this->db->get_where('industry_type', array('industry_id' => $businessdata[0]['industriyal'], 'status' => 1))->row()->industry_name; ?>
                                             <div class="profile-boxProfile-name">
-                                                <a style="padding-left: 4px;" href="<?php echo base_url('business_profile/business_profile_manage_post/'); ?> " title="<?php echo ucwords($businessdata[0]['company_name']); ?>" >
+                                                <a class="buis_pro_name" href="<?php echo base_url('business_profile/business_profile_manage_post/'); ?> " title="<?php echo ucwords($businessdata[0]['company_name']); ?>" >
                                                     <b> <?php
                                                         if ($category) {
                                                             echo $category;
@@ -840,7 +837,7 @@
                                                     <div class="post-design-desc ">
                                                         <div>
                                                             <div id="<?php echo 'editpostdata' . $row['business_profile_post_id']; ?>" style="display:block;">
-                                                                <a style="margin-bottom: 0px;     font-size: 16px">
+                                                                <a class="edyrr">
                                                                     <?php echo $this->common->make_links($row['product_name']); ?>
                                                                 </a>
                                                             </div>
@@ -1311,7 +1308,7 @@
                                                             <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
                                                         <?php } ?>
                                                     </div>
-                                                    <div class="">
+                                                    <div c>
                                                         <div id="content" class="col-md-12  inputtype-comment cmy_2" >
                                                             <div contenteditable="true" class="edt_2 editable_text" name="<?php echo $row['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $row['business_profile_post_id']; ?>" placeholder="Add a Comment ..." onClick="entercomment(<?php echo $row['business_profile_post_id']; ?>)"></div>
                                                         </div>

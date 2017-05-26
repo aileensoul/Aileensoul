@@ -1,395 +1,6 @@
 <!-- start head -->
 <?php echo $head; ?>
-<style>
-    .okk{
-        text-align: center;
-    }
 
-    .pop_content .okbtn{
-        position: absolute;
-        transition: all 200ms;
-        font-size: 16px;
-        text-decoration: none;
-        color: #fff;
-        padding: 8px 18px;
-        background-color: #0A2C5D;
-        left: 168px;
-        margin-top: 8px;
-        width: 100px; 
-        border-radius: 8px;
-    }
-
-
-    .pop_content .cnclbtn {
-        position: absolute;
-        transition: all 200ms;
-        font-size: 16px;
-        text-decoration: none;
-        color: #fff;
-        padding: 8px 18px;
-        background-color: #0A2C5D;
-        right: 170px;
-        margin-top: 8px;
-        width: 100px;
-        border-radius: 8px;
-    }
-
-    .popup .pop_content {
-        text-align: center;
-        margin-top: 40px;
-
-    }
-    .model_ok_cancel{
-        width:200px !important;
-    }
-
-    /*
-        @media screen and (max-width: 700px){
-            .box{
-                width: 70%;
-            }
-            .popup{
-                width: 70%;
-            }
-        } */
-
-
-</style>
-<!--post save success pop up style strat -->
-<style>
-
-    /* The Modal (background) */
-    .modal2 {
-        display: none;
-        position: fixed;
-        z-index:1000;
-        padding-top: 35px;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        background-color: black;
-    }
-
-    /* Modal Content */
-    .modal-content2 {
-        position: relative;
-        background-color: #fefefe;
-        margin: auto;
-        padding: 0;
-        width: 65%;
-        max-width: 1200px;
-    }
-
-
-    /* Next & previous buttons */
-    .prev,
-    .next {
-        cursor: pointer;
-        position: absolute;
-        top: 50%;
-        width: auto;
-        padding: 16px;
-        margin-top: -50px;
-        color: white;
-        font-weight: bold;
-        font-size: 20px;
-        transition: 0.6s ease;
-        border-radius: 0 3px 3px 0;
-        user-select: none;
-        -webkit-user-select: none;
-    }
-
-    /* The Close Button */
-    .close2 {
-        color: white;
-        position: absolute;
-        top: 10px;
-        right: 196px;
-        font-size: 35px;
-        font-weight: bold;
-    }
-
-    .close2:hover,
-    .close2:focus {
-        color: #999;
-        text-decoration: none;
-        cursor: pointer;
-    }
-
-    /* Position the "next button" to the right */
-    .next {
-        right: 0;
-        border-radius: 3px 0 0 3px;
-    }
-
-    /* On hover, add a black background color with a little bit see-through */
-    .prev:hover,
-    .next:hover {
-        background-color: rgba(0, 0, 0, 0.8);
-    }
-
-    /* Number text (1/3 etc) */
-    .numbertext {
-        color: #f2f2f2;
-        font-size: 12px;
-        padding: 8px 12px;
-        position: absolute;
-        top: 0;
-    }
-
-
-    .caption-container {
-        text-align: center;
-        background-color: black;
-        padding: 2px 16px;
-        color: white;
-    }
-
-    .demo {
-        opacity: 0.6;
-    }
-
-    .active,
-    .demo:hover {
-        opacity: 1;
-    }
-
-
-    .hover-shadow:hover {
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
-    }
-    /*!
-     * bootstrap-vertical-tabs - v1.2.2
-     * https://dbtek.github.io/bootstrap-vertical-tabs
-     * 2016-12-02
-     * Copyright (c) 2016 İsmail Demirbilek
-     * License: MIT
-     */
-    .tabs-left, .tabs-right {
-        border-bottom: none;
-        padding-top: 2px;
-    }
-    .tabs-left {
-        /*border-right: 1px solid #ddd;*/
-        padding-top: 15px;
-        height: 100%;
-    }
-    .tabs-right {
-        border-left: 1px solid #ddd;
-    }
-    .tabs-left>li, .tabs-right>li {
-        float: none;
-        margin-bottom: 2px;
-    }
-    .tabs-left>li {
-        margin-right: -1px;
-        padding: 0;
-    }
-    .tabs-right>li {
-        margin-left: -1px;
-    }
-    .tabs-left>li.active>a,
-    .tabs-left>li.active>a:hover,
-    .tabs-left>li.active>a:focus {
-        border-bottom-color: #ddd;
-        border-right-color: transparent;
-    }
-
-    .tabs-right>li.active>a,
-    .tabs-right>li.active>a:hover,
-    .tabs-right>li.active>a:focus {
-        border-bottom: 1px solid #ddd;
-        border-left-color: transparent;
-    }
-    .tabs-left>li>a {
-        /*border-radius: 4px 0 0 4px;*/
-        margin-right: 0;
-        display:block;
-        letter-spacing: 2px;
-        font-size: 18px;
-        font-weight: 600;
-    }
-    .tabs-right>li>a {
-        border-radius: 0 4px 4px 0;
-        margin-right: 0;
-
-    }
-    .sideways {
-        margin-top:50px;
-        border: none;
-        position: relative;
-    }
-    .sideways>li {
-        height: 20px;
-        width: 120px;
-        margin-bottom: 100px;
-    }
-    .sideways>li>a {
-        border-bottom: 1px solid #ddd;
-        border-right-color: transparent;
-        text-align: center;
-        border-radius: 4px 4px 0px 0px;
-    }
-    .sideways>li.active>a,
-    .sideways>li.active>a:hover,
-    .sideways>li.active>a:focus {
-        border-bottom-color: transparent;
-        border-right-color: #ddd;
-        border-left-color: #ddd;
-    }
-    .sideways.tabs-left {
-        left: -50px;
-    }
-    .sideways.tabs-right {
-        right: -50px;
-    }
-    .sideways.tabs-right>li {
-        -webkit-transform: rotate(90deg);
-        -moz-transform: rotate(90deg);
-        -ms-transform: rotate(90deg);
-        -o-transform: rotate(90deg);
-        transform: rotate(90deg);
-    }
-    .sideways.tabs-left>li {
-        -webkit-transform: rotate(-90deg);
-        -moz-transform: rotate(-90deg);
-        -ms-transform: rotate(-90deg);
-        -o-transform: rotate(-90deg);
-        transform: rotate(-90deg);
-    }
-
-    .box {
-        width: 40%;
-        margin: 0 auto;
-        background: rgba(255,255,255,0.2);
-        padding: 35px;
-        border: 2px solid #fff;
-        border-radius: 20px/50px;
-        background-clip: padding-box;
-        text-align: center;
-    }
-
-
-
-    .overlay {
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: rgba(0, 0, 0, 0.3);
-        transition: opacity 500ms;
-        visibility: hidden;
-        opacity: 0;
-        z-index: 10;
-    }
-    .overlay:target {
-        visibility: visible;
-        opacity: 1;
-    }
-
-    .popup {
-        margin: 70px auto;
-        padding: 20px;
-        background: #fff;
-        border-radius: 5px;
-        width: 30%;
-        height: 200px;
-        position: relative;
-        transition: all 5s ease-in-out;
-    }
-
-    .okk{
-        text-align: center;
-    }
-
-    .popup .okbtn {
-        position: absolute;
-        transition: all 200ms;
-        font-size: 18px;
-        font-weight: bold;
-        text-decoration: none;
-        color: #fff;
-        padding: 8px 18px;
-        background-color: darkcyan;
-        left: 25px;
-        margin-top: 15px;
-        width: 100px; 
-        border-radius: 8px;
-    }
-
-    .popup .cnclbtn {
-        position: absolute;
-        transition: all 200ms;
-        font-size: 18px;
-        font-weight: bold;
-        text-decoration: none;
-        color: #fff;
-        padding: 8px 18px;
-        background-color: darkcyan;
-        right: 25px;
-        margin-top: 15px;
-        width: 100px;
-        border-radius: 8px;
-    }
-
-    .popup .pop_content {
-        text-align: center;
-        margin-top: 40px;
-
-    }
-
-    @media screen and (max-width: 700px){
-        .box{
-            width: 70%;
-        }
-        .popup{
-            width: 70%;
-        }
-    }
-</style>
-
-<!--post save success pop up style end -->
-
-<style type="text/css">
-
-    .thumb {
-        width:99px;
-        height: 99px;
-        margin: 0.2em -0.7em 0 0;
-    }
-    .remove_thumb {
-        position: relative;
-        top: -38px;
-        right: 5px;
-        background: black;
-        color: white;
-        border-radius: 50px;
-        font-size: 1.5em;
-        padding: 0 0.3em 0;
-        text-align: center;
-        cursor: pointer;
-    }
-    .remove_thumb:before {
-        content: "×";
-    }
-    .popup-textarea .description{
-        width: 100%;
-        height: 90px;
-        color: #999999;
-        padding: 12px 20px;
-        box-sizing: border-box;
-        border: 2px solid #ccc;
-        border-radius: 4px;
-        background-color: #f8f8f8;
-        font-size: 16px;
-        resize: none;
-    }
-
-
-</style>
 <!-- END HEAD -->
 <!-- start header -->
 <?php echo $header; ?>
@@ -532,10 +143,7 @@
                                                 <?php } else { ?>
                                                     <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo $businessdata[0]['company_name']; ?>">
                                                 <?php } ?>                           
-                                                <!-- 
-                        <img class="profile-boxProfileCard-avatarImage js-action-profile-avatar" src="images/imgpsh_fullsize (2).jpg" alt="" style="    height: 68px;
-                        width: 68px;">
-                                                -->
+                                               
                                             </a>
                                         </div>
                                         <div class="profile-box-user  profile-text-bui-user  fr col-md-9">
@@ -685,27 +293,21 @@
                                                 <li>
                                                     <div class="else_post_d">
                                                         <div class="post-design-product">
-                                                            <a style="
-                                                               max-width: 26%;
-                                                               width: auto;
-                                                               font-size: 15px;
-                                                               display: inline-block;
-                                                               line-height: 15px;
-                                                               font-weight: 600;
-                                                               color: #000033;
-                                                               margin-bottom: -3px;
-                                                               text-overflow: ellipsis;
-                                                               overflow: hidden;
-                                                               white-space: nowrap; " href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugnameposted); ?>"><?php echo ucwords($companynameposted); ?></a>
-                                                            <p style="font-weight: 600; color: #91949d; display: inline-block;"> Posted With </p> <a style=" font-size: 15px;                    line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; " href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>"><?php echo ucwords($companyname); ?></a> <span  style="font-weight: 400; color: #91949d;  cursor: default;"><?php echo date('d-M-Y', strtotime($row['created_date'])); ?> </span> </div></div>
+                                                           <a class="post_dot_2" href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugnameposted); ?>"><?php echo ucwords($companynameposted); ?></a>
+                                                              <p class="posted_with" >  Posted With </p>  <a class="other_name" href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>"><?php echo ucwords($companyname); ?></a>
+                                                              <span class="ctre_date"> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?> </span> </div></div>
                                                 </li>
                                             <?php } else { ?>
-                                                <li><div class="post-design-product"><a class="post_dot" href="<?php echo base_url('business_profile/business_resume/' . $slugname); ?>"> <span class="span_main_name">  <?php echo ucwords($companyname); ?> </span> </a>
+                                                <li><div class="post-design-product">
+                                                        <a class="post_dot" href="<?php echo base_url('business_profile/business_resume/' . $slugname); ?>"> 
+                                                            <span class="span_main_name">  <?php echo ucwords($companyname); ?> </span> </a>
 
-                                                        <span> <?php echo date('d-M-Y', strtotime($busienss_data[0]['created_date'])); ?></span></div></li>
+                                                        <span class="ctre_date"> <?php echo date('d-M-Y', strtotime($busienss_data[0]['created_date'])); ?></span>
+                                                    </div></li>
 
                                             <?php } ?>
-                                            <li><div class="post-design-product"><a>
+                                            <li><div class="post-design-product"> 
+                                                    <a class="buuis_desc_a"
                                                         <?php
                                                         if ($category) {
                                                             echo ucwords($category);
@@ -775,9 +377,9 @@
                                         </div>
                                     </div>
 
-                                    <div class="post-design-desc " style="padding: 5px 17px 5px 17px;">
+                                    <div class="post-design-desc ">
                                         <div id="<?php echo 'editpostdata' . $busienss_data[0]['business_profile_post_id']; ?>" style="display:block;">
-                                            <a  style="margin-bottom: 0px;   font-weight: 600;  font-size: 16px"><?php echo $this->common->make_links($busienss_data[0]['product_name']); ?></a>
+                                           <a class="edyrr"><?php echo $this->common->make_links($busienss_data[0]['product_name']); ?></a>
                                         </div>
 
                                         <div id="<?php echo 'editpostbox' . $busienss_data[0]['business_profile_post_id']; ?>" style="display:none;">
@@ -1162,7 +764,7 @@
 
                                                                                     <div class="edit-comment-box">
                                                                                         <div class="inputtype-edit-comment">
-                                                                                            <div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="<?php echo $rowdata['post_image_comment_id']; ?>"  id="<?php echo "imgeditcomment" . $rowdata['post_image_comment_id']; ?>" placeholder="Add a Comment ... " value= ""  onkeyup="imgcommentedit(<?php echo $rowdata['post_image_comment_id']; ?>)"><?php echo $rowdata['comment']; ?></div>
+                                                                                            <div contenteditable="true" class="editav_2 editable_text" name="<?php echo $rowdata['post_image_comment_id']; ?>"  id="<?php echo "imgeditcomment" . $rowdata['post_image_comment_id']; ?>" placeholder="Add a Comment ... " value= ""  onkeyup="imgcommentedit(<?php echo $rowdata['post_image_comment_id']; ?>)"><?php echo $rowdata['comment']; ?></div>
                                                                                             <span class="comment-edit-button"><button id="<?php echo "imgeditsubmit" . $rowdata['post_image_comment_id']; ?>" style="display:none" onClick="imgedit_comment(<?php echo $rowdata['post_image_comment_id']; ?>)">Save</button></span>
                                                                                         </div>
                                                                                     </div>
