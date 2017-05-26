@@ -3221,7 +3221,7 @@ label.cameraButton input[accept*="camera"] {
 follow box*/
 .post-design-pro-img_follow{height:70px; width: 70px; display: inline-block; float: left; padding:11px 1px 0px 8px; }
 .post-design-pro-img_follow img{ height: 100%; width: 100%; border: 1px solid #efefef; }
-.post-design-name_follow{width: 54%; overflow: hidden;}
+.post-design-name_follow{width: 47%; overflow: hidden;}
 .post-design-name_follow ul { font-size: 0; margin: 0; padding: 0; }
 .post-design-name_follow ul li { border-bottom: none;  list-style: none;  padding: 0; margin: 0; position: relative;}
 .post-design-name_follow ul li a {    
