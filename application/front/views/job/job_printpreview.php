@@ -470,7 +470,7 @@ echo $job_header2;
  <?php                                    $i = 1;
                    foreach ($job_graduation as $graduation) {
                                                     if ($graduation['degree']) {  ?>
-                                           <div id="<?php echo $i; ?>" class="tabcontent data_exp">
+                                           <div id="gra<?php echo $i; ?>" class="tabcontent data_exp">
                                                         <li> <b> Degree</b> <span>
                                                                 <?php
                                                                 $cache_time = $this->db->get_where('degree', array('degree_id' => $graduation['degree']))->row()->degree_name;
@@ -531,18 +531,18 @@ echo $job_header2;
 
     <div class="tab pagi_exp" style="">
         <?php if(count($job_graduation) >= 1 ){ ?>
-  <button class="tablinks  " onclick="openCity(event, '1')">1</button>
+  <button class="tablinks  " onclick="openCity(event, 'gra1')">1</button>
         <?php } ?>
    <?php if(count($job_graduation) >= 2 ){ ?>
-  <button class="tablinks" onclick="openCity(event, '2')">2</button>
+  <button class="tablinks" onclick="openCity(event, 'gra2')">2</button>
    <?php } if(count($job_graduation) >= 3 ){ ?>
-  <button class="tablinks" onclick="openCity(event, '3')">3</button>
+  <button class="tablinks" onclick="openCity(event, 'gra3')">3</button>
    <?php } ?>
    <?php if(count($job_graduation) >= 4 ){ ?>
-  <button class="tablinks" onclick="openCity(event, '4')">4</button>
+  <button class="tablinks" onclick="openCity(event, 'gra4')">4</button>
    <?php } ?>
    <?php if(count($job_graduation) >= 5 ){ ?>
-  <button class="tablinks" onclick="openCity(event, '5')">5</button>
+  <button class="tablinks" onclick="openCity(event, 'gra5')">5</button>
    <?php } ?></div>
 
                                             </ul>
@@ -796,7 +796,7 @@ echo $job_header2;
                                                  
                                                 foreach ($job_work as $work) {
                                                     ?>
-                                                      <div id="<?php echo $i; ?>" class="tabcontent data_exp">
+                                                      <div id="work<?php echo $i; ?>" class="tabcontent data_exp">
                                                     <div class="profile-job-profile-menu" id="job_workexp">
 
                                                         <ul class="clearfix">
@@ -890,15 +890,15 @@ echo $job_header2;
 
   <div class="tab pagi_exp">
     <?php if(count($job_work) >= 1){ ?>   
-  <button class="tablinks" onclick="openCity(event, '6')">1</button>
+  <button class="tablinks" onclick="openCity(event, 'work6')">1</button>
     <?php } if(count($job_work) >= 2){ ?>
-   <button class="tablinks" onclick="openCity(event, '7')">2</button>
+   <button class="tablinks" onclick="openCity(event, 'work7')">2</button>
    <?php } if(count($job_work) >= 3){ ?>
-  <button class="tablinks" onclick="openCity(event, '8')">3</button>
+  <button class="tablinks" onclick="openCity(event, 'work8')">3</button>
   <?php } if(count($job_work) >= 4){ ?>
-  <button class="tablinks" onclick="openCity(event, '9')">4</button>
+  <button class="tablinks" onclick="openCity(event, 'work9')">4</button>
     <?php } if(count($job_work) >= 5){ ?>
-  <button class="tablinks" onclick="openCity(event, '10')">5</button>
+  <button class="tablinks" onclick="openCity(event, 'work10')">5</button>
     <?php }?>
     </div>       
                                             </ul>
@@ -1493,3 +1493,12 @@ echo $job_header2;
     evt.currentTarget.className += " active";
 }
   </script>
+  
+  <style>
+    #work6 {
+        display: block;
+    }
+    #gra1 {
+        display: block;
+    }
+</style>
