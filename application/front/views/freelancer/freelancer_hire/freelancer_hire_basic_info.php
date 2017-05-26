@@ -89,7 +89,7 @@
                             <?php echo form_open_multipart(base_url('freelancer_hire/freelancer_hire_basic_info_insert'), array('id' => 'basic_info', 'name' => 'basic_info', 'class' => 'clearfix')); ?>
 
                            <div>
-                                   <span style="color:#7f7f7e;padding-left: 8px;">( </span><span style="color:red">*</span><span style="color:#7f7f7e"> )</span> <span style="color:#7f7f7e">Indicates required field</span>
+                                   <span style="color:#7f7f7e;padding-left: 8px;">( </span><span class="red">*</span><span style="color:#7f7f7e"> )</span> <span style="color:#7f7f7e">Indicates required field</span>
                                 </div>
 
 
@@ -102,7 +102,7 @@
                             ?>
 
                             <fieldset <?php if ($fname) { ?> class="error-msg" <?php } ?>>
-                                <label>First Name:<span style="color:red">*</span></label>
+                                <label>First Name:<span class="red">*</span></label>
                                 <input type="text" name="fname" id="fname" placeholder="Enter First Name" value="<?php if ($firstname1) {
                                     echo $firstname1;
                                 } else {
@@ -113,7 +113,7 @@
 
 
                             <fieldset <?php if ($lname) { ?> class="error-msg" <?php } ?>>
-                                <label>Last Name:<span style="color:red">*</span></label>
+                                <label>Last Name:<spanclass="red">*</span></label>
                                 <input type="text" name="lname" id="lname" placeholder="Enter Last Name" value="<?php if ($lastname1) {
     echo $lastname1;
 } else {
@@ -124,7 +124,7 @@
 
 
                             <fieldset <?php if ($email) { ?> class="error-msg" <?php } ?>>
-                                <label>Email:<span style="color:red">*</span></label>
+                                <label>Email:<span class="red">*</span></label>
                                 <input type="text" name="email" id="email" placeholder="Enter Email" value="<?php if ($email1) {
     echo $email1;
 } else {
@@ -144,7 +144,7 @@
 
 
                             <fieldset <?php if ($phone) { ?> class="error-msg" <?php } ?> class="full-width">
-                                <label>Phone Number:<span style="color:red">*</span></label>
+                                <label>Phone Number:<span class="red">*</span></label>
                                 <input type="text" name="phone" id="phone" placeholder="Enter Phone Number" value="<?php if ($phoneno1) {
     echo $phoneno1;
 } ?>">

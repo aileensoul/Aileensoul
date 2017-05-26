@@ -83,7 +83,7 @@
                             	<?php echo form_open_multipart(base_url('freelancer_hire/freelancer_hire_address_info_insert'), array('id' => 'address_info','name' => 'address_info','class' => 'clearfix')); ?>
 
                  <div>
-                                   <span style="color:#7f7f7e;padding-left: 8px;">( </span><span style="color:red">*</span><span style="color:#7f7f7e"> )</span> <span style="color:#7f7f7e">Indicates required field</span>
+                                   <span style="color:#7f7f7e;padding-left: 8px;">( </span><span class="red">*</span><span style="color:#7f7f7e"> )</span> <span style="color:#7f7f7e">Indicates required field</span>
                                 </div>
 
 
@@ -96,7 +96,7 @@
                          ?>
 								
                                  <fieldset <?php if($country) {  ?> class="error-msg" <?php } ?>>
-									<label>Country:<span style="color:red">*</span></label>
+									<label>Country:<span class="red">*</span></label>
 									 <select name="country" id="country">
     							<option value="">Select Country</option>
     							<?php
@@ -126,7 +126,7 @@
 							     
 
 							    <fieldset <?php if($state) {  ?> class="error-msg" <?php } ?>>
-									<label>State:<span style="color:red">*</span></label>
+									<label>State:<span class="red">*</span></label>
 									 <select name="state" id="state">
     							<?php
                                           if($state1)
@@ -196,7 +196,7 @@
 
 								
 								<fieldset class="full-width">
-									<label>Postal Address:<span style="color:red">*</span></label>
+									<label>Postal Address:<span class="red">*</span></label>
 									 <textarea name="address" id="address" placeholder="Enter Address" rows="5" cols="40" style="resize:none"/><?php if($address1){ echo $address1; } ?></textarea>
                                      <?php echo form_error('address'); ?>
 								</fieldset>
