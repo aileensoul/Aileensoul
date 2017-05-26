@@ -47,53 +47,9 @@
       .model_ok_cancel{
         width:200px !important;
     }
-  
-/*    @media screen and (max-width: 700px){
-        .box{
-            width: 70%;
-        }
-        .popup{
-            width: 70%;
-        }
-    }*/
+ 
 </style>
 
-<!--post save success pop up style end -->
-
-<!-- <style type="text/css" media="screen">
-   
-    #row2 { overflow: hidden; width: 100%; }
-   
-    #row2 img { height: 350px;width: 100%; }
-   
-    .upload-img{    float: right;
-                    position: relative;
-                    margin-top: -135px;
-                    right: 50px; }
-
-    label.cameraButton {
-        display: inline-block;
-        margin: 1em 0;
-
-        /* Styles to make it look like a button */
-        padding: 0.5em;
-        border: 2px solid #666;
-        border-color: #EEE #CCC #CCC #EEE;
-        background-color: #DDD;
-        opacity: 0.7;
-    }
-
-    /* Look like a clicked/depressed button */
-    label.cameraButton:active {
-        border-color: #CCC #EEE #EEE #CCC;
-    }
-
-    /* This is the part that actually hides the 'Choose file' text box for camera inputs */
-    label.cameraButton input[accept*="camera"] {
-        display: none;
-    }
-
-</style> -->
 <!-- END HEAD -->
 <!-- start header -->
 <?php echo $header; ?>
@@ -126,9 +82,9 @@
 
             <div class="row" id="row1" style="display:none;">
                 <div class="col-md-12 text-center">
-                    <div id="upload-demo" style="width:100%"></div>
+                    <div id="upload-demo" ></div>
                 </div>
-                <div class="col-md-12 cover-pic" style="padding-top: 25px;text-align: center;">
+                <div class="col-md-12 cover-pic" >
                     <button class="btn btn-success cancel-result" onclick="" >Cancel</button>
 
                     <button class="btn btn-success set-btn upload-result" onclick="myFunction()">Save</button>
@@ -147,7 +103,7 @@
                     </div>
                 </div>
                 <div class="col-md-12"  style="visibility: hidden; ">
-                    <div id="upload-demo-i" style="background:#e1e1e1;width:100%;padding:30px;height:1px;margin-top:30px"></div>
+                    <div id="upload-demo-i" ></div>
                 </div>
             </div>
 
@@ -277,28 +233,7 @@ Details</a>
                 </div>
 
         </div>
-        <!-- The Modal -->
-      <!--   <div id="myModal" class="modal"> -->
-            <!-- Modal content -->
-           <!--  <div class="col-md-2"></div>
-            <div class="modal-content col-md-8">
-                <span class="close">&times;</span>
-                <fieldset></fieldset>
-<?php echo form_open(base_url('freelancer/designation'), array('id' => 'artdesignation', 'name' => 'artdesignation', 'class' => 'clearfix')); ?>
-
-                <fieldset class="col-md-8"> <input type="text" name="designation" id="designation" placeholder="Enter Your Designation" value="<?php echo $userdata[0]['designation']; ?>">
-
-                <?php echo form_error('designation'); ?>
-                </fieldset>
-
-                <input type="hidden" name="hitext" id="hitext" value="1">
-                <fieldset class="col-md-2"><input type="submit"  id="submitdes" name="submitdes" value="Submit"></fieldset>
-                    <?php echo form_close(); ?>
-
-
-
-            </div>
-        </div> -->
+      
 
         <div class="col-md-7 col-sm-7">
             <div class="common-form">
@@ -346,14 +281,6 @@ Details</a>
                               <a href="#" title="Post Title" class="post_title">
                               <?php echo ucwords( $this->common->make_links($post['post_name'])); ?> </a>   </li>
 
-                            <!--  <li>   
-                               <div class="fr lction">
-                              <?php $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name; ?>
-                              <?php $countryname = $this->db->get_where('countries', array('country_id' => $post['country']))->row()->country_name; ?>
-
-                                <p title="Location"><i class="fa fa-map-marker" aria-hidden="true">  <?php echo $cityname.","; ?><?php echo $countryname; ?></i></p>
-                                 </div>
-                           </li> -->
                              <?php
                 $firstname = $this->db->get_where('freelancer_hire_reg', array('user_id' => $post['user_id']))->row()->fullname;
                 $lastname = $this->db->get_where('freelancer_hire_reg', array('user_id' => $post['user_id']))->row()->username;
