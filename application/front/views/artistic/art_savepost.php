@@ -3,104 +3,6 @@
 
 
 <!--post save success pop up style strat -->
-<style>
-body {
-  font-family: Arial, sans-serif;
-  background-size: cover;
-  height: 100vh;
-}
-
-.box {
-  width: 40%;
-  margin: 0 auto;
-  background: rgba(255,255,255,0.2);
-  padding: 35px;
-  border: 2px solid #fff;
-  border-radius: 20px/50px;
-  background-clip: padding-box;
-  text-align: center;
-}
-
-
-
-.overlay {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.3);
-  transition: opacity 500ms;
-  visibility: hidden;
-  opacity: 0;
-  z-index: 10;
-}
-.overlay:target {
-  visibility: visible;
-  opacity: 1;
-}
-
-.popup {
-    margin: 70px auto;
-    padding: 20px;
-    background: #fff;
-    border-radius: 5px;
-    width: 30%;
-    height: 200px;
-    position: relative;
-    transition: all 5s ease-in-out;
-}
-
-.okk{
-  text-align: center;
-}
-
-.popup .okbtn {
-  position: absolute;
-    transition: all 200ms;
-    font-size: 18px;
-    font-weight: bold;
-    text-decoration: none;
-    color: #fff;
-    padding: 8px 18px;
-    background-color: darkcyan;
-    left: 25px;
-    margin-top: 15px;
-    width: 100px; 
-    border-radius: 8px;
-}
-
-.popup .cnclbtn {
-  position: absolute;
-    transition: all 200ms;
-    font-size: 18px;
-    font-weight: bold;
-    text-decoration: none;
-    color: #fff;
-    padding: 8px 18px;
-    background-color: darkcyan;
-    right: 25px;
-    margin-top: 15px;
-    width: 100px;
-    border-radius: 8px;
-}
-
-.popup .pop_content {
- text-align: center;
- margin-top: 40px;
-  
-}
-
-@media screen and (max-width: 700px){
-  .box{
-    width: 70%;
-  }
-  .popup{
-    width: 70%;
-  }
-}
-</style>
-
 <!--post save success pop up style end -->
 
 
@@ -110,39 +12,6 @@ body {
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
  <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/3.3.0/select2.css'); ?>">
-
-<style type="text/css" media="screen">
-#row2 { overflow: hidden; width: 100%;  }
-#row2 img { height: 350px;width: 100%; }
-.upload-img{    float: right;
-    position: relative;
-    margin-top: -135px;
-    right: 50px; }
-
-   label.cameraButton {
-  display: inline-block;
-  margin: 1em 0;
-  cursor: pointer;
-
-  /* Styles to make it look like a button */
-  padding: 0.5em;
-  border: 2px solid #666;
-  border-color: #EEE #CCC #CCC #EEE;
-  background-color: #DDD;
-  opacity: 0.7;
-}
-
-/* Look like a clicked/depressed button */
-label.cameraButton:active {
-  border-color: #CCC #EEE #EEE #CCC;
-}
-
-/* This is the part that actually hides the 'Choose file' text box for camera inputs */
-label.cameraButton input[accept*="camera"] {
-  display: none;
-}
-
-</style>
 
     <!-- END HEAD -->
     <!-- start header -->
@@ -162,9 +31,9 @@ label.cameraButton input[accept*="camera"] {
        
       <div class="row" id="row1" style="display:none;">
         <div class="col-md-12 text-center">
-        <div id="upload-demo" style="width:100%"></div>
+        <div id="upload-demo" ></div>
         </div>
-        <div class="col-md-12 cover-pic" style="padding-top: 25px;text-align: center;">
+        <div class="col-md-12 cover-pic" >
            <button class="btn btn-success cancel-result" onclick="">cancel</button>
         <button class="btn btn-success upload-result" onclick="myFunction2()">Upload Image</button>
 
@@ -184,7 +53,7 @@ label.cameraButton input[accept*="camera"] {
         </div>
         </div>
         <div class="col-md-12"  style="visibility: hidden; ">
-        <div id="upload-demo-i" style="background:#e1e1e1;width:100%;padding:30px;height:300px;margin-top:30px"></div>
+        <div id="upload-demo-i" ></div>
         </div>
       </div>
 
@@ -451,7 +320,7 @@ if($userdata[0]['post_save'] == 1)
 </div>
 
 
-              <div class="post-design-desc show" style="padding-bottom: 10px;">
+              <div class="post-design-desc show pb-10" >
  <?php echo $row['art_description']; ?>
 
                      </div> 
@@ -483,7 +352,7 @@ if($userdata[0]['post_save'] == 1)
                   if(in_array($ext,$allowed)){ ?>
 
             <!-- one image start -->
-                <div id="basic-responsive-image" style="height: 100%; width: 100%;">
+                <div id="basic-responsive-image" >
                 <a href="<?php echo base_url('artistic/postnewpage/'.$row['art_post_id']) ?>"><img src="<?php echo base_url(ARTPOSTIMAGE. str_replace(" ","_",$artmultiimage[0]['image_name']))?>" style="width: 100%; height: 100%;"> </a>
                 </div>
           <!-- one image end -->
@@ -566,7 +435,7 @@ if($userdata[0]['post_save'] == 1)
                     ?>
 
                     <!-- four image start -->
-                     <div id="responsive_save-images-breakpoints" style="   ">
+                     <div id="responsive_save-images-breakpoints" >
                     <a href="<?php echo base_url('artistic/postnewpage/'.$row['art_post_id']) ?>"><img class="breakpoint" src="<?php echo base_url(ARTPOSTIMAGE. str_replace(" ","_",$multiimage['image_name']))?>" style="width: 100%; height: 100%;"> </a>
 
                     </div>
@@ -589,7 +458,7 @@ if($userdata[0]['post_save'] == 1)
                     <!-- five image start -->
                     <div>
                      <div id="responsive-save_images_2-breakpoints">
-                    <a href="<?php echo base_url('artistic/postnewpage/'.$row['art_post_id']) ?>"><img src="<?php echo base_url(ARTPOSTIMAGE. str_replace(" ","_",$multiimage['image_name']))?>" style=""> </a>
+                    <a href="<?php echo base_url('artistic/postnewpage/'.$row['art_post_id']) ?>"><img src="<?php echo base_url(ARTPOSTIMAGE. str_replace(" ","_",$multiimage['image_name']))?>" > </a>
                     </div>
                     </div>
 
@@ -724,12 +593,7 @@ $art_lname1 =  $this->db->get_where('art_reg',array('user_id' => $value, 'status
   </div>
 </div>
 <!-- pop up box end-->
-<div style="    /* margin: 0px; */    padding-top: 6px;
-    padding-bottom: 6px;
-    border-top: 1px solid #efefef;
-    display: inline-block;
-    width: 100%;
-    /* word-spacing: -2px; */">
+<div class="popuo_liks" >
                         <a  href="<?php echo "#popuplike" . $row['art_post_id']; ?>">
                         <?php
 
@@ -747,7 +611,7 @@ $art_lname =  $this->db->get_where('art_reg',array('user_id' => $likelistarray[0
                         ?>
 
 
-<div class="fl" style=" padding-left: 22px;" >
+<div class="fl pl_22"  >
 
 <?php echo ucwords($art_fname); echo "&nbsp;"; echo ucwords($art_lname); echo "&nbsp;"; ?>
 

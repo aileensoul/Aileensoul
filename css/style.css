@@ -151,7 +151,7 @@ fieldset ul.token-input-list li { padding:0; margin:0; }
 ul.nav li:hover li:active{
     background:blue;
 }
-
+.pb-10{padding-bottom: 10px;}
 .pb-50 { padding-bottom:50px; }
 .pb-40 { padding-bottom:40px; }
 .pb-30 { padding-bottom:30px; }
@@ -5313,3 +5313,22 @@ cover pic css*/
 .buis_company-name{margin-left: 3px;}
 .buis_pro_name{padding-left: 4px;}
 .edyrr{margin-bottom: 0px;     font-size: 16px}
+.popuo_liks{ /* margin: 0px; */    padding-top: 6px;
+    padding-bottom: 6px;
+    border-top: 1px solid #efefef;
+    display: inline-block;
+    width: 100%;
+    /* word-spacing: -2px; */}
+.pl_22{padding-left: 22px;}
+.pad_a{padding: 12px 15px 2px 15px!important;}
+    .modal-post{z-index: 1!important;}
+    .profile-box{width: 32%!important;}
+    .profile-box-bui-menu li a{margin-right: 2.5px!important;}
+    .audio_img{height: 300px!important; width: 350px!important; position: relative!important;}
+     div.panel {
+
+                display: none;
+
+            }
+            .ml-4{margin-left: 4px;}
+            .pl-4{padding-left: 4px;}
