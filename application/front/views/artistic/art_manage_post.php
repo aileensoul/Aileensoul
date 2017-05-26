@@ -2123,7 +2123,18 @@ pt>
         // start khyati code
         var $field = $('#post_comment' + clicked_id);
         var post_comment = $('#post_comment' + clicked_id).html();
-
+         
+        // var post_comment = post_comment.html();
+                    post_comment = post_comment.replace(/&nbsp;/gi, " ");
+                    post_comment = post_comment.replace(/<br>$/, '');
+                    if (post_comment == '' || post_comment == '<br>') {
+                        return false;
+                    }
+                    if (/^\s+$/gi.test(post_comment))
+                    {
+                        return false;
+                    }
+                    
         $('#post_comment' + clicked_id).html("");
 
         var x = document.getElementById('threecomment' + clicked_id);
@@ -2244,10 +2255,22 @@ pt>
             if (e.keyCode == 13 && !e.shiftKey) {
                 e.preventDefault();
                 var sel = $("#post_comment" + clicked_id);
+               
                 var txt = sel.html();
-                if (txt == '') {
-                    return false;
-                }
+                
+                  txt = txt.replace(/&nbsp;/gi, " ");
+                    txt = txt.replace(/<br>$/, '');
+                    if (txt == '' || txt == '<br>') {
+                        return false;
+                    }
+                    if (/^\s+$/gi.test(txt))
+                    {
+                        return false;
+                    }
+                    
+//                if (txt == '') {
+//                    return false;
+//                }
 
                 $('#post_comment' + clicked_id).html("");
 
@@ -2497,11 +2520,24 @@ pt>
 
         var sel = $("#editcomment" + abc);
         var txt = sel.html();
-        if (txt == '' || txt == '<br>') {
+        
+        txt = txt.replace(/&nbsp;/gi, " ");
+        txt = txt.replace(/<br>$/, '');
+                   
+         if (txt == '' || txt == '<br>') {
             $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
             $('#bidmodal').modal('show');
             return false;
-        }
+                    }
+                   
+         if (/^\s+$/gi.test(txt)){
+                        return false;
+                    }
+                    
+//        if (txt == '' || txt == '<br>') {
+//           
+//            return false;
+//        }
         $.ajax({
             type: 'POST',
             url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
@@ -2607,11 +2643,23 @@ pt>
                 event.preventDefault();
                 var sel = $("#editcomment" + abc);
                 var txt = sel.html();
-                if (txt == '' || txt == '<br>') {
+                
+                    txt = txt.replace(/&nbsp;/gi, " ");
+                    txt = txt.replace(/<br>$/, '');
+                    if (txt == '' || txt == '<br>') {
                     $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
                     $('#bidmodal').modal('show');
-                    return false;
-                }
+                        return false;
+                    }
+                    if (/^\s+$/gi.test(txt))
+                    {
+                        return false;
+                    }
+                    
+//                if (txt == '' || txt == '<br>') {
+//                   
+//                    return false;
+//                }
                 if (window.preventDuplicateKeyPresses)
                     return;
                 window.preventDuplicateKeyPresses = true;
@@ -2680,11 +2728,24 @@ pt>
 
         var sel = $("#editcommenttwo" + abc);
         var txt = sel.html();
+        
+        txt = txt.replace(/&nbsp;/gi, " ");
+        txt = txt.replace(/<br>$/, '');
+                    
         if (txt == '' || txt == '<br>') {
             $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deletetwo(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
             $('#bidmodal').modal('show');
-            return false;
-        }
+                        return false;
+                    }
+                    if (/^\s+$/gi.test(txt))
+                    {
+                        return false;
+                    }
+       
+//        if (txt == '' || txt == '<br>') {
+//          
+//            return false;
+//        }
         $.ajax({
             type: 'POST',
             url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
@@ -2767,11 +2828,22 @@ pt>
                 event.preventDefault();
                 var sel = $("#editcommenttwo" + abc);
                 var txt = sel.html();
-                if (txt == '' || txt == '<br>') {
+                
+                txt = txt.replace(/&nbsp;/gi, " ");
+                    txt = txt.replace(/<br>$/, '');
+                    if (txt == '' || txt == '<br>') {
                     $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deletetwo(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
                     $('#bidmodal').modal('show');
-                    return false;
-                }
+                        return false;
+                    }
+                    if (/^\s+$/gi.test(txt))
+                    {
+                        return false;
+                    }
+                    
+//                if (txt == '' || txt == '<br>') {.
+//                    return false;
+//                }
 
                 if (window.preventDuplicateKeyPresses)
                     return;
