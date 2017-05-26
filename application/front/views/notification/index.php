@@ -73,13 +73,13 @@
                                 <?php
                                 foreach ($totalnotification as $total) { 
                                     if ($total['not_from'] == 1) {
-                                        ?> 
+                                      $companyname = $this->db->get_where('recruiter', array('user_id' => $total['user_id']))->row()->re_comp_name;  ?> 
                                         <li> 
                                             <div class="notification-pic" id="noti_pc" >
                                                 <img src="<?php echo base_url(USERIMAGE . $total['user_image']); ?>" >
                                             </div>
                                             <div class="notification-data-inside" id="notification_inside">
-                                                <a href="<?php echo base_url('notification/recruiter_post/' . $total['post_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Recruiter</i></font></b><b>" . "  " . $total['first_name'] . ' ' . $total['last_name'] . "</b> invited you for an interview"; ?></h6></a>
+                                                <a href="<?php echo base_url('notification/recruiter_post/' . $total['post_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Recruiter</i></font></b><b>" . "  " . $total['first_name'] . ' ' . $total['last_name'] . "</b>  from " . $companyname . "  invited you for an interview"; ?></h6></a>
                                                 <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
                                                     <?php echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                 </div>
@@ -101,7 +101,7 @@
                                             </div>
                                             <div class="notification-data-inside" id="notification_inside">
                                                 <a href="<?php echo base_url('artistic/artistic_profile/' . $total['user_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Artistic</i></font></b><b>" . "  " . $total['first_name'] . ' ' . $total['last_name'] . "</b> started to following you"; ?></h6></a>
-                                                <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
+                                                <div><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
                                                     <?php echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                 </div>
                                             </div>
@@ -431,7 +431,7 @@
                                                     <img src="<?php echo base_url(USERIMAGE . $total['user_image']); ?>" >
                                                 </div>
                                                 <div class="notification-data-inside" id="notification_inside">
-                                                    <a href="<?php echo base_url('job/job_printpreview/' . $total['not_from_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Job seeker</i></font></b><b>" . "  " . $total['first_name'] . ' ' . $total['last_name'] . "</b> Aplied on your post"; ?></h6></a>
+                                                    <a href="<?php echo base_url('job/job_printpreview/' . $total['not_from_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Job seeker</i></font></b><b>" . "  " . $total['first_name'] . ' ' . $total['last_name'] . "</b> Aplied on your jobpost"; ?></h6></a>
                                                     <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
                                                         <?php echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                     </div>

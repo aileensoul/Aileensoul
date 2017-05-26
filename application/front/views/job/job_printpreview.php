@@ -336,6 +336,7 @@ echo $job_header2;
                                         </ul>
 
                                     </div>
+
                                     <div class="profile-job-post-title clearfix">
                                         <div class="profile-job-profile-button clearfix">
                                             <div class="profile-job-details">
@@ -530,7 +531,7 @@ echo $job_header2;
 
     <div class="tab pagi_exp" style="">
         <?php if(count($job_graduation) >= 1 ){ ?>
-  <button class="tablinks " onclick="openCity(event, '1')">1</button>
+  <button class="tablinks  " onclick="openCity(event, '1')">1</button>
         <?php } ?>
    <?php if(count($job_graduation) >= 2 ){ ?>
   <button class="tablinks" onclick="openCity(event, '2')">2</button>

@@ -63,7 +63,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         ?>">
                                         <?php if ($user['user_image']) { ?>
                                             <div class="chat_heae_img">
-                                                <img src="<?php echo base_url(USERIMAGE . $user['user_image']); ?>" alt="" height="50px" weight="50px">
+                                                <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $user['user_image']); ?>" alt="" height="50px" weight="50px">
                                             </div>
         <?php } else { ?>
 
@@ -101,7 +101,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             ?>">
         <?php if ($lstusrdata[0]['user_image']) { ?>
                                             <div class="chat_heae_img">
-                                                <img src="<?php echo base_url(USERIMAGE . $lstusrdata[0]['user_image']); ?>" alt="" height="50px" weight="50px">
+                                                <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $lstusrdata[0]['user_image']); ?>" alt="" height="50px" weight="50px">
                                             </div>
         <?php } else { ?>
                                             <div class="chat_heae_img">
@@ -135,7 +135,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         ?>">
                                                 <?php if ($user['user_image']) { ?>
                                                     <div class="chat_heae_img">
-                                                        <img src="<?php echo base_url(USERIMAGE . $user['user_image']); ?>" alt="" height="50px" weight="50px">
+                                                        <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $user['user_image']); ?>" alt="" height="50px" weight="50px">
                                                     </div>
                                                         <?php } else { ?>
                                                     <div class="chat_heae_img">
@@ -179,7 +179,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                             <?php if ($lstusrdata[0]['user_image']) { ?>
                                 <div class="chat_heae_img">
-                                    <img src="<?php echo base_url(USERIMAGE . $lstusrdata[0]['user_image']); ?>" alt="" height="50px" weight="50px">
+                                    <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $lstusrdata[0]['user_image']); ?>" alt="" height="50px" weight="50px">
                                 </div>
     <?php } else { ?>
                                 <div class="chat_heae_img">

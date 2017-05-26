@@ -342,7 +342,7 @@ class Notification extends MY_Controller {
         $this->data['totalnotifi'] = $totalnotifi = array_merge($rec_not, $job_not, $hire_not, $work_post,$artcommnet, $artlike, $artcmtlike, $artimglike, $artimgcommnet,$artfollow, $artimgcmtlike, $busimgcommnet, $busifollow, $buscommnet, $buslike, $buscmtlike, $busimgcmtlike, $busimglike);
        $this->data['totalnotification'] = $totalnotification = $this->aasort($totalnotifi, "not_id");
        
-      // echo '<pre>'; print_r($totalnotification); die();
+     // echo '<pre>'; print_r($totalnotification); die();
         $this->load->view('notification/index', $this->data);
     }
 
@@ -960,12 +960,12 @@ class Notification extends MY_Controller {
        $i = 0;
         foreach ($totalnotification as $total) {
             if ($total['not_from'] == 1) {
-
+ $companyname = $this->db->get_where('recruiter', array('user_id' => $total['user_id']))->row()->re_comp_name; 
                 $notification .= '<li><div class="notification-database">';
                 $notification .= '<div class="notification-pic">';
                 $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . ' " >';
                 $notification .= '</div><div class="notification-data-inside">';
-                $notification .= '<a href="' . base_url('notification/recruiter_post/' . $total['post_id']) . '"><h6>HI.. !  <font color="blue"><b><i> Rectuiter</i></font></b><b>' . '  ' . $total['first_name'] . ' ' . $total['last_name'] . '</b> invited you for an interview</h6></a>';
+                $notification .= '<a href="' . base_url('notification/recruiter_post/' . $total['post_id']) . '"><h6>HI.. !  <font color="blue"><b><i> Rectuiter</i></font></b><b>' . '  ' . $total['first_name'] . ' ' . $total['last_name'] . '</b>  from ' . $companyname . '  invited you for an interview</h6></a>';
                 $notification .= '<div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
                 $notification .= '' . $this->common->time_elapsed_string($total['not_created_date'], $full = false) . '';
                 $notification .= '</div></div></div></li>';
@@ -1256,7 +1256,7 @@ class Notification extends MY_Controller {
                 $notification .= '<div class="notification-pic">';
                 $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
                 $notification .= '</div><div class="notification-data-inside">';
-                $notification .= '<a href="' . base_url('job/job_printpreview/' . $total['not_from_id']) . '"><h6>HI.. !  <font color="#4e6db1"><b><i> Job seeker</i></font></b><b>' . '  ' . $total['first_name'] . ' ' . $total['last_name'] . '</b> Aplied on your post</h6></a>';
+                $notification .= '<a href="' . base_url('job/job_printpreview/' . $total['not_from_id']) . '"><h6>HI.. !  <font color="#4e6db1"><b><i> Job seeker</i></font></b><b>' . '  ' . $total['first_name'] . ' ' . $total['last_name'] . '</b> Aplied on your jobpost</h6></a>';
                 $notification .= '<div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
                 $notification .= '' . $this->common->time_elapsed_string($total['not_created_date'], $full = false) . '';
                 $notification .= '</div></div> </div> </li>';
@@ -1535,7 +1535,7 @@ class Notification extends MY_Controller {
             $notmsg .= '<a href="' . base_url('chat/abc/' . $msg['user_id']) . '" class="clearfix msg_dot">';
             $notmsg .= '<li><div class="notification-database">';
             $notmsg .= '<div class="notification-pic">';
-            $notmsg .= '<img src="' . base_url(USERIMAGE . $msg['user_image']) . '">';
+            $notmsg .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $msg['user_image']) . '">';
             $notmsg .= '</div><div class="notification-data-inside">';
             $notmsg .= '<h6>' . ucwords($msg['first_name']) . ' ' . ucwords($msg['last_name']) . '</h6>';
             $notmsg .= '<div>';

@@ -130,7 +130,7 @@
                                    <!-- <span style="color:#7f7f7e;padding-left: 8px;">( </span><span style="color:red">*</span><span style="color:#7f7f7e"> )</span> <span style="color:#7f7f7e">Indicates required field</span>
                                 </div> -->
 
-        <div> <span class="required_field" >( <span style="color: red">*</span> ) Indicates required field</span></div>
+        <div> <span class="required_field" >( <span class="red">*</span> ) Indicates required field</span></div>
                    
 
                                 <div class="job_add_head"><span >Present Address</span></div>
@@ -149,7 +149,7 @@
                                 ?>
                                 
                                 <fieldset <?php if ($country) { ?> class="error-msg" <?php } ?>>
-                                    <label>Country<span style="color:red">*</span></label>
+                                    <label>Country<span class="red">*</span></label>
                                     <select name="country" id="country">
                                         <option value="">Select Country</option>
                                         <?php
@@ -177,7 +177,7 @@
                                 </fieldset>
 
                                 <fieldset <?php if ($state) { ?> class="error-msg" <?php } ?>>
-                                    <label>State<span style="color:red">*</span></label>
+                                    <label>State<span class="red">*</span></label>
                                     <select name="state" id="state">
                                         <?php
                                         if ($state1) {
@@ -237,7 +237,7 @@
                                 </fieldset>
 
                                 <fieldset class="full-width">
-                                    <label>Postal Address:<span style="color:red">*</span></label>
+                                    <label>Postal Address:<span class="red">*</span></label>
 
                                     <textarea name ="address" id="address" rows="4" cols="50" placeholder="Enter Address" style="resize: none;"><?php
                                         if ($address1) {
@@ -254,7 +254,7 @@
                                 <div class="job_add_head"><span>Permenant Address</span></div>
 
                                 <fieldset <?php if ($country_permenant) { ?> class="error-msg" <?php } ?>>
-                                    <label>Country<span style="color:red">*</span></label>
+                                    <label>Country<span class="red">*</span></label>
                                     <select name="country_permenant" id="country_permenant">
                                         <option value="">Select Country</option>
                                         <?php
@@ -282,7 +282,7 @@
                                 </fieldset>
 
                                 <fieldset <?php if ($state_permenant) { ?> class="error-msg" <?php } ?>>
-                                    <label>State<span style="color:red">*</span></label>
+                                    <label>State<span class="red">*</span></label>
                                     <select name="state_permenant" id="state_permenant">
                                         <?php
                                         if ($state1_permenant) {
@@ -342,7 +342,7 @@
                                 </fieldset>
 
                                 <fieldset class="full-width">
-                                    <label>Postal Address:<span style="color:red">*</span></label>
+                                    <label>Postal Address:<span class="red">*</span></label>
 
                                     <textarea name ="address_permenant" id="address_permenant" rows="4" cols="50" placeholder="Enter Address" style="resize: none;"><?php
                                         if ($address1_permenant) {

@@ -79,7 +79,7 @@
 							<?php echo form_open_multipart(base_url('freelancer_hire/freelancer_hire_professional_info_insert'), array('id' => 'professional_info','name' => 'professional_info','class' => 'clearfix')); ?>
 
                      <div>
-                                   <span style="color:#7f7f7e;padding-left: 8px;">( </span><span style="color:red">*</span><span style="color:#7f7f7e"> )</span> <span style="color:#7f7f7e">Indicates required field</span>
+                                   <span style="color:#7f7f7e;padding-left: 8px;">( </span><span class="red">*</span><span style="color:#7f7f7e"> )</span> <span style="color:#7f7f7e">Indicates required field</span>
                                 </div>
 
 
@@ -88,7 +88,7 @@
                          ?>  
 								
                             	<fieldset class="full-width">
-									<label>Professional Info:<span style="color:red">*</span></label>
+									<label>Professional Info:<span class="red">*</span></label>
 									
 									<textarea name ="professional_info" id="professional_info" rows="6" cols="50" placeholder="Enter Professional Information" style="resize: none;overflow: auto;"><?php if($professional_info1){ echo $professional_info1; } ?></textarea>
 									 <?php echo form_error('professional_info'); ?> 
