@@ -769,17 +769,9 @@ pt>
 
                             <output id="list"></output>
                         </div>
-                        <div class="print_privew_post">
-
-                        </div>
-                        <div class="preview"></div>
-                        <div id="data-vid" class="large-8 columns">
-                            <!--video will be inserted here.-->
-                        </div>
-
-                        <h2 id="name-vid"></h2>
-                        <p id="size-vid"></p>
-                        <p id="type-vid"></p>
+                      
+                      
+                      
 
                         <div class="popup-social-icon">
                             <ul class="editor-header">
