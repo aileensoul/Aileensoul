@@ -84,8 +84,6 @@
 
         <style>
 
-
-
             div.panel {
 
                 display: none;
@@ -2121,8 +2119,14 @@ if (count($finalsorting) > 0) {
 
                                 var sel = $("#post_comment" + clicked_id);
                                 var txt = sel.html();
-                                if (txt == '') {
-                                    return false;
+                                txt = txt.replace(/&nbsp;/gi, " ");
+                                txt = txt.replace(/<br>$/, '');
+                                if (txt == '' || txt == '<br>') {
+                                   return false;
+                                    }
+                                if (/^\s+$/gi.test(txt))
+                                {
+                                  return false;
                                 }
 
                                 $('#post_comment' + clicked_id).html("");
@@ -2243,9 +2247,17 @@ if (count($finalsorting) > 0) {
                                         e.preventDefault();
                                         var sel = $("#post_comment" + clicked_id);
                                         var txt = sel.html();
-                                        if (txt == '') {
-                                            return false;
-                                        }
+                                      
+                                       txt = txt.replace(/&nbsp;/gi, " ");
+                                        txt = txt.replace(/<br>$/, '');
+                                        if (txt == '' || txt == '<br>') {
+                                         return false;
+                                           }
+                                      if (/^\s+$/gi.test(txt))
+                                              {
+                                           return false;
+                                           }
+                                           
                                         $('#post_comment' + clicked_id).html("");
 
                                         if (window.preventDuplicateKeyPresses)
@@ -2511,12 +2523,24 @@ if (count($finalsorting) > 0) {
                                         event.preventDefault();
                                         var sel = $("#editcomment" + abc);
                                         var txt = sel.html();
-                                        if (txt == '' || txt == '<br>') {
-                                            $('.biderror .mes').html("<div class='pop_content'>Do you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+                                      
+                                        txt = txt.replace(/&nbsp;/gi, " ");
+                    txt = txt.replace(/<br>$/, '');
+                    if (txt == '' || txt == '<br>') {
+                          $('.biderror .mes').html("<div class='pop_content'>Do you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
                                             $('#bidmodal').modal('show');
+                        return false;
+                    }
+                    if (/^\s+$/gi.test(txt))
+                    {
+                        return false;
+                    }
+                                        if (txt == '' || txt == '<br>') {
+                                          
                                             return false;
                                         }
-                                        if (window.preventDuplicateKeyPresses)
+                                     
+                                   if (window.preventDuplicateKeyPresses)
                                             return;
                                         window.preventDuplicateKeyPresses = true;
                                         window.setTimeout(function () {
