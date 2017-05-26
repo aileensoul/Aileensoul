@@ -29,7 +29,7 @@
 
     <section>
 
-        <div class="user-midd-section margin_btm" id="paddingtop_fixed">
+        <div class="user-midd-section" id="paddingtop_fixed">
             <div class="container">
                 <div class="row">
                     <div class="col-md-3"> 
@@ -54,7 +54,7 @@
                             <div class="job-saved-box">
                                 <h3>Add New Post</h3>
 
-<?php echo form_open(base_url('recruiter/add_post_store'), array('id' => 'artpost', 'name' => 'artpost', 'class' => 'clearfix ' , 'onsubmit' => "return imgval()")); ?>
+<?php echo form_open(base_url('recruiter/add_post_store'), array('id' => 'artpost', 'name' => 'artpost', 'class' => 'clearfix', 'onsubmit' => "return imgval()")); ?>
 
 
                           <div> <span class="required_field" >( <span style="color: red">*</span> ) Indicates required field</span></div>
@@ -191,10 +191,9 @@
                                     <?php echo form_error('month'); ?> &nbsp;&nbsp; <?php echo form_error('year'); ?>
                                 </fieldset>
 
-                                <fieldset style="margin-top: 0px;
-    margin-bottom: 2px;" class="form-group full-width">
-                                    
-                                    <input  style="width: 6%;cursor:pointer; height: 15px; " type="checkbox" name="fresher" value="1" style="width: 5%;" checked>Fresher can also apply..!
+                                <fieldset style="cursor:pointer;
+    margin-top: 5px;margin-left: 15px;" class="form-group full-width">
+                                    <input  type="checkbox" name="fresher" value="1"> Fresher can also apply..!
                                 </fieldset>
 
                           

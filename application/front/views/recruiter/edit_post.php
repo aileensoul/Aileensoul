@@ -34,11 +34,11 @@
                                 }
                                 ?>
                     </div>
-                    <div class="panel-body padding_edit_pos">
+                    <div class="panel-body">
                     
                    
 
-                 <?php echo form_open(base_url('recruiter/update_post/' . $postdata[0]['post_id'] ), array('id' => 'basicinfo','name' => 'basicinfo','class' => 'clearfix margin_btm')); ?>
+                 <?php echo form_open(base_url('recruiter/update_post/' . $postdata[0]['post_id'] ), array('id' => 'basicinfo','name' => 'basicinfo','class' => 'clearfix')); ?>
                  <div> <span class="required_field" >( <span style="color: red">*</span> ) Indicates required field</span></div>
                  <?php
                          $post_name =  form_error('post_name');
@@ -216,7 +216,7 @@
                 <fieldset class="full-width">
                       <label>Interview process:<!-- <span style="color:red">*</span> --></label>
 
-                      <textarea name="interview" id="interview"  rows="4" cols="50"placeholder="Enter Interview Process"><?php  echo $postdata[0]['interview_process']; ?></textarea>
+                      <textarea name="interview" id="interview" placeholder="Enter Interview Process"><?php  echo $postdata[0]['interview_process']; ?></textarea>
                      
                       <?php echo form_error('interview'); ?> 
                 </fieldset>
@@ -392,11 +392,6 @@ $.validator.addMethod("greaterThan",
 );
 
 
-$.validator.addMethod("regx", function(value, element, regexpr) {          
-    return regexpr.test(value);
-}, "Only space, only number and only special characters are not allow");
-
-
             $(document).ready(function () { 
 
                 $("#basicinfo").validate({
@@ -407,8 +402,7 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
                        
                         post_name: {
 
-                            required: true,
-                             regx:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]/
+                            required: true
                         },
 
                        'skills[]': {
@@ -442,8 +436,7 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
 
                         post_desc: {
 
-                            required: true,
-                             regx:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]/
+                            required: true
                            
                         },
 
