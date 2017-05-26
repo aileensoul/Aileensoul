@@ -5220,8 +5220,10 @@ cover pic css*/
 .page-heading{border:0px;margin-bottom: 11px;}
 .data_img{height: 95px; width: 100%;}
 .data_img img{height: 100%; width: 100%;}
-.data_img_2{height: 80px;
-                                                     width: 77px;     z-index: 3;
+.data_img_2{height: 77px;
+    width: 71px;
+    z-index: 3;
+    position: relative;    z-index: 3;
                                                      position: relative;}
 .data_img_2 img{width: 100%; height: 100%;}
 .free_attc img{width: 100%; height: 100%;
@@ -5283,3 +5285,31 @@ cover pic css*/
     width: 195px;
     height: 173px;
 }
+.select2-container--default .select2-selection--multiple .select2-selection__rendered{padding:0 15px;}
+.post_dot_2{ max-width: 26%;
+             width: auto;
+             font-size: 15px;
+             display: inline-block;
+             line-height: 15px;
+             font-weight: 600;
+             color: #000033;
+             margin-bottom: -3px;
+             text-overflow: ellipsis;
+             overflow: hidden;
+             white-space: nowrap; }
+.fifty_val{position: absolute; top: 21px; right: 19px; border: none;}
+.post-editor .popup-social-icon ul li .upload_icon{margin: 8px; cursor:pointer}
+.camer_h i{margin: 0px; font-size: 27px; cursor: pointer; /* margin-right: -38px; */ margin-top: 25px;}
+.posted_with{font-weight: 600;  color: #91949d; display: inline-block;}
+.other_name{font-size: 15px;                    line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; }
+.ctre_date{font-weight: 400; color: #91949d;  cursor: default;}
+.buuis_desc_a{color: #000033; font-weight: 400; cursor: default;}
+.padding_adust{padding-right: 20px;}
+.padding_edit_post{padding:10px;}
+.three_img_2{width: 49.4%; height: 35%; float: left; margin-top: 4px; margin-right: 3px;}
+.cmy_2{padding-left: 7px; width: 80%;}
+.edt_2{min-height:37px !important; margin-top: 0px!important;}
+.editav_2{display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;}
+.buis_company-name{margin-left: 3px;}
+.buis_pro_name{padding-left: 4px;}
+.edyrr{margin-bottom: 0px;     font-size: 16px}

@@ -160,12 +160,13 @@
                                            tabindex="-1" aria-hidden="true" rel="noopener" title="<?php echo $businessdata[0]['company_name']; ?>">
                                             <!-- box image start -->
                                             <?php if ($businessdata[0]['profile_background'] != '') { ?>
-                                                <img src="<?php echo base_url($this->config->item('bus_bg_thumb_upload_path') . $businessdata[0]['profile_background']); ?>" class="bgImage" alt="<?php echo $businessdata[0]['company_name']; ?>"  style="height: 95px; width: 100%; ">
-                                                <?php
+                                            <div class="data_img">  <img src="<?php echo base_url($this->config->item('bus_bg_thumb_upload_path') . $businessdata[0]['profile_background']); ?>" class="bgImage" alt="<?php echo $businessdata[0]['company_name']; ?>" >
+                                                </div> <?php
                                             } else {
                                                 ?>
-                                                <img src="<?php echo base_url(WHITEIMAGE); ?>" class="bgImage" alt="<?php echo $businessdata[0]['company_name']; ?>"  style="height: 95px; width: 100%;">
-                                            <?php } ?>
+                                            <div class="data_img"> 
+                                                <img src="<?php echo base_url(WHITEIMAGE); ?>" class="bgImage" alt="<?php echo $businessdata[0]['company_name']; ?>" >
+                                                </div> <?php } ?>
                                         </a>
                                     </div>
                                     <div class="profile-boxProfileCard-content clearfix">
@@ -174,10 +175,12 @@
                                                 <?php
                                                 if ($businessdata[0]['business_user_image']) {
                                                     ?>
+                                                  <div class="data_img_2"> 
                                                     <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $businessdata[0]['business_user_image']); ?>"  alt="<?php echo $businessdata[0]['company_name']; ?>" style="height: 77px; width: 71px; z-index: 3; position: relative; ">
-                                                <?php } else { ?>
+                                                  </div>
+             <?php } else { ?> <div class="data_img_2"> 
                                                     <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo $businessdata[0]['company_name']; ?>">
-                                                <?php } ?>                           
+             </div>  <?php } ?>                           
                                                 <!-- 
                         <img class="profile-boxProfileCard-avatarImage js-action-profile-avatar" src="images/imgpsh_fullsize (2).jpg" alt="" style="    height: 68px;
                         width: 68px;">
@@ -579,14 +582,14 @@
                                     <div id="myBtn1"  class="editor-content col-md-10 popup-text" >
                                       <!-- <textarea name="product_title" placeholder="Post Your Product...."></textarea>  -->
                                         <textarea id= "test-upload-product" placeholder="Post Your Product...."  onKeyPress=check_length(this.form); onKeyDown=check_length(this.form); name=my_text rows=4 cols=30 class="post_product_name" style=" position: relative;"></textarea>
-                                        <div style="position: absolute; top: 21px; right: 19px; border: none;">                       
+                                        <div class="fifty_val">                       
                                             <input size=1 value=50 name=text_num class="text_num"  readonly> 
                                         </div>
                                     </div>
                                     <!--   <span class="fr">
                         <input type="file" id="files" name="postattach[]" multiple style="display:block;">  </span> -->
-                                    <div class="col-md-1 padding-left" style="padding-left: 0px;">
-                                        <i class=" fa fa-camera" style="margin: 0px; font-size: 27px; cursor: pointer; /* margin-right: -38px; */ margin-top: 25px;">
+                                    <div class="col-md-1 padding-left padding_les_left camer_h">
+                                        <i class=" fa fa-camera" >
                                         </i> 
                                     </div>
                                 </div>
@@ -612,25 +615,19 @@
                                 <div class="popup-social-icon">
                                     <ul class="editor-header">
                                         <li>
-                                            <!--   <label for="test-upload">
-                                                  <input type="file" class="file" style="display:block;" id="test-upload" style="display:none;" name="postattach[]" multiple>
-                                                  <i class=" fa fa-camera "  style=" margin: 8px; cursor:pointer"> Photo
-                                                  </i>
-                                                  <i class=" fa fa-video-camera"  style=" margin: 8px; cursor:pointer"> Video 
-                                                  </i> 
-                                                  <i class="fa fa-music "  style=" margin: 8px; cursor:pointer"> Audio 
-                                                  </i>
-                                                  <i class=" fa fa-file-pdf-o fa-2x"  style=" margin: 8px; cursor:pointer"> PDF 
-                                                  </i> 
-                                              </label>
-                                            -->
+                                         
 
                                             <div class="col-md-12"> <div class="form-group">
                                                     <input id="file-1" type="file" class="file" name="postattach[]"  multiple class="file" data-overwrite-initial="false" data-min-file-count="2" style="display: none;">
                                                 </div></div>
 
 
-                                            <label for="file-1"><i class=" fa fa-camera "  style=" margin: 8px; cursor:pointer"> Photo</i><i class=" fa fa-video-camera"  style=" margin: 8px; cursor:pointer"> Video </i> <i class="fa fa-music "  style=" margin: 8px; cursor:pointer"> Audio </i><i class=" fa fa-file-pdf-o "  style=" margin: 8px; cursor:pointer"> PDF </i> </label>
+                                            <label for="file-1">
+                                                <i class=" fa fa-camera upload_icon" > Photo</i>
+                                                <i class=" fa fa-video-camera upload_icon" > Video </i> 
+                                                <i class="fa fa-music upload_icon" > Audio </i>
+                                                <i class=" fa fa-file-pdf-o upload_icon"   > PDF </i>
+                                            </label>
 
 
                                         </li>
@@ -740,26 +737,15 @@
                                                                 <li>
                                                                     <div class="else_post_d">
                                                                         <div class="post-design-product">
-                                                                            <a style="
-                                                                               max-width: 26%;
-                                                                               width: auto;
-                                                                               font-size: 15px;
-                                                                               display: inline-block;
-                                                                               line-height: 15px;
-                                                                               font-weight: 600;
-                                                                               color: #000033;
-                                                                               margin-bottom: -3px;
-                                                                               text-overflow: ellipsis;
-                                                                               overflow: hidden;
-                                                                               white-space: nowrap; " href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugnameposted); ?>"><?php echo ucwords($companynameposted); ?></a>
-                                                                            <p style="font-weight: 600;  color: #91949d; display: inline-block;"> Posted With </p> <a style=" font-size: 15px;                    line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; " href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>"><?php echo ucwords($companyname); ?></a> <span  style="font-weight: 400; color: #91949d;  cursor: default;"><?php echo date('d-M-Y', strtotime($row['created_date'])); ?> </span> </div></div>
+                                                                            <a class="post_dot_2" href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugnameposted); ?>"><?php echo ucwords($companynameposted); ?></a>
+                                                                            <p class="posted_with" > Posted With </p> <a class="other_name"  href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>"><?php echo ucwords($companyname); ?></a> <span class="ctre_date"  ><?php echo date('d-M-Y', strtotime($row['created_date'])); ?> </span> </div></div>
                                                                 </li>
                                                             <?php } else { ?>
                                                                 <li>
                                                                     <div class="post-design-product">
                                                                         <a class="post_dot"  href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>" title="<?php echo ucwords($companyname); ?>";>
                                                                             <?php echo ucwords($companyname); ?>  </a>
-                                                                        <div class="datespan"> <span style="font-weight: 400; font-size: 14px; color: #91949d; cursor: default;"> 
+                                                                        <div class="datespan"> <span class="ctre_date" > 
                                                                                 <?php echo date('d-M-Y', strtotime($row['created_date'])); ?>
                                                                             </span></div>
 
@@ -773,7 +759,7 @@
 
                                                             <li>
                                                                 <div class="post-design-product">
-                                                                    <a href="javascript:void(0);" style=" color: #000033; font-weight: 400; cursor: default;" title="Category">
+                                                                    <a class="buuis_desc_a" href="javascript:void(0);"  title="Category">
                                                                         <?php
                                                                         if ($category) {
 
@@ -878,7 +864,7 @@
 
                                                     </div> 
                                                 </div>
-                                                <div class="post-design-mid col-md-12" style="padding-right: 20px;">
+                                                <div class="post-design-mid col-md-12 padding_adust" >
                                                     <!-- multiple image code  start-->
                                                     <div>
                                                         <?php
@@ -896,7 +882,7 @@
                                                             if (in_array($ext, $allowed)) {
                                                                 ?>
                                                                 <!-- one image start -->
-                                                                <div id="basic-responsive-image" style="height: 50%; width: 100%;">
+                                                                <div id="basic-responsive-image">
                                                                     <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>">
                                                                         <img src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $businessmultiimage[0]['image_name']) ?>" style="width: 100%; height: 100%;"> 
                                                                     </a>
@@ -959,12 +945,13 @@
                                                                     <img class="three-columns" src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $businessmultiimage[0]['image_name']) ?>" style="width: 100%; height:100%; "> 
                                                                 </a>
                                                             </div>
-                                                            <div style="width: 49.4%; height: 35%; float: left; margin-top: 4px; margin-right: 3px;">
+                                                            <div class="three_img_2">
+                                                                
                                                                 <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>">
                                                                     <img class="three-columns" src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $businessmultiimage[1]['image_name']) ?>" style="width: 100%; height:100%; "> 
                                                                 </a>
                                                             </div>
-                                                            <div style="width: 49.4%; height: 35%; float: left; margin-top: 4px; margin-right: 3px;">
+                                                            <div class="three_img_2">
                                                                 <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_post_id']) ?>">
                                                                     <img class="three-columns" src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $businessmultiimage[2]['image_name']) ?>" style="width: 100%; height:100%; "> 
                                                                 </a>
@@ -975,7 +962,7 @@
                                                             foreach ($businessmultiimage as $multiimage) {
                                                                 ?>
                                                                 <!-- four image start -->
-                                                                <div id="responsive_buis-images-breakpoints" style="   ">
+                                                                <div id="responsive_buis-images-breakpoints" >
                                                                     <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>">
                                                                         <img class="breakpoint" src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $multiimage['image_name']) ?>" style="width: 100%; height: 100%;"> 
                                                                     </a>
@@ -1229,7 +1216,7 @@
                                                                         <div class="edit-comment-box">
                                                                             <div class="inputtype-edit-comment">
                                                                                 <!--<textarea type="text" class="textarea" name="<?php echo $rowdata['business_profile_post_comment_id']; ?>" id="<?php echo "editcomment" . $rowdata['business_profile_post_comment_id']; ?>" style="display:none;resize: none;" onClick="commentedit(this.name)"><?php echo $rowdata['comments']; ?></textarea>-->
-                                                                                <div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="<?php echo $rowdata['business_profile_post_comment_id']; ?>"  id="<?php echo "editcomment" . $rowdata['business_profile_post_comment_id']; ?>" placeholder="Enter Your Comment " value= ""  onkeyup="commentedit(<?php echo $rowdata['business_profile_post_comment_id']; ?>)"><?php echo $rowdata['comments']; ?></div>
+                                                                                    <div contenteditable="true" class="editable_text editav_2" name="<?php echo $rowdata['business_profile_post_comment_id']; ?>"  id="<?php echo "editcomment" . $rowdata['business_profile_post_comment_id']; ?>" placeholder="Enter Your Comment " value= ""  onkeyup="commentedit(<?php echo $rowdata['business_profile_post_comment_id']; ?>)"><?php echo $rowdata['comments']; ?></div>
                                                                                 <span class="comment-edit-button"><button id="<?php echo "editsubmit" . $rowdata['business_profile_post_comment_id']; ?>" style="display:none" onClick="edit_comment(<?php echo $rowdata['business_profile_post_comment_id']; ?>)">Save</button></span>
                                                                             </div>
                                                                         </div>
@@ -1325,8 +1312,8 @@
                                                         <?php } ?>
                                                     </div>
                                                     <div class="">
-                                                        <div id="content" class="col-md-12  inputtype-comment" style="padding-left: 7px; width: 80%;">
-                                                            <div contenteditable="true" style="min-height:37px !important; margin-top: 0px!important" class="editable_text" name="<?php echo $row['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $row['business_profile_post_id']; ?>" placeholder="Add a Comment ..." onClick="entercomment(<?php echo $row['business_profile_post_id']; ?>)"></div>
+                                                        <div id="content" class="col-md-12  inputtype-comment cmy_2" >
+                                                            <div contenteditable="true" class="edt_2 editable_text" name="<?php echo $row['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $row['business_profile_post_id']; ?>" placeholder="Add a Comment ..." onClick="entercomment(<?php echo $row['business_profile_post_id']; ?>)"></div>
                                                         </div>
                                                         <?php echo form_error('post_comment'); ?> 
                                                         <div class="comment-edit-butn">       
@@ -1345,7 +1332,7 @@
                             ?>
 
                             <div class="text-center rio">
-                                <h4 class="page-heading  product-listing" style="border:0px;margin-bottom: 11px;">No Post Found.</h4>
+                                <h4 class="page-heading  product-listing" >No Post Found.</h4>
                             </div>
 
                         <?php } ?>
