@@ -94,7 +94,7 @@ a:focus { outline: none; text-decoration: none;  }
 .header2 ul li a {  font-size: 13px; color: #fff; padding: 4px 16px; display: block; }
 .header2 ul li a i{font-size: 12px;padding-left: 0px; }
 
-.header2 ul li a:hover {     background: #08234a;
+.header2 ul li a:hover {     background: #1b8ab9;
                              color: #fff; }
 .header2 ul li a.active { position:relative; /*background:#000033; */  background:#08234a; color: #ffffff;}
 .header2  ul li.active a {/* background:#0a2c5d;*/ color: #ffffff; }
@@ -151,7 +151,7 @@ fieldset ul.token-input-list li { padding:0; margin:0; }
 ul.nav li:hover li:active{
     background:blue;
 }
-.pb-10{padding-bottom: 10px;}
+
 .pb-50 { padding-bottom:50px; }
 .pb-40 { padding-bottom:40px; }
 .pb-30 { padding-bottom:30px; }
@@ -324,7 +324,7 @@ ul.dropdown-menu li a i { padding-right: 2px; }
     border: 10px solid black;
     border-color: transparent transparent #fff;
     margin-top: -18px;
-   right: 15%;
+   right: 4%;
 }
 /*.dropdown:hover .dropdown-menu { display: block; }*/
 .header ul li.dropdown-user a { padding: 13px; text-transform: capitalize;}
@@ -815,7 +815,7 @@ ul.business_pf_ct_person_detail li b {font-size: 16px; display: inline-block; wi
 .profile-job-profile-button  a{margin-right: 10px;}
 .profile-job-details p { color: #1b8ab9; }
 .profile-job-details p  i{ /* margin-right: 10px; */ margin-left: 10px; }
-.sercv_sx{height: 14%;border: 1px solid #efefef;margin-bottom: 20px!important;}
+
 .profile-job-details li{list-style: none;}
 /* job */
 .job-contact-frnd .profile-job-post-detail { background-color:#ffffff; border: 1px solid #bfbfbf; border-radius: 4px; margin-bottom: 15px; }
@@ -4643,7 +4643,7 @@ input:-moz-placeholder { color:#999; font-size: 15px; }
   left: 7px;
   visibility: visible;
 }
-.dropdown-menu{left: -23px!important;}
+.dropdown-menu{left: -51px!important;}
 
 
 /* vishang 4-5-17 */
@@ -4878,9 +4878,9 @@ fieldset .add_post_btns{min-width: 120px;padding:8px 30px 10px;}
     background-color: #fff;
     min-width: 139px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    margin-top: 3px;
+    margin-top: 6px;
     z-index: 1;
-    left: 18;
+    left: 10;
     border-radius: 4px; }
 .dropdown-content_hover::before{       /* top: -1px; */
     content: '';
@@ -4893,7 +4893,7 @@ fieldset .add_post_btns{min-width: 120px;padding:8px 30px 10px;}
     border-color: transparent transparent #fff;
     margin-top: -18px;
     /* margin-left: 104px; */
-    right: 9px;}
+    right: 4.5px;}
 
 .dropdown_hover .dropdown-content_hover a {color: #000;}
  .pdf_name a:{text-decoration-line: underline;}
@@ -5007,12 +5007,12 @@ label.cameraButton:hover
 
     #btnRemove{ padding: 6px 12px 6px!important;  min-width: 49px!important; }
     .images_art_post .basic-responsive-image img{width: 100%; height: auto; min-height: initial;}
+#basic-responsive-image {height: 50%!important; width: 100%!important;}
 
 
 
 
-
-.basic-responsive-image{height: 50%; width: 100%;}
+.basic-responsive-image{height: 50%!important; width: 100%!important;}
 
 .profile-job-details ul .text_overflow{    width: auto;
     max-width: 70%;
@@ -5205,7 +5205,7 @@ cover pic css*/
 .margin_less{ margin:0px!important;}
 .main_pdf_box{margin-left:380px; margin-top: 20px;}
 .grybod{border: 1px solid #d9d9d9!important;}
-.edit_cpmment_edixt{display: inline-block;width: 81%;min-height: 37px !important;margin-top: 0px !important;margin-left: 1.5% !important;}
+.edit_cpmment_edit{display: inline-block;width: 81%;min-height: 37px !important;margin-top: 0px !important;margin-left: 1.5% !important;}
 
 /*Vishang 25-5 on */
 .job_education_submitbox { width: 100%; text-align: center; }
@@ -5313,24 +5313,4 @@ cover pic css*/
 .buis_company-name{margin-left: 3px;}
 .buis_pro_name{padding-left: 4px;}
 .edyrr{margin-bottom: 0px;     font-size: 16px}
-.popuo_liks{ /* margin: 0px; */    padding-top: 6px;
-    padding-bottom: 6px;
-    border-top: 1px solid #efefef;
-    display: inline-block;
-    width: 100%;
-    /* word-spacing: -2px; */}
-.pl_22{padding-left: 22px;}
-.pad_a{padding: 12px 15px 2px 15px!important;}
-    .modal-post{z-index: 1!important;}
-    .profile-box{width: 32%!important;}
-    .profile-box-bui-menu li a{margin-right: 2.5px!important;}
-    .audio_img{height: 300px!important; width: 350px!important; position: relative!important;}
-     div.panel {
-
-                display: none;
-
-            }
-            .ml-4{margin-left: 4px;}
-            .pl-4{padding-left: 4px;}
-            .profile_search{width:100%; float: left; background-color: white; margin-top: 10px; margin-bottom: 10px; padding:0px!important;}
-            .data_A{left: 3%!important;"}
+.modal-open .modal{    z-index: 10002;}

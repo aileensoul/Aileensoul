@@ -101,7 +101,7 @@
 
                                  <fieldset <?php if($contactmobile) {  ?> class="error-msg" <?php } ?>>
                                     <label>Contact Mobile:<span style="color:red">*</span></label>
-                                    <input name="contactmobile" type="number" id="contactmobile" placeholder="Enter contact Mobile" value="<?php if($contactmobile1){ echo $contactmobile1; } ?>"/>
+                                    <input name="contactmobile" type="text" id="contactmobile" placeholder="Enter contact Mobile" value="<?php if($contactmobile1){ echo $contactmobile1; } ?>"/>
                                      <?php echo form_error('contactmobile'); ?> 
                                 </fieldset>
                                
@@ -259,6 +259,10 @@ $('#searchplace').select2({
 //     }, "No space please and don't leave it empty");
 
 
+   $.validator.addMethod("regx1", function(value, element, regexpr) {          
+    return regexpr.test(value);
+}, "Only numbers are allowed"); 
+
    $.validator.addMethod("regx", function(value, element, regexpr) {          
     return regexpr.test(value);
 }, "Only space and only number  are not allow");         
@@ -281,7 +285,8 @@ $('#searchplace').select2({
                          contactmobile: {
 
                             required: true,
-                            number: true,
+                            regx1:/^\d+(\.\d+)?$/
+                            //number: true,
                             
                            
                         },

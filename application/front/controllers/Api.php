@@ -30,7 +30,12 @@ class Api extends CI_Controller {
         $timestamp = $this->input->get('timestamp', null);
 
         $messages = $this->Chat_model->get_messages($timestamp, $userid, $id);
-
+        $i = 0;
+        foreach($messages as $mes){
+            $messages[$i]['message'] = $this->common->make_links($mes['message']);
+            $i++;
+        }
+        
         $this->_setOutput($messages);
     }
 

@@ -36,13 +36,12 @@
                                            tabindex="-1" aria-hidden="true" rel="noopener" title="<?php echo ucwords($artdata[0]['art_name']) . ' ' . ucwords($artdata[0]['art_lastname']); ?>">
                                             <!-- box image start -->
                                             <?php if ($artdata[0]['profile_background'] != '') { ?>
-                                               <div class="data_img">    <img src="<?php echo base_url($this->config->item('art_bg_main_upload_path') . $artdata[0]['profile_background']); ?>" class="bgImage" alt=""  style="height: 95px; width: 100%; ">
-                                               </div>     <?php
+                                                <img src="<?php echo base_url($this->config->item('art_bg_main_upload_path') . $artdata[0]['profile_background']); ?>" class="bgImage" alt=""  style="height: 95px; width: 100%; ">
+                                                <?php
                                             } else {
                                                 ?>
-                                                <div class="data_img">  
-                                                <img src="<?php echo base_url(WHITEIMAGE); ?>" class="bgImage" alt=""  >
-                                                </div><?php } ?>
+                                                <img src="<?php echo base_url(WHITEIMAGE); ?>" class="bgImage" alt=""  style="height: 95px; width: 100%;">
+                                            <?php } ?>
                                         </a>
                                     </div>
                                     <div class="profile-boxProfileCard-content clearfix">
@@ -51,26 +50,25 @@
                                                 <?php
                                                 if ($artdata[0]['art_user_image']) {
                                                     ?>
-                                                 <div class="data_img_2">  
                                                     <img  src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artdata[0]['art_user_image']); ?>"  alt="" style="height: 77px; width: 71px; z-index: 3; position: relative; ">
-                                                 </div><?php } else { ?>
-                                                 <div class="data_img_2">      <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
-                                                 </div>       <?php } ?>                           
+                                                <?php } else { ?>
+                                                    <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
+                                                <?php } ?>                           
                                                 <!-- 
-                        <img class="profile-boxProfileCard-avatarImage js-action-profile-avatar" src="images/imgpsh_fullsize (2).jpg" alt=""     height: 68px;
+                        <img class="profile-boxProfileCard-avatarImage js-action-profile-avatar" src="images/imgpsh_fullsize (2).jpg" alt="" style="    height: 68px;
                         width: 68px;">
                                                 -->
                                             </a>
                                         </div>
                                         <div class="profile-box-user  profile-text-bui-user  fr col-md-9">
                                             <span class="profile-company-name ">
-                                                <a  href="<?php echo base_url('artistic/art_manage_post'); ?>" title="<?php echo ucwords($artdata[0]['art_name']) . ' ' . ucwords($artdata[0]['art_lastname']); ?>"> 
+                                                <a style="margin-left: 3px;" href="<?php echo base_url('artistic/art_manage_post'); ?>" title="<?php echo ucwords($artdata[0]['art_name']) . ' ' . ucwords($artdata[0]['art_lastname']); ?>"> 
                                                     <?php echo ucwords($artdata[0]['art_name']) . ' ' . ucwords($artdata[0]['art_lastname']); ?>
                                                 </a> 
                                             </span>
                                             <?php $category = $this->db->get_where('industry_type', array('industry_id' => $businessdata[0]['industriyal'], 'status' => 1))->row()->industry_name; ?>
                                             <div class="profile-boxProfile-name">
-                                                <a  href="<?php echo base_url('artistic/art_manage_post'); ?> " title="<?php echo ucwords($artdata[0]['art_name']) . ' ' . ucwords($artdata[0]['art_lastname']); ?>" >
+                                                <a style="padding-left: 1px;" href="<?php echo base_url('artistic/art_manage_post'); ?> " title="<?php echo ucwords($artdata[0]['art_name']) . ' ' . ucwords($artdata[0]['art_lastname']); ?>" >
                                                     <b> 
                                                     <?php
                                                 if ($artdata[0]['designation']) {
@@ -109,7 +107,7 @@
 <!-- left side box close -->
 
 <input type="hidden" name="search" id="search" value="<?php echo $keyword; ?>">
-   <div class="col-md-7 col-sm-7 all-form-content data_A">
+   <div class="col-md-7 col-sm-7 all-form-content" style="height: 150%;">
                         <div class="common-form">
                             <div class="job-saved-box">
 
@@ -120,7 +118,7 @@
                             
                                        <div class="profile-job-post-title-inside clearfix">
                                       
-<div class="profile_search" > 
+<div class="profile_search" style="background-color: white; margin-bottom: 10px; margin-top: 10px;"> 
 
                                        <h4 class="search_head">Profiles</h4>
                                        <div class="inner_search">
@@ -145,7 +143,8 @@
     padding-top: 16px;">
           <ul>
        <li>
-      <a  href="" title="<?php echo $key['art_name'].' '.$key['art_lastname'];?>">
+      <a style="  font-size: 19px;
+         font-weight: 600;" href="" title="<?php echo $key['art_name'].' '.$key['art_lastname'];?>">
        <?php echo $key['art_name'].' '.$key['art_lastname'];?>
        </a>
       </li>
@@ -228,7 +227,7 @@ if($status == 0 || $status == " "){?>
 </div>
 
 </div>
-<div class="col-md-12 profile_search "> 
+<div class="col-md-12 profile_search " style="float: left; background-color: white; margin-top: 10px; margin-bottom: 10px; padding:0px!important;"> 
        <h4 class="search_head">Posts</h4>
        <div class="inner_search">
 
@@ -297,7 +296,9 @@ if($status == 0 || $status == " "){?>
                                                                 <a class="post_dot" href="<?php echo base_url('artistic/art_manage_post/' . $key['user_id'] . ''); ?>" title="<?php echo $key['art_name'].' '.$key['art_lastname'];?>" >
                                                                     <?php echo $key['art_name'].' '.$key['art_lastname'];?>
                                                                       </a>
-                                                                <div class="datespan">  <span class="ctre_date"> 
+                                                                <div class="datespan">  <span style="font-weight: 400;
+                                                    font-size: 14px;
+                                                    color: #91949d; cursor: default;"> 
                                                                         <?php echo date('d-M-Y', strtotime($key['created_date'])); ?>                                                                    </span></div>
 
                                                             </div>
@@ -309,7 +310,7 @@ if($status == 0 || $status == " "){?>
                                                     
                                                     <li>
                                                         <div class="post-design-product">
-                                                            <a href="javascript:void(0);"  title="Category">
+                                                            <a href="javascript:void(0);" style=" color: #000033; font-weight: 400; cursor: default;" title="Category">
                                                                 <?php echo $key['art_post'];?>                                                            </a>
                                                         </div>
                                                     </li>
@@ -335,7 +336,7 @@ if($status == 0 || $status == " "){?>
                                             <div class="post-design-desc ">
                                                 <div>
                                                     <div id="editpostdata5" style="display:block;">
-                                                        <a class="margin_btm">
+                                                        <a style="margin-bottom: 0px;     font-size: 16px">
                                                             <?php echo $key['art_description'];?>                                                        </a>
                                                     </div>
                                                     <div id="editpostbox5" style="display:none;">
@@ -380,7 +381,7 @@ if($status == 0 || $status == " "){?>
                 ?>
 
                                                    
-            <div id="basic-responsive-image" >
+            <div id="basic-responsive-image" style="height: 80%; width: 100%;">
              <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') .$artmultiimage[0]['image_name'])?>" style="width: 100%; height: 100%;"> </a>
                                                     </div>
                                                     
@@ -490,7 +491,7 @@ if($status == 0 || $status == " "){?>
                                                     
                                                     <div>
                                                         <div id="responsive-manage_images_2-breakpoints">
-                                                            <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $multiimage['image_name']) ?>" > </a>
+                                                            <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $multiimage['image_name']) ?>" style=""> </a>
                                                         </div>
                                                     </div>
 
@@ -1326,13 +1327,7 @@ if($status == 0 || $status == " "){?>
 
                             var sel = $("#post_comment" + clicked_id);
                             var txt = sel.html();
-                            txt = txt.replace(/&nbsp;/gi, " ");
-                            txt = txt.replace(/<br>$/, '');
-                            if (txt == '' || txt == '<br>') {
-                                return false;
-                            }
-                            if (/^\s+$/gi.test(txt))
-                            {
+                            if (txt == '') {
                                 return false;
                             }
 
@@ -1453,17 +1448,9 @@ if($status == 0 || $status == " "){?>
                                     e.preventDefault();
                                     var sel = $("#post_comment" + clicked_id);
                                     var txt = sel.html();
-                                   
-                                   
-                                     txt = txt.replace(/&nbsp;/gi, " ");
-                            txt = txt.replace(/<br>$/, '');
-                            if (txt == '' || txt == '<br>') {
-                                return false;
-                            }
-                            if (/^\s+$/gi.test(txt))
-                            {
-                                return false;
-                            }
+                                    if (txt == '') {
+                                        return false;
+                                    }
                                     $('#post_comment' + clicked_id).html("");
 
                                     if (window.preventDuplicateKeyPresses)
@@ -1659,19 +1646,11 @@ if($status == 0 || $status == " "){?>
 
                             var sel = $("#editcomment" + abc);
                             var txt = sel.html();
-                          
-                            txt = txt.replace(/&nbsp;/gi, " ");
-                            txt = txt.replace(/<br>$/, '');
                             if (txt == '' || txt == '<br>') {
-                           $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-                           $('#bidmodal').modal('show');
+                                $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+                                $('#bidmodal').modal('show');
                                 return false;
                             }
-                            if (/^\s+$/gi.test(txt))
-                            {
-                                return false;
-                            }
-                           
                             $.ajax({
                                 type: 'POST',
                                 url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
@@ -1733,20 +1712,11 @@ if($status == 0 || $status == " "){?>
                                     event.preventDefault();
                                     var sel = $("#editcomment" + abc);
                                     var txt = sel.html();
-                                  
-                            txt = txt.replace(/&nbsp;/gi, " ");
-                            txt = txt.replace(/<br>$/, '');
-                            if (txt == '' || txt == '<br>') {
-                               $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+                                    if (txt == '' || txt == '<br>') {
+                                        $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
                                         $('#bidmodal').modal('show');
-                                return false;
-                            }
-                            if (/^\s+$/gi.test(txt))
-                            {
-                                return false;
-                            }
-                            
-                                    
+                                        return false;
+                                    }
                                     if (window.preventDuplicateKeyPresses)
                                         return;
                                     window.preventDuplicateKeyPresses = true;
@@ -1808,18 +1778,11 @@ if($status == 0 || $status == " "){?>
 
                             var sel = $("#editcommenttwo" + abc);
                             var txt = sel.html();
-                             txt = txt.replace(/&nbsp;/gi, " ");
-                            txt = txt.replace(/<br>$/, '');
                             if (txt == '' || txt == '<br>') {
-                                 $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deletetwo(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+                                $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deletetwo(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
                                 $('#bidmodal').modal('show');
                                 return false;
                             }
-                            if (/^\s+$/gi.test(txt))
-                            {
-                                return false;
-                            }
-                           
                             $.ajax({
                                 type: 'POST',
                                 url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
@@ -1882,19 +1845,11 @@ if($status == 0 || $status == " "){?>
                                     event.preventDefault();
                                     var sel = $("#editcommenttwo" + abc);
                                     var txt = sel.html();
-                                    
-                                     txt = txt.replace(/&nbsp;/gi, " ");
-                            txt = txt.replace(/<br>$/, '');
-                            if (txt == '' || txt == '<br>') {
-                                  $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deletetwo(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+                                    if (txt == '' || txt == '<br>') {
+                                        $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deletetwo(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
                                         $('#bidmodal').modal('show');
-                                return false;
-                            }
-                            if (/^\s+$/gi.test(txt))
-                            {
-                                return false;
-                            }
-                                   
+                                        return false;
+                                    }
 
                                     if (window.preventDuplicateKeyPresses)
                                         return;

@@ -1,5 +1,6 @@
 <?php echo $head; ?>
 
+<
 <?php echo $header; ?>
 <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
 <?php echo $business_header2_border ?>
@@ -144,14 +145,12 @@
                                            href="<?php echo base_url('business_profile/business_profile_manage_post'); ?>"
                                            tabindex="-1" aria-hidden="true" rel="noopener" title="<?php echo $businessdata[0]['company_name']; ?>">
                                                <?php if ($businessdata[0]['profile_background'] != '') { ?>
-                                            <div class="data_img">    
-                                            <img src="<?php echo base_url($this->config->item('bus_bg_thumb_upload_path') . $businessdata[0]['profile_background']); ?>" class="bgImage" alt="<?php echo $businessdata[0]['company_name']; ?>"  >
-                                            </div> <?php
+                                                <img src="<?php echo base_url($this->config->item('bus_bg_thumb_upload_path') . $businessdata[0]['profile_background']); ?>" class="bgImage" alt="<?php echo $businessdata[0]['company_name']; ?>"  style="height: 95px; width: 100%; ">
+                                                <?php
                                             } else {
                                                 ?>
-                                               <div class="data_img">    
-                                                <img src="<?php echo base_url(WHITEIMAGE); ?>" class="bgImage" alt="<?php echo $businessdata[0]['company_name']; ?>" >
-                                               </div>   <?php } ?>
+                                                <img src="<?php echo base_url(WHITEIMAGE); ?>" class="bgImage" alt="<?php echo $businessdata[0]['company_name']; ?>"  style="height: 95px; width: 100%;">
+                                            <?php } ?>
                                         </a>
                                     </div>
                                     <div class="profile-boxProfileCard-content clearfix">
@@ -160,23 +159,22 @@
                                                 <?php
                                                 if ($businessdata[0]['business_user_image']) {
                                                     ?>
-                                                   <div class="data_img_2">    
-                                                    <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $businessdata[0]['business_user_image']); ?>"  alt="<?php echo $businessdata[0]['company_name']; ?>" >
-                                                   </div>     <?php } else { ?>
-                                                 <div class="data_img">          <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo $businessdata[0]['company_name']; ?>">
-                                                 </div>   <?php } ?>                           
+                                                    <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $businessdata[0]['business_user_image']); ?>"  alt="<?php echo $businessdata[0]['company_name']; ?>" style="height: 77px; width: 71px; z-index: 3; position: relative; ">
+                                                <?php } else { ?>
+                                                    <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo $businessdata[0]['company_name']; ?>">
+                                                <?php } ?>                           
 
                                             </a>
                                         </div>
                                         <div class="profile-box-user  profile-text-bui-user  fr col-md-9">
                                             <span class="profile-company-name ">
-                                                <a  href="<?php echo base_url('business_profile/business_profile_manage_post/'); ?> " title="<?php echo ucwords($businessdata[0]['company_name']); ?>"> 
+                                                <a style="margin-left: 3px;" href="<?php echo base_url('business_profile/business_profile_manage_post/'); ?> " title="<?php echo ucwords($businessdata[0]['company_name']); ?>"> 
                                                     <?php echo ucwords($businessdata[0]['company_name']); ?>
                                                 </a> 
                                             </span>
                                             <?php $category = $this->db->get_where('industry_type', array('industry_id' => $businessdata[0]['industriyal'], 'status' => 1))->row()->industry_name; ?>
                                             <div class="profile-boxProfile-name">
-                                                <a href="<?php echo base_url('business_profile/business_profile_manage_post/'); ?> " title="<?php echo ucwords($businessdata[0]['company_name']); ?>" >
+                                                <a style="padding-left: 1px;" href="<?php echo base_url('business_profile/business_profile_manage_post/'); ?> " title="<?php echo ucwords($businessdata[0]['company_name']); ?>" >
                                                     <b> <?php echo $category; ?></b>
                                                 </a>
                                             </div>
@@ -216,7 +214,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-7 col-sm-7 all-form-content data_A"  >
+                    <div class="col-md-7 col-sm-7 all-form-content" style="height: 150%;">
                         <div class="common-form">
                             <div class="job-saved-box">
 
@@ -227,10 +225,10 @@
 
 
 
-                                        <div class="profile-job-post-title-inside clearfix search" >
+                                        <div class="profile-job-post-title-inside clearfix search" style="">
 
 
-<div class="profile_search" > 
+<div class="profile_search" style="background-color: white; margin-bottom: 10px; margin-top: 10px;"> 
 
                                        <h4 class="search_head">Profiles</h4>
                                        <div class="inner_search">
@@ -241,17 +239,17 @@
                                                     foreach ($profile as $p) {
 //                                                 echo "<pre>"; print_r($p);die();
                                                         ?>
-                                                    <div class="profile-job-profile-button sercv_sx clearfix box_search_module search" >
+                                                    <div class="profile-job-profile-button clearfix box_search_module search" style="height: 14%;border: 1px solid #efefef;margin-bottom: 20px!important;">
                                      
                                                             
      <div class="profile-job-post-location-name-rec">
                                               <div class="module_Ssearch" style="display: inline-block; float: left;">
                                               <div class="search_img" >
-                                                    <a  href="<?php echo base_url('business_profile/business_profile_manage_post/' . $p['business_slug']); ?>" title="">
+                                                    <a style=" " href="<?php echo base_url('business_profile/business_profile_manage_post/' . $p['business_slug']); ?>" title="">
                                                          <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $p['business_user_image']); ?>" alt="" > </a>
                                                                     </div>
                                                                 </div>
-                                                                 <div class="designation_rec fl" 
+                                                                 <div class="designation_rec" style="    float: left;
     width: 60%;
     padding-top: 16px;">
                                                                     <ul>
@@ -353,9 +351,9 @@ if($status == 0 || $status == " "){?>
 
                                                 </div>
                                                 </div>
-                                                <div class="col-md-12 profile_search " > 
+                                                <div class="col-md-12 profile_search " style="float: left; background-color: white; margin-top: 10px; margin-bottom: 10px; padding:0px!important;"> 
                                                    <h4 class="search_head">Posts</h4>
-       <div class="inner_search fl">
+       <div class="inner_search" style="float: left;">
 
                                                 <?php
                                                 if ($description) {
@@ -463,7 +461,9 @@ if($status == 0 || $status == " "){?>
                                                                                     <div class="post-design-product">
                                               <a class="post_dot" href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>" title=""><?php echo ucwords($p['company_name']); ?>
                                                                                         </a>
-                                                                                        <div class="datespan">  <span class="ctre_date" >
+                                                                                        <div class="datespan">  <span style="font-weight: 400;
+                                                                                                                      font-size: 14px;
+                                                                                                                      color: #91949d; cursor: default;"> 
                                                                                                 <?php echo date('d-M-Y', strtotime($p['created_date'])); ?> </span></div>
 
                                                                                     </div>
@@ -475,7 +475,7 @@ if($status == 0 || $status == " "){?>
 
                                                                                 <li>
                                                                                     <div class="post-design-product">
-                                                                                        <a class="buuis_desc_a" href="javascript:void(0);" title="category">
+                                                                                        <a href="javascript:void(0);" style=" color: #000033; font-weight: 400; cursor: default;" title="">
                                                                                             <?php
                                                                                             $cache_time = $this->db->get_where('industry_type', array('industry_id' => $p['industriyal']))->row()->industry_name;
                                                                                             echo $cache_time;
@@ -506,7 +506,7 @@ if($status == 0 || $status == " "){?>
                                                                         <div class="post-design-desc">
                                                                             <div>
                                                                                 <div id="editpostdata5" style="display:block;">
-                                                                                  <a class="edyrr">
+                                                                                    <a style="margin-bottom: 0px; font-size: 16px">
                                                                                         <?php echo ucwords($p['product_name']); ?>
                                                                                     </a>
                                                                                 </div>
@@ -545,7 +545,7 @@ if($status == 0 || $status == " "){?>
                                                                                 $ext = pathinfo($filename, PATHINFO_EXTENSION);
                                                                                 if (in_array($ext, $allowed)) {
                                                                                     ?>
-                                                                                    <div id="basic-responsive-image" >
+                                                                                    <div id="basic-responsive-image" style="height: 50%; width: 100%;">
                                                                                         <a href="<?php echo base_url('business_profile/postnewpage/' . $p['business_profile_post_id']) ?>">
                                                                                             <img src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $businessmultiimage[0]['image_name']) ?>" style="width: 100%; height: 100%;"> 
                                                                                         </a>
@@ -590,12 +590,12 @@ if($status == 0 || $status == " "){?>
                                                                                         <img class="three-columns" src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $businessmultiimage[0]['image_name']) ?>" style="width: 100%; height:100%; "> 
                                                                                     </a>
                                                                                 </div>
-                                                                            <div class="three_img_2">
+                                                                                <div style="width: 49.4%; height: 35%; float: left; margin-top: 4px; margin-right: 3px;">
                                                                                     <a href="<?php echo base_url('business_profile/postnewpage/' . $p['business_profile_post_id']) ?>">
                                                                                         <img class="three-columns" src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $businessmultiimage[1]['image_name']) ?>" style="width: 100%; height:100%; "> 
                                                                                     </a>
                                                                                 </div>
-                                                                              <div class="three_img_2">
+                                                                                <div style="width: 49.4%; height: 35%; float: left; margin-top: 4px; margin-right: 3px;">
                                                                                     <a href="<?php echo base_url('business_profile/postnewpage/' . $p['business_post_id']) ?>">
                                                                                         <img class="three-columns" src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $businessmultiimage[2]['image_name']) ?>" style="width: 100%; height:100%; "> 
                                                                                     </a>
@@ -604,7 +604,7 @@ if($status == 0 || $status == " "){?>
                                                                                 <?php
                                                                                 foreach ($businessmultiimage as $multiimage) {
                                                                                     ?>
-                                                                                    <div id="responsive_buis-images-breakpoints" >
+                                                                                    <div id="responsive_buis-images-breakpoints" style="   ">
                                                                                         <a href="<?php echo base_url('business_profile/postnewpage/' . $p['business_profile_post_id']) ?>">
                                                                                             <img class="breakpoint" src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $multiimage['image_name']) ?>" style="width: 100%; height: 100%;"> 
                                                                                         </a>
@@ -822,7 +822,7 @@ if($status == 0 || $status == " "){?>
                                                                                             </div>
                                                                                             <div class="edit-comment-box">
                                                                                                 <div class="inputtype-edit-comment">
-                                                                                                    <div contenteditable="true"  class="editable_text editav_2" name="<?php echo $pdata['business_profile_post_comment_id']; ?>"  id="<?php echo "editcomment" . $pdata['business_profile_post_comment_id']; ?>" placeholder="Enter Your Comment " value= ""  onkeyup="commentedit(<?php echo $pdata['business_profile_post_comment_id']; ?>)"><?php echo $pdata['comments']; ?></div>
+                                                                                                    <div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="<?php echo $pdata['business_profile_post_comment_id']; ?>"  id="<?php echo "editcomment" . $pdata['business_profile_post_comment_id']; ?>" placeholder="Enter Your Comment " value= ""  onkeyup="commentedit(<?php echo $pdata['business_profile_post_comment_id']; ?>)"><?php echo $pdata['comments']; ?></div>
                                                                                                     <span class="comment-edit-button"><button id="<?php echo "editsubmit" . $pdata['business_profile_post_comment_id']; ?>" style="display:none" onClick="edit_comment(<?php echo $pdata['business_profile_post_comment_id']; ?>)">Save</button></span>
                                                                                                 </div>
                                                                                             </div>
@@ -916,8 +916,8 @@ if($status == 0 || $status == " "){?>
                                                                             <?php } ?>
                                                                         </div>
                                                                         <div class="">
-                                                                            <div id="content" class="col-md-10  inputtype-commen cmy_2t" >
-                                                                                <div contenteditable="true" class="edt_2 editable_text" name="<?php echo $p['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $p['business_profile_post_id']; ?>" placeholder="Add a comment ..." onClick="entercomment(<?php echo $p['business_profile_post_id']; ?>)"></div>
+                                                                            <div id="content" class="col-md-10  inputtype-comment" style="padding-left: 7px;">
+                                                                                <div contenteditable="true" style="min-height:37px !important; margin-top: 0px!important" class="editable_text" name="<?php echo $p['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $p['business_profile_post_id']; ?>" placeholder="Add a comment ..." onClick="entercomment(<?php echo $p['business_profile_post_id']; ?>)"></div>
                                                                             </div>
                                                                             <?php echo form_error('post_comment'); ?> 
                                                                             <div class="comment-edit-butn">       

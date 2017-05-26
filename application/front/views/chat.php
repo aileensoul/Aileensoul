@@ -236,7 +236,7 @@
                                          height: auto; position: relative;" id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." /> -->
                                         <div class="comment" contentEditable="true" name="comments" id="message" style="position: relative;"></div>
 
-                                        <div for="smily" style="      position: absolute;
+                                        <div for="smily" style="position: absolute;
                                              top: 7px;
                                              right: 0px;
                                              bottom: 3px;
@@ -379,24 +379,26 @@
         } else {
             $.getJSON('<?php echo base_url(); ?>api/send_message/' + lastusr + '?message=' + str + '&nickname=' + fname + ' ' + lname + '&guid=' + getCookie('user_guid'), function (data) {
                 callback();
-            });
+            }); 
         }
-        /*$('#message').keypress(function (e) {
-            if (e.keyCode == 13 && !e.shiftKey) {
-                e.preventDefault();
+    }
+    /*
+    $('#message').keypress(function (event) {
+            if (event.keyCode == 13 && !event.shiftKey) {
+                event.preventDefault();
                 var sel = $("#message");
                 var txt = sel.html();
                 if (txt == '') {
                     return false;
                 } else {
+                    alert(2);
                     $.getJSON('<?php echo base_url(); ?>api/send_message/' + lastusr + '?message=' + txt + '&nickname=' + fname + ' ' + lname + '&guid=' + getCookie('user_guid'), function (data) {
                         callback();
                     });
                 }
             }
-        }); */
-    }
-
+        }); 
+*/
 
     var append_chat_data = function (chat_data) {
         chat_data.forEach(function (data) {
@@ -419,6 +421,7 @@
                 //console.log(formattedDate);
 //alert(formattedDate);
                 var html = '';
+                
                 if (data.message != '') {
                     var html = ' <li class="clearfix">';
                     html += '   <div class="message-data align-right">';
@@ -459,7 +462,7 @@
 //        $('#received').animate({scrollTop: $('#received').height()}, 1000);
     }
 
-    var update_chats = function () {
+        var update_chats = function () {
         if (typeof (request_timestamp) == 'undefined' || request_timestamp == 0) {
             var offset = 52560000; // 100 years min
             request_timestamp = parseInt(Date.now() / 1000 - offset);
@@ -493,12 +496,14 @@
     });
     $('#message').keyup(function (e) {
         if (e.which == 13) {
+            e.preventDefault();
             $('#submit').trigger('click');
         }
     });
     setInterval(function () {
         update_chats();
-    }, 1500);</script>
+    }, 1500); 
+ </script>
 
 <!-- user search list  20-4  start  -->
 
