@@ -145,7 +145,7 @@
                 <div class="row">
 
 
-                    <div class="profile-box profile-box-left col-md-4">
+                    <div class="profile-art-box profile-box-left col-md-4">
                         <?php ?>
 
                         <div class="full-box-module">    

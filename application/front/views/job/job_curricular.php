@@ -99,14 +99,14 @@
                                    <span style="color:#7f7f7e;padding-left: 8px;">( </span><span style="color:red">*</span><span style="color:#7f7f7e"> )</span> <span style="color:#7f7f7e">Indicates required field</span>
                                 </div> -->
 
-                                <div> <span class="required_field" >( <span style="color: red">*</span> ) Indicates required field</span></div>
+                                <div> <span class="required_field" >( <span class="red">*</span> ) Indicates required field</span></div>
 
                                 <?php
                                  $curricular =  form_error('curricular');
                                  
                                 ?>
                                 
-                            <fieldset class="full-width">             <label>Curricular Activities:<span style="color:red">*</span></label>
+                            <fieldset class="full-width">             <label>Curricular Activities:<span class="red">*</span></label>
 							
 
                                        

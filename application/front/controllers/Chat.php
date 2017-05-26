@@ -616,7 +616,7 @@ foreach($userlist as $k => $v)
 
   if ($user['user_image']) {
     $usrsrch .=' <div class="chat_heae_img">';
-$usrsrch .=  '<img src="' . base_url(USERIMAGE . $user['user_image']) . '" alt="avatar" height="50px" weight="50px" />';
+$usrsrch .=  '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $user['user_image']) . '" alt="avatar" height="50px" weight="50px" />';
   $usrsrch .='</div>'; 
  } else { 
  $usrsrch .=' <div class="chat_heae_img">';
@@ -868,7 +868,7 @@ if(count($userdata) > 0){
  $usrsrch .= '<li class="clearfix">';
                   if ($user['user_image']) {
    $usrsrch .= '<div class="chat_heae_img">';
-$usrsrch .= '<img src="' . base_url(USERIMAGE . $user['user_image']) . '" alt="" >';
+$usrsrch .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $user['user_image']) . '" alt="" >';
 $usrsrch .= '</div>';
   } else { 
  $usrsrch .= '<div class="chat_heae_img">';
@@ -902,7 +902,7 @@ echo $usrsrch;
   //khyati 22-4 changes start 
 
 
-public function userlisttwo($id)
+public function userlisttwo($id='')
   {
     $userid = $this->session->userdata('aileenuser');
     $usrsearchdata = trim($_POST['search_user']); 
@@ -1016,7 +1016,7 @@ foreach($userlist as $k => $v)
 
   if ($user['user_image']) {
     $usrsrch .='    <div class="chat_heae_img">';
-$usrsrch .=  '<img src="' . base_url(USERIMAGE . $user['user_image']) . '" alt="avatar" height="50px" weight="50px" />';
+$usrsrch .=  '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $user['user_image']) . '" alt="avatar" height="50px" weight="50px" />';
   $usrsrch .='</div>';
 
  } else { 
@@ -1279,7 +1279,7 @@ $userlist = array_merge($return_arraysel,$userlist);
   //echo '<pre>'; print_r($userlist); die();
  if(in_array($toid,$userlist)){ 
   foreach($userlist as $user){ 
- $usrsrch .= '<li class="clearfix '; 
+ $usrsrch .= '<li class="clearfix">'; 
  if($user['user_id'] == $toid){ 
      $usrsrch .= 'active'; 
      
@@ -1287,7 +1287,7 @@ $userlist = array_merge($return_arraysel,$userlist);
 $usrsrch .= '">';
           if ($user['user_image']) {
    $usrsrch .= '<div class="chat_heae_img">';
-$usrsrch .= '<img src="' . base_url(USERIMAGE . $user['user_image']) . '" alt="" height="50px" weight="50px">';
+$usrsrch .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $user['user_image']) . '" alt="" height="50px" weight="50px">';
 $usrsrch .= '</div>';
    } else { 
  
@@ -1319,7 +1319,7 @@ if($lstusrdata){
   $usrsrch .=  '<li class="clearfix '; if($lstusrdata[0]['user_id'] == $toid){ $usrsrch .= 'active'; } $usrsrch .= '">';
               if ($lstusrdata[0]['user_image']) {
     $usrsrch .=  '<div class="chat_heae_img">';
-$usrsrch .=  '<img src="' . base_url(USERIMAGE . $lstusrdata[0]['user_image']) . '" alt="" height="50px" weight="50px">';
+$usrsrch .=  '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $lstusrdata[0]['user_image']) . '" alt="" height="50px" weight="50px">';
 $usrsrch .=  '</div>';
   } else { 
   $usrsrch .=  '<div class="chat_heae_img">';
@@ -1351,10 +1351,10 @@ foreach($userlist as $user){
 if($user['user_id'] != $toid){
  
  $usrsrch .=  '<a href="' . base_url() . 'chat/abc/' . $user['user_id'] . '">';
- $usrsrch .=  '<li class="clearfix'; if($user['user_id'] == $toid){ $usrsrch .=  'active'; } '">';
+ $usrsrch .=  '<li class="clearfix">'; if($user['user_id'] == $toid){ $usrsrch .=  'class ="active"'; } 
           if ($user['user_image']) {
     $usrsrch .=  '<div class="chat_heae_img">';
-$usrsrch .=  '<img src="' . base_url(USERIMAGE . $user['user_image']) . '" alt="" height="50px" weight="50px">';
+$usrsrch .=  '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $user['user_image']) . '" alt="" height="50px" weight="50px">';
 $usrsrch .=  '</div>';
   } else { 
  $usrsrch .=  '<div class="chat_heae_img">';

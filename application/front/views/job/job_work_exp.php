@@ -110,7 +110,7 @@
                                             <div id="London" class="tabcontent1">
                                                 <?php echo form_open_multipart(base_url('job/job_work_exp_insert'), array('id' => 'jobseeker_regform', 'name' => 'jobseeker_regform', 'class' => 'clearfix')); ?>
                                                 <div>
-                                                    <span style="color:#7f7f7e;">( </span><span style="color:red">*</span><span style="color:#7f7f7e"> )</span> <span style="color:#7f7f7e">Indicates required field</span>
+                                                    <span style="color:#7f7f7e;">( </span><span  class="red">*</span><span style="color:#7f7f7e"> )</span> <span style="color:#7f7f7e">Indicates required field</span>
                                                 </div>
                                                 <?php //echo $userdata[0]['experience']; die(); ?> 
                                                 <label for="Fresher">
@@ -133,7 +133,7 @@
                                             <div id="Paris" class="tabcontent1">
                                                 <?php echo form_open_multipart(base_url('job/job_work_exp_insert'), array('id' => 'jobseeker_regform1', 'name' => 'jobseeker_regform1', 'class' => 'clearfix')); ?>       
                                                 <div>
-                                                     <span style="color:#7f7f7e;">( </span><span style="color:red">*</span><span style="color:#7f7f7e"> )</span> <span style="color:#7f7f7e">Indicates required field</span>
+                                                     <span style="color:#7f7f7e;">( </span><span class="red">*</span><span style="color:#7f7f7e"> )</span> <span style="color:#7f7f7e">Indicates required field</span>
                                                 </div>
                                                 <?php
                                                 $clone_mathod_count = 1;
@@ -165,7 +165,7 @@
 
 
                                                                 <fieldset class="two-select-box full-width" style="padding: 0px;"> 
-                                                                    <label>Experience<span style="color:red">*</span></label>
+                                                                    <label>Experience<span class="red">*</span></label>
                                                                     <select style="width: 46%; margin-right: 43px; float: left;" name="experience_year[]" id="experience_year<?php echo $y; ?>" class="experience_year">
                                                                         <option value="" selected option disabled>Year</option>
                                                                         <option value="0 year"  <?php if ($experience_year1 == "0 year") echo 'selected'; ?>>0 year</option>
@@ -214,7 +214,7 @@
                                                                 <?php echo form_error('experience_year'); ?>
                                                                 <?php echo form_error('experience_month'); ?>
 
-                                                                <label  style="    margin-top: 6px;">Job Title<span style="color:red">*</span></label>
+                                                                <label  style="    margin-top: 6px;">Job Title<span class="red">*</span></label>
                                                                 <input type="text" name="jobtitle[]"  class="jobtitle" id="jobtitle"  placeholder="Enter Job Title" value="<?php
                                                                 if ($jobtitle1) {
                                                                     echo $jobtitle1;
@@ -222,7 +222,7 @@
                                                                 ?>"/>&nbsp;&nbsp;&nbsp; <span id="jobtitle-error"> </span>
                                                                        <?php echo form_error('jobtitle'); ?>
 
-                                                                <label style="   margin-top: 6px; margin-left: -11px;">Company Name<span style="color:red">*</span></label>
+                                                                <label style="   margin-top: 6px; margin-left: -11px;">Company Name<span class="red">*</span></label>
                                                                 <input type="text" name="companyname[]" id="companyname"  class="companyname" placeholder="Enter Company Name" value="<?php
                                                                 if ($companyname1) {
                                                                     echo $companyname1;
@@ -308,7 +308,7 @@
                                                     <!--clone div start-->              
                                                     <div id="input1" style="margin-bottom:4px;" class="clonedInput">
                                                         <fieldset class="two-select-box full-width" style="padding: 0px; "> 
-                                                            <label>Experience<span style="color:red">*</span></label>
+                                                            <label>Experience<span class="red">*</span></label>
                                                             <select style="width:46%; float: left; margin-right: 43px;" name="experience_year[]" id="experience_year" class="experience_year">
                                                                 <option value="" selected option disabled>Year</option>
                                                                 <option value="0 year"  <?php if ($experience_year1 == "0 year") echo 'selected'; ?>>0 year</option>
@@ -359,7 +359,7 @@
                                                         <!-- /fieldset>
                                                         
                                                                                                 <fieldset class="full-width"> -->
-                                                        <label style="    margin-top: 6px;">Job Title<span style="color:red">*</span></label>
+                                                        <label style="    margin-top: 6px;">Job Title<span class="red">*</span></label>
                                                         <input type="text" name="jobtitle[]"  class="jobtitle" id="jobtitle"  placeholder="Enter Job Title" value="<?php
                                                         if ($jobtitle1) {
                                                             echo $jobtitle1;
@@ -371,7 +371,7 @@
 
                                         <!--                                     <fieldset <?php if ($companyname) { ?> class="error-msg" <?php } ?>> 
                                                         -->                         <!--  <fieldset class="full-width">  -->             
-                                                        <label style=" margin-top: 6px;   margin-left: -11px;">Company Name<span style="color:red">*</span></label>
+                                                        <label style=" margin-top: 6px;   margin-left: -11px;">Company Name<span class="red">*</span></label>
                                                         <input type="text" name="companyname[]" id="companyname"  class="companyname" placeholder="Enter Company Name" value="<?php
                                                         if ($companyname1) {
                                                             echo $companyname1;
