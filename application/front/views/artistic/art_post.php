@@ -3274,7 +3274,7 @@ if (count($finalsorting) > 0) {
                         <style type="text/css">
                             .likeduser{
                                 width: 100%;
-                                background-color: #00002D;
+                                background-color: #1b8ab9;
                             }
                             .likeduser-title{
                                 color: #fff;
