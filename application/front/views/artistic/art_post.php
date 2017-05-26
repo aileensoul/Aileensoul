@@ -735,7 +735,7 @@ if ($userlistview4 > 0) {
                         </div>
                     </div>
                     <!-- popup end -->
-
+                    </div>
                     <div class="col-md-7 col-sm-7 all-form-content fixed_left">
 
 
