@@ -150,7 +150,7 @@
                                          overflow-x: hidden;
                                          left: 0; margin-bottom: -37px;">
 
-                                                                       <!--  <input id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." /> -->
+                                                                           <!--  <input id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." /> -->
                                         <form name="blog">
 
                                             <!--  <div class="comment" contentEditable="true" name="comments" id="message  smily" style="position: relative;"> -->
@@ -356,7 +356,7 @@
         return timeString;
     }
 
-    var sendChat = function (message, callback, e) {
+    var sendChat = function (message, callback) {
 
         var fname = '<?php echo $logfname; ?>';
         var lname = '<?php echo $loglname; ?>';
@@ -372,24 +372,21 @@
         //alert(str);
         // if (str == '<div><br></div><div><br></div>' || str == '<div><br></div>') {
         if (str == '') {
-            alert(1);
             return false;
         } else if (/^\s+$/gi.test(str))
         {
-            alert(2);
             return false;
         } else {
-            alert(3);
             $.getJSON('<?php echo base_url(); ?>api/send_message/' + lastusr + '?message=' + str + '&nickname=' + fname + ' ' + lname + '&guid=' + getCookie('user_guid'), function (data) {
                 callback();
             });
         }
-        $('#message').keypress(function (event) {
-            if (event.keyCode == 13 && !event.shiftKey) {
-                event.preventDefault(); //alert('4444');
+        /*$('#message').keypress(function (e) {
+            if (e.keyCode == 13 && !e.shiftKey) {
+                e.preventDefault();
                 var sel = $("#message");
                 var txt = sel.html();
-                if (txt == '') {//alert('5555');
+                if (txt == '') {
                     return false;
                 } else {
                     $.getJSON('<?php echo base_url(); ?>api/send_message/' + lastusr + '?message=' + txt + '&nickname=' + fname + ' ' + lname + '&guid=' + getCookie('user_guid'), function (data) {
@@ -397,7 +394,7 @@
                     });
                 }
             }
-        });
+        }); */
     }
 
 
@@ -445,18 +442,18 @@
                     html += '<span class="message-data-name fl" ><i class="fa fa-circle online"></i>' + data.nickname + ' </span>';
                     html += '<span class="message-data-time">' + formattedDate + ' </span>';
                     html += ' </div>';
-                    html += '     <div class="message my-message">' + data.message + '</div>';
+                    html += ' <div class="message my-message">' + data.message + '</div>';
                     html += '</li>';
                     $('.' + 'status' + touser).html(data.message);
                 }
             }
 //            $('.chat-history').animate({scrollTop: $('.chat-history').height()}, 2000);
-//            var div = $(".chat-history");
+//            var dchativ = $(".chat-history");
 //            div.scrollTop(div.prop('scrollHeight'));
 
-//            var $cont = $('.chat-history');
-//            $cont[0].scrollTop = $cont[0].scrollHeight;
-        
+            var $cont = $('.chat-history');
+            $cont[0].scrollTop = $cont[0].scrollHeight;
+
             $("#received").html($("#received").html() + html);
         });
 //        $('#received').animate({scrollTop: $('#received').height()}, 1000);
@@ -551,7 +548,7 @@
      
      $.ajax({ 
      type:'POST',
-     url:'<?php // echo base_url() . "chat/user_list"               ?>',
+     url:'<?php // echo base_url() . "chat/user_list"                ?>',
      data:'search_user='+val,
      //     dataType: "json",
      success:function(data){ 
