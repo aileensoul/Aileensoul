@@ -52,7 +52,18 @@
 
 
 <style type="text/css">
-  .dropdown-content_hover::before {
+  .dropdown-content_hover {
+    display: none;
+    position: absolute;
+    color: #3b5283;
+    background-color: #fff;
+    min-width: 139px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    margin-top: 6px;
+    z-index: 1;
+    left: 7px;
+    border-radius: 4px;
+}.dropdown-content_hover::before {
     /* top: -1px; */
     content: '';
     display: block;
@@ -64,7 +75,7 @@
     border-color: transparent transparent #fff;
     margin-top: -18px;
     /* margin-left: 104px; */
-    right: 15px;
+    right: 4px;
 }
 </style>
 
