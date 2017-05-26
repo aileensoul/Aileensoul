@@ -181,18 +181,21 @@
              <?php } else { ?> <div class="data_img_2"> 
                                                     <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo $businessdata[0]['company_name']; ?>">
              </div>  <?php } ?>                           
-                                             
+                                                <!-- 
+                        <img class="profile-boxProfileCard-avatarImage js-action-profile-avatar" src="images/imgpsh_fullsize (2).jpg" alt="" style="    height: 68px;
+                        width: 68px;">
+                                                -->
                                             </a>
                                         </div>
                                         <div class="profile-box-user  profile-text-bui-user  fr col-md-9">
                                             <span class="profile-company-name ">
-                                                <a class="buis_company-name" href="<?php echo base_url('business_profile/business_profile_manage_post/'); ?> " title="<?php echo ucwords($businessdata[0]['company_name']); ?>"> 
+                                                <a style="margin-left: 3px;" href="<?php echo base_url('business_profile/business_profile_manage_post/'); ?> " title="<?php echo ucwords($businessdata[0]['company_name']); ?>"> 
                                                     <?php echo ucwords($businessdata[0]['company_name']); ?>
                                                 </a> 
                                             </span>
                                             <?php $category = $this->db->get_where('industry_type', array('industry_id' => $businessdata[0]['industriyal'], 'status' => 1))->row()->industry_name; ?>
                                             <div class="profile-boxProfile-name">
-                                                <a class="buis_pro_name" href="<?php echo base_url('business_profile/business_profile_manage_post/'); ?> " title="<?php echo ucwords($businessdata[0]['company_name']); ?>" >
+                                                <a style="padding-left: 4px;" href="<?php echo base_url('business_profile/business_profile_manage_post/'); ?> " title="<?php echo ucwords($businessdata[0]['company_name']); ?>" >
                                                     <b> <?php
                                                         if ($category) {
                                                             echo $category;
@@ -837,7 +840,7 @@
                                                     <div class="post-design-desc ">
                                                         <div>
                                                             <div id="<?php echo 'editpostdata' . $row['business_profile_post_id']; ?>" style="display:block;">
-                                                                <a class="edyrr">
+                                                                <a style="margin-bottom: 0px;     font-size: 16px">
                                                                     <?php echo $this->common->make_links($row['product_name']); ?>
                                                                 </a>
                                                             </div>
@@ -1308,7 +1311,7 @@
                                                             <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
                                                         <?php } ?>
                                                     </div>
-                                                    <div c>
+                                                    <div class="">
                                                         <div id="content" class="col-md-12  inputtype-comment cmy_2" >
                                                             <div contenteditable="true" class="edt_2 editable_text" name="<?php echo $row['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $row['business_profile_post_id']; ?>" placeholder="Add a Comment ..." onClick="entercomment(<?php echo $row['business_profile_post_id']; ?>)"></div>
                                                         </div>
@@ -1376,12 +1379,13 @@
 </html>
 <script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
 <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
-<!--<script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>--> 
-<script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
+
+
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 <!-- script for skill textbox automatic end (option 2)-->
-<!--<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-<script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script>-->
+<!-- <script src="http://code.jquery.com/jquery-1.9.1.js"></script> -->
+<!-- <script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script> -->
 
 
 <script>
@@ -1389,36 +1393,7 @@
                                                         $(this).height(0).height(this.scrollHeight);
                                                     }).find('textarea').change();
 </script>
-<script>
-    var data = <?php echo json_encode($demo);
-    ?>;
-    //alert(data);
-    $(function () {
-        // alert('hi');
-        $("#tags").autocomplete({
-            source: function (request, response) {
-                var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
-                response($.grep(data, function (item) {
-                    return matcher.test(item.label);
-                }));
-            }
-            ,
-            minLength: 1,
-            select: function (event, ui) {
-                event.preventDefault();
-                $("#tags").val(ui.item.label);
-                $("#selected-tag").val(ui.item.label);
-                // window.location.href = ui.item.value;
-            }
-            ,
-            focus: function (event, ui) {
-                event.preventDefault();
-                $("#tags").val(ui.item.label);
-            }
-        });
-    }
-    );
-</script>
+
 <script type="text/javascript">
     function checkvalue() {
         //alert("hi");
@@ -2671,20 +2646,7 @@
 </script>
 <!-- save post end -->
 <!-- remove save post start -->
-<script type="text/javascript">
-    function remove_post(abc)
-    {
-        $.ajax({
-            type: 'POST',
-            url: '<?php echo base_url() . "business_profile/business_profile_deletepost" ?>',
-            data: 'business_profile_post_id=' + abc,
-            //alert(data);
-            success: function (data) {
-                $('#' + 'removepost' + abc).html(data);
-            }
-        });
-    }
-</script>
+
 <!-- remove save post end -->
 <!-- remove particular user post start -->
 <script type="text/javascript">
@@ -3060,12 +3022,28 @@
 
     }
 </script>
+<script type="text/javascript">
+    function remove_post(abc)
+    {
+        //alert(123);
+        $.ajax({
+            type: 'POST',
+            url: '<?php echo base_url() . "business_profile/business_profile_deletepost" ?>',
+            data: 'business_profile_post_id=' + abc,
+            //alert(data);
+            success: function (data) {
+                $('#' + 'removepost' + abc).html(data);
+            }
+        });
+    }
+</script>
 
 
 <!-- post delete login user script start -->
 <script type="text/javascript">
     function user_postdelete(clicked_id)
     {
+        alert(clicked_id);
 
         $('.biderror .mes').html("<div class='pop_content'> Do You want to delete this post?.<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='remove_post(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
         $('#bidmodal').modal('show');
@@ -3185,4 +3163,38 @@
             features: ['playpause', 'progress', 'volume', 'fullscreen']
         });
     });
+</script>
+
+<script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>  
+<script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
+
+<script>
+    var data = <?php echo json_encode($demo);
+    ?>;
+    //alert(data);
+    $(function () {
+        // alert('hi');
+        $("#tags").autocomplete({
+            source: function (request, response) {
+                var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+                response($.grep(data, function (item) {
+                    return matcher.test(item.label);
+                }));
+            }
+            ,
+            minLength: 1,
+            select: function (event, ui) {
+                event.preventDefault();
+                $("#tags").val(ui.item.label);
+                $("#selected-tag").val(ui.item.label);
+                // window.location.href = ui.item.value;
+            }
+            ,
+            focus: function (event, ui) {
+                event.preventDefault();
+                $("#tags").val(ui.item.label);
+            }
+        });
+    }
+    );
 </script>
