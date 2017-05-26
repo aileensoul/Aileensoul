@@ -114,7 +114,7 @@
                                                 </div>
                                                 <?php //echo $userdata[0]['experience']; die(); ?> 
                                                 <label for="Fresher">
-                                                    <input type="checkbox" id="fresher" name="radio" value="Fresher" <?php echo ($userdata[0]['experience'] == 'Fresher') ? 'checked' : '' ?>>
+                        <input type="checkbox" id="fresher" name="radio" value="Fresher" <?php echo ($userdata[0]['experience'] == 'Fresher') ? 'checked' : '' ?>>
                                                     Fresher&nbsp;&nbsp;
                                                 </label>
                                                 <fieldset class="hs-submit full-width">

@@ -86,7 +86,7 @@
                             <h3>Address Information</h3>
 <?php echo form_open(base_url('freelancer/freelancer_post_address_information_insert'), array('id' => 'freelancer_post_addressinfo', 'name' => 'freelancer_post_addressinfo', 'class' => 'clearfix')); ?>
                             <div>
-                                   <span style="color:#7f7f7e;padding-left: 8px;">( </span><span style="color:red">*</span><span style="color:#7f7f7e"> )</span> <span style="color:#7f7f7e">Indicates required field</span>
+                                   <span style="color:#7f7f7e;padding-left: 8px;">( </span><span class="red">*</span><span style="color:#7f7f7e"> )</span> <span style="color:#7f7f7e">Indicates required field</span>
                                 </div>
 
 
@@ -99,7 +99,7 @@ $pincode = form_error('pincode');
 ?>
 
                             <fieldset <?php if ($country) { ?> class="error-msg" <?php } ?>>
-                                <label>Country:<span style="color:red">*</span></label>
+                                <label>Country:<span class="red">*</span></label>
                                 <select name="country" id="country">
                                     <option value="">Select Country</option>
                                     <?php
@@ -125,7 +125,7 @@ $pincode = form_error('pincode');
                             </fieldset>
 
                             <fieldset <?php if ($state) { ?> class="error-msg" <?php } ?>>
-                                <label>State:<span style="color:red">*</span></label>
+                                <label>State:<span class="red">*</span></label>
                                 <select name="state" id="state">
                                     <?php
                                     foreach ($states as $cnt) {
@@ -182,7 +182,7 @@ $pincode = form_error('pincode');
                             </fieldset>
 
                             <fieldset class="full-width">
-                                <label>Postal address:<span style="color:red">*</span></label>
+                                <label>Postal address:<span class="red">*</span></label>
 
                                 <textarea name ="postaladdress" id="postaladdress" rows="4" cols="50" placeholder="Enter postal address" style="resize: none;"><?php if ($address1) {
                                         echo $address1;

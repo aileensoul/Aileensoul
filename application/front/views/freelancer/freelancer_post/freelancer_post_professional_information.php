@@ -117,7 +117,7 @@
                             <?php echo form_open(base_url('freelancer/freelancer_post_professional_information_insert'), array('id' => 'freelancer_post_professional', 'name' => 'freelancer_post_professional', 'class' => 'clearfix', 'onsubmit' => "imgval()")); ?>
 
                             <div>
-                                   <span style="color:#7f7f7e;padding-left: 8px;">( </span><span style="color:red">*</span><span style="color:#7f7f7e"> )</span> <span style="color:#7f7f7e">Indicates required field</span>
+                                   <span style="color:#7f7f7e;padding-left: 8px;">( </span><span class="red">*</span><span style="color:#7f7f7e"> )</span> <span style="color:#7f7f7e">Indicates required field</span>
                                 </div>
 
 
@@ -131,7 +131,7 @@
 
 
                             <fieldset class="full-width" <?php if ($field) { ?> class="error-msg" <?php } ?>>
-                                <label>What is your field ? :<span style="color:red">*</span></label> 
+                                <label>What is your field ? :<span class="red">*</span></label> 
 
                                 <select name="field" id="field">
                                     <option value="">Select Fields of Requirement</option>
@@ -159,7 +159,7 @@
                             </fieldset>
 
                             <fieldset  <?php if ($area) { ?> class="error-msg" <?php } ?>>
-                                <label>What is your skills ? :<span style="color:red">*</span></label>
+                                <label>What is your skills ? :<span class="red">*</span></label>
 
 
                                 <select name="skills[]" id ="skill1" class="keyskil" multiple="multiple" style="width:100%;" >
@@ -182,7 +182,7 @@
 
 
                             <fieldset  class="full-width">
-                                <label>Describe your skill in brief :<span style="color:red">*</span></label>
+                                <label>Describe your skill in brief :<span class="red">*</span></label>
 
                                 <textarea name ="skill_description" id="skill_description" rows="4" cols="50" placeholder="Enter skill description" style="resize: none;"><?php
                                     if ($skill_description1) {
@@ -194,7 +194,7 @@
                             </fieldset>
 
                             <fieldset  class="" <?php if ($experience_year) { ?> class="error-msg" <?php } ?>>
-                                <label>Total experience :<span style="color:red">*</span></label>  <select name="experience_year" placeholder="Year" id="experience_year" class="experience_year col-md-5 day" style="margin-right: 5px;">
+                                <label>Total experience :<span class="red">*</span></label>  <select name="experience_year" placeholder="Year" id="experience_year" class="experience_year col-md-5 day" style="margin-right: 5px;">
 
                                     <option value="" selected option disabled>Year</option>
                                     <option value="0 year"  <?php if ($experience_year1 == "0 year") echo 'selected'; ?>>0 Year</option>

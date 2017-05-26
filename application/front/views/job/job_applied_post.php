@@ -179,25 +179,18 @@
                      <?php echo ucwords($this->common->make_links($post['post_name'])); ?> </a>   </li>
 
                     <li>   
+                    <?php $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name;
+
+
+                $countryname = $this->db->get_where('countries', array('country_id' => $post['country']))->row()->country_name; ?>
+                <?php  if($cityname || $countryname){ ?>
                                                     <div class="fr lction">
-                                                    <?php $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name;
-
-
-                                                     $countryname = $this->db->get_where('countries', array('country_id' => $post['country']))->row()->country_name; ?>
-                                                            <?php  
-                                                            if($cityname || $countryname)
-                                                            { 
-                                                            ?>
        <p title="location"><i class="fa fa-map-marker" aria-hidden="true">
 
-                                                            <?php  echo $cityname .', '. $countryname; ?> 
-                                                            </i></p>
-                                                            
-                                                            <?php
-                                                             }
-
-                                                             else{}?> 
+          <?php if($cityname){ echo $cityname .', ';} echo $countryname; ?> 
+                    </i></p>
                                                     </div>
+                                                    <?php }?> 
                                                     <?php
                      $cache_time1 = $this->db->get_where('recruiter', array('user_id' => $post['user_id']))->row()->re_comp_name; ?>
                     <a  class="job_companyname" href="<?php echo base_url('recruiter/rec_profile/' . $post['user_id'].'?page=job'); ?>"  title="<?php echo $cache_time1;?>"><?php
@@ -284,7 +277,8 @@
     
     </p>  
                                                 </span>
-                    <li><b>Salary</b><span title="Min - Max"><?php echo $post['min_sal']." - ".$post['max_sal']; ?></span>
+                    <li><b>Salary</b><span title="Min - Max">
+                    <?php if($post['min_sal'] || $post['max_sal']){echo $post['min_sal']." - ".$post['max_sal']."Per Year";} else {echo PROFILENA;}?></span>
                                             </li>
 
                                                 <li><b>No of Position</b><span><?php echo $post['post_position']; ?></span>

@@ -748,7 +748,7 @@ class Common extends CI_Model {
     }
 
     if (!$full) $string = array_slice($string, 0, 1);
-    return $string ? implode(', ', $string) . ' ago' : 'just now'; 
+    return $string ? implode(', ', $string) . ' ago' : 'just now';  
 }
 
     function make_links($text, $class='content_link', $target='_blank'){ 
