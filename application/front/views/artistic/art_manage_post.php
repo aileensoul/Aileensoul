@@ -1555,11 +1555,12 @@ pt>
 </body>
 </html>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 
 
 <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
 
- <!--<script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>-->
+ <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
  
 <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
 
@@ -1568,9 +1569,43 @@ pt>
 
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 
 
+<script>
+jQuery.noConflict();
+ 
+(function( $ ) {
+
+                                            var data = <?php echo json_encode($demo); ?>;
+                                            // alert(data);
+
+
+                                            $(function () {
+                                                // alert('hi');
+                                                $("#tags").autocomplete({
+                                                    source: function (request, response) {
+                                                        var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+                                                        response($.grep(data, function (item) {
+                                                            return matcher.test(item.label);
+                                                        }));
+                                                    },
+                                                    minLength: 1,
+                                                    select: function (event, ui) {
+                                                        event.preventDefault();
+                                                        $("#tags").val(ui.item.label);
+                                                        $("#selected-tag").val(ui.item.label);
+                                                        // window.location.href = ui.item.value;
+                                                    }
+                                                    ,
+                                                    focus: function (event, ui) {
+                                                        event.preventDefault();
+                                                        $("#tags").val(ui.item.label);
+                                                    }
+                                                });
+                                            });
+                                              })( jQuery  );
+
+</script>
 
 <!-- script for skill textbox automatic end (option 2)-->
 
@@ -1614,37 +1649,6 @@ pt>
                         </script>
 
 <!-- designation script end -->
-<script>
-
-                                            var data = <?php echo json_encode($demo); ?>;
-                                            // alert(data);
-
-
-                                            $(function () {
-                                                // alert('hi');
-                                                $("#tags").autocomplete({
-                                                    source: function (request, response) {
-                                                        var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
-                                                        response($.grep(data, function (item) {
-                                                            return matcher.test(item.label);
-                                                        }));
-                                                    },
-                                                    minLength: 1,
-                                                    select: function (event, ui) {
-                                                        event.preventDefault();
-                                                        $("#tags").val(ui.item.label);
-                                                        $("#selected-tag").val(ui.item.label);
-                                                        // window.location.href = ui.item.value;
-                                                    }
-                                                    ,
-                                                    focus: function (event, ui) {
-                                                        event.preventDefault();
-                                                        $("#tags").val(ui.item.label);
-                                                    }
-                                                });
-                                            });
-
-</script>
 
 
 
@@ -1956,7 +1960,7 @@ pt>
             dataType: "json",
             success: function (data) {
                 //alert('.' + 'insertcomment' + clicked_id);
-                alert(data.comment);
+              //  alert(data.comment);
                 $('.' + 'insertcomment' + post_delete.value).html(data.comment);
                 $('#' + 'insertcount' + post_delete.value).html(data.count);
                 $('.post-design-commnet-box').show();

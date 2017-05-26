@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
-    <!-- END HEAD -->
+<!-- END HEAD -->
     <!-- start header -->
 <?php echo $header; ?>
  <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
@@ -420,12 +420,12 @@ if($status == 0 || $status == " "){?>
   
 
 
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
- <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
+  <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
+  <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
   <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
   <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
   <script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+
 </body>
 
 <!-- Bid-modal-2  -->
@@ -537,7 +537,7 @@ $( "#tags" ).autocomplete({
 </script>
 
 
-<script>
+<!-- <script>
 //select2 autocomplete start for skill
 $('#searchskills').select2({
         
@@ -594,7 +594,7 @@ $('#searchplace').select2({
 
 </script>
 <!-- popup form edit start -->
-
+ 
 <script>
 // Get the modal
 var modal = document.getElementById('myModal');
@@ -627,6 +627,7 @@ window.onclick = function(event) {
 <!-- popup form edit END -->
 
 <!-- script for skill textbox automatic end (option 2)-->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 
 <script>
 //select2 autocomplete start for skill
@@ -987,7 +988,7 @@ function unfollowuser_list(clicked_id)
 
 <!-- script for profile pic end -->
 
-<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
+<!-- <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script> -->
 
 
 <script type="text/javascript">
