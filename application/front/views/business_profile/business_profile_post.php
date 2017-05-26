@@ -16,7 +16,6 @@
 
 <!--  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 -->
-<!-- <script src="<?php echo base_url('js/jquery.min.js');?>"></script>   -->
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/video.css'); ?>">
 <script src="<?php echo base_url('js/mediaelement-and-player.min.js'); ?>"></script>
@@ -43,6 +42,7 @@
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
       
+ <!-- <script src="<?php echo base_url('js/jquery.min.js');?>"></script>     -->
         
       
 
@@ -1390,12 +1390,53 @@
 
 <script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
 <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
-<script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>  
-<script type="text/javascript">jQuery.noConflict();</script>
-
-<script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
 
 
+<script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script> 
+<!-- <script type="text/javascript">jQuery.noConflict();</script> -->
+
+<script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script> 
+
+
+<script>
+ 
+jQuery.noConflict();
+ 
+(function( $ ) {
+
+
+     var data = <?php echo json_encode($demo);
+    ?>;
+     //alert(data);
+    $(function () {
+        // alert('hi');
+        $("#tags").autocomplete({
+            source: function (request, response) {
+                var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+                response($.grep(data, function (item) {
+                    return matcher.test(item.label);
+                }));
+            }
+            ,
+            minLength: 1,
+            select: function (event, ui) {
+                event.preventDefault();
+                $("#tags").val(ui.item.label);
+                $("#selected-tag").val(ui.item.label);
+                // window.location.href = ui.item.value;
+            }
+            ,
+            focus: function (event, ui) {
+                event.preventDefault();
+                $("#tags").val(ui.item.label);
+            }
+        });
+    }
+    );
+    
+})( jQuery  );
+ 
+</script>
 
 
 <!-- script for skill textbox automatic end (option 2)-->
@@ -1403,7 +1444,7 @@
 <!-- <script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script> -->
 
  <!--  <script type="text/javascript">jQuery.noConflict();</script> -->
-<script>
+<!-- <script>
     var data = <?php echo json_encode($demo);
     ?>;
     //alert(data);
@@ -1433,7 +1474,7 @@
     }
     );
 </script>
-
+ -->
 
 
 
@@ -2857,6 +2898,11 @@
 </script>
 <!-- insert post zalak script end -->
 <!-- post insert developing script start -->
+<script type="text/javascript">
+$(document).ready(function($jquery){
+});
+</script>
+
 <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
 
 
