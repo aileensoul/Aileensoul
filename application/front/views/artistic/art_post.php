@@ -6,60 +6,6 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
 
 
-<!--post save success pop up style strat -->
-<style>
-    .modal-post{z-index: 1!important;}
-    .profile-box{width: 32%;}
-    .profile-box-bui-menu li a{margin-right: 2.5px;}
-    .audio_img{height: 300px; width: 350px; position: relative;}
-</style>
-
-<!--post save success pop up style end -->
-
-<style type="text/css">
-
-    .thumb {
-        width:99px;
-        height: 99px;
-        margin: 0.2em -0.7em 0 0;
-    }
-    .remove_thumb {
-        position: relative;
-        top: -38px;
-        right: 5px;
-        background: black;
-        color: white;
-        border-radius: 50px;
-        font-size: 1.5em;
-        padding: 0 0.3em 0;
-        text-align: center;
-        cursor: pointer;
-    }
-    .remove_thumb:before {
-        content: "Ã—";
-    }
-    .popup-textarea .description{
-        width: 100%;
-        height: auto;
-        min-height: 25%;
-        color: #999999;
-        padding: 12px 0px;
-        box-sizing: border-box;
-        /* border: 2px solid #ccc; */
-        border-radius: 4px;
-        background-color: #fff;
-        font-size: 16px;
-        resize: none;
-        border: none;
-    }
-    .post_product_name{ resize: none;
-                        border: 1px solid #d9d9d9;
-                        background-color: #fff;
-                        font-size: 16px;
-                        height: 10%;}
-
-</style>
-
 <?php echo $header; ?>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('dragdrop/fileinput.css'); ?>">
 <link href="<?php echo base_url('dragdrop/themes/explorer/theme.css'); ?>" media="all" rel="stylesheet" type="text/css"/>
@@ -82,14 +28,6 @@
 <html>
     <head>
 
-        <style>
-
-            div.panel {
-
-                display: none;
-
-            }
-        </style>
 
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
@@ -216,11 +154,13 @@
                                 <div class="profile-boxProfileCard-cover">     
                                     <a class="profile-boxProfileCard-bg u-bgUserColor a-block" href="<?php echo site_url('artistic/art_manage_post'); ?>" tabindex="-1" aria-hidden="true" rel="noopener" title="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>">
                                         <?php if ($artisticdata[0]['profile_background']) { ?>
-                                            <img src="<?php echo base_url($this->config->item('art_bg_thumb_upload_path') . $artisticdata[0]['profile_background']); ?>" alt ="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>" class="bgImage" style="height: 95px; width: 393px; " >
-                                        <?php } else { ?>
-                                            <img src="<?php echo base_url(WHITEIMAGE); ?>" class="bgImage" alt="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>"  style="height: 95px;
-                                                 width: 100%;">
-                                             <?php } ?>
+                                        <div class="data_img"><img src="<?php echo base_url($this->config->item('art_bg_thumb_upload_path') . $artisticdata[0]['profile_background']); ?>" alt ="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>" class="bgImage"  >
+                                        </div>
+                                            <?php } else { ?>
+                                            <div class="data_img">
+                                            <img src="<?php echo base_url(WHITEIMAGE); ?>" class="bgImage" alt="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>"  >
+
+                                            </div>                                             <?php } ?>
                                     </a>
                                 </div>
 
@@ -229,25 +169,25 @@
                                         <a class="profile-boxProfilebuisness-avatarLink2 a-inlineBlock" href="<?php echo site_url('artistic/art_manage_post'); ?>" title="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>" tabindex="-1" aria-hidden="true" rel="noopener">
                                             <!-- box image start -->
                                             <?php if ($artisticdata[0]['art_user_image']) { ?>
-                                                <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image']); ?>" class="bgImage"  alt="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>" style="    height: 77px;
-                                                     width: 71px;
-                                                     z-index: 3;
-                                                     position: relative;
-                                                     " >
+                                             <div class="data_img_2">   
+                                            <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image']); ?>" class="bgImage"  alt="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>" >
+                                             </div>
                                                  <?php } else { ?> 
+                                            <div class="data_img_2">
                                                 <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>">
-                                            <?php } ?>
+                                            </div>
+                                                    <?php } ?>
                                             <!-- box image end -->
                                         </a>
                                     </div>
                                     <div class="profile-box-user  profile-text-bui-user  fr col-md-9">
                                         <span class="profile-company-name ">
-                                            <a style="margin-left: 4px;" href="<?php echo site_url('artistic/art_manage_post'); ?>"> <?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?></a>
+                                            <a  class="ml-4" href="<?php echo site_url('artistic/art_manage_post'); ?>"> <?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?></a>
                                         </span>
 
 
                                         <div class="profile-boxProfile-name">
-                                            <a style="padding-left: 4px;" href="<?php echo site_url('artistic/art_manage_post'); ?>">
+                                            <a class="pl-4" href="<?php echo site_url('artistic/art_manage_post'); ?>">
                                                 <?php
                                                 if ($artisticdata[0]['designation']) {
                                                     echo ucwords($artisticdata[0]['designation']);
@@ -734,21 +674,14 @@ if ($userlistview4 > 0) {
                                 </div>
                                 <div id="myBtn"  class="editor-content col-md-11 popup-text">
                                     <span > Post Your Art....</span> 
-                                  <!--  <span class="fr">
-                                    <input type="file" id="FileID" style="display:none;">
-                                     <label for="FileID"><i class=" fa fa-camera fa"  style=" margin: 8px; cursor:pointer">  </i>
-                                     </label>
-                                      </span>     
-                                    -->
+                               
                                 </div>
                             </div>
-                            <!-- <div class="fr">
-                             <a class="button">Post</a></div> -->
+                           
                         </div>
                     </div>
                     <!-- Trigger/Open The Modal -->
-                    <!-- <div id="myBtn">Open Modal</div>
-                    -->
+                   
                     <!-- The Modal -->
                     <div id="myModal" class="modal-post">
 
@@ -767,23 +700,12 @@ if ($userlistview4 > 0) {
                                            <!-- <textarea name="product_title" placeholder="Post Your Product...."></textarea>  -->
                                         <textarea id= "test-upload_product" placeholder="Post Your Art...."  onKeyPress=check_length(this.form); onKeyDown=check_length(this.form); 
                                                   name=my_text rows=4 cols=30 class="post_product_name" style="position: relative;"></textarea>
-                                        <div style="position: absolute; top: 21px; right: 19px; border: none;">                        
+                                       <div class="fifty_val">                       
                                             <input size=1 class="text_num" value=50 name=text_num readonly> 
                                         </div>
 
                                     </div>
-
-                                </div>     <!--   <span class="fr">
-                               
-                                   <input type="file" id="files" name="postattach[]" multiple style="display:block;">  </span> -->
-                                    <div class="col-md-1"><i class=" fa fa-camera "  style="margin: 0px;
-                                                             font-size: 27px;
-                                                             cursor: pointer;
-                                                             /* margin-right: -38px; */
-                                                             margin-top: 20px;"></i> </div>
-
                                 </div>
-
                                 <div class="row"></div>
                                 <div  id="text"  class="editor-content col-md-12 popup-textarea" >
                                     <textarea id="test-upload_des" name="product_desc" class="description" placeholder="Enter Description"></textarea>
@@ -803,7 +725,12 @@ if ($userlistview4 > 0) {
                                                 </div></div>
 
 
-                                            <label for="file-1"><i class=" fa fa-camera "  style=" margin: 8px; cursor:pointer"> Photo</i><i class=" fa fa-video-camera"  style=" margin: 8px; cursor:pointer"> Video </i> <i class="fa fa-music "  style=" margin: 8px; cursor:pointer"> Audio </i><i class=" fa fa-file-pdf-o "  style=" margin: 8px; cursor:pointer"> PDF </i> </label>
+                                            <label for="file-1">
+                                                <i class=" fa fa-camera upload_icon"  > Photo</i>
+                                                <i class=" fa fa-video-camera upload_icon"  > Video </i>
+                                                <i class="fa fa-music upload_icon "  > Audio </i>
+                                                <i class=" fa fa-file-pdf-o upload_icon"  > PDF </i>
+                                            </label>
 
 
                                         </li>
@@ -818,7 +745,7 @@ if ($userlistview4 > 0) {
                         </div>
                     </div>
                     <!-- popup end -->
-
+                    </div>
                     <div class="col-md-7 col-sm-7 all-form-content fixed_left">
 
 
@@ -913,11 +840,11 @@ if (count($finalsorting) > 0) {
             <?php if ($row['posted_user_id']) { ?>
                                                                         <div class="else_post_d">
                                                                             <a style="max-width: 30%;" class="post_dot" title="<?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?>" href="<?php echo base_url('artistic/art_manage_post/' . $row['posted_user_id']); ?>"><?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?> </a>
-                                                                            <p style="display: inline-block; font-weight: 600; color: #91949d;"> Posted With 
-                                                                            </p><a  class="post_dot1" href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>"><?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?></a>
+                                                                           <p class="posted_with" > Posted With </p>
+                                                                            <a  class="post_dot1" href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>"><?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?></a>
 
 
-                                                                            <span style="color: #91949d;font-size: 14px; color: #91949d;"> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span>
+                                                                             <span class="ctre_date">  <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span>
                                                                         </div>
                                                                         <!-- other user post time name end-->
             <?php } else { ?>
@@ -934,7 +861,7 @@ if (count($finalsorting) > 0) {
                 ?> </a>
 
                                                                         <div class="datespan">
-                                                                            <span style="font-weight: 400;"> <?php // echo date('d-M-Y',strtotime($row['created_date']));                                             ?>
+                                                                            <span class="ctre_date">  <?php // echo date('d-M-Y',strtotime($row['created_date']));                                             ?>
 
                 <?php echo date('d-M-Y', strtotime($row['created_date'])); ?>
 
@@ -948,7 +875,7 @@ if (count($finalsorting) > 0) {
 
                                                             <li>
                                                                 <div id="<?php echo 'editpostdata' . $row['art_post_id']; ?>" style="display:block;">
-                                                                    <a  style=" color: #000033; font-weight: 400;"><?php echo $this->common->make_links($row['art_post']); ?></a>
+                                                                   <a><?php echo $this->common->make_links($row['art_post']); ?></a>
                                                                 </div>
 
                                                                 <div id="<?php echo 'editpostbox' . $row['art_post_id']; ?>" style="display:none;">
@@ -1020,7 +947,7 @@ if (count($finalsorting) > 0) {
                                                                 </span>
                                                             </div>
                                                             <div id="<?php echo 'editpostdetailbox' . $row['art_post_id']; ?>" style="display:none;">
-                                                                <div contenteditable="true" id="<?php echo 'editpostdesc' . $row['art_post_id']; ?>" class="textbuis editable_text" name="editpostdesc" style=" margin-bottom: 10px;"><?php echo $row['art_description']; ?></div>
+                                                                <div contenteditable="true" id="<?php echo 'editpostdesc' . $row['art_post_id']; ?>" class="textbuis editable_text margin_btm" name="editpostdesc" ><?php echo $row['art_description']; ?></div>
                                                             </div>      
                                                             <button id="<?php echo "editpostsubmit" . $row['art_post_id']; ?>" style="display:none" onClick="edit_postinsert(<?php echo $row['art_post_id']; ?>)" class="fr" style="margin-right: 176px; border-radius: 3px;" >Save</button>
                                                         </span></div> 
@@ -1123,10 +1050,10 @@ if (count($finalsorting) > 0) {
                                                                 <div id="three_images_art" >
                                                                     <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="three-columns" src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $artmultiimage[0]['image_name']) ?>" style="width: 100%; height:100%; "> </a>
                                                                 </div>
-                                                                <div style="width: 49.4%; height: 35%; float: left; margin-top: 4px; margin-right: 3px;">
+                                                                  <div  id="three_images_2_art">
                                                                     <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="three-columns" src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $artmultiimage[1]['image_name']) ?>" style="width: 100%; height:100%; "> </a>
                                                                 </div>
-                                                                <div style="width: 49.4%; height: 35%; float: left; margin-top: 4px; margin-right: 3px;">
+                                                                  <div  id="three_images_2_art">
                                                                     <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="three-columns" src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $artmultiimage[2]['image_name']) ?>" style="width: 100%; height:100%; "> </a>
                                                                 </div>
 
@@ -1141,7 +1068,7 @@ if (count($finalsorting) > 0) {
                     ?>
 
                                                                     <!-- four image start -->
-                                                                    <div id="responsive-images-breakpoints" style="   ">
+                                                                    <div id="responsive-images-breakpoints" >
                                                                         <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="breakpoint" src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $multiimage['image_name']) ?>" > </a>
 
                                                                     </div>
@@ -1163,7 +1090,7 @@ if (count($finalsorting) > 0) {
                                                                     <!-- five image start -->
                                                                     <div>
                                                                         <div id="responsive-images_2-breakpoints">
-                                                                            <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $multiimage['image_name']) ?>" style=""> </a>
+                                                                            <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $multiimage['image_name']) ?>" > </a>
                                                                         </div>
                                                                     </div>
 
@@ -1184,7 +1111,7 @@ if (count($finalsorting) > 0) {
                                                                     <div class="images_view_more" >
 
 
-                                                                        <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>" style="">View All (+<?php echo (count($artmultiimage) - 4); ?>)</a>
+                                                                        <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>" >View All (+<?php echo (count($artmultiimage) - 4); ?>)</a>
                                                                     </div>
 
                                                                 </div>
@@ -1421,17 +1348,7 @@ if (count($finalsorting) > 0) {
                                                                                         echo $this->common->make_links($rowdata['comments']);
                                                                                         ?>
                                                                             </div>
-                                                                            <!--                                                                        <div class="col-md-12">
-                                                                                                                                                        <div class="col-md-10">
-                                                                                                                                                            <div contenteditable="true"   class="editable_text" name="<?php echo $rowdata['artistic_post_comment_id']; ?>" id="<?php echo "editcomment" . $rowdata['artistic_post_comment_id']; ?>" style="display:none;-webkit-min-height: 40px;" onClick="commentedit(<?php echo $rowdata['artistic_post_comment_id']; ?>)" style="height:50px;" ><?php echo $rowdata['comments']; ?></div>
-                                                                                                                                                        </div>
-                                                                            
-                                                                                                                                                        <div class="col-md-2 comment-edit-button">
-                                                                                                                                                            <button id="<?php echo "editsubmit" . $rowdata['artistic_post_comment_id']; ?>" style="display:none" onClick="edit_comment(<?php echo $rowdata['artistic_post_comment_id']; ?>)">Comment</button>
-                                                                                                                                                        </div>
-                                                                            
-                                                                                                                                                    </div>-->
-                                                                            <div class="edit-comment-box">
+                                                                     <div class="edit-comment-box">
                                                                                 <div class="inputtype-edit-comment">
                                                                                     <div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="<?php echo $rowdata['artistic_post_comment_id']; ?>"  id="editcomment<?php echo $rowdata['artistic_post_comment_id']; ?>" placeholder="Enter Your Comment " value= ""  onkeyup="commentedit(<?php echo $rowdata['artistic_post_comment_id']; ?>)"><?php echo $rowdata['comments']; ?></div>
                                                                                     <span class="comment-edit-button"><button id="<?php echo "editsubmit" . $rowdata['artistic_post_comment_id']; ?>" style="display:none" onClick="edit_comment(<?php echo $rowdata['artistic_post_comment_id']; ?>)">Save</button></span>
@@ -1550,12 +1467,12 @@ if (count($finalsorting) > 0) {
             ?>
                                                     </div>
                                                     <div class="">
-                                                        <div id="content" class="col-md-12 inputtype-comment" style="padding-left: 7px !important; width: 80%;">
-                                                            <div contenteditable="true" style="min-height:37px !important; margin-top: 0px!important" class="editable_text" name="<?php echo $row['art_post_id']; ?>"  id="<?php echo "post_comment" . $row['art_post_id']; ?>" placeholder="Add a Comment ..." onClick="entercomment(<?php echo $row['art_post_id']; ?>)"></div>
+                                                        <div id="content" class="col-md-12 inputtype-comment cmy_2" >
+                                                            <div contenteditable="true" class="editable_text edt_2" name="<?php echo $row['art_post_id']; ?>"  id="<?php echo "post_comment" . $row['art_post_id']; ?>" placeholder="Add a Comment ..." onClick="entercomment(<?php echo $row['art_post_id']; ?>)"></div>
                                                         </div>
             <?php echo form_error('post_comment'); ?>
                                                         <div class=" comment-edit-butn" >   
-                                                            <button style="" id="<?php echo $row['art_post_id']; ?>" onClick="insert_comment(this.id)">Comment</button> 
+                                                            <button  id="<?php echo $row['art_post_id']; ?>" onClick="insert_comment(this.id)">Comment</button> 
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1571,7 +1488,7 @@ if (count($finalsorting) > 0) {
 
 
                                 <div class="text-center rio">
-                                    <h4 class="page-heading  product-listing" style="border:0px;margin-bottom: 11px;">No Post Found.</h4>
+                                    <h4 class="page-heading  product-listing" >No Post Found.</h4>
                                 </div>
 
 
@@ -1586,7 +1503,7 @@ if (count($finalsorting) > 0) {
 
 
                         <!-- Bid-modal  -->
-                        <div class="modal fade message-box biderror" id="bidmodal" role="dialog" style="" >
+                        <div class="modal fade message-box biderror" id="bidmodal" role="dialog"  >
                             <div class="modal-dialog modal-lm" >
                                 <div class="modal-content">
                                     <button type="button" class="modal-close" data-dismiss="modal">&times;</button>       
@@ -1600,7 +1517,7 @@ if (count($finalsorting) > 0) {
                         <!-- Model Popup Close -->
 
                         <!-- Bid-modal-2  -->
-                        <div class="modal fade message-box" id="likeusermodal" role="dialog" style="">
+                        <div class="modal fade message-box" id="likeusermodal" role="dialog" >
                             <div class="modal-dialog modal-lm">
                                 <div class="modal-content">
                                     <button type="button" class="modal-close" data-dismiss="modal">&times;</button>       
@@ -1689,7 +1606,7 @@ if (count($finalsorting) > 0) {
                         <script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
                         <!--<script src="https://code.jquery.com/jquery-1.12.4.js"></script>-->
                         <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
-                        <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
+                        <!--<script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>-->
                         <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
                         <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 
@@ -2456,11 +2373,19 @@ if (count($finalsorting) > 0) {
 
                                 var sel = $("#editcomment" + abc);
                                 var txt = sel.html();
-                                if (txt == '' || txt == '<br>') {
-                                    $('.biderror .mes').html("<div class='pop_content'>Do you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-                                    $('#bidmodal').modal('show');
-                                    return false;
-                                }
+                                
+                            txt = txt.replace(/&nbsp;/gi, " ");
+                            txt = txt.replace(/<br>$/, '');
+                            if (txt == '' || txt == '<br>') {
+                            $('.biderror .mes').html("<div class='pop_content'>Do you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+                            $('#bidmodal').modal('show');
+                                return false;
+                            }
+                            if (/^\s+$/gi.test(txt))
+                            {
+                                return false;
+                            }
+
                                 $.ajax({
                                     type: 'POST',
                                     url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
@@ -2525,21 +2450,18 @@ if (count($finalsorting) > 0) {
                                         var sel = $("#editcomment" + abc);
                                         var txt = sel.html();
                                       
-                                        txt = txt.replace(/&nbsp;/gi, " ");
+                    txt = txt.replace(/&nbsp;/gi, " ");
                     txt = txt.replace(/<br>$/, '');
                     if (txt == '' || txt == '<br>') {
-                          $('.biderror .mes').html("<div class='pop_content'>Do you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-                                            $('#bidmodal').modal('show');
+                    $('.biderror .mes').html("<div class='pop_content'>Do you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+                    $('#bidmodal').modal('show');
                         return false;
                     }
                     if (/^\s+$/gi.test(txt))
                     {
                         return false;
                     }
-                                        if (txt == '' || txt == '<br>') {
-                                          
-                                            return false;
-                                        }
+//                                       
                                      
                                    if (window.preventDuplicateKeyPresses)
                                             return;
@@ -2603,11 +2525,20 @@ if (count($finalsorting) > 0) {
 
                                 var sel = $("#editcommenttwo" + abc);
                                 var txt = sel.html();
-                                if (txt == '' || txt == '<br>') {
-                                    $('.biderror .mes').html("<div class='pop_content'>Do you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deletetwo(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+                                
+                            txt = txt.replace(/&nbsp;/gi, " ");
+                            txt = txt.replace(/<br>$/, '');
+                            if (txt == '' || txt == '<br>') {
+                                 $('.biderror .mes').html("<div class='pop_content'>Do you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deletetwo(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
                                     $('#bidmodal').modal('show');
-                                    return false;
-                                }
+                                return false;
+                            }
+                            if (/^\s+$/gi.test(txt))
+                            {
+                                return false;
+                            }
+
+
                                 $.ajax({
                                     type: 'POST',
                                     url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
@@ -2672,11 +2603,18 @@ if (count($finalsorting) > 0) {
                                         event.preventDefault();
                                         var sel = $("#editcommenttwo" + abc);
                                         var txt = sel.html();
-                                        if (txt == '' || txt == '<br>') {
-                                            $('.biderror .mes').html("<div class='pop_content'>Do you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deletetwo(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-                                            $('#bidmodal').modal('show');
-                                            return false;
-                                        }
+                                        
+                                         txt = txt.replace(/&nbsp;/gi, " ");
+                                         txt = txt.replace(/<br>$/, '');
+                                           if (txt == '' || txt == '<br>') {
+                                          $('.biderror .mes').html("<div class='pop_content'>Do you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deletetwo(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+                                          $('#bidmodal').modal('show');
+                                             return false;
+                                               }
+                                          if (/^\s+$/gi.test(txt))
+                                           {
+                                                 return false;
+                                              }
 
                                         if (window.preventDuplicateKeyPresses)
                                             return;
