@@ -772,10 +772,8 @@ if ($userlistview4 > 0) {
                                         </div>
 
                                     </div>
-<<<<<<< HEAD
-                                </div>
-=======
-                                   <!--   <span class="fr">
+
+                                </div>     <!--   <span class="fr">
                                
                                    <input type="file" id="files" name="postattach[]" multiple style="display:block;">  </span> -->
                                     <div class="col-md-1"><i class=" fa fa-camera "  style="margin: 0px;
@@ -786,7 +784,6 @@ if ($userlistview4 > 0) {
 
                                 </div>
 
->>>>>>> a53266e5c2deb4096bb2347e70960e6ba1d9e5fe
                                 <div class="row"></div>
                                 <div  id="text"  class="editor-content col-md-12 popup-textarea" >
                                     <textarea id="test-upload_des" name="product_desc" class="description" placeholder="Enter Description"></textarea>
