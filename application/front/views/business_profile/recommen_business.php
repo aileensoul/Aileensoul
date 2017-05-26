@@ -144,12 +144,14 @@
                                            href="<?php echo base_url('business_profile/business_profile_manage_post'); ?>"
                                            tabindex="-1" aria-hidden="true" rel="noopener" title="<?php echo $businessdata[0]['company_name']; ?>">
                                                <?php if ($businessdata[0]['profile_background'] != '') { ?>
-                                                <img src="<?php echo base_url($this->config->item('bus_bg_thumb_upload_path') . $businessdata[0]['profile_background']); ?>" class="bgImage" alt="<?php echo $businessdata[0]['company_name']; ?>"  style="height: 95px; width: 100%; ">
-                                                <?php
+                                            <div class="data_img">    
+                                            <img src="<?php echo base_url($this->config->item('bus_bg_thumb_upload_path') . $businessdata[0]['profile_background']); ?>" class="bgImage" alt="<?php echo $businessdata[0]['company_name']; ?>"  >
+                                            </div> <?php
                                             } else {
                                                 ?>
-                                                <img src="<?php echo base_url(WHITEIMAGE); ?>" class="bgImage" alt="<?php echo $businessdata[0]['company_name']; ?>"  style="height: 95px; width: 100%;">
-                                            <?php } ?>
+                                               <div class="data_img">    
+                                                <img src="<?php echo base_url(WHITEIMAGE); ?>" class="bgImage" alt="<?php echo $businessdata[0]['company_name']; ?>" >
+                                               </div>   <?php } ?>
                                         </a>
                                     </div>
                                     <div class="profile-boxProfileCard-content clearfix">
@@ -158,22 +160,23 @@
                                                 <?php
                                                 if ($businessdata[0]['business_user_image']) {
                                                     ?>
-                                                    <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $businessdata[0]['business_user_image']); ?>"  alt="<?php echo $businessdata[0]['company_name']; ?>" style="height: 77px; width: 71px; z-index: 3; position: relative; ">
-                                                <?php } else { ?>
-                                                    <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo $businessdata[0]['company_name']; ?>">
-                                                <?php } ?>                           
+                                                   <div class="data_img_2">    
+                                                    <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $businessdata[0]['business_user_image']); ?>"  alt="<?php echo $businessdata[0]['company_name']; ?>" >
+                                                   </div>     <?php } else { ?>
+                                                 <div class="data_img">          <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo $businessdata[0]['company_name']; ?>">
+                                                 </div>   <?php } ?>                           
 
                                             </a>
                                         </div>
                                         <div class="profile-box-user  profile-text-bui-user  fr col-md-9">
                                             <span class="profile-company-name ">
-                                                <a style="margin-left: 3px;" href="<?php echo base_url('business_profile/business_profile_manage_post/'); ?> " title="<?php echo ucwords($businessdata[0]['company_name']); ?>"> 
+                                                <a  href="<?php echo base_url('business_profile/business_profile_manage_post/'); ?> " title="<?php echo ucwords($businessdata[0]['company_name']); ?>"> 
                                                     <?php echo ucwords($businessdata[0]['company_name']); ?>
                                                 </a> 
                                             </span>
                                             <?php $category = $this->db->get_where('industry_type', array('industry_id' => $businessdata[0]['industriyal'], 'status' => 1))->row()->industry_name; ?>
                                             <div class="profile-boxProfile-name">
-                                                <a style="padding-left: 1px;" href="<?php echo base_url('business_profile/business_profile_manage_post/'); ?> " title="<?php echo ucwords($businessdata[0]['company_name']); ?>" >
+                                                <a href="<?php echo base_url('business_profile/business_profile_manage_post/'); ?> " title="<?php echo ucwords($businessdata[0]['company_name']); ?>" >
                                                     <b> <?php echo $category; ?></b>
                                                 </a>
                                             </div>
@@ -213,7 +216,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-7 col-sm-7 all-form-content" style="height: 150%;">
+                    <div class="col-md-7 col-sm-7 all-form-content data_A"  >
                         <div class="common-form">
                             <div class="job-saved-box">
 
@@ -227,7 +230,7 @@
                                         <div class="profile-job-post-title-inside clearfix search" >
 
 
-<div class="profile_search" style="background-color: white; margin-bottom: 10px; margin-top: 10px;"> 
+<div class="profile_search" > 
 
                                        <h4 class="search_head">Profiles</h4>
                                        <div class="inner_search">
@@ -248,7 +251,7 @@
                                                          <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $p['business_user_image']); ?>" alt="" > </a>
                                                                     </div>
                                                                 </div>
-                                                                 <div class="designation_rec" style="    float: left;
+                                                                 <div class="designation_rec fl" 
     width: 60%;
     padding-top: 16px;">
                                                                     <ul>
@@ -350,9 +353,9 @@ if($status == 0 || $status == " "){?>
 
                                                 </div>
                                                 </div>
-                                                <div class="col-md-12 profile_search " style="float: left; background-color: white; margin-top: 10px; margin-bottom: 10px; padding:0px!important;"> 
+                                                <div class="col-md-12 profile_search " > 
                                                    <h4 class="search_head">Posts</h4>
-       <div class="inner_search" style="float: left;">
+       <div class="inner_search fl">
 
                                                 <?php
                                                 if ($description) {
@@ -542,7 +545,7 @@ if($status == 0 || $status == " "){?>
                                                                                 $ext = pathinfo($filename, PATHINFO_EXTENSION);
                                                                                 if (in_array($ext, $allowed)) {
                                                                                     ?>
-                                                                                    <div id="basic-responsive-image" style="height: 50%; width: 100%;">
+                                                                                    <div id="basic-responsive-image" >
                                                                                         <a href="<?php echo base_url('business_profile/postnewpage/' . $p['business_profile_post_id']) ?>">
                                                                                             <img src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $businessmultiimage[0]['image_name']) ?>" style="width: 100%; height: 100%;"> 
                                                                                         </a>

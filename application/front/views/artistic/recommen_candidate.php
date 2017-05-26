@@ -36,12 +36,13 @@
                                            tabindex="-1" aria-hidden="true" rel="noopener" title="<?php echo ucwords($artdata[0]['art_name']) . ' ' . ucwords($artdata[0]['art_lastname']); ?>">
                                             <!-- box image start -->
                                             <?php if ($artdata[0]['profile_background'] != '') { ?>
-                                                <img src="<?php echo base_url($this->config->item('art_bg_main_upload_path') . $artdata[0]['profile_background']); ?>" class="bgImage" alt=""  style="height: 95px; width: 100%; ">
-                                                <?php
+                                               <div class="data_img">    <img src="<?php echo base_url($this->config->item('art_bg_main_upload_path') . $artdata[0]['profile_background']); ?>" class="bgImage" alt=""  style="height: 95px; width: 100%; ">
+                                               </div>     <?php
                                             } else {
                                                 ?>
-                                                <img src="<?php echo base_url(WHITEIMAGE); ?>" class="bgImage" alt=""  style="height: 95px; width: 100%;">
-                                            <?php } ?>
+                                                <div class="data_img">  
+                                                <img src="<?php echo base_url(WHITEIMAGE); ?>" class="bgImage" alt=""  >
+                                                </div><?php } ?>
                                         </a>
                                     </div>
                                     <div class="profile-boxProfileCard-content clearfix">
@@ -50,25 +51,26 @@
                                                 <?php
                                                 if ($artdata[0]['art_user_image']) {
                                                     ?>
+                                                 <div class="data_img_2">  
                                                     <img  src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artdata[0]['art_user_image']); ?>"  alt="" style="height: 77px; width: 71px; z-index: 3; position: relative; ">
-                                                <?php } else { ?>
-                                                    <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
-                                                <?php } ?>                           
+                                                 </div><?php } else { ?>
+                                                 <div class="data_img_2">      <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
+                                                 </div>       <?php } ?>                           
                                                 <!-- 
-                        <img class="profile-boxProfileCard-avatarImage js-action-profile-avatar" src="images/imgpsh_fullsize (2).jpg" alt="" style="    height: 68px;
+                        <img class="profile-boxProfileCard-avatarImage js-action-profile-avatar" src="images/imgpsh_fullsize (2).jpg" alt=""     height: 68px;
                         width: 68px;">
                                                 -->
                                             </a>
                                         </div>
                                         <div class="profile-box-user  profile-text-bui-user  fr col-md-9">
                                             <span class="profile-company-name ">
-                                                <a style="margin-left: 3px;" href="<?php echo base_url('artistic/art_manage_post'); ?>" title="<?php echo ucwords($artdata[0]['art_name']) . ' ' . ucwords($artdata[0]['art_lastname']); ?>"> 
+                                                <a  href="<?php echo base_url('artistic/art_manage_post'); ?>" title="<?php echo ucwords($artdata[0]['art_name']) . ' ' . ucwords($artdata[0]['art_lastname']); ?>"> 
                                                     <?php echo ucwords($artdata[0]['art_name']) . ' ' . ucwords($artdata[0]['art_lastname']); ?>
                                                 </a> 
                                             </span>
                                             <?php $category = $this->db->get_where('industry_type', array('industry_id' => $businessdata[0]['industriyal'], 'status' => 1))->row()->industry_name; ?>
                                             <div class="profile-boxProfile-name">
-                                                <a style="padding-left: 1px;" href="<?php echo base_url('artistic/art_manage_post'); ?> " title="<?php echo ucwords($artdata[0]['art_name']) . ' ' . ucwords($artdata[0]['art_lastname']); ?>" >
+                                                <a  href="<?php echo base_url('artistic/art_manage_post'); ?> " title="<?php echo ucwords($artdata[0]['art_name']) . ' ' . ucwords($artdata[0]['art_lastname']); ?>" >
                                                     <b> 
                                                     <?php
                                                 if ($artdata[0]['designation']) {
@@ -107,7 +109,7 @@
 <!-- left side box close -->
 
 <input type="hidden" name="search" id="search" value="<?php echo $keyword; ?>">
-   <div class="col-md-7 col-sm-7 all-form-content" style="height: 150%;">
+   <div class="col-md-7 col-sm-7 all-form-content data_A">
                         <div class="common-form">
                             <div class="job-saved-box">
 
@@ -118,7 +120,7 @@
                             
                                        <div class="profile-job-post-title-inside clearfix">
                                       
-<div class="profile_search" style="background-color: white; margin-bottom: 10px; margin-top: 10px;"> 
+<div class="profile_search" > 
 
                                        <h4 class="search_head">Profiles</h4>
                                        <div class="inner_search">
@@ -143,8 +145,7 @@
     padding-top: 16px;">
           <ul>
        <li>
-      <a style="  font-size: 19px;
-         font-weight: 600;" href="" title="<?php echo $key['art_name'].' '.$key['art_lastname'];?>">
+      <a  href="" title="<?php echo $key['art_name'].' '.$key['art_lastname'];?>">
        <?php echo $key['art_name'].' '.$key['art_lastname'];?>
        </a>
       </li>
@@ -227,7 +228,7 @@ if($status == 0 || $status == " "){?>
 </div>
 
 </div>
-<div class="col-md-12 profile_search " style="float: left; background-color: white; margin-top: 10px; margin-bottom: 10px; padding:0px!important;"> 
+<div class="col-md-12 profile_search "> 
        <h4 class="search_head">Posts</h4>
        <div class="inner_search">
 
@@ -296,9 +297,7 @@ if($status == 0 || $status == " "){?>
                                                                 <a class="post_dot" href="<?php echo base_url('artistic/art_manage_post/' . $key['user_id'] . ''); ?>" title="<?php echo $key['art_name'].' '.$key['art_lastname'];?>" >
                                                                     <?php echo $key['art_name'].' '.$key['art_lastname'];?>
                                                                       </a>
-                                                                <div class="datespan">  <span style="font-weight: 400;
-                                                    font-size: 14px;
-                                                    color: #91949d; cursor: default;"> 
+                                                                <div class="datespan">  <span class="ctre_date"> 
                                                                         <?php echo date('d-M-Y', strtotime($key['created_date'])); ?>                                                                    </span></div>
 
                                                             </div>
@@ -310,7 +309,7 @@ if($status == 0 || $status == " "){?>
                                                     
                                                     <li>
                                                         <div class="post-design-product">
-                                                            <a href="javascript:void(0);" style=" color: #000033; font-weight: 400; cursor: default;" title="Category">
+                                                            <a href="javascript:void(0);"  title="Category">
                                                                 <?php echo $key['art_post'];?>                                                            </a>
                                                         </div>
                                                     </li>
@@ -336,7 +335,7 @@ if($status == 0 || $status == " "){?>
                                             <div class="post-design-desc ">
                                                 <div>
                                                     <div id="editpostdata5" style="display:block;">
-                                                        <a style="margin-bottom: 0px;     font-size: 16px">
+                                                        <a class="margin_btm">
                                                             <?php echo $key['art_description'];?>                                                        </a>
                                                     </div>
                                                     <div id="editpostbox5" style="display:none;">
@@ -381,7 +380,7 @@ if($status == 0 || $status == " "){?>
                 ?>
 
                                                    
-            <div id="basic-responsive-image" style="height: 80%; width: 100%;">
+            <div id="basic-responsive-image" >
              <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') .$artmultiimage[0]['image_name'])?>" style="width: 100%; height: 100%;"> </a>
                                                     </div>
                                                     
@@ -491,7 +490,7 @@ if($status == 0 || $status == " "){?>
                                                     
                                                     <div>
                                                         <div id="responsive-manage_images_2-breakpoints">
-                                                            <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $multiimage['image_name']) ?>" style=""> </a>
+                                                            <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $multiimage['image_name']) ?>" > </a>
                                                         </div>
                                                     </div>
 
