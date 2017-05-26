@@ -5007,12 +5007,12 @@ label.cameraButton:hover
 
     #btnRemove{ padding: 6px 12px 6px!important;  min-width: 49px!important; }
     .images_art_post .basic-responsive-image img{width: 100%; height: auto; min-height: initial;}
-/*    #basic-responsive-image{padding-left: 4px; padding-right: 4px;}*/
 
 
 
 
 
+.basic-responsive-image{height: 50%; width: 100%;}
 
 .profile-job-details ul .text_overflow{    width: auto;
     max-width: 70%;
@@ -5266,3 +5266,20 @@ cover pic css*/
     .remove_thumb:before {
         content: "×";
     }
+
+.row5 > .column1 {
+  padding: 0 8px;
+}
+
+.row5:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.column1 {
+  float: left;
+  float: left;
+    width: 195px;
+    height: 173px;
+}

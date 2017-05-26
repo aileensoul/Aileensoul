@@ -11,165 +11,12 @@
  <link rel="stylesheet" href="<?php echo base_url('css/bootstrap.min.css'); ?>" />
   <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
 
-<style type="text/css" media="screen">
-
-.row5 > .column1 {
-  padding: 0 8px;
-}
-
-.row5:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-.column1 {
-  float: left;
-  float: left;
-    width: 195px;
-    height: 173px;
-}
-
-/* The Modal (background) */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 10000;
-  padding-top: 100px;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: black;
-}
-
-/* Modal Content */
-.modal-content {
-  position: relative;
-  background-color: #fefefe;
-  margin: auto;
-  padding: 0;
-  width: 90%;
-  max-width: 1200px;
-}
-
-/* The Close Button */
-.close {
-  color: white;
-  position: absolute;
-  top: 10px;
-  right: 25px;
-  font-size: 35px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: #999;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.mySlides {
-  display: none;
-}
-
-.cursor {
-  cursor: pointer
-}
-
-/* Next & previous buttons */
-.prev,
-.next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  padding: 16px;
-  margin-top: -50px;
-  color: white;
-  font-weight: bold;
-  font-size: 20px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-  -webkit-user-select: none;
-}
-
-/* Position the "next button" to the right */
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover,
-.next:hover {
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-/* Number text (1/3 etc) */
-.numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
-}
 
 
 
-.caption-container {
-  text-align: center;
-  background-color: black;
-  padding: 2px 16px;
-  color: white;
-}
-
-.demo {
-  opacity: 0.6;
-}
-
-.active,
-.demo:hover {
-  opacity: 1;
-}
-
-
-.hover-shadow:hover {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
-}
 
 
 
-#row2 { overflow: hidden; width: 100%; }
-#row2 img { height: 350px;width: 100%; } 
-.upload-img { float: right;
-    position: relative; margin-top: -135px; right: 50px; }
-
-   label.cameraButton {
-  display: inline-block;
-  margin: 1em 0;
-cursor: pointer;
-  /* Styles to make it look like a button */
-  padding: 0.5em;
-  border: 2px solid #666;
-  border-color: #EEE #CCC #CCC #EEE;
-  background-color: #DDD;
-  opacity: 0.7;
-}
-
-/* Look like a clicked/depressed button */
-label.cameraButton:active {
-  border-color: #CCC #EEE #EEE #CCC;
-}
-
-/* This is the part that actually hides the 'Choose file' text box for camera inputs */
-label.cameraButton input[accept*="camera"] {
-  display: none;
-}
-</style>
     <!-- END HEAD -->
     <!-- start header -->
 <?php echo $header; ?>
@@ -186,9 +33,9 @@ label.cameraButton input[accept*="camera"] {
            
       <div class="row" id="row1" style="display:none;">
         <div class="col-md-12 text-center">
-        <div id="upload-demo" style="width:100%"></div>
+        <div id="upload-demo" ></div>
         </div>
-        <div class="col-md-12 cover-pic" style="padding-top: 25px;text-align: center;">
+        <div class="col-md-12 cover-pic" >
             <button class="btn btn-success cancel-result" onclick="" >Cancel</button>
     
         <button class="btn btn-success upload-result fr" onclick="myFunction()">Save</button>
@@ -208,7 +55,7 @@ label.cameraButton input[accept*="camera"] {
         </div>
         </div>
         <div class="col-md-12"  style="visibility: hidden; ">
-        <div id="upload-demo-i" style="background:#e1e1e1;width:100%;padding:30px;height:1px;margin-top:30px"></div>
+        <div id="upload-demo-i"></div>
         </div>
       </div>
 
@@ -485,17 +332,7 @@ $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))
             <div class="container">
                 <div class="row">
                 <div class="col-md-3" style="width: 22%;">
-                  
- <!-- <div  class="add-post-button">
-    
-        <a class="btn btn-3 btn-3b" href="<?php echo base_url('business_profile/business_profile_addpost'); ?>"><i class="fa fa-plus" aria-hidden="true"></i>  Add Post</a>
-  </div> -->
- <!--  <div  class="add-post-button">
-    
-      
-        <a class="btn btn-3 btn-3b"href="<?php echo base_url('recruiter'); ?>"><i class="fa fa-plus" aria-hidden="true"></i> Recruiter</a>
-  </div> -->
- 
+          
                   
                 </div>
                     <div class="col-md-7 col-sm-7">
@@ -746,10 +583,10 @@ popup -->
                                                 <?php echo form_open_multipart(base_url('business_profile/user_image_insert'), array('id' => 'userimage','name' => 'userimage', 'class' => 'clearfix')); ?>
                                                 <input type="file" name="profilepic" accept="image/gif, image/jpeg, image/png" id="profilepic">
                                                 <input type="hidden" name="hitext" id="hitext" value="4">
-
-                                                 <img id="preview" src="#" alt="your image" style="border: 2px solid rgb(204, 204, 204); display: none; margin: 0 auto; margin-top: 5px;padding: 5px;"/>
-                                                <!--<input type="submit" name="cancel3" id="cancel3" value="Cancel">-->
-                                                <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save"  style="margin-top:32px!important;">
+ <div class="popup_previred">
+                                                 <img id="preview" src="#" alt="your image"/>
+                                              </div>
+                                                <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save" >
                                                 <?php echo form_close(); ?>
                                             </div>
                                         </span>
