@@ -815,7 +815,7 @@ ul.business_pf_ct_person_detail li b {font-size: 16px; display: inline-block; wi
 .profile-job-profile-button  a{margin-right: 10px;}
 .profile-job-details p { color: #1b8ab9; }
 .profile-job-details p  i{ /* margin-right: 10px; */ margin-left: 10px; }
-
+.sercv_sx{height: 14%;border: 1px solid #efefef;margin-bottom: 20px!important;}
 .profile-job-details li{list-style: none;}
 /* job */
 .job-contact-frnd .profile-job-post-detail { background-color:#ffffff; border: 1px solid #bfbfbf; border-radius: 4px; margin-bottom: 15px; }
@@ -5205,7 +5205,7 @@ cover pic css*/
 .margin_less{ margin:0px!important;}
 .main_pdf_box{margin-left:380px; margin-top: 20px;}
 .grybod{border: 1px solid #d9d9d9!important;}
-.edit_cpmment_edit{display: inline-block;width: 81%;min-height: 37px !important;margin-top: 0px !important;margin-left: 1.5% !important;}
+.edit_cpmment_edixt{display: inline-block;width: 81%;min-height: 37px !important;margin-top: 0px !important;margin-left: 1.5% !important;}
 
 /*Vishang 25-5 on */
 .job_education_submitbox { width: 100%; text-align: center; }
