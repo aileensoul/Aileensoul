@@ -4225,11 +4225,11 @@ input:-moz-placeholder { color:#999; font-size: 15px; }
 .select2-container--default .select2-search--inline .select2-search__field{width: 30%;}
 
 /* v 26-4-17 start*/
-
+.dis{font-size: 19px;font-weight: 600;cursor: default;}
 .display_inline { display: inline !important; }
 .job_address_btn { min-width: 70px !important; font-size: 17px !important; padding: 10px 25px !important;}
 .details_all_tital { font-weight: 700; font-size: 20px; }
-
+.margin_btm{margin-bottom: 0px!important;}
 /* v 26-4-17 end*/
 
 /* v 28-4-17 start */
@@ -4249,7 +4249,7 @@ input:-moz-placeholder { color:#999; font-size: 15px; }
     }
 
 /* v 28-4-17 end */
-
+.rec_Fre{font-size: 18px; font-weight: 600;}
 .select2-container-multi .select2-choices{padding: 1px 15px!important; background: white;
     border: 2px solid #cacaca!important;
     outline: none!important;
@@ -5215,3 +5215,16 @@ cover pic css*/
 .job_edu_graduation_submitbtn { padding: 5px 9px !important; margin-right: 0px !important; }
 
 /*Vishang 25-5 off */
+
+
+.page-heading{border:0px;margin-bottom: 11px;}
+.data_img{height: 95px; width: 100%;}
+.data_img img{height: 100%; width: 100%;}
+.data_img_2{height: 80px;
+                                                     width: 77px;     z-index: 3;
+                                                     position: relative;}
+.data_img_2 img{width: 100%; height: 100%;}
+.free_attc img{width: 100%; height: 100%;
+
+}
+.free_attc{width:100px;height:100px;display: block;}

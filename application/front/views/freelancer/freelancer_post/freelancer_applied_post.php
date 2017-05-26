@@ -7,49 +7,6 @@
     #popup-form img{display: none;}
 </style>
 
-<style>
- 
-.okk{
-        text-align: center;
-    }
-     .pop_content .okbtn{
-        position: absolute;
-        transition: all 200ms;
-        font-size: 16px;
-        text-decoration: none;
-        color: #fff;
-        padding: 8px 18px;
-        background-color: #0A2C5D;
-        left: 170px;
-        margin-top: 8px;
-        width: 100px; 
-        border-radius: 8px;
-    }
-      .pop_content .cnclbtn {
-        position: absolute;
-        transition: all 200ms;
-        font-size: 16px;
-        text-decoration: none;
-        color: #fff;
-        padding: 8px 18px;
-        background-color: #0A2C5D;
-        right: 170px;
-        margin-top: 8px;
-        width: 100px;
-        border-radius: 8px;
-    }  
-
-    .popup .pop_content {
-        text-align: center;
-        margin-top: 40px;
-
-    }
-      .model_ok_cancel{
-        width:200px !important;
-    }
- 
-</style>
-
 <!-- END HEAD -->
 <!-- start header -->
 <?php echo $header; ?>
@@ -261,7 +218,7 @@ Details</a>
 
 
                                                 
-                  <div class="profile-job-post-title clearfix" style="margin-bottom:0px">
+                  <div class="profile-job-post-title clearfix margin_btm">
                   <div class="profile-job-profile-button clearfix">
                      <div class="profile-job-details col-md-12">
                           <ul>
@@ -420,7 +377,7 @@ Details</a>
 } else {
     ?>
                             <div class="text-center rio">
-                                <h4 class="page-heading  product-listing" style="border:0px;margin-bottom: 11px;">No Applied Posts Found.</h4>
+                                <h4 class="page-heading  product-listing" >No Applied Posts Found.</h4>
                             </div>                               
     <?php }
 ?>   
@@ -461,11 +418,13 @@ Details</a>
                                             <div id="popup-form">
                                                 <?php echo form_open_multipart(base_url('freelancer/user_image_add'), array('id' => 'userimage','name' => 'userimage', 'class' => 'clearfix')); ?>
                                                 <input type="file" name="profilepic" accept="image/gif, image/jpeg, image/png" id="profilepic">
+ <div class="popup_previred">
+                                                 <img id="preview" src="#" alt="your image" />
 
-                                                 <img id="preview" src="#" alt="your image" style="border: 2px solid rgb(204, 204, 204); display: none; margin: 0 auto; margin-top: 5px;padding: 5px;"/>
+                                                 </div>
                                                 <input type="hidden" name="hitext" id="hitext" value="1">
-                                                <!--<input type="submit" name="cancel3" id="cancel3" value="Cancel">-->
-                                                <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save"  style="margin-top:32px!important;">
+                                               
+                                                <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save"  >
                                                 <?php echo form_close(); ?>
                                             </div>
                                         </span>

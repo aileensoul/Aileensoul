@@ -1,105 +1,6 @@
 <!-- start head -->
 <?php  echo $head; ?>
     <!-- END HEAD -->
-<style>
-    /*body {
-        font-family: Arial, sans-serif;
-        background-size: cover;
-        height: 100vh;
-    }*/
-    /*    .box {
-            width: 40%;
-            margin: 0 auto;
-            background: rgba(255,255,255,0.2);
-            padding: 35px;
-            border: 2px solid #fff;
-            border-radius: 20px/50px;
-            background-clip: padding-box;
-            text-align: center;
-        }*/
-    /* .overlay {
-         position: fixed;
-         top: 0;
-         bottom: 0;
-         left: 0;
-         right: 0;
-         background: rgba(0, 0, 0, 0.7);
-         transition: opacity 500ms;
-         visibility: hidden;
-         opacity: 0;
-         z-index: 10;
-     }*/
-    /*.overlay:target {
-        visibility: visible;
-        opacity: 1;
-    }
-    .popup {
-        margin: 70px auto;
-        padding: 20px;
-        background: #fff;
-        border-radius: 5px;
-        width: 30%;
-        height: 200px;
-        position: relative;
-        transition: all 5s ease-in-out;
-    }*/
-    .okk{
-        text-align: center;
-    }
-    .pop_content .okbtn{
-        position: absolute;
-        transition: all 200ms;
-        font-size: 16px;
-        text-decoration: none;
-        color: #fff;
-        padding: 8px 18px;
-        background-color: #0A2C5D;
-        left: 170px;
-        margin-top: 8px;
-        width: 100px; 
-        border-radius: 8px;
-    }
-    .pop_content .cnclbtn {
-        position: absolute;
-        transition: all 200ms;
-        font-size: 16px;
-        text-decoration: none;
-        color: #fff;
-        padding: 8px 18px;
-        background-color: #0A2C5D;
-        right: 170px;
-        margin-top: 8px;
-        width: 100px;
-        border-radius: 8px;
-    }
-    /*.popup .okbtn {
-        position: absolute;
-        transition: all 200ms;
-        font-size: 26px;
-        font-weight: bold;
-        text-decoration: none;
-        color: #fff;
-        padding: 12px 30px;
-        background-color: darkcyan;
-        margin-left: -45px;
-        margin-top: 15px;
-    }*/
-    .popup .pop_content {
-        text-align: center;
-        margin-top: 40px;
-    }
-    .model_ok_cancel{
-        width:200px !important;
-    }
-    /* @media screen and (max-width: 700px){
-         .box{
-             width: 70%;
-         }
-         .popup{
-             width: 70%;
-         }*/
-    /* }*/
-</style>
 <!--post save success pop up style end -->
     <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
@@ -116,19 +17,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-4 col-sm-4">
-                        <!-- <div class="left-side-bar">
-                           <ul>
-                                  <li><a href="<?php echo base_url('freelancer_hire_edit/freelancer_hire_profile'); ?>">Freelancer hire Profile</a>
-                                    </li>
-                                    <li <?php if($this->uri->segment(1) == 'freelancer'){?> class="active" <?php } ?>><a href="<?php echo base_url('freelancer/freelancer_hire_post'); ?>">Home</a>
-                                    </li>
-                                   
-                                    <li><a href="<?php echo base_url('freelancer/freelancer_add_post'); ?>">Add New Post</a>
-                                    </li>
-                                  <li><a href="<?php echo base_url('freelancer/freelancer_save'); ?>">Saved Freelancer</a>
-                                    </li>
-                                </ul>
-                        </div> -->
+                      
 
 
                     <div class="add-post-button">
@@ -172,23 +61,13 @@
                                                     // echo "<pre>"; print_r($row);die();
                                                     ?> 
              <div class="profile-job-post-detail clearfix">
-                        <!-- pop up box start-->
-                   <!-- <div id="popup1" class="overlay">
-                       <div class="popup">
-                         <div class="pop_content">
-                              Your User is Successfully Saved.
-                       <p class="okk"><a class="okbtn" href="">Ok</a></p>
-                         </div>
-                      </div>
-                    </div> -->
- 
-                    <!-- pop up box end-->
+                   
              <div class="profile-job-post-title-inside clearfix">
                  <div class="profile-job-profile-button clearfix">
                     <div class="profile-job-post-location-name-rec">
                   
 
-             <div style="display: inline-block; float: left;">
+             <div style="display: inline-block; " class="fl">
                      <div  class="buisness-profile-pic-candidate">
                                    <?php
                                 if ($row['freelancer_post_user_image']) {
@@ -205,7 +84,7 @@
            </div>
 
               
-             <div class="designation_rec" style="float: left;">
+             <div class="designation_rec fl">
           <ul>
                <li>        
              <a href="<?php echo base_url('freelancer/freelancer_post_profile/' . $row['user_id'].'?page=freelancer_hire'); ?>" title="<?php echo ucwords($row['freelancer_post_fullname']) . ' ' . ucwords($row['freelancer_post_username']); ?>"><h6>
@@ -391,7 +270,7 @@
                                         } else {
                                             ?>
                                             <div class="text-center rio">
-                                                <h4 class="page-heading  product-listing" style="border:0px;margin-bottom: 11px;">No Recommended Freelancer Found.</h4>
+                                                <h4 class="page-heading  product-listing" >No Recommended Freelancer Found.</h4>
                                             </div>
     <?php
 }

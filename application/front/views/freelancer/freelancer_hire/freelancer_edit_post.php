@@ -49,8 +49,7 @@
                   <div>
                             <h4 class="freelancer_editpost_title"> Project Description</h4></div>
 
-                    <!-- <div><span style="color:red">Fields marked with asterisk (*) are mandatory</span></div>  -->
-
+                 
                                 <div>
                                    <span style="color:#7f7f7e;padding-left: 8px;">( </span><span style="color:red">*</span><span style="color:#7f7f7e"> )</span> 
                                    <span style="color:#7f7f7e">Indicates required field</span>

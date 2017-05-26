@@ -6,139 +6,7 @@
 </style>
 
 <!--post save success pop up style strat -->
-<style>
-   /* body {
-        font-family: Arial, sans-serif;
-        background-size: cover;
-        height: 100vh;
-    }*/
 
-    /*.box {
-        width: 40%;
-        margin: 0 auto;
-        background: rgba(255,255,255,0.2);
-        padding: 35px;
-        border: 2px solid #fff;
-        border-radius: 20px/50px;
-        background-clip: padding-box;
-        text-align: center;
-    }*/
-
-
-
-   /* .overlay {
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: rgba(0, 0, 0, 0.7);
-        transition: opacity 500ms;
-        visibility: hidden;
-        opacity: 0;
-        z-index: 10;
-    }*/
-    /*.overlay:target {
-        visibility: visible;
-        opacity: 1;
-    }*/
-
-    /*.popup {
-        margin: 70px auto;
-        padding: 20px;
-        background: #fff;
-        border-radius: 5px;
-        width: 30%;
-        height: 200px;
-        position: relative;
-        transition: all 5s ease-in-out;
-    }
-*/
-.okk{
-        text-align: center;
-    }
-     .pop_content .okbtn{
-        position: absolute;
-        transition: all 200ms;
-        font-size: 16px;
-        text-decoration: none;
-        color: #fff;
-        padding: 8px 18px;
-        background-color: #0A2C5D;
-        left: 170px;
-        margin-top: 8px;
-        width: 100px; 
-        border-radius: 8px;
-    }
-      .pop_content .cnclbtn {
-        position: absolute;
-        transition: all 200ms;
-        font-size: 16px;
-        text-decoration: none;
-        color: #fff;
-        padding: 8px 18px;
-        background-color: #0A2C5D;
-        right: 170px;
-        margin-top: 8px;
-        width: 100px;
-        border-radius: 8px;
-    }  
-
-    .popup .pop_content {
-        text-align: center;
-        margin-top: 40px;
-
-    }
-      .model_ok_cancel{
-        width:200px !important;
-    }
-  
-/*    @media screen and (max-width: 700px){
-        .box{
-            width: 70%;
-        }
-        .popup{
-            width: 70%;
-        }
-    }*/
-</style>
-
-<!--post save success pop up style end -->
-
-<!-- <style type="text/css" media="screen">
-    #row2 { overflow: hidden; width: 100%; }
-    #row2 img { height: 350px;width: 100%; }
-    .upload-img{    float: right;
-                    position: relative;
-                    margin-top: -135px;
-                    right: 50px; }
-
-    label.cameraButton {
-        display: inline-block;
-        margin: 1em 0;
-
-        /* Styles to make it look like a button */
-        padding: 0.5em;
-        border: 2px solid #666;
-        border-color: #EEE #CCC #CCC #EEE;
-        background-color: #DDD;
-        opacity: 0.7;
-    }
-
-    /* Look like a clicked/depressed button */
-    label.cameraButton:active {
-        border-color: #CCC #EEE #EEE #CCC;
-    }
-
-    /* This is the part that actually hides the 'Choose file' text box for camera inputs */
-    label.cameraButton input[accept*="camera"] {
-        display: none;
-    }
-
-
-
-
-</style> -->
 <!-- END HEAD -->
 
 <!-- start header -->
@@ -166,9 +34,9 @@
         <div class="container" id="paddingtop_fixed">
             <div class="row" id="row1" style="display:none;">
                 <div class="col-md-12 text-center">
-                    <div id="upload-demo" style="width:100%"></div>
+                    <div id="upload-demo" ></div>
                 </div>
-                <div class="col-md-12 cover-pic" style="padding-top: 25px;text-align: center;">
+                <div class="col-md-12 cover-pic" >
                     <button class="btn btn-success  cancel-result set-btn" onclick="" >Cancel</button>
 
                     <button class="btn btn-success set-btn upload-result" onclick="myFunction()">Save</button>
@@ -188,7 +56,7 @@
                     </div>
                 </div>
                 <div class="col-md-12"  style="visibility: hidden; ">
-                    <div id="upload-demo-i" style="background:#e1e1e1;width:100%;padding:30px;height:1px;margin-top:30px"></div>
+                    <div id="upload-demo-i" ></div>
                 </div>
             </div>
 
@@ -362,10 +230,7 @@ $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
 $freelancerapply1 = $this->data['freelancerapply'] = $this->common->select_data_by_condition('freelancer_apply', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
  if ($freelancerapply1) {
           ?>
-         <!-- <div class="text-center rio">
-                                                <h4 class="page-heading  product-listing" style="border:0px;margin-bottom: 11px;">No Saved Posts Found.</h4>
-                                            </div> <?php //die();?>
- --> <?php
+         <?php
 } else {
 ?>
 
@@ -377,23 +242,8 @@ $freelancerapply1 = $this->data['freelancerapply'] = $this->common->select_data_
                                             <div class="profile-job-post-title-inside clearfix">
 
 
-                                                <!-- pop up box start-->
-                                                <!-- <div id="<?php echo 'popup3' . $post['post_id']; ?>" class="overlay">
-                                                    <div class="popup"> -->
-<!-- khati changes 11-4 start -->
-                                                        <!-- div class="pop_content">
-                                                            Are You Sure want to delete this post?.
-
-                                                            <p class="okk"><a class="okbtn" id="<?php echo $post['post_id']; ?>" onClick="remove_post(this.id)" href="#">Yes</a></p>
-
-                                                            <p class="okk"><a class="cnclbtn" href="#">No</a></p>
-
-                                                        </div> -->
-<!-- khati changes 11-4 end -->
-                                                   <!--  </div>
-                                                </div> -->
-                                                <!-- pop up box end-->
-                  <div class="profile-job-post-title clearfix" style="margin-bottom:0px">
+                                            
+                  <div class="profile-job-post-title clearfix margin_btm">
                   <div class="profile-job-profile-button clearfix">
                      <div class="profile-job-details col-md-12">
                           <ul>
@@ -406,14 +256,6 @@ $freelancerapply1 = $this->data['freelancerapply'] = $this->common->select_data_
                               <a href="#" title="Post Title" class="post_title">
                               <?php echo ucwords(text2link($post['post_name'])); ?> </a>   </li>
 
-                             <!-- <li>   
-                               <div class="fr lction">
-                              <?php $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name; ?>
-                              <?php $countryname = $this->db->get_where('countries', array('country_id' => $post['country']))->row()->country_name; ?>
-
-                                <p title="Location"><i class="fa fa-map-marker" aria-hidden="true">  <?php echo $cityname.","; ?><?php echo $countryname; ?></i></p>
-                                 </div>
-                                 </li> -->
 
                              <?php
                 $firstname = $this->db->get_where('freelancer_hire_reg', array('user_id' => $post['user_id']))->row()->fullname;
@@ -565,7 +407,7 @@ $freelancerapply1 = $this->data['freelancerapply'] = $this->common->select_data_
                         <?php } } }else{
                             ?>
                                 <div class="text-center rio">
-                                                <h4 class="page-heading  product-listing" style="border:0px;margin-bottom: 11px;">No Saved Posts Found.</h4>
+                                                <h4 class="page-heading  product-listing">No Saved Posts Found.</h4>
                                             </div>
                                 <?php
                         }  ?>
@@ -610,12 +452,12 @@ $freelancerapply1 = $this->data['freelancerapply'] = $this->common->select_data_
                                             <div id="popup-form">
                                                 <?php echo form_open_multipart(base_url('freelancer/user_image_add'), array('id' => 'userimage','name' => 'userimage', 'class' => 'clearfix')); ?>
                                                 <input type="file" name="profilepic" accept="image/gif, image/jpeg, image/png" id="profilepic">
-
-                                                 <img id="preview" src="#" alt="your image" style="border: 2px solid rgb(204, 204, 204); display: none; margin: 0 auto; margin-top: 5px;padding: 5px;"/>
-                                                 
+<div class="popup_previred">
+                                                 <img id="preview" src="#" alt="your image" />
+                                                 </div>
                                                 <input type="hidden" name="hitext" id="hitext" value="2">
                                                 <!--<input type="submit" name="cancel3" id="cancel3" value="Cancel">-->
-                                                <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save"  style="margin-top:32px!important;">
+                                                <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save"  >
                                                 <?php echo form_close(); ?>
                                             </div>
                                         </span>
