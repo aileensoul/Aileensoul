@@ -279,7 +279,8 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
                         interest: {
 
                             required: true,
-                         regx:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]/
+                         regx:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]/,
+                         
                             //noSpace: true
                            
                         }, 
