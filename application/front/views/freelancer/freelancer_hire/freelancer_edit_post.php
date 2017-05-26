@@ -468,7 +468,9 @@ $('#searchplace').select2({
 <!-- javascript validation start -->
    <script type="text/javascript">
 
-           
+           $.validator.addMethod("regx", function(value, element, regexpr) {          
+    return regexpr.test(value);
+}, "Only space, only number and only special characters are not allow");
 
             $(document).ready(function () { 
 
@@ -479,6 +481,7 @@ $('#searchplace').select2({
                         post_name: {
 
                             required: true,
+                            regx:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]/
                            
                         },
 
@@ -518,6 +521,7 @@ $('#searchplace').select2({
                        post_desc: {
 
                             required: true,
+                            regx:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]/
                            
                         },
                         interview: {
