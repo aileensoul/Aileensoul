@@ -361,7 +361,8 @@
                                                 </span>
                                             </li>
 
-     <li><b>Salary</b><span title="Min - Max" ><?php echo $post['min_sal']." - ".$post['max_sal']."Per Year"; ?></span>
+     <li><b>Salary</b><span title="Min - Max" >
+     <?php if ($post['min_sal'] || $post['max_sal']){echo $post['min_sal']." - ".$post['max_sal']."Per Year"; } else {echo PROFILENA;}?></span>
                                             </li>
 
                                                 <li><b>No of Position</b><span><?php echo $post['post_position']; ?></span>

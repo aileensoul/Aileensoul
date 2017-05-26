@@ -373,7 +373,7 @@ if ($returnpage == 'job') {
     </p>  
                                                 </span>
                                             </li>
-                <li><b>Salary</b><span title="Min - Max"><?php echo $post['min_sal']." - ".$post['max_sal']; ?></span>
+                <li><b>Salary</b><span title="Min - Max"><?php echo $post['min_sal']." - ".$post['max_sal']." Per Year"; ?></span>
                                             </li>
 
                                            <!--  <li><b>Maximum Salary</b><span><?php echo $post['max_sal']; ?></span>
@@ -451,23 +451,25 @@ if ($returnpage == 'job') {
                <a class="post_title" href="#" title="Post Title">
                   <?php echo $post['post_name'] ?> </a>     </li>
                   
-                    <li>   
-                       <div class="fr lction">
-                  <?php $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name;
-                 $countryname = $this->db->get_where('countries', array('country_id' => $post['country']))->row()->country_name; ?>
-                    <?php  
+                    <li> 
+                    <?php $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name;
+                 $countryname = $this->db->get_where('countries', array('country_id' => $post['country']))->row()->country_name; ?>  
+
+                 <?php  
                   if($cityname || $countryname)
                        { 
                         ?>
+                       <div class="fr lction">
+                  
+                    
                 <p title="Location"><i class="fa fa-map-marker" aria-hidden="true">
 
-                  <?php  echo $cityname .', '. $countryname; ?> 
+                  <?php if($cityname){echo $cityname .', ';} echo $countryname; ?> 
                   </i></p>
                                                             
-                      <?php
-                         }
-                        else{}?> 
+                       
            </div>
+           <?php   }    ?>
                                                       <a class="display_inline" title="<?php echo $post['re_comp_name'];?>" href="#"> <?php 
                                                           $out = strlen($post['re_comp_name']) > 40? substr($post['re_comp_name'],0,40)."..." : $post['re_comp_name'];
 
@@ -558,7 +560,10 @@ if ($returnpage == 'job') {
     </p>  
                                                 </span>
                                             </li>
-         <li><b>Salary</b><span title="Min - Max" ><?php echo $post['min_sal']." - ".$post['max_sal']; ?></span>
+         <li><b>Salary</b><span title="Min - Max" >
+         <?php if($post['min_sal'] || $post['max_sal']) {
+          echo $post['min_sal']." - ".$post['max_sal']. " Per Year"; } 
+          else { echo PROFILENA;} ?></span>
                                             </li>
                                             
 
