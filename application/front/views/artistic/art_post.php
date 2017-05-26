@@ -772,7 +772,8 @@ if ($userlistview4 > 0) {
                                         </div>
 
                                     </div>
-                                   <!--   <span class="fr">
+
+                                </div>     <!--   <span class="fr">
                                
                                    <input type="file" id="files" name="postattach[]" multiple style="display:block;">  </span> -->
                                     <div class="col-md-1"><i class=" fa fa-camera "  style="margin: 0px;
