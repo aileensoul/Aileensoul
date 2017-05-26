@@ -705,7 +705,17 @@ if ($userlistview4 > 0) {
                                         </div>
 
                                     </div>
-                            
+                                </div>
+                                <div class="row"></div>
+                                <div  id="text"  class="editor-content col-md-12 popup-textarea" >
+                                    <textarea id="test-upload_des" name="product_desc" class="description" placeholder="Enter Description"></textarea>
+
+                                    <output id="list"></output>
+                                </div>
+                                   <!--   <span class="fr">
+                               
+                                   <input type="file" id="files" name="postattach[]" multiple style="display:block;">  </span> -->
+
                                 <div class="popup-social-icon">
                                     <ul class="editor-header">
 
