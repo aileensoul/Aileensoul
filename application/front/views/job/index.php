@@ -161,7 +161,7 @@ $gender = form_error('gender');
 
                                 <fieldset <?php if ($email) { ?> class="error-msg" <?php } ?>>
                                     <label>Email Address <span class="red">*</span></label>
-                                    <input type="text" name="email" id="email" placeholder="Enter Email Address"  value="<?php if ($email1) {
+                                    <input type="email" name="email" id="email" placeholder="Enter Email Address"  value="<?php if ($email1) {
     echo $email1;
 } else {
     echo $job[0]['user_email'];
@@ -483,6 +483,7 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
 
                             number: true,
                             required: true,
+                            minLength:5
                             
                         },
                         
