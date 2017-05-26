@@ -73,7 +73,7 @@
         width:200px !important;
     }
 
-.audio_img{height: 300px; width: 350px; position: relative;}
+
 
 </style>
 <style type="text/css">
@@ -217,9 +217,9 @@
 
 <!--  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 -->
-    
+
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/video.css'); ?>">
-    <script src="<?php echo base_url('js/mediaelement-and-player.min.js'); ?>"></script>
+<script src="<?php echo base_url('js/mediaelement-and-player.min.js'); ?>"></script>
 <script src="<?php echo base_url('dragdrop/js/plugins/sortable.js'); ?>"></script>
 <script src="<?php echo base_url('dragdrop/js/fileinput.js'); ?>"></script>
 <script src="<?php echo base_url('dragdrop/js/locales/fr.js'); ?>"></script>
@@ -239,7 +239,7 @@
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
-        <!-- <script src="<?php //echo base_url('js/jquery.min.js');                                                     ?>"></script> -->
+        <!-- <script src="<?php //echo base_url('js/jquery.min.js');                                                              ?>"></script> -->
 
         <!-- further and less -->
         <script>
@@ -766,15 +766,14 @@
                                 <div class="main-text-area col-md-12" >
                                     <div class="popup-img-in col-md-1"> 
                                         <?php
-                                        if($businessdata[0]['business_user_image'] != ''){
-                                        ?>
-                                        <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $businessdata[0]['business_user_image']); ?>"  alt="">
-                                        <?php
-                                        }
-                                        else{
+                                        if ($businessdata[0]['business_user_image'] != '') {
                                             ?>
-                                        <img  src="<?php echo base_url(NOIMAGE); ?>"  alt="">
-                                        <?php
+                                            <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $businessdata[0]['business_user_image']); ?>"  alt="">
+                                            <?php
+                                        } else {
+                                            ?>
+                                            <img  src="<?php echo base_url(NOIMAGE); ?>"  alt="">
+                                            <?php
                                         }
                                         ?>
                                     </div>
@@ -1022,10 +1021,11 @@
                                                                         </i> Contact Person
                                                                     </a>
 
-                                                                <?php }
+                                                                    <?php
+                                                                }
                                                             } else {
                                                                 ?>
-                <?php if ($this->session->userdata('aileenuser') == $row['user_id']) { ?> 
+                                                                <?php if ($this->session->userdata('aileenuser') == $row['user_id']) { ?> 
                                                                     <a onclick="user_postdelete(<?php echo $row['business_profile_post_id']; ?>)">
                                                                         <i class="fa fa-trash-o" aria-hidden="true">
                                                                         </i> Delete Post
@@ -1034,7 +1034,7 @@
                                                                         <i class="fa fa-pencil-square-o" aria-hidden="true">
                                                                         </i>Edit
                                                                     </a>
-                <?php } else { ?>
+                                                                <?php } else { ?>
                                                                     <a onclick="user_postdeleteparticular(<?php echo $row['business_profile_post_id']; ?>)">
                                                                         <i class="fa fa-trash-o" aria-hidden="true">
                                                                         </i> Delete Post
@@ -1044,7 +1044,8 @@
                                                                         <i class="fa fa-user" aria-hidden="true">
                                                                         </i> Contact Person
                                                                     </a>
-                                                                <?php }
+                                                                    <?php
+                                                                }
                                                             }
                                                             ?>
 
@@ -1055,7 +1056,7 @@
                                                         <div>
                                                             <div id="<?php echo 'editpostdata' . $row['business_profile_post_id']; ?>" style="display:block;">
                                                                 <a style="margin-bottom: 0px;     font-size: 16px">
-            <?php echo $this->common->make_links($row['product_name']); ?>
+                                                                    <?php echo $this->common->make_links($row['product_name']); ?>
                                                                 </a>
                                                             </div>
                                                             <div id="<?php echo 'editpostbox' . $row['business_profile_post_id']; ?>" style="display:none;">
@@ -1065,7 +1066,7 @@
 
                                                         <div id="<?php echo 'editpostdetails' . $row['business_profile_post_id']; ?>" style="display:block;">
                                                             <span class="show"> 
-            <?php print $this->common->make_links($row['product_description']); ?>
+                                                                <?php print $this->common->make_links($row['product_description']); ?>
                                                             </span>
                                                         </div>
                                                         <div id="<?php echo 'editpostdetailbox' . $row['business_profile_post_id']; ?>" style="display:none;">
@@ -1102,7 +1103,7 @@
                                                                     </a>
                                                                 </div>
                                                                 <!-- one image end -->
-                <?php } elseif (in_array($ext, $allowespdf)) { ?>
+                                                            <?php } elseif (in_array($ext, $allowespdf)) { ?>
                                                                 <!-- one pdf start -->
                                                                 <div>
                                                                     <a title="click to open" href="<?php echo base_url('business_profile/creat_pdf/' . $businessmultiimage[0]['image_id']) ?>"><div class="pdf_img">
@@ -1111,7 +1112,7 @@
                                                                     </a>
                                                                 </div>
                                                                 <!-- one pdf end -->
-                <?php } elseif (in_array($ext, $allowesvideo)) { ?>
+                                                            <?php } elseif (in_array($ext, $allowesvideo)) { ?>
                                                                 <!-- one video start -->
                                                                 <div>
                                                                     <video width="100%" height="350" controls>
@@ -1121,23 +1122,23 @@
                                                                     </video>
                                                                 </div>
                                                                 <!-- one video end -->
-                <?php } elseif (in_array($ext, $allowesaudio)) { ?>
+                                                            <?php } elseif (in_array($ext, $allowesaudio)) { ?>
                                                                 <!-- one audio start -->
                                                                 <div class="audio_main_div">
-                                                                <div class="audio_img">
-                                                                  <img src="<?php echo base_url('images/music-icon.png')?> ">  
-                                                                </div>
-                                                                <div class="audio_source">
-                                                                    <audio id="audio_player" width="100%" height="100" controls>
-                                                                        <source src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $businessmultiimage[0]['image_name']); ?>" type="audio/mp3">
-                                                                        <source src="movie.ogg" type="audio/ogg">
-                                                                        Your browser does not support the audio tag.
-                                                                    </audio>
-                                                                </div>
-                                                                <div class="audio_mp3">
-                                                                   <p title="hellow this is mp3">This text will scroll from right to left</p>
-                                                                </div>
-                                                               </div> 
+                                                                    <div class="audio_img">
+                                                                        <img src="<?php echo base_url('images/music-icon.png') ?> ">  
+                                                                    </div>
+                                                                    <div class="audio_source">
+                                                                        <audio id="audio_player" width="100%" height="100" controls>
+                                                                            <source src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $businessmultiimage[0]['image_name']); ?>" type="audio/mp3">
+                                                                            <source src="movie.ogg" type="audio/ogg">
+                                                                            Your browser does not support the audio tag.
+                                                                        </audio>
+                                                                    </div>
+                                                                    <div class="audio_mp3">
+                                                                        <p title="hellow this is mp3">This text will scroll from right to left</p>
+                                                                    </div>
+                                                                </div> 
                                                                 <!-- one audio end -->
                                                             <?php } ?>
                                                         <?php } elseif (count($businessmultiimage) == 2) { ?>
@@ -1151,8 +1152,8 @@
                                                                     </a>
                                                                 </div>
                                                                 <!-- two image end -->
-                <?php } ?>
-            <?php } elseif (count($businessmultiimage) == 3) { ?>
+                                                            <?php } ?>
+                                                        <?php } elseif (count($businessmultiimage) == 3) { ?>
                                                             <!-- three image start -->
                                                             <div id="three_images_art" >
                                                                 <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>">
@@ -1211,12 +1212,12 @@
                                                                 </div>
                                                                 <div class="bui_images_view_more" >
                                                                     <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>" >View All (+
-                <?php echo (count($businessmultiimage) - 4); ?>)
+                                                                        <?php echo (count($businessmultiimage) - 4); ?>)
                                                                     </a>
                                                                 </div>
                                                             </div>
                                                             <!-- this div view all image end -->
-            <?php } ?>
+                                                        <?php } ?>
                                                         <div>
                                                         </div>
                                                     </div>
@@ -1240,7 +1241,7 @@
                                                                     <?php } else { ?> 
                                                                         <i class="fa fa-thumbs-up" aria-hidden="true">
                                                                         </i>
-                                                                        <?php } ?>
+                                                                    <?php } ?>
                                                                     <span>
                                                                         <?php
                                                                         if ($row['business_likes_count'] > 0) {
@@ -1315,7 +1316,7 @@
                                                                     echo "&nbsp;";
                                                                     echo "others";
                                                                     ?> 
-                <?php } ?>
+                                                                <?php } ?>
                                                             </div>
                                                         </a>
                                                     </div>
@@ -1360,7 +1361,7 @@
                                                                 echo "&nbsp;";
                                                                 echo "others";
                                                                 ?> 
-            <?php } ?>
+                                                            <?php } ?>
                                                         </div>
                                                     </a>
                                                 </div>
@@ -1390,16 +1391,16 @@
                                                                             <?php
                                                                             $business_userimage = $this->db->get_where('business_profile', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->business_user_image;
                                                                             ?>
-                    <?php if ($business_userimage) { ?>
+                                                                            <?php if ($business_userimage) { ?>
                                                                                 <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname1); ?>">
 
                                                                                     <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage); ?>"  alt=""> </a>
-                    <?php } else { ?>
+                                                                            <?php } else { ?>
                                                                                 <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname1); ?>">
 
                                                                                     <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
                                                                                 </a>
-                    <?php } ?>
+                                                                            <?php } ?>
                                                                         </div>
                                                                         <div class="comment-name">
                                                                             <b title=" <?php echo $companyname; ?>">  
@@ -1448,7 +1449,7 @@
                                                                                     <?php } else { ?>
                                                                                         <i class="fa fa-thumbs-up" aria-hidden="true">
                                                                                         </i>
-                                                                                        <?php } ?>
+                                                                                    <?php } ?>
                                                                                     <span>
                                                                                         <?php
                                                                                         if ($rowdata['business_comment_likes_count']) {
@@ -1489,7 +1490,7 @@
                                                                                         </span>
                                                                                     </a>
                                                                                 </div>
-                    <?php } ?>                                   
+                                                                            <?php } ?>                                   
                                                                             <span role="presentation" aria-hidden="true"> · 
                                                                             </span>
                                                                             <div class="comment-details-menu">
@@ -1522,13 +1523,13 @@
                                                             <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage); ?>"  alt="">
                                                         <?php } else { ?>
                                                             <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
-            <?php } ?>
+                                                        <?php } ?>
                                                     </div>
                                                     <div class="">
                                                         <div id="content" class="col-md-12  inputtype-comment" style="padding-left: 7px; width: 80%;">
                                                             <div contenteditable="true" style="min-height:37px !important; margin-top: 0px!important" class="editable_text" name="<?php echo $row['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $row['business_profile_post_id']; ?>" placeholder="Add a Comment ..." onClick="entercomment(<?php echo $row['business_profile_post_id']; ?>)"></div>
                                                         </div>
-            <?php echo form_error('post_comment'); ?> 
+                                                        <?php echo form_error('post_comment'); ?> 
                                                         <div class="comment-edit-butn">       
                                                             <button id="<?php echo $row['business_profile_post_id']; ?>" onClick="insert_comment(this.id)">Comment
                                                             </button>
@@ -1548,7 +1549,7 @@
                                 <h4 class="page-heading  product-listing" style="border:0px;margin-bottom: 11px;">No Post Found.</h4>
                             </div>
 
-<?php } ?>
+                        <?php } ?>
                         <!-- body content end-->
                     </div>
                 </div>
@@ -1557,7 +1558,7 @@
     </div>
 </section>
 <footer>
-<?php echo $footer; ?>
+    <?php echo $footer; ?>
 </footer>
 <!-- Bid-modal  -->
 <div class="modal fade message-box biderror" id="bidmodal" role="dialog">
@@ -1592,7 +1593,7 @@
 </html>
 <script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
 <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
- <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script> 
+<script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script> 
 <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 <!-- script for skill textbox automatic end (option 2)-->
@@ -1607,7 +1608,7 @@
 </script>
 <script>
     var data = <?php echo json_encode($demo);
-?>;
+    ?>;
     //alert(data);
     $(function () {
         // alert('hi');
@@ -1734,7 +1735,13 @@
 
         var sel = $("#post_comment" + clicked_id);
         var txt = sel.html();
-        if (txt == '') {
+        txt = txt.replace(/&nbsp;/gi, " ");
+        txt = txt.replace(/<br>$/, '');
+        if (txt == '' || txt == '<br>') {
+            return false;
+        }
+        if (/^\s+$/gi.test(txt))
+        {
             return false;
         }
 
@@ -1846,10 +1853,16 @@
                 e.preventDefault();
                 var sel = $("#post_comment" + clicked_id);
                 var txt = sel.html();
-                if (txt == '') {
+                //txt = txt.replace(/^(&nbsp;|<br>)+/, '');
+                txt = txt.replace(/&nbsp;/gi, " ");
+                txt = txt.replace(/<br>$/, '');
+                if (txt == '' || txt == '<br>') {
                     return false;
                 }
-
+                if (/^\s+$/gi.test(txt))
+                {
+                    return false;
+                }
                 $('#post_comment' + clicked_id).html("");
 
                 if (window.preventDuplicateKeyPresses)
@@ -1939,7 +1952,7 @@
         //      z.style.display = 'block';
         //      $.ajax({ 
         //             type:'POST',
-        //          url:'<?php //echo base_url() . "business_profile/fourcomment"                                                     ?>',
+        //          url:'<?php //echo base_url() . "business_profile/fourcomment"                                                              ?>',
         //             data:'art_post_id='+clicked_id,
         //             //alert(data);
         //             success:function(data){
@@ -2161,7 +2174,13 @@
 
         var sel = $("#editcomment" + abc);
         var txt = sel.html();
+        txt = txt.replace(/&nbsp;/gi, " ");
+        txt = txt.replace(/<br>$/, '');
         if (txt == '' || txt == '<br>') {
+            return false;
+        }
+        if (/^\s+$/gi.test(txt))
+        {
             return false;
         }
 //                    alert(txt);
@@ -2239,7 +2258,13 @@
                 event.preventDefault();
                 var sel = $("#editcomment" + abc);
                 var txt = sel.html();
+                txt = txt.replace(/&nbsp;/gi, " ");
+                txt = txt.replace(/<br>$/, '');
                 if (txt == '' || txt == '<br>') {
+                    return false;
+                }
+                if (/^\s+$/gi.test(txt))
+                {
                     return false;
                 }
                 //$('#editcomment' + abc).html("");
@@ -2305,7 +2330,13 @@
 
         var sel = $("#editcommenttwo" + abc);
         var txt = sel.html();
+        txt = txt.replace(/&nbsp;/gi, " ");
+        txt = txt.replace(/<br>$/, '');
         if (txt == '' || txt == '<br>') {
+            return false;
+        }
+        if (/^\s+$/gi.test(txt))
+        {
             return false;
         }
         $.ajax({
@@ -2391,7 +2422,13 @@
                 var sel = $("#editcommenttwo" + abc);
                 var txt = sel.html();
 
+                txt = txt.replace(/&nbsp;/gi, " ");
+                txt = txt.replace(/<br>$/, '');
                 if (txt == '' || txt == '<br>') {
+                    return false;
+                }
+                if (/^\s+$/gi.test(txt))
+                {
                     return false;
                 }
 
@@ -3159,6 +3196,16 @@
                 var sel = $("#post_comment" + clicked_id);
                 var txt = sel.html();
 
+                txt = txt.replace(/&nbsp;/gi, " ");
+                txt = txt.replace(/<br>$/, '');
+                if (txt == '' || txt == '<br>') {
+                    return false;
+                }
+                if (/^\s+$/gi.test(txt))
+                {
+                    return false;
+                }
+
                 $('#post_comment' + clicked_id).html("");
                 // $("#result").html(txt);
                 // sel.html("")
@@ -3347,12 +3394,12 @@
     });
 </script>-->
 
-  <script>
-    $(document).ready(function() {
+<script>
+    $(document).ready(function () {
         $('video').mediaelementplayer({
             alwaysShowControls: false,
             videoVolume: 'horizontal',
-            features: ['playpause','progress','volume','fullscreen']
+            features: ['playpause', 'progress', 'volume', 'fullscreen']
         });
     });
-    </script>
+</script>

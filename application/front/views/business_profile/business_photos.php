@@ -367,7 +367,7 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/jquery.jMosaic.css'); ?>">
 <link rel="stylesheet" href="<?php echo base_url('css/bootstrap.min.css') ?>" />  
-<!-- <link rel="stylesheet" href="<?php //echo base_url('assets/css/croppie.css');        ?>">
+<!-- <link rel="stylesheet" href="<?php //echo base_url('assets/css/croppie.css');                     ?>">
 --><style type="text/css" media="screen">
     #row2 { overflow: hidden; width: 100%; }
     #row2 img { height: 350px;width: 100%; } 
@@ -489,7 +489,7 @@
         $userid = $this->session->userdata('aileenuser');
         if ($businessdata1[0]['user_id'] == $userid) {
             ?>
-         <div class="container">
+            <div class="container">
                 <div class="upload-img">
 
 
@@ -497,10 +497,10 @@
                         <input type="file" id="upload" name="upload" accept="image/*;capture=camera" onclick="showDiv()">
                     </label>
                 </div>
-</div>
-            <?php } ?>
-            <!-- coer image end-->
-                <div class="container">   
+            </div>
+        <?php } ?>
+        <!-- coer image end-->
+        <div class="container">   
             <div class="profile-photo">
                 <div class="buisness-menu">
                     <div class="profile-pho-bui">
@@ -628,7 +628,7 @@
                             </ul>
 
                         </div>
-                          <?php
+                        <?php
                         $userid = $this->session->userdata('aileenuser');
 
                         if ($businessdata1[0]['user_id'] != $userid) {
@@ -682,19 +682,19 @@
                 </div>
             </div>
         </div>
-   
-
-
-<div class="container">
-
-
- <div class="user-midd-section"  style="">
 
 
 
-       <!--  <div class="container "  style="border: 1px solid #d9d9d9;padding-right: 0px;"> -->
-            <!-- <div class="row" style="margin-right: 0px;">
- -->
+        <div class="container">
+
+
+            <div class="user-midd-section"  style="">
+
+
+
+                <!--  <div class="container "  style="border: 1px solid #d9d9d9;padding-right: 0px;"> -->
+                <!-- <div class="row" style="margin-right: 0px;">
+                -->
 
                 <div  class="col-sm-12 border_tag padding_low_data padding_les" >
 
@@ -748,22 +748,22 @@
 
 
 
-                                                     <!-- <div style="position: relative;">
+                                                    <!-- <div style="position: relative;">
 
 
 
-                                                         <div class="not_text" style=" top: 70;     position: absolute;
-                                            columns: #000033;
-                                            color: #728bc0;
-                                            font-size: 19px;
-                                            font-weight: 600;
-                                            left: 362;"><img src="<?php echo base_url('images/020-c.png'); ?>"
-                                            " ><span style="position: absolute;
-                                               left: 19px;
-                                            top: 184px;
-                                        
-                                        ">Photo not avalible</span></div>
-                                                    </div> -->
+                                                        <div class="not_text" style=" top: 70;     position: absolute;
+                                           columns: #000033;
+                                           color: #728bc0;
+                                           font-size: 19px;
+                                           font-weight: 600;
+                                           left: 362;"><img src="<?php echo base_url('images/020-c.png'); ?>"
+                                           " ><span style="position: absolute;
+                                              left: 19px;
+                                           top: 184px;
+                                       
+                                       ">Photo not avalible</span></div>
+                                                   </div> -->
                                                 <?php } ?>
 
                                             </div>
@@ -796,7 +796,7 @@
                                                         <div class="mySlides">
                                                             <div class="numbertext"><?php echo $i ?> / <?php echo count($databus1) ?></div>
                                                             <div>
-                                                                <img src="<?php echo base_url($this->config->item('bus_post_main_upload_path') .$busdata['image_name']) ?>" style="width:100%; height: 70%;">
+                                                                <img src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $busdata['image_name']) ?>" style="width:100%; height: 70%;">
                                                             </div>
 
                                                             <!-- like comment start -->
@@ -881,17 +881,17 @@
                                                                             $countlike = count($commneteduser) - 1;
                                                                             $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $commneteduser[0]['user_id'], 'status' => 1))->row()->company_name;
                                                                             ?>
-                         <div class="like_one_other_img">
-                         <?php
-                         if($userid == $commneteduser[0]['user_id']){
+                                                                            <div class="like_one_other_img">
+                                                                                <?php
+                                                                                if ($userid == $commneteduser[0]['user_id']) {
 
-                             echo "You";
-                             echo "&nbsp;";
-                         }else{
-                            echo ucwords($business_fname1);
-                             echo "&nbsp;";
-                          }
-                         ?>
+                                                                                    echo "You";
+                                                                                    echo "&nbsp;";
+                                                                                } else {
+                                                                                    echo ucwords($business_fname1);
+                                                                                    echo "&nbsp;";
+                                                                                }
+                                                                                ?>
                                                                                 <?php
                                                                                 if (count($commneteduser) > 1) {
                                                                                     ?>
@@ -961,20 +961,20 @@
                                                                             $busmulimage = $this->common->select_data_by_condition('bus_post_image_comment', $contition_array, $data = '*', $sortby = 'post_image_comment_id', $orderby = 'DESC', $limit = '1', $offset = '', $join_str = array(), $groupby = '');
 
                                                                             if ($busmulimage) {
-                                           foreach ($busmulimage as $rowdata) {
-                                  $companyname = $this->db->get_where('business_profile', array('user_id' => $rowdata['user_id']))->row()->company_name;
+                                                                                foreach ($busmulimage as $rowdata) {
+                                                                                    $companyname = $this->db->get_where('business_profile', array('user_id' => $rowdata['user_id']))->row()->company_name;
                                                                                     ?>
-                                        <?php $slug =  $this->db->get_where('business_profile',array('user_id' => $rowdata['user_id']))->row()->business_slug;?>
+                                                                                    <?php $slug = $this->db->get_where('business_profile', array('user_id' => $rowdata['user_id']))->row()->business_slug; ?>
 
 
                                                                                     <div class="all-comment-comment-box">
 
                                                                                         <div class="post-design-pro-comment-img"> 
-                                                                         <?php
-                                                          $business_userimage = $this->db->get_where('business_profile', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->business_user_image;
+                                                                                            <?php
+                                                                                            $business_userimage = $this->db->get_where('business_profile', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->business_user_image;
                                                                                             ?>
-<a href="<?php echo base_url('business_profile/business_profile_manage_post/'.$slug); ?>">
-                                                          <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage); ?>"  alt="">
+                                                                                            <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slug); ?>">
+                                                                                                <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage); ?>"  alt="">
                                                                                             </a>
                                                                                         </div>
 
@@ -1145,7 +1145,7 @@
                                                                             <div contenteditable="true" class="editable_text" name="<?php echo $busdata['image_id']; ?>" id="<?php echo "post_imgcomment" . $busdata['image_id']; ?>" placeholder="Type Comment ..." onkeyup="entercommentimg(<?php echo $busdata['image_id']; ?>)"></div>
                                                                         </div>
 
-                                                                        <div class="col-md-1 comment-edit-butn">                                      
+                                                                        <div class="comment-edit-butn">                                      
                                                                             <button id="<?php echo $busdata['image_id']; ?>" onClick="insert_commentimg(this.id)">Comment</button>
 
                                                                         </div>
@@ -1208,28 +1208,28 @@
 
 
 <!-- Bid-modal-2  -->
-                        <div class="modal fade message-box" id="bidmodal-2" role="dialog">
-                            <div class="modal-dialog modal-lm">
-                                <div class="modal-content">
-                                    <button type="button" class="modal-close" data-dismiss="modal">&times;</button>       
-                                    <div class="modal-body">
-                                        <span class="mes">
-                                            <div id="popup-form">
-                                                <?php echo form_open_multipart(base_url('business_profile/user_image_insert'), array('id' => 'userimage','name' => 'userimage', 'class' => 'clearfix')); ?>
-                                                <input type="file" name="profilepic" accept="image/gif, image/jpeg, image/png" id="profilepic">
-                                                <input type="hidden" name="hitext" id="hitext" value="9">
+<div class="modal fade message-box" id="bidmodal-2" role="dialog">
+    <div class="modal-dialog modal-lm">
+        <div class="modal-content">
+            <button type="button" class="modal-close" data-dismiss="modal">&times;</button>       
+            <div class="modal-body">
+                <span class="mes">
+                    <div id="popup-form">
+                        <?php echo form_open_multipart(base_url('business_profile/user_image_insert'), array('id' => 'userimage', 'name' => 'userimage', 'class' => 'clearfix')); ?>
+                        <input type="file" name="profilepic" accept="image/gif, image/jpeg, image/png" id="profilepic">
+                        <input type="hidden" name="hitext" id="hitext" value="9">
 
-                                                <img id="preview" src="#" alt="your image" style="border: 2px solid rgb(204, 204, 204); display: none; margin: 0 auto; margin-top: 5px;padding: 5px;"/>
-                                                <!--<input type="submit" name="cancel3" id="cancel3" value="Cancel">-->
-                                                <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save"  style="margin-top:32px!important;">
-                                                <?php echo form_close(); ?>
-                                            </div>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Model Popup Close -->
+                        <img id="preview" src="#" alt="your image" style="border: 2px solid rgb(204, 204, 204); display: none; margin: 0 auto; margin-top: 5px;padding: 5px;"/>
+                        <!--<input type="submit" name="cancel3" id="cancel3" value="Cancel">-->
+                        <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save"  style="margin-top:32px!important;">
+                        <?php echo form_close(); ?>
+                    </div>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Model Popup Close -->
 
 
 <!-- Bid-modal  -->
@@ -1394,7 +1394,13 @@
 
         var sel = $("#post_imgcomment" + clicked_id);
         var txt = sel.html();
-        if (txt == '') {
+        txt = txt.replace(/&nbsp;/gi, " ");
+        txt = txt.replace(/<br>$/, '');
+        if (txt == '' || txt == '<br>') {
+            return false;
+        }
+        if (/^\s+$/gi.test(txt))
+        {
             return false;
         }
         $('#post_imgcomment' + clicked_id).html("");
@@ -1464,7 +1470,14 @@
                 e.preventDefault();
                 var sel = $("#post_imgcomment" + clicked_id);
                 var txt = sel.html();
+                //txt = txt.replace(/^(&nbsp;|<br>)+/, '');
+                txt = txt.replace(/&nbsp;/gi, " ");
+                txt = txt.replace(/<br>$/, '');
                 if (txt == '' || txt == '<br>') {
+                    return false;
+                }
+                if (/^\s+$/gi.test(txt))
+                {
                     return false;
                 }
 
@@ -1690,39 +1703,44 @@
 
         var sel = $("#editcomment" + abc);
         var txt = sel.html();
+        txt = txt.replace(/&nbsp;/gi, " ");
+        txt = txt.replace(/<br>$/, '');
         if (txt == '' || txt == '<br>') {
-
-
             $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
             $('#bidmodal').modal('show');
-        } else {
-            //var post_comment_edit = document.getElementById("editcomment" + abc);
-            //alert(post_comment.value);
-            //alert(post_comment.value);
-            $.ajax({
-                type: 'POST',
-                url: '<?php echo base_url() . "business_profile/mul_edit_com_insert" ?>',
-                data: 'post_image_comment_id=' + abc + '&comment=' + txt,
-                success: function (data) { //alert('falguni');
-
-                    //  $('input').each(function(){
-                    //     $(this).val('');
-                    // }); 
-                    document.getElementById('editcomment' + abc).style.display = 'none';
-                    document.getElementById('showcomment' + abc).style.display = 'block';
-                    document.getElementById('editsubmit' + abc).style.display = 'none';
-
-                    document.getElementById('editcommentbox' + abc).style.display = 'block';
-                    document.getElementById('editcancle' + abc).style.display = 'none';
-                    //alert('.' + 'showcomment' + abc);
-                    $('#' + 'showcomment' + abc).html(data);
-
-
-
-                }
-            });
-
         }
+        if (/^\s+$/gi.test(txt))
+        {
+            return false;
+        }
+        //else {
+        //var post_comment_edit = document.getElementById("editcomment" + abc);
+        //alert(post_comment.value);
+        //alert(post_comment.value);
+        $.ajax({
+            type: 'POST',
+            url: '<?php echo base_url() . "business_profile/mul_edit_com_insert" ?>',
+            data: 'post_image_comment_id=' + abc + '&comment=' + txt,
+            success: function (data) { //alert('falguni');
+
+                //  $('input').each(function(){
+                //     $(this).val('');
+                // }); 
+                document.getElementById('editcomment' + abc).style.display = 'none';
+                document.getElementById('showcomment' + abc).style.display = 'block';
+                document.getElementById('editsubmit' + abc).style.display = 'none';
+
+                document.getElementById('editcommentbox' + abc).style.display = 'block';
+                document.getElementById('editcancle' + abc).style.display = 'none';
+                //alert('.' + 'showcomment' + abc);
+                $('#' + 'showcomment' + abc).html(data);
+
+
+
+            }
+        });
+
+        //}
         //window.location.reload();
     }
 </script>
@@ -1746,9 +1764,14 @@
                 event.preventDefault();
                 var sel = $("#editcomment" + abc);
                 var txt = sel.html();
+
+                txt = txt.replace(/&nbsp;/gi, " ");
+                txt = txt.replace(/<br>$/, '');
                 if (txt == '' || txt == '<br>') {
                     $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
                     $('#bidmodal').modal('show');
+                } else if (/^\s+$/gi.test(txt)) {
+                    return false;
                 } else {
                     if (window.preventDuplicateKeyPresses)
                         return;
@@ -1808,9 +1831,14 @@
 
         var sel = $("#editcommenttwo" + abc);
         var txt = sel.html();
+        txt = txt.replace(/&nbsp;/gi, " ");
+        txt = txt.replace(/<br>$/, '');
         if (txt == '' || txt == '<br>') {
             $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deletetwo(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
             $('#bidmodal').modal('show');
+        } else if (/^\s+$/gi.test(txt))
+        {
+            return false;
         } else {
             $.ajax({
                 type: 'POST',
@@ -1858,9 +1886,14 @@
                 var sel = $("#editcommenttwo" + abc);
                 var txt = sel.html();
 
+                txt = txt.replace(/&nbsp;/gi, " ");
+                txt = txt.replace(/<br>$/, '');
                 if (txt == '' || txt == '<br>') {
                     $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deletetwo(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
                     $('#bidmodal').modal('show');
+                } else if (/^\s+$/gi.test(txt))
+                {
+                    return false;
                 } else {
 
                     if (window.preventDuplicateKeyPresses)
@@ -2093,9 +2126,14 @@
 
         var sel = $("#imgeditcomment" + abc);
         var txt = sel.html();
+        txt = txt.replace(/&nbsp;/gi, " ");
+        txt = txt.replace(/<br>$/, '');
         if (txt == '' || txt == '<br>') {
             $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='imgcomment_deleted(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
             $('#bidmodal').modal('show');
+            return false;
+        } else if (/^\s+$/gi.test(txt))
+        {
             return false;
         } else {
             $.ajax({
@@ -2133,9 +2171,14 @@
                 event.preventDefault();
                 var sel = $("#imgeditcomment" + abc);
                 var txt = sel.html();
+                txt = txt.replace(/&nbsp;/gi, " ");
+                txt = txt.replace(/<br>$/, '');
                 if (txt == '' || txt == '<br>') {
                     $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='imgcomment_deleted(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
                     $('#bidmodal').modal('show');
+                    return false;
+                } else if (/^\s+$/gi.test(txt))
+                {
                     return false;
                 } else {
 
@@ -2185,9 +2228,15 @@
 
         var sel = $("#imgeditcommenttwo" + abc);
         var txt = sel.html();
+        txt = txt.replace(/&nbsp;/gi, " ");
+        txt = txt.replace(/<br>$/, '');
         if (txt == '' || txt == '<br>') {
             $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='imgcomment_deletedtwo(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
             $('#bidmodal').modal('show');
+            return false;
+        }
+        if (/^\s+$/gi.test(txt))
+        {
             return false;
         }
 
@@ -2227,9 +2276,16 @@
                 event.preventDefault();
                 var sel = $("#imgeditcommenttwo" + abc);
                 var txt = sel.html();
+
+                txt = txt.replace(/&nbsp;/gi, " ");
+                txt = txt.replace(/<br>$/, '');
                 if (txt == '' || txt == '<br>') {
                     $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='imgcomment_deletedtwo(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
                     $('#bidmodal').modal('show');
+                    return false;
+                }
+                if (/^\s+$/gi.test(txt))
+                {
                     return false;
                 }
 
@@ -2454,73 +2510,73 @@
 
 <!-- follow user script start -->
 
-            <script type="text/javascript">
-                function followuser(clicked_id)
-                {
+<script type="text/javascript">
+    function followuser(clicked_id)
+    {
 
-                    $.ajax({
-                        type: 'POST',
-                        url: '<?php echo base_url() . "business_profile/follow" ?>',
-                        data: 'follow_to=' + clicked_id,
-                        success: function (data) {
+        $.ajax({
+            type: 'POST',
+            url: '<?php echo base_url() . "business_profile/follow" ?>',
+            data: 'follow_to=' + clicked_id,
+            success: function (data) {
 
-                            $('.' + 'fr' + clicked_id).html(data);
+                $('.' + 'fr' + clicked_id).html(data);
 
-                        }
-                    });
-                }
-            </script>
+            }
+        });
+    }
+</script>
 
-            <!-- follow user script end -->
+<!-- follow user script end -->
 
 
-            <!-- Unfollow user script start -->
+<!-- Unfollow user script start -->
 
-            <script type="text/javascript">
-                function unfollowuser(clicked_id)
-                {
+<script type="text/javascript">
+    function unfollowuser(clicked_id)
+    {
 
-                    $.ajax({
-                        type: 'POST',
-                        url: '<?php echo base_url() . "business_profile/unfollow" ?>',
-                        data: 'follow_to=' + clicked_id,
-                        success: function (data) {
+        $.ajax({
+            type: 'POST',
+            url: '<?php echo base_url() . "business_profile/unfollow" ?>',
+            data: 'follow_to=' + clicked_id,
+            success: function (data) {
 
-                            $('.' + 'fr' + clicked_id).html(data);
+                $('.' + 'fr' + clicked_id).html(data);
 
-                        }
-                    });
-                }
-            </script>
+            }
+        });
+    }
+</script>
 
-            <!-- Unfollow user script end -->
+<!-- Unfollow user script end -->
 
 
 <script>
     function updateprofilepopup(id) {
         $('#bidmodal-2').modal('show');
-         }
+    }
 </script>
 
-            <!-- script for profile pic strat -->
+<!-- script for profile pic strat -->
 <script type="text/javascript">
-    
 
-     function readURL(input) {
+
+    function readURL(input) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
-            
+
             reader.onload = function (e) {
-            
-            document.getElementById('preview').style.display = 'block';
+
+                document.getElementById('preview').style.display = 'block';
                 $('#preview').attr('src', e.target.result);
             }
-            
+
             reader.readAsDataURL(input.files[0]);
         }
     }
-    
-    $("#profilepic").change(function(){
+
+    $("#profilepic").change(function () {
         readURL(this);
     });
 </script>
@@ -2532,33 +2588,32 @@
 
 <script type="text/javascript">
 
-            //validation for edit email formate form
+    //validation for edit email formate form
 
-            $(document).ready(function () { 
+    $(document).ready(function () {
 
-                $("#userimage").validate({
+        $("#userimage").validate({
 
-                    rules: {
+            rules: {
 
-                        profilepic: {
+                profilepic: {
 
-                            required: true,
-                         
-                        },
-  
-
-                    },
-
-                    messages: {
-
-                        profilepic: {
-
-                            required: "Photo Required",
-                            
-                        },
+                    required: true,
 
                 },
 
-                });
-                   });
-  </script>
+            },
+
+            messages: {
+
+                profilepic: {
+
+                    required: "Photo Required",
+
+                },
+
+            },
+
+        });
+    });
+</script>

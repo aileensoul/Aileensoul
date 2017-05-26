@@ -3524,7 +3524,6 @@ class Business_profile extends MY_Controller {
         $post_id = $_POST["post_id"];
         $post_comment = $_POST["comment"];
 
-
         $contition_array = array('business_profile_post_id' => $_POST["post_id"], 'status' => '1');
         $busdatacomment = $this->data['busdatacomment'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -3553,7 +3552,7 @@ class Business_profile extends MY_Controller {
                 'not_product_id' => $insert_id,
                 'not_from' => 6,
                 'not_img' => 1,
-                    //    'not_created_date' => date('y-m-d h:i:s')
+                'not_created_date' => date('y-m-d h:i:s')
             );
             //echo "<pre>"; print_r($notificationdata); 
             $insert_id_notification = $this->common->insert_data_getid($notificationdata, 'notification');
@@ -3723,7 +3722,7 @@ class Business_profile extends MY_Controller {
                 'not_product_id' => $insert_id,
                 'not_from' => 6,
                 'not_img' => 1,
-                    //  'not_created_date' => date('y-m-d h:i:s')
+                'not_created_date' => date('y-m-d h:i:s')
             );
             //echo "<pre>"; print_r($notificationdata); 
             $insert_id_notification = $this->common->insert_data_getid($notificationdata, 'notification');
