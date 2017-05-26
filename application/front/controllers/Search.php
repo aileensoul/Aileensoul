@@ -1755,7 +1755,7 @@ public function business_search() {
 
             foreach ($skilldata as $key) {
                 $id = $key['skill_id'];
-                 echo $id; echo "<br>";
+              //   echo $id; echo "<br>";
                 foreach ($recdata as $postskill) {
                     $skill = explode(',', $postskill['post_skill']);
                     ;
@@ -1769,7 +1769,7 @@ public function business_search() {
                 }
             }
 
-die();
+//die();
             //echo "<pre>"; print_r($recskillpost);
             $this->data['rec_skill'] = $recskillpost;
             //  echo "<pre>"; print_r( $this->data['rec_skill']);  die();
