@@ -789,8 +789,21 @@ echo $job_header2;
                                                         </ul>
                                                     </div>
                                               </div>
-                                                <?php
-                                                $total_work_year = 0;
+                                               
+                                                
+                                                 <div class="profile-job-profile-menu" id="job_workexp">
+
+                                                        <ul><li> <b> Total Experience </b><span><?php if ($total_work_year != '0' || $total_work_month != '0') { ?> <?php if ($total_work_year != '0') { ?><?php echo $total_work_year; ?> year <?php } ?> <?php if ($total_work_month != '0') { ?><?php echo $total_work_month; ?> month <?php } ?> <?php
+                                                                    } else {
+                                                                        echo 'Fresher';
+                                                                    }
+                                                                    ?>
+                                                                </span>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                   
+                                              <?php   $total_work_year = 0;
                                                 $total_work_month = 0;
                                                  $i = 6;
                                                  
@@ -874,17 +887,7 @@ echo $job_header2;
                                                         <?php $i++;
                                                     }
                                                     ?>
-                                                    <div class="profile-job-profile-menu" id="job_workexp">
-
-                                                        <ul><li> <b> Total Experience </b><span><?php if ($total_work_year != '0' || $total_work_month != '0') { ?> <?php if ($total_work_year != '0') { ?><?php echo $total_work_year; ?> year <?php } ?> <?php if ($total_work_month != '0') { ?><?php echo $total_work_month; ?> month <?php } ?> <?php
-                                                                    } else {
-                                                                        echo 'Fresher';
-                                                                    }
-                                                                    ?>
-                                                                </span>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
+                                                   
                                                 </div>
                                                  <!--khyati chnages 22-5 start-->                                                     
 
