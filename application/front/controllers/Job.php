@@ -2870,11 +2870,11 @@ $files[] = $_FILES;
         if ($this->input->post('next')) {
 
 
-            $this->form_validation->set_rules('curricular', 'Curricular', 'required');
+            // $this->form_validation->set_rules('curricular', 'Curricular', 'required');
 
-            if ($this->form_validation->run() == FALSE) {
-                $this->load->view('job/job_curricular');
-            } else {
+            // if ($this->form_validation->run() == FALSE) {
+            //     $this->load->view('job/job_curricular');
+            // } else {
 
                 $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
                 $userdata = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -2914,7 +2914,7 @@ $files[] = $_FILES;
                     $this->session->flashdata('error', 'Your data not inserted');
                     redirect('job/job_curricular_update', 'refresh');
                 }
-            }
+            
         }
     }
 
