@@ -4,15 +4,6 @@
     #popup-form img{display: none;}
 </style>
 
-<!--post save success pop up style strat -->
-
-<!--post save success pop up style strat -->
-
-<!--post save success pop up style end -->
-
-<!--post save success pop up style end -->
-
-
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
@@ -704,7 +695,7 @@
                                                                                             <span role="presentation" aria-hidden="true"> · </span>
                                                                                             <div class="comment-details-menu">
                                                                                                 <p><?php
-                                                                                                    echo date('d-M-Y', strtotime($rowdata['created_date']));
+                                                                                                    echo $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($rowdata['created_date'])));
                                                                                                     echo '</br>';
                                                                                                     ?>
                                                                                                 </p></div>

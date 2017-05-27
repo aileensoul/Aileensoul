@@ -1288,8 +1288,8 @@
                                                                             <div class="comment-details-menu">
                                                                                 <p>
                                                                                     <?php
-                                                                                    // echo $this->common->time_elapsed_string(date('Y-m-d', strtotime($rowdata['created_date'])));
-                                                                                    echo date('Y-m-d H:i:s', strtotime($rowdata['created_date']));
+                                                                                    echo $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($rowdata['created_date'])));
+                                                                                    //echo date('Y-m-d H:i:s', strtotime($rowdata['created_date']));
                                                                                     echo '</br>';
                                                                                     ?>
                                                                                 </p>
