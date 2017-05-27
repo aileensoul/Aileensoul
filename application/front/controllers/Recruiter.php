@@ -819,13 +819,13 @@ class Recruiter extends MY_Controller {
         $this->form_validation->set_rules('position', ' Position', 'required');
         $this->form_validation->set_rules('post_desc', ' Description', 'required');
         //$this->form_validation->set_rules('other_skill', ' Other skill', 'required');
-        //$this->form_validation->set_rules('last_date', 'Last date', 'required');
+        $this->form_validation->set_rules('last_date', 'Last date', 'required');
         //$this->form_validation->set_rules('location', 'location', 'required|alpha');
         $this->form_validation->set_rules('country', 'Country', 'required');
         $this->form_validation->set_rules('state', 'State', 'required');
         //$this->form_validation->set_rules('city', 'City', 'required');
-        $this->form_validation->set_rules('minsal', 'location', 'regex_match[/^[0-9,]+$/]');
-        $this->form_validation->set_rules('maxsal', 'location', 'regex_match[/^[0-9,]+$/]');
+        // $this->form_validation->set_rules('minsal', 'location', 'regex_match[/^[0-9,]+$/]');
+        // $this->form_validation->set_rules('maxsal', 'location', 'regex_match[/^[0-9,]+$/]');
         //  $this->form_validation->set_rules('maxmonth', 'Max month', 'required');
         // $this->form_validation->set_rules('minyear', ' Max year', 'required');
         //$this->form_validation->set_rules('minmonth', ' Min month', 'required');
@@ -1129,8 +1129,8 @@ class Recruiter extends MY_Controller {
         $this->form_validation->set_rules('country', 'Country', 'required');
         $this->form_validation->set_rules('state', 'State', 'required');
         $this->form_validation->set_rules('city', 'City', 'required');
-        $this->form_validation->set_rules('minsal', 'location', 'regex_match[/^[0-9,]+$/]');
-        $this->form_validation->set_rules('maxsal', 'location', 'regex_match[/^[0-9,]+$/]');
+        // $this->form_validation->set_rules('minsal', 'location', 'regex_match[/^[0-9,]+$/]');
+        // $this->form_validation->set_rules('maxsal', 'location', 'regex_match[/^[0-9,]+$/]');
         //  $this->form_validation->set_rules('maxmonth', 'Max month', 'required');
         // $this->form_validation->set_rules('minyear', ' Max year', 'required');
         //$this->form_validation->set_rules('minmonth', ' Min month', 'required');
@@ -1141,10 +1141,10 @@ class Recruiter extends MY_Controller {
         //         } 
         //         else{ 
         $data = array(
-            'post_name' => $this->input->post('post_name'),
-            'post_description' => $this->input->post('post_desc'),
+            'post_name' => trim($this->input->post('post_name')),
+            'post_description' => trim($this->input->post('post_desc')),
             'post_skill' => implode(",", $skill),
-            'post_position' => $this->input->post('position'),
+            'post_position' => trim($this->input->post('position')),
              'post_last_date' => date('Y-m-d', strtotime($bod)),
             'country' => $this->input->post('country'),
             'state' => $this->input->post('state'),
@@ -1153,10 +1153,10 @@ class Recruiter extends MY_Controller {
             'min_year' => $this->input->post('minyear'),
             'max_month' => $this->input->post('maxmonth'),
             'max_year' => $this->input->post('maxyear'),
-            'interview_process' => $this->input->post('interview'),
+            'interview_process' => trim($this->input->post('interview')),
             'fresher' => $this->input->post('fresher'),
-            'min_sal' => $this->input->post('minsal'),
-            'max_sal' => $this->input->post('maxsal'),
+            'min_sal' => trim($this->input->post('minsal')),
+            'max_sal' => trim($this->input->post('maxsal')),
             'modify_date' => date('y-m-d h:i:s')
         );
 

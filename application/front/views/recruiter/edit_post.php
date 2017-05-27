@@ -47,7 +47,7 @@
                          //$interview =  form_error('interview');
                          $position =  form_error('position'); 
                          $post_desc =  form_error('post_desc');
-                         //$last_date =  form_error('last_date');
+                         $last_date =  form_error('last_date');
                          $location =  form_error('location'); 
                          $country =  form_error('country');
                          $state =  form_error('state');
@@ -315,7 +315,7 @@
 
                                
                 <fieldset class="half-width">
-                      <label>Last date for apply: <!-- <span style="color:red">*</span> --></label>
+                      <label>Last date for apply: <span style="color:red">*</span></label>
                       <input style="cursor:pointer;" type="text" name="last_date" placeholder="Enter last date for apply" id="datepicker" value="<?php echo date('d/m/Y',strtotime($postdata[0]['post_last_date'])); ?>" placeholder="Enter text">
                       <?php echo form_error('last_date'); ?> 
                 </fieldset>
