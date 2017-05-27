@@ -1448,6 +1448,11 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
     }, "No space please and don't leave it empty");
 
 
+
+$.validator.addMethod("regx", function(value, element, regexpr) {          
+    return regexpr.test(value);
+}, "This is not allow");
+
                             $("#jobseeker_regform").validate({
 
                                 rules: {
@@ -1479,7 +1484,7 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
                                     'grade[]': {
 
                                         required: true,
-                                        noSpace: true
+                                        regx:/^[a-zA-Z+-]/
 
                                     },
                                     'percentage[]': {
