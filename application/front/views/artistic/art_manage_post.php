@@ -871,7 +871,7 @@ pt>
 
                                                         </a>
                                                         <div class="datespan">
-                                                            <span style="font-weight: 400; font-size: 14px; color: #91949d;""> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span></div>
+                                                            <span style="font-weight: 400; font-size: 14px; color: #91949d;"> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span></div>
 
                                                     <?php } ?>                          
                                                 </li>
@@ -1422,7 +1422,7 @@ pt>
 
                                                                 <div class="comment-details-menu">
                                                                     <p> <?php
-                                                                        echo date('d-M-Y', strtotime($rowdata['created_date']));
+                                                                        echo $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($rowdata['created_date'])));
                                                                         echo '</br>';
                                                                         ?>
                                                                     </p></div></div>
