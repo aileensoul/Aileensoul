@@ -2993,7 +2993,7 @@ label.cameraButton input[accept*="camera"] {
 .art-comment-menu-design{    padding: 5px 1px 0px 30px;margin-left: 19px; }
 
 .comment-details-menu a{cursor: pointer; color: #999999; font-weight: 400; font-size: 13px;}
-.comment-details-menu p{ color: #999999; font-weight: 400; display: inline-block;}
+.comment-details-menu p{ color: #999999; font-weight: 400; display: inline-block;font-size: 13px;}
 .comment-details-menu a:hover{text-decoration:underline; }
 .comment-edit-butn{padding: 0px 0px 6px 0px;}
 .comment-edit-butn button{position: absolute; bottom: 11px;}
@@ -4566,6 +4566,7 @@ input:-moz-placeholder { color:#999; font-size: 15px; }
 .editable_text{
     min-height: 6%;
   background: white;
+  width: 82%;
     border: 2px solid #cacaca;
     outline: none;
     padding: 6.5px 15px;
@@ -5314,3 +5315,4 @@ fieldset .add_post_btns:hover{background-color:#156f95!important}
 .tabordion section .label-d:hover{background-color: #156f95!important}
 .tabordion section .label-d:active{background-color: #156f95!important}
 .margin_business{    margin-right: 16px !important;}
+.dot_A{color: #91949d; font-size: 14px;}
