@@ -1823,14 +1823,15 @@ abbr { cursor: help; }
 .profile-boxProfileCard-bg {
     background-size: 100%;
     /*    border-bottom: 1px solid #e1e8ed;
-    */height: 95px;
-    border-radius: 4px 4px 0 0;
+    */
+    /*height: 95px;
+    */border-radius: 4px 4px 0 0;
     background-position: 0 50%;
     width: 100%;
-    padding: 0 1px;
+    /*padding: 0 1px;
     margin-left: -1px;
     margin-top: -1px;
-
+*/
 }
 .profile-boxProfileCard-avatarLink {
     background-color: #fff;
@@ -1893,17 +1894,7 @@ abbr { cursor: help; }
     background-image: none;
     text-shadow: none
 }
-.profile-boxProfileCard-bg {
-    background-size: 100%;
-    /* border-bottom: 1px solid #e1e8ed; */
-    height: 95px;
-    border-radius: 4px 4px 0 0;
-    background-position: 0 50%;
-    width: 100%;
-    padding: 0 1px;
-    margin-left: -1px;
-    margin-top: -1px;
-}
+
 /*.a-block {
    // display: block!important;
 }*/
