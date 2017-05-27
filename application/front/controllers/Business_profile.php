@@ -306,7 +306,7 @@ class Business_profile extends MY_Controller {
                     'address' => $this->input->post('business_address'),
                     'user_id' => $userid,
                     'business_slug' => $this->setcategory_slug($companyname, 'business_slug', 'business_profile'),
-                    'created_date' => date('Y-m-d', time()),
+                    'created_date' => date('Y-m-d H:i:s', time()),
                     'status' => 1,
                     'is_deleted' => 0,
                     'business_step' => 1
@@ -750,7 +750,7 @@ class Business_profile extends MY_Controller {
                     $data = array(
                         'image_name' => $uploadData[$i]['file_name'],
                         'user_id' => $userid,
-                        'created_date' => date('y-m-d h:i:s'),
+                        'created_date' => date('Y-m-d H:i:s'),
                         'is_delete' => 0
                     );
 
@@ -1231,7 +1231,7 @@ class Business_profile extends MY_Controller {
             $data = array(
                 'product_name' => $this->input->post('my_text'),
                 'product_description' => $this->input->post('product_desc'),
-                'created_date' => date('Y-m-d', time()),
+                'created_date' => date('Y-m-d H:i:s', time()),
                 'status' => 1,
                 'is_delete' => 0,
                 'user_id' => $userid
@@ -1240,7 +1240,7 @@ class Business_profile extends MY_Controller {
             $data = array(
                 'product_name' => $this->input->post('my_text'),
                 'product_description' => $this->input->post('product_desc'),
-                'created_date' => date('Y-m-d', time()),
+                'created_date' => date('Y-m-d H:i:s', time()),
                 'status' => 1,
                 'is_delete' => 0,
                 'user_id' => $para,
@@ -1500,7 +1500,7 @@ class Business_profile extends MY_Controller {
             'contact_from_id' => $userid,
             'contact_to_id' => $id,
             'contact_type' => 2,
-            'created_date' => date('Y-m-d', time()),
+            'created_date' => date('Y-m-d H:i:s', time()),
             'status' => 1,
             'is_delete' => $userid,
             'contact_desc' => $this->input->post('msg')
@@ -1521,7 +1521,7 @@ class Business_profile extends MY_Controller {
             'not_read' => 2,
             'not_product_id' => $insertdata,
             'not_from' => 3,
-            'not_created_date' => date('y-m-d h:i:s')
+            'not_created_date' => date('Y-m-d H:i:s')
         );
 
         $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -1847,7 +1847,7 @@ class Business_profile extends MY_Controller {
             $data = array(
                 'post_id' => $id,
                 'user_id' => $userid,
-                'created_date' => date('Y-m-d h:i:s', time()),
+                'created_date' => date('Y-m-d H:i:s', time()),
                 'is_delete' => 0,
                 'business_save' => 1,
                 'business_delete' => 0
@@ -2016,7 +2016,7 @@ class Business_profile extends MY_Controller {
                 'not_read' => 2,
                 'not_product_id' => $follow[0]['follow_id'],
                 'not_from' => 6,
-                'not_created_date' => date('y-m-d h:i:s')
+                'not_created_date' => date('Y-m-d H:i:s')
             );
 
             $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -2049,7 +2049,7 @@ class Business_profile extends MY_Controller {
                 'not_read' => 2,
                 'not_product_id' => $insert,
                 'not_from' => 6,
-                'not_created_date' => date('y-m-d h:i:s')
+                'not_created_date' => date('Y-m-d H:i:s')
             );
 
             $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -2134,7 +2134,7 @@ class Business_profile extends MY_Controller {
                 'not_read' => 2,
                 'not_product_id' => $follow[0]['follow_id'],
                 'not_from' => 6,
-                'not_created_date' => date('y-m-d h:i:s')
+                'not_created_date' => date('Y-m-d H:i:s')
             );
 
             $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -2167,7 +2167,7 @@ class Business_profile extends MY_Controller {
                 'not_read' => 2,
                 'not_product_id' => $insert,
                 'not_from' => 6,
-                'not_created_date' => date('y-m-d h:i:s')
+                'not_created_date' => date('Y-m-d H:i:s')
             );
 
             $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -2766,7 +2766,7 @@ class Business_profile extends MY_Controller {
                         'not_product_id' => $post_id,
                         'not_from' => 6,
                         'not_img' => 3,
-                        'not_created_date' => date('y-m-d h:i:s')
+                        'not_created_date' => date('Y-m-d H:i:s')
                     );
 
 
@@ -2894,7 +2894,7 @@ class Business_profile extends MY_Controller {
                         'not_product_id' => $post_id,
                         'not_from' => 6,
                         'not_img' => 3,
-                        'not_created_date' => date('y-m-d h:i:s')
+                        'not_created_date' => date('Y-m-d H:i:s')
                     );
 
                     $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -3081,7 +3081,7 @@ class Business_profile extends MY_Controller {
 
                 $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
                 $cmtinsert .= '<div class="comment-details-menu">';
-                $cmtinsert .= '<p>' . date('d-M-Y', strtotime($business_profile['created_date'])) . '</p></div></div></div>';
+                $cmtinsert .= '<p>' . $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($business_profile['created_date']))) . '</p></div></div></div>';
 
 
                 // comment aount variable start
@@ -3220,7 +3220,7 @@ class Business_profile extends MY_Controller {
 
                 $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
                 $cmtinsert .= '<div class="comment-details-menu">';
-                $cmtinsert .= '<p>' . date('d-M-Y', strtotime($business_profile['created_date'])) . '</p></div></div></div>';
+                $cmtinsert .= '<p>' . $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($business_profile['created_date']))) . '</p></div></div></div>';
                 // comment aount variable start
                 $idpost = $business_profile['business_profile_post_id'];
                 $cmtcount = '<a onClick="commentall1(this.id)" id="' . $idpost . '">';
@@ -3304,7 +3304,7 @@ class Business_profile extends MY_Controller {
                         'not_product_id' => $post_id,
                         'not_from' => 6,
                         'not_img' => 2,
-                        'not_created_date' => date('y-m-d h:i:s')
+                        'not_created_date' => date('Y-m-d H:i:s')
                     );
                     //echo "<pre>"; print_r($data); die();
 
@@ -3531,7 +3531,7 @@ class Business_profile extends MY_Controller {
             'user_id' => $userid,
             'business_profile_post_id' => $post_id,
             'comments' => $post_comment,
-            'created_date' => date('Y-m-d', time()),
+            'created_date' => date('Y-m-d H:i:s', time()),
             'status' => 1,
             'is_delete' => 0
         );
@@ -3552,7 +3552,7 @@ class Business_profile extends MY_Controller {
                 'not_product_id' => $insert_id,
                 'not_from' => 6,
                 'not_img' => 1,
-                'not_created_date' => date('y-m-d h:i:s')
+                'not_created_date' => date('Y-m-d H:i:s')
             );
             //echo "<pre>"; print_r($notificationdata); 
             $insert_id_notification = $this->common->insert_data_getid($notificationdata, 'notification');
@@ -3671,7 +3671,7 @@ class Business_profile extends MY_Controller {
 
             $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
             $cmtinsert .= '<div class="comment-details-menu">';
-            $cmtinsert .= '<p>' . date('d-M-Y', strtotime($business_profile['created_date'])) . '</p></div></div></div>';
+            $cmtinsert .= '<p>' . $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($business_profile['created_date']))) . '</p></div></div></div>';
 
 
             // comment aount variable start
@@ -3703,7 +3703,7 @@ class Business_profile extends MY_Controller {
             'user_id' => $userid,
             'business_profile_post_id' => $post_id,
             'comments' => $post_comment,
-            'created_date' => date('Y-m-d', time()),
+            'created_date' => date('Y-m-d H:i:s', time()),
             'status' => 1,
             'is_delete' => 0
         );
@@ -3722,7 +3722,7 @@ class Business_profile extends MY_Controller {
                 'not_product_id' => $insert_id,
                 'not_from' => 6,
                 'not_img' => 1,
-                'not_created_date' => date('y-m-d h:i:s')
+                'not_created_date' => date('Y-m-d H:i:s')
             );
             //echo "<pre>"; print_r($notificationdata); 
             $insert_id_notification = $this->common->insert_data_getid($notificationdata, 'notification');
@@ -3833,7 +3833,7 @@ class Business_profile extends MY_Controller {
 
             $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
             $cmtinsert .= '<div class="comment-details-menu">';
-            $cmtinsert .= '<p>' . date('d-M-Y', strtotime($business_profile['created_date'])) . '</p></div></div></div>';
+            $cmtinsert .= '<p>' . $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($business_profile['created_date']))) . '</p></div></div></div>';
 
 
             // comment aount variable start
@@ -4165,7 +4165,7 @@ class Business_profile extends MY_Controller {
             $data = array(
                 'post_image_id' => $post_image,
                 'user_id' => $userid,
-                'created_date' => date('Y-m-d', time()),
+                'created_date' => date('Y-m-d H:i:s', time()),
                 'is_unlike' => 0
             );
             $insertdata = $this->common->insert_data_getid($data, 'bus_post_image_like');
@@ -4182,7 +4182,7 @@ class Business_profile extends MY_Controller {
                     'not_product_id' => $post_image,
                     'not_from' => 6,
                     'not_img' => 5,
-                    'not_created_date' => date('y-m-d h:i:s')
+                    'not_created_date' => date('Y-m-d H:i:s')
                 );
 
                 $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -4354,7 +4354,7 @@ class Business_profile extends MY_Controller {
                             'not_product_id' => $post_image,
                             'not_from' => 6,
                             'not_img' => 5,
-                            'not_created_date' => date('y-m-d h:i:s')
+                            'not_created_date' => date('Y-m-d H:i:s')
                         );
 
                         $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -4449,7 +4449,7 @@ class Business_profile extends MY_Controller {
             'user_id' => $userid,
             'post_image_id' => $post_image_id,
             'comment' => $post_comment,
-            'created_date' => date('Y-m-d', time()),
+            'created_date' => date('Y-m-d H:i:s', time()),
             'is_delete' => 0
         );
         $insert_id = $this->common->insert_data_getid($data, 'bus_post_image_comment');
@@ -4469,7 +4469,7 @@ class Business_profile extends MY_Controller {
                 'not_product_id' => $insert_id,
                 'not_from' => 6,
                 'not_img' => 4,
-                'not_created_date' => date('y-m-d h:i:s')
+                'not_created_date' => date('Y-m-d H:i:s')
             );
             //echo "<pre>"; print_r($datanotification); die();
             $insert_id_notification = $this->common->insert_data_getid($datanotification, 'notification');
@@ -4586,7 +4586,7 @@ class Business_profile extends MY_Controller {
 
             $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
             $cmtinsert .= '<div class="comment-details-menu">';
-            $cmtinsert .= '<p>' . date('d-M-Y', strtotime($bus_comment['created_date'])) . '</p></div></div>';
+            $cmtinsert .= '<p>' . $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($bus_comment['created_date']))) . '</p></div></div>';
 
 
             // comment aount variable start
@@ -4621,7 +4621,7 @@ class Business_profile extends MY_Controller {
             'user_id' => $userid,
             'post_image_id' => $post_image_id,
             'comment' => $post_comment,
-            'created_date' => date('Y-m-d', time()),
+            'created_date' => date('Y-m-d H:i:s', time()),
             'is_delete' => 0
         );
         $insert_id = $this->common->insert_data_getid($data, 'bus_post_image_comment');
@@ -4641,7 +4641,7 @@ class Business_profile extends MY_Controller {
                 'not_product_id' => $insert_id,
                 'not_from' => 6,
                 'not_img' => 4,
-                'not_created_date' => date('y-m-d h:i:s')
+                'not_created_date' => date('Y-m-d H:i:s')
             );
 
             $insert_id_notification = $this->common->insert_data_getid($datanotification, 'notification');
@@ -4754,7 +4754,7 @@ class Business_profile extends MY_Controller {
 
             $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
             $cmtinsert .= '<div class="comment-details-menu">';
-            $cmtinsert .= '<p>' . date('d-M-Y', strtotime($bus_comment['created_date'])) . '</p></div></div>';
+            $cmtinsert .= '<p>' . $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($bus_comment['created_date']))) . '</p></div></div>';
 
 
             // comment aount variable start
@@ -4790,7 +4790,7 @@ class Business_profile extends MY_Controller {
             'user_id' => $userid,
             'post_image_id' => $post_image_id,
             'comment' => $post_comment,
-            'created_date' => date('Y-m-d', time()),
+            'created_date' => date('Y-m-d H:i:s', time()),
             'is_delete' => 0
         );
         $insert_id = $this->common->insert_data_getid($data, 'bus_post_image_comment');
@@ -4809,7 +4809,7 @@ class Business_profile extends MY_Controller {
                 'not_product_id' => $insert_id,
                 'not_from' => 6,
                 'not_img' => 4,
-                'not_created_date' => date('y-m-d h:i:s')
+                'not_created_date' => date('Y-m-d H:i:s')
             );
 
             $insert_id_notification = $this->common->insert_data_getid($datanotification, 'notification');
@@ -4920,7 +4920,7 @@ class Business_profile extends MY_Controller {
 
             $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
             $cmtinsert .= '<div class="comment-details-menu">';
-            $cmtinsert .= '<p>' . date('d-M-Y', strtotime($bus_comment['created_date'])) . '</p></div></div></div>';
+            $cmtinsert .= '<p>' . $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($bus_comment['created_date']))) . '</p></div></div></div>';
 
             $cmtcount = '<a onClick="imgcommentall(this.id)" id="' . $post_image_id . '">';
             $cmtcount .= '<i class="fa fa-comment-o" aria-hidden="true">';
@@ -4956,7 +4956,7 @@ class Business_profile extends MY_Controller {
             'user_id' => $userid,
             'post_image_id' => $post_image_id,
             'comment' => $post_comment,
-            'created_date' => date('Y-m-d', time()),
+            'created_date' => date('Y-m-d H:i:s', time()),
             'is_delete' => 0
         );
         $insert_id = $this->common->insert_data_getid($data, 'bus_post_image_comment');
@@ -4976,7 +4976,7 @@ class Business_profile extends MY_Controller {
                 'not_product_id' => $insert_id,
                 'not_from' => 6,
                 'not_img' => 4,
-                'not_created_date' => date('y-m-d h:i:s')
+                'not_created_date' => date('Y-m-d H:i:s')
             );
             //echo "<pre>"; print_r($datanotification); die();
             $insert_id_notification = $this->common->insert_data_getid($datanotification, 'notification');
@@ -5087,7 +5087,7 @@ class Business_profile extends MY_Controller {
 
             $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
             $cmtinsert .= '<div class="comment-details-menu">';
-            $cmtinsert .= '<p>' . date('d-M-Y', strtotime($bus_comment['created_date'])) . '</p></div></div></div>';
+            $cmtinsert .= '<p>' . $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($bus_comment['created_date']))) . '</p></div></div></div>';
 
             $cmtcount = '<a onClick="imgcommentall(this.id)" id="' . $post_image_id . '">';
             $cmtcount .= '<i class="fa fa-comment-o" aria-hidden="true">';
@@ -5133,7 +5133,7 @@ class Business_profile extends MY_Controller {
             $data = array(
                 'post_image_comment_id' => $post_image_comment_id,
                 'user_id' => $userid,
-                'created_date' => date('Y-m-d', time()),
+                'created_date' => date('Y-m-d H:i:s', time()),
                 'is_unlike' => 0
             );
 //echo "<pre>"; print_r($data); die();
@@ -5154,7 +5154,7 @@ class Business_profile extends MY_Controller {
                     'not_product_id' => $post_image_comment_id,
                     'not_from' => 6,
                     'not_img' => 6,
-                    'not_created_date' => date('y-m-d h:i:s')
+                    'not_created_date' => date('Y-m-d H:i:s')
                 );
                 //echo "<pre>"; print_r($datanotification); die();
                 $insert_id = $this->common->insert_data_getid($datanotification, 'notification');
@@ -5264,7 +5264,7 @@ class Business_profile extends MY_Controller {
                             'not_product_id' => $post_image_comment_id,
                             'not_from' => 6,
                             'not_img' => 6,
-                            'not_created_date' => date('y-m-d h:i:s')
+                            'not_created_date' => date('Y-m-d H:i:s')
                         );
                         //echo "<pre>"; print_r($data); die();
                         $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -5324,7 +5324,7 @@ class Business_profile extends MY_Controller {
             $data = array(
                 'post_image_comment_id' => $post_image_comment_id,
                 'user_id' => $userid,
-                'created_date' => date('Y-m-d', time()),
+                'created_date' => date('Y-m-d H:i:s', time()),
                 'is_unlike' => 0
             );
 //echo "<pre>"; print_r($data); die();
@@ -5345,7 +5345,7 @@ class Business_profile extends MY_Controller {
                     'not_product_id' => $post_image_comment_id,
                     'not_from' => 6,
                     'not_img' => 6,
-                    'not_created_date' => date('y-m-d h:i:s')
+                    'not_created_date' => date('Y-m-d H:i:s')
                 );
                 //echo "<pre>"; print_r($datanotification); die();
                 $insert_id = $this->common->insert_data_getid($datanotification, 'notification');
@@ -5449,7 +5449,7 @@ class Business_profile extends MY_Controller {
                             'not_product_id' => $post_image_comment_id,
                             'not_from' => 6,
                             'not_img' => 6,
-                            'not_created_date' => date('y-m-d h:i:s')
+                            'not_created_date' => date('Y-m-d H:i:s')
                         );
 
                         $insert_id = $this->common->insert_data_getid($datanotification, 'notification');
@@ -5629,7 +5629,7 @@ class Business_profile extends MY_Controller {
 
                 $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
                 $cmtinsert .= '<div class="comment-details-menu">';
-                $cmtinsert .= '<p>' . date('d-M-Y', strtotime($bus_comment['created_date'])) . '</p></div></div>';
+                $cmtinsert .= '<p>' . $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($bus_comment['created_date']))) . '</p></div></div>';
 
                 $cmtcount = '<a onClick="imgcommentall(this.id)" id="' . $bus_comment['post_image_id'] . '">';
                 $cmtcount .= '<i class="fa fa-comment-o" aria-hidden="true">';
@@ -5766,7 +5766,7 @@ class Business_profile extends MY_Controller {
 
                 $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
                 $cmtinsert .= '<div class="comment-details-menu">';
-                $cmtinsert .= '<p>' . date('d-M-Y', strtotime($bus_comment['created_date'])) . '</p></div></div></div>';
+                $cmtinsert .= '<p>' . $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($bus_comment['created_date']))) . '</p></div></div></div>';
 
                 // comment aount variable start
                 $idpost = $bus_comment['post_image_id'];
@@ -5883,7 +5883,7 @@ class Business_profile extends MY_Controller {
                 }
                 $fourdata .= '<span role="presentation" aria-hidden="true"> · </span>';
                 $fourdata .= '<div class="comment-details-menu">';
-                $fourdata .= '<p>' . date('d-M-Y', strtotime($rowdata['created_date'])) . '</br>';
+                $fourdata .= '<p>' . $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($bus_comment['created_date']))) . '</br>';
 
                 $fourdata .= '</p></div></div></div>';
             }
@@ -5994,7 +5994,7 @@ class Business_profile extends MY_Controller {
 
                 $fourdata .= '<span role="presentation" aria-hidden="true"> · </span>';
                 $fourdata .= '<div class="comment-details-menu">';
-                $fourdata .= '<p>' . date('d-M-Y', strtotime($rowdata['created_date'])) . '</br></p></div>';
+                $fourdata .= '<p>' . $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($rowdata['created_date']))) . '</br></p></div>';
 
                 $fourdata .= '</div>';
             }
@@ -6089,7 +6089,7 @@ class Business_profile extends MY_Controller {
                 }
                 $fourdata .= '<span role="presentation" aria-hidden="true"> · </span>';
                 $fourdata .= '<div class="comment-details-menu">';
-                $fourdata .= '<p>' . date('d-M-Y', strtotime($rowdata['created_date'])) . '</br>';
+                $fourdata .= '<p>' . $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($rowdata['created_date']))) . '</br>';
 
                 $fourdata .= '</p></div></div></div>';
             }
@@ -6213,7 +6213,7 @@ class Business_profile extends MY_Controller {
             'user_id' => $userid,
             'business_profile_post_id' => $post_id,
             'comments' => $post_comment,
-            'created_date' => date('Y-m-d', time()),
+            'created_date' => date('Y-m-d H:i:s', time()),
             'status' => 1,
             'is_delete' => 0
         );
@@ -6234,7 +6234,7 @@ class Business_profile extends MY_Controller {
                 'not_product_id' => $insert_id,
                 'not_from' => 6,
                 'not_img' => 1,
-                'not_created_date' => date('y-m-d h:i:s')
+                'not_created_date' => date('Y-m-d H:i:s')
             );
             //echo "<pre>"; print_r($notificationdata); 
             $insert_id_notification = $this->common->insert_data_getid($notificationdata, 'notification');
@@ -6349,7 +6349,7 @@ class Business_profile extends MY_Controller {
 
             $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
             $cmtinsert .= '<div class="comment-details-menu">';
-            $cmtinsert .= '<p>' . date('d-M-Y', strtotime($business_profile['created_date'])) . '</p></div></div></div>';
+            $cmtinsert .= '<p>' . $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($business_profile['created_date']))) . '</p></div></div></div>';
 
 
             // comment aount variable start
@@ -6385,7 +6385,7 @@ class Business_profile extends MY_Controller {
             'user_id' => $userid,
             'business_profile_post_id' => $post_id,
             'comments' => $post_comment,
-            'created_date' => date('Y-m-d', time()),
+            'created_date' => date('Y-m-d H:i:s', time()),
             'status' => 1,
             'is_delete' => 0
         );
@@ -6408,7 +6408,7 @@ class Business_profile extends MY_Controller {
                 'not_product_id' => $insert_id,
                 'not_from' => 6,
                 'not_img' => 1,
-                'not_created_date' => date('y-m-d h:i:s')
+                'not_created_date' => date('Y-m-d H:i:s')
             );
             //echo "<pre>"; print_r($notificationdata); 
             $insert_id_notification = $this->common->insert_data_getid($notificationdata, 'notification');
@@ -6515,7 +6515,7 @@ class Business_profile extends MY_Controller {
 
             $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
             $cmtinsert .= '<div class="comment-details-menu">';
-            $cmtinsert .= '<p>' . date('d-M-Y', strtotime($business_profile['created_date'])) . '</p></div></div></div>';
+            $cmtinsert .= '<p>' . $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($business_profile['created_date']))) . '</p></div></div></div>';
 
 
             // comment aount variable start
@@ -6658,7 +6658,7 @@ class Business_profile extends MY_Controller {
 
                 $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
                 $cmtinsert .= '<div class="comment-details-menu">';
-                $cmtinsert .= '<p>' . date('d-M-Y', strtotime($business_profile['created_date'])) . '</p></div></div></div>';
+                $cmtinsert .= '<p>' . $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($business_profile['created_date']))) . '</p></div></div></div>';
 
 
                 // comment aount variable start
@@ -6920,7 +6920,7 @@ class Business_profile extends MY_Controller {
 
                 $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
                 $cmtinsert .= '<div class="comment-details-menu">';
-                $cmtinsert .= '<p>' . date('d-M-Y', strtotime($business_profile['created_date'])) . '</p></div></div></div>';
+                $cmtinsert .= '<p>' . $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($business_profile['created_date']))) . '</p></div></div></div>';
                 // comment aount variable start
                 $idpost = $business_profile['business_profile_post_id'];
                 $cmtcount = '<a onClick="commentall1(this.id)" id="' . $idpost . '">';
@@ -7040,7 +7040,7 @@ class Business_profile extends MY_Controller {
 
                 $mulimgfour .= '<span role="presentation" aria-hidden="true"> · </span>
  <div class="comment-details-menu">';
-                $mulimgfour .= '<p>' . date('d-M-Y', strtotime($rowdata['created_date'])) . '</br></p></div></div></div>';
+                $mulimgfour .= '<p>' . $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($rowdata['created_date']))) . '</br></p></div></div></div>';
             }
         }
         $mulimgfour .= '</div>';
