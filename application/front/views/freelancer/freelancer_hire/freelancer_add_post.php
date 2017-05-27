@@ -316,8 +316,9 @@
                     <fieldset class="hs-submit full-width">
 
 <!--                        <input type="reset" value="cancel" >-->
-                        <a class="add_post_btnc"  href="javascript:history.back()">Cancel</a>
-                        <input type="submit" id="submit"  class="add_post_btns" name="submit" value="Post">
+                      <input type="submit" id="submit"  class="add_post_btns" name="submit" value="Post">
+                       <a class="add_post_btnc"  href="javascript:history.back()">Cancel</a>
+                        
                     
                     </fieldset>
                       </div>      
