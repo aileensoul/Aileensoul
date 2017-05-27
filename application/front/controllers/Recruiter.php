@@ -1287,7 +1287,7 @@ class Recruiter extends MY_Controller {
 
   // <rash code 12-4 end>
         $contition_array1= array('save.from_id' => $userid, 'save.status' => 0, 'save.save_type' => 1);
-        $this->data['recdata'] = $this->common->select_data_by_condition('save', $contition_array1, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str1, $groupby ='');
+        $this->data['recdata'] = $this->common->select_data_by_condition('save', $contition_array1, $data = '*', $sortby = 'save_id', $orderby = 'desc', $limit = '', $offset = '', $join_str1, $groupby ='');
 
      //   echo"<pre>"; print_r($this->data['recdata']); die();
 
@@ -1601,7 +1601,8 @@ class Recruiter extends MY_Controller {
 
         if ($userdata) {
             $data = array(
-                'status' => 0
+                'status' => 0,
+                'modify_date' =>date('Y-m-d H:i:s')
             );
 
 
@@ -1617,7 +1618,9 @@ class Recruiter extends MY_Controller {
                 'from_id' => $userid,
                 'to_id' => $id,
                 'status' => 0,
-                'save_type' => 1
+                'save_type' => 1,
+                'created_date'=>date('Y-m-d H:i:s'),
+                'modify_date' =>date('Y-m-d H:i:s')
             );
 
             $insert_id = $this->common->insert_data($data, 'save');
