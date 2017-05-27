@@ -1878,7 +1878,8 @@ $results = array_unique($result);
 
             $data = array(
                 'job_delete' => 0,
-                'job_save'  => 3
+                'job_save'  => 3,
+                'modify_date' => date('Y-m-d h:i:s', time())
                 
             );
 
@@ -2171,7 +2172,8 @@ $this->data['demo']= array_values($result1);
 
             $data = array(
                 'job_delete' => 1,
-                'job_save' => 2
+                'job_save' => 2,
+                'modify_date'=>date('Y-m-d h:i:s', time())
             );
 
             $updatedata = $this->common->update_data($data, 'freelancer_apply', 'app_id', $app_id);
@@ -2189,6 +2191,7 @@ $this->data['demo']= array_values($result1);
                 'user_id' => $userid,
                 'status' => 1,
                 'created_date' => date('Y-m-d h:i:s', time()),
+                'modify_date'=>date('Y-m-d h:i:s', time()),
                 'is_delete' => 0,
                 'job_delete' => 1,
                 'job_save' => 2

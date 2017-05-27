@@ -15,7 +15,7 @@ $(window).load(function(){
     .msg_dot{padding: 0!important;}
     #notification_count
     {   padding: 3px;
-        background: #0c3168;
+        background: #1b8ab9;
         color: #ffffff;
         font-weight: bold;
         margin-left: 7px;
@@ -24,26 +24,9 @@ $(window).load(function(){
         -webkit-border-radius: 2px;
         position: absolute;
         margin-top: -1px;
-        /*padding: 4px 8px;
-    background: #cc3300;
-    
-    color: #ffffff;
-    font-weight: bold;
-    margin-left: 7px;
-    border-radius: 5px;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    position: absolute;
-    margin-top: -3px;
-    font-size: 10px;
-        top: 7px;
-        line-height: normal;
-        right: 7px;
-    
-        */
+      
     }
     /*style for span id=notification_count End*/
-
 
     /*style for span id=message_count start*/
 
@@ -51,7 +34,7 @@ $(window).load(function(){
     #message_count
     {
         padding: 3px;
-        background: #003;
+        background: #1b8ab9;
         color: #ffffff;
         font-weight: bold;
         margin-left: 7px;
