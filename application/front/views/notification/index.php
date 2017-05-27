@@ -510,7 +510,7 @@
                                                 <img src="<?php echo base_url(USERIMAGE . $total['user_image']); ?>" >
                                             </div>
                                             <div class="notification-data-inside" id="notification_inside">
-                                                <a href="<?php echo base_url('notification/freelancer_hire_post/' . $total['post_id']); ?>"><h6><?php echo "<font color='#4e6db1'><b><i> Freelancer hire</i></font></b><b>" . "  " . $total['first_name'] . ' ' . $total['last_name'] . "</b> invited you for an interview"; ?></h6></a>
+                                                <a href="<?php echo base_url('notification/freelancer_hire_post/' . $total['post_id']); ?>"><h6><?php echo "<font color='black'><b><i>Employer</i></font></b><b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Selected You For Project."; ?></h6>
                                                 <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
                                                     <?php echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                 </div>
