@@ -324,7 +324,7 @@ ul.dropdown-menu li a i { padding-right: 2px; }
     border: 10px solid black;
     border-color: transparent transparent #fff;
     margin-top: -18px;
-   right: 4%;
+   right: 5.5%;
 }
 /*.dropdown:hover .dropdown-menu { display: block; }*/
 .header ul li.dropdown-user a { padding: 13px; text-transform: capitalize;}
