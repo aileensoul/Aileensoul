@@ -24,7 +24,7 @@
         <?php echo $header; ?>
         <!--- for dispaly div insted of input type end -->
         <meta charset="utf-8">
-        <title>Chat-Example | CodeIgniter</title>
+        <title>Chat</title>
         <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/common-style.css'); ?>">
 
@@ -63,7 +63,7 @@
                                         <li class="clearfix">
                                             <?php if ($user['user_image']) { ?>
                                                 <div class="chat_heae_img">
-                                                    <img src="<?php echo base_url(USERIMAGE . $user['user_image']); ?>" alt="" >
+                                                    <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $user['user_image']); ?>" alt="" >
                                                 </div>
                                             <?php } else { ?>
                                                 <div class="chat_heae_img">
