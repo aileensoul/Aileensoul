@@ -38,7 +38,7 @@
                     
                    
 
-                 <?php echo form_open(base_url('recruiter/update_post/' . $postdata[0]['post_id'] ), array('id' => 'basicinfo','name' => 'basicinfo','class' => 'clearfix')); ?>
+                 <?php echo form_open(base_url('recruiter/update_post/' . $postdata[0]['post_id'] ), array('id' => 'basicinfo','name' => 'basicinfo','class' => 'clearfix','onsubmit' => "return imgval()")); ?>
                  <div> <span class="required_field" >( <span style="color: red">*</span> ) Indicates required field</span></div>
                  <?php
                          $post_name =  form_error('post_name');
@@ -391,6 +391,14 @@ $.validator.addMethod("greaterThan",
     }, "minimum salary not greater than maximum salary"
 );
 
+$.validator.addMethod("regx", function(value, element, regexpr) {          
+    return regexpr.test(value);
+}, "Only space, only number and only special characters are not allow");
+
+jQuery.validator.addMethod("noSpace", function(value, element) { 
+      return value == '' || value.trim().length != 0;  
+    }, "No space please and don't leave it empty");
+
 
             $(document).ready(function () { 
 
@@ -402,7 +410,8 @@ $.validator.addMethod("greaterThan",
                        
                         post_name: {
 
-                            required: true
+                            required: true,
+                            regx:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]/
                         },
 
                        'skills[]': {
@@ -412,7 +421,8 @@ $.validator.addMethod("greaterThan",
                     },
                     other_skill: {
 
-                               require_from_group: [1, ".skill_other"]
+                               require_from_group: [1, ".skill_other"],
+                               noSpace: true
                               
                     },
                          
@@ -430,13 +440,15 @@ $.validator.addMethod("greaterThan",
 
                         position: {
 
-                            required: true
+                            required: true,
+                            noSpace: true
                            
                         },
 
                         post_desc: {
 
-                            required: true
+                            required: true,
+                            regx:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]/
                            
                         },
 
@@ -484,9 +496,11 @@ $.validator.addMethod("greaterThan",
                         },
                         minsal:{
                             number: true,
+                            noSpace: true,
                         },
                         maxsal:{
                            number: true,
+                           noSpace: true,
                             greaterThan: '#minsal'
                         },
 
@@ -584,6 +598,39 @@ $.validator.addMethod("greaterThan",
 
    <!-- popup form edit start -->
   
+
+
+
+<script type="text/javascript">
+  
+function imgval(){ 
+ 
+ var skill_main = document.getElementById("skills").value;
+ var skill_other = document.getElementById("other_skill").value;
+
+ 
+     if(skill_main =='' && skill_other == ''){
+  
+  $('#artpost .select2-selection').addClass("keyskill_border_active").style('border','1px solid #f00');
+  }
+
+  var minyear = document.getElementById('minyear').value;
+        var minmonth = document.getElementById('minmonth').value;
+        var maxyear = document.getElementById('maxyear').value;
+        var maxmonth = document.getElementById('maxmonth').value;
+
+        var min_exper;
+        min_exper = (minyear * 12) + minmonth ;
+        max_exper = (maxyear * 12) + maxmonth;
+        if(min_exper > max_exper){
+            alert("Minimum experience is not greater than maximum experience");
+            return false;
+
+        }
+   
+  }
+
+</script>
 
 <script type="text/javascript">
 $(document).ready(function(){
