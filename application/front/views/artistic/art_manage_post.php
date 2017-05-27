@@ -85,13 +85,13 @@ pt>
                 $image_ori = $image[0]['profile_background'];
                 if ($image_ori) {
                     ?>
-                    <div class="bg-images">
-                        <img src="<?php echo base_url($this->config->item('art_bg_main_upload_path') . $image[0]['profile_background']); ?>" name="image_src" id="image_src" / ></div>
+                
+                        <img src="<?php echo base_url($this->config->item('art_bg_main_upload_path') . $image[0]['profile_background']); ?>" name="image_src" id="image_src" / >
                     <?php
                 } else {
                     ?>
-                    <div class="bg-images">
-                        <img src="<?php echo base_url(WHITEIMAGE); ?>" name="image_src" id="image_src" alt="WHITE IMAGE" /></div>
+                    
+                        <img src="<?php echo base_url(WHITEIMAGE); ?>" name="image_src" id="image_src" alt="WHITE IMAGE" />
                 <?php }
                 ?>
 
@@ -871,7 +871,7 @@ pt>
 
                                                         </a>
                                                         <div class="datespan">
-                                                            <span style="font-weight: 400; font-size: 14px; color: #91949d;""> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span></div>
+                                                            <span style="font-weight: 400; font-size: 14px; color: #91949d;"> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span></div>
 
                                                     <?php } ?>                          
                                                 </li>
@@ -1126,6 +1126,7 @@ pt>
 
                                         </div>     
                                     </div>
+                                    </div>
                                     <!-- multiple image code end -->
                                     <!-- khyati 18-4 start-->
 
@@ -1317,10 +1318,13 @@ pt>
                                                                 <?php if ($art_userimage) { ?>
                                                                 <a href="<?php echo base_url('artistic/art_manage_post/' . $rowdata['user_id'] . ''); ?>">
                                                                     <img  src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage); ?>"  alt="">
+                                                                    </a>
                                                                     <?php
                                                                 } else {
                                                                     ?>
+                                                                     <a href="<?php echo base_url('artistic/art_manage_post/' . $rowdata['user_id'] . ''); ?>">
                                                                     <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
+                                                                    </a>
                                                                     <?php
                                                                 }
                                                                 ?>
@@ -1418,7 +1422,7 @@ pt>
 
                                                                 <div class="comment-details-menu">
                                                                     <p> <?php
-                                                                        echo date('d-M-Y', strtotime($rowdata['created_date']));
+                                                                        echo $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($rowdata['created_date'])));
                                                                         echo '</br>';
                                                                         ?>
                                                                     </p></div></div>
@@ -1476,8 +1480,7 @@ pt>
                                 <!-- khyati 18-4 end-->
                             </div>
                         </div>
-                        </div>
-
+                      
                         <?php
                     }}else {
                     ?>

@@ -94,7 +94,7 @@
                    <div> <span class="required_field" >( <span class="red">*</span> ) Indicates required field</span></div>
 
                                 <fieldset class="full-width">
-                                         <label>Carrier Objectives:<span class="red">*</span></label>
+                                         <label>Carrier Objectives:<!-- <span class="red">*</span> --></label>
 										
                                          
 
@@ -115,7 +115,7 @@
                                     
                                       ?>
                                     <fieldset class="full-width">                           
-                                     <b> Declaration: </b>
+                                     <b> Declaration: <span class="red">*</span> </b>
                                      <div class="job_carrier_checkbox">
                                      <input type="checkbox" id="checkbox"  name="declaration" value="declaration"  <?php echo ($declaration1 == 'declaration') ? 'checked' : '' ?>>
                                          I here by Declare that all the above Information are true and correct to best of my knowledge                     
@@ -271,9 +271,9 @@
 
             //validation for edit email formate form
 
-$.validator.addMethod("regx", function(value, element, regexpr) {          
-    return regexpr.test(value);
-}, "Only space, only number and only special characters are not allow");
+// $.validator.addMethod("regx", function(value, element, regexpr) {          
+//     return regexpr.test(value);
+// }, "Only space, only number and only special characters are not allow");
             
 
             $(document).ready(function () { 
@@ -282,14 +282,14 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
 
                     rules: {
 
-                        carrier: {
+                        // carrier: {
 
-                            required: true,
-                            regx:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]/
+                        //     required: true,
+                        //     regx:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]/
 
-                            //noSpace: true
+                        //     //noSpace: true
                            
-                        }, 
+                        // }, 
 
                          declaration: {
 
@@ -301,11 +301,11 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
 
                     messages: {
 
-                        carrier: {
+                        // carrier: {
 
-                           required: "Carrier Is Required.",
+                        //    required: "Carrier Is Required.",
                             
-                        },
+                        // },
                          declaration: {
 
                             required: "click on terms and condition Is Required.",

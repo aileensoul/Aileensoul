@@ -185,7 +185,7 @@ class Artistic extends MY_Controller {
                 'art_email' => $this->input->post('email'),
                 'art_phnno' => $this->input->post('phoneno'),
                 'user_id' => $userid,
-                'created_date' => date('Y-m-d', time()),
+                'created_date' => date('Y-m-d H:i:s', time()),
                 'status' => 1,
                 'is_delete' => 0,
                 'art_step' => 1
@@ -1148,7 +1148,7 @@ class Artistic extends MY_Controller {
             $data = array(
                 'art_post' => $this->input->post('my_text'),
                 'art_description' => $this->input->post('product_desc'),
-                'created_date' => date('Y-m-d', time()),
+                'created_date' => date('Y-m-d H:i:s', time()),
                 'status' => 1,
                 'is_delete' => 0,
                 'user_id' => $userid
@@ -1158,7 +1158,7 @@ class Artistic extends MY_Controller {
             $data = array(
                 'art_post' => $this->input->post('my_text'),
                 'art_description' => $this->input->post('product_desc'),
-                'created_date' => date('Y-m-d', time()),
+                'created_date' => date('Y-m-d H:i:s', time()),
                 'status' => 1,
                 'is_delete' => 0,
                 'user_id' => $para,
@@ -1246,7 +1246,7 @@ class Artistic extends MY_Controller {
                     'image_name' => $fileName,
                     'image_type' => 1,
                     'post_id' => $insert_id,
-                    'created_date' => date('Y-m-d', time()),
+                    'created_date' => date('Y-m-d H:i:s', time()),
                     'is_deleted' => 1
                 );
 
@@ -1426,7 +1426,7 @@ class Artistic extends MY_Controller {
             'contact_from_id' => $userid,
             'contact_to_id' => $id,
             'contact_type' => 1,
-            'created_date' => date('Y-m-d', time()),
+            'created_date' => date('Y-m-d H:i:s', time()),
             'status' => 1,
             'is_delete' => $userid,
             'contact_desc' => $this->input->post('msg')
@@ -1447,7 +1447,7 @@ class Artistic extends MY_Controller {
             'not_read' => 2,
             'not_product_id' => $insertdata,
             'not_from' => 3,
-            'not_created_date' => date('y-m-d h:i:s')
+            'not_created_date' => date('Y-m-d H:i:s')
         );
 
         $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -1874,7 +1874,7 @@ class Artistic extends MY_Controller {
                 'not_read' => 2,
                 'not_product_id' => $follow[0]['follow_id'],
                 'not_from' => 3,
-                'not_created_date' => date('y-m-d h:i:s')
+                'not_created_date' => date('Y-m-d H:i:s')
             );
 //echo '<pre>'; print_r($data); die();
             $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -1909,7 +1909,7 @@ class Artistic extends MY_Controller {
                 'not_read' => 2,
                 'not_product_id' => $insert,
                 'not_from' => 3,
-                'not_created_date' => date('y-m-d h:i:s')
+                'not_created_date' => date('Y-m-d H:i:s')
             );
 
             $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -1988,7 +1988,7 @@ class Artistic extends MY_Controller {
                 'not_read' => 2,
                 'not_product_id' => $follow[0]['follow_id'],
                 'not_from' => 3,
-                'not_created_date' => date('y-m-d h:i:s')
+                'not_created_date' => date('Y-m-d H:i:s')
             );
 
             $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -2023,7 +2023,7 @@ class Artistic extends MY_Controller {
                 'not_read' => 2,
                 'not_product_id' => $insert,
                 'not_from' => 3,
-                'not_created_date' => date('y-m-d h:i:s')
+                'not_created_date' => date('Y-m-d H:i:s')
             );
 
             $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -2384,7 +2384,7 @@ class Artistic extends MY_Controller {
             $data = array(
                 'post_id' => $id,
                 'user_id' => $userid,
-                'created_date' => date('Y-m-d h:i:s', time()),
+                'created_date' => date('Y-m-d H:i:s', time()),
                 'is_delete' => 0,
                 'post_save' => 1,
                 'post_delete' => 0
@@ -2739,7 +2739,7 @@ class Artistic extends MY_Controller {
                         'not_product_id' => $post_id,
                         'not_from' => 3,
                         'not_img' => 3,
-                        'not_created_date' => date('y-m-d h:i:s')
+                        'not_created_date' => date('Y-m-d H:i:s')
                     );
 
                     $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -2867,7 +2867,7 @@ class Artistic extends MY_Controller {
                         'not_product_id' => $post_id,
                         'not_from' => 3,
                         'not_img' => 3,
-                        'not_created_date' => date('y-m-d h:i:s')
+                        'not_created_date' => date('Y-m-d H:i:s')
                     );
 
                     $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -3042,7 +3042,7 @@ class Artistic extends MY_Controller {
                 }
                 $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
                 $cmtinsert .= '<div class="comment-details-menu">';
-                $cmtinsert .= '<p>' . $art['created_date'] . '</p></div></div></div>';
+                $cmtinsert .= '<p>' . $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($art['created_date']))) . '</p></div></div></div>';
 
                 $cmtcount = '<a onclick="commentall(this.id)" id="' . $art['art_post_id'] . '">';
                 $cmtcount .= '<i class="fa fa-comment-o" aria-hidden="true">' .
@@ -3166,7 +3166,7 @@ class Artistic extends MY_Controller {
                 }
                 $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
                 $cmtinsert .= '<div class="comment-details-menu">';
-                $cmtinsert .= '<p>' . $art['created_date'] . '</p></div></div></div>';
+                $cmtinsert .= '<p>' . $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($art['created_date']))) . '</p></div></div></div>';
 
                 // comment aount variable start
                 $idpost = $art['art_post_id'];
@@ -3251,7 +3251,7 @@ class Artistic extends MY_Controller {
                         'not_product_id' => $post_id,
                         'not_from' => 3,
                         'not_img' => 2,
-                        'not_created_date' => date('y-m-d h:i:s')
+                        'not_created_date' => date('Y-m-d H:i:s')
                     );
 
                     $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -3479,7 +3479,7 @@ class Artistic extends MY_Controller {
             'user_id' => $userid,
             'art_post_id' => $post_id,
             'comments' => $post_comment,
-            'created_date' => date('Y-m-d', time()),
+            'created_date' => date('Y-m-d H:i:s', time()),
             'status' => 1,
             'is_delete' => 0
         );
@@ -3502,7 +3502,7 @@ class Artistic extends MY_Controller {
                 'not_product_id' => $insert_id,
                 'not_from' => 3,
                 'not_img' => 1,
-                'not_created_date' => date('y-m-d h:i:s')
+                'not_created_date' => date('Y-m-d H:i:s')
             );
 
             $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -3604,7 +3604,7 @@ class Artistic extends MY_Controller {
             }
             $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
             $cmtinsert .= '<div class="comment-details-menu">';
-            $cmtinsert .= '<p>' . $art['created_date'] . '</p></div></div></div>';
+            $cmtinsert .= '<p>' . $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($art['created_date']))) . '</p></div></div></div>';
 
 
             // comment aount variable start
@@ -3636,7 +3636,7 @@ class Artistic extends MY_Controller {
             'user_id' => $userid,
             'art_post_id' => $post_id,
             'comments' => $post_comment,
-            'created_date' => date('Y-m-d', time()),
+            'created_date' => date('Y-m-d H:i:s', time()),
             'status' => 1,
             'is_delete' => 0
         );
@@ -3658,7 +3658,7 @@ class Artistic extends MY_Controller {
                 'not_product_id' => $insert_id,
                 'not_from' => 3,
                 'not_img' => 1,
-                'not_created_date' => date('y-m-d h:i:s')
+                'not_created_date' => date('Y-m-d H:i:s')
             );
             //echo "<pre>"; print_r($notificationdata); 
             $insert_id_notification = $this->common->insert_data_getid($notificationdata, 'notification');
@@ -3768,7 +3768,7 @@ class Artistic extends MY_Controller {
 
             $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
             $cmtinsert .= '<div class="comment-details-menu">';
-            $cmtinsert .= '<p>' . $art['created_date'] . '</p></div></div></div>';
+            $cmtinsert .= '<p>' . $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($art['created_date']))) . '</p></div></div></div>';
             $cntinsert = '<a onclick="commentall(this.id)" id="' . $art['art_post_id'] . '">';
             $cntinsert .= '<i class="fa fa-comment-o" aria-hidden="true">' .
                     count($allcomnt) . '</i>';
@@ -4185,7 +4185,7 @@ class Artistic extends MY_Controller {
             $data = array(
                 'post_image_id' => $post_image,
                 'user_id' => $userid,
-                'created_date' => date('Y-m-d', time()),
+                'created_date' => date('Y-m-d H:i:s', time()),
                 'is_unlike' => 0
             );
 //echo "<pre>"; print_r($data); die();
@@ -4206,7 +4206,7 @@ class Artistic extends MY_Controller {
                     'not_product_id' => $post_image,
                     'not_from' => 3,
                     'not_img' => 5,
-                    'not_created_date' => date('y-m-d h:i:s')
+                    'not_created_date' => date('Y-m-d H:i:s')
                 );
 
                 $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -4353,7 +4353,7 @@ class Artistic extends MY_Controller {
                             'not_product_id' => $post_image,
                             'not_from' => 3,
                             'not_img' => 5,
-                            'not_created_date' => date('y-m-d h:i:s')
+                            'not_created_date' => date('Y-m-d H:i:s')
                         );
 
                         $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -4455,7 +4455,7 @@ class Artistic extends MY_Controller {
             'user_id' => $userid,
             'post_image_id' => $post_image_id,
             'comment' => $post_comment,
-            'created_date' => date('Y-m-d', time()),
+            'created_date' => date('Y-m-d H:i:s', time()),
             'is_delete' => 0
         );
         $insert_id = $this->common->insert_data_getid($data, 'art_post_image_comment');
@@ -4473,7 +4473,7 @@ class Artistic extends MY_Controller {
                 'not_product_id' => $insert_id,
                 'not_from' => 3,
                 'not_img' => 4,
-                'not_created_date' => date('y-m-d h:i:s')
+                'not_created_date' => date('Y-m-d H:i:s')
             );
             //echo "<pre>"; print_r($datanotification); die();
             $insert_id_notification = $this->common->insert_data_getid($datanotification, 'notification');
@@ -4590,7 +4590,7 @@ class Artistic extends MY_Controller {
 
             $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
             $cmtinsert .= '<div class="comment-details-menu">';
-            $cmtinsert .= '<p>' . $art_comment['created_date'] . '</p></div></div></div>';
+            $cmtinsert .= '<p>' . $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($art_comment['created_date']))) . '</p></div></div></div>';
 
 
             if (count($artcont) > 1) {
@@ -4627,7 +4627,7 @@ class Artistic extends MY_Controller {
             'user_id' => $userid,
             'post_image_id' => $post_image_id,
             'comment' => $post_comment,
-            'created_date' => date('Y-m-d', time()),
+            'created_date' => date('Y-m-d H:i:s', time()),
             'is_delete' => 0
         );
         $insert_id = $this->common->insert_data_getid($data, 'art_post_image_comment');
@@ -4645,7 +4645,7 @@ class Artistic extends MY_Controller {
                 'not_product_id' => $insert_id,
                 'not_from' => 3,
                 'not_img' => 4,
-                'not_created_date' => date('y-m-d h:i:s')
+                'not_created_date' => date('Y-m-d H:i:s')
             );
 
             $insert_id_notification = $this->common->insert_data_getid($datanotification, 'notification');
@@ -4755,7 +4755,7 @@ class Artistic extends MY_Controller {
 
             $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
             $cmtinsert .= '<div class="comment-details-menu">';
-            $cmtinsert .= '<p>' . $art_comment['created_date'] . '</p></div></div></div>';
+            $cmtinsert .= '<p>' . $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($art_comment['created_date']))) . '</p></div></div></div>';
         }
         echo $cmtinsert;
     }
@@ -4788,7 +4788,7 @@ class Artistic extends MY_Controller {
             $data = array(
                 'post_image_comment_id' => $post_image_comment_id,
                 'user_id' => $userid,
-                'created_date' => date('Y-m-d', time()),
+                'created_date' => date('Y-m-d H:i:s', time()),
                 'is_unlike' => 0
             );
 //echo "<pre>"; print_r($data); die();
@@ -4809,7 +4809,7 @@ class Artistic extends MY_Controller {
                     'not_product_id' => $post_image_comment_id,
                     'not_from' => 3,
                     'not_img' => 6,
-                    'not_created_date' => date('y-m-d h:i:s')
+                    'not_created_date' => date('Y-m-d H:i:s')
                 );
                 //echo "<pre>"; print_r($data); die();
                 $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -4913,7 +4913,7 @@ class Artistic extends MY_Controller {
                             'not_product_id' => $post_image_comment_id,
                             'not_from' => 3,
                             'not_img' => 6,
-                            'not_created_date' => date('y-m-d h:i:s')
+                            'not_created_date' => date('Y-m-d H:i:s')
                         );
                         //echo "<pre>"; print_r($data); die();
                         $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -4972,7 +4972,7 @@ class Artistic extends MY_Controller {
             $data = array(
                 'post_image_comment_id' => $post_image_comment_id,
                 'user_id' => $userid,
-                'created_date' => date('Y-m-d', time()),
+                'created_date' => date('Y-m-d H:i:s', time()),
                 'is_unlike' => 0
             );
 //echo "<pre>"; print_r($data); die();
@@ -4993,7 +4993,7 @@ class Artistic extends MY_Controller {
                     'not_product_id' => $insertdata,
                     'not_from' => 3,
                     'not_img' => 6,
-                    'not_created_date' => date('y-m-d h:i:s')
+                    'not_created_date' => date('Y-m-d H:i:s')
                 );
                 //echo "<pre>"; print_r($data); die();
                 $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -5095,7 +5095,7 @@ class Artistic extends MY_Controller {
                             'not_product_id' => $post_image_comment_id,
                             'not_from' => 3,
                             'not_img' => 6,
-                            'not_created_date' => date('y-m-d h:i:s')
+                            'not_created_date' => date('Y-m-d H:i:s')
                         );
                         //echo "<pre>"; print_r($data); die();
                         $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -5281,7 +5281,7 @@ class Artistic extends MY_Controller {
 
             $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
             $cmtinsert .= '<div class="comment-details-menu">';
-            $cmtinsert .= '<p>' . $art_comment['created_date'] . '</p></div></div></div>';
+            $cmtinsert .= '<p>' . $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($art_comment['created_date']))) . '</p></div></div></div>';
 
             if (count($artcont) > 1) {
                 // comment aount variable start
@@ -5416,7 +5416,7 @@ class Artistic extends MY_Controller {
 
                 $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
                 $cmtinsert .= '<div class="comment-details-menu">';
-                $cmtinsert .= '<p>' . $art_comment['created_date'] . '</p></div></div></div>';
+                $cmtinsert .= '<p>' . $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($art_comment['created_date']))) . '</p></div></div></div>';
 
                 // comment aount variable start
                 $idpost = $art['art_post_id'];
@@ -5528,7 +5528,7 @@ class Artistic extends MY_Controller {
                 }
                 $fourdata .= '<span role="presentation" aria-hidden="true"> · </span>';
                 $fourdata .= '<div class="comment-details-menu">  <p>';
-                $fourdata .= '' . date('d-M-Y', strtotime($rowdata['created_date'])) . '</br></p></div>';
+                $fourdata .= '' . $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($rowdata['created_date']))) . '</br></p></div>';
                 $fourdata .= '</div></div>';
             }
         } else {
@@ -5641,7 +5641,7 @@ class Artistic extends MY_Controller {
             }
             $fourdata .= '<span role="presentation" aria-hidden="true"> · </span>';
             $fourdata .= '<div class="comment-details-menu">  <p>';
-            $fourdata .= '' . date('d-M-Y', strtotime($rowdata['created_date'])) . '</br></p></div>';
+            $fourdata .= '' . $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($rowdata['created_date']))) . '</br></p></div>';
             $fourdata .= '</div></div>';
         }
 
@@ -5733,7 +5733,7 @@ class Artistic extends MY_Controller {
             'user_id' => $userid,
             'post_image_id' => $post_image_id,
             'comment' => $post_comment,
-            'created_date' => date('Y-m-d', time()),
+            'created_date' => date('Y-m-d H:i:s', time()),
             'is_delete' => 0
         );
         $insert_id = $this->common->insert_data_getid($data, 'art_post_image_comment');
@@ -5751,7 +5751,7 @@ class Artistic extends MY_Controller {
                 'not_product_id' => $insert_id,
                 'not_from' => 3,
                 'not_img' => 4,
-                'not_created_date' => date('y-m-d h:i:s')
+                'not_created_date' => date('Y-m-d H:i:s')
             );
             //echo "<pre>"; print_r($datanotification); die();
             $insert_id_notification = $this->common->insert_data_getid($datanotification, 'notification');
@@ -5867,7 +5867,7 @@ class Artistic extends MY_Controller {
 
             $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
             $cmtinsert .= '<div class="comment-details-menu">';
-            $cmtinsert .= '<p>' . $art_comment['created_date'] . '</p></div></div></div>';
+            $cmtinsert .= '<p>' . $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($art_comment['created_date']))) . '</p></div></div></div>';
 
 
             if (count($artcont) > 1) {

@@ -844,7 +844,7 @@ if (count($finalsorting) > 0) {
                                                                             <a  class="post_dot1" href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>"><?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?></a>
 
 
-                                                                             <span class="ctre_date">  <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span>
+                                                                             <span class="ctre_date">  <?php echo $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($row['created_date']))); ?></span>
                                                                         </div>
                                                                         <!-- other user post time name end-->
             <?php } else { ?>
@@ -863,7 +863,7 @@ if (count($finalsorting) > 0) {
                                                                         <div class="datespan">
                                                                             <span class="ctre_date">  <?php // echo date('d-M-Y',strtotime($row['created_date']));                                             ?>
 
-                <?php echo date('d-M-Y', strtotime($row['created_date'])); ?>
+                <?php echo $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($row['created_date']))); ?>
 
                                                                             </span> </div>
             <?php } ?> 
@@ -1124,7 +1124,9 @@ if (count($finalsorting) > 0) {
 
                                                             </div>
 
-                                                        </div></div>
+                                                        </div>
+                                                        </div>
+                                                        </div>
                                                     <!-- multiple image code end -->
                                                     <!-- khyati 18-4 start-->
 
@@ -1326,7 +1328,7 @@ if (count($finalsorting) > 0) {
                                                                                     <a href="<?php echo base_url('artistic/art_manage_post/' . $rowdata['user_id'] . ''); ?>">
 
                                                                                         <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
-                                                                                    </a>+6
+                                                                                    </a>
                         <?php
                     }
                     ?>
@@ -1430,7 +1432,7 @@ if (count($finalsorting) > 0) {
                                                         /*              $new_time = $this->time_elapsed_string($new_date);
                                                          */
 //              echo $new_time. '<br>';
-                                                        echo date('d-M-Y', strtotime($rowdata['created_date']));
+                                                        echo $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($rowdata['created_date'])));
                                                         echo '</br>';
                                                         ?>
                                                                                     </p></div></div>

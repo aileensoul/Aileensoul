@@ -550,7 +550,7 @@ $config['user_bg_original_upload_path'] = 'uploads/user_bg/original/';
 // USER PROFILE IMAGE
 $config['user_main_upload_path'] = 'uploads/user_profile/main/';
 $config['user_main_allowed_types'] = 'jpg|jpeg|png|gif|mp4|3gp|mpeg|mpg|mpe|qt|mov|avi|pdf';
-$config['user_main_max_size'] = '800000'; //in KB
+$config['user_main_max_size'] = '1000000'; //in KB 
 $config['user_main_max_width'] = '2500';
 $config['user_main_max_height'] = '1800';
 

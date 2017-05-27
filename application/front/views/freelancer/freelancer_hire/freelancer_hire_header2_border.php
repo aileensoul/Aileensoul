@@ -62,7 +62,7 @@
     border-color: transparent transparent #fff;
     margin-top: -18px;
     /* margin-left: 104px; */
-    right: 11px;
+    right: 3px;
 }
 </style>
 <header>

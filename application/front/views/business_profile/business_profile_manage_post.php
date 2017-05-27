@@ -277,13 +277,13 @@
                     $image_ori = $image[0]['profile_background'];
                     if ($image_ori) {
                         ?>
-                        <div class="bg-images">
-                            <img src="<?php echo base_url($this->config->item('bus_bg_main_upload_path') . $image_ori); ?>" name="image_src" id="image_src" / ></div>
+                        
+                            <img src="<?php echo base_url($this->config->item('bus_bg_main_upload_path') . $image_ori); ?>" name="image_src" id="image_src" / >
                         <?php
                     } else {
                         ?>
-                        <div class="bg-images">
-                            <img src="<?php echo base_url(WHITEIMAGE); ?>" name="image_src" id="image_src" / ></div>
+                        
+                            <img src="<?php echo base_url(WHITEIMAGE); ?>" name="image_src" id="image_src" / >
                     <?php }
                     ?>
 
@@ -1765,7 +1765,7 @@
                                                                     <span role="presentation" aria-hidden="true"> · </span>
                                                                     <div class="comment-details-menu">
                                                                         <p><?php
-                                                                            echo date('d-M-Y', strtotime($rowdata['created_date']));
+                                                                            echo $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($rowdata['created_date'])));
                                                                             echo '</br>';
                                                                             ?></p></div>
                                                                 </div></div>
@@ -3997,8 +3997,7 @@
             <script type="text/javascript">
                 function user_postdelete(clicked_id)
                 {
-
-                    $('.biderror .mes').html("<div class='pop_content'> Do You want to delete this post?.<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='remove_ownpost(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+                    $('.biderror .mes').html("<div class='pop_content'> Do You want to delete this post?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='remove_ownpost(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
                     $('#bidmodal').modal('show');
                 }
             </script>
