@@ -3107,13 +3107,13 @@ $files[] = $_FILES;
         }
 
 
-        if($userdatacon[0]['job_step'] == 10){
-        $this->form_validation->set_rules('carrier', 'Carrier', 'required');
+        // if($userdatacon[0]['job_step'] == 10){
+        // $this->form_validation->set_rules('carrier', 'Carrier', 'required');
        
-         }else{
+        //  }else{
          $this->form_validation->set_rules('declaration', 'declaration', 'required');
-        $this->form_validation->set_rules('carrier', 'Carrier', 'required');
-            }
+        // $this->form_validation->set_rules('carrier', 'Carrier', 'required');
+        //     }
 
 
         if ($this->form_validation->run() == FALSE) {

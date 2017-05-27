@@ -74,14 +74,14 @@
            if($image_ori)
            {
             ?>
-            <div class="bg-images">
-            <img src="<?php echo base_url($this->config->item('art_bg_main_upload_path') . $artisticdata[0]['profile_background']);?>" name="image_src" id="image_src" /></div>
+            
+            <img src="<?php echo base_url($this->config->item('art_bg_main_upload_path') . $artisticdata[0]['profile_background']);?>" name="image_src" id="image_src" />
               <?php
            }
            else
            { ?>
-         <div class="bg-images">
-            <img src="<?php echo base_url(WHITEIMAGE); ?>" name="image_src" id="image_src" /></div>
+         
+            <img src="<?php echo base_url(WHITEIMAGE); ?>" name="image_src" id="image_src" />
       <?php     }
           
             ?>
