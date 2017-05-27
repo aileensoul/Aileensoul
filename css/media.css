@@ -164,7 +164,7 @@
 
 @media (min-width: 768px) and (max-width: 1024px) 
   {  
-.fixed_left{left: 0 !important;}
+.fixed_left{left: 31.5%!important;}
      .row4 { margin-right: 0px; margin-left: 0px; }
     .all-form-content { padding-left: 15px !important; }
 

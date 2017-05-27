@@ -266,7 +266,7 @@
                 <div class="designation_rec_1 fl ">
              <ul>
                 <li> 
-      <a class="post_name"  style="margin-left: -18px;" href="<?php echo base_url('job/job_printpreview/' . $rec['user_id'].'?page=recruiter'); ?>" title="<?php echo $rec[0]['fname']. ' ' . $rec[0]['lname']; ?>">
+      <a class="post_name"  href="<?php echo base_url('job/job_printpreview/' . $rec['user_id'].'?page=recruiter'); ?>" title="<?php echo $rec[0]['fname']. ' ' . $rec[0]['lname']; ?>">
         <?php echo $this->db->get_where('job_reg', array('user_id' => $rec['to_id']))->row()->fname . ' ' . $this->db->get_where('job_reg', array('user_id' => $rec['to_id']))->row()->lname; ?></a>
                  </li>
    
@@ -444,7 +444,7 @@
                            <?php  }
                         } else { ?>
                             <div class="text-center rio">
-                                <h4 class="page-heading  product-listing" style="border:0px;margin-bottom: 11px;">No Saved Candidate Found.</h4>
+                                <h4 class="page-heading  product-listing" >No Saved Candidate Found.</h4>
                             </div>
                             <?php } ?>
                         </div>
