@@ -736,6 +736,8 @@ class Recruiter extends MY_Controller {
     public function add_post() {
 
         $userid = $this->session->userdata('aileenuser');
+         $contition_array = array('status' => 1);
+        $this->data['currency'] = $this->common->select_data_by_condition('currency', $contition_array, $data = '*', $sortby = 'currency_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
         $contition_array = array('status' => '1');
         $this->data['countries'] = $this->common->select_data_by_condition('countries', $contition_array, $data = '*', $sortby = 'country_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -823,6 +825,8 @@ class Recruiter extends MY_Controller {
         //$this->form_validation->set_rules('location', 'location', 'required|alpha');
         $this->form_validation->set_rules('country', 'Country', 'required');
         $this->form_validation->set_rules('state', 'State', 'required');
+        $this->form_validation->set_rules('currency', 'Currency', 'required');
+
         //$this->form_validation->set_rules('city', 'City', 'required');
         // $this->form_validation->set_rules('minsal', 'location', 'regex_match[/^[0-9,]+$/]');
         // $this->form_validation->set_rules('maxsal', 'location', 'regex_match[/^[0-9,]+$/]');
@@ -840,6 +844,8 @@ class Recruiter extends MY_Controller {
         $this->data['skill'] = $this->common->select_data_by_condition('skill', $contition_array, $data = '*', $sortby = 'skill', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
         $this->data['recdata'] = $this->common->select_data_by_id('recruiter', 'user_id', $userid, $data = '*', $join_str = array());
+ $contition_array = array('status' => 1);
+        $this->data['currency'] = $this->common->select_data_by_condition('currency', $contition_array, $data = '*', $sortby = 'currency_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
 
         $contition_array = array('status' => '1', 'user_id' => $userid);
@@ -918,6 +924,7 @@ class Recruiter extends MY_Controller {
                 'fresher' => $this->input->post('fresher'),
                 'min_sal' => $this->input->post('minsal'),
                 'max_sal' => $this->input->post('maxsal'),
+                'post_currency' => $this->input->post('currency'),
                 'is_delete' => 0,
                 'other_skill' => $this->input->post('other_skill'),
                 'created_date' => date('y-m-d h:i:s'),
@@ -1091,6 +1098,8 @@ class Recruiter extends MY_Controller {
 
         $contition_array = array('status' => '1');
         $this->data['countries'] = $this->common->select_data_by_condition('countries', $contition_array, $data = '*', $sortby = 'country_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+          $contition_array = array('status' => 1);
+        $this->data['currency'] = $this->common->select_data_by_condition('currency', $contition_array, $data = '*', $sortby = 'currency_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
         //for getting state data
         $contition_array = array('status' => 1);
@@ -1129,6 +1138,8 @@ class Recruiter extends MY_Controller {
         $this->form_validation->set_rules('country', 'Country', 'required');
         $this->form_validation->set_rules('state', 'State', 'required');
         $this->form_validation->set_rules('city', 'City', 'required');
+        $this->form_validation->set_rules('currency', 'Currency', 'required');
+
         // $this->form_validation->set_rules('minsal', 'location', 'regex_match[/^[0-9,]+$/]');
         // $this->form_validation->set_rules('maxsal', 'location', 'regex_match[/^[0-9,]+$/]');
         //  $this->form_validation->set_rules('maxmonth', 'Max month', 'required');
@@ -1157,6 +1168,8 @@ class Recruiter extends MY_Controller {
             'fresher' => $this->input->post('fresher'),
             'min_sal' => trim($this->input->post('minsal')),
             'max_sal' => trim($this->input->post('maxsal')),
+                'post_currency' => $this->input->post('currency'),
+            
             'modify_date' => date('y-m-d h:i:s')
         );
 

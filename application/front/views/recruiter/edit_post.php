@@ -321,18 +321,38 @@
                 </fieldset>
 
 
-                  <fieldset class="half-width" <?php if($minsal) {  ?> class="error-msg" <?php } ?>>
+                  <fieldset class="half-width col-md-4" <?php if($minsal) {  ?> class="error-msg" <?php } ?>>
                             <label class="control-label">Min salary:(Per Year)<!-- <span style="color:red">*</span> --></label>
                             <input name="minsal" type="text" id="minsal" value="<?php echo $postdata[0]['min_sal']; ?>" onblur="return full_name();" placeholder="Enter Minimum Salary" /><span id="fullname-error"></span>
                             <?php echo form_error('minsal'); ?>
                         </fieldset>
 
-                         <fieldset class="half-width" <?php if($maxsal) {  ?> class="error-msg" <?php } ?>>
+                         <fieldset class="half-width col-md-4" <?php if($maxsal) {  ?> class="error-msg" <?php } ?>>
                             <label class="control-label">Max salary:(Per Year)<!-- <span style="color:red">*</span> --></label>
                             <input name="maxsal" type="text" id="maxsal" value="<?php echo $postdata[0]['max_sal']; ?>" onblur="return full_name();" placeholder="Enter Maximum Salary" /><span id="fullname-error"></span>
                             <?php echo form_error('maxsal'); ?>
                         </fieldset>
                 
+                                      <fieldset class=" col-md-4"> 
+                     <label>Currency:</label>
+                            <select name="currency" id="currency">
+                            <?php if(count($currency) > 0){
+                            foreach($currency as $cur){ 
+
+                                if($postdata[0]['post_currency'])
+                                            {?>
+
+                                         <option value="<?php echo $cur['currency_id']; ?>" <?php if($cur['currency_id'] == $postdata[0]['post_currency']) echo 'selected';?>><?php echo $cur['currency_name'];?></option>
+                                            <?php }else{
+                                ?>
+                             <option value="<?php echo $cur['currency_id']; ?>"><?php echo $cur['currency_name']; ?></option>
+                             <?php  } } }?>
+                             </select>
+
+          
+                             <?php echo form_error('currency'); ?>
+
+                    </fieldset>
                <fieldset class="hs-submit full-width">
                   <!--   <input type="reset"> -->
                     <input type="submit" id="submit" class="add_post_btns" name="submit" value="save">
