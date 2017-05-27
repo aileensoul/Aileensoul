@@ -18,24 +18,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <!-- http://bootsnipp.com/snippets/4jXW -->
 
         <link rel="stylesheet" href="<?php echo base_url(); ?>css/style_chat.css" />
-        <style type="text/css">
-            div .comment { width: 94%;
-                           min-height: 41px; 
-                           border: 1px solid #ccc;
-                           padding-right: 50px!important;
-                           word-break: break-all;
-                           background-color: #fff;
-                           /* padding: 10px; */
-                           font-size: 13px;
-                           padding-left: 20px!important;
-                           max-height: 100px; overflow: scroll;overflow-x: hidden;
-                           padding-top: 10px;
-                           overflow-y: auto;
-            }
-
-
-
-        </style>
+     
     <body>
         <?php echo $header; ?>
 
@@ -74,12 +57,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <div class="about">
                                             <div class="name"> 
                                                 <a href="<?php echo base_url() . 'chat/abc/' . $user['user_id']; ?>"><?php echo $user['first_name'] . "<br>"; ?></a> </div>
-                                            <div class="<?php echo 'status' . $user['user_id']; ?>" style=" width: 145px;    max-height: 25px;
-                                                 color: #003;
-                                                 white-space: nowrap;
-                                                 overflow: hidden;
-                                                 text-overflow: ellipsis;
-                                                 ">
+                                            <div class="<?php echo 'status' . $user['user_id']; ?>" id="status_user">
                                     <?php echo $user['message']; ?>
                                             </div>
                                         </div>
@@ -111,12 +89,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <div class="about">
                                             <div class="name"> 
                                                 <a href="<?php echo base_url() . 'chat/abc/' . $lstusrdata[0]['user_id']; ?>"><?php echo $lstusrdata[0]['first_name'] . "<br>"; ?></a> </div>
-                                            <div class="<?php echo 'status' . $lstusrdata[0]['user_id']; ?>" style=" width: 145px;    max-height: 25px;
-                                                 color: #003;
-                                                 white-space: nowrap;
-                                                 overflow: hidden;
-                                                 text-overflow: ellipsis;
-                                                 ">
+                                            <div class="<?php echo 'status' . $lstusrdata[0]['user_id']; ?>" id="status_user">
 
                                             </div>
                                         </div>
@@ -145,12 +118,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 <div class="about">
                                                     <div class="name"> 
                                                              <?php echo $user['first_name'] . "<br>"; ?></div>
-                                                    <div class="<?php echo 'status' . $user['user_id']; ?>" style=" width: 145px;
-                                                         color: #003;    max-height: 25px;
-                                                         white-space: nowrap;
-                                                         overflow: hidden;
-                                                         text-overflow: ellipsis;
-                                                         ">
+                                                    <div class="<?php echo 'status' . $user['user_id']; ?>" id="status_user">
                                         <?php echo $user['message']; ?>
                                                     </div>
                                                 </div>
@@ -211,36 +179,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                   </div>
                                 </div> -->
                                 <div class="col-md-12" id="msg_block">
-                                    <div class="input-group" style="width: 94%;
-                                         background-color: rgba(244, 244, 244, 0.59);
-                                        font-family: sans-serif;
-                                         bottom: 0;
-                                         position: absolute;
-                                         /* border: 1px solid #4E4E4E;*/
-                                         max-height: 80px !important;
-                                         overflow: scroll;
-                                         overflow-x: hidden;
-
-                                         left: 0; margin-bottom: -37px;">
+                                    <div class="input-group" id="set_input">
 
                        <!--  <input id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." /> -->
                                         <form name="blog">
 
                                             <div class="comment" contentEditable="true" name="comments" id="message"  style="position: relative;"></div>
-                                            <div for="smily" style="position: absolute;
-                                                 z-index: 9; 
-                                                 top: 7px;
-                                                 right: 61px;
-                                                 bottom: 0;">
-                                                <div id="notification_li1" style="position: absolute;
-                                                     bottom: 5px;">
-                                                    <a class="smil" href="#" id="notificationLink1" style="position: absolute;
-                                                       bottom: 0;
-                                                       left: -49px;;">
+                                            <div for="smily"  class="smily_b" >
+                                                <div id="notification_li1" >
+                                                    <a class="smil" href="#" id="notificationLink1" ">
                                                         <i class="em em-blush"></i></a>
 
                                                     <div id="notificationContainer1" style="display: none;
-                                                         position: relative;margin-bottom: 37px;">
+                                                       ">
 
                                                         <div id="notificationsBody1" class="notifications1">
     <?php $i = 0;
@@ -262,13 +213,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         </form>
 
                                         <span class="input-group-btn">
-                                            <button class="btn btn-warning btn-sm" id="submit" style="    padding: 10px;
-                                                    background: #003;
-                                                    /* left: -91px; */
-                                                    right: -10px;
-                                                    border: 1px solid #003;
-                                                    position: absolute;
-                                                    bottom: 0;">Send</button>
+                                            <button class="btn btn-warning btn-sm main_send" id="submit" >Send</button>
                                         </span>
                                     </div>
                                 </div>
@@ -305,18 +250,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <form name="blog">
 
                                             <div class="form-control input-sm" contentEditable="true" name="comments"  id="message  smily" style="position: relative;"></div>
-                                            <div for="smily" style="position: absolute;
-                                                 top: 7px;
-                                                 right: 61px;
-                                                 bottom: 0;">
-                                                <div id="notification_li" style="position: absolute;
-                                                     bottom: 5px;">
-                                                    <a href="#" id="notificationLink" style="position: absolute;
-                                                       bottom: 4px;
-                                                       left: -44px;"><i class="em em-blush"></i></a>
+                                            <div for="smily"  class="smily_b">
+                                                <div id="notification_li" >
+                                                    <a href="#" id="notificationLink"><i class="em em-blush"></i></a>
 
                                                     <div id="notificationContainer" style="display: none;
-                                                         position: relative;margin-bottom: 37px;">
+                                                        ">
 
                                                         <div id="notificationsBody" class="notifications"></div>
 
@@ -328,13 +267,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         </form>
 
                                         <span class="input-group-btn">
-                                            <button class="btn btn-warning btn-sm" id="submit" style="    padding: 10px;
-                                                    background: #003;
-                                                    /* left: -91px; */
-                                                    right: -10px;
-                                                    border: 1px solid #003;
-                                                    position: absolute;
-                                                    bottom: 0;">Send</button>
+                                            <button class="btn btn-warning btn-sm main_send" id="submit">Send</button>
                                         </span>
                                     </div>
                                 </div>

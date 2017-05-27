@@ -79,7 +79,7 @@
                                                 <img src="<?php echo base_url(USERIMAGE . $total['user_image']); ?>" >
                                             </div>
                                             <div class="notification-data-inside" id="notification_inside">
-                                                <a href="<?php echo base_url('notification/recruiter_post/' . $total['post_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Recruiter</i></font></b><b>" . "  " . $total['first_name'] . ' ' . $total['last_name'] . "</b>  from " . $companyname . "  invited you for an interview"; ?></h6></a>
+                                                <a href="<?php echo base_url('notification/recruiter_post/' . $total['post_id']); ?>"><h6><?php echo "<font color='#4e6db1'><b><i> Recruiter</i></font></b><b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b>  From " . ucwords($companyname) . "  Invited You For An Interview."; ?></h6></a>
                                                 <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
                                                     <?php echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                 </div>
@@ -100,7 +100,7 @@
                                                 <img src="<?php echo base_url(USERIMAGE . $total['user_image']); ?>" >
                                             </div>
                                             <div class="notification-data-inside" id="notification_inside">
-                                                <a href="<?php echo base_url('artistic/artistic_profile/' . $total['user_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Artistic</i></font></b><b>" . "  " . $total['first_name'] . ' ' . $total['last_name'] . "</b> started to following you"; ?></h6></a>
+                                                <a href="<?php echo base_url('artistic/artistic_profile/' . $total['user_id']); ?>"><h6><?php echo "<b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Started Following You In Artistic."; ?></h6></a>
                                                 <div><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
                                                     <?php echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                 </div>
@@ -121,7 +121,7 @@
                                                     <img src="<?php echo base_url(USERIMAGE . $total['user_image']); ?>" >
                                                 </div>
                                                 <div class="notification-data-inside" id="notification_inside">
-                                                    <a href="<?php echo base_url('notification/art_post/' . $total['art_post_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Artistic</i></font></b><b>" . "  " . $total['first_name'] . ' ' . $total['last_name'] . "</b> commneted on your post"; ?></h6></a>
+                                                    <a href="<?php echo base_url('notification/art_post/' . $total['art_post_id']); ?>"><h6><?php echo "<b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Commented On Your Post In Artistic."; ?></h6></a>
                                                     <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
                                                         <?php echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                     </div>
@@ -144,7 +144,7 @@
                                                     <img src="<?php echo base_url(USERIMAGE . $total['user_image']); ?>" >
                                                 </div>
                                                 <div class="notification-data-inside" id="notification_inside">
-                                                    <a href="<?php echo base_url('notification/art_post/' . $total['art_post_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Artistic</i></font></b><b>" . "  " . $total['first_name'] . ' ' . $total['last_name'] . "</b> liked on your post"; ?></h6></a>
+                                                    <a href="<?php echo base_url('notification/art_post/' . $total['art_post_id']); ?>"><h6><?php echo "<b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Likes Your Post In Artistic."; ?></h6></a>
                                                     <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
                                                         <?php  echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                     </div>
@@ -156,7 +156,7 @@
                                                     <img src="<?php echo base_url(USERIMAGE . $art['user_image']); ?>" >
                                                 </div>
                                                 <div class="notification-data-inside">
-                                                    <a href="<?php echo base_url('notification/art_post_img/' . $art['art_post_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Artistic</i></font></b><b>" . "  " . $art['first_name'] . ' ' . $art['last_name'] . "</b> liked on your image"; ?></h6></a>
+                                                    <a href="<?php echo base_url('notification/art_post_img/' . $art['art_post_id']); ?>"><h6><?php echo "<font color='#4e6db1'><b><i> Artistic</i></font></b><b>" . "  " . $art['first_name'] . ' ' . $art['last_name'] . "</b> liked on your image"; ?></h6></a>
                                                     <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
                                                         <?php echo $this->common->time_elapsed_string($art['not_created_date'], $full = false); ?>
                                                     </div>
@@ -178,7 +178,7 @@
                                                     <img src="<?php echo base_url(USERIMAGE . $total['user_image']); ?>" >
                                                 </div>
                                                 <div class="notification-data-inside" id="notification_inside">
-                                                    <a href="<?php echo base_url('notification/art_post/' . $total['art_post_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Artistic</i></font></b><b>" . "  " . $total['first_name'] . ' ' . $total['last_name'] . "</b> liked on your comment"; ?></h6></a>
+                                                    <a href="<?php echo base_url('notification/art_post/' . $total['art_post_id']); ?>"><h6><?php echo "<b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Likes Your Post's Comment In Artistic."; ?></h6></a>
                                                     <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
                                                         <?php echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                     </div>
@@ -197,7 +197,7 @@
                                                     <img src="<?php echo base_url(USERIMAGE . $total['user_image']); ?>" >
                                                 </div>
                                                 <div class="notification-data-inside" id="notification_inside">
-                                                    <a href="<?php echo base_url('notification/art_post_img/' . $total['post_id'] . '/' . $total['image_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Artistic</i></font></b><b>" . "  " . $total['first_name'] . ' ' . $total['last_name'] . "</b> liked on your image"; ?></h6></a>
+                                                    <a href="<?php echo base_url('notification/art_post_img/' . $total['post_id'] . '/' . $total['image_id']); ?>"><h6><?php echo "<b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Likes Your Photo In Artistic."; ?></h6></a>
                                                     <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
                                                         <?php echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                     </div>
@@ -219,7 +219,7 @@
                                                 <img src="<?php echo base_url(USERIMAGE . $total['user_image']); ?>" >
                                             </div>
                                             <div class="notification-data-inside" id="notification_inside">
-                                                <a href="<?php echo base_url('notification/art_post_img/' . $postid . '/' . $total['post_image_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Artistic</i></font></b><b>" . "  " . $total['first_name'] . ' ' . $total['last_name'] . "</b> commneted on your image"; ?></h6></a>
+                                                <a href="<?php echo base_url('notification/art_post_img/' . $postid . '/' . $total['post_image_id']); ?>"><h6><?php echo "<b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Commneted On Your Photo In Artistic."; ?></h6></a>
                                                 <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
                                                     <?php echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                 </div>
@@ -243,7 +243,7 @@
                                                 <img src="<?php echo base_url(USERIMAGE . $total['user_image']); ?>" >
                                             </div>
                                             <div class="notification-data-inside" id="notification_inside">
-                                                <a href="<?php echo base_url('notification/art_post_img/' . $postid . '/' . $total['post_image_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Artistic</i></font></b><b>" . "  " . $total['first_name'] . ' ' . $total['last_name'] . "</b> liked on your comment"; ?></h6></a>
+                                                <a href="<?php echo base_url('notification/art_post_img/' . $postid . '/' . $total['post_image_id']); ?>"><h6><?php echo "<b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Likes Your Photo's Comment In Artistic."; ?></h6></a>
                                                 <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
                                                     <?php echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                 </div>
@@ -264,6 +264,7 @@
                                      $bus_img1 = $total['not_img'];
 
                                     if ($bus_from1 == '6' && $bus_img1 == '1') {
+                                         $companyname = $this->db->get_where('business_profile', array('user_id' => $total['not_from_id']))->row()->company_name;
                                         ?>
 
                                         <li>
@@ -271,7 +272,7 @@
                                                 <img src="<?php echo base_url(USERIMAGE . $total['user_image']); ?>" >
                                             </div>
                                             <div class="notification-data-inside" id="notification_inside">
-                                                <a href="<?php echo base_url('notification/business_post/' . $total['business_profile_post_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Business</i></font></b><b>" . "  " . $total['first_name'] . ' ' . $total['last_name'] . "</b> commneted on your post"; ?></h6></a>
+                                                <a href="<?php echo base_url('notification/business_post/' . $total['business_profile_post_id']); ?>"><h6><?php echo "<b>" . "  " . ucwords($companyname) . "</b> Commented On Your Post In Business Profile."; ?></h6></a>
                                                 <div><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
                                                     <?php echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                 </div>
@@ -290,13 +291,14 @@
                              //   foreach ($busimgcommnet as $bus) {
                                     if ($total['not_from'] == 6) {
                                         if ($total['not_img'] == 4) {
-         $postid = $this->db->get_where('post_image', array('image_id' => $total['post_image_id']))->row()->post_id; ?>
+         $postid = $this->db->get_where('post_image', array('image_id' => $total['post_image_id']))->row()->post_id;
+          $companyname = $this->db->get_where('business_profile', array('user_id' => $total['not_from_id']))->row()->company_name;?>
                                             <li>
                                             <div class="notification-pic" id="noti_pc" >
                                                 <img src="<?php echo base_url(USERIMAGE . $total['user_image']); ?>" >
                                             </div>
                                             <div class="notification-data-inside" id="notification_inside">
-                                                <a href="<?php echo base_url('notification/bus_post_img/' . $postid . '/' . $total['post_image_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Business</i></font></b><b>" . "  " . $total['first_name'] . ' ' . $total['last_name'] . "</b> commneted on your image"; ?></h6></a>
+                                                <a href="<?php echo base_url('notification/bus_post_img/' . $postid . '/' . $total['post_image_id']); ?>"><h6><?php echo "<b>" . "  " . ucwords($companyname)  . "</b> Commented On Your Photo In Business Profile."; ?></h6></a>
                                                 <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
                                                     <?php echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                 </div>
@@ -313,13 +315,14 @@
                             //    foreach ($busimgcmtlike as $bus) {
                                     if ($total['not_from'] == 6) {
                                         if ($total['not_img'] == 6) {
-         $postid = $this->db->get_where('post_image', array('image_id' => $total['post_image_id']))->row()->post_id; ?>
+         $postid = $this->db->get_where('post_image', array('image_id' => $total['post_image_id']))->row()->post_id;
+         $companyname = $this->db->get_where('business_profile', array('user_id' => $total['not_from_id']))->row()->company_name;?>
                                             <li>
                                             <div class="notification-pic" id="noti_pc" >
                                                 <img src="<?php echo base_url(USERIMAGE . $total['user_image']); ?>" >
                                             </div>
                                             <div class="notification-data-inside" id="notification_inside">
-                                                <a href="<?php echo base_url('notification/bus_post_img/' . $postid . '/' . $total['post_image_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Business</i></font></b><b>" . "  " . $total['first_name'] . ' ' . $total['last_name'] . "</b> liked on your comment"; ?></h6></a>
+                                                <a href="<?php echo base_url('notification/bus_post_img/' . $postid . '/' . $total['post_image_id']); ?>"><h6><?php echo "<b>" . "  " . ucwords($companyname) .  "</b> Likes Your Photo's Comment In Business Profile."; ?></h6></a>
                                                 <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
                                                     <?php echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                 </div>
@@ -337,6 +340,7 @@
                            //     foreach ($busifollow as $bus) {
                                     if ($total['not_from'] == 6 && $total['not_img'] == 0) {
                                         $id = $this->db->get_where('business_profile', array('user_id' => $total['not_from_id']))->row()->business_slug;
+                                        $companyname = $this->db->get_where('business_profile', array('user_id' => $total['not_from_id']))->row()->company_name;
                                         if ($id) {
                                             ?>
                                             <li> 
@@ -344,7 +348,7 @@
                                                     <img src="<?php echo base_url(USERIMAGE . $total['user_image']); ?>" >
                                                 </div>
                                                 <div class="notification-data-inside" id="notification_inside">
-                                                    <a href="<?php echo base_url('business_profile/business_resume/' . $id); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Businessman</i></font></b><b>" . "  " . $total['first_name'] . ' ' . $total['last_name'] . "</b> started to following you"; ?></h6></a>
+                                                    <a href="<?php echo base_url('business_profile/business_resume/' . $id); ?>"><h6><?php echo "<b>" . "  " . ucwords($companyname) .  "</b> Started Following You In Business Profile."; ?></h6></a>
                                                     <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
                                                         <?php echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                     </div>
@@ -360,13 +364,14 @@
                             //    foreach ($buslike as $bus) {
                                     if ($total['not_from'] == 6) {
                                         if ($total['not_img'] == 2) {
+                                    $companyname = $this->db->get_where('business_profile', array('user_id' => $total['not_from_id']))->row()->company_name;
                                             ?>
                                             <li>
                                                 <div class="notification-pic" id="noti_pc" >
                                                     <img src="<?php echo base_url(USERIMAGE . $total['user_image']); ?>" >
                                                 </div>
                                                 <div class="notification-data-inside" id="notification_inside">
-                                                    <a href="<?php echo base_url('notification/business_post/' . $total['business_profile_post_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Businessman</i></font></b><b>" . "  " . $total['first_name'] . ' ' . $total['last_name'] . "</b> liked on your post"; ?></h6></a>
+                                                    <a href="<?php echo base_url('notification/business_post/' . $total['business_profile_post_id']); ?>"><h6><?php echo "<b>" . "  " . ucwords($companyname) .  "</b> Likes Your Post In Business Profile."; ?></h6></a>
                                                     <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
                                                         <?php echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                     </div>
@@ -381,13 +386,15 @@
                                  <?php
                              //   foreach ($buscmtlike as $bus) {
                                     if ($total['not_from'] == 6) {
-                                      if ($total['not_img'] == 3) {   ?>
+                                      if ($total['not_img'] == 3) { 
+                        $companyname = $this->db->get_where('business_profile', array('user_id' => $total['not_from_id']))->row()->company_name;              
+                                          ?>
                                             <li> 
                                                 <div class="notification-pic" id="noti_pc" >
                                                     <img src="<?php echo base_url(USERIMAGE . $total['user_image']); ?>" >
                                                 </div>
                                                 <div class="notification-data-inside" id="notification_inside">
-                                                    <a href="<?php echo base_url('notification/business_post/' . $total['business_profile_post_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Businessman</i></font></b><b>" . "  " . $total['first_name'] . ' ' . $total['last_name'] . "</b> liked on your comment"; ?></h6></a>
+                                                    <a href="<?php echo base_url('notification/business_post/' . $total['business_profile_post_id']); ?>"><h6><?php echo "<<b>" . "  " . ucwords($companyname) .  "</b> Likes Your Post's Comment In Business Profile."; ?></h6></a>
                                                     <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
                                                         <?php echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                     </div>
@@ -402,13 +409,15 @@
                                             <?php
                              //   foreach ($busimglike as $bus) {
                                     if ($total['not_from'] == 6) {
-                                      if ($total['not_img'] == 5) {   ?>
+                                      if ($total['not_img'] == 5) { 
+                                         $companyname = $this->db->get_where('business_profile', array('user_id' => $total['not_from_id']))->row()->company_name;        
+                                          ?>
                                             <li> 
                                                 <div class="notification-pic" id="noti_pc" >
                                                     <img src="<?php echo base_url(USERIMAGE . $total['user_image']); ?>" >
                                                 </div>
                                                 <div class="notification-data-inside" id="notification_inside">
-                                                    <a href="<?php echo base_url('notification/bus_post_img/' . $total['post_id'] . '/' . $total['image_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Businessman</i></font></b><b>" . "  " . $total['first_name'] . ' ' . $total['last_name'] . "</b> liked on your image"; ?></h6></a>
+                                                    <a href="<?php echo base_url('notification/bus_post_img/' . $total['post_id'] . '/' . $total['image_id']); ?>"><h6><?php echo "<b>" . "  " . ucwords($companyname) .  "</b> Likes Your Photo In Business Profile."; ?></h6></a>
                                                     <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
                                                         <?php echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                     </div>
@@ -431,7 +440,7 @@
                                                     <img src="<?php echo base_url(USERIMAGE . $total['user_image']); ?>" >
                                                 </div>
                                                 <div class="notification-data-inside" id="notification_inside">
-                                                    <a href="<?php echo base_url('job/job_printpreview/' . $total['not_from_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Job seeker</i></font></b><b>" . "  " . $total['first_name'] . ' ' . $total['last_name'] . "</b> Aplied on your jobpost"; ?></h6></a>
+                                                    <a href="<?php echo base_url('job/job_printpreview/' . $total['not_from_id']); ?>"><h6><?php echo "<font color='#4e6db1'><b><i> Job Seeker</i></font></b><b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Aplied On Your Job Post."; ?></h6></a>
                                                     <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
                                                         <?php echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                     </div>
@@ -456,7 +465,7 @@
                                                     <img src="<?php echo base_url(USERIMAGE . $total['user_image']); ?>" >
                                                 </div>
                                                 <div class="notification-data-inside" id="notification_inside">
-                                                    <a href="<?php echo base_url('freelancer/freelancer_post_profile/' . $total['not_from_id']); ?>"><h6><?php echo "HI.. !  <font color='yellow'><b><i>Freelancer work</i></font></b><b>" . "  " . $total['first_name'] . ' ' . $total['last_name'] . "</b> Aplied on your post"; ?></h6></a>
+                                                    <a href="<?php echo base_url('freelancer/freelancer_post_profile/' . $total['not_from_id']); ?>"><h6><?php echo "<font color='yellow'><b><i>Freelancer</i></font></b><b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Applied On Your Post."; ?></h6></a>
                                                     <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
                                                         <?php echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                     </div>
@@ -480,7 +489,7 @@
                                                     <img src="<?php echo base_url(USERIMAGE . $total['user_image']); ?>" >
                                                 </div>
                                                 <div class="notification-data-inside" id="notification_inside">
-                                                    <a href="<?php echo base_url('job/job_printpreview/' . $id); ?>"><h6><?php echo "HI.. !  <font color='black'><b><i>Freelance Hire</i></font></b><b>" . "  " . $total['first_name'] . ' ' . $total['last_name'] . "</b> Aplied on your post"; ?></h6></a>
+                                                    <a href="<?php echo base_url('freelancer/freelancer_post_profile/' . $total['user_id']); ?>"><h6><?php echo "<font color='black'><b><i>Employer</i></font></b><b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Selected You For Project."; ?></h6></a>
                                                     <div><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
                                                         <?php echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                     </div>
@@ -501,7 +510,7 @@
                                                 <img src="<?php echo base_url(USERIMAGE . $total['user_image']); ?>" >
                                             </div>
                                             <div class="notification-data-inside" id="notification_inside">
-                                                <a href="<?php echo base_url('notification/freelancer_hire_post/' . $total['post_id']); ?>"><h6><?php echo "HI.. !  <font color='#4e6db1'><b><i> Freelancer hire</i></font></b><b>" . "  " . $total['first_name'] . ' ' . $total['last_name'] . "</b> invited you for an interview"; ?></h6></a>
+                                                <a href="<?php echo base_url('notification/freelancer_hire_post/' . $total['post_id']); ?>"><h6><?php echo "<font color='#4e6db1'><b><i> Freelancer hire</i></font></b><b>" . "  " . $total['first_name'] . ' ' . $total['last_name'] . "</b> invited you for an interview"; ?></h6></a>
                                                 <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
                                                     <?php echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                 </div>
