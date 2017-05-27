@@ -7,7 +7,7 @@
 <!-- start header -->
 <?php echo $header; ?>
 <!-- END HEADER -->
-<?php echo $freelancer_post_header2_border; ?>
+<?php echo $freelancer_post_header2; ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -111,14 +111,16 @@
                                        if ($freepostdata[0]['profile_background'] != '') {
                                            ?>
                                         <!-- box image start -->
-                                        <img src="<?php echo base_url($this->config->item('free_post_bg_main_upload_path') . $freepostdata[0]['profile_background']); ?>" class="bgImage" alt="<?php echo  $freepostdata[0]['freelancer_post_fullname'] . ' ' . $freepostdata[0]['freelancer_post_username']; ?>" >
+                                        <div class="data_img">
+                                        <img src="<?php echo base_url(FREEWORKIMG . $freepostdata[0]['profile_background']); ?>" class="bgImage" alt="<?php echo  $freepostdata[0]['freelancer_post_fullname'] . ' ' . $freepostdata[0]['freelancer_post_username']; ?>" >
+                                        </div>
                                         <!-- box image end -->
                                         <?php
                                     } else {
                                         ?>
                                         <div class="data_img">
-                                        <img src="<?php echo base_url(WHITEIMAGE); ?>" class="bgImage" alt="<?php echo  $freepostdata[0]['freelancer_post_fullname'] . ' ' . $freepostdata[0]['freelancer_post_username']; ?>" >
-                                             </div>
+                                        <img src="<?php echo base_url(WHITEIMAGE); ?>" class="bgImage" alt="<?php echo  $freepostdata[0]['freelancer_post_fullname'] . ' ' . $freepostdata[0]['freelancer_post_username']; ?>"  >
+                                        </div>
                                              <?php
                                          }
                                          ?>
@@ -132,19 +134,23 @@
                                                    <?php
                                             if ($freelancerdata[0]['freelancer_post_user_image']) {
                                                 ?>
-                     <img src="<?php echo base_url($this->config->item('free_post_profile_thumb_upload_path') . $freelancerdata[0]['freelancer_post_user_image']); ?>" alt="<?php echo $freelancerdata[0]['freelancer_post_fullname']. ' ' . $freelancerdata[0]['freelancer_post_username']; ?>" >
+
+                                                <div class="data_img_2">
+                     <img src="<?php echo base_url(USERIMAGE . $freelancerdata[0]['freelancer_post_user_image']); ?>" alt="<?php echo $freelancerdata[0]['freelancer_post_fullname']. ' ' . $freelancerdata[0]['freelancer_post_username']; ?>" >
+                     </div>
                                                 <?php
                                             } else {
                                                 ?>
-                                                <div class="data_img_2">
-                                                 <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo $freelancerdata[0]['freelancer_post_fullname']. ' ' . $freelancerdata[0]['freelancer_post_username']; ?>" > <?php
+                                                <div class="data_img_2"> 
+                                                 <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo $freelancerdata[0]['freelancer_post_fullname']. ' ' . $freelancerdata[0]['freelancer_post_username']; ?>" >
+                                                     </div> <?php
                                             }
                                             ?>
                                         </a>
 </div>
 <div class="profile-box-user  profile-text-bui-user  fr col-md-9">
             <span class="profile-company-name ">
-                                         <a  href="<?php echo base_url('freelancer/freelancer_post_profile'); ?>"><?php echo ucwords($userdata[0]['first_name']) . ' ' . ucwords($userdata[0]['last_name']); ?></a>
+                                         <a href="<?php echo base_url('freelancer/freelancer_post_profile'); ?>"><?php echo ucwords($userdata[0]['first_name']) . ' ' . ucwords($userdata[0]['last_name']); ?></a>
                                         </span>
        
          
@@ -212,35 +218,26 @@ if ($freepostdata[0]['designation']) {
                             echo trim(date('d-M-Y', strtotime($post['created_date'])));
                                    ?>
                             </li>
-
                              <li>
-                              <a href="#" title="Post Title" class="display_inline dis">
+                              <a href="#" title="Post Title" class="display_inline">
                               <?php echo ucwords($post['post_name']); ?> </a>   </li>
 
-                          
+                             <li>   
+                               <div class="fr lction">
+                              <?php $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name; ?>
+                              <?php $countryname = $this->db->get_where('countries', array('country_id' => $post['country']))->row()->country_name; ?>
+
+                                <p><i class="fa fa-map-marker" aria-hidden="true">
+                                  <?php if ($cityname){echo $cityname.","; } ?><?php if ($countryname){ echo $countryname; }?></i></p>
+                                 </div>
 
                              <?php
                 $firstname = $this->db->get_where('freelancer_hire_reg', array('user_id' => $post['user_id']))->row()->fullname;
                 $lastname = $this->db->get_where('freelancer_hire_reg', array('user_id' => $post['user_id']))->row()->username;
                     ?>
-                    
+                    </li>
                             <li><a class="display_inline" title="<?php echo ucwords($firstname); ?>&nbsp;<?php echo ucwords($lastname); ?>" href="<?php echo base_url('freelancer/freelancer_hire_profile/' . $post['user_id'].'?page=freelancer_post'); ?>"><?php echo ucwords($firstname); ?>&nbsp;<?php echo ucwords($lastname); ?>
-                            </a>
-
-                          <?php $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name; ?>
-                              <?php $countryname = $this->db->get_where('countries', array('country_id' => $post['country']))->row()->country_name; ?>
-                              <?php if($cityname || $countryname){?>
-
- 
-                               <div class="fr lction">
-                              
-                                <p title="Location"><i class="fa fa-map-marker" aria-hidden="true">
-                                <?php if($cityname){
-                                   echo $cityname.","; } ?><?php  echo $countryname; ?></i></p>
-                                 </div>
-                                 <?php }?>
-
-                            </li>
+                            </a></li>
                     <!-- vishang 14-4 end -->    
                 </ul>
              </div>

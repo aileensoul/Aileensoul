@@ -518,7 +518,7 @@ $this->data['smiley_table'] = $smileys;
      $join_str5[0]['join_type'] = '';
      
     
-     $search_condition = "(first_name LIKE '%" . trim($usrsearchdata) . "%')";
+     $search_condition = "(first_name LIKE '" . trim($usrsearchdata) . "%')";
 
      $tolist = $this->common->select_data_by_search('user', $search_condition,$contition_array, $data = 'message_to,first_name,user_image', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str5, $groupby = '');
    
@@ -561,7 +561,7 @@ $this->data['smiley_table'] = $smileys;
     $join_str6[0]['from_table_id'] = 'user.user_id';
     $join_str6[0]['join_type'] = '';
      
-    $search_condition = "(first_name LIKE '%$usrsearchdata%')";
+    $search_condition = "(first_name LIKE '$usrsearchdata%')";
 
     $fromlist = $this->common->select_data_by_search('user', $search_condition,$contition_array, $data = 'messages.message_from,first_name,user_image', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str6, $groupby = '');
     
@@ -918,7 +918,7 @@ public function userlisttwo($id='')
      $join_str7[0]['join_type'] = '';
      
     
-     $search_condition = "((first_name LIKE '%" . trim($usrsearchdata) . "%') AND (message_to !='" . $usrid . "' ))";
+     $search_condition = "((first_name LIKE '" . trim($usrsearchdata) . "%') AND (message_to !='" . $usrid . "' ))";
 
      $tolist = $this->common->select_data_by_search('user', $search_condition,$contition_array, $data = 'message_to,first_name,user_image', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str7, $groupby = '');
    
@@ -961,7 +961,7 @@ public function userlisttwo($id='')
     $join_str[0]['from_table_id'] = 'user.user_id';
     $join_str[0]['join_type'] = '';
      
-    $search_condition = "((first_name LIKE '%" . trim($usrsearchdata) . "%') AND (message_from !='" . $usrid . "' ))";
+    $search_condition = "((first_name LIKE '" . trim($usrsearchdata) . "%') AND (message_from !='" . $usrid . "' ))";
 
     $fromlist = $this->common->select_data_by_search('user', $search_condition,$contition_array, $data = 'messages.message_from,first_name,user_image', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
     

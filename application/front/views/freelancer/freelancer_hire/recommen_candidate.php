@@ -4,7 +4,7 @@
 <!-- start header -->
 <?php echo $header; ?>
 
-<?php echo $freelancer_hire_header2_border; ?>
+<?php echo $freelancer_hire_header2; ?>
 
 <!--post save success pop up style strat -->
 
@@ -97,7 +97,7 @@
                 <div class="row row4">
 
                     <div class="col-md-4"><div class="profile-box profile-box-left">
-                            
+                   
 
                             <div class="full-box-module">    
 
@@ -111,9 +111,8 @@
                                             if ($freehiredata[0]['profile_background'] != '') {
                                                 ?>
                                                 <!-- box image start -->
-
-                                                <div class="data_img">
-              <img src="<?php echo base_url($this->config->item('free_hire_bg_main_upload_path') . $freehiredata[0]['profile_background']); ?>" class="bgImage" alt="<?php echo $freehiredata[0]['fullname'] . " " . $freehiredata[0]['username']; ?>" >
+                                                 <div class="data_img">
+              <img src="<?php echo base_url(FREEHIREIMG . $freehiredata[0]['profile_background']); ?>" class="bgImage" alt="<?php echo $freehiredata[0]['fullname'] . " " . $freehiredata[0]['username']; ?>" >
               </div>
                                                 <!-- box image end -->
                                                 <?php
@@ -121,7 +120,7 @@
                                                 ?>
                                                 <div class="data_img">
                                                 <img src="<?php echo base_url(WHITEIMAGE); ?>" class="bgImage" alt="<?php echo $freehiredata[0]['fullname'] . " " . $freehiredata[0]['username']; ?>"  >
-                                                     <div class="data_img_2">
+                                                     </div>
                                                      <?php
                                                  }
                                                  ?>
@@ -225,13 +224,13 @@
                     <div class="profile-job-post-location-name-rec">
                        
 
-          <div style="display: inline-block; float: left;">
+          <div class="fl" style="display: inline-block;">
               <div  class="buisness-profile-pic-candidate">
                                    <?php
                                 if ($row['freelancer_post_user_image']) {
                               ?>
                 <a href="<?php echo base_url('freelancer/freelancer_post_profile/' . $row['user_id'].'?page=freelancer_hire'); ?>" title="<?php echo ucwords($row['freelancer_post_fullname']) . ' ' . ucwords($row['freelancer_post_username']); ?>">
-                 <img src="<?php echo base_url($this->config->item('free_post_profile_thumb_upload_path') . $row['freelancer_post_user_image']); ?>" alt="<?php echo ucwords($row['freelancer_post_fullname']) . ' ' . ucwords($row['freelancer_post_username']); ?>">
+                 <img src="<?php echo base_url(USERIMAGE . $row['freelancer_post_user_image']); ?>" alt="<?php echo ucwords($row['freelancer_post_fullname']) . ' ' . ucwords($row['freelancer_post_username']); ?>">
                  </a>
                     <?php
                   } else {
@@ -247,7 +246,7 @@
         <div class="designation_rec fl">
           <ul>
                <li>
-             <a style="margin-right: 4px;" href="<?php echo base_url('freelancer/freelancer_post_profile/' . $row['user_id'].'?page=freelancer_hire'); ?>" title="<?php echo ucwords($row['freelancer_post_fullname']) . ' ' . ucwords($row['freelancer_post_username']); ?>"><h6>
+             <a class="ml-4" href="<?php echo base_url('freelancer/freelancer_post_profile/' . $row['user_id'].'?page=freelancer_hire'); ?>" title="<?php echo ucwords($row['freelancer_post_fullname']) . ' ' . ucwords($row['freelancer_post_username']); ?>"><h6>
               <?php echo ucwords($row['freelancer_post_fullname']) . ' ' . ucwords($row['freelancer_post_username']); ?></h6>
             </a>
           </li>

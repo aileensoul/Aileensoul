@@ -213,7 +213,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div class="col-md-12" id="msg_block">
                                     <div class="input-group" style="width: 94%;
                                          background-color: rgba(244, 244, 244, 0.59);
-                                         font-family: sans-serif;
+                                        font-family: sans-serif;
                                          bottom: 0;
                                          position: absolute;
                                          /* border: 1px solid #4E4E4E;*/
