@@ -773,8 +773,8 @@ ul.business_pf_ct_person_detail li b {font-size: 16px; display: inline-block; wi
 .profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li b {font-weight: 600; width: 32%; float: left; }
 
 .profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li label {font-weight: 600; width: 30%; float: left; }
-.profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li span{   word-wrap: break-word; word-break: break-word;  text-align: justify;
-                                                                                           padding-right: 10px ;display: flex; width: 63%;/* display: inline-block;*/}
+.profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li span{   /*word-wrap: break-word; word-break: break-word;  text-align: justify;*/
+                                                                                           padding-right: 10px ;display: inline-flex; width: 68%;/* display: inline-block;*/}
 .profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li span::before { 
     content: " :"; padding-right: 20px; float: left; }
 .profile-job-post-location-name { padding: 12px 21px; font-weight: bold; }
@@ -4027,7 +4027,7 @@ body.modal-open{ padding: 0 !important; overflow: visible;  position: absolute; 
 
 
 .like_other{display:block; padding-left: 23px; background-color: #fff;}
-.like_one_other{font-weight: 400; padding-left: 24px!important; padding: 1px; font-size: 13px; display: inline-block;}
+.like_one_other{font-weight: 400; padding-left: 24px!important; padding: 1px; font-size: 13px; display: inline-block;margin-left: 1px;}
 
 
 
@@ -4641,7 +4641,7 @@ input:-moz-placeholder { color:#999; font-size: 15px; }
 /* vishang 4-5-17 */
 
 
-  .profile-job-post-location-name-rec .post_name { font-size: 19px; font-weight: 600; }
+  .profile-job-post-location-name-rec .post_name { font-size: 19px; font-weight: 600;margin-left: -18px; }
        
   .profile-job-post-location-name-rec .post_designation { font-size: 16px; }
 
@@ -5313,3 +5313,4 @@ fieldset .add_post_btns:hover{background-color:#156f95!important}
 .job-profile-left-side-bar .left-side-bar ul li.active a:hover{background-color: #156f95}
 .tabordion section .label-d:hover{background-color: #156f95!important}
 .tabordion section .label-d:active{background-color: #156f95!important}
+.margin_business{margin-right: 16px;}
