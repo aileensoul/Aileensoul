@@ -2866,7 +2866,7 @@ $contition_array = array('user_id' => $userid);
             'not_read' => 2,
             'not_from' => 5,
             'not_product_id' => $appid,
-            'not_created_date' => date('y-m-d h:i:s'),
+            'not_created_date' => date('Y-m-d H:i:s')
         );
 
         $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -3303,7 +3303,7 @@ $contition_array = array('user_id' => $userid);
             'not_status' => 0,
             'not_product_id' => $insert_id,
             'not_from' => 4,
-            'not_created_date' => date('y-m-d h:i:s'),
+            'not_created_date' => date('Y-m-d H:i:s')
             );
         $insert_id = $this->common->insert_data_getid($data, 'notification');
         echo 'Selected';

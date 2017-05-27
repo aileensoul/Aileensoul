@@ -234,7 +234,6 @@ class Notification extends MY_Controller {
                 'from_table_id' => 'user.user_id')
         );
         $data = array('notification.*', 'follow.*', 'user.user_id', 'user.first_name', 'user.user_image', 'user.last_name');
-
         $busifollow = $this->data['busifollow'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'follow_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 
 // follow notification end
