@@ -2993,9 +2993,12 @@ class Business_profile extends MY_Controller {
                 $cmtinsert .= '<div class="all-comment-comment-box">';
                 $cmtinsert .= '<div class="post-design-pro-comment-img">';
 
-
-                $cmtinsert .= '<img  src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage) . '" alt="">  </div>';
-
+                if($business_userimage != ''){
+                    $cmtinsert .= '<img  src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage) . '" alt="">  </div>';
+                }
+                else{
+                    $cmtinsert .= '<img  src="' . base_url(NOIMAGE) . '" alt="">  </div>';
+                }
                 $cmtinsert .= '<div class="comment-name"><b>' . $companyname . '</b>';
                 $cmtinsert .= '</div>';
                 $cmtinsert .= '<div class="comment-details" id= "showcomment' . $business_profile['business_profile_post_comment_id'] . '"" >';
@@ -3071,7 +3074,7 @@ class Business_profile extends MY_Controller {
 
 
                     $cmtinsert .= '<input type="hidden" name="post_delete"';
-                    $cmtinsert .= 'id="post_delete"';
+                    $cmtinsert .= 'id="post_delete' . $business_profile['business_profile_post_comment_id'] . '"';
                     $cmtinsert .= 'value= "' . $business_profile['business_profile_post_id'] . '">';
                     $cmtinsert .= '<a id="' . $business_profile['business_profile_post_comment_id'] . '"';
                     $cmtinsert .= 'onClick="comment_delete(this.id)">';
@@ -3131,7 +3134,12 @@ class Business_profile extends MY_Controller {
 
                 $cmtinsert .= '<div class="all-comment-comment-box">';
                 $cmtinsert .= '<div class="post-design-pro-comment-img">';
-                $cmtinsert .= '<img  src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage) . '" alt="">  </div>';
+                if($business_userimage != ''){
+                    $cmtinsert .= '<img  src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage) . '" alt="">  </div>';
+                }
+                else{
+                    $cmtinsert .= '<img  src="' . base_url(NOIMAGE) . '" alt="">  </div>';
+                }
                 $cmtinsert .= '<div class="comment-name"><b>' . $companyname . '</b>';
                 $cmtinsert .= '</div>';
                 $cmtinsert .= '<div class="comment-details" id="showcommenttwo' . $business_profile['business_profile_post_comment_id'] . '">';
@@ -3379,7 +3387,7 @@ class Business_profile extends MY_Controller {
                 $cmtlikeuser .= '<div class="like_one_other">';
 
                 if ($userid == $likelistarray[0]) {
-                    $cmtlikeuser .= 'You';
+                    $cmtlikeuser .= 'You ';
                 } else {
                     $cmtlikeuser .= '' . ucwords($business_fname1) . '&nbsp;';
                 }
@@ -3389,7 +3397,7 @@ class Business_profile extends MY_Controller {
 
 //                    $cmtlikeuser .= '<div class="fl" style="padding-right: 5px;">';
                     // $cmtlikeuser .= '<div class="like_one_other">';
-                    $cmtlikeuser .= 'and';
+                    $cmtlikeuser .= ' and';
                     //$cmtlikeuser .= '</div>';
                     //$cmtlikeuser .= '<div style="padding-left: 5px;">';
                     $cmtlikeuser .= ' ' . $countlike . ' others';
@@ -3661,7 +3669,7 @@ class Business_profile extends MY_Controller {
 
 
                 $cmtinsert .= '<input type="hidden" name="post_delete"';
-                $cmtinsert .= 'id="post_delete"';
+                $cmtinsert .= 'id="post_delete' . $business_profile['business_profile_post_comment_id'] . '"';
                 $cmtinsert .= 'value= "' . $business_profile['business_profile_post_id'] . '">';
                 $cmtinsert .= '<a id="' . $business_profile['business_profile_post_comment_id'] . '"';
                 $cmtinsert .= 'onClick="comment_delete(this.id)">';
@@ -4225,7 +4233,7 @@ class Business_profile extends MY_Controller {
                 $imglikeuser .= '<div class="like_one_other_img">';
                 if ($userid == $commneteduser[0]['user_id']) {
 
-                    $imglikeuser .= 'You';
+                    $imglikeuser .= 'You ';
                 } else {
 
                     $imglikeuser .= '' . ucwords($business_fname1) . '&nbsp;';
@@ -4296,7 +4304,7 @@ class Business_profile extends MY_Controller {
 
                     if ($userid == $commneteduser[0]['user_id']) {
 
-                        $imglikeuser1 .= 'You';
+                        $imglikeuser1 .= 'You ';
                     } else {
                         $imglikeuser1 .= '' . ucwords($business_fname1) . '&nbsp;';
                     }
@@ -4402,7 +4410,7 @@ class Business_profile extends MY_Controller {
 
                     if ($userid == $commneteduser[0]['user_id']) {
 
-                        $imglikeuser1 .= 'You';
+                        $imglikeuser1 .= 'You ';
                     } else {
                         $imglikeuser1 .= '' . ucwords($business_fname1) . '&nbsp;';
                     }
@@ -4494,8 +4502,11 @@ class Business_profile extends MY_Controller {
 
             //$cmtinsert = '<div class="all-comment-comment-box">';
             $cmtinsert .= '<div class="post-design-pro-comment-img">';
-            $cmtinsert .= '<img  src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage) . '" alt="">  </div>';
-
+            if($business_userimage != ''){
+                $cmtinsert .= '<img  src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage) . '" alt="">  </div>';
+            }else{
+                $cmtinsert .= '<img  src="' . base_url(NOIMAGE) . '" alt="">  </div>';
+            }
             $cmtinsert .= '<div class="comment-name"><b>' . $company_name . '</b>';
             $cmtinsert .= '</div>';
 
@@ -4666,8 +4677,12 @@ class Business_profile extends MY_Controller {
 
             //$cmtinsert = '<div class="all-comment-comment-box">';
             $cmtinsert .= '<div class="post-design-pro-comment-img">';
-            $cmtinsert .= '<img  src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage) . '" alt="">  </div>';
-
+            if($business_userimage != ''){
+                $cmtinsert .= '<img  src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage) . '" alt="">  </div>';
+            }
+            else{
+                $cmtinsert .= '<img  src="' . base_url(NOIMAGE) . '" alt="">  </div>';
+            }
             $cmtinsert .= '<div class="comment-name"><b>' . $company_name . '</b>';
             $cmtinsert .= '</div>';
 
@@ -4835,8 +4850,12 @@ class Business_profile extends MY_Controller {
 
             $cmtinsert .= '<div class="all-comment-comment-box">';
             $cmtinsert .= '<div class="post-design-pro-comment-img">';
-            $cmtinsert .= '<img  src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage) . '" alt="">  </div>';
-
+            if($business_userimage != ''){
+                $cmtinsert .= '<img  src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage) . '" alt="">  </div>';
+            }
+            else{
+                $cmtinsert .= '<img  src="' . base_url(NOIMAGE) . '" alt="">  </div>';
+            }
             $cmtinsert .= '<div class="comment-name"><b>' . $company_name . '</b>';
             $cmtinsert .= '</div>';
 
@@ -5001,8 +5020,11 @@ class Business_profile extends MY_Controller {
 
             $cmtinsert .= '<div class="all-comment-comment-box">';
             $cmtinsert .= '<div class="post-design-pro-comment-img">';
-            $cmtinsert .= '<img  src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage) . '" alt="">  </div>';
-
+            if($business_userimage != ''){
+                $cmtinsert .= '<img  src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage) . '" alt="">  </div>';
+            }else{
+                $cmtinsert .= '<img  src="' . base_url(NOIMAGE) . '" alt="">  </div>';
+            }
             $cmtinsert .= '<div class="comment-name"><b>' . $company_name . '</b>';
             $cmtinsert .= '</div>';
 
@@ -5540,8 +5562,11 @@ class Business_profile extends MY_Controller {
 
                 $cmtinsert .= '<div class="all-comment-comment-box">';
                 $cmtinsert .= '<div class="post-design-pro-comment-img">';
-                $cmtinsert .= '<img  src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage) . '" alt="">  </div>';
-
+                if($business_userimage != ''){
+                    $cmtinsert .= '<img  src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage) . '" alt="">  </div>';
+                }else{
+                    $cmtinsert .= '<img  src="' . base_url(NOIMAGE) . '" alt="">  </div>';
+                }
                 $cmtinsert .= '<div class="comment-name"><b>' . $company_name . '</b>';
                 $cmtinsert .= '</div>';
 
@@ -5673,8 +5698,11 @@ class Business_profile extends MY_Controller {
 
                 $cmtinsert .= '<div class="all-comment-comment-box">';
                 $cmtinsert .= '<div class="post-design-pro-comment-img">';
-                $cmtinsert .= '<img  src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage) . '" alt="">  </div>';
-
+                if($business_userimage != ''){
+                    $cmtinsert .= '<img  src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage) . '" alt="">  </div>';
+                }else{
+                    $cmtinsert .= '<img  src="' . base_url(NOIMAGE) . '" alt="">  </div>';
+                }
                 $cmtinsert .= '<div class="comment-name"><b>' . $company_name . '</b>';
                 $cmtinsert .= '</div>';
 
@@ -5917,9 +5945,12 @@ class Business_profile extends MY_Controller {
 
                 $business_userimage = $this->db->get_where('business_profile', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->business_user_image;
 
-
-                $fourdata .= '<img  src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage) . '"  alt=""> </div>';
-
+                if($business_userimage != ''){
+                    $fourdata .= '<img  src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage) . '"  alt=""> </div>';
+                }
+                else{
+                    $fourdata .= '<img  src="' . base_url(NOIMAGE) . '" alt="">  </div>';
+                }
                 $fourdata .= '<div class="comment-name"><b>';
                 $fourdata .= '' . ucwords($companyname) . '</br>';
                 $fourdata .= '</b></div>';
@@ -6259,7 +6290,11 @@ class Business_profile extends MY_Controller {
 
             $cmtinsert .= '<div class="all-comment-comment-box">';
             $cmtinsert .= '<div class="post-design-pro-comment-img">';
-            $cmtinsert .= '<img  src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage) . '" alt="">  </div>';
+            if($business_userimage != ''){
+                $cmtinsert .= '<img  src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage) . '" alt="">  </div>';
+            }else{
+                $cmtinsert .= '<img  src="' . base_url(NOIMAGE) . '" alt="">  </div>';
+            }
             $cmtinsert .= '<div class="comment-name"><b>' . ucwords($company_name) . '</b>';
             $cmtinsert .= '</div>';
             $cmtinsert .= '<div class="comment-details" id="showcomment' . $business_profile['business_profile_post_comment_id'] . '">';
@@ -6339,7 +6374,7 @@ class Business_profile extends MY_Controller {
 
 
                 $cmtinsert .= '<input type="hidden" name="post_delete"';
-                $cmtinsert .= 'id="post_delete"';
+                $cmtinsert .= 'id="post_delete' . $business_profile['business_profile_post_comment_id'] . '"';
                 $cmtinsert .= 'value= "' . $business_profile['business_profile_post_id'] . '">';
                 $cmtinsert .= '<a id="' . $business_profile['business_profile_post_comment_id'] . '"';
                 $cmtinsert .= 'onClick="comment_delete(this.id)">';
@@ -6428,7 +6463,12 @@ class Business_profile extends MY_Controller {
 
             $cmtinsert .= '<div class="all-comment-comment-box">';
             $cmtinsert .= '<div class="post-design-pro-comment-img">';
-            $cmtinsert .= '<img  src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage) . '" alt="">  </div>';
+            if($business_userimage != ''){
+                $cmtinsert .= '<img  src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage) . '" alt="">  </div>';
+            }
+            else{
+                $cmtinsert .= '<img  src="' . base_url(NOIMAGE) . '" alt="">  </div>';
+            }
             $cmtinsert .= '<div class="comment-name"><b>' . ucwords($company_name) . '</b>';
             $cmtinsert .= '</div>';
             $cmtinsert .= '<div class="comment-details" id= "showcommenttwo' . $business_profile['business_profile_post_comment_id'] . '" >';
@@ -6568,9 +6608,12 @@ class Business_profile extends MY_Controller {
                 $cmtinsert .= '<div class="all-comment-comment-box">';
                 $cmtinsert .= '<div class="post-design-pro-comment-img">';
 
-
-                $cmtinsert .= '<img  src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage) . '" alt="">  </div>';
-
+                if($business_userimage != ''){
+                    $cmtinsert .= '<img  src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage) . '" alt="">  </div>';
+                }
+                else{
+                    $cmtinsert .= '<img  src="' . base_url(NOIMAGE) . '" alt="">  </div>';
+                }
                 $cmtinsert .= '<div class="comment-name"><b>' . $companyname . '</b>';
                 $cmtinsert .= '</div>';
                 $cmtinsert .= '<div class="comment-details" id= "showcomment' . $business_profile['business_profile_post_comment_id'] . '"" >';
@@ -6648,7 +6691,7 @@ class Business_profile extends MY_Controller {
 
 
                     $cmtinsert .= '<input type="hidden" name="post_delete"';
-                    $cmtinsert .= 'id="post_delete"';
+                    $cmtinsert .= 'id="post_delete' . $business_profile['business_profile_post_comment_id'] . '"';
                     $cmtinsert .= 'value= "' . $business_profile['business_profile_post_id'] . '">';
                     $cmtinsert .= '<a id="' . $business_profile['business_profile_post_comment_id'] . '"';
                     $cmtinsert .= 'onClick="comment_delete(this.id)">';
@@ -6831,7 +6874,11 @@ class Business_profile extends MY_Controller {
 
                 $cmtinsert .= '<div class="all-comment-comment-box">';
                 $cmtinsert .= '<div class="post-design-pro-comment-img">';
-                $cmtinsert .= '<img  src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage) . '" alt="">  </div>';
+                if($business_userimage != ''){
+                    $cmtinsert .= '<img  src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage) . '" alt="">  </div>';
+                }else{
+                    $cmtinsert .= '<img  src="' . base_url(NOIMAGE) . '" alt="">  </div>';
+                }                
                 $cmtinsert .= '<div class="comment-name"><b>' . $companyname . '</b>';
                 $cmtinsert .= '</div>';
                 $cmtinsert .= '<div class="comment-details" id="showcommenttwo' . $business_profile['business_profile_post_comment_id'] . '">';
@@ -6961,8 +7008,12 @@ class Business_profile extends MY_Controller {
                 $mulimgfour .= '<div class="post-design-pro-comment-img">';
 
                 $business_userimage = $this->db->get_where('business_profile', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->business_user_image;
-
-                $mulimgfour .= '<img  src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage) . '"  alt=""></div>';
+                if($business_userimage != ''){
+                    $mulimgfour .= '<img  src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage) . '"  alt=""></div>';
+                }
+                else{
+                    $mulimgfour .= '<img  src="' . base_url(NOIMAGE) . '" alt="">  </div>';
+                }
                 $mulimgfour .= '<div class="comment-name"><b>';
                 $mulimgfour .= '' . ucwords($companyname) . '</br></b></div>';
                 $mulimgfour .= '<div class="comment-details" id="imgshowcommenttwo' . $rowdata['post_image_comment_id'] . '" style="display: block;">';

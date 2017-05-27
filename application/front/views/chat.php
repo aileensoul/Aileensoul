@@ -3,24 +3,7 @@
     <head>
 
         <!--- for dispaly div insted of input type start -->
-        <style type="text/css">
-            div .comment {  
-                width: 100%;
-                border: 1px solid #ccc;
-                padding-right: 50px!important;
-                word-break: break-all;
-                background-color: #fff;
-                /* padding: 10px; */
-                font-size: 13px;
-                min-height: 41px;
-                position: relative;
-                max-height: 120px;
-                overflow-y: scroll;
-                padding-top: 10px;
-                padding-left: 20px!important;
-                overflow-y: auto;
-            }
-        </style>
+       
         <?php echo $header; ?>
         <!--- for dispaly div insted of input type end -->
         <meta charset="utf-8">
@@ -73,12 +56,7 @@
                                             <div class="about">
                                                 <div class="name"> 
                                                     <?php echo $user['first_name'] . "<br>"; ?> </div>
-                                                <div class="<?php echo 'status' . $user['user_id']; ?>" style=" width: 145px;    max-height: 19px;
-                                                     color: #003;
-                                                     white-space: nowrap;
-                                                     overflow: hidden;
-                                                     text-overflow: ellipsis;
-                                                     ">
+                                                <div class="<?php echo 'status' . $user['user_id']; ?>" id="status_user" >
                                                          <?php echo $user['message']; ?>
                                                 </div>
                                             </div>
@@ -139,16 +117,7 @@
                                   </div>
                                 </div> -->
                                 <div class="col-md-12" id="msg_block">
-                                    <div class="input-group" style="width: 94%;
-                                         background-color: rgba(244, 244, 244, 0.59);
-                                         font-family: sans-serif;
-                                         bottom: 0;
-                                         position: absolute;
-                                         /* border: 1px solid #4E4E4E;*/
-                                         max-height: 80px !important;
-                                         overflow: scroll;
-                                         overflow-x: hidden;
-                                         left: 0; margin-bottom: -37px;">
+                                    <div class="input-group" id="set_input">
 
                                                                            <!--  <input id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." /> -->
                                         <form name="blog">
@@ -156,18 +125,12 @@
                                             <!--  <div class="comment" contentEditable="true" name="comments" id="message  smily" style="position: relative;"> -->
 
                                             <div class="comment" contentEditable="true" name="comments" id="message" style="position: relative;"></div>
-                                            <div for="smily" style="    position: absolute;
-                                                 top: 7px;
-                                                 right: 61px;
-                                                 bottom: 0;">
-                                                <div id="notification_li1" style="position: absolute;
-                                                     bottom: 5px;">
-                                                    <a class="smil"  href="#" id="notificationLink1" style="position: absolute;
-                                                       bottom: 0;
-                                                       left: -49px;">   <i class="em em-blush"></i></a>
+                                            <div for="smily" class="smily_b">
+                                                <div id="notification_li1" >
+                                                    <a class="smil"  href="#" id="notificationLink1" >   <i class="em em-blush"></i></a>
 
                                                     <div id="notificationContainer1" style="display: none;
-                                                         position: relative;margin-bottom: 37px;">
+                                                    "">
 
                                                         <div id="notificationsBody1" class="notifications1">
                                                             <?php
@@ -191,13 +154,7 @@
                                         </form>
 
                                         <span class="input-group-btn">
-                                            <button class="btn btn-warning btn-sm" id="submit" style="    padding: 10px;
-                                                    background: #003;
-                                                    /* left: -91px; */
-                                                    right: -10px;
-                                                    border: 1px solid #003;
-                                                    position: absolute;
-                                                    bottom: 0;">Send</button>
+                                            <button class="btn btn-warning btn-sm main_send" id="submit">Send</button>
                                         </span>
                                     </div>
                                 </div>
@@ -222,33 +179,17 @@
                             <div class="clearfix">
                                 <div class="col-md-11" id="msg_block">
 
-                                    <div class="input-group" style="width: 94%;
-                                         background-color: rgba(244, 244, 244, 0.59);
-                                         font-family: sans-serif;
-                                         bottom: 0;
-                                         position: absolute;
-                                         /* border: 1px solid #4E4E4E;*/
-                                         max-height: 80px !important;
-                                         overflow: scroll;
-                                         overflow-x: hidden;
-                                         left: 0; margin-bottom: -37px;">
+                                    <div class="input-group" id="set_input">
                                                     <!--  <input style="    min-height: 41px;
                                          height: auto; position: relative;" id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." /> -->
                                         <div class="comment" contentEditable="true" name="comments" id="message" style="position: relative;"></div>
 
-                                        <div for="smily" style="position: absolute;
-                                             top: 7px;
-                                             right: 0px;
-                                             bottom: 3px;
-                                             z-index: 2;">
-                                            <div id="notification_li1" style="position: absolute;
-                                                 bottom: 5px;">
-                                                <a class="smil"  href="#" id="notificationLink1" style="position: absolute;
-                                                   bottom: 0;
-                                                   left: -49px;">   <i class="em em-blush"></i></a>
+                                        <div for="smily" class="smily_b" >
+                                            <div id="notification_li1" >
+                                                <a class="smil"  href="#" id="notificationLink1">   <i class="em em-blush"></i></a>
 
                                                 <div id="notificationContainer1" style="display: none;
-                                                     position: relative;margin-bottom: 37px;">
+                                                    ">
 
                                                     <div id="notificationsBody1" class="notifications1">
                                                         <?php
@@ -271,13 +212,7 @@
                                         </div>
 
                                         <span class="input-group-btn">
-                                            <button class="btn btn-warning btn-sm" id="submit" style="    padding: 10px;
-                                                    background: #003;
-                                                    /* left: -91px; */
-                                                    /*    right: -10px;*/
-                                                    border: 1px solid #003;
-                                                    position: absolute;
-                                                    bottom: 0;">Send</button>
+                                            <button class="btn btn-warning btn-sm main_btn" id="submit">Send</button>
                                         </span>
                                     </div>
                                 </div>

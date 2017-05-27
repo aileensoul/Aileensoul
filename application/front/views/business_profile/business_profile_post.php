@@ -1276,7 +1276,7 @@
                                                                                 <span role="presentation" aria-hidden="true"> · 
                                                                                 </span>
                                                                                 <div class="comment-details-menu">
-                                                                                    <input type="hidden" name="post_delete"  id="post_delete" value= "<?php echo $rowdata['business_profile_post_id']; ?>">
+                                                                                    <input type="hidden" name="post_delete"  id="post_delete<?php echo $rowdata['business_profile_post_comment_id']; ?>" value= "<?php echo $rowdata['business_profile_post_id']; ?>">
                                                                                     <a id="<?php echo $rowdata['business_profile_post_comment_id']; ?>"   onClick="comment_delete(this.id)"> Delete
                                                                                         <span class="<?php echo 'insertcomment' . $rowdata['business_profile_post_comment_id']; ?>">
                                                                                         </span>
@@ -1855,7 +1855,7 @@
 
     function comment_deleted(clicked_id)
     {
-        var post_delete = document.getElementById("post_delete");
+        var post_delete = document.getElementById("post_delete" + clicked_id);
         //alert(post_delete.value);
         $.ajax({
             type: 'POST',
@@ -3167,7 +3167,7 @@
 <style type="text/css">
     .likeduser{
         width: 100%;
-        background-color: #00002D;
+        background-color: #1b8ab9;
     }
     .likeduser-title{
         color: #fff;

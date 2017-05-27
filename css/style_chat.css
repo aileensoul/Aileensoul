@@ -1,4 +1,19 @@
-
+   div .comment {  
+                width: 96%;
+                border: 1px solid #ccc;
+                padding-right: 50px!important;
+                word-break: break-all;
+                background-color: #fff;
+                /* padding: 10px; */
+                font-size: 13px;
+                min-height: 41px;
+                position: relative;
+                max-height: 120px;
+                overflow-y: scroll;
+                padding-top: 10px;
+                padding-left: 20px!important;
+                overflow-y: auto;
+            }
 /*
 chat*/
       #nav{list-style:none;margin: 0px;padding: 0px;}
@@ -15,7 +30,8 @@ chat*/
 
       #notification_li1
       {
-      position:relative
+     position: absolute;
+                                                 bottom: 5px;
       }
       #notificationContainer1 
       {
@@ -33,9 +49,11 @@ chat*/
     margin-bottom: 37px;
     box-shadow: 0 0 40px #ccc;
     border-radius: 5px;
-    /* display: none; */
+    /* display: none; */ position: relative;
       }
-      
+      #notificationLink1{position: absolute;
+                                                   bottom: 0;
+                                                   left: -49px;}
       #notificationContainer1:before {
       content: '';
       display: block;
@@ -3721,9 +3739,30 @@ follow box*/
     background: white !important; 
 
 }
+.smily_b{position: absolute;
+                                             top: 7px;
+                                             right: 26px;
+                                             bottom: 3px;
+                                             z-index: 2;}
 .input-group { margin: 10px; }
+#set_input{width: 94%;
+                                         background-color: rgba(244, 244, 244, 0.59);
+                                         font-family: sans-serif;
+                                         bottom: 0;
+                                         position: absolute;
+                                         /* border: 1px solid #4E4E4E;*/
+                                         max-height: 80px !important;
+                                         overflow: scroll;
+                                         overflow-x: hidden;
+                                         left: 0; margin-bottom: -37px;}
 .input-group-addon button { padding: 0px; }
-
+.main_send{padding: 10px!important;
+                                                    background: #003!important;
+                                                    /* left: -91px; */
+                                                    right: -10px!important;
+                                                    border: 1px solid #003!important;
+                                                    position: absolute!important;
+                                                    bottom: 0!important;}
 .stylish-input-group .form-control{
     border-right:0; 
     box-shadow:0 0 0; 
@@ -5109,37 +5148,15 @@ color: #003;
     padding: 45px;
     padding-right: 0px !important;
     margin-left: 5px;font-size: 16px;}
-
-/*.smil {
-  position: absolute;
-  display: inline-block;
-  cursor: pointer;
-  margin: 0 auto;
-  width: 70px;
- 
-  -webkit-transition: all 0.4s ease-in;
-  transition: all 0.4s ease-in;
-}
-
-.smil:before {
-  content: '';
-  background-color: #000;
-  border-radius: 50%;
-  display: block;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  -webkit-transform: scale(0.001, 0.001);
-          transform: scale(0.001, 0.001);
-}
-.smil:focus {
-  outline: 0;
-
-
-}
-.smil:focus:before {
-  -webkit-animation: effect_dylan 0.8s ease-out;
-          animation: effect_dylan 0.8s ease-out;
-}*/
+#status_user{width: 145px;    max-height: 26px;
+                                                     color: #003;
+                                                     white-space: nowrap;
+                                                     overflow: hidden;
+                                                     text-overflow: ellipsis;}
+                                                     .main_btn{  padding: 10px;
+                                                    background: #003;
+                                                    /* left: -91px; */
+                                                    /*    right: -10px;*/
+                                                    border: 1px solid #003;
+                                                    position: absolute;
+                                                    bottom: 0;}

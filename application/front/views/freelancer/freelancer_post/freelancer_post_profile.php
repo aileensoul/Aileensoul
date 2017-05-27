@@ -83,14 +83,14 @@ echo $freelancer_post_header2;
                     $image_ori = $image[0]['profile_background'];
                     if ($image_ori) {
                         ?>
-                        <div class="bg-images">
-                            <img src="<?php echo base_url($this->config->item('free_post_bg_main_upload_path') . $image[0]['profile_background']); ?>" name="image_src" id="image_src" / ></div>
+                        
+                            <img src="<?php echo base_url($this->config->item('free_post_bg_main_upload_path') . $image[0]['profile_background']); ?>" name="image_src" id="image_src" / >
                         <?php
                     } else {
                         ?>
-                        <div class="bg-images">  
+                         
                             <img src="<?php echo base_url(WHITEIMAGE); ?>" name="image_src" id="image_src" / >
-                        </div>
+                        
 <?php }
 ?>
 
