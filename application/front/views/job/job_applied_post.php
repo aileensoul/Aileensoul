@@ -251,10 +251,10 @@
 
 
                                                 <li><b>Description</b><span><p>
-                                                            <?php echo $this->common->make_links($post['post_description']); ?> </p></span>
+                         <?php if($post['post_description']){echo $this->common->make_links($post['post_description']);}else{echo PROFILENA;} ?> </p></span>
                                                 </li>
                                                 <li><b>Interview Process</b><span>
-                                                        <?php echo $this->common->make_links($post['interview_process']); ?></span>
+                             <?php if($post['interview_process']){echo $this->common->make_links($post['interview_process']);}else{ echo PROFILENA;} ?></span>
                                                 </li>
                                                 <li>
                                                 <b>Required Experience</b>
