@@ -36,15 +36,15 @@
 
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
-          <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
         <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/3.3.0/select2.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-      
- <!-- <script src="<?php echo base_url('js/jquery.min.js');?>"></script>     -->
-        
-      
+
+<!-- <script src="<?php echo base_url('js/jquery.min.js'); ?>"></script>     -->
+
+
 
         <!-- further and less -->
         <script>
@@ -166,12 +166,12 @@
                                            tabindex="-1" aria-hidden="true" rel="noopener" title="<?php echo $businessdata[0]['company_name']; ?>">
                                             <!-- box image start -->
                                             <?php if ($businessdata[0]['profile_background'] != '') { ?>
-                                            <div class="data_img">  <img src="<?php echo base_url($this->config->item('bus_bg_thumb_upload_path') . $businessdata[0]['profile_background']); ?>" class="bgImage" alt="<?php echo $businessdata[0]['company_name']; ?>" >
+                                                <div>  <img src="<?php echo base_url($this->config->item('bus_bg_thumb_upload_path') . $businessdata[0]['profile_background']); ?>" class="bgImage" alt="<?php echo $businessdata[0]['company_name']; ?>" >
                                                 </div> <?php
                                             } else {
                                                 ?>
-                                            <div class="data_img"> 
-                                                <img src="<?php echo base_url(WHITEIMAGE); ?>" class="bgImage" alt="<?php echo $businessdata[0]['company_name']; ?>" >
+                                                <div> 
+                                                    <img src="<?php echo base_url(WHITEIMAGE); ?>" class="bgImage" alt="<?php echo $businessdata[0]['company_name']; ?>" >
                                                 </div> <?php } ?>
                                         </a>
                                     </div>
@@ -181,12 +181,12 @@
                                                 <?php
                                                 if ($businessdata[0]['business_user_image']) {
                                                     ?>
-                                                  <div class="data_img_2"> 
-                                                    <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $businessdata[0]['business_user_image']); ?>"  alt="<?php echo $businessdata[0]['company_name']; ?>" style="height: 77px; width: 71px; z-index: 3; position: relative; ">
-                                                  </div>
-             <?php } else { ?> <div class="data_img_2"> 
-                                                    <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo $businessdata[0]['company_name']; ?>">
-             </div>  <?php } ?>                           
+                                                    <div> 
+                                                        <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $businessdata[0]['business_user_image']); ?>"  alt="<?php echo $businessdata[0]['company_name']; ?>" style="height: 77px; width: 71px; z-index: 3; position: relative; ">
+                                                    </div>
+                                                <?php } else { ?> <div> 
+                                                        <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo $businessdata[0]['company_name']; ?>">
+                                                    </div>  <?php } ?>                           
                                                 <!-- 
                         <img class="profile-boxProfileCard-avatarImage js-action-profile-avatar" src="images/imgpsh_fullsize (2).jpg" alt="" style="    height: 68px;
                         width: 68px;">
@@ -621,7 +621,7 @@
                                 <div class="popup-social-icon">
                                     <ul class="editor-header">
                                         <li>
-                                         
+
 
                                             <div class="col-md-12"> <div class="form-group">
                                                     <input id="file-1" type="file" class="file" name="postattach[]"  multiple class="file" data-overwrite-initial="false" data-min-file-count="2" style="display: none;">
@@ -952,7 +952,7 @@
                                                                 </a>
                                                             </div>
                                                             <div class="three_img_2">
-                                                                
+
                                                                 <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>">
                                                                     <img class="three-columns" src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $businessmultiimage[1]['image_name']) ?>" style="width: 100%; height:100%; "> 
                                                                 </a>
@@ -1222,7 +1222,7 @@
                                                                         <div class="edit-comment-box">
                                                                             <div class="inputtype-edit-comment">
                                                                                 <!--<textarea type="text" class="textarea" name="<?php echo $rowdata['business_profile_post_comment_id']; ?>" id="<?php echo "editcomment" . $rowdata['business_profile_post_comment_id']; ?>" style="display:none;resize: none;" onClick="commentedit(this.name)"><?php echo $rowdata['comments']; ?></textarea>-->
-                                                                                    <div contenteditable="true" class="editable_text editav_2" name="<?php echo $rowdata['business_profile_post_comment_id']; ?>"  id="<?php echo "editcomment" . $rowdata['business_profile_post_comment_id']; ?>" placeholder="Enter Your Comment " value= ""  onkeyup="commentedit(<?php echo $rowdata['business_profile_post_comment_id']; ?>)"><?php echo $rowdata['comments']; ?></div>
+                                                                                <div contenteditable="true" class="editable_text editav_2" name="<?php echo $rowdata['business_profile_post_comment_id']; ?>"  id="<?php echo "editcomment" . $rowdata['business_profile_post_comment_id']; ?>" placeholder="Enter Your Comment " value= ""  onkeyup="commentedit(<?php echo $rowdata['business_profile_post_comment_id']; ?>)"><?php echo $rowdata['comments']; ?></div>
                                                                                 <span class="comment-edit-button"><button id="<?php echo "editsubmit" . $rowdata['business_profile_post_comment_id']; ?>" style="display:none" onClick="edit_comment(<?php echo $rowdata['business_profile_post_comment_id']; ?>)">Save</button></span>
                                                                             </div>
                                                                         </div>
@@ -1288,7 +1288,8 @@
                                                                             <div class="comment-details-menu">
                                                                                 <p>
                                                                                     <?php
-                                                                                    echo date('d-M-Y', strtotime($rowdata['created_date']));
+                                                                                    // echo $this->common->time_elapsed_string(date('Y-m-d', strtotime($rowdata['created_date'])));
+                                                                                    echo date('Y-m-d H:i:s', strtotime($rowdata['created_date']));
                                                                                     echo '</br>';
                                                                                     ?>
                                                                                 </p>
@@ -1385,7 +1386,7 @@
 </html>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 
- 
+
 
 
 <script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
@@ -1399,43 +1400,43 @@
 
 
 <script>
- 
-jQuery.noConflict();
- 
-(function( $ ) {
+
+                                                    jQuery.noConflict();
+
+                                                    (function ($) {
 
 
-     var data = <?php echo json_encode($demo);
+                                                        var data = <?php echo json_encode($demo);
     ?>;
-     //alert(data);
-    $(function () {
-        // alert('hi');
-        $("#tags").autocomplete({
-            source: function (request, response) {
-                var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
-                response($.grep(data, function (item) {
-                    return matcher.test(item.label);
-                }));
-            }
-            ,
-            minLength: 1,
-            select: function (event, ui) {
-                event.preventDefault();
-                $("#tags").val(ui.item.label);
-                $("#selected-tag").val(ui.item.label);
-                // window.location.href = ui.item.value;
-            }
-            ,
-            focus: function (event, ui) {
-                event.preventDefault();
-                $("#tags").val(ui.item.label);
-            }
-        });
-    }
-    );
-    
-})( jQuery  );
- 
+                                                        //alert(data);
+                                                        $(function () {
+                                                            // alert('hi');
+                                                            $("#tags").autocomplete({
+                                                                source: function (request, response) {
+                                                                    var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+                                                                    response($.grep(data, function (item) {
+                                                                        return matcher.test(item.label);
+                                                                    }));
+                                                                }
+                                                                ,
+                                                                minLength: 1,
+                                                                select: function (event, ui) {
+                                                                    event.preventDefault();
+                                                                    $("#tags").val(ui.item.label);
+                                                                    $("#selected-tag").val(ui.item.label);
+                                                                    // window.location.href = ui.item.value;
+                                                                }
+                                                                ,
+                                                                focus: function (event, ui) {
+                                                                    event.preventDefault();
+                                                                    $("#tags").val(ui.item.label);
+                                                                }
+                                                            });
+                                                        }
+                                                        );
+
+                                                    })(jQuery);
+
 </script>
 
 
@@ -1474,14 +1475,14 @@ jQuery.noConflict();
     }
     );
 </script>
- -->
+-->
 
 
 
 <script>
-                                                    $('#content').on('change keyup keydown paste cut', 'textarea', function () {
-                                                        $(this).height(0).height(this.scrollHeight);
-                                                    }).find('textarea').change();
+    $('#content').on('change keyup keydown paste cut', 'textarea', function () {
+        $(this).height(0).height(this.scrollHeight);
+    }).find('textarea').change();
 </script>
 
 
@@ -1803,7 +1804,7 @@ jQuery.noConflict();
         //      z.style.display = 'block';
         //      $.ajax({ 
         //             type:'POST',
-        //          url:'<?php //echo base_url() . "business_profile/fourcomment"                                                              ?>',
+        //          url:'<?php //echo base_url() . "business_profile/fourcomment"                                                               ?>',
         //             data:'art_post_id='+clicked_id,
         //             //alert(data);
         //             success:function(data){
@@ -2899,8 +2900,8 @@ jQuery.noConflict();
 <!-- insert post zalak script end -->
 <!-- post insert developing script start -->
 <script type="text/javascript">
-$(document).ready(function($jquery){
-});
+    $(document).ready(function ($jquery) {
+    });
 </script>
 
 <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
@@ -3143,7 +3144,7 @@ $(document).ready(function($jquery){
 <script type="text/javascript">
     function user_postdelete(clicked_id)
     {
-       // alert(clicked_id);
+        // alert(clicked_id);
 
         $('.biderror .mes').html("<div class='pop_content'> Do You want to delete this post?.<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='remove_post(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
         $('#bidmodal').modal('show');
