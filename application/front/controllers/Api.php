@@ -31,11 +31,15 @@ class Api extends CI_Controller {
 
         $messages = $this->Chat_model->get_messages($timestamp, $userid, $id);
         $i = 0;
-        foreach($messages as $mes){
-            $messages[$i]['message'] = $this->common->make_links($mes['message']);
+        foreach ($messages as $mes) {
+            if (preg_match('/<img/', $mes['message'])) {
+                $messages[$i]['message'] = $mes['message'];
+            } else {
+                $messages[$i]['message'] = $this->common->make_links($mes['message']);
+            }
             $i++;
         }
-        
+
         $this->_setOutput($messages);
     }
 
