@@ -1,13 +1,101 @@
 
 <?php echo $head; ?>
 <!--post save success pop up style strat -->
-
+<style>
+   /* body {
+        font-family: Arial, sans-serif;
+        background-size: cover;
+        height: 100vh;
+    }*/
+    /*.box {
+        width: 40%;
+        margin: 0 auto;
+        background: rgba(255,255,255,0.2);
+        padding: 35px;
+        border: 2px solid #fff;
+        border-radius: 20px/50px;
+        background-clip: padding-box;
+        text-align: center;
+    }*/
+   /* .overlay {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.7);
+        transition: opacity 500ms;
+        visibility: hidden;
+        opacity: 0;
+        z-index: 10;
+    }*/
+    /*.overlay:target {
+        visibility: visible;
+        opacity: 1;
+    }*/
+    /*.popup {
+        margin: 70px auto;
+        padding: 20px;
+        background: #fff;
+        border-radius: 5px;
+        width: 30%;
+        height: 200px;
+        position: relative;
+        transition: all 5s ease-in-out;
+    }
+*/
+.okk{
+        text-align: center;
+    }
+     .pop_content .okbtn{
+        position: absolute;
+        transition: all 200ms;
+        font-size: 16px;
+        text-decoration: none;
+        color: #fff;
+        padding: 8px 18px;
+        background-color: #0A2C5D;
+        left: 170px;
+        margin-top: 8px;
+        width: 100px; 
+        border-radius: 8px;
+    }
+      .pop_content .cnclbtn {
+        position: absolute;
+        transition: all 200ms;
+        font-size: 16px;
+        text-decoration: none;
+        color: #fff;
+        padding: 8px 18px;
+        background-color: #0A2C5D;
+        right: 170px;
+        margin-top: 8px;
+        width: 100px;
+        border-radius: 8px;
+    }  
+    .popup .pop_content {
+        text-align: center;
+        margin-top: 40px;
+    }
+      .model_ok_cancel{
+        width:200px !important;
+    }
+  
+/*    @media screen and (max-width: 700px){
+        .box{
+            width: 70%;
+        }
+        .popup{
+            width: 70%;
+        }
+    }*/
+</style>
 <!--post save success pop up style end -->
 <!-- END HEAD -->
 <!-- start header -->
 <?php echo $header; ?>
 <!-- END HEADER -->
-<?php echo $freelancer_post_header2_border; ?>
+<?php echo $freelancer_post_header2; ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -97,6 +185,82 @@
             <div class="container">
                 <div class="row row4">
                     <div class="col-md-4"><div class="profile-box profile-box-left">
+<!--                            <div class="full-box-module">    
+                                <div class="profile-boxProfileCard  module">
+                                    <a class="profile-boxProfileCard-bg u-bgUserColor a-block"
+                                       href="<?php echo base_url('freelancer/freelancer_post_profile'); ?>"
+                                       tabindex="-1"
+                                       aria-hidden="true"
+                                       rel="noopener">
+                                        rash code start 12-4 
+                                       <?php
+                                       if ($freepostdata[0]['profile_background'] != '') {
+                                           ?>
+                                         box image start 
+                                        <img src="<?php echo base_url(JOBBGIMAGE . $freepostdata[0]['profile_background']); ?>" class="bgImage" alt="<?php echo  $freepostdata[0]['freelancer_post_fullname'] . ' ' . $freepostdata[0]['freelancer_post_username']; ?>"  style="height: 95px;
+                                             width: 100%;">
+                                         box image end 
+                                        <?php
+                                    } else {
+                                        ?>
+                                        <img src="<?php echo base_url(WHITEIMAGE); ?>" class="bgImage" alt="<?php echo  $freepostdata[0]['freelancer_post_fullname'] . ' ' . $freepostdata[0]['freelancer_post_username']; ?>"  style="height: 95px;
+                                             width: 100%;">
+                                             <?php
+                                         }
+                                         ?>
+                                    </a>
+ rash code end 12-4 
+                                    <div class="profile-box-menu  fr col-md-12">
+                                        <div class="left- col-md-2"></div>
+                                        <div  class="right-section col-md-10">
+                                            <ul>
+                                                <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_post_profile')) { ?> class="active" <?php } ?>><a href="<?php echo base_url('freelancer/freelancer_post_profile'); ?>">Details</a>
+                                                </li>
+                                                <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_save_post')) { ?> class="active" <?php } ?>><a href="<?php echo base_url('freelancer/freelancer_save_post'); ?>">Saved </a>
+                                                </li>
+                                                <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_applied_post')) { ?> class="active" <?php } ?>><a href="<?php echo base_url('freelancer/freelancer_applied_post'); ?>">Applied</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="profile-boxProfileCard-content">
+                                        <div class="buisness-profile-txext ">
+                                             <rash code 12-4 start> 
+                                              <a class="profile-boxProfileCard-avatarLink a-inlineBlock" href="<?php echo base_url('freelancer/freelancer_post_profile/' . $freelancerdata[0]['user_id']); ?>" title="<?php echo $freelancerdata[0]['freelancer_post_fullname']. ' ' . $freelancerdata[0]['freelancer_post_username']; ?>" tabindex="-1" aria-hidden="true" rel="noopener">
+                                              <?php
+                                            if ($freelancerdata[0]['freelancer_post_user_image']) {
+                                                ?>
+                                                <img src="<?php echo base_url(USERIMAGE . $freelancerdata[0]['freelancer_post_user_image']); ?>" alt="<?php echo $freelancerdata[0]['freelancer_post_fullname']. ' ' . $freelancerdata[0]['freelancer_post_username']; ?>"   style="   height: 80px;
+                                                     width: 77px;     z-index: 3;
+                                                     position: relative;">
+                                                <?php
+                                            } else {
+                                                ?>
+                                                <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo $freelancerdata[0]['freelancer_post_fullname']. ' ' . $freelancerdata[0]['freelancer_post_username']; ?>"   style="   height: 80px;
+                                                     width: 77px;     z-index: 3;
+                                                     position: relative;">
+                                                <?php
+                                            }
+                                            ?>
+                                        </a>
+                                         <rash code 12-4 end> 
+                                        </div>
+                                        <div class="profile-box-user">
+                                            <span class="profile-box-name ">
+                                                <a style="font-size: 18px; font-weight: 600;" href="<?php echo base_url('freelancer/freelancer_post_profile'); ?>"><?php echo ucwords($userdata[0]['first_name']) . ' ' . ucwords($userdata[0]['last_name']); ?></a></span>
+                                        </div>
+                                        <div class="profile-box-user">
+                                            <span class="profile-box-name"><a style=" font-weight: 600; font-size: 15px;" href="<?php echo base_url('freelancer/freelancer_post_profile'); ?>"><?php
+if ($freepostdata[0]['designation']) {
+    echo ucwords($freepostdata[0]['designation']);
+} else {
+    echo "Current Work";
+}
+?></a></span>
+                                        </div>
+                                        <div id="profile-box-profile-prompt"></div>
+                                    </div>
+                                </div></div>-->
 <div class="full-box-module">    
       
       <div class="profile-boxProfileCard  module">
@@ -111,14 +275,13 @@
                                        if ($freepostdata[0]['profile_background'] != '') {
                                            ?>
                                         <!-- box image start -->
-                                        <img src="<?php echo base_url($this->config->item('free_post_bg_main_upload_path') . $freepostdata[0]['profile_background']); ?>" class="bgImage" alt="<?php echo  $freepostdata[0]['freelancer_post_fullname'] . ' ' . $freepostdata[0]['freelancer_post_username']; ?>" >
+                                        <img src="<?php echo base_url(FREEWORKIMG . $freepostdata[0]['profile_background']); ?>" class="bgImage" alt="<?php echo  $freepostdata[0]['freelancer_post_fullname'] . ' ' . $freepostdata[0]['freelancer_post_username']; ?>" >
                                         <!-- box image end -->
                                         <?php
                                     } else {
                                         ?>
-                                        <div class="data_img">
-                                        <img src="<?php echo base_url(WHITEIMAGE); ?>" class="bgImage" alt="<?php echo  $freepostdata[0]['freelancer_post_fullname'] . ' ' . $freepostdata[0]['freelancer_post_username']; ?>" >
-                                             </div>
+                                        <img src="<?php echo base_url(WHITEIMAGE); ?>" class="bgImage" alt="<?php echo  $freepostdata[0]['freelancer_post_fullname'] . ' ' . $freepostdata[0]['freelancer_post_username']; ?>"  style="height: 95px;
+                                             width: 100%;">
                                              <?php
                                          }
                                          ?>
@@ -132,24 +295,25 @@
                                                    <?php
                                             if ($freelancerdata[0]['freelancer_post_user_image']) {
                                                 ?>
-                     <img src="<?php echo base_url($this->config->item('free_post_profile_thumb_upload_path') . $freelancerdata[0]['freelancer_post_user_image']); ?>" alt="<?php echo $freelancerdata[0]['freelancer_post_fullname']. ' ' . $freelancerdata[0]['freelancer_post_username']; ?>" >
+                     <img src="<?php echo base_url(USERIMAGE . $freelancerdata[0]['freelancer_post_user_image']); ?>" alt="<?php echo $freelancerdata[0]['freelancer_post_fullname']. ' ' . $freelancerdata[0]['freelancer_post_username']; ?>" >
                                                 <?php
                                             } else {
                                                 ?>
-                                                <div class="data_img_2">
-                                                 <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo $freelancerdata[0]['freelancer_post_fullname']. ' ' . $freelancerdata[0]['freelancer_post_username']; ?>" > <?php
+                                                 <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo $freelancerdata[0]['freelancer_post_fullname']. ' ' . $freelancerdata[0]['freelancer_post_username']; ?>"   style="   height: 80px;
+                                                     width: 77px;     z-index: 3;
+                                                     position: relative;"> <?php
                                             }
                                             ?>
                                         </a>
 </div>
 <div class="profile-box-user  profile-text-bui-user  fr col-md-9">
             <span class="profile-company-name ">
-                                         <a  href="<?php echo base_url('freelancer/freelancer_post_profile'); ?>"><?php echo ucwords($userdata[0]['first_name']) . ' ' . ucwords($userdata[0]['last_name']); ?></a>
+                                         <a style="" href="<?php echo base_url('freelancer/freelancer_post_profile'); ?>"><?php echo ucwords($userdata[0]['first_name']) . ' ' . ucwords($userdata[0]['last_name']); ?></a>
                                         </span>
        
          
          <div class="profile-boxProfile-name">
-        <a  href="<?php echo base_url('freelancer/freelancer_post_profile'); ?>"><?php
+        <a style="" href="<?php echo base_url('freelancer/freelancer_post_profile'); ?>"><?php
 if ($freepostdata[0]['designation']) {
     echo ucwords($freepostdata[0]['designation']);
 } else {
@@ -198,12 +362,12 @@ if ($freepostdata[0]['designation']) {
                                
                                                 
                                     <div class="job-contact-frnd ">
-                                        <div class="profile-job-post-detail clearfix margin_btm"  id="<?php echo "removeapply" . $post['post_id']; ?>">
+                                        <div class="profile-job-post-detail clearfix" style="margin-bottom: 0px;" id="<?php echo "removeapply" . $post['post_id']; ?>">
                                             <div class="profile-job-post-title-inside clearfix">
 
 
                                                 
-                  <div class="profile-job-post-title clearfix margin_btm" >
+                  <div class="profile-job-post-title clearfix" style="margin-bottom:0px">
                   <div class="profile-job-profile-button clearfix">
                      <div class="profile-job-details col-md-12">
                           <ul>
@@ -212,35 +376,26 @@ if ($freepostdata[0]['designation']) {
                             echo trim(date('d-M-Y', strtotime($post['created_date'])));
                                    ?>
                             </li>
-
                              <li>
-                              <a href="#" title="Post Title" class="display_inline dis">
+                              <a href="#" title="Post Title" class="display_inline" style="font-size: 19px;font-weight: 600;cursor: default;">
                               <?php echo ucwords($post['post_name']); ?> </a>   </li>
 
-                          
+                             <li>   
+                               <div class="fr lction">
+                              <?php $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name; ?>
+                              <?php $countryname = $this->db->get_where('countries', array('country_id' => $post['country']))->row()->country_name; ?>
+
+                                <p><i class="fa fa-map-marker" aria-hidden="true">
+                                  <?php if ($cityname){echo $cityname.","; } ?><?php if ($countryname){ echo $countryname; }?></i></p>
+                                 </div>
 
                              <?php
                 $firstname = $this->db->get_where('freelancer_hire_reg', array('user_id' => $post['user_id']))->row()->fullname;
                 $lastname = $this->db->get_where('freelancer_hire_reg', array('user_id' => $post['user_id']))->row()->username;
                     ?>
-                    
+                    </li>
                             <li><a class="display_inline" title="<?php echo ucwords($firstname); ?>&nbsp;<?php echo ucwords($lastname); ?>" href="<?php echo base_url('freelancer/freelancer_hire_profile/' . $post['user_id'].'?page=freelancer_post'); ?>"><?php echo ucwords($firstname); ?>&nbsp;<?php echo ucwords($lastname); ?>
-                            </a>
-
-                          <?php $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name; ?>
-                              <?php $countryname = $this->db->get_where('countries', array('country_id' => $post['country']))->row()->country_name; ?>
-                              <?php if($cityname || $countryname){?>
-
- 
-                               <div class="fr lction">
-                              
-                                <p title="Location"><i class="fa fa-map-marker" aria-hidden="true">
-                                <?php if($cityname){
-                                   echo $cityname.","; } ?><?php  echo $countryname; ?></i></p>
-                                 </div>
-                                 <?php }?>
-
-                            </li>
+                            </a></li>
                     <!-- vishang 14-4 end -->    
                 </ul>
              </div>
@@ -388,7 +543,7 @@ $userid = $this->session->userdata('aileenuser');
                                         } }else{
                                             ?>
                                          <div class="text-center rio">
-                                                <h4 class="page-heading  product-listing" >No Recommended Post Found.</h4>
+                                                <h4 class="page-heading  product-listing" style="border:0px;margin-bottom: 11px;">No Recommended Post Found.</h4>
                                             </div>
                                         <?php
                                         } ?> 
