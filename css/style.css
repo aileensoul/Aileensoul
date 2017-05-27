@@ -4566,7 +4566,6 @@ input:-moz-placeholder { color:#999; font-size: 15px; }
 .editable_text{
     min-height: 6%;
   background: white;
-  width: 82%;
     border: 2px solid #cacaca;
     outline: none;
     padding: 6.5px 15px;
