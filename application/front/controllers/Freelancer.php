@@ -2216,7 +2216,7 @@ $this->data['demo']= array_values($result1);
 
 
    $contition_array = array('save.status'=> '0','freelancer_post_reg.is_delete' => 0, 'freelancer_post_reg.status' => 1, 'save.from_id' => $userid, 'save.save_type' => 2);
-   $postdata = $this->data['postdata'] = $this->common->select_data_by_condition('save', $contition_array, $data, $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
+   $postdata = $this->data['postdata'] = $this->common->select_data_by_condition('save', $contition_array, $data, $sortby = 'save_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 
       // code end by pallavi 14-4-2017
 
