@@ -5313,4 +5313,4 @@ fieldset .add_post_btns:hover{background-color:#156f95!important}
 .job-profile-left-side-bar .left-side-bar ul li.active a:hover{background-color: #156f95}
 .tabordion section .label-d:hover{background-color: #156f95!important}
 .tabordion section .label-d:active{background-color: #156f95!important}
-.margin_business{margin-right: 16px;}
+.margin_business{    margin-right: 16px !important;}
