@@ -1124,7 +1124,9 @@ if (count($finalsorting) > 0) {
 
                                                             </div>
 
-                                                        </div></div>
+                                                        </div>
+                                                        </div>
+                                                        </div>
                                                     <!-- multiple image code end -->
                                                     <!-- khyati 18-4 start-->
 
@@ -1326,7 +1328,7 @@ if (count($finalsorting) > 0) {
                                                                                     <a href="<?php echo base_url('artistic/art_manage_post/' . $rowdata['user_id'] . ''); ?>">
 
                                                                                         <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
-                                                                                    </a>+6
+                                                                                    </a>
                         <?php
                     }
                     ?>
