@@ -2096,8 +2096,10 @@ $updatedata = $this->common->update_data($data, 'freelancer_apply', 'app_id', $a
 
     public function freelancer_apply_list($id) {
         $userid = $this->session->userdata('aileenuser');
+
          
         $this->data['postid'] = $id;
+        //echo "<pre>"; print_r($this->data['postid']);die();
 // khyati chnages start
         $join_str[0]['table'] = 'freelancer_apply';
         $join_str[0]['join_table_id'] = 'freelancer_apply.user_id';
