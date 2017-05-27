@@ -128,7 +128,7 @@ input, textarea, select {  resize: none;   background: white; border: 2px solid 
 label { font-size: 16px; font-weight: 400; color: #616060; margin-bottom: 9px;}
 select  {padding: 8px 15px; font-size: 16px; }
 
-input[type=submit], input[type=button], button { background: #1b8ab9; border: 2px solid #1b8ab9; color: #fff; font-size: 16px; font-weight: 400; cursor: pointer; border: 0; padding: 10px 30px 12px; letter-spacing: 1px;  margin-right: 15px;  -webkit-transition: all 0.4s ease-in-out;
+input[type=submit], input[type=button], button { background: #1b8ab9; border: 2px solid #1b8ab9; color: #fff; font-size: 14px; font-weight: 400; cursor: pointer; border: 0; padding: 10px 30px 12px; letter-spacing: 1px;  margin-right: 15px;  -webkit-transition: all 0.4s ease-in-out;
                                                  -moz-transition: all 0.4s ease-in-out; -o-transition: all 0.4s ease-in-out; transition: all 0.4s ease-in-out; } 
 input[type=submit]:hover, input[type=button]:hover, button:hover { background: #000; border-color: #000; border-radius: 3px; }
 
@@ -833,7 +833,7 @@ ul.business_pf_ct_person_detail li b {font-size: 16px; display: inline-block; wi
 .main-font-name p {font-size: 25px; margin-top: 12px;}  
 
 .job-profile-pho{height:180px; width:158px; margin-top:-100px; border: 4px solid #FFFFFF; box-shadow: 0px 0px 2px 2px #dad3cb; margin-left:40px; }
-.job-profile-left-side-bar .left-side-bar ul li.active { position:relative; background:#000; }
+.job-profile-left-side-bar .left-side-bar ul li.active { position:relative; background:#156f95; }
 .job-profile-left-side-bar .left-side-bar ul li.active a { background:#000; }
 .job-profile-left-side-bar .left-side-bar ul li.active:after { content:"\f00c"; font-family: 'FontAwesome'; position:absolute; top:11px; right:8px; color:#fff; }
 
@@ -1823,14 +1823,15 @@ abbr { cursor: help; }
 .profile-boxProfileCard-bg {
     background-size: 100%;
     /*    border-bottom: 1px solid #e1e8ed;
-    */height: 95px;
-    border-radius: 4px 4px 0 0;
+    */
+    /*height: 95px;
+    */border-radius: 4px 4px 0 0;
     background-position: 0 50%;
     width: 100%;
-    padding: 0 1px;
+    /*padding: 0 1px;
     margin-left: -1px;
     margin-top: -1px;
-
+*/
 }
 .profile-boxProfileCard-avatarLink {
     background-color: #fff;
@@ -1893,17 +1894,7 @@ abbr { cursor: help; }
     background-image: none;
     text-shadow: none
 }
-.profile-boxProfileCard-bg {
-    background-size: 100%;
-    /* border-bottom: 1px solid #e1e8ed; */
-    height: 95px;
-    border-radius: 4px 4px 0 0;
-    background-position: 0 50%;
-    width: 100%;
-    padding: 0 1px;
-    margin-left: -1px;
-    margin-top: -1px;
-}
+
 /*.a-block {
    // display: block!important;
 }*/
@@ -2870,7 +2861,7 @@ label.cameraButton input[accept*="camera"] {
     line-height: 16px;
     display: block;}
 
-.post-design-desc{clear: both; padding:5px 20px 5px 20px;  text-align: justify;word-break: break-all; /* word-break: break-word;word-wrap: break-word;*/}
+.post-design-desc{clear: both; padding:10px 20px 15px 20px;  text-align: justify;word-break: break-all; /* word-break: break-word;word-wrap: break-word;*/}
 .post-design-product-img img {width: 100%; height: 100%; border:1px solid #cccccc; border-radius: 3px;}
 .popup-comment{padding: 8px;  }
 
@@ -3064,7 +3055,7 @@ label.cameraButton input[accept*="camera"] {
 }
 
 .tabordion section .label-d {
-    background: #3b5283!important;
+    background: #1b8ab9!important;
     color: #fff;
     border: 1px solid #fff;
     cursor: pointer;
@@ -5173,7 +5164,8 @@ cover pic css*/
 
    .display_inline_block { display: inline-block; }
    .tabordion section h6 { font-size: 16px;}
-   .tabordion section .submit_btn { padding: 5px 9px; margin: 15px 0 7px; }
+   .tabordion section .submit_btn {   padding: 8px 15px;
+    margin: 15px 0 7px; }
     #jobseeker_regform_secondary { border: none !important; margin-bottom: 0px!important;}
     #jobseeker_regform_higher_secondary { border: none !important; margin-bottom: 0px!important; }
     #jobseeker_regform { border: none !important; margin-bottom: 0px!important; }
