@@ -99,14 +99,14 @@
                                    <span style="color:#7f7f7e;padding-left: 8px;">( </span><span style="color:red">*</span><span style="color:#7f7f7e"> )</span> <span style="color:#7f7f7e">Indicates required field</span>
                                 </div> -->
 
-                                <div> <span class="required_field" >( <span class="red">*</span> ) Indicates required field</span></div>
+                              <!--   <div> <span class="required_field" >( <span class="red">*</span> ) Indicates required field</span></div> -->
 
                                 <?php
                                  $curricular =  form_error('curricular');
                                  
                                 ?>
                                 
-                            <fieldset class="full-width">             <label>Curricular Activities:<span class="red">*</span></label>
+                            <fieldset class="full-width">             <label>Curricular Activities:<!-- <span class="red">*</span> --></label>
 							
 
                                        
@@ -252,15 +252,9 @@
 <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.min.js') ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
 
-   <script type="text/javascript">
+  <!--  <script type="text/javascript">
 
-            //validation for edit email formate form
-
-
-    //         jQuery.validator.addMethod("noSpace", function(value, element) { 
-    //   return value == '' || value.trim().length != 0;  
-    // }, "No space please and don't leave it empty");
-
+    
             $.validator.addMethod("regx", function(value, element, regexpr) {          
     return regexpr.test(value);
 }, "Only space, only number and only special characters are not allow");
@@ -273,7 +267,7 @@
 
                         curricular: {
 
-                            required: true,
+                            // required: true,
                              regx:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]/
                             //noSpace: true
                            
@@ -285,7 +279,7 @@
 
                         curricular: {
 
-                            required: "Curricular Is Required."
+                            // required: "Curricular Is Required."
                             
                         },
                     
@@ -294,7 +288,7 @@
                 });
                    });
   </script>
-    
+   -->  
 
 <!-- script for validation end -->
  <script type="text/javascript"> 
