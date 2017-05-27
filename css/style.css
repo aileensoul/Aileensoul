@@ -773,8 +773,8 @@ ul.business_pf_ct_person_detail li b {font-size: 16px; display: inline-block; wi
 .profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li b {font-weight: 600; width: 32%; float: left; }
 
 .profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li label {font-weight: 600; width: 30%; float: left; }
-.profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li span{   word-wrap: break-word; word-break: break-word;  text-align: justify;
-                                                                                           padding-right: 10px ;display: flex; width: 63%;/* display: inline-block;*/}
+.profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li span{   /*word-wrap: break-word; word-break: break-word;  text-align: justify;*/
+                                                                                           padding-right: 10px ;display: inline-flex; width: 68%;/* display: inline-block;*/}
 .profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li span::before { 
     content: " :"; padding-right: 20px; float: left; }
 .profile-job-post-location-name { padding: 12px 21px; font-weight: bold; }
@@ -2993,7 +2993,7 @@ label.cameraButton input[accept*="camera"] {
 .art-comment-menu-design{    padding: 5px 1px 0px 30px;margin-left: 19px; }
 
 .comment-details-menu a{cursor: pointer; color: #999999; font-weight: 400; font-size: 13px;}
-.comment-details-menu p{ color: #999999; font-weight: 400; display: inline-block;}
+.comment-details-menu p{ color: #999999; font-weight: 400; display: inline-block;font-size: 13px;}
 .comment-details-menu a:hover{text-decoration:underline; }
 .comment-edit-butn{padding: 0px 0px 6px 0px;}
 .comment-edit-butn button{position: absolute; bottom: 11px;}
@@ -3443,15 +3443,15 @@ follow box*/
 /*manage post*/
 .mange_post_image #responsive_manage-images-breakpoints{
     float: left;
-    height: 36%;
-    width:49.8%;
+    height: 324px;
+    width:324px;
 padding-right: 1px; 
 padding-bottom: 1px;
  display: inline-block;
 }
 .mange_post_image #responsive-manage_images_3-breakpoints{
     float: left;
-    height: 36%;
+    height: 324px;
     width:49.7%;
     margin: 1px; display: inline-block;
 }
@@ -3461,13 +3461,13 @@ padding-bottom: 1px;
 .mange_post_image #responsive-manage_images_2-breakpoints img{height: 100%; width: 100%;}
 .mange_post_image #responsive-manage_images_2-breakpoints{
     float: left;
-    height: 36%;
+    height: 324px;
     width:49.7%;
     margin: 1px; display: inline-block;
 }
 .mange_post_image #two_manage_images_art{  float: left;
-                                           height: 55%;
-                                           width:48.8%;
+                                           height: 324px;
+                                           width:324.3px;
                                            margin: 4px;}
 .mange_post_image #two_manage_images_art img{height: 100%; width: 100%;}
 .manage_images_view_more{    right: 24px;
@@ -3476,7 +3476,7 @@ padding-bottom: 1px;
     position: absolute;
     /* left: 14px; */
     width: 333px;
-    height: 50%;
+    height:324px;
     background: rgba(0, 0, 0, 0.5);
     padding: 68px;}
 .manage_images_view_more a{
@@ -3489,13 +3489,13 @@ padding-bottom: 1px;
 /*saved post*/
 .mange_post_image #responsive_save-images-breakpoints{
     float: left;
-    height: 200px;
+    height: 324px;
     width:312px;
     margin: 4px; display: inline-block;
 }
 .mange_post_image #responsive-save_images_3-breakpoints{
     float: left;
-    height: 200px;
+    height: 324px;
     width:312px;
     margin: 4px; display: inline-block;
 }
@@ -3505,12 +3505,12 @@ padding-bottom: 1px;
 .mange_post_image #responsive-save_images_2-breakpoints img{height: 100%; width: 100%;}
 .mange_post_image #responsive-save_images_2-breakpoints{
     float: left;
-    height: 200px;
+    height: 324px;
     width:312px;
     margin: 4px; display: inline-block;
 }
 .mange_post_image #two_save_images_art{  float: left;
-                                         height: 55%;
+                                         height: 324px;
                                          width:312px;
                                          margin: 4px;}
 .mange_post_image #two_save_images_art img{height: 100%; width: 100%;}
@@ -3520,7 +3520,7 @@ padding-bottom: 1px;
                        position: absolute;
                        /* left: 14px; */
                        width: 312px;
-                       height: 48%;
+                       height: 324px;
                        background: rgba(0, 0, 0, 0.5);
                        padding: 68px;}
 .save_images_view_more a{
@@ -3532,13 +3532,13 @@ padding-bottom: 1px;
 }
 
 #responsive_buis-images-breakpoints{float: left;
-                                    height: 200px;
+                                    height: 324px;
                                     width: 49.8%;
                                     margin-right: 1px;
                                     margin-bottom: 1px;
                                     display: inline-block;}
 #responsive_buis-images_3-breakpoints{    float: left;
-    height: 30%;
+    height:324px;
     width: 49.7%;
     margin: 1px;
     display: inline-block;}
@@ -3549,7 +3549,7 @@ padding-bottom: 1px;
     position: absolute;
     /* left: 14px; */
     width: 347px;
-    height: 50%;
+    height:324px;
     background: rgba(0, 0, 0, 0.5);
     padding: 68px}
 .bui_images_view_more a{
@@ -3568,7 +3568,7 @@ padding-bottom: 1px;
 
 #two_images_bui {
     float: left;
-    height: 55%;
+    height:324px;
     width: 49.8%;
     margin-right:  1px;
     margin-bottom: 1px;
@@ -3577,11 +3577,11 @@ padding-bottom: 1px;
 .profile-head-text_dg{font-size: 28px;
                       text-shadow: 0px 10px 26px rgba(230, 230, 230,0.4), 0px 8px 7px rgba(0,0,0,0.1), 0px 11px 14px rgba(230,230,230,0.9);}
 #two_save_images_bui{float: left;
-                     height: 55%;
+                     height: 324px;
                      width: 374px;
                      margin: 4px;}
 #two_save_images_bui_1{float: left;
-                       height: 48%;
+                       height: 324px;
                        width: 374px;
                        margin: 4px;}
 .bui_save_images_view_more{right: 19px;
@@ -3590,7 +3590,7 @@ padding-bottom: 1px;
                            position: absolute;
                            /* left: 14px; */
                            width: 375px;
-                           height: 48%;  
+                           height: 324px;  
                            background: rgba(0, 0, 0, 0.5);
                            padding: 68px;}
 .bui_save_images_view_more a{
@@ -3601,12 +3601,12 @@ padding-bottom: 1px;
     left: 31%;
 }
 #responsive-images_2-breakpoints_bui{float: left;
-                                     height: 200px;
+                                     height: 324px;
                                      width: 374px;
                                      margin: 4px;
                                      display: inline-block;}
 #responsive-images_2-breakpoints_bui_1{float: left;
-                                       height: 200px;
+                                       height: 324px;
                                        width: 374px;
                                        margin: 4px;
                                        display: inline-block;}
@@ -4027,7 +4027,7 @@ body.modal-open{ padding: 0 !important; overflow: visible;  position: absolute; 
 
 
 .like_other{display:block; padding-left: 23px; background-color: #fff;}
-.like_one_other{font-weight: 400; padding-left: 24px!important; padding: 1px; font-size: 13px; display: inline-block;}
+.like_one_other{font-weight: 400; padding-left: 24px!important; padding: 1px; font-size: 13px; display: inline-block;margin-left: 1px;}
 
 
 
@@ -4641,7 +4641,7 @@ input:-moz-placeholder { color:#999; font-size: 15px; }
 /* vishang 4-5-17 */
 
 
-  .profile-job-post-location-name-rec .post_name { font-size: 19px; font-weight: 600; }
+  .profile-job-post-location-name-rec .post_name { font-size: 19px; font-weight: 600;margin-left: -18px; }
        
   .profile-job-post-location-name-rec .post_designation { font-size: 16px; }
 
@@ -5313,3 +5313,5 @@ fieldset .add_post_btns:hover{background-color:#156f95!important}
 .job-profile-left-side-bar .left-side-bar ul li.active a:hover{background-color: #156f95}
 .tabordion section .label-d:hover{background-color: #156f95!important}
 .tabordion section .label-d:active{background-color: #156f95!important}
+.margin_business{    margin-right: 16px !important;}
+.dot_A{color: #91949d; font-size: 14px;}

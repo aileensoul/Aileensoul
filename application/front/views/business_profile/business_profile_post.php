@@ -1102,7 +1102,7 @@
                                                                 <?php
                                                                 if (count($likelistarray) > 1) {
                                                                     ?>
-                                                                    <?php echo "and"; ?>
+                                                                    <?php echo " and"; ?>
                                                                     <?php
                                                                     echo $countlike;
                                                                     echo "&nbsp;";
