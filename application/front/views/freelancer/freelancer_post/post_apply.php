@@ -111,8 +111,10 @@
                                        if ($freepostdata[0]['profile_background'] != '') {
                                            ?>
                                         <!-- box image start -->
+                                         <div class="data_img">
                                         <img src="<?php echo base_url($this->config->item('free_post_bg_main_upload_path') . $freepostdata[0]['profile_background']); ?>" class="bgImage" alt="<?php echo  $freepostdata[0]['freelancer_post_fullname'] . ' ' . $freepostdata[0]['freelancer_post_username']; ?>" >
                                         <!-- box image end -->
+                                        </div>
                                         <?php
                                     } else {
                                         ?>
@@ -400,6 +402,7 @@ $userid = $this->session->userdata('aileenuser');
                     </div>
                 </div>
 
+</div>
 
                 </section>
                 <footer>
