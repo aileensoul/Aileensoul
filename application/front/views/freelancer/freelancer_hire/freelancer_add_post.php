@@ -208,7 +208,7 @@
 
 
                           <fieldset class="col-md-4" <?php if($csurrency) {  ?> class="error-msg" <?php } ?> class="two-select-box"> 
-                     <label>Currency:<span style="color:red">*</span></label>
+                     <label>Currency:<span class="red">*</span></label>
                             <select name="currency" id="currency">
 
                             <?php foreach($currency as $cur){ ?>

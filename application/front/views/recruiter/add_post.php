@@ -254,18 +254,30 @@
                                     <?php echo form_error('last_date'); ?> 
                                 </fieldset>
 
-                                <fieldset <?php if ($minsal) { ?> class="error-msg" <?php } ?>>
+                                <fieldset class="col-md-4" <?php if ($minsal) { ?> class="error-msg" <?php } ?>>
                                     <label class="control-label">Min salary:(Per Year) </label>
                                     <input name="minsal" type="text" id="minsal" placeholder="Enter Minimum salary" onblur="return full_name(); /><span id="fullname-error"></span>
 <?php echo form_error('minsal'); ?>
                                 </fieldset>
 
-                                <fieldset <?php if ($maxsal) { ?> class="error-msg" <?php } ?>>
+                                <fieldset class="col-md-4" <?php if ($maxsal) { ?> class="error-msg " <?php } ?>>
                                     <label class="control-label">Max salary:(Per Year)</label>
                                     <input name="maxsal" type="text" id="maxsal" placeholder="Enter Maximum salary" onblur="return full_name();/><span id="fullname-error"></span>
 <?php echo form_error('maxsal'); ?>
                                 </fieldset>
 
+                                 <fieldset class="col-md-4" <?php if($csurrency) {  ?> class="error-msg" <?php } ?> class="two-select-box"> 
+                     <label>Currency:<span class="red">*</span></label>
+                            <select name="currency" id="currency">
+
+                            <?php foreach($currency as $cur){ ?>
+                             <option value="<?php echo $cur['currency_id']; ?>"><?php echo $cur['currency_name']; ?></option>
+                             <?php } ?>
+                             </select>
+
+          
+                             <?php echo form_error('currency'); ?>
+</fieldset>
 
                                 <input type="hidden" id="tagSelect" value="brown,red,green" style="width:300px;" />
 
