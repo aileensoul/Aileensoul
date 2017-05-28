@@ -1133,7 +1133,7 @@
                                                                                         }
                                                                                         else{
                                                                                             ?>
-                                                                                        <img  src="<?php base_url(NOIMAGE) ?>" alt="No Image">
+                                                                                        <img  src="<?php echo base_url(NOIMAGE) ?>" alt="No Image">
                                                                                         <?php
                                                                                         }
                                                                                         ?>
