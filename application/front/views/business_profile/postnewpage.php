@@ -3797,6 +3797,12 @@
         }
 
     });
+    
+    $(document).keyup(function(event) {
+     if (event.keyCode == 27) { 
+         $('#myModal1').modal(hide);
+    }
+});
 
 </script>
 <!-- This  script use for close dropdown in every post -->
