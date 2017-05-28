@@ -1126,9 +1126,17 @@
                                                                                     <div class="post-design-pro-comment-img"> 
                                                                                         <?php
                                                                                         $business_userimage = $this->db->get_where('business_profile', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->business_user_image;
+                                                                                        if($business_userimage != ''){
                                                                                         ?>
-
                                                                                         <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage); ?>"  alt="">
+                                                                                        <?php
+                                                                                        }
+                                                                                        else{
+                                                                                            ?>
+                                                                                        <img  src="<?php base_url(NOIMAGE) ?>" alt="No Image">
+                                                                                        <?php
+                                                                                        }
+                                                                                        ?>
                                                                                     </div>
 
                                                                                     <div class="comment-name">
@@ -1287,9 +1295,16 @@
                                                                     <?php
                                                                     $userid = $this->session->userdata('aileenuser');
                                                                     $business_userimage = $this->db->get_where('business_profile', array('user_id' => $userid, 'status' => 1))->row()->business_user_image;
-                                                                    ?>
-
+                                                                    if($business_userimage != ''){
+                                                                        ?>
                                                                     <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage); ?>" alt="">
+                                                                    <?php
+                                                                    }else{
+                                                                        ?>
+                                                                    <img src="<?php echo base_url(NOIMAGE); ?>" alt="No Image">
+                                                                    <?php
+                                                                    }
+                                                                    ?>
                                                                 </div>
 
 
@@ -1607,9 +1622,17 @@
                                                         <div class="post-design-pro-comment-img"> 
                                                             <?php
                                                             $business_userimage = $this->db->get_where('business_profile', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->business_user_image;
+                                                            if($business_userimage != ''){
                                                             ?>
-
                                                             <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage); ?>"  alt="">
+                                                            <?php
+                                                            }
+                                                            else{
+                                                                ?>
+                                                            <img src="<?php echo base_url(NOIMAGE); ?>"  alt="No Image">
+                                                            <?php
+                                                            }
+                                                            ?>
                                                         </div>
                                                         <div class="comment-name">
 
@@ -1750,9 +1773,16 @@
                                         <?php
                                         $userid = $this->session->userdata('aileenuser');
                                         $business_userimage = $this->db->get_where('business_profile', array('user_id' => $userid, 'status' => 1))->row()->business_user_image;
+                                        if($business_userimage){
                                         ?>
-
                                         <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage); ?>"  alt="">
+                                        <?php
+                                        }else{
+                                            ?>
+                                        <img  src="<?php echo base_url(NOIMAGE); ?>"  alt="No Image">
+                                        <?php
+                                        }
+                                        ?>
                                     </div>
 
 
