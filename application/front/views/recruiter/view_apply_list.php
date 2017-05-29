@@ -1,3 +1,5 @@
+
+<!-- <?php //echo $postid;  die(); ?> -->
 <!-- start head --> 
 <?php echo $head; ?>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
@@ -586,6 +588,7 @@ return false;
    function inviteusermodel(abc){
     //alert(abc);
 
+
     $('.biderror .mes').html("<div class='pop_content'>Do you want to invite this candidate for interview?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='inviteuser(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
     $('#bidmodal').modal('show');
 
@@ -593,9 +596,15 @@ return false;
 
    function inviteuser(clicked_id)
     {  
+<<<<<<< HEAD
+    // alert(clicked_id);
+      var post_id = "<?php echo $postid; ?>";
+       // alert(post_id);
+=======
      alert(clicked_id);
       var post_id = "<?php echo $postid; ?>";
         alert(post_id);
+>>>>>>> b42bcbf02782a2cee9fe967e18b89f3381ebbe3e
         $.ajax({
             type: 'POST',
             url: '<?php echo base_url() . "recruiter/invite_user" ?>',
