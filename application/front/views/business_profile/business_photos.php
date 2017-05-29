@@ -2213,3 +2213,16 @@
         });
     });
 </script>
+<script type="text/javascript">
+    $(document).keydown(function (e) {
+        if (!e)
+            e = window.event;
+        if (e.keyCode == 27 || e.charCode == 27) {
+            closeModal();
+        }
+    });
+</script>
+<script type="text/javascript">
+//    $('#myModal').modal({backdrop: 'true'}) 
+    j$('#myModal').modal({backdrop:'true'});
+</script>

@@ -77,9 +77,9 @@
                         <h3>Portfolio</h3>
                         
                           
-                             
+                       <!--  <?php// echo form_open_multipart(base_url('business_profile/image_insert'), array('id' => 'businessimage','name' => 'businessimage','class' => 'clearfix')); ?> -->        
                   <form name="artportfolio" method="post" id="artportfolio" 
-                    class="clearfix" onsubmit="return  portfolio_form_submit()" enctype="multipart/form-data" >
+                    class="clearfix"  enctype="multipart/form-data" >
 
                                 <?php
                                  $artportfolio =  form_error('artportfolio');
@@ -121,7 +121,7 @@
                                  <fieldset class="hs-submit full-width">
                                    
                                     
-                                    <input type="submit"  id="submit" name="submit" value="submit"  onclick="portfolio_valid();">
+                <input type="button"  id="submit" name="submit" value="submit" onclick="portfolio_form_submit();"  >
                                    
                                     
                                 </fieldset>
@@ -277,27 +277,37 @@ $userid = $this->session->userdata('aileenuser');
  $contition_array = array('user_id' => $userid);
        
  $art_reg_data = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = ''); ?>
+
+ <!-- <script type="text/javascript">
+   
+   function xyz() {
+     alert(2111);
+   }
+ </script>> -->
 <!-- only pdf insert script strat -->
 <script type="text/javascript">
 
 
   function portfolio_form_submit(){  
-    
+  
+
 
     var art_step = "<?php echo $art_reg_data[0]['art_step']; ?>";
 
     
     //var artportfolio = document.getElementById("artportfolio").value;
     var bestofmine = document.getElementById("bestofmine").value;
-
+//alert(bestofmine);
     // start khyati code
   var $field = $('#artportfolio123');
   //var data = $field.val();
+  
   var artportfolio = $('#artportfolio123').html();
  
 // end khyati code  
     if(bestofmine == ''){ 
-     
+
+    
         // document.getElementById("artportfolio").submit();
 
         $.ajax({
@@ -305,7 +315,7 @@ $userid = $this->session->userdata('aileenuser');
                 url:'<?php echo base_url() . "artistic/art_portfolio_insert" ?>',
                  data:'artportfolio='+artportfolio,
                 success:function(data){ 
-                  if(art_step == 4){ 
+                  if(art_step == 3){ 
                   window.location= "<?php echo base_url() ?>artistic/artistic_profile"; 
                   }else{ 
                      window.location= "<?php echo base_url() ?>artistic/art_post"; 
@@ -314,19 +324,26 @@ $userid = $this->session->userdata('aileenuser');
             }); 
     }
     else{ 
+      
       var bestofmine_ext = bestofmine.split('.').pop();
+      
       var allowespdf = ['pdf'];
       var foundPresentpdf = $.inArray(bestofmine_ext, allowespdf) > -1;
+
 
       if(foundPresentpdf == true)
       { 
 
         var fd = new FormData();
+                
         fd.append("image", $("#bestofmine")[0].files[0]);
 
         files = this.files;
 
+       
+
         $.ajax({
+
 
             url: "<?php echo base_url(); ?>artistic/art_portfolio_insert",
             type: "POST",
@@ -334,7 +351,7 @@ $userid = $this->session->userdata('aileenuser');
             processData: false,
             contentType: false,
             success: function (response) {
-                //alert(response);
+               // alert(response);
 
             }
         }); 
@@ -344,8 +361,9 @@ $userid = $this->session->userdata('aileenuser');
                 url:'<?php echo base_url() . "artistic/art_portfolio_insert" ?>',
                  data:'artportfolio='+artportfolio,
                 success:function(data){ 
-
-                  if(art_step == 4){ 
+                  //alert(data);
+              // return false;
+                  if(art_step == 3){ 
                   window.location= "<?php echo base_url() ?>artistic/artistic_profile"; 
                   }else{ 
                      window.location= "<?php echo base_url() ?>artistic/art_post"; 

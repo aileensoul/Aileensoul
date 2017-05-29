@@ -526,16 +526,16 @@ if ($artisticdata[0]['art_bestofmine']) {
 
     if (in_array($ext, $allowed)) {
         ?>
-                                                            <img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $artisticdata[0]['art_bestofmine']) ?>">
+                                                            <img src="<?php echo base_url($this->config->item('art_portfolio_main_upload_path') . $artisticdata[0]['art_bestofmine']) ?>">
                                                         <?php } elseif (in_array($ext, $allowespdf)) {
                                                             ?>
-                                                            <a href="<?php echo base_url('artistic/creat_pdf1/' . $artisticdata[0]['art_id']) ?>">PDF</a>
+                                                            <a href="<?php echo base_url($this->config->item('art_portfolio_main_upload_path') . $artisticdata[0]['art_bestofmine']) ?>">PDF</a>
                                                         <?php
                                                         } elseif (in_array($ext, $allowesvideo)) {
                                                             ?> 
 
                                                             <video width="320" height="240" controls>
-                                                                <source src="<?php echo base_url($this->config->item('art_post_main_upload_path') . $artisticdata[0]['art_bestofmine']); ?>" type="video/mp4">
+                                                                <source src="<?php echo base_url($this->config->item('art_portfolio_main_upload_path') . $artisticdata[0]['art_bestofmine']); ?>" type="video/mp4">
                                                                 <source src="movie.ogg" type="video/ogg">
                                                                 Your browser does not support the video tag.
                                                             </video>
@@ -544,7 +544,7 @@ if ($artisticdata[0]['art_bestofmine']) {
                                                             ?>
                                                             <audio width="120" height="100" controls>
 
-                                                                <source src="<?php echo base_url($this->config->item('art_post_main_upload_path') . $artisticdata[0]['art_bestofmine']); ?>" type="audio/mp3">
+                                                                <source src="<?php echo base_url($this->config->item('art_portfolio_main_upload_path') . $artisticdata[0]['art_bestofmine']); ?>" type="audio/mp3">
                                                                 <source src="movie.ogg" type="audio/ogg">
                                                                 Your browser does not support the audio tag.
 
