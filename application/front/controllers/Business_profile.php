@@ -925,7 +925,9 @@ class Business_profile extends MY_Controller {
 
         $contition_array = array('is_deleted' => 0, 'status' => 1, 'user_id !=' => $userid);
         $userlist = $this->data['userlist'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = 'business_profile_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
+//echo '<pre>';
+//print_r($userlist);
+//exit;
         //echo $business_profile_id; die();
 //userlist for followdata strat
         // using category             
@@ -963,7 +965,7 @@ class Business_profile extends MY_Controller {
 
         $businessregstate = $this->data['businessdata'][0]['state'];
 
-        $contition_array = array('is_deleted' => 0, 'status' => 1, 'user_id !=' => $userid, 'industriyal !=' => $industriyal, 'city' => $businessregcity);
+        $contition_array = array('is_deleted' => 0, 'status' => 1, 'user_id !=' => $userid, 'industriyal !=' => $industriyal, 'city !=' => $businessregcity);
         $userlist3 = $this->data['userlist3'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = 'business_profile_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
 
