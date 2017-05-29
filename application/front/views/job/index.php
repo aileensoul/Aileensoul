@@ -79,9 +79,9 @@
     echo "khyati";
 } ?>"><a href="<?php echo base_url('job/job_skill_update'); ?>">Professional Skills</a></li>
 
-                                <li class="<?php if ($jobdata[0]['job_step'] < '1') {
-    echo "khyati";
-} ?>"><a href="<?php echo base_url('job/job_apply_for_update'); ?>">Apply For</a></li>
+                              <!--   <li class="<?php if ($jobdata[0]['job_step'] < '1') {
+   // echo "khyati";
+} ?>"><a href="<?php //echo base_url('job/job_apply_for_update'); ?>">Apply For</a></li> -->
 
                                 <li class="<?php if ($jobdata[0]['job_step'] < '1') {
     echo "khyati";
@@ -436,9 +436,9 @@ if (count($nation) > 0) {
 
     $(document).ready(function () {
 
- jQuery.validator.addMethod("noSpace", function(value, element) { 
-      return value == '' || value.trim().length != 0;  
-    }, "No space please and don't leave it empty");
+ // jQuery.validator.addMethod("noSpace", function(value, element) { 
+ //      return value == '' || value.trim().length != 0;  
+ //    }, "No space please and don't leave it empty");
 
 
 $.validator.addMethod("regx", function(value, element, regexpr) {          

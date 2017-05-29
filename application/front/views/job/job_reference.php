@@ -61,7 +61,7 @@
 
                                 <li><a href="<?php echo base_url('job/job_skill_update'); ?>">Professional Skills</a></li>
 
-                                <li><a href="<?php echo base_url('job/job_apply_for_update'); ?>">Apply For</a></li>
+                                <!-- <li><a href="<?php //echo base_url('job/job_apply_for_update'); ?>">Apply For</a></li> -->
                               
                                 <li><a href="<?php echo base_url('job/job_work_exp_update'); ?>">Work Experience</a></li>
 

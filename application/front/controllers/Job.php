@@ -1986,7 +1986,7 @@ class Job extends MY_Controller {
             if ($updatedata) {
 
                 $this->session->set_flashdata('success', 'Skill updated successfully');
-                redirect('job/job_apply_for_update');
+                redirect('job/job_work_exp_update');
             } else {
                 $this->session->flashdata('error', 'Your data not inserted');
                 redirect('job/job_skill_update', 'refresh');

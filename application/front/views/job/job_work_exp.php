@@ -54,7 +54,7 @@
 
                                 <li><a href="<?php echo base_url('job/job_skill_update'); ?>">Professional Skills</a></li>
 
-                                <li><a href="<?php echo base_url('job/job_apply_for_update'); ?>">Apply For</a></li>
+                                <!-- <li><a href="<?php //echo base_url('job/job_apply_for_update'); ?>">Apply For</a></li> -->
 
                                 <li <?php if ($this->uri->segment(1) == 'job') { ?> class="active" <?php } ?>><a href="#">Work Experience</a></li>
 
@@ -568,24 +568,24 @@
                     <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.min.js') ?>"></script>
                     <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
 
-                    <script type="text/javascript">
+<script type="text/javascript">
 
                         //validation for edit email formate form
 
 
-                        jQuery.validator.addMethod("noSpace", function(value, element) { 
-      return value == '' || value.trim().length != 0;  
-    }, "No space please and don't leave it empty");
+    //                     jQuery.validator.addMethod("noSpace", function(value, element) { 
+    //   return value == '' || value.trim().length != 0;  
+    // }, "No space please and don't leave it empty");
+
+
+                        
+    $(document).ready(function () {
 
 $.validator.addMethod("regx", function(value, element, regexpr) {          
     return regexpr.test(value);
 }, "Only space, only number and only special characters are not allow");
 
                         
-    $(document).ready(function () {
-
-
-                        $(document).ready(function () {
 
                             $("#jobseeker_regform1").validate({
 

@@ -117,12 +117,12 @@
                                 <li><a href="<?php echo base_url('job/job_project_update'); ?>">Project And Training / Internship</a></li>
 
                                 <li <?php if ($this->uri->segment(1) == 'job') { ?> class="active" <?php } ?>><a href="#">Professional Skills</a></li>
-
+<!-- 
                                 <li class="<?php
                                 if ($jobdata[0]['job_step'] < '5') {
-                                    echo "khyati";
+                                    //echo "khyati";
                                 }
-                                ?>"><a href="<?php echo base_url('job/job_apply_for_update'); ?>">Apply For</a></li>
+                                ?>"><a href="<?php //echo base_url('job/job_apply_for_update'); ?>">Apply For</a></li> -->
 
                                 <li class="<?php
                                 if ($jobdata[0]['job_step'] < '5') {
