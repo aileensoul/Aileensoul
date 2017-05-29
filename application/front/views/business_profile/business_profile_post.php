@@ -202,13 +202,13 @@
                                             <?php $category = $this->db->get_where('industry_type', array('industry_id' => $businessdata[0]['industriyal'], 'status' => 1))->row()->industry_name; ?>
                                             <div class="profile-boxProfile-name">
                                                 <a style="padding-left: 4px;" href="<?php echo base_url('business_profile/business_profile_manage_post/'); ?> " title="<?php echo ucwords($businessdata[0]['company_name']); ?>" >
-                                                    <b> <?php
+                                                    <?php
                                                         if ($category) {
                                                             echo $category;
                                                         } else {
                                                             echo $businessdata[0]['other_industrial'];
                                                         }
-                                                        ?></b>
+                                                        ?>
                                                 </a>
                                             </div>
                                         </div>
@@ -230,7 +230,7 @@
                                                 <li 
                                                     <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'following') { ?> class="active" 
                                                     <?php } ?>>
-                                                    <a title="Following" href="<?php echo base_url('business_profile/following/'.$businessdata[0]['business_slug']); ?>">Following 
+                                                    <a title="Following" href="<?php echo base_url('business_profile/following/' . $businessdata[0]['business_slug']); ?>">Following 
                                                         <br> (<?php echo (count($businessfollowingdata)); ?>) 
                                                     </a>
                                                 </li>
@@ -1401,41 +1401,41 @@
 
 <script>
 
-                                                    jQuery.noConflict();
+                                                                jQuery.noConflict();
 
-                                                    (function ($) {
+                                                                (function ($) {
 
 
-                                                        var data = <?php echo json_encode($demo);
+                                                                    var data = <?php echo json_encode($demo);
     ?>;
-                                                        //alert(data);
-                                                        $(function () {
-                                                            // alert('hi');
-                                                            $("#tags").autocomplete({
-                                                                source: function (request, response) {
-                                                                    var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
-                                                                    response($.grep(data, function (item) {
-                                                                        return matcher.test(item.label);
-                                                                    }));
-                                                                }
-                                                                ,
-                                                                minLength: 1,
-                                                                select: function (event, ui) {
-                                                                    event.preventDefault();
-                                                                    $("#tags").val(ui.item.label);
-                                                                    $("#selected-tag").val(ui.item.label);
-                                                                    // window.location.href = ui.item.value;
-                                                                }
-                                                                ,
-                                                                focus: function (event, ui) {
-                                                                    event.preventDefault();
-                                                                    $("#tags").val(ui.item.label);
-                                                                }
-                                                            });
-                                                        }
-                                                        );
+                                                                    //alert(data);
+                                                                    $(function () {
+                                                                        // alert('hi');
+                                                                        $("#tags").autocomplete({
+                                                                            source: function (request, response) {
+                                                                                var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+                                                                                response($.grep(data, function (item) {
+                                                                                    return matcher.test(item.label);
+                                                                                }));
+                                                                            }
+                                                                            ,
+                                                                            minLength: 1,
+                                                                            select: function (event, ui) {
+                                                                                event.preventDefault();
+                                                                                $("#tags").val(ui.item.label);
+                                                                                $("#selected-tag").val(ui.item.label);
+                                                                                // window.location.href = ui.item.value;
+                                                                            }
+                                                                            ,
+                                                                            focus: function (event, ui) {
+                                                                                event.preventDefault();
+                                                                                $("#tags").val(ui.item.label);
+                                                                            }
+                                                                        });
+                                                                    }
+                                                                    );
 
-                                                    })(jQuery);
+                                                                })(jQuery);
 
 </script>
 
@@ -1804,7 +1804,7 @@
         //      z.style.display = 'block';
         //      $.ajax({ 
         //             type:'POST',
-        //          url:'<?php //echo base_url() . "business_profile/fourcomment"                                                               ?>',
+        //          url:'<?php //echo base_url() . "business_profile/fourcomment"                                                                 ?>',
         //             data:'art_post_id='+clicked_id,
         //             //alert(data);
         //             success:function(data){
@@ -3264,4 +3264,24 @@
             features: ['playpause', 'progress', 'volume', 'fullscreen']
         });
     });
+</script>
+<script type="text/javascript">
+    $(document).keydown(function (e) {
+        if (!e)
+            e = window.event;
+        if (e.keyCode == 27 || e.charCode == 27) {
+            document.getElementById('myModal').style.display = "none";
+        }
+    });
+</script>
+<script>
+// Get the modal
+    var modal = document.getElementById('myModal');
+
+// When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
 </script>
