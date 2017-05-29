@@ -3443,15 +3443,15 @@ follow box*/
 /*manage post*/
 .mange_post_image #responsive_manage-images-breakpoints{
     float: left;
-    height: 36%;
-    width:49.8%;
+    height: 324px;
+    width:324px;
 padding-right: 1px; 
 padding-bottom: 1px;
  display: inline-block;
 }
 .mange_post_image #responsive-manage_images_3-breakpoints{
     float: left;
-    height: 36%;
+    height: 324px;
     width:49.7%;
     margin: 1px; display: inline-block;
 }
@@ -3461,13 +3461,13 @@ padding-bottom: 1px;
 .mange_post_image #responsive-manage_images_2-breakpoints img{height: 100%; width: 100%;}
 .mange_post_image #responsive-manage_images_2-breakpoints{
     float: left;
-    height: 36%;
+    height: 324px;
     width:49.7%;
     margin: 1px; display: inline-block;
 }
 .mange_post_image #two_manage_images_art{  float: left;
-                                           height: 55%;
-                                           width:48.8%;
+                                           height: 324px;
+                                           width:324.3px;
                                            margin: 4px;}
 .mange_post_image #two_manage_images_art img{height: 100%; width: 100%;}
 .manage_images_view_more{    right: 24px;
@@ -3476,7 +3476,7 @@ padding-bottom: 1px;
     position: absolute;
     /* left: 14px; */
     width: 333px;
-    height: 50%;
+    height:324px;
     background: rgba(0, 0, 0, 0.5);
     padding: 68px;}
 .manage_images_view_more a{
@@ -3489,13 +3489,13 @@ padding-bottom: 1px;
 /*saved post*/
 .mange_post_image #responsive_save-images-breakpoints{
     float: left;
-    height: 200px;
+    height: 324px;
     width:312px;
     margin: 4px; display: inline-block;
 }
 .mange_post_image #responsive-save_images_3-breakpoints{
     float: left;
-    height: 200px;
+    height: 324px;
     width:312px;
     margin: 4px; display: inline-block;
 }
@@ -3505,12 +3505,12 @@ padding-bottom: 1px;
 .mange_post_image #responsive-save_images_2-breakpoints img{height: 100%; width: 100%;}
 .mange_post_image #responsive-save_images_2-breakpoints{
     float: left;
-    height: 200px;
+    height: 324px;
     width:312px;
     margin: 4px; display: inline-block;
 }
 .mange_post_image #two_save_images_art{  float: left;
-                                         height: 55%;
+                                         height: 324px;
                                          width:312px;
                                          margin: 4px;}
 .mange_post_image #two_save_images_art img{height: 100%; width: 100%;}
@@ -3520,7 +3520,7 @@ padding-bottom: 1px;
                        position: absolute;
                        /* left: 14px; */
                        width: 312px;
-                       height: 48%;
+                       height: 324px;
                        background: rgba(0, 0, 0, 0.5);
                        padding: 68px;}
 .save_images_view_more a{
@@ -3532,13 +3532,13 @@ padding-bottom: 1px;
 }
 
 #responsive_buis-images-breakpoints{float: left;
-                                    height: 200px;
+                                    height: 324px;
                                     width: 49.8%;
                                     margin-right: 1px;
                                     margin-bottom: 1px;
                                     display: inline-block;}
 #responsive_buis-images_3-breakpoints{    float: left;
-    height: 30%;
+    height:324px;
     width: 49.7%;
     margin: 1px;
     display: inline-block;}
@@ -3549,7 +3549,7 @@ padding-bottom: 1px;
     position: absolute;
     /* left: 14px; */
     width: 347px;
-    height: 50%;
+    height:324px;
     background: rgba(0, 0, 0, 0.5);
     padding: 68px}
 .bui_images_view_more a{
@@ -3568,7 +3568,7 @@ padding-bottom: 1px;
 
 #two_images_bui {
     float: left;
-    height: 55%;
+    height:324px;
     width: 49.8%;
     margin-right:  1px;
     margin-bottom: 1px;
@@ -3577,11 +3577,11 @@ padding-bottom: 1px;
 .profile-head-text_dg{font-size: 28px;
                       text-shadow: 0px 10px 26px rgba(230, 230, 230,0.4), 0px 8px 7px rgba(0,0,0,0.1), 0px 11px 14px rgba(230,230,230,0.9);}
 #two_save_images_bui{float: left;
-                     height: 55%;
+                     height: 324px;
                      width: 374px;
                      margin: 4px;}
 #two_save_images_bui_1{float: left;
-                       height: 48%;
+                       height: 324px;
                        width: 374px;
                        margin: 4px;}
 .bui_save_images_view_more{right: 19px;
@@ -3590,7 +3590,7 @@ padding-bottom: 1px;
                            position: absolute;
                            /* left: 14px; */
                            width: 375px;
-                           height: 48%;  
+                           height: 324px;  
                            background: rgba(0, 0, 0, 0.5);
                            padding: 68px;}
 .bui_save_images_view_more a{
@@ -3601,12 +3601,12 @@ padding-bottom: 1px;
     left: 31%;
 }
 #responsive-images_2-breakpoints_bui{float: left;
-                                     height: 200px;
+                                     height: 324px;
                                      width: 374px;
                                      margin: 4px;
                                      display: inline-block;}
 #responsive-images_2-breakpoints_bui_1{float: left;
-                                       height: 200px;
+                                       height: 324px;
                                        width: 374px;
                                        margin: 4px;
                                        display: inline-block;}

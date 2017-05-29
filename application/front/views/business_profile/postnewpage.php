@@ -1133,7 +1133,7 @@
                                                                                         }
                                                                                         else{
                                                                                             ?>
-                                                                                        <img  src="<?php base_url(NOIMAGE) ?>" alt="No Image">
+                                                                                        <img  src="<?php echo base_url(NOIMAGE) ?>" alt="No Image">
                                                                                         <?php
                                                                                         }
                                                                                         ?>
@@ -3795,8 +3795,13 @@
         if (classNames != 'fa-ellipsis-v') {
             $('div[id^=myDropdown]').hide().removeClass('show');
         }
-
     });
+    
+    $(document).keyup(function(event) {
+     if (event.keyCode == 27) { 
+         $('#myModal1').modal(hide);
+    }
+});
 
 </script>
 <!-- This  script use for close dropdown in every post -->

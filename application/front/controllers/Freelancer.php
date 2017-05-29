@@ -2096,8 +2096,10 @@ $updatedata = $this->common->update_data($data, 'freelancer_apply', 'app_id', $a
 
     public function freelancer_apply_list($id) {
         $userid = $this->session->userdata('aileenuser');
+
          
         $this->data['postid'] = $id;
+        //echo "<pre>"; print_r($this->data['postid']);die();
 // khyati chnages start
         $join_str[0]['table'] = 'freelancer_apply';
         $join_str[0]['join_table_id'] = 'freelancer_apply.user_id';
@@ -2864,7 +2866,7 @@ $contition_array = array('user_id' => $userid);
             'not_read' => 2,
             'not_from' => 5,
             'not_product_id' => $appid,
-            'not_created_date' => date('y-m-d h:i:s'),
+            'not_created_date' => date('Y-m-d H:i:s')
         );
 
         $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -3301,7 +3303,7 @@ $contition_array = array('user_id' => $userid);
             'not_status' => 0,
             'not_product_id' => $insert_id,
             'not_from' => 4,
-            'not_created_date' => date('y-m-d h:i:s'),
+            'not_created_date' => date('Y-m-d H:i:s')
             );
         $insert_id = $this->common->insert_data_getid($data, 'notification');
         echo 'Selected';

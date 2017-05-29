@@ -66,8 +66,8 @@
 <!-- khyati start -->
 <?php
 if ($user_data) {
-  foreach ($user_data as $ukey => $uvalue) {
-    foreach ($uvalue as $row) {
+  foreach ($user_data as $row) {
+    
 
 ?>
  <div class="profile-job-post-detail clearfix">
@@ -267,7 +267,7 @@ if ($user_data) {
                                              </div>
                                         </div>
 
-                            <?php } }  } else {
+                            <?php }   } else {
                             ?>
                             <div class="text-center rio">
                                 <h4 class="page-heading  product-listing" style="border:0px;margin-bottom: 11px;">No Applied Candidate Found.</h4>
