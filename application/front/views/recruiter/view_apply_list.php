@@ -64,6 +64,7 @@
                                     <div class="job-contact-frnd ">
                                            
 <!-- khyati start -->
+
 <?php
 if ($user_data) {
   foreach ($user_data as $row) {
@@ -85,11 +86,11 @@ if ($user_data) {
                      <ul>
                          <li>
                              <a style="  font-size: 19px;
-    font-weight: 600;" href="<?php echo base_url('job/job_printpreview/' . $row['user_id'].'?page=recruiter'); ?>">
+    font-weight: 600;" href="<?php echo base_url('job/job_printpreview/' . $row['userid'].'?page=recruiter'); ?>">
                 <?php echo ucwords($row['fname']) . ' ' . ucwords($row['lname']); ?></a>
                           </li>
                          <li class="show">
-                   <a  style="font-size: 19px;" href="<?php echo base_url('job/job_printpreview/' . $row['user_id']); ?>">
+                   <a  style="font-size: 19px;" href="<?php echo base_url('job/job_printpreview/' . $row['userid']); ?>">
                       <?php
                    if ($row['designation']) {
                        ?>
@@ -225,22 +226,22 @@ if ($user_data) {
                                      <div class="apply-btn fr">
                                                   
  <?php $userid = $this->session->userdata('aileenuser');
- if($userid != $row['user_id']){ 
+ if($userid != $row['userid']){ 
              
-    $contition_array = array('from_id' => $userid, 'to_id' => $row['user_id'], 'save_type' => 1, 'status' => '0');
+    $contition_array = array('from_id' => $userid, 'to_id' => $row['userid'], 'save_type' => 1, 'status' => '0');
     $savedata = $this->common->select_data_by_condition('save', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
      ?>
 
-            <a href="<?php echo base_url('chat/abc/' . $row['user_id']); ?>">Message</a>
+            <a href="<?php echo base_url('chat/abc/' . $row['userid']); ?>">Message</a>
 
-            <?php  $contition_array = array('invite_user_id' => $row['user_id'], 'post_id' => $postid);
+            <?php  $contition_array = array('invite_user_id' => $row['userid'], 'post_id' => $postid);
         $userdata = $this->common->select_data_by_condition('user_invite', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         if($userdata){ ?>
-      <a href="#" class="button invited" id="<?php echo 'invited' . $row['user_id']; ?>" style="cursor: default;"> Invited</a>      
+      <a href="#" class="button invited" id="<?php echo 'invited' . $row['userid']; ?>" style="cursor: default;"> Invited</a>      
          <?php }else{ ?>
 
-              <a  href="#" class="button invite_border" id="<?php echo 'invited' . $row['user_id']; ?>" onClick="inviteusermodel(<?php echo $row['user_id']; ?>)"> Invite</a>
+              <a  href="#" class="button invite_border" id="<?php echo 'invited' . $row['userid']; ?>" onClick="inviteusermodel(<?php echo $row['userid']; ?>)"> Invite</a>
               <!-- <a href="#"><div class="button invite_border" id="<?php echo 'invited' . $row['user_id']; ?>" onClick="inviteuser(<?php echo $row['user_id']; ?>)"> Invite</div></a> -->
  <?php  } ?>
 
@@ -252,8 +253,8 @@ if ($user_data) {
 <a class="saved">Saved </a> 
        
      <?php } else { ?>
-       <input type="hidden" id="<?php echo 'hideenuser' . $row['user_id']; ?>" value= "<?php echo $data[0]['save_id']; ?>"> 
-       <a  id="<?php echo $row['user_id']; ?>" onClick="savepopup(<?php echo $row['user_id']; ?>)" href="javascript:void(0);" class="<?php echo 'saveduser' . $row['user_id']; ?>">Save</a>
+       <input type="hidden" id="<?php echo 'hideenuser' . $row['userid']; ?>" value= "<?php echo $data[0]['save_id']; ?>"> 
+       <a  id="<?php echo $row['userid']; ?>" onClick="savepopup(<?php echo $row['userid']; ?>)" href="javascript:void(0);" class="<?php echo 'saveduser' . $row['userid']; ?>">Save</a>
         <?php }
          
        
@@ -569,6 +570,7 @@ return false;
  <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
     <script>
     function savepopup(id) { 
+      alert(id);
                         
       save_user(id);
 //                       

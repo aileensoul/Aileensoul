@@ -985,7 +985,7 @@ class Recruiter extends MY_Controller {
       $contition_array = array('job_apply.post_id' => $id, 'job_apply.is_delete' =>'0');
 
       
-       $userdata = $this->data['user_data'] =  $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str , $groupby = 'job_id');
+       $userdata = $this->data['user_data'] =  $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'job_reg.*,job_add_workexp.*,job_add_edu.*,job_reg.user_id as userid', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str , $groupby = 'job_id');
        //echo "<pre>"; print_r($this->data['user_data']);die();
 
             //$udata[] = $this->data['userdata'];
