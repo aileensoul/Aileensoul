@@ -230,7 +230,7 @@
                                                 <li 
                                                     <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'following') { ?> class="active" 
                                                     <?php } ?>>
-                                                    <a title="Following" href="<?php echo base_url('business_profile/following'); ?>">Following 
+                                                    <a title="Following" href="<?php echo base_url('business_profile/following/'.$businessdata[0]['business_slug']); ?>">Following 
                                                         <br> (<?php echo (count($businessfollowingdata)); ?>) 
                                                     </a>
                                                 </li>
