@@ -169,7 +169,8 @@ section{width: 100%; overflow: hidden;}
 /* Ul Li & Ol Li CSS */
 ul, ol { margin:0; padding:0 0 0 20px; }
 ul li, ol li { margin:0 0 10px; padding:0; font-size:15px; color:#4c4c4c; font-weight: normal; }
-ul li{padding-left: 12px;}
+ul li{padding-left: 21px;}
+
 ol li{list-tyle:numaric;}
 
 hr{ border: none; margin: 20px 0; background:#cacaca; height: 1px; }
@@ -1925,7 +1926,7 @@ abbr { cursor: help; }
 
 .fixed_left{left: 33.5%;}
 .post-design-product{/*padding-top: 6px;*/}
-.profile-box-user .profile-boxProfile-name a{padding-left: 8px; font-size: 13px;}
+.profile-box-user .profile-boxProfile-name a{padding-left: 8px; font-size: 15px;}
 .profile-text-bui-user .profile-boxProfile-name a{padding-left: 8px; color: #5b5b5b;}
 
 .profile-box-menu{padding-right: 2px !important;}
@@ -2124,18 +2125,18 @@ border-bottom: 1px solid #000033;
 .profile-box-bui-menu li:last-child {
     border-right: none;
 }
-.profile-box-bui-menu li a:hover{background-color: #1b8ab9; color: #ffffff;}
+.profile-box-bui-menu li a:hover{ color: #1b8ab9;}
 .profile-box-bui-menu li a {
    
     margin-right: 3.5px;
     display: block;
-    color: #1b8ab9;
+    
     text-align: center;
     padding: 2px 12px;
     text-decoration: none;
     font-size: 13px;
-    color: #1b8ab9;
-    font-weight: 600;
+    color: #5b5b5b;
+    
 
 }
 .btn-3b {
@@ -2435,7 +2436,7 @@ text-align: justify; display: inline-block; margin-bottom: 0px;
 
 
 
-.profile-company-name a{font-size: 13px;margin-left: 8px;  text-shadow: 0px 10px 26px rgba(230, 230, 230,0.4), 0px 8px 7px rgba(0,0,0,0.1), 0px 11px 14px rgba(230,230,230,0.9);
+.profile-company-name a{font-size: 18px;margin-left: 8px;  text-shadow: 0px 10px 26px rgba(230, 230, 230,0.4), 0px 8px 7px rgba(0,0,0,0.1), 0px 11px 14px rgba(230,230,230,0.9);
                         font-weight: 600; color: #1b8ab9;}
 .add-post-button a:hover{color: #ffffff;}
 .buisness-profile-txext {z-index: 1; position: relative; display: inline-block; width: 24%;}
@@ -4161,17 +4162,17 @@ border-bottom: 1px solid #000033;
 .profile-box-job-menu{padding-right: 1px !important;     margin-top: -38px;
                       border-top: 1px solid #d9d9d9;}
 
-.profile-box-job-menu ul li a:hover{background-color: #1b8ab9; color: #ffffff;}
+.profile-box-job-menu ul li a:hover{ color: #1b8ab9;}
 .profile-box-job-menu ul li a {
     margin-right:7.6px;
     display: block;
-    color: #1b8ab9;
+    color: #5b5b5b;
     text-align: center;
        padding:8px 15px 6px 15px;
     text-decoration: none;
     font-size: 16px;
-    color: #1b8ab9;
-    font-weight: 600;
+    
+    
 
 }
 
@@ -4200,16 +4201,16 @@ border-bottom: 1px solid #000033;
 .profile-box-rec-menu{padding-right: 2px !important;     margin-top: -38px;
                       border-top: 1px solid #d9d9d9;}
 
-.profile-box-rec-menu ul li a:hover{background-color: #1b8ab9; color: #ffffff;}
+.profile-box-rec-menu ul li a:hover{ color: #1b8ab9;}
 .profile-box-rec-menu ul li a {
     margin-right:10px;
     display: block;
     text-align: center;
        padding: 6px 16px 6px 16px;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 15px;
     color: #5b5b5b;
-    font-weight: 600;
+    /*font-weight: 600;*/
 }
 
 .job-search-box1 label i{    border-radius: 3px;
@@ -5328,3 +5329,15 @@ fieldset .add_post_btns:hover{background-color:#156f95!important}
 .tabordion section .label-d:active{background-color: #156f95!important}
 .margin_business{    margin-right: 16px !important;}
 .dot_A{color: #91949d; font-size: 14px;}
+
+
+
+.profile-company-name a:hover{color:#156f95;}
+.profile-text-bui-user .profile-boxProfile-name a:hover{color: #1b8ab9}
+   .profile-box-job-menu ul li   {padding-left: 13px;}
+ .profile-box-bui-menu    ul li {
+    padding-left: 12px;
+}
+.profile-box-freehire-menu ul li {
+    padding-left: 8px;
+}
