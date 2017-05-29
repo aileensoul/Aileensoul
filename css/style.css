@@ -670,7 +670,7 @@ ul.business_pf_ct_person_detail li b {font-size: 16px; display: inline-block; wi
 /*  contact */
 .delete-contact{float:right; }
 .contact-frnd:hover {background-color:#efefef;}
-.contact-frnd-post{padding:10px;     background-color: white;border: 1px solid #bfbfbf; border-top: 0px; }
+.contact-frnd-post{padding:10px;     background-color: white; }
 .contact-frnd{height:90px; width:100%; margin-bottom:10px; background-color:#ffffff; margin-right:10px; border: 1px solid #ededed;}
 .contact-img{ }
 .contact-img img { padding-right:10px; height:88px; width:90px; float:left;}
