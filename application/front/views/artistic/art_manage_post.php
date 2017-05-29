@@ -751,7 +751,7 @@ pt>
                             </div>
                             <div id="myBtn3"  class="editor-content col-md-10 popup-text" >
                                    <!-- <textarea name="product_title" placeholder="Post Your Product...."></textarea>  -->
-                                <textarea id= "test-upload-product" placeholder="Post Your Art...."  onKeyPress=check_length(this.form); onKeyDown=check_length(this.form); 
+                                <textarea id= "test-upload-product" placeholder="Post Your Art...."  onKeyPress=check_length(this.form); onKeyDown=check_length(this.form); onblur=check_length(this.form);
                                           name=my_text rows=4 cols=30 class="post_product_name"></textarea>
                                 <div style="position: absolute; top: 21px; right: 19px; border: none;">                        
                                     <input size=1 class="text_num" value=50 name=text_num readonly> 
@@ -3812,20 +3812,30 @@ jQuery.noConflict();
 <!-- scrtipt for count title number start -->
 
 <script language=JavaScript>
-    function check_length(my_form) {
-        maxLen = 50; // max number of characters allowed
-        if (my_form.my_text.value.length >= maxLen) {
-            // Alert message if maximum limit is reached. 
-            // If required Alert can be removed. 
-            var msg = "You have reached your maximum limit of characters allowed";
-            //alert(msg);
-            // Reached the Maximum length so trim the textarea
-            my_form.my_text.value = my_form.my_text.value.substring(0, maxLen);
-        } else { // Maximum length not reached so update the value of my_text counter
-            my_form.text_num.value = maxLen - my_form.my_text.value.length;
-        }
-    }
-</script>
+                             
+                             
+                                   
+                            function check_length(my_form)
+                            {
+                                maxLen = 50;
+                                // max number of characters allowed
+                                if (my_form.my_text.value.length > maxLen) {
+                                    // Alert message if maximum limit is reached. 
+                                    // If required Alert can be removed. 
+                                    var msg = "You have reached your maximum limit of characters allowed";
+                                //    alert(msg);
+                                    
+                       $('.biderror .mes').html("<div class='pop_content'>" + msg + "</div>");
+                        $('#bidmodal').modal('show');
+                                    // Reached the Maximum length so trim the textarea
+                                    my_form.my_text.value = my_form.my_text.value.substring(0, maxLen);
+                                } else {
+                                    // Maximum length not reached so update the value of my_text counter
+                                    my_form.text_num.value = maxLen - my_form.my_text.value.length;
+                                }
+                            }
+                            //-->
+                        </script>
 <!-- script end -->
 <style type="text/css">
     .likeduser{
@@ -3921,5 +3931,11 @@ jQuery.noConflict();
             videoVolume: 'horizontal',
             features: ['playpause','progress','volume','fullscreen']
         });
+    });
+    </script>
+    
+    <script>
+    $('.modal-close').on('click',function(){
+       $('#myModal3').modal(show);
     });
     </script>
