@@ -518,7 +518,7 @@ popup -->
     ?>
     <div class="mySlides">
       <div class="numbertext"><?php echo $i ?> / <?php echo count($busimagedata); ?></div>
-      <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $image['image_name']);?> " style="width: 100%; height: 70%;">
+      <img src="<?php echo base_url($this->config->item('bus_profile_main_upload_path') . $image['image_name']);?> " style="width: 100%; height: 70%;">
     </div>
 
      <?php $i++; } ?>

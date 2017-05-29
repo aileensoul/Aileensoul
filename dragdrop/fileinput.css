@@ -96,7 +96,7 @@
 .krajee-default.file-preview-frame {
     position: relative;
     display: table;
-    margin: 8px;
+    margin: 8px 3px;
     border: 1px solid #ddd;
     box-shadow: 1px 1px 5px 0 #a2958a;
     padding: 6px;
@@ -109,11 +109,11 @@
 }
 
 .krajee-default.file-preview-frame .kv-file-content {
-    height: 100px;
+    height: 100%;
 }
 
 .krajee-default.file-preview-frame .file-thumbnail-footer {
-    height: 70px;
+    height: 50px;
 }
 
 .krajee-default .file-preview-image {
@@ -176,11 +176,12 @@
 }
 
 .krajee-default .file-actions {
-    margin-top: 15px;
+    margin-top: 5px;
 }
 
 .krajee-default .file-footer-buttons {
     float: right;
+    margin-right: 2px;
 }
 
 .krajee-default .file-footer-caption {
@@ -188,12 +189,13 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    width: 160px;
+    width: 110px;
     text-align: center;
     padding-top: 4px;
-    font-size: 11px;
+    font-size: 8px;
     color: #777;
-    margin: 5px auto;
+    margin: 2px auto;
+    line-height: 12px;
 }
 .file-caption {border: none; visibility: hidden;}
 .krajee-default .file-preview-error {
@@ -517,3 +519,11 @@
 .file-zoom-content .is-portrait-gt4 {
     margin-top: 60px;
 }
+
+.file-actions .file-footer-buttons .kv-file-remove i{font-size: 16px;padding: 0;}
+
+.file-actions .file-footer-buttons .kv-file-remove i:hover{font-size: 16px;padding: 0;}
+
+.file-actions .file-footer-buttons .kv-file-remove {margin-right: 0;}
+
+.form-group .file-input{margin-left: 13px;}

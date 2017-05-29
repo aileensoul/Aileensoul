@@ -697,13 +697,16 @@ class Artistic extends MY_Controller {
 
 
     public function art_portfolio_insert() {
-
+// echo "<pre>"; print_r($_FILES); 
+//  echo "<pre>"; print_r($_POST); die();
 
 
         $userid = $this->session->userdata('aileenuser');
         $artportfolio = $_POST['artportfolio'];
         // $bestofmine = $_POST['bestofmine']; 
         //best of mine image upload code start
+//echo "<pre>"; print_r($artportfolio); die();
+    
 
         $contition_array = array('user_id' => $userid);
         $art_reg_data = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_bestofmine', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -711,7 +714,7 @@ class Artistic extends MY_Controller {
         $art_bestofmine = $art_reg_data[0]['art_bestofmine'];
 
         if ($art_bestofmine != '') {
-            $art_pdf_path = 'uploads/art_images/';
+            $art_pdf_path = $this->config->item('art_portfolio_main_upload_path');
             $art_pdf = $art_pdf_path . $art_bestofmine;
             if (isset($art_pdf)) {
                 unlink($art_pdf);
@@ -719,37 +722,90 @@ class Artistic extends MY_Controller {
         }
 
 
-        $config['upload_path'] = 'uploads/art_images/';
-        $config['allowed_types'] = 'pdf';
+         $config = array(
+            'upload_path' => $this->config->item('art_portfolio_main_upload_path'),
+            'max_size' => 2500000000000,
+            'allowed_types' => $this->config->item('art_portfolio_main_allowed_types'),
+            'file_name' => $_FILES['bestofmine']['name']
+               
+        );
 
-        $config['file_name'] = $_FILES['image']['name'];
-        $config['upload_max_filesize'] = '40M';
+        // echo "<pre>"; print_r($config); die();
 
         //Load upload library and initialize configuration
-        $this->load->library('upload', $config);
-        $this->upload->initialize($config);
+          $images = array();
+        
 
+        $files = $_FILES;
+       
+        $this->load->library('upload');
+
+            $fileName = $_FILES['image']['name'];
+            $images[] = $fileName;
+            $config['file_name'] = $fileName;
+
+         $this->upload->initialize($config);
+        $this->upload->do_upload();
+
+            
         if ($this->upload->do_upload('image')) {
+           // echo "hi"; die();
 
-            $uploadData = $this->upload->data();
+            // $uploadData = $this->upload->data();
 
-            $picture = $uploadData['file_name'];
-        } else {
+            // $picture = $uploadData['file_name'];
 
-            $picture = '';
+             $response['result']= $this->upload->data();
+            // echo "<pre>"; print_r($response['result']); die();
+                $art_post_thumb['image_library'] = 'gd2';
+                $art_post_thumb['source_image'] = $this->config->item('art_portfolio_main_upload_path') . $response['result']['file_name'];
+                $art_post_thumb['new_image'] = $this->config->item('art_portfolio_thumb_upload_path') . $response['result']['file_name'];
+                $art_post_thumb['create_thumb'] = TRUE;
+                $art_post_thumb['maintain_ratio'] = TRUE;
+                $art_post_thumb['thumb_marker'] = '';
+                $art_post_thumb['width'] = $this->config->item('art_portfolio_thumb_width');
+                //$product_thumb[$i]['height'] = $this->config->item('product_thumb_height');
+                $art_post_thumb['height'] = 2;
+                $art_post_thumb['master_dim'] = 'width';
+                $art_post_thumb['quality'] = "100%";
+                $art_post_thumb['x_axis'] = '0';
+                $art_post_thumb['y_axis'] = '0';
+                $instanse = "image_$i";
+                //Loading Image Library
+                $this->load->library('image_lib', $art_post_thumb, $instanse);
+                $dataimage = $response['result']['file_name'];
+
+                                //Creating Thumbnail
+                $this->$instanse->resize();
+                $response['error'][] = $thumberror = $this->$instanse->display_errors();
+                
+                
+                $return['data'][] = $this->upload->data();
+                $return['status'] = "success";
+                $return['msg'] = sprintf($this->lang->line('success_item_added'), "Image", "uploaded");
+
+      
+        } 
+
+        else {
+
+            $dataimage = '';
         }
 
-        if ($picture) {
+       //echo "<pre>"; print_r($dataimage); die();
+
+        if ($dataimage) {
             $data = array(
-                'art_bestofmine' => $picture,
-                // 'art_portfolio' => $artportfolio,
+                'art_bestofmine' => $dataimage,
+                //'art_portfolio' => $artportfolio,
                 'modified_date' => date('Y-m-d', time()),
                 'art_step' => 4
             );
 
 
             $updatdata = $this->common->update_data($data, 'art_reg', 'user_id', $userid);
-        } elseif ($artportfolio) {
+        } 
+            elseif ($artportfolio) {
 
 
             $data = array(
@@ -1175,6 +1231,7 @@ class Artistic extends MY_Controller {
                 //'overwrite' => true,
                 //'remove_spaces' => true
         );
+        //echo "<pre>"; print_r($config); die();
         $images = array();
         $this->load->library('upload');
 
