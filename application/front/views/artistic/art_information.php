@@ -336,7 +336,7 @@ $( "#tags" ).autocomplete({
                         artname: {
 
                             required: true,
-                            regx1:/^[a-zA-Z\s]*[a-zA-Z]/
+                            regx:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]/
                             //noSpace: true,
 
                          
@@ -350,8 +350,8 @@ $( "#tags" ).autocomplete({
                         other_skill: {
                             
                            require_from_group: [1, ".keyskil"],
-                            
-                           noSpace: true
+                            regx:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]/
+                           //noSpace: true
                             
                         },
                        desc_art: {

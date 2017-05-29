@@ -29,6 +29,13 @@ class Search extends CI_Controller {
                 //echo "test sucessfull";
         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
 
+        if ($this->input->post('searchplace') == "" && $this->input->post('skills') == "") {
+        redirect('artistic/art_post',refresh);
+            
+            // $abc[] = $results;
+            // $this->data['falguni'] = 1;        
+        }
+
 //         // Retrieve the posted search term.
 //        //echo "<pre>";print_r($_POST);die();
         $searchskill = trim($this->input->post('skills'));
@@ -63,12 +70,11 @@ class Search extends CI_Controller {
 
         $insert_id = $this->common->insert_data_getid($data, 'search_info');
 
-        if ($this->input->post('skills') == "") { //echo"falguni";die();
+         if ($this->input->post('skills') == "") {
             $contition_array = array('art_city' => $search_place[0], 'status' => '1');
             $new = $this->data['results'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-            // $abc[] = $results;
-            // $this->data['falguni'] = 1;        
+            
         } elseif ($this->input->post('searchplace') == "") {
              //echo "skill";
 
@@ -374,6 +380,12 @@ class Search extends CI_Controller {
 public function business_search() {
 
         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
+        if ($this->input->post('skills') == "" && $this->input->post('searchplace') == "") {
+            redirect('business_profile/business_profile_post',refresh);
+            
+
+
+        }
 
         //print_r($this->data['userid']); die();
 
@@ -399,11 +411,12 @@ public function business_search() {
         $insert_id = $this->common->insert_data_getid($data, 'search_info');
 
         if ($this->input->post('skills') == "") {
+
             $contition_array = array('city' => $search_place[0], 'status' => '1');
             $new = $this->data['results'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-
-        } elseif ($this->input->post('searchplace') == "") {
+        }
+         elseif ($this->input->post('searchplace') == "") {
            // echo "hi";
 
 
@@ -548,6 +561,12 @@ public function business_search() {
 
         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
 
+
+if ($this->input->post('skills') == "" && $this->input->post('searchplace') == "") {
+            redirect('recruiter/recommen_candidate',refresh);
+            
+        }
+
         $rec_search = trim($this->input->post('skills'));
 
         $this->data['keyword'] = $rec_search;
@@ -579,8 +598,6 @@ public function business_search() {
         $insert_id = $this->common->insert_data_getid($data, 'search_info');
 
         if ($this->input->post('skills') == "") {
-            //echo "hi"; die();
-
             $join_str = array(array(
                     'join_type' => '',
                     'table' => 'job_add_edu',
@@ -595,9 +612,8 @@ public function business_search() {
             $contition_array = array('job_reg.city_id' => $search_place[0], 'job_reg.status' => '1', 'job_reg.user_id !=' => $userid);
 
             $unique = $this->data['results'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
-
-            // echo '<pre>'; print_r($unique); die();
-        } elseif ($this->input->post('searchplace') == "") {
+        }
+         elseif ($this->input->post('searchplace') == "") {
           // echo "<pre>"; print_r($business_post);die();
 
             $contition_array = array('is_delete' => '0', 'status' => '1');
@@ -1110,6 +1126,10 @@ public function business_search() {
     public function freelancer_hire_search() {
         $userid = $this->session->userdata('aileenuser');
 
+        if ($this->input->post('searchplace') == "" && $this->input->post('skills') == "") { 
+        redirect('freelancer/recommen_candidate',refresh);
+        }
+
         // Retrieve the posted search term.
         //echo "<pre>";print_r($_POST);die();
         $search_skill = trim($this->input->post('skills'));
@@ -1146,14 +1166,13 @@ public function business_search() {
         $insert_id = $this->common->insert_data_getid($data, 'search_info');
 
 
-        if ($this->input->post('skills') == "") { //echo"falguni";die();
-            //$contion_array = array('freelancer_post_reg_id !=' => '');
-            $contition_array = array('freelancer_post_city' => $search_place[0], 'status' => '1');
+        if ($this->input->post('skills') == "") { 
+
+        $contition_array = array('freelancer_post_city' => $search_place[0], 'status' => '1');
             $unique = $this->data['results'] = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-            // $abc[] = $results;
-            // $this->data['falguni'] = 1;
-        } elseif ($this->input->post('searchplace') == "") {
+        }
+        elseif ($this->input->post('searchplace') == "") {
 
 
             $contition_array = array('type' => '1', 'status' => '1');
@@ -1438,8 +1457,13 @@ public function business_search() {
     public function freelancer_post_search() {
         $userid = $this->session->userdata('aileenuser');
 
-        // Retrieve the posted search term.
-        //echo "<pre>";print_r($_POST);die();
+        if ($this->input->post('searchplace') == "" && $this->input->post('skills') == "") { 
+            
+            redirect('freelancer/freelancer_apply_post',refresh);
+            
+        }
+
+        
         $search_skill = trim($this->input->post('skills'));
         //print_r($search_skill);die();   
         // $searchskill = implode(',',$search_skill);
@@ -1470,13 +1494,13 @@ public function business_search() {
 
         $insert_id = $this->common->insert_data_getid($data, 'search_info');
 
-        if ($this->input->post('skills') == "") { //echo"falguni";die();
+        if ($this->input->post('skills') == "") {
             $contition_array = array('city' => $search_place[0], 'status' => '1');
             $new = $this->data['results'] = $this->common->select_data_by_condition('freelancer_hire_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-            // $abc[] = $results;
-            // $this->data['falguni'] = 1;
-        } elseif ($this->input->post('searchplace') == "") {
+            
+        } 
+        elseif ($this->input->post('searchplace') == "") {
 
             $contition_array = array('is_delete' => '0', 'status' => '1');
 
@@ -1693,6 +1717,11 @@ public function business_search() {
         //echo "<pre>";print_r($_POST);die();
         $userid = $this->session->userdata('aileenuser');
         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
+
+        if ($this->input->post('searchplace') == "" && $this->input->post('skills') == "") {
+            redirect('job/job_all_post',refresh);
+         
+        }
         // $this->data['recdata'] = $this->common->select_data_by_id('recruiter','user_id', $userid, $data = '*', $join_str = array());
 
 
@@ -1727,8 +1756,9 @@ public function business_search() {
         $insert_id = $this->common->insert_data_getid($data, 'search_info');
 
 
-        if ($this->input->post('skills') == "") { //echo "hrllo"; echo  $search_place; die();//echo  $search_place; die();
-            $contition_array = array(' city' => $search_place[0], 're_status' => '1', 'recruiter.user_id !=' => $userid);
+        if ($this->input->post('skills') == "") {
+
+$contition_array = array(' city' => $search_place[0], 're_status' => '1', 'recruiter.user_id !=' => $userid);
 
             $join_str[0]['table'] = 'recruiter';
             $join_str[0]['join_table_id'] = 'recruiter.user_id';
@@ -1737,10 +1767,8 @@ public function business_search() {
 
             $unique = $this->data['results'] = $this->common->select_data_by_condition('rec_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby);
 
-            // echo '<pre>'; print_r($this->data['results']); die();
-            // $unique[] = $results;
-            //$this->data['falguni'] = 1;
-        } elseif ($this->input->post('searchplace') == "") {
+        } 
+        elseif ($this->input->post('searchplace') == "") {
             // echo "hello";
 
             $contition_array = array('is_delete' => '0', 'status' => '1');

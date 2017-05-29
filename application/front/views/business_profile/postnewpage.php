@@ -3795,7 +3795,6 @@
         if (classNames != 'fa-ellipsis-v') {
             $('div[id^=myDropdown]').hide().removeClass('show');
         }
-
     });
     
     $(document).keyup(function(event) {

@@ -130,8 +130,8 @@
 
 
 
-                                            <div id="Paris" class="tabcontent1">
-                                                <?php echo form_open_multipart(base_url('job/job_work_exp_insert'), array('id' => 'jobseeker_regform1', 'name' => 'jobseeker_regform1', 'class' => 'clearfix')); ?>       
+                         <div id="Paris" class="tabcontent1">
+                             <?php echo form_open_multipart(base_url('job/job_work_exp_insert'), array('id' => 'jobseeker_regform1', 'name' => 'jobseeker_regform1', 'class' => 'clearfix')); ?>       
                                                 <div>
                                                      <span style="color:#7f7f7e;">( </span><span class="red">*</span><span style="color:#7f7f7e"> )</span> <span style="color:#7f7f7e">Indicates required field</span>
                                                 </div>
@@ -589,7 +589,7 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
 
                             $("#jobseeker_regform1").validate({
 
-                                //ignore: ":hidden",
+                                ignore: ":hidden",
 
                                 rules: {
 
