@@ -474,7 +474,7 @@
                                                               right: -24%;  width: 24%;
                                                               bottom: 5%;">
 
-                                          <input type="button" id="next" name="next" value="Next" style="font-size: 16px;min-width: 120px;" onclick="next_page()">
+                                          <input type="button" id="next" name="next" value="Next" style="font-size: 16px;min-width: 120px;" onclick="next_page1()">
 
                                                     </fieldset>
 
@@ -603,7 +603,7 @@
                                                               right: -24%;  width: 24%;
                                                               bottom: 5%;">
 
-                                                        <input type="button" id="next" name="next" value="Next" style="font-size: 16px;min-width: 120px;" onclick="next_page()">
+                                                        <input type="button" id="next" name="next" value="Next" style="font-size: 16px;min-width: 120px;" onclick="next_page2()">
 
                                                     </fieldset>
                                                 </div>
@@ -659,7 +659,7 @@
                                        <div class="job_work_experience_main_div">
                                                             <fieldset class="">
                                                  <h6>Degree :<span class="red">*</span></h6>
-                             <select name="degree[]" id="<?php echo $degree_sequence ?>"  class="degree">
+                             <select name="degree[]" id="degree1"  class="degree">
                        <option value="0">Select your Degree</option>
 
                                  <?php
@@ -695,7 +695,7 @@
 
                                                             <fieldset class="">
                                         <h6>Stream :<span class="red">*</span></h6>
-                                             <select name="stream[]" id="<?php echo $stream_sequence ?>" class="stream" >
+                                             <select name="stream[]" id="stream1" class="stream" >
                                             <option value="">Select Degree First</option>
                                            <?php
                                            if ($stream1) {
@@ -850,7 +850,7 @@
                                                  </div>
          <fieldset class="hs-submit full-width job_edu_graduation_nextbtnbox">
 
-                <input type="button" id="next" name="next"          class="job_edu_graduation_nextbtn" value="Next" style="font-size: 16px;min-width: 120px;margin-right: 0px;" onclick="next_page()">
+                <input type="button" id="next" name="next"          class="job_edu_graduation_nextbtn" value="Next" style="font-size: 16px;min-width: 120px;margin-right: 0px;" onclick="next_page_graduation()">
 
                                                     </fieldset>
 
@@ -1045,7 +1045,7 @@
                 <fieldset class="hs-submit full-width"  style="     right: -24%; position: absolute; bottom: 2.3%;
                   display: inline-block; width: 24%;">
 
-                <input type="button" id="next" name="next" value="Next" style="font-size: 16px;min-width: 120px;margin-right: 0px;" onclick="next_page()">
+                <input type="button" id="next" name="next" value="Next" style="font-size: 16px;min-width: 120px;margin-right: 0px;" onclick="next_page_graduation()">
 
                                                     </fieldset>
 
@@ -1673,19 +1673,120 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
                     <script type="text/javascript">
                         function next_page() {
 
-                            // var board_primary = document.getElementById("board_primary").value;
-                            // var school_primary = document.getElementById("school_primary").value;
-                            // var percentage_primary = document.getElementById("percentage_primary").value;
-                            // var pass_year_primary = document.getElementById("pass_year_primary").value;
+                             var board_primary = document.getElementById("board_primary").value;
+                             var school_primary = document.getElementById("school_primary").value;
+                             var percentage_primary = document.getElementById("percentage_primary").value;
+                             var pass_year_primary = document.getElementById("pass_year_primary").value;
 
-                            window.location = "<?php echo base_url() ?>job/job_project_update";
+                            
 
-                            // if(board_primary == '' || school_primary == '' || percentage_primary == '' || pass_year_primary == ''){
-                            //     return false;
-                            // }
+                             if(board_primary == '' || school_primary == '' || percentage_primary == '' || pass_year_primary == ''){
+                                alert("please fill out details");
+                                 return false;
+                             }
+                             else{
+                                window.location = "<?php echo base_url() ?>job/job_project_update";
+                             }
 
                         }
                     </script>
+
+
+                    <script type="text/javascript">
+                        function next_page1() {
+                            //alert('ghh');
+                             var board_secondary = document.getElementById("board_secondary").value;
+                             var board_primary=document.getElementById("board_primary").value;
+                             //alert(board_primary);
+                             var school_secondary = document.getElementById("school_secondary").value;
+                             var percentage_secondary = document.getElementById("percentage_secondary").value;
+                             var pass_year_secondary = document.getElementById("pass_year_secondary").value;
+
+                            
+
+                             if(school_secondary == '' || percentage_secondary == '' || pass_year_secondary == '' || board_secondary == ''){
+                                //alert(789);
+                                if(board_primary == ''){
+                                alert("please fill out details");
+                                 return false;
+                             }
+                                 else{
+                                    window.location = "<?php echo base_url() ?>job/job_project_update";
+
+                                 }
+                             }
+                             else{
+                                window.location = "<?php echo base_url() ?>job/job_project_update";
+                             }
+
+                        }
+                    </script>
+
+                    <script type="text/javascript">
+                        function next_page2() {
+                            alert('ghh');
+                            var board_higher_secondary = document.getElementById("board_higher_secondary").value;
+                             var board_secondary = document.getElementById("board_secondary").value;
+                             var board_primary=document.getElementById("board_primary").value;
+                             var school_higher_secondary = document.getElementById("school_higher_secondary").value;
+                             var percentage_higher_secondary = document.getElementById("percentage_primary").value;
+                             var pass_year_higher_secondary = document.getElementById("pass_year_primary").value;
+
+                            
+
+                             if(board_higher_secondary == '' || school_higher_secondary == '' || percentage_higher_secondary == '' || pass_year_higher_secondary == ''){
+
+                                if(board_secondary == '' && board_primary == ''){
+                                    //alert(hhhhhhhh); return false;
+                                    alert("please fill out details");
+                                 return false;} 
+                                    else{
+                                        window.location = "<?php echo base_url() ?>job/job_project_update";
+                                    }
+                             }
+                             else{
+                                window.location = "<?php echo base_url() ?>job/job_project_update";
+                             }
+
+                        }
+                    </script>
+
+                    <script type="text/javascript">
+                        function next_page_graduation() {
+                            alert('hfgh');
+
+                             var degree = document.getElementById("degree1").value;
+                             var stream = document.getElementById("stream1").value;
+                             var university = document.getElementById("university1").value;
+                             var college = document.getElementById("college1").value;
+                              var grade = document.getElementById("grade1").value;
+                               var percentage = document.getElementById("percentage1").value;
+                                var pass_year = document.getElementById("pass_year1").value;
+                                var board_higher_secondary = document.getElementById("board_higher_secondary").value;
+                                var board_secondary = document.getElementById("board_secondary").value;
+                             var board_primary=document.getElementById("board_primary").value;
+
+                            //alert(456);
+
+                             if(degree == '' || stream == '' || university == '' || college == ''|| grade == '' || percentage == '' || pass_year == ''){
+
+                                if(board_higher_secondary == '' && board_secondary == '' && board_primary == ''){ 
+                                alert("please fill out details");
+                                 return false;
+                            
+                             }
+                             else{
+                                window.location = "<?php echo base_url() ?>job/job_project_update";
+                             }
+                             }
+                             else{
+                                window.location = "<?php echo base_url() ?>job/job_project_update";
+                             }
+
+                        }
+                    </script>
+
+
 
                     <script type="text/javascript">
                         $(".alert").delay(3200).fadeOut(300);
