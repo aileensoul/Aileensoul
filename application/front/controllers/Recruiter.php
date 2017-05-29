@@ -959,7 +959,7 @@ class Recruiter extends MY_Controller {
        //  $contition_array = array('post_id' => $id, 'is_delete' => 0);
        //  $postdata = $this->data['postdata'] = $this->common->select_data_by_condition('job_apply', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
        // // echo '<pre>'; print_r($this->data['postdata']);
-       //  $this->data['postid'] = $id;
+         $this->data['postid'] = $id;
 
         // foreach ($postdata as $ud) {
 

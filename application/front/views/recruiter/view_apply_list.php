@@ -63,7 +63,7 @@
                                 <div class="contact-frnd-post">
                                     <div class="job-contact-frnd ">
                                            
-<!-- khyati start -->
+
 
 <?php
 if ($user_data) {
@@ -584,6 +584,7 @@ return false;
    
 
    function inviteusermodel(abc){
+    //alert(abc);
 
     $('.biderror .mes').html("<div class='pop_content'>Do you want to invite this candidate for interview?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='inviteuser(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
     $('#bidmodal').modal('show');
@@ -592,9 +593,9 @@ return false;
 
    function inviteuser(clicked_id)
     {  
-     
+     alert(clicked_id);
       var post_id = "<?php echo $postid; ?>";
-        //alert(post_id);
+        alert(post_id);
         $.ajax({
             type: 'POST',
             url: '<?php echo base_url() . "recruiter/invite_user" ?>',
