@@ -5902,7 +5902,6 @@ class Business_profile extends MY_Controller {
                 $business_userid = $this->db->get_where('business_profile_post', array('business_profile_post_id' => $rowdata['business_profile_post_id'], 'status' => 1))->row()->user_id;
                 if ($rowdata['user_id'] == $userid || $business_userid == $userid) {
 
-
                     $fourdata .= '<span role="presentation" aria-hidden="true"> · </span>';
                     $fourdata .= '<div class="comment-details-menu">';
                     $fourdata .= '<input type="hidden" name="post_delete"';
@@ -5911,7 +5910,9 @@ class Business_profile extends MY_Controller {
                 }
                 $fourdata .= '<span role="presentation" aria-hidden="true"> · </span>';
                 $fourdata .= '<div class="comment-details-menu">';
-                $fourdata .= '<p>' . $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($bus_comment['created_date']))) . '</br>';
+                //$fourdata .= '<p>' .  $bus_comment['created_date'] . '</br>';
+                //$fourdata .= '<p>' . date('Y-m-d H:i:s', strtotime($bus_comment['created_date'])) . '</br>';
+                $fourdata .= '<p>' . $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($rowdata['created_date']))) . '</br>';
 
                 $fourdata .= '</p></div></div></div>';
             }
