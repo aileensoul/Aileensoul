@@ -318,7 +318,7 @@
 </div>
                                     <div class="post-design-desc">
                                         <span> 
-                                            <div class="margin_btm" id="<?php echo 'editpostdetails' . $art_data[0]['art_post_id']; ?>" style="display:block;><span class="show">
+                                            <div class="margin_btm" id="<?php echo 'editpostdetails' . $art_data[0]['art_post_id']; ?>" style="display:block;"><span class="show">
                                                     <?php print $this->common->make_links($art_data[0]['art_description']); ?></span>
                                             </div>
                                             <div id="<?php echo 'editpostdetailbox' . $art_data[0]['art_post_id']; ?>" style="display:none;">
@@ -1420,9 +1420,15 @@
 
                             var sel = $("#post_comment" + clicked_id);
                             var txt = sel.html();
-                            if (txt == '') {
-                                return false;
-                            }
+                            txt = txt.replace(/&nbsp;/gi, " ");
+                            txt = txt.replace(/<br>$/, '');
+                                           if (txt == '' || txt == '<br>') {
+                                           return false;
+                                               }
+                                          if (/^\s+$/gi.test(txt))
+                                           {
+                                                 return false;
+                                              }
 
                             $('#post_comment' + clicked_id).html("");
 
@@ -1542,9 +1548,14 @@
                                     e.preventDefault();
                                     var sel = $("#post_comment" + clicked_id);
                                     var txt = sel.html();
-                                    if (txt == '') {
-                                        return false;
-                                    }
+                                    txt = txt.replace(/&nbsp;/gi, " ");
+                                    txt = txt.replace(/<br>$/, '');
+                             if (txt == '' || txt == '<br>') {
+                               return false; }
+                                          if (/^\s+$/gi.test(txt))
+                                           {
+                                                 return false;
+                                              }
                                     $('#post_comment' + clicked_id).html("");
 
                                     if (window.preventDuplicateKeyPresses)
@@ -2015,7 +2026,7 @@
                     </script>
                     <!--post like script end -->
                     <!-- comment insert script start -->
-                    <script type="text/javascript">
+<!--                    <script type="text/javascript">
                         function insert_comment(clicked_id)
                         {
                             var post_comment = document.getElementById("post_comment" + clicked_id);
@@ -2033,7 +2044,7 @@
                                 }
                             });
                         }
-                    </script>
+                    </script>-->
 
                     <!-- hide and show data start-->
                     <script type="text/javascript">
@@ -2115,11 +2126,16 @@
 
                             var sel = $("#editcomment" + abc);
                             var txt = sel.html();
-                            if (txt == '' || txt == '<br>') {
+                            
+                             txt = txt.replace(/&nbsp;/gi, " ");
+                             txt = txt.replace(/<br>$/, '');
+                if (txt == '' || txt == '<br>') {
                                 $('.biderror .mes').html("<div class='pop_content'>Do you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
                                 $('#bidmodal').modal('show');
                                 return false;
                             }
+                if (/^\s+$/gi.test(txt)){
+                    return false;  }
                             $.ajax({
                                 type: 'POST',
                                 url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
@@ -2147,15 +2163,21 @@
                                 $(this).prop("contentEditable", true);
                             });
                             $('#editcomment' + abc).keypress(function (event) {
-                                if (event.which == 13 && event.shiftKey != 1) {
+                                if (event.which == 13 && event.shiftKey != 1) { 
                                     event.preventDefault();
                                     var sel = $("#editcomment" + abc);
                                     var txt = sel.html();
-                                    if (txt == '' || txt == '<br>') {
+                                    txt = txt.replace(/&nbsp;/gi, " ");
+                                    txt = txt.replace(/<br>$/, '');
+                               if (txt == '' || txt == '<br>') {
                                         $('.biderror .mes').html("<div class='pop_content'>Do you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
                                         $('#bidmodal').modal('show');
                                         return false;
-                                    }
+                               }
+                                   if (/^\s+$/gi.test(txt)){
+                                                 return false;
+                                             }
+                                    
                                     if (window.preventDuplicateKeyPresses)
                                         return;
                                     window.preventDuplicateKeyPresses = true;
@@ -2193,11 +2215,18 @@
 
                             var sel = $("#editcommenttwo" + abc);
                             var txt = sel.html();
-                            if (txt == '' || txt == '<br>') {
+                             txt = txt.replace(/&nbsp;/gi, " ");
+                                         txt = txt.replace(/<br>$/, '');
+                                          if (txt == '' || txt == '<br>') {
                                 $('.biderror .mes').html("<div class='pop_content'>Do you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deletetwo(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
                                 $('#bidmodal').modal('show');
                                 return false;
                             }
+                                          if (/^\s+$/gi.test(txt))
+                                           {
+                                                 return false;
+                                              }
+                            
                             $.ajax({
                                 type: 'POST',
                                 url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
@@ -2230,11 +2259,18 @@
                                     event.preventDefault();
                                     var sel = $("#editcommenttwo" + abc);
                                     var txt = sel.html();
+                                     txt = txt.replace(/&nbsp;/gi, " ");
+                                     txt = txt.replace(/<br>$/, '');
                                     if (txt == '' || txt == '<br>') {
                                         $('.biderror .mes').html("<div class='pop_content'>Do you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deletetwo(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
                                         $('#bidmodal').modal('show');
                                         return false;
                                     }
+                                    
+                                    if (/^\s+$/gi.test(txt))
+                                           {
+                                                 return false;
+                                              }
 
                                     if (window.preventDuplicateKeyPresses)
                                         return;
@@ -2913,11 +2949,17 @@
 
                             var sel = $("#editcommentimg" + abc);
                             var txt = sel.html();
-                            if (txt == '' || txt == '<br>') {
+                            
+                            txt = txt.replace(/&nbsp;/gi, " ");
+                            txt = txt.replace(/<br>$/, '');
+                           if (txt == '' || txt == '<br>') {
                                 $('.biderror .mes').html("<div class='pop_content'>Do you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
                                 $('#bidmodal').modal('show');
                                 return false;
                             }
+                            if (/^\s+$/gi.test(txt)) {
+                                        return false;
+                                              }
                             $.ajax({
                                 type: 'POST',
                                 url: '<?php echo base_url() . "artistic/edit_comment_insertimg" ?>',
@@ -3009,11 +3051,16 @@
 
                             var sel = $("#editcommentimgtwo" + abc);
                             var txt = sel.html();
+                           
+                            txt = txt.replace(/&nbsp;/gi, " ");
+                            txt = txt.replace(/<br>$/, '');
                             if (txt == '' || txt == '<br>') {
                                 $('.biderror .mes').html("<div class='pop_content'>Do you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deletetwo(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
                                 $('#bidmodal').modal('show');
                                 return false;
                             }
+                            if (/^\s+$/gi.test(txt))
+                                 {            return false;   }
                             $.ajax({
                                 type: 'POST',
                                 url: '<?php echo base_url() . "artistic/edit_comment_insertimg" ?>',
@@ -3062,11 +3109,19 @@
                                     event.preventDefault();
                                     var sel = $("#editcommentimg" + abc);
                                     var txt = sel.html();
-                                    if (txt == '' || txt == '<br>') {
+                                    
+                                      txt = txt.replace(/&nbsp;/gi, " ");
+                                      txt = txt.replace(/<br>$/, '');
+                                          if (txt == '' || txt == '<br>') {
                                         $('.biderror .mes').html("<div class='pop_content'>Do you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deleteimg(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
                                         $('#bidmodal').modal('show');
                                         return false;
-                                    }
+                                                     }
+                                          if (/^\s+$/gi.test(txt))
+                                           {
+                                                 return false;
+                                              }
+                                             
                                     if (window.preventDuplicateKeyPresses)
                                         return;
                                     window.preventDuplicateKeyPresses = true;
@@ -3106,11 +3161,17 @@
                                     event.preventDefault();
                                     var sel = $("#editcommentimgtwo" + abc);
                                     var txt = sel.html();
-                                    if (txt == '' || txt == '<br>') {
+                                     txt = txt.replace(/&nbsp;/gi, " ");
+                                     txt = txt.replace(/<br>$/, '');
+                                         if (txt == '' || txt == '<br>') {
                                         $('.biderror .mes').html("<div class='pop_content'>Do you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deleteimgtwo(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
                                         $('#bidmodal').modal('show');
                                         return false;
                                     }
+                                          if (/^\s+$/gi.test(txt))
+                                           {
+                                                 return false;
+                                              }
 
                                     if (window.preventDuplicateKeyPresses)
                                         return;

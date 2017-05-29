@@ -65,7 +65,7 @@
 							</ul>
 						</div>
 					</div>
-					<div class="col-md-9 col-sm-9">
+					<div class="col-md-6 col-sm-8">
 
 						<div>
                         <?php

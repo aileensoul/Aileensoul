@@ -145,7 +145,7 @@
                 <div class="row">
 
 
-                    <div class="profile-art-box profile-box-left col-md-4">
+                    <div class="profile-box profile-box-left col-md-4">
                         <?php ?>
 
                         <div class="full-box-module">    
@@ -705,17 +705,7 @@ if ($userlistview4 > 0) {
                                         </div>
 
                                     </div>
-                                </div>
-                                <div class="row"></div>
-                                <div  id="text"  class="editor-content col-md-12 popup-textarea" >
-                                    <textarea id="test-upload_des" name="product_desc" class="description" placeholder="Enter Description"></textarea>
-
-                                    <output id="list"></output>
-                                </div>
-                                   <!--   <span class="fr">
-                               
-                                   <input type="file" id="files" name="postattach[]" multiple style="display:block;">  </span> -->
-
+                            
                                 <div class="popup-social-icon">
                                     <ul class="editor-header">
 
@@ -763,7 +753,7 @@ if (count($finalsorting) > 0) {
 
         $likeuserarray = explode(',', $artdelete[0]['delete_post']);
 
-        if (!in_array($userid, $likeuserarray)) {  
+        if (!in_array($userid, $likeuserarray)) {
             ?>
                                     <div id="<?php echo "removepost" . $row['art_post_id']; ?>">
                                         <div class="col-md-12 col-sm-12 post-design-box">
@@ -844,7 +834,7 @@ if (count($finalsorting) > 0) {
                                                                             <a  class="post_dot1" href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>"><?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?></a>
 
 
-                                                                             <span class="ctre_date">  <?php echo $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($row['created_date']))); ?></span>
+                                                                             <span class="ctre_date">  <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span>
                                                                         </div>
                                                                         <!-- other user post time name end-->
             <?php } else { ?>
@@ -863,7 +853,7 @@ if (count($finalsorting) > 0) {
                                                                         <div class="datespan">
                                                                             <span class="ctre_date">  <?php // echo date('d-M-Y',strtotime($row['created_date']));                                             ?>
 
-                <?php echo $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($row['created_date']))); ?>
+                <?php echo date('d-M-Y', strtotime($row['created_date'])); ?>
 
                                                                             </span> </div>
             <?php } ?> 
@@ -875,7 +865,7 @@ if (count($finalsorting) > 0) {
 
                                                             <li>
                                                                 <div id="<?php echo 'editpostdata' . $row['art_post_id']; ?>" style="display:block;">
-                                                                   <a><?php echo $this->common->make_links($row['art_post']); ?></a>
+                                                                    <a  style=" color: #000033; font-weight: 400;"><?php echo $this->common->make_links($row['art_post']); ?></a>
                                                                 </div>
 
                                                                 <div id="<?php echo 'editpostbox' . $row['art_post_id']; ?>" style="display:none;">
@@ -976,7 +966,7 @@ if (count($finalsorting) > 0) {
 
                                                                 <!-- one image start -->
                                                                 <div id="basic-responsive-image">
-                                                                    <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img  src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $artmultiimage[0]['image_name']) ?>" > </a>
+                                                                    <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img style="width: 100%; height: 50%; min-height: initial;" src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $artmultiimage[0]['image_name']) ?>" > </a>
                                                                 </div>
                                                                 <!-- one image end -->
 
@@ -1124,9 +1114,7 @@ if (count($finalsorting) > 0) {
 
                                                             </div>
 
-                                                        </div>
-                                                        </div>
-                                                        </div>
+                                                        </div></div>
                                                     <!-- multiple image code end -->
                                                     <!-- khyati 18-4 start-->
 
@@ -1169,7 +1157,10 @@ if (count($finalsorting) > 0) {
                                                         ?>
                                                                     <a  onClick="commentall(this.id)" id="<?php echo $row['art_post_id']; ?>">
                                                                         <i class="fa fa-comment-o" aria-hidden="true">
-                                                        <?php echo count($commnetcount); ?>
+                                                        <?php if(count($commnetcount) > 0) {
+                                                            echo count($commnetcount);
+                                                          }
+                                                        ?>
                                                                         </i>  
                                                                     </a>
                                                                 </li>
@@ -1328,7 +1319,7 @@ if (count($finalsorting) > 0) {
                                                                                     <a href="<?php echo base_url('artistic/art_manage_post/' . $rowdata['user_id'] . ''); ?>">
 
                                                                                         <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
-                                                                                    </a>
+                                                                                    </a>+6
                         <?php
                     }
                     ?>
@@ -1432,7 +1423,7 @@ if (count($finalsorting) > 0) {
                                                         /*              $new_time = $this->time_elapsed_string($new_date);
                                                          */
 //              echo $new_time. '<br>';
-                                                        echo $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($rowdata['created_date'])));
+                                                        echo date('d-M-Y', strtotime($rowdata['created_date']));
                                                         echo '</br>';
                                                         ?>
                                                                                     </p></div></div>
@@ -1604,13 +1595,13 @@ if (count($finalsorting) > 0) {
                             });
                         </script>
                         <!-- script for skill textbox automatic start (option 2)-->
- <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+
                         <script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
                         <!--<script src="https://code.jquery.com/jquery-1.12.4.js"></script>-->
                         <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
-                        <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
+                        <!--<script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>-->
                         <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
-                        
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 
 
                         <!-- script for skill textbox automatic end (option 2)-->
@@ -1618,10 +1609,6 @@ if (count($finalsorting) > 0) {
                         <!-- script for skill textbox automatic end (option 2)-->
 
                         <script>
- 
-jQuery.noConflict();
- 
-(function( $ ) {
 
                             var data = <?php echo json_encode($demo); ?>;
                             //alert(data);
@@ -1651,9 +1638,7 @@ jQuery.noConflict();
                                 });
                             });
 
-                       })( jQuery  );
- 
-</script>
+                        </script>
 
                         <script type="text/javascript">
                             function checkvalue() {
@@ -3282,7 +3267,7 @@ jQuery.noConflict();
                         <style type="text/css">
                             .likeduser{
                                 width: 100%;
-                                background-color: #1b8ab9;
+                                background-color: #00002D;
                             }
                             .likeduser-title{
                                 color: #fff;
