@@ -2221,6 +2221,8 @@
             closeModal();
         }
     });
-
-
+</script>
+<script type="text/javascript">
+//    $('#myModal').modal({backdrop: 'true'}) 
+    j$('#myModal').modal({backdrop:'true'});
 </script>
