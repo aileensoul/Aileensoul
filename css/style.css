@@ -827,7 +827,7 @@ ul.business_pf_ct_person_detail li b {font-size: 16px; display: inline-block; wi
 .profile-job-post-title-inside .profile-job-post-title { padding: 0px; margin-bottom: 18px; }
 .profile-job-profile-button { background-color:#e8f3f8; padding: 4px 0px; }
 .profile-job-profile-button  a{margin-right: 10px;}
-.profile-job-details p { color: #1b8ab9; }
+.profile-job-details p { color: #5b5b5b; }
 .profile-job-details p  i{ /* margin-right: 10px; */ margin-left: 10px; }
 
 .profile-job-details li{list-style: none;}
@@ -869,7 +869,7 @@ text-align: center*/;
 
 .profile-job-details ul { padding: 0px; margin: 0; }
 .profile-job-details ul li { list-style: none; /* display: inline-block; */ position: relative; padding-left: 0px; margin: 0; }
-.profile-job-details ul li a {  padding-left:0px; font-weight: bold; display: block; color:#1b8ab9;}
+.profile-job-details ul li a {  padding-left:0px; font-weight: bold; display: block; color:#5b5b5b;}
 .profile-job-details ul li a:hover {  padding-left:0px; font-weight: bold; display: block; text-decoration: none;}
 .profile-job-details ul li p { margin-bottom: 0; display: inline-block;}
 
@@ -2449,7 +2449,7 @@ text-align: justify; display: inline-block; margin-bottom: 0px;
 
 /*post - popup- form*/
 
-.post-editor{ height: auto; background-color: #ced5df;     box-shadow: 9px 5px 20px -4px #bfbfbf;  padding: 5px;
+.post-editor{ height: auto; background-color: #e8f3f8;     box-shadow: 9px 5px 20px -4px #bfbfbf;  padding: 5px;
               padding-left: 14px;
               padding-right: 15px; 
               border-radius: 4px; margin-bottom: 10px; border: 1px solid #cccccc;}
@@ -2840,7 +2840,7 @@ label.cameraButton input[accept*="camera"] {
 
 .post-design-product-img {padding:10px 5px 10px 5px; width: 100%; height: 350px;}
 .post-design-like-box{background-color: #ffffff;   padding-top: 10px; padding-left: 23px; padding-right: 23px;  }
-.post-design-commnet-box{padding-left: 23px; background-color: #e6eaef; padding-right: 23px; border: 1px solid #e6eaef; padding-top: 10px; }
+.post-design-commnet-box{padding-left: 23px; background-color: #e8f3f8; padding-right: 23px; border: 1px solid #e6eaef; padding-top: 10px; }
 .post-design-menu{border-top: 1px solid #efefef;border-bottom:1px solid #efefef;}
 .post-design-menu ul { margin: 0; padding: 0; }
 .post-design-menu ul li { list-style: none; display: inline-block; padding: 0; margin: 0; position: relative; }
@@ -2985,7 +2985,7 @@ label.cameraButton input[accept*="camera"] {
  font-size: 14px;
     text-decoration: none;
 }
-.art-all-comment{    background-color: #e6eaef;
+.art-all-comment{    background-color: #e8f3f8;
   padding-right: 23px !important;
                      padding-top: 10px;
                      padding-left: 23px;
