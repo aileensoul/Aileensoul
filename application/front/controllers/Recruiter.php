@@ -956,36 +956,47 @@ class Recruiter extends MY_Controller {
     public function view_apply_list($id = "") {
 
      
-        $contition_array = array('post_id' => $id, 'is_delete' => 0);
-        $postdata = $this->data['postdata'] = $this->common->select_data_by_condition('job_apply', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-      //  echo '<pre>'; print_r($this->data['postdata']); die();
-        $this->data['postid'] = $id;
+       //  $contition_array = array('post_id' => $id, 'is_delete' => 0);
+       //  $postdata = $this->data['postdata'] = $this->common->select_data_by_condition('job_apply', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+       // // echo '<pre>'; print_r($this->data['postdata']);
+       //  $this->data['postid'] = $id;
 
-        foreach ($postdata as $ud) {
+        // foreach ($postdata as $ud) {
 
-            //echo $ud['user_id']; die();
+            //echo $ud['user_id']."hh";
 
-               $join_str = array(array(
+               $join_str = array(
+                array(
         'join_type' => '',
         'table' => 'job_add_edu',
         'join_table_id' => 'job_reg.user_id',
         'from_table_id' => 'job_add_edu.user_id'),
     array(
         'join_type' => '',
+        'table' => 'job_apply',
+        'join_table_id' => 'job_reg.user_id',
+        'from_table_id' => 'job_apply.user_id'),
+     array(
+        'join_type' => 'left',
         'table' => 'job_add_workexp',
         'join_table_id' => 'job_reg.user_id',
         'from_table_id' => 'job_add_workexp.user_id')
 ); 
-      $contition_array = array('job_reg.user_id' => $ud['user_id'], 'job_reg.status' =>'1','job_reg.is_delete' => '0');
+      $contition_array = array('job_apply.post_id' => $id, 'job_apply.is_delete' =>'0');
+
       
-       $userdata = $this->data['userdata'] =  $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str , $groupby = 'job_id');
+       $userdata = $this->data['user_data'] =  $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str , $groupby = 'job_id');
+       //echo "<pre>"; print_r($this->data['user_data']);
 
-            $udata[] = $this->data['userdata'];
-        }
+            //$udata[] = $this->data['userdata'];
+        // }
 
-        $this->data['user_data'] = $udata;
+        // $this->data['user_data'] = $userdata;
 
-        //echo "<pre>"; print_r($this->data['user_data']); die();
+        // echo "<pre>"; print_r($this->data['user_data']);
+
+
+       // code for search
          $contition_array = array('status' => '1', 'is_delete' => '0');
 
 
@@ -1063,7 +1074,7 @@ class Recruiter extends MY_Controller {
             'not_read' => 2,
             'not_from' => 1,
             'not_product_id' => $appid,
-            'not_created_date' => date('y-m-d h:i:s'),
+            'not_created_date' =>date('Y-m-d H:i:s'),
         );
 
         $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -2257,7 +2268,7 @@ public function ajax_designation() {
             'not_status' => 0,
             'not_product_id' => $insert_id,
             'not_from' => 1,
-            'not_created_date' => date('y-m-d h:i:s'),
+            'not_created_date' => date('Y-m-d H:i:s'),
             );
         $insert_id = $this->common->insert_data_getid($data, 'notification');
 
