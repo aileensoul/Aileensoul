@@ -411,7 +411,7 @@
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/jquery.jMosaic.css'); ?>">
 
-<!-- <script src="<?php //echo base_url('js/jquery.min.js');                                         ?>"></script> -->
+<!-- <script src="<?php //echo base_url('js/jquery.min.js');                                          ?>"></script> -->
         <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
         <script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
@@ -828,7 +828,7 @@
                                             $filename = $data['image_name'];
                                             $ext = pathinfo($filename, PATHINFO_EXTENSION);
 
-                                            if (in_array($ext, $allowed)) { 
+                                            if (in_array($ext, $allowed)) {
                                                 ?>
 
                                                 <?php if (count($businessmultiimage) == 1) { ?>
@@ -836,19 +836,19 @@
                                                     <!-- two image start -->
                                                     <div id="basic-responsive-image" style="height: 50%;" >
                                                         <img src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $data['image_name']) ?>" style="width: 100%; height: 100%;" onclick="openModal();
-                                                                currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
+                                                                            currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
                                                     </div>
                                                     <!-- two image end -->
 
-                                                <?php }  elseif(count($businessmultiimage) == 2) { ?>
+                                                <?php } elseif (count($businessmultiimage) == 2) { ?>
 
                                                     <!-- two image start -->
                                                     <div id="two_images_bui" style="height: 50%;" >
                                                         <img src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $data['image_name']) ?>" style="width: 100%; height: 100%;" onclick="openModal();
-                                                                currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
+                                                                            currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
                                                     </div>
                                                     <!-- two image end -->
-                                                <?php }  elseif (count($businessmultiimage) == 3) { ?>
+                                                <?php } elseif (count($businessmultiimage) == 3) { ?>
                                                     <?php
                                                     //   foreach ($businessmultiimage as $multiimage) {
                                                     ?>
@@ -858,7 +858,7 @@
                                                          display: inline-block;
                                                          float: left;" >
                                                         <img src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $data['image_name']) ?>" style="width: 100%; height: 100%;" onclick="openModal();
-                                                                currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
+                                                                            currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
                                                     </div>
                                                     <!-- two image end -->
                                                     <?php // }    ?>
@@ -867,14 +867,14 @@
                                                     <!-- two image start -->
                                                     <div id="two_images_bui" style="height: 50%;" >
                                                         <img src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $data['image_name']) ?>" style="width: 100%; height: 100%;" onclick="openModal();
-                                                                currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
+                                                                            currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
                                                     </div>
                                                     <!-- two image end -->
-                                                <?php } else {?>
+                                                <?php } else { ?>
 
                                                     <div id="two_images_bui" style="height: 50%;" >
                                                         <img src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $data['image_name']) ?>" style="width: 100%; height: 100%;" onclick="openModal();
-                                                                currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
+                                                                            currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
                                                     </div>
                                                     <?php
                                                 }
@@ -1126,15 +1126,14 @@
                                                                                     <div class="post-design-pro-comment-img"> 
                                                                                         <?php
                                                                                         $business_userimage = $this->db->get_where('business_profile', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->business_user_image;
-                                                                                        if($business_userimage != ''){
-                                                                                        ?>
-                                                                                        <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage); ?>"  alt="">
-                                                                                        <?php
-                                                                                        }
-                                                                                        else{
+                                                                                        if ($business_userimage != '') {
                                                                                             ?>
-                                                                                        <img  src="<?php echo base_url(NOIMAGE) ?>" alt="No Image">
-                                                                                        <?php
+                                                                                            <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage); ?>"  alt="">
+                                                                                            <?php
+                                                                                        } else {
+                                                                                            ?>
+                                                                                            <img  src="<?php echo base_url(NOIMAGE) ?>" alt="No Image">
+                                                                                            <?php
                                                                                         }
                                                                                         ?>
                                                                                     </div>
@@ -1142,9 +1141,9 @@
                                                                                     <div class="comment-name">
 
                                                                                         <b>  <?php
-                                                                                            echo ucwords($companyname);
-                                                                                            echo '</br>';
-                                                                                            ?>
+                                                                        echo ucwords($companyname);
+                                                                        echo '</br>';
+                                                                                        ?>
                                                                                         </b>
                                                                                     </div>
 
@@ -1260,9 +1259,9 @@
                                                                                         <span role="presentation" aria-hidden="true"> · </span>
                                                                                         <div class="comment-details-menu">
                                                                                             <p><?php
-                                                                                                echo $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($rowdata['created_date'])));
-                                                                                                echo '</br>';
-                                                                                                ?>
+                                                                                        echo $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($rowdata['created_date'])));
+                                                                                        echo '</br>';
+                                                                                        ?>
                                                                                             </p></div>
 
                                                                                         <!-- created date end -->
@@ -1295,14 +1294,14 @@
                                                                     <?php
                                                                     $userid = $this->session->userdata('aileenuser');
                                                                     $business_userimage = $this->db->get_where('business_profile', array('user_id' => $userid, 'status' => 1))->row()->business_user_image;
-                                                                    if($business_userimage != ''){
+                                                                    if ($business_userimage != '') {
                                                                         ?>
-                                                                    <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage); ?>" alt="">
-                                                                    <?php
-                                                                    }else{
+                                                                        <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage); ?>" alt="">
+                                                                        <?php
+                                                                    } else {
                                                                         ?>
-                                                                    <img src="<?php echo base_url(NOIMAGE); ?>" alt="No Image">
-                                                                    <?php
+                                                                        <img src="<?php echo base_url(NOIMAGE); ?>" alt="No Image">
+                                                                        <?php
                                                                     }
                                                                     ?>
                                                                 </div>
@@ -1622,31 +1621,30 @@
                                                         <div class="post-design-pro-comment-img"> 
                                                             <?php
                                                             $business_userimage = $this->db->get_where('business_profile', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->business_user_image;
-                                                            if($business_userimage != ''){
-                                                            ?>
-                                                            <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage); ?>"  alt="">
-                                                            <?php
-                                                            }
-                                                            else{
+                                                            if ($business_userimage != '') {
                                                                 ?>
-                                                            <img src="<?php echo base_url(NOIMAGE); ?>"  alt="No Image">
-                                                            <?php
+                                                                <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage); ?>"  alt="">
+                                                                <?php
+                                                            } else {
+                                                                ?>
+                                                                <img src="<?php echo base_url(NOIMAGE); ?>"  alt="No Image">
+                                                                <?php
                                                             }
                                                             ?>
                                                         </div>
                                                         <div class="comment-name">
 
                                                             <b>  <?php
-                                                                echo $companyname;
-                                                                echo '</br>';
-                                                                ?>
+                                                    echo $companyname;
+                                                    echo '</br>';
+                                                            ?>
                                                             </b>
                                                         </div>
                                                         <div class="comment-details" id= "<?php echo "showcomment" . $rowdata['business_profile_post_comment_id']; ?>">
-                                                            <?php
-                                                            echo $this->common->make_links($rowdata['comments']);
+        <?php
+        echo $this->common->make_links($rowdata['comments']);
 //                                                            echo '</br>';
-                                                            ?>
+        ?>
                                                         </div>
                                                         <!--                                                        <div class="col-md-12">
                                                                                                                     <div class="col-md-10">
@@ -1671,34 +1669,34 @@
 
                                                                 <a id="<?php echo $rowdata['business_profile_post_comment_id']; ?>" onClick="comment_like1(this.id)">
 
-                                                                    <?php
-                                                                    $userid = $this->session->userdata('aileenuser');
-                                                                    $contition_array = array('business_profile_post_comment_id' => $rowdata['business_profile_post_comment_id'], 'status' => '1');
-                                                                    $businesscommentlike = $this->data['businesscommentlike'] = $this->common->select_data_by_condition('business_profile_post_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-                                                                    $likeuserarray = explode(',', $businesscommentlike[0]['business_comment_like_user']);
+        <?php
+        $userid = $this->session->userdata('aileenuser');
+        $contition_array = array('business_profile_post_comment_id' => $rowdata['business_profile_post_comment_id'], 'status' => '1');
+        $businesscommentlike = $this->data['businesscommentlike'] = $this->common->select_data_by_condition('business_profile_post_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        $likeuserarray = explode(',', $businesscommentlike[0]['business_comment_like_user']);
 
-                                                                    if (!in_array($userid, $likeuserarray)) {
-                                                                        ?>
+        if (!in_array($userid, $likeuserarray)) {
+            ?>
                                                                         <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i> 
                                                                     <?php } else { ?>
 
                                                                         <i class="fa fa-thumbs-up" aria-hidden="true"></i>
 
-                                                                    <?php } ?>
+        <?php } ?>
                                                                     <span>
-                                                                        <?php
-                                                                        if ($rowdata['business_comment_likes_count']) {
-                                                                            echo $rowdata['business_comment_likes_count'];
-                                                                        }
-                                                                        ?>
+                                                                    <?php
+                                                                    if ($rowdata['business_comment_likes_count']) {
+                                                                        echo $rowdata['business_comment_likes_count'];
+                                                                    }
+                                                                    ?>
                                                                     </span>
                                                                 </a>
                                                             </div>
 
-                                                            <?php
-                                                            $userid = $this->session->userdata('aileenuser');
-                                                            if ($rowdata['user_id'] == $userid) {
-                                                                ?>                                     
+        <?php
+        $userid = $this->session->userdata('aileenuser');
+        if ($rowdata['user_id'] == $userid) {
+            ?>                                     
                                                                 <span role="presentation" aria-hidden="true"> · </span>
                                                                 <div class="comment-details-menu">
 
@@ -1715,18 +1713,18 @@
                                                                 </div>
 
 
-                                                            <?php } ?>
+        <?php } ?>
 
 
 
-                                                            <?php
-                                                            $userid = $this->session->userdata('aileenuser');
+        <?php
+        $userid = $this->session->userdata('aileenuser');
 
-                                                            $business_userid = $this->db->get_where('business_profile_post', array('business_profile_post_id' => $rowdata['business_profile_post_id'], 'status' => 1))->row()->user_id;
+        $business_userid = $this->db->get_where('business_profile_post', array('business_profile_post_id' => $rowdata['business_profile_post_id'], 'status' => 1))->row()->user_id;
 
 
-                                                            if ($rowdata['user_id'] == $userid || $business_userid == $userid) {
-                                                                ?>      
+        if ($rowdata['user_id'] == $userid || $business_userid == $userid) {
+            ?>      
                                                                 <span role="presentation" aria-hidden="true"> · </span>
                                                                 <div class="comment-details-menu">
 
@@ -1739,20 +1737,20 @@
                                                                 </div>
 
 
-                                                            <?php } ?>                                       
+        <?php } ?>                                       
                                                             <span role="presentation" aria-hidden="true"> · </span>
                                                             <div class="comment-details-menu">
                                                                 <p><?php
-                                                                    echo $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($rowdata['created_date'])));
-                                                                    echo '</br>';
-                                                                    ?></p></div>
+        echo $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($rowdata['created_date'])));
+        echo '</br>';
+        ?></p></div>
                                                         </div></div>
 
 
-                                                    <?php
-                                                }
-                                            }
-                                            ?>
+        <?php
+    }
+}
+?>
 
                                         </div>
                                     </div>
@@ -1770,17 +1768,17 @@
                                     <div class="post-design-proo-img"> 
 
 
-                                        <?php
-                                        $userid = $this->session->userdata('aileenuser');
-                                        $business_userimage = $this->db->get_where('business_profile', array('user_id' => $userid, 'status' => 1))->row()->business_user_image;
-                                        if($business_userimage){
-                                        ?>
-                                        <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage); ?>"  alt="">
-                                        <?php
-                                        }else{
+<?php
+$userid = $this->session->userdata('aileenuser');
+$business_userimage = $this->db->get_where('business_profile', array('user_id' => $userid, 'status' => 1))->row()->business_user_image;
+if ($business_userimage) {
+    ?>
+                                            <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage); ?>"  alt="">
+                                            <?php
+                                        } else {
                                             ?>
-                                        <img  src="<?php echo base_url(NOIMAGE); ?>"  alt="No Image">
-                                        <?php
+                                            <img  src="<?php echo base_url(NOIMAGE); ?>"  alt="No Image">
+                                            <?php
                                         }
                                         ?>
                                     </div>
@@ -1807,7 +1805,7 @@
 </section>
 
 <footer>
-    <?php // echo $footer;        ?> 
+<?php // echo $footer;         ?> 
     <!-- Bid-modal  -->
     <div class="modal fade message-box biderror" id="bidmodal" role="dialog" style="z-index: 999999 !important;">
         <div class="modal-dialog modal-lm">
@@ -3526,7 +3524,7 @@
                 event.preventDefault();
                 var sel = $("#imgeditcommenttwo" + abc);
                 var txt = sel.html();
-                
+
                 txt = txt.replace(/&nbsp;/gi, " ");
                 txt = txt.replace(/<br>$/, '');
                 if (txt == '' || txt == '<br>') {
@@ -3796,12 +3794,16 @@
             $('div[id^=myDropdown]').hide().removeClass('show');
         }
     });
-    
-    $(document).keyup(function(event) {
-     if (event.keyCode == 27) { 
-         $('#myModal1').modal(hide);
-    }
-});
+</script>
+<script type="text/javascript">
+    $(document).keydown(function (e) {
+        if (!e)
+            e = window.event;
+        if (e.keyCode == 27 || e.charCode == 27) {
+            closeModal();
+        }
+    });
+
 
 </script>
 <!-- This  script use for close dropdown in every post -->

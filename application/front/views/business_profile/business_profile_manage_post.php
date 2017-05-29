@@ -4089,3 +4089,14 @@
                     });
                 });
             </script>
+<script type="text/javascript">
+    $(document).keydown(function (e) {
+        if (!e)
+            e = window.event;
+        if (e.keyCode == 27 || e.charCode == 27) {
+            document.getElementById('myModal3').style.display = "none";
+        }
+    });
+
+
+</script>
