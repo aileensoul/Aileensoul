@@ -313,7 +313,7 @@ if ($status == 0 || $status == " ") {
                                         <div class="contact-frnd-post">
 
                                             <!-- khyati changes start -->
-                                           
+                                            <div class="pictures">
 
                                                 <?php
                                                 $i = 1;
@@ -331,26 +331,17 @@ if ($status == 0 || $status == " ") {
                                                 if ($databus) {
                                                     foreach ($databus as $data) {
                                                         ?>
-                                             <div class="pictures">
                                                         <img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $data['image_name']) ?>" onclick="openModal();currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor" width="280" height="300"/>
 
                                                         <?php
                                                         $i++;
-                                                    }?>
-                                                      </div>
-                                               <?php } else { ?>
-                                                   <div class="main_pdf_box"  >
-                <div class="not_avali" >
-                                <img src="<?php echo base_url('images/020-c.png'); ?>"  >
-                               <div>
-                                <div class="not_text" >Photo not avalible</div>
-                               </div>
-                               </div>
-                               </div>
-                                               <?php }
+                                                    }
+                                                } else {
+                                                    echo "no Images";
+                                                }
                                                 ?>
 
-                                          
+                                            </div>
 
                                             <!-- khyati changes end -->
 

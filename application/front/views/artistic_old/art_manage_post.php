@@ -27,7 +27,7 @@
       <script src="<?php echo base_url('dragdrop/js/locales/fr.js'); ?>"></script>
        <script src="<?php echo base_url('dragdrop/js/locales/es.js'); ?>"></script>
         <script src="<?php echo base_url('dragdrop/themes/explorer/theme.js'); ?>"></script>
-
+pt>
 <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>-->
 <?php echo $art_header2; ?>
 
