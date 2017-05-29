@@ -967,7 +967,7 @@ class Recruiter extends MY_Controller {
 
                $join_str = array(
                 array(
-        'join_type' => '',
+        'join_type' => 'left',
         'table' => 'job_add_edu',
         'join_table_id' => 'job_reg.user_id',
         'from_table_id' => 'job_add_edu.user_id'),
@@ -986,7 +986,7 @@ class Recruiter extends MY_Controller {
 
       
        $userdata = $this->data['user_data'] =  $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str , $groupby = 'job_id');
-       //echo "<pre>"; print_r($this->data['user_data']);
+       //echo "<pre>"; print_r($this->data['user_data']);die();
 
             //$udata[] = $this->data['userdata'];
         // }
