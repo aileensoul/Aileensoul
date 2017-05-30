@@ -587,7 +587,7 @@
                                     </div>
                                     <div id="myBtn1"  class="editor-content col-md-10 popup-text" >
                                       <!-- <textarea name="product_title" placeholder="Post Your Product...."></textarea>  -->
-                                        <textarea id= "test-upload-product" placeholder="Post Your Product...."  onKeyPress=check_length(this.form); onKeyDown=check_length(this.form); name=my_text rows=4 cols=30 class="post_product_name" style=" position: relative;"></textarea>
+                                        <textarea id= "test-upload-product" placeholder="Post Your Product...."  onKeyPress=check_length(this.form); onKeyDown=check_length(this.form); onblur=check_length(this.form);  name=my_text rows=4 cols=30 class="post_product_name" style=" position: relative;"></textarea>
                                         <div class="fifty_val">                       
                                             <input size=1 value=50 name=text_num class="text_num"  readonly> 
                                         </div>
@@ -2567,6 +2567,7 @@
     /* When the user clicks on the button, 
      toggle between hiding and showing the dropdown content */
     function myFunction(clicked_id) {
+        $('.dropdown-content1').removeClass('show');
         document.getElementById('myDropdown' + clicked_id).classList.toggle("show");
     }
     // Close the dropdown if the user clicks outside of it
@@ -2654,11 +2655,15 @@
     {
         maxLen = 50;
         // max number of characters allowed
-        if (my_form.my_text.value.length >= maxLen) {
+        if (my_form.my_text.value.length > maxLen) {
             // Alert message if maximum limit is reached. 
             // If required Alert can be removed. 
             var msg = "You have reached your maximum limit of characters allowed";
-            alert(msg);
+            //alert(msg);
+            
+            $('.biderror .mes').html("<div class='pop_content'>" + msg + "</div>");
+            $('#bidmodal').modal('show');
+            
             // Reached the Maximum length so trim the textarea
             my_form.my_text.value = my_form.my_text.value.substring(0, maxLen);
         } else {
@@ -2673,6 +2678,7 @@
 <script type="text/javascript">
     function editpost(abc)
     {
+        $("#myDropdown" + abc).removeClass('show');
         document.getElementById('editpostdata' + abc).style.display = 'none';
         document.getElementById('editpostbox' + abc).style.display = 'block';
         document.getElementById('editpostdetails' + abc).style.display = 'none';

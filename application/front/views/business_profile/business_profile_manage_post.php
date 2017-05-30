@@ -277,15 +277,15 @@
                     $image_ori = $image[0]['profile_background'];
                     if ($image_ori) {
                         ?>
-                        
-                            <img src="<?php echo base_url($this->config->item('bus_bg_main_upload_path') . $image_ori); ?>" name="image_src" id="image_src" / >
+
+                        <img src="<?php echo base_url($this->config->item('bus_bg_main_upload_path') . $image_ori); ?>" name="image_src" id="image_src" / >
                         <?php
                     } else {
                         ?>
-                        
-                            <img src="<?php echo base_url(WHITEIMAGE); ?>" name="image_src" id="image_src" / >
-                    <?php }
-                    ?>
+
+                             <img src="<?php echo base_url(WHITEIMAGE); ?>" name="image_src" id="image_src" / >
+                         <?php }
+                         ?>
 
 
                 </div>
@@ -384,13 +384,13 @@
 
                             if ($status == 0 || $status == " ") {
                                 ?>
-                                                                                                                                                                          <div class="msg_flw_btn_1" id= "followdiv">
-                                                                                                                                                                              <button  id="<?php echo "follow" . $businessdata1[0]['business_profile_id']; ?>" onClick="followuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Follow</button>
-                                                                                                                                                                          </div>
+                                                                                                                                                                              <div class="msg_flw_btn_1" id= "followdiv">
+                                                                                                                                                                                  <button  id="<?php echo "follow" . $businessdata1[0]['business_profile_id']; ?>" onClick="followuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Follow</button>
+                                                                                                                                                                              </div>
                             <?php } elseif ($status == 1) { ?>
-                                                                                                                                                                          <div class="msg_flw_btn_1" id= "unfollowdiv">
-                                                                                                                                                                              <button id="<?php echo "unfollow" . $businessdata1[0]['business_profile_id']; ?>" onClick="unfollowuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Following </button>
-                                                                                                                                                                          </div>
+                                                                                                                                                                              <div class="msg_flw_btn_1" id= "unfollowdiv">
+                                                                                                                                                                                  <button id="<?php echo "unfollow" . $businessdata1[0]['business_profile_id']; ?>" onClick="unfollowuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Following </button>
+                                                                                                                                                                              </div>
                             <?php } ?>
                                       </div> 
                                       <a href="<?php echo base_url('chat/abc/' . $businessdata1[0]['user_id']); ?>">Message</a>
@@ -422,8 +422,8 @@
                                 $userid = $this->session->userdata('aileenuser');
                                 if ($businessdata1[0]['user_id'] == $userid) {
                                     ?> 
-                                                                                                      <!--  <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_profile_save_post') { ?> class="active" <?php } ?>><a href="<?php echo base_url('business_profile/business_profile_save_post'); ?>">Saved Post</a>
-                                                                                                                                                                            </li> -->
+                                                                                                          <!--  <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_profile_save_post') { ?> class="active" <?php } ?>><a href="<?php echo base_url('business_profile/business_profile_save_post'); ?>">Saved Post</a>
+                                                                                                                                                                                </li> -->
 
                                     <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'userlist') { ?> class="active" <?php } ?>><a title="Userlist" href="<?php echo base_url('business_profile/userlist/' . $businessdata1[0]['business_slug']); ?>">Userlist</a>
                                     </li>
@@ -998,10 +998,10 @@
                             </div>
                             <div id="myBtn1"  class="editor-content col-md-11 popup-text"   >
                                 <span>Post Your Product....</span>
-                            
+
                             </div>
                         </div>
-                       
+
                     </div>
                 </div>
 
@@ -1032,15 +1032,15 @@
                                 </div>
                                 <div id="myBtn1"  class="editor-content col-md-10 popup-text" >
                                        <!-- <textarea name="product_title" placeholder="Post Your Product...."></textarea>  -->
-                                    <textarea id= "test-upload_product" placeholder="Post Your Product...."  onKeyPress=check_length(this.form); onKeyDown=check_length(this.form); 
+                                    <textarea id= "test-upload_product" placeholder="Post Your Product...."  onKeyPress=check_length(this.form); onKeyDown=check_length(this.form); onblur=check_length(this.form);
                                               name=my_text rows=4 cols=30 class="post_product_name" style="position: relative;"></textarea>
                                     <div style="position: absolute; top: 21px; right: 19px; border: none;">                   
                                         <input size=1 value=50 name=text_num class="text_num" readonly> 
                                     </div>
 
                                 </div>
-                            
-                                <div class="col-md-1 padding-left" style="padding-left: 0px;"><i class=" fa fa-camera "  style="margin: 0px;                                                                                                 font-size: 27px;
+
+                                <div class="col-md-1 padding-left" style="padding-left: 0px;"><i class="fa fa-camera"  style="margin: 0px; font-size: 27px;
                                                                                                  cursor: pointer;
                                                                                                  /* margin-right: -38px; */
                                                                                                  margin-top: 25px;"></i> </div>
@@ -1068,7 +1068,7 @@
                                 <ul class="editor-header">
 
                                     <li>
-                                   
+
 
 
                                         <div class="col-md-12"> <div class="form-group">
@@ -1277,8 +1277,8 @@
 
                                                 <div id="<?php echo 'editpostdetailbox' . $row['business_profile_post_id']; ?>" style="display:none;">
 
-                                                                                                                                                                                                            <!-- <textarea id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" name="editpostdesc"><?php echo $row['product_description']; ?>
-                                                                                                                                                                                                            </textarea> 
+                                                                                                                                                                                                                    <!-- <textarea id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" name="editpostdesc"><?php echo $row['product_description']; ?>
+                                                                                                                                                                                                                    </textarea> 
                                                     -->
                                                     <div  contenteditable="true" id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" placeholder="Product Description" class="textbuis  editable_text" placeholder="Description of Your Product"  name="editpostdesc"><?php echo $row['product_description']; ?></div>
 
@@ -1689,7 +1689,7 @@
                                                                                                                         </div>-->
                                                                 <div class="edit-comment-box">
                                                                     <div class="inputtype-edit-comment">
-                                                                      
+
                                                                         <div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="<?php echo $rowdata['business_profile_post_comment_id']; ?>"  id="<?php echo "editcomment" . $rowdata['business_profile_post_comment_id']; ?>" placeholder="Add a Commnet Comment " value= ""  onkeyup="commentedit(<?php echo $rowdata['business_profile_post_comment_id']; ?>)"><?php echo $rowdata['comments']; ?></div>
                                                                         <span class="comment-edit-button"><button id="<?php echo "editsubmit" . $rowdata['business_profile_post_comment_id']; ?>" style="display:none" onClick="edit_comment(<?php echo $rowdata['business_profile_post_comment_id']; ?>)">Save</button></span>
                                                                     </div>
@@ -1804,8 +1804,8 @@
 
 
                                             <div >
-                                                  <div id="content" class="col-md-12  inputtype-comment" style="width: 80%; padding-left: 7px;">
-                                                   
+                                                <div id="content" class="col-md-12  inputtype-comment" style="width: 80%; padding-left: 7px;">
+
                                                     <div contenteditable="true" style="min-height:40px !important; margin-top: 0px!important" class="editable_text" name="<?php echo $row['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $row['business_profile_post_id']; ?>" placeholder="Add a Comment... " onClick="entercomment(<?php echo $row['business_profile_post_id']; ?>)"></div>
                                                 </div>
                                                 <?php echo form_error('post_comment'); ?> 
@@ -1873,8 +1873,8 @@
                                     <input type="hidden" name="hitext" id="hitext" value="5">
                                     <!--<input type="submit" name="cancel3" id="cancel3" value="Cancel">-->
                                     <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save" >
- <div class="popup_previred">
-                                    <img id="preview" src="#" alt="your image" />
+                                    <div class="popup_previred">
+                                        <img id="preview" src="#" alt="your image" />
                                     </div>
                                     <?php echo form_close(); ?>
                                 </div>
@@ -3285,13 +3285,13 @@
                 /* When the user clicks on the button, 
                  toggle between hiding and showing the dropdown content */
                 function myFunction1(clicked_id) {
+                    $('.dropdown-content2').removeClass('show');
                     document.getElementById('myDropdown' + clicked_id).classList.toggle("show");
                 }
 
                 // Close the dropdown if the user clicks outside of it
                 window.onclick = function (event) {
                     if (!event.target.matches('.dropbtn1')) {
-
                         var dropdowns = document.getElementsByClassName("dropdown-content1");
                         var i;
                         for (i = 0; i < dropdowns.length; i++) {
@@ -3334,6 +3334,7 @@
             <script type="text/javascript">
                 function editpost(abc)
                 {
+                    $("#myDropdown" + abc).removeClass('show');
                     document.getElementById('editpostdata' + abc).style.display = 'none';
                     document.getElementById('editpostbox' + abc).style.display = 'block';
                     document.getElementById('editpostdetails' + abc).style.display = 'none';
@@ -3726,11 +3727,15 @@
             <script language=JavaScript>
                 function check_length(my_form) {
                     maxLen = 50; // max number of characters allowed
-                    if (my_form.my_text.value.length >= maxLen) {
+                    if (my_form.my_text.value.length > maxLen) {
                         // Alert message if maximum limit is reached. 
                         // If required Alert can be removed. 
                         var msg = "You have reached your maximum limit of characters allowed";
-                        alert(msg);
+                        //alert(msg);
+
+                        $('.biderror .mes').html("<div class='pop_content'>" + msg + "</div>");
+                        $('#bidmodal').modal('show');
+
                         // Reached the Maximum length so trim the textarea
                         my_form.my_text.value = my_form.my_text.value.substring(0, maxLen);
                     } else { // Maximum length not reached so update the value of my_text counter
@@ -4089,14 +4094,14 @@
                     });
                 });
             </script>
-<script type="text/javascript">
-    $(document).keydown(function (e) {
-        if (!e)
-            e = window.event;
-        if (e.keyCode == 27 || e.charCode == 27) {
-            document.getElementById('myModal3').style.display = "none";
-        }
-    });
+            <script type="text/javascript">
+                $(document).keydown(function (e) {
+                    if (!e)
+                        e = window.event;
+                    if (e.keyCode == 27 || e.charCode == 27) {
+                        document.getElementById('myModal3').style.display = "none";
+                    }
+                });
 
 
-</script>
+            </script>
