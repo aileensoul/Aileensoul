@@ -1562,12 +1562,9 @@
 
 
 <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
-
- <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
+<script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
  
 <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
-
-
 <script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script>
 
 
@@ -1611,6 +1608,101 @@ jQuery.noConflict();
 </script>
 
 <!-- script for skill textbox automatic end (option 2)-->
+
+
+
+
+
+<script type="text/javascript">
+jQuery.noConflict();
+ 
+(function( $ ) {
+    $uploadCrop = $('#upload-demo').croppie({
+        enableExif: true,
+        viewport: {
+            width: 1250,
+            height: 350,
+            type: 'square'
+        },
+        boundary: {
+            width: 1250,
+            height: 350
+        }
+    });
+
+
+    $('.upload-result').on('click', function (ev) {
+        $uploadCrop.croppie('result', {
+            type: 'canvas',
+            size: 'viewport'
+        }).then(function (resp) {
+
+            $.ajax({
+                url: "<?php echo base_url() ?>artistic/ajaxpro",
+                type: "POST",
+                data: {"image": resp},
+                success: function (data) {
+                    html = '<img src="' + resp + '" />';
+                    if (html)
+                    {
+                        window.location.reload();
+                    }
+                }
+            });
+
+        });
+    });
+
+    $('.cancel-result').on('click', function (ev) {
+
+        document.getElementById('row2').style.display = "block";
+        document.getElementById('row1').style.display = "none";
+        document.getElementById('message1').style.display = "none";
+
+    });
+
+    //aarati code start
+    $('#upload').on('change', function () {
+
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $uploadCrop.croppie('bind', {
+                url: e.target.result
+            }).then(function () {
+                console.log('jQuery bind complete');
+            });
+
+        }
+        reader.readAsDataURL(this.files[0]);
+
+
+
+    });
+
+    $('#upload').on('change', function () {
+
+        var fd = new FormData();
+        fd.append("image", $("#upload")[0].files[0]);
+
+        $.ajax({
+
+            url: "<?php echo base_url(); ?>artistic/image",
+            type: "POST",
+            data: fd,
+            processData: false,
+            contentType: false,
+            success: function (response) {
+
+
+            }
+        });
+    });
+})( jQuery  );
+    //aarati code end
+</script>
+<!-- cover image end -->
+
 
 
 <script type="text/javascript">
@@ -2945,93 +3037,6 @@ jQuery.noConflict();
         document.getElementById('row2').style.display = "none";
     }
 </script>
-
-<script type="text/javascript">
-    $uploadCrop = $('#upload-demo').croppie({
-        enableExif: true,
-        viewport: {
-            width: 1250,
-            height: 350,
-            type: 'square'
-        },
-        boundary: {
-            width: 1250,
-            height: 350
-        }
-    });
-
-
-    $('.upload-result').on('click', function (ev) {
-        $uploadCrop.croppie('result', {
-            type: 'canvas',
-            size: 'viewport'
-        }).then(function (resp) {
-
-            $.ajax({
-                url: "<?php echo base_url() ?>artistic/ajaxpro",
-                type: "POST",
-                data: {"image": resp},
-                success: function (data) {
-                    html = '<img src="' + resp + '" />';
-                    if (html)
-                    {
-                        window.location.reload();
-                    }
-                }
-            });
-
-        });
-    });
-
-    $('.cancel-result').on('click', function (ev) {
-
-        document.getElementById('row2').style.display = "block";
-        document.getElementById('row1').style.display = "none";
-        document.getElementById('message1').style.display = "none";
-
-    });
-
-    //aarati code start
-    $('#upload').on('change', function () {
-
-        var reader = new FileReader();
-
-        reader.onload = function (e) {
-            $uploadCrop.croppie('bind', {
-                url: e.target.result
-            }).then(function () {
-                console.log('jQuery bind complete');
-            });
-
-        }
-        reader.readAsDataURL(this.files[0]);
-
-
-
-    });
-
-    $('#upload').on('change', function () {
-
-        var fd = new FormData();
-        fd.append("image", $("#upload")[0].files[0]);
-
-        $.ajax({
-
-            url: "<?php echo base_url(); ?>artistic/image",
-            type: "POST",
-            data: fd,
-            processData: false,
-            contentType: false,
-            success: function (response) {
-
-
-            }
-        });
-    });
-
-    //aarati code end
-</script>
-<!-- cover image end -->
 
 
 <script>
