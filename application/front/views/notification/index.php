@@ -479,10 +479,11 @@
                                 ?>
 
                                 <?php
+                                
                              //   foreach ($work_not as $art) {
                                     if ($total['not_from'] == 5) {
-                                        $id = $this->db->get_where('job_reg', array('user_id' => $total['user_id']))->row()->job_id;
-                                        if ($id) {
+                                  //      $id = $this->db->get_where('job_reg', array('user_id' => $total['user_id']))->row()->job_id;
+                                  //      if ($id) {
                                             ?>
                                             <li> 
                                                 <div class="notification-pic" id="noti_pc" >
@@ -497,7 +498,7 @@
                                             </li>
                                             <?php
                                         }
-                                    }
+                                //    }
                              //   }
                                 ?>
 
