@@ -89,7 +89,7 @@
                     </div>
                     
                        <div class="clearfix">
-                            <div class="common-form">
+                            <div class="common-form common-form_border">
                               <h3>Interest & References</h3>
                                       
                            <?php echo form_open(base_url('job/job_reference_insert'), array('id' => 'jobseeker_regform','name' => 'jobseeker_regform','class'=>'clearfix')); ?>

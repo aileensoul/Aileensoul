@@ -88,7 +88,7 @@
                     </div>
 
                      <div class="clearfix">
-                            <div class="common-form">
+                            <div class="common-form common-form_border">
                               <h3>Project And Training / Internship</h3>
                              <?php echo form_open(base_url('job/job_project_insert'), array('id' => 'jobseeker_regform','name' => 'jobseeker_regform','class'=>'clearfix')); ?>
 
