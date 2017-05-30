@@ -41,7 +41,7 @@ class Artistic extends MY_Controller {
                 } else if ($artdata[0]['art_step'] == 2) {
                     redirect('artistic/art_information', refresh);
                 } else if ($artdata[0]['art_step'] == 3) {
-                    redirect('artistic/art_portfolio', refresh);
+                    redirect('artistic/art_post', refresh);
                 } else if ($artdata[0]['art_step'] == 4) {
                     redirect('artistic/art_post', refresh);
                 }
@@ -142,7 +142,7 @@ class Artistic extends MY_Controller {
         $this->load->view('artistic/art_basic_information', $this->data);
     }
 
-    public function art_basic_information_insert() {
+    public function art_basic_information_insert() { 
 
         $userid = $this->session->userdata('aileenuser');
 
