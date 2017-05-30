@@ -1495,7 +1495,7 @@ a:hover, a:active, a:focus {
     z-index: 2;
     display: none;
     float:left;
-    width: 320px;
+    width: 450px;
     right: 0;
 
 }
@@ -1593,7 +1593,7 @@ a:hover, a:active, a:focus {
 }
 .notification-data-inside{margin-left:80px; margin-top:-55px;}
 .notification-data-inside h6 {font-size: 13px;}
-.notification-database{height:68px; width:311px;; background-color:#FFFFFF; border-bottom: 1px solid #999999;}
+.notification-database{height:68px; width:440px;; background-color:#FFFFFF; border-bottom: 1px solid #999999;}
 .notification-pic{height:50px; width:50px;  border-radius: 50%; margin-left:20px; margin-top:10px;     }
 .notification-pic img{     height:50px; width:50px;}
 /* inbox*/
