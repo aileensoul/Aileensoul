@@ -350,10 +350,11 @@ echo $job_header2;
                                         <?php if($job_edu){?>
                                         <div class="profile-job-profile-menu " id="job_education">
                                             <ul class="clearfix">
-                     <h5 style="text-decoration: underline; text-align: center; margin: 5px;">Primary Education</h5>
-                                                <?php
+                                            <?php
                                                 if ($job_edu[0]['board_primary']) {
                                                     ?>
+                     <h5 style="text-decoration: underline; text-align: center; margin: 5px;">Primary Education</h5>
+                                                
                                                   
                                                     <li> <b>Board </b><span> <?php echo $job_edu[0]['board_primary']; ?></span>
                                                     </li>
@@ -388,11 +389,11 @@ echo $job_header2;
                                                     }
                                                 }
                                                 ?>
-
-                           <h5 style="text-decoration: underline; text-align: center; margin: 5px;">Secondary Education</h5>
-                                                <?php
+                                                 <?php
                                                 if ($job_edu[0]['board_secondary']) {
                                                     ?>
+                           <h5 style="text-decoration: underline; text-align: center; margin: 5px;">Secondary Education</h5>
+                                               
 
                                                
                                                     <li> <b>Board </b><span> <?php echo $job_edu[0]['board_secondary']; ?></span>
@@ -418,10 +419,11 @@ echo $job_header2;
                                                     }
                                                 }
                                                 ?>
-<h5 style="text-decoration: underline; text-align: center; margin: 5px;">Higher secondary Education</h5>
                                                 <?php
                                                 if ($job_edu[0]['board_higher_secondary']) {
                                                     ?>
+<h5 style="text-decoration: underline; text-align: center; margin: 5px;">Higher secondary Education</h5>
+                                                
                                                  
                                                     <li> <b>Board </b><span> <?php echo $job_edu[0]['board_higher_secondary']; ?></span>
                                                     </li>
