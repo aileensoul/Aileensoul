@@ -1136,7 +1136,7 @@
         var x = document.getElementById('threeimgcomment' + clicked_id);
         var y = document.getElementById('fourimgcomment' + clicked_id);
         var z = document.getElementById('insertimgcount' + clicked_id);
-
+        $('.post-design-commnet-box').show();
         if (x.style.display === 'block' && y.style.display === 'none') {
             x.style.display = 'none';
             y.style.display = 'block';

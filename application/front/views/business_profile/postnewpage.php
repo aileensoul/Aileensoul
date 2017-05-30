@@ -2177,7 +2177,7 @@ if ($business_userimage) {
         var x = document.getElementById('threecomment' + clicked_id);
         var y = document.getElementById('fourcomment' + clicked_id);
         var z = document.getElementById('insertcount' + clicked_id);
-
+        $('.post-design-commnet-box').show();
         if (x.style.display === 'block' && y.style.display === 'none') {
 
             x.style.display = 'none';
@@ -3172,7 +3172,7 @@ if ($business_userimage) {
         var x = document.getElementById('threeimgcomment' + clicked_id);
         var y = document.getElementById('fourimgcomment' + clicked_id);
         var z = document.getElementById('insertcountimg' + clicked_id);
-
+        $('.post-design-commnet-box').show();
         if (x.style.display === 'block' && y.style.display === 'none') {
             x.style.display = 'none';
             y.style.display = 'block';

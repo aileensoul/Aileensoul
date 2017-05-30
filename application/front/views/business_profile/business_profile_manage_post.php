@@ -2487,13 +2487,13 @@
             <!-- hide and show data start-->
             <script type="text/javascript">
                 function commentall(clicked_id) {
-
+                    
                     var x = document.getElementById('threecomment' + clicked_id);
                     var y = document.getElementById('fourcomment' + clicked_id);
                     var z = document.getElementById('insertcount' + clicked_id);
 
 
-
+                    $('.post-design-commnet-box').show();
                     if (x.style.display === 'block' && y.style.display === 'none') {
 
 
