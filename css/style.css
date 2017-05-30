@@ -279,7 +279,7 @@ bottom: 0;}
 .job-post-title { padding: 10px 15px; }
 .job-post-detail h6 a { color: #1b8ab9; font-size: 16px; text-transform: capitalize; }
 .job-post-detail h6 a:hover { color: #000; }
-.job-post-detail span { color: #1b8ab9; }
+.job-post-detail span { color: #000;word-break: break-word;word-wrap: break-word; }
 
 .exper-location { background: #efefef; padding: 10px 0; }
 .exper-location ul { margin: 0; padding: 0; }
@@ -787,8 +787,8 @@ ul.business_pf_ct_person_detail li b {font-size: 16px; display: inline-block; wi
 .profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li b {font-weight: 600; width: 32%; float: left; }
 
 .profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li label {font-weight: 600; width: 30%; float: left; }
-.profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li span{   /*word-wrap: break-word; word-break: break-word;  text-align: justify;*/
-                                                                                           padding-right: 10px ;display: inline-flex; width: 68%;/* display: inline-block;*/}
+.profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li span{   word-wrap: break-word; /*word-break: break-word;  text-align: justify;*/
+                                                                                           padding-right: 10px ;display: inline-block; width: 68%;/* display: inline-block;*/}
 .profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li span::before { 
     content: " :"; padding-right: 20px; float: left; }
 .profile-job-post-location-name { padding: 12px 21px; font-weight: bold; }
@@ -3223,7 +3223,7 @@ label.cameraButton input[accept*="camera"] {
 .dropdown_h a:hover {    background: #6982b6;
                          color: #fff;}
 
-.show {display:block;}
+.show {display:block;word-wrap: break-word;word-break: break-word;}
 
 /*
 follow box*/
@@ -5345,7 +5345,10 @@ fieldset .add_post_btns:hover{background-color:#156f95!important}
 }
 
 
+
 .common-form_border{border:2px solid #cacaca;}
 .head_details1 a{text-decoration: underline;}
-
 .head_details1 h5:hover{text-decoration: underline;}
+.profile-job-profile-button ul li a{margin-right: 0px;}
+.apply-btn a{border:2px solid #1b8ab9;}
+.dropdown-content2 a i{padding-right: 13px;}
