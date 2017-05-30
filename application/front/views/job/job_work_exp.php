@@ -677,7 +677,7 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
 
                                     'radio': {
 
-                                        required: "Please Tick mark Fresher",
+                                        required: "Please Tick mark Fresher or Fill Experiance",
                                     },
                                     
                                     
