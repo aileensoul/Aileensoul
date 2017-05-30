@@ -1887,7 +1887,7 @@
         document.getElementById('editcommentbox' + clicked_id).style.display = 'none';
         document.getElementById('editcancle' + clicked_id).style.display = 'block';
 
-        $('.post-design-commnet-box').hide();
+        //$('.post-design-commnet-box').hide();
     }
     function comment_editcancle(clicked_id) {
         document.getElementById('editcommentbox' + clicked_id).style.display = 'block';
