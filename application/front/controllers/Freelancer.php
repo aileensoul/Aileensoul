@@ -1893,7 +1893,7 @@ $results = array_unique($result);
                 'not_from_id' => $userid,
                 'not_to_id' => $notid,
                 'not_read' => 2,
-                'not_from' => 6,
+                'not_from' => 4,
                 'not_product_id' => $app_id
                
             );
@@ -1931,7 +1931,7 @@ $updatedata = $this->common->insert_data_getid($data, 'notification');
                 'not_from_id' => $userid,
                 'not_to_id' => $notid,
                 'not_read' => 2,
-                'not_from' => 6,
+                'not_from' => 4,
                 'not_product_id' => $insert_id,
                 
             );

@@ -5347,3 +5347,5 @@ fieldset .add_post_btns:hover{background-color:#156f95!important}
 
 .common-form_border{border:2px solid #cacaca;}
 .head_details1 a{text-decoration: underline;}
+
+.head_details1 h5:hover{text-decoration: underline;}
