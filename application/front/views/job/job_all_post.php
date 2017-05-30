@@ -314,7 +314,12 @@
                                         }
                                     }
                                     } else {
-                                        echo 'No Data Available';
+
+                                        ?>
+                                        <div class="text-center rio">
+                                                <h4 class="page-heading  product-listing" style="border:0px;margin-bottom: 11px;">Job Post Not Found.</h4>
+                                            </div>
+<?php
                                     }
                                 } else {
                                     if (count($postdetail) > 0) {
@@ -449,7 +454,11 @@
                                         
                                     } 
                                 }else {
-                                        echo 'no data available';
+                                         ?>
+                                        <div class="text-center rio">
+                                                <h4 class="page-heading  product-listing" style="border:0px;margin-bottom: 11px;">Job Post Not Found.</h4>
+                                            </div>
+<?php
                                     }
                                 }
 
