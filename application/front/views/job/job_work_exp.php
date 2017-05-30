@@ -650,6 +650,46 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
                         });
                     </script>
 
+<script type="text/javascript">                     
+
+    $(document).ready(function () {
+
+$.validator.addMethod("regx", function(value, element, regexpr) {          
+    return regexpr.test(value);
+}, "Only space, only number and only special characters are not allow");
+
+                        
+
+                            $("#jobseeker_regform").validate({
+
+                                ignore: ":hidden",
+
+                                rules: {
+
+                                    'radio': {
+                                        required: true,
+                                       
+                                        //noSpace: true
+                                    }  
+                                    
+                                },
+                                messages: {
+
+                                    'radio': {
+
+                                        required: "Please Tick mark Fresher",
+                                    },
+                                    
+                                    
+                                   
+                                }
+
+                            });
+                        });
+                    </script>
+
+
+
                     <!--javascript for fresher and experience radio button End -->
 
                     <!-- Clone input type start-->
