@@ -167,7 +167,7 @@ if ($this->session->flashdata('success')) {
 
                         <div class="clearfix">
 
-                            <div class="common-form">
+                            <div class="common-form common-form_border">
                                 <h3>Keyskills</h3>
 <?php echo form_open(base_url('job/job_skill_insert'), array('id' => 'jobseeker_regform', 'name' => 'jobseeker_regform', 'class' => 'clearfix', 'onsubmit' => "imgval()")); ?>
 

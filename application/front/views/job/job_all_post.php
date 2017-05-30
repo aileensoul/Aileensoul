@@ -73,7 +73,7 @@
                                     </div>
    <div class="profile-box-user  profile-text-bui-user  fr col-sm-10  col-md-9">
                                         <span class="profile-company-name ">
-                                            <a  style="font-weight: 600;" href="<?php echo site_url('job/job_printpreview/' . $jobdata[0]['user_id']); ?>">  <?php echo $jobdata[0]['fname'] . ' ' . $jobdata[0]['lname']; ?></a>
+                                            <a   href="<?php echo site_url('job/job_printpreview/' . $jobdata[0]['user_id']); ?>">  <?php echo $jobdata[0]['fname'] . ' ' . $jobdata[0]['lname']; ?></a>
                                         </span>
                                         <?php $category = $this->db->get_where('industry_type', array('industry_id' => $businessdata[0]['industriyal'], 'status' => 1))->row()->industry_name; ?>
                                         <div class="profile-boxProfile-name">

@@ -94,12 +94,12 @@
                         </div>
 
                         <div class="clearfix">
-                            <div class="common-form">
+                            
 
 
                                 <div class="col-md-12 col-sm-12 ">
                                     <div class="clearfix">
-                                        <div class="common-form">
+                                        <div class="common-form common-form_border">
                                             <h3>Work Experience</h3>
                                             <div class="tablet-hi">
                                                 <a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">Fresher</a>

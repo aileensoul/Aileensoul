@@ -41,8 +41,7 @@
                       <?php }?>
             </div>
             <br>
-            <br>
-            <br>
+           
             </div>
 
             <div class="container">
@@ -122,7 +121,7 @@
                         <div class="clearfix">
 
 
-                            <div class="common-form">
+                            <div class="common-form common-form_border">
                                 <h3>Address</h3>
                                 <?php echo form_open(base_url('job/job_address_insert'), array('id' => 'jobseeker_regform', 'name' => 'jobseeker_regform', 'class' => 'clearfix')); ?>
                                   <div>
