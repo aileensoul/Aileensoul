@@ -129,7 +129,7 @@
                               
                               ?>
 
-                                                 <div class="profile-job-profile-button clearfix box_search_module search" style="height: 14%;border: 1px solid #efefef;margin-bottom: 10px;">
+                                                 <div class="profile-job-profile-button clearfix box_search_module" style="height: 14%;border: 1px solid #efefef;margin-bottom: 10px;">
                                                             
      <div class="profile-job-post-location-name-rec">
           <div class="module_Ssearch" style="display: inline-block; float: left;">
@@ -229,7 +229,7 @@ if($status == 0 || $status == " "){?>
 </div>
 <div class="col-md-12 profile_search " style="float: left; background-color: white; margin-top: 10px; margin-bottom: 10px; padding:0px!important;"> 
        <h4 class="search_head">Posts</h4>
-       <div class="inner_search">
+       <div class="inner_search search">
 
        <?php foreach ($artuserdata as $key) {
          if($key['art_description']){

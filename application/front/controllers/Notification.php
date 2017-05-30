@@ -61,7 +61,7 @@ class Notification extends MY_Controller {
 
 // job notification end
 // freelancer hire  notification start
-        $contition_array = array('notification.not_type' => 4, 'notification.not_from' => 5, 'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
+        $contition_array = array('notification.not_type' => 3, 'notification.not_from' => 4, 'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
 
         $join_str = array(
             array(
@@ -83,7 +83,7 @@ class Notification extends MY_Controller {
         // $this->data['work_post'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'app_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 
 //echo '<pre>'; print_r($hire_not); die();
-        $contition_array = array('notification.not_type' => 3, 'notification.not_from' => 4, 'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
+        $contition_array = array('notification.not_type' => 4, 'notification.not_from' => 5, 'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
         $join_str = array(array(
                 'join_type' => '',
                 'table' => 'user_invite',
@@ -100,7 +100,8 @@ class Notification extends MY_Controller {
         $work_post = $this->data['work_post'] = $work_post = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'invite_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 
 
-    //    echo '<pre>'; print_r($this->data['work_post']); die();
+     //   echo '<pre>'; print_r($this->data['hire_noth']); 
+      //  echo '<pre>'; print_r($this->data['work_post']); die();
 // freelancer post notification end
 //artistic notification start
 // follow notification start
@@ -664,7 +665,7 @@ class Notification extends MY_Controller {
 
 // job notification end
 // freelancer hire  notification start
-        $contition_array = array('notification.not_type' => 4, 'notification.not_from' => 5, 'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
+        $contition_array = array('notification.not_type' => 3, 'notification.not_from' => 4, 'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
 
         $join_str = array(
             array(
@@ -686,7 +687,7 @@ class Notification extends MY_Controller {
         // $this->data['work_post'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'app_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 
 
-        $contition_array = array('notification.not_type' => 3, 'notification.not_from' => 4, 'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
+        $contition_array = array('notification.not_type' => 4, 'notification.not_from' => 5, 'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
         $join_str = array(array(
                 'join_type' => '',
                 'table' => 'user_invite',

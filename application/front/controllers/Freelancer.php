@@ -1860,13 +1860,16 @@ $results = array_unique($result);
         $id = $_POST['post_id'];
         $para = $_POST['allpost'];
         $notid = $_POST['userid'];
+        // echo $id;
+        // echo $para;
+        // echo $notid;
 
         $userid = $this->session->userdata('aileenuser');
 
         $contition_array = array('post_id' => $id, 'user_id' => $userid, 'is_delete' => 0);
         $userdata = $this->common->select_data_by_condition('freelancer_apply', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-       // echo "<pre>";print_r($userdata);
+        //echo "<pre>";print_r($userdata);die();
 
         $app_id = $userdata[0]['app_id'];
 
@@ -1882,6 +1885,7 @@ $results = array_unique($result);
                 'modify_date' => date('Y-m-d h:i:s', time())
                 
             );
+            //echo "hhhh";
 
 
             $updatedata = $this->common->update_data($data, 'freelancer_apply', 'app_id', $app_id);
@@ -1894,7 +1898,8 @@ $results = array_unique($result);
                 'not_to_id' => $notid,
                 'not_read' => 2,
                 'not_from' => 4,
-                'not_product_id' => $app_id
+                'not_product_id' => $app_id,
+                'not_created_date' => date('Y-m-d H:i:s')
                
             );
 
@@ -1909,7 +1914,7 @@ $updatedata = $this->common->insert_data_getid($data, 'notification');
             }
             echo $applypost;
         } else {
-
+            //echo "sssss";die();
             $data = array(
                 'post_id' => $id,
                 'user_id' => $userid,
@@ -1933,8 +1938,10 @@ $updatedata = $this->common->insert_data_getid($data, 'notification');
                 'not_read' => 2,
                 'not_from' => 4,
                 'not_product_id' => $insert_id,
+                'not_created_date' => date('Y-m-d H:i:s')
                 
             );
+            //echo "<pre>"; print_r($data);die();
 
             $insert_id = $this->common->insert_data_getid($data, 'notification');
           
@@ -1943,6 +1950,8 @@ $updatedata = $this->common->insert_data_getid($data, 'notification');
             if ($insert_id) {
 
                 $applypost = 'Applied';
+
+                //echo "hello";die();
             }
             echo $applypost;
         }
