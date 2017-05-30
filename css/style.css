@@ -1495,7 +1495,7 @@ a:hover, a:active, a:focus {
     z-index: 2;
     display: none;
     float:left;
-    width: 320px;
+    width: 450px;
     right: 0;
 
 }
@@ -1593,7 +1593,7 @@ a:hover, a:active, a:focus {
 }
 .notification-data-inside{margin-left:80px; margin-top:-55px;}
 .notification-data-inside h6 {font-size: 13px;}
-.notification-database{height:68px; width:311px;; background-color:#FFFFFF; border-bottom: 1px solid #999999;}
+.notification-database{height:68px; width:440px;; background-color:#FFFFFF; border-bottom: 1px solid #999999;}
 .notification-pic{height:50px; width:50px;  border-radius: 50%; margin-left:20px; margin-top:10px;     }
 .notification-pic img{     height:50px; width:50px;}
 /* inbox*/
@@ -4194,7 +4194,7 @@ border-bottom: 1px solid #000033;
 
 .profile-box-rec-menu ul li {
     float: left;
-    margin-left: 0px;
+    margin-left: 1px;
     /* margin-right: -2px;*/
     /*  border-right: 1px solid #000000;
 border-bottom: 1px solid #000033;
@@ -4652,7 +4652,7 @@ input:-moz-placeholder { color:#999; font-size: 15px; }
   left: 7px;
   visibility: visible;
 }
-.dropdown-menu{left: -51px!important;}
+.dropdown-menu{left: -39px!important;}
 
 
 /* vishang 4-5-17 */
@@ -4889,9 +4889,11 @@ fieldset .add_post_btns{min-width: 120px;padding:8px 30px 10px;}
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     margin-top: 6px;
     z-index: 1;
-    left: 10;
+    left: 17;
     border-radius: 4px; }
+
 .dropdown-content_hover::before{       /* top: -1px; */
+
     content: '';
     display: block;
     position: absolute;
@@ -4902,7 +4904,8 @@ fieldset .add_post_btns{min-width: 120px;padding:8px 30px 10px;}
     border-color: transparent transparent #fff;
     margin-top: -18px;
     /* margin-left: 104px; */
-    right: 4.5px;}
+    right: 10px;}
+
 
 .dropdown_hover .dropdown-content_hover a {color: #000;}
  .pdf_name a:{text-decoration-line: underline;}
@@ -5339,7 +5342,7 @@ fieldset .add_post_btns:hover{background-color:#156f95!important}
 .profile-text-bui-user .profile-boxProfile-name a:hover{color: #1b8ab9}
    .profile-box-job-menu ul li   {padding-left: 13px;}
  .profile-box-bui-menu    ul li {
-    padding-left: 12px;
+    padding-left: 15px;
 }
 .profile-box-freehire-menu ul li {
     padding-left: 11px;

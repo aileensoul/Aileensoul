@@ -58,7 +58,7 @@
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     margin-top: 3px;
     z-index: 1;
-    left: 21px;
+    left: 25px;
     border-radius: 4px;
 } .dropdown-content_hover::before {
     /* top: -1px; */
@@ -72,7 +72,7 @@
     border-color: transparent transparent #fff;
     margin-top: -18px;
     /* margin-left: 104px; */
-    right: 6px;
+    right: 9px;
 </style>
 
 <!--post save success pop up style end -->
