@@ -53,9 +53,8 @@
                       <?php }?>
             </div>
             <br>
-            <br>
-            <br>
-
+           <br>
+           <br>
             <div class="container">
                 <div class="row row4">
                     <div class="col-md-3 col-sm-4">
@@ -117,7 +116,7 @@
                         </div>
                         <div class="clearfix">
 
-                            <div class="common-form">
+                            <div class="common-form common-form_border">
                                 <h3>Basic Information</h3>
 <?php echo form_open(base_url('job/job_basicinfo_insert'), array('id' => 'jobseeker_regform', 'name' => 'jobseeker_regform', 'class' => 'clearfix')); ?>
                             <!-- <div>

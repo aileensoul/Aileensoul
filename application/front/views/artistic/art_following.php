@@ -477,9 +477,9 @@ if($status == 0 || $status == " "){?>
                             function editableTextBlurred() {
                                 var html = $(this).val();
                                 var viewableText = $("<a>");
-                                if(html == ''){
-                         html = "Current Work";
-                            }
+                               if (html.match(/^\s*$/) || html == '') { 
+                                html = "Current Work";
+                                } 
                                 viewableText.html(html);
                                 $(this).replaceWith(viewableText);
                                 // setup the click event for this new div

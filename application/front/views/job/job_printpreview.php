@@ -1039,8 +1039,8 @@ echo $job_header2;
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 
 
-                <!-- <script src="<?php echo base_url('js/light-box/lightbox-plus-jquery.min.js');?>"></script>
-                <script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script> -->
+                <!-- <script src="<?php echo base_url('js/light-box/lightbox-plus-jquery.min.js');?>"></script> -->
+                <script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script> 
                 <link rel="stylesheet" href="<?php echo base_url('assets/css/croppie.css'); ?>">
                   <link rel="stylesheet" href="<?php echo base_url('css/lightbox.min.css'); ?>">
 
@@ -1358,9 +1358,9 @@ echo $job_header2;
     function editableTextBlurred() {
         var html = $(this).val();
         var viewableText = $("<a>");
-        if(html == ''){
-            html = "Current Work";
-        }
+      if (html.match(/^\s*$/) || html == '') { 
+                                html = "Current Work";
+                                }
         viewableText.html(html);
         $(this).replaceWith(viewableText);
         // setup the click event for this new div
