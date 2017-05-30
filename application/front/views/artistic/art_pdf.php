@@ -195,8 +195,6 @@ label.cameraButton input[accept*="camera"] {
 
                     <?php } ?>
 
-
-                   
               </div>
                 <!-- PICKUP -->
                                    <!-- menubar --><div class="business-data-menu  col-md-12 ">
