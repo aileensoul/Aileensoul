@@ -5357,4 +5357,12 @@ fieldset .add_post_btns:hover{background-color:#156f95!important}
 .apply-btn a{border:2px solid #1b8ab9;}
 .dropdown-content2 a i{padding-right: 13px;}
 .website span a:hover{text-decoration: underline;}
-
+.post_title p{       font-size: 19px;
+    font-weight: 600;
+    width: 60%;
+    word-break: break-word;
+    word-wrap: break-word;
+    cursor: default;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;}
