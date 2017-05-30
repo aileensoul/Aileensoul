@@ -435,15 +435,10 @@
                                 $userid = $this->session->userdata('aileenuser');
                                 if ($businessdata1[0]['user_id'] == $userid) {
                                     ?> 
-
-
                                     <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'followers') { ?> class="active" <?php } ?>><a title="Followers" href="<?php echo base_url('business_profile/followers/' . $businessdata1[0]['business_slug']); ?>">Followers <br>  (<?php echo (count($businessfollowerdata)); ?>)</a>
                                     </li>
-
-
                                     <?php
                                 } else {
-
                                     $businessregid = $businessdata1[0]['business_profile_id'];
                                     $contition_array = array('follow_to' => $businessregid, 'follow_status' => '1', 'follow_type' => '2');
                                     $followerotherdata = $this->data['followerotherdata'] = $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -565,7 +560,7 @@
                         <div class="profile-boxProfileCard  module">
 
                             <div class="head_details1">
-                                <span><h5><i class="fa fa-info-circle" aria-hidden="true"></i> Information</h5>
+                                <span><a href="<?php echo base_url('business_profile/business_resume/' . $businessdata1[0]['business_slug']); ?>"><h5><i class="fa fa-info-circle" aria-hidden="true"></i>Information</h5></a>
                                 </span>      </div>
                             <table class="business_data_table">
                                 <tr>
@@ -1033,7 +1028,7 @@
                                 <div id="myBtn1"  class="editor-content col-md-10 popup-text" >
                                        <!-- <textarea name="product_title" placeholder="Post Your Product...."></textarea>  -->
                                     <textarea id= "test-upload_product" placeholder="Post Your Product...."  onKeyPress=check_length(this.form); onKeyDown=check_length(this.form); onblur=check_length(this.form);
-                                              name=my_text rows=4 cols=30 class="post_product_name" style="position: relative;"></textarea>
+                                              name=my_text rows=4 cols=30 class="post_product_name" style="position: relative;" tabindex="1"></textarea>
                                     <div style="position: absolute; top: 21px; right: 19px; border: none;">                   
                                         <input size=1 value=50 name=text_num class="text_num" readonly> 
                                     </div>
@@ -1048,7 +1043,7 @@
                             </div>
                             <div class="row"></div>
                             <div  id="text"  class="editor-content col-md-12 popup-textarea" >
-                                <textarea id="test-upload_des" name="product_desc" class="description" placeholder="Enter Description"></textarea>
+                                <textarea id="test-upload_des" name="product_desc" class="description" placeholder="Enter Description" tabindex="2"></textarea>
 
                                 <output id="list"></output>
                             </div>
