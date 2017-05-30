@@ -2,7 +2,7 @@
                          echo form_open('search/job_search'); ?>
                             <fieldset class="col-md-3">
                             
-                                 <input type="text" id="tags" name="skills" placeholder="Find Your job">
+                                 <input type="text" id="tags" name="skills" placeholder="Find Your Job">
                                 </select>
                             </fieldset>
                             <fieldset class="col-md-3">

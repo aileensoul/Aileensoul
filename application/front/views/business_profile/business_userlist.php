@@ -420,7 +420,6 @@ if($status == 0 || $status == " "){?>
 <script>
 
 var data= <?php echo json_encode($demo); ?>;
-// alert(data);
 
         
 $(function() {

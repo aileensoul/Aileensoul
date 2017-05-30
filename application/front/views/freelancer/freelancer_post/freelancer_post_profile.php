@@ -459,7 +459,7 @@ if ($freelancerpostdata[0]['freelancer_post_hourly']) {
 <?php
 if ($freelancerpostdata[0]['freelancer_post_ratestate']) {
     ?>
-                                                <li> <b>currency </b> <span>  <?php echo $this->db->get_where('currency', array('currency_id' => $freelancerpostdata[0]['freelancer_post_ratestate']))->row()->currency_name; ?> </span>
+                                                <li> <b>Currency </b> <span>  <?php echo $this->db->get_where('currency', array('currency_id' => $freelancerpostdata[0]['freelancer_post_ratestate']))->row()->currency_name; ?> </span>
                                                 </li>
                                                 <?php
                                             } else {
