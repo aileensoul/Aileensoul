@@ -658,8 +658,12 @@ class Business_profile extends MY_Controller {
     public function image_insert() {
 
         $userdata = $this->session->userdata();
-        
         $userid = $this->session->userdata('aileenuser');
+        
+        $contition_array = array('user_id' => $userid, 'is_deleted' => '0');
+        $business_slug = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'business_slug', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        $business_slug = $business_slug[0]['business_slug'];
+        
         $count1 = count($this->input->post('filedata'));
 
         for ($x = 0; $x < $count1; $x++) {
@@ -801,7 +805,12 @@ class Business_profile extends MY_Controller {
                 $this->session->set_flashdata('success', 'Image updated successfully');
 
                 // if($userdatacon[0]['business_step'] == 4){
-                redirect('business_profile/business_resume', refresh);
+                if($business_slug != ''){
+                    redirect('business_profile/business_resume/'.$business_slug, refresh);
+                }
+                else{
+                    redirect('business_profile/business_resume', refresh);
+                }
                 //   }
                 // } else{
                 //    redirect('business_profile/business_profile_post', refresh);
