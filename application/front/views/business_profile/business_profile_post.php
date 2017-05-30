@@ -251,7 +251,7 @@
                                     <h3 class="user_list_head">User List
                                     </h3>
                                     <div class="seeall">
-                                        <a href="<?php echo base_url('business_profile/userlist'); ?>">All User
+                                        <a href="<?php echo base_url('business_profile/userlist/'. $businessdata[0]['business_slug']); ?>">All User
                                         </a>
                                     </div>
                                 </div>
