@@ -2303,7 +2303,7 @@ class Job extends MY_Controller {
 
     public function job_work_exp_insert() {
 
-        //echo "<pre>";print_r($_POST);die();
+      //  echo "<pre>";print_r($_POST);die();
         $userid = $this->session->userdata('aileenuser');
 
         $userdata[] = $_POST;
