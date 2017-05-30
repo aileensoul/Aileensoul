@@ -18,7 +18,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     </head>
-    <body >
+    <body>
         <div class="user-midd-section" id="paddingtop_fixed">
             <div class="container">
                 <div class="row row4">

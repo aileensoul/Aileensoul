@@ -116,8 +116,8 @@
 
                                 <fieldset>
                                     <label>Contact Website:</label>
-                                    <input name="contactwebsite" type="text" id="contactwebsite" placeholder="Enter Contact website" value="<?php if($contactwebsite1){ echo $contactwebsite1; } ?>"/>
-                                                                     
+                                    <input name="contactwebsite" type="url" id="contactwebsite" placeholder="Enter Contact website" value="<?php if($contactwebsite1){ echo $contactwebsite1; } ?>"/>
+                                    <span class="website_hint" style="font-size: 13px; color: #1b8ab9;">Note : <i>Enter website url with http or https</i></span>                                 
                                 </fieldset>
                                 
 
