@@ -63,7 +63,7 @@
     border-color: transparent transparent #fff;
     margin-top: -18px;
     /* margin-left: 104px; */
-    right: 5px;
+    right: 9px;
 
 }
 .dropdown-content_hover {
@@ -75,7 +75,7 @@
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     margin-top: 6px;
     z-index: 1;
-    left: 0px;
+    left:4px;
     border-radius: 4px;
 }
 </style>

@@ -138,7 +138,7 @@
 
 
 
-                <h4 class="profile-head-text"><a href="<?php echo base_url('artistic/art_manage_post/' . $artisticdata[0]['user_id'] . ''); ?>"> <?php echo ucwords($artisticdata[0]['art_name']); ?><?php echo ucwords($artisticdata[0]['art_lastname']); ?></a></h4>
+                <h4 class="profile-head-text"><a href="<?php echo base_url('artistic/art_manage_post/' . $artisticdata[0]['user_id'] . ''); ?>"> <?php echo ucwords($artisticdata[0]['art_name']) . ' ' .  ucwords($artisticdata[0]['art_lastname']); ?></a></h4>
 
 
                 <?php

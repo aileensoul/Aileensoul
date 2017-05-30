@@ -187,32 +187,75 @@
 
                    ?>  
                 <li><b>Skills</b>
+
+
                        <span>
                       <?php
+<<<<<<< HEAD
                          
+=======
+                         // $comma = ", ";
+                         // $k = 0;
+>>>>>>> ae1910a605ba55bb88fb691a545a93085459217b
                          $aud = $row['keyskill'];
                          $aud_res = explode(',', $aud);
                         
 
                          if(!$row['keyskill']){
 
+<<<<<<< HEAD
                           foreach ($other_skill as $skill1) {
+=======
+                          // echo $row['other_skill']; 
+                          foreach ($otherskill as $skill1) {
+>>>>>>> ae1910a605ba55bb88fb691a545a93085459217b
                          $skill2[] = $skill1['skill']; 
                          
                           }
                        $listFinalother = implode(', ', $skill2);
                        echo $listFinalother;
+<<<<<<< HEAD
 
                          }else if(!$other_skill){
 
                            foreach ($aud_res as $skill) {
 
+=======
+                                                   
+
+                         }else if(!$otherskill){
+
+                      foreach ($aud_res as $skill) {
+
+                  $cache_time = $this->db->get_where('skill', array('skill_id' => $skill))->row()->skill;
+                        $skill1[] = $cache_time;
+                    }
+                    $listFinal = implode(', ', $skill1);
+                    echo $listFinal;
+
+                          // foreach ($aud_res as $skill) {
+                          //   $cache_time = $this->db->get_where('skill', array('skill_id' => $skill))->row()->skill;
+                          //         echo $cache_time;
+                          //           if ($k != ($count_aud_res - 1)) {
+                          //                  echo $comma;
+                                          
+                          //                }
+                          //              $k++;
+                          //          }
+
+                         }
+
+                         else if($row['keyskill'] && $otherskill){
+                     foreach ($aud_res as $skill) {
+
+>>>>>>> ae1910a605ba55bb88fb691a545a93085459217b
                   $cache_time = $this->db->get_where('skill', array('skill_id' => $skill))->row()->skill;
                         $skill1[] = $cache_time;
                     }
                     $listFinal = implode(', ', $skill1);
 
 
+<<<<<<< HEAD
 
                     echo $listFinal;
 
@@ -235,6 +278,32 @@
 
 
                     echo $listFinal .',' . $listFinalother; }
+=======
+                    foreach ($otherskill as $skill1) {
+                         $skill2[] = $skill1['skill']; 
+                         
+                          }
+                       $listFinalother = implode(', ', $skill2);
+                       //echo $listFinalother;
+
+
+                    echo $listFinal .',' . $listFinalother;
+                   }
+
+
+                         // else if($row['keyskill'] && $row['other_skill']){
+
+
+                         //  foreach ($aud_res as $skill) {
+                         //    $cache_time = $this->db->get_where('skill', array('skill_id' => $skill))->row()->skill;
+                         //          echo $cache_time;
+                         //            if ($k != ($count_aud_res - 1)) {
+                         //                   echo $comma;
+                         //                   echo '&nbsp';
+                         //                 }
+                         //               $k++;
+                         //           } echo ", " . $row['other_skill']; }
+>>>>>>> ae1910a605ba55bb88fb691a545a93085459217b
                                    ?>       
                     </span>
                                                                     </li>

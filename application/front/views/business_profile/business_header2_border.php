@@ -61,7 +61,7 @@
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     margin-top: 6px;
     z-index: 1;
-    left: 7px;
+    left: 12px;
     border-radius: 4px;
 }.dropdown-content_hover::before {
     /* top: -1px; */
@@ -75,7 +75,7 @@
     border-color: transparent transparent #fff;
     margin-top: -18px;
     /* margin-left: 104px; */
-    right: 4px;
+    right: 9px;
 }
 </style>
 
