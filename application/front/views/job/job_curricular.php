@@ -90,7 +90,7 @@
                     </div>
                     
                       <div class="clearfix">
-                            <div class="common-form">
+                            <div class="common-form common-form_border">
                               <h3>Extra Curricular Activities</h3>
                                       
                             <?php echo form_open(base_url('job/job_curricular_insert'), array('id' => 'jobseeker_regform','name' => 'jobseeker_regform','class'=>'clearfix')); ?>

@@ -6,7 +6,7 @@
             <!--    <label>Find Your Skills</label>
             -->   
           <!-- <input type="text" name="searchartistic" placeholder="Find Your Art"> -->
-            <input type="text" id="tags" name="skills" placeholder="Find Your art">
+            <input type="text" id="tags" name="skills" placeholder="Find Your Art">
         </fieldset>
         <fieldset class="col-md-3">
             <!--    <label>Find Your Location</label>

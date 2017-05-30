@@ -715,11 +715,8 @@
                                                         ?>
 
                                                     </a></div></li>
-
                                         </ul> 
                                     </div>  
-
-
                                     <div class="dropdown1">
                                         <a onClick="myFunction(<?php echo $busienss_data[0]['business_profile_post_id']; ?>)" class="dropbtn1 dropbtn1 fa fa-ellipsis-v"></a>
                                         <div id="<?php echo "myDropdown" . $busienss_data[0]['business_profile_post_id']; ?>" class="dropdown-content1">

@@ -822,7 +822,7 @@ ul.business_pf_ct_person_detail li b {font-size: 16px; display: inline-block; wi
    .edit_bui_img img{width: 100%; height: 100%;}
 .bui_res_i{margin: 4px;}
 .profile-job-details { float:left; padding-left:20px; }
-.profile-job-post-detail .profile-job-post-title .button { margin-right: 4px; margin-left: 4px; padding: 3px 16px;  background-color:#ffffff; text-transform: capitalize; color:#; border:2px solid #1b8ab9; float: right; font-size: 14px;}
+.profile-job-post-detail .profile-job-post-title .button { margin-right: 4px; margin-left: 4px; padding: 3px 16px;  background-color:#ffffff; text-transform: capitalize; color:#1b8ab9; border:2px solid #1b8ab9; float: right; font-size: 14px;}
 .profile-job-post-detail .profile-job-post-title .button:hover { color: #fff; background-color: #1b8ab9; }
 .profile-job-post-title-inside .profile-job-post-title { padding: 0px; margin-bottom: 18px; }
 .profile-job-profile-button { background-color:#e8f3f8; padding: 4px 0px; }
@@ -2144,7 +2144,7 @@ border-bottom: 1px solid #000033;
     border-radius: 10px;
 }
 
-.btn-3:hover{color: #fff; background: #6982b6;}
+.btn-3:hover{color: #fff; background: #156f95;}
 .btn-3 {
     background: #1b8ab9;
     color: #fff;
@@ -2331,6 +2331,7 @@ text-align: justify; display: inline-block; margin-bottom: 0px;
     /*  border: 1px solid #000000;
     */  margin:0px;
     color: #ffffff;
+    list-style: none;
 
 }
 
@@ -2359,8 +2360,8 @@ text-align: justify; display: inline-block; margin-bottom: 0px;
     background-color: #000;*/
         background: white;
     overflow: hidden;
-    border-left: 2px solid #d9d9d9;
-    border-right: 2px solid #d9d9d9;
+  /*  border-left: 2px solid #d9d9d9;
+    border-right: 2px solid #d9d9d9;*/
 }
 
 /* Style the links inside the tab */
@@ -5341,3 +5342,6 @@ fieldset .add_post_btns:hover{background-color:#156f95!important}
 .profile-box-freehire-menu ul li {
     padding-left: 8px;
 }
+
+
+.common-form_border{border:2px solid #cacaca;}
