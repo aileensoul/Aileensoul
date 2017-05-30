@@ -41,7 +41,7 @@ class Artistic extends MY_Controller {
                 } else if ($artdata[0]['art_step'] == 2) {
                     redirect('artistic/art_information', refresh);
                 } else if ($artdata[0]['art_step'] == 3) {
-                    redirect('artistic/art_portfolio', refresh);
+                    redirect('artistic/art_post', refresh);
                 } else if ($artdata[0]['art_step'] == 4) {
                     redirect('artistic/art_post', refresh);
                 }
@@ -142,7 +142,7 @@ class Artistic extends MY_Controller {
         $this->load->view('artistic/art_basic_information', $this->data);
     }
 
-    public function art_basic_information_insert() {
+    public function art_basic_information_insert() { 
 
         $userid = $this->session->userdata('aileenuser');
 
@@ -4202,11 +4202,11 @@ class Artistic extends MY_Controller {
 
             $contition_array = array('user_id' => $userid, 'status' => '1');
             $artisticdata = $this->data['artisticdata'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-            //echo "<pre>"; print_r($artisticdata); die();
+           // echo "<pre>"; print_r($artisticdata); die();
             $contition_array = array('user_id' => $artisticdata[0]['user_id'], 'status' => 1, 'is_delete' => '0');
 
             $this->data['artistic_data'] = $this->common->select_data_by_condition('art_post', $contition_array, $data, $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-        } else {
+        } else { 
 
             $contition_array = array('user_id' => $id, 'status' => '1');
             $artisticdata = $this->data['artisticdata'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -4215,6 +4215,7 @@ class Artistic extends MY_Controller {
 
             $this->data['artistic_data'] = $this->common->select_data_by_condition('art_post', $contition_array, $data, $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         }
+        
         $this->load->view('artistic/art_pdf', $this->data);
     }
 

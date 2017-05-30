@@ -479,10 +479,11 @@
                                 ?>
 
                                 <?php
+                                
                              //   foreach ($work_not as $art) {
                                     if ($total['not_from'] == 5) {
-                                        $id = $this->db->get_where('job_reg', array('user_id' => $total['user_id']))->row()->job_id;
-                                        if ($id) {
+                                  //      $id = $this->db->get_where('job_reg', array('user_id' => $total['user_id']))->row()->job_id;
+                                  //      if ($id) {
                                             ?>
                                             <li> 
                                                 <div class="notification-pic" id="noti_pc" >
@@ -497,27 +498,27 @@
                                             </li>
                                             <?php
                                         }
-                                    }
+                                //    }
                              //   }
                                 ?>
 
                                 <?php
-                             //   foreach ($work_post as $work) {
-                                    if ($total['not_from'] == 4) {
+                               // foreach ($work_post as $work) {
+                                   if ($total['not_from'] == 4) {
                                         ?> 
                                         <li> 
                                             <div class="notification-pic" id="noti_pc" >
                                                 <img src="<?php echo base_url(USERIMAGE . $total['user_image']); ?>" >
                                             </div>
                                             <div class="notification-data-inside" id="notification_inside">
-                                                <a href="<?php echo base_url('notification/freelancer_hire_post/' . $total['post_id']); ?>"><h6><?php echo "<font color='black'><b><i>Employer</i></font></b><b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Selected You For Project."; ?></h6>
+                                                <a href="<?php echo base_url('freelancer/freelancer_post_profile/' . $total['not_from_id']); ?>"><h6><?php echo "<font color='yellow'><b><i>Freelancer</i></font></b><b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Applied on your post."; ?></h6></a>
                                                 <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
                                                     <?php echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                 </div>
                                             </div>
-                                        </li>
+                                        </li><!--
                                         <?php
-                                    }
+                                   }
                                }
                                 ?>
                             </ul>

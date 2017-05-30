@@ -61,7 +61,7 @@ class Notification extends MY_Controller {
 
 // job notification end
 // freelancer hire  notification start
-        $contition_array = array('notification.not_type' => 3, 'notification.not_from' => 6, 'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
+        $contition_array = array('notification.not_type' => 4, 'notification.not_from' => 5, 'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
 
         $join_str = array(
             array(
@@ -77,13 +77,13 @@ class Notification extends MY_Controller {
         );
         $data = array('notification.*', 'freelancer_apply.*', 'user.user_id', 'user.first_name', 'user.user_image', 'user.last_name');
 
-        $hire_not = $this->data['hire_not'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'app_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
+        $hire_not = $this->data['hire_noth'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'app_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
         // freelancer hire notification end
 // freelancer post notification start
         // $this->data['work_post'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'app_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 
-
-        $contition_array = array('notification.not_type' => 4, 'notification.not_from' => 4, 'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
+//echo '<pre>'; print_r($hire_not); die();
+        $contition_array = array('notification.not_type' => 3, 'notification.not_from' => 4, 'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
         $join_str = array(array(
                 'join_type' => '',
                 'table' => 'user_invite',
@@ -100,7 +100,7 @@ class Notification extends MY_Controller {
         $work_post = $this->data['work_post'] = $work_post = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'invite_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 
 
-//         echo '<pre>'; print_r($this->data['work_post']); die();
+    //    echo '<pre>'; print_r($this->data['work_post']); die();
 // freelancer post notification end
 //artistic notification start
 // follow notification start
@@ -664,7 +664,7 @@ class Notification extends MY_Controller {
 
 // job notification end
 // freelancer hire  notification start
-        $contition_array = array('notification.not_type' => 3, 'notification.not_from' => 6, 'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
+        $contition_array = array('notification.not_type' => 4, 'notification.not_from' => 5, 'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
 
         $join_str = array(
             array(
@@ -686,7 +686,7 @@ class Notification extends MY_Controller {
         // $this->data['work_post'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'app_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 
 
-        $contition_array = array('notification.not_type' => 4, 'notification.not_from' => 4, 'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
+        $contition_array = array('notification.not_type' => 3, 'notification.not_from' => 4, 'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
         $join_str = array(array(
                 'join_type' => '',
                 'table' => 'user_invite',
@@ -702,8 +702,8 @@ class Notification extends MY_Controller {
 
         $work_post = $this->data['work_post'] = $work_post = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'invite_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 
-
-//         echo '<pre>'; print_r($this->data['work_post']); die();
+       // echo '<pre>'; print_r($this->data['hire_not']);
+      //  echo '<pre>'; print_r($this->data['work_post']); die();
 // freelancer post notification end
 //artistic notification start
 // follow notification start
@@ -1130,7 +1130,7 @@ class Notification extends MY_Controller {
 
 
       //  foreach ($busifollow as $bus) {
-            if ($total['not_from'] == 6) {
+            if ($total['not_from'] == 6 && $total['not_img'] == 0) {
                 $busslug = $this->db->get_where('business_profile', array('user_id' => $total['user_id']))->row()->business_slug;
                $companyname = $this->db->get_where('business_profile', array('user_id' => $total['not_from_id']))->row()->company_name;
                 $notification .= '<li><div class="notification-database">';
@@ -1159,16 +1159,17 @@ class Notification extends MY_Controller {
                 $notification .= '<div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
                 $notification .= '' . $this->common->time_elapsed_string($total['not_created_date'], $full = false) . '';
                 $notification .= '</div></div> </div> </li>';
-            } elseif ($bus_not_from == '6' && $bus_not_img == '5') {
-                $notification .= '<li><div class="notification-database">';
-                $notification .= '<div class="notification-pic">';
-                $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
-                $notification .= '</div><div class="notification-data-inside">';
-                $notification .= '<a href="' . base_url('notification/art_post/' . $total['business_profile_post_id']) . '"><h6><b>' . '  ' . ucwords($companyname) . '</b> Likes Your Photo In Business Profile.</h6></a>';
-                $notification .= '<div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
-                $notification .= '' . $this->common->time_elapsed_string($total['not_created_date'], $full = false) . '';
-                $notification .= '</div></div> </div> </li>';
             }
+//             elseif ($bus_not_from == '6' && $bus_not_img == '5') {
+//                $notification .= '<li><div class="notification-database">';
+//                $notification .= '<div class="notification-pic">';
+//                $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
+//                $notification .= '</div><div class="notification-data-inside">';
+//                $notification .= '<a href="' . base_url('notification/art_post/' . $total['business_profile_post_id']) . '"><h6><b>' . '  ' . ucwords($companyname) . '</b> Likes Your Photo In Business Profile.</h6></a>';
+//                $notification .= '<div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
+//                $notification .= '' . $this->common->time_elapsed_string($total['not_created_date'], $full = false) . '';
+//                $notification .= '</div></div> </div> </li>';
+//            }
      //   }
 
 
@@ -1269,7 +1270,7 @@ class Notification extends MY_Controller {
      //   }
 
      //   foreach ($hire_not as $art) {
-            if ($total['not_from'] == 6) {
+            if ($total['not_from'] == 4) {
 
                 $notification .= '<li><div class="notification-database">';
                 $notification .= '<div class="notification-pic">';
@@ -1300,17 +1301,17 @@ class Notification extends MY_Controller {
 
    //     foreach ($work_post as $work) {
 
-            if ($total['not_from'] == 4) {
-
-                $notification .= '<li><div class="notification-database">';
-                $notification .= '<div class="notification-pic">';
-                $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
-                $notification .= '</div><div class="notification-data-inside">';
-                $notification .= '<a href="' . base_url('notification/freelancer_hire_post/' . $total['post_id']) . '"><h6><font color="#4e6db1"><b><i> Employer </i></font></b><b>' . '  ' . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . '</b> Selected You For Project.</h6></a>';
-                $notification .= '<div><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
-                $notification .= '' . $this->common->time_elapsed_string($total['not_created_date'], $full = false) . '';
-                $notification .= '</div></div> </div> </li>';
-            }
+//            if ($total['not_from'] == 4) {
+//
+//                $notification .= '<li><div class="notification-database">';
+//                $notification .= '<div class="notification-pic">';
+//                $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
+//                $notification .= '</div><div class="notification-data-inside">';
+//                $notification .= '<a href="' . base_url('notification/freelancer_hire_post/' . $total['post_id']) . '"><h6><font color="#4e6db1"><b><i> Employer </i></font></b><b>' . '  ' . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . '</b> Selected You For Project.</h6></a>';
+//                $notification .= '<div><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
+//                $notification .= '' . $this->common->time_elapsed_string($total['not_created_date'], $full = false) . '';
+//                $notification .= '</div></div> </div> </li>';
+//            }
             
           $i++;
           if($i == 10){
@@ -1620,7 +1621,7 @@ class Notification extends MY_Controller {
 
 // job notification end
 // freelancer hire  notification start
-        $contition_array = array('notification.not_type' => 3, 'notification.not_from' => 6, 'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
+        $contition_array = array('notification.not_type' => 3, 'notification.not_from' => 5, 'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
 
         $join_str = array(
             array(

@@ -602,7 +602,7 @@
                                     </div>
                                     <div id="myBtn1"  class="editor-content col-md-10 popup-text" >
                                       <!-- <textarea name="product_title" placeholder="Post Your Product...."></textarea>  -->
-                                        <textarea id= "test-upload-product" placeholder="Post Your Product...."  onKeyPress=check_length(this.form); onKeyDown=check_length(this.form); onblur=check_length(this.form);  name=my_text rows=4 cols=30 class="post_product_name" style=" position: relative;"></textarea>
+                                        <textarea id= "test-upload-product" placeholder="Post Your Product...."  onKeyPress=check_length(this.form); onKeyDown=check_length(this.form); onblur=check_length(this.form);  name=my_text rows=4 cols=30 class="post_product_name" style=" position: relative;" tabindex="1"></textarea>
                                         <div class="fifty_val">                       
                                             <input size=1 value=50 name=text_num class="text_num"  readonly> 
                                         </div>
@@ -616,7 +616,7 @@
                                 </div>
                                 <div class="row"></div>
                                 <div  id="text"  class="editor-content col-md-12 popup-textarea" >
-                                    <textarea id="test-upload-des" name="product_desc" class="description" placeholder="Enter Description"></textarea>
+                                    <textarea id="test-upload-des" name="product_desc" class="description" placeholder="Enter Description" tabindex="2"></textarea>
                                     <!-- <output id="list">
                                     </output> -->
                                 </div>
@@ -1887,7 +1887,7 @@
         document.getElementById('editcommentbox' + clicked_id).style.display = 'none';
         document.getElementById('editcancle' + clicked_id).style.display = 'block';
 
-        $('.post-design-commnet-box').hide();
+        //$('.post-design-commnet-box').hide();
     }
     function comment_editcancle(clicked_id) {
         document.getElementById('editcommentbox' + clicked_id).style.display = 'block';
@@ -3133,7 +3133,7 @@
     {
         // alert(clicked_id);
 
-        $('.biderror .mes').html("<div class='pop_content'> Do You want to delete this post?.<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='remove_post(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+        $('.biderror .mes').html("<div class='pop_content'> Do you want to delete this post?.<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='remove_post(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
         $('#bidmodal').modal('show');
     }
 </script>
@@ -3144,7 +3144,7 @@
     function user_postdeleteparticular(clicked_id)
     {
 
-        $('.biderror .mes').html("<div class='pop_content'>Do You want to delete this post from your profile?.<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='del_particular_userpost(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+        $('.biderror .mes').html("<div class='pop_content'>Do you want to delete this post from your profile?.<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='del_particular_userpost(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
         $('#bidmodal').modal('show');
     }
 </script>

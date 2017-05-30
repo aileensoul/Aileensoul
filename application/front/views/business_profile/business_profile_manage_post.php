@@ -384,13 +384,13 @@
 
                             if ($status == 0 || $status == " ") {
                                 ?>
-                                                                                                                                                                              <div class="msg_flw_btn_1" id= "followdiv">
-                                                                                                                                                                                  <button  id="<?php echo "follow" . $businessdata1[0]['business_profile_id']; ?>" onClick="followuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Follow</button>
-                                                                                                                                                                              </div>
+                                                                                                                                                                                  <div class="msg_flw_btn_1" id= "followdiv">
+                                                                                                                                                                                      <button  id="<?php echo "follow" . $businessdata1[0]['business_profile_id']; ?>" onClick="followuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Follow</button>
+                                                                                                                                                                                  </div>
                             <?php } elseif ($status == 1) { ?>
-                                                                                                                                                                              <div class="msg_flw_btn_1" id= "unfollowdiv">
-                                                                                                                                                                                  <button id="<?php echo "unfollow" . $businessdata1[0]['business_profile_id']; ?>" onClick="unfollowuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Following </button>
-                                                                                                                                                                              </div>
+                                                                                                                                                                                  <div class="msg_flw_btn_1" id= "unfollowdiv">
+                                                                                                                                                                                      <button id="<?php echo "unfollow" . $businessdata1[0]['business_profile_id']; ?>" onClick="unfollowuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Following </button>
+                                                                                                                                                                                  </div>
                             <?php } ?>
                                       </div> 
                                       <a href="<?php echo base_url('chat/abc/' . $businessdata1[0]['user_id']); ?>">Message</a>
@@ -422,8 +422,8 @@
                                 $userid = $this->session->userdata('aileenuser');
                                 if ($businessdata1[0]['user_id'] == $userid) {
                                     ?> 
-                                                                                                          <!--  <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_profile_save_post') { ?> class="active" <?php } ?>><a href="<?php echo base_url('business_profile/business_profile_save_post'); ?>">Saved Post</a>
-                                                                                                                                                                                </li> -->
+                                                                                                              <!--  <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_profile_save_post') { ?> class="active" <?php } ?>><a href="<?php echo base_url('business_profile/business_profile_save_post'); ?>">Saved Post</a>
+                                                                                                                                                                                    </li> -->
 
                                     <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'userlist') { ?> class="active" <?php } ?>><a title="Userlist" href="<?php echo base_url('business_profile/userlist/' . $businessdata1[0]['business_slug']); ?>">Userlist</a>
                                     </li>
@@ -435,15 +435,10 @@
                                 $userid = $this->session->userdata('aileenuser');
                                 if ($businessdata1[0]['user_id'] == $userid) {
                                     ?> 
-
-
                                     <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'followers') { ?> class="active" <?php } ?>><a title="Followers" href="<?php echo base_url('business_profile/followers/' . $businessdata1[0]['business_slug']); ?>">Followers <br>  (<?php echo (count($businessfollowerdata)); ?>)</a>
                                     </li>
-
-
                                     <?php
                                 } else {
-
                                     $businessregid = $businessdata1[0]['business_profile_id'];
                                     $contition_array = array('follow_to' => $businessregid, 'follow_status' => '1', 'follow_type' => '2');
                                     $followerotherdata = $this->data['followerotherdata'] = $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -565,7 +560,7 @@
                         <div class="profile-boxProfileCard  module">
 
                             <div class="head_details1">
-                                <span><h5><i class="fa fa-info-circle" aria-hidden="true"></i> Information</h5>
+                                <span><a href="<?php echo base_url('business_profile/business_resume/' . $businessdata1[0]['business_slug']); ?>"><h5><i class="fa fa-info-circle" aria-hidden="true"></i>Information</h5></a>
                                 </span>      </div>
                             <table class="business_data_table">
                                 <tr>
@@ -612,7 +607,8 @@
                                     ?>
                                     <tr>
                                         <td class="business_data_td1"><i class="fa fa-globe"></i></td>
-                                        <td class="business_data_td2 website"><span><a target="_blank" href="https://<?php echo $businessdata1[0]['contact_website']; ?>"> <?php echo $this->common->make_links($businessdata1[0]['contact_website']); ?></a></span></td>
+                                        <!--<td class="business_data_td2 website"><span><a target="_blank" href="https://<?php echo $businessdata1[0]['contact_website']; ?>"> <?php echo $this->common->make_links($businessdata1[0]['contact_website']); ?></a></span></td>-->
+                                        <td class="business_data_td2 website"><span><a target="_blank" href="<?php echo $businessdata1[0]['contact_website']; ?>"> <?php echo $this->common->make_links($businessdata1[0]['contact_website']); ?></a></span></td>
                                     </tr>
 
                                 <?php } ?>
@@ -1033,7 +1029,7 @@
                                 <div id="myBtn1"  class="editor-content col-md-10 popup-text" >
                                        <!-- <textarea name="product_title" placeholder="Post Your Product...."></textarea>  -->
                                     <textarea id= "test-upload_product" placeholder="Post Your Product...."  onKeyPress=check_length(this.form); onKeyDown=check_length(this.form); onblur=check_length(this.form);
-                                              name=my_text rows=4 cols=30 class="post_product_name" style="position: relative;"></textarea>
+                                              name=my_text rows=4 cols=30 class="post_product_name" style="position: relative;" tabindex="1"></textarea>
                                     <div style="position: absolute; top: 21px; right: 19px; border: none;">                   
                                         <input size=1 value=50 name=text_num class="text_num" readonly> 
                                     </div>
@@ -1048,7 +1044,7 @@
                             </div>
                             <div class="row"></div>
                             <div  id="text"  class="editor-content col-md-12 popup-textarea" >
-                                <textarea id="test-upload_des" name="product_desc" class="description" placeholder="Enter Description"></textarea>
+                                <textarea id="test-upload_des" name="product_desc" class="description" placeholder="Enter Description" tabindex="2"></textarea>
 
                                 <output id="list"></output>
                             </div>
@@ -1277,8 +1273,8 @@
 
                                                 <div id="<?php echo 'editpostdetailbox' . $row['business_profile_post_id']; ?>" style="display:none;">
 
-                                                                                                                                                                                                                    <!-- <textarea id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" name="editpostdesc"><?php echo $row['product_description']; ?>
-                                                                                                                                                                                                                    </textarea> 
+                                                                                                                                                                                                                            <!-- <textarea id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" name="editpostdesc"><?php echo $row['product_description']; ?>
+                                                                                                                                                                                                                            </textarea> 
                                                     -->
                                                     <div  contenteditable="true" id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" placeholder="Product Description" class="textbuis  editable_text" placeholder="Description of Your Product"  name="editpostdesc"><?php echo $row['product_description']; ?></div>
 
@@ -1972,14 +1968,14 @@
             </script>
 
             <!-- tabing script start -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
-<!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+            <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
             <script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
             <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
             <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
             <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
 
-            
+
 
             <!-- script for skill textbox automatic start-->
             <script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script>
@@ -1993,38 +1989,38 @@
             <!-- script for skill textbox automatic end-->
 
             <script>
-  jQuery.noConflict();
+                jQuery.noConflict();
 
-                                                                (function ($) {
+                (function ($) {
 
-                var data = <?php echo json_encode($demo); ?>;
-                // alert(data);
+                    var data = <?php echo json_encode($demo); ?>;
+                    // alert(data);
 
 
-                $(function () {
-                    // alert('hi');
-                    $("#tags").autocomplete({
-                        source: function (request, response) {
-                            var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
-                            response($.grep(data, function (item) {
-                                return matcher.test(item.label);
-                            }));
-                        },
-                        minLength: 1,
-                        select: function (event, ui) {
-                            event.preventDefault();
-                            $("#tags").val(ui.item.label);
-                            $("#selected-tag").val(ui.item.label);
-                            // window.location.href = ui.item.value;
-                        }
-                        ,
-                        focus: function (event, ui) {
-                            event.preventDefault();
-                            $("#tags").val(ui.item.label);
-                        }
+                    $(function () {
+                        // alert('hi');
+                        $("#tags").autocomplete({
+                            source: function (request, response) {
+                                var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+                                response($.grep(data, function (item) {
+                                    return matcher.test(item.label);
+                                }));
+                            },
+                            minLength: 1,
+                            select: function (event, ui) {
+                                event.preventDefault();
+                                $("#tags").val(ui.item.label);
+                                $("#selected-tag").val(ui.item.label);
+                                // window.location.href = ui.item.value;
+                            }
+                            ,
+                            focus: function (event, ui) {
+                                event.preventDefault();
+                                $("#tags").val(ui.item.label);
+                            }
+                        });
                     });
-                });
-  })(jQuery);
+                })(jQuery);
             </script>
 
             <script type="text/javascript">
@@ -2490,7 +2486,7 @@
             <!-- hide and show data start-->
             <script type="text/javascript">
                 function commentall(clicked_id) {
-                    
+
                     var x = document.getElementById('threecomment' + clicked_id);
                     var y = document.getElementById('fourcomment' + clicked_id);
                     var z = document.getElementById('insertcount' + clicked_id);
@@ -3893,108 +3889,111 @@
 
 
             <script type="text/javascript">
-                $uploadCrop = $('#upload-demo').croppie({
-                    enableExif: true,
-                    viewport: {
-                        width: 1250,
-                        height: 350,
-                        type: 'square'
-                    },
-                    boundary: {
-                        width: 1250,
-                        height: 350
-                    }
-                });
+                jQuery.noConflict();
+
+                (function ($) {
+                    $uploadCrop = $('#upload-demo').croppie({
+                        enableExif: true,
+                        viewport: {
+                            width: 1250,
+                            height: 350,
+                            type: 'square'
+                        },
+                        boundary: {
+                            width: 1250,
+                            height: 350
+                        }
+                    });
 
 
 
-                $('.upload-result').on('click', function (ev) {
-                    $uploadCrop.croppie('result', {
-                        type: 'canvas',
-                        size: 'viewport'
-                    }).then(function (resp) {
+                    $('.upload-result').on('click', function (ev) {
+                        $uploadCrop.croppie('result', {
+                            type: 'canvas',
+                            size: 'viewport'
+                        }).then(function (resp) {
+
+                            $.ajax({
+                                url: "<?php echo base_url() ?>business_profile/ajaxpro",
+                                type: "POST",
+                                data: {"image": resp},
+                                success: function (data) {
+                                    html = '<img src="' + resp + '" />';
+                                    if (html)
+                                    {
+                                        window.location.reload();
+                                    }
+
+                                }
+                            });
+
+                        });
+                    });
+
+                    $('.cancel-result').on('click', function (ev) {
+                        document.getElementById('row2').style.display = "block";
+                        document.getElementById('row1').style.display = "none";
+                        document.getElementById('message1').style.display = "none";
+                    });
+
+                    //aarati code start
+                    $('#upload').on('change', function () {
+
+
+
+                        var reader = new FileReader();
+
+                        reader.onload = function (e) {
+                            $uploadCrop.croppie('bind', {
+                                url: e.target.result
+                            }).then(function () {
+                                console.log('jQuery bind complete');
+                            });
+
+                        }
+                        reader.readAsDataURL(this.files[0]);
+
+
+
+                    });
+
+                    $('#upload').on('change', function () {
+
+                        var fd = new FormData();
+                        fd.append("image", $("#upload")[0].files[0]);
+
+                        files = this.files;
+                        size = files[0].size;
+
+
+
+                        if (size > 4194304)
+                        {
+                            //show an alert to the user
+                            alert("Allowed file size exceeded. (Max. 4 MB)")
+
+                            document.getElementById('row1').style.display = "none";
+                            document.getElementById('row2').style.display = "block";
+
+
+                            //reset file upload control
+                            return false;
+                        }
 
                         $.ajax({
-                            url: "<?php echo base_url() ?>business_profile/ajaxpro",
+
+                            url: "<?php echo base_url(); ?>business_profile/imagedata",
                             type: "POST",
-                            data: {"image": resp},
-                            success: function (data) {
-                                html = '<img src="' + resp + '" />';
-                                if (html)
-                                {
-                                    window.location.reload();
-                                }
+                            data: fd,
+                            processData: false,
+                            contentType: false,
+                            success: function (response) {
+
 
                             }
                         });
-
                     });
-                });
-
-                $('.cancel-result').on('click', function (ev) {
-                    document.getElementById('row2').style.display = "block";
-                    document.getElementById('row1').style.display = "none";
-                    document.getElementById('message1').style.display = "none";
-                });
-
-                //aarati code start
-                $('#upload').on('change', function () {
-
-
-
-                    var reader = new FileReader();
-
-                    reader.onload = function (e) {
-                        $uploadCrop.croppie('bind', {
-                            url: e.target.result
-                        }).then(function () {
-                            console.log('jQuery bind complete');
-                        });
-
-                    }
-                    reader.readAsDataURL(this.files[0]);
-
-
-
-                });
-
-                $('#upload').on('change', function () {
-
-                    var fd = new FormData();
-                    fd.append("image", $("#upload")[0].files[0]);
-
-                    files = this.files;
-                    size = files[0].size;
-
-
-
-                    if (size > 4194304)
-                    {
-                        //show an alert to the user
-                        alert("Allowed file size exceeded. (Max. 4 MB)")
-
-                        document.getElementById('row1').style.display = "none";
-                        document.getElementById('row2').style.display = "block";
-
-
-                        //reset file upload control
-                        return false;
-                    }
-
-                    $.ajax({
-
-                        url: "<?php echo base_url(); ?>business_profile/imagedata",
-                        type: "POST",
-                        data: fd,
-                        processData: false,
-                        contentType: false,
-                        success: function (response) {
-
-
-                        }
-                    });
-                });
-
+                })(jQuery);
                 //aarati code end
             </script>
             <!-- cover image end -->
@@ -4003,7 +4002,7 @@
             <script type="text/javascript">
                 function user_postdelete(clicked_id)
                 {
-                    $('.biderror .mes').html("<div class='pop_content'> Do You want to delete this post?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='remove_ownpost(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+                    $('.biderror .mes').html("<div class='pop_content'> Do you want to delete this post?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='remove_ownpost(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
                     $('#bidmodal').modal('show');
                 }
             </script>

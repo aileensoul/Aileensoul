@@ -8,6 +8,10 @@
 <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
 <style type="text/css">
 .header2{border-bottom-left-radius: 4px;border-bottom-right-radius: 4px; }
+.full-width  img{display: none;}
+#imageold {display: block;}
+#preview {display: none; height:100px; width:100px; margin: 0 auto;}
+
 </style>
 
     <!-- start header -->
@@ -98,7 +102,7 @@
 
                                             <div class="img_bui_data"> 
                                             <div class="edit_bui_img">
-                                            <img src="<?php echo base_url($this->config->item('bus_profile_main_upload_path').$image['image_name'])?>" >
+                                            <img id="imageold" src="<?php echo base_url($this->config->item('bus_profile_main_upload_path').$image['image_name'])?>" >
                                    </div>
                                             
                                              <?php // if ($y != 1) {
@@ -120,9 +124,9 @@
                                              
                                    
                                 </fieldset>
-                                
+                                 <img id="preview" src="#" alt="your image"/>
                                <fieldset class="hs-submit full-width">
-                                   
+                                  
 
                                    
                                     <input type="submit"  id="submit" name="submit" value="Submit">
@@ -266,3 +270,24 @@ $('#searchplace').select2({
                         }
                     </script>
     <!-- footer end -->
+    
+    
+    <!-- script for profile pic strat -->
+<script type="text/javascript">
+     function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            
+            reader.onload = function (e) {
+            
+            document.getElementById('preview').style.display = 'block';
+                $('#preview').attr('src', e.target.result);
+            }
+             reader.readAsDataURL(input.files[0]);
+        }
+    }
+    
+    $("#image1").change(function(){ 
+        readURL(this);
+    });
+</script>
