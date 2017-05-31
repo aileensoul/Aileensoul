@@ -143,7 +143,7 @@
 
                                     </div>
 
-                                    <div class="profile-box-bui-menu  col-md-12">
+                                    <div class="profile-box-bui-menu  profile-box-busi-menu  col-md-12">
 
                                         <ul class="">
                                             <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'art_savepost') { ?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/art_manage_post'); ?>"> Dashboard</a>

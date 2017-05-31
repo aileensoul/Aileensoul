@@ -421,11 +421,7 @@ if($status == 0 || $status == " "){?>
 
 
   <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
-  <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
-  <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
-  <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
-  <script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script>
-
+ 
 </body>
 
 <!-- Bid-modal-2  -->
@@ -453,8 +449,14 @@ if($status == 0 || $status == " "){?>
 <!-- Model Popup Close -->
 
 </html>
+ <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
+  <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
+  <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
+  <script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script>
 
- <script type="text/javascript" src="<?php echo base_url('js/3.3.0/select2.js'); ?>"></script>
+
+ <!-- <script type="text/javascript" src="<?php echo base_url('js/3.3.0/select2.js'); ?>"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
  
 
 <!-- script for skill textbox automatic start (option 2)-->
