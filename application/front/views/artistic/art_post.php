@@ -698,7 +698,7 @@ if ($userlistview4 > 0) {
                                     </div>
                                     <div id="myBtn"  class="editor-content col-md-10 popup-text" >
                                            <!-- <textarea name="product_title" placeholder="Post Your Product...."></textarea>  -->
-                                        <textarea id= "test-upload_product" placeholder="Post Your Art...."  onKeyPress=check_length(this.form); onKeyDown=check_length(this.form); odnblur=chheck_length(this.form); 
+                                        <textarea id= "test-upload_product" placeholder="Post Your Art...."   onKeyup=check_length(this.form);  
                                                   name=my_text rows=4 cols=30 class="post_product_name" style="position: relative;"></textarea>
                                        <div class="fifty_val">                       
                                             <input size=1 class="text_num" value=50 name=text_num readonly> 
@@ -3333,16 +3333,16 @@ jQuery.noConflict();
                            
                                    
                             function check_length(my_form)
-                            {  //alert("hisfsfsfiiii");
+                            {  
                                 maxLen = 50;
-                                alert(my_form.my_text.value.length);
+                          
                                 // max number of characters allowed
-                                if (my_form.my_text.value.length > maxLen) {alert("1");
+                                if (my_form.my_text.value.length >= maxLen) {
                                     // Alert message if maximum limit is reached. 
                                     // If required Alert can be removed. 
                                     var msg = "You have reached your maximum limit of characters allowed";
                                 //    alert(msg);
-                                    
+                                    my_form.text_num.value = maxLen - my_form.my_text.value.length;
                        $('.biderror .mes').html("<div class='pop_content'>" + msg + "</div>");
                         $('#bidmodal').modal('show');
                                     // Reached the Maximum length so trim the textarea
