@@ -752,7 +752,7 @@ echo $job_header2;
                                                     </ul>
                                                 </div>
                                             </div>
-
+<!-- 
                                             <div class="profile-job-post-title clearfix">
                                                 <div class="profile-job-profile-button clearfix">
                                                     <div class="profile-job-details">
@@ -779,7 +779,7 @@ echo $job_header2;
 
                                                     </ul>
                                                 </div>
-                                            </div>
+                                            </div> -->
                                <?php if($job_work){ ?>    
                                             <div class="profile-job-post-title clearfix">
                                                 <div class="profile-job-profile-button clearfix">
