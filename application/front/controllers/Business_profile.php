@@ -1601,7 +1601,6 @@ class Business_profile extends MY_Controller {
 
         $userid = $this->session->userdata('aileenuser');
 
-
         if ($this->input->post('cancel2')) {
             redirect('business_profile/business_profile_post', refresh);
         } elseif ($this->input->post('cancel1')) {
@@ -1653,6 +1652,11 @@ class Business_profile extends MY_Controller {
             //Getting Uploaded Image File Data
             $imgdata = $this->upload->data();
             $imgerror = $this->upload->display_errors();
+            
+//            echo '<pre>';
+//            print_r($imgerror);
+//            exit;
+            
             if ($imgerror == '') {
                 //Configuring Thumbnail 
                 $user_thumb['image_library'] = 'gd2';

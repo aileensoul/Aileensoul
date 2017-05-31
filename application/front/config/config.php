@@ -718,7 +718,7 @@ $config['free_post_bg_original_upload_path'] = 'uploads/freelancer_post_bg/origi
 $config['bus_profile_main_upload_path'] = 'uploads/business_profile/main/';
 $config['bus_profile_main_allowed_types'] = 'jpg|jpeg|png|gif|pdf';
 $config['bus_profile_main_max_size'] = '800000'; //in KB
-$config['bus_profile_main_max_width'] = '2500';
+$config['bus_profile_main_max_width'] = '4500';
 $config['bus_profile_main_max_height'] = '1800';
 
 // BUSINESS PROFILE IMAGE THUMBS
