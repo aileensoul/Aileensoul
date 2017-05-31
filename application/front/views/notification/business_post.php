@@ -3513,7 +3513,7 @@
 <style type="text/css">
     .likeduser, .likeduser1{
         width: 100%;
-        background-color: #00002D;
+        background-color: #1b8ab9;
     }
     .likeduser-title, .likeduser-title1{
         color: #fff;

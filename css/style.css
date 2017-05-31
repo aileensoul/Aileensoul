@@ -2977,7 +2977,7 @@ label.cameraButton input[accept*="camera"] {
 .show {
     font:normal 15px arial;
 /*    text-align: justify;*/
-    
+
 
 }
 .morectnt span {
@@ -4045,7 +4045,7 @@ body.modal-open{ padding: 0 !important; overflow: visible;  position: absolute; 
 
 
 .like_other{display:block; padding-left: 23px; background-color: #fff;}
-.like_one_other{font-weight: 400; padding-left: 24px!important; padding: 1px; font-size: 13px; display: inline-block;margin-left: 1px;}
+.like_one_other{font-weight: 400; padding-left: 23px!important; padding: 1px; font-size: 13px; display: inline-block;margin-left: 1px;}
 
 
 
