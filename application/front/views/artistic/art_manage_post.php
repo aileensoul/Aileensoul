@@ -3073,7 +3073,7 @@ jQuery.noConflict();
     }
 
     // Close the dropdown if the user clicks outside of it
-    window.onclick = function (event) { alert("hiiii");
+    window.onclick = function (event) { 
         if (!event.target.matches('.dropbtn2')) {
 
             var dropdowns = document.getElementsByClassName("dropdown-content2");
