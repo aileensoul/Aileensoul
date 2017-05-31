@@ -9,7 +9,7 @@
                              <!--    <label>Find Your Skills</label>
 
                               -->  
-                              <input type="text" id="tags" name="skills" placeholder="Find Your business">
+                              <input type="text" id="tags" name="skills" placeholder="Find Your Business">
                               
                             </fieldset>
                             <fieldset class="col-md-3">

@@ -2544,9 +2544,8 @@ text-align: justify; display: inline-block; margin-bottom: 0px;
 .popup-textarea textarea {
     border: none;
     width: 100%;
-  height: auto;
-  max-height: 28px;
-        min-height: 30%;
+    height: auto;
+    min-height: 100px;
     color: #000;
     padding: 12px 20px 0px 0px;
     box-sizing: border-box;
@@ -2977,7 +2976,7 @@ label.cameraButton input[accept*="camera"] {
 .show {
     font:normal 15px arial;
 /*    text-align: justify;*/
-    
+
 
 }
 .morectnt span {
@@ -4045,7 +4044,7 @@ body.modal-open{ padding: 0 !important; overflow: visible;  position: absolute; 
 
 
 .like_other{display:block; padding-left: 23px; background-color: #fff;}
-.like_one_other{font-weight: 400; padding-left: 24px!important; padding: 1px; font-size: 13px; display: inline-block;margin-left: 1px;}
+.like_one_other{font-weight: 400; padding-left: 23px!important; padding: 1px; font-size: 13px; display: inline-block;margin-left: 1px;}
 
 
 
@@ -5312,7 +5311,7 @@ cover pic css*/
              white-space: nowrap; }
 .fifty_val{position: absolute; top: 21px; right: 19px; border: none;}
 .post-editor .popup-social-icon ul li .upload_icon{margin: 8px; cursor:pointer}
-.camer_h i{margin: 0px; font-size: 27px; cursor: pointer; /* margin-right: -38px; */ margin-top: 25px;}
+.camer_h i{margin: 0px; font-size: 27px; cursor: pointer; /* margin-right: -38px; */ margin-top: 25px;color: #1b8ab9}
 .posted_with{font-weight: 600;  color: #91949d; display: inline-block;}
 .other_name{font-size: 15px;                    line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; }
 .ctre_date{font-weight: 400; color: #91949d;  cursor: default;}
@@ -5358,3 +5357,4 @@ fieldset .add_post_btns:hover{background-color:#156f95!important}
 .apply-btn a{border:2px solid #1b8ab9;}
 .dropdown-content2 a i{padding-right: 13px;}
 .website span a:hover{text-decoration: underline;}
+.profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul .clearfix { list-style: none; display: block; width: 100%; clear: both; padding:10px 2px 6px;  }
