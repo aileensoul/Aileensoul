@@ -879,7 +879,7 @@
                                             </ul> 
                                         </div>  
 <div class="dropdown2">
-         <a onClick="myFunction(<?php echo $row['art_post_id']; ?>)" class="dropbtn2 dropbtn2 fa fa-ellipsis-v"></a>
+         <a onClick="myvFunction(<?php echo $row['art_post_id']; ?>)" class="dropbtn2 dropbtn2 fa fa-ellipsis-v"></a>
     <div id="<?php echo "myDropdown" . $row['art_post_id']; ?>" class="dropdown-content2">
 
        <?php if($row['posted_user_id'] != 0){
@@ -3064,12 +3064,14 @@ jQuery.noConflict();
 <script>
     /* When the user clicks on the button, 
      toggle between hiding and showing the dropdown content */
-    function myFunction(clicked_id) {
+    function myvFunction(clicked_id) {
+        
+       
         document.getElementById('myDropdown' + clicked_id).classList.toggle("show");
     }
 
     // Close the dropdown if the user clicks outside of it
-    window.onclick = function (event) {
+    window.onclick = function (event) { alert("hiiii");
         if (!event.target.matches('.dropbtn2')) {
 
             var dropdowns = document.getElementsByClassName("dropdown-content2");
@@ -3854,7 +3856,7 @@ jQuery.noConflict();
 
 </style>
 <!-- This  script use for close dropdown in every post -->
-<script type="text/javascript">
+<!--<script type="text/javascript">
     $('body').on("click", "*", function (e) {
         var classNames = $(e.target).attr("class").toString().split(' ').pop();
 //        alert(classNames);
@@ -3870,16 +3872,23 @@ jQuery.noConflict();
 
     });
 
-</script>
+</script>-->
 
-
+<!-- This  script use for close dropdown in every post -->
+                        <script type="text/javascript">
+                            $('body').on("click", "*", function (e) {
+                                var classNames = $(e.target).attr("class").toString().split(' ').pop();
+                                if (classNames != 'fa-ellipsis-v') {
+                                    $('div[id^=myDropdown]').hide().removeClass('show');
+                                }
+                                   });
+                        </script>
 
 <!-- This  script use for close dropdown in every post -->
 
 <!-- script for profile pic strat -->
 <script type="text/javascript">
     
-
      function readURL(input) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
