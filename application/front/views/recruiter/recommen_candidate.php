@@ -179,43 +179,82 @@
                 <ul>
                      
                 <li><b>Skills</b>
+
+
                        <span>
                       <?php
-                         $comma = ", ";
-                         $k = 0;
+                         // $comma = ", ";
+                         // $k = 0;
                          $aud = $row['keyskill'];
                          $aud_res = explode(',', $aud);
                          $count_aud_res = count($aud_res);
 
                          if(!$row['keyskill']){
 
-                          echo $row['other_skill'];
-                         }else if(!$row['other_skill']){
+                          // echo $row['other_skill']; 
+                          foreach ($otherskill as $skill1) {
+                         $skill2[] = $skill1['skill']; 
+                         
+                          }
+                       $listFinalother = implode(', ', $skill2);
+                       echo $listFinalother;
+                                                   
 
+                         }else if(!$otherskill){
 
+                      foreach ($aud_res as $skill) {
 
-                          foreach ($aud_res as $skill) {
-                            $cache_time = $this->db->get_where('skill', array('skill_id' => $skill))->row()->skill;
-                                  echo $cache_time;
-                                    if ($k != ($count_aud_res - 1)) {
-                                           echo $comma;
+                  $cache_time = $this->db->get_where('skill', array('skill_id' => $skill))->row()->skill;
+                        $skill1[] = $cache_time;
+                    }
+                    $listFinal = implode(', ', $skill1);
+                    echo $listFinal;
+
+                          // foreach ($aud_res as $skill) {
+                          //   $cache_time = $this->db->get_where('skill', array('skill_id' => $skill))->row()->skill;
+                          //         echo $cache_time;
+                          //           if ($k != ($count_aud_res - 1)) {
+                          //                  echo $comma;
                                           
-                                         }
-                                       $k++;
-                                   }
+                          //                }
+                          //              $k++;
+                          //          }
 
-                         }else if($row['keyskill'] && $row['other_skill']){
+                         }
+
+                         else if($row['keyskill'] && $otherskill){
+                     foreach ($aud_res as $skill) {
+
+                  $cache_time = $this->db->get_where('skill', array('skill_id' => $skill))->row()->skill;
+                        $skill1[] = $cache_time;
+                    }
+                    $listFinal = implode(', ', $skill1);
 
 
-                          foreach ($aud_res as $skill) {
-                            $cache_time = $this->db->get_where('skill', array('skill_id' => $skill))->row()->skill;
-                                  echo $cache_time;
-                                    if ($k != ($count_aud_res - 1)) {
-                                           echo $comma;
-                                           echo '&nbsp';
-                                         }
-                                       $k++;
-                                   } echo ", " . $row['other_skill']; }
+                    foreach ($otherskill as $skill1) {
+                         $skill2[] = $skill1['skill']; 
+                         
+                          }
+                       $listFinalother = implode(', ', $skill2);
+                       //echo $listFinalother;
+
+
+                    echo $listFinal .',' . $listFinalother;
+                   }
+
+
+                         // else if($row['keyskill'] && $row['other_skill']){
+
+
+                         //  foreach ($aud_res as $skill) {
+                         //    $cache_time = $this->db->get_where('skill', array('skill_id' => $skill))->row()->skill;
+                         //          echo $cache_time;
+                         //            if ($k != ($count_aud_res - 1)) {
+                         //                   echo $comma;
+                         //                   echo '&nbsp';
+                         //                 }
+                         //               $k++;
+                         //           } echo ", " . $row['other_skill']; }
                                    ?>       
                     </span>
                                                                     </li>
