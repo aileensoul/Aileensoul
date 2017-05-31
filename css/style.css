@@ -2453,7 +2453,7 @@ text-align: justify; display: inline-block; margin-bottom: 0px;
 .post-editor{ height: auto; background-color: #e8f3f8;  padding: 5px;
               padding-left: 14px;
               padding-right: 15px; 
-              padding-bottom: 0px;
+              padding-bottom: 5px;
               border-radius: 4px; margin-bottom: 10px; border: 1px solid #cccccc;}
 .popup-img img{       border: 2px solid #ffffff;
    
@@ -2479,7 +2479,7 @@ form{margin-bottom: 5px}
 .popup-text span{    color: #999999;
     /* font-weight: 600; */
     font-size: 21px;}
-.popup-text textarea{height: 39px; width: 100%; resize: none; border: none;}
+.popup-text textarea{height: 39px; width: 100%;line-height: 1; resize: none; border: none;}
 .post-editor .popup-textarea p{color: #999999;}
 .post-editor .popup-text span i{font-size: 25px; color: #1b8ab9; }
 .popup-img{    padding-left: 2px !important; padding-right: 0px;}
