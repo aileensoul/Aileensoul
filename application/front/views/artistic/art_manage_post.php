@@ -2350,13 +2350,13 @@ jQuery.noConflict();
                 var sel = $("#post_comment" + clicked_id);
                
                 var txt = sel.html();
-                
-                  txt = txt.replace(/&nbsp;/gi, " ");
-               //   alert("1"); alert(txt);
+           
+                 txt = txt.replace(/&nbsp;/gi, " ");
+                alert("1"); alert(txt);
                     txt = txt.replace(/<br>$/, '');
-               //     alert("1"); alert(txt);
-              //   txt = txt.replace(/^\s+|\s+$/g, "")
-               //  alert("1"); alert(txt);
+                   alert("2"); alert(txt);
+                txt = txt.replace(/^\s+|\s+$/g, "")
+                 alert("3"); alert(txt);
                     if (txt == '' || txt == '<br>') {
                         return false;
                     }

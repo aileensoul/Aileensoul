@@ -329,12 +329,12 @@ if ($status == 0 || $status == " ") {
                                                     }
                                                 }
 
-                                                if ($databus) {
+                                                if ($databus) { 
                                                     foreach ($databus as $data) {
-                                                        ?>
+                                                         ?>
                                              <div class="pictures">
                                                         <img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $data['image_name']) ?>" onclick="openModal();currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor" width="280" height="300"/>
-
+                                                 
                                                         <?php
                                                         $i++;
                                                     }?>
@@ -819,7 +819,7 @@ if ($status == 0 || $status == " ") {
 <script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 
-<script src="<?php echo base_url('js/jquery.jMosaic.js'); ?>"></script>
+<!--<script src="<?php //echo base_url('js/jquery.jMosaic.js'); ?>"></script>-->
 
 
 <script>
