@@ -703,7 +703,10 @@ if ($userlistview4 > 0) {
                                        <div class="fifty_val">                       
                                             <input size=1 class="text_num" value=50 name=text_num readonly> 
                                         </div>
-
+                                    </div>
+                                    <div class="col-md-1 padding-left padding_les_left camer_h">
+                                        <i class=" fa fa-camera" >
+                                        </i> 
                                     </div>
                                 </div>
                                 <div class="row"></div>

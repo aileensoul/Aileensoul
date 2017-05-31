@@ -1293,7 +1293,13 @@ class Recruiter extends MY_Controller {
         'join_type' => 'left',
         'table' => 'job_add_workexp',
         'join_table_id' => 'save.to_id',
-        'from_table_id' => 'job_add_workexp.user_id')
+        'from_table_id' => 'job_add_workexp.user_id'),
+     array(
+        'join_type' => 'left',
+        'table' => 'job_graduation',
+        'join_table_id' => 'save.to_id',
+        'from_table_id' => 'job_graduation.user_id')
+
 ); 
 
   // <rash code 12-4 end>
