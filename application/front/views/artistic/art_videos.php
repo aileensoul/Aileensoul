@@ -9,6 +9,8 @@
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/video.css'); ?>">
     <script src="<?php echo base_url('js/mediaelement-and-player.min.js'); ?>"></script>
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
+
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
 
@@ -409,7 +411,7 @@ if ($status == 0 || $status == " ") {
                 <div class="not_avali" >
                                 <img src="<?php echo base_url('images/010.png'); ?>"  >
                                <div>
-                                <div class="not_text" >Video not avalible</div>
+                                <div class="not_text" >Video Not Avalible</div>
                                </div>
                                </div>
                                </div>
