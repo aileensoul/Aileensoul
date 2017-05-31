@@ -596,15 +596,14 @@ return false;
 
    function inviteuser(clicked_id)
     {  
-<<<<<<< HEAD
-    // alert(clicked_id);
+
       var post_id = "<?php echo $postid; ?>";
        // alert(post_id);
-=======
-     alert(clicked_id);
+
+     //alert(clicked_id);
       var post_id = "<?php echo $postid; ?>";
-        alert(post_id);
->>>>>>> b42bcbf02782a2cee9fe967e18b89f3381ebbe3e
+        //alert(post_id);
+
         $.ajax({
             type: 'POST',
             url: '<?php echo base_url() . "recruiter/invite_user" ?>',
