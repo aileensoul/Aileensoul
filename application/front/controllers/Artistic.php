@@ -3981,6 +3981,58 @@ class Artistic extends MY_Controller {
         $this->data['art_data'] = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
         //echo "<pre>"; print_r($this->data['art_data']);die();
+
+        //code search
+        $contition_array = array('status' => '1', 'is_delete' => '0');
+
+
+        $artdata = $this->data['results'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_name,art_lastname,designation,other_skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+
+        $return_array = array();
+        //  //echo  $return_array;
+
+        foreach ($artdata as $get) {
+            $return = array();
+            $return = $get;
+
+
+            $return['firstname'] = $get['art_name'] . " " . $get['art_lastname'];
+            unset($return['art_name']);
+            unset($return['art_lastname']);
+
+            array_push($return_array, $return);
+            //echo $returnarray; 
+        }
+
+        $contition_array = array('status' => '1', 'type' => '2');
+
+        $artpost = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        // echo "<pre>"; print_r($artpost);die();
+
+
+        $uni = array_merge($return_array, $artpost);
+        //   echo count($unique);
+
+
+        foreach ($uni as $key => $value) {
+            foreach ($value as $ke => $val) {
+                if ($val != "") {
+
+
+                    $result[] = $val;
+                }
+            }
+        }
+        $results = array_unique($result);
+        foreach ($results as $key => $value) {
+            $result1[$key]['label'] = $value;
+            $result1[$key]['value'] = $value;
+        }
+
+        $this->data['demo'] = array_values($result1);
+
+
         $this->load->view('artistic/postnewpage', $this->data);
     }
 
