@@ -110,7 +110,7 @@ class Login extends CI_Controller {
                     redirect('login', 'refresh');
                     }else{
                       $this->session->set_flashdata('error1', '<div class="alert alert-danger">Please Enter Valid Credential.</div>');
-                    redirect('main', 'refresh');
+                    redirect('login', 'refresh');
 
                     }
                 }
@@ -122,7 +122,7 @@ class Login extends CI_Controller {
                 redirect('login', 'refresh');
                  }else{
                    $this->session->set_flashdata('error', '<div class="alert alert-danger">Please Enter Valid Login Detail.</div>');
-                redirect('main', 'refresh');
+                redirect('login', 'refresh');
 
                  }
             }

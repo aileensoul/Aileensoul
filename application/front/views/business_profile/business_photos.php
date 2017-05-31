@@ -332,7 +332,7 @@
                                         <div class="contact-frnd-post">
 
 
-                                            <div class="pictures">
+                                            
 
                                                 <?php
                                                 $i = 1;
@@ -347,21 +347,30 @@
                                                     }
                                                 }
 
-                                                if ($databus) {
-                                                    foreach ($databus as $data) {
+                                                if ($databus) { ?>
+                                                    <div class="pictures">
+                                             <?php       foreach ($databus as $data) {
                                                         ?>
                                                         <img src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $data['image_name']) ?>" onclick="openModal();currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor" width="550" height="669"/>
 
                                                         <?php
                                                         $i++;
-                                                    }
-                                                } else {
+                                                    } ?>
+                                                    </div>
+                                         <?php       } else {
                                                     ?>
-
+   <div class="main_pdf_box"  >
+                <div class="not_avali" >
+                                <img src="<?php echo base_url('images/020-c.png'); ?>"  >
+                               <div>
+                                <div class="not_text" >Photo not avalible</div>
+                               </div>
+                               </div>
+                               </div>
                                                
                                                 <?php } ?>
 
-                                            </div>
+                                            
 
 
 
