@@ -2352,7 +2352,11 @@ jQuery.noConflict();
                 var txt = sel.html();
                 
                   txt = txt.replace(/&nbsp;/gi, " ");
+               //   alert("1"); alert(txt);
                     txt = txt.replace(/<br>$/, '');
+               //     alert("1"); alert(txt);
+              //   txt = txt.replace(/^\s+|\s+$/g, "")
+               //  alert("1"); alert(txt);
                     if (txt == '' || txt == '<br>') {
                         return false;
                     }
