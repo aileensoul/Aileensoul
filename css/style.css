@@ -2375,7 +2375,7 @@ text-align: justify; display: inline-block; margin-bottom: 0px;
     text-decoration: none;
     transition: 0.3s;*/
 
-    background: #3b5283;
+    background: #1b8ab9;
     float: left;
     display: block;
     color: #ffffff;
@@ -2391,14 +2391,14 @@ text-align: justify; display: inline-block; margin-bottom: 0px;
 
 /* Change background color of links on hover */
 .tablet-hi a:hover {
-    opacity: 0.8;
-    background-color: #3f588d;
+    /*opacity: 0.8;*/
+    background-color: #156f95;
     color: #ffffff;
 }
 
 /* Create an active/current tablink class */
-.tablet-hi a:focus, .active2 {
-    background-color: #1b8ab9;
+.tablet-hi a:focus, .active {
+    background-color: #156f95;
     color: #ffffff;
 }
 /* li:focus, .active{ background-color: #3f588d;
@@ -5348,6 +5348,7 @@ fieldset .add_post_btns:hover{background-color:#156f95!important}
  .profile-box-bui-menu    ul li {
     padding-left: 15px;
 }
+.profile-box-busi-menu    ul li{padding-left: 0px;}
 .profile-box-freehire-menu ul li {
     padding-left: 11px;
 }
@@ -5365,3 +5366,4 @@ fieldset .add_post_btns:hover{background-color:#156f95!important}
 
 .mar_btm{margin-bottom: 20px;}
 .post-editor .fr button{padding: 7px 30px; font-size: 15px} 
+.audio_source{cursor: pointer;}
