@@ -1986,6 +1986,12 @@ class Recruiter extends MY_Controller {
 
 
 
+<<<<<<< HEAD
+
+         $contition_array = array('job_reg.user_id !=' => $userid);
+
+=======
+>>>>>>> ae2cfb6fe7036885d5c8ec190497ff2bb8b4bcef
         $join_str = array(
             array(
                 'join_type' => '',
@@ -1998,7 +2004,12 @@ class Recruiter extends MY_Controller {
                 'join_table_id' => 'job_reg.user_id',
                 'from_table_id' => 'job_add_workexp.user_id')
         );
+<<<<<<< HEAD
+         $contition_array = array('job_reg.user_id !=' => $userid,'job_reg.is_delete' => 0, 'job_reg.status' => 1);
+
+=======
          $contition_array = array('job_reg.user_id !=' => $userid);
+>>>>>>> ae2cfb6fe7036885d5c8ec190497ff2bb8b4bcef
 
     
         $candidate = $this->data['candidate'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -2010,6 +2021,11 @@ class Recruiter extends MY_Controller {
         foreach ($candidate as $jobcan) {  //echo "123"; die();
             $keyskill = explode(',', $jobcan['keyskill']);
             $result = array_intersect($postuserarray, $keyskill);
+<<<<<<< HEAD
+
+          //  echo "<pre>"; print_r($result ); 
+=======
+>>>>>>> ae2cfb6fe7036885d5c8ec190497ff2bb8b4bcef
             
            
       if($result){
@@ -2021,10 +2037,35 @@ $join_str1 = array(
                 'join_table_id' => 'job_reg.user_id',
                 'from_table_id' => 'job_add_edu.user_id'),
             array(
+<<<<<<< HEAD
+                'join_type' => 'left',
+                'table' => 'job_add_workexp',
+                'join_table_id' => 'job_reg.user_id',
+                'from_table_id' => 'job_add_workexp.user_id'),
+            array(
+
+                'join_type' => 'left',
+                'table' => 'job_graduation',
+                'join_table_id' => 'job_reg.user_id',
+                'from_table_id' => 'job_graduation.user_id'),
+            // array(
+            //     'join_type' => 'left',
+            //     'table' => 'skill',
+            //     'join_table_id' => 'job_reg.user_id',
+            //     'from_table_id' => 'skill.user_id')
+ 
+             // array(
+             //    'join_type' => 'left',
+             //    'table' => 'skill',
+             //    'join_table_id' => 'job_reg.user_id',
+             //    'from_table_id' => 'skill.user_id')
+
+=======
                 'join_type' => 'left',
                 'table' => 'job_add_workexp',
                 'join_table_id' => 'job_reg.user_id',
                 'from_table_id' => 'job_add_workexp.user_id')
+>>>>>>> ae2cfb6fe7036885d5c8ec190497ff2bb8b4bcef
         );
 
             $contition_array = array('job_reg.user_id' => $jobcan['user_id'], 'job_reg.is_delete' => 0, 'job_reg.status' => 1);
@@ -2035,22 +2076,67 @@ $join_str1 = array(
 
 
             $canlocation[] = $jobrec;
+<<<<<<< HEAD
+            // $otherskill[]=$skillother;
+
+=======
+>>>>>>> ae2cfb6fe7036885d5c8ec190497ff2bb8b4bcef
             
          }
            
 
         }
 
+<<<<<<< HEAD
+
+     // echo "<pre>"; Print_r($canlocation);
+     // echo "<pre>"; Print_r($otherskill);die();
+
+
+
+ //echo "<pre>"; Print_r($canlocation);
+        
+    // echo "<pre>"; Print_r($canlocation);
+       // die();
+
+        foreach ($canlocation as $k) {
+            
+ $contition_array = array('user_id' => $k['user_id'], 'type' => 3, 'status' => 1);
+
+
+           $skilldata  = $this->data['other_skill'] = $this->common->select_data_by_condition('skill', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+        $otherskilldata[] = $skilldata;
+ 
+        }
+              
+             //echo "<pre>"; print_r($otherskilldata); die();
+              //die();
+
+=======
      //echo "<pre>"; Print_r($canlocation);die();
 
 
+>>>>>>> ae2cfb6fe7036885d5c8ec190497ff2bb8b4bcef
     // die();   
 
 
 //echo "<pre>"; Print_r($new);die();
 
         $this->data['candidatejob'] = $canlocation;
+<<<<<<< HEAD
+
+        $this->data['skillofother'] = $otherskill;
         //echo "<pre>"; print_r($this->data['candidatejob']);die();
+
+          $this->data['otherskill'] =  $otherskilldata;
+       
+
+      // echo "<pre>"; print_r($this->data['otherskill']);die();
+
+=======
+        //echo "<pre>"; print_r($this->data['candidatejob']);die();
+>>>>>>> ae2cfb6fe7036885d5c8ec190497ff2bb8b4bcef
 
 
 //code for search
