@@ -1036,11 +1036,10 @@
 
                                 </div>
 
-                                <div class="col-md-1 padding-left" style="padding-left: 0px;"><i class="fa fa-camera"  style="margin: 0px; font-size: 27px;
-                                                                                                 cursor: pointer;
-                                                                                                 /* margin-right: -38px; */
-                                                                                                 margin-top: 25px;"></i> </div>
-
+                                <div class="col-md-1 padding-left padding_les_left camer_h">
+                                        <i class=" fa fa-camera" >
+                                        </i> 
+                                    </div>
                             </div>
                             <div class="row"></div>
                             <div  id="text"  class="editor-content col-md-12 popup-textarea" >
