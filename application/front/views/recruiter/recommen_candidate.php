@@ -597,29 +597,7 @@
                 </li>
 
                   <?php }else{?> <li> No Education </li> <?php }?>
-                                                                <li> <b> Degree </b><span>
-                                                                        <?php
-                                                                        $cache_time = $this->db->get_where('degree', array('degree_id' => $row['degree']))->row()->degree_name;
-                                                                        if ($cache_time) {
-                                                                            echo $cache_time;
-                                                                        } else {
-                                                                            echo PROFILENA;
-                                                                        }
-                                                                        ?> 
-                                                                    </span>
-                                                                </li>
-                                                                <li> <b>Stream </b>
-                                                                    <span>
-                                                                        <?php
-                                                                        $cache_time = $this->db->get_where('stream', array('stream_id' => $row['stream']))->row()->stream_name;
-                                                                        if ($cache_time) {
-                                                                            echo $cache_time;
-                                                                        } else {
-                                                                            echo PROFILENA;
-                                                                        }
-                                                                        ?>
-                                                                    </span>
-                                                                </li>
+                                                                
                                                                 <li><b>E-mail</b><span>
                                                                         <?php
                                                                         if ($row['email']) {
