@@ -180,7 +180,7 @@
     
           <div class="form" style="max-width:75%;" >
        <div class="tab-group-reg">
-      <ul >
+      <ul>
         <li class="tab active"><a style="cursor: default;" class="head-ail2">Join Aileensoul</a></li>
       </ul>
       </div>

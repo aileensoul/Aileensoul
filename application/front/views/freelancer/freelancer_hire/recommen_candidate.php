@@ -268,25 +268,42 @@
                <ul>
                   <li><b>Skills</b><span>
                   <?php
-                  $comma = ", ";
-                  $k = 0;
+                  
                   $aud = $row['freelancer_post_area'];
                   $aud_res = explode(',', $aud);
+                  if(!$row['freelancer_post_area']){
+                    echo $row['freelancer_post_otherskill'];
+                  }
+                  elseif(!$row['freelancer_post_otherskill']){
+
+                  
                   foreach ($aud_res as $skill) {
-                 if ($k != 0) {
-                 echo $comma;
-                     }
-               $cache_time = $this->db->get_where('skill', array('skill_id' => $skill))->row()->skill;
-               if ($cache_time) {
-               echo $cache_time;
-             } else {
-                echo PROFILENA;
-                }
-                 $k++;
-                }
+
+                  $cache_time = $this->db->get_where('skill', array('skill_id' => $skill))->row()->skill;
+                        $skillsss[] = $cache_time;
+                    }
+                     $listskill = implode(', ', $skillsss);
+
+                    echo $listskill;
+                     unset($skillsss);
+                   }elseif($row['freelancer_post_area'] && $row['freelancer_post_otherskill']){
+
+
+          foreach ($aud_res as $skillboth) {
+
+                  $cache_time = $this->db->get_where('skill', array('skill_id' => $skillboth))->row()->skill;
+                        $skilldddd[] = $cache_time;
+                    }
+
+                    $listFinal = implode(', ', $skilldddd);
+                    echo $listFinal.",".$row['freelancer_post_otherskill'];
+                    unset($skilldddd);
+
+
+                   }
                ?>   </span>    
            </li>
-             <li><b>Other Skill</b><span>
+            <!--  <li><b>Other Skill</b><span>
                 <?php
                   if ($row['freelancer_post_otherskill']) {
                     echo $row['freelancer_post_otherskill'];
@@ -294,7 +311,7 @@
                       echo PROFILENA;
                     }
                ?></span>
-              </li>
+              </li> -->
            <?php $cityname = $this->db->get_where('cities', array('city_id' => $row['freelancer_post_city']))->row()->city_name; ?>
            <li><b>Location</b><span> <?php
                 if ($cityname) {

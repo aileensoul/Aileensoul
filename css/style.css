@@ -2450,9 +2450,10 @@ text-align: justify; display: inline-block; margin-bottom: 0px;
 
 /*post - popup- form*/
 
-.post-editor{ height: auto; background-color: #e8f3f8;     box-shadow: 9px 5px 20px -4px #bfbfbf;  padding: 5px;
+.post-editor{ height: auto; background-color: #e8f3f8;  padding: 5px;
               padding-left: 14px;
               padding-right: 15px; 
+              padding-bottom: 5px;
               border-radius: 4px; margin-bottom: 10px; border: 1px solid #cccccc;}
 .popup-img img{       border: 2px solid #ffffff;
    
@@ -2463,6 +2464,9 @@ text-align: justify; display: inline-block; margin-bottom: 0px;
     margin-top: 7px;
     margin-bottom: 5px;
 }
+
+form{margin-bottom: 5px}
+
 .popup-img-in img{       border: 2px solid #ffffff;
    
     border: 2px solid #ffffff;
@@ -2475,7 +2479,7 @@ text-align: justify; display: inline-block; margin-bottom: 0px;
 .popup-text span{    color: #999999;
     /* font-weight: 600; */
     font-size: 21px;}
-.popup-text textarea{height: 8%; width: 100%; resize: none; border: none;}
+.popup-text textarea{height: 39px; width: 100%;line-height: 1; resize: none; border: none;}
 .post-editor .popup-textarea p{color: #999999;}
 .post-editor .popup-text span i{font-size: 25px; color: #1b8ab9; }
 .popup-img{    padding-left: 2px !important; padding-right: 0px;}
@@ -5360,3 +5364,4 @@ fieldset .add_post_btns:hover{background-color:#156f95!important}
 .profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul .clearfix { list-style: none; display: block; width: 100%; clear: both; padding:10px 2px 6px;  }
 
 .mar_btm{margin-bottom: 20px;}
+.post-editor .fr button{padding: 7px 30px; font-size: 15px} 

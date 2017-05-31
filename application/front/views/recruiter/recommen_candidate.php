@@ -200,7 +200,7 @@
                           }
                        $otherfinal = implode(', ', $sk2);
                        echo $otherfinal;
-                       $otherfinal=null;
+                       
                         unset($sk2);
 
                          }else if(!$other_skill){
@@ -215,10 +215,7 @@
 
                     $listskill = implode(', ', $skillsss);
 
-
-
                     echo $listskill;
-                    $listskill ==null;
                      unset($skillsss);
                          }else if($row['keyskill'] && $other_skill){
 
