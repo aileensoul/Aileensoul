@@ -272,7 +272,7 @@
                 $img.css({width: $img.parent().height()});
                 return;
             } else {            
-                $img.css({height: 'auto', width: $img.height()});
+                $img.css({height: '100px', width: $img.height()});
             }
             offsetContTop = $img.parent().offset().top;
             offsetTop = $img.offset().top;
@@ -461,7 +461,7 @@
                 '</div>';
             tSize = ' <samp>({sizeText})</samp>';
             tFooter = '<div class="file-thumbnail-footer">\n' +
-                '    <div class="file-footer-caption" title="{caption}">{caption}<br>{size}</div>\n' +
+//                '    <div class="file-footer-captionn" title="{caption}">{caption}<br>{size}</div>\n' +
                 '    {progress} {indicator} {actions}\n' +
                 '</div>';
             tActions = '{drag}\n' +
@@ -563,7 +563,7 @@
                     other: {width: "160px", height: "160px"}
                 },
                 previewZoomSettings: {
-                    image: {width: "auto", height: "auto", 'max-width': "100%", 'max-height': "100%"},
+                    image: {width: "auto", height: "100px", 'max-width': "100%", 'max-height': "100%"},
                     html: vDefaultDim,
                     text: vDefaultDim,
                     video: {width: "auto", height: "100%", 'max-width': "100%"},
@@ -3643,7 +3643,7 @@
         resizeIfSizeMoreThan: 0, // in KB
         minFileSize: 0,
         maxFileSize: 0,
-        maxFilePreviewSize: 25600000, // 25 MB
+        maxFilePreviewSize: 25600000000, // 25 MB
         minFileCount: 0,
         maxFileCount: 0,
         validateInitialCount: false,
