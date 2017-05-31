@@ -395,7 +395,7 @@
                   <div class="not_avali" >
                                 <img src="<?php echo base_url('images/010.png'); ?>"  >
                                <div>
-                               <div class="not_text" >Video not avalible</div>
+                               <div class="not_text" >Video Not Avalible</div>
                                </div>
                                </div>
                                </div>
