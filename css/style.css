@@ -2976,7 +2976,8 @@ label.cameraButton input[accept*="camera"] {
 }
 .show {
     font:normal 15px arial;
-    text-align: justify;
+/*    text-align: justify;*/
+    
 
 }
 .morectnt span {

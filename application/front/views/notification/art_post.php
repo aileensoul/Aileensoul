@@ -648,7 +648,7 @@
             <div class="container">
                 <div class="row">
 
-                    <div class="profile-box profile-box-left col-md-4">
+                   <div class="col-md-4"> <div class="profile-box profile-box-left ">
 
                         <div class="full-box-module">    
 
@@ -753,6 +753,7 @@
                             </div>
                         </div>
                     </div>
+                    </div>  
                     <!-- pop up box end-->
 
 
@@ -813,7 +814,6 @@
 
                                         </ul> 
                                     </div>  
-
                                     <div class="dropdown1">
                                         <a onClick="myFunction(<?php echo $art_data[0]['art_post_id']; ?>)" class="dropbtn1 dropbtn1 fa fa-ellipsis-v"></a>
                                         <div id="<?php echo "myDropdown" . $art_data[0]['art_post_id']; ?>" class="dropdown-content1">
@@ -1252,7 +1252,7 @@
                                                                         <div contenteditable="true" style="min-height:37px !important; margin-top: 0px!important" class="editable_text" name="<?php echo $artdata['image_id']; ?>"  id="<?php echo "post_commentimg" . $artdata['image_id']; ?>" placeholder="Type Message ..." onkeyup="entercommentimg(<?php echo $artdata['image_id']; ?>)"></div>
                                                                     </div>
                                                                     <?php echo form_error('post_commentimg'); ?>
-                                                                    <div class="col-md-1 comment-edit-butn">   
+                                                                    <div class=" comment-edit-butn">   
                                                                         <button id="<?php echo $artdata['image_id']; ?>" onClick="insert_commentimg(this.id)">Comment</button> 
                                                                     </div>
                                                                 </div>
@@ -1601,7 +1601,7 @@ if (count($commnetcount) > 0) {
                                                     <div contenteditable="true" style="min-height:37px !important; margin-top: 0px!important" class="editable_text" name="<?php echo $art_data[0]['art_post_id']; ?>"  id="<?php echo "post_comment" . $art_data[0]['art_post_id']; ?>" placeholder="Type Message ..." onClick="entercomment(<?php echo $art_data[0]['art_post_id']; ?>)"></div>
                                                 </div>
                                                 <?php echo form_error('post_comment'); ?>
-                                                <div class="col-md-1 comment-edit-butn">   
+                                                <div class="comment-edit-butn">   
                                                     <button id="<?php echo $art_data[0]['art_post_id']; ?>" onClick="insert_comment(this.id)">Comment</button> 
                                                 </div>
                                             </div>
