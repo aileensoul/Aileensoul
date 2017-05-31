@@ -549,7 +549,7 @@
                                             <?php $category = $this->db->get_where('industry_type', array('industry_id' => $businessdata[0]['industriyal'], 'status' => 1))->row()->industry_name; ?>
                                             <div class="profile-boxProfile-name">
                                                 <a style="padding-left: 1px;" href="<?php echo base_url('business_profile/business_profile_manage_post/'); ?> " title="<?php echo ucwords($businessdata[0]['company_name']); ?>" >
-                                                    <b> <?php echo $category; ?></b>
+                                                     <?php echo $category; ?>
                                                 </a>
                                             </div>
                                         </div>
@@ -1620,8 +1620,10 @@
                                     <div class="">
                                         <div class="col-md-10 inputtype-comment" style="    padding-left: 7px;">
                                             <div contenteditable="true" class="editable_text" name="<?php echo $busienss_data[0]['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $busienss_data[0]['business_profile_post_id']; ?>" placeholder="Type Message ..." value= "" onClick="entercomment(<?php echo $busienss_data[0]['business_profile_post_id']; ?>)"></div></div>
-                                        <div class="col-md-1 comment-edit-butn">        
-                                            <button id="<?php echo $busienss_data[0]['business_profile_post_id']; ?>" onClick="insert_comment(this.id)">Comment</button></div>
+                                        
+                                            <div class=" comment-edit-butn" >   
+                                                            <button  id="<?php echo $busienss_data[0]['business_profile_post_id']; ?>" onClick="insert_comment(this.id)">Comment</button> 
+                                                        </div>
                                     </div>
 
                                 </div>
@@ -3533,7 +3535,7 @@
         width: 96%;
     }
     .like_one_other, .like_one_other_img{
-        margin-left: 15px;
+        /*margin-left: 15px;*/
         /*  margin-right: 15px;*/
 
     }

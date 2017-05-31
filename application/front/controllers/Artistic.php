@@ -1199,6 +1199,7 @@ class Artistic extends MY_Controller {
         //echo $para; die();
         $userid = $this->session->userdata('aileenuser');
 
+//echo '<pre>'; print_r($_POST); die();
 
         if ($para == $userid || $para == '') {
             $data = array(

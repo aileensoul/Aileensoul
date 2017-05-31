@@ -73,7 +73,8 @@
                     return false;
                 });
             });
-        </script>   <script>
+        </script> 
+        <script>
             $(document).ready(function ()
             {
                 /* Uploading Profile BackGround Image */

@@ -939,12 +939,10 @@ if (count($finalsorting) > 0) {
                                                     <div class="post-design-desc ">
                                                         <span> 
                                                             <div  id="<?php echo 'editpostdetails' . $row['art_post_id']; ?>" style="display:block ; ">
-                                                        <?php
+                                                        <?php 
                                                         $text = $this->common->make_links($row['art_description']);
                                                         ?>
-                                                                <span class="show">
-                                                        <?php echo $text; ?>
-                                                                </span>
+                                                <span class="show"><?php echo $text; ?></span>
                                                             </div>
                                                             <div id="<?php echo 'editpostdetailbox' . $row['art_post_id']; ?>" style="display:none;">
                                                                 <div contenteditable="true" id="<?php echo 'editpostdesc' . $row['art_post_id']; ?>" class="textbuis editable_text margin_btm" name="editpostdesc" ><?php echo $row['art_description']; ?></div>
@@ -2775,10 +2773,10 @@ jQuery.noConflict();
                                     }
                                 });
                                 $(".showmoretxt").click(function () {
-                                    if ($(this).hasClass("sample")) {
+                                    if ($(this).hasClass("sample")) {alert("1");
                                         $(this).removeClass("sample");
                                         $(this).text(showChar);
-                                    } else {
+                                    } else {alert("2");
                                         $(this).addClass("sample");
                                         $(this).text(hideChar);
                                     }
@@ -3281,41 +3279,42 @@ jQuery.noConflict();
                             }
                         </script>
 
-                        <style type="text/css">
-                            .likeduser{
-                                width: 100%;
-                                background-color: #1b8ab9;
-                            }
-                            .likeduser-title{
-                                color: #fff;
-                                margin-bottom: 5px;
-                                padding: 7px;
-                            }
-                            .likeuser_list{
-                                background-color: #ccc;
-                                float: left;
-                                margin: 0px 6px 5px 9px;
-                                padding: 5px;
-                                width: 47%;
-                                font-size: 14px;
-                            }
-                            .likeduserlist, .likeduserlist1 {
-                                float: left;
-                                /*        margin-left: 15px;
-                                        margin-right: 15px;*/
-                                width: 96%;
-                            }
-                            div[class^="likeduserlist"]{
-                                width: 100% !important;
-                                background-color: #fff !important;
-                            }
-                            .like_one_other{
-                                /*  margin-left: 15px;*/
-                                /*  margin-right: 15px;*/
+         <style type="text/css">
+    .likeduser{
+        width: 100%;
+        background-color: #1b8ab9;
+    }
+    .likeduser-title{
+        color: #fff;
+        margin-bottom: 5px;
+        padding: 7px;
+    }
+    .likeuser_list{
+        background-color: #ccc;
+        float: left;
+        margin: 0px 6px 5px 9px;
+        padding: 5px;
+        width: 47%;
+        font-size: 14px;
+    }
+    .likeduserlist, .likeduserlist1 {
+        float: left;
+        background-color: #fff!important;
+        /*        margin-left: 15px;
+                margin-right: 15px;*/
+        width: 100%!important;
+    }
+    div[class^="likeduserlist"]{
+        width: 100% !important;
+        background-color: #fff !important;
+    }
+    /*.like_one_other{
+        margin-left: 15px;*/
+    /*  margin-right: 15px;*/
 
-                            }
+    /*}*/
 
-                        </style>
+</style>
                         <!-- This  script use for close dropdown in every post -->
                         <script type="text/javascript">
                             $('body').on("click", "*", function (e) {

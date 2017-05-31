@@ -931,7 +931,7 @@
                                                 </div>
                                                 <div  id="<?php echo 'editpostdetails' . $row['art_post_id']; ?>" style="display:block;">
 
-                                                    <?php
+                                                    <?php //echo $row['art_description'];
                                                     $text = $this->common->make_links($row['art_description']);
                                                     ?>
                                                     <span class="show"><?php echo $text; ?></span>
@@ -3084,33 +3084,7 @@ jQuery.noConflict();
     }
 </script>
 
-<script>
-    $(function () {
-        var showTotalChar = 200, showChar = "More", hideChar = "less";
-        $('.show').each(function () {
-           // var content = $(this).text();
-            var content = $(this).html();
-            if (content.length > showTotalChar) {
-                var con = content.substr(0, showTotalChar);
-                var hcon = content.substr(showTotalChar, content.length - showTotalChar);
-                var txt = con + '<span class="dots">...</span><span class="morectnt"><span>' + hcon + '</span>&nbsp;&nbsp;<a href="" class="showmoretxt">' + showChar + '</a></span>';
-                $(this).html(txt);
-            }
-        });
-        $(".showmoretxt").click(function () {
-            if ($(this).hasClass("sample")) {
-                $(this).removeClass("sample");
-                $(this).text(showChar);
-            } else {
-                $(this).addClass("sample");
-                $(this).text(hideChar);
-            }
-            $(this).parent().prev().toggle();
-            $(this).prev().toggle();
-            return false;
-        });
-    });
-</script>
+
 
 
 <!-- falguni post in sert script start -->
@@ -3749,33 +3723,34 @@ jQuery.noConflict();
 
 <!-- zalak script for more decription strat -->
 
-<script>
-    $(function () {
-        var showTotalChar = 200, showChar = "More", hideChar = "less";
-        $('.show').each(function () {
-            //var content = $(this).text();
-            var content = $(this).html();
-            if (content.length > showTotalChar) {
-                var con = content.substr(0, showTotalChar);
-                var hcon = content.substr(showTotalChar, content.length - showTotalChar);
-                var txt = con + '<span class="dots">...</span><span class="morectnt"><span>' + hcon + '</span>&nbsp;&nbsp;<a href="" class="showmoretxt">' + showChar + '</a></span>';
-                $(this).html(txt);
-            }
-        });
-        $(".showmoretxt").click(function () {
-            if ($(this).hasClass("sample")) {
-                $(this).removeClass("sample");
-                $(this).text(showChar);
-            } else {
-                $(this).addClass("sample");
-                $(this).text(hideChar);
-            }
-            $(this).parent().prev().toggle();
-            $(this).prev().toggle();
-            return false;
-        });
-    });
-</script>
+   <!-- further and less -->
+                        <script>
+                            $(function () {
+                                var showTotalChar = 200, showChar = "More", hideChar = "less";
+                                $('.show').each(function () {
+                                    //var content = $(this).text();
+                                    var content = $(this).html();
+                                    if (content.length > showTotalChar) {
+                                        var con = content.substr(0, showTotalChar);
+                                        var hcon = content.substr(showTotalChar, content.length - showTotalChar);
+                                        var txt = con + '<span class="dots">...</span><span class="morectnt"><span>' + hcon + '</span>&nbsp;&nbsp;<a href="" class="showmoretxt">' + showChar + '</a></span>';
+                                        $(this).html(txt);
+                                    }
+                                });
+                                $(".showmoretxt").click(function () {
+                                    if ($(this).hasClass("sample")) { 
+                                        $(this).removeClass("sample");
+                                        $(this).text(showChar);
+                                    } else {
+                                        $(this).addClass("sample");
+                                        $(this).text(hideChar);
+                                    }
+                                    $(this).parent().prev().toggle();
+                                    $(this).prev().toggle();
+                                    return false;
+                                });
+                            });
+                        </script>
 
 <!-- zalak script for more decription end -->
 
