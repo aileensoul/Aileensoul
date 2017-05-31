@@ -13,6 +13,9 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/jquery.jMosaic.css'); ?>">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
+<link rel="stylesheet" href="<?php echo base_url('assets/css/croppie.css'); ?>">
+
       <!-- END HEAD -->
 
     <!-- start header -->
@@ -22,8 +25,7 @@
 
 
  <!-- script for cropiee immage End-->
-<link rel="stylesheet" href="<?php echo base_url('assets/css/croppie.css'); ?>">
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
 
   
     <!-- END HEADER -->
@@ -455,14 +457,77 @@
 </html>
 <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
 <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
- <script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script>
 <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
- 
+ <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
+<script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 
 <script src="<?php echo base_url('js/jquery.jMosaic.js'); ?>"></script>
  
+
+
+ <script>
+
+var data= <?php echo json_encode($demo); ?>;
+
+        
+$(function() {
+    // alert('hi');
+$( "#tags" ).autocomplete({
+     source: function( request, response ) {
+         var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
+         response( $.grep( data, function( item ){
+             return matcher.test( item.label );
+         }) );
+   },
+    minLength: 1,
+    select: function(event, ui) {
+        event.preventDefault();
+        $("#tags").val(ui.item.label);
+        $("#selected-tag").val(ui.item.label);
+        // window.location.href = ui.item.value;
+    }
+    ,
+    focus: function(event, ui) {
+        event.preventDefault();
+        $("#tags").val(ui.item.label);
+    }
+});
+});
+  
+</script>
+
+  <script>
+
+                //select2 autocomplete start for Location
+                $('#searchplace').select2({
+
+                    placeholder: 'Find Your Location',
+                    maximumSelectionLength: 1,
+                    ajax: {
+
+                        url: "<?php echo base_url(); ?>business_profile/location",
+                        dataType: 'json',
+                        delay: 250,
+
+                        processResults: function (data) {
+
+                            return {
+
+                                results: data
+
+
+                            };
+
+                        },
+                        cache: true
+                    }
+                });
+                //select2 autocomplete End for Location
+
+            </script>
+
 
 
    <script type="text/javascript">
@@ -498,7 +563,7 @@
                     document.getElementById('row2').style.display = "none";
                 }
             </script>
-
+ <script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script>
 
             <script type="text/javascript">
                 $uploadCrop = $('#upload-demo').croppie({
