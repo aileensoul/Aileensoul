@@ -936,9 +936,9 @@ if ($freelancerpostdata[0]['freelancer_post_portfolio']) {
                                 var html = $(this).val();
                                 var viewableText = $("<a>");
 
-                                 if(html == ''){
-                                    html = "Current Work";
-                                 }
+                                if (html.match(/^\s*$/) || html == '') { 
+                                html = "Current Work";
+                                }
 
                                 viewableText.html(html);
                                 $(this).replaceWith(viewableText);
