@@ -2545,6 +2545,7 @@ text-align: justify; display: inline-block; margin-bottom: 0px;
     border: none;
     width: 100%;
   height: auto;
+  max-height: 28px;
         min-height: 30%;
     color: #000;
     padding: 12px 20px 0px 0px;
@@ -4843,7 +4844,7 @@ fieldset .add_post_btns{min-width: 120px;padding:8px 30px 10px;}
    }
    
     .not_avalible{}
-    .website:hover{text-decoration-line: underline;}
+    /*.website:hover{text-decoration-line: underline;}*/
 
 .select2-container .select2-search--inline .select2-search__field{margin-top: 0px!important;}
 
@@ -5352,3 +5353,4 @@ fieldset .add_post_btns:hover{background-color:#156f95!important}
 .profile-job-profile-button ul li a{margin-right: 0px;}
 .apply-btn a{border:2px solid #1b8ab9;}
 .dropdown-content2 a i{padding-right: 13px;}
+.website span a:hover{text-decoration: underline;}
