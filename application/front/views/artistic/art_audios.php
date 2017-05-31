@@ -369,7 +369,7 @@ if ($status == 0 || $status == " ") {
                 <div class="not_avali" >
                                 <img src="<?php echo base_url('images/color_008.png'); ?>"  >
                                <div>
-                                <div class="not_text" >Audio not avalible</div>
+                                <div class="not_text" >Audio Not Avalible</div>
                                </div>
                                </div>
                                </div>
