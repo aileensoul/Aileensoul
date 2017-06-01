@@ -554,7 +554,7 @@ class Job extends MY_Controller {
                 
                  $contition_array = array('user_id' => $userid);
                 $jobgrad = $this->data['jobgrad'] = $this->common->select_data_by_condition('job_graduation', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-                // echo "<pre>";print_r( $this->data['jobdata']);die();
+                 //echo "<pre>";print_r( $this->data['jobgrad']);die();
             }
         }
 

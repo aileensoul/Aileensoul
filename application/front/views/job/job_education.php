@@ -262,8 +262,9 @@
                                             }
                                             ?>>
                                             <label for="option1" class="label-d">Primary</label>
+                                            
                                             <article class="none_aaaart">
-
+                                                <h3>Primary</h3>
                                                 <?php echo form_open_multipart(base_url('job/job_education_primary_insert'), array('id' => 'jobseeker_regform_primary', 'name' => 'jobseeker_regform_primary', 'class' => 'clearfix')); ?>
 
                                                 <?php
@@ -277,6 +278,7 @@
                                                 $pass_year_primary1 = $jobdata[0]['pass_year_primary'];
                                                 $edu_certificate_primary1 = $jobdata[0]['edu_certificate_primary'];
                                                 ?>
+
                                                 <fieldset class="full-width">
                                                <h6>Board :<span style="color:red">*</span></h6>
                                                     <input type="text" name="board_primary" id="board_primary" placeholder="Enter Board" value="<?php
@@ -376,7 +378,7 @@
                                             ?>>
                                             <label for="option2" class="label-d">Secondary</label>
                                     <article class="none_aaaart">
-
+                                    <h3>Secoundary</h3>
                                                 <?php echo form_open_multipart(base_url('job/job_education_secondary_insert'), array('id' => 'jobseeker_regform_secondary', 'name' => 'jobseeker_regform_secondary', 'class' => 'clearfix')); ?>
 
                                                 <?php
@@ -495,7 +497,7 @@
                                             ?>>
                                             <label for="option3" class="label-d">Higher Secondary</label>
                                       <article class="none_aaaart">
-
+                                      <h3>Higher Secondary</h3>
                                                 <?php echo form_open_multipart(base_url('job/job_education_higher_secondary_insert'), array('id' => 'jobseeker_regform_higher_secondary', 'name' => 'jobseeker_regform_higher_secondary', 'class' => 'clearfix')); ?>
 
                                                 <?php
@@ -624,14 +626,14 @@
                                             ?>>
                                             <label for="option4" class="label-d">Graduation</label>
                                             <article class="none_aaaart">
-
+                                            <h3>Graduation</h3>
                                   <?php echo form_open_multipart(base_url('job/job_education_insert'), array('id' => 'jobseeker_regform', 'name' => 'jobseeker_regform', 'class' => 'clearfix border_none')); ?>
 
                                                 <?php
                                                 $predefine_data = 1;
                                                 if ($jobgrad) {
-                                                  //  echo "string";die();                                                    $count = count($jobgrad);
-                                                    //echo"<pre>";print_r($jobdata1);die();
+                                                    $count = count($jobgrad);
+                                                    //echo"<pre>";print_r($count);die();
                                                     for ($x = 0; $x < $count; $x++) {
 
                                                         $degree1 = $jobgrad[$x]['degree'];
@@ -646,6 +648,8 @@
                                                         $edu_certificate1 = $jobgrad[$x]['edu_certificate']; 
 
                                                         $y = $x + 1;
+
+                                                       // echo "<pre>"; print_r($degree1); die();
                                                         
                                                         if ($count == 0) {
                                                             $predefine_data = 1;
@@ -684,34 +688,40 @@
                                                             </fieldset>
 
                                                             <?php
-                                                            $contition_array = array('status' => 1);
+                                                            $contition_array = array('status' => 1 , 'degree_id' => $degree1);
 
                                                             $stream_data = $this->data['stream_data'] = $this->common->select_data_by_condition('stream', $contition_array, $data = '*', $sortby = 'stream_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-                                                            //echo "<pre>"; print_r($stream1); die();
+                                                           // echo "<pre>"; print_r($stream_data); die();
 
                                                             ?>
 
 
                                                             <fieldset class="full-width">
-                                        <h6>Stream :<span class="red">*</span></h6>
+                                        <h6>Strddeam :<span class="red">*</span></h6>
                                              <select name="stream[]" id="stream1" class="stream" >
-                                            <option value="">Select Degree First</option>
+                                            
                                            <?php
-                                           if ($stream1) {
-                         foreach ($stream_data as $cnt) {
-                                ?>
-                        <option value="<?php echo $cnt['stream_id']; ?>" <?php if ($cnt['stream_id'] == $stream1) echo 'selected'; ?>><?php echo $cnt['stream_name'];?></option>
 
+                                           
+                                           if ($stream1) {
+
+                                           // echo "hi"; die();
+                         foreach ($stream_data as $cnt) {  
+                            ?>
+                    <option value="<?php echo $cnt['stream_id']; ?>" ><?php echo $cnt['stream_name'];?></option>
 
                                 <?php
                              }
-                              }
+                         }
+                              
                                   else {
+                                   // echo "hello"; die();
                                   ?>
                          <option value="0">Select Degree First</option>
                               <?php
                                      }
+                                 
                                 ?>
                                     ?>
                        </select>
@@ -829,6 +839,7 @@
                               </div>
                                     <?php } ?>
                            </div></div> 
+                           <hr>
                                    <?php
                                           }
                                     ?>
@@ -856,8 +867,6 @@
 
                                                     <?php
                                                 } else {
-
-                                                   // echo "hiiiiii"; die();
                                                     ?>
 
                                                     <!--clone div start-->              
@@ -1816,8 +1825,8 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
                     <style type="text/css">
                         .job_work_experience_main_div{
                             margin-top: 10px;
-                               border-bottom: 2px solid #d9d9d9;
-    margin-bottom: 20px;
+                              /* border-bottom: 2px solid #d9d9d9;*/
+    /*margin-bottom: 20px;*/
     display: inline-block;
                         }
                         .img_remove img{display: none!important;}
