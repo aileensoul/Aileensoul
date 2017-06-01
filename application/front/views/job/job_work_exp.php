@@ -248,7 +248,7 @@
 
                                                                 <label style="    margin-top: -14px; display: block;">Experience Certificate</label>
 
-                                                                <input style="width:50%; margin-bottom: 10px; display: inline-block;" type="file" name="certificate[]" id="certificate" class="certificate" placeholder="CERTIFICATE" />&nbsp;&nbsp;&nbsp; 
+                                                                <input style="width:50%; margin-bottom: 50px; display: inline-block;" type="file" name="certificate[]" id="certificate" class="certificate" placeholder="CERTIFICATE" />&nbsp;&nbsp;&nbsp; 
 
                                                                 <?php
                                                                 if ($work_certificate1) {

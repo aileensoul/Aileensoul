@@ -378,7 +378,7 @@
                                             ?>>
                                             <label for="option2" class="label-d">Secondary</label>
                                     <article class="none_aaaart">
-                                    <h3>Secoundary</h3>
+                                    <h3>Secondary</h3>
                                                 <?php echo form_open_multipart(base_url('job/job_education_secondary_insert'), array('id' => 'jobseeker_regform_secondary', 'name' => 'jobseeker_regform_secondary', 'class' => 'clearfix')); ?>
 
                                                 <?php
@@ -834,12 +834,12 @@
                              ?>
                      <div style="float: left;">
             <div class="hs-submit full-width fl">
-               <input type="button" value="Delete" onclick="delete_job_exp(<?php echo $jobgrad[$x]['job_graduation_id']; ?>);">
+               <input  type="button" style="padding: 6px 18px 6px;min-width: 0;font-size: 14px" value="Delete" onclick="delete_job_exp(<?php echo $jobgrad[$x]['job_graduation_id']; ?>);">
                         </div>
                               </div>
                                     <?php } ?>
-                           </div></div> 
-                           <hr>
+                           </div><hr> </div> 
+                           
                                    <?php
                                           }
                                     ?>
@@ -1230,6 +1230,10 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
       return value == '' || value.trim().length != 0;  
     }, "No space please and don't leave it empty");
 
+ $.validator.addMethod("regx1", function(value, element, regexpr) {          
+    return regexpr.test(value);
+}, "Only space, only number and only special characters are not allow");
+
 
                             $("#jobseeker_regform_primary").validate({
 
@@ -1238,14 +1242,14 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
                                     board_primary: {
 
                                         required: true,
-                                        noSpace: true
+                                        regx1:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]/,
 
                                     },
 
                                     school_primary: {
 
                                         required: true,
-                                        noSpace: true
+                                         regx1:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]/,
 
                                     },
 
@@ -1323,6 +1327,10 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
       return value == '' || value.trim().length != 0;  
     }, "No space please and don't leave it empty");
 
+                            $.validator.addMethod("regx1", function(value, element, regexpr) {          
+    return regexpr.test(value);
+}, "Only space, only number and only special characters are not allow");
+
 
                             $("#jobseeker_regform_secondary").validate({
 
@@ -1331,14 +1339,14 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
                                     board_secondary: {
 
                                         required: true,
-                                        noSpace: true
+                                        regx1:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]/,
 
                                     },
 
                                     school_secondary: {
 
                                         required: true,
-                                        noSpace: true
+                                         regx1:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]/,
 
                                     },
 
@@ -1413,6 +1421,10 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
       return value == '' || value.trim().length != 0;  
     }, "No space please and don't leave it empty");
 
+                             $.validator.addMethod("regx1", function(value, element, regexpr) {          
+    return regexpr.test(value);
+}, "Only space, only number and only special characters are not allow");
+
 
                             $("#jobseeker_regform_higher_secondary").validate({
 
@@ -1421,13 +1433,13 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
                                     board_higher_secondary: {
 
                                         required: true,
-                                        noSpace: true
+                                         regx1:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]/,
 
                                     },
                                     stream_higher_secondary: {
 
                                         required: true,
-                                        noSpace: true
+                                         regx1:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]/,
 
                                     },
 
