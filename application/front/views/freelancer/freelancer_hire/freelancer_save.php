@@ -172,7 +172,7 @@
                         <?php
                         if ($freehiredata[0]['designation'] == '') {
                             ?>
-                            <a id="designation" class="designation" title="Designation">Designation</a>
+                            <a id="designation" class="designation" title="Designation">Current Work</a>
 
                         <?php } else { ?> 
                             <a id="designation" class="designation" title="<?php echo ucwords($freehiredata[0]['designation']); ?>"><?php echo ucwords($freehiredata[0]['designation']); ?></a>                <?php } ?>
@@ -805,7 +805,7 @@
                     var html = $(this).val();
                     var viewableText = $("<a>");
                      if (html.match(/^\s*$/) || html == '') { 
-                                html = "Designation";
+                                html = "Current Work";
                                 }
                     viewableText.html(html);
                     $(this).replaceWith(viewableText);
