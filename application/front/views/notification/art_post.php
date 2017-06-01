@@ -655,7 +655,15 @@
                             <div class="profile-boxProfileCard  module">
                                 <div class="profile-boxProfileCard-cover">     
                                     <a class="profile-boxProfileCard-bg u-bgUserColor a-block" href="<?php echo site_url('artistic/art_manage_post'); ?>" tabindex="-1" aria-hidden="true" rel="noopener">
-                                        <img src="<?php echo base_url(ARTBGIMAGE . $artisticdata[0]['profile_background_main']); ?>" class="bgImage" style="height: 95px; width: 393px; " >
+                                   <?php if ($artisticdata[0]['profile_background']) { ?>
+                                      <div class="data-img">  <img src="<?php echo base_url($this->config->item('art_bg_thumb_upload_path')  . $artisticdata[0]['profile_background']); ?>" class="bgImage" style="height: 95px; width: 393px; " >
+                                      </div>
+                                         <?php } else { ?>
+                                            <div class="data_img">
+                                            <img src="<?php echo base_url(WHITEIMAGE); ?>" class="bgImage" alt="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>"  >
+
+                                            </div>                                             <?php } ?>
+                                   
                                     </a>
                                 </div>
 
@@ -663,11 +671,15 @@
                                     <div class="buisness-profile-txext col-md-4">
                                         <a class="profile-boxProfilebuisness-avatarLink2 a-inlineBlock" href="<?php echo site_url('artistic/art_manage_post'); ?>" title="zalak" tabindex="-1" aria-hidden="true" rel="noopener">
                                             <!-- box image start -->
-                                            <img src="<?php echo base_url(ARTISTICIMAGE . $artisticdata[0]['art_user_image']); ?>" class="bgImage" style="    height: 77px;
-                                                 width: 71px;
-                                                 z-index: 3;
-                                                 position: relative;
-                                                 " >
+                                            <?php if ($artisticdata[0]['art_user_image']) { ?>
+                                             <div class="data_img_2">   
+                                            <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image']); ?>" class="bgImage"  alt="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>" >
+                                             </div>
+                                                 <?php } else { ?> 
+                                            <div class="data_img_2">
+                                                <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>">
+                                            </div>
+                                                    <?php } ?>
                                             <!-- box image end -->
                                         </a>
                                     </div>
@@ -882,7 +894,7 @@
                                                 ?>
 
                                                 <div id="basic-responsive-image" style="height: 50%; width: 100%; margin-bottom: 10px;">
-                                                    <img src="<?php echo base_url(ARTPOSTIMAGE .$data['image_name']) ?>" style="width: 100%; height: 100%;" onclick="openModal();
+                                                    <img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path')  . $data['image_name']) ?>" style="width: 100%; height: 100%;" onclick="openModal();
                                                                     currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
 <!--                                                    <img src="<?php //echo base_url(ARTPOSTIMAGE . str_replace(" ", "_", $data['image_name'])) ?>" style="width: 100%; height: 100%;"  class="hover-shadow cursor">-->
                                                 </div>
@@ -935,7 +947,7 @@
                                                 <div class="mySlides">
                                                     <div class="numbertext"><?php echo $i ?> / <?php echo count($databus1) ?></div>
                                                     <div>
-                                                        <img src="<?php echo base_url(ARTPOSTIMAGE .$artdata['image_name']) ?>" style="width:100%; height: 70%;">
+                                                        <img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path')   .$artdata['image_name']) ?>" style="width:100%; height: 70%;">
                                                     </div>
  <!-- 9-5 like comment start -->
                  <div class="post-design-like-box col-md-12">
@@ -2895,7 +2907,7 @@ if (count($commnetcount) > 0) {
                                 }
                             }
                             $fileUpload.change(function (e) {
-                                alert("aaaa");
+                            //    alert("aaaa");
                                 handleFileSelect(e);
                             });
                             $list.on('click', '.remove_thumb', function () {//alert("aaaaa");
@@ -2930,358 +2942,870 @@ if (count($commnetcount) > 0) {
 <!-- multiple images all scriptlike comment start -->
 
 <!-- image                            s like script start -->
+              <!-- post like script start -->
+
                         <script type="text/javascript">
-                                                    function mulimg_like(clicked_id)
-                                                    {
-                                                        //alert(clicked_id);
-                                                        $.ajax({
-                                                            type: 'POST',
-                                                            url: '<?php echo base_url() . "artistic/mulimg_like" ?>',
-                                                            data: 'post_image_id=' + clicked_id,
-                                                            success: function (data) {
-                                                                $('.' + 'likeimgpost' + clicked_id).html(data);
-                                                            }});
-                                                    }
-                            </script>
-           <!--images lik                                e script end -->
-           <!-- insert comment                                using enter -->
-                            <script type="text/javascript">
-                                    function insert_commentimg(clicked_id)
-                                    {
-                                        var post_comment = document.getElementById("post_imgcomment" + clicked_id);
-
-                                        $.ajax({
-                                            type: 'POST',
-                                            url: '<?php echo base_url() . "artistic/mulimg_comment" ?>',
-                                            data: 'post_image_id=' + clicked_id + '&comment=' + post_comment.value,
-                                            dataType: "json",
-                                            success: function (data) {
-                                                $('input').each(function () {
-                                                    $(this).val('');
-                                                });
-
-                                                $('.' + 'insertimgcomment' + clicked_id).html(data.comment);
-                                            }
-                                        });
-                                    }
-                                </script>
-                            <script type="text/javascript">
-
-        function entercommentimg(clicked_id)
-                        {   
-                            $("#post_commentimg" + clicked_id).click(function () {
-                                $(this).prop("contentEditable", true);
-                            });
-
-                            $('#post_commentimg' + clicked_id).keypress(function (e) {
-
-                                if (e.keyCode == 13 && !e.shiftKey) {
-                                    e.preventDefault();
-                                    var sel = $("#post_commentimg" + clicked_id);
-                                    var txt = sel.html();
-                                    if (txt == '') {
-                                        return false;
-                                    }
-                                    $('#post_commentimg' + clicked_id).html("");
-
-                                    if (window.preventDuplicateKeyPresses)
-                                        return;
-
-                                    window.preventDuplicateKeyPresses = true;
-                                    window.setTimeout(function () {
-                                        window.preventDuplicateKeyPresses = false;
-                                    }, 500);
-                                    
-                                    var x = document.getElementById('threecommentimg' + clicked_id);
-                                    var y = document.getElementById('fourcommentimg' + clicked_id);
-                                    
-                                    
-                                    
-                                    if (x.style.display === 'block' && y.style.display === 'none') {
+                            function post_like(clicked_id)
+                            {
                                 $.ajax({
                                     type: 'POST',
-                                    url: '<?php echo base_url() . "artistic/insert_commentthreeimg" ?>',
-                                    data: 'post_image_id=' + clicked_id + '&comment=' + txt,
-                                    dataType: "json",
+                                    url: '<?php echo base_url() . "artistic/like_post" ?>',
+                                    dataType: 'json',
+                                    data: 'post_id=' + clicked_id,
                                     success: function (data) {
-                                        $('textarea').each(function () {
-                                            $(this).val('');
-                                        });
-                                        $('#' + 'insertcountimg' + clicked_id).html(data.count);
-                                        $('.insertcommentimg' + clicked_id).html(data.comment);
+                                        $('.' + 'likepost' + clicked_id).html(data.like);
+                                        $('.likeusername' + clicked_id).html(data.likeuser);
 
-                                    }
-                                });
-
-                            } else {
-
-                                $.ajax({
-                                    type: 'POST',
-                                    url: '<?php echo base_url() . "artistic/insert_commentimg" ?>',
-                                    data: 'post_image_id=' + clicked_id + '&comment=' + txt,
-                                    dataType: "json",
-                                    success: function (data) {
-                                        $('textarea').each(function () {
-                                            $(this).val('');
-                                        });
-                                        $('#' + 'insertcountimg' + clicked_id).html(data.count);
-                                        $('#' + 'fourcommentimg' + clicked_id).html(data.comment);
+                                        $('.likeduserlist' + clicked_id).hide();
+                                        if (data.like_user_count == '0') {
+                                            document.getElementById('likeusername' + clicked_id).style.display = "none";
+                                        } else {
+                                            document.getElementById('likeusername' + clicked_id).style.display = "block";
+                                        }
+                                        $('#likeusername' + clicked_id).addClass('likeduserlist1');
                                     }
                                 });
                             }
+                        </script>
+
+                        <!--post like script end -->
+
+                        <!-- comment like script start -->
+
+                        <script type="text/javascript">
+                            function comment_like(clicked_id)
+                            {
+
+                                $.ajax({
+                                    type: 'POST',
+                                    url: '<?php echo base_url() . "artistic/like_comment" ?>',
+                                    data: 'post_id=' + clicked_id,
+                                    success: function (data) {
+                                        $('#' + 'likecomment' + clicked_id).html(data);
+
+                                    }
+                                });
+                            }
+                        </script>
+
+                        <script type="text/javascript">
+                            function comment_like1(clicked_id)
+                            {
+
+                                $.ajax({
+                                    type: 'POST',
+                                    url: '<?php echo base_url() . "artistic/like_comment1" ?>',
+                                    data: 'post_id=' + clicked_id,
+                                    success: function (data) {
+                                        $('#' + 'likecomment1' + clicked_id).html(data);
+
+                                    }
+                                });
+                            }
+                        </script>
+
+                        <!--comment like script end -->
+
+                        <!-- comment delete script start -->
+
+                        <script type="text/javascript">
+
+                            function comment_delete(clicked_id) {
+                                $('.biderror .mes').html("<div class='pop_content'>Do you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='comment_deleted(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+                                $('#bidmodal').modal('show');
+                            }
+
+                            function comment_deleted(clicked_id)
+                            {
+                                var post_delete = document.getElementById("post_delete");
+                                //alert(post_delete.value);
+                                $.ajax({
+                                    type: 'POST',
+                                    url: '<?php echo base_url() . "artistic/delete_comment" ?>',
+                                    data: 'post_id=' + clicked_id + '&post_delete=' + post_delete.value,
+                                    dataType: "json",
+                                    success: function (data) {
+                                        //alert('.' + 'insertcomment' + clicked_id);
+                                        $('.' + 'insertcomment' + post_delete.value).html(data.comment);
+                                        $('#' + 'insertcount' + post_delete.value).html(data.count);
+                                        $('.post-design-commnet-box').show();
+                                    }
+                                });
+                            }
+
+                            function comment_deletetwo(clicked_id)
+                            {
+                                $('.biderror .mes').html("<div class='pop_content'>Do you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='comment_deletedtwo(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+                                $('#bidmodal').modal('show');
+                            }
+
+                        </script>
+
+                        <script type="text/javascript">
+                            function comment_deletedtwo(clicked_id)
+                            {
+                                var post_delete1 = document.getElementById("post_deletetwo");
+                                $.ajax({
+                                    type: 'POST',
+                                    url: '<?php echo base_url() . "artistic/delete_commenttwo" ?>',
+                                    data: 'post_id=' + clicked_id + '&post_delete=' + post_delete1.value,
+                                    dataType: "json",
+                                    success: function (data) {
+
+                                        // $('.' + 'insertcomment' + post_delete.value).html(data);
+                                        $('.' + 'insertcommenttwo' + post_delete1.value).html(data.comment);
+                                        $('#' + 'insertcount' + post_delete1.value).html(data.count);
+                                        $('.post-design-commnet-box').show();
+
+                                    }
+                                });
+                            }
+
+
+                            //                        function comment_deletetwo(clicked_id)
+                            //                        {
+                            //
+                            //                            var post_delete = document.getElementById("post_delete2");
+                            //
+                            //                            $.ajax({
+                            //                                type: 'POST',
+                            //                                url: '<?php echo base_url() . "artistic/delete_commenttwo" ?>',
+                            //                                data: 'post_id=' + clicked_id + '&post_delete=' + post_delete.value,
+                            //                                success: function (data) {
+                            //
+                            //                                    $('#' + 'fourcomment' + post_delete.value).html(data);
+                            //
+                            //                                }
+                            //                            });
+                            //                        }
+                        </script>
+
+                        <!--comment delete script end -->
+
+
+                        <!-- comment insert script start -->
+                        <!-- insert comment using comment button-- > 
+                        <!-- insert comment using enter -->
+                        <script type="text/javascript">
+
+                            //                        function insert_comment(clicked_id)
+                            //                        {
+                            //                            var $field = $('#post_comment' + clicked_id);
+                            //                            var post_comment = $('#post_comment' + clicked_id).html();
+                            //                            
+                            //                            $('#post_comment' + clicked_id).html("");
+                            //
+                            //                            var x = document.getElementById('threecomment' + clicked_id);
+                            //                            var y = document.getElementById('fourcomment' + clicked_id);
+                            //
+                            //                            if (post_comment == '') {
+                            //
+                            //                                event.preventDefault();
+                            //                                return false;
+                            //                            } else {
+                            //
+                            //                                if (x.style.display === 'block' && y.style.display === 'none') {
+                            //
+                            //                                    $.ajax({
+                            //                                        type: 'POST',
+                            //                                        url: '<?php echo base_url() . "artistic/insert_commentthree" ?>',
+                            //                                        data: 'post_id=' + clicked_id + '&comment=' + post_comment,
+                            //                                        dataType: "json",
+                            //                                        success: function (data) {
+                            //
+                            //                                            //$('.' + 'insertcomment' + clicked_id).html(data);
+                            //                                            $('#' + 'insertcount' + clicked_id).html(data.count);
+                            //                                            $('.insertcomment' + clicked_id).html(data.comment);
+                            //
+                            //                                        }
+                            //                                    });
+                            //
+                            //                                } else {
+                            //
+                            //                                    $.ajax({
+                            //                                        type: 'POST',
+                            //                                        url: '<?php echo base_url() . "artistic/insert_comment" ?>',
+                            //                                        data: 'post_id=' + clicked_id + '&comment=' + post_comment,
+                            //                                        dataType: "json",
+                            //                                        success: function (data) {
+                            //                                            $('textarea').each(function () {
+                            //                                                $(this).val('');
+                            //                                            });
+                            //                                            $('#' + 'insertcount' + clicked_id).html(data.count);
+                            //                                            $('#' + 'fourcomment' + clicked_id).html(data.comment);
+                            //                                        }
+                            //                                    });
+                            //
+                            //                                }
+                            //                            }
+                            //
+                            //                        }
+
+                            function insert_comment(clicked_id)
+                            {
+                                $("#post_comment" + clicked_id).click(function () {
+                                    $(this).prop("contentEditable", true);
+                                    $(this).html("");
+                                });
+
+                                var sel = $("#post_comment" + clicked_id);
+                                var txt = sel.html();
+                                txt = txt.replace(/&nbsp;/gi, " ");
+                                txt = txt.replace(/<br>$/, '');
+                                if (txt == '' || txt == '<br>') {
+                                   return false;
+                                    }
+                                if (/^\s+$/gi.test(txt))
+                                {
+                                  return false;
                                 }
-                            });
-                            $(".scroll").click(function (event) {
-                                event.preventDefault();
-                                $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1200);
-                            });
-                        }
-                        
-    function imgcommentall(clicked_id) { //alert("xyz")                                                ;
 
-        //alert('threeimgcomment' + clicked_id);
-        //alert('fourimgcomment' + clicked_id);
-        var x = document.getElementById('threeimgcomment' + clicked_id);
-        var y = document.getElementById('fourimgcomment' + clicked_id);
-        if (x.style.display === 'block' && y.style.display === 'none') {
-            x.style.display = 'none';
-                                                        y.style.display = 'block';
-                                                        } else {
-            x.style.display = 'block';
-                                                  y.style.display = 'none';
-                                                         }
-    }
-                                                                                    </script>
-<!-- hide and show data end-->
-        <!-- comment like script start -->
-                                                <script type="text/javascript">
-                                                        function imgcomment_like(clicked_id)
-                                                        {
-                                                            //alert(clicked_id);
-                                                            $.ajax({
-                                                                type: 'POST',
-                                                                url: '<?php echo base_url() . "artistic/mulimg_comment_like" ?>',
-                                                                data: 'post_image_comment_id=' + clicked_id,
-                                                                success: function (data) { //alert(data);
-                                                                    $('#' + 'imglikecomment' + clicked_id).html(data);
-                                                                }
-                                                            });
-                                                        }
-                                                        function imgcomment_like1(clicked_id)
-                                                        {
-                                                            //alert(clicked_id);
-                                                            $.ajax({
-                                                                type: 'POST',
-                                                                url: '<?php echo base_url() . "artistic/mulimg_comment_like1" ?>',
-                                                                data: 'post_image_comment_id=' + clicked_id,
-                                                                success: function (data) { //alert(data);
-                                                                    $('#' + 'imglikecomment1' + clicked_id).html(data);
-                                                                }
-                                                            });
-                                                        }
-                                                    </script>
-     <!-- comment like sc                                                        ript end -->
-    <!-- comment edit box start-->
-                                                    <script type="text/javascript">
+                                $('#post_comment' + clicked_id).html("");
 
-        function imgcomment_editbox(clicked_id) {
-            document.getElementById('imgeditcomment' + clicked_id).style.display = 'block';
-            document.getElementById('imgshowcomment' + clicked_id).style.display = 'none';
-            document.getElementById('imgeditsubmit' + clicked_id).style.display = 'block';
-            document.getElementById('imgeditcommentbox' + clicked_id).style.display = 'none';
-            document.getElementById('imgeditcancle' + clicked_id).style.display = 'block';
+                                var x = document.getElementById('threecomment' + clicked_id);
+                                var y = document.getElementById('fourcomment' + clicked_id);
 
+                                if (x.style.display === 'block' && y.style.display === 'none') {
+                                    $.ajax({
+                                        type: 'POST',
+                                        url: '<?php echo base_url() . "artistic/insert_commentthree" ?>',
+                                        data: 'post_id=' + clicked_id + '&comment=' + txt,
+                                        dataType: "json",
+                                        success: function (data) {
+                                            $('textarea').each(function () {
+                                                $(this).val('');
+                                            });
+                                            $('#' + 'insertcount' + clicked_id).html(data.count);
+                                            $('.insertcomment' + clicked_id).html(data.comment);
 
-        }
-        function imgcomment_editcancle(clicked_id) {
-            document.getElementById('imgeditcommentbox' + clicked_id).style.display = 'block';
-            document.getElementById('imgeditcancle' + clicked_id).style.display = 'none';
-            document.getElementById('imgeditcomment' + clicked_id).style.display = 'none';
-            document.getElementById('imgshowcomment' + clicked_id).style.display = 'block';
-            document.getElementById('imgeditsubmit' + clicked_id).style.display = 'none';
-                                                            }
-        function imgcomment_editboxtwo(clicked_id) {  //alert('editsubmit2' + clicked_id);
-            document.getElementById('imgeditcommenttwo' + clicked_id).style.display = 'block';
-            document.getElementById('imgshowcommenttwo' + clicked_id).style.display = 'none';
-            document.getElementById('imgeditsubmittwo' + clicked_id).style.display = 'block';
-            document.getElementById('imgeditcommentboxtwo' + clicked_id).style.display = 'none';
-            document.getElementById('imgeditcancletwo' + clicked_id).style.display = 'block';
+                                        }
+                                    });
 
-                                                            }
-        function imgcomment_editcancletwo(clicked_id) {
-            document.getElementById('imgeditcommentboxtwo' + clicked_id).style.display = 'block';
-            document.getElementById('imgeditcancletwo' + clicked_id).style.display = 'none';
-            document.getElementById('imgeditcommenttwo' + clicked_id).style.display = 'none';
-            document.getElementById('imgshowcommenttwo' + clicked_id).style.display = 'block';
-            document.getElementById('imgeditsubmittwo' + clicked_id).style.display = 'none';
+                                } else {
 
-                                                            }
-</script>
-<!-- comment edit box end -->
-<!-- comment edit insert start -->
-                                                            <script type="text/javascript">
-                                                                function imgedit_comment(abc)
-                                                                { //alert('editsubmit' + abc);
-                                                                    var post_comment_edit = document.getElementById("imgeditcomment" + abc);
-                                                                    //alert(post_comment.value);
-                                                                    //alert(post_comment.value);
-                                                                    $.ajax({
-                                                                        type: 'POST',
-                                                                        url: '<?php echo base_url() . "artistic/mul_edit_com_insert" ?>',
-                                                                        data: 'post_image_comment_id=' + abc + '&comment=' + post_comment_edit.value,
-                                                                        success: function (data) { //alert('falguni');
-                                                                            //  $('input').each(function(){
-                                                                            //     $(this).val('');
-                                                                            // }); 
-                                                                            document.getElementById('imgeditcomment' + abc).style.display = 'none';
-                                                                            document.getElementById('imgshowcomment' + abc).style.display = 'block';
-                                                                            document.getElementById('imgeditsubmit' + abc).style.display = 'none';
-                                                                            document.getElementById('imgeditcommentbox' + abc).style.display = 'block';
-                                                                            document.getElementById('imgeditcancle' + abc).style.display = 'none';
-                                                                            //alert('.' + 'showcomment' + abc);
-                                                                            $('#' + 'imgshowcomment' + abc).html(data);
-                                                                        }
-                                                                    });
-                                                                    //window.location.reload();
-                                                                }
-                                                                    </script>
-                                                                <script type="text/javascript">
-                                                                        function imgcommentedit(abc)
-                                                                        {
+                                    $.ajax({
+                                        type: 'POST',
+                                        url: '<?php echo base_url() . "artistic/insert_comment" ?>',
+                                        data: 'post_id=' + clicked_id + '&comment=' + txt,
+                                        dataType: "json",
+                                        success: function (data) {
+                                            $('textarea').each(function () {
+                                                $(this).val('');
+                                            });
+                                            $('#' + 'insertcount' + clicked_id).html(data.count);
+                                            $('#' + 'fourcomment' + clicked_id).html(data.comment);
+                                        }
+                                    });
+                                }
+                            }
+
+                        </script>
+
+                        <script type="text/javascript">
+
+                            //                        function entercomment(clicked_id)
+                            //                        {
+                            //                            $('#post_comment' + clicked_id).keypress(function (e) {
+                            //                                if (e.keyCode == 13 && !e.shiftKey) {
+                            //                                    var val = $('#post_comment' + clicked_id).val();
+                            //                                    e.preventDefault();
+                            //
+                            //                                    if (window.preventDuplicateKeyPresses)
+                            //                                        return;
+                            //
+                            //                                    window.preventDuplicateKeyPresses = true;
+                            //                                    window.setTimeout(function () {
+                            //                                        window.preventDuplicateKeyPresses = false;
+                            //                                    }, 500);
+                            //                                    var x = document.getElementById('threecomment' + clicked_id);
+                            //                                    var y = document.getElementById('fourcomment' + clicked_id);
+                            //
+                            //                                    if (val == '') {
+                            //
+                            //                                        event.preventDefault();
+                            //                                        return false;
+                            //                                    } else {
+                            //
+                            //                                        if (x.style.display === 'block' && y.style.display === 'none') {
+                            //                                            $.ajax({
+                            //                                                type: 'POST',
+                            //                                                url: '<?php echo base_url() . "artistic/insert_commentthree" ?>',
+                            //                                                data: 'post_id=' + clicked_id + '&comment=' + val,
+                            //                                                dataType: "json",
+                            //                                                success: function (data) {
+                            //                                                    $('textarea').each(function () {
+                            //                                                        $(this).val('');
+                            //                                                    });
+                            //
+                            //                                                    //  $('.insertcomment' + clicked_id).html(data);
+                            //                                                    $('#' + 'insertcount' + clicked_id).html(data.count);
+                            //                                                    $('.insertcomment' + clicked_id).html(data.comment);
+                            //
+                            //                                                }
+                            //                                            });
+                            //
+                            //                                        } else {
+                            //
+                            //                                            $.ajax({
+                            //                                                type: 'POST',
+                            //                                                url: '<?php echo base_url() . "artistic/insert_comment" ?>',
+                            //                                                data: 'post_id=' + clicked_id + '&comment=' + val,
+                            //                                                // dataType: "json",
+                            //                                                success: function (data) {
+                            //                                                    $('textarea').each(function () {
+                            //                                                        $(this).val('');
+                            //                                                    });
+                            //                                                    $('#' + 'fourcomment' + clicked_id).html(data);
+                            //                                                }
+                            //                                            });
+                            //                                        }
+                            //                                    }
+                            //                                    e.preventDefault();
+                            //                                }
+                            //                            });
+                            //                        }
 
 
-                                                                            $(document).ready(function () {
-                                                                                $('#imgeditcomment' + abc).keypress(function (e) {
+                            function entercomment(clicked_id)
+                            {
+                                $("#post_comment" + clicked_id).click(function () {
+                                    $(this).prop("contentEditable", true);
+                                });
 
-                                                                                    if (e.keyCode == 13 && !e.shiftKey) {
-                                                                                        var val = $('#imgeditcomment' + abc).val();
-                                                                                        e.preventDefault();
-                                                                                        if (window.preventDuplicateKeyPresses)
-                                                                                            return;
-                                                                                        window.preventDuplicateKeyPresses = true;
-                                                                                        window.setTimeout(function () {
-                                                                                            window.preventDuplicateKeyPresses = false;
-                                                                            }, 500);
+                                $('#post_comment' + clicked_id).keypress(function (e) {
 
-                                                                                        $.ajax({
-                                                                                            type: 'POST',
-                                                                                            url: '<?php echo base_url() . "artistic/mul_edit_com_insert" ?>',
-                                                                                            data: 'post_image_comment_id=' + abc + '&comment=' + val,
-                                                                                            success: function (data) { //alert('falguni');
+                                    if (e.keyCode == 13 && !e.shiftKey) {
+                                        e.preventDefault();
+                                        var sel = $("#post_comment" + clicked_id);
+                                        var txt = sel.html();
+                                      
+                                       txt = txt.replace(/&nbsp;/gi, " ");
+                                        txt = txt.replace(/<br>$/, '');
+                                        if (txt == '' || txt == '<br>') {
+                                         return false;
+                                           }
+                                      if (/^\s+$/gi.test(txt))
+                                              {
+                                           return false;
+                                           }
+                                           
+                                        $('#post_comment' + clicked_id).html("");
 
-                                                                                                document.getElementById('imgeditcomment' + abc).style.display = 'none';
-                                                                                                document.getElementById('imgshowcomment' + abc).style.display = 'block';
-                                                                                                document.getElementById('imgeditsubmit' + abc).style.display = 'none';
-                                                                                                document.getElementById('imgeditcommentbox' + abc).style.display = 'block';
-                                                                                                document.getElementById('imgeditcancle' + abc).style.display = 'none';
-                                                                                                //alert('.' + 'showcomment' + abc);
-                                                                                                $('#' + 'imgshowcomment' + abc).html(data);
-                                                                                            }
-                                                                                        });
-                                                                                        //alert(val);
-                                                                                    }
-                                                                                });
-                                                                            });
-                                                                        }
-                                                                        </script>
-                                                                        <script type="text/javascript">
-                                                                            function imgedit_commenttwo(abc)
-                                                                            { //alert('editsubmit' + abc);
-                                                                                var post_comment_edit = document.getElementById("imgeditcommenttwo" + abc);
-                                                                                //alert(post_comment.value);
-                                                                                //alert(post_comment.value);
-                                                                                $.ajax({
-                                                                                    type: 'POST',
-                                                                                    url: '<?php echo base_url() . "artistic/mul_edit_com_insert" ?>',
-                                                                                    data: 'post_image_comment_id=' + abc + '&comment=' + post_comment_edit.value,
-                                                                                    success: function (data) { //alert('falguni');
-                                                                                        //  $('input').each(function(){
-                                                                                        //     $(this).val('');
-                                                                                        // }); 
-                                                                                        document.getElementById('imgeditcommenttwo' + abc).style.display = 'none';
-                                                                                        document.getElementById('imgshowcommenttwo' + abc).style.display = 'block';
-                                                                                        document.getElementById('imgeditsubmittwo' + abc).style.display = 'none';
-                                                                                        document.getElementById('imgeditcommentboxtwo' + abc).style.display = 'block';
-                                                                                        document.getElementById('imgeditcancletwo' + abc).style.display = 'none';
-                                                                                        //alert('.' + 'showcomment' + abc);
-                                                                                        $('#' + 'imgshowcommenttwo' + abc).html(data);
-                                                                                    }
-                                                                        });
+                                        if (window.preventDuplicateKeyPresses)
+                                            return;
 
-                                                                            }
-                                                                            </script>
-                                                                            <script type="text/javascript">
-        function imgcommentedittwo(abc)
-        {
-            $(document).ready(function () {
-                $('#imgeditcommenttwo' + abc).keypress(function (e) {
-                    if (e.keyCode == 13 && !e.shiftKey) {
-                        var val = $('#imgeditcommenttwo' + abc).val();
-                        e.preventDefault();
-                        if (window.preventDuplicateKeyPresses)
-                            return;
-                        window.preventDuplicateKeyPresses = true;
-                        window.setTimeout(function () {
-                            window.preventDuplicateKeyPresses = false;
-                        }, 500);
-                        $.ajax({
-                            type: 'POST',
-                            url: '<?php echo base_url() . "artistic/mul_edit_com_insert" ?>',
-                            data: 'post_image_comment_id=' + abc + '&comment=' + val,
-                            success: function (data) { //alert('falguni');
-                                //  $('input').each(function(){
-                                //     $(this).val('');
-                                // }); 
-                                document.getElementById('imgeditcommenttwo' + abc).style.display = 'none';
-                                document.getElementById('imgshowcommenttwo' + abc).style.display = 'block';
-                                document.getElementById('imgeditsubmittwo' + abc).style.display = 'none';
-                                document.getElementById('imgeditcommentboxtwo' + abc).style.display = 'block';
-                                document.getElementById('imgeditcancletwo' + abc).style.display = 'none';
-                                //alert('.' + 'showcomment' + abc);
-                                $('#' + 'imgshowcommenttwo' + abc).html(data);
-                            } }  ); 
-                          
-        } }); }); }
-</script>
-<!-- comment edit insert end -->
-<!-- comment delete start -->
-                                                                                        <script type="text/javascript">
-                                                                                            function imgcomment_delete(clicked_id)
-                                                                                            {
+                                        window.preventDuplicateKeyPresses = true;
+                                        window.setTimeout(function () {
+                                            window.preventDuplicateKeyPresses = false;
+                                        }, 500);
 
-                                                                                                var post_delete = document.getElementById("imgpost_delete");
-                                                                                                //alert(post_delete.value);
-                                                                                                $.ajax({
-                                                                                                    type: 'POST',
-                                                                                                    url: '<?php echo base_url() . "artistic/mul_delete_comment" ?>',
-                                                                                                    data: 'post_image_comment_id=' + clicked_id + '&post_delete=' + post_delete.value,
-                                                                                                    success: function (data) { //alert('.' + 'insertcomment' + clicked_id);
-                                                                                                        $('.' + 'insertimgcomment' + post_delete.value).html(data);
-                                                                                                    }
-                                                                                                });
-                                                                                            }
-                                                                                            function imgcomment_delete1(clicked_id)
-                                                                                            {
+                                        var x = document.getElementById('threecomment' + clicked_id);
+                                        var y = document.getElementById('fourcomment' + clicked_id);
 
-                                                                                                var post_delete1 = document.getElementById("imgpost_delete1");
-                                                                                                //alert(post_delete.value);
-                                                                                                $.ajax({
-                                                                                                    type: 'POST',
-                                                                                                    url: '<?php echo base_url() . "artistic/mul_delete_comment1" ?>',
-                                                                                                    data: 'post_image_comment_id=' + clicked_id + '&post_delete=' + post_delete1.value,
-                                                                                                    success: function (data) { //alert('.' + 'insertcomment' + clicked_id);
-                                                                                                        $('.' + 'insertimgcomment' + post_delete1.value).html(data);
-                                                                                                    }
-                                                                                                });
-                                                                                            }
-                                                                                            </script>
-                                                                                            <!-- commenmt delete end -->
-                                                                                            <!-- multiple images all script like comment end -->
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            <!-- 9-5 khyati image script  start --> 
 
+
+                                        if (x.style.display === 'block' && y.style.display === 'none') {
+                                            $.ajax({
+                                                type: 'POST',
+                                                url: '<?php echo base_url() . "artistic/insert_commentthree" ?>',
+                                                data: 'post_id=' + clicked_id + '&comment=' + txt,
+                                                dataType: "json",
+                                                success: function (data) {
+                                                    $('textarea').each(function () {
+                                                        $(this).val('');
+                                                    });
+                                                    $('#' + 'insertcount' + clicked_id).html(data.count);
+                                                    $('.insertcomment' + clicked_id).html(data.comment);
+                                                }
+                                            });
+                                        } else {
+                                            $.ajax({
+                                                type: 'POST',
+                                                url: '<?php echo base_url() . "artistic/insert_comment" ?>',
+                                                data: 'post_id=' + clicked_id + '&comment=' + txt,
+                                                dataType: "json",
+                                                success: function (data) {
+                                                    $('textarea').each(function () {
+                                                        $(this).val('');
+                                                    });
+                                                    $('#' + 'insertcount' + clicked_id).html(data.count);
+                                                    $('#' + 'fourcomment' + clicked_id).html(data.comment);
+                                                }
+                                            });
+                                        }
+                                    }
+                                });
+                                $(".scroll").click(function (event) {
+                                    event.preventDefault();
+                                    $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1200);
+                                });
+                            }
+                        </script>
+
+                        <!--comment insert script end -->
+
+                        <!-- comment edit script start -->
+
+                        <!-- comment edit box start-->
+                        <script type="text/javascript">
+
+                            function comment_editbox(clicked_id) {
+                                document.getElementById('editcomment' + clicked_id).style.display = 'inline-block';
+                                document.getElementById('showcomment' + clicked_id).style.display = 'none';
+                                document.getElementById('editsubmit' + clicked_id).style.display = 'inline-block';
+                                //document.getElementById('editbox' + clicked_id).style.display = 'none';
+                                document.getElementById('editcommentbox' + clicked_id).style.display = 'none';
+                                document.getElementById('editcancle' + clicked_id).style.display = 'block';
+                                $('.post-design-commnet-box').hide();
+                            }
+
+
+                            function comment_editcancle(clicked_id) {
+                                document.getElementById('editcommentbox' + clicked_id).style.display = 'block';
+                                document.getElementById('editcancle' + clicked_id).style.display = 'none';
+                                document.getElementById('editcomment' + clicked_id).style.display = 'none';
+                                document.getElementById('showcomment' + clicked_id).style.display = 'block';
+                                document.getElementById('editsubmit' + clicked_id).style.display = 'none';
+
+                                $('.post-design-commnet-box').show();
+                            }
+
+                            function comment_editboxtwo(clicked_id) {
+                                //                            alert('editcommentboxtwo' + clicked_id);
+                                //                            return false;
+                                $('div[id^=editcommenttwo]').css('display', 'none');
+                                $('div[id^=showcommenttwo]').css('display', 'block');
+                                $('button[id^=editsubmittwo]').css('display', 'none');
+                                $('div[id^=editcommentboxtwo]').css('display', 'block');
+                                $('div[id^=editcancletwo]').css('display', 'none');
+
+                                document.getElementById('editcommenttwo' + clicked_id).style.display = 'inline-block';
+                                document.getElementById('showcommenttwo' + clicked_id).style.display = 'none';
+                                document.getElementById('editsubmittwo' + clicked_id).style.display = 'inline-block';
+                                document.getElementById('editcommentboxtwo' + clicked_id).style.display = 'none';
+                                document.getElementById('editcancletwo' + clicked_id).style.display = 'block';
+                                $('.post-design-commnet-box').hide();
+                            }
+
+
+                            function comment_editcancletwo(clicked_id) {
+
+                                document.getElementById('editcommentboxtwo' + clicked_id).style.display = 'block';
+                                document.getElementById('editcancletwo' + clicked_id).style.display = 'none';
+
+                                document.getElementById('editcommenttwo' + clicked_id).style.display = 'none';
+                                document.getElementById('showcommenttwo' + clicked_id).style.display = 'block';
+                                document.getElementById('editsubmittwo' + clicked_id).style.display = 'none';
+                                $('.post-design-commnet-box').show();
+                            }
+
+                            function comment_editbox3(clicked_id) { //alert(clicked_id); alert('editcomment' + clicked_id); alert('showcomment' + clicked_id); alert('editsubmit' + clicked_id); 
+                                document.getElementById('editcomment3' + clicked_id).style.display = 'block';
+                                document.getElementById('showcomment3' + clicked_id).style.display = 'none';
+                                document.getElementById('editsubmit3' + clicked_id).style.display = 'block';
+
+                                document.getElementById('editcommentbox3' + clicked_id).style.display = 'none';
+                                document.getElementById('editcancle3' + clicked_id).style.display = 'block';
+                                $('.post-design-commnet-box').hide();
+
+                            }
+
+                            function comment_editcancle3(clicked_id) {
+
+                                document.getElementById('editcommentbox3' + clicked_id).style.display = 'block';
+                                document.getElementById('editcancle3' + clicked_id).style.display = 'none';
+
+                                document.getElementById('editcomment3' + clicked_id).style.display = 'none';
+                                document.getElementById('showcomment3' + clicked_id).style.display = 'block';
+                                document.getElementById('editsubmit3' + clicked_id).style.display = 'none';
+
+                                $('.post-design-commnet-box').show();
+
+                            }
+
+                            function comment_editbox4(clicked_id) { //alert(clicked_id); alert('editcomment' + clicked_id); alert('showcomment' + clicked_id); alert('editsubmit' + clicked_id); 
+                                document.getElementById('editcomment4' + clicked_id).style.display = 'block';
+                                document.getElementById('showcomment4' + clicked_id).style.display = 'none';
+                                document.getElementById('editsubmit4' + clicked_id).style.display = 'block';
+
+                                document.getElementById('editcommentbox4' + clicked_id).style.display = 'none';
+                                document.getElementById('editcancle4' + clicked_id).style.display = 'block';
+
+                                $('.post-design-commnet-box').hide();
+
+                            }
+
+                            function comment_editcancle4(clicked_id) {
+
+                                document.getElementById('editcommentbox4' + clicked_id).style.display = 'block';
+                                document.getElementById('editcancle4' + clicked_id).style.display = 'none';
+
+                                document.getElementById('editcomment4' + clicked_id).style.display = 'none';
+                                document.getElementById('showcomment4' + clicked_id).style.display = 'block';
+                                document.getElementById('editsubmit4' + clicked_id).style.display = 'none';
+
+                                $('.post-design-commnet-box').show();
+
+                            }
+                        </script>
+
+                        <!--comment edit box end-->
+
+                        <!-- comment edit insert start -->
+                        <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
+                        <script type="text/javascript">
+                            //                        function edit_comment(abc)
+                            //                        {
+                            //                            var $field = $('#editcomment' + abc);
+                            //                            var editpostdetails = $('#editcomment' + abc).html();
+                            //                            if (editpostdetails == '') {
+                            //                                $('.biderror .mes').html("<div class='pop_content'>Are you sure want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+                            //                                $('#bidmodal').modal('show');
+                            //                            } else {
+                            //                                $.ajax({
+                            //                                    type: 'POST',
+                            //                                    url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
+                            //                                    data: 'post_id=' + abc + '&comment=' + editpostdetails,
+                            //                                    success: function (data) {
+                            //                                        document.getElementById('editcomment' + abc).style.display = 'none';
+                            //                                        document.getElementById('showcomment' + abc).style.display = 'block';
+                            //                                        document.getElementById('editsubmit' + abc).style.display = 'none';
+                            //                                        document.getElementById('editbox' + abc).style.display = 'block';
+                            //                                        document.getElementById('editcancle' + abc).style.display = 'none';
+                            //                                        $('#' + 'showcomment' + abc).html(data);
+                            //                                    }
+                            //                                });
+                            //                            }
+                            //                        }
+
+                            function edit_comment(abc)
+                            {
+                                $("#editcomment" + abc).click(function () {
+                                    $(this).prop("contentEditable", true);
+                                });
+
+                                var sel = $("#editcomment" + abc);
+                                var txt = sel.html();
+                                
+                            txt = txt.replace(/&nbsp;/gi, " ");
+                            txt = txt.replace(/<br>$/, '');
+                            if (txt == '' || txt == '<br>') {
+                            $('.biderror .mes').html("<div class='pop_content'>Do you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+                            $('#bidmodal').modal('show');
+                                return false;
+                            }
+                            if (/^\s+$/gi.test(txt))
+                            {
+                                return false;
+                            }
+
+                                $.ajax({
+                                    type: 'POST',
+                                    url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
+                                    data: 'post_id=' + abc + '&comment=' + txt,
+                                    success: function (data) {
+                                        document.getElementById('editcomment' + abc).style.display = 'none';
+                                        document.getElementById('showcomment' + abc).style.display = 'block';
+                                        document.getElementById('editsubmit' + abc).style.display = 'none';
+                                        document.getElementById('editcommentbox' + abc).style.display = 'block';
+                                        document.getElementById('editcancle' + abc).style.display = 'none';
+                                        $('#' + 'showcomment' + abc).html(data);
+                                        $('.post-design-commnet-box').show();
+                                    }
+                                });
+                                $(".scroll").click(function (event) {
+                                    event.preventDefault();
+                                    $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1200);
+                                });
+                            }
+                        </script>
+
+
+                        <script type="text/javascript">
+
+                            //                        function commentedit(abc)
+                            //                        {
+                            //                                $('#editcomment' + abc).keypress(function (e) {
+                            //                                if (event.which == 13 && event.shiftKey != 1) {
+                            //                                    var $field = $('#editcomment' + abc);
+                            //                                    var editpostdetails = $('#editcomment' + abc).html();
+                            //                                    if (editpostdetails == '') {
+                            //                                        $('.biderror .mes').html("<div class='pop_content'>Are you sure want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+                            //                                        $('#bidmodal').modal('show');
+                            //                                    } else {
+                            //                                        $.ajax({
+                            //                                            type: 'POST',
+                            //                                            url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
+                            //                                            data: 'post_id=' + abc + '&comment=' + editpostdetails,
+                            //                                            success: function (data) {
+                            //                                                document.getElementById('editcomment' + abc).style.display = 'none';
+                            //                                                document.getElementById('showcomment' + abc).style.display = 'block';
+                            //                                                document.getElementById('editsubmit' + abc).style.display = 'none';
+                            //                                                document.getElementById('editbox' + abc).style.display = 'block';
+                            //                                                document.getElementById('editcancle' + abc).style.display = 'none';
+                            //                                                $('#' + 'showcomment' + abc).html(data);
+                            //                                            }
+                            //                                        });
+                            //                                    }
+                            //                                    e.preventDefault();
+                            //                                }
+                            //                            });
+                            //                        }
+
+                            function commentedit(abc)
+                            {
+                                $("#editcomment" + abc).click(function () {
+                                    $(this).prop("contentEditable", true);
+                                });
+                                $('#editcomment' + abc).keypress(function (event) {
+                                    if (event.which == 13 && event.shiftKey != 1) {
+                                        event.preventDefault();
+                                        var sel = $("#editcomment" + abc);
+                                        var txt = sel.html();
+                                      
+                    txt = txt.replace(/&nbsp;/gi, " ");
+                    txt = txt.replace(/<br>$/, '');
+                    if (txt == '' || txt == '<br>') {
+                    $('.biderror .mes').html("<div class='pop_content'>Do you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+                    $('#bidmodal').modal('show');
+                        return false;
+                    }
+                    if (/^\s+$/gi.test(txt))
+                    {
+                        return false;
+                    }
+//                                       
+                                     
+                                   if (window.preventDuplicateKeyPresses)
+                                            return;
+                                        window.preventDuplicateKeyPresses = true;
+                                        window.setTimeout(function () {
+                                            window.preventDuplicateKeyPresses = false;
+                                        }, 500);
+                                        $.ajax({
+                                            type: 'POST',
+                                            url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
+                                            data: 'post_id=' + abc + '&comment=' + txt,
+                                            success: function (data) {
+                                                document.getElementById('editcomment' + abc).style.display = 'none';
+                                                document.getElementById('showcomment' + abc).style.display = 'block';
+                                                document.getElementById('editsubmit' + abc).style.display = 'none';
+                                                document.getElementById('editcommentbox' + abc).style.display = 'block';
+                                                document.getElementById('editcancle' + abc).style.display = 'none';
+                                                $('#' + 'showcomment' + abc).html(data);
+                                                $('.post-design-commnet-box').show();
+                                            }
+                                        });
+                                    }
+                                });
+                                $(".scroll").click(function (event) {
+                                    event.preventDefault();
+                                    $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1200);
+                                });
+                            }
+                        </script>
+
+
+                        <script type="text/javascript">
+                            //                        function edit_commenttwo(abc)
+                            //                        {
+                            //                            var post_comment_edit = document.getElementById("editcommenttwo" + abc);
+                            //                            if (post_comment_edit.value == '') {
+                            //                                $('.biderror .mes').html("<div class='pop_content'>Are you sure want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deletetwo(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+                            //                                $('#bidmodal').modal('show');
+                            //                            } else {
+                            //                                $.ajax({
+                            //                                    type: 'POST',
+                            //                                    url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
+                            //                                    data: 'post_id=' + abc + '&comment=' + post_comment_edit.value,
+                            //                                    success: function (data) {
+                            //                                        document.getElementById('showcommenttwo' + abc).style.display = 'block';
+                            //                                        document.getElementById('showcommenttwo' + abc).innerHTML = data;
+                            //                                        document.getElementById('editboxtwo' + abc).style.display = 'block';
+                            //                                        document.getElementById('editcommenttwo' + abc).style.display = 'none';
+                            //                                        document.getElementById('editsubmittwo' + abc).style.display = 'none';
+                            //                                        document.getElementById('editcancletwo' + abc).style.display = 'none';
+                            //                                    }
+                            //                                });
+                            //                            }
+                            //                        }
+
+                            function edit_commenttwo(abc)
+                            {
+                                $("#editcommenttwo" + abc).click(function () {
+                                    $(this).prop("contentEditable", true);
+                                });
+
+                                var sel = $("#editcommenttwo" + abc);
+                                var txt = sel.html();
+                                
+                            txt = txt.replace(/&nbsp;/gi, " ");
+                            txt = txt.replace(/<br>$/, '');
+                            if (txt == '' || txt == '<br>') {
+                                 $('.biderror .mes').html("<div class='pop_content'>Do you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deletetwo(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+                                    $('#bidmodal').modal('show');
+                                return false;
+                            }
+                            if (/^\s+$/gi.test(txt))
+                            {
+                                return false;
+                            }
+
+
+                                $.ajax({
+                                    type: 'POST',
+                                    url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
+                                    data: 'post_id=' + abc + '&comment=' + txt,
+                                    success: function (data) {
+                                        document.getElementById('editcommenttwo' + abc).style.display = 'none';
+                                        document.getElementById('showcommenttwo' + abc).style.display = 'block';
+                                        document.getElementById('editsubmittwo' + abc).style.display = 'none';
+                                        document.getElementById('editcommentboxtwo' + abc).style.display = 'block';
+                                        document.getElementById('editcancletwo' + abc).style.display = 'none';
+                                        $('#' + 'showcommenttwo' + abc).html(data);
+                                        $('.post-design-commnet-box').show();
+                                    }
+                                });
+                                $(".scroll").click(function (event) {
+                                    event.preventDefault();
+                                    $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1200);
+                                });
+                            }
+                        </script>
+
+
+                        <script type="text/javascript">
+
+                            //                        function commentedittwo(abc)
+                            //                        {
+                            //                            $('#editcommenttwo' + abc).keypress(function (e) {
+                            //                                if (e.which == 13) {
+                            //                                    var val = $('#editcommenttwo' + abc).val();
+                            //
+                            //                                    if (val == '') {
+                            //                                        $('.biderror .mes').html("<div class='pop_content'>Are you sure want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deletetwo(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+                            //                                        $('#bidmodal').modal('show');
+                            //                                    } else {
+                            //                                        $.ajax({
+                            //                                            type: 'POST',
+                            //                                            url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
+                            //                                            data: 'post_id=' + abc + '&comment=' + val,
+                            //                                            success: function (data) {
+                            //                                                document.getElementById('editcommenttwo' + abc).style.display = 'none';
+                            //                                                document.getElementById('showcommenttwo' + abc).style.display = 'block';
+                            //                                                document.getElementById('editsubmittwo' + abc).style.display = 'none';
+                            //                                                document.getElementById('editboxtwo' + abc).style.display = 'block';
+                            //                                                document.getElementById('editcancletwo' + abc).style.display = 'none';
+                            //                                                $('#' + 'showcommenttwo' + abc).html(data);
+                            //                                            }
+                            //                                        });
+                            //                                    }
+                            //                                    e.preventDefault();
+                            //                                }
+                            //                            });
+                            //                        }
+
+                            function commentedittwo(abc)
+                            {
+                                $("#editcommenttwo" + abc).click(function () {
+                                    $(this).prop("contentEditable", true);
+                                    //$(this).html("");
+                                });
+                                $('#editcommenttwo' + abc).keypress(function (event) {
+                                    if (event.which == 13 && event.shiftKey != 1) {
+                                        event.preventDefault();
+                                        var sel = $("#editcommenttwo" + abc);
+                                        var txt = sel.html();
+                                        
+                                         txt = txt.replace(/&nbsp;/gi, " ");
+                                         txt = txt.replace(/<br>$/, '');
+                                           if (txt == '' || txt == '<br>') {
+                                          $('.biderror .mes').html("<div class='pop_content'>Do you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deletetwo(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+                                          $('#bidmodal').modal('show');
+                                             return false;
+                                               }
+                                          if (/^\s+$/gi.test(txt))
+                                           {
+                                                 return false;
+                                              }
+
+                                        if (window.preventDuplicateKeyPresses)
+                                            return;
+
+                                        window.preventDuplicateKeyPresses = true;
+                                        window.setTimeout(function () {
+                                            window.preventDuplicateKeyPresses = false;
+                                        }, 500);
+
+                                        $.ajax({
+                                            type: 'POST',
+                                            url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
+                                            data: 'post_id=' + abc + '&comment=' + txt,
+                                            success: function (data) {
+                                                document.getElementById('editcommenttwo' + abc).style.display = 'none';
+                                                document.getElementById('showcommenttwo' + abc).style.display = 'block';
+                                                document.getElementById('editsubmittwo' + abc).style.display = 'none';
+
+                                                document.getElementById('editcommentboxtwo' + abc).style.display = 'block';
+                                                document.getElementById('editcancletwo' + abc).style.display = 'none';
+
+                                                $('#' + 'showcommenttwo' + abc).html(data);
+                                                $('.post-design-commnet-box').show();
+
+                                            }
+                                        });
+                                    }
+                                });
+                                $(".scroll").click(function (event) {
+                                    event.preventDefault();
+                                    $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1200);
+                                });
+                            }
+                        </script>
+
+                        <!--comment edit insert script end -->
+
+                        <!-- hide and show data start-->
+                        <script type="text/javascript">
+                            function commentall(clicked_id) {
+                                var x = document.getElementById('threecomment' + clicked_id);
+                                var y = document.getElementById('fourcomment' + clicked_id);
+                                var z = document.getElementById('insertcount' + clicked_id);
+
+                                if (x.style.display === 'block' && y.style.display === 'none') {
+                                    x.style.display = 'none';
+                                    y.style.display = 'block';
+                                    z.style.visibility = 'show';
+                                    $.ajax({
+                                        type: 'POST',
+                                        url: '<?php echo base_url() . "artistic/fourcomment" ?>',
+                                        data: 'art_post_id=' + clicked_id,
+                                        //alert(data);
+                                        success: function (data) {
+                                            $('#' + 'fourcomment' + clicked_id).html(data);
+                                        }
+                                    });
+                                }
+                                // } else {
+                                //      x.style.display = 'block';
+                                //      y.style.display = 'block';
+                                //      z.style.display = 'block';
+
+                                //      $.ajax({ 
+                                //             type:'POST',
+                                //             url:'<?php echo base_url() . "artistic/fourcomment" ?>',
+                                //             data:'art_post_id='+clicked_id,
+                                //             //alert(data);
+                                //             success:function(data){
+                                //       $('#' + 'threecomment' + clicked_id).html(data);
+
+                                //       }
+                                //         });
+                                // }
+                            }
+                        </script>
+                        <!-- hide and show data end-->
+<!-- 9-5 chnages start --> 
 <script type="text/javascript">
                       function post_likeimg(clicked_id)
                         {
@@ -3393,7 +3917,7 @@ if (count($commnetcount) > 0) {
                         function comment_deletedimg(clicked_id)
                         {
                             var post_delete = document.getElementById("post_deleteimg");
-                            alert(post_delete.value);
+                         //   alert(post_delete.value);
                             $.ajax({
                                 type: 'POST',
                                 url: '<?php echo base_url() . "artistic/delete_commentimg" ?>',
@@ -3540,7 +4064,7 @@ if (count($commnetcount) > 0) {
                         function comment_deletedimgtwo(clicked_id)
                         { 
                             var post_delete1 = document.getElementById("post_deleteimgtwo");
-                            alert(post_delete1.value);
+                        //    alert(post_delete1.value);
                             $.ajax({
                                 type: 'POST',
                                 url: '<?php echo base_url() . "artistic/delete_commenttwoimg" ?>',
@@ -3692,6 +4216,76 @@ if (count($commnetcount) > 0) {
 
                                         }
                                     });
+                                }
+                            });
+                            $(".scroll").click(function (event) {
+                                event.preventDefault();
+                                $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1200);
+                            });
+                        }
+                        
+                          function entercommentimg(clicked_id)
+                        {   
+                            $("#post_commentimg" + clicked_id).click(function () {
+                                $(this).prop("contentEditable", true);
+                            });
+
+                            $('#post_commentimg' + clicked_id).keypress(function (e) {
+
+                                if (e.keyCode == 13 && !e.shiftKey) {
+                                    e.preventDefault();
+                                    var sel = $("#post_commentimg" + clicked_id);
+                                    var txt = sel.html();
+                                    if (txt == '') {
+                                        return false;
+                                    }
+                                    $('#post_commentimg' + clicked_id).html("");
+
+                                    if (window.preventDuplicateKeyPresses)
+                                        return;
+
+                                    window.preventDuplicateKeyPresses = true;
+                                    window.setTimeout(function () {
+                                        window.preventDuplicateKeyPresses = false;
+                                    }, 500);
+                                    
+                                    var x = document.getElementById('threecommentimg' + clicked_id);
+                                    var y = document.getElementById('fourcommentimg' + clicked_id);
+                                    
+                                    
+                                    
+                                    if (x.style.display === 'block' && y.style.display === 'none') {
+                                $.ajax({
+                                    type: 'POST',
+                                    url: '<?php echo base_url() . "artistic/insert_commentthreeimg" ?>',
+                                    data: 'post_image_id=' + clicked_id + '&comment=' + txt,
+                                    dataType: "json",
+                                    success: function (data) {
+                                        $('textarea').each(function () {
+                                            $(this).val('');
+                                        });
+                                        $('#' + 'insertcountimg' + clicked_id).html(data.count);
+                                        $('.insertcommentimg' + clicked_id).html(data.comment);
+
+                                    }
+                                });
+
+                            } else {
+
+                                $.ajax({
+                                    type: 'POST',
+                                    url: '<?php echo base_url() . "artistic/insert_commentimg" ?>',
+                                    data: 'post_image_id=' + clicked_id + '&comment=' + txt,
+                                    dataType: "json",
+                                    success: function (data) {
+                                        $('textarea').each(function () {
+                                            $(this).val('');
+                                        });
+                                        $('#' + 'insertcountimg' + clicked_id).html(data.count);
+                                        $('#' + 'fourcommentimg' + clicked_id).html(data.comment);
+                                    }
+                                });
+                            }
                                 }
                             });
                             $(".scroll").click(function (event) {
