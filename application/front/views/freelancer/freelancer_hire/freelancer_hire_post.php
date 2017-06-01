@@ -195,7 +195,7 @@ echo $freelancer_hire_header2;} ?>
                 if ($freelancerpostdata[0]['designation'] == '') {
                     ?>
                    <!--  <a id="myBtn" title="<?php echo ucwords($freelancerpostdata[0]['fullname']) . ' ' . ucwords($freelancerpostdata[0]['username']); ?>">Designation</a> -->
-                    <a id="designation" class="designation" title="Designation">Designation</a>
+                    <a id="designation" class="designation" title="Designation">Current Work</a>
 
                 <?php } else { ?> 
                     <!-- <a id="myBtn" title="<?php echo ucwords($freelancerpostdata[0]['fullname']) . ' ' . ucwords($freelancerpostdata[0]['username']); ?>"><?php echo ucwords($freelancerpostdata[0]['designation']); ?></a> -->
@@ -976,7 +976,7 @@ $( "#tags" ).autocomplete({
                                 var html = $(this).val();
                                 var viewableText = $("<a>");
                                    if (html.match(/^\s*$/) || html == '') { 
-                                html = "Designation";
+                                html = "Current Work";
                                 }
                                 viewableText.html(html);
                                 $(this).replaceWith(viewableText);
