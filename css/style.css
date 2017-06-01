@@ -787,8 +787,8 @@ ul.business_pf_ct_person_detail li b {font-size: 16px; display: inline-block; wi
 .profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li b {font-weight: 600; width: 32%; float: left; }
 
 .profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li label {font-weight: 600; width: 30%; float: left; }
-.profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li span{   word-wrap: break-word; /*word-break: break-word;  text-align: justify;*/
-                                                                                           padding-right: 10px ;display: inline-block; width: 68%;/* display: inline-block;*/}
+.profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li span{   word-wrap: break-word; word-break: break-word; /* text-align: justify;*/
+                                                                                           padding-right: 10px ;display:flex; width: 68%;/* display: inline-block;*/}
 .profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li span::before { 
     content: " :"; padding-right: 20px; float: left; }
 .profile-job-post-location-name { padding: 12px 21px; font-weight: bold; }
@@ -2335,7 +2335,7 @@ text-align: justify; display: inline-block; margin-bottom: 0px;
 
 }
 
-.profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li span p {text-align: justify;word-break: break-word;display: inline-block; margin-bottom: 0px; }
+.profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li span p {text-align: justify;word-break: break-word;display: flex; margin-bottom: 0px; }
 .profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li {margin-bottom: 5px;}
 .profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li span p a{color: #3b5283; text-decoration-line: underline;}
 .buisness-menu {    padding-bottom: 1px;
