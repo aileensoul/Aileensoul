@@ -655,7 +655,15 @@
                             <div class="profile-boxProfileCard  module">
                                 <div class="profile-boxProfileCard-cover">     
                                     <a class="profile-boxProfileCard-bg u-bgUserColor a-block" href="<?php echo site_url('artistic/art_manage_post'); ?>" tabindex="-1" aria-hidden="true" rel="noopener">
-                                        <img src="<?php echo base_url(ARTBGIMAGE . $artisticdata[0]['profile_background_main']); ?>" class="bgImage" style="height: 95px; width: 393px; " >
+                                   <?php if ($artisticdata[0]['profile_background']) { ?>
+                                      <div class="data-img">  <img src="<?php echo base_url($this->config->item('art_bg_thumb_upload_path')  . $artisticdata[0]['profile_background']); ?>" class="bgImage" style="height: 95px; width: 393px; " >
+                                      </div>
+                                         <?php } else { ?>
+                                            <div class="data_img">
+                                            <img src="<?php echo base_url(WHITEIMAGE); ?>" class="bgImage" alt="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>"  >
+
+                                            </div>                                             <?php } ?>
+                                   
                                     </a>
                                 </div>
 
@@ -663,11 +671,15 @@
                                     <div class="buisness-profile-txext col-md-4">
                                         <a class="profile-boxProfilebuisness-avatarLink2 a-inlineBlock" href="<?php echo site_url('artistic/art_manage_post'); ?>" title="zalak" tabindex="-1" aria-hidden="true" rel="noopener">
                                             <!-- box image start -->
-                                            <img src="<?php echo base_url(ARTISTICIMAGE . $artisticdata[0]['art_user_image']); ?>" class="bgImage" style="    height: 77px;
-                                                 width: 71px;
-                                                 z-index: 3;
-                                                 position: relative;
-                                                 " >
+                                            <?php if ($artisticdata[0]['art_user_image']) { ?>
+                                             <div class="data_img_2">   
+                                            <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image']); ?>" class="bgImage"  alt="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>" >
+                                             </div>
+                                                 <?php } else { ?> 
+                                            <div class="data_img_2">
+                                                <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>">
+                                            </div>
+                                                    <?php } ?>
                                             <!-- box image end -->
                                         </a>
                                     </div>
@@ -882,7 +894,7 @@
                                                 ?>
 
                                                 <div id="basic-responsive-image" style="height: 50%; width: 100%; margin-bottom: 10px;">
-                                                    <img src="<?php echo base_url(ARTPOSTIMAGE .$data['image_name']) ?>" style="width: 100%; height: 100%;" onclick="openModal();
+                                                    <img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path')  . $data['image_name']) ?>" style="width: 100%; height: 100%;" onclick="openModal();
                                                                     currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
 <!--                                                    <img src="<?php //echo base_url(ARTPOSTIMAGE . str_replace(" ", "_", $data['image_name'])) ?>" style="width: 100%; height: 100%;"  class="hover-shadow cursor">-->
                                                 </div>
@@ -935,7 +947,7 @@
                                                 <div class="mySlides">
                                                     <div class="numbertext"><?php echo $i ?> / <?php echo count($databus1) ?></div>
                                                     <div>
-                                                        <img src="<?php echo base_url(ARTPOSTIMAGE .$artdata['image_name']) ?>" style="width:100%; height: 70%;">
+                                                        <img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path')   .$artdata['image_name']) ?>" style="width:100%; height: 70%;">
                                                     </div>
  <!-- 9-5 like comment start -->
                  <div class="post-design-like-box col-md-12">
@@ -2895,7 +2907,7 @@ if (count($commnetcount) > 0) {
                                 }
                             }
                             $fileUpload.change(function (e) {
-                                alert("aaaa");
+                            //    alert("aaaa");
                                 handleFileSelect(e);
                             });
                             $list.on('click', '.remove_thumb', function () {//alert("aaaaa");
@@ -3905,7 +3917,7 @@ if (count($commnetcount) > 0) {
                         function comment_deletedimg(clicked_id)
                         {
                             var post_delete = document.getElementById("post_deleteimg");
-                            alert(post_delete.value);
+                         //   alert(post_delete.value);
                             $.ajax({
                                 type: 'POST',
                                 url: '<?php echo base_url() . "artistic/delete_commentimg" ?>',
@@ -4052,7 +4064,7 @@ if (count($commnetcount) > 0) {
                         function comment_deletedimgtwo(clicked_id)
                         { 
                             var post_delete1 = document.getElementById("post_deleteimgtwo");
-                            alert(post_delete1.value);
+                        //    alert(post_delete1.value);
                             $.ajax({
                                 type: 'POST',
                                 url: '<?php echo base_url() . "artistic/delete_commenttwoimg" ?>',
@@ -4204,6 +4216,76 @@ if (count($commnetcount) > 0) {
 
                                         }
                                     });
+                                }
+                            });
+                            $(".scroll").click(function (event) {
+                                event.preventDefault();
+                                $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1200);
+                            });
+                        }
+                        
+                          function entercommentimg(clicked_id)
+                        {   
+                            $("#post_commentimg" + clicked_id).click(function () {
+                                $(this).prop("contentEditable", true);
+                            });
+
+                            $('#post_commentimg' + clicked_id).keypress(function (e) {
+
+                                if (e.keyCode == 13 && !e.shiftKey) {
+                                    e.preventDefault();
+                                    var sel = $("#post_commentimg" + clicked_id);
+                                    var txt = sel.html();
+                                    if (txt == '') {
+                                        return false;
+                                    }
+                                    $('#post_commentimg' + clicked_id).html("");
+
+                                    if (window.preventDuplicateKeyPresses)
+                                        return;
+
+                                    window.preventDuplicateKeyPresses = true;
+                                    window.setTimeout(function () {
+                                        window.preventDuplicateKeyPresses = false;
+                                    }, 500);
+                                    
+                                    var x = document.getElementById('threecommentimg' + clicked_id);
+                                    var y = document.getElementById('fourcommentimg' + clicked_id);
+                                    
+                                    
+                                    
+                                    if (x.style.display === 'block' && y.style.display === 'none') {
+                                $.ajax({
+                                    type: 'POST',
+                                    url: '<?php echo base_url() . "artistic/insert_commentthreeimg" ?>',
+                                    data: 'post_image_id=' + clicked_id + '&comment=' + txt,
+                                    dataType: "json",
+                                    success: function (data) {
+                                        $('textarea').each(function () {
+                                            $(this).val('');
+                                        });
+                                        $('#' + 'insertcountimg' + clicked_id).html(data.count);
+                                        $('.insertcommentimg' + clicked_id).html(data.comment);
+
+                                    }
+                                });
+
+                            } else {
+
+                                $.ajax({
+                                    type: 'POST',
+                                    url: '<?php echo base_url() . "artistic/insert_commentimg" ?>',
+                                    data: 'post_image_id=' + clicked_id + '&comment=' + txt,
+                                    dataType: "json",
+                                    success: function (data) {
+                                        $('textarea').each(function () {
+                                            $(this).val('');
+                                        });
+                                        $('#' + 'insertcountimg' + clicked_id).html(data.count);
+                                        $('#' + 'fourcommentimg' + clicked_id).html(data.comment);
+                                    }
+                                });
+                            }
                                 }
                             });
                             $(".scroll").click(function (event) {
