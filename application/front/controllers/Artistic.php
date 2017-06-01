@@ -931,8 +931,6 @@ class Artistic extends MY_Controller {
 
 
             $contition_array = array('art_post.user_id' => $user_id, 'art_post.status' => '1', 'art_post.user_id !=' => $userid, 'art_post.is_delete' => '0');
-
-
             $this->data['art_data'] = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
 
