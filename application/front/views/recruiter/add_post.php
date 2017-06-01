@@ -74,7 +74,7 @@
                                 <fieldset class="full-width" <?php if ($skills) { ?> class="error-msg" <?php } ?>>
                                     <label class="control-label">Skills:<span style="color:red">*</span></label>
 
-                                    <select class="skill_other" name="skills[]" id="skills" multiple="multiple">
+                                    <select class="skill_other keyskil" name="skills[]" id="skills" multiple="multiple">
                                     </select> 
                                     <?php echo form_error('skills'); ?>
                                 </fieldset>
@@ -86,7 +86,7 @@
 
                                 <fieldset class="full-width" <?php if ($other_skill) { ?> class="error-msg" <?php } ?> >
                                     <label class="control-label">Other Skill:<span style="color:red">*</span></label>
-                                    <input name="other_skill" type="text" class="skill_other" id="other_skill" placeholder="Enter Your Skill" />
+                                    <input name="other_skill keyskil" type="text" class="skill_other" id="other_skill" placeholder="Enter Your Skill" />
                                     <span id="fullname-error"></span>
                                     <?php echo form_error('other_skill'); ?>
                                 </fieldset>
@@ -332,7 +332,36 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 
+<script type="text/javascript">
+  
+function imgval(){ 
+ 
+ var skill_main = document.getElementById("skills").value;
+ var skill_other = document.getElementById("other_skill").value;
 
+ 
+     if(skill_main =='' && skill_other == ''){
+  
+  $('#artpost .select2-selection').addClass("keyskill_border_active").style('border','1px solid #f00');
+  }
+
+  var minyear = document.getElementById('minyear').value;
+        var minmonth = document.getElementById('minmonth').value;
+        var maxyear = document.getElementById('maxyear').value;
+        var maxmonth = document.getElementById('maxmonth').value;
+
+        var min_exper;
+        min_exper = (minyear * 12) + minmonth ;
+        max_exper = (maxyear * 12) + maxmonth;
+        if(min_exper > max_exper){
+            alert("Minimum experience is not greater than maximum experience");
+            return false;
+
+        }
+   
+  }
+
+</script>
 <script type="text/javascript">
 
 
@@ -364,6 +393,19 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
                             required: true
                             
                         },
+                          'skills[]': {
+                            
+                          require_from_group: [1, ".keyskil"] 
+                          //required:true 
+                        }, 
+
+                        other_skill: {
+                            
+                           require_from_group: [1, ".keyskil"],
+                          noSpace: true
+                            // required:true 
+                        },
+
                          minyear: {
                             
                           require_from_group: [1, ".keyskil"] 
@@ -406,9 +448,9 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
                             required: true
                             
                         },
-                        position_no:{
-                            required:true
-                        },
+                        // position_no:{
+                        //     required:true
+                        // },
                       
 
 
@@ -423,15 +465,25 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
 
                         post_name: {
 
-                            required: "Last date  Is Required."
+                            required: "Jobtitle  Is Required."
+                        },
+                          'skills[]': {
+
+                            require_from_group: "You must either fill out 'Keyskills' or 'Other Skills'"
+
+                        },
+
+                        other_skill: {
+
+                            require_from_group: "You must either fill out 'Keyskills' or 'Other Skills'"
                         },
                         minyear: {
 
-                            required: "Year Selection Is Required"
+                            required: "You must either fill out 'month' or 'year'"
                         },
                         minmonth: {
 
-                            required: "Month no Is Required."
+                            required: "You must either fill out 'month' or 'year'"
                             
                         },
                          post_desc: {
@@ -463,9 +515,9 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
 
                             required: "Last date  Is Required."
                         },
-                        position_no:{
-                            required:"No candidate required."
-                        },
+                        // position_no:{
+                        //     required:"No candidate required."
+                        // },
 
 
 
@@ -485,36 +537,7 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
 
 
 
-<script type="text/javascript">
-  
-function imgval(){ 
- 
- var skill_main = document.getElementById("skills").value;
- var skill_other = document.getElementById("other_skill").value;
 
- 
-     if(skill_main =='' && skill_other == ''){
-  
-  $('#artpost .select2-selection').addClass("keyskill_border_active").style('border','1px solid #f00');
-  }
-
-  var minyear = document.getElementById('minyear').value;
-        var minmonth = document.getElementById('minmonth').value;
-        var maxyear = document.getElementById('maxyear').value;
-        var maxmonth = document.getElementById('maxmonth').value;
-
-        var min_exper;
-        min_exper = (minyear * 12) + minmonth ;
-        max_exper = (maxyear * 12) + maxmonth;
-        if(min_exper > max_exper){
-            alert("Minimum experience is not greater than maximum experience");
-            return false;
-
-        }
-   
-  }
-
-</script>
 <script>
 
    var data = <?php echo json_encode($demo); ?>;

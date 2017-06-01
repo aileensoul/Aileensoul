@@ -818,7 +818,7 @@ class Recruiter extends MY_Controller {
         //$this->form_validation->set_rules('skills', 'Skils Name', 'required|regex_match[/^(?![0-9]*$)[a-zA-Z0-9]+$/]');
         //$this->form_validation->set_rules('month', 'Month', 'required');
         //$this->form_validation->set_rules('interview', ' Interview', 'required');
-        $this->form_validation->set_rules('position', ' Position', 'required');
+        //$this->form_validation->set_rules('position', ' Position', 'required');
         $this->form_validation->set_rules('post_desc', ' Description', 'required');
         //$this->form_validation->set_rules('other_skill', ' Other skill', 'required');
         $this->form_validation->set_rules('last_date', 'Last date', 'required');
