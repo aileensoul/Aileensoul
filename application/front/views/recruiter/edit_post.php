@@ -87,7 +87,7 @@
                     </fieldset>
 
                      <fieldset class="full-width">
-                        <label>No of position:<span style="color:red">*</span></label>
+                        <label>No of position:<!-- <span style="color:red">*</span> --></label>
                         <input name="position" type="number" min="1" id="position" value="<?php echo $postdata[0]['post_position']; ?>" onblur="return full_name();"/>
                         <span id="fullname-error"></span>
                         <?php echo form_error('position'); ?>
@@ -375,17 +375,14 @@
   
         
 
-  <script type="text/javascript" src="<?php echo base_url('js/jquery-1.11.1.min.js'); ?>"></script>
+  <!-- <script type="text/javascript" src="<?php //echo base_url('js/jquery-1.11.1.min.js'); ?>"></script> -->
 <!-- script for select2 box Script start-->
 
 
 <!-- script for select2 box Script End-->
 
-<script type="text/javascript" src="<?php echo base_url('js/jquery.validate1.15.0..min.js'); ?>"></script>
 
 <!--  <script type="text/javascript" src="<?php //echo base_url('js/jquery.validate.js'); ?>"></script> -->
-
-<script type="text/javascript" src="<?php echo base_url('js/additional-methods1.15.0.min.js'); ?>"></script>
 
 
 
@@ -397,12 +394,48 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/3.3.0/select2.js"></script>
 
+<<script type="text/javascript" src="<?php echo base_url('js/jquery.validate1.15.0..min.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('js/additional-methods1.15.0.min.js'); ?>"></script>
 
 <script type="text/javascript">
 //select2 autocomplete start for skill
 var complex = <?php echo json_encode($selectdata); ?>;
 $('#skils').select2().select2('val', complex)
 //select2 autocomplete End for skill
+</script>
+
+
+
+
+<script type="text/javascript">
+  
+function imgval(){ 
+ 
+ var skill_main = document.getElementById("skills").value;
+ var skill_other = document.getElementById("other_skill").value;
+
+ 
+     if(skill_main =='' && skill_other == ''){
+  
+  $('#artpost .select2-selection').addClass("keyskill_border_active").style('border','1px solid #f00');
+  }
+
+  var minyear = document.getElementById('minyear').value;
+        var minmonth = document.getElementById('minmonth').value;
+        var maxyear = document.getElementById('maxyear').value;
+        var maxmonth = document.getElementById('maxmonth').value;
+
+        var min_exper;
+        min_exper = (minyear * 12) + minmonth ;
+        max_exper = (maxyear * 12) + maxmonth;
+        if(min_exper > max_exper){
+            alert("Minimum experience is not greater than maximum experience");
+            return false;
+
+        }
+   
+  }
+
 </script>
 
 <script type="text/javascript">
@@ -467,12 +500,12 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
                            
                         },
 
-                        position: {
+                        // position: {
 
-                            required: true,
-                            noSpace: true
+                        //     required: true,
+                        //     noSpace: true
                            
-                        },
+                        // },
 
                         post_desc: {
 
@@ -566,11 +599,11 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
                             
                         },
 
-                        position: {
+                        // position: {
 
-                            required: "Position Selection Is Required"
+                        //     required: "Position Selection Is Required"
                            
-                        },
+                        // },
 
                          post_desc: {
 
@@ -724,38 +757,6 @@ jQuery.noConflict();
 
 </script>
 
-
-
-<script type="text/javascript">
-  
-function imgval(){ 
- 
- var skill_main = document.getElementById("skills").value;
- var skill_other = document.getElementById("other_skill").value;
-
- 
-     if(skill_main =='' && skill_other == ''){
-  
-  $('#artpost .select2-selection').addClass("keyskill_border_active").style('border','1px solid #f00');
-  }
-
-  var minyear = document.getElementById('minyear').value;
-        var minmonth = document.getElementById('minmonth').value;
-        var maxyear = document.getElementById('maxyear').value;
-        var maxmonth = document.getElementById('maxmonth').value;
-
-        var min_exper;
-        min_exper = (minyear * 12) + minmonth ;
-        max_exper = (maxyear * 12) + maxmonth;
-        if(min_exper > max_exper){
-            alert("Minimum experience is not greater than maximum experience");
-            return false;
-
-        }
-   
-  }
-
-</script>
 
 <script type="text/javascript">
 $(document).ready(function(){

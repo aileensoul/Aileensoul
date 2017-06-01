@@ -74,7 +74,7 @@
                                 <fieldset class="full-width" <?php if ($skills) { ?> class="error-msg" <?php } ?>>
                                     <label class="control-label">Skills:<span style="color:red">*</span></label>
 
-                                    <select class="skill_other keyskil" name="skills[]" id="skills" multiple="multiple">
+                                    <select class="skill_other" name="skills[]" id="skills" multiple="multiple">
                                     </select> 
                                     <?php echo form_error('skills'); ?>
                                 </fieldset>
@@ -86,13 +86,13 @@
 
                                 <fieldset class="full-width" <?php if ($other_skill) { ?> class="error-msg" <?php } ?> >
                                     <label class="control-label">Other Skill:<span style="color:red">*</span></label>
-                                    <input name="other_skill keyskil" type="text" class="skill_other" id="other_skill" placeholder="Enter Your Skill" />
+                                    <input name="other_skill" type="text" class="skill_other" id="other_skill" placeholder="Enter Your Skill" />
                                     <span id="fullname-error"></span>
                                     <?php echo form_error('other_skill'); ?>
                                 </fieldset>
                                 <!--  </div> -->
                                       <fieldset class="full-width" <?php if ($position) { ?> class="error-msg" <?php } ?>>
-                                    <label class="control-label">No of Position:<span style="color:red">*</span></label>
+                                    <label class="control-label">No of Position:<!-- <span style="color:red">*</span> --></label>
                                     <input name="position_no" type="number" min="1" id="position" value="1" onblur="return full_name();" placeholder="Enter No of Candidate" />
                                     <span id="fullname-error"></span>
                                     <?php echo form_error('position'); ?>        
@@ -138,7 +138,6 @@
                                         <option value="5">5 Month</option>
                                         <option value="6">6 Month</option>
                                     </select>
-                                     
                                     <span id="fullname-error"></span>
                                     <?php echo form_error('month'); ?> &nbsp;&nbsp; <?php echo form_error('year'); ?>
 
@@ -395,13 +394,13 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
                         },
                           'skills[]': {
                             
-                          require_from_group: [1, ".keyskil"] 
+                          require_from_group: [1, ".skill_other"] 
                           //required:true 
                         }, 
 
                         other_skill: {
                             
-                           require_from_group: [1, ".keyskil"],
+                           require_from_group: [1, ".other_skill"],
                           noSpace: true
                             // required:true 
                         },
