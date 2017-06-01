@@ -440,12 +440,12 @@ $userid = $this->session->userdata('aileenuser');
                                                 
                                                 <div class="col-md-1">
                                                 </div>
-                                           <?php   }  }} else {
-                                    ?>
+                                           
                                          </div>
                                     
                                     <!-- @nk!t 7-4-2017 start -->
-                                
+                                <?php   }  }} else {
+                                    ?>
                                     <div class="text-center rio">
                                         <h1 class="page-heading  product-listing" >Oops No Data Found.</h1>
                                         <p>We couldn't find what you were looking for.</p>
