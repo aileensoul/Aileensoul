@@ -793,66 +793,79 @@ echo $job_header2;
                                               </div>
                                                
                                                 
-                                                 <div class="profile-job-profile-menu" id="job_workexp">
+        <div class="profile-job-profile-menu" id="job_workexp">
 
-                                                        <ul><li> <b> Total Experience </b><span><?php if ($total_work_year != '0' || $total_work_month != '0') { ?> <?php if ($total_work_year != '0') { ?><?php echo $total_work_year; ?> year <?php } ?> <?php if ($total_work_month != '0') { ?><?php echo $total_work_month; ?> month <?php } ?> <?php
-                                                                    } else {
-                                                                        echo 'Fresher';
+         <ul><li> <b> Total Experience </b><span><?php 
+
+            $total_work_year=0;
+            $total_work_month=0;
+            foreach ($job_work as $work1) {
+
+            $total_work_year+=$work1['experience_year'];
+            $total_work_month+=$work1['experience_month'];
+            }
+            echo $total_work_year; echo "&nbsp"; echo "Year";
+            echo "&nbsp";
+            echo $total_work_month; echo "&nbsp"; echo "Month";
+            ?> 
+
+
+         <!-- <?php echo $total_work_year; ?></b><span><?php if ($total_work_year != '0' || $total_work_month != '0') { ?> <?php if ($total_work_year != '0') { ?><?php echo $total_work_year; ?> year <?php } ?> <?php if ($total_work_month != '0') { ?><?php echo $total_work_month; ?> month <?php } ?> <?php
+            } else {
                                                                     }
-                                                                    ?>
+                                                                    ?> -->
                                                                 </span>
                                                             </li>
                                                         </ul>
                                                     </div>
                                    
-                                              <?php   $total_work_year = 0;
-                                                $total_work_month = 0;
-                                                 $i = 6;
+    <?php   $total_work_year = 0;
+                $total_work_month = 0;
+            $i = 6;
                                                  
-                                                foreach ($job_work as $work) {
-                                                    ?>
-                                                      <div id="work<?php echo $i; ?>" class="tabcontent data_exp">
-                                                    <div class="profile-job-profile-menu" id="job_workexp">
+        foreach ($job_work as $work) {
+    ?>
+        <div id="work<?php echo $i; ?>" class="tabcontent data_exp">
+        <div class="profile-job-profile-menu" id="job_workexp">
 
-                                                        <ul class="clearfix">
-                                                            <?php
-                                                            if ($work['experience'] == "Experience") {
+        <ul class="clearfix">
+                <?php
+                    if ($work['experience'] == "Experience") {
                                                                 ?>           
 
-                                                                <li> <b> Job Title </b> <span> <?php echo $work['jobtitle']; ?> </span>
-                                                                </li>
-                                                                <?php
-                                                            }
-                                                            if ($work['experience'] == "Experience") {
-                                                                ?> 
+         <li> <b> Job Title </b> <span> <?php echo $work['jobtitle']; ?> </span>
+            </li>
+        <?php
+        }
+            if ($work['experience'] == "Experience") {
+     ?> 
 
-                                                                <li> <b>Company Name </b><span><?php echo $work['companyname']; ?></span>
-                                                                </li>
+             <li> <b>Company Name </b><span><?php echo $work['companyname']; ?></span>
+             </li>
 
-                                                                <?php
-                                                            }
-                                                            if ($work['experience'] == "Experience" && $work['companyemail']) {
+    <?php
+         }
+    if ($work['experience'] == "Experience" && $work['companyemail']) {
+     ?>
+
+    <li><b> Company Email Address </b> <span><?php echo $work['companyemail']; ?></span> </li>
+
+             <?php
+    }
+    if ($work['experience'] == "Experience" && $work['companyphn']) {
                                                                 ?>
 
-                                                                <li><b> Company Email Address </b> <span><?php echo $work['companyemail']; ?></span> </li>
+    <li> <b>Company Phone Number </b><span> <?php echo $work['companyphn']; ?></span>
+    </li>
 
-                                                                <?php
-                                                            }
-                                                            if ($work['experience'] == "Experience" && $work['companyphn']) {
-                                                                ?>
+<?php
+     }
+?>
 
-                                                                <li> <b>Company Phone Number </b><span> <?php echo $work['companyphn']; ?></span>
-                                                                </li>
+     <li> <b>Experience </b><span><?php
+            if ($work['experience'] == "Fresher") {
 
-                                                                <?php
-                                                            }
-                                                            ?>
-
-                                                            <li> <b>Experience </b><span><?php
-                                                                    if ($work['experience'] == "Fresher") {
-
-                                                                        echo $work['experience'];
-                                                                    } else {
+            } else {
                                                                         if ($work['experience_year'] == "0 year") {
                                                                             echo $work['experience_month'];
                                                                         } else {
@@ -908,7 +921,31 @@ echo $job_header2;
     </div>       
                                             </ul>
                                         </div>
-                               <!--khyati 22-5 chanegs end--> </div> <?php } ?>
+                               <!--khyati 22-5 chanegs end--> </div> <?php } 
+
+                               else{  
+                                ?>
+                                 <div class="profile-job-post-title clearfix">
+                                                    <div class="profile-job-profile-button clearfix">
+                                                        <div class="profile-job-details">
+                                <ul>
+                                <li><p class="details_all_tital"> Work Experience</p></li>
+                                </ul>
+                                        </div>
+                                            </div>
+                 <div class="profile-job-profile-menu">
+                        <ul class="clearfix">
+                            <li> <b> Work Experience</b><span>Fresher</span>
+                             </li>
+
+
+                                                        </ul>
+                                                    </div>
+                                                </div>
+
+<?php
+} 
+?>
                                                 <div class="profile-job-post-title clearfix">
                                                     <div class="profile-job-profile-button clearfix">
                                                         <div class="profile-job-details">
@@ -994,7 +1031,7 @@ echo $job_header2;
                         <div class="modal fade message-box" id="bidmodal-2" role="dialog">
                             <div class="modal-dialog modal-lm">
                                 <div class="modal-content">
-                                    <button type="button" class="modal-close" data-dismiss="modal">&times;</button>     	
+                                    <button type="button" class="modal-close" data-dismiss="modal">&times;</button>         
                                     <div class="modal-body">
                                         <span class="mes">
                                             <div id="popup-form">
