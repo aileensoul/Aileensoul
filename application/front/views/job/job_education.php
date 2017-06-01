@@ -1037,6 +1037,7 @@
                                                     <!--clone div End-->
 
 
+
             <div class="fl job_edu_graduation_addbtnbox" >
 
             <input type="button" id="btnAdd" class="job_edu_graduation_addbtn" value=" + " /><br>
@@ -1825,7 +1826,7 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
 
                     <script type="text/javascript">
                         function next_page2() {
-                            alert('ghh');
+                           // alert('ghh');
                             var board_higher_secondary = document.getElementById("board_higher_secondary").value;
                              var board_secondary = document.getElementById("board_secondary").value;
                              var board_primary=document.getElementById("board_primary").value;
@@ -1854,7 +1855,7 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
 
                     <script type="text/javascript">
                         function next_page_graduation() {
-                            alert('hfgh');
+                            //alert('hfgh');
 
                              var degree = document.getElementById("degree1").value;
                              var stream = document.getElementById("stream1").value;

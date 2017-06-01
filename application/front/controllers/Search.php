@@ -1455,6 +1455,7 @@ if ($this->input->post('skills') == "" && $this->input->post('searchplace') == "
     }
 
     public function freelancer_post_search() {
+        //echo "123";die();
         $userid = $this->session->userdata('aileenuser');
 
         if ($this->input->post('searchplace') == "" && $this->input->post('skills') == "") { 
@@ -1465,11 +1466,12 @@ if ($this->input->post('skills') == "" && $this->input->post('searchplace') == "
 
         
         $search_skill = trim($this->input->post('skills'));
-        //print_r($search_skill);die();   
+        print_r($search_skill);  
         // $searchskill = implode(',',$search_skill);
         $this->data['keyword'] = $search_skill;
 
         $search_place = $this->input->post('searchplace');
+        //echo $search_place;die();
 
         $cache_time = $this->db->get_where('cities', array('city_id' => $search_place[0]))->row()->city_name;
 
