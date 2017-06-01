@@ -630,7 +630,7 @@
                                                 <?php
                                                 $predefine_data = 1;
                                                 if ($jobgrad) {
-                                                    $count = count($jobgrad);
+                                                  //  echo "string";die();                                                    $count = count($jobgrad);
                                                     //echo"<pre>";print_r($jobdata1);die();
                                                     for ($x = 0; $x < $count; $x++) {
 
@@ -856,6 +856,8 @@
 
                                                     <?php
                                                 } else {
+
+                                                   // echo "hiiiiii"; die();
                                                     ?>
 
                                                     <!--clone div start-->              
