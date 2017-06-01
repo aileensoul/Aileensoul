@@ -1692,7 +1692,7 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
 
                                 $('#btnRemove').attr('disabled', 'disabled');
 
-
+// dsddsdd
                             }
                             $('.clonedInput').last().remove();
 
