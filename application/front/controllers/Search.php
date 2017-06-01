@@ -1183,7 +1183,7 @@ if ($this->input->post('skills') == "" && $this->input->post('searchplace') == "
 
             // echo "<pre>"; print_r($skilldata);
 
-            $contion_array = array('freelancer_post_reg_id !=' => '', 'status' => '1');
+            $contion_array = array('freelancer_post_reg_id !=' => '', 'status' => '1','freelancer_post_reg.user_id !=' => $userid);
             $results = $this->data['results'] = $this->common->select_data_by_condition('freelancer_post_reg', $contion_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
             // echo '<pre>'; print_r($results); die();
@@ -1215,7 +1215,7 @@ if ($this->input->post('skills') == "" && $this->input->post('searchplace') == "
             // echo "<pre>"; print_r($fielddata);
             // echo $fielddata[0]['category_id'];
 
-            $contition_array = array('freelancer_post_field' => $fielddata[0]['category_id']);
+            $contition_array = array('freelancer_post_field' => $fielddata[0]['category_id'],'freelancer_post_reg.user_id !=' => $userid);
 
             $join_str[0]['table'] = 'category';
             $join_str[0]['join_table_id'] = 'category.category_id';
@@ -1225,7 +1225,7 @@ if ($this->input->post('skills') == "" && $this->input->post('searchplace') == "
             $fieldfound = $this->data['field'] = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby);
             // echo "<pre>"; print_r($fieldfound); die();
 
-            $contition_array = array('status' => '1', 'is_delete' => '0');
+            $contition_array = array('status' => '1', 'is_delete' => '0','freelancer_post_reg.user_id !=' => $userid);
 
             $search_condition = "(designation LIKE '%$search_skill%' or freelancer_post_otherskill LIKE '%$search_skill%' or freelancer_post_exp_month LIKE '%$search_skill%' or freelancer_post_exp_year LIKE '%$search_skill%')";
             // echo "$search_condition";
@@ -1297,7 +1297,7 @@ if ($this->input->post('skills') == "" && $this->input->post('searchplace') == "
 
             // echo "<pre>"; print_r($skilldata);
 
-            $contion_array = array('freelancer_post_reg_id !=' => '', 'status' => '1', 'freelancer_post_city' => $search_place[0]);
+            $contion_array = array('freelancer_post_reg_id !=' => '', 'status' => '1', 'freelancer_post_city' => $search_place[0],'freelancer_post_reg.user_id !=' => $userid);
             // print_r($contion_array);
             $results = $this->data['results'] = $this->common->select_data_by_condition('freelancer_post_reg', $contion_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
             // echo "<pre>"; print_r($results);
@@ -1328,7 +1328,7 @@ if ($this->input->post('skills') == "" && $this->input->post('searchplace') == "
             // echo "<pre>"; print_r($fielddata);
             // echo $fielddata[0]['category_id'];
 
-            $contition_array = array('freelancer_post_field' => $fielddata[0]['category_id'], 'freelancer_post_city' => $search_place[0]);
+            $contition_array = array('freelancer_post_field' => $fielddata[0]['category_id'], 'freelancer_post_city' => $search_place[0],'freelancer_post_reg.user_id !=' => $userid);
 
             $join_str[0]['table'] = 'category';
             $join_str[0]['join_table_id'] = 'category.category_id';
@@ -1338,7 +1338,7 @@ if ($this->input->post('skills') == "" && $this->input->post('searchplace') == "
             $fieldfound = $this->data['field'] = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby);
             // echo "<pre>"; print_r($fieldfound);
 
-            $contition_array = array('status' => '1', 'is_delete' => '0', 'freelancer_post_city' => $search_place[0]);
+            $contition_array = array('status' => '1', 'is_delete' => '0', 'freelancer_post_city' => $search_place[0],'freelancer_post_reg.user_id !=' => $userid);
 
             $search_condition = "(designation LIKE '%$search_skill%' or freelancer_post_otherskill LIKE '%$search_skill%' or freelancer_post_exp_month LIKE '%$search_skill%' or freelancer_post_exp_year LIKE '%$search_skill%')";
             // echo "$search_condition";
