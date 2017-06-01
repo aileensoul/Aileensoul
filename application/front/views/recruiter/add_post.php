@@ -93,7 +93,7 @@
                                 <!--  </div> -->
                                       <fieldset class="full-width" <?php if ($position) { ?> class="error-msg" <?php } ?>>
                                     <label class="control-label">No of Position:<span style="color:red">*</span></label>
-                                    <input name="position" type="number" min="1" id="position" value="1" onblur="return full_name();" placeholder="Enter No of Candidate" />
+                                    <input name="position_no" type="number" min="1" id="position" value="1" onblur="return full_name();" placeholder="Enter No of Candidate" />
                                     <span id="fullname-error"></span>
                                     <?php echo form_error('position'); ?>        
                                 </fieldset>
@@ -324,11 +324,163 @@
 
 <script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
  <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
- <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
- <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
+
+
+<script type="text/javascript" src="<?php echo base_url('js/jquery.validate1.15.0..min.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('js/additional-methods1.15.0.min.js'); ?>"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
-<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.min.js') ?>"></script>
-<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
+
+
+<script type="text/javascript">
+
+
+$.validator.addMethod("greaterThan",
+    function(value, max, min){
+        return parseInt(value) > parseInt($(min).val());
+    }, "minimum salary not greater than maximum salary"
+);
+
+$.validator.addMethod("regx", function(value, element, regexpr) {          
+    return regexpr.test(value);
+}, "Only space, only number and only special characters are not allow");
+
+jQuery.validator.addMethod("noSpace", function(value, element) { 
+      return value == '' || value.trim().length != 0;  
+    }, "No space please and don't leave it empty");
+
+
+            $(document).ready(function () { 
+
+                $("#artpost").validate({
+                  //ignore: [],
+
+                    ignore: '*:not([name])',
+                    rules: {
+                       
+                        post_name: {
+                            
+                            required: true
+                            
+                        },
+                         minyear: {
+                            
+                          require_from_group: [1, ".keyskil"] 
+                          //required:true 
+                        }, 
+                         minmonth: {
+                            
+                           require_from_group: [1, ".keyskil"]
+                            // required:true 
+                        },
+                         post_desc: {
+
+                            required: true,
+                            regx:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]/
+                           
+                        },
+                         country: {
+
+                            required: true
+                           
+                        },
+                        state: {
+
+                            required: true
+                           
+                        },
+                        maxyear: {
+                            
+                          require_from_group: [1, ".keyskil1"] 
+                          //required:true 
+                        }, 
+
+                        maxmonth: {
+                            
+                           require_from_group: [1, ".keyskil1"]
+                            // required:true 
+                        },
+                        last_date: {
+                            
+                            required: true
+                            
+                        },
+                        position_no:{
+                            required:true
+                        },
+                      
+
+
+
+
+                   
+
+
+                     },
+
+                    messages: {
+
+                        post_name: {
+
+                            required: "Last date  Is Required."
+                        },
+                        minyear: {
+
+                            required: "Year Selection Is Required"
+                        },
+                        minmonth: {
+
+                            required: "Month no Is Required."
+                            
+                        },
+                         post_desc: {
+
+                            required: "Post Description Is Required"
+                           
+                        },
+                        country: {
+
+                            required: "Country Is Required."
+                            
+                        },
+                        state: {
+
+                            required: "State Is Required."
+                            
+                        },
+                        maxyear: {
+
+                            require_from_group: "You must either fill out 'month' or 'year'"
+
+                        },
+
+                        maxmonth: {
+
+                            require_from_group: "You must either fill out 'month' or 'year'"
+                        },
+                        last_date: {
+
+                            required: "Last date  Is Required."
+                        },
+                        position_no:{
+                            required:"No candidate required."
+                        },
+
+
+
+
+                       
+
+
+                    }
+
+                });
+
+
+                   });
+  </script>
+
+   <!-- popup form edit start -->
 
 
 
@@ -424,230 +576,207 @@ $('#datepicker').datetimepicker({
   //maxDate:'+1970/01/02' // and tommorow is maximum date calendar
 });
 </script>
-<script type="text/javascript" src="<?php echo base_url('js/jquery.validate1.15.0..min.js'); ?>"></script>
-<script type="text/javascript" src="<?php echo base_url('js/additional-methods1.15.0.min.js'); ?>"></script>
 
 
 
 
-<script type="text/javascript">
 
-    // $('#skills').select2();
-    // $('#skills').on("change", function (e) {
-    //     $(e.target).valid();
-    // });
-    //validation for edit email formate form
+<<!-- script type="text/javascript">
 
 
-$.validator.addMethod("greaterThan",
-    function(value, max, min){
-        return parseInt(value) > parseInt($(min).val());
-    }, "minimum salary not greater than maximum salary"
-);
 
+$(document).ready(function ()   {
 
-$.validator.addMethod("regx", function(value, element, regexpr) {          
-    return regexpr.test(value);
-}, "Only space, only number and only special characters are not allow");
-
-
-    jQuery.validator.addMethod("noSpace", function(value, element) { 
-      return value == '' || value.trim().length != 0;  
-    }, "No space please and don't leave it empty");
-
-    $(document).ready(function () {
-
-        $("#artpost").validate({
-            //ignore: [],
-
-            ignore: '*:not([name])',
+$('#artpost').validate({
+   // ignore: '*:not([name])',
             rules: {
+                       
+                        post_name: {
 
-                post_name: {
+                            required: true,
+                            regx:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]/
+                        },
 
-                    required: true,
-                    regx:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]/
-                    //noSpace: true
-                },
+                       'skills[]': {
 
+                               require_from_group: [1, ".skill_other"]
+                              
+                    },
+                    other_skill: {
 
-                'skills[]': {
+                               require_from_group: [1, ".skill_other"],
+                               noSpace: true
+                              
+                    },
+                         
+                        year: {
 
-                    require_from_group: [1, ".skill_other"],
+                            required: true
+                        },
+                       
+                     
+                        month: {
 
+                            required: true
+                           
+                        },
 
-                },
-                other_skill: {
+                        position: {
 
-                    require_from_group: [1, ".skill_other"],
-                    noSpace: true
+                            required: true,
+                            noSpace: true
+                           
+                        },
 
-                },
+                        post_desc: {
 
-                year: {
+                            required: true,
+                            regx:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]/
+                           
+                        },
 
-                    required: true,
-                },
+                        
+                        country: {
 
-                month: {
+                            required: true
+                           
+                        },
 
-                    required: true,
+                        state: {
 
-                },
+                            required: true
+                           
+                        },
 
-                position: {
+                        minyear: {
+                            
+                          require_from_group: [1, ".keyskil"] 
+                          //required:true 
+                        }, 
 
-                    required: true,
-                    noSpace: true
-
-                },
-
-                post_desc: {
-
-                    required: true,
-                    regx:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]/
-                    //noSpace: true
-
-                },
-
-                country: {
-
-                    required: true,
-
-                },
-
-                state: {
-
-                    required: true,
-
-                },
-
-                minyear: {
-
-                    require_from_group: [1, ".keyskil"],
-                            //required:true 
-                },
-
-                minmonth: {
-
-                    require_from_group: [1, ".keyskil"],
+                        minmonth: {
+                            
+                           require_from_group: [1, ".keyskil"]
                             // required:true 
-                },
+                        },
 
-                maxyear: {
+                        maxyear: {
+                            
+                          require_from_group: [1, ".keyskil1"] 
+                          //required:true 
+                        }, 
 
-                    require_from_group: [1, ".keyskil1"],
-                            //required:true 
-                },
-
-                maxmonth: {
-
-                    require_from_group: [1, ".keyskil1"],
+                        maxmonth: {
+                            
+                           require_from_group: [1, ".keyskil1"]
                             // required:true 
-                },
+                        },
 
-                last_date: {
+                        last_date: {
+                            
+                            required: true
+                            
+                        },
+                        minsal:{
+                            number: true,
+                            noSpace: true,
+                        },
+                        maxsal:{
+                           number: true,
+                           noSpace: true,
+                            greaterThan: '#minsal'
+                        },
 
-                    required: true,
-                            // required:true 
-                },
-                minsal:{
-                    number:true
-                    noSpace: true
-                },
-                maxsal:{
-                    number:true
-                    noSpace: true,
-                    greaterThan: '#minsal'
-                },
-                
-                
+                       
+                    },
+                                      messages: {
 
-            },
+                        post_name: {
 
-            messages: {
+                            required: "Post name Is Required."
+                            
+                        },
+                         'skills[]': {
 
-                post_name: {
+                            require_from_group: "You must either fill out 'skill' or 'other_skill'"
+                        },
 
-                    required: "Post name Is Required.",
+                        other_skill: {
 
-                },
-                'skills[]': {
+                            require_from_group: "You must either fill out 'skill' or 'other_skill'"
+                        },
 
-                    require_from_group: "You must either fill out 'skill' or 'other_skill'",
-                },
+                       
+                        minyear: {
 
-                other_skill: {
+                            required: "Year Selection Is Required"
+                        },
 
-                    require_from_group: "You must either fill out 'skill' or 'other_skill'",
-                },
+                        
+                        minmonth: {
 
-                
+                            required: "Month no Is Required."
+                            
+                        },
 
-                position: {
+                        position: {
 
-                    required: "Position Selection Is Required",
+                            required: "Position Selection Is Required"
+                           
+                        },
 
-                },
+                         post_desc: {
 
-                post_desc: {
+                            required: "Post Description Is Required"
+                           
+                        },
 
-                    required: "Post Description Is Required",
+                        
+                        country: {
 
-                },
+                            required: "Country Is Required."
+                            
+                        },
+                        state: {
 
-                country: {
+                            required: "State Is Required."
+                            
+                        },
 
-                    required: "Country Is Required.",
+                        minyear: {
 
-                },
-                state: {
+                            require_from_group: "You must either fill out 'month' or 'year'"
 
-                    required: "State Is Required.",
+                        },
 
-                },
+                        minmonth: {
 
-                minyear: {
+                            require_from_group: "You must either fill out 'month' or 'year'"
+                        },
 
-                    require_from_group: "You must either fill out 'month' or 'year'",
+                        maxyear: {
 
-                },
+                            require_from_group: "You must either fill out 'month' or 'year'"
 
-                minmonth: {
+                        },
 
-                    require_from_group: "You must either fill out 'month' or 'year'",
-                },
+                        maxmonth: {
 
-                maxyear: {
+                            require_from_group: "You must either fill out 'month' or 'year'"
+                        },
 
-                    require_from_group: "You must either fill out 'month' or 'year'",
+                        last_date: {
 
-                },
+                            required: "Last date  Is Required."
+                        },
+                        
+                    }
 
-                maxmonth: {
-
-                    require_from_group: "You must either fill out 'month' or 'year'",
-                },
-
-                last_date: {
-
-                    required: "Last date  Is Required.",
-                },
-                 minsal:{
-                      required: "Enter minimum Salary",
-                 },
-
-                 maxsal:{
-                      required: "Enter maximum Salary",
-                 }
-
-            }
-
-        });
+});
+});
 
 
-    });
-</script>
+</script> -->
 
 <!-- popup form edit start -->
 
