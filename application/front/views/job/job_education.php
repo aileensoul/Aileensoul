@@ -1260,8 +1260,8 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
                                        // range: [1, 100],
                                         //pattern: /^[A-Za-z]{0,}$/
                                           minlength: 1,
-                                          maxlength: 2,
-                                        pattern: /^(([1-9]*)|(([1-9]*)\.([0-9]*)))$/
+                                          maxlength: 5,
+                                        pattern: /^[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)$/
                                        // pattern1: /^[0-9]{1,2}(\.[0-9]{0,1})?$/
 
                                     },
@@ -1355,9 +1355,8 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
 
                                         required: true,
                                         minlength: 1,
-                                          maxlength: 2,
-                                        pattern: /^(([1-9]*)|(([1-9]*)\.([0-9]*)))$/
-
+                                          maxlength: 5,
+                                         pattern: /^[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)$/
                                     },
 
                                     pass_year_secondary: {
@@ -1455,8 +1454,8 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
 
                                         required: true,
                                          minlength: 1,
-                                          maxlength: 2,
-                                        pattern: /^(([1-9]*)|(([1-9]*)\.([0-9]*)))$/
+                                          maxlength: 5,
+                                          pattern: /^[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)$/
 
                                     },
 
@@ -1574,8 +1573,8 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
 
                                         required: true,
                                         minlength: 1,
-                                          maxlength: 2,
-                                        pattern: /^(([1-9]*)|(([1-9]*)\.([0-9]*)))$/
+                                          maxlength: 5,
+                                        pattern: /^[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)$/
 
                                     },
                                     'pass_year[]': {
