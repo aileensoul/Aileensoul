@@ -166,7 +166,7 @@
 
                                                                 <fieldset class="two-select-box full-width" style="padding: 0px;"> 
                                                                     <label>Experience<span class="red">*</span></label>
-                                                                    <select style="width: 46%; margin-right: 43px; float: left;" name="experience_year[]" id="experience_year<?php echo $y; ?>" class="experience_year">
+        <select style="width: 46%; margin-right: 43px; float: left;" name="keyskil1[]" id="experience_year<?php echo $y; ?>" class="experience_year keyskil">
                                                                         <option value="" selected option disabled>Year</option>
                                                                         <option value="0 year"  <?php if ($experience_year1 == "0 year") echo 'selected'; ?>>0 year</option>
                                                                         <option value="1 year"  <?php if ($experience_year1 == "1 year") echo 'selected'; ?>>1 year</option>
@@ -192,8 +192,7 @@
 
                                                                     </select>
 
-
-                                                                    <select style="width: 46%;" name="experience_month[]" id="experience_month<?php echo $y; ?>" class="experience_month">
+   <select style="width: 46%;" name="experience_month[]" id="experience_month<?php echo $y; ?>" class="experience_month keyskil">
                                                                         <option value="" selected option disabled>Month</option>
                                                                         <option value="0 month"  <?php if ($experience_month1 == "0 month") echo 'selected'; ?>>0 month</option>
                                                                         <option value="1 month"  <?php if ($experience_month1 == "1 month") echo 'selected'; ?>>1 month</option>
@@ -243,7 +242,7 @@
                                                                 if ($companyphn1) {
                                                                     echo $companyphn1;
                                                                 }
-                                                                ?>"/>&nbsp;&nbsp;&nbsp; <span id="companyphn-error"> </span>
+                                                                ?>"  onblur="validateForm()" />&nbsp;&nbsp;&nbsp; <span id="companyphn-error"> </span>
                                                                        <?php echo form_error('companyphn'); ?>
 
                                                                 <label style="    margin-top: -14px; display: block;">Experience Certificate</label>
@@ -309,7 +308,7 @@
                                                     <div id="input1" style="margin-bottom:4px;" class="clonedInput">
                                                         <fieldset class="two-select-box full-width" style="padding: 0px; "> 
                                                             <label>Experience<span class="red">*</span></label>
-                                                            <select style="width:46%; float: left; margin-right: 43px;" name="experience_year[]" id="experience_year" class="experience_year">
+                                                            <select style="width:46%; float: left; margin-right: 43px;" name="experience_year[]" id="experience_year" class="experience_year keyskil">
                                                                 <option value="" selected option disabled>Year</option>
                                                                 <option value="0 year"  <?php if ($experience_year1 == "0 year") echo 'selected'; ?>>0 year</option>
                                                                 <option value="1 year"  <?php if ($experience_year1 == "1 year") echo 'selected'; ?>>1 year</option>
@@ -336,7 +335,7 @@
                                                             </select>
 
 
-                                                            <select style="width:46%;" name="experience_month[]" id="experience_month" class="experience_month">
+                                                            <select style="width:46%;" name="experience_month[]" id="experience_month" class="experience_month keyskil">
                                                                 <option value="" selected option disabled>Month</option>
                                                                 <option value="0 month"  <?php if ($experience_month1 == "0 month") echo 'selected'; ?>>0 month</option>
                                                                 <option value="1 month"  <?php if ($experience_month1 == "1 month") echo 'selected'; ?>>1 month</option>
@@ -398,7 +397,7 @@
                                                         if ($companyphn1) {
                                                             echo $companyphn1;
                                                         }
-                                                        ?>"/>&nbsp;&nbsp;&nbsp; <span id="companyphn-error"> </span>
+                                                        ?>"  onblur="validateForm()" />&nbsp;&nbsp;&nbsp; <span id="companyphn-error"> </span>
                                                                <?php echo form_error('companyphn'); ?>
                                                         <!--  </fieldset>
                      
@@ -565,8 +564,23 @@
 
                     </script>
                     <!-- duplicate div end -->
-                    <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.min.js') ?>"></script>
-                    <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
+         <!-- <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.min.js') ?>"></script>
+        <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script> -->
+                <script type="text/javascript" src="<?php echo base_url('js/jquery.validate1.15.0..min.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('js/additional-methods1.15.0.min.js'); ?>"></script> 
+<script type="text/javascript">
+    
+    function validateForm(){
+
+  var z = document.forms["jobseeker_regform1"]["companyphn"].value;
+
+  if(!/^[0-9]+$/.test(z)){
+    alert("Please only enter numeric characters")
+  }
+
+}
+</script>
+
 
 <script type="text/javascript">
 
@@ -584,6 +598,8 @@
 $.validator.addMethod("regx", function(value, element, regexpr) {          
     return regexpr.test(value);
 }, "Only space, only number and only special characters are not allow");
+
+ 
 
                         
 
@@ -604,22 +620,34 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
                                         regx:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]/
                                         //noSpace: true
                                     },
-                                    'experience_year[]': {
+                                    // 'experience_year[]': {
 
-                                        required: true,
-                                    },
+                                    //     required: true,
+                                    // },
                                     // 'experience_month[]': {
 
                                     //     required: true,
 
                                     // },  
+                                     'experience_year[]': {
+                            
+                                        require_from_group: [1, ".keyskil"] 
+                                         //required:true 
+                                           }, 
+
+                                     'experience_month[]': {
+                            
+                                        require_from_group: [1, ".keyskil"]
+                                         // required:true 
+                                        },
 
                                     'companyemail[]': {
                                         email: true,
                                     },
-                                    'companyphn': {
-                                        number:true,
-                                    },
+                                    // 'companyphn[]': {
+                                         
+                                    //     regx: /\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/
+                                    // },
                                 },
                                 messages: {
 
@@ -633,17 +661,21 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
                                     },
                                     'experience_year[]': {
 
-                                        required: "Experience year Is Required.",
+                                      require_from_group: "You must either fill out 'month' or 'year'"
                                     },
-                                    // 'experience_month[]': {
+                                     'experience_month[]': {
 
-                                    //      required: "Experience month Is Required.",
+                                   require_from_group: "You must either fill out 'month' or 'year'"
 
-                                    // },
+                                    },
                                     'companyemail[]': {
 
                                         email: "Please Enter Valid Email Id.",
                                     },
+
+                                    //  'companyphn[]': {
+                                    //      required: "Please Enter Numeric Value."
+                                    // },
                                 }
 
                             });
