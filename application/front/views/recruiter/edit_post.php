@@ -4,6 +4,7 @@
     <!-- start header -->
       <link href="<?php echo base_url('css/jquery-ui.css') ?>" rel="stylesheet" type="text/css" />
    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/3.3.0/select2.css" rel="stylesheet" />
+   <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
 
     <!-- Calender Css Start-->
    <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/jquery.datetimepicker.css'); ?>">
@@ -374,7 +375,6 @@
   
         
 
-
   <script type="text/javascript" src="<?php echo base_url('js/jquery-1.11.1.min.js'); ?>"></script>
 <!-- script for select2 box Script start-->
 
@@ -388,7 +388,16 @@
 <script type="text/javascript" src="<?php echo base_url('js/additional-methods1.15.0.min.js'); ?>"></script>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/3.3.0/select2.js"></script>
+
+
+<script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
+ <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
+<script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
+            <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/3.3.0/select2.js"></script>
+
+
 <script type="text/javascript">
 //select2 autocomplete start for skill
 var complex = <?php echo json_encode($selectdata); ?>;
@@ -617,7 +626,103 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
   </script>
 
    <!-- popup form edit start -->
+   <script type="text/javascript">
+//select2 autocomplete start for skill
+
+jQuery.noConflict();
+
+                (function ($) {
+
+    $('#searchskills').select2({
+
+        placeholder: 'Find Your Skills',
+
+        ajax: {
+
+            url: "<?php echo base_url(); ?>recruiter/keyskill",
+            dataType: 'json',
+            delay: 250,
+
+            processResults: function (data) {
+
+                return {
+                    //alert(data);
+
+                    results: data
+
+
+                };
+
+            },
+            cache: true
+        }
+    });
+//select2 autocomplete End for skill
+
+//select2 autocomplete start for Location
+    $('#searchplace').select2({
+
+        placeholder: 'Find Your Location',
+        maximumSelectionLength: 1,
+        ajax: {
+
+            url: "<?php echo base_url(); ?>recruiter/location",
+            dataType: 'json',
+            delay: 250,
+
+            processResults: function (data) {
+
+                return {
+                    //alert(data);
+
+                    results: data
+
+
+                };
+
+            },
+            cache: true
+        }
+    });
+    })(jQuery);
+//select2 autocomplete End for Location
+</script>
+
   
+<script>
+jQuery.noConflict();
+
+                (function ($) {
+   var data = <?php echo json_encode($demo); ?>;
+// alert(data);
+
+
+   $(function () {
+       // alert('hi');
+       $("#tags").autocomplete({
+           source: function (request, response) {
+               var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+               response($.grep(data, function (item) {
+                   return matcher.test(item.label);
+               }));
+           },
+           minLength: 1,
+           select: function (event, ui) {
+               event.preventDefault();
+               $("#tags").val(ui.item.label);
+               $("#selected-tag").val(ui.item.label);
+               // window.location.href = ui.item.value;
+           }
+           ,
+           focus: function (event, ui) {
+               event.preventDefault();
+               $("#tags").val(ui.item.label);
+           }
+       });
+   });
+    })(jQuery);
+
+</script>
 
 
 
