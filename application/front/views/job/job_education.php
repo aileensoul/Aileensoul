@@ -299,7 +299,7 @@
 
                                                 <fieldset class="full-width">
                                                     <h6>Percentage :<span class="red">*</span></h6>
-                                                    <input type="number" name="percentage_primary" id="percentage_primary" placeholder="Enter Percentage"  value="<?php
+                                                    <input type="text" name="percentage_primary" id="percentage_primary" placeholder="Enter Percentage"  value="<?php
                                                     if ($percentage_primary1) {
                                                         echo $percentage_primary1;
                                                     }
@@ -412,7 +412,7 @@
 
                                                 <fieldset class="full-width">
                                                     <h6>Percentage :<span class="red">*</span></h6>
-                                                    <input type="number" name="percentage_secondary" id="percentage_secondary" placeholder="Enter Percentage"  value="<?php
+                                                    <input type="text" name="percentage_secondary" id="percentage_secondary" placeholder="Enter Percentage"  value="<?php
                                                     if ($percentage_secondary1) {
                                                         echo $percentage_secondary1;
                                                     }
@@ -541,7 +541,7 @@
 
                                                 <fieldset class="full-width">
                                                     <h6>Percentage :<span class="red">*</span></h6>
-                                                    <input type="number" name="percentage_higher_secondary" id="percentage_higher_secondary" placeholder="Enter Percentage"  value="<?php
+                                                    <input type="text" name="percentage_higher_secondary" id="percentage_higher_secondary" placeholder="Enter Percentage"  value="<?php
                                                     if ($percentage_higher_secondary1) {
                                                         echo $percentage_higher_secondary1;
                                                     }
@@ -776,7 +776,7 @@
                                     </fieldset>
                                 <fieldset class="full-width">
                                              <h6>Percentage :<span class="red">*</span></h6>
-                          <input type="number" name="percentage[]" id="percentage1" class="percentage" placeholder="Enter Percentage"  value="<?php
+                          <input type="text" name="percentage[]" id="percentage1" class="percentage" placeholder="Enter Percentage"  value="<?php
                          if ($percentage1) {
                             echo $percentage1;
                            }
@@ -978,7 +978,7 @@
                                                   
                                                         <fieldset class=""> -->
                                                         <h6>Percentage :<span class="red">*</span></h6>
-                                                        <input type="number" name="percentage[]" id="percentage1" class="percentage" placeholder="Enter Percentage"  value="<?php
+                                                        <input type="text" name="percentage[]" id="percentage1" class="percentage" placeholder="Enter Percentage"  value="<?php
                                                         if ($percentage1) {
                                                             echo $percentage1;
                                                         }
@@ -1230,6 +1230,10 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
       return value == '' || value.trim().length != 0;  
     }, "No space please and don't leave it empty");
 
+ $.validator.addMethod("regx1", function(value, element, regexpr) {          
+    return regexpr.test(value);
+}, "Only space, only number and only special characters are not allow");
+
 
                             $("#jobseeker_regform_primary").validate({
 
@@ -1238,20 +1242,26 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
                                     board_primary: {
 
                                         required: true,
-                                        noSpace: true
+                                        regx1:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]/,
 
                                     },
 
                                     school_primary: {
 
                                         required: true,
-                                        noSpace: true
+                                         regx1:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]/,
 
                                     },
 
                                     percentage_primary: {
 
                                         required: true,
+                                       // range: [1, 100],
+                                        //pattern: /^[A-Za-z]{0,}$/
+                                          minlength: 1,
+                                          maxlength: 2,
+                                        pattern: /^(([1-9]*)|(([1-9]*)\.([0-9]*)))$/
+                                       // pattern1: /^[0-9]{1,2}(\.[0-9]{0,1})?$/
 
                                     },
 
@@ -1280,6 +1290,9 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
                                     percentage_primary: {
 
                                         required: "Percentage Is Required.",
+                                         minlength: "Please Select Percentage Between 1-100 Only",
+                                         maxlength: "Please Select Percentage Between 1-100 Only",
+                                        
 
                                     },
 
@@ -1293,13 +1306,30 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
 
                             });
                         });
-                    </script>
+
+            //pattern validation at percentage start//
+              $.validator.addMethod("pattern", function(value, element, param) {
+              if (this.optional(element)) {
+               return true;
+              }
+              if (typeof param === "string") {
+                param = new RegExp("^(?:" + param + ")$");
+              }
+              return param.test(value);
+            }, "Characters Are Not Allowed");
+  
+             //pattern validation at percentage end//
+        </script>
 
                     <script type="text/javascript">
                         $().ready(function () {
                             jQuery.validator.addMethod("noSpace", function(value, element) { 
       return value == '' || value.trim().length != 0;  
     }, "No space please and don't leave it empty");
+
+                            $.validator.addMethod("regx1", function(value, element, regexpr) {          
+    return regexpr.test(value);
+}, "Only space, only number and only special characters are not allow");
 
 
                             $("#jobseeker_regform_secondary").validate({
@@ -1309,20 +1339,23 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
                                     board_secondary: {
 
                                         required: true,
-                                        noSpace: true
+                                        regx1:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]/,
 
                                     },
 
                                     school_secondary: {
 
                                         required: true,
-                                        noSpace: true
+                                         regx1:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]/,
 
                                     },
 
                                     percentage_secondary: {
 
                                         required: true,
+                                        minlength: 1,
+                                          maxlength: 2,
+                                        pattern: /^(([1-9]*)|(([1-9]*)\.([0-9]*)))$/
 
                                     },
 
@@ -1351,6 +1384,8 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
                                     percentage_secondary: {
 
                                         required: "Percentage Is Required.",
+                                         minlength: "Please Select Percentage Between 1-100 Only",
+                                         maxlength: "Please Select Percentage Between 1-100 Only",
 
                                     },
 
@@ -1364,6 +1399,19 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
 
                             });
                         });
+
+                     //pattern validation at percentage start//
+              $.validator.addMethod("pattern", function(value, element, param) {
+              if (this.optional(element)) {
+               return true;
+              }
+              if (typeof param === "string") {
+                param = new RegExp("^(?:" + param + ")$");
+              }
+              return param.test(value);
+            }, "Characters Are Not Allowed");
+  
+             //pattern validation at percentage end//
                     </script>
 
                     <script type="text/javascript">
@@ -1373,6 +1421,10 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
       return value == '' || value.trim().length != 0;  
     }, "No space please and don't leave it empty");
 
+                             $.validator.addMethod("regx1", function(value, element, regexpr) {          
+    return regexpr.test(value);
+}, "Only space, only number and only special characters are not allow");
+
 
                             $("#jobseeker_regform_higher_secondary").validate({
 
@@ -1381,13 +1433,13 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
                                     board_higher_secondary: {
 
                                         required: true,
-                                        noSpace: true
+                                         regx1:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]/,
 
                                     },
                                     stream_higher_secondary: {
 
                                         required: true,
-                                        noSpace: true
+                                         regx1:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]/,
 
                                     },
 
@@ -1401,6 +1453,9 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
                                     percentage_higher_secondary: {
 
                                         required: true,
+                                         minlength: 1,
+                                          maxlength: 2,
+                                        pattern: /^(([1-9]*)|(([1-9]*)\.([0-9]*)))$/
 
                                     },
 
@@ -1434,6 +1489,9 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
                                     percentage_higher_secondary: {
 
                                         required: "Percentage Is Required.",
+                                         minlength: "Please Select Percentage Between 1-100 Only",
+                                         maxlength: "Please Select Percentage Between 1-100 Only",
+
 
                                     },
 
@@ -1447,6 +1505,19 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
 
                             });
                         });
+
+                 //pattern validation at percentage start//
+              $.validator.addMethod("pattern", function(value, element, param) {
+              if (this.optional(element)) {
+               return true;
+              }
+              if (typeof param === "string") {
+                param = new RegExp("^(?:" + param + ")$");
+              }
+              return param.test(value);
+            }, "Characters Are Not Allowed");
+  
+             //pattern validation at percentage end//
                     </script>
 
 
@@ -1501,11 +1572,15 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
                                     'percentage[]': {
 
                                         required: true,
+                                        minlength: 1,
+                                          maxlength: 2,
+                                        pattern: /^(([1-9]*)|(([1-9]*)\.([0-9]*)))$/
 
                                     },
                                     'pass_year[]': {
 
                                         required: true,
+                                        
 
                                     },
 
@@ -1544,6 +1619,8 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
                                     'percentage[]': {
 
                                         required: "Percentage Is Required.",
+                                         minlength: "Please Select Percentage Between 1-100 Only",
+                                         maxlength: "Please Select Percentage Between 1-100 Only",
 
                                     },
                                     'pass_year[]': {
@@ -1556,6 +1633,19 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
 
                             });
                         });
+
+                         //pattern validation at percentage start//
+              $.validator.addMethod("pattern", function(value, element, param) {
+              if (this.optional(element)) {
+               return true;
+              }
+              if (typeof param === "string") {
+                param = new RegExp("^(?:" + param + ")$");
+              }
+              return param.test(value);
+            }, "Characters Are Not Allowed");
+  
+             //pattern validation at percentage end//
                     </script>
 
                     <!-- Clone input type start-->
