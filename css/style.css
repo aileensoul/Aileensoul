@@ -2283,7 +2283,7 @@ border-bottom: 1px solid #000033;
                  border-right: none; }
 .job-menu-profile1 {    float: left; padding-left: 31px; width: 22.5%; margin-top: 5px; }
 
-.job-menu-profile1 a h5{ text-transform: capitalize; font-size: 25px; font-weight: 600; }
+.job-menu-profile1 a h5{ text-transform: capitalize;display: inline-block; font-size: 25px; font-weight: 600; }
 .job-menu-profile1 a{font-size: 18px; }
 .profile-main-box-buis-menu li a {
     margin-right:10px;
@@ -4619,7 +4619,7 @@ input:-moz-placeholder { color:#999; font-size: 15px; }
 
 
 /* vishang 4-5-17 */
-.invited { background-color: #1b8ab9!important; margin-left: 0px!important; font-weight: bold; letter-spacing: 2px; margin-right: 10px!important; color: #fff!important;   float: none !important; }
+.invited { background-color: #1b8ab9!important; margin-left: 0px!important; font-weight: bold; /*letter-spacing: 2px;*/ margin-right: 10px!important; color: #fff!important;   float: none !important; }
  
  .back { width: 50%; 
  position: relative; 
