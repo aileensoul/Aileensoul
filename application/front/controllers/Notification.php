@@ -1052,7 +1052,7 @@ class Notification extends MY_Controller {
                 $notification .= '<div class="notification-pic">';
                 $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . ' " >';
                 $notification .= '</div><div class="notification-data-inside">';
-                $notification .= '<a href="' . base_url('notification/recruiter_post/' . $total['post_id']) . '"><h6><font color="blue"><b><i> Recruiter</i></font></b><b>' . '  ' . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . '</b>  From ' . ucwords($companyname) . ' Invited You For An Interview.</h6></a>';
+                $notification .= '<a href="' . base_url('notification/recruiter_post/' . $total['post_id']) . '"><h6><font color="black"><b><i> Recruiter</i></font></b><b>' . '  ' . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . '</b>  From ' . ucwords($companyname) . ' Invited You For An Interview.</h6></a>';
                 $notification .= '<div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
                 $notification .= '' . $this->common->time_elapsed_string($total['not_created_date'], $full = false) . '';
                 $notification .= '</div></div></div></li>';
@@ -1350,7 +1350,7 @@ class Notification extends MY_Controller {
                 $notification .= '<div class="notification-pic">';
                 $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
                 $notification .= '</div><div class="notification-data-inside">';
-                $notification .= '<a href="' . base_url('job/job_printpreview/' . $total['not_from_id']) . '"><h6><font color="#4e6db1"><b><i> Job seeker</i></font></b><b>' . '  ' . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . '</b> Applied on your jobpost.</h6></a>';
+                $notification .= '<a href="' . base_url('job/job_printpreview/' . $total['not_from_id']) . '"><h6><font color="black"><b><i> Job seeker</i></font></b><b>' . '  ' . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . '</b> Applied on your jobpost.</h6></a>';
                 $notification .= '<div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
                 $notification .= '' . $this->common->time_elapsed_string($total['not_created_date'], $full = false) . '';
                 $notification .= '</div></div> </div> </li>';
@@ -1364,7 +1364,7 @@ class Notification extends MY_Controller {
                 $notification .= '<div class="notification-pic">';
                 $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
                 $notification .= '</div><div class="notification-data-inside">';
-                $notification .= '<a href="' . base_url('freelancer/freelancer_post_profile/' . $total['not_from_id']) . '"><h6><font color="yellow"><b><i>Freelancer</i></font></b><b>' . '  ' . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . '</b> Applied on your post.</h6></a>';
+                $notification .= '<a href="' . base_url('freelancer/freelancer_post_profile/' . $total['not_from_id']) . '"><h6><font color="black"><b><i>Freelancer</i></font></b><b>' . '  ' . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . '</b> Applied on your post.</h6></a>';
                 $notification .= '<div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
                 $notification .= '' . $this->common->time_elapsed_string($total['not_created_date'], $full = false) . '';
                 $notification .= '</div></div> </div> </li>';

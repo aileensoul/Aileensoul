@@ -697,8 +697,8 @@ class Artistic extends MY_Controller {
 
 
     public function art_portfolio_insert() {
-// echo "<pre>"; print_r($_FILES); 
-//  echo "<pre>"; print_r($_POST); die();
+ //echo "<pre>"; print_r($_FILES); 
+ // echo "<pre>"; print_r($_POST); die();
 
 
         $userid = $this->session->userdata('aileenuser');
@@ -794,7 +794,7 @@ class Artistic extends MY_Controller {
 
        //echo "<pre>"; print_r($dataimage); die();
 
-        if ($dataimage) {
+        //if ($dataimage) {
             $data = array(
                 'art_bestofmine' => $dataimage,
                 //'art_portfolio' => $artportfolio,
@@ -804,8 +804,8 @@ class Artistic extends MY_Controller {
 
 
             $updatdata = $this->common->update_data($data, 'art_reg', 'user_id', $userid);
-        } 
-            elseif ($artportfolio) {
+       // } 
+           if ($artportfolio) {
 
 
             $data = array(
