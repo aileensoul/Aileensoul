@@ -1,4 +1,4 @@
-  <!-- start head -->
+<!-- start head -->
 <?php echo $head; ?>
 
 
@@ -17,16 +17,16 @@
 <!-- start header -->
 <?php echo $header; ?>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('dragdrop/fileinput.css'); ?>">
-   <link href="<?php echo base_url('dragdrop/themes/explorer/theme.css'); ?>" media="all" rel="stylesheet" type="text/css"/>
-    
-<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/video.css'); ?>">
-    <script src="<?php echo base_url('js/mediaelement-and-player.min.js'); ?>"></script>
+<link href="<?php echo base_url('dragdrop/themes/explorer/theme.css'); ?>" media="all" rel="stylesheet" type="text/css"/>
 
-    <script src="<?php echo base_url('dragdrop/js/plugins/sortable.js'); ?>"></script>
-     <script src="<?php echo base_url('dragdrop/js/fileinput.js'); ?>"></script>
-      <script src="<?php echo base_url('dragdrop/js/locales/fr.js'); ?>"></script>
-       <script src="<?php echo base_url('dragdrop/js/locales/es.js'); ?>"></script>
-        <script src="<?php echo base_url('dragdrop/themes/explorer/theme.js'); ?>"></script>
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/video.css'); ?>">
+<script src="<?php echo base_url('js/mediaelement-and-player.min.js'); ?>"></script>
+
+<script src="<?php echo base_url('dragdrop/js/plugins/sortable.js'); ?>"></script>
+<script src="<?php echo base_url('dragdrop/js/fileinput.js'); ?>"></script>
+<script src="<?php echo base_url('dragdrop/js/locales/fr.js'); ?>"></script>
+<script src="<?php echo base_url('dragdrop/js/locales/es.js'); ?>"></script>
+<script src="<?php echo base_url('dragdrop/themes/explorer/theme.js'); ?>"></script>
 
 <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>-->
 <?php echo $art_header2; ?>
@@ -85,15 +85,15 @@
                 $image_ori = $image[0]['profile_background'];
                 if ($image_ori) {
                     ?>
-                
-                        <img src="<?php echo base_url($this->config->item('art_bg_main_upload_path') . $image[0]['profile_background']); ?>" name="image_src" id="image_src" / >
+
+                    <img src="<?php echo base_url($this->config->item('art_bg_main_upload_path') . $image[0]['profile_background']); ?>" name="image_src" id="image_src" / >
                     <?php
                 } else {
                     ?>
-                    
-                        <img src="<?php echo base_url(WHITEIMAGE); ?>" name="image_src" id="image_src" alt="WHITE IMAGE" />
-                <?php }
-                ?>
+
+                         <img src="<?php echo base_url(WHITEIMAGE); ?>" name="image_src" id="image_src" alt="WHITE IMAGE" />
+                     <?php }
+                     ?>
 
             </div>
         </div>
@@ -264,12 +264,12 @@
 
                     <?php if ($artisticdata[0]['user_id'] == $userid) { ?>
 
-                    <a id="designation" class="designation" title="<?php echo ucwords($artisticdata[0]['designation']); ?>">
-                    <?php echo ucwords($artisticdata[0]['designation']); ?>
-                        
-                    </a>
+                        <a id="designation" class="designation" title="<?php echo ucwords($artisticdata[0]['designation']); ?>">
+                            <?php echo ucwords($artisticdata[0]['designation']); ?>
 
-                        <!-- <a id="myBtn"><?php echo ucwords($artisticdata[0]['designation']); ?></a> -->
+                        </a>
+
+                                <!-- <a id="myBtn"><?php echo ucwords($artisticdata[0]['designation']); ?></a> -->
                     <?php } else { ?>
                         <a><?php echo ucwords($artisticdata[0]['designation']); ?></a>
                     <?php } ?>
@@ -277,18 +277,18 @@
                 <?php } ?>
 
 
-                </div>
-
             </div>
-
-
-            <!-- text head end -->
 
         </div>
 
 
+        <!-- text head end -->
 
     </div>
+
+
+
+</div>
 </div>
 </div>
 </div>
@@ -723,15 +723,15 @@
 
                 <div class="post-editor col-md-12">
                     <div class="main-text-area col-md-12" style="padding-left: 1px;">
-                 <div class="popup-img col-md-1"> <img  src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image']); ?>"  alt="" style="
-                                                      margin-top: 6px;">
+                        <div class="popup-img col-md-1"> <img  src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image']); ?>"  alt="" style="
+                                                               margin-top: 6px;">
                         </div>
                         <div id="myBtn3"  class="editor-content col-md-11 popup-text">
                             <span> Post Your Art....</span> 
-                        
+
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
 
@@ -758,11 +758,11 @@
                                 </div>
 
                             </div>
-                        
-                         <div class="col-md-1 padding-left padding_les_left camer_h">
-                                        <i class=" fa fa-camera" >
-                                        </i> 
-                                    </div>
+
+                            <div class="col-md-1 padding-left padding_les_left camer_h">
+                                <i class=" fa fa-camera" >
+                                </i> 
+                            </div>
 
                         </div>
                         <div class="row"></div>
@@ -771,21 +771,21 @@
 
                             <output id="list"></output>
                         </div>
-                      
-                      
-                      
+
+
+
 
                         <div class="popup-social-icon">
                             <ul class="editor-header">
 
                                 <li>
-                               
- <div class="col-md-12"> <div class="form-group">
-   <input id="file-1" type="file" class="file" name="postattach[]"  multiple class="file" data-overwrite-initial="false" data-min-file-count="2" style="display: none;">
-   </div></div>
+
+                                    <div class="col-md-12"> <div class="form-group">
+                                            <input id="file-1" type="file" class="file" name="postattach[]"  multiple class="file" data-overwrite-initial="false" data-min-file-count="2" style="display: none;">
+                                        </div></div>
 
 
-     <label for="file-1"><i class=" fa fa-camera "  style=" margin: 8px; cursor:pointer"> Photo</i><i class=" fa fa-video-camera"  style=" margin: 8px; cursor:pointer"> Video </i> <i class="fa fa-music "  style=" margin: 8px; cursor:pointer"> Audio </i><i class=" fa fa-file-pdf-o "  style=" margin: 8px; cursor:pointer"> PDF </i> </label>
+                                    <label for="file-1"><i class=" fa fa-camera "  style=" margin: 8px; cursor:pointer"> Photo</i><i class=" fa fa-video-camera"  style=" margin: 8px; cursor:pointer"> Video </i> <i class="fa fa-music "  style=" margin: 8px; cursor:pointer"> Audio </i><i class=" fa fa-file-pdf-o "  style=" margin: 8px; cursor:pointer"> PDF </i> </label>
 
 
                                 </li>
@@ -806,1062 +806,1067 @@
 
                     <?php
 //echo "<pre>"; print_r($artsdata); die();
-                    if(count($artsdata)>0){
-                    foreach ($artsdata as $row) {
+                    if (count($artsdata) > 0) {
+                        foreach ($artsdata as $row) {
 
-                        $userid = $this->session->userdata('aileenuser');
+                            $userid = $this->session->userdata('aileenuser');
 
-                        $contition_array = array('art_post_id' => $row['art_post_id'], 'status' => '1');
-                        $artdelete = $this->data['artdelete'] = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                            $contition_array = array('art_post_id' => $row['art_post_id'], 'status' => '1');
+                            $artdelete = $this->data['artdelete'] = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-                        $likeuserarray = explode(',', $artdelete[0]['delete_post']);
+                            $likeuserarray = explode(',', $artdelete[0]['delete_post']);
 
-                        if (!in_array($userid, $likeuserarray)) {
-                            ?>
-                            <div id="<?php echo "removepost" . $row['art_post_id']; ?>">
-                            <div class="profile-job-post-detail clearfix">
-                                <div class=" post-design-box">
-
-
-                                    <div class="post-design-top col-md-12" >  
-                                        <div class="post-design-pro-img col-md-2"> 
-
-                                            <?php
-                                            $userimage = $this->db->get_where('art_reg', array('user_id' => $row['user_id']))->row()->art_user_image;
-                                            $userimageposted = $this->db->get_where('art_reg', array('user_id' => $row['posted_user_id']))->row()->art_user_image;
-                                            ?>
-
-                                            <?php if ($row['posted_user_id']) { ?>
-                                            <a  class="post_dot" title="<?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?>" href="<?php echo base_url('artistic/art_manage_post/' . $row['posted_user_id']); ?>">
-                                                <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $userimageposted); ?>" name="image_src" id="image_src" /> </a>
-
-                                                 <?php } else { ?>
-                                                 <a class="post_dot"  href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>">
-                                                     <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $userimage); ?>" name="image_src" id="image_src" /> </a>
-
-                                                 <?php } ?>
-                                        </div>
+                            if (!in_array($userid, $likeuserarray)) {
+                                ?>
+                                <div id="<?php echo "removepost" . $row['art_post_id']; ?>">
+                                    <div class="profile-job-post-detail clearfix">
+                                        <div class=" post-design-box">
 
 
-                                        <div class="post-design-name fl col-md-9">
-                                            <ul>
-                                                <li><span>
-                                                        <?php
-                                                        $firstname = $this->db->get_where('art_reg', array('user_id' => $row['user_id']))->row()->art_name;
-                                                        $lastname = $this->db->get_where('art_reg', array('user_id' => $row['user_id']))->row()->art_lastname;
+                                            <div class="post-design-top col-md-12" >  
+                                                <div class="post-design-pro-img col-md-2"> 
 
-                                                        $firstnameposted = $this->db->get_where('art_reg', array('user_id' => $row['posted_user_id']))->row()->art_name;
-                                                        $lastnameposted = $this->db->get_where('art_reg', array('user_id' => $row['posted_user_id']))->row()->art_lastname;
-                                                        ?>
-                                                    </span>
-
-                                                    <!-- other user post time name strat-->
+                                                    <?php
+                                                    $userimage = $this->db->get_where('art_reg', array('user_id' => $row['user_id']))->row()->art_user_image;
+                                                    $userimageposted = $this->db->get_where('art_reg', array('user_id' => $row['posted_user_id']))->row()->art_user_image;
+                                                    ?>
 
                                                     <?php if ($row['posted_user_id']) { ?>
+                                                        <a  class="post_dot" title="<?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?>" href="<?php echo base_url('artistic/art_manage_post/' . $row['posted_user_id']); ?>">
+                                                            <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $userimageposted); ?>" name="image_src" id="image_src" /> </a>
 
-                                                        <div class="else_post_d">
-                                                            <a  class="post_dot" style="max-width: 30%;" title="<?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?>" href="<?php echo base_url('artistic/art_manage_post/' . $row['posted_user_id']); ?>"><?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?> </a><span style="font-weight: 600; color: #91949d;"> Posted With 
-                                                            </span><a class="post_dot1"  href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>"><?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?></a><span role="presentation" aria-hidden="true" style="color: #91949d; font-size: 14px;"> · </span>
-                                                            <span style="color: #91949d; font-size: 14px;"> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span>
-                                                        </div>
-
-                                                        <!-- other user post time name end-->
                                                     <?php } else { ?>
+                                                        <a class="post_dot"  href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>">
+                                                            <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $userimage); ?>" name="image_src" id="image_src" /> </a>
 
-                                                        <a  class="post_dot" title="<?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?>"   href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>">
-                                                            <?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?>
-
-                                                        </a>
-                                                        <div class="datespan">
-                                                            <span style="font-weight: 400; font-size: 14px; color: #91949d;"> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span></div>
-
-                                                    <?php } ?>                          
-                                                </li>
-                                               
-                                            </ul> 
-                                        </div>  
-<div class="dropdown2">
-         <a onClick="myvFunction(<?php echo $row['art_post_id']; ?>)" class="dropbtn2 dropbtn2 fa fa-ellipsis-v"></a>
-    <div id="<?php echo "myDropdown" . $row['art_post_id']; ?>" class="dropdown-content2">
-
-       <?php if($row['posted_user_id'] != 0){
-
-                  if($this->session->userdata('aileenuser') == $row['posted_user_id']){
-                    ?>
-             <a id="<?php echo $row['art_post_id']; ?>" onClick="deleteownpostmodel(this.id)"><i class="fa fa-trash-o" aria-hidden="true"></i>Delete Post</a>
-
-                 <a id="<?php echo $row['art_post_id']; ?>" onClick="editpost(this.id)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit</a>
-
-            <?php }else{
-                ?>
-           
-           <a id="<?php echo $row['art_post_id']; ?>" onClick="deleteownpostmodel(this.id)"><i class="fa fa-trash-o" aria-hidden="true"></i>Delete Post</a>
-
-              <a href="<?php echo base_url('artistic/artistic_contactperson/' . $row['user_id'] . ''); ?>"><i class="fa fa-user" aria-hidden="true"></i> Contact Person</a>
-
-            <?php } }else{?>  
-
-
-         <?php
-            $userid = $this->session->userdata('aileenuser');
-              if ($row['user_id'] == $userid) {
-            ?>
-
-                <a id="<?php echo $row['art_post_id']; ?>" onClick="deleteownpostmodel(this.id)"><i class="fa fa-trash-o" aria-hidden="true"></i>Delete Post</a>
-                 <a id="<?php echo $row['art_post_id']; ?>" onClick="editpost(this.id)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit</a>
-
-                <?php } else { ?>
-                 <a href="<?php echo "#popup5" . $row['art_post_id']; ?>"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete Post</a>
-
-               
-
-
-              <a href="<?php echo base_url('artistic/artistic_contactperson/' . $row['user_id'] . ''); ?>"><i class="fa fa-user" aria-hidden="true"></i> Contact Person</a>
-                    <?php } }?>
-
-        </div>
- </div>
-
-                                        <div class="post-design-desc ">
-                                            <span> 
-                                                <div id="<?php echo 'editpostdata' . $row['art_post_id']; ?>" style="display:block;">
-                                                    <a><?php echo $this->common->make_links($row['art_post']); ?></a>
+                                                    <?php } ?>
                                                 </div>
 
-                                                <div id="<?php echo 'editpostbox' . $row['art_post_id']; ?>" style="display:none; margin-bottom: 10px;">
-                                                    <input type="text" id="<?php echo 'editpostname' . $row['art_post_id']; ?>" name="editpostname" placeholder="Art name" value="<?php echo $row['art_post']; ?>">
-                                                </div>
-                                                <div  id="<?php echo 'editpostdetails' . $row['art_post_id']; ?>" style="display:block;">
 
-                                                    <?php //echo $row['art_description'];
-                                                    $text = $this->common->make_links($row['art_description']);
-                                                    ?>
-                                                    <span class="show"><?php echo $text; ?></span>
-                                                </div>
+                                                <div class="post-design-name fl col-md-9">
+                                                    <ul>
+                                                        <li><span>
+                                                                <?php
+                                                                $firstname = $this->db->get_where('art_reg', array('user_id' => $row['user_id']))->row()->art_name;
+                                                                $lastname = $this->db->get_where('art_reg', array('user_id' => $row['user_id']))->row()->art_lastname;
 
-                                                <div id="<?php echo 'editpostdetailbox' . $row['art_post_id']; ?>" style="display:none;">
+                                                                $firstnameposted = $this->db->get_where('art_reg', array('user_id' => $row['posted_user_id']))->row()->art_name;
+                                                                $lastnameposted = $this->db->get_where('art_reg', array('user_id' => $row['posted_user_id']))->row()->art_lastname;
+                                                                ?>
+                                                            </span>
 
-                                                    <div contenteditable="true" class="editable_text"  id="<?php echo 'editpostdesc' . $row['art_post_id']; ?>" placeholder="Art Description" name="editpostdesc"><?php echo $row['art_description']; ?>
-                                                    </div> 
-                                                </div>
+                                                            <!-- other user post time name strat-->
 
-                                                <button class="fr" id="<?php echo "editpostsubmit" . $row['art_post_id']; ?>" style="display:none;margin: 5px 0px;" onClick="edit_postinsert(<?php echo $row['art_post_id']; ?>)">Save</button>
+                                                            <?php if ($row['posted_user_id']) { ?>
 
-
-                                            </span></div>
-                                    </div>
-
-
-                                    <div class="post-design-mid col-md-12" >  
-
-                                        <!-- multiple image code  start-->
-
-                                        <div class="mange_post_image">
-                                            <?php
-                                            $contition_array = array('post_id' => $row['art_post_id'], 'is_deleted' => '1', 'image_type' => '1');
-                                            $artmultiimage = $this->data['artmultiimage'] = $this->common->select_data_by_condition('post_image', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-                                            ?>
-
-                                            <?php if (count($artmultiimage) == 1) { ?>
-
-                                                <?php
-                                                $allowed = array('gif', 'png', 'jpg');
-                                                $allowespdf = array('pdf');
-                                                $allowesvideo = array('mp4', 'webm');
-                                                $allowesaudio = array('mp3');
-                                                $filename = $artmultiimage[0]['image_name'];
-                                                $ext = pathinfo($filename, PATHINFO_EXTENSION);
-
-                                                if (in_array($ext, $allowed)) {
-                                                    ?>
-
-                                                    <!-- one image start -->
-                                                    <div id="basic-responsive-image" style="height: 80%; width: 100%;">
-                                                        <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img src="<?php echo base_url(ARTPOSTIMAGE . $artmultiimage[0]['image_name']) ?>" style="width: 100%; height: 100%;"> </a>
-                                                    </div>
-                                                    <!-- one image end -->
-
-                                                <?php } elseif (in_array($ext, $allowespdf)) { ?>
-
-                                                    <!-- one pdf start -->
-                                                    <div>
-                                                        <a href="<?php echo base_url('artistic/creat_pdf/' . $artmultiimage[0]['image_id']) ?>"><div class="pdf_img">
-                                                                <img src="<?php echo base_url('images/PDF.jpg') ?>" style="height: 100%; width: 100%;">
-                                                            </div></a>
-                                                    </div>
-                                                    <!-- one pdf end -->
-
-                                                <?php } elseif (in_array($ext, $allowesvideo)) { ?>
-
-                                                    <!-- one video start -->
-                                                    <div class="video_post">
-                                                        <video width="100%" class="video" height="55%" controls>
-
-
-                                                            <source src="<?php echo base_url($this->config->item('art_post_main_upload_path') . $artmultiimage[0]['image_name']) ?>" type="video/mp4">
-                                                            <source src="movie.ogg" type="video/ogg">
-                                                            Your browser does not support the video tag.
-                                                        </video>
-                                                    </div>
-                                                    <!-- one video end -->
-
-                                                <?php } elseif (in_array($ext, $allowesaudio)) { ?>
-
-                                                    <!-- one audio start -->
-                                                    <div>
-                                                       <div class="audio_main_div">
-                                                                <div class="audio_img">
-                                                                  <img src="<?php echo base_url('images/music-icon.png')?> ">  
+                                                                <div class="else_post_d">
+                                                                    <a  class="post_dot" style="max-width: 30%;" title="<?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?>" href="<?php echo base_url('artistic/art_manage_post/' . $row['posted_user_id']); ?>"><?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?> </a><span style="font-weight: 600; color: #91949d;"> Posted With 
+                                                                    </span><a class="post_dot1"  href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>"><?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?></a><span role="presentation" aria-hidden="true" style="color: #91949d; font-size: 14px;"> · </span>
+                                                                    <span style="color: #91949d; font-size: 14px;"> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span>
                                                                 </div>
-                                                                <div class="audio_source">
-                                                            <audio  controls>
 
-                                                            <source src="<?php echo base_url($this->config->item('art_post_main_upload_path') . $artmultiimage[0]['image_name']); ?>" type="audio/mp3">
-                                                            <source src="movie.ogg" type="audio/ogg">
-                                                            Your browser does not support the audio tag.
-</audio>
-</div>
-                                                                <div class="audio_mp3">
-                                                                   <p title="hellow this is mp3">This text will scroll from right to left</p>
-                                                                </div>
-                                                               </div> 
-                                                    <!-- one audio end -->
+                                                                <!-- other user post time name end-->
+                                                            <?php } else { ?>
 
-                                                <?php } ?>
+                                                                <a  class="post_dot" title="<?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?>"   href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>">
+                                                                    <?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?>
 
-                                            <?php } elseif (count($artmultiimage) == 2) { ?>
+                                                                </a>
+                                                                <div class="datespan">
+                                                                    <span style="font-weight: 400; font-size: 14px; color: #91949d;"> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span></div>
 
-                                                <?php
-                                                foreach ($artmultiimage as $multiimage) {
-                                                    ?>
+                                                            <?php } ?>                          
+                                                        </li>
 
-                                                    <!-- two image start -->
-                                                    <div  id="two_manage_images_art" >
-                                                        <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="two-columns" src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $multiimage['image_name']) ?>" > </a>
-                                                    </div>
-
-                                                    <!-- two image end -->
-                                                <?php } ?>
-
-                                            <?php } elseif (count($artmultiimage) == 3) { ?>
-
-
-
-                                                <!-- three image start -->
-                                                <div id="three_images_art" >
-                                                    <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="three-columns" src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $artmultiimage[0]['image_name']) ?>" style="width: 100%; height:100%; "> </a>
-                                                </div>
-                                                <div  id="three_images_2_art">
-                                                    <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="three-columns" src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $artmultiimage[1]['image_name']) ?>" style="width: 100%; height:100%; "> </a>
-                                                </div>
-
-                                                <div  id="three_images_2_art">
-                                                    <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="three-columns" src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $artmultiimage[2]['image_name']) ?>" style="width: 100%; height:100%; "> </a>
-                                                </div>
-
-                                                <!-- three image end -->
-
-
-                                            <?php } elseif (count($artmultiimage) == 4) { ?>
-
-
-                                                <?php
-                                                foreach ($artmultiimage as $multiimage) {
-                                                    ?>
-
-                                                    <!-- four image start -->
-                                                    <div id="responsive_manage-images-breakpoints">
-                                                        <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="breakpoint" src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $multiimage['image_name']) ?>" style="width: 100%; height: 100%;"> </a>
-
-                                                    </div>
-
-                                                    <!-- four image end -->
-
-                                                <?php } ?>
-
-
-                                            <?php } elseif (count($artmultiimage) > 4) { ?>
-
-
-
-                                                <?php
-                                                $i = 0;
-                                                foreach ($artmultiimage as $multiimage) {
-                                                    ?>
-
-                                                    <!-- five image start -->
-                                                    <div>
-                                                        <div id="responsive-manage_images_2-breakpoints">
-                                                            <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $multiimage['image_name']) ?>" style=""> </a>
-                                                        </div>
-                                                    </div>
-
-                                                    <!-- five image end -->
-
-                                                    <?php
-                                                    $i++;
-                                                    if ($i == 3)
-                                                        break;
-                                                }
-                                                ?>
-                                                <!-- this div view all image start -->
-                                                <div>
-                                                    <div id="responsive-manage_images_3-breakpoints" >
-                                                        <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $artmultiimage[3]['image_name']) ?>" > </a></div>
-
-
-                                                    <div class="manage_images_view_more" >
-
-
-                                                        <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>" >View All (+<?php echo (count($artmultiimage) - 4); ?>)</a>
-                                                    </div>
-
-                                                </div>
-                                                <!-- this div view all image end -->
-
-
-                                            <?php } ?>
-                                            <div>
-
-
-                                            </div>
-
-                                        </div>     
-                                    </div>
-                                    </div>
-                                    <!-- multiple image code end -->
-                                    <!-- khyati 18-4 start-->
-
-
-                                    <div class="post-design-like-box col-md-12">
-                                        <div class="post-design-menu">
-                                            <!-- like comment div start -->
-                                            <ul>
-                                                <li class="<?php echo 'likepost' . $row['art_post_id']; ?>">
-                                                    <a id="<?php echo $row['art_post_id']; ?>" onClick="post_like(this.id)">
+                                                    </ul> 
+                                                </div>  
+                                                <div class="dropdown2">
+                                                    <a onClick="myvFunction(<?php echo $row['art_post_id']; ?>)" class="dropbtn2 dropbtn2 fa fa-ellipsis-v"></a>
+                                                    <div id="<?php echo "myDropdown" . $row['art_post_id']; ?>" class="dropdown-content2">
 
                                                         <?php
-                                                        $userid = $this->session->userdata('aileenuser');
-                                                        $contition_array = array('art_post_id' => $row['art_post_id'], 'status' => '1');
-                                                        $artlike = $this->data['artlike'] = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-                                                        $likeuserarray = explode(',', $artlike[0]['art_like_user']);
+                                                        if ($row['posted_user_id'] != 0) {
 
-                                                        if (!in_array($userid, $likeuserarray)) {
-                                                            ?>
-                                                            <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>
-                                                        <?php } else {
-                                                            ?>
-                                                            <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-                                                        <?php }
-                                                        ?>
+                                                            if ($this->session->userdata('aileenuser') == $row['posted_user_id']) {
+                                                                ?>
+                                                                <a id="<?php echo $row['art_post_id']; ?>" onClick="deleteownpostmodel(this.id)"><i class="fa fa-trash-o" aria-hidden="true"></i>Delete Post</a>
 
+                                                                <a id="<?php echo $row['art_post_id']; ?>" onClick="editpost(this.id)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit</a>
 
-                                                        <span>
+                                                            <?php } else {
+                                                                ?>
+
+                                                                <a id="<?php echo $row['art_post_id']; ?>" onClick="deleteownpostmodel(this.id)"><i class="fa fa-trash-o" aria-hidden="true"></i>Delete Post</a>
+
+                                                                <a href="<?php echo base_url('artistic/artistic_contactperson/' . $row['user_id'] . ''); ?>"><i class="fa fa-user" aria-hidden="true"></i> Contact Person</a>
+
+                <?php }
+            } else { ?>  
+
 
                                                             <?php
-                                                            if ($row['art_likes_count'] > 0) {
-                                                                echo $row['art_likes_count'];
-                                                            }
+                                                            $userid = $this->session->userdata('aileenuser');
+                                                            if ($row['user_id'] == $userid) {
+                                                                ?>
+
+                                                                <a id="<?php echo $row['art_post_id']; ?>" onClick="deleteownpostmodel(this.id)"><i class="fa fa-trash-o" aria-hidden="true"></i>Delete Post</a>
+                                                                <a id="<?php echo $row['art_post_id']; ?>" onClick="editpost(this.id)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit</a>
+
+                <?php } else { ?>
+                                                                <a href="<?php echo "#popup5" . $row['art_post_id']; ?>"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete Post</a>
+
+
+
+
+                                                                <a href="<?php echo base_url('artistic/artistic_contactperson/' . $row['user_id'] . ''); ?>"><i class="fa fa-user" aria-hidden="true"></i> Contact Person</a>
+                <?php }
+            } ?>
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="post-design-desc ">
+                                                    <span> 
+                                                        <div id="<?php echo 'editpostdata' . $row['art_post_id']; ?>" style="display:block;">
+                                                            <a><?php echo $this->common->make_links($row['art_post']); ?></a>
+                                                        </div>
+
+                                                        <div id="<?php echo 'editpostbox' . $row['art_post_id']; ?>" style="display:none; margin-bottom: 10px;">
+                                                            <input type="text" id="<?php echo 'editpostname' . $row['art_post_id']; ?>" name="editpostname" placeholder="Art name" value="<?php echo $row['art_post']; ?>">
+                                                        </div>
+                                                        <div  id="<?php echo 'editpostdetails' . $row['art_post_id']; ?>" style="display:block;">
+
+            <?php
+            //echo $row['art_description'];
+            $text = $this->common->make_links($row['art_description']);
+            ?>
+                                                            <span class="show"><?php echo $text; ?></span>
+                                                        </div>
+
+                                                        <div id="<?php echo 'editpostdetailbox' . $row['art_post_id']; ?>" style="display:none;">
+
+                                                            <div contenteditable="true" class="editable_text"  id="<?php echo 'editpostdesc' . $row['art_post_id']; ?>" placeholder="Art Description" name="editpostdesc"><?php echo $row['art_description']; ?>
+                                                            </div> 
+                                                        </div>
+
+                                                        <button class="fr" id="<?php echo "editpostsubmit" . $row['art_post_id']; ?>" style="display:none;margin: 5px 0px;" onClick="edit_postinsert(<?php echo $row['art_post_id']; ?>)">Save</button>
+
+
+                                                    </span></div>
+                                            </div>
+
+
+                                            <div class="post-design-mid col-md-12" >  
+
+                                                <!-- multiple image code  start-->
+
+                                                <div class="mange_post_image">
+                                                    <?php
+                                                    $contition_array = array('post_id' => $row['art_post_id'], 'is_deleted' => '1', 'image_type' => '1');
+                                                    $artmultiimage = $this->data['artmultiimage'] = $this->common->select_data_by_condition('post_image', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                                    ?>
+
+                                                    <?php if (count($artmultiimage) == 1) { ?>
+
+                                                        <?php
+                                                        $allowed = array('gif', 'png', 'jpg');
+                                                        $allowespdf = array('pdf');
+                                                        $allowesvideo = array('mp4', 'webm');
+                                                        $allowesaudio = array('mp3');
+                                                        $filename = $artmultiimage[0]['image_name'];
+                                                        $ext = pathinfo($filename, PATHINFO_EXTENSION);
+
+                                                        if (in_array($ext, $allowed)) {
                                                             ?>
 
-                                                        </span>
-                                                    </a>
-                                                </li>
+                                                            <!-- one image start -->
+                                                            <div id="basic-responsive-image" style="height: 80%; width: 100%;">
+                                                                <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img src="<?php echo base_url(ARTPOSTIMAGE . $artmultiimage[0]['image_name']) ?>" style="width: 100%; height: 100%;"> </a>
+                                                            </div>
+                                                            <!-- one image end -->
 
-                                                <li id="<?php echo 'insertcount' . $row['art_post_id']; ?>" style="visibility:show">
+                <?php } elseif (in_array($ext, $allowespdf)) { ?>
 
+                                                            <!-- one pdf start -->
+                                                            <div>
+                                                                <a href="<?php echo base_url('artistic/creat_pdf/' . $artmultiimage[0]['image_id']) ?>"><div class="pdf_img">
+                                                                        <img src="<?php echo base_url('images/PDF.jpg') ?>" style="height: 100%; width: 100%;">
+                                                                    </div></a>
+                                                            </div>
+                                                            <!-- one pdf end -->
+
+                <?php } elseif (in_array($ext, $allowesvideo)) { ?>
+
+                                                            <!-- one video start -->
+                                                            <div class="video_post">
+                                                                <video width="100%" class="video" height="55%" controls>
+
+
+                                                                    <source src="<?php echo base_url($this->config->item('art_post_main_upload_path') . $artmultiimage[0]['image_name']) ?>" type="video/mp4">
+                                                                    <source src="movie.ogg" type="video/ogg">
+                                                                    Your browser does not support the video tag.
+                                                                </video>
+                                                            </div>
+                                                            <!-- one video end -->
+
+                <?php } elseif (in_array($ext, $allowesaudio)) { ?>
+
+                                                            <!-- one audio start -->
+                                                            <div>
+                                                                <div class="audio_main_div">
+                                                                    <div class="audio_img">
+                                                                        <img src="<?php echo base_url('images/music-icon.png') ?> ">  
+                                                                    </div>
+                                                                    <div class="audio_source">
+                                                                        <audio  controls>
+
+                                                                            <source src="<?php echo base_url($this->config->item('art_post_main_upload_path') . $artmultiimage[0]['image_name']); ?>" type="audio/mp3">
+                                                                            <source src="movie.ogg" type="audio/ogg">
+                                                                            Your browser does not support the audio tag.
+                                                                        </audio>
+                                                                    </div>
+                                                                    <div class="audio_mp3">
+                                                                        <p title="hellow this is mp3">This text will scroll from right to left</p>
+                                                                    </div>
+                                                                </div> 
+                                                                <!-- one audio end -->
+
+                                                            <?php } ?>
+
+                                                        <?php } elseif (count($artmultiimage) == 2) { ?>
+
+                <?php
+                foreach ($artmultiimage as $multiimage) {
+                    ?>
+
+                                                                <!-- two image start -->
+                                                                <div  id="two_manage_images_art" >
+                                                                    <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="two-columns" src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $multiimage['image_name']) ?>" > </a>
+                                                                </div>
+
+                                                                <!-- two image end -->
+                <?php } ?>
+
+            <?php } elseif (count($artmultiimage) == 3) { ?>
+
+
+
+                                                            <!-- three image start -->
+                                                            <div id="three_images_art" >
+                                                                <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="three-columns" src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $artmultiimage[0]['image_name']) ?>" style="width: 100%; height:100%; "> </a>
+                                                            </div>
+                                                            <div  id="three_images_2_art">
+                                                                <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="three-columns" src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $artmultiimage[1]['image_name']) ?>" style="width: 100%; height:100%; "> </a>
+                                                            </div>
+
+                                                            <div  id="three_images_2_art">
+                                                                <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="three-columns" src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $artmultiimage[2]['image_name']) ?>" style="width: 100%; height:100%; "> </a>
+                                                            </div>
+
+                                                            <!-- three image end -->
+
+
+                                                        <?php } elseif (count($artmultiimage) == 4) { ?>
+
+
+                <?php
+                foreach ($artmultiimage as $multiimage) {
+                    ?>
+
+                                                                <!-- four image start -->
+                                                                <div id="responsive_manage-images-breakpoints">
+                                                                    <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="breakpoint" src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $multiimage['image_name']) ?>" style="width: 100%; height: 100%;"> </a>
+
+                                                                </div>
+
+                                                                <!-- four image end -->
+
+                <?php } ?>
+
+
+                                                        <?php } elseif (count($artmultiimage) > 4) { ?>
+
+
+
+                <?php
+                $i = 0;
+                foreach ($artmultiimage as $multiimage) {
+                    ?>
+
+                                                                <!-- five image start -->
+                                                                <div>
+                                                                    <div id="responsive-manage_images_2-breakpoints">
+                                                                        <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $multiimage['image_name']) ?>" style=""> </a>
+                                                                    </div>
+                                                                </div>
+
+                                                                <!-- five image end -->
+
+                                                                <?php
+                                                                $i++;
+                                                                if ($i == 3)
+                                                                    break;
+                                                            }
+                                                            ?>
+                                                            <!-- this div view all image start -->
+                                                            <div>
+                                                                <div id="responsive-manage_images_3-breakpoints" >
+                                                                    <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $artmultiimage[3]['image_name']) ?>" > </a></div>
+
+
+                                                                <div class="manage_images_view_more" >
+
+
+                                                                    <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>" >View All (+<?php echo (count($artmultiimage) - 4); ?>)</a>
+                                                                </div>
+
+                                                            </div>
+                                                            <!-- this div view all image end -->
+
+
+            <?php } ?>
+                                                        <div>
+
+
+                                                        </div>
+
+                                                    </div>     
+                                                </div>
+                                            </div>
+                                            <!-- multiple image code end -->
+                                            <!-- khyati 18-4 start-->
+
+
+                                            <div class="post-design-like-box col-md-12">
+                                                <div class="post-design-menu">
+                                                    <!-- like comment div start -->
+                                                    <ul>
+                                                        <li class="<?php echo 'likepost' . $row['art_post_id']; ?>">
+                                                            <a id="<?php echo $row['art_post_id']; ?>" onClick="post_like(this.id)">
+
+                                                                <?php
+                                                                $userid = $this->session->userdata('aileenuser');
+                                                                $contition_array = array('art_post_id' => $row['art_post_id'], 'status' => '1');
+                                                                $artlike = $this->data['artlike'] = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                                                $likeuserarray = explode(',', $artlike[0]['art_like_user']);
+
+                                                                if (!in_array($userid, $likeuserarray)) {
+                                                                    ?>
+                                                                    <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>
+                                                                <?php } else {
+                                                                    ?>
+                                                                    <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+            <?php }
+            ?>
+
+
+                                                                <span>
+
+                                                                    <?php
+                                                                    if ($row['art_likes_count'] > 0) {
+                                                                        echo $row['art_likes_count'];
+                                                                    }
+                                                                    ?>
+
+                                                                </span>
+                                                            </a>
+                                                        </li>
+
+                                                        <li id="<?php echo 'insertcount' . $row['art_post_id']; ?>" style="visibility:show">
+
+            <?php
+            $contition_array = array('art_post_id' => $row['art_post_id'], 'status' => '1', 'is_delete' => '0');
+            $commnetcount = $this->common->select_data_by_condition('artistic_post_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            ?>
+                                                            <a  onClick="commentall(this.id)" id="<?php echo $row['art_post_id']; ?>">
+                                                                <i class="fa fa-comment-o" aria-hidden="true">
+                                                                    <?php
+                                                                    if (count($commnetcount) > 0) {
+                                                                        echo count($commnetcount);
+                                                                    }
+                                                                    ?>
+                                                                </i>  
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                    <!-- like comment div end -->
+                                                </div>
+                                            </div>
+
+                                            <!-- like user list start -->
+
+
+                                            <!-- pop up box start-->
+                                                <?php
+                                                if ($row['art_likes_count'] > 0) {
+                                                    ?>
+                                                <div class="likeduserlist<?php echo $row['art_post_id'] ?>">
                                                     <?php
                                                     $contition_array = array('art_post_id' => $row['art_post_id'], 'status' => '1', 'is_delete' => '0');
-                                                    $commnetcount = $this->common->select_data_by_condition('artistic_post_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                                    $commnetcount = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                                    $likeuser = $commnetcount[0]['art_like_user'];
+                                                    $countlike = $commnetcount[0]['art_likes_count'] - 1;
+                                                    $likelistarray = explode(',', $likeuser);
+                                                    foreach ($likelistarray as $key => $value) {
+                                                        $art_fname1 = $this->db->get_where('art_reg', array('user_id' => $value, 'status' => 1))->row()->art_name;
+                                                        $art_lname1 = $this->db->get_where('art_reg', array('user_id' => $value, 'status' => 1))->row()->art_lastname;
+                                                    }
                                                     ?>
-                                                    <a  onClick="commentall(this.id)" id="<?php echo $row['art_post_id']; ?>">
-                                                        <i class="fa fa-comment-o" aria-hidden="true">
+                                                    <a href="javascript:void(0);"  onclick="likeuserlist(<?php echo $row['art_post_id']; ?>);">
+                                                        <?php
+                                                        $contition_array = array('art_post_id' => $row['art_post_id'], 'status' => '1', 'is_delete' => '0');
+                                                        $commnetcount = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                                        $likeuser = $commnetcount[0]['art_like_user'];
+                                                        $countlike = $commnetcount[0]['art_likes_count'] - 1;
+                                                        $likelistarray = explode(',', $likeuser);
+                                                        $likelistarray = array_reverse($likelistarray);
+                                                        $art_fname = $this->db->get_where('art_reg', array('user_id' => $likelistarray[0], 'status' => 1))->row()->art_name;
+                                                        $art_lname = $this->db->get_where('art_reg', array('user_id' => $likelistarray[0], 'status' => 1))->row()->art_lastname;
+                                                        ?>
+                                                        <div class="like_one_other">
                                                             <?php
-                                                            if (count($commnetcount) > 0) {
-                                                                echo count($commnetcount);
+                                                            if ($userid == $likelistarray[0]) {
+                                                                echo "You";
+                                                            } else {
+                                                                echo ucwords($art_fname);
+                                                                echo "&nbsp; ";
+                                                                echo ucwords($art_lname);
+                                                                echo "&nbsp;";
                                                             }
                                                             ?>
-                                                        </i>  
+                                                            <?php
+                                                            if (count($likelistarray) > 1) {
+                                                                ?>
+                                                                <?php echo "and"; ?>
+                                                                <?php
+                                                                echo $countlike;
+                                                                echo "&nbsp;";
+                                                                echo "others";
+                                                                ?> 
+                                                <?php } ?>
+                                                        </div>
                                                     </a>
-                                                </li>
-                                            </ul>
-                                            <!-- like comment div end -->
-                                        </div>
-                                    </div>
-
-                                    <!-- like user list start -->
-
-
-                                    <!-- pop up box start-->
-                                    <?php
-                                    if ($row['art_likes_count'] > 0) {
-                                        ?>
-                                        <div class="likeduserlist<?php echo $row['art_post_id'] ?>">
-                                            <?php
-                                            $contition_array = array('art_post_id' => $row['art_post_id'], 'status' => '1', 'is_delete' => '0');
-                                            $commnetcount = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-                                            $likeuser = $commnetcount[0]['art_like_user'];
-                                            $countlike = $commnetcount[0]['art_likes_count'] - 1;
-                                            $likelistarray = explode(',', $likeuser);
-                                            foreach ($likelistarray as $key => $value) {
-                                                $art_fname1 = $this->db->get_where('art_reg', array('user_id' => $value, 'status' => 1))->row()->art_name;
-                                                $art_lname1 = $this->db->get_where('art_reg', array('user_id' => $value, 'status' => 1))->row()->art_lastname;
-                                            }
-                                            ?>
-                                            <a href="javascript:void(0);"  onclick="likeuserlist(<?php echo $row['art_post_id']; ?>);">
+                                                </div>
+                                                    <?php
+                                                }
+                                                ?>
+                                            <div class="<?php echo "likeusername" . $row['art_post_id']; ?>" id="<?php echo "likeusername" . $row['art_post_id']; ?>" style="display:none">
                                                 <?php
                                                 $contition_array = array('art_post_id' => $row['art_post_id'], 'status' => '1', 'is_delete' => '0');
                                                 $commnetcount = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                                                 $likeuser = $commnetcount[0]['art_like_user'];
                                                 $countlike = $commnetcount[0]['art_likes_count'] - 1;
                                                 $likelistarray = explode(',', $likeuser);
-                                                $likelistarray = array_reverse($likelistarray);
-                                                $art_fname = $this->db->get_where('art_reg', array('user_id' => $likelistarray[0], 'status' => 1))->row()->art_name;
-                                                $art_lname = $this->db->get_where('art_reg', array('user_id' => $likelistarray[0], 'status' => 1))->row()->art_lastname;
+                                                foreach ($likelistarray as $key => $value) {
+                                                    $art_fname1 = $this->db->get_where('art_reg', array('user_id' => $value, 'status' => 1))->row()->art_name;
+                                                    $art_lname1 = $this->db->get_where('art_reg', array('user_id' => $value, 'status' => 1))->row()->art_lastname;
+                                                }
                                                 ?>
-                                                <div class="like_one_other">
+                                                <a href="javascript:void(0);"  onclick="likeuserlist(<?php echo $row['art_post_id']; ?>);">
                                                     <?php
-                                                    if($userid == $likelistarray[0]){
-                                                        echo "You";
-                                                    }else{
-                                                    echo ucwords($art_fname);
-                                                    echo "&nbsp; ";
-                                                    echo ucwords($art_lname);
-                                                    echo "&nbsp;";
-                                                  }
+                                                    $contition_array = array('art_post_id' => $row['art_post_id'], 'status' => '1', 'is_delete' => '0');
+                                                    $commnetcount = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                                    $likeuser = $commnetcount[0]['art_like_user'];
+                                                    $countlike = $commnetcount[0]['art_likes_count'] - 1;
+                                                    $likelistarray = explode(',', $likeuser);
+                                                    $likelistarray = array_reverse($likelistarray);
+                                                    $art_fname = $this->db->get_where('art_reg', array('user_id' => $likelistarray[0], 'status' => 1))->row()->art_name;
+                                                    $art_lname = $this->db->get_where('art_reg', array('user_id' => $likelistarray[0], 'status' => 1))->row()->art_lastname;
                                                     ?>
-                                                       <?php
-                                                    if (count($likelistarray) > 1) {
-                                                        ?>
-                                                        <?php echo "and"; ?>
+                                                    <div class="like_one_other">
                                                         <?php
-                                                        echo $countlike;
+                                                        echo ucwords($art_fname);
+                                                        echo "&nbsp; ";
+                                                        echo ucwords($art_lname);
                                                         echo "&nbsp;";
-                                                        echo "others";
-                                                        ?> 
-                                                    <?php } ?>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <?php
-                                    }
-                                    ?>
-                                    <div class="<?php echo "likeusername" . $row['art_post_id']; ?>" id="<?php echo "likeusername" . $row['art_post_id']; ?>" style="display:none">
-                                        <?php
-                                        $contition_array = array('art_post_id' => $row['art_post_id'], 'status' => '1', 'is_delete' => '0');
-                                        $commnetcount = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-                                        $likeuser = $commnetcount[0]['art_like_user'];
-                                        $countlike = $commnetcount[0]['art_likes_count'] - 1;
-                                        $likelistarray = explode(',', $likeuser);
-                                        foreach ($likelistarray as $key => $value) {
-                                            $art_fname1 = $this->db->get_where('art_reg', array('user_id' => $value, 'status' => 1))->row()->art_name;
-                                            $art_lname1 = $this->db->get_where('art_reg', array('user_id' => $value, 'status' => 1))->row()->art_lastname;
-                                        }
-                                        ?>
-                                        <a href="javascript:void(0);"  onclick="likeuserlist(<?php echo $row['art_post_id']; ?>);">
-                                            <?php
-                                            $contition_array = array('art_post_id' => $row['art_post_id'], 'status' => '1', 'is_delete' => '0');
-                                            $commnetcount = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-                                            $likeuser = $commnetcount[0]['art_like_user'];
-                                            $countlike = $commnetcount[0]['art_likes_count'] - 1;
-                                            $likelistarray = explode(',', $likeuser);
-                                            $likelistarray = array_reverse($likelistarray);
-                                            $art_fname = $this->db->get_where('art_reg', array('user_id' => $likelistarray[0], 'status' => 1))->row()->art_name;
-                                            $art_lname = $this->db->get_where('art_reg', array('user_id' => $likelistarray[0], 'status' => 1))->row()->art_lastname;
-                                            ?>
-                                            <div class="like_one_other">
-                                                <?php
-                                                echo ucwords($art_fname);
-                                                echo "&nbsp; ";
-                                                echo ucwords($art_lname);
-                                                echo "&nbsp;";
-                                                ?>
-                                                <?php
-                                                if (count($likelistarray) > 1) {
-                                                    ?>
-                                                    <?php echo "and"; ?>
-                                                    <?php
-                                                    echo $countlike;
-                                                    echo "&nbsp;";
-                                                    echo "others";
-                                                    ?> 
-                                                <?php } ?>
-                                            </div>
-                                        </a>
-                                    </div>
-
-                                    <!-- like user list end -->
-
-                                    <!-- <?php } ?>  -->
-                                <?php
-                                $contition_array = array('art_post_id' => $row['art_post_id'], 'status' => '1');
-                                $artdatacondition = $this->data['artdata'] = $this->common->select_data_by_condition('artistic_post_comment', $contition_array, $data = '*', $sortby = 'artistic_post_comment_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-                                if ($artdatacondition) {
-                                    ?>
-                                    <div class="art-all-comment col-md-12">
-                                        <div id="<?php echo "fourcomment" . $row['art_post_id']; ?>" style="display:none">
-                                        </div>
-                                        <!-- 3 comment start -->
-                                        <!-- khyati changes start -->
-                                        <div  id="<?php echo "threecomment" . $row['art_post_id']; ?>" style="display:block">
-                                            <div class="<?php echo 'insertcomment' . $row['art_post_id']; ?>">
-                                                <?php
-                                                $contition_array = array('art_post_id' => $row['art_post_id'], 'status' => '1');
-                                                $artdata = $this->data['artdata'] = $this->common->select_data_by_condition('artistic_post_comment', $contition_array, $data = '*', $sortby = 'artistic_post_comment_id', $orderby = 'DESC', $limit = '1', $offset = '', $join_str = array(), $groupby = '');
-                                                if ($artdata) {
-                                                    foreach ($artdata as $rowdata) {
-                                                        $artname = $this->db->get_where('art_reg', array('user_id' => $rowdata['user_id']))->row()->art_name;
-
-                                                        $artlastname = $this->db->get_where('art_reg', array('user_id' => $rowdata['user_id']))->row()->art_lastname;
                                                         ?>
-                                                        <div class="all-comment-comment-box">
-                                                            <div class="post-design-pro-comment-img"> 
-                                                                <?php $art_userimage = $this->db->get_where('art_reg', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->art_user_image; ?>
-                                                                <?php if ($art_userimage) { ?>
-                                                                <a href="<?php echo base_url('artistic/art_manage_post/' . $rowdata['user_id'] . ''); ?>">
-                                                                    <img  src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage); ?>"  alt="">
-                                                                    </a>
-                                                                    <?php
-                                                                } else {
-                                                                    ?>
-                                                                     <a href="<?php echo base_url('artistic/art_manage_post/' . $rowdata['user_id'] . ''); ?>">
-                                                                    <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
-                                                                    </a>
-                                                                    <?php
-                                                                }
-                                                                ?>
-                                                            </div>
-                                                            <div class="comment-name">
-                                                                <b><?php
-                                                                    echo ucwords($artname);
-                                                                    echo "&nbsp;";
-                                                                    echo ucwords($artlastname);
-                                                                    ?></b><?php echo '</br>'; ?>
-                                                            </div>
+                                                        <?php
+                                                        if (count($likelistarray) > 1) {
+                                                            ?>
+                                                            <?php echo "and"; ?>
+                                                            <?php
+                                                            echo $countlike;
+                                                            echo "&nbsp;";
+                                                            echo "others";
+                                                            ?> 
+            <?php } ?>
+                                                    </div>
+                                                </a>
+                                            </div>
 
-                                                            <div class="comment-details" id= "<?php echo "showcomment" . $rowdata['artistic_post_comment_id']; ?>">
-                                                                <?php
-                                                                echo $this->common->make_links($rowdata['comments']);
+                                            <!-- like user list end -->
+
+                                            <!-- <?php } ?>  -->
+                                        <?php
+                                        $contition_array = array('art_post_id' => $row['art_post_id'], 'status' => '1');
+                                        $artdatacondition = $this->data['artdata'] = $this->common->select_data_by_condition('artistic_post_comment', $contition_array, $data = '*', $sortby = 'artistic_post_comment_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                        if ($artdatacondition) {
+                                            ?>
+                                            <div class="art-all-comment col-md-12">
+                                                <div id="<?php echo "fourcomment" . $row['art_post_id']; ?>" style="display:none">
+                                                </div>
+                                                <!-- 3 comment start -->
+                                                <!-- khyati changes start -->
+                                                <div  id="<?php echo "threecomment" . $row['art_post_id']; ?>" style="display:block">
+                                                    <div class="<?php echo 'insertcomment' . $row['art_post_id']; ?>">
+                                                        <?php
+                                                        $contition_array = array('art_post_id' => $row['art_post_id'], 'status' => '1');
+                                                        $artdata = $this->data['artdata'] = $this->common->select_data_by_condition('artistic_post_comment', $contition_array, $data = '*', $sortby = 'artistic_post_comment_id', $orderby = 'DESC', $limit = '1', $offset = '', $join_str = array(), $groupby = '');
+                                                        if ($artdata) {
+                                                            foreach ($artdata as $rowdata) {
+                                                                $artname = $this->db->get_where('art_reg', array('user_id' => $rowdata['user_id']))->row()->art_name;
+
+                                                                $artlastname = $this->db->get_where('art_reg', array('user_id' => $rowdata['user_id']))->row()->art_lastname;
+                                                                ?>
+                                                                <div class="all-comment-comment-box">
+                                                                    <div class="post-design-pro-comment-img"> 
+                                                                        <?php $art_userimage = $this->db->get_where('art_reg', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->art_user_image; ?>
+                                                                        <?php if ($art_userimage) { ?>
+                                                                            <a href="<?php echo base_url('artistic/art_manage_post/' . $rowdata['user_id'] . ''); ?>">
+                                                                                <img  src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage); ?>"  alt="">
+                                                                            </a>
+                        <?php
+                    } else {
+                        ?>
+                                                                            <a href="<?php echo base_url('artistic/art_manage_post/' . $rowdata['user_id'] . ''); ?>">
+                                                                                <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
+                                                                            </a>
+                        <?php
+                    }
+                    ?>
+                                                                    </div>
+                                                                    <div class="comment-name">
+                                                                        <b><?php
+                                                        echo ucwords($artname);
+                                                        echo "&nbsp;";
+                                                        echo ucwords($artlastname);
+                    ?></b><?php echo '</br>'; ?>
+                                                                    </div>
+
+                                                                    <div class="comment-details" id= "<?php echo "showcomment" . $rowdata['artistic_post_comment_id']; ?>">
+                    <?php
+                    echo $this->common->make_links($rowdata['comments']);
 //                                                                echo '</br>';
-                                                                ?>
-                                                            </div>
-                                                           
-                                                            <div class="edit-comment-box">
-                                                                <div class="inputtype-edit-comment">
-                                                                 
-                                                                    <div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="<?php echo $rowdata['artistic_post_comment_id']; ?>"  id="<?php echo "editcomment" . $rowdata['artistic_post_comment_id']; ?>" placeholder="Add a Comment ..." value= ""  onkeyup="commentedit(<?php echo $rowdata['artistic_post_comment_id']; ?>)"><?php echo $rowdata['comments']; ?></div>
-                                                                    <span class="comment-edit-button"><button id="<?php echo "editsubmit" . $rowdata['artistic_post_comment_id']; ?>" style="display:none" onClick="edit_comment(<?php echo $rowdata['artistic_post_comment_id']; ?>)">Save</button></span>
-                                                                </div>
-                                                            </div>
+                    ?>
+                                                                    </div>
 
-                                                            <div class="art-comment-menu-design"> 
-                                                                <div class="comment-details-menu" id="<?php echo 'likecomment1' . $rowdata['artistic_post_comment_id']; ?>">
-                                                                    <a id="<?php echo $rowdata['artistic_post_comment_id']; ?>"   onClick="comment_like1(this.id)">
+                                                                    <div class="edit-comment-box">
+                                                                        <div class="inputtype-edit-comment">
+
+                                                                            <div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="<?php echo $rowdata['artistic_post_comment_id']; ?>"  id="<?php echo "editcomment" . $rowdata['artistic_post_comment_id']; ?>" placeholder="Add a Comment ..." value= ""  onkeyup="commentedit(<?php echo $rowdata['artistic_post_comment_id']; ?>)"><?php echo $rowdata['comments']; ?></div>
+                                                                            <span class="comment-edit-button"><button id="<?php echo "editsubmit" . $rowdata['artistic_post_comment_id']; ?>" style="display:none" onClick="edit_comment(<?php echo $rowdata['artistic_post_comment_id']; ?>)">Save</button></span>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="art-comment-menu-design"> 
+                                                                        <div class="comment-details-menu" id="<?php echo 'likecomment1' . $rowdata['artistic_post_comment_id']; ?>">
+                                                                            <a id="<?php echo $rowdata['artistic_post_comment_id']; ?>"   onClick="comment_like1(this.id)">
+
+                                                                                <?php
+                                                                                $userid = $this->session->userdata('aileenuser');
+                                                                                $contition_array = array('artistic_post_comment_id' => $rowdata['artistic_post_comment_id'], 'status' => '1');
+                                                                                $artcommentlike = $this->data['artcommentlike'] = $this->common->select_data_by_condition('artistic_post_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                                                                $likeuserarray = explode(',', $artcommentlike[0]['artistic_comment_like_user']);
+
+                                                                                if (!in_array($userid, $likeuserarray)) {
+                                                                                    ?>
+                                                                                    <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i> 
+                                                                                <?php } else {
+                                                                                    ?>
+                                                                                    <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                                                                    <?php }
+                                                                                    ?>
+                                                                                <span>
+                                                                                    <?php
+                                                                                    if ($rowdata['artistic_comment_likes_count'] > 0) {
+                                                                                        echo $rowdata['artistic_comment_likes_count'];
+                                                                                    }
+                                                                                    ?>
+                                                                                </span>
+                                                                            </a>
+                                                                        </div>
+                                                                        <?php
+                                                                        $userid = $this->session->userdata('aileenuser');
+
+                                                                        if ($rowdata['user_id'] == $userid) {
+                                                                            ?> 
+
+                                                                            <span role="presentation" aria-hidden="true"> · </span>
+                                                                            <div class="comment-details-menu">
+
+                                                                                <div id="<?php echo 'editcommentbox' . $rowdata['artistic_post_comment_id']; ?>" style="display:block;">
+                                                                                    <a id="<?php echo $rowdata['artistic_post_comment_id']; ?>" onClick="comment_editbox(this.id)" class="editbox">Edit
+                                                                                    </a>
+                                                                                </div>
+
+                                                                                <div id="<?php echo 'editcancle' . $rowdata['artistic_post_comment_id']; ?>" style="display:none;">
+                                                                                    <a id="<?php echo $rowdata['artistic_post_comment_id']; ?>" onClick="comment_editcancle(this.id)">Cancel
+                                                                                    </a>
+                                                                                </div>
+
+                                                                            </div>
+                                                                        <?php } ?>
 
                                                                         <?php
                                                                         $userid = $this->session->userdata('aileenuser');
-                                                                        $contition_array = array('artistic_post_comment_id' => $rowdata['artistic_post_comment_id'], 'status' => '1');
-                                                                        $artcommentlike = $this->data['artcommentlike'] = $this->common->select_data_by_condition('artistic_post_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-                                                                        $likeuserarray = explode(',', $artcommentlike[0]['artistic_comment_like_user']);
 
-                                                                        if (!in_array($userid, $likeuserarray)) {
-                                                                            ?>
-                                                                            <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i> 
-                                                                        <?php } else {
-                                                                            ?>
-                                                                            <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-                                                                        <?php }
-                                                                        ?>
-                                                                        <span>
-                                                                            <?php
-                                                                            if ($rowdata['artistic_comment_likes_count'] > 0) {
-                                                                                echo $rowdata['artistic_comment_likes_count'];
-                                                                            }
-                                                                            ?>
-                                                                        </span>
-                                                                    </a>
-                                                                </div>
-                                                                <?php
-                                                                $userid = $this->session->userdata('aileenuser');
-
-                                                                if ($rowdata['user_id'] == $userid) {
-                                                                    ?> 
-
-                                                                    <span role="presentation" aria-hidden="true"> · </span>
-                                                                    <div class="comment-details-menu">
-
-                                                                        <div id="<?php echo 'editcommentbox' . $rowdata['artistic_post_comment_id']; ?>" style="display:block;">
-                                                                            <a id="<?php echo $rowdata['artistic_post_comment_id']; ?>" onClick="comment_editbox(this.id)" class="editbox">Edit
-                                                                            </a>
-                                                                        </div>
-
-                                                                        <div id="<?php echo 'editcancle' . $rowdata['artistic_post_comment_id']; ?>" style="display:none;">
-                                                                            <a id="<?php echo $rowdata['artistic_post_comment_id']; ?>" onClick="comment_editcancle(this.id)">Cancel
-                                                                            </a>
-                                                                        </div>
-
-                                                                    </div>
-                                                                <?php } ?>
-
-                                                                <?php
-                                                                $userid = $this->session->userdata('aileenuser');
-
-                                                                $art_userid = $this->db->get_where('art_post', array('art_post_id' => $rowdata['art_post_id'], 'status' => 1))->row()->user_id;
+                                                                        $art_userid = $this->db->get_where('art_post', array('art_post_id' => $rowdata['art_post_id'], 'status' => 1))->row()->user_id;
 
 
-                                                                if ($rowdata['user_id'] == $userid || $art_userid == $userid) {
-                                                                    ?> 
-                                                                    <span role="presentation" aria-hidden="true"> · </span>
-                                                                    <div class="comment-details-menu">
-                                                                        <input type="hidden" name="post_delete"  id="post_delete" value= "<?php echo $rowdata['art_post_id']; ?>">
-                                                                        <a id="<?php echo $rowdata['artistic_post_comment_id']; ?>"   onClick="comment_delete(this.id)"> Delete<span class="<?php echo 'insertcomment' . $rowdata['artistic_post_comment_id']; ?>">
-                                                                            </span>
-                                                                        </a>
-                                                                    </div>
-                                                                <?php } ?>
+                                                                        if ($rowdata['user_id'] == $userid || $art_userid == $userid) {
+                                                                            ?> 
+                                                                            <span role="presentation" aria-hidden="true"> · </span>
+                                                                            <div class="comment-details-menu">
+                                                                                <input type="hidden" name="post_delete"  id="post_delete" value= "<?php echo $rowdata['art_post_id']; ?>">
+                                                                                <a id="<?php echo $rowdata['artistic_post_comment_id']; ?>"   onClick="comment_delete(this.id)"> Delete<span class="<?php echo 'insertcomment' . $rowdata['artistic_post_comment_id']; ?>">
+                                                                                    </span>
+                                                                                </a>
+                                                                            </div>
+                    <?php } ?>
 
-                                                                <span role="presentation" aria-hidden="true"> · </span>
+                                                                        <span role="presentation" aria-hidden="true"> · </span>
 
-                                                                <div class="comment-details-menu">
-                                                                    <p> <?php
-                                                                        echo $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($rowdata['created_date'])));
-                                                                        echo '</br>';
-                                                                        ?>
-                                                                    </p></div></div>
-                                                        </div>
-                                                        <?php
-                                                    }
-                                                }
-                                                ?>
-                                            </div> </div>
-                                        <!-- khyati changes end -->
-                                        <!-- all comments code end -->
-
-                                    </div>
-                                <?php } else { ?>
-
-                                    <div id="<?php echo "fourcomment" . $row['art_post_id']; ?>" style="display:none">
-                                    </div>
-
-                                    <div  id="<?php echo "threecomment" . $row['art_post_id']; ?>" style="display:block">
-
-                                        <div class="<?php echo 'insertcomment' . $row['art_post_id']; ?>">
-                                        </div>
-                                    </div>
-                                <?php } ?>
-                                <!--</div>-->
-                                <div class="post-design-commnet-box col-md-12">
-                                    <div class="post-design-proo-img">
-                                        <?php
-                                        $userid = $this->session->userdata('aileenuser');
-                                        $art_userimage = $this->db->get_where('art_reg', array('user_id' => $userid, 'status' => 1))->row()->art_user_image;
-                                        ?>
-                                        <?php
-                                        if ($art_userimage) {
-                                            ?>
-                                            <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage); ?>" name="image_src" id="image_src" />
-                                            <?php
-                                        } else {
-                                            ?>
-                                            <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
-                                            <?php
-                                        }
-                                        ?>
-                                    </div>
-                                    <div class="">
-                                        <div id="content" class="col-md-12 inputtype-comment" style="width: 80%; padding-left: 7px;">
-                                            <div contenteditable="true" class="editable_text" type="text" name="<?php echo $row['art_post_id']; ?>"  id="<?php echo "post_comment" . $row['art_post_id']; ?>" placeholder="Add a Comment ..." value= "" onClick="entercomment(<?php echo $row['art_post_id']; ?>)"></div>
-                                        </div>    
-                                        <?php echo form_error('post_comment'); ?>
-
-                                        <div class="comment-edit-butn">   
-                                            <button style="position: absolute; bottom: 12px;" id="<?php echo $row['art_post_id']; ?>" onClick="insert_comment(this.id)">Comment</button> </div>
-                                    </div>
-
-                                </div>
-                                <!-- khyati 18-4 end-->
-                            </div>
-                        </div>
-                      
-                        <?php
-                    }}else {
+                                                                        <div class="comment-details-menu">
+                                                                            <p> <?php
+                    echo $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($rowdata['created_date'])));
+                    echo '</br>';
                     ?>
+                                                                            </p></div></div>
+                                                                </div>
+                    <?php
+                }
+            }
+            ?>
+                                                    </div> </div>
+                                                <!-- khyati changes end -->
+                                                <!-- all comments code end -->
 
-                                <div class="text-center rio">
-                                    <h4 class="page-heading  product-listing" style="border:0px;margin-bottom: 11px;">No Post Found.</h4>
+                                            </div>
+        <?php } else { ?>
+
+                                            <div id="<?php echo "fourcomment" . $row['art_post_id']; ?>" style="display:none">
+                                            </div>
+
+                                            <div  id="<?php echo "threecomment" . $row['art_post_id']; ?>" style="display:block">
+
+                                                <div class="<?php echo 'insertcomment' . $row['art_post_id']; ?>">
+                                                </div>
+                                            </div>
+                                                <?php } ?>
+                                        <!--</div>-->
+                                        <div class="post-design-commnet-box col-md-12">
+                                            <div class="post-design-proo-img">
+                                                <?php
+                                                $userid = $this->session->userdata('aileenuser');
+                                                $art_userimage = $this->db->get_where('art_reg', array('user_id' => $userid, 'status' => 1))->row()->art_user_image;
+                                                ?>
+                                                <?php
+                                                if ($art_userimage) {
+                                                    ?>
+                                                    <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage); ?>" name="image_src" id="image_src" />
+                                                    <?php
+                                                } else {
+                                                    ?>
+                                                    <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
+            <?php
+        }
+        ?>
+                                            </div>
+                                            <div class="">
+                                                <div id="content" class="col-md-12 inputtype-comment" style="width: 80%; padding-left: 7px;">
+                                                    <div contenteditable="true" class="editable_text" type="text" name="<?php echo $row['art_post_id']; ?>"  id="<?php echo "post_comment" . $row['art_post_id']; ?>" placeholder="Add a Comment ..." value= "" onClick="entercomment(<?php echo $row['art_post_id']; ?>)"></div>
+                                                </div>    
+        <?php echo form_error('post_comment'); ?>
+
+                                                <div class="comment-edit-butn">   
+                                                    <button style="position: absolute; bottom: 12px;" id="<?php echo $row['art_post_id']; ?>" onClick="insert_comment(this.id)">Comment</button> </div>
+                                            </div>
+
+                                        </div>
+                                        <!-- khyati 18-4 end-->
+                                    </div>
                                 </div>
 
-                    <?php }?>
+        <?php
+    }
+} else {
+    ?>
+
+                            <div class="text-center rio">
+                                <h4 class="page-heading  product-listing" style="border:0px;margin-bottom: 11px;">No Post Found.</h4>
+                            </div>
+
+<?php } ?>
+                    </div>
+
                 </div>
 
             </div>
+        </div>     
+        </section>
+        <!-- END CONTAINER -->
+        <!-- BEGIN FOOTER -->
+        <!-- footer start -->
+        <footer>
 
-        </div>
-    </div>     
-</section>
-<!-- END CONTAINER -->
-<!-- BEGIN FOOTER -->
-<!-- footer start -->
-<footer>
-
-    <?php echo $footer; ?>
-</footer>
-<!-- Bid-modal-2  -->
-<div class="modal fade message-box" id="bidmodal-2" role="dialog">
-    <div class="modal-dialog modal-lm">
-        <div class="modal-content">
-            <button type="button" class="modal-close" data-dismiss="modal">&times;</button>         
-            <div class="modal-body">
-                <span class="mes">
-                    <div id="popup-form">
-                        <?php echo form_open_multipart(base_url('artistic/user_image_insert'), array('id' => 'userimage', 'name' => 'userimage', 'class' => 'clearfix')); ?>
-                        <input type="file" name="profilepic" accept="image/gif, image/jpeg, image/png" id="profilepic">
-                        <input type="hidden" name="hitext" id="hitext" value="5">
- <div class="popup_previred">
-                        <img id="preview" src="#" alt="your image" />
-                       </div>
-                        <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save">
-                        <?php echo form_close(); ?>
+<?php echo $footer; ?>
+        </footer>
+        <!-- Bid-modal-2  -->
+        <div class="modal fade message-box" id="bidmodal-2" role="dialog">
+            <div class="modal-dialog modal-lm">
+                <div class="modal-content">
+                    <button type="button" class="modal-close" data-dismiss="modal">&times;</button>         
+                    <div class="modal-body">
+                        <span class="mes">
+                            <div id="popup-form">
+<?php echo form_open_multipart(base_url('artistic/user_image_insert'), array('id' => 'userimage', 'name' => 'userimage', 'class' => 'clearfix')); ?>
+                                <input type="file" name="profilepic" accept="image/gif, image/jpeg, image/png" id="profilepic">
+                                <input type="hidden" name="hitext" id="hitext" value="5">
+                                <div class="popup_previred">
+                                    <img id="preview" src="#" alt="your image" />
+                                </div>
+                                <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save">
+<?php echo form_close(); ?>
+                            </div>
+                        </span>
                     </div>
-                </span>
+                </div>
             </div>
         </div>
-    </div>
-</div>
-<!-- Model Popup Close -->
+        <!-- Model Popup Close -->
 
 
-<!-- Bid-modal  -->
-<div class="modal fade message-box biderror" id="bidmodal" role="dialog">
-    <div class="modal-dialog modal-lm">
-        <div class="modal-content">
-            <button type="button" class="modal-close" data-dismiss="modal">&times;</button>       
-            <div class="modal-body">
-               
-                <span class="mes"></span>
+        <!-- Bid-modal  -->
+        <div class="modal fade message-box biderror" id="bidmodal" role="dialog">
+            <div class="modal-dialog modal-lm">
+                <div class="modal-content">
+                    <button type="button" class="modal-close" data-dismiss="modal">&times;</button>       
+                    <div class="modal-body">
+
+                        <span class="mes"></span>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
-<!-- Model Popup Close -->
-<!-- Bid-modal-2  -->
-<div class="modal fade message-box" id="likeusermodal" role="dialog">
-    <div class="modal-dialog modal-lm">
-        <div class="modal-content">
-            <button type="button" class="modal-close" data-dismiss="modal">&times;</button>       
-            <div class="modal-body">
-                <span class="mes">
-                </span>
+        <!-- Model Popup Close -->
+        <!-- Bid-modal-2  -->
+        <div class="modal fade message-box" id="likeusermodal" role="dialog">
+            <div class="modal-dialog modal-lm">
+                <div class="modal-content">
+                    <button type="button" class="modal-close" data-dismiss="modal">&times;</button>       
+                    <div class="modal-body">
+                        <span class="mes">
+                        </span>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
-<!-- Model Popup Close -->
-</body>
-</html>
+        <!-- Model Popup Close -->
+        </body>
+        </html>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 
 
-<script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
-<script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
- 
-<script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
-<script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script>
+        <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
+        <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
+
+        <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
+        <script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script>
 
 
 
 
 
-<script>
-jQuery.noConflict();
- 
-(function( $ ) {
+        <script>
+                                                        jQuery.noConflict();
 
-                                            var data = <?php echo json_encode($demo); ?>;
-                                            // alert(data);
+                                                        (function ($) {
 
-
-                                            $(function () {
-                                                // alert('hi');
-                                                $("#tags").autocomplete({
-                                                    source: function (request, response) {
-                                                        var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
-                                                        response($.grep(data, function (item) {
-                                                            return matcher.test(item.label);
-                                                        }));
-                                                    },
-                                                    minLength: 1,
-                                                    select: function (event, ui) {
-                                                        event.preventDefault();
-                                                        $("#tags").val(ui.item.label);
-                                                        $("#selected-tag").val(ui.item.label);
-                                                        // window.location.href = ui.item.value;
-                                                    }
-                                                    ,
-                                                    focus: function (event, ui) {
-                                                        event.preventDefault();
-                                                        $("#tags").val(ui.item.label);
-                                                    }
-                                                });
-                                            });
-                                              })( jQuery  );
-
-</script>
-
-<!-- script for skill textbox automatic end (option 2)-->
+                                                            var data = <?php echo json_encode($demo); ?>;
+                                                            // alert(data);
 
 
+                                                            $(function () {
+                                                                // alert('hi');
+                                                                $("#tags").autocomplete({
+                                                                    source: function (request, response) {
+                                                                        var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+                                                                        response($.grep(data, function (item) {
+                                                                            return matcher.test(item.label);
+                                                                        }));
+                                                                    },
+                                                                    minLength: 1,
+                                                                    select: function (event, ui) {
+                                                                        event.preventDefault();
+                                                                        $("#tags").val(ui.item.label);
+                                                                        $("#selected-tag").val(ui.item.label);
+                                                                        // window.location.href = ui.item.value;
+                                                                    }
+                                                                    ,
+                                                                    focus: function (event, ui) {
+                                                                        event.preventDefault();
+                                                                        $("#tags").val(ui.item.label);
+                                                                    }
+                                                                });
+                                                            });
+                                                        })(jQuery);
+
+        </script>
+
+        <!-- script for skill textbox automatic end (option 2)-->
 
 
 
-<script type="text/javascript">
-jQuery.noConflict();
- 
-(function( $ ) {
-    $uploadCrop = $('#upload-demo').croppie({
-        enableExif: true,
-        viewport: {
-            width: 1250,
-            height: 350,
-            type: 'square'
-        },
-        boundary: {
-            width: 1250,
-            height: 350
-        }
-    });
 
 
-    $('.upload-result').on('click', function (ev) {
-        $uploadCrop.croppie('result', {
-            type: 'canvas',
-            size: 'viewport'
-        }).then(function (resp) {
+        <script type="text/javascript">
+            jQuery.noConflict();
 
-            $.ajax({
-                url: "<?php echo base_url() ?>artistic/ajaxpro",
-                type: "POST",
-                data: {"image": resp},
-                success: function (data) {
-                    html = '<img src="' + resp + '" />';
-                    if (html)
-                    {
-                        window.location.reload();
+            (function ($) {
+                $uploadCrop = $('#upload-demo').croppie({
+                    enableExif: true,
+                    viewport: {
+                        width: 1250,
+                        height: 350,
+                        type: 'square'
+                    },
+                    boundary: {
+                        width: 1250,
+                        height: 350
                     }
+                });
+
+
+                $('.upload-result').on('click', function (ev) {
+                    $uploadCrop.croppie('result', {
+                        type: 'canvas',
+                        size: 'viewport'
+                    }).then(function (resp) {
+
+                        $.ajax({
+                            url: "<?php echo base_url() ?>artistic/ajaxpro",
+                            type: "POST",
+                            data: {"image": resp},
+                            success: function (data) {
+                                html = '<img src="' + resp + '" />';
+                                if (html)
+                                {
+                                    window.location.reload();
+                                }
+                            }
+                        });
+
+                    });
+                });
+
+                $('.cancel-result').on('click', function (ev) {
+
+                    document.getElementById('row2').style.display = "block";
+                    document.getElementById('row1').style.display = "none";
+                    document.getElementById('message1').style.display = "none";
+
+                });
+
+                //aarati code start
+                $('#upload').on('change', function () {
+
+                    var reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        $uploadCrop.croppie('bind', {
+                            url: e.target.result
+                        }).then(function () {
+                            console.log('jQuery bind complete');
+                        });
+
+                    }
+                    reader.readAsDataURL(this.files[0]);
+
+
+
+                });
+
+                $('#upload').on('change', function () {
+
+                    var fd = new FormData();
+                    fd.append("image", $("#upload")[0].files[0]);
+
+                    $.ajax({
+
+                        url: "<?php echo base_url(); ?>artistic/image",
+                        type: "POST",
+                        data: fd,
+                        processData: false,
+                        contentType: false,
+                        success: function (response) {
+
+
+                        }
+                    });
+                });
+            })(jQuery);
+            //aarati code end
+        </script>
+        <!-- cover image end -->
+
+
+
+        <script type="text/javascript">
+            function divClicked() {
+                var divHtml = $(this).html();
+                var editableText = $("<textarea />");
+                editableText.val(divHtml);
+                $(this).replaceWith(editableText);
+                editableText.focus();
+                // setup the blur event for this new textarea
+                editableText.blur(editableTextBlurred);
+            }
+
+            function editableTextBlurred() {
+                var html = $(this).val();
+                var viewableText = $("<a>");
+                if (html.match(/^\s*$/) || html == '') {
+                    html = "Current Work";
+                }
+                viewableText.html(html);
+                $(this).replaceWith(viewableText);
+                // setup the click event for this new div
+                viewableText.click(divClicked);
+
+                $.ajax({
+                    url: "<?php echo base_url(); ?>artistic/art_designation",
+                    type: "POST",
+                    data: {"designation": html},
+                    success: function (response) {
+
+                    }
+                });
+            }
+
+            $(document).ready(function () {
+                // alert("hi");
+                $("a.designation").click(divClicked);
+            });
+        </script>
+
+        <!-- designation script end -->
+
+
+
+
+        <script type="text/javascript">
+            function checkvalue() {
+                //alert("hi");
+                var searchkeyword = document.getElementById('tags').value;
+                var searchplace = document.getElementById('searchplace').value;
+                // alert(searchkeyword);
+                // alert(searchplace);
+                if (searchkeyword == "" && searchplace == "") {
+                    //alert('Please enter Keyword');
+                    return false;
+                }
+            }
+        </script>
+
+        <script>
+            //select2 autocomplete start for skill
+            $('#searchskills').select2({
+
+                placeholder: 'Find Your Skills',
+
+                ajax: {
+
+                    url: "<?php echo base_url(); ?>artistic/keyskill",
+                    dataType: 'json',
+                    delay: 250,
+
+                    processResults: function (data) {
+
+                        return {
+
+                            results: data
+
+
+                        };
+
+                    },
+                    cache: true
                 }
             });
+            //select2 autocomplete End for skill
 
-        });
-    });
+            //select2 autocomplete start for Location
+            $('#searchplace').select2({
 
-    $('.cancel-result').on('click', function (ev) {
+                placeholder: 'Find Your Location',
+                maximumSelectionLength: 1,
+                ajax: {
 
-        document.getElementById('row2').style.display = "block";
-        document.getElementById('row1').style.display = "none";
-        document.getElementById('message1').style.display = "none";
+                    url: "<?php echo base_url(); ?>artistic/location",
+                    dataType: 'json',
+                    delay: 250,
 
-    });
+                    processResults: function (data) {
 
-    //aarati code start
-    $('#upload').on('change', function () {
+                        return {
 
-        var reader = new FileReader();
+                            results: data
 
-        reader.onload = function (e) {
-            $uploadCrop.croppie('bind', {
-                url: e.target.result
-            }).then(function () {
-                console.log('jQuery bind complete');
+
+                        };
+
+                    },
+                    cache: true
+                }
             });
-
-        }
-        reader.readAsDataURL(this.files[0]);
+            //select2 autocomplete End for Location
 
 
 
-    });
-
-    $('#upload').on('change', function () {
-
-        var fd = new FormData();
-        fd.append("image", $("#upload")[0].files[0]);
-
-        $.ajax({
-
-            url: "<?php echo base_url(); ?>artistic/image",
-            type: "POST",
-            data: fd,
-            processData: false,
-            contentType: false,
-            success: function (response) {
+        </script>
 
 
+
+        <!-- popup form edit start -->
+        <script>
+            // Get the modal
+            var modal = document.getElementById('myModal');
+
+            // Get the button that opens the modal
+            var btn = document.getElementById("myBtn");
+
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close1")[0];
+
+            // When the user clicks the button, open the modal 
+            btn.onclick = function () {
+                modal.style.display = "block";
             }
-        });
-    });
-})( jQuery  );
-    //aarati code end
-</script>
-<!-- cover image end -->
 
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function () {
+                modal.style.display = "none";
+            }
 
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        </script>
 
-<script type="text/javascript">
-                            function divClicked() {
-                                var divHtml = $(this).html();
-                                var editableText = $("<textarea />");
-                                editableText.val(divHtml);
-                                $(this).replaceWith(editableText);
-                                editableText.focus();
-                                // setup the blur event for this new textarea
-                                editableText.blur(editableTextBlurred);
-                            }
+        <!-- popup form edit END -->
 
-                            function editableTextBlurred() {
-                                var html = $(this).val();
-                                var viewableText = $("<a>");
-                                 if (html.match(/^\s*$/) || html == '') { 
-                                html = "Current Work";
-                                }
-                                viewableText.html(html);
-                                $(this).replaceWith(viewableText);
-                                // setup the click event for this new div
-                                viewableText.click(divClicked);
+        <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.min.js') ?>"></script>
+        <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
 
-                                $.ajax({
-                                    url: "<?php echo base_url(); ?>artistic/art_designation",
-                                    type: "POST",
-                                    data: {"designation": html},
-                                    success: function (response) {
-
-                                    }
-                                });
-                            }
-
-                            $(document).ready(function () {
-                            // alert("hi");
-                                $("a.designation").click(divClicked);
-                            });
-                        </script>
-
-<!-- designation script end -->
-
-
-
-
-<script type="text/javascript">
-    function checkvalue() {
-        //alert("hi");
-        var searchkeyword = document.getElementById('tags').value;
-        var searchplace = document.getElementById('searchplace').value;
-        // alert(searchkeyword);
-        // alert(searchplace);
-        if (searchkeyword == "" && searchplace == "") {
-            //alert('Please enter Keyword');
-            return false;
-        }
-    }
-</script>
-
-<script>
-    //select2 autocomplete start for skill
-    $('#searchskills').select2({
-
-        placeholder: 'Find Your Skills',
-
-        ajax: {
-
-            url: "<?php echo base_url(); ?>artistic/keyskill",
-            dataType: 'json',
-            delay: 250,
-
-            processResults: function (data) {
-
-                return {
-
-                    results: data
-
-
-                };
-
-            },
-            cache: true
-        }
-    });
-    //select2 autocomplete End for skill
-
-    //select2 autocomplete start for Location
-    $('#searchplace').select2({
-
-        placeholder: 'Find Your Location',
-        maximumSelectionLength: 1,
-        ajax: {
-
-            url: "<?php echo base_url(); ?>artistic/location",
-            dataType: 'json',
-            delay: 250,
-
-            processResults: function (data) {
-
-                return {
-
-                    results: data
-
-
-                };
-
-            },
-            cache: true
-        }
-    });
-    //select2 autocomplete End for Location
-
-
-
-</script>
-
-
-
-<!-- popup form edit start -->
-<script>
-    // Get the modal
-    var modal = document.getElementById('myModal');
-
-    // Get the button that opens the modal
-    var btn = document.getElementById("myBtn");
-
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close1")[0];
-
-    // When the user clicks the button, open the modal 
-    btn.onclick = function () {
-        modal.style.display = "block";
-    }
-
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function () {
-        modal.style.display = "none";
-    }
-
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function (event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
-</script>
-
-<!-- popup form edit END -->
-
-<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.min.js') ?>"></script>
-<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
-
-<script type="text/javascript">
+        <script type="text/javascript">
 
             //validation for edit email formate form
 
-            $(document).ready(function () {  
+            $(document).ready(function () {
 
                 $("#userimage").validate({
 
@@ -1870,9 +1875,8 @@ jQuery.noConflict();
                         profilepic: {
 
                             required: true,
-                         
+
                         },
-  
 
                     },
 
@@ -1881,888 +1885,759 @@ jQuery.noConflict();
                         profilepic: {
 
                             required: "Photo Required",
-                            
+
                         },
 
-                },
+                    },
 
                 });
-                   });
-  </script>
+            });
+        </script>
 
-<script type="text/javascript">
+        <script type="text/javascript">
 
-    //validation for edit email formate form
+            //validation for edit email formate form
 
-    $(document).ready(function () {
+            $(document).ready(function () {
 
-        $("#artdesignation").validate({
+                $("#artdesignation").validate({
 
-            rules: {
+                    rules: {
 
-                designation: {
+                        designation: {
 
-                    required: true,
+                            required: true,
 
-                },
+                        },
 
-            },
+                    },
 
-            messages: {
+                    messages: {
 
-                designation: {
+                        designation: {
 
-                    required: "Designation Is Required.",
+                            required: "Designation Is Required.",
 
-                },
+                        },
 
-            },
+                    },
 
-        });
-    });
-</script>
+                });
+            });
+        </script>
 
 
-<!-- post like script start -->
+        <!-- post like script start -->
 
-<script type="text/javascript">
-    function post_like(clicked_id)
-    {
-        $.ajax({
-            type: 'POST',
-            url: '<?php echo base_url() . "artistic/like_post" ?>',
-            dataType: 'json',
-            data: 'post_id=' + clicked_id,
-            success: function (data) {
-                $('.' + 'likepost' + clicked_id).html(data.like);
-                $('.likeusername' + clicked_id).html(data.likeuser);
+        <script type="text/javascript">
+            function post_like(clicked_id)
+            {
+                $.ajax({
+                    type: 'POST',
+                    url: '<?php echo base_url() . "artistic/like_post" ?>',
+                    dataType: 'json',
+                    data: 'post_id=' + clicked_id,
+                    success: function (data) {
+                        $('.' + 'likepost' + clicked_id).html(data.like);
+                        $('.likeusername' + clicked_id).html(data.likeuser);
 
-                $('.likeduserlist' + clicked_id).hide();
-                if (data.like_user_count == '0') {
-                    document.getElementById('likeusername' + clicked_id).style.display = "none";
-                } else {
-                    document.getElementById('likeusername' + clicked_id).style.display = "block";
+                        $('.likeduserlist' + clicked_id).hide();
+                        if (data.like_user_count == '0') {
+                            document.getElementById('likeusername' + clicked_id).style.display = "none";
+                        } else {
+                            document.getElementById('likeusername' + clicked_id).style.display = "block";
+                        }
+                        $('#likeusername' + clicked_id).addClass('likeduserlist1');
+                    }
+                });
+            }
+        </script>
+
+        <!--post like script end -->
+
+        <!-- comment like script start -->
+
+        <script type="text/javascript">
+        //    function comment_like(clicked_id)
+        //    {
+        //
+        //        $.ajax({
+        //            type: 'POST',
+        //            url: '<?php echo base_url() . "artistic/like_comment" ?>',
+        //            data: 'post_id=' + clicked_id,
+        //            success: function (data) {
+        //                $('#' + 'likecomment' + clicked_id).html(data);
+        //
+        //            }
+        //        });
+        //    }
+            function comment_like(clicked_id)
+            {
+
+                $.ajax({
+                    type: 'POST',
+                    url: '<?php echo base_url() . "artistic/like_comment" ?>',
+                    data: 'post_id=' + clicked_id,
+                    success: function (data) {
+                        $('#' + 'likecomment' + clicked_id).html(data);
+
+                    }
+                });
+            }
+        </script>
+
+        <script type="text/javascript">
+        //    function comment_like1(clicked_id)
+        //    {
+        //
+        //        $.ajax({
+        //            type: 'POST',
+        //            url: '<?php echo base_url() . "artistic/like_comment1" ?>',
+        //            data: 'post_id=' + clicked_id,
+        //            success: function (data) {
+        //                $('#' + 'likecomment1' + clicked_id).html(data);
+        //
+        //            }
+        //        });
+        //    }
+
+            function comment_like1(clicked_id)
+            {
+
+                $.ajax({
+                    type: 'POST',
+                    url: '<?php echo base_url() . "artistic/like_comment1" ?>',
+                    data: 'post_id=' + clicked_id,
+                    success: function (data) {
+                        $('#' + 'likecomment1' + clicked_id).html(data);
+
+                    }
+                });
+            }
+        </script>
+        <!--comment like script end -->
+
+        <!-- comment delete script start -->
+
+
+        <!--
+        <script type="text/javascript">
+        
+            function comment_deletemodel(abc) {
+        
+        
+                $('.biderror .mes').html("<div class='pop_content'>Are you sure want to Delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+                $('#bidmodal').modal('show');
+            }
+        
+        </script>
+        
+        <script type="text/javascript">
+        
+            function comment_deletetwomodel(abc) {
+        
+        
+                $('.biderror .mes').html("<div class='pop_content'>Are you sure want to Delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deletetwo(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+                $('#bidmodal').modal('show');
+            }
+        
+        </script>-->
+
+        <script type="text/javascript">
+
+            function comment_delete(clicked_id) {
+                $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='comment_deleted(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+                $('#bidmodal').modal('show');
+            }
+
+            function comment_deleted(clicked_id)
+            {
+                var post_delete = document.getElementById("post_delete");
+                //alert(post_delete.value);
+                $.ajax({
+                    type: 'POST',
+                    url: '<?php echo base_url() . "artistic/delete_comment" ?>',
+                    data: 'post_id=' + clicked_id + '&post_delete=' + post_delete.value,
+                    dataType: "json",
+                    success: function (data) {
+                        //alert('.' + 'insertcomment' + clicked_id);
+                        //  alert(data.comment);
+                        $('.' + 'insertcomment' + post_delete.value).html(data.comment);
+                        $('#' + 'insertcount' + post_delete.value).html(data.count);
+                        $('.post-design-commnet-box').show();
+                    }
+                });
+            }
+
+            function comment_deletetwo(clicked_id)
+            {
+                $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='comment_deletedtwo(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+                $('#bidmodal').modal('show');
+            }
+
+        </script>
+
+        <script type="text/javascript">
+            function comment_deletedtwo(clicked_id)
+            {
+                var post_delete1 = document.getElementById("post_deletetwo");
+                $.ajax({
+                    type: 'POST',
+                    url: '<?php echo base_url() . "artistic/delete_commenttwo" ?>',
+                    data: 'post_id=' + clicked_id + '&post_delete=' + post_delete1.value,
+                    dataType: "json",
+                    success: function (data) {
+
+                        // $('.' + 'insertcomment' + post_delete.value).html(data);
+                        $('.' + 'insertcommenttwo' + post_delete1.value).html(data.comment);
+                        $('#' + 'insertcount' + post_delete1.value).html(data.count);
+                        $('.post-design-commnet-box').show();
+
+                    }
+                });
+            }
+
+
+        //                        function comment_deletetwo(clicked_id)
+        //                        {
+        //
+        //                            var post_delete = document.getElementById("post_delete2");
+        //
+        //                            $.ajax({
+        //                                type: 'POST',
+        //                                url: '<?php echo base_url() . "artistic/delete_commenttwo" ?>',
+        //                                data: 'post_id=' + clicked_id + '&post_delete=' + post_delete.value,
+        //                                success: function (data) {
+        //
+        //                                    $('#' + 'fourcomment' + post_delete.value).html(data);
+        //
+        //                                }
+        //                            });
+        //                        }
+        </script>
+
+
+        <script type="text/javascript">
+        //    function comment_delete(clicked_id)
+        //    {
+        //
+        //        var post_delete = document.getElementById("post_delete");
+        //        // alert(post_delete);
+        //        $.ajax({
+        //            type: 'POST',
+        //            url: '<?php echo base_url() . "artistic/delete_comment" ?>',
+        //            data: 'post_id=' + clicked_id + '&post_delete=' + post_delete.value,
+        //            dataType: "json",
+        //            success: function (data) {
+        //
+        //                // $('.' + 'insertcomment' + post_delete.value).html(data);
+        //                $('#' + 'commnetpost' + post_delete.value).html(data.count);
+        //                $('.insertcomment' + post_delete.value).html(data.comment);
+        //
+        //            }
+        //        });
+        //    }
+
+
+        //    function comment_deletetwo(clicked_id)
+        //    {
+        //
+        //        var post_delete = document.getElementById("post_delete2");
+        //
+        //        $.ajax({
+        //            type: 'POST',
+        //            url: '<?php echo base_url() . "artistic/delete_commenttwo" ?>',
+        //            data: 'post_id=' + clicked_id + '&post_delete=' + post_delete.value,
+        //            success: function (data) {
+        //
+        //                $('#' + 'fourcomment' + post_delete.value).html(data);
+        //
+        //            }
+        //        });
+        //    }
+        </script>
+
+        <!--comment delete script end -->
+
+
+        <!-- insert comment using enter -->
+        <script type="text/javascript">
+
+        //    function insert_comment(clicked_id)
+        //    {
+        //
+        //        var post_comment = document.getElementById("post_comment" + clicked_id);
+        //
+        //
+        //        var x = document.getElementById('threecomment' + clicked_id);
+        //        var y = document.getElementById('fourcomment' + clicked_id);
+        //
+        //
+        //        if (post_comment.value == '') {
+        //
+        //            event.preventDefault();
+        //            return false;
+        //        } else {
+        //
+        //
+        //            if (x.style.display === 'block' && y.style.display === 'none') {
+        //
+        //                $.ajax({
+        //                    type: 'POST',
+        //                    url: '<?php echo base_url() . "artistic/insert_commentthree" ?>',
+        //                    data: 'post_id=' + clicked_id + '&comment=' + post_comment.value,
+        //                    dataType: "json",
+        //                    success: function (data) {
+        //                        $('textarea').each(function () {
+        //                            $(this).val('');
+        //                        });
+        //                        //$('.' + 'insertcomment' + clicked_id).html(data);
+        //                        $('#' + 'commnetpost' + clicked_id).html(data.count);
+        //                        $('.insertcomment' + clicked_id).html(data.comment);
+        //                    }
+        //                });
+        //            } else {
+        //
+        //                $.ajax({
+        //                    type: 'POST',
+        //                    url: '<?php echo base_url() . "artistic/insert_comment" ?>',
+        //                    data: 'post_id=' + clicked_id + '&comment=' + post_comment.value,
+        //                    // dataType: "json",
+        //                    success: function (data) {
+        //                        $('textarea').each(function () {
+        //                            $(this).val('');
+        //                        });
+        //                        $('#' + 'fourcomment' + clicked_id).html(data);
+        //                    }
+        //                });
+        //            }
+        //        }
+        //
+        //    }
+
+            function insert_comment(clicked_id)
+            {
+                // start khyati code
+                var $field = $('#post_comment' + clicked_id);
+                var post_comment = $('#post_comment' + clicked_id).html();
+
+                // var post_comment = post_comment.html();
+                post_comment = post_comment.replace(/&nbsp;/gi, " ");
+                post_comment = post_comment.replace(/<br>$/, '');
+                if (post_comment == '' || post_comment == '<br>') {
+                    return false;
                 }
-                $('#likeusername' + clicked_id).addClass('likeduserlist1');
-            }
-        });
-    }
-</script>
-
-<!--post like script end -->
-
-<!-- comment like script start -->
-
-<script type="text/javascript">
-//    function comment_like(clicked_id)
-//    {
-//
-//        $.ajax({
-//            type: 'POST',
-//            url: '<?php echo base_url() . "artistic/like_comment" ?>',
-//            data: 'post_id=' + clicked_id,
-//            success: function (data) {
-//                $('#' + 'likecomment' + clicked_id).html(data);
-//
-//            }
-//        });
-//    }
-    function comment_like(clicked_id)
-    {
-
-        $.ajax({
-            type: 'POST',
-            url: '<?php echo base_url() . "artistic/like_comment" ?>',
-            data: 'post_id=' + clicked_id,
-            success: function (data) {
-                $('#' + 'likecomment' + clicked_id).html(data);
-
-            }
-        });
-    }
-</script>
-
-<script type="text/javascript">
-//    function comment_like1(clicked_id)
-//    {
-//
-//        $.ajax({
-//            type: 'POST',
-//            url: '<?php echo base_url() . "artistic/like_comment1" ?>',
-//            data: 'post_id=' + clicked_id,
-//            success: function (data) {
-//                $('#' + 'likecomment1' + clicked_id).html(data);
-//
-//            }
-//        });
-//    }
-
-    function comment_like1(clicked_id)
-    {
-
-        $.ajax({
-            type: 'POST',
-            url: '<?php echo base_url() . "artistic/like_comment1" ?>',
-            data: 'post_id=' + clicked_id,
-            success: function (data) {
-                $('#' + 'likecomment1' + clicked_id).html(data);
-
-            }
-        });
-    }
-</script>
-<!--comment like script end -->
-
-<!-- comment delete script start -->
-
-
-<!--
-<script type="text/javascript">
-
-    function comment_deletemodel(abc) {
-
-
-        $('.biderror .mes').html("<div class='pop_content'>Are you sure want to Delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-        $('#bidmodal').modal('show');
-    }
-
-</script>
-
-<script type="text/javascript">
-
-    function comment_deletetwomodel(abc) {
-
-
-        $('.biderror .mes').html("<div class='pop_content'>Are you sure want to Delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deletetwo(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-        $('#bidmodal').modal('show');
-    }
-
-</script>-->
-
-<script type="text/javascript">
-
-    function comment_delete(clicked_id) {
-        $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='comment_deleted(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-        $('#bidmodal').modal('show');
-    }
-
-    function comment_deleted(clicked_id)
-    {
-        var post_delete = document.getElementById("post_delete");
-        //alert(post_delete.value);
-        $.ajax({
-            type: 'POST',
-            url: '<?php echo base_url() . "artistic/delete_comment" ?>',
-            data: 'post_id=' + clicked_id + '&post_delete=' + post_delete.value,
-            dataType: "json",
-            success: function (data) {
-                //alert('.' + 'insertcomment' + clicked_id);
-              //  alert(data.comment);
-                $('.' + 'insertcomment' + post_delete.value).html(data.comment);
-                $('#' + 'insertcount' + post_delete.value).html(data.count);
-                $('.post-design-commnet-box').show();
-            }
-        });
-    }
-
-    function comment_deletetwo(clicked_id)
-    {
-        $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='comment_deletedtwo(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-        $('#bidmodal').modal('show');
-    }
-
-</script>
-
-<script type="text/javascript">
-    function comment_deletedtwo(clicked_id)
-    {
-        var post_delete1 = document.getElementById("post_deletetwo");
-        $.ajax({
-            type: 'POST',
-            url: '<?php echo base_url() . "artistic/delete_commenttwo" ?>',
-            data: 'post_id=' + clicked_id + '&post_delete=' + post_delete1.value,
-            dataType: "json",
-            success: function (data) {
-
-                // $('.' + 'insertcomment' + post_delete.value).html(data);
-                $('.' + 'insertcommenttwo' + post_delete1.value).html(data.comment);
-                $('#' + 'insertcount' + post_delete1.value).html(data.count);
-                $('.post-design-commnet-box').show();
-
-            }
-        });
-    }
-
-
-//                        function comment_deletetwo(clicked_id)
-//                        {
-//
-//                            var post_delete = document.getElementById("post_delete2");
-//
-//                            $.ajax({
-//                                type: 'POST',
-//                                url: '<?php echo base_url() . "artistic/delete_commenttwo" ?>',
-//                                data: 'post_id=' + clicked_id + '&post_delete=' + post_delete.value,
-//                                success: function (data) {
-//
-//                                    $('#' + 'fourcomment' + post_delete.value).html(data);
-//
-//                                }
-//                            });
-//                        }
-</script>
-
-
-<script type="text/javascript">
-//    function comment_delete(clicked_id)
-//    {
-//
-//        var post_delete = document.getElementById("post_delete");
-//        // alert(post_delete);
-//        $.ajax({
-//            type: 'POST',
-//            url: '<?php echo base_url() . "artistic/delete_comment" ?>',
-//            data: 'post_id=' + clicked_id + '&post_delete=' + post_delete.value,
-//            dataType: "json",
-//            success: function (data) {
-//
-//                // $('.' + 'insertcomment' + post_delete.value).html(data);
-//                $('#' + 'commnetpost' + post_delete.value).html(data.count);
-//                $('.insertcomment' + post_delete.value).html(data.comment);
-//
-//            }
-//        });
-//    }
-
-
-//    function comment_deletetwo(clicked_id)
-//    {
-//
-//        var post_delete = document.getElementById("post_delete2");
-//
-//        $.ajax({
-//            type: 'POST',
-//            url: '<?php echo base_url() . "artistic/delete_commenttwo" ?>',
-//            data: 'post_id=' + clicked_id + '&post_delete=' + post_delete.value,
-//            success: function (data) {
-//
-//                $('#' + 'fourcomment' + post_delete.value).html(data);
-//
-//            }
-//        });
-//    }
-</script>
-
-<!--comment delete script end -->
-
-
-<!-- insert comment using enter -->
-<script type="text/javascript">
-
-//    function insert_comment(clicked_id)
-//    {
-//
-//        var post_comment = document.getElementById("post_comment" + clicked_id);
-//
-//
-//        var x = document.getElementById('threecomment' + clicked_id);
-//        var y = document.getElementById('fourcomment' + clicked_id);
-//
-//
-//        if (post_comment.value == '') {
-//
-//            event.preventDefault();
-//            return false;
-//        } else {
-//
-//
-//            if (x.style.display === 'block' && y.style.display === 'none') {
-//
-//                $.ajax({
-//                    type: 'POST',
-//                    url: '<?php echo base_url() . "artistic/insert_commentthree" ?>',
-//                    data: 'post_id=' + clicked_id + '&comment=' + post_comment.value,
-//                    dataType: "json",
-//                    success: function (data) {
-//                        $('textarea').each(function () {
-//                            $(this).val('');
-//                        });
-//                        //$('.' + 'insertcomment' + clicked_id).html(data);
-//                        $('#' + 'commnetpost' + clicked_id).html(data.count);
-//                        $('.insertcomment' + clicked_id).html(data.comment);
-//                    }
-//                });
-//            } else {
-//
-//                $.ajax({
-//                    type: 'POST',
-//                    url: '<?php echo base_url() . "artistic/insert_comment" ?>',
-//                    data: 'post_id=' + clicked_id + '&comment=' + post_comment.value,
-//                    // dataType: "json",
-//                    success: function (data) {
-//                        $('textarea').each(function () {
-//                            $(this).val('');
-//                        });
-//                        $('#' + 'fourcomment' + clicked_id).html(data);
-//                    }
-//                });
-//            }
-//        }
-//
-//    }
-
-    function insert_comment(clicked_id)
-    {
-        // start khyati code
-        var $field = $('#post_comment' + clicked_id);
-        var post_comment = $('#post_comment' + clicked_id).html();
-         
-        // var post_comment = post_comment.html();
-                    post_comment = post_comment.replace(/&nbsp;/gi, " ");
-                    post_comment = post_comment.replace(/<br>$/, '');
-                    if (post_comment == '' || post_comment == '<br>') {
-                        return false;
-                    }
-                    if (/^\s+$/gi.test(post_comment))
-                    {
-                        return false;
-                    }
-                    
-        $('#post_comment' + clicked_id).html("");
-
-        var x = document.getElementById('threecomment' + clicked_id);
-        var y = document.getElementById('fourcomment' + clicked_id);
-
-        if (post_comment == '') {
-            event.preventDefault();
-            return false;
-        } else {
-            if (x.style.display === 'block' && y.style.display === 'none') {
-                $.ajax({
-                    type: 'POST',
-                    url: '<?php echo base_url() . "artistic/insert_commentthree" ?>',
-                    data: 'post_id=' + clicked_id + '&comment=' + post_comment,
-                    dataType: "json",
-                    success: function (data) {
-                        //$('.' + 'insertcomment' + clicked_id).html(data);
-                        $('#' + 'insertcount' + clicked_id).html(data.count);
-                        $('.insertcomment' + clicked_id).html(data.comment);
-                    }
-                });
-
-            } else {
-
-                $.ajax({
-                    type: 'POST',
-                    url: '<?php echo base_url() . "artistic/insert_comment" ?>',
-                    data: 'post_id=' + clicked_id + '&comment=' + post_comment,
-                    dataType: "json",
-                    success: function (data) {
-                        $('textarea').each(function () {
-                            $(this).val('');
-                        });
-                        $('#' + 'insertcount' + clicked_id).html(data.count);
-                        $('#' + 'fourcomment' + clicked_id).html(data.comment);
-                    }
-                });
-
-            }
-        }
-
-    }
-
-</script>
-
-
-
-<script type="text/javascript">
-
-//    function entercomment(clicked_id)
-//    {
-//         $('#post_comment' + clicked_id).keypress(function (e) {
-//
-//
-//            if (e.keyCode == 13 && !e.shiftKey) {
-//                var val = $('#post_comment' + clicked_id).val();
-//                e.preventDefault();
-//                if (window.preventDuplicateKeyPresses)
-//                    return;
-//                window.preventDuplicateKeyPresses = true;
-//                window.setTimeout(function () {
-//                    window.preventDuplicateKeyPresses = false;
-//                }, 500);
-//               
-//                var x = document.getElementById('threecomment' + clicked_id);
-//                var y = document.getElementById('fourcomment' + clicked_id);
-//
-//
-//                if (val == '') {
-//
-//                    event.preventDefault();
-//                    return false;
-//                } else {
-//                    if (x.style.display === 'block' && y.style.display === 'none') {
-//                        $.ajax({
-//                            type: 'POST',
-//                            url: '<?php echo base_url() . "artistic/insert_commentthree" ?>',
-//                            data: 'post_id=' + clicked_id + '&comment=' + val,
-//                            dataType: "json",
-//                            success: function (data) {
-//                                $('textarea').each(function () {
-//                                    $(this).val('');
-//                                });
-//                                $('#' + 'commnetpost' + clicked_id).html(data.count);
-//                                $('.insertcomment' + clicked_id).html(data.comment);
-//                            }
-//                        });
-//                    } else {
-//
-//                        $.ajax({
-//                            type: 'POST',
-//                            url: '<?php echo base_url() . "artistic/insert_comment" ?>',
-//                            data: 'post_id=' + clicked_id + '&comment=' + val,
-//                            success: function (data) {
-//                                $('textarea').each(function () {
-//                                    $(this).val('');
-//                                });
-//                                $('#' + 'fourcomment' + clicked_id).html(data);
-//                       
-//                            }
-//                        });
-//                    }
-//                }
-//                e.preventDefault();
-//            }
-//        });
-//    }
-
-
-    function entercomment(clicked_id)
-    {
-        $("#post_comment" + clicked_id).click(function () {
-            $(this).prop("contentEditable", true);
-        });
-
-        $('#post_comment' + clicked_id).keypress(function (e) {
-
-            if (e.keyCode == 13 && !e.shiftKey) {
-                e.preventDefault();
-                var sel = $("#post_comment" + clicked_id);
-               
-                var txt = sel.html();
-           
-                 txt = txt.replace(/&nbsp;/gi, " ");
-                alert("1"); alert(txt);
-                    txt = txt.replace(/<br>$/, '');
-                   alert("2"); alert(txt);
-                txt = txt.replace(/^\s+|\s+$/g, "")
-                 alert("3"); alert(txt);
-                    if (txt == '' || txt == '<br>') {
-                        return false;
-                    }
-                    if (/^\s+$/gi.test(txt))
-                    {
-                        return false;
-                    }
-                    
-//                if (txt == '') {
-//                    return false;
-//                }
+                if (/^\s+$/gi.test(post_comment))
+                {
+                    return false;
+                }
 
                 $('#post_comment' + clicked_id).html("");
-
-                if (window.preventDuplicateKeyPresses)
-                    return;
-
-                window.preventDuplicateKeyPresses = true;
-                window.setTimeout(function () {
-                    window.preventDuplicateKeyPresses = false;
-                }, 500);
 
                 var x = document.getElementById('threecomment' + clicked_id);
                 var y = document.getElementById('fourcomment' + clicked_id);
 
-                if (x.style.display === 'block' && y.style.display === 'none') {
-                    $.ajax({
-                        type: 'POST',
-                        url: '<?php echo base_url() . "artistic/insert_commentthree" ?>',
-                        data: 'post_id=' + clicked_id + '&comment=' + txt,
-                        dataType: "json",
-                        success: function (data) {
-                            $('textarea').each(function () {
-                                $(this).val('');
-                            });
-                            $('#' + 'insertcount' + clicked_id).html(data.count);
-                            $('.insertcomment' + clicked_id).html(data.comment);
-                        }
-                    });
+                if (post_comment == '') {
+                    event.preventDefault();
+                    return false;
                 } else {
-                    $.ajax({
-                        type: 'POST',
-                        url: '<?php echo base_url() . "artistic/insert_comment" ?>',
-                        data: 'post_id=' + clicked_id + '&comment=' + txt,
-                        dataType: "json",
-                        success: function (data) {
-                            $('textarea').each(function () {
-                                $(this).val('');
-                            });
-                            $('#' + 'insertcount' + clicked_id).html(data.count);
-                            $('#' + 'fourcomment' + clicked_id).html(data.comment);
-                        }
-                    });
+                    if (x.style.display === 'block' && y.style.display === 'none') {
+                        $.ajax({
+                            type: 'POST',
+                            url: '<?php echo base_url() . "artistic/insert_commentthree" ?>',
+                            data: 'post_id=' + clicked_id + '&comment=' + post_comment,
+                            dataType: "json",
+                            success: function (data) {
+                                //$('.' + 'insertcomment' + clicked_id).html(data);
+                                $('#' + 'insertcount' + clicked_id).html(data.count);
+                                $('.insertcomment' + clicked_id).html(data.comment);
+                            }
+                        });
+
+                    } else {
+
+                        $.ajax({
+                            type: 'POST',
+                            url: '<?php echo base_url() . "artistic/insert_comment" ?>',
+                            data: 'post_id=' + clicked_id + '&comment=' + post_comment,
+                            dataType: "json",
+                            success: function (data) {
+                                $('textarea').each(function () {
+                                    $(this).val('');
+                                });
+                                $('#' + 'insertcount' + clicked_id).html(data.count);
+                                $('#' + 'fourcomment' + clicked_id).html(data.comment);
+                            }
+                        });
+
+                    }
                 }
+
             }
-        });
-        $(".scroll").click(function (event) {
-            event.preventDefault();
-            $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1200);
-        });
-    }
 
-</script>
-
-<!--comment insert script end -->
-<!-- comment edit script start -->
-
-<!-- comment edit box start-->
-<script type="text/javascript">
-
-//    function comment_editbox(clicked_id) {
-//        document.getElementById('editcomment' + clicked_id).style.display = 'block';
-//        document.getElementById('showcomment' + clicked_id).style.display = 'none';
-//        document.getElementById('editsubmit' + clicked_id).style.display = 'block';
-//        document.getElementById('editbox' + clicked_id).style.display = 'none';
-//        document.getElementById('editcancle' + clicked_id).style.display = 'block';
-//
-//    }
-//
-//    function comment_editcancle(clicked_id) {
-//
-//        document.getElementById('editbox' + clicked_id).style.display = 'block';
-//        document.getElementById('editcancle' + clicked_id).style.display = 'none';
-//
-//        document.getElementById('editcomment' + clicked_id).style.display = 'none';
-//        document.getElementById('showcomment' + clicked_id).style.display = 'block';
-//        document.getElementById('editsubmit' + clicked_id).style.display = 'none';
-//
-//    }
-//    function comment_editboxtwo(clicked_id) {
-//
-//        document.getElementById('editcommenttwo' + clicked_id).style.display = 'block';
-//        document.getElementById('showcommenttwo' + clicked_id).style.display = 'none';
-//        document.getElementById('editsubmittwo' + clicked_id).style.display = 'block';
-//        document.getElementById('editboxtwo' + clicked_id).style.display = 'none';
-//        document.getElementById('editcancletwo' + clicked_id).style.display = 'block';
-//
-//    }
-//
-//
-//
-//    function comment_editcancletwo(clicked_id) {
-//
-//        document.getElementById('editboxtwo' + clicked_id).style.display = 'block';
-//        document.getElementById('editcancletwo' + clicked_id).style.display = 'none';
-//
-//        document.getElementById('editcommenttwo' + clicked_id).style.display = 'none';
-//        document.getElementById('showcommenttwo' + clicked_id).style.display = 'block';
-//        document.getElementById('editsubmittwo' + clicked_id).style.display = 'none';
-//
-//    }
-
-    function comment_editbox(clicked_id) {
-        document.getElementById('editcomment' + clicked_id).style.display = 'inline-block';
-        document.getElementById('showcomment' + clicked_id).style.display = 'none';
-        document.getElementById('editsubmit' + clicked_id).style.display = 'inline-block';
-        //document.getElementById('editbox' + clicked_id).style.display = 'none';
-        document.getElementById('editcommentbox' + clicked_id).style.display = 'none';
-        document.getElementById('editcancle' + clicked_id).style.display = 'block';
-        $('.post-design-commnet-box').hide();
-    }
+        </script>
 
 
-    function comment_editcancle(clicked_id) {
-        document.getElementById('editcommentbox' + clicked_id).style.display = 'block';
-        document.getElementById('editcancle' + clicked_id).style.display = 'none';
-        document.getElementById('editcomment' + clicked_id).style.display = 'none';
-        document.getElementById('showcomment' + clicked_id).style.display = 'block';
-        document.getElementById('editsubmit' + clicked_id).style.display = 'none';
 
-        $('.post-design-commnet-box').show();
-    }
+        <script type="text/javascript">
 
-    function comment_editboxtwo(clicked_id) {
-
-        $('div[id^=editcommenttwo]').css('display', 'none');
-        $('div[id^=showcommenttwo]').css('display', 'block');
-        $('button[id^=editsubmittwo]').css('display', 'none');
-        $('div[id^=editcommentboxtwo]').css('display', 'block');
-        $('div[id^=editcancletwo]').css('display', 'none');
-
-        document.getElementById('editcommenttwo' + clicked_id).style.display = 'inline-block';
-        document.getElementById('showcommenttwo' + clicked_id).style.display = 'none';
-        document.getElementById('editsubmittwo' + clicked_id).style.display = 'inline-block';
-        document.getElementById('editcommentboxtwo' + clicked_id).style.display = 'none';
-        document.getElementById('editcancletwo' + clicked_id).style.display = 'block';
-        $('.post-design-commnet-box').hide();
-    }
-
-
-    function comment_editcancletwo(clicked_id) {
-
-        document.getElementById('editcommentboxtwo' + clicked_id).style.display = 'block';
-        document.getElementById('editcancletwo' + clicked_id).style.display = 'none';
-
-        document.getElementById('editcommenttwo' + clicked_id).style.display = 'none';
-        document.getElementById('showcommenttwo' + clicked_id).style.display = 'block';
-        document.getElementById('editsubmittwo' + clicked_id).style.display = 'none';
-        $('.post-design-commnet-box').show();
-    }
-
-    function comment_editbox3(clicked_id) { //alert(clicked_id); alert('editcomment' + clicked_id); alert('showcomment' + clicked_id); alert('editsubmit' + clicked_id); 
-        document.getElementById('editcomment3' + clicked_id).style.display = 'block';
-        document.getElementById('showcomment3' + clicked_id).style.display = 'none';
-        document.getElementById('editsubmit3' + clicked_id).style.display = 'block';
-
-        document.getElementById('editcommentbox3' + clicked_id).style.display = 'none';
-        document.getElementById('editcancle3' + clicked_id).style.display = 'block';
-        $('.post-design-commnet-box').hide();
-
-    }
-
-    function comment_editcancle3(clicked_id) {
-
-        document.getElementById('editcommentbox3' + clicked_id).style.display = 'block';
-        document.getElementById('editcancle3' + clicked_id).style.display = 'none';
-
-        document.getElementById('editcomment3' + clicked_id).style.display = 'none';
-        document.getElementById('showcomment3' + clicked_id).style.display = 'block';
-        document.getElementById('editsubmit3' + clicked_id).style.display = 'none';
-
-        $('.post-design-commnet-box').show();
-
-    }
-
-    function comment_editbox4(clicked_id) { //alert(clicked_id); alert('editcomment' + clicked_id); alert('showcomment' + clicked_id); alert('editsubmit' + clicked_id); 
-        document.getElementById('editcomment4' + clicked_id).style.display = 'block';
-        document.getElementById('showcomment4' + clicked_id).style.display = 'none';
-        document.getElementById('editsubmit4' + clicked_id).style.display = 'block';
-
-        document.getElementById('editcommentbox4' + clicked_id).style.display = 'none';
-        document.getElementById('editcancle4' + clicked_id).style.display = 'block';
-
-        $('.post-design-commnet-box').hide();
-
-    }
-
-    function comment_editcancle4(clicked_id) {
-
-        document.getElementById('editcommentbox4' + clicked_id).style.display = 'block';
-        document.getElementById('editcancle4' + clicked_id).style.display = 'none';
-
-        document.getElementById('editcomment4' + clicked_id).style.display = 'none';
-        document.getElementById('showcomment4' + clicked_id).style.display = 'block';
-        document.getElementById('editsubmit4' + clicked_id).style.display = 'none';
-
-        $('.post-design-commnet-box').show();
-
-    }
-
-</script>
-
-<!--comment edit box end-->
-
-<!-- comment edit insert start -->
-<script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
-<script type="text/javascript">
-//    function edit_comment(abc)
-//    {
-//
-//        var post_comment_edit = document.getElementById("editcomment" + abc);
-//
-//        if (post_comment_edit.value == '') {
-//            $('.biderror .mes').html("<div class='pop_content'>Are you sure want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-//            $('#bidmodal').modal('show');
-//
-//        } else {
-//
-//            $.ajax({
-//                type: 'POST',
-//                url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
-//                data: 'post_id=' + abc + '&comment=' + post_comment_edit.value,
-//                success: function (data) {
-//
-//
-//                    document.getElementById('editcomment' + abc).style.display = 'none';
-//                    document.getElementById('showcomment' + abc).style.display = 'block';
-//                    document.getElementById('editsubmit' + abc).style.display = 'none';
-//
-//                    document.getElementById('editbox' + abc).style.display = 'block';
-//                    document.getElementById('editcancle' + abc).style.display = 'none';
-//
-//                    $('#' + 'showcomment' + abc).html(data);
-//
-//
-//
-//                }
-//            });
-//        }
-//    }
+        //    function entercomment(clicked_id)
+        //    {
+        //         $('#post_comment' + clicked_id).keypress(function (e) {
+        //
+        //
+        //            if (e.keyCode == 13 && !e.shiftKey) {
+        //                var val = $('#post_comment' + clicked_id).val();
+        //                e.preventDefault();
+        //                if (window.preventDuplicateKeyPresses)
+        //                    return;
+        //                window.preventDuplicateKeyPresses = true;
+        //                window.setTimeout(function () {
+        //                    window.preventDuplicateKeyPresses = false;
+        //                }, 500);
+        //               
+        //                var x = document.getElementById('threecomment' + clicked_id);
+        //                var y = document.getElementById('fourcomment' + clicked_id);
+        //
+        //
+        //                if (val == '') {
+        //
+        //                    event.preventDefault();
+        //                    return false;
+        //                } else {
+        //                    if (x.style.display === 'block' && y.style.display === 'none') {
+        //                        $.ajax({
+        //                            type: 'POST',
+        //                            url: '<?php echo base_url() . "artistic/insert_commentthree" ?>',
+        //                            data: 'post_id=' + clicked_id + '&comment=' + val,
+        //                            dataType: "json",
+        //                            success: function (data) {
+        //                                $('textarea').each(function () {
+        //                                    $(this).val('');
+        //                                });
+        //                                $('#' + 'commnetpost' + clicked_id).html(data.count);
+        //                                $('.insertcomment' + clicked_id).html(data.comment);
+        //                            }
+        //                        });
+        //                    } else {
+        //
+        //                        $.ajax({
+        //                            type: 'POST',
+        //                            url: '<?php echo base_url() . "artistic/insert_comment" ?>',
+        //                            data: 'post_id=' + clicked_id + '&comment=' + val,
+        //                            success: function (data) {
+        //                                $('textarea').each(function () {
+        //                                    $(this).val('');
+        //                                });
+        //                                $('#' + 'fourcomment' + clicked_id).html(data);
+        //                       
+        //                            }
+        //                        });
+        //                    }
+        //                }
+        //                e.preventDefault();
+        //            }
+        //        });
+        //    }
 
 
-    function edit_comment(abc)
-    {
-        $("#editcomment" + abc).click(function () {
-            $(this).prop("contentEditable", true);
-        });
+            function entercomment(clicked_id)
+            {
+                $("#post_comment" + clicked_id).click(function () {
+                    $(this).prop("contentEditable", true);
+                });
 
-        var sel = $("#editcomment" + abc);
-        var txt = sel.html();
-        
-        txt = txt.replace(/&nbsp;/gi, " ");
-        txt = txt.replace(/<br>$/, '');
-                   
-         if (txt == '' || txt == '<br>') {
-            $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-            $('#bidmodal').modal('show');
-            return false;
+                $('#post_comment' + clicked_id).keypress(function (e) {
+
+                    if (e.keyCode == 13 && !e.shiftKey) {
+                        e.preventDefault();
+                        var sel = $("#post_comment" + clicked_id);
+
+                        var txt = sel.html();
+
+                        txt = txt.replace(/&nbsp;/gi, " ");
+                        txt = txt.replace(/<br>$/, '');
+
+                        //     txt = txt.replace(/^\s+|\s+$/g, "")
+
+                        if (txt == '' || txt == '<br>') {
+                            return false;
+                        }
+                        if (/^\s+$/gi.test(txt))
+                        {
+                            return false;
+                        }
+
+        //                if (txt == '') {
+        //                    return false;
+        //                }
+
+                        $('#post_comment' + clicked_id).html("");
+
+                        if (window.preventDuplicateKeyPresses)
+                            return;
+
+                        window.preventDuplicateKeyPresses = true;
+                        window.setTimeout(function () {
+                            window.preventDuplicateKeyPresses = false;
+                        }, 500);
+
+                        var x = document.getElementById('threecomment' + clicked_id);
+                        var y = document.getElementById('fourcomment' + clicked_id);
+
+                        if (x.style.display === 'block' && y.style.display === 'none') {
+                            $.ajax({
+                                type: 'POST',
+                                url: '<?php echo base_url() . "artistic/insert_commentthree" ?>',
+                                data: 'post_id=' + clicked_id + '&comment=' + txt,
+                                dataType: "json",
+                                success: function (data) {
+                                    $('textarea').each(function () {
+                                        $(this).val('');
+                                    });
+                                    $('#' + 'insertcount' + clicked_id).html(data.count);
+                                    $('.insertcomment' + clicked_id).html(data.comment);
+                                }
+                            });
+                        } else {
+                            $.ajax({
+                                type: 'POST',
+                                url: '<?php echo base_url() . "artistic/insert_comment" ?>',
+                                data: 'post_id=' + clicked_id + '&comment=' + txt,
+                                dataType: "json",
+                                success: function (data) {
+                                    $('textarea').each(function () {
+                                        $(this).val('');
+                                    });
+                                    $('#' + 'insertcount' + clicked_id).html(data.count);
+                                    $('#' + 'fourcomment' + clicked_id).html(data.comment);
+                                }
+                            });
+                        }
                     }
-                   
-         if (/^\s+$/gi.test(txt)){
-                        return false;
-                    }
-                    
-//        if (txt == '' || txt == '<br>') {
-//           
-//            return false;
-//        }
-        $.ajax({
-            type: 'POST',
-            url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
-            data: 'post_id=' + abc + '&comment=' + txt,
-            success: function (data) {
-                document.getElementById('editcomment' + abc).style.display = 'none';
-                document.getElementById('showcomment' + abc).style.display = 'block';
-                document.getElementById('editsubmit' + abc).style.display = 'none';
-                document.getElementById('editcommentbox' + abc).style.display = 'block';
-                document.getElementById('editcancle' + abc).style.display = 'none';
-                $('#' + 'showcomment' + abc).html(data);
+                });
+                $(".scroll").click(function (event) {
+                    event.preventDefault();
+                    $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1200);
+                });
+            }
+
+        </script>
+
+        <!--comment insert script end -->
+        <!-- comment edit script start -->
+
+        <!-- comment edit box start-->
+        <script type="text/javascript">
+
+        //    function comment_editbox(clicked_id) {
+        //        document.getElementById('editcomment' + clicked_id).style.display = 'block';
+        //        document.getElementById('showcomment' + clicked_id).style.display = 'none';
+        //        document.getElementById('editsubmit' + clicked_id).style.display = 'block';
+        //        document.getElementById('editbox' + clicked_id).style.display = 'none';
+        //        document.getElementById('editcancle' + clicked_id).style.display = 'block';
+        //
+        //    }
+        //
+        //    function comment_editcancle(clicked_id) {
+        //
+        //        document.getElementById('editbox' + clicked_id).style.display = 'block';
+        //        document.getElementById('editcancle' + clicked_id).style.display = 'none';
+        //
+        //        document.getElementById('editcomment' + clicked_id).style.display = 'none';
+        //        document.getElementById('showcomment' + clicked_id).style.display = 'block';
+        //        document.getElementById('editsubmit' + clicked_id).style.display = 'none';
+        //
+        //    }
+        //    function comment_editboxtwo(clicked_id) {
+        //
+        //        document.getElementById('editcommenttwo' + clicked_id).style.display = 'block';
+        //        document.getElementById('showcommenttwo' + clicked_id).style.display = 'none';
+        //        document.getElementById('editsubmittwo' + clicked_id).style.display = 'block';
+        //        document.getElementById('editboxtwo' + clicked_id).style.display = 'none';
+        //        document.getElementById('editcancletwo' + clicked_id).style.display = 'block';
+        //
+        //    }
+        //
+        //
+        //
+        //    function comment_editcancletwo(clicked_id) {
+        //
+        //        document.getElementById('editboxtwo' + clicked_id).style.display = 'block';
+        //        document.getElementById('editcancletwo' + clicked_id).style.display = 'none';
+        //
+        //        document.getElementById('editcommenttwo' + clicked_id).style.display = 'none';
+        //        document.getElementById('showcommenttwo' + clicked_id).style.display = 'block';
+        //        document.getElementById('editsubmittwo' + clicked_id).style.display = 'none';
+        //
+        //    }
+
+            function comment_editbox(clicked_id) {
+                document.getElementById('editcomment' + clicked_id).style.display = 'inline-block';
+                document.getElementById('showcomment' + clicked_id).style.display = 'none';
+                document.getElementById('editsubmit' + clicked_id).style.display = 'inline-block';
+                //document.getElementById('editbox' + clicked_id).style.display = 'none';
+                document.getElementById('editcommentbox' + clicked_id).style.display = 'none';
+                document.getElementById('editcancle' + clicked_id).style.display = 'block';
+                $('.post-design-commnet-box').hide();
+            }
+
+
+            function comment_editcancle(clicked_id) {
+                document.getElementById('editcommentbox' + clicked_id).style.display = 'block';
+                document.getElementById('editcancle' + clicked_id).style.display = 'none';
+                document.getElementById('editcomment' + clicked_id).style.display = 'none';
+                document.getElementById('showcomment' + clicked_id).style.display = 'block';
+                document.getElementById('editsubmit' + clicked_id).style.display = 'none';
+
                 $('.post-design-commnet-box').show();
             }
-        });
-        $(".scroll").click(function (event) {
-            event.preventDefault();
-            $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1200);
-        });
-    }
-</script>
+
+            function comment_editboxtwo(clicked_id) {
+
+                $('div[id^=editcommenttwo]').css('display', 'none');
+                $('div[id^=showcommenttwo]').css('display', 'block');
+                $('button[id^=editsubmittwo]').css('display', 'none');
+                $('div[id^=editcommentboxtwo]').css('display', 'block');
+                $('div[id^=editcancletwo]').css('display', 'none');
+
+                document.getElementById('editcommenttwo' + clicked_id).style.display = 'inline-block';
+                document.getElementById('showcommenttwo' + clicked_id).style.display = 'none';
+                document.getElementById('editsubmittwo' + clicked_id).style.display = 'inline-block';
+                document.getElementById('editcommentboxtwo' + clicked_id).style.display = 'none';
+                document.getElementById('editcancletwo' + clicked_id).style.display = 'block';
+                $('.post-design-commnet-box').hide();
+            }
 
 
-<script type="text/javascript">
-    function edit_comment2(abc)
-    {
+            function comment_editcancletwo(clicked_id) {
 
-        var post_comment_edit = document.getElementById("editcomment2" + abc);
+                document.getElementById('editcommentboxtwo' + clicked_id).style.display = 'block';
+                document.getElementById('editcancletwo' + clicked_id).style.display = 'none';
 
-        $.ajax({
-            type: 'POST',
-            url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
-            data: 'post_id=' + abc + '&comment=' + post_comment_edit.value,
-            success: function (data) {
+                document.getElementById('editcommenttwo' + clicked_id).style.display = 'none';
+                document.getElementById('showcommenttwo' + clicked_id).style.display = 'block';
+                document.getElementById('editsubmittwo' + clicked_id).style.display = 'none';
+                $('.post-design-commnet-box').show();
+            }
 
+            function comment_editbox3(clicked_id) { //alert(clicked_id); alert('editcomment' + clicked_id); alert('showcomment' + clicked_id); alert('editsubmit' + clicked_id); 
+                document.getElementById('editcomment3' + clicked_id).style.display = 'block';
+                document.getElementById('showcomment3' + clicked_id).style.display = 'none';
+                document.getElementById('editsubmit3' + clicked_id).style.display = 'block';
 
-                document.getElementById('editcomment2' + abc).style.display = 'none';
-                document.getElementById('showcomment2' + abc).style.display = 'block';
-                document.getElementById('editsubmit2' + abc).style.display = 'none';
-
-                $('#' + 'showcomment' + abc).html(data);
-
-
+                document.getElementById('editcommentbox3' + clicked_id).style.display = 'none';
+                document.getElementById('editcancle3' + clicked_id).style.display = 'block';
+                $('.post-design-commnet-box').hide();
 
             }
-        });
 
-    }
-</script>
+            function comment_editcancle3(clicked_id) {
 
-<script type="text/javascript">
+                document.getElementById('editcommentbox3' + clicked_id).style.display = 'block';
+                document.getElementById('editcancle3' + clicked_id).style.display = 'none';
 
-//    function commentedit(abc)
-//    {
-//        $('#editcomment' + abc).keypress(function (e) {
-//            if (e.keyCode == 13 && !e.shiftKey) {
-//                var val = $('#editcomment' + abc).val();
-//                e.preventDefault();
-//
-//                if (window.preventDuplicateKeyPresses)
-//                    return;
-//
-//                window.preventDuplicateKeyPresses = true;
-//                window.setTimeout(function () {
-//                    window.preventDuplicateKeyPresses = false;
-//                }, 500);
-//
-//                if (val == '') {
-//
-//                    $('.biderror .mes').html("<div class='pop_content'>Are you sure want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-//                    $('#bidmodal').modal('show');
-//
-//                } else {
-//
-//                    $.ajax({
-//                        type: 'POST',
-//                        url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
-//                        data: 'post_id=' + abc + '&comment=' + val,
-//                        success: function (data) {
-//
-//
-//                            document.getElementById('editcomment' + abc).style.display = 'none';
-//                            document.getElementById('showcomment' + abc).style.display = 'block';
-//                            document.getElementById('editsubmit' + abc).style.display = 'none';
-//
-//                            document.getElementById('editbox' + abc).style.display = 'block';
-//                            document.getElementById('editcancle' + abc).style.display = 'none';
-//
-//                            $('#' + 'showcomment' + abc).html(data);
-//                        }
-//                    });
-//                }
-//            }
-//        });
-//    }
+                document.getElementById('editcomment3' + clicked_id).style.display = 'none';
+                document.getElementById('showcomment3' + clicked_id).style.display = 'block';
+                document.getElementById('editsubmit3' + clicked_id).style.display = 'none';
 
-    function commentedit(abc)
-    {
-        $("#editcomment" + abc).click(function () {
-            $(this).prop("contentEditable", true);
-        });
-        $('#editcomment' + abc).keypress(function (event) {
-            if (event.which == 13 && event.shiftKey != 1) {
-                event.preventDefault();
+                $('.post-design-commnet-box').show();
+
+            }
+
+            function comment_editbox4(clicked_id) { //alert(clicked_id); alert('editcomment' + clicked_id); alert('showcomment' + clicked_id); alert('editsubmit' + clicked_id); 
+                document.getElementById('editcomment4' + clicked_id).style.display = 'block';
+                document.getElementById('showcomment4' + clicked_id).style.display = 'none';
+                document.getElementById('editsubmit4' + clicked_id).style.display = 'block';
+
+                document.getElementById('editcommentbox4' + clicked_id).style.display = 'none';
+                document.getElementById('editcancle4' + clicked_id).style.display = 'block';
+
+                $('.post-design-commnet-box').hide();
+
+            }
+
+            function comment_editcancle4(clicked_id) {
+
+                document.getElementById('editcommentbox4' + clicked_id).style.display = 'block';
+                document.getElementById('editcancle4' + clicked_id).style.display = 'none';
+
+                document.getElementById('editcomment4' + clicked_id).style.display = 'none';
+                document.getElementById('showcomment4' + clicked_id).style.display = 'block';
+                document.getElementById('editsubmit4' + clicked_id).style.display = 'none';
+
+                $('.post-design-commnet-box').show();
+
+            }
+
+        </script>
+
+        <!--comment edit box end-->
+
+        <!-- comment edit insert start -->
+        <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
+        <script type="text/javascript">
+        //    function edit_comment(abc)
+        //    {
+        //
+        //        var post_comment_edit = document.getElementById("editcomment" + abc);
+        //
+        //        if (post_comment_edit.value == '') {
+        //            $('.biderror .mes').html("<div class='pop_content'>Are you sure want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+        //            $('#bidmodal').modal('show');
+        //
+        //        } else {
+        //
+        //            $.ajax({
+        //                type: 'POST',
+        //                url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
+        //                data: 'post_id=' + abc + '&comment=' + post_comment_edit.value,
+        //                success: function (data) {
+        //
+        //
+        //                    document.getElementById('editcomment' + abc).style.display = 'none';
+        //                    document.getElementById('showcomment' + abc).style.display = 'block';
+        //                    document.getElementById('editsubmit' + abc).style.display = 'none';
+        //
+        //                    document.getElementById('editbox' + abc).style.display = 'block';
+        //                    document.getElementById('editcancle' + abc).style.display = 'none';
+        //
+        //                    $('#' + 'showcomment' + abc).html(data);
+        //
+        //
+        //
+        //                }
+        //            });
+        //        }
+        //    }
+
+
+            function edit_comment(abc)
+            {
+                $("#editcomment" + abc).click(function () {
+                    $(this).prop("contentEditable", true);
+                });
+
                 var sel = $("#editcomment" + abc);
                 var txt = sel.html();
-                
-                    txt = txt.replace(/&nbsp;/gi, " ");
-                    txt = txt.replace(/<br>$/, '');
-                    if (txt == '' || txt == '<br>') {
+
+                txt = txt.replace(/&nbsp;/gi, " ");
+                txt = txt.replace(/<br>$/, '');
+
+                if (txt == '' || txt == '<br>') {
                     $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
                     $('#bidmodal').modal('show');
-                        return false;
-                    }
-                    if (/^\s+$/gi.test(txt))
-                    {
-                        return false;
-                    }
-                    
-//                if (txt == '' || txt == '<br>') {
-//                   
-//                    return false;
-//                }
-                if (window.preventDuplicateKeyPresses)
-                    return;
-                window.preventDuplicateKeyPresses = true;
-                window.setTimeout(function () {
-                    window.preventDuplicateKeyPresses = false;
-                }, 500);
+                    return false;
+                }
+
+                if (/^\s+$/gi.test(txt)) {
+                    return false;
+                }
+
+        //        if (txt == '' || txt == '<br>') {
+        //           
+        //            return false;
+        //        }
                 $.ajax({
                     type: 'POST',
                     url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
@@ -2777,179 +2652,200 @@ jQuery.noConflict();
                         $('.post-design-commnet-box').show();
                     }
                 });
+                $(".scroll").click(function (event) {
+                    event.preventDefault();
+                    $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1200);
+                });
             }
-        });
-        $(".scroll").click(function (event) {
-            event.preventDefault();
-            $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1200);
-        });
-    }
-</script>
+        </script>
 
-<script type="text/javascript">
-//    function edit_commenttwo(abc)
-//    {
-//        var post_comment_edit = document.getElementById("editcommenttwo" + abc);
-//        if (post_comment_edit.value == '') {
-//
-//            $('.biderror .mes').html("<div class='pop_content'>Are you sure want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deletetwo(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-//            $('#bidmodal').modal('show');
-//
-//        } else {
-//
-//            $.ajax({
-//                type: 'POST',
-//                url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
-//                data: 'post_id=' + abc + '&comment=' + post_comment_edit.value,
-//                success: function (data) {
-//                    document.getElementById('showcommenttwo' + abc).style.display = 'block';
-//                    document.getElementById('showcommenttwo' + abc).innerHTML = data;
-//                    document.getElementById('editboxtwo' + abc).style.display = 'block';
-//
-//                    document.getElementById('editcommenttwo' + abc).style.display = 'none';
-//
-//                    document.getElementById('editsubmittwo' + abc).style.display = 'none';
-//                    document.getElementById('editcancletwo' + abc).style.display = 'none';
-//
-//                }
-//            });
-//        }
-//
-//    }
 
-    function edit_commenttwo(abc)
-    {
-        $("#editcommenttwo" + abc).click(function () {
-            $(this).prop("contentEditable", true);
-        });
+        <script type="text/javascript">
+            function edit_comment2(abc)
+            {
 
-        var sel = $("#editcommenttwo" + abc);
-        var txt = sel.html();
-        
-        txt = txt.replace(/&nbsp;/gi, " ");
-        txt = txt.replace(/<br>$/, '');
-                    
-        if (txt == '' || txt == '<br>') {
-            $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deletetwo(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-            $('#bidmodal').modal('show');
-                        return false;
+                var post_comment_edit = document.getElementById("editcomment2" + abc);
+
+                $.ajax({
+                    type: 'POST',
+                    url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
+                    data: 'post_id=' + abc + '&comment=' + post_comment_edit.value,
+                    success: function (data) {
+
+
+                        document.getElementById('editcomment2' + abc).style.display = 'none';
+                        document.getElementById('showcomment2' + abc).style.display = 'block';
+                        document.getElementById('editsubmit2' + abc).style.display = 'none';
+
+                        $('#' + 'showcomment' + abc).html(data);
+
+
+
                     }
-                    if (/^\s+$/gi.test(txt))
-                    {
-                        return false;
-                    }
-       
-//        if (txt == '' || txt == '<br>') {
-//          
-//            return false;
-//        }
-        $.ajax({
-            type: 'POST',
-            url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
-            data: 'post_id=' + abc + '&comment=' + txt,
-            success: function (data) {
-                document.getElementById('editcommenttwo' + abc).style.display = 'none';
-                document.getElementById('showcommenttwo' + abc).style.display = 'block';
-                document.getElementById('editsubmittwo' + abc).style.display = 'none';
-                document.getElementById('editcommentboxtwo' + abc).style.display = 'block';
-                document.getElementById('editcancletwo' + abc).style.display = 'none';
-                $('#' + 'showcommenttwo' + abc).html(data);
-                $('.post-design-commnet-box').show();
+                });
+
             }
-        });
-        $(".scroll").click(function (event) {
-            event.preventDefault();
-            $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1200);
-        });
-    }
-</script>
+        </script>
 
+        <script type="text/javascript">
 
-<script type="text/javascript">
+        //    function commentedit(abc)
+        //    {
+        //        $('#editcomment' + abc).keypress(function (e) {
+        //            if (e.keyCode == 13 && !e.shiftKey) {
+        //                var val = $('#editcomment' + abc).val();
+        //                e.preventDefault();
+        //
+        //                if (window.preventDuplicateKeyPresses)
+        //                    return;
+        //
+        //                window.preventDuplicateKeyPresses = true;
+        //                window.setTimeout(function () {
+        //                    window.preventDuplicateKeyPresses = false;
+        //                }, 500);
+        //
+        //                if (val == '') {
+        //
+        //                    $('.biderror .mes').html("<div class='pop_content'>Are you sure want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+        //                    $('#bidmodal').modal('show');
+        //
+        //                } else {
+        //
+        //                    $.ajax({
+        //                        type: 'POST',
+        //                        url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
+        //                        data: 'post_id=' + abc + '&comment=' + val,
+        //                        success: function (data) {
+        //
+        //
+        //                            document.getElementById('editcomment' + abc).style.display = 'none';
+        //                            document.getElementById('showcomment' + abc).style.display = 'block';
+        //                            document.getElementById('editsubmit' + abc).style.display = 'none';
+        //
+        //                            document.getElementById('editbox' + abc).style.display = 'block';
+        //                            document.getElementById('editcancle' + abc).style.display = 'none';
+        //
+        //                            $('#' + 'showcomment' + abc).html(data);
+        //                        }
+        //                    });
+        //                }
+        //            }
+        //        });
+        //    }
 
-//    function commentedittwo(abc)
-//    {
-//
-//        $('#editcommenttwo' + abc).keypress(function (e) {
-//       
-//            if (e.keyCode == 13 && !e.shiftKey) {
-//                var val = $('#editcommenttwo' + abc).val();
-//                e.preventDefault();
-//
-//                if (window.preventDuplicateKeyPresses)
-//                    return;
-//
-//                window.preventDuplicateKeyPresses = true;
-//                window.setTimeout(function () {
-//                    window.preventDuplicateKeyPresses = false;
-//                }, 500);
-//
-//                if (val == '') {
-//
-//                    $('.biderror .mes').html("<div class='pop_content'>Are you sure want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deletetwo(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-//                    $('#bidmodal').modal('show');
-//
-//                } else {
-//                    $.ajax({
-//                        type: 'POST',
-//                        url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
-//                        data: 'post_id=' + abc + '&comment=' + val,
-//                        success: function (data) {
-//
-//
-//                            document.getElementById('editcommenttwo' + abc).style.display = 'none';
-//                            document.getElementById('showcommenttwo' + abc).style.display = 'block';
-//                            document.getElementById('editsubmittwo' + abc).style.display = 'none';
-//
-//                            document.getElementById('editboxtwo' + abc).style.display = 'block';
-//                            document.getElementById('editcancletwo' + abc).style.display = 'none';
-//
-//                            $('#' + 'showcommenttwo' + abc).html(data);
-//                        }
-//                    });
-//                }
-//            }
-//            e.preventDefault();
-//        });
-//        
-//    }
+            function commentedit(abc)
+            {
+                $("#editcomment" + abc).click(function () {
+                    $(this).prop("contentEditable", true);
+                });
+                $('#editcomment' + abc).keypress(function (event) {
+                    if (event.which == 13 && event.shiftKey != 1) {
+                        event.preventDefault();
+                        var sel = $("#editcomment" + abc);
+                        var txt = sel.html();
 
-    function commentedittwo(abc)
-    {
-        $("#editcommenttwo" + abc).click(function () {
-            $(this).prop("contentEditable", true);
-            //$(this).html("");
-        });
-        $('#editcommenttwo' + abc).keypress(function (event) {
-            if (event.which == 13 && event.shiftKey != 1) {
-                event.preventDefault();
+                        txt = txt.replace(/&nbsp;/gi, " ");
+                        txt = txt.replace(/<br>$/, '');
+                        if (txt == '' || txt == '<br>') {
+                            $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+                            $('#bidmodal').modal('show');
+                            return false;
+                        }
+                        if (/^\s+$/gi.test(txt))
+                        {
+                            return false;
+                        }
+
+        //                if (txt == '' || txt == '<br>') {
+        //                   
+        //                    return false;
+        //                }
+                        if (window.preventDuplicateKeyPresses)
+                            return;
+                        window.preventDuplicateKeyPresses = true;
+                        window.setTimeout(function () {
+                            window.preventDuplicateKeyPresses = false;
+                        }, 500);
+                        $.ajax({
+                            type: 'POST',
+                            url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
+                            data: 'post_id=' + abc + '&comment=' + txt,
+                            success: function (data) {
+                                document.getElementById('editcomment' + abc).style.display = 'none';
+                                document.getElementById('showcomment' + abc).style.display = 'block';
+                                document.getElementById('editsubmit' + abc).style.display = 'none';
+                                document.getElementById('editcommentbox' + abc).style.display = 'block';
+                                document.getElementById('editcancle' + abc).style.display = 'none';
+                                $('#' + 'showcomment' + abc).html(data);
+                                $('.post-design-commnet-box').show();
+                            }
+                        });
+                    }
+                });
+                $(".scroll").click(function (event) {
+                    event.preventDefault();
+                    $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1200);
+                });
+            }
+        </script>
+
+        <script type="text/javascript">
+        //    function edit_commenttwo(abc)
+        //    {
+        //        var post_comment_edit = document.getElementById("editcommenttwo" + abc);
+        //        if (post_comment_edit.value == '') {
+        //
+        //            $('.biderror .mes').html("<div class='pop_content'>Are you sure want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deletetwo(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+        //            $('#bidmodal').modal('show');
+        //
+        //        } else {
+        //
+        //            $.ajax({
+        //                type: 'POST',
+        //                url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
+        //                data: 'post_id=' + abc + '&comment=' + post_comment_edit.value,
+        //                success: function (data) {
+        //                    document.getElementById('showcommenttwo' + abc).style.display = 'block';
+        //                    document.getElementById('showcommenttwo' + abc).innerHTML = data;
+        //                    document.getElementById('editboxtwo' + abc).style.display = 'block';
+        //
+        //                    document.getElementById('editcommenttwo' + abc).style.display = 'none';
+        //
+        //                    document.getElementById('editsubmittwo' + abc).style.display = 'none';
+        //                    document.getElementById('editcancletwo' + abc).style.display = 'none';
+        //
+        //                }
+        //            });
+        //        }
+        //
+        //    }
+
+            function edit_commenttwo(abc)
+            {
+                $("#editcommenttwo" + abc).click(function () {
+                    $(this).prop("contentEditable", true);
+                });
+
                 var sel = $("#editcommenttwo" + abc);
                 var txt = sel.html();
-                
+
                 txt = txt.replace(/&nbsp;/gi, " ");
-                    txt = txt.replace(/<br>$/, '');
-                    if (txt == '' || txt == '<br>') {
+                txt = txt.replace(/<br>$/, '');
+
+                if (txt == '' || txt == '<br>') {
                     $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deletetwo(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
                     $('#bidmodal').modal('show');
-                        return false;
-                    }
-                    if (/^\s+$/gi.test(txt))
-                    {
-                        return false;
-                    }
-                    
-//                if (txt == '' || txt == '<br>') {.
-//                    return false;
-//                }
+                    return false;
+                }
+                if (/^\s+$/gi.test(txt))
+                {
+                    return false;
+                }
 
-                if (window.preventDuplicateKeyPresses)
-                    return;
-
-                window.preventDuplicateKeyPresses = true;
-                window.setTimeout(function () {
-                    window.preventDuplicateKeyPresses = false;
-                }, 500);
-
+        //        if (txt == '' || txt == '<br>') {
+        //          
+        //            return false;
+        //        }
                 $.ajax({
                     type: 'POST',
                     url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
@@ -2958,372 +2854,464 @@ jQuery.noConflict();
                         document.getElementById('editcommenttwo' + abc).style.display = 'none';
                         document.getElementById('showcommenttwo' + abc).style.display = 'block';
                         document.getElementById('editsubmittwo' + abc).style.display = 'none';
-
                         document.getElementById('editcommentboxtwo' + abc).style.display = 'block';
                         document.getElementById('editcancletwo' + abc).style.display = 'none';
-
                         $('#' + 'showcommenttwo' + abc).html(data);
                         $('.post-design-commnet-box').show();
+                    }
+                });
+                $(".scroll").click(function (event) {
+                    event.preventDefault();
+                    $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1200);
+                });
+            }
+        </script>
+
+
+        <script type="text/javascript">
+
+        //    function commentedittwo(abc)
+        //    {
+        //
+        //        $('#editcommenttwo' + abc).keypress(function (e) {
+        //       
+        //            if (e.keyCode == 13 && !e.shiftKey) {
+        //                var val = $('#editcommenttwo' + abc).val();
+        //                e.preventDefault();
+        //
+        //                if (window.preventDuplicateKeyPresses)
+        //                    return;
+        //
+        //                window.preventDuplicateKeyPresses = true;
+        //                window.setTimeout(function () {
+        //                    window.preventDuplicateKeyPresses = false;
+        //                }, 500);
+        //
+        //                if (val == '') {
+        //
+        //                    $('.biderror .mes').html("<div class='pop_content'>Are you sure want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deletetwo(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+        //                    $('#bidmodal').modal('show');
+        //
+        //                } else {
+        //                    $.ajax({
+        //                        type: 'POST',
+        //                        url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
+        //                        data: 'post_id=' + abc + '&comment=' + val,
+        //                        success: function (data) {
+        //
+        //
+        //                            document.getElementById('editcommenttwo' + abc).style.display = 'none';
+        //                            document.getElementById('showcommenttwo' + abc).style.display = 'block';
+        //                            document.getElementById('editsubmittwo' + abc).style.display = 'none';
+        //
+        //                            document.getElementById('editboxtwo' + abc).style.display = 'block';
+        //                            document.getElementById('editcancletwo' + abc).style.display = 'none';
+        //
+        //                            $('#' + 'showcommenttwo' + abc).html(data);
+        //                        }
+        //                    });
+        //                }
+        //            }
+        //            e.preventDefault();
+        //        });
+        //        
+        //    }
+
+            function commentedittwo(abc)
+            {
+                $("#editcommenttwo" + abc).click(function () {
+                    $(this).prop("contentEditable", true);
+                    //$(this).html("");
+                });
+                $('#editcommenttwo' + abc).keypress(function (event) {
+                    if (event.which == 13 && event.shiftKey != 1) {
+                        event.preventDefault();
+                        var sel = $("#editcommenttwo" + abc);
+                        var txt = sel.html();
+
+                        txt = txt.replace(/&nbsp;/gi, " ");
+                        txt = txt.replace(/<br>$/, '');
+                        if (txt == '' || txt == '<br>') {
+                            $('.biderror .mes').html("<div class='pop_content'>Are you sure you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deletetwo(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+                            $('#bidmodal').modal('show');
+                            return false;
+                        }
+                        if (/^\s+$/gi.test(txt))
+                        {
+                            return false;
+                        }
+
+        //                if (txt == '' || txt == '<br>') {.
+        //                    return false;
+        //                }
+
+                        if (window.preventDuplicateKeyPresses)
+                            return;
+
+                        window.preventDuplicateKeyPresses = true;
+                        window.setTimeout(function () {
+                            window.preventDuplicateKeyPresses = false;
+                        }, 500);
+
+                        $.ajax({
+                            type: 'POST',
+                            url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
+                            data: 'post_id=' + abc + '&comment=' + txt,
+                            success: function (data) {
+                                document.getElementById('editcommenttwo' + abc).style.display = 'none';
+                                document.getElementById('showcommenttwo' + abc).style.display = 'block';
+                                document.getElementById('editsubmittwo' + abc).style.display = 'none';
+
+                                document.getElementById('editcommentboxtwo' + abc).style.display = 'block';
+                                document.getElementById('editcancletwo' + abc).style.display = 'none';
+
+                                $('#' + 'showcommenttwo' + abc).html(data);
+                                $('.post-design-commnet-box').show();
+
+                            }
+                        });
+                    }
+                });
+                $(".scroll").click(function (event) {
+                    event.preventDefault();
+                    $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1200);
+                });
+            }
+
+        </script>
+
+        <!--comment edit insert script end -->
+
+        <!-- hide and show data start-->
+        <script type="text/javascript">
+            function commentall(clicked_id) {
+
+
+                var x = document.getElementById('threecomment' + clicked_id);
+                var y = document.getElementById('fourcomment' + clicked_id);
+                var z = document.getElementById('insertcount' + clicked_id);
+
+                if (x.style.display === 'block' && y.style.display === 'none') {
+                    x.style.display = 'none';
+                    y.style.display = 'block';
+                    z.style.visibility = 'show';
+                    $.ajax({
+                        type: 'POST',
+                        url: '<?php echo base_url() . "artistic/fourcomment" ?>',
+                        data: 'art_post_id=' + clicked_id,
+                        //alert(data);
+                        success: function (data) {
+                            $('#' + 'fourcomment' + clicked_id).html(data);
+
+                        }
+                    });
+
+                }
+                // } else {
+                //      x.style.display = 'block';
+                //      y.style.display = 'block';
+                //      z.style.display = 'block';
+
+                //      $.ajax({ 
+                //             type:'POST',
+                //             url:'<?php echo base_url() . "artistic/fourcomment" ?>',
+                //             data:'art_post_id='+clicked_id,
+                //             //alert(data);
+                //             success:function(data){
+                //       $('#' + 'threecomment' + clicked_id).html(data);
+
+                //       }
+                //         });
+                // }
+            }
+        </script>
+        <!-- hide and show data end-->
+
+
+
+        <!-- cover image start -->
+        <script>
+            function myFunction() {
+                document.getElementById("upload-demo").style.visibility = "hidden";
+                document.getElementById("upload-demo-i").style.visibility = "hidden";
+                document.getElementById('message1').style.display = "block";
+
+                //setTimeout(function () { location.reload(1); }, 5000);
+
+            }
+
+
+            function showDiv() {
+                document.getElementById('row1').style.display = "block";
+                document.getElementById('row2').style.display = "none";
+            }
+        </script>
+
+
+        <script>
+            /* When the user clicks on the button, 
+             toggle between hiding and showing the dropdown content */
+            function myFunction1(clicked_id) {
+                document.getElementById('myDropdown' + clicked_id).classList.toggle("show");
+            }
+
+            // Close the dropdown if the user clicks outside of it
+            window.onclick = function (event) {
+                if (!event.target.matches('.dropbtn1')) {
+
+                    var dropdowns = document.getElementsByClassName("dropdown-content1");
+                    var i;
+                    for (i = 0; i < dropdowns.length; i++) {
+                        var openDropdown = dropdowns[i];
+                        if (openDropdown.classList.contains('show')) {
+                            openDropdown.classList.remove('show');
+                        }
+                    }
+                }
+            }
+        </script>
+        <script>
+            /* When the user clicks on the button, 
+             toggle between hiding and showing the dropdown content */
+            function myvFunction(clicked_id) {
+
+
+                document.getElementById('myDropdown' + clicked_id).classList.toggle("show");
+            }
+
+            // Close the dropdown if the user clicks outside of it
+            window.onclick = function (event) {
+                if (!event.target.matches('.dropbtn2')) {
+
+                    var dropdowns = document.getElementsByClassName("dropdown-content2");
+                    var i;
+                    for (i = 0; i < dropdowns.length; i++) {
+                        var openDropdown = dropdowns[i];
+                        if (openDropdown.classList.contains('show')) {
+                            openDropdown.classList.remove('show');
+                        }
+                    }
+                }
+            }
+        </script>
+
+
+
+
+        <!-- falguni post in sert script start -->
+
+        <script type="text/javascript">
+
+            $(document).ready(function () {
+                $('.modal-close').on('click', function () {
+                    $('.modal-post').hide();
+                });
+            });
+
+        </script>
+
+        <!-- falguni script end -->
+
+
+        <script type="text/javascript">
+            //For blocks or images of size, you can use $(document).ready
+            $(document).ready(function () {
+                $('.blocks').jMosaic({items_type: "li", margin: 0});
+                $('.pictures').jMosaic({min_row_height: 150, margin: 3, is_first_big: true});
+            });
+
+            //If this image without attribute WIDTH or HEIGH, you can use $(window).load
+            $(window).load(function () {
+                //$('.pictures').jMosaic({min_row_height: 150, margin: 3, is_first_big: true});
+            });
+
+            //You can update on $(window).resize
+            $(window).resize(function () {
+                //$('.pictures').jMosaic({min_row_height: 150, margin: 3, is_first_big: true});
+                //$('.blocks').jMosaic({items_type: "li", margin: 0});
+            });
+        </script>
+
+
+
+        <script>
+            function openModal() {
+                document.getElementById('myModal1').style.display = "block";
+            }
+
+            function closeModal() {
+                document.getElementById('myModal1').style.display = "none";
+            }
+
+            var slideIndex = 1;
+            showSlides(slideIndex);
+
+            function plusSlides(n) {
+                showSlides(slideIndex += n);
+            }
+
+            function currentSlide(n) {
+                showSlides(slideIndex = n);
+            }
+
+            function showSlides(n) {
+                var i;
+                var slides = document.getElementsByClassName("mySlides");
+                var dots = document.getElementsByClassName("demo");
+                var captionText = document.getElementById("caption");
+                if (n > slides.length) {
+                    slideIndex = 1
+                }
+                if (n < 1) {
+                    slideIndex = slides.length
+                }
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex - 1].style.display = "block";
+                dots[slideIndex - 1].className += " active";
+                captionText.innerHTML = dots[slideIndex - 1].alt;
+            }
+        </script>
+
+
+        <!-- falguni script start -->
+
+
+        <!-- remove save post start -->
+
+
+        <script type="text/javascript">
+
+            function deleteownpostmodel(abc) {
+
+                $('div[id^=myDropdown]').hide().removeClass('show');
+                $('.biderror .mes').html("<div class='pop_content'>Are you sure want to Delete Your post?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='remove_ownpost(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+                $('#bidmodal').modal('show');
+            }
+
+        </script>
+
+
+
+        <script type="text/javascript">
+            function remove_ownpost(abc)
+            {
+
+                $.ajax({
+                    type: 'POST',
+                    url: '<?php echo base_url() . "artistic/art_deletepost" ?>',
+                    data: 'art_post_id=' + abc,
+                    //alert(data);
+                    success: function (data) {
+
+                        $('#' + 'removepost' + abc).html(data);
+
 
                     }
                 });
-            }
-        });
-        $(".scroll").click(function (event) {
-            event.preventDefault();
-            $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1200);
-        });
-    }
-
-</script>
-
-<!--comment edit insert script end -->
-
-<!-- hide and show data start-->
-<script type="text/javascript">
-    function commentall(clicked_id) {
-
-
-        var x = document.getElementById('threecomment' + clicked_id);
-        var y = document.getElementById('fourcomment' + clicked_id);
-        var z = document.getElementById('insertcount' + clicked_id);
-
-        if (x.style.display === 'block' && y.style.display === 'none') {
-            x.style.display = 'none';
-            y.style.display = 'block';
-            z.style.visibility = 'show';
-            $.ajax({
-                type: 'POST',
-                url: '<?php echo base_url() . "artistic/fourcomment" ?>',
-                data: 'art_post_id=' + clicked_id,
-                //alert(data);
-                success: function (data) {
-                    $('#' + 'fourcomment' + clicked_id).html(data);
-
-                }
-            });
-
-        }
-        // } else {
-        //      x.style.display = 'block';
-        //      y.style.display = 'block';
-        //      z.style.display = 'block';
-
-        //      $.ajax({ 
-        //             type:'POST',
-        //             url:'<?php echo base_url() . "artistic/fourcomment" ?>',
-        //             data:'art_post_id='+clicked_id,
-        //             //alert(data);
-        //             success:function(data){
-        //       $('#' + 'threecomment' + clicked_id).html(data);
-
-        //       }
-        //         });
-        // }
-    }
-</script>
-<!-- hide and show data end-->
-
-
-
-<!-- cover image start -->
-<script>
-    function myFunction() {
-        document.getElementById("upload-demo").style.visibility = "hidden";
-        document.getElementById("upload-demo-i").style.visibility = "hidden";
-        document.getElementById('message1').style.display = "block";
-
-        //setTimeout(function () { location.reload(1); }, 5000);
-
-    }
-
-
-    function showDiv() {
-        document.getElementById('row1').style.display = "block";
-        document.getElementById('row2').style.display = "none";
-    }
-</script>
-
-
-<script>
-    /* When the user clicks on the button, 
-     toggle between hiding and showing the dropdown content */
-    function myFunction1(clicked_id) {
-        document.getElementById('myDropdown' + clicked_id).classList.toggle("show");
-    }
-
-    // Close the dropdown if the user clicks outside of it
-    window.onclick = function (event) {
-        if (!event.target.matches('.dropbtn1')) {
-
-            var dropdowns = document.getElementsByClassName("dropdown-content1");
-            var i;
-            for (i = 0; i < dropdowns.length; i++) {
-                var openDropdown = dropdowns[i];
-                if (openDropdown.classList.contains('show')) {
-                    openDropdown.classList.remove('show');
-                }
-            }
-        }
-    }
-</script>
-<script>
-    /* When the user clicks on the button, 
-     toggle between hiding and showing the dropdown content */
-    function myvFunction(clicked_id) {
-        
-       
-        document.getElementById('myDropdown' + clicked_id).classList.toggle("show");
-    }
-
-    // Close the dropdown if the user clicks outside of it
-    window.onclick = function (event) { 
-        if (!event.target.matches('.dropbtn2')) {
-
-            var dropdowns = document.getElementsByClassName("dropdown-content2");
-            var i;
-            for (i = 0; i < dropdowns.length; i++) {
-                var openDropdown = dropdowns[i];
-                if (openDropdown.classList.contains('show')) {
-                    openDropdown.classList.remove('show');
-                }
-            }
-        }
-    }
-</script>
-
-
-
-
-<!-- falguni post in sert script start -->
-
-<script type="text/javascript">
-
-    $(document).ready(function () {
-        $('.modal-close').on('click', function () {
-            $('.modal-post').hide();
-        });
-    });
-
-</script>
-
-<!-- falguni script end -->
-
-
-<script type="text/javascript">
-    //For blocks or images of size, you can use $(document).ready
-    $(document).ready(function () {
-        $('.blocks').jMosaic({items_type: "li", margin: 0});
-        $('.pictures').jMosaic({min_row_height: 150, margin: 3, is_first_big: true});
-    });
-
-    //If this image without attribute WIDTH or HEIGH, you can use $(window).load
-    $(window).load(function () {
-        //$('.pictures').jMosaic({min_row_height: 150, margin: 3, is_first_big: true});
-    });
-
-    //You can update on $(window).resize
-    $(window).resize(function () {
-        //$('.pictures').jMosaic({min_row_height: 150, margin: 3, is_first_big: true});
-        //$('.blocks').jMosaic({items_type: "li", margin: 0});
-    });
-</script>
-
-
-
-<script>
-    function openModal() {
-        document.getElementById('myModal1').style.display = "block";
-    }
-
-    function closeModal() {
-        document.getElementById('myModal1').style.display = "none";
-    }
-
-    var slideIndex = 1;
-    showSlides(slideIndex);
-
-    function plusSlides(n) {
-        showSlides(slideIndex += n);
-    }
-
-    function currentSlide(n) {
-        showSlides(slideIndex = n);
-    }
-
-    function showSlides(n) {
-        var i;
-        var slides = document.getElementsByClassName("mySlides");
-        var dots = document.getElementsByClassName("demo");
-        var captionText = document.getElementById("caption");
-        if (n > slides.length) {
-            slideIndex = 1
-        }
-        if (n < 1) {
-            slideIndex = slides.length
-        }
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
-        }
-        for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" active", "");
-        }
-        slides[slideIndex - 1].style.display = "block";
-        dots[slideIndex - 1].className += " active";
-        captionText.innerHTML = dots[slideIndex - 1].alt;
-    }
-</script>
-
-
-<!-- falguni script start -->
-
-
-<!-- remove save post start -->
-
-
-<script type="text/javascript">
-
-    function deleteownpostmodel(abc) {
-
-        $('div[id^=myDropdown]').hide().removeClass('show');
-        $('.biderror .mes').html("<div class='pop_content'>Are you sure want to Delete Your post?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='remove_ownpost(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-        $('#bidmodal').modal('show');
-    }
-
-</script>
-
-
-
-<script type="text/javascript">
-    function remove_ownpost(abc)
-    {
-
-        $.ajax({
-            type: 'POST',
-            url: '<?php echo base_url() . "artistic/art_deletepost" ?>',
-            data: 'art_post_id=' + abc,
-            //alert(data);
-            success: function (data) {
-
-                $('#' + 'removepost' + abc).html(data);
-
 
             }
-        });
+        </script>
 
-    }
-</script>
+        <!-- remove save post end -->
 
-<!-- remove save post end -->
+        <!-- remove particular user post start -->
 
-<!-- remove particular user post start -->
+        <script type="text/javascript">
+            function del_particular_userpost(abc)
+            {
 
-<script type="text/javascript">
-    function del_particular_userpost(abc)
-    {
+                $.ajax({
+                    type: 'POST',
+                    url: '<?php echo base_url() . "artistic/del_particular_userpost" ?>',
+                    data: 'art_post_id=' + abc,
+                    //alert(data);
+                    success: function (data) {
 
-        $.ajax({
-            type: 'POST',
-            url: '<?php echo base_url() . "artistic/del_particular_userpost" ?>',
-            data: 'art_post_id=' + abc,
-            //alert(data);
-            success: function (data) {
+                        $('#' + 'removepost' + abc).html(data);
 
-                $('#' + 'removepost' + abc).html(data);
 
+                    }
+                });
 
             }
-        });
+        </script>
 
-    }
-</script>
-
-<!-- remove particular user post end -->
+        <!-- remove particular user post end -->
 
 
 
-<!-- edit post start -->
+        <!-- edit post start -->
 
-<script type="text/javascript">
-    function editpost(abc)
-    {
-//        document.getElementById('editpostdata' + abc).style.display = 'none';
-//        document.getElementById('editpostbox' + abc).style.display = 'block';
-//        document.getElementById('editpostdetails' + abc).style.display = 'none';
-//        document.getElementById('editpostdetailbox' + abc).style.display = 'block';
-//        document.getElementById('editpostsubmit' + abc).style.display = 'block';
+        <script type="text/javascript">
+            function editpost(abc)
+            {
+        //        document.getElementById('editpostdata' + abc).style.display = 'none';
+        //        document.getElementById('editpostbox' + abc).style.display = 'block';
+        //        document.getElementById('editpostdetails' + abc).style.display = 'none';
+        //        document.getElementById('editpostdetailbox' + abc).style.display = 'block';
+        //        document.getElementById('editpostsubmit' + abc).style.display = 'block';
 
-        $('div[id^=myDropdown]').hide().removeClass('show');
+                $('div[id^=myDropdown]').hide().removeClass('show');
 
-        document.getElementById('editpostdata' + abc).style.display = 'none';
-        document.getElementById('editpostbox' + abc).style.display = 'block';
-        document.getElementById('editpostdetails' + abc).style.display = 'none', 'display:inline !important';
-        document.getElementById('editpostdetailbox' + abc).style.display = 'block';
-        document.getElementById('editpostsubmit' + abc).style.display = 'block';
-    }
-</script>
-
-
-<script type="text/javascript">
-//    function edit_postinsert(abc)
-//    {
-//        var editpostname = document.getElementById("editpostname" + abc);
-//        var editpostdetails = document.getElementById("editpostdesc" + abc);
-//        var $field = $('#editpostdesc' + abc);
-//        var editpostdetails = $('#editpostdesc' + abc).html();
-//
-//        $.ajax({
-//            type: 'POST',
-//            url: '<?php echo base_url() . "artistic/edit_post_insert" ?>',
-//            data: 'art_post_id=' + abc + '&art_post=' + editpostname.value + '&art_description=' + editpostdetails,
-//            dataType: "json",
-//            success: function (data) {
-//
-//                document.getElementById('editpostdata' + abc).style.display = 'block';
-//                document.getElementById('editpostbox' + abc).style.display = 'none';
-//                document.getElementById('editpostdetails' + abc).style.display = 'block';
-//                document.getElementById('editpostdetailbox' + abc).style.display = 'none';
-//
-//                document.getElementById('editpostsubmit' + abc).style.display = 'none';
-//
-//                $('#' + 'editpostdata' + abc).html(data.title);
-//                $('#' + 'editpostdetails' + abc).html(data.description);
-//
-//            }
-//        });
-//
-//    }
+                document.getElementById('editpostdata' + abc).style.display = 'none';
+                document.getElementById('editpostbox' + abc).style.display = 'block';
+                document.getElementById('editpostdetails' + abc).style.display = 'none', 'display:inline !important';
+                document.getElementById('editpostdetailbox' + abc).style.display = 'block';
+                document.getElementById('editpostsubmit' + abc).style.display = 'block';
+            }
+        </script>
 
 
-    function edit_postinsert(abc)
-    {
+        <script type="text/javascript">
+        //    function edit_postinsert(abc)
+        //    {
+        //        var editpostname = document.getElementById("editpostname" + abc);
+        //        var editpostdetails = document.getElementById("editpostdesc" + abc);
+        //        var $field = $('#editpostdesc' + abc);
+        //        var editpostdetails = $('#editpostdesc' + abc).html();
+        //
+        //        $.ajax({
+        //            type: 'POST',
+        //            url: '<?php echo base_url() . "artistic/edit_post_insert" ?>',
+        //            data: 'art_post_id=' + abc + '&art_post=' + editpostname.value + '&art_description=' + editpostdetails,
+        //            dataType: "json",
+        //            success: function (data) {
+        //
+        //                document.getElementById('editpostdata' + abc).style.display = 'block';
+        //                document.getElementById('editpostbox' + abc).style.display = 'none';
+        //                document.getElementById('editpostdetails' + abc).style.display = 'block';
+        //                document.getElementById('editpostdetailbox' + abc).style.display = 'none';
+        //
+        //                document.getElementById('editpostsubmit' + abc).style.display = 'none';
+        //
+        //                $('#' + 'editpostdata' + abc).html(data.title);
+        //                $('#' + 'editpostdetails' + abc).html(data.description);
+        //
+        //            }
+        //        });
+        //
+        //    }
 
-        var editpostname = document.getElementById("editpostname" + abc);
-        var editpostdetails = document.getElementById("editpostdesc" + abc);
-        // start khyati code
-        var $field = $('#editpostdesc' + abc);
-        //var data = $field.val();
-        var editpostdetails = $('#editpostdesc' + abc).html();
-        // end khyati code
 
-        if (editpostname.value == '' && editpostdetails == '') {
-            $('.biderror .mes').html("<div class='pop_content'>You must either fill title or description.");
-            $('#bidmodal').modal('show');
+            function edit_postinsert(abc)
+            {
 
-            document.getElementById('editpostdata' + abc).style.display = 'block';
-            document.getElementById('editpostbox' + abc).style.display = 'none';
-            document.getElementById('editpostdetails' + abc).style.display = 'block';
-            document.getElementById('editpostdetailbox' + abc).style.display = 'none';
+                var editpostname = document.getElementById("editpostname" + abc);
+                var editpostdetails = document.getElementById("editpostdesc" + abc);
+                // start khyati code
+                var $field = $('#editpostdesc' + abc);
+                //var data = $field.val();
+                var editpostdetails = $('#editpostdesc' + abc).html();
+                // end khyati code
 
-            document.getElementById('editpostsubmit' + abc).style.display = 'none';
-        } else {
-
-            $.ajax({
-                type: 'POST',
-                url: '<?php echo base_url() . "artistic/edit_post_insert" ?>',
-                data: 'art_post_id=' + abc + '&art_post=' + editpostname.value + '&art_description=' + editpostdetails,
-                dataType: "json",
-                success: function (data) {
+                if (editpostname.value == '' && editpostdetails == '') {
+                    $('.biderror .mes').html("<div class='pop_content'>You must either fill title or description.");
+                    $('#bidmodal').modal('show');
 
                     document.getElementById('editpostdata' + abc).style.display = 'block';
                     document.getElementById('editpostbox' + abc).style.display = 'none';
@@ -3331,606 +3319,620 @@ jQuery.noConflict();
                     document.getElementById('editpostdetailbox' + abc).style.display = 'none';
 
                     document.getElementById('editpostsubmit' + abc).style.display = 'none';
+                } else {
+
+                    $.ajax({
+                        type: 'POST',
+                        url: '<?php echo base_url() . "artistic/edit_post_insert" ?>',
+                        data: 'art_post_id=' + abc + '&art_post=' + editpostname.value + '&art_description=' + editpostdetails,
+                        dataType: "json",
+                        success: function (data) {
+
+                            document.getElementById('editpostdata' + abc).style.display = 'block';
+                            document.getElementById('editpostbox' + abc).style.display = 'none';
+                            document.getElementById('editpostdetails' + abc).style.display = 'block';
+                            document.getElementById('editpostdetailbox' + abc).style.display = 'none';
+
+                            document.getElementById('editpostsubmit' + abc).style.display = 'none';
 
 
 
-                    $('#' + 'editpostdata' + abc).html(data.title);
-                    $('#' + 'editpostdetails' + abc).html(data.description);
+                            $('#' + 'editpostdata' + abc).html(data.title);
+                            $('#' + 'editpostdetails' + abc).html(data.description);
 
+                        }
+                    });
+                }
+
+            }
+        </script>
+
+
+        <!-- edit post end -->
+
+        <!-- save post start -->
+
+        <script type="text/javascript">
+            function save_post(abc)
+            {
+                $.ajax({
+                    type: 'POST',
+                    url: '<?php echo base_url() . "artistic/artistic_save" ?>',
+                    data: 'art_post_id=' + abc,
+                    success: function (data) {
+                        $('.' + 'savedpost' + abc).html(data);
+                    }
+                });
+
+            }
+        </script>
+
+        <!-- save post end -->
+
+        <!-- falguni script end -->
+
+
+        <script>
+            // Get the modal
+            var modal = document.getElementById('myModal3');
+
+            // Get the button that opens the modal
+            var btn = document.getElementById("myBtn3");
+
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close3")[0];
+
+            // When the user clicks the button, open the modal 
+            btn.onclick = function () {
+                modal.style.display = "block";
+            }
+
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function () {
+                modal.style.display = "none";
+            }
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        </script>
+
+
+        <!-- follow user script start -->
+
+        <script type="text/javascript">
+            function remove_post(abc)
+            {
+
+                $.ajax({
+                    type: 'POST',
+                    url: '<?php echo base_url() . "artistic/art_deletepost" ?>',
+                    data: 'art_post_id=' + abc,
+                    //alert(data);
+                    success: function (data) {
+
+                        $('#' + 'removepost' + abc).html(data);
+
+
+                    }
+                });
+
+            }
+        </script>
+
+        <!-- remove save post end -->
+
+
+        <!-- remove particular user post start -->
+
+        <script type="text/javascript">
+
+            function deletepostmodel(abc) {
+
+
+                $('.biderror .mes').html("<div class='pop_content'>Are you sure want to Delete this post From Your Profile?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='del_particular_userpost(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+                $('#bidmodal').modal('show');
+            }
+
+        </script>
+        <script type="text/javascript">
+            function del_particular_userpost(abc)
+            {
+                $.ajax({
+                    type: 'POST',
+                    url: '<?php echo base_url() . "artistic/del_particular_userpost" ?>',
+                    data: 'art_post_id=' + abc,
+                    //alert(data);
+                    success: function (data) {
+
+                        $('#' + 'removepost' + abc).html(data);
+
+
+                    }
+                });
+
+            }
+
+        </script>
+
+
+
+        <script type="text/javascript">
+            function followuser(clicked_id)
+            { //alert(clicked_id);
+
+                $.ajax({
+                    type: 'POST',
+                    url: '<?php echo base_url() . "artistic/follow" ?>',
+                    data: 'follow_to=' + clicked_id,
+                    success: function (data) {
+
+                        $('.' + 'fruser' + clicked_id).html(data);
+
+                    }
+                });
+            }
+        </script>
+
+        <!--follow like script end -->
+
+        <!-- Unfollow user script start -->
+
+        <script type="text/javascript">
+            function unfollowuser(clicked_id)
+            {
+
+                $.ajax({
+                    type: 'POST',
+                    url: '<?php echo base_url() . "artistic/unfollow" ?>',
+                    data: 'follow_to=' + clicked_id,
+                    success: function (data) {
+
+                        $('.' + 'fruser' + clicked_id).html(data);
+
+                    }
+                });
+            }
+        </script>
+
+        <!--follow like script end -->
+
+
+        <script>
+            $('#file-fr').fileinput({
+                language: 'fr',
+                uploadUrl: '#',
+                allowedFileExtensions: ['jpg', 'png', 'gif']
+            });
+            $('#file-es').fileinput({
+                language: 'es',
+                uploadUrl: '#',
+                allowedFileExtensions: ['jpg', 'png', 'gif']
+            });
+            $("#file-0").fileinput({
+                'allowedFileExtensions': ['jpg', 'png', 'gif']
+            });
+            $("#file-1").fileinput({
+                uploadUrl: '#', // you must set a valid URL here else you will get an error
+                allowedFileExtensions: ['jpg', 'png', 'gif'],
+                overwriteInitial: false,
+                maxFileSize: 1000,
+                maxFilesNum: 10,
+                //allowedFileTypes: ['image', 'video', 'flash'],
+                slugCallback: function (filename) {
+                    return filename.replace('(', '_').replace(']', '_');
                 }
             });
-        }
 
-    }
-</script>
+            $("#file-3").fileinput({
+                showUpload: false,
+                showCaption: false,
+                browseClass: "btn btn-primary btn-lg",
+                fileType: "any",
+                previewFileIcon: "<i class='glyphicon glyphicon-king'></i>",
+                overwriteInitial: false,
+                initialPreviewAsData: true,
+                initialPreview: [
+                    "http://lorempixel.com/1920/1080/transport/1",
+                    "http://lorempixel.com/1920/1080/transport/2",
+                    "http://lorempixel.com/1920/1080/transport/3",
+                ],
+                initialPreviewConfig: [
+                    {caption: "transport-1.jpg", size: 329892, width: "120px", url: "{$url}", key: 1},
+                    {caption: "transport-2.jpg", size: 872378, width: "120px", url: "{$url}", key: 2},
+                    {caption: "transport-3.jpg", size: 632762, width: "120px", url: "{$url}", key: 3},
+                ],
+            });
+            $("#file-4").fileinput({
+                uploadExtraData: {kvId: '10'}
+            });
+            $(".btn-warning").on('click', function () {
+                var $el = $("#file-4");
+                if ($el.attr('disabled')) {
+                    $el.fileinput('enable');
+                } else {
+                    $el.fileinput('disable');
+                }
+            });
+            $(".btn-info").on('click', function () {
+                $("#file-4").fileinput('refresh', {previewClass: 'bg-info'});
+            });
+
+            $(document).ready(function () {
+                $("#test-upload").fileinput({
+                    'showPreview': false,
+                    'allowedFileExtensions': ['jpg', 'png', 'gif'],
+                    'elErrorContainer': '#errorBlock'
+                });
+                $("#kv-explorer").fileinput({
+                    'theme': 'explorer',
+                    'uploadUrl': '#',
+                    overwriteInitial: false,
+                    initialPreviewAsData: true,
+                    initialPreview: [
+                        "http://lorempixel.com/1920/1080/nature/1",
+                        "http://lorempixel.com/1920/1080/nature/2",
+                        "http://lorempixel.com/1920/1080/nature/3",
+                    ],
+                    initialPreviewConfig: [
+                        {caption: "nature-1.jpg", size: 329892, width: "120px", url: "{$url}", key: 1},
+                        {caption: "nature-2.jpg", size: 872378, width: "120px", url: "{$url}", key: 2},
+                        {caption: "nature-3.jpg", size: 632762, width: "120px", url: "{$url}", key: 3},
+                    ]
+                });
+
+            });
+        </script>
 
 
-<!-- edit post end -->
 
-<!-- save post start -->
+        <!-- end search validation -->
 
-<script type="text/javascript">
-    function save_post(abc)
-    {
-        $.ajax({
-            type: 'POST',
-            url: '<?php echo base_url() . "artistic/artistic_save" ?>',
-            data: 'art_post_id=' + abc,
-            success: function (data) {
-                $('.' + 'savedpost' + abc).html(data);
+        <script>
+            function updateprofilepopup(id) {
+                $('#bidmodal-2').modal('show');
             }
-        });
+        </script>
 
-    }
-</script>
 
-<!-- save post end -->
 
-<!-- falguni script end -->
+        <!-- insert post validtation start -->
 
 
-<script>
-    // Get the modal
-    var modal = document.getElementById('myModal3');
+        <script type="text/javascript">
 
-    // Get the button that opens the modal
-    var btn = document.getElementById("myBtn3");
+            function imgval() {
 
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close3")[0];
+                var fileInput = document.getElementById("file-1").files;
+                var product_name1 = document.getElementById("test-upload-product").value;
+                var product_description1 = document.getElementById("test-upload-des").value;
+                var product_fileInput1 = document.getElementById("file-1").value;
 
-    // When the user clicks the button, open the modal 
-    btn.onclick = function () {
-        modal.style.display = "block";
-    }
 
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function () {
-        modal.style.display = "none";
-    }
-
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function (event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
-</script>
-
-
-<!-- follow user script start -->
-
-<script type="text/javascript">
-    function remove_post(abc)
-    {
-
-        $.ajax({
-            type: 'POST',
-            url: '<?php echo base_url() . "artistic/art_deletepost" ?>',
-            data: 'art_post_id=' + abc,
-            //alert(data);
-            success: function (data) {
-
-                $('#' + 'removepost' + abc).html(data);
-
-
-            }
-        });
-
-    }
-</script>
-
-<!-- remove save post end -->
-
-
-<!-- remove particular user post start -->
-
-<script type="text/javascript">
-
-    function deletepostmodel(abc) {
-
-
-        $('.biderror .mes').html("<div class='pop_content'>Are you sure want to Delete this post From Your Profile?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='del_particular_userpost(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-        $('#bidmodal').modal('show');
-    }
-
-</script>
-<script type="text/javascript">
-    function del_particular_userpost(abc)
-    {
-        $.ajax({
-            type: 'POST',
-            url: '<?php echo base_url() . "artistic/del_particular_userpost" ?>',
-            data: 'art_post_id=' + abc,
-            //alert(data);
-            success: function (data) {
-
-                $('#' + 'removepost' + abc).html(data);
-
-
-            }
-        });
-
-    }
-
-</script>
-
-
-
-<script type="text/javascript">
-    function followuser(clicked_id)
-    { //alert(clicked_id);
-
-        $.ajax({
-            type: 'POST',
-            url: '<?php echo base_url() . "artistic/follow" ?>',
-            data: 'follow_to=' + clicked_id,
-            success: function (data) {
-
-                $('.' + 'fruser' + clicked_id).html(data);
-
-            }
-        });
-    }
-</script>
-
-<!--follow like script end -->
-
-<!-- Unfollow user script start -->
-
-<script type="text/javascript">
-    function unfollowuser(clicked_id)
-    {
-
-        $.ajax({
-            type: 'POST',
-            url: '<?php echo base_url() . "artistic/unfollow" ?>',
-            data: 'follow_to=' + clicked_id,
-            success: function (data) {
-
-                $('.' + 'fruser' + clicked_id).html(data);
-
-            }
-        });
-    }
-</script>
-
-<!--follow like script end -->
-
-
-<script>
-    $('#file-fr').fileinput({
-        language: 'fr',
-        uploadUrl: '#',
-        allowedFileExtensions: ['jpg', 'png', 'gif']
-    });
-    $('#file-es').fileinput({
-        language: 'es',
-        uploadUrl: '#',
-        allowedFileExtensions: ['jpg', 'png', 'gif']
-    });
-    $("#file-0").fileinput({
-        'allowedFileExtensions': ['jpg', 'png', 'gif']
-    });
-    $("#file-1").fileinput({
-        uploadUrl: '#', // you must set a valid URL here else you will get an error
-        allowedFileExtensions: ['jpg', 'png', 'gif'],
-        overwriteInitial: false,
-        maxFileSize: 1000,
-        maxFilesNum: 10,
-        //allowedFileTypes: ['image', 'video', 'flash'],
-        slugCallback: function (filename) {
-            return filename.replace('(', '_').replace(']', '_');
-        }
-    });
-
-    $("#file-3").fileinput({
-        showUpload: false,
-        showCaption: false,
-        browseClass: "btn btn-primary btn-lg",
-        fileType: "any",
-        previewFileIcon: "<i class='glyphicon glyphicon-king'></i>",
-        overwriteInitial: false,
-        initialPreviewAsData: true,
-        initialPreview: [
-            "http://lorempixel.com/1920/1080/transport/1",
-            "http://lorempixel.com/1920/1080/transport/2",
-            "http://lorempixel.com/1920/1080/transport/3",
-        ],
-        initialPreviewConfig: [
-            {caption: "transport-1.jpg", size: 329892, width: "120px", url: "{$url}", key: 1},
-            {caption: "transport-2.jpg", size: 872378, width: "120px", url: "{$url}", key: 2},
-            {caption: "transport-3.jpg", size: 632762, width: "120px", url: "{$url}", key: 3},
-        ],
-    });
-    $("#file-4").fileinput({
-        uploadExtraData: {kvId: '10'}
-    });
-    $(".btn-warning").on('click', function () {
-        var $el = $("#file-4");
-        if ($el.attr('disabled')) {
-            $el.fileinput('enable');
-        } else {
-            $el.fileinput('disable');
-        }
-    });
-    $(".btn-info").on('click', function () {
-        $("#file-4").fileinput('refresh', {previewClass: 'bg-info'});
-    });
-
-    $(document).ready(function () {
-        $("#test-upload").fileinput({
-            'showPreview': false,
-            'allowedFileExtensions': ['jpg', 'png', 'gif'],
-            'elErrorContainer': '#errorBlock'
-        });
-        $("#kv-explorer").fileinput({
-            'theme': 'explorer',
-            'uploadUrl': '#',
-            overwriteInitial: false,
-            initialPreviewAsData: true,
-            initialPreview: [
-                "http://lorempixel.com/1920/1080/nature/1",
-                "http://lorempixel.com/1920/1080/nature/2",
-                "http://lorempixel.com/1920/1080/nature/3",
-            ],
-            initialPreviewConfig: [
-                {caption: "nature-1.jpg", size: 329892, width: "120px", url: "{$url}", key: 1},
-                {caption: "nature-2.jpg", size: 872378, width: "120px", url: "{$url}", key: 2},
-                {caption: "nature-3.jpg", size: 632762, width: "120px", url: "{$url}", key: 3},
-            ]
-        });
-
-    });
-</script>
-
-
-
-<!-- end search validation -->
-
-<script>
-    function updateprofilepopup(id) {
-        $('#bidmodal-2').modal('show');
-    }
-</script>
-
-
-
-<!-- insert post validtation start -->
-
-
-<script type="text/javascript">
-
-    function imgval() {
-
-        var fileInput = document.getElementById("file-1").files;
-        var product_name1 = document.getElementById("test-upload-product").value;
-        var product_description1 = document.getElementById("test-upload-des").value;
-        var product_fileInput1 = document.getElementById("file-1").value;
-
-
-        if (product_fileInput1 == '' && product_name1 == '' && product_description1 == '')
-        {
-
-            $('.biderror .mes').html("<div class='pop_content'>This post appears to be blank. Please write or attach (photos, videos, audios, pdf) to post.");
-            $('#bidmodal').modal('show');
-            setInterval('window.location.reload()', 10000);
-            // window.location='';
-            event.preventDefault();
-            return false;
-
-        } else {
-
-            for (var i = 0; i < fileInput.length; i++)
-            {
-                var vname = fileInput[i].name;
-                var vfirstname = fileInput[0].name;
-                var ext = vfirstname.split('.').pop();
-                var ext1 = vname.split('.').pop();
-                var allowedExtensions = ['jpg', 'jpeg', 'png', 'gif'];
-                var allowesvideo = ['mp4', 'webm'];
-                var allowesaudio = ['mp3'];
-                var allowespdf = ['pdf'];
-
-                var foundPresent = $.inArray(ext, allowedExtensions) > -1;
-                var foundPresentvideo = $.inArray(ext, allowesvideo) > -1;
-                var foundPresentaudio = $.inArray(ext, allowesaudio) > -1;
-                var foundPresentpdf = $.inArray(ext, allowespdf) > -1;
-
-                if (foundPresent == true)
-                {
-                    var foundPresent1 = $.inArray(ext1, allowedExtensions) > -1;
-
-                    if (foundPresent1 == true && fileInput.length <= 10) {
-                    } else {
-
-                        $('.biderror .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
-                        $('#bidmodal').modal('show');
-                        setInterval('window.location.reload()', 10000);
-                        // window.location='';
-                        event.preventDefault();
-                        return false;
-                    }
-
-                } else if (foundPresentvideo == true)
+                if (product_fileInput1 == '' && product_name1 == '' && product_description1 == '')
                 {
 
-                    var foundPresent1 = $.inArray(ext1, allowesvideo) > -1;
+                    $('.biderror .mes').html("<div class='pop_content'>This post appears to be blank. Please write or attach (photos, videos, audios, pdf) to post.");
+                    $('#bidmodal').modal('show');
+                    setInterval('window.location.reload()', 10000);
+                    // window.location='';
+                    event.preventDefault();
+                    return false;
 
-                    if (foundPresent1 == true && fileInput.length == 1) {
-                    } else {
-                        $('.biderror .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
-                        $('#bidmodal').modal('show');
-                        setInterval('window.location.reload()', 10000);
-                        event.preventDefault();
-                        return false;
-                    }
-                } else if (foundPresentaudio == true)
-                {
+                } else {
 
-                    var foundPresent1 = $.inArray(ext1, allowesaudio) > -1;
+                    for (var i = 0; i < fileInput.length; i++)
+                    {
+                        var vname = fileInput[i].name;
+                        var vfirstname = fileInput[0].name;
+                        var ext = vfirstname.split('.').pop();
+                        var ext1 = vname.split('.').pop();
+                        var allowedExtensions = ['jpg', 'jpeg', 'png', 'gif'];
+                        var allowesvideo = ['mp4', 'webm'];
+                        var allowesaudio = ['mp3'];
+                        var allowespdf = ['pdf'];
 
-                    if (foundPresent1 == true && fileInput.length == 1) {
-                    } else {
-                        $('.biderror .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
-                        $('#bidmodal').modal('show');
-                        setInterval('window.location.reload()', 10000);
-                        event.preventDefault();
-                        return false;
-                    }
-                } else if (foundPresentpdf == true)
-                {
+                        var foundPresent = $.inArray(ext, allowedExtensions) > -1;
+                        var foundPresentvideo = $.inArray(ext, allowesvideo) > -1;
+                        var foundPresentaudio = $.inArray(ext, allowesaudio) > -1;
+                        var foundPresentpdf = $.inArray(ext, allowespdf) > -1;
 
-                    var foundPresent1 = $.inArray(ext1, allowespdf) > -1;
+                        if (foundPresent == true)
+                        {
+                            var foundPresent1 = $.inArray(ext1, allowedExtensions) > -1;
 
-                    if (foundPresent1 == true && fileInput.length == 1) {
+                            if (foundPresent1 == true && fileInput.length <= 10) {
+                            } else {
+
+                                $('.biderror .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
+                                $('#bidmodal').modal('show');
+                                setInterval('window.location.reload()', 10000);
+                                // window.location='';
+                                event.preventDefault();
+                                return false;
+                            }
+
+                        } else if (foundPresentvideo == true)
+                        {
+
+                            var foundPresent1 = $.inArray(ext1, allowesvideo) > -1;
+
+                            if (foundPresent1 == true && fileInput.length == 1) {
+                            } else {
+                                $('.biderror .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
+                                $('#bidmodal').modal('show');
+                                setInterval('window.location.reload()', 10000);
+                                event.preventDefault();
+                                return false;
+                            }
+                        } else if (foundPresentaudio == true)
+                        {
+
+                            var foundPresent1 = $.inArray(ext1, allowesaudio) > -1;
+
+                            if (foundPresent1 == true && fileInput.length == 1) {
+                            } else {
+                                $('.biderror .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
+                                $('#bidmodal').modal('show');
+                                setInterval('window.location.reload()', 10000);
+                                event.preventDefault();
+                                return false;
+                            }
+                        } else if (foundPresentpdf == true)
+                        {
+
+                            var foundPresent1 = $.inArray(ext1, allowespdf) > -1;
+
+                            if (foundPresent1 == true && fileInput.length == 1) {
 
 
-                        if (product_name1 == '') {
-                            $('.biderror .mes').html("<div class='pop_content'>You have to add pdf title.");
+                                if (product_name1 == '') {
+                                    $('.biderror .mes').html("<div class='pop_content'>You have to add pdf title.");
+                                    $('#bidmodal').modal('show');
+                                    setInterval('window.location.reload()', 10000);
+                                    event.preventDefault();
+                                    return false;
+                                }
+                            } else {
+                                $('.biderror .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
+                                $('#bidmodal').modal('show');
+                                setInterval('window.location.reload()', 10000);
+                                event.preventDefault();
+                                return false;
+                            }
+                        } else if (foundPresentvideo == false) {
+
+                            $('.biderror .mes').html("<div class='pop_content'>This File Format is not supported Please Try to Upload MP4 or WebM files..");
                             $('#bidmodal').modal('show');
                             setInterval('window.location.reload()', 10000);
                             event.preventDefault();
                             return false;
+
                         }
-                    } else {
-                        $('.biderror .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
-                        $('#bidmodal').modal('show');
-                        setInterval('window.location.reload()', 10000);
-                        event.preventDefault();
-                        return false;
                     }
                 }
-                else if (foundPresentvideo == false) {
+            }
 
-                    $('.biderror .mes').html("<div class='pop_content'>This File Format is not supported Please Try to Upload MP4 or WebM files..");
-                    $('#bidmodal').modal('show');
-                    setInterval('window.location.reload()', 10000);
-                    event.preventDefault();
+        </script>
+
+        <script type="text/javascript">
+
+            // $(document).ready(function () {
+            //     $('.modal-close').on('click', function () {
+            //         $('.modal-post').hide();
+            //     });
+            // });
+
+        </script>
+
+
+        <!-- insert validation end -->
+
+        <!-- zalak script for more decription strat -->
+
+        <!-- further and less -->
+        <script>
+            $(function () {
+                var showTotalChar = 200, showChar = "More", hideChar = "less";
+                $('.show').each(function () {
+                    //var content = $(this).text();
+                    var content = $(this).html();
+                    if (content.length > showTotalChar) {
+                        var con = content.substr(0, showTotalChar);
+                        var hcon = content.substr(showTotalChar, content.length - showTotalChar);
+                        var txt = con + '<span class="dots">...</span><span class="morectnt"><span>' + hcon + '</span>&nbsp;&nbsp;<a href="" class="showmoretxt">' + showChar + '</a></span>';
+                        $(this).html(txt);
+                    }
+                });
+                $(".showmoretxt").click(function () {
+                    if ($(this).hasClass("sample")) {
+                        $(this).removeClass("sample");
+                        $(this).text(showChar);
+                    } else {
+                        $(this).addClass("sample");
+                        $(this).text(hideChar);
+                    }
+                    $(this).parent().prev().toggle();
+                    $(this).prev().toggle();
                     return false;
+                });
+            });
+        </script>
 
-                } 
+        <!-- zalak script for more decription end -->
+
+        <!-- textarea js -->
+
+        <script type="text/javascript">
+            function h(e) {
+                $(e).css({
+                    'height': '29px',
+                    'overflow-y': 'hidden'
+                }).height(e.scrollHeight);
             }
-        }
-    }
-
-</script>
-
-<script type="text/javascript">
-
-    // $(document).ready(function () {
-    //     $('.modal-close').on('click', function () {
-    //         $('.modal-post').hide();
-    //     });
-    // });
-
-</script>
+            $('.textarea').each(function () {
+                h(this);
+            }).on('input', function () {
+                h(this);
+            });
+        </script>
 
 
-<!-- insert validation end -->
+        <script type="text/javascript">
+            function likeuserlist(post_id) {
 
-<!-- zalak script for more decription strat -->
-
-   <!-- further and less -->
-                        <script>
-                            $(function () {
-                                var showTotalChar = 200, showChar = "More", hideChar = "less";
-                                $('.show').each(function () {
-                                    //var content = $(this).text();
-                                    var content = $(this).html();
-                                    if (content.length > showTotalChar) {
-                                        var con = content.substr(0, showTotalChar);
-                                        var hcon = content.substr(showTotalChar, content.length - showTotalChar);
-                                        var txt = con + '<span class="dots">...</span><span class="morectnt"><span>' + hcon + '</span>&nbsp;&nbsp;<a href="" class="showmoretxt">' + showChar + '</a></span>';
-                                        $(this).html(txt);
-                                    }
-                                });
-                                $(".showmoretxt").click(function () {
-                                    if ($(this).hasClass("sample")) { 
-                                        $(this).removeClass("sample");
-                                        $(this).text(showChar);
-                                    } else {
-                                        $(this).addClass("sample");
-                                        $(this).text(hideChar);
-                                    }
-                                    $(this).parent().prev().toggle();
-                                    $(this).prev().toggle();
-                                    return false;
-                                });
-                            });
-                        </script>
-
-<!-- zalak script for more decription end -->
-
-<!-- textarea js -->
-
-<script type="text/javascript">
-    function h(e) {
-        $(e).css({
-            'height': '29px',
-            'overflow-y': 'hidden'
-        }).height(e.scrollHeight);
-    }
-    $('.textarea').each(function () {
-        h(this);
-    }).on('input', function () {
-        h(this);
-    });
-</script>
-
-
-<script type="text/javascript">
-    function likeuserlist(post_id) {
-
-        $.ajax({
-            type: 'POST',
-            url: '<?php echo base_url() . "artistic/likeuserlist" ?>',
-            data: 'post_id=' + post_id,
-            dataType: "html",
-            success: function (data) {
-                var html_data = data;
-                $('#likeusermodal .mes').html(html_data);
-                $('#likeusermodal').modal('show');
+                $.ajax({
+                    type: 'POST',
+                    url: '<?php echo base_url() . "artistic/likeuserlist" ?>',
+                    data: 'post_id=' + post_id,
+                    dataType: "html",
+                    success: function (data) {
+                        var html_data = data;
+                        $('#likeusermodal .mes').html(html_data);
+                        $('#likeusermodal').modal('show');
+                    }
+                });
             }
-        });
-    }
-</script>
+        </script>
 
 
-<!-- scrtipt for count title number start -->
+        <!-- scrtipt for count title number start -->
 
-<script language=JavaScript>
-                             
-                             
-                                   
-                            function check_length(my_form)
-                            {
-                                maxLen = 50;
-                                // max number of characters allowed
-                                if (my_form.my_text.value.length > maxLen) {
-                                    // Alert message if maximum limit is reached. 
-                                    // If required Alert can be removed. 
-                                    var msg = "You have reached your maximum limit of characters allowed";
-                                //    alert(msg);
-                                     my_form.text_num.value = maxLen - my_form.my_text.value.length;
-                       $('.biderror .mes').html("<div class='pop_content'>" + msg + "</div>");
-                        $('#bidmodal').modal('show');
-                                    // Reached the Maximum length so trim the textarea
-                                    my_form.my_text.value = my_form.my_text.value.substring(0, maxLen);
-                                } else {
-                                    // Maximum length not reached so update the value of my_text counter
-                                    my_form.text_num.value = maxLen - my_form.my_text.value.length;
-                                }
-                            }
-                            //-->
-                        </script>
-<!-- script end -->
-<style type="text/css">
-    .likeduser{
-        width: 100%;
-        background-color: #00002D;
-    }
-    .likeduser-title{
-        color: #fff;
-        margin-bottom: 5px;
-        padding: 7px;
-    }
-    .likeuser_list{
-        background-color: #ccc;
-        float: left;
-        margin: 0px 6px 5px 9px;
-        padding: 5px;
-        width: 47%;
-        font-size: 14px;
-    }
-    .likeduserlist, .likeduserlist1 {
-        float: left;
-        /*        margin-left: 15px;
-                margin-right: 15px;*/
-        width: 96%;
-        background-color: #fff !important;
-    }
-    div[class^="likeduserlist"]{
-        width: 100% !important;
-        background-color: #fff !important;
-    }
-    .like_one_other{/*
-        margin-left: 15px;
-*/        /*  margin-right: 15px;*/
+        <script language=JavaScript>
 
-    }
 
-</style>
-<!-- This  script use for close dropdown in every post -->
-<!--<script type="text/javascript">
-    $('body').on("click", "*", function (e) {
-        var classNames = $(e.target).attr("class").toString().split(' ').pop();
-//        alert(classNames);
-        $('div[id^=myDropdown]').hide().removeClass('show');
-//        $('#myModal3').hide();
+
+            function check_length(my_form)
+            {
+                maxLen = 50;
+                // max number of characters allowed
+                if (my_form.my_text.value.length > maxLen) {
+                    // Alert message if maximum limit is reached. 
+                    // If required Alert can be removed. 
+                    var msg = "You have reached your maximum limit of characters allowed";
+                    //    alert(msg);
+                    my_form.text_num.value = maxLen - my_form.my_text.value.length;
+                    $('.biderror .mes').html("<div class='pop_content'>" + msg + "</div>");
+                    $('#bidmodal').modal('show');
+                    // Reached the Maximum length so trim the textarea
+                    my_form.my_text.value = my_form.my_text.value.substring(0, maxLen);
+                } else {
+                    // Maximum length not reached so update the value of my_text counter
+                    my_form.text_num.value = maxLen - my_form.my_text.value.length;
+                }
+            }
+            //-->
+        </script>
+        <!-- script end -->
+        <style type="text/css">
+            .likeduser{
+                width: 100%;
+                background-color: #00002D;
+            }
+            .likeduser-title{
+                color: #fff;
+                margin-bottom: 5px;
+                padding: 7px;
+            }
+            .likeuser_list{
+                background-color: #ccc;
+                float: left;
+                margin: 0px 6px 5px 9px;
+                padding: 5px;
+                width: 47%;
+                font-size: 14px;
+            }
+            .likeduserlist, .likeduserlist1 {
+                float: left;
+                /*        margin-left: 15px;
+                        margin-right: 15px;*/
+                width: 96%;
+                background-color: #fff !important;
+            }
+            div[class^="likeduserlist"]{
+                width: 100% !important;
+                background-color: #fff !important;
+            }
+            .like_one_other{/*
+                margin-left: 15px;
+                */        /*  margin-right: 15px;*/
+
+            }
+
+        </style>
+        <!-- This  script use for close dropdown in every post -->
+        <!--<script type="text/javascript">
+            $('body').on("click", "*", function (e) {
+                var classNames = $(e.target).attr("class").toString().split(' ').pop();
+        //        alert(classNames);
+                $('div[id^=myDropdown]').hide().removeClass('show');
+        //        $('#myModal3').hide();
+                
+                if (classNames == 'fa-ellipsis-v') {
+                    $('div[id^=myDropdown]').show().addClass('show');
+                }
+        //        else if (classNames == 'popup-text' || classNames == 'modal-post' ) {
+        //            $('#myModal3').show();
+        //        }
         
-        if (classNames == 'fa-ellipsis-v') {
-            $('div[id^=myDropdown]').show().addClass('show');
-        }
-//        else if (classNames == 'popup-text' || classNames == 'modal-post' ) {
-//            $('#myModal3').show();
-//        }
+            });
+        
+        </script>-->
 
-    });
+        <!-- This  script use for close dropdown in every post -->
+        <script type="text/javascript">
+            $('body').on("click", "*", function (e) {
+                var classNames = $(e.target).attr("class").toString().split(' ').pop();
+                if (classNames != 'fa-ellipsis-v') {
+                    $('div[id^=myDropdown]').hide().removeClass('show');
+                }
+            });
+        </script>
 
-</script>-->
+        <!-- This  script use for close dropdown in every post -->
 
-<!-- This  script use for close dropdown in every post -->
-                        <script type="text/javascript">
-                            $('body').on("click", "*", function (e) {
-                                var classNames = $(e.target).attr("class").toString().split(' ').pop();
-                                if (classNames != 'fa-ellipsis-v') {
-                                    $('div[id^=myDropdown]').hide().removeClass('show');
-                                }
-                                   });
-                        </script>
+        <!-- script for profile pic strat -->
+        <script type="text/javascript">
 
-<!-- This  script use for close dropdown in every post -->
+            function readURL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
 
-<!-- script for profile pic strat -->
-<script type="text/javascript">
-    
-     function readURL(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            
-            reader.onload = function (e) {
-            
-            document.getElementById('preview').style.display = 'block';
-                $('#preview').attr('src', e.target.result);
+                    reader.onload = function (e) {
+
+                        document.getElementById('preview').style.display = 'block';
+                        $('#preview').attr('src', e.target.result);
+                    }
+
+                    reader.readAsDataURL(input.files[0]);
+                }
             }
-            
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-    
-    $("#profilepic").change(function(){
-        readURL(this);
-    });
-</script>
 
-<!-- script for profile pic end -->
+            $("#profilepic").change(function () {
+                readURL(this);
+            });
+        </script>
+
+        <!-- script for profile pic end -->
 
 
 
 
-  <script>
-    $(document).ready(function() {
-        $('.video').mediaelementplayer({
-            alwaysShowControls: false,
-            videoVolume: 'horizontal',
-            features: ['playpause','progress','volume','fullscreen']
-        });
-    });
-    </script>
-    
-    <script>
-    $('.modal-close').on('click',function(){
-       $('#myModal3').modal(show);
-    });
-    </script>
+        <script>
+            $(document).ready(function () {
+                $('.video').mediaelementplayer({
+                    alwaysShowControls: false,
+                    videoVolume: 'horizontal',
+                    features: ['playpause', 'progress', 'volume', 'fullscreen']
+                });
+            });
+        </script>
+
+        <script>
+            $('.modal-close').on('click', function () {
+                $('#myModal3').modal(show);
+            });
+        </script>

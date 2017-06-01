@@ -3683,9 +3683,9 @@ class Artistic extends MY_Controller {
 
         $userid = $this->session->userdata('aileenuser');
 
-        $post_id = $_POST["post_id"];
-        $post_comment = $_POST["comment"];
-
+    $post_id = $_POST["post_id"];
+      $post_comment = $_POST["comment"];
+//die();
 
         $contition_array = array('art_post_id' => $_POST["post_id"], 'status' => '1');
         $artdatacomment = $this->data['artdatacomment'] = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');

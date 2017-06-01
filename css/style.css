@@ -108,7 +108,7 @@ a:focus { outline: none; text-decoration: none;  }
     right: 0;
     height: 35px;
     left: 0;
-    z-index: 9;
+    z-index: 1001;
     margin-left: 50px;
     margin-right: 50px;
     padding: 0px -31px;
@@ -462,7 +462,7 @@ ul.cv-btn li a i { padding-right: 6px; }
     border-top-right-radius: 4px;}
 
 #jobseeker_regform_primary{border: none !important; margin-bottom: 0px!important;}
-.common-form form { border: 2px solid #ddd; border-top: 0; padding: 10px;     background-color: white;}
+.common-form form {  border-top: 0; padding: 10px;     background-color: white;}
 .none_aaaart .common-form form{border: none!important;}
 fieldset.full-width { width: 100%; }
 .common-form .cntact-ss{    border: none!important;
@@ -2411,7 +2411,7 @@ text-align: justify; display: inline-block; margin-bottom: 0px;
 /* Style the tab content */
 .tabcontent {
     display: none;
-    padding: 6px 12px;
+    /*padding: 6px 12px;*/
     border: 1px solid #ccc;
     border-top: none;
 }
@@ -5046,7 +5046,7 @@ paginatiom*/
     color: black;
     }
     .data_exp{ 
-    padding: 12px 12px!important;
+    /*padding: 12px 12px!important;*/
     /* border: 1px solid #ccc; */
     border: none!important;}
     .pagi_exp{margin: 0 auto;
