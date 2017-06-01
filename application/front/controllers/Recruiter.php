@@ -1194,7 +1194,7 @@ $contition_array = array('status' => '1', 'is_delete' => '0');
         // $this->form_validation->set_rules('skills', 'Skils Name', 'required');
         //$this->form_validation->set_rules('month', 'Month', 'required');
         //$this->form_validation->set_rules('interview', ' Interview', 'required');
-        $this->form_validation->set_rules('position', ' Position', 'required');
+        //$this->form_validation->set_rules('position', ' Position', 'required');
         $this->form_validation->set_rules('post_desc', ' Description', 'required');
         //$this->form_validation->set_rules('last_date', 'Last date', 'required');
         $this->form_validation->set_rules('country', 'Country', 'required');
