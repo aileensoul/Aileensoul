@@ -657,7 +657,7 @@
                                   <div id="input<?php echo $y ?>" style="margin-bottom:4px;" class="clonedInput job_work_edit_<?php echo $jobgrad[$x]['job_graduation_id']?>">
                                     <input type="hidden" name="education_data[]" value="old" class="exp_data" id="exp_data<?php echo $y; ?>">
                                        <div class="job_work_experience_main_div">
-                                                            <fieldset class="">
+                                                            <!-- <fieldset class=""> -->
                                                  <h6>Degree :<span class="red">*</span></h6>
                              <select name="degree[]" id="degree1"  class="degree">
                        <option value="0">Select your Degree</option>
@@ -681,7 +681,7 @@
                                                                     ?>
                                                                 </select>
                                                                 <?php echo form_error('degree'); ?>
-                                                            </fieldset>
+                                                            <!-- </fieldset> -->
 
                                                             <?php
                                                             $contition_array = array('status' => 1);
@@ -693,7 +693,7 @@
                                                             ?>
 
 
-                                                            <fieldset class="">
+                                                            <!-- <fieldset class=""> -->
                                         <h6>Stream :<span class="red">*</span></h6>
                                              <select name="stream[]" id="stream1" class="stream" >
                                             <option value="">Select Degree First</option>
@@ -716,9 +716,9 @@
                                     ?>
                        </select>
                       <?php echo form_error('stream'); ?> 
-                                                            </fieldset>      
+                                                            <!-- </fieldset> -->      
 
-                                                            <fieldset class="">
+                                                            <!-- <fieldset class=""> -->
                                                 <h6>University :<span class="red">*</span></h6>                                    <select name="university[]" id="university1" class="university">
 
                               <option value="0" selected option disabled>Select your University</option>
@@ -741,9 +741,9 @@
                             ?>
                   </select>
                                                                 <?php echo form_error('univercity'); ?>
-                                                            </fieldset>      
-
-                                                            <fieldset class="">
+                                                            <!-- </fieldset> -->      
+<!-- 
+                                                            <fieldset class=""> -->
                                                 <h6>College :<span class="red">*</span></h6>
 
                                                  <input type="text" name="college[]" id="college1" class="college" placeholder="Enter College" value="<?php
@@ -752,10 +752,10 @@
                                                  }
                                                  ?>">
                                    <?php echo form_error('college'); ?>
-                                                            </fieldset>
+                                                            <!-- </fieldset> -->
 
 
-                                                            <fieldset class="">
+                                                            <!-- <fieldset class=""> -->
                                           <h6>Grade :<span class="red">*</span></h6>
                                    <input type="text" name="grade[]" id="grade1" class="grade" placeholder="Enter Grade" value="<?php
                                      if ($grade1) {
@@ -763,8 +763,8 @@
                                           }
                                       ?>">
                   <?php echo form_error('grade'); ?>
-                                    </fieldset>
-                                <fieldset class="">
+                                  <!--   </fieldset>
+                                <fieldset class=""> -->
                                              <h6>Percentage :<span class="red">*</span></h6>
                           <input type="number" name="percentage[]" id="percentage1" class="percentage" placeholder="Enter Percentage"  value="<?php
                          if ($percentage1) {
@@ -772,8 +772,8 @@
                            }
                            ?>" />
                   <?php echo form_error('percentage'); ?>
-                           </fieldset>
-                       <fieldset class="">
+                         <!--   </fieldset>
+                       <fieldset class=""> -->
                       <h6>Education Certificate:</h6>
                    <input style="" type="file" name="certificate[]" id="certificate1" class="certificate" placeholder="CERTIFICATE" multiple="" />&nbsp;&nbsp;&nbsp; <span id="certificate-error"> </span>
                           <?php
@@ -787,9 +787,9 @@
                                                                 }
                                                                 ?>
                                                                 <?php echo form_error('certificate'); ?>
-                                                            </fieldset>
+                                                           <!--  </fieldset>
 
-                                                            <fieldset class="">
+                                                            <fieldset class=""> -->
                                                    <h6>Year Of Passing :<span class="red">*</span></h6>
                                                                 <select name="pass_year[]" id="pass_year1" class="pass_year" >
                 <option value="0" selected option disabled>--SELECT--</option>
@@ -810,7 +810,7 @@
                          ?> 
        </select>
                   <?php echo form_error('pass_year'); ?>
-              </fieldset>
+              <!-- </fieldset> -->
 
                                                           
 
@@ -852,7 +852,7 @@
 
                 <input type="button" id="next" name="next"          class="job_edu_graduation_nextbtn" value="Next" style="font-size: 16px;min-width: 120px;margin-right: 0px;" onclick="next_page_graduation()">
 
-                                                    </fieldset>
+                                                   <!--  </fieldset> -->
 
                                                     <?php
                                                 } else {
