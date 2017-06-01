@@ -1168,7 +1168,7 @@ if ($this->input->post('skills') == "" && $this->input->post('searchplace') == "
 
         if ($this->input->post('skills') == "") { 
 
-        $contition_array = array('freelancer_post_city' => $search_place[0], 'status' => '1');
+        $contition_array = array('freelancer_post_city' => $search_place[0], 'status' => '1', 'freelancer_post_reg.user_id !=' => $userid);
             $unique = $this->data['results'] = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
         }
@@ -1466,7 +1466,7 @@ if ($this->input->post('skills') == "" && $this->input->post('searchplace') == "
 
         
         $search_skill = trim($this->input->post('skills'));
-        print_r($search_skill);  
+        //print_r($search_skill);  
         // $searchskill = implode(',',$search_skill);
         $this->data['keyword'] = $search_skill;
 
@@ -1497,8 +1497,24 @@ if ($this->input->post('skills') == "" && $this->input->post('searchplace') == "
         $insert_id = $this->common->insert_data_getid($data, 'search_info');
 
         if ($this->input->post('skills') == "") {
-            $contition_array = array('city' => $search_place[0], 'status' => '1');
-            $new = $this->data['results'] = $this->common->select_data_by_condition('freelancer_hire_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            echo $search_place[0];
+
+
+//$contition_array = array('freelancer_post.city' => $search_place[0], 'freelancer_hire_reg.status' => '1');
+
+             $join_str[0]['table'] = 'freelancer_post';
+            $join_str[0]['join_table_id'] = 'freelancer_post.user_id';
+            $join_str[0]['from_table_id'] = 'freelancer_hire_reg.user_id';
+            $join_str[0]['join_type'] = '';
+
+            $contition_array = array('freelancer_post.city' => $search_place[0],'freelancer_hire_reg.status' => '1', 'freelancer_hire_reg.user_id !=' =>$userid);
+
+    
+        $new = $this->data['results'] = $this->common->select_data_by_condition('freelancer_hire_reg', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
+
+            
+
+            //echo "<pre>"; print_r($unique);die();
 
             
         } 
