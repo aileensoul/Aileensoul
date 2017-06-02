@@ -792,7 +792,8 @@ class Recruiter extends MY_Controller {
                 }
             }
         }
-        foreach ($result as $key => $value) {
+        $results = array_unique($result);
+        foreach ($results as $key => $value) {
             $result1[$key]['label'] = $value;
             $result1[$key]['value'] = $value;
         }
@@ -892,7 +893,9 @@ class Recruiter extends MY_Controller {
                 }
             }
         }
-        foreach ($result as $key => $value) {
+
+        $results = array_unique($result);
+        foreach ($results as $key => $value) {
             $result1[$key]['label'] = $value;
             $result1[$key]['value'] = $value;
         }
@@ -1036,7 +1039,8 @@ class Recruiter extends MY_Controller {
                 }
             }
         }
-        foreach ($result as $key => $value) {
+        $results = array_unique($result);
+        foreach ($results as $key => $value) {
             $result1[$key]['label'] = $value;
             $result1[$key]['value'] = $value;
         }
@@ -1168,7 +1172,8 @@ $contition_array = array('status' => '1', 'is_delete' => '0');
                 }
             }
         }
-        foreach ($result as $key => $value) {
+        $results = array_unique($result);
+        foreach ($results as $key => $value) {
             $result1[$key]['label'] = $value;
             $result1[$key]['value'] = $value;
         }
@@ -1300,6 +1305,7 @@ $contition_array = array('status' => '1', 'is_delete' => '0');
                 }
             }
         }
+        $results = array_unique($result);
         foreach ($result as $key => $value) {
             $result1[$key]['label'] = $value;
             $result1[$key]['value'] = $value;
@@ -1399,6 +1405,7 @@ $contition_array = array('status' => '1', 'is_delete' => '0');
                 }
             }
         }
+        $results = array_unique($result);
         foreach ($result as $key => $value) {
             $result1[$key]['label'] = $value;
             $result1[$key]['value'] = $value;
@@ -2023,7 +2030,9 @@ $contition_array = array('status' => '1', 'is_delete' => '0');
                 }
             }
         }
-        foreach ($result as $key => $value) {
+        
+        $results = array_unique($result);
+        foreach ($results as $key => $value) {
             $result1[$key]['label'] = $value;
             $result1[$key]['value'] = $value;
         }
@@ -2176,7 +2185,8 @@ $join_str1 = array(
                 }
             }
         }
-        foreach ($result as $key => $value) {
+        $results = array_unique($result);
+        foreach ($results as $key => $value) {
             $result1[$key]['label'] = $value;
             $result1[$key]['value'] = $value;
         }
