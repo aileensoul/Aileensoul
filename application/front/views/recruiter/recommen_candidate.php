@@ -319,11 +319,6 @@
                   <?php echo $row['board_higher_secondary'];?>
                 </span>
                 </li>
-                <li><b>Steam of Higher Secondary</b>
-                <span>
-                  <?php echo $row['stream_higher_secondary'];?>
-                </span>
-                </li>
                 <li><b>Percentage of Higher Secondary</b>
                 <span>
                   <?php echo $row['percentage_higher_secondary'];?>
@@ -335,11 +330,6 @@
               <li><b>Board of Secondary</b>
                 <span>
                   <?php echo $row['board_secondary'];?>
-                </span>
-                </li>
-                <li><b>School of Secondary</b>
-                <span>
-                  <?php echo $row['school_secondary'];?>
                 </span>
                 </li>
                 <li><b>Percentage of Secondary</b>
@@ -354,11 +344,6 @@
                   <?php echo $row['board_higher_secondary'];?>
                 </span>
                 </li>
-                <li><b>Steam of Higher Secondary</b>
-                <span>
-                  <?php echo $row['stream_higher_secondary'];?>
-                </span>
-                </li>
                 <li><b>Percentage of Higher Secondary</b>
                 <span>
                   <?php echo $row['percentage_higher_secondary'];?>
@@ -369,11 +354,6 @@
                 <li><b>Board of Higher Secondary</b>
                 <span>
                   <?php echo $row['board_higher_secondary'];?>
-                </span>
-                </li>
-                <li><b>Steam of Higher Secondary</b>
-                <span>
-                  <?php echo $row['stream_higher_secondary'];?>
                 </span>
                 </li>
                 <li><b>Percentage of Higher Secondary</b>
@@ -545,11 +525,6 @@
                   <?php echo $row['board_higher_secondary'];?>
                 </span>
                 </li>
-                <li><b>Steam of Higher Secondary</b>
-                <span>
-                  <?php echo $row['stream_higher_secondary'];?>
-                </span>
-                </li>
                 <li><b>Percentage of Higher Secondary</b>
                 <span>
                   <?php echo $row['percentage_higher_secondary'];?>
@@ -564,11 +539,6 @@
                   <?php echo $row['board_secondary'];?>
                 </span>
                 </li>
-                <li><b>School of Secondary</b>
-                <span>
-                  <?php echo $row['school_secondary'];?>
-                </span>
-                </li>
                 <li><b>Percentage of Secondary</b>
                 <span>
                   <?php echo $row['percentage_secondary'];?>
@@ -580,11 +550,6 @@
  <li><b>Board of Primary</b>
                 <span>
                   <?php echo $row['board_primary'];?>
-                </span>
-                </li>
-                <li><b>School of Primary</b>
-                <span>
-                  <?php echo $row['school_primary'];?>
                 </span>
                 </li>
                 <li><b>Percentage of Primary</b>
