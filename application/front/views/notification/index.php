@@ -465,7 +465,7 @@
                                                     <img src="<?php echo base_url(USERIMAGE . $total['user_image']); ?>" >
                                                 </div>
                                                 <div class="notification-data-inside" id="notification_inside">
-                                                    <a href="<?php echo base_url('freelancer/freelancer_post_profile/' . $total['not_from_id']); ?>"><h6><?php echo "<font color='yellow'><b><i>Freelancer</i></font></b><b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Applied On Your Post."; ?></h6></a>
+                                                    <a href="<?php echo base_url('freelancer/freelancer_post_profile/' . $total['not_from_id'].'?page=freelancer_hire'); ?>"><h6><?php echo "<font color='yellow'><b><i>Freelancer</i></font></b><b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Applied On Your Post."; ?></h6></a>
                                                     <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
                                                         <?php echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                     </div>

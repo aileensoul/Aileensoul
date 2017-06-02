@@ -302,7 +302,7 @@ label.cameraButton input[accept*="camera"] {
 
                 <li><h4><?php echo text2link($post['post_name']); ?></h4></li>
              
-             <li style="display: block;"> <a href="<?php echo base_url('freelancer/freelancer_hire_profile/' . $post['user_id']); ?>" title="<?php echo ucwords($firstname); ?>&nbsp;<?php echo ucwords($lastname); ?>"><?php echo ucwords($firstname); ?>&nbsp;<?php echo ucwords($lastname); ?></a></li>
+             <li style="display: block;"> <a href="<?php echo base_url('freelancer/freelancer_hire_profile/' . $post['user_id'].'?page=freelancer_post'); ?>" title="<?php echo ucwords($firstname); ?>&nbsp;<?php echo ucwords($lastname); ?>"><?php echo ucwords($firstname); ?>&nbsp;<?php echo ucwords($lastname); ?></a></li>
 
               
                   
