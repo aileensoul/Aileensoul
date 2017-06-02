@@ -239,7 +239,7 @@
                                                     foreach ($profile as $p) {
 //                                                 echo "<pre>"; print_r($p);die();
                                                         ?>
-                                                    <div class="profile-job-profile-button clearfix box_search_module" style="height: 14%;border: 1px solid #efefef;margin-bottom: 20px!important;">
+                                                    <div class="profile-job-profile-button clearfix box_search_module" style="height: 20%;border: 1px solid #efefef;margin-bottom: 20px!important;">
                                      
                                                             
      <div class="profile-job-post-location-name-rec">
