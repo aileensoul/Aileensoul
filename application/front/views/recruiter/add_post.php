@@ -93,7 +93,7 @@
                                 <!--  </div> -->
                                       <fieldset class="full-width" <?php if ($position) { ?> class="error-msg" <?php } ?>>
                                     <label class="control-label">No of Position:<!-- <span style="color:red">*</span> --></label>
-                                    <input name="position_no" type="number" min="1" id="position" value="1" onblur="return full_name();" placeholder="Enter No of Candidate" />
+                                    <input name="position_no" type="text"  id="position" value="1" placeholder="Enter No of Candidate" />
                                     <span id="fullname-error"></span>
                                     <?php echo form_error('position'); ?>        
                                 </fieldset>
@@ -255,13 +255,13 @@
 
                                 <fieldset class="col-md-4" <?php if ($minsal) { ?> class="error-msg" <?php } ?>>
                                     <label class="control-label">Min salary:(Per Year) </label>
-                                    <input name="minsal" type="text" id="minsal" placeholder="Enter Minimum salary" onblur="return full_name(); /><span id="fullname-error"></span>
+                                    <input name="minsal" type="text" id="minsal" placeholder="Enter Minimum salary" /><span id="fullname-error"></span>
 <?php echo form_error('minsal'); ?>
                                 </fieldset>
 
                                 <fieldset class="col-md-4" <?php if ($maxsal) { ?> class="error-msg " <?php } ?>>
                                     <label class="control-label">Max salary:(Per Year)</label>
-                                    <input name="maxsal" type="text" id="maxsal" placeholder="Enter Maximum salary" onblur="return full_name();/><span id="fullname-error"></span>
+                                    <input name="maxsal" type="text" id="maxsal" placeholder="Enter Maximum salary" /><span id="fullname-error"></span>
 <?php echo form_error('maxsal'); ?>
                                 </fieldset>
 
@@ -344,31 +344,12 @@ function imgval(){
   $('#artpost .select2-selection').addClass("keyskill_border_active").style('border','1px solid #f00');
   }
 
-  var minyear = document.getElementById('minyear').value;
-        var minmonth = document.getElementById('minmonth').value;
-        var maxyear = document.getElementById('maxyear').value;
-        var maxmonth = document.getElementById('maxmonth').value;
-
-        var min_exper;
-        min_exper = (minyear * 12) + minmonth ;
-        max_exper = (maxyear * 12) + maxmonth;
-        if(min_exper > max_exper){
-            alert("Minimum experience is not greater than maximum experience");
-            return false;
-
-        }
-   
-  }
+ 
 
 </script>
 <script type="text/javascript">
 
 
-$.validator.addMethod("greaterThan",
-    function(value, max, min){
-        return parseInt(value) > parseInt($(min).val());
-    }, "minimum salary not greater than maximum salary"
-);
 
 $.validator.addMethod("regx", function(value, element, regexpr) {          
     return regexpr.test(value);
@@ -378,6 +359,20 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
       return value == '' || value.trim().length != 0;  
     }, "No space please and don't leave it empty");
 
+//for min max value validator start
+$.validator.addMethod("greaterThan",
+    function (value, element, param) {
+          var $otherElement = $(param);
+          return parseInt(value, 10) > parseInt($otherElement.val(), 10);
+    });
+
+// $.validator.addMethod('le', function(value, element, param) {
+//       return this.optional(element) || value <= $(param).val();
+// }, 'Invalid value');
+$.validator.addMethod('ge', function(value, element, param) {
+      return this.optional(element) || value >= $(param).val();
+}, 'Invalid value');
+//for min max value validator End
 
             $(document).ready(function () { 
 
@@ -403,6 +398,10 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
                            require_from_group: [1, ".other_skill"],
                           noSpace: true
                             // required:true 
+                        },
+                        position_no:{
+                             number:true,
+                             min: 1
                         },
 
                          minyear: {
@@ -433,13 +432,15 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
                         },
                         maxyear: {
                             
-                          require_from_group: [1, ".keyskil1"] 
+                          require_from_group: [1, ".keyskil1"],
+                          greaterThan: "#minyear"
                           //required:true 
                         }, 
 
                         maxmonth: {
                             
-                           require_from_group: [1, ".keyskil1"]
+                           require_from_group: [1, ".keyskil1"],
+                            greaterThan: "#minmonth"
                             // required:true 
                         },
                         last_date: {
@@ -447,15 +448,21 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
                             required: true
                             
                         },
+                        minsal:{
+                            number:true
+                           // le:"#maxsal"
+                        },
+                        maxsal:{
+                            // required: function(element){
+                            // return $("#minsal").val().length > 0;
+                            // },
+                             number:true,
+                             ge: "#minsal"
+                        },
                         // position_no:{
                         //     required:true
                         // },
                       
-
-
-
-
-                   
 
 
                      },
@@ -478,11 +485,11 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
                         },
                         minyear: {
 
-                            required: "You must either fill out 'month' or 'year'"
+                             require_from_group: "You must either fill out 'month' or 'year'"
                         },
                         minmonth: {
 
-                            required: "You must either fill out 'month' or 'year'"
+                             require_from_group: "You must either fill out 'month' or 'year'"
                             
                         },
                          post_desc: {
@@ -502,26 +509,29 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
                         },
                         maxyear: {
 
-                            require_from_group: "You must either fill out 'month' or 'year'"
+                            require_from_group: "You must either fill out 'month' or 'year'",
+                            greaterThan:"Maximum Year Experience should be grater than Minimum Year"
 
                         },
 
                         maxmonth: {
 
-                            require_from_group: "You must either fill out 'month' or 'year'"
+                            require_from_group: "You must either fill out 'month' or 'year'",
+                            greaterThan:"Maximum Month Experience should be grater than Minimum Month"
                         },
                         last_date: {
 
                             required: "Last date  Is Required."
                         },
+                        // minsal:{
+                        //     le:"Minimum salary should be less than Maximum salary"
+                        // },
+                        maxsal:{
+                            ge:"Maximum salary should be grater than Minimum salary"
+                        },
                         // position_no:{
                         //     required:"No candidate required."
                         // },
-
-
-
-
-                       
 
 
                     }

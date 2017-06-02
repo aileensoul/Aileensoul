@@ -1615,19 +1615,34 @@ $contition_array = array('status' => '1', 'is_delete' => '0');
     public function location() {
         $json = [];
 
-        //$this->load->database('aileensoul');
+        $this->load->database('aileensoul');
 
-        if (!empty($this->input->get("q"))) {
-            $this->db->like('city_name', $this->input->get("q"));
-            $query = $this->db->select('city_id as id,city_name as text')
-                    ->order_by("city_name", "asc")
-                    ->limit(10)
-                    ->get("cities");
-            $json = $query->result();
-        }
+//        if (!empty($this->input->get("q"))) {
+//            $this->db->like('city_name', $this->input->get("q"));
+//            $query = $this->db->select('city_id as id,city_name as text')
+//                    ->order_by("city_name", "asc")
+//                    ->limit(10)
+//                    ->get("cities");
+//            $json = $query->result();
+//        }
+        
+         // message from user
+     //    $contition_array = array('is_delete' => '0' , 'status' => '1','message_to !=' => $userid);
 
+//     $join_str5[0]['table'] = 'messages';
+//     $join_str5[0]['join_table_id'] = 'messages.message_to';
+//     $join_str5[0]['from_table_id'] = 'user.user_id';
+//     $join_str5[0]['join_type'] = '';
+     
+     if (!empty($this->input->get("q"))) {
+     $search_condition = "(city_name LIKE '" . trim($this->input->get("q")) . "%')";
 
-        echo json_encode($json);
+     $tolist = $this->common->select_data_by_search('cities', $search_condition,$contition_array = array(), $data = 'city_id as id,city_name as text', $sortby = 'city_name', $orderby = 'asc', $limit = '', $offset = '', $join_str5 = '', $groupby = '');
+   
+//echo '<pre>'; print_r($tolist); die();
+     }
+      //  echo json_encode($tolist);
+        echo json_encode($tolist);
     }
 
 //location automatic retrieve cobtroller End

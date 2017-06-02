@@ -758,9 +758,9 @@ $data = $this->common->select_data_by_condition('save', $contition_array, $data 
                                 url: "<?php echo base_url(); ?>recruiter/location",
                                 dataType: 'json',
                                 delay: 250,
-                                processResults: function (data) {
+                                processResults: function (data) { //alert(data);
                                     return {
-                                        //alert(data);
+                                       
                                         results: data
                                     };
                                 },
