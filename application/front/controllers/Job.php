@@ -3417,6 +3417,7 @@ $files[] = $_FILES;
             }
         }
         $results = array_unique($result);
+        //echo "<pre>"; print_r($results);die();
         foreach ($results as $key => $value) {
             $result1[$key]['label'] = $value;
             $result1[$key]['value'] = $value;
@@ -3580,7 +3581,6 @@ $files[] = $_FILES;
         $uni = array_merge($results_recruiter, $results_post, $skill);
         //   echo count($unique);
 
-
         foreach ($uni as $key => $value) {
             foreach ($value as $ke => $val) {
                 if ($val != "") {
@@ -3591,7 +3591,8 @@ $files[] = $_FILES;
             }
         }
         $results = array_unique($result);
-        foreach ($results as $key => $value) {
+        //echo "<pre>"; print_r($results);die();
+        foreach ($result as $key => $value) {
             $result1[$key]['label'] = $value;
             $result1[$key]['value'] = $value;
         }

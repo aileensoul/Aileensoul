@@ -804,9 +804,23 @@ echo $job_header2;
             $total_work_year+=$work1['experience_year'];
             $total_work_month+=$work1['experience_month'];
             }
-            echo $total_work_year; echo "&nbsp"; echo "Year";
+            if($total_work_month == '12 month' && $total_work_year =='0 year'){
+                echo "1 year";
+            }
+            elseif($total_work_year !='0 year' && $total_work_month == '12 month'){
+                 $month = explode(' ', $total_work_year);
+                                                $year=$month[0];
+                                                $years=$year + 1;
+                                                echo $years." Years";
+            }
+            else{
+                echo $total_work_year; echo "&nbsp"; echo "Year";
             echo "&nbsp";
             echo $total_work_month; echo "&nbsp"; echo "Month";
+            }
+            // echo $total_work_year; echo "&nbsp"; echo "Year";
+            // echo "&nbsp";
+            // echo $total_work_month; echo "&nbsp"; echo "Month";
             ?> 
 
 
@@ -866,14 +880,21 @@ echo $job_header2;
             if ($work['experience'] == "Fresher") {
 
             } else {
-                                                                        if ($work['experience_year'] == "0 year") {
-                                                                            echo $work['experience_month'];
-                                                                        } else {
-                                                                            echo $work['experience_year'];
-                                                                            echo "&nbsp";
-                                                                            echo $work['experience_month'];
-                                                                        }
-                                                                    }
+                          if ($work['experience_year'] == "0 year" && $work['experience_month'] == "12 month") {
+                                              echo "1 Year";
+                                             } elseif($work['experience_year'] != "0 year" && $work['experience_month'] == "12 month") {
+
+                                                $month1 = explode(' ', $work['experience_year']);
+                                                $year1=$month1[0];
+                                                $years1=$year1 + 1;
+                                                echo $years1." Years";
+                                                  }
+                                                  else{
+                                                    echo $work['experience_year'];
+                                                   echo "&nbsp";
+                                         echo $work['experience_month'];
+                                                  }
+                                             }
                                                                     ?></span>
                                                             </li>
 
