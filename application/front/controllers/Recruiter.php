@@ -906,10 +906,10 @@ class Recruiter extends MY_Controller {
         } else {
             //echo "hello"; die();
             $data = array(
-                'post_name' => $this->input->post('post_name'),
-                'post_description' => $this->input->post('post_desc'),
+                'post_name' => trim($this->input->post('post_name')),
+                'post_description' => trim($this->input->post('post_desc')),
                 'post_skill' => implode(",", $skill),
-                'post_position' => $this->input->post('position'),
+                'post_position' => trim($this->input->post('position')),
                  
                  'post_last_date' => date('Y-m-d', strtotime($bod)),
                 //'post_location ' => $this->input->post('location'),
@@ -920,13 +920,13 @@ class Recruiter extends MY_Controller {
                 'min_year' => $this->input->post('minyear'),
                 'max_month' => $this->input->post('maxmonth'),
                 'max_year' => $this->input->post('maxyear'),
-                'interview_process' => $this->input->post('interview'),
+                'interview_process' => trim($this->input->post('interview')),
                 'fresher' => $this->input->post('fresher'),
-                'min_sal' => $this->input->post('minsal'),
-                'max_sal' => $this->input->post('maxsal'),
+                'min_sal' => trim($this->input->post('minsal')),
+                'max_sal' => trim($this->input->post('maxsal')),
                 'post_currency' => $this->input->post('currency'),
                 'is_delete' => 0,
-                'other_skill' => $this->input->post('other_skill'),
+                'other_skill' => trim($this->input->post('other_skill')),
                 'created_date' => date('y-m-d h:i:s'),
                 'user_id' => $userid,
                 'status' => 1,
