@@ -2125,7 +2125,8 @@ class Business_profile extends MY_Controller {
             if ($update) {
 
                 $unfollow = '<div id="followdiv " class="user_btn">';
-                $unfollow .= '<button style="margin-top: 7px;" id="follow' . $business_id . '" onClick="followuser(' . $business_id . ')">
+            //    $unfollow .= '<button style="margin-top: 7px;" id="follow' . $business_id . '" onClick="followuser(' . $business_id . ')">
+                $unfollow .= '<button id="follow' . $business_id . '" onClick="followuser(' . $business_id . ')">
                                Follow 
                       </button>';
                 $unfollow .= '</div>';
