@@ -227,8 +227,8 @@ if ($freepostdata[0]['designation']) {
                               <?php $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name; ?>
                               <?php $countryname = $this->db->get_where('countries', array('country_id' => $post['country']))->row()->country_name; ?>
 
-                                <p><i class="fa fa-map-marker" aria-hidden="true">
-                                  <?php if ($cityname){echo $cityname.","; } ?><?php if ($countryname){ echo $countryname; }?></i></p>
+                                <a href="" title="Location"><i class="fa fa-map-marker" aria-hidden="true" >
+                                  <?php if ($cityname){echo $cityname.","; } ?><?php if ($countryname){ echo $countryname; }?></i></a>
                                  </div>
 
                              <?php
