@@ -93,7 +93,7 @@
                                 <!--  </div> -->
                                       <fieldset class="full-width" <?php if ($position) { ?> class="error-msg" <?php } ?>>
                                     <label class="control-label">No of Position:<!-- <span style="color:red">*</span> --></label>
-                                    <input name="position_no" type="number" min="1" id="position" value="1" onblur="return full_name();" placeholder="Enter No of Candidate" />
+                                    <input name="position_no" type="text"  id="position" value="1" placeholder="Enter No of Candidate" />
                                     <span id="fullname-error"></span>
                                     <?php echo form_error('position'); ?>        
                                 </fieldset>
@@ -255,13 +255,13 @@
 
                                 <fieldset class="col-md-4" <?php if ($minsal) { ?> class="error-msg" <?php } ?>>
                                     <label class="control-label">Min salary:(Per Year) </label>
-                                    <input name="minsal" type="text" id="minsal" placeholder="Enter Minimum salary" onblur="return full_name(); /><span id="fullname-error"></span>
+                                    <input name="minsal" type="text" id="minsal" placeholder="Enter Minimum salary" /><span id="fullname-error"></span>
 <?php echo form_error('minsal'); ?>
                                 </fieldset>
 
                                 <fieldset class="col-md-4" <?php if ($maxsal) { ?> class="error-msg " <?php } ?>>
                                     <label class="control-label">Max salary:(Per Year)</label>
-                                    <input name="maxsal" type="text" id="maxsal" placeholder="Enter Maximum salary" onblur="return full_name();/><span id="fullname-error"></span>
+                                    <input name="maxsal" type="text" id="maxsal" placeholder="Enter Maximum salary" /><span id="fullname-error"></span>
 <?php echo form_error('maxsal'); ?>
                                 </fieldset>
 
@@ -398,6 +398,10 @@ $.validator.addMethod('ge', function(value, element, param) {
                            require_from_group: [1, ".other_skill"],
                           noSpace: true
                             // required:true 
+                        },
+                        position_no:{
+                             number:true,
+                             min: 1
                         },
 
                          minyear: {
