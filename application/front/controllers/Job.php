@@ -2026,19 +2026,30 @@ class Job extends MY_Controller {
     public function location() {
         $json = [];
 
-        //$this->load->database('aileensoul');
+        $this->load->database('aileensoul');
+
+        // if (!empty($this->input->get("q"))) {
+        //     $this->db->like('city_name', $this->input->get("q"));
+        //     $query = $this->db->select('city_id as id,city_name as text')
+        //             ->order_by("city_name", "asc")
+        //             ->limit(10)
+        //             ->get("cities");
+        //     $json = $query->result();
+        // }
+
+
+        // echo json_encode($json);
 
         if (!empty($this->input->get("q"))) {
-            $this->db->like('city_name', $this->input->get("q"));
-            $query = $this->db->select('city_id as id,city_name as text')
-                    ->order_by("city_name", "asc")
-                    ->limit(10)
-                    ->get("cities");
-            $json = $query->result();
-        }
+     $search_condition = "(city_name LIKE '" . trim($this->input->get("q")) . "%')";
 
-
-        echo json_encode($json);
+     $tolist = $this->common->select_data_by_search('cities', $search_condition,$contition_array = array(), $data = 'city_id as id,city_name as text', $sortby = 'city_name', $orderby = 'desc', $limit = '', $offset = '', $join_str5 = '', $groupby = '');
+   
+//echo '<pre>'; print_r($tolist); die();
+     }
+      //  echo json_encode($tolist);
+        echo json_encode($tolist);
+    
     }
 
 //location automatic retrieve controller End
@@ -3263,7 +3274,9 @@ $files[] = $_FILES;
         // $contition_array = array('status' => '1');
         // $artpost= $this->data['results'] =  $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
 
+            // $contition_array = array('status' => '1');
 
+            // $this->data['citty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
 
 
         $uni = array_merge($results_recruiter, $results_post, $skill);
