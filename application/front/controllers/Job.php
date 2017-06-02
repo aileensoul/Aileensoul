@@ -3263,7 +3263,9 @@ $files[] = $_FILES;
         // $contition_array = array('status' => '1');
         // $artpost= $this->data['results'] =  $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
 
+            // $contition_array = array('status' => '1');
 
+            // $this->data['citty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
 
 
         $uni = array_merge($results_recruiter, $results_post, $skill);
