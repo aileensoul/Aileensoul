@@ -91,13 +91,18 @@ class Freelancer extends MY_Controller {
 
         $contition_array = array('status' => '1', 'type' => '1');
 
-        $skill = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        $skill = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby);
+
+         $contition_array = array('status' => '1');
+
+        $results_post = $this->data['results'] = $this->common->select_data_by_condition('freelancer_post', $contition_array, $data = 'post_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
 
         $contition_array = array('status' => '1', 'is_delete' => '0');
 
-        $field = $this->data['results'] = $this->common->select_data_by_condition('category', $contition_array, $data = 'category_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        $field = $this->data['results'] = $this->common->select_data_by_condition('category', $contition_array, $data = 'category_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby);
 
-        $uni = array_merge($skill, $freelancer_postdata, $field);
+        $uni = array_merge($skill, $freelancer_postdata, $field,$results_post);
         // echo count($unique);
         // $this->data['demo']=$uni;
 
@@ -325,11 +330,16 @@ class Freelancer extends MY_Controller {
 
         $skill = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
 
+         $contition_array = array('status' => '1');
+
+        $results_post = $this->data['results'] = $this->common->select_data_by_condition('freelancer_post', $contition_array, $data = 'post_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+
         $contition_array = array('status' => '1', 'is_delete' => '0');
 
         $field = $this->data['results'] = $this->common->select_data_by_condition('category', $contition_array, $data = 'category_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
 
-        $uni = array_merge($skill, $freelancer_postdata, $field);
+        $uni = array_merge($skill, $freelancer_postdata, $field,$results_post);
         // echo count($unique);
         // $this->data['demo']=$uni;
 
@@ -535,11 +545,17 @@ class Freelancer extends MY_Controller {
 
         $skill = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
 
+ $contition_array = array('status' => '1');
+
+        $results_post = $this->data['results'] = $this->common->select_data_by_condition('freelancer_post', $contition_array, $data = 'post_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+
+
         $contition_array = array('status' => '1', 'is_delete' => '0');
 
         $field = $this->data['results'] = $this->common->select_data_by_condition('category', $contition_array, $data = 'category_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
 
-        $uni = array_merge($skill, $freelancer_postdata, $field);
+        $uni = array_merge($skill, $freelancer_postdata, $field,$results_post);
         // echo count($unique);
         // $this->data['demo']=$uni;
 
@@ -663,11 +679,16 @@ class Freelancer extends MY_Controller {
 
         $skill = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
 
+         $contition_array = array('status' => '1');
+
+        $results_post = $this->data['results'] = $this->common->select_data_by_condition('freelancer_post', $contition_array, $data = 'post_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+
         $contition_array = array('status' => '1', 'is_delete' => '0');
 
         $field = $this->data['results'] = $this->common->select_data_by_condition('category', $contition_array, $data = 'category_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
 
-        $uni = array_merge($skill, $freelancer_postdata, $field);
+        $uni = array_merge($skill, $freelancer_postdata, $field,$results_post);
         // echo count($unique);
         // $this->data['demo']=$uni;
 
@@ -784,11 +805,16 @@ class Freelancer extends MY_Controller {
 
         $skill = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
 
+         $contition_array = array('status' => '1');
+
+        $results_post = $this->data['results'] = $this->common->select_data_by_condition('freelancer_post', $contition_array, $data = 'post_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+
         $contition_array = array('status' => '1', 'is_delete' => '0');
 
         $field = $this->data['results'] = $this->common->select_data_by_condition('category', $contition_array, $data = 'category_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
 
-        $uni = array_merge($skill, $freelancer_postdata, $field);
+        $uni = array_merge($skill, $freelancer_postdata, $field,$results_post);
         // echo count($unique);
         // $this->data['demo']=$uni;
 
@@ -912,11 +938,17 @@ class Freelancer extends MY_Controller {
 
         $skill = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
 
+
+         $contition_array = array('status' => '1');
+
+        $results_post = $this->data['results'] = $this->common->select_data_by_condition('freelancer_post', $contition_array, $data = 'post_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+
         $contition_array = array('status' => '1', 'is_delete' => '0');
 
         $field = $this->data['results'] = $this->common->select_data_by_condition('category', $contition_array, $data = 'category_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
 
-        $uni = array_merge($skill, $freelancer_postdata, $field);
+        $uni = array_merge($skill, $freelancer_postdata, $field,$results_post);
         // echo count($unique);
         // $this->data['demo']=$uni;
 
@@ -1042,11 +1074,18 @@ class Freelancer extends MY_Controller {
 
         $skill = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
 
+
+
+         $contition_array = array('status' => '1');
+
+        $results_post = $this->data['results'] = $this->common->select_data_by_condition('freelancer_post', $contition_array, $data = 'post_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+
         $contition_array = array('status' => '1', 'is_delete' => '0');
 
         $field = $this->data['results'] = $this->common->select_data_by_condition('category', $contition_array, $data = 'category_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
 
-        $uni = array_merge($skill, $freelancer_postdata, $field);
+        $uni = array_merge($skill, $freelancer_postdata, $field,$results_post);
         // echo count($unique);
         // $this->data['demo']=$uni;
 
@@ -1775,11 +1814,16 @@ $results = array_unique($result);
 
         $skill = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
 
+
+        $contition_array = array('status' => '1');
+
+        $results_post = $this->data['results'] = $this->common->select_data_by_condition('freelancer_post', $contition_array, $data = 'post_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
         $contition_array = array('status' => '1', 'is_delete' => '0');
 
         $field = $this->data['results'] = $this->common->select_data_by_condition('category', $contition_array, $data = 'category_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
 
-        $uni = array_merge($skill, $freelancer_postdata, $field);
+        $uni = array_merge($skill, $freelancer_postdata, $field,$results_post);
         // echo count($unique);
         // $this->data['demo']=$uni;
 
@@ -2000,11 +2044,15 @@ $updatedata = $this->common->insert_data_getid($data, 'notification');
 
         $skill = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
 
+        $contition_array = array('status' => '1');
+
+        $results_post = $this->data['results'] = $this->common->select_data_by_condition('freelancer_post', $contition_array, $data = 'post_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
         $contition_array = array('status' => '1', 'is_delete' => '0');
 
         $field = $this->data['results'] = $this->common->select_data_by_condition('category', $contition_array, $data = 'category_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
 
-        $uni = array_merge($skill, $freelancer_postdata, $field);
+        $uni = array_merge($skill, $freelancer_postdata, $field,$results_post);
         // echo count($unique);
         // $this->data['demo']=$uni;
 
@@ -2303,11 +2351,15 @@ $this->load->view('freelancer/freelancer_hire/freelancer_save', $this->data);
 
         $skill = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
 
+        $contition_array = array('status' => '1');
+
+        $results_post = $this->data['results'] = $this->common->select_data_by_condition('freelancer_post', $contition_array, $data = 'post_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
         $contition_array = array('status' => '1', 'is_delete' => '0');
 
         $field = $this->data['results'] = $this->common->select_data_by_condition('category', $contition_array, $data = 'category_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
 
-        $uni = array_merge($skill, $freelancer_postdata, $field);
+        $uni = array_merge($skill, $freelancer_postdata, $field,$results_post);
         // echo count($unique);
         // $this->data['demo']=$uni;
 
@@ -2725,18 +2777,23 @@ $contition_array = array('user_id' => $userid);
 
         $contition_array = array('status' => '1', 'is_delete' => '0');
 
-        $freelancer_postdata = $this->data['results'] = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = 'designation,freelancer_post_otherskill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        // echo "<pre>"; print_r($freelancer_postdata);die();
+        $freelancer_postdata = $this->data['results'] = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = 'designation,freelancer_post_otherskill', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby);
+         //echo "<pre>"; print_r($freelancer_postdata);die();
 
         $contition_array = array('status' => '1', 'type' => '1');
 
-        $skill = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        $skill = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby);
+
+         $contition_array = array('status' => '1');
+
+        $results_post = $this->data['results'] = $this->common->select_data_by_condition('freelancer_post', $contition_array, $data = 'post_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby);
+         // echo "<pre>"; print_r($results_post);die();
 
         $contition_array = array('status' => '1', 'is_delete' => '0');
 
         $field = $this->data['results'] = $this->common->select_data_by_condition('category', $contition_array, $data = 'category_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
 
-        $uni = array_merge($skill, $freelancer_postdata, $field);
+        $uni = array_merge($skill, $freelancer_postdata, $field,$results_post);
         // echo count($unique);
         // $this->data['demo']=$uni;
 
