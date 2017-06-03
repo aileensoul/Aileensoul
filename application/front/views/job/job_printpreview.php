@@ -6,7 +6,7 @@ echo $head;
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/select2.min.css'); ?>">
-<!--<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />-->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
 <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
 <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
 <!-- start header -->
@@ -804,9 +804,23 @@ echo $job_header2;
             $total_work_year+=$work1['experience_year'];
             $total_work_month+=$work1['experience_month'];
             }
-            echo $total_work_year; echo "&nbsp"; echo "Year";
+            if($total_work_month == '12 month' && $total_work_year =='0 year'){
+                echo "1 year";
+            }
+            elseif($total_work_year !='0 year' && $total_work_month == '12 month'){
+                 $month = explode(' ', $total_work_year);
+                                                $year=$month[0];
+                                                $years=$year + 1;
+                                                echo $years." Years";
+            }
+            else{
+                echo $total_work_year; echo "&nbsp"; echo "Year";
             echo "&nbsp";
             echo $total_work_month; echo "&nbsp"; echo "Month";
+            }
+            // echo $total_work_year; echo "&nbsp"; echo "Year";
+            // echo "&nbsp";
+            // echo $total_work_month; echo "&nbsp"; echo "Month";
             ?> 
 
 
@@ -866,14 +880,21 @@ echo $job_header2;
             if ($work['experience'] == "Fresher") {
 
             } else {
-                                                                        if ($work['experience_year'] == "0 year") {
-                                                                            echo $work['experience_month'];
-                                                                        } else {
-                                                                            echo $work['experience_year'];
-                                                                            echo "&nbsp";
-                                                                            echo $work['experience_month'];
-                                                                        }
-                                                                    }
+                          if ($work['experience_year'] == "0 year" && $work['experience_month'] == "12 month") {
+                                              echo "1 Year";
+                                             } elseif($work['experience_year'] != "0 year" && $work['experience_month'] == "12 month") {
+
+                                                $month1 = explode(' ', $work['experience_year']);
+                                                $year1=$month1[0];
+                                                $years1=$year1 + 1;
+                                                echo $years1." Years";
+                                                  }
+                                                  else{
+                                                    echo $work['experience_year'];
+                                                   echo "&nbsp";
+                                         echo $work['experience_month'];
+                                                  }
+                                             }
                                                                     ?></span>
                                                             </li>
 
@@ -1069,13 +1090,14 @@ echo $job_header2;
 
                         </html>
 
+               
 
                         <!-- script for skill textbox automatic start-->
                 <script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
                 <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
                 <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
                 <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script> -
 
 
                 <!-- <script src="<?php echo base_url('js/light-box/lightbox-plus-jquery.min.js');?>"></script> -->
@@ -1115,6 +1137,8 @@ echo $job_header2;
                     });
 
                         </script>
+
+ 
                         <script>
                             //location.reload(1); return false;
                             //select2 autocomplete start for skill
@@ -1142,9 +1166,9 @@ echo $job_header2;
                                     cache: true
                                 }
                             });
-                            //select2 autocomplete End for skill
+                            // select2 autocomplete End for skill
 
-                            //select2 autocomplete start for Location
+                            // select2 autocomplete start for Location
                             $('#searchplace').select2({
 
                                 placeholder: 'Find Your Location',
@@ -1169,7 +1193,7 @@ echo $job_header2;
                                     cache: true
                                 }
                             });
-                            //select2 autocomplete End for Location
+                            // //select2 autocomplete End for Location
 
                         </script>
                         <script>

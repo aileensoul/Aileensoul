@@ -224,7 +224,9 @@
                                     <div class="job-contact-frnd ">
 
 
-
+<?php
+                                            if (count($profile) > 0 || count($description) > 0) {
+                                            if ($profile) { ?>
                                         <div class="profile-job-post-title-inside clearfix" style="">
 
 
@@ -233,13 +235,12 @@
                                        <h4 class="search_head">Profiles</h4>
                                        <div class="inner_search">
 
-                                            <?php
-                                            if (count($profile) > 0 || count($description) > 0) {
-                                                if ($profile) {
+                                            
+                                                <?php 
                                                     foreach ($profile as $p) {
 //                                                 echo "<pre>"; print_r($p);die();
                                                         ?>
-                                                    <div class="profile-job-profile-button clearfix box_search_module" style="height: 14%;border: 1px solid #efefef;margin-bottom: 20px!important;">
+                                                    <div class="profile-job-profile-button clearfix box_search_module" style="height: 20%;border: 1px solid #efefef;margin-bottom: 20px!important;">
                                      
                                                             
      <div class="profile-job-post-location-name-rec">
@@ -351,13 +352,15 @@ if($status == 0 || $status == " "){?>
 
                                                 </div>
                                                 </div>
+                                                <?php
+                                                if ($description) { ?>
+
+
                                                 <div class="col-md-12 profile_search " style="float: left; background-color: white; margin-top: 10px; margin-bottom: 10px; padding:0px!important;"> 
                                                    <h4 class="search_head">Posts</h4>
        <div class="inner_search search" style="float: left;">
 
-                                                <?php
-                                                if ($description) {
-
+                                                <?php 
                                                     foreach ($description as $p) {
 
 
