@@ -235,13 +235,26 @@ $(window).load(function(){
 <!-- Click event on button show the element notification & Message end-->
 
 <script type="text/javascript" >
-//Document Click
+
+// 
+$( document ).on( 'keydown', function ( e ) {
+    if ( e.keyCode === 27 ) {
+        $( "#notificationContainer" ).hide();
+    }
+});
+
+$( document ).on( 'keydown', function ( e ) {
+    if ( e.keyCode === 27 ) {
+        $( "#InboxContainer" ).hide();
+    }
+});
+
     $(document).ready(function ()
     {
         $("#notificationLink").click(function ()
         {
 //$("#notificationLink").hide();
-
+                
             $("#InboxContainer").hide();
             $("#Inbox_count").hide();
             $(".dropdown-menu").hide();
@@ -258,6 +271,7 @@ $(window).load(function(){
 
     });
 
+//Document Click
     $(document).ready(function ()
     {
         $("#InboxLink").click(function ()

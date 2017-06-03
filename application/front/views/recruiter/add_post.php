@@ -105,7 +105,8 @@
 
 
                             <select name="minyear" style="cursor:pointer;" class="keyskil" id="minyear">
-                                        <option value="">Year</option>
+                                        <option value="" selected option disabled>Year</option>
+                                        
                                         <option value="0">0 Year</option>
                                         <option value="1">1 Year</option>
                                         <option value="2">2 Year</option>
@@ -130,7 +131,7 @@
                                     </select>
                                     
                              <select name="minmonth"  style="cursor:pointer;" class="keyskil margin-month " id="minmonth">
-                                        <option value="">Month</option>
+                                        <option value="" selected option disabled>Month</option>
                                         <option value="0">0 Month</option>
                                         <option value="1">1 Month</option>
                                         <option value="2">2 Month</option>
@@ -150,7 +151,7 @@
 
 
                                       <select name="maxyear" style="cursor:pointer;" class="keyskil1" id="maxyear">
-                                        <option value="">Year</option>
+                                        <option value="" selected option disabled>Year</option>
                                         <option value="0">0 Year</option>
                                         <option value="1">1 Year</option>
                                         <option value="2">2 Year</option>
@@ -177,7 +178,7 @@
                                       
 
                                     <select name="maxmonth" style="cursor:pointer;" class="keyskil1 margin-month " id="maxmonth">
-                                        <option value="">Month</option>
+                                        <option value="" selected option disabled>Month</option>
                                         <option value="0">0 Month</option>
                                         <option value="1">1 Month</option>
                                         <option value="2">2 Month</option>
