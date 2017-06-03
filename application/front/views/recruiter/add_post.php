@@ -100,8 +100,8 @@
 
 
                                 <fieldset <?php if ($month) { ?> class="error-msg" <?php } ?> class="two-select-box1">
-                                    <!-- <label style="cursor:pointer;" class="control-label">Minimum experience:<span style="color:red">*</span></label>
- -->
+                                    <label style="cursor:pointer;" class="control-label">Minimum experience:<span style="color:red">*</span></label>
+
 
                             <select name="minyear" style="cursor:pointer;" class="keyskil" id="minyear">
                                         <option value="">Year</option>
