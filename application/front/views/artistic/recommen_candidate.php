@@ -120,10 +120,16 @@
                                       
 <div class="profile_search" style="background-color: white; margin-bottom: 10px; margin-top: 10px;"> 
 
+<?php if($artuserdata){ 
+  if($artuserdata[0]['art_id']){
+  ?>
+
                                        <h4 class="search_head">Profiles</h4>
                                        <div class="inner_search">
+                                       <?php }
+                                       ?>
 
-                                       <?php if($artuserdata){
+                               <?php        
                               foreach ($artuserdata as $key) {
                                 if($key['art_id']){
                               
@@ -227,9 +233,11 @@ if($status == 0 || $status == " "){?>
 </div>
 
 </div>
+<?php if($artuserdata[0]['art_description']){?>
 <div class="col-md-12 profile_search " style="float: left; background-color: white; margin-top: 10px; margin-bottom: 10px; padding:0px!important;"> 
        <h4 class="search_head">Posts</h4>
        <div class="inner_search search">
+       <?php }?>
 
        <?php foreach ($artuserdata as $key) {
          if($key['art_description']){
@@ -845,7 +853,16 @@ if($status == 0 || $status == " "){?>
                                 
 
          </div>
-         <?php }}}?>
+         <?php }} }else { ?>
+<div class="text-center rio">
+                                                <h1 class="page-heading  product-listing" style="border:0px;margin-bottom: 11px;">Oops No Data Found.</h1>
+                                                <p style="margin-left:4%;text-transform:none !important;border:0px;">We couldn't find what you were looking for.</p>
+                                                <ul>
+                                                    <li style="text-transform:none !important; list-style: none;">Make sure you used the right keywords.</li>
+                                                </ul>
+                                            </div>
+
+        <?php  }?>
 </div>
 
 </div>
