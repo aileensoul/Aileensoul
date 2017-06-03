@@ -5389,7 +5389,12 @@ fieldset .add_post_btns:hover{background-color:#156f95!important}
 .notificationsmsg li{border-bottom: 1px solid #999999;}
 .tab-content .clearfix{border:1px solid #bfbfbf;}
 .height_audio{height: 250px;}
-
+.cmt_edit{display: inline-block;
+    width: 78%;
+    min-height: 37px !important;
+    margin-top: 0px !important;
+    margin-left: 1.5% !important;
+}
 
 .edit-comment-box .comment-edit-button button{padding: 8px 14px 7px; }
 .edit-comment-box   button{padding: 8px 14px 7px}
