@@ -5393,3 +5393,8 @@ fieldset .add_post_btns:hover{background-color:#156f95!important}
 
 .edit-comment-box .comment-edit-button button{padding: 8px 14px 7px; }
 .edit-comment-box   button{padding: 8px 14px 7px}
+
+.picture{ display: table;}
+.pht_ph_dash{height: 176px; width: 176px; margin: 3px; float: left; display: inline-block;}
+.pht_ph_dash img {height: 100%; width: 100%; display: table;}
+.ta_tble{display: table;}

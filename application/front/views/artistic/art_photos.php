@@ -311,7 +311,7 @@ if ($status == 0 || $status == " ") {
                                     <div class="">
 
                                         <h2 class="add_tag_design"> Photos</h2>
-                                        <div class="contact-frnd-post">
+                                        <div class="contact-frnd-post ta_tble">
 
                                             <!-- khyati changes start -->
                                            
@@ -333,9 +333,8 @@ if ($status == 0 || $status == " ") {
                                                      <div class="pictures">
                                               <?php      foreach ($databus as $data) {
                                                          ?>
-                                            
-                                                        <img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $data['image_name']) ?>" onclick="openModal();currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor" width="280" height="300"/>
-                                                 
+                                            <div class="pht_ph_dash">                                                         <img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $data['image_name']) ?>" onclick="openModal();currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor"/>
+                                                 </div>
                                                         <?php
                                                         $i++;
                                                     }?>
