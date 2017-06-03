@@ -186,6 +186,10 @@
                                         <option value="6">6 Month</option>
                                     </select>
 
+<!-- div create by aarati for validation min max month start !-->
+<div class="error1" style="display:none;">Max Month should be grater than Min Month</div>
+<!-- div create by aarati for validation min max month End !-->
+
                                    <span id="fullname-error"></span>
                                     <?php echo form_error('month'); ?> &nbsp;&nbsp; <?php echo form_error('year'); ?>
                                 </fieldset>
@@ -360,18 +364,113 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
     }, "No space please and don't leave it empty");
 
 //for min max value validator start
+
+// $.validator.addMethod("greaterThan",
+//     function (value, element, param) {
+//           var $otherElement = $(param);
+//           return parseInt(value, 10) > parseInt($otherElement.val(), 10);
+//     });
+// $.validator.addMethod("greaterThan",
+
+// function (value, element, param) {
+//   var $min = $(param);
+//   if (this.settings.onfocusout) {
+//     $min.off(".validate-greaterThan").on("blur.validate-greaterThan", function () {
+//       $(element).valid();
+//     });
+//   }
+//   return parseInt(value) > parseInt($min.val());
+// }, "Max must be greater than min");
+
 $.validator.addMethod("greaterThan",
     function (value, element, param) {
           var $otherElement = $(param);
-          return parseInt(value, 10) > parseInt($otherElement.val(), 10);
+           if(!value) 
+            {
+                return true;
+            }
+            else
+            {
+          return parseInt(value, 10) > parseInt($otherElement.val(), 10);}
     });
+
+$.validator.addMethod("greaterThan1",
+
+function (value, element, param) {
+  var $min = $(param);
+  if (this.settings.onfocusout) {
+    $min.off(".validate-greaterThan").on("blur.validate-greaterThan", function () {
+      $(element).valid();
+    });
+  }
+   if(!value) 
+            {
+                return true;
+            }
+            else
+            {
+                    return parseInt(value) >= parseInt($min.val());
+            }
+}, "Max must be greater than min");
+
+// khytai chnages start
+
+$.validator.addMethod("greaterThanmonth",
+
+function (value, element, param) { 
+    //alert(value); alert(element); alert(param);alert("#maxyear");
+    var $maxyear = $('#maxyear');
+    var maxyear = parseInt($maxyear.val());
+
+    var $minyear = $('#minyear');
+    var minyear = parseInt($minyear.val());
+
+  var $min = $(param);
+  if (this.settings.onfocusout) {
+    $min.off(".validate-greaterThan").on("blur.validate-greaterThan", function () {
+      $(element).valid();
+    });
+  }
+if(!value) 
+            {
+                return true;
+            }
+            else if((maxyear == minyear))
+            {
+ //if((maxyear == minyear) ){// alert("gaai");
+  return parseInt(value) >= parseInt($min.val());
+}
+else
+{
+      return true;
+}
+
+}, "Max month must be greater than Min month");
+
+// khyati chnages send
+
+$("#magxmonth").focusout(function(){
+    
+    
+    if(parseFloat($("#minmonth").val()) > parseFloat($("#maxmonth").val()) && parseFloat($("#maxyear").val())=="0")
+    {
+       
+        $(".error1").css("display","block").css("color","red");
+        $("#submit").prop('disabled',true);
+    }
+    else {
+        $(".error1").css("display","none");
+        $("#submit").prop('disabled',false);        
+    }
+    });
+
 
 // $.validator.addMethod('le', function(value, element, param) {
 //       return this.optional(element) || value <= $(param).val();
 // }, 'Invalid value');
-$.validator.addMethod('ge', function(value, element, param) {
-      return this.optional(element) || value >= $(param).val();
-}, 'Invalid value');
+// $.validator.addMethod('ge', function(value, element, param) {
+//       return this.optional(element) || value >= $(param).val();
+// }, 'Invalid value');
 //for min max value validator End
 
             $(document).ready(function () { 
@@ -395,7 +494,7 @@ $.validator.addMethod('ge', function(value, element, param) {
 
                         other_skill: {
                             
-                           require_from_group: [1, ".other_skill"],
+                           require_from_group: [1, ".skill_other"],
                           noSpace: true
                             // required:true 
                         },
@@ -433,14 +532,14 @@ $.validator.addMethod('ge', function(value, element, param) {
                         maxyear: {
                             
                           require_from_group: [1, ".keyskil1"],
-                          greaterThan: "#minyear"
+                          greaterThan1: "#minyear"
                           //required:true 
                         }, 
 
                         maxmonth: {
                             
-                           require_from_group: [1, ".keyskil1"],
-                            greaterThan: "#minmonth"
+                          require_from_group: [1, ".keyskil1"],
+                            greaterThanmonth: "#minmonth"
                             // required:true 
                         },
                         last_date: {
@@ -457,7 +556,8 @@ $.validator.addMethod('ge', function(value, element, param) {
                             // return $("#minsal").val().length > 0;
                             // },
                              number:true,
-                             ge: "#minsal"
+                              min: 0,
+                             greaterThan: "#minsal"
                         },
                         // position_no:{
                         //     required:true
@@ -509,15 +609,15 @@ $.validator.addMethod('ge', function(value, element, param) {
                         },
                         maxyear: {
 
-                            require_from_group: "You must either fill out 'month' or 'year'",
-                            greaterThan:"Maximum Year Experience should be grater than Minimum Year"
+                            require_from_group: "You must either fill out 'month' or 'year'"
+                            // greaterThan1:"Maximum Year Experience should be grater than Minimum Year"
 
                         },
 
                         maxmonth: {
 
-                            require_from_group: "You must either fill out 'month' or 'year'",
-                            greaterThan:"Maximum Month Experience should be grater than Minimum Month"
+                            require_from_group: "You must either fill out 'month' or 'year'"
+                            //greaterThan:"Maximum Month Experience should be grater than Minimum Month"
                         },
                         last_date: {
 
@@ -527,7 +627,7 @@ $.validator.addMethod('ge', function(value, element, param) {
                         //     le:"Minimum salary should be less than Maximum salary"
                         // },
                         maxsal:{
-                            ge:"Maximum salary should be grater than Minimum salary"
+                            greaterThan:"Maximum salary should be grater than Minimum salary"
                         },
                         // position_no:{
                         //     required:"No candidate required."

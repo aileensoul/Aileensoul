@@ -807,7 +807,7 @@ class Recruiter extends MY_Controller {
     public function add_post_store() {
 
         //echo "string"; die();
-//echo '<pre>'; print_r($_POST); die();
+//echo '<pre>'; print_r($_POST); 
         $userid = $this->session->userdata('aileenuser');
         $skill = $this->input->post('skills');
            $bod = $this->input->post('last_date');
@@ -909,7 +909,7 @@ class Recruiter extends MY_Controller {
                 'post_name' => $this->input->post('post_name'),
                 'post_description' => $this->input->post('post_desc'),
                 'post_skill' => implode(",", $skill),
-                'post_position' => $this->input->post('position'),
+                'post_position' => $this->input->post('position_no'),
                  
                  'post_last_date' => date('Y-m-d', strtotime($bod)),
                 //'post_location ' => $this->input->post('location'),
@@ -931,7 +931,8 @@ class Recruiter extends MY_Controller {
                 'user_id' => $userid,
                 'status' => 1,
             );
-          //  echo "<pre>"; print_r($data); die(); 
+
+          // echo "<pre>"; print_r($data); die(); 
             $insert_id = $this->common->insert_data_getid($data, 'rec_post');
 
 
