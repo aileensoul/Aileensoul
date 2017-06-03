@@ -459,7 +459,7 @@ ul.cv-btn li a i { padding-right: 6px; }
     line-height: 28px;
     border-top-left-radius: 4px;
     border: 1px solid #bfbfbf;
-    border-top-right-radius: 4px;}
+    border-top-right-radius: 3px;}
 
 #jobseeker_regform_primary{border: none !important; margin-bottom: 0px!important;}
 .common-form form {  border-top: 0; padding: 10px;     background-color: white;}
@@ -1825,7 +1825,7 @@ abbr { cursor: help; }
 .profile-boxProfileCard {
     border: 11px solid #ffffff;
     background: #fff;
-    box-shadow: 0px 0px 20px 2px #bfbfbf;border-radius: 3px;
+    /*box-shadow: 0px 0px 20px 2px #bfbfbf;*/border-radius: 3px;
 
     /*border-radius: 6px*/
 }
@@ -2286,7 +2286,7 @@ border-bottom: 1px solid #000033;
 .job-menu-profile1 a h5{ text-transform: capitalize;display: inline-block; font-size: 25px; font-weight: 600; }
 .job-menu-profile1 a{font-size: 18px; }
 .profile-main-box-buis-menu li a {
-    margin-right:10px;
+    /*margin-right:10px;*/
     display: block;
     color: #1b8ab9;
     text-align: center;
@@ -2403,7 +2403,7 @@ text-align: justify; display: inline-block; margin-bottom: 0px;
 }
 /* li:focus, .active{ background-color: #3f588d;
     color: #ffffff;}
-*/    .profile-main-box-buis-menu ul li.active { position:relative; background:#1b8ab9; }
+*/    .profile-main-box-buis-menu ul li.active { position:relative; background:#fff; }
 .profile-main-box-buis-menu ul li.active a { background:#1b8ab9; color: #ffffff; }
 /*.profile-main-box-buis-menu ul li.active:after { content:"\f00c"; font-family: 'FontAwesome'; position:absolute; top:11px; right:8px; color:#fff; }
 */

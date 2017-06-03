@@ -438,12 +438,11 @@ $userid = $this->session->userdata('aileenuser');
 
                                                 </div>
                                                 
-                                                <div class="col-md-1">
-                                                </div>
+                                              
                                            
-                                         </div>
+                                         
                                     
-                                    <!-- @nk!t 7-4-2017 start -->
+                                  
                                 <?php   }  }} else {
                                     ?>
                                     <div class="text-center rio">
@@ -455,7 +454,7 @@ $userid = $this->session->userdata('aileenuser');
                                     </div>
                                     <?php }
                                 ?> 
-                                <!-- @nk!t 7-4-2017 end -->
+                              
                           
  </div>
 
