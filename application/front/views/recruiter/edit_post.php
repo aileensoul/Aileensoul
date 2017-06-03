@@ -88,7 +88,8 @@
 
                      <fieldset class="full-width">
                         <label>No of position:<!-- <span style="color:red">*</span> --></label>
-                        <input name="position" type="number" min="1" id="position" value="<?php echo $postdata[0]['post_position']; ?>" onblur="return full_name();"/>
+                        
+                        <input name="position" type="text"  id="position" value="<?php echo $postdata[0]['post_position']; ?>" placeholder="Enter No of Candidate"/>
                         <span id="fullname-error"></span>
                         <?php echo form_error('position'); ?>
                 </fieldset>
@@ -97,7 +98,7 @@
                                     <label class="control-label">Minimum experience:<span style="color:red">*</span></label>
 
 
-                                    <select style="cursor:pointer;" name="minyear" class="keyskil">
+                                    <select style="cursor:pointer;" name="minyear" id="minyear" class="keyskil">
                                         <option value="<?php echo $postdata[0]['min_year']; ?>"><?php echo $postdata[0]['min_year']; ?> Year</option>
                                         <option value="0">0 Year</option>
                                         <option value="1">1 Year</option>
@@ -122,7 +123,7 @@
                                         <option value="20">20 Year</option>
                                     </select>
                                     
-                                    <select style="cursor:pointer;" name="minmonth" class="keyskil margin-month ">
+                                    <select style="cursor:pointer;" name="minmonth" id="minmonth" class="keyskil margin-month ">
                                         <option value="<?php echo $postdata[0]['min_month']; ?>"><?php echo $postdata[0]['min_month']; ?> Month</option>
                                         <option value="0">0 Month</option>
                                         <option value="1">1 Month</option>
@@ -143,7 +144,7 @@
                                     <label class="control-label">&nbsp;Maximum experience:<span style="color:red">*</span></label>
 
 
-                                      <select style="cursor:pointer;" name="maxyear" class="keyskil1">
+                                      <select style="cursor:pointer;" name="maxyear"  id="maxyear" class="keyskil1">
                                         <option value="<?php echo $postdata[0]['max_year']; ?>"><?php echo $postdata[0]['max_year']; ?> Year</option>
                                         <option value="0">0 Year</option>
                                         <option value="1">1 Year</option>
@@ -170,7 +171,7 @@
 
                                       
 
-                                    <select style="cursor:pointer;" name="maxmonth" class="keyskil1 margin-month ">
+                                    <select style="cursor:pointer;" name="maxmonth" id="maxmonth" class="keyskil1 margin-month ">
                                         <option  value="<?php echo $postdata[0]['max_month']; ?>"><?php echo $postdata[0]['max_month']; ?> Month</option>
                                         <option value="0">0 Month</option>
                                         <option value="1">1 Month</option>
@@ -324,13 +325,13 @@
 
                   <fieldset class="half-width col-md-4" <?php if($minsal) {  ?> class="error-msg" <?php } ?>>
                             <label class="control-label">Min salary:(Per Year)<!-- <span style="color:red">*</span> --></label>
-                            <input name="minsal" type="text" id="minsal" value="<?php echo $postdata[0]['min_sal']; ?>" onblur="return full_name();" placeholder="Enter Minimum Salary" /><span id="fullname-error"></span>
+                            <input name="minsal" type="text" id="minsal" value="<?php echo $postdata[0]['min_sal']; ?>"  placeholder="Enter Minimum Salary" /><span id="fullname-error"></span>
                             <?php echo form_error('minsal'); ?>
                         </fieldset>
 
                          <fieldset class="half-width col-md-4" <?php if($maxsal) {  ?> class="error-msg" <?php } ?>>
                             <label class="control-label">Max salary:(Per Year)<!-- <span style="color:red">*</span> --></label>
-                            <input name="maxsal" type="text" id="maxsal" value="<?php echo $postdata[0]['max_sal']; ?>" onblur="return full_name();" placeholder="Enter Maximum Salary" /><span id="fullname-error"></span>
+                            <input name="maxsal" type="text" id="maxsal" value="<?php echo $postdata[0]['max_sal']; ?>"  placeholder="Enter Maximum Salary" /><span id="fullname-error"></span>
                             <?php echo form_error('maxsal'); ?>
                         </fieldset>
                 
@@ -390,12 +391,14 @@
 <script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
  <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
 <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
-            <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
+          
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/3.3.0/select2.js"></script>
 
-<<script type="text/javascript" src="<?php echo base_url('js/jquery.validate1.15.0..min.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('js/jquery.validate1.15.0..min.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('js/additional-methods1.15.0.min.js'); ?>"></script>
+
+
 
 <script type="text/javascript">
 //select2 autocomplete start for skill
@@ -440,18 +443,7 @@ function imgval(){
 
 <script type="text/javascript">
 
-// $('#skils').select2();
-// $('#skils').on("change", function(e) {
-//   $(e.target).valid();
-// });
-            //validation for edit email formate form
 
-
-$.validator.addMethod("greaterThan",
-    function(value, max, min){
-        return parseInt(value) > parseInt($(min).val());
-    }, "minimum salary not greater than maximum salary"
-);
 
 $.validator.addMethod("regx", function(value, element, regexpr) {          
     return regexpr.test(value);
@@ -461,7 +453,103 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
       return value == '' || value.trim().length != 0;  
     }, "No space please and don't leave it empty");
 
+//for min max value validator start
 
+// $.validator.addMethod("greaterThan",
+//     function (value, element, param) {
+//           var $otherElement = $(param);
+//           return parseInt(value, 10) > parseInt($otherElement.val(), 10);
+//     });
+// $.validator.addMethod("greaterThan",
+
+// function (value, element, param) {
+//   var $min = $(param);
+//   if (this.settings.onfocusout) {
+//     $min.off(".validate-greaterThan").on("blur.validate-greaterThan", function () {
+//       $(element).valid();
+//     });
+//   }
+//   return parseInt(value) > parseInt($min.val());
+// }, "Max must be greater than min");
+
+$.validator.addMethod("greaterThan",
+    function (value, element, param) {
+          var $otherElement = $(param);
+           if(!value) 
+            {
+                return true;
+            }
+            else
+            {
+          return parseInt(value, 10) > parseInt($otherElement.val(), 10);}
+    });
+
+$.validator.addMethod("greaterThan1",
+
+function (value, element, param) {
+  //alert(value);alert(element);alert(param);
+  var $min = $(param);
+  if (this.settings.onfocusout) {
+    $min.off(".validate-greaterThan").on("blur.validate-greaterThan", function () {
+      $(element).valid();
+    });
+  }
+   if(!value) 
+            {
+                return true;
+            }
+            else
+            {
+                    return parseInt(value) >= parseInt($min.val());
+            }
+}, "Max must be greater than min");
+
+
+
+$.validator.addMethod("greaterThanmonth",
+
+function (value, element, param) { 
+    //alert(value); alert(element); alert(param);alert("#maxyear");
+    var $maxyear = $('#maxyear');
+    var maxyear = parseInt($maxyear.val());
+
+    var $minyear = $('#minyear');
+    var minyear = parseInt($minyear.val());
+
+  var $min = $(param);
+  if (this.settings.onfocusout) {
+    $min.off(".validate-greaterThan").on("blur.validate-greaterThan", function () {
+      $(element).valid();
+    });
+  }
+if(!value) 
+            {
+                return true;
+            }
+            else if((maxyear == minyear))
+            {
+ //if((maxyear == minyear) ){// alert("gaai");
+  return parseInt(value) >= parseInt($min.val());
+}
+else
+{
+      return true;
+}
+
+}, "Max month must be greater than Min month");
+
+
+
+// $.validator.addMethod('le', function(value, element, param) {
+//       return this.optional(element) || value <= $(param).val();
+// }, 'Invalid value');
+// $.validator.addMethod('ge', function(value, element, param) {
+//       return this.optional(element) || value >= $(param).val();
+// }, 'Invalid value');
+//for min max value validator End
+jQuery.noConflict();
+
+                (function ($) {
             $(document).ready(function () { 
 
                 $("#basicinfo").validate({
@@ -471,147 +559,125 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
                     rules: {
                        
                         post_name: {
+                            
+                            required: true
+                            
+                        },
+                          'skills[]': {
+                            
+                          require_from_group: [1, ".skill_other"] 
+                          //required:true 
+                        }, 
 
+                        other_skill: {
+                            
+                           require_from_group: [1, ".skill_other"],
+                          noSpace: true
+                            // required:true 
+                        },
+                        position:{
                             required: true,
-                            regx:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]/
+                             number:true,
+                             min: 1
                         },
 
-                       'skills[]': {
-
-                               require_from_group: [1, ".skill_other"]
-                              
-                    },
-                    other_skill: {
-
-                               require_from_group: [1, ".skill_other"],
-                               noSpace: true
-                              
-                    },
-                         
-                        year: {
-
-                            required: true
+                         minyear: {
+                            
+                          require_from_group: [1, ".keyskil"] 
+                          //required:true 
+                        }, 
+                         minmonth: {
+                            
+                           require_from_group: [1, ".keyskil"]
+                            // required:true 
                         },
-                       
-                     
-                        month: {
-
-                            required: true
-                           
-                        },
-
-                        // position: {
-
-                        //     required: true,
-                        //     noSpace: true
-                           
-                        // },
-
-                        post_desc: {
+                         post_desc: {
 
                             required: true,
                             regx:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]/
                            
                         },
-
-                        
-                        country: {
+                         country: {
 
                             required: true
                            
                         },
-
                         state: {
 
                             required: true
                            
                         },
-
-                        minyear: {
-                            
-                          require_from_group: [1, ".keyskil"] 
-                          //required:true 
-                        }, 
-
-                        minmonth: {
-                            
-                           require_from_group: [1, ".keyskil"]
-                            // required:true 
-                        },
-
                         maxyear: {
                             
-                          require_from_group: [1, ".keyskil1"] 
+                          require_from_group: [1, ".keyskil1"],
+                          greaterThan1: "#minyear"
                           //required:true 
                         }, 
 
                         maxmonth: {
                             
-                           require_from_group: [1, ".keyskil1"]
+                          require_from_group: [1, ".keyskil1"],
+                            greaterThanmonth: "#minmonth"
                             // required:true 
                         },
-
                         last_date: {
                             
                             required: true
                             
                         },
                         minsal:{
-                            number: true,
-                            noSpace: true,
+                            number:true
+                           // le:"#maxsal"
                         },
                         maxsal:{
-                           number: true,
-                           noSpace: true,
-                            greaterThan: '#minsal'
+                            // required: function(element){
+                            // return $("#minsal").val().length > 0;
+                            // },
+                             number:true,
+                              min: 0,
+                             greaterThan: "#minsal"
                         },
+                        // position_no:{
+                        //     required:true
+                        // },
+                      
 
-                       
-                    },
+
+                     },
 
                     messages: {
 
                         post_name: {
 
-                            required: "Post name Is Required."
-                            
+                            required: "Jobtitle  Is Required."
                         },
-                         'skills[]': {
+                          'skills[]': {
 
-                            require_from_group: "You must either fill out 'skill' or 'other_skill'"
+                            require_from_group: "You must either fill out 'Keyskills' or 'Other Skills'"
+
                         },
 
                         other_skill: {
 
-                            require_from_group: "You must either fill out 'skill' or 'other_skill'"
+                            require_from_group: "You must either fill out 'Keyskills' or 'Other Skills'"
                         },
-
-                       
+                        position:{
+                          required: "You Have TO Select Minimum 1 Candidate"
+                        },
                         minyear: {
 
-                            required: "Year Selection Is Required"
+                             require_from_group: "You must either fill out 'month' or 'year'"
                         },
-
-                        
                         minmonth: {
 
-                            required: "Month no Is Required."
+                             require_from_group: "You must either fill out 'month' or 'year'"
                             
                         },
-
-                        // position: {
-
-                        //     required: "Position Selection Is Required"
-                           
-                        // },
-
                          post_desc: {
 
                             required: "Post Description Is Required"
                            
                         },
-
-                        
                         country: {
 
                             required: "Country Is Required."
@@ -622,40 +688,40 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
                             required: "State Is Required."
                             
                         },
-
-                        minyear: {
-
-                            require_from_group: "You must either fill out 'month' or 'year'"
-
-                        },
-
-                        minmonth: {
-
-                            require_from_group: "You must either fill out 'month' or 'year'"
-                        },
-
                         maxyear: {
 
                             require_from_group: "You must either fill out 'month' or 'year'"
+                            // greaterThan1:"Maximum Year Experience should be grater than Minimum Year"
 
                         },
 
                         maxmonth: {
 
                             require_from_group: "You must either fill out 'month' or 'year'"
+                            //greaterThan:"Maximum Month Experience should be grater than Minimum Month"
                         },
-
                         last_date: {
 
                             required: "Last date  Is Required."
                         },
-                        
+                        // minsal:{
+                        //     le:"Minimum salary should be less than Maximum salary"
+                        // },
+                        maxsal:{
+                            greaterThan:"Maximum salary should be grater than Minimum salary"
+                        },
+                        // position_no:{
+                        //     required:"No candidate required."
+                        // },
+
+
                     }
 
                 });
 
 
                    });
+   })(jQuery);
   </script>
 
    <!-- popup form edit start -->

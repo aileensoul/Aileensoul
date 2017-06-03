@@ -2846,7 +2846,7 @@ label.cameraButton input[accept*="camera"] {
 
 .post-design-product-img {padding:10px 5px 10px 5px; width: 100%; height: 350px;}
 .post-design-like-box{background-color: #ffffff;   padding-top: 10px; padding-left: 23px; padding-right: 23px;  }
-.post-design-commnet-box{padding-left: 23px; background-color: #e8f3f8; padding-right: 23px; border: 1px solid #e6eaef; padding-top: 10px; }
+.post-design-commnet-box{padding-left: 23px; background-color: #e8f3f8; padding-right: 23px; border-top: 1px solid #e6eaef; padding-top: 10px; }
 .post-design-menu{border-top: 1px solid #efefef;border-bottom:1px solid #efefef;}
 .post-design-menu ul { margin: 0; padding: 0; }
 .post-design-menu ul li { list-style: none; display: inline-block; padding: 0; margin: 0; position: relative; }

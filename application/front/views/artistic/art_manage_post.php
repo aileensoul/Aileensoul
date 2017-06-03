@@ -39,7 +39,11 @@
 <!-- END HEADER -->
 <body   class="page-container-bg-solid page-boxed">
 
+<<<<<<< HEAD
     <div class="container" id="paddingtop_fixed_art">
+=======
+    <div class="container" id="paddingtop_fixed paddingtop_fixed1">
+>>>>>>> 74c9d741f2dc27d236095ba7d8fcd1eedf242299
 
         <div class="row" id="row1" style="display:none;">
             <div class="col-md-12 text-center">
@@ -1355,7 +1359,7 @@
                                                                     <div class="edit-comment-box">
                                                                         <div class="inputtype-edit-comment">
 
-                                                                            <div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="<?php echo $rowdata['artistic_post_comment_id']; ?>"  id="<?php echo "editcomment" . $rowdata['artistic_post_comment_id']; ?>" placeholder="Add a Comment ..." value= ""  onkeyup="commentedit(<?php echo $rowdata['artistic_post_comment_id']; ?>)"><?php echo $rowdata['comments']; ?></div>
+                                                                            <div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 78%;" class="editable_text" name="<?php echo $rowdata['artistic_post_comment_id']; ?>"  id="<?php echo "editcomment" . $rowdata['artistic_post_comment_id']; ?>" placeholder="Add a Comment ..." value= ""  onkeyup="commentedit(<?php echo $rowdata['artistic_post_comment_id']; ?>)"><?php echo $rowdata['comments']; ?></div>
                                                                             <span class="comment-edit-button"><button id="<?php echo "editsubmit" . $rowdata['artistic_post_comment_id']; ?>" style="display:none" onClick="edit_comment(<?php echo $rowdata['artistic_post_comment_id']; ?>)">Save</button></span>
                                                                         </div>
                                                                     </div>
