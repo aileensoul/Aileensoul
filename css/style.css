@@ -3585,10 +3585,11 @@ padding-bottom: 1px;
 
 
 
-.vidoe_tag{height: 300px; width: 300px; float: left;}
+.vidoe_tag{height: 300px; width: 300px; float: left;     margin-left: 4px;
+    margin-right: 4px;}
 .vidoe_tag video{height: 100%; width: 100%;}
 .post-design-product-img_post{}
-
+#paddingtop_fixed1{padding-top:62px!important;}
 #two_images_bui {
     float: left;
     height:324px;
@@ -5402,4 +5403,4 @@ fieldset .add_post_btns:hover{background-color:#156f95!important}
 .picture{ display: table;}
 .pht_ph_dash{height: 176px; width: 176px; margin: 3px; float: left; display: inline-block;}
 .pht_ph_dash img {height: 100%; width: 100%; display: table;}
-.ta_tble{display: table;}
+.ta_tble{display: table; border-left: none!important;}
