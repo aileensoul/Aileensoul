@@ -186,9 +186,7 @@
                                         <option value="6">6 Month</option>
                                     </select>
 
-<!-- div create by aarati for validation min max month start !-->
-<div class="error1" style="display:none;">Max Month should be grater than Min Month</div>
-<!-- div create by aarati for validation min max month End !-->
+
 
                                    <span id="fullname-error"></span>
                                     <?php echo form_error('month'); ?> &nbsp;&nbsp; <?php echo form_error('year'); ?>
@@ -413,7 +411,7 @@ function (value, element, param) {
             }
 }, "Max must be greater than min");
 
-// khytai chnages start
+
 
 $.validator.addMethod("greaterThanmonth",
 
@@ -447,22 +445,6 @@ else
 
 }, "Max month must be greater than Min month");
 
-// khyati chnages send
-
-$("#magxmonth").focusout(function(){
-    
-    
-    if(parseFloat($("#minmonth").val()) > parseFloat($("#maxmonth").val()) && parseFloat($("#maxyear").val())=="0")
-    {
-       
-        $(".error1").css("display","block").css("color","red");
-        $("#submit").prop('disabled',true);
-    }
-    else {
-        $(".error1").css("display","none");
-        $("#submit").prop('disabled',false);        
-    }
-    });
 
 
 // $.validator.addMethod('le', function(value, element, param) {
