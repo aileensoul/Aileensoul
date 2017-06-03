@@ -141,7 +141,7 @@
 
                     <h4 class="profile-head-text"><a href="<?php echo base_url('business_profile/business_profile_manage_post/'.$businessdata1[0]['business_slug'].''); ?>"> <?php echo ucwords($businessdata1[0]['company_name']); ?></a></h4>
 
-                    <h4 class="profile-head-text"><a href="<?php echo base_url('business_profile/business_profile_manage_post/'.$businessdata1[0]['business_slug'].''); ?>"> 
+                    <h4 class="profile-head-text_dg"><a href="<?php echo base_url('business_profile/business_profile_manage_post/'.$businessdata1[0]['business_slug'].''); ?>"> 
 
 
                    <?php
