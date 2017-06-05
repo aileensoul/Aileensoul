@@ -547,7 +547,7 @@ fieldset.full-width { width: 100%; }
 .cover-pic { position: absolute !important; left: 25px; top: 0; z-index: 99; }
 .cover-pic .btn { display: block; }
 .croppie-container .cr-viewport { border-color:#f4f4f4; }
-.upload-img { z-index: 2;  margin-top: -75px !important; }
+.upload-img { z-index: 2;  margin-top: -90px !important; }
 .cover-pic{padding-top: 25px;text-align: center;}
 
 .profile-photo { position: relative; z-index: 0; }
@@ -2193,7 +2193,7 @@ border-bottom: 1px solid #000033;
 
 }
 .profile-main-rec-box-menu{margin-top: -80px;
-                           border-left: 1px solid #d9d9d9; border-bottom: 1px solid #d9d9d9; border-right: 1px solid #d9d9d9; z-index: -1;}
+                           border-left: 2px solid #bfbfbf; border-bottom: 2px solid #bfbfbf; border-right: 2px solid #bfbfbf; z-index: -1;}
 
 .profile-main-rec-box-menu ul {
     list-style-type: none;
@@ -2262,9 +2262,9 @@ border-bottom: 1px solid #000033;
     font-weight: 600;
 
 }
-.profile-main-rec-box-menu{background-color:white;  box-shadow: 0px 4px 17px #CCCCCC; 
--webkit-box-shadow: 0px 4px 17px #CCCCCC; 
--moz-box-shadow: 0px 4px 17px #CCCCCC; }  .profile-main-rec-box-menu ul li.active { position:relative; background:#fff; }
+.profile-main-rec-box-menu{background-color:white; /* box-shadow: 0px 4px 17px #CCCCCC; */
+/*-webkit-box-shadow: 0px 4px 17px #CCCCCC; 
+-moz-box-shadow: 0px 4px 17px #CCCCCC;*/ }  .profile-main-rec-box-menu ul li.active { position:relative; background:#fff; }
 .profile-main-rec-box-menu ul li.active a { background:#1b8ab9; color: #ffffff; }
 .last_date{    padding-left: 15px;
                float: left;
@@ -2853,7 +2853,12 @@ label.cameraButton input[accept*="camera"] {
 .post-design-commnet-box{padding-left: 23px; background-color: #e8f3f8; padding-right: 23px; border-top: 1px solid #e6eaef; padding-top: 10px; }
 .post-design-menu{border-top: 1px solid #efefef;border-bottom:1px solid #efefef;}
 .post-design-menu ul { margin: 0; padding: 0; }
-.post-design-menu ul li { list-style: none; display: inline-block; padding: 0; margin: 0; position: relative; }
+.post-design-menu ul li {  vertical-align: middle;
+    list-style: none;
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    position: relative; }
 .post-design-menu ul li a {cursor: pointer; color: #1b8ab9; margin-right: 18px!important;padding: 4px 5px 4px 0px!important;font-weight: 400; display: block;  }
 .post-design-menu ul li a i {cursor: pointer; font-size: 19px; /*padding: 10px 5px 10px 5px;*/}
 .post-design-menu ul li a i:hover {border-radius: 10%; color: #999; }

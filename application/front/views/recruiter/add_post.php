@@ -1163,4 +1163,5 @@ $('#artpost').validate({
   border: 3px solid #f00 !important;
 
 }
+#skills-error{margin-top: 34px !important;}
 </style>
