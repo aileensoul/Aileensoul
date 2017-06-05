@@ -2058,7 +2058,7 @@ $( "#tags" ).autocomplete({
         {
             return false;
         }
-
+        txt = txt.replace(/&/g,"%26");
         $('#post_comment' + clicked_id).html("");
 
         var x = document.getElementById('threecomment' + clicked_id);
@@ -2120,6 +2120,7 @@ $( "#tags" ).autocomplete({
                 {
                     return false;
                 }
+                txt = txt.replace(/&/g,"%26");
                 $('#post_comment' + clicked_id).html("");
                 if (window.preventDuplicateKeyPresses)
                     return;
@@ -2524,6 +2525,7 @@ $( "#tags" ).autocomplete({
         {
             return false;
         }
+        txt = txt.replace(/&/g,"%26");
         $.ajax({
             type: 'POST',
             url: '<?php echo base_url() . "business_profile/edit_comment_insert" ?>',
@@ -2621,6 +2623,7 @@ $( "#tags" ).autocomplete({
                 {
                     return false;
                 }
+                txt = txt.replace(/&/g,"%26");
                 if (window.preventDuplicateKeyPresses)
                     return;
                 window.preventDuplicateKeyPresses = true;
@@ -2704,6 +2707,7 @@ $( "#tags" ).autocomplete({
         {
             return false;
         }
+        txt = txt.replace(/&/g,"%26");
         $.ajax({
             type: 'POST',
             url: '<?php echo base_url() . "business_profile/edit_comment_insert" ?>',
@@ -2803,7 +2807,7 @@ $( "#tags" ).autocomplete({
                 {
                     return false;
                 }
-
+                txt = txt.replace(/&/g,"%26");
                 //$('#editcommenttwo' + abc).html("");
 
                 if (window.preventDuplicateKeyPresses)
@@ -3086,6 +3090,7 @@ $( "#tags" ).autocomplete({
         {
             return false;
         }
+        txt = txt.replace(/&/g,"%26");
         $('#post_imgcomment' + clicked_id).html("");
 
         var x = document.getElementById('threeimgcomment' + clicked_id);
@@ -3162,7 +3167,7 @@ $( "#tags" ).autocomplete({
                 {
                     return false;
                 }
-
+                txt = txt.replace(/&/g,"%26");
                 $('#post_imgcomment' + clicked_id).html("");
 
                 if (window.preventDuplicateKeyPresses)
@@ -3369,6 +3374,7 @@ $( "#tags" ).autocomplete({
         {
             return false;
         } else {
+            txt = txt.replace(/&/g,"%26");
             $.ajax({
                 type: 'POST',
                 url: '<?php echo base_url() . "business_profile/mul_edit_com_insert" ?>',
@@ -3475,7 +3481,7 @@ $( "#tags" ).autocomplete({
                 {
                     return false;
                 } else {
-
+                    txt = txt.replace(/&/g,"%26");
                     if (window.preventDuplicateKeyPresses)
                         return;
                     window.preventDuplicateKeyPresses = true;
@@ -3537,6 +3543,7 @@ $( "#tags" ).autocomplete({
         {
             return false;
         }
+        txt = txt.replace(/&/g,"%26");
         $.ajax({
             type: 'POST',
             url: '<?php echo base_url() . "business_profile/mul_edit_com_insert" ?>',
@@ -3586,7 +3593,7 @@ $( "#tags" ).autocomplete({
                 {
                     return false;
                 }
-
+                txt = txt.replace(/&/g,"%26");
                 if (window.preventDuplicateKeyPresses)
                     return;
                 window.preventDuplicateKeyPresses = true;
