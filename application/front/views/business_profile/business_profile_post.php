@@ -2679,8 +2679,11 @@
         var $field = $('#editpostdesc' + abc);
         //var data = $field.val();
         var editpostdetails = $('#editpostdesc' + abc).html();
+//        editpostdetails = editpostdetails.replaceAll('&', '%26');
+        editpostdetails = editpostdetails.replace(/&/g,"%26");
         
 // end khyati code
+
 
         // $('#editpostdesc' + abc).html("");
         if (editpostname.value == '' && editpostdetails == '') {

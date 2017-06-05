@@ -4003,9 +4003,9 @@ class Business_profile extends MY_Controller {
 
             //echo "<pre>"; print_r($artdata); die();
             if ($this->data['businessdata'][0]['product_name']) {
-                $editpost = '<div>';
-                $editpost .= $businessdata[0]['product_name'] . "<br>";
-                $editpost .= '</div>';
+                $editpost = '<div><a style="margin-bottom: 0px; font-size: 16px">';
+                $editpost .= $businessdata[0]['product_name'] . "";
+                $editpost .= '</a></div>';
             }
             if ($this->data['businessdata'][0]['product_description']) {
 
@@ -7370,6 +7370,9 @@ class Business_profile extends MY_Controller {
         if ($delete_data) {
             echo 'ok';
         }
+    }
+    public function contact_list(){
+        $this->load->view('business_profile/contact_list', $this->data);
     }
 
 }

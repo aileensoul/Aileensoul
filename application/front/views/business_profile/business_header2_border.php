@@ -346,7 +346,7 @@ $(document).ready(function ()
 
 
                                         </div>
-                                        <div id="addcontactFooter"><a href="#">See All</a></div>
+                                        <div id="addcontactFooter"><a href="<?php echo base_url('business_profile/contact_list'); ?>">See All</a></div>
                                       </div>
                                 </li>         
                               <li>
