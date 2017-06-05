@@ -683,7 +683,7 @@ class Notification extends MY_Controller {
         $userid = $this->session->userdata('aileenuser');
 
         //echo "<pre>"; print_r($data); die();
-g
+
         $contition_array = array('not_read' => 2, 'not_to_id' => $userid, 'not_type' => 2);
         $result = $this->common->select_data_by_condition('notification', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
