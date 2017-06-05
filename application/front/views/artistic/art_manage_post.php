@@ -6,8 +6,6 @@
     #popup-form img{display: none;}
 </style>
 
-
-
 <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap-3.min.css'); ?>">
 <link rel="stylesheet" href="<?php echo base_url('assets/css/croppie.css'); ?>">
 <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
@@ -31,13 +29,19 @@
 <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>-->
 <?php echo $art_header2; ?>
 
-
+<style type="text/css">
+    .paddingtop_fixed_art{padding-top: 62px!important;}
+</style>
 <link rel="stylesheet" type="text/css" href="../css/jquery.jMosaic.css">
 
 <!-- END HEADER -->
 <body   class="page-container-bg-solid page-boxed">
 
-    <div class="container" id="paddingtop_fixed">
+
+    <div class="container" id="paddingtop_fixed_art">
+<!--khyati 3-6-->
+<!--     <div class="container" id="paddingtop_fixed paddingtop_fixed1">
+ -->
 
         <div class="row" id="row1" style="display:none;">
             <div class="col-md-12 text-center">
@@ -873,7 +877,7 @@
 
                                                                 </a>
                                                                 <div class="datespan">
-                                                                    <span style="font-weight: 400; font-size: 14px; color: #91949d;"> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span></div>
+                                                                    <span style="font-weight: 400; font-size: 13px; color: #91949d;"> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span></div>
 
                                                             <?php } ?>                          
                                                         </li>
@@ -980,17 +984,17 @@
                                                             ?>
 
                                                             <!-- one image start -->
-                                                            <div id="basic-responsive-image" style="height: 80%; width: 100%;">
-                                                                <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img src="<?php echo base_url(ARTPOSTIMAGE . $artmultiimage[0]['image_name']) ?>" style="width: 100%; height: 100%;"> </a>
+                                                            <div id="basic-responsive-image" >
+                                                                <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img src="<?php echo base_url(ARTPOSTIMAGE . $artmultiimage[0]['image_name']) ?>" > </a>
                                                             </div>
                                                             <!-- one image end -->
 
                 <?php } elseif (in_array($ext, $allowespdf)) { ?>
 
                                                             <!-- one pdf start -->
-                                                            <div>
+                                                            <div id="basic-responsive-image" >
                                                                 <a href="<?php echo base_url('artistic/creat_pdf/' . $artmultiimage[0]['image_id']) ?>"><div class="pdf_img">
-                                                                        <img src="<?php echo base_url('images/PDF.jpg') ?>" style="height: 100%; width: 100%;">
+                                                                        <img src="<?php echo base_url('images/PDF.jpg') ?>" >
                                                                     </div></a>
                                                             </div>
                                                             <!-- one pdf end -->
@@ -1053,14 +1057,14 @@
 
                                                             <!-- three image start -->
                                                             <div id="three_images_art" >
-                                                                <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="three-columns" src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $artmultiimage[0]['image_name']) ?>" style="width: 100%; height:100%; "> </a>
+                                                                <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="three-columns" src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $artmultiimage[0]['image_name']) ?>"> </a>
                                                             </div>
                                                             <div  id="three_images_2_art">
-                                                                <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="three-columns" src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $artmultiimage[1]['image_name']) ?>" style="width: 100%; height:100%; "> </a>
+                                                                <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="three-columns" src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $artmultiimage[1]['image_name']) ?>" > </a>
                                                             </div>
 
                                                             <div  id="three_images_2_art">
-                                                                <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="three-columns" src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $artmultiimage[2]['image_name']) ?>" style="width: 100%; height:100%; "> </a>
+                                                                <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="three-columns" src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $artmultiimage[2]['image_name']) ?>" > </a>
                                                             </div>
 
                                                             <!-- three image end -->
@@ -1075,7 +1079,7 @@
 
                                                                 <!-- four image start -->
                                                                 <div id="responsive_manage-images-breakpoints">
-                                                                    <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="breakpoint" src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $multiimage['image_name']) ?>" style="width: 100%; height: 100%;"> </a>
+                                                                    <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="breakpoint" src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $multiimage['image_name']) ?>"> </a>
 
                                                                 </div>
 
@@ -1096,7 +1100,7 @@
                                                                 <!-- five image start -->
                                                                 <div>
                                                                     <div id="responsive-manage_images_2-breakpoints">
-                                                                        <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $multiimage['image_name']) ?>" style=""> </a>
+                                                                        <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $multiimage['image_name']) ?>" > </a>
                                                                     </div>
                                                                 </div>
 
@@ -1142,7 +1146,7 @@
                                                     <!-- like comment div start -->
                                                     <ul>
                                                         <li class="<?php echo 'likepost' . $row['art_post_id']; ?>">
-                                                            <a id="<?php echo $row['art_post_id']; ?>" onClick="post_like(this.id)">
+                                                            <a class="ripple" id="<?php echo $row['art_post_id']; ?>" onClick="post_like(this.id)">
 
                                                                 <?php
                                                                 $userid = $this->session->userdata('aileenuser');
@@ -1353,7 +1357,7 @@
                                                                     <div class="edit-comment-box">
                                                                         <div class="inputtype-edit-comment">
 
-                                                                            <div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="<?php echo $rowdata['artistic_post_comment_id']; ?>"  id="<?php echo "editcomment" . $rowdata['artistic_post_comment_id']; ?>" placeholder="Add a Comment ..." value= ""  onkeyup="commentedit(<?php echo $rowdata['artistic_post_comment_id']; ?>)"><?php echo $rowdata['comments']; ?></div>
+                                                                            <div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 78%;" class="editable_text" name="<?php echo $rowdata['artistic_post_comment_id']; ?>"  id="<?php echo "editcomment" . $rowdata['artistic_post_comment_id']; ?>" placeholder="Add a Comment ..." value= ""  onkeyup="commentedit(<?php echo $rowdata['artistic_post_comment_id']; ?>)"><?php echo $rowdata['comments']; ?></div>
                                                                             <span class="comment-edit-button"><button id="<?php echo "editsubmit" . $rowdata['artistic_post_comment_id']; ?>" style="display:none" onClick="edit_comment(<?php echo $rowdata['artistic_post_comment_id']; ?>)">Save</button></span>
                                                                         </div>
                                                                     </div>
@@ -3935,4 +3939,10 @@
             $('.modal-close').on('click', function () {
                 $('#myModal3').modal(show);
             });
+            
+             $( document ).on( 'keydown', function ( e ) {
+    if ( e.keyCode === 27 ) {
+        $( ".post-editor" ).hide();
+    }
+});
         </script>

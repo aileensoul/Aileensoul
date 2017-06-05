@@ -1,8 +1,7 @@
-<!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8" />
-     <title>Grow Business Network|Hiring|Search Jobs|Freelance Work|It's Free</title>
+    <head> 
+   <meta charset="utf-8" />
+   <title>Grow Business Network|Hiring|Search Jobs|Freelance Work|It's Free</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1" name="viewport" />
 
@@ -10,8 +9,7 @@
     <!--Need to add following TAG in Header.-->
 
     
-        <meta name="google-site-verification" content="BKzvAcFYwru8LXadU4sFBBoqd0Z_zEVPOtF0dSxVyQ4" />
-
+<meta name="google-site-verification" content="BKzvAcFYwru8LXadU4sFBBoqd0Z_zEVPOtF0dSxVyQ4" />
 <link rel="canonical" href="https://www.aileensoul.com" />
 <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
 <meta name="description" content="Aileensoul provides best opportunity where you can Hire, Recruit, Freelance, Busines and find or search jobs of your preference in your required field." />
@@ -43,67 +41,44 @@
 
 <link rel="canonical" href="https://www.aileensoul.com" />
 <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
- <link rel="stylesheet" type="text/css" href="<?php echo base_url('partical/media.css'); ?>">
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url('partical/common-style.css'); ?>">
-
+    <meta content="" name="author" />
+    <link rel="icon" href="">
   <!-- Calender Css Start-->
    <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/jquery.datetimepicker.css'); ?>">
    <!-- Calender Css End-->
+       <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style_login.css'); ?>">
+       <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/common-style.css'); ?>">
+       <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/media.css'); ?>">
+     </head>
 
-  <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
- 
-<link rel="stylesheet" type="text/css" href="partical/css/style_login1.css">
-    <meta content="" name="author" />
-    <link rel="icon" href="">
-    <!-- css start -->
-   <style type="text/css">
-     
 
-   </style>
-</head>
-<!-- header -->
 
-<!-- style for span id=notification_count start-->
-        
-
-<body>
-  <header>
-          
+<body class="main_bdy_c">
+<header>
+    
         <div class="header3">
-            <div class="container">
-
-
-                <div class="row">
-                    <div class="col-md-5 col-sm-5">
-                        <div class="logo"><a href="<?php echo base_url('main') ?>"><!-- <img src="<?php// echo base_url('images/logo.png'); ?>"> --> <span style="color: #87ceff; font-size: 41px;">Aileensoul</span></a></div>
+    <div class="container">
+    <div class="row">
+  <div class="col-md-6 col-sm-5">
+                        <div class="logo"><a href="<?php echo base_url('main') ?>"><!-- <img src="<?php// echo base_url('images/logo.png'); ?>"> --> <span >Aileensoul</span></a></div>
                     </div>
-
-<!-- start login data -->
-
-               
-
-<form action="<?php echo base_url(); ?>login/check_login" method="post" id="login_form" name="login_form">
-
-                    <div class="col-md-7 col-sm-7 header-left-menu">
-                        <div class="pushmenu pushmenu-left">
-                      
-   <div class="col-md-4 reg_form">
+ <form action="<?php echo base_url(); ?>login/check_login" method="post" id="login_form" name="login_form">
+           <div class="col-md-6 col-sm-7 header-left-menu">
+ <div class="col-md-4 reg_form">
                         <input type="text" tabindex="1" name="user_name" id="user_name" placeholder="Email Address" value="<?php if (isset($_COOKIE['user_name'])) { echo $_COOKIE['user_name']; } ?>">
 
-                        <div class="checkbox2" style="display: block;">
-
-                        <input type="checkbox"  tabindex="2"  class="fl" name="remember" style="display: inline-block;padding: 2px; width: 6%; margin-left: 5px;margin-top: 5px;">
-                                     <span class="" style="font-size: 13px; padding-left: 8px; color: #a0b3b0;">Remember me</span>
-                        </div>
+                      
+                        <input class="rem" type="checkbox"  tabindex="2"  class="fl" name="remember" >
+                                     <span class="remb_1" >Remember me</span>
+                      
         </div> 
          <div class="col-md-4 reg_form">              
                                <input type="password" name="password" id="password" placeholder="Password" value="<?php if (isset($_COOKIE['password'])) { echo $_COOKIE['password']; } ?>">
 
                                 <input type="hidden" name="hiddenf" id="hiddenf" value="main">
 
-                              <span style="font-size: 12px; padding-left: 8px; color: #a0b3b0;">
-                              <a style="font-size: 13px;"   id="myBtn"> Forgot Password?</a>
+                              <span class="frtgt">
+                              <a   id="myBtn"> Forgot Password?</a>
                               </span>
 
 
@@ -112,21 +87,17 @@
 <div class="col-md-2 reg_button">
                          <input type="submit" value="login" name="">
       </div>                          </div>
+       </form>
 
-                                <!-- Friend Request End-->
+    </div>    
+    </div>
+     
+    </div>
 
-                                <!-- END USER LOGIN DROPDOWN -->
-                        </div>
-                        </form>
-<!-- end login data -->
 
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <div id="myModal" class="modal">
+</header>
+    
+       <div id="myModal" class="modal">
 
   <!-- Modal content -->
   <div class="modal-content">
@@ -156,38 +127,14 @@
   </div>
 
 </div>
-    <section class="buttonset">
-        <div id="nav_list"></div>
-    </section>
-
-    <!-- header end -->
-
-                  <?php
-                    if ($this->session->flashdata('error1')) {
-                        echo $this->session->flashdata('error1');
-                    }
-                    if ($this->session->flashdata('success')) {
-                        echo $this->session->flashdata('success');
-                    }
-                    ?>
-<!--         <marquee behavior="alternate" style="font-size: 30px;color: red; line-height: 30px;padding: 5px;">This Site Is Under Construction</marquee>-->
-
-    <section id="section-height" style="height: 650px;">
-    <div id="particles-js"></div>
-
-
-    <div class="banner_cnt_reg text-center clearfix">
-    
-          <div class="form" style="max-width:75%;" >
-       <div class="tab-group-reg">
-      <ul>
-        <li class="tab active"><a style="cursor: default;" class="head-ail2">Join Aileensoul</a></li>
-      </ul>
-      </div>
-        <div id="login2"> 
-
-           
-<?php echo form_open_multipart(base_url('registration/reg_insert'),array('id' => 'regform','name' => 'regform','class' => "clearfix"));
+   <div class="container">
+        <div class="row">
+            <div class="col-md-5">
+               <div class="main_reg_form">
+                <div class="head_ad">
+                    <h2>Join Aileensoul</h2>
+                </div>
+           <?php echo form_open_multipart(base_url('registration/reg_insert'),array('id' => 'regform','name' => 'regform','class' => "clearfix"));
   
   if ($this->session->flashdata('error')) 
                {
@@ -201,49 +148,30 @@
 ?>
           
             <span id="uname-error"> </span>
-          <div class="top-row">
-            <div class="field-wrap">
-             
-
-              <label class="fname_reg">First Name<span class="req">*</span> </label>
-                      <input type="text" value="<?php if($fsname){ echo $fsname; }?>" name="fname" id="fname" placeholder="">
+                <fieldset class="col-md-6 par-3">
+                    <label>First Name</label>
+                  <input type="text" value="<?php if($fsname){ echo $fsname; }?>" name="fname" id="fname" placeholder="Enter First name">
                       <?php echo form_error('fname'); ?>
-                     
-            </div>
-        
-            <div class="field-wrap">
-              <label class="fname_reg">Last Name<span class="req">*</span></label>
-                      <input type="text" value="<?php if($lname){ echo $lname; }?>" name="lname" id="lname" placeholder="">
+                </fieldset>
+                 <fieldset class="col-md-6 pal-3">
+                    <label>Last Name</label>
+                       <input type="text" value="<?php if($lname){ echo $lname; }?>" name="lname" id="lname" placeholder="Enter Last name">
                       <?php echo form_error('lname'); ?>
-            </div>
-          </div>
-              
-          <div class="top-row">
-            <div class="field-wrap full-width">
-             <label class="fname_reg">Email Address <span class="req">*</span></label>
-             <input type="text" name="email" id="email" placeholder="" value="">
+                </fieldset>
+                 <fieldset class="col-md-12">
+                    <label>Email Address</label>
+                  
+                     <input type="text" name="email" id="email" placeholder="Enter Email address" value="">
               <?php echo form_error('email'); ?>
-            </div>
-        
-            <!-- <div class="field-wrap">
-               <label class="fname_reg">User Name<span class="req">*</span></label>   
-                      <input type="text" name="uname" id="uname" placeholder="" onkeyup="check_if_exists();" onkeypress="return RestrictSpace()">
-                      <?php echo form_error('uname'); ?>
-                      <input type="hidden" id="user" name="user" >
-
-            </div> -->
-          </div>
-              
-         <div class="top-row">
+                </fieldset>
+            
+            
+                   <div class="top-row">
             <div class="field-wrap full-width" style="padding-bottom: 0px;">
         <label class="fname_reg">Password<span class="req">*</span></label>
-    <input type="password" name="password" id="password" class="showpassword2" placeholder="" s>
+    <input type="password" name="password" id="password" class="showpassword2" placeholder="">
                       <?php echo form_error('password'); ?>
             
-
-                  
-
-
             </div>
             <label for="checkbox_eye"  style="      position: absolute;
     /* top: 8px; */
@@ -258,39 +186,93 @@
                 <?php echo form_error('password2'); ?>
             </div> -->
           </div>
-              
-          <div class="top-row">
-            <div class="field-wrap" style="margin-bottom: 5px;">
-              <label class="fname_reg">
-              Date of Birth<span class="req">*</span></label>
-              </label>
-              <input type="text" name="datepicker" id="datepicker"  autocomplete="off" >
-            </div>
-<!--                    <div class="field-wrap" id="gen">
-                <label class="label_gen">Gender</label>
-        <input type="radio" name="gender" id="male" value="male">Male
-       
-        <input type="radio" name="gender" id="female" value="female">Female
-            </div>        -->
-            <div class="field-wrap" id="gen">
-           <!-- <span class="gen_lbl">Gender<span class="req">*</span>: </span>     -->
-                      <input type="radio" name="gen" id="gen" value="M" <?php if($gender == 'M'){ echo 'checked'; }?>>Male
-                      <input type="radio" name="gen" id="gen" value="F" <?php if($gender == 'F'){ echo 'checked'; }?>>Female
-                      <?php echo form_error('gen'); ?>
+                <fieldset class="col-md-9 date_tm">
+                    <label>Date Of Birth</label>
+                    
+                    <select name="date">
+    <option value="">  DD  </option>  
+    <option value="01"> 1 </option>  
+    <option value="02"> 2 </option> 
+    <option value="03"> 3 </option> 
+    <option value="04"> 4 </option> 
+    <option value="05"> 5  </option> 
+    <option value="06"> 6  </option> 
+    <option value="07"> 7  </option> 
+    <option value="08">  8  </option> 
+    <option value="09">  9  </option> 
+    <option value="10">  10  </option> 
+    <option value="11">  11  </option> 
+    <option value="12">  12  </option> 
+    <option value="13">  13  </option> 
+    <option value="14">  14  </option> 
+    <option value="15">  15  </option> 
+    <option value="16">  16  </option> 
+    <option value="17">  17  </option> 
+    <option value="18">  18  </option> 
+    <option value="19">  19  </option> 
+    <option value="20">  20  </option> 
+    <option value="21">  21  </option> 
+    <option value="22">  22  </option> 
+    <option value="23">  23  </option> 
+    <option value="24">  24  </option> 
+    <option value="25">  25  </option> 
+    <option value="26">  26  </option> 
+    <option value="27">  27  </option> 
+    <option value="28">  28  </option> 
+    <option value="29">  29  </option> 
+    <option value="30">  30  </option> 
+    <option value="31">  31  </option> 
 
-       
-            </div>
-           </div>
-              
-              <div class="terms">
-                  <span>By Clicking on create an account button you agree our <a> Terms and Condition </a>and <a> Privacy Policy </a> . </span>
-              </div>
-         
-           
-         <!--  <button class="button3 button-block3 " style="background-image: url(partical/images/bg-button.png); background-repeat: no-repeat; background-position: right center ; margin-top:  10px;">Create an Account</button> -->
+
+</select>
+<select name="month">
+    <option value="">  MM  </option>
+    <option value="01">  Jan  </option>
+    <option value="02">  Feb  </option>
+    <option value="03">  Mar  </option>
+    <option value="04">  Apr  </option>
+    <option value="05"> May   </option>
+    <option value="06"> Jun  </option>
+    <option value="07"> Jul  </option>
+    <option value="08"> Aug  </option>
+    <option value="09"> Sep  </option>
+    <option value="10"> Oct  </option>
+    <option value="11"> Nov  </option>
+    <option value="12"> Dec  </option>
+</select>
+<select name="year">
+    <option value=""> YYYY </option>
+ <?php  for ($i = date('Y'); $i > 1899 ; $i--) {?>
+    <option value="<?php echo $i ?>"> <?php echo $i ?> </option>
+  
+        <?php  } ?>
+    
+    
+</select>
+
+  <!--<input type="text" name="datepicker" id="datepicker"  autocomplete="off" >-->
+                </fieldset>
+                <fieldset class="col-md-3 date_tm">
+                    <label>Gender</label>
+                    
+<select name="gen" id="gen" style="padding-right: 0px!important;">
+    <option value=""> Gender </option>
+    <option value="M" <?php if($gender == 'M'){ echo 'selected'; }?>> Male </option>
+    <option value="F" <?php if($gender == 'F'){ echo 'selected'; }?>> FeMale </option>
+   </select>
+              <?php echo form_error('gen'); ?>  
+                </fieldset>
+<div class="col-md-12 terms">
+    <p>By Clicking on create an account button you agree our
+<br>    <a href="#">Terms and Condition</a> and <a href="">Privacy Policy</a>
+    </p>
+    
+</div>
+
+    <!--  <button class="button3 button-block3 " style="background-image: url(partical/images/bg-button.png); background-repeat: no-repeat; background-position: right center ; margin-top:  10px;">Create an Account</button> -->
            <input type="submit" value="Create an Account" name="submit" class="button3 button-block3 " style="background:#87ceff!important;    background-repeat: no-repeat; background-position: right center ; margin-top:  10px;">
           <div class="or"> <span>or</span></div>
-          
+           </form>
           <button class="button3 button-block3 facebook_ac" style="background-color: #3b5998!important ;background-repeat: no-repeat; background-position: right center; margin-bottom: 15px;">Sign Up With Facebook</button>
     <!--      
           <div class="or">Already have an account? <a href="<?php echo base_url('login')?>"  style="color: #a0b3b0;
@@ -298,20 +280,30 @@
     font-weight: 600;
     padding-bottom: 10px;">Sign in</a></div> -->
         <!--<small class="help-block" data-fv-validator="notEmpty" data-fv-for="agree" data-fv-result="VALID" style="display: none;">You must agree with the terms and conditions</small>-->
-          </form>
+         
+               </div>
+            </div>
 
-       
-        
+            <div class="col-md-6">
+           <!--  <div class="main-img">
+                <img src="img/main.jpg">
+            </div> -->
+            <div class="textss">
+              <h1>
+                Aileensoul provides a platform and opportunity to every person in the world to make and rediscover their career.
+              </h1>
+            </div>
+
+             </div>
         </div>
-        
-      </div>
+    </div>
 
-    </div>  <footer>
+<footer>
         <div class="container">
             <div class="row">
-                <div class="col-md-6" style="padding: 12px;">
+                <div class="col-md-6" style="padding-bottom: 1px!important; padding: 12px;">
                 <div class="footer-menu pull-left">
-                    <p>&copy; 2017 | by <a href="#" style="color: #000033">Aileensoul</a></p>
+                    <p style="color: #fff;">&copy; 2017 | by <a href="#" style="color: #fff;">Aileensoul</a></p>
                 </div>
                 </div>
                 <div class="col-md-6">
@@ -328,10 +320,8 @@
                 </div>
             </div>
         </div>
-        </footer>
-
-
-<!-- scripts -->
+    
+    <!-- scripts -->
 <!-- <script src="<?php //echo base_url('partical/particles.json'); ?>"></script> -->
 
 <script src="<?php echo base_url('js/jquery-1.11.1.min.js'); ?>"></script>
@@ -362,14 +352,10 @@ window.onclick = function(event) {
 <script src="<?php echo base_url('partical/js/index.js'); ?>"></script>
 
 
-     
-    <footer>
-
-
-
+        </footer>
 </body>
-
 </html>
+
 
 <!-- Calender JS Start-->
 <script src="<?php echo base_url('js/jquery.js'); ?>"></script>
@@ -408,7 +394,7 @@ $('#datepicker').datetimepicker({
 
 
  $(function(){
-    $(".showpassword2").each(function(index,input) {
+    $(".showpassword2").each(function(index,input) { 
         var $input = $(input);
         $('<div class="checkbox2 show" style="display: block;">').append(
             $("<input type='checkbox' class='showpasswordcheckbox2'  id='checkbox_eye' style='display:none;'></div> ").click(function() {
@@ -477,7 +463,17 @@ $('#datepicker').datetimepicker({
                               maxlength: 20,
                              equalTo: "#password"
                         },
-                        datepicker: {
+                        date: {
+
+                            required: true
+                            // date: true
+                        },
+                         month: {
+
+                            required: true
+                            // date: true
+                        },
+                         year: {
 
                             required: true
                             // date: true
@@ -525,9 +521,19 @@ $('#datepicker').datetimepicker({
                              equalTo: "Please enter the same password as above"
                            
                         },
-                         datepicker: {
+                         date: {
 
-                            required: "Date of Birth Is Required."
+                            required: "Valid Date Is Required."
+
+                        },
+                         month: {
+
+                            required: "Valid Date Is Required."
+
+                        },
+                         year: {
+
+                            required: "Valid Date Is Required."
 
                         },
                          

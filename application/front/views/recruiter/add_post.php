@@ -54,7 +54,7 @@
                             <div class="job-saved-box">
                                 <h3>Add New Post</h3>
 
-<?php echo form_open(base_url('recruiter/add_post_store'), array('id' => 'artpost', 'name' => 'artpost', 'class' => 'clearfix', 'onsubmit' => "return imgval()")); ?>
+<?php echo form_open(base_url('recruiter/add_post_store'), array('id' => 'artpost', 'name' => 'artpost', 'class' => 'clearfix form_addedit', 'onsubmit' => "return imgval()")); ?>
 
 
                           <div> <span class="required_field" >( <span style="color: red">*</span> ) Indicates required field</span></div>
@@ -100,11 +100,13 @@
 
 
                                 <fieldset <?php if ($month) { ?> class="error-msg" <?php } ?> class="two-select-box1">
-                                    <!-- <label style="cursor:pointer;" class="control-label">Minimum experience:<span style="color:red">*</span></label>
- -->
+                                
+                                <label style="cursor:pointer;" class="control-label">Minimum experience:<span style="color:red">*</span></label>
+
 
                             <select name="minyear" style="cursor:pointer;" class="keyskil" id="minyear">
-                                        <option value="">Year</option>
+                                        <option value="" selected option disabled>Year</option>
+                                        
                                         <option value="0">0 Year</option>
                                         <option value="1">1 Year</option>
                                         <option value="2">2 Year</option>
@@ -129,7 +131,7 @@
                                     </select>
                                     
                              <select name="minmonth"  style="cursor:pointer;" class="keyskil margin-month " id="minmonth">
-                                        <option value="">Month</option>
+                                        <option value="" selected option disabled>Month</option>
                                         <option value="0">0 Month</option>
                                         <option value="1">1 Month</option>
                                         <option value="2">2 Month</option>
@@ -149,7 +151,7 @@
 
 
                                       <select name="maxyear" style="cursor:pointer;" class="keyskil1" id="maxyear">
-                                        <option value="">Year</option>
+                                        <option value="" selected option disabled>Year</option>
                                         <option value="0">0 Year</option>
                                         <option value="1">1 Year</option>
                                         <option value="2">2 Year</option>
@@ -176,7 +178,7 @@
                                       
 
                                     <select name="maxmonth" style="cursor:pointer;" class="keyskil1 margin-month " id="maxmonth">
-                                        <option value="">Month</option>
+                                        <option value="" selected option disabled>Month</option>
                                         <option value="0">0 Month</option>
                                         <option value="1">1 Month</option>
                                         <option value="2">2 Month</option>
@@ -185,6 +187,8 @@
                                         <option value="5">5 Month</option>
                                         <option value="6">6 Month</option>
                                     </select>
+
+
 
                                    <span id="fullname-error"></span>
                                     <?php echo form_error('month'); ?> &nbsp;&nbsp; <?php echo form_error('year'); ?>
@@ -253,7 +257,7 @@
                                     <?php echo form_error('last_date'); ?> 
                                 </fieldset>
 
-                                <fieldset class="col-md-4" <?php if ($minsal) { ?> class="error-msg" <?php } ?>>
+                                <fieldset class="col-md-4 pad_left" <?php if ($minsal) { ?> class="error-msg" <?php } ?>>
                                     <label class="control-label">Min salary:(Per Year) </label>
                                     <input name="minsal" type="text" id="minsal" placeholder="Enter Minimum salary" /><span id="fullname-error"></span>
 <?php echo form_error('minsal'); ?>
@@ -265,10 +269,10 @@
 <?php echo form_error('maxsal'); ?>
                                 </fieldset>
 
-                                 <fieldset class="col-md-4" <?php if($csurrency) {  ?> class="error-msg" <?php } ?> class="two-select-box"> 
+                                 <fieldset class="col-md-4 pad_right" <?php if($csurrency) {  ?> class="error-msg" <?php } ?> class="two-select-box"> 
                      <label>Currency:<span class="red">*</span></label>
                             <select name="currency" id="currency">
-
+                                
                             <?php foreach($currency as $cur){ ?>
                              <option value="<?php echo $cur['currency_id']; ?>"><?php echo $cur['currency_name']; ?></option>
                              <?php } ?>
@@ -359,19 +363,102 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
       return value == '' || value.trim().length != 0;  
     }, "No space please and don't leave it empty");
 
+$.validator.addMethod("reg_candidate", function(value, element, regexpr) {          
+    return regexpr.test(value);
+}, "Float Number Is Not Allowed");
+
 //for min max value validator start
+
+// $.validator.addMethod("greaterThan",
+//     function (value, element, param) {
+//           var $otherElement = $(param);
+//           return parseInt(value, 10) > parseInt($otherElement.val(), 10);
+//     });
+// $.validator.addMethod("greaterThan",
+
+// function (value, element, param) {
+//   var $min = $(param);
+//   if (this.settings.onfocusout) {
+//     $min.off(".validate-greaterThan").on("blur.validate-greaterThan", function () {
+//       $(element).valid();
+//     });
+//   }
+//   return parseInt(value) > parseInt($min.val());
+// }, "Max must be greater than min");
+
 $.validator.addMethod("greaterThan",
     function (value, element, param) {
           var $otherElement = $(param);
-          return parseInt(value, 10) > parseInt($otherElement.val(), 10);
+           if(!value) 
+            {
+                return true;
+            }
+            else
+            {
+          return parseInt(value, 10) > parseInt($otherElement.val(), 10);}
     });
+
+$.validator.addMethod("greaterThan1",
+
+function (value, element, param) {
+  var $min = $(param);
+  if (this.settings.onfocusout) {
+    $min.off(".validate-greaterThan").on("blur.validate-greaterThan", function () {
+      $(element).valid();
+    });
+  }
+   if(!value) 
+            {
+                return true;
+            }
+            else
+            {
+                    return parseInt(value) >= parseInt($min.val());
+            }
+}, "Max must be greater than min");
+
+
+
+$.validator.addMethod("greaterThanmonth",
+
+function (value, element, param) { 
+    //alert(value); alert(element); alert(param);alert("#maxyear");
+    var $maxyear = $('#maxyear');
+    var maxyear = parseInt($maxyear.val());
+
+    var $minyear = $('#minyear');
+    var minyear = parseInt($minyear.val());
+
+  var $min = $(param);
+  if (this.settings.onfocusout) {
+    $min.off(".validate-greaterThan").on("blur.validate-greaterThan", function () {
+      $(element).valid();
+    });
+  }
+if(!value) 
+            {
+                return true;
+            }
+            else if((maxyear == minyear))
+            {
+ //if((maxyear == minyear) ){// alert("gaai");
+  return parseInt(value) >= parseInt($min.val());
+}
+else
+{
+      return true;
+}
+
+}, "Max month must be greater than Min month");
+
+
 
 // $.validator.addMethod('le', function(value, element, param) {
 //       return this.optional(element) || value <= $(param).val();
 // }, 'Invalid value');
-$.validator.addMethod('ge', function(value, element, param) {
-      return this.optional(element) || value >= $(param).val();
-}, 'Invalid value');
+// $.validator.addMethod('ge', function(value, element, param) {
+//       return this.optional(element) || value >= $(param).val();
+// }, 'Invalid value');
 //for min max value validator End
 
             $(document).ready(function () { 
@@ -395,13 +482,14 @@ $.validator.addMethod('ge', function(value, element, param) {
 
                         other_skill: {
                             
-                           require_from_group: [1, ".other_skill"],
+                           require_from_group: [1, ".skill_other"],
                           noSpace: true
                             // required:true 
                         },
                         position_no:{
                              number:true,
-                             min: 1
+                             min: 1,   
+                             reg_candidate:/^-?(([0-9]{0,100}))$/
                         },
 
                          minyear: {
@@ -433,14 +521,14 @@ $.validator.addMethod('ge', function(value, element, param) {
                         maxyear: {
                             
                           require_from_group: [1, ".keyskil1"],
-                          greaterThan: "#minyear"
+                          greaterThan1: "#minyear"
                           //required:true 
                         }, 
 
                         maxmonth: {
                             
-                           require_from_group: [1, ".keyskil1"],
-                            greaterThan: "#minmonth"
+                          require_from_group: [1, ".keyskil1"],
+                            greaterThanmonth: "#minmonth"
                             // required:true 
                         },
                         last_date: {
@@ -457,7 +545,8 @@ $.validator.addMethod('ge', function(value, element, param) {
                             // return $("#minsal").val().length > 0;
                             // },
                              number:true,
-                             ge: "#minsal"
+                              min: 0,
+                             greaterThan: "#minsal"
                         },
                         // position_no:{
                         //     required:true
@@ -509,15 +598,15 @@ $.validator.addMethod('ge', function(value, element, param) {
                         },
                         maxyear: {
 
-                            require_from_group: "You must either fill out 'month' or 'year'",
-                            greaterThan:"Maximum Year Experience should be grater than Minimum Year"
+                            require_from_group: "You must either fill out 'month' or 'year'"
+                            // greaterThan1:"Maximum Year Experience should be grater than Minimum Year"
 
                         },
 
                         maxmonth: {
 
-                            require_from_group: "You must either fill out 'month' or 'year'",
-                            greaterThan:"Maximum Month Experience should be grater than Minimum Month"
+                            require_from_group: "You must either fill out 'month' or 'year'"
+                            //greaterThan:"Maximum Month Experience should be grater than Minimum Month"
                         },
                         last_date: {
 
@@ -527,7 +616,7 @@ $.validator.addMethod('ge', function(value, element, param) {
                         //     le:"Minimum salary should be less than Maximum salary"
                         // },
                         maxsal:{
-                            ge:"Maximum salary should be grater than Minimum salary"
+                            greaterThan:"Maximum salary should be grater than Minimum salary"
                         },
                         // position_no:{
                         //     required:"No candidate required."
@@ -1074,4 +1163,5 @@ $('#artpost').validate({
   border: 3px solid #f00 !important;
 
 }
+#skills-error{margin-top: 34px !important;}
 </style>

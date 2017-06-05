@@ -792,8 +792,7 @@ class Recruiter extends MY_Controller {
                 }
             }
         }
-        $results = array_unique($result);
-        foreach ($results as $key => $value) {
+        foreach ($result as $key => $value) {
             $result1[$key]['label'] = $value;
             $result1[$key]['value'] = $value;
         }
@@ -893,9 +892,7 @@ class Recruiter extends MY_Controller {
                 }
             }
         }
-
-        $results = array_unique($result);
-        foreach ($results as $key => $value) {
+        foreach ($result as $key => $value) {
             $result1[$key]['label'] = $value;
             $result1[$key]['value'] = $value;
         }
@@ -909,10 +906,10 @@ class Recruiter extends MY_Controller {
         } else {
             //echo "hello"; die();
             $data = array(
-                'post_name' => trim($this->input->post('post_name')),
-                'post_description' => trim($this->input->post('post_desc')),
+                'post_name' => $this->input->post('post_name'),
+                'post_description' => $this->input->post('post_desc'),
                 'post_skill' => implode(",", $skill),
-                'post_position' => trim($this->input->post('position')),
+                'post_position' => $this->input->post('position_no'),
                  
                  'post_last_date' => date('Y-m-d', strtotime($bod)),
                 //'post_location ' => $this->input->post('location'),
@@ -923,13 +920,13 @@ class Recruiter extends MY_Controller {
                 'min_year' => $this->input->post('minyear'),
                 'max_month' => $this->input->post('maxmonth'),
                 'max_year' => $this->input->post('maxyear'),
-                'interview_process' => trim($this->input->post('interview')),
+                'interview_process' => $this->input->post('interview'),
                 'fresher' => $this->input->post('fresher'),
-                'min_sal' => trim($this->input->post('minsal')),
-                'max_sal' => trim($this->input->post('maxsal')),
+                'min_sal' => $this->input->post('minsal'),
+                'max_sal' => $this->input->post('maxsal'),
                 'post_currency' => $this->input->post('currency'),
                 'is_delete' => 0,
-                'other_skill' => trim($this->input->post('other_skill')),
+                'other_skill' => $this->input->post('other_skill'),
                 'created_date' => date('y-m-d h:i:s'),
                 'user_id' => $userid,
                 'status' => 1,
@@ -1039,8 +1036,7 @@ class Recruiter extends MY_Controller {
                 }
             }
         }
-        $results = array_unique($result);
-        foreach ($results as $key => $value) {
+        foreach ($result as $key => $value) {
             $result1[$key]['label'] = $value;
             $result1[$key]['value'] = $value;
         }
@@ -1172,8 +1168,7 @@ $contition_array = array('status' => '1', 'is_delete' => '0');
                 }
             }
         }
-        $results = array_unique($result);
-        foreach ($results as $key => $value) {
+        foreach ($result as $key => $value) {
             $result1[$key]['label'] = $value;
             $result1[$key]['value'] = $value;
         }
@@ -1305,7 +1300,6 @@ $contition_array = array('status' => '1', 'is_delete' => '0');
                 }
             }
         }
-        $results = array_unique($result);
         foreach ($result as $key => $value) {
             $result1[$key]['label'] = $value;
             $result1[$key]['value'] = $value;
@@ -1405,7 +1399,6 @@ $contition_array = array('status' => '1', 'is_delete' => '0');
                 }
             }
         }
-        $results = array_unique($result);
         foreach ($result as $key => $value) {
             $result1[$key]['label'] = $value;
             $result1[$key]['value'] = $value;
@@ -1622,34 +1615,19 @@ $contition_array = array('status' => '1', 'is_delete' => '0');
     public function location() {
         $json = [];
 
-        $this->load->database('aileensoul');
+        //$this->load->database('aileensoul');
 
-//        if (!empty($this->input->get("q"))) {
-//            $this->db->like('city_name', $this->input->get("q"));
-//            $query = $this->db->select('city_id as id,city_name as text')
-//                    ->order_by("city_name", "asc")
-//                    ->limit(10)
-//                    ->get("cities");
-//            $json = $query->result();
-//        }
-        
-         // message from user
-     //    $contition_array = array('is_delete' => '0' , 'status' => '1','message_to !=' => $userid);
+        if (!empty($this->input->get("q"))) {
+            $this->db->like('city_name', $this->input->get("q"));
+            $query = $this->db->select('city_id as id,city_name as text')
+                    ->order_by("city_name", "asc")
+                    ->limit(10)
+                    ->get("cities");
+            $json = $query->result();
+        }
 
-//     $join_str5[0]['table'] = 'messages';
-//     $join_str5[0]['join_table_id'] = 'messages.message_to';
-//     $join_str5[0]['from_table_id'] = 'user.user_id';
-//     $join_str5[0]['join_type'] = '';
-     
-     if (!empty($this->input->get("q"))) {
-     $search_condition = "(city_name LIKE '" . trim($this->input->get("q")) . "%')";
 
-     $tolist = $this->common->select_data_by_search('cities', $search_condition,$contition_array = array(), $data = 'city_id as id,city_name as text', $sortby = 'city_name', $orderby = 'asc', $limit = '', $offset = '', $join_str5 = '', $groupby = '');
-   
-//echo '<pre>'; print_r($tolist); die();
-     }
-      //  echo json_encode($tolist);
-        echo json_encode($tolist);
+        echo json_encode($json);
     }
 
 //location automatic retrieve cobtroller End
@@ -2030,9 +2008,7 @@ $contition_array = array('status' => '1', 'is_delete' => '0');
                 }
             }
         }
-        
-        $results = array_unique($result);
-        foreach ($results as $key => $value) {
+        foreach ($result as $key => $value) {
             $result1[$key]['label'] = $value;
             $result1[$key]['value'] = $value;
         }
@@ -2185,8 +2161,7 @@ $join_str1 = array(
                 }
             }
         }
-        $results = array_unique($result);
-        foreach ($results as $key => $value) {
+        foreach ($result as $key => $value) {
             $result1[$key]['label'] = $value;
             $result1[$key]['value'] = $value;
         }

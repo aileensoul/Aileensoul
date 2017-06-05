@@ -49,7 +49,8 @@
         <!-- further and less -->
         <script>
             $(function () {
-                var showTotalChar = 150, showChar = "More", hideChar = "less";
+//                var showTotalChar = 150, showChar = "More", hideChar = "less";
+                var showTotalChar = 250, showChar = "More", hideChar = "";
                 $('.show').each(function () {
                     //var content = $(this).text();
                     var content = $(this).html();
@@ -859,10 +860,10 @@
 
                                                         </div>
                                                     </div>
-                                                    <div class="post-design-desc ">
+                                                    <div class="post-design-desc">
                                                         <div>
                                                             <div id="<?php echo 'editpostdata' . $row['business_profile_post_id']; ?>" style="display:block;">
-                                                                <a style="margin-bottom: 0px;     font-size: 16px">
+                                                                <a style="margin-bottom: 0px; font-size: 16px">
                                                                     <?php echo $this->common->make_links($row['product_name']); ?>
                                                                 </a>
                                                             </div>
@@ -873,7 +874,10 @@
 
                                                         <div id="<?php echo 'editpostdetails' . $row['business_profile_post_id']; ?>" style="display:block;">
                                                             <span class="show"> 
-                                                                <?php print $this->common->make_links($row['product_description']); ?>
+                                                                <?php $new_product_description = $this->common->make_links($row['product_description']); ?>
+                                                                <?php // echo  nl2br(htmlentities($new_product_description, ENT_QUOTES, 'UTF-8')); ?>
+                                                                <?php echo  nl2br(htmlentities($new_product_description, ENT_QUOTES, 'UTF-8')); ?>
+                                                                <?php // echo  nl2br($new_product_description); ?>
                                                             </span>
                                                         </div>
                                                         <div id="<?php echo 'editpostdetailbox' . $row['business_profile_post_id']; ?>" style="display:none;">
@@ -2677,6 +2681,9 @@
         var $field = $('#editpostdesc' + abc);
         //var data = $field.val();
         var editpostdetails = $('#editpostdesc' + abc).html();
+//        editpostdetails = editpostdetails.replaceAll('&', '%26');
+        editpostdetails = editpostdetails.replace(/&/g,"%26");
+        
 // end khyati code
 
 
@@ -3134,7 +3141,7 @@
     {
         // alert(clicked_id);
 
-        $('.biderror .mes').html("<div class='pop_content'> Do you want to delete this post?.<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='remove_post(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+        $('.biderror .mes').html("<div class='pop_content'> Do you want to delete this post?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='remove_post(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
         $('#bidmodal').modal('show');
     }
 </script>

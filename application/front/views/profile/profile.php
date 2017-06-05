@@ -17,11 +17,11 @@
           <div class="col-md-8">
 
      
-						<div class="common-form profile_edit">
+						<div class="common-form profile_edit main_form">
 							<h3>Edit Profile</h3>
   
 
- <?php echo form_open_multipart(base_url('profile/edit_profile'), array('id' => 'basicinfo','name' => 'basicinfo','class' => "clearfix")); ?>
+ <?php echo form_open_multipart(base_url('profile/edit_profile'), array('id' => 'basicinfo','name' => 'basicinfo','class' => "clearfix common-form_border")); ?>
 								    <fieldset class="">
 									    <label>First Name </label>
                       <input name="first_name" type="text" id="first_name" value="<?php echo $userdata[0]['first_name']?>" onblur="return full_name();"/><span id="fullname-error"></span>   <?php echo form_error('first_name'); ?>

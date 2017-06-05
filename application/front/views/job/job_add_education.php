@@ -57,7 +57,7 @@
 
                         <div class="clearfix">
 
-                            <div class="common-form">
+                            <div class="common-form common-form_border">
                                 <h3>Education</h3>
                             <?php echo form_open_multipart(base_url('job/job_add_education_insert'), array('id' => 'jobseeker_regform','name' => 'jobseeker_regform','class' =>'clearfix')); ?>
 

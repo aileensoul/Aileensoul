@@ -69,7 +69,7 @@
                     </div>
 
                     <!--- middle section start -->
-                     <div class="common-form">
+                     <div class="common-form common-form_border">
                      <h3>Basic Information</h3>
                  <?php echo form_open(base_url('recruiter/basic_information'), array('id' => 'basicinfo','name' => 'basicinfo','class' => 'clearfix')); ?>
 
