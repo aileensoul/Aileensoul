@@ -1,6 +1,6 @@
 <html>
-<div class="js">
- 
+
+
 <!-- HEAD Start -->
 <?php  echo $head; ?>
     <!-- END HEAD -->
@@ -21,6 +21,8 @@
      echo $freelancer_hire_header2_border; } ?> 
      <!-- pallavi code end 15-4 -->
 
+<div class="js">
+  
 
 <body>
   <div id="preloader"></div>
@@ -282,7 +284,16 @@ $(document).ready(function(){
 <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.min.js') ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
 
+<script type="text/javascript">
+ $(document).ready(function($) {  
 
+// site preloader -- also uncomment the div in the header and the css style for #preloader
+$(window).load(function(){
+  $('#preloader').fadeOut('slow',function(){$(this).remove();});
+});
+
+});
+</script>
 
 <!-- pallavi code start 15-4 -->
 <script>
@@ -439,14 +450,4 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
 
 <script type="text/javascript"> 
  $(".alert").delay(3200).fadeOut(300);
-</script>
-<script type="text/javascript">
-  jQuery(document).ready(function($) {  
-
-// site preloader -- also uncomment the div in the header and the css style for #preloader
-$(window).load(function(){
-  $('#preloader').fadeOut('slow',function(){$(this).remove();});
-});
-
-});
 </script>
