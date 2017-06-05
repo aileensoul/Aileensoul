@@ -8,12 +8,15 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/test.css'); ?>">
 
 <?php if($jobdata[0]['job_step'] == 10){ ?>
 <?php echo $job_header2_border; ?>
 <?php } ?>
 <!-- END HEADER -->
+<div class="js">
 <body class="page-container-bg-solid page-boxed">
+<div id="preloader"></div>
 
     <section>
 
@@ -376,7 +379,16 @@
 
 </body>
 </html>
+<script type="text/javascript">
+  jQuery(document).ready(function($) {  
 
+// site preloader -- also uncomment the div in the header and the css style for #preloader
+$(window).load(function(){
+  $('#preloader').fadeOut('slow',function(){$(this).remove();});
+});
+
+});
+</script>
 
 <!-- Calender JS Start-->
 <script src="<?php echo base_url('js/jquery.js'); ?>"></script>
@@ -736,3 +748,4 @@
 
     $(".formSentMsg").delay(3200).fadeOut(300);
 </script>
+

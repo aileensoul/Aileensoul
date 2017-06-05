@@ -14,7 +14,7 @@
 .tabs-left {
   /*border-right: 1px solid #ddd;*/
   padding-top: 15px;
-  height: 100%;
+  /*height: 100%;*/
 }
 .tabs-right {
   border-left: 1px solid #ddd;
@@ -179,6 +179,38 @@
  margin-top: 40px;
   
 }
+.top-tab{
+        text-align: center;
+    }
+    .top-tab ul li{
+        float: left;
+    }
+    .top-tab .remove_tab{
+        display: inline-block;
+        width: auto !important;
+        margin-top: 25px !important;
+    }
+    .top-tab .remove_tab a{
+        width:100% !important;
+    }
+    .all-box{
+        text-align: center;
+        padding-top: 25px;
+    }
+    .all-box ul{
+        display: inline-block;
+    }
+    .all-box li{
+        display: inline-block;
+        list-style-type: none;
+        width:220px;
+        height: 220px;
+        margin-bottom: 15px;
+    }
+    .all-box li img{
+        width: 220px;
+        height: 220px;
+    }
 
 @media screen and (max-width: 700px){
   .box{
@@ -519,23 +551,45 @@ label.cameraButton input[accept*="camera"] {
 <div class="user-midd-section" >
       <div  class="col-sm-12 border_tag padding_low_data " >
       
-        <div class="col-xs-3 padding_low_data padding_les padding_les"> <!-- required for floating -->
-          <!-- Nav tabs -->
-          <ul class="nav nav-tabs tabs-left remove_tab">
-            <li > <a href="<?php echo base_url('business_profile/business_photos/'.$businessdata1[0]['business_slug']) ?>" data-toggle="tab"><i class="fa fa-camera" aria-hidden="true"></i>   Photos</a></li>
-            <li>       <a href="<?php echo base_url('business_profile/business_videos/'.$businessdata1[0]['business_slug']) ?>" data-toggle="tab"><i class="fa fa-video-camera" aria-hidden="true"></i>  Video</a></li>
-            <li>    <a href="<?php echo base_url('business_profile/business_audios/'.$businessdata1[0]['business_slug']) ?>" data-toggle="tab"><i class="fa fa-music" aria-hidden="true"></i>  Audio</a></li>
-            <li class="active">    <a href="<?php echo base_url('business_profile/business_pdf/'.$businessdata1[0]['business_slug']) ?>" data-toggle="tab"><i class="fa fa-file-pdf-o" aria-hidden="true"></i>  Pdf</a></li>
-          </ul>
-        </div>
-<div class="col-xs-9 padding_les main_art" >
-
+<div class="padding_les main_art" >
+          <div class="top-tab">
+            <ul class="nav nav-tabs tabs-left remove_tab">
+              <li > <a href="<?php echo base_url('business_profile/business_photos/'.$businessdata1[0]['business_slug']) ?>" data-toggle="tab"><i class="fa fa-camera" aria-hidden="true"></i>   Photos</a></li>
+              <li>       <a href="<?php echo base_url('business_profile/business_videos/'.$businessdata1[0]['business_slug']) ?>" data-toggle="tab"><i class="fa fa-video-camera" aria-hidden="true"></i>  Video</a></li>
+              <li>    <a href="<?php echo base_url('business_profile/business_audios/'.$businessdata1[0]['business_slug']) ?>" data-toggle="tab"><i class="fa fa-music" aria-hidden="true"></i>  Audio</a></li>
+              <li class="active">    <a href="<?php echo base_url('business_profile/business_pdf/'.$businessdata1[0]['business_slug']) ?>" data-toggle="tab"><i class="fa fa-file-pdf-o" aria-hidden="true"></i>  Pdf</a></li>
+            </ul>
+          </div>
           <!-- Tab panes -->
           <div class="tab-content">
             <div class="tab-pane active" id="home"><div class="common-form">
                             <div class="">
-
-                                <h2 class="add_tag_design"> PDF</h2>
+                                <div class="all-box">
+                                            <ul> 
+                                                <li>
+                                                    <img src="http://localhost/aileensoul/uploads/business_post/thumbs/file_1496664178_jh179.jpg">
+                                                </li>
+                                                <li>
+                                                    <img src="http://localhost/aileensoul/uploads/business_post/thumbs/file_1496664178_jh179.jpg">
+                                                </li>
+                                                <li>
+                                                    <img src="http://localhost/aileensoul/uploads/business_post/thumbs/file_1496664178_jh179.jpg">
+                                                </li>
+                                                <li>
+                                                    <img src="http://localhost/aileensoul/uploads/business_post/thumbs/file_1496664178_jh179.jpg">
+                                                </li>
+                                                <li>
+                                                    <img src="http://localhost/aileensoul/uploads/business_post/thumbs/file_1496664178_jh179.jpg">
+                                                </li>
+                                                <li>
+                                                    <img src="http://localhost/aileensoul/uploads/business_post/thumbs/file_1496664178_jh179.jpg">
+                                                </li>
+                                                <li>
+                                                    <img src="http://localhost/aileensoul/uploads/business_post/thumbs/file_1496664178_jh179.jpg">
+                                                </li>
+                                            </ul>
+                                        </div>
+                              
                                  <div class="contact-frnd-post">
                                  <div class="pictures1">
 

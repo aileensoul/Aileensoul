@@ -41,23 +41,28 @@
             <div class="abt_a">
               <h1><span>SEND US FEEDBACK</span></h1>
             </div>
-              
+                 <?php echo form_open_multipart(base_url('feedback/feedback_insert'),array('id' => 'feedbackform','name' => 'feedbackform','class' => "clearfix")); ?>
+<!--                 <form id="feedbackform " class="clearfix" method="post" enctype="multipart/form-data" action="<?// echo base_url('feedback/feedback_insert'); ?>">-->
                  <fieldset class="col-md-12 par-3">
                  <div class="contactx">
-                    <input type="" name=""  placeholder=" Email *"></div>
+                     <input type="text"  name="contact_email" id="contact_email" placeholder="Enter  Email"> <span id="contact_email-error"> </span>
+                 </div>
                 </fieldset>
                  <fieldset class="col-md-12 par-3">
                <div class="contactx">
-                     <input type="" name=""  placeholder="Subject*"></div>
+                    <input type="text" name="contact_subject" id="contact_subject" placeholder="Enter Subject"> <span id="contact_subject-error"> </span></div>
                 </fieldset>
                 <fieldset class="col-md-12 par-3">
                 <div class="contactx">
-                  <textarea placeholder="Message*"></textarea></div>
+                
+                     <textarea name="contact_message" class="description " id="contact_message" placeholder="Message*"></textarea>
+                </div>
                 </fieldset>
               
                 <fieldset class="btnsa" style="float: right;">
                 <button>Submit</button>    
                 </fieldset>
+                 </form>
             </div>
           </div> 
 </div>           
@@ -86,3 +91,69 @@
         </div>
         </footer>
 </body>
+
+<script type="text/javascript" src="<?php echo base_url('js/jquery-1.11.1.min.js'); ?>"></script>
+
+
+<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.min.js') ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
+
+<script type="text/javascript">
+
+            //validation for edit email formate form
+
+            $(document).ready(function () { 
+
+                $("#feedbackform").validate({ 
+
+                    rules: { 
+
+                        contact_email: {
+
+                            required: true,
+                            email: true,
+
+                        },
+
+
+                        contact_subject: {
+                            required: true,
+                            
+                        },
+
+                        contact_message: {
+                            required: true,
+                            
+                        },
+
+                         },
+
+                    messages: {
+
+                        contact_email: {
+
+                            required: "Email Is Required.",
+                            email: "Type email in valid format",
+                            
+                        },
+
+                        
+
+                        contact_subject: {
+                            required: "Subject is required",
+                            
+                        },
+
+                        contact_message: {
+                            required: "Description is required",
+                            
+                        },
+                        
+
+                    },
+
+                });
+                   });
+  </script>
+
+</html>
