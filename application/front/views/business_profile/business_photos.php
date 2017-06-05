@@ -362,7 +362,7 @@
                                     <div class="">
                                         <div class="all-box">
                                             <ul> 
-                                                <li>
+                                               <!--  <li>
                                                     <img src="http://localhost/aileensoul/uploads/business_post/thumbs/file_1496664178_jh179.jpg">
                                                 </li>
                                                 <li>
@@ -382,7 +382,7 @@
                                                 </li>
                                                 <li>
                                                     <img src="http://localhost/aileensoul/uploads/business_post/thumbs/file_1496664178_jh179.jpg">
-                                                </li>
+                                                </li> -->
                                             </ul>
                                         </div>
                                         
