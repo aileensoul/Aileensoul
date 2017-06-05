@@ -1252,8 +1252,7 @@ class Business_profile extends MY_Controller {
     }
 
     public function business_profile_addpost_insert($id = "", $para = "") {
-
-
+        
         $userid = $this->session->userdata('aileenuser');
 
         $contition_array = array('user_id' => $para, 'status' => '1');

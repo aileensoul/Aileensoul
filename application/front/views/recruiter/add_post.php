@@ -54,7 +54,7 @@
                             <div class="job-saved-box">
                                 <h3>Add New Post</h3>
 
-<?php echo form_open(base_url('recruiter/add_post_store'), array('id' => 'artpost', 'name' => 'artpost', 'class' => 'clearfix', 'onsubmit' => "return imgval()")); ?>
+<?php echo form_open(base_url('recruiter/add_post_store'), array('id' => 'artpost', 'name' => 'artpost', 'class' => 'clearfix form_addedit', 'onsubmit' => "return imgval()")); ?>
 
 
                           <div> <span class="required_field" >( <span style="color: red">*</span> ) Indicates required field</span></div>
@@ -257,7 +257,7 @@
                                     <?php echo form_error('last_date'); ?> 
                                 </fieldset>
 
-                                <fieldset class="col-md-4" <?php if ($minsal) { ?> class="error-msg" <?php } ?>>
+                                <fieldset class="col-md-4 pad_left" <?php if ($minsal) { ?> class="error-msg" <?php } ?>>
                                     <label class="control-label">Min salary:(Per Year) </label>
                                     <input name="minsal" type="text" id="minsal" placeholder="Enter Minimum salary" /><span id="fullname-error"></span>
 <?php echo form_error('minsal'); ?>
@@ -269,10 +269,10 @@
 <?php echo form_error('maxsal'); ?>
                                 </fieldset>
 
-                                 <fieldset class="col-md-4" <?php if($csurrency) {  ?> class="error-msg" <?php } ?> class="two-select-box"> 
+                                 <fieldset class="col-md-4 pad_right" <?php if($csurrency) {  ?> class="error-msg" <?php } ?> class="two-select-box"> 
                      <label>Currency:<span class="red">*</span></label>
                             <select name="currency" id="currency">
-
+                                
                             <?php foreach($currency as $cur){ ?>
                              <option value="<?php echo $cur['currency_id']; ?>"><?php echo $cur['currency_name']; ?></option>
                              <?php } ?>
@@ -362,6 +362,10 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
 jQuery.validator.addMethod("noSpace", function(value, element) { 
       return value == '' || value.trim().length != 0;  
     }, "No space please and don't leave it empty");
+
+$.validator.addMethod("reg_candidate", function(value, element, regexpr) {          
+    return regexpr.test(value);
+}, "Float Number Is Not Allowed");
 
 //for min max value validator start
 
@@ -484,7 +488,8 @@ else
                         },
                         position_no:{
                              number:true,
-                             min: 1
+                             min: 1,   
+                             reg_candidate:/^-?(([0-9]{0,100}))$/
                         },
 
                          minyear: {

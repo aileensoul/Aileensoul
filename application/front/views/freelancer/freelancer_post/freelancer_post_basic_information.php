@@ -87,7 +87,7 @@ if ($this->session->flashdata('success')) {
 }
 ?>
                         </div>
-                        <div class="common-form">
+                        <div class="common-form common-form_border">
                             <h3>Basic Information</h3>
 
 <?php echo form_open(base_url('freelancer/freelancer_post_basic_information_insert'), array('id' => 'freelancer_post_basicinfo', 'name' => 'freelancer_post_basicinfo', 'class' => 'clearfix')); ?>

@@ -70,7 +70,7 @@
                     </div>
 
                     <!--- middle section start -->
-                      <div class="common-form">
+                      <div class="common-form common-form_border">
                       <h3>Company Address</h3>
                  <?php echo form_open(base_url('recruiter/comp_address_store'), array('id' => 'basicinfo','name' => 'basicinfo','class' => 'clearfix')); ?>
 

@@ -81,7 +81,7 @@
                                         }?>
                     </div>
                     
-                        <div class="common-form"> 
+                        <div class="common-form common-form_border"> 
                             <h3>Images</h3>
                         
                             <?php echo form_open_multipart(base_url('business_profile/image_insert'), array('id' => 'businessimage','name' => 'businessimage','class' => 'clearfix')); ?>

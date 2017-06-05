@@ -78,7 +78,7 @@
                             ?>
                         </div>
 
-                        <div class="common-form">
+                        <div class="common-form common-form_border">
                             <h3>
                                 Description
                             </h3>

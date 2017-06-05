@@ -74,7 +74,7 @@
                                             echo '<div class="alert alert-success">' . $this->session->flashdata('success') . '</div>';
                                         }?>
                     </div>
-						<div class="common-form">
+						<div class="common-form common-form_border ">
 							<h3>Proessional Information</h3>
 							<?php echo form_open_multipart(base_url('freelancer_hire/freelancer_hire_professional_info_insert'), array('id' => 'professional_info','name' => 'professional_info','class' => 'clearfix')); ?>
 

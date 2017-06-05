@@ -42,8 +42,8 @@
 
     <div class="container" id="paddingtop_fixed_art">
 <!--khyati 3-6-->
-    <div class="container" id="paddingtop_fixed paddingtop_fixed1">
-
+<!--     <div class="container" id="paddingtop_fixed paddingtop_fixed1">
+ -->
 
         <div class="row" id="row1" style="display:none;">
             <div class="col-md-12 text-center">

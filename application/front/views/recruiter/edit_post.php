@@ -25,7 +25,7 @@
                     <div class="col-md-7 col-sm-7">
                      
                     <div class="common-form">
-                    <h3>Edit Post</h3>
+                    <h3 class="h3_edit">Edit Post</h3>
                         <?php
                                 if ($this->session->flashdata('error')) {
                                     echo '<div class="alert alert-danger">' . $this->session->flashdata('error') . '</div>';
@@ -39,7 +39,7 @@
                     
                    
 
-                 <?php echo form_open(base_url('recruiter/update_post/' . $postdata[0]['post_id'] ), array('id' => 'basicinfo','name' => 'basicinfo','class' => 'clearfix','onsubmit' => "return imgval()")); ?>
+                 <?php echo form_open(base_url('recruiter/update_post/' . $postdata[0]['post_id'] ), array('id' => 'basicinfo','name' => 'basicinfo','class' => 'clearfix ','onsubmit' => "return imgval()")); ?>
                  <div> <span class="required_field" >( <span style="color: red">*</span> ) Indicates required field</span></div>
                  <?php
                          $post_name =  form_error('post_name');
@@ -323,7 +323,7 @@
                 </fieldset>
 
 
-                  <fieldset class="half-width col-md-4" <?php if($minsal) {  ?> class="error-msg" <?php } ?>>
+                  <fieldset class="half-width col-md-4 pad_left" <?php if($minsal) {  ?> class="error-msg" <?php } ?>>
                             <label class="control-label">Min salary:(Per Year)<!-- <span style="color:red">*</span> --></label>
                             <input name="minsal" type="text" id="minsal" value="<?php echo $postdata[0]['min_sal']; ?>"  placeholder="Enter Minimum Salary" /><span id="fullname-error"></span>
                             <?php echo form_error('minsal'); ?>
@@ -335,7 +335,7 @@
                             <?php echo form_error('maxsal'); ?>
                         </fieldset>
                 
-                                      <fieldset class=" col-md-4"> 
+                                      <fieldset class=" col-md-4 pad_right"> 
                      <label>Currency:</label>
                             <select name="currency" id="currency">
                             <?php if(count($currency) > 0){
@@ -452,6 +452,10 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
 jQuery.validator.addMethod("noSpace", function(value, element) { 
       return value == '' || value.trim().length != 0;  
     }, "No space please and don't leave it empty");
+
+$.validator.addMethod("reg_candidate", function(value, element, regexpr) {          
+    return regexpr.test(value);
+}, "Float Number Is Not Allowed");
 
 //for min max value validator start
 
@@ -578,7 +582,8 @@ jQuery.noConflict();
                         position:{
                             required: true,
                              number:true,
-                             min: 1
+                             min: 1,
+                            reg_candidate:/^-?(([0-9]{0,100}))$/
                         },
 
                          minyear: {
