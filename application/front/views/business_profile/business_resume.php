@@ -257,9 +257,16 @@ if ($businessdata1[0]['user_id'] != $userid) {
 <?php } ?>
 <div class="">
   <div id="ripple" class="centered" >
+<<<<<<< HEAD
   <div class="circle" ></div>
   <div class="circle"></div>    
   <div class="circle"></div>    
+=======
+  <div class="circle"><a href="" style="position: absolute; z-index: 1; cursor: pointer;
+    top: 7px;
+    left: 7px;"><i class="fa fa-user-plus" aria-hidden="true"></i></a></div>
+
+>>>>>>> 410b733c3ab1b077b46de1035bd684a48c975d3f
 
 </div>
   <div class="addtocont" style="    position: absolute;
