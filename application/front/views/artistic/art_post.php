@@ -3368,4 +3368,11 @@ jQuery.noConflict();
             features: ['playpause', 'progress', 'volume', 'fullscreen']
         });
     });
+    
+    $( document ).on( 'keydown', function ( e ) {
+    if ( e.keyCode === 27 ) {
+        $( ".post-editor" ).hide();
+    }
+});
 </script>
+

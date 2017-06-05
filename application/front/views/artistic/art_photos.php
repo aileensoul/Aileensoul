@@ -2261,4 +2261,12 @@ if ($status == 0 || $status == " ") {
 
                 });
                    });
+                   
+                   
+                       
+             $( document ).on( 'keydown', function ( e ) {
+    if ( e.keyCode === 27 ) {
+        $( "#myModal1" ).hide();
+    }
+});
   </script>

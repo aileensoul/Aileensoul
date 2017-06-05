@@ -39,11 +39,11 @@
 <!-- END HEADER -->
 <body   class="page-container-bg-solid page-boxed">
 
-<<<<<<< HEAD
+
     <div class="container" id="paddingtop_fixed_art">
-=======
+<!--khyati 3-6-->
     <div class="container" id="paddingtop_fixed paddingtop_fixed1">
->>>>>>> 74c9d741f2dc27d236095ba7d8fcd1eedf242299
+
 
         <div class="row" id="row1" style="display:none;">
             <div class="col-md-12 text-center">
@@ -3941,4 +3941,10 @@
             $('.modal-close').on('click', function () {
                 $('#myModal3').modal(show);
             });
+            
+             $( document ).on( 'keydown', function ( e ) {
+    if ( e.keyCode === 27 ) {
+        $( ".post-editor" ).hide();
+    }
+});
         </script>
