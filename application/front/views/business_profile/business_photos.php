@@ -383,15 +383,7 @@
                                                 <li>
                                                     <img src="http://localhost/aileensoul/uploads/business_post/thumbs/file_1496664178_jh179.jpg">
                                                 </li> -->
-                                            </ul>
-                                        </div>
-                                        
-                                        <div class="contact-frnd-post">
-
-
-                                            
-
-                                                <?php
+                                                 <?php
                                                 $i = 1;
 
                                                 $allowed = array('gif', 'png', 'jpg');
@@ -420,6 +412,15 @@
                                                     </div>
                                          <?php       } else {
                                                     ?>
+                                            </ul>
+                                        </div>
+                                        
+                                        <div class="contact-frnd-post">
+
+
+                                            
+
+                                               
    <div class="main_pdf_box"  >
                 <div class="not_avali" >
                                 <img src="<?php echo base_url('images/020-c.png'); ?>"  >
@@ -940,7 +941,7 @@
 <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 
-<script src="<?php echo base_url('js/jquery.jMosaic.js'); ?>"></script>
+<!-- <script src="<?php //echo base_url('js/jquery.jMosaic.js'); ?>"></script> -->
 <script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script>
 
 <script>
