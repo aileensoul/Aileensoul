@@ -40,11 +40,11 @@
                     </div>
 
                     <div class="common-form">
-                    <h3>Edit Post</h3>
+                    <h3 class="h3_edit">Edit Post</h3>
 
                    
                     
-                 <?php echo form_open(base_url('freelancer/freelancer_edit_post_insert/'.$freelancerpostdata[0]['post_id']), array('id' => 'postinfo','name' => 'postinfo','class' => 'clearfix')); ?>
+                 <?php echo form_open(base_url('freelancer/freelancer_edit_post_insert/'.$freelancerpostdata[0]['post_id']), array('id' => 'postinfo','name' => 'postinfo','class' => 'clearfix form_addedit')); ?>
 
                   <div>
                             <h4 class="freelancer_editpost_title"> Project Description</h4></div>
