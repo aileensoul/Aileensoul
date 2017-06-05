@@ -272,7 +272,7 @@
                                  <fieldset class="col-md-4" <?php if($csurrency) {  ?> class="error-msg" <?php } ?> class="two-select-box"> 
                      <label>Currency:<span class="red">*</span></label>
                             <select name="currency" id="currency">
-
+                                
                             <?php foreach($currency as $cur){ ?>
                              <option value="<?php echo $cur['currency_id']; ?>"><?php echo $cur['currency_name']; ?></option>
                              <?php } ?>
@@ -362,6 +362,10 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
 jQuery.validator.addMethod("noSpace", function(value, element) { 
       return value == '' || value.trim().length != 0;  
     }, "No space please and don't leave it empty");
+
+$.validator.addMethod("reg_candidate", function(value, element, regexpr) {          
+    return regexpr.test(value);
+}, "Float Number Is Not Allowed");
 
 //for min max value validator start
 
@@ -484,7 +488,8 @@ else
                         },
                         position_no:{
                              number:true,
-                             min: 1
+                             min: 1,   
+                             reg_candidate:/^-?(([0-9]{0,100}))$/
                         },
 
                          minyear: {

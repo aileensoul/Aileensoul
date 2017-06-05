@@ -453,6 +453,10 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
       return value == '' || value.trim().length != 0;  
     }, "No space please and don't leave it empty");
 
+$.validator.addMethod("reg_candidate", function(value, element, regexpr) {          
+    return regexpr.test(value);
+}, "Float Number Is Not Allowed");
+
 //for min max value validator start
 
 // $.validator.addMethod("greaterThan",
@@ -578,7 +582,8 @@ jQuery.noConflict();
                         position:{
                             required: true,
                              number:true,
-                             min: 1
+                             min: 1,
+                            reg_candidate:/^-?(([0-9]{0,100}))$/
                         },
 
                          minyear: {
