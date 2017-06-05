@@ -6,8 +6,6 @@
     #popup-form img{display: none;}
 </style>
 
-
-
 <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap-3.min.css'); ?>">
 <link rel="stylesheet" href="<?php echo base_url('assets/css/croppie.css'); ?>">
 <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
@@ -1148,7 +1146,7 @@
                                                     <!-- like comment div start -->
                                                     <ul>
                                                         <li class="<?php echo 'likepost' . $row['art_post_id']; ?>">
-                                                            <a id="<?php echo $row['art_post_id']; ?>" onClick="post_like(this.id)">
+                                                            <a class="ripple" id="<?php echo $row['art_post_id']; ?>" onClick="post_like(this.id)">
 
                                                                 <?php
                                                                 $userid = $this->session->userdata('aileenuser');
