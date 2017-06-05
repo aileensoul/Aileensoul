@@ -5421,10 +5421,10 @@ fieldset .add_post_btns:hover{background-color:#156f95!important}
     line-height: 1;
     color: #999;}
 #notificationsBody li a{padding: 0px;}
-.h3_edit{background: #fff;
+.h3_edit{background: #ffffff!important;
     margin: 0;
     padding: 8px 15px 8px;
-    color: #1b8ab9;
+    color: #1b8ab9!important;
     text-align: center;
     font-size: 20px;
     font-weight: 600;
