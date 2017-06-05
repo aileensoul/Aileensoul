@@ -74,18 +74,23 @@
                                 foreach ($totalnotification as $total) { 
                                     if ($total['not_from'] == 1) {
                                       $companyname = $this->db->get_where('recruiter', array('user_id' => $total['user_id']))->row()->re_comp_name;  ?> 
+                                       <a href="<?php echo base_url('notification/recruiter_post/' . $total['post_id']); ?>">
                                         <li> 
+                                        
                                             <div class="notification-pic" id="noti_pc" >
                                                 <img src="<?php echo base_url(USERIMAGE . $total['user_image']); ?>" >
                                             </div>
+                                           
                                             <div class="notification-data-inside" id="notification_inside">
-                                                <a href="<?php echo base_url('notification/recruiter_post/' . $total['post_id']); ?>"><h6><?php echo "<font color='#4e6db1'><b><i> Recruiter</i></font></b><b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b>  From " . ucwords($companyname) . "  Invited You For An Interview."; ?></h6></a>
+                                                <h6><?php echo "<font color='#4e6db1'><b><i> Recruiter</i></font></b><b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b>  From " . ucwords($companyname) . "  Invited You For An Interview."; ?></h6>
                                                 <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
                                                     <?php echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                 </div>
                                             </div>
+                                            
 
                                         </li>
+                                        </a>
                                         <?php
                                     }
                               //  }
@@ -95,17 +100,22 @@
                             //    foreach ($artfollow as $art) {
                                     if ($total['not_from'] == 3 && $total['not_img'] == 0) {
                                         ?>
+                                        <a href="<?php echo base_url('artistic/artistic_profile/' . $total['user_id']); ?>">
                                         <li> 
+                                        
                                             <div class="notification-pic" id="noti_pc">
                                                 <img src="<?php echo base_url(USERIMAGE . $total['user_image']); ?>" >
                                             </div>
+                                            
                                             <div class="notification-data-inside" id="notification_inside">
-                                                <a href="<?php echo base_url('artistic/artistic_profile/' . $total['user_id']); ?>"><h6><?php echo "<b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Started Following You In Artistic."; ?></h6></a>
+                                                <h6><?php echo "<b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Started Following You In Artistic."; ?></h6>
                                                 <div><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
                                                     <?php echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                 </div>
                                             </div>
+                                            
                                         </li>
+                                        </a>
                                         <?php
                                     }
                               //  }
@@ -116,17 +126,22 @@
                                     if ($total['not_from'] == 3) {
                                         if ($total['not_img'] == 1) {
                                             ?>
-                                            <li> 
+                                            <a href="<?php echo base_url('notification/art_post/' . $total['art_post_id']); ?>">
+                                            <li>
+                                             
                                                 <div class="notification-pic" id="noti_pc">
                                                     <img src="<?php echo base_url(USERIMAGE . $total['user_image']); ?>" >
                                                 </div>
+                                                
                                                 <div class="notification-data-inside" id="notification_inside">
-                                                    <a href="<?php echo base_url('notification/art_post/' . $total['art_post_id']); ?>"><h6><?php echo "<b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Commented On Your Post In Artistic."; ?></h6></a>
+                                                    <h6><?php echo "<b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Commented On Your Post In Artistic."; ?></h6>
                                                     <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
                                                         <?php echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                     </div>
                                                 </div>
+                                                
                                             </li>
+                                            </a>
                                         <?php } 
                                             
                                        
@@ -139,17 +154,22 @@
                                     if ($total['not_from'] == 3) {
                                         if ($total['not_img'] == 2) {
                                             ?>
-                                            <li> 
+                                            <a href="<?php echo base_url('notification/art_post/' . $total['art_post_id']); ?>"> 
+                                            <li>
+                                            
                                                 <div class="notification-pic" id="noti_pc" >
                                                     <img src="<?php echo base_url(USERIMAGE . $total['user_image']); ?>" >
                                                 </div>
+                                                
                                                 <div class="notification-data-inside" id="notification_inside">
-                                                    <a href="<?php echo base_url('notification/art_post/' . $total['art_post_id']); ?>"><h6><?php echo "<b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Likes Your Post In Artistic."; ?></h6></a>
+                                                    <h6><?php echo "<b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Likes Your Post In Artistic."; ?></h6>
                                                     <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
                                                         <?php  echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                     </div>
                                                 </div>
+                                                
                                             </li>
+                                            </a>
                                         <?php // } elseif ($art['not_img'] == 5) { ?>
 <!--                                            <li> 
                                                 <div class="notification-pic" >
@@ -173,17 +193,22 @@
                                     if ($total['not_from'] == 3) {
                                         if ($total['not_img'] == 3) {
                                             ?>
-                                            <li> 
+                                            <a href="<?php echo base_url('notification/art_post/' . $total['art_post_id']); ?>">
+                                            <li>
+                                             
                                                 <div class="notification-pic" id="noti_pc" >
                                                     <img src="<?php echo base_url(USERIMAGE . $total['user_image']); ?>" >
                                                 </div>
+                                                
                                                 <div class="notification-data-inside" id="notification_inside">
-                                                    <a href="<?php echo base_url('notification/art_post/' . $total['art_post_id']); ?>"><h6><?php echo "<b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Likes Your Post's Comment In Artistic."; ?></h6></a>
+                                                    <h6><?php echo "<b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Likes Your Post's Comment In Artistic."; ?></h6>
                                                     <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
                                                         <?php echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                     </div>
                                                 </div>
+                                                
                                             </li>
+                                            </a>
                                         <?php }
                                   //  }
                                 } ?>
@@ -192,17 +217,22 @@
                              //   foreach ($artimglike as $bus) {
                                     if ($total['not_from'] == 3) {
                                       if ($total['not_img'] == 5) {   ?>
+                                      <a href="<?php echo base_url('notification/art_post_img/' . $total['post_id'] . '/' . $total['image_id']); ?>">
                                             <li> 
+                                            
                                                 <div class="notification-pic"  id="noti_pc">
                                                     <img src="<?php echo base_url(USERIMAGE . $total['user_image']); ?>" >
                                                 </div>
+                                                
                                                 <div class="notification-data-inside" id="notification_inside">
-                                                    <a href="<?php echo base_url('notification/art_post_img/' . $total['post_id'] . '/' . $total['image_id']); ?>"><h6><?php echo "<b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Likes Your Photo In Artistic."; ?></h6></a>
+                                                    <h6><?php echo "<b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Likes Your Photo In Artistic."; ?></h6>
                                                     <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
                                                         <?php echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                     </div>
                                                 </div>
+                                                
                                             </li>
+                                            </a>
                                             <?php
                                       }
                                //     }
@@ -214,17 +244,22 @@
                                     if ($total['not_from'] == 3) {
                                         if ($total['not_img'] == 4) {
          $postid = $this->db->get_where('post_image', array('image_id' => $total['post_image_id']))->row()->post_id; ?>
+         <a href="<?php echo base_url('notification/art_post_img/' . $postid . '/' . $total['post_image_id']); ?>">
                                             <li>
+                                            
                                             <div class="notification-pic" id="noti_pc" >
                                                 <img src="<?php echo base_url(USERIMAGE . $total['user_image']); ?>" >
                                             </div>
+                                            
                                             <div class="notification-data-inside" id="notification_inside">
-                                                <a href="<?php echo base_url('notification/art_post_img/' . $postid . '/' . $total['post_image_id']); ?>"><h6><?php echo "<b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Commneted On Your Photo In Artistic."; ?></h6></a>
+                                                <h6><?php echo "<b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Commneted On Your Photo In Artistic."; ?></h6>
                                                 <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
                                                     <?php echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                 </div>
                                             </div>
+                                            
                                         </li>
+                                        </a>
                                         <?php }  ?>
                                             
                                         <?php  
@@ -238,17 +273,22 @@
                                     if ($total['not_from'] == 3) {
                                         if ($total['not_img'] == 6) {
        $postid = $this->db->get_where('post_image', array('image_id' => $total['post_image_id']))->row()->post_id; ?>
+       <a href="<?php echo base_url('notification/art_post_img/' . $postid . '/' . $total['post_image_id']); ?>">
                                             <li>
+                                            
                                             <div class="notification-pic" id="noti_pc">
                                                 <img src="<?php echo base_url(USERIMAGE . $total['user_image']); ?>" >
                                             </div>
+                                            
                                             <div class="notification-data-inside" id="notification_inside">
-                                                <a href="<?php echo base_url('notification/art_post_img/' . $postid . '/' . $total['post_image_id']); ?>"><h6><?php echo "<b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Likes Your Photo's Comment In Artistic."; ?></h6></a>
+                                                <h6><?php echo "<b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Likes Your Photo's Comment In Artistic."; ?></h6>
                                                 <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
                                                     <?php echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                 </div>
                                             </div>
+                                            
                                         </li>
+                                        </a>
                                         <?php }  ?>
                                             
                                         <?php  
@@ -266,18 +306,22 @@
                                     if ($bus_from1 == '6' && $bus_img1 == '1') {
                                          $companyname = $this->db->get_where('business_profile', array('user_id' => $total['not_from_id']))->row()->company_name;
                                         ?>
-
+                                        <a href="<?php echo base_url('notification/business_post/' . $total['business_profile_post_id']); ?>">
                                         <li>
+                                        
                                             <div class="notification-pic" id="noti_pc" >
                                                 <img src="<?php echo base_url(USERIMAGE . $total['user_image']); ?>" >
                                             </div>
+                                            
                                             <div class="notification-data-inside" id="notification_inside">
-                                                <a href="<?php echo base_url('notification/business_post/' . $total['business_profile_post_id']); ?>"><h6><?php echo "<b>" . "  " . ucwords($companyname) . "</b> Commented On Your Post In Business Profile."; ?></h6></a>
+                                                <h6><?php echo "<b>" . "  " . ucwords($companyname) . "</b> Commented On Your Post In Business Profile."; ?></h6>
                                                 <div><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
                                                     <?php echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                 </div>
                                             </div>
+                                            
                                         </li>
+                                        </a>
                                         <?php
                                     } 
                                         ?>
@@ -293,17 +337,22 @@
                                         if ($total['not_img'] == 4) {
          $postid = $this->db->get_where('post_image', array('image_id' => $total['post_image_id']))->row()->post_id;
           $companyname = $this->db->get_where('business_profile', array('user_id' => $total['not_from_id']))->row()->company_name;?>
+          <a href="<?php echo base_url('notification/bus_post_img/' . $postid . '/' . $total['post_image_id']); ?>">
                                             <li>
+                                            
                                             <div class="notification-pic" id="noti_pc" >
                                                 <img src="<?php echo base_url(USERIMAGE . $total['user_image']); ?>" >
                                             </div>
+                                            
                                             <div class="notification-data-inside" id="notification_inside">
-                                                <a href="<?php echo base_url('notification/bus_post_img/' . $postid . '/' . $total['post_image_id']); ?>"><h6><?php echo "<b>" . "  " . ucwords($companyname)  . "</b> Commented On Your Photo In Business Profile."; ?></h6></a>
+                                                <h6><?php echo "<b>" . "  " . ucwords($companyname)  . "</b> Commented On Your Photo In Business Profile."; ?></h6>
                                                 <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
                                                     <?php echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                 </div>
                                             </div>
+                                           
                                         </li>
+                                         </a>
                                         <?php }  ?>
                                             
                                         <?php  
@@ -317,17 +366,22 @@
                                         if ($total['not_img'] == 6) {
          $postid = $this->db->get_where('post_image', array('image_id' => $total['post_image_id']))->row()->post_id;
          $companyname = $this->db->get_where('business_profile', array('user_id' => $total['not_from_id']))->row()->company_name;?>
+         <a href="<?php echo base_url('notification/bus_post_img/' . $postid . '/' . $total['post_image_id']); ?>">
                                             <li>
+                                            
                                             <div class="notification-pic" id="noti_pc" >
                                                 <img src="<?php echo base_url(USERIMAGE . $total['user_image']); ?>" >
                                             </div>
+                                            
                                             <div class="notification-data-inside" id="notification_inside">
-                                                <a href="<?php echo base_url('notification/bus_post_img/' . $postid . '/' . $total['post_image_id']); ?>"><h6><?php echo "<b>" . "  " . ucwords($companyname) .  "</b> Likes Your Photo's Comment In Business Profile."; ?></h6></a>
+                                                <h6><?php echo "<b>" . "  " . ucwords($companyname) .  "</b> Likes Your Photo's Comment In Business Profile."; ?></h6>
                                                 <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
                                                     <?php echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                 </div>
                                             </div>
+                                            
                                         </li>
+                                        </a>
                                         <?php }  ?>
                                             
                                         <?php  
@@ -343,17 +397,22 @@
                                         $companyname = $this->db->get_where('business_profile', array('user_id' => $total['not_from_id']))->row()->company_name;
                                         if ($id) {
                                             ?>
-                                            <li> 
+                                             <a href="<?php echo base_url('business_profile/business_resume/' . $id); ?>">
+                                            <li>
+                                             
                                                 <div class="notification-pic" id="noti_pc" >
                                                     <img src="<?php echo base_url(USERIMAGE . $total['user_image']); ?>" >
                                                 </div>
+                                               
                                                 <div class="notification-data-inside" id="notification_inside">
-                                                    <a href="<?php echo base_url('business_profile/business_resume/' . $id); ?>"><h6><?php echo "<b>" . "  " . ucwords($companyname) .  "</b> Started Following You In Business Profile."; ?></h6></a>
+                                                    <h6><?php echo "<b>" . "  " . ucwords($companyname) .  "</b> Started Following You In Business Profile."; ?></h6>
                                                     <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
                                                         <?php echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                     </div>
-                                                </div> 
+                                                </div>
+                                                
                                             </li>
+                                            </a> 
                                             <?php
                                         }
                                     }
@@ -366,17 +425,22 @@
                                         if ($total['not_img'] == 2) {
                                     $companyname = $this->db->get_where('business_profile', array('user_id' => $total['not_from_id']))->row()->company_name;
                                             ?>
+                                            <a href="<?php echo base_url('notification/business_post/' . $total['business_profile_post_id']); ?>">
                                             <li>
+                                            
                                                 <div class="notification-pic" id="noti_pc" >
                                                     <img src="<?php echo base_url(USERIMAGE . $total['user_image']); ?>" >
                                                 </div>
+                                                
                                                 <div class="notification-data-inside" id="notification_inside">
-                                                    <a href="<?php echo base_url('notification/business_post/' . $total['business_profile_post_id']); ?>"><h6><?php echo "<b>" . "  " . ucwords($companyname) .  "</b> Likes Your Post In Business Profile."; ?></h6></a>
+                                                    <h6><?php echo "<b>" . "  " . ucwords($companyname) .  "</b> Likes Your Post In Business Profile."; ?></h6>
                                                     <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
                                                         <?php echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                     </div>
                                                 </div>
+                                                
                                             </li>
+                                            </a>
                                         <?php }  ?>
                                             
                                         <?php  
@@ -389,17 +453,22 @@
                                       if ($total['not_img'] == 3) { 
                         $companyname = $this->db->get_where('business_profile', array('user_id' => $total['not_from_id']))->row()->company_name;              
                                           ?>
-                                            <li> 
+                                          <a href="<?php echo base_url('notification/business_post/' . $total['business_profile_post_id']); ?>">
+                                            <li>
+                                             
                                                 <div class="notification-pic" id="noti_pc" >
                                                     <img src="<?php echo base_url(USERIMAGE . $total['user_image']); ?>" >
                                                 </div>
+                                                
                                                 <div class="notification-data-inside" id="notification_inside">
-                                                    <a href="<?php echo base_url('notification/business_post/' . $total['business_profile_post_id']); ?>"><h6><?php echo "<<b>" . "  " . ucwords($companyname) .  "</b> Likes Your Post's Comment In Business Profile."; ?></h6></a>
+                                                    <h6><?php echo "<<b>" . "  " . ucwords($companyname) .  "</b> Likes Your Post's Comment In Business Profile."; ?></h6>
                                                     <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
                                                         <?php echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                     </div>
                                                 </div>
+                                                
                                             </li>
+                                            </a>
                                             <?php
                                       }
                                     }
@@ -412,17 +481,22 @@
                                       if ($total['not_img'] == 5) { 
                                          $companyname = $this->db->get_where('business_profile', array('user_id' => $total['not_from_id']))->row()->company_name;        
                                           ?>
-                                            <li> 
+                                           <a href="<?php echo base_url('notification/bus_post_img/' . $total['post_id'] . '/' . $total['image_id']); ?>">
+                                            <li>
+                                             
                                                 <div class="notification-pic" id="noti_pc" >
                                                     <img src="<?php echo base_url(USERIMAGE . $total['user_image']); ?>" >
                                                 </div>
+                                               
                                                 <div class="notification-data-inside" id="notification_inside">
-                                                    <a href="<?php echo base_url('notification/bus_post_img/' . $total['post_id'] . '/' . $total['image_id']); ?>"><h6><?php echo "<b>" . "  " . ucwords($companyname) .  "</b> Likes Your Photo In Business Profile."; ?></h6></a>
+                                                    <h6><?php echo "<b>" . "  " . ucwords($companyname) .  "</b> Likes Your Photo In Business Profile."; ?></h6>
                                                     <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
                                                         <?php echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                     </div>
                                                 </div>
+                                                
                                             </li>
+                                            </a>
                                             <?php
                                       }
                                     }
@@ -435,18 +509,22 @@
                                         $id = $this->db->get_where('job_reg', array('user_id' => $total['not_to_id']))->row()->job_id;
                                         if ($id) {
                                             ?>
-                                            <li> 
+                                            <a href="<?php echo base_url('job/job_printpreview/' . $total['not_from_id'].'?page=recruiter'); ?>"> 
+                                            <li>
+                                            
                                                 <div class="notification-pic" id="noti_pc" >
                                                     <img src="<?php echo base_url(USERIMAGE . $total['user_image']); ?>" >
                                                 </div>
+                                                
                                                 <div class="notification-data-inside" id="notification_inside">
-                                                    <a href="<?php echo base_url('job/job_printpreview/' . $total['not_from_id']); ?>"><h6><?php echo "<font color='#4e6db1'><b><i> Job Seeker</i></font></b><b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Aplied On Your Job Post."; ?></h6></a>
+                                                    <h6><?php echo "<font color='#4e6db1'><b><i> Job Seeker</i></font></b><b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Aplied On Your Job Post."; ?></h6>
                                                     <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
                                                         <?php echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                     </div>
                                                 </div>
-
+                                                
                                             </li>
+                                            </a>
                                             <?php
                                         }
                                     }
@@ -460,18 +538,22 @@
                                         $id = $this->db->get_where('freelancer_post_reg', array('user_id' => $total['user_id']))->row()->freelancer_post_reg_id;
                                         if ($id) {
                                             ?>
+                                            <a href="<?php echo base_url('freelancer/freelancer_post_profile/' . $total['not_from_id'].'?page=freelancer_hire'); ?>">
                                             <li> 
+                                            
                                                 <div class="notification-pic" id="noti_pc" >
                                                     <img src="<?php echo base_url(USERIMAGE . $total['user_image']); ?>" >
                                                 </div>
+                                                
                                                 <div class="notification-data-inside" id="notification_inside">
-                                                    <a href="<?php echo base_url('freelancer/freelancer_post_profile/' . $total['not_from_id'].'?page=freelancer_hire'); ?>"><h6><?php echo "<font color='yellow'><b><i>Freelancer</i></font></b><b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Applied On Your Post."; ?></h6></a>
+                                                    <h6><?php echo "<font color='yellow'><b><i>Freelancer</i></font></b><b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Applied On Your Post."; ?></h6>
                                                     <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
                                                         <?php echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                     </div>
                                                 </div>
-
+                                                
                                             </li>
+                                            </a>
                                             <?php
                                         }
                                     }
@@ -485,17 +567,22 @@
                                   //      $id = $this->db->get_where('job_reg', array('user_id' => $total['user_id']))->row()->job_id;
                                   //      if ($id) {
                                             ?>
-                                            <li> 
+                                            <a href="<?php echo base_url('freelancer/freelancer_post_profile/' . $total['user_id'].'?page=freelancer_post'); ?>"> 
+                                            <li>
+                                            
                                                 <div class="notification-pic" id="noti_pc" >
                                                     <img src="<?php echo base_url(USERIMAGE . $total['user_image']); ?>" >
                                                 </div>
+                                                
                                                 <div class="notification-data-inside" id="notification_inside">
-                                                    <a href="<?php echo base_url('freelancer/freelancer_post_profile/' . $total['user_id']); ?>"><h6><?php echo "<font color='black'><b><i>Employer</i></font></b><b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Selected You For Project."; ?></h6></a>
+                                                    <h6><?php echo "<font color='black'><b><i>Employer</i></font></b><b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Selected You For Project."; ?></h6>
                                                     <div><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
                                                         <?php echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                     </div>
                                                 </div>
+                                                
                                             </li>
+                                            </a>
                                             <?php
                                         }
                                 //    }
@@ -506,17 +593,23 @@
                                // foreach ($work_post as $work) {
                                    if ($total['not_from'] == 4) {
                                         ?> 
-                                        <li> 
+                                        <a href="<?php echo base_url('freelancer/freelancer_post_profile/' . $total['not_from_id']); ?>">
+                                        <li>
+                                         
                                             <div class="notification-pic" id="noti_pc" >
                                                 <img src="<?php echo base_url(USERIMAGE . $total['user_image']); ?>" >
                                             </div>
+                                            
                                             <div class="notification-data-inside" id="notification_inside">
-                                                <a href="<?php echo base_url('freelancer/freelancer_post_profile/' . $total['not_from_id']); ?>"><h6><?php echo "<font color='yellow'><b><i>Freelancer</i></font></b><b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Applied on your post."; ?></h6></a>
+                                                <h6><?php echo "<font color='yellow'><b><i>Freelancer</i></font></b><b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Applied on your post."; ?></h6>
                                                 <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
                                                     <?php echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                 </div>
                                             </div>
-                                        </li><!--
+                                            
+                                        </li>
+                                        </a>
+                                        <!--
                                         <?php
                                    }
                                }
