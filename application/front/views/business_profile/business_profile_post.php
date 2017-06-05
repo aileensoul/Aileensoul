@@ -876,7 +876,8 @@
                                                             <span class="show"> 
                                                                 <?php $new_product_description = $this->common->make_links($row['product_description']); ?>
                                                                 <?php // echo  nl2br(htmlentities($new_product_description, ENT_QUOTES, 'UTF-8')); ?>
-                                                                <?php echo  nl2br($new_product_description); ?>
+                                                                <?php echo  nl2br(htmlentities($new_product_description, ENT_QUOTES, 'UTF-8')); ?>
+                                                                <?php // echo  nl2br($new_product_description); ?>
                                                             </span>
                                                         </div>
                                                         <div id="<?php echo 'editpostdetailbox' . $row['business_profile_post_id']; ?>" style="display:none;">
