@@ -1,8 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
+     <head> 
+         
     <meta charset="utf-8" />
-     <title>Find the Best Jobs, Hiring, Employment and Freelance | Aileensoul.com</title>
+    <title>Find the Best Jobs, Hiring, Employment and Freelance | Aileensoul.com</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1" name="viewport" />
 
@@ -10,7 +9,7 @@
     <!--Need to add following TAG in Header.-->
 
     
-        <meta name="google-site-verification" content="BKzvAcFYwru8LXadU4sFBBoqd0Z_zEVPOtF0dSxVyQ4" />
+<meta name="google-site-verification" content="BKzvAcFYwru8LXadU4sFBBoqd0Z_zEVPOtF0dSxVyQ4" />
 
 <link rel="canonical" href="https://www.aileensoul.com" />
 <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
@@ -25,75 +24,56 @@
  <link rel="stylesheet" type="text/css" href="<?php echo base_url('partical/media.css'); ?>">
   <link rel="stylesheet" type="text/css" href="<?php echo base_url('partical/common-style.css'); ?>">
 
-  <!-- Calender Css Start-->
-   <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/jquery.datetimepicker.css'); ?>">
-   <!-- Calender Css End-->
-
+  
   <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
  
-<link rel="stylesheet" type="text/css" href="<?php echo base_url('partical/css/style_login1.css'); ?>">
+
     <meta content="" name="author" />
  
-</head>
-<!-- header -->
+       <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style_login.css'); ?>">
+       <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/common-style.css'); ?>">
+       <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/media.css'); ?>">
+     </head>
 
-<!-- style for span id=notification_count start-->
-        
+<style type="text/css">
+     .reg_j h1 span{padding-bottom: 16px!important; margin-bottom: 5px!important;}
+</style>
 
-<body>
-  <header>
-          
+<body class="main_bdy_c">
+<header>
+    
         <div class="header3">
-            <div class="container">
-
-
-                <div class="row">
-                    <div class="col-md-4 col-sm-5">
-                        <div class="logo"><a href="<?php echo base_url('main') ?>"><!-- <img src="<?php// echo base_url('images/logo.png'); ?>"> --> <span style="color: #87ceff; font-size: 41px;">Aileensoul</span></a></div>
+    <div class="container">
+    <div class="row">
+  <div class="col-md-6 col-sm-5">
+                        <div class="logo"><a href="<?php echo base_url('main') ?>"><!-- <img src="<?php// echo base_url('images/logo.png'); ?>"> --> <span >Aileensoul</span></a></div>
                     </div>
-                    <div class="col-md-7 col-sm-7 header-left-menu">
-
-                    <ul class="fr">
-                    <li class=""><a class="login_butn" href="<?php echo base_url('login'); ?>">Login</a></li>
+ 
+           <div class="col-md-6 col-sm-7 header-left-menu">
+                   <ul class="fr">
+                    <li class=""><a class="login_butn"  href="<?php echo base_url('login') ?>">Login</a></li>
                       
                     </ul>
-                     
-      </div>                          </div>
 
                                 <!-- Friend Request End-->
 
                                 <!-- END USER LOGIN DROPDOWN -->
                         </div>
-                    </div>
-                </div>
+    </div>    
+    </div>
+     
+    </div>
+
+
+</header>
+   <div class="container">
+        <div class="row">
+          <div class="col-md-10"> <div class="reg">
+               <div class="abt_a reg_j">
+              <h1><span>Join Aileensoul</span></h1>
             </div>
-        </div>
-    </header>
-    <section class="buttonset">
-        <div id="nav_list"></div>
-    </section>
-
-    <!-- header end -->
-
-    	 <marquee behavior="alternate" style="font-size: 30px;color: red; line-height: 30px;padding: 5px;">This Site Is Under Construction</marquee>
-
-    <section id="section-height" style="height: 650px;">
-    <div id="particles-js"></div>
-
-
-    <div class="banner_cnt_reg text-center clearfix">
-    
-          <div class="form" style="max-width:75%;" >
-       <div class="tab-group-reg">
-      <ul >
-        <li class="tab active"><a style="cursor: default;" class="head-ail2">Join Aileensoul</a></li>
-      </ul>
-      </div>
-        <div id="login2"> 
-
-           
-<?php echo form_open_multipart(base_url('registration/reg_insert'),array('id' => 'regform','name' => 'regform','class' => "clearfix"));
+                   <?php echo form_open_multipart(base_url('registration/reg_insert'),array('id' => 'regform','name' => 'regform','class' => "clearfix"));
   
   if ($this->session->flashdata('error')) 
                {
@@ -107,94 +87,138 @@
 ?>
           
             <span id="uname-error"> </span>
-          <div class="top-row">
-            <div class="field-wrap">
-             
-
-              <label class="fname_reg">First Name<span class="req">*</span> </label>
-                      <input type="text" value="<?php if($fsname){ echo $fsname; }?>" name="fname" id="fname" placeholder="">
+            
+                <fieldset class="col-md-6 par-3">
+                    <label>First Name</label>
+                    <input type="text" value="<?php if($fsname){ echo $fsname; }?>" name="fname" id="fname" placeholder="Enter First name">
                       <?php echo form_error('fname'); ?>
-                     
-            </div>
-        
-            <div class="field-wrap">
-              <label class="fname_reg">Last Name<span class="req">*</span></label>
-                      <input type="text" value="<?php if($lname){ echo $lname; }?>"name="lname" id="lname" placeholder="">
+                </fieldset>
+                 <fieldset class="col-md-6 pal-3">
+                    <label>Last Name</label>
+                     <input type="text" value="<?php if($lname){ echo $lname; }?>" name="lname" id="lname" placeholder="Enter Last name">
                       <?php echo form_error('lname'); ?>
-            </div>
-          </div>
-              
-          <div class="top-row">
-            <div class="field-wrap full-width">
-             <label class="fname_reg">Email Address <span class="req">*</span></label>
-             <input type="text" name="email" id="email" placeholder="" value="<?php if($email){ echo $email; }?>">
+                </fieldset>
+                 <fieldset class="col-md-12">
+                    <label>Email Address</label>
+                     <input type="text" name="email" id="email" placeholder="Enter Email address" value="">
               <?php echo form_error('email'); ?>
-            </div>
-        
-          
-          </div>
-              
-         <div class="top-row">
+                </fieldset>
+                    <div class="top-row">
             <div class="field-wrap full-width" style="padding-bottom: 0px;">
         <label class="fname_reg">Password<span class="req">*</span></label>
-    <input type="password" name="password" id="password" class="showpassword" placeholder="Password *" style="position: relative;"  />
+    <input type="password" name="password" id="password" class="showpassword2" placeholder="">
                       <?php echo form_error('password'); ?>
             
-
-                      
             </div>
-          <label for="password1" style="    position: absolute;
+            <label for="checkbox_eye"  style="      position: absolute;
     /* top: 8px; */
     right: 165px;
-    bottom: -25px;" ><img style="height: 20px; width: 20px;" src="<?php echo base_url('images/eye.png'); ?>"></label>
+    bottom: -25px;" >
+  <img style="height: 20px; width: 20px;" src="<?php echo base_url('images/eye.png'); ?>">
+</label>
+        
+         <!--    <div class="field-wrap">
+                <label class="fname_reg">Confirm Password<span class="req">*</span></label>
+   <input type="password" name="password2" id="password2" class="showpassword2" placeholder="" onkeypress="return RestrictSpace()"/>
+                <?php echo form_error('password2'); ?>
+            </div> -->
           </div>
-              
-          <div class="top-row">
-            <div class="field-wrap" style="margin-bottom: 5px;">
-              <label class="fname_reg">
-            Date of Birth<span class="req">*</span></label>
-              </label>
-              <input type="text" name="datepicker" id="datepicker" placeholder="dd/mm/yyyy"   autocomplete="off" >
-            </div>
+                <fieldset class="col-md-9 date_tm">
+                    <label>Date Of Birth</label>
 
-            <div class="field-wrap" id="gen">
-           <!-- <span class="gen_lbl">Gender<span class="req">*</span>: </span>     -->
-                      <input type="radio" name="gen" id="gen" value="M" <?php if($gender == 'M'){ echo 'checked'; }?>>Male
-                      <input type="radio" name="gen" id="gen" value="F" <?php if($gender == 'F'){ echo 'checked'; }?>>Female
-                      <?php echo form_error('gen'); ?>
+   <select name="date">
+    <option value="">  DD  </option>  
+    <option value="01"> 1 </option>  
+    <option value="02"> 2 </option> 
+    <option value="03"> 3 </option> 
+    <option value="04"> 4 </option> 
+    <option value="05"> 5  </option> 
+    <option value="06"> 6  </option> 
+    <option value="07"> 7  </option> 
+    <option value="08">  8  </option> 
+    <option value="09">  9  </option> 
+    <option value="10">  10  </option> 
+    <option value="11">  11  </option> 
+    <option value="12">  12  </option> 
+    <option value="13">  13  </option> 
+    <option value="14">  14  </option> 
+    <option value="15">  15  </option> 
+    <option value="16">  16  </option> 
+    <option value="17">  17  </option> 
+    <option value="18">  18  </option> 
+    <option value="19">  19  </option> 
+    <option value="20">  20  </option> 
+    <option value="21">  21  </option> 
+    <option value="22">  22  </option> 
+    <option value="23">  23  </option> 
+    <option value="24">  24  </option> 
+    <option value="25">  25  </option> 
+    <option value="26">  26  </option> 
+    <option value="27">  27  </option> 
+    <option value="28">  28  </option> 
+    <option value="29">  29  </option> 
+    <option value="30">  30  </option> 
+    <option value="31">  31  </option> 
 
-       
-            </div>
-           </div>
-              
-              <div class="terms">
-                  <span>By Clicking on create an account button you agree our <a> Terms and Condition </a>and <a> Privacy Policy </a> . </span>
-              </div>
-         
-     
-           <input type="submit" value="Create an Account" name="submit" class="button3 button-block3 " style="background:#87ceff!important; background-repeat: no-repeat; background-position: right center ; margin-top:  10px;">
+
+</select>
+<select name="month">
+    <option value="">  MM  </option>
+    <option value="01">  Jan  </option>
+    <option value="02">  Feb  </option>
+    <option value="03">  Mar  </option>
+    <option value="04">  Apr  </option>
+    <option value="05"> May   </option>
+    <option value="06"> Jun  </option>
+    <option value="07"> Jul  </option>
+    <option value="08"> Aug  </option>
+    <option value="09"> Sep  </option>
+    <option value="10"> Oct  </option>
+    <option value="11"> Nov  </option>
+    <option value="12"> Dec  </option>
+</select>
+<select name="year">
+    <option value=""> YYYY </option>
+ <?php  for ($i = date('Y'); $i > 1899 ; $i--) {?>
+    <option value="<?php echo $i ?>"> <?php echo $i ?> </option>
+  
+        <?php  } ?>
+    
+    
+</select>
+
+                </fieldset>
+                <fieldset class="col-md-3 date_tm" style="padding-left: 50px;">
+                    <label>Gender</label>
+
+<select name="gen" id="gen" style="padding-right: 0px!important;">
+    <option value=""> Gender </option>
+    <option value="M" <?php if($gender == 'M'){ echo 'selected'; }?>> Male </option>
+    <option value="F" <?php if($gender == 'F'){ echo 'selected'; }?>> FeMale </option>
+   </select>
+              <?php echo form_error('gen'); ?>  
+                </fieldset>
+<div class="col-md-12 terms">
+    <p >By Clicking on create an account button you agree our
+  <a href="#">Terms and Condition</a> and <a href="">Privacy Policy</a>
+    </p>
+    
+</div>
+
+     <input type="submit" value="Create an Account" name="submit" class="button3 button-block3 " style="background:#87ceff!important;    background-repeat: no-repeat; background-position: right center ; margin-top:  10px;">
           <div class="or"> <span>or</span></div>
-          
-          <button class="button3 button-block3 facebook_ac" style="background-color: #3b5998!important ;background-repeat: no-repeat; background-position: right center; margin-bottom: 15px;">Sign Up With Facebook</button>
-         
-          <div class="or" style="margin-bottom: 10px;">Already have an account? <a href="<?php echo base_url('login')?>"  style="color: #a0b3b0;
-    font-size: 17px;
-    font-weight: 600;
-    padding-bottom: 10px;">Log in</a></div>
-          </form>
-
-       
-        
-        </div>
-        
-      </div>
-
-    </div>  <footer>
+           </form>
+          <button class="button3 button-block3 facebook_ac" >Sign Up With Facebook</button>
+            </div>
+          </div> 
+</div>           
+</div>
+<footer>
         <div class="container">
             <div class="row">
-                <div class="col-md-6" style="padding: 12px;">
+                <div class="col-md-6" style="padding-bottom: 1px!important; padding: 12px;">
                 <div class="footer-menu pull-left">
-                    <p>&copy; 2017 | by <a href="<?php echo base_url('main'); ?>" style="color: #000033">Aileensoul</a></p>
+                    <p style="color: #fff;">&copy; 2017 | by <a href="#" style="color: #fff;">Aileensoul</a></p>
                 </div>
                 </div>
                 <div class="col-md-6">
@@ -211,10 +235,7 @@
                 </div>
             </div>
         </div>
-        </footer>
-
-
-<!-- scripts -->
+    <!-- scripts -->
 <!-- <script src="<?php //echo base_url('partical/particles.json'); ?>"></script> -->
 
 <script src="<?php echo base_url('js/jquery-1.11.1.min.js'); ?>"></script>

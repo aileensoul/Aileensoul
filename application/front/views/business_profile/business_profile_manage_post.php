@@ -1268,8 +1268,8 @@
                                                 <div id="<?php echo 'editpostdetails' . $row['business_profile_post_id']; ?>" style="display:block;">
                                                     <span class="show">  
                                                         <?php $new_product_description = $this->common->make_links($row['product_description']); ?>
-                                                                <?php // echo  nl2br(htmlentities($new_product_description, ENT_QUOTES, 'UTF-8')); ?>
-                                                                <?php echo  nl2br($new_product_description); ?>
+                                                                <?php  echo  nl2br(htmlentities($new_product_description, ENT_QUOTES, 'UTF-8')); ?>
+                                                                <?php //echo  nl2br($new_product_description); ?>
                                                     </span>
                                                 </div>
 
@@ -1672,9 +1672,10 @@
                                                                 </div>
                                                                 <div class="comment-details" id= "<?php echo "showcomment" . $rowdata['business_profile_post_comment_id']; ?>">
                                                                     <?php
-                                                                    echo $this->common->make_links($rowdata['comments']);
-                                                                    //  echo '</br>';
-                                                                    ?>
+                                                                    $new_product_comment = $this->common->make_links($rowdata['comments']);
+                                                                    
+                                                                //    echo  nl2br(htmlentities($new_product_comment, ENT_QUOTES, 'UTF-8')); 
+                                                                    echo  nl2br(htmlspecialchars_decode(htmlentities($new_product_comment, ENT_QUOTES, 'UTF-8'))); ?>
                                                                 </div>
                                                                 <!--                                                        <div class="col-md-12">
                                                                                                                             <div class="col-md-10">
@@ -2172,7 +2173,7 @@
                     {
                         return false;
                     }
-
+                    txt = txt.replace(/&/g,"%26");
                     $('#post_comment' + clicked_id).html("");
 
                     var x = document.getElementById('threecomment' + clicked_id);
@@ -2283,7 +2284,7 @@
                             {
                                 return false;
                             }
-
+                            txt = txt.replace(/&/g,"%26");
                             $('#post_comment' + clicked_id).html("");
 
                             if (window.preventDuplicateKeyPresses)
@@ -2791,6 +2792,7 @@
                     {
                         return false;
                     }
+                    txt = txt.replace(/&/g,"%26");
 //                    alert(txt);
 //                    return false;
                     $.ajax({
@@ -2879,6 +2881,7 @@
                             {
                                 return false;
                             }
+                            txt = txt.replace(/&/g,"%26");
                             //$('#editcomment' + abc).html("");
 
                             if (window.preventDuplicateKeyPresses)
@@ -2956,6 +2959,7 @@
                     {
                         return false;
                     }
+                    txt = txt.replace(/&/g,"%26");
                     $.ajax({
                         type: 'POST',
                         url: '<?php echo base_url() . "business_profile/edit_comment_insert" ?>',
@@ -3040,7 +3044,6 @@
 
                             var sel = $("#editcommenttwo" + abc);
                             var txt = sel.html();
-
                             txt = txt.replace(/&nbsp;/gi, " ");
                             txt = txt.replace(/<br>$/, '');
                             if (txt == '' || txt == '<br>') {
@@ -3050,7 +3053,7 @@
                             {
                                 return false;
                             }
-
+                            txt = txt.replace(/&/g,"%26");
                             //$('#editcommenttwo' + abc).html("");
 
                             if (window.preventDuplicateKeyPresses)
@@ -3766,7 +3769,7 @@
                             event.preventDefault();
                             var sel = $("#post_comment" + clicked_id);
                             var txt = sel.html();
-
+                            txt = txt.replace(/&/g,"%26");
                             $('#post_comment' + clicked_id).html("");
                             // $("#result").html(txt);
                             // sel.html("")
