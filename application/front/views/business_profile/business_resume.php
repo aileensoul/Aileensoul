@@ -3,7 +3,68 @@
 <style type="text/css">
     #popup-form img{display: none;}
 </style>
+     <style>
+      /* NOTE: The styles were added inline because Prefixfree needs access to your styles and they must be inlined if they are on local disk! */
 
+
+.centered {
+    position: absolute;
+    top: 22%;
+    right: 7%;
+}
+
+#ripple {
+  color: #aaa;
+  width: 67px; 
+  height: 100px;
+/*  margin-left: -50px; 
+  margin-top: -50px; */
+}
+
+.circle {
+  position: absolute; 
+  height: 40px;
+  width: 40px;
+  border: 2px solid darkcyan;
+  
+  border-radius: 50px;
+
+  animation: wave 5s infinite linear;
+  animation-fill-mode: both;     
+}
+
+.circle:hover :nth-child(2) {
+  animation-delay: 1.66s;  
+  border-color: cyan;
+}
+
+.circle:nth-child(3) {
+  animation-delay: 3.33s;  
+  border-color:  darkcyan;
+}
+
+/* stays on full alpha from 50 to 75 */ 
+@keyframes wave {
+  0% { 
+    transform: scale(0);
+    opacity: 0.0;  
+  }
+  25% {
+    opacity: 0.0;
+  }    
+  50% {  
+    opacity: 1.0;
+  }
+  75% {  
+    opacity: 1.0;
+  }    
+  100% { 
+    transform: scale(1);
+    opacity: 0.0; 
+  }
+}
+
+    </style>
 <?php echo $head; ?>
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
@@ -194,6 +255,23 @@ if ($businessdata1[0]['user_id'] != $userid) {
      </div>
                     -->
 <?php } ?>
+<div class="">
+  <div id="ripple" class="centered" >
+  <div class="circle" ></div>
+  <div class="circle"></div>    
+  <div class="circle"></div>    
+
+</div>
+  <div class="addtocont" style="    position: absolute;
+    display: block;
+    /* margin-left: 69.4%; */
+    /* margin-top: 0%; */
+    right: 7%;
+    top: 62px;">
+  <a style="    
+    font-size: 13px;"><i class="icon-user"></i>Add to contact</a>
+  </div>
+</div>
 
             </div>
             <!-- PICKUP -->
