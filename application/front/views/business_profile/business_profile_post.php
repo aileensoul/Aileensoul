@@ -47,9 +47,10 @@
 
 
         <!-- further and less -->
-<!--        <script>
+        <script>
             $(function () {
-                var showTotalChar = 150, showChar = "More", hideChar = "less";
+//                var showTotalChar = 150, showChar = "More", hideChar = "less";
+                var showTotalChar = 250, showChar = "More", hideChar = "";
                 $('.show').each(function () {
                     //var content = $(this).text();
                     var content = $(this).html();
@@ -73,7 +74,7 @@
                     return false;
                 });
             });
-        </script> -->
+        </script> 
         <script>
             $(document).ready(function ()
             {

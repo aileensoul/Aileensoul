@@ -143,7 +143,7 @@ class Profile extends CI_Controller {
      
     $updatdata =   $this->common->update_data($data,'user','user_id',$forgot_email_check[0]['user_id']);
              
-    echo "hiiiddddii"; die();   
+   
                 $this->session->set_flashdata('success', '<div class="alert alert-success">Password successfully send in your email id.</div>');
                 redirect('login', 'refresh');
             } else {
