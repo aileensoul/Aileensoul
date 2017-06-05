@@ -202,6 +202,7 @@ $(window).load(function(){
     $(document).ready(function () {
         $("body").click(function (event) {
             $("#InboxContainer").hide(600);
+
             event.stopPropagation();
         });
 
@@ -259,7 +260,7 @@ $( document ).on( 'keydown', function ( e ) {
             $("#Inbox_count").hide();
             $(".dropdown-menu").hide();
             $("#dropdown-content_hover").hide();
-
+            $("#addcontactContainer").hide();
 
 
             $("#Frnd_reqContainer").hide();
@@ -281,7 +282,7 @@ $( document ).on( 'keydown', function ( e ) {
             $("#Frnd_reqContainer").hide();
             $("#Frnd_req_count").hide();
             $(".dropdown-menu").hide();
-
+            $("#addcontactContainer").hide();
             $("#notificationContainer").hide();
             $("#notification_count").hide();
             $("#dropdown-content_hover").hide();
@@ -301,7 +302,7 @@ $( document ).on( 'keydown', function ( e ) {
 
             $("#Frnd_reqContainer").hide();
             $("#Frnd_req_count").hide();
-
+            $("#addcontactContainer").hide();
             $("#notificationContainer").hide();
             $("#notification_count").hide();
             $("#InboxContainer").hide();
