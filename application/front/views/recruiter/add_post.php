@@ -54,7 +54,7 @@
                             <div class="job-saved-box">
                                 <h3>Add New Post</h3>
 
-<?php echo form_open(base_url('recruiter/add_post_store'), array('id' => 'artpost', 'name' => 'artpost', 'class' => 'clearfix', 'onsubmit' => "return imgval()")); ?>
+<?php echo form_open(base_url('recruiter/add_post_store'), array('id' => 'artpost', 'name' => 'artpost', 'class' => 'clearfix form_addedit', 'onsubmit' => "return imgval()")); ?>
 
 
                           <div> <span class="required_field" >( <span style="color: red">*</span> ) Indicates required field</span></div>

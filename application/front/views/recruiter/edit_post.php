@@ -25,7 +25,7 @@
                     <div class="col-md-7 col-sm-7">
                      
                     <div class="common-form">
-                    <h3>Edit Post</h3>
+                    <h3 class="h3_edit">Edit Post</h3>
                         <?php
                                 if ($this->session->flashdata('error')) {
                                     echo '<div class="alert alert-danger">' . $this->session->flashdata('error') . '</div>';
@@ -39,7 +39,7 @@
                     
                    
 
-                 <?php echo form_open(base_url('recruiter/update_post/' . $postdata[0]['post_id'] ), array('id' => 'basicinfo','name' => 'basicinfo','class' => 'clearfix','onsubmit' => "return imgval()")); ?>
+                 <?php echo form_open(base_url('recruiter/update_post/' . $postdata[0]['post_id'] ), array('id' => 'basicinfo','name' => 'basicinfo','class' => 'clearfix ','onsubmit' => "return imgval()")); ?>
                  <div> <span class="required_field" >( <span style="color: red">*</span> ) Indicates required field</span></div>
                  <?php
                          $post_name =  form_error('post_name');
