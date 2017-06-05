@@ -260,7 +260,7 @@ if ($businessdata1[0]['user_id'] != $userid) {
   <div id="ripple" class="centered" >
   <div class="circle"><a href="" style="position: absolute; z-index: 1; cursor: pointer;
     top: 7px;
-    left: 7px;"><i class="fa fa-user-plus" style="color: #;" aria-hidden="true"></i></a></div>
+    left: 7px;"><i class="fa fa-user-plus" aria-hidden="true"></i></a></div>
 
 
 </div>
