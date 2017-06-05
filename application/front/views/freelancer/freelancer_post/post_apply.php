@@ -313,15 +313,28 @@ if ($freepostdata[0]['designation']) {
                                                                 <li>
                                                                     <b>Required Experience</b>
                                                             <span>
-                        <?php if($post['post_exp_month'] ||  $post['post_exp_year']){
-        
-             echo $post['post_exp_year'].'.'.$post['post_exp_month']. '  Year';
+                                                                   
+                                                                   <p>
+     <?php 
 
-        }
-                else{echo PROFILENA;} ?>
-                                                                    </span>
+  if(($post['post_exp_year'] !='0') || ($post['post_exp_month'] !='0')){ 
+ echo $post['post_exp_year'].'.'.$post['post_exp_month'] . ' Year ';
+     } 
+    else
+    {
+
+         echo PROFILENA;
+    }
+
+ ?> 
+    
+    </p>  
+                     
+                                                              </span>
                                                                 </li>
 
+
+    
 
                                                                 <!-- vishang 14-4 end -->
 
