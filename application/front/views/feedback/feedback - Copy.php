@@ -46,7 +46,7 @@
 
             <fieldset class="full-width">
                    <label>Description<span style="color:red">*</span></label>
-                   <textarea name="contact_message" class="description " id="contact_message"  style="height: 25%;" ></textarea>
+                   <textarea name="contact_message" class="description " id="contact_message" ></textarea>
                     <span id="contact_subject-error"> </span>
             
               </fieldset>
