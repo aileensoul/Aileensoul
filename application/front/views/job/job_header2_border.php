@@ -146,18 +146,17 @@ $(document).ready(function(){
 });
 
 $(document).on("dropdown_hover", function () {
-    $(".dropdown-content_hover").hide();
+    $(".dropdown-content_hover").hide(600);
 });
 
 $(document).ready(function() {
      $("body").click(function(event) {
-        $(".dropdown-content_hover").hide();
+        $(".dropdown-content_hover").hide(600);
         event.stopPropagation();
     });
  
 });
 </script>
-
 
 <script type="text/javascript">
 
