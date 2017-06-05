@@ -1591,10 +1591,14 @@ a:hover, a:active, a:focus {
     margin-top: -11px;
     font-size: 11px;
 }
-.notification-data-inside{margin-left:80px; margin-top:-55px;}
-.notification-data-inside h6 {font-size: 13px; line-height: 17px}
+.notification-data-inside{margin-left:74px; margin-top:-55px;}
+.notification-data-inside h6 {      font-weight: 600;
+    font-size: 15px;
+    line-height: 13px;
+    padding-top: 6px;
+    color: #156f95;}
 .notification-database{height:68px; width:440px;; background-color:#FFFFFF; /*border-bottom: 1px solid #999999;*/}
-.notification-pic{height:50px; width:50px;  border-radius: 50%; margin-left:20px; margin-top:10px;     }
+.notification-pic{height:50px; width:50px;  border-radius: 50%; margin-left:20px; margin-top:10px; display: inline-block;    }
 .notification-pic img{     height:50px; width:50px;}
 /* inbox*/
 #Inbox_li{position:relative}
@@ -5391,7 +5395,7 @@ fieldset .add_post_btns:hover{background-color:#156f95!important}
 .post-design-product .post_dot_2 {    color: #1b8ab9;}
 .notifications li .notification-data-inside a {padding: 0px;}
 .notifications li{border-bottom: 1px solid #999999;}
-.notifications li .notification-data-inside div {font-size: 11px;}
+.notifications li .notification-data-inside div {font-size: 11px; color: #999; padding-top: 4px;}
 .notificationsmsg li{border-bottom: 1px solid #999999;}
 .tab-content .clearfix{border:1px solid #bfbfbf;}
 .height_audio{height: 250px;}
@@ -5401,7 +5405,7 @@ fieldset .add_post_btns:hover{background-color:#156f95!important}
     margin-top: 0px !important;
     margin-left: 1.5% !important;
 }
-
+    .noti_desc_h i{ padding-left: 3px; }
 .edit-comment-box .comment-edit-button button{padding: 8px 18px 7px; }
 .edit-comment-box   button{padding: 8px 14px 7px}
 
@@ -5409,4 +5413,11 @@ fieldset .add_post_btns:hover{background-color:#156f95!important}
 .pht_ph_dash{height: 176px; width: 176px; margin: 3px; float: left; display: inline-block;}
 .pht_ph_dash img {height: 100%; width: 100%; display: table;}
 .ta_tble{display: table; border-left: none!important;}
-#paddingtop_fixed_art{padding-top: 62px!important;
+#paddingtop_fixed_art{padding-top: 62px!important;}
+
+.msg_desc_a{width: 95%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 14px;}
+.data_noti_msg{    font-size: 12px;
+    font-weight: 600;
+    line-height: 1;
+    color: #999;}
+#notificationsBody li a{padding: 0px;}

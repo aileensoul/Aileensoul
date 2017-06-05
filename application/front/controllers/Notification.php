@@ -683,7 +683,7 @@ class Notification extends MY_Controller {
         $userid = $this->session->userdata('aileenuser');
 
         //echo "<pre>"; print_r($data); die();
-
+g
         $contition_array = array('not_read' => 2, 'not_to_id' => $userid, 'not_type' => 2);
         $result = $this->common->select_data_by_condition('notification', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -1632,7 +1632,7 @@ class Notification extends MY_Controller {
             $notmsg .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $msg['user_image']) . '">';
             $notmsg .= '</div><div class="notification-data-inside">';
             $notmsg .= '<h6>' . ucwords($msg['first_name']) . ' ' . ucwords($msg['last_name']) . '</h6>';
-            $notmsg .= '<div>';
+            $notmsg .= '<div class="msg_desc_a">';
 
             $contition_array = array('not_product_id' => $msg['id']);
             $data = array(' notification.*');
@@ -1640,7 +1640,7 @@ class Notification extends MY_Controller {
 
             $notmsg .= '' . $msg['message'] . '';
 
-            $notmsg .= '</div><div >' . $this->common->time_elapsed_string($not[0]['not_created_date'], $full = false) . '</div>';
+            $notmsg .= '</div><div class="data_noti_msg">' . $this->common->time_elapsed_string($not[0]['not_created_date'], $full = false) . '</div>';
             $notmsg .= '</div></div></li></a>';
         }
         $notmsg .= '</ul></div>';
