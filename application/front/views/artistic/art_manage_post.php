@@ -879,7 +879,7 @@
 
                                                                 </a>
                                                                 <div class="datespan">
-                                                                    <span style="font-weight: 400; font-size: 14px; color: #91949d;"> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span></div>
+                                                                    <span style="font-weight: 400; font-size: 13px; color: #91949d;"> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span></div>
 
                                                             <?php } ?>                          
                                                         </li>

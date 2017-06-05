@@ -698,7 +698,7 @@
 
 
                                                             <fieldset class="full-width">
-                                        <h6>Strddeam :<span class="red">*</span></h6>
+                                        <h6>Stream :<span class="red">*</span></h6>
                                              <select name="stream[]" id="stream1" class="stream" >
                                             
                                            <?php

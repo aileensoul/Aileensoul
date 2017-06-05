@@ -168,7 +168,7 @@ ul.nav li:hover li:active{
 section{width: 100%; overflow: hidden;}
 /* Ul Li & Ol Li CSS */
 ul, ol { margin:0; padding:0 0 0 20px; }
-ul li, ol li { margin:0 0 10px; padding:0; font-size:15px; color:#4c4c4c; font-weight: normal; }
+ul li, ol li { margin:0 0 10px; padding:0; font-size:13px; color:#4c4c4c; font-weight: normal; }
 ul li{padding-left: 11px;}
 
 ol li{list-tyle:numaric;}
@@ -270,7 +270,7 @@ bottom: 0;}
 .left-side-bar ul li a { background: #1b8ab9; padding: 10px 15px; display: inline-block; margin-bottom: 2px; color: #fff; display: block;}
 .left-side-bar ul li a:hover { background: #156f95;text-decoration: none;}
 .left-side-bar ul li.active { position:relative; background:#000; }
-.left-side-bar ul li.active a { background:#156f95; }
+.left-side-bar ul li.active a { background:#156f95!important; }
 .left-side-bar ul li.active:after { content:"\f00c"; font-family: 'FontAwesome'; position:absolute; top:11px; right:8px; color:#fff; }
 
 .job-post-detail { border-radius: 4px; margin-bottom: 15px; border: 1px solid #ddd; }
@@ -2864,7 +2864,7 @@ label.cameraButton input[accept*="camera"] {
 }
 .post-design-name ul li a span{ color: #91949d; font-size: 14px;}
 /*.post-design-name ul li a span:before{content: "\00b7";*/
-.post-design-name ul li .datespan span:before{content: " \00b7 ";}
+.post-design-name ul li .datespan span:before{content: " \00b7 ";font-size:16px;}
       .post-design-product  span:before{content: "\00b7";}
       .post-design-product .span_main_name:before{content: ""; }
       .datespan{display: inline-block;}
@@ -5369,7 +5369,7 @@ fieldset .add_post_btns:hover{background-color:#156f95!important}
 .profile-text-bui-user .profile-boxProfile-name a:hover{color: #1b8ab9}
    .profile-box-job-menu ul li   {padding-left: 13px;}
  .profile-box-bui-menu    ul li {
-    padding-left: 13px;
+    padding-left: 15px;
 }
 .profile-box-busi-menu    ul li{padding-left: 0px;}
 .profile-box-freehire-menu ul li {
@@ -5440,3 +5440,6 @@ fieldset .add_post_btns:hover{background-color:#156f95!important}
 .pad_right{padding-right: 9px;}
 
 .main_form{padding-top:70px;}
+
+.post-design-name ul li .post-design-product a{padding-right: 2px;}
+.post-design-name ul li a{padding-right: 2px;}
