@@ -8,12 +8,12 @@
 
 
 .circle {
-    top: 28%;
+    top: 50%;
     right: 8%;
     height: 30px;
     width: 30px;
     border-radius: 50%;
-    background-color: #fff;
+    background-color: #e8f3f8;
     position: absolute;
     /* top: 100px; */
     /* left: 300px; */
@@ -258,9 +258,9 @@ if ($businessdata1[0]['user_id'] != $userid) {
 <?php } ?>
 <div class="">
   <div id="ripple" class="centered" >
-  <div class="circle"><a href="" style="position: absolute;
+  <div class="circle"><a href="" style="position: absolute; z-index: 1; cursor: pointer;
     top: 7px;
-    left: 7px;"><i class="fa fa-user-plus" style="color: #1b8ab9;" aria-hidden="true"></i></a></div>
+    left: 7px;"><i class="fa fa-user-plus" style="color: #;" aria-hidden="true"></i></a></div>
 
 
 </div>
@@ -271,7 +271,7 @@ if ($businessdata1[0]['user_id'] != $userid) {
     right: 7%;
     top: 62px;">
   <a style="    
-    font-size: 13px;"><i class="icon-user"></i>Add to contact</a>
+    font-size: 13px; cursor: pointer;"><i class="icon-user"></i>Add to contact</a>
   </div>
 </div>
 
