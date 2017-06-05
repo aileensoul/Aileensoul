@@ -6,64 +6,6 @@
      <style>
       /* NOTE: The styles were added inline because Prefixfree needs access to your styles and they must be inlined if they are on local disk! */
 
-
-.centered {
-    position: absolute;
-    top: 22%;
-    right: 7%;
-}
-
-#ripple {
-  color: #aaa;
-  width: 67px; 
-  height: 100px;
-/*  margin-left: -50px; 
-  margin-top: -50px; */
-}
-
-.circle {
-  position: absolute; 
-  height: 40px;
-  width: 40px;
-  border: 2px solid darkcyan;
-  
-  border-radius: 50px;
-
-  animation: wave 5s infinite linear;
-  animation-fill-mode: both;     
-}
-
-.circle:hover :nth-child(2) {
-  animation-delay: 1.66s;  
-  border-color: cyan;
-}
-
-.circle:nth-child(3) {
-  animation-delay: 3.33s;  
-  border-color:  darkcyan;
-}
-
-/* stays on full alpha from 50 to 75 */ 
-@keyframes wave {
-  0% { 
-    transform: scale(0);
-    opacity: 0.0;  
-  }
-  25% {
-    opacity: 0.0;
-  }    
-  50% {  
-    opacity: 1.0;
-  }
-  75% {  
-    opacity: 1.0;
-  }    
-  100% { 
-    transform: scale(1);
-    opacity: 0.0; 
-  }
-}
-
     </style>
 <?php echo $head; ?>
 
@@ -255,18 +197,13 @@ if ($businessdata1[0]['user_id'] != $userid) {
      </div>
                     -->
 <?php } ?>
+<a href="" style="cursor: pointer;">
 <div class="">
   <div id="ripple" class="centered" >
-<<<<<<< HEAD
-  <div class="circle" ></div>
-  <div class="circle"></div>    
-  <div class="circle"></div>    
-=======
-  <div class="circle"><a href="" style="position: absolute; z-index: 1; cursor: pointer;
+  <div class="circle"><span href="" style="position: absolute; z-index: 1; 
     top: 7px;
-    left: 7px;"><i class="fa fa-user-plus" aria-hidden="true"></i></a></div>
+    left: 7px;"><i class="fa fa-user-plus" style="color: #;" aria-hidden="true"></i></span></div>
 
->>>>>>> 410b733c3ab1b077b46de1035bd684a48c975d3f
 
 </div>
   <div class="addtocont" style="    position: absolute;
@@ -275,11 +212,11 @@ if ($businessdata1[0]['user_id'] != $userid) {
     /* margin-top: 0%; */
     right: 7%;
     top: 62px;">
-  <a style="    
-    font-size: 13px;"><i class="icon-user"></i>Add to contact</a>
+  <span style="    
+    font-size: 13px; ""><i class="icon-user"></i>Add to contact</span>
   </div>
 </div>
-
+</a>
             </div>
             <!-- PICKUP -->
             <!-- menubar --><div class="business-data-menu  col-md-12 padding_less_right">
