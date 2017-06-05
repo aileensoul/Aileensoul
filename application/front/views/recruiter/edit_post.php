@@ -323,7 +323,7 @@
                 </fieldset>
 
 
-                  <fieldset class="half-width col-md-4" <?php if($minsal) {  ?> class="error-msg" <?php } ?>>
+                  <fieldset class="half-width col-md-4 pad_left" <?php if($minsal) {  ?> class="error-msg" <?php } ?>>
                             <label class="control-label">Min salary:(Per Year)<!-- <span style="color:red">*</span> --></label>
                             <input name="minsal" type="text" id="minsal" value="<?php echo $postdata[0]['min_sal']; ?>"  placeholder="Enter Minimum Salary" /><span id="fullname-error"></span>
                             <?php echo form_error('minsal'); ?>
@@ -335,7 +335,7 @@
                             <?php echo form_error('maxsal'); ?>
                         </fieldset>
                 
-                                      <fieldset class=" col-md-4"> 
+                                      <fieldset class=" col-md-4 pad_right"> 
                      <label>Currency:</label>
                             <select name="currency" id="currency">
                             <?php if(count($currency) > 0){

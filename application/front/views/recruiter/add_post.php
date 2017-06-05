@@ -257,7 +257,7 @@
                                     <?php echo form_error('last_date'); ?> 
                                 </fieldset>
 
-                                <fieldset class="col-md-4" <?php if ($minsal) { ?> class="error-msg" <?php } ?>>
+                                <fieldset class="col-md-4 pad_left" <?php if ($minsal) { ?> class="error-msg" <?php } ?>>
                                     <label class="control-label">Min salary:(Per Year) </label>
                                     <input name="minsal" type="text" id="minsal" placeholder="Enter Minimum salary" /><span id="fullname-error"></span>
 <?php echo form_error('minsal'); ?>
@@ -269,7 +269,7 @@
 <?php echo form_error('maxsal'); ?>
                                 </fieldset>
 
-                                 <fieldset class="col-md-4" <?php if($csurrency) {  ?> class="error-msg" <?php } ?> class="two-select-box"> 
+                                 <fieldset class="col-md-4 pad_right" <?php if($csurrency) {  ?> class="error-msg" <?php } ?> class="two-select-box"> 
                      <label>Currency:<span class="red">*</span></label>
                             <select name="currency" id="currency">
                                 
