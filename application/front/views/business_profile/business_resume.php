@@ -7,61 +7,62 @@
       /* NOTE: The styles were added inline because Prefixfree needs access to your styles and they must be inlined if they are on local disk! */
 
 
-.centered {
-    position: absolute;
-    top: 22%;
-    right: 7%;
-}
-
-#ripple {
-  color: #aaa;
-  width: 67px; 
-  height: 100px;
-/*  margin-left: -50px; 
-  margin-top: -50px; */
-}
-
 .circle {
-  position: absolute; 
-  height: 40px;
-  width: 40px;
-  border: 2px solid darkcyan;
+    top: 28%;
+    right: 8%;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background-color: #fff;
+    position: absolute;
+    /* top: 100px; */
+    /* left: 300px; */
+    -webkit-transition: height .25s ease, width .25s ease;
+    transition: height .25s ease, width .25s ease;
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}
+
+.circle:hover{
   
-  border-radius: 50px;
-
-  animation: wave 5s infinite linear;
-  animation-fill-mode: both;     
 }
 
-.circle:hover :nth-child(2) {
-  animation-delay: 1.66s;  
-  border-color: cyan;
+.circle:before,
+.circle:after {
+  content:'';
+  display:block;
+  position:absolute;
+  top:0; right:0; bottom:0; left:0;
+  border-radius:50%;
+  border:1px solid #1b8ab9;
 }
 
-.circle:nth-child(3) {
-  animation-delay: 3.33s;  
-  border-color:  darkcyan;
+.circle:before {
+  -webkit-animation: ripple 2s linear 1s infinite;
+  animation: ripple 2s linear 1s infinite;
+}
+.circle:after {
+  -webkit-animation: ripple 2s linear 1s infinite;
+  animation: ripple 2s linear 1s infinite;
 }
 
-/* stays on full alpha from 50 to 75 */ 
-@keyframes wave {
-  0% { 
-    transform: scale(0);
-    opacity: 0.0;  
-  }
-  25% {
-    opacity: 0.0;
-  }    
-  50% {  
-    opacity: 1.0;
-  }
-  75% {  
-    opacity: 1.0;
-  }    
-  100% { 
-    transform: scale(1);
-    opacity: 0.0; 
-  }
+.circle:hover:before,
+.circle:hover:after {
+  -webkit-animation: ripple 2s linear 1s infinite;
+  animation: ripple 2s linear 1s infinite;
+  
+}
+
+@-webkit-keyframes ripple{
+  0% {-webkit-transform:scale(1); }
+  75% {-webkit-transform:scale(1.75); opacity:1;}
+  100% {-webkit-transform:scale(2); opacity:0;}
+}
+
+@keyframes ripple{
+  0% {transform:scale(1); }
+  75% {transform:scale(1.75); opacity:1;}
+  100% {transform:scale(2); opacity:0;}
 }
 
     </style>
@@ -257,9 +258,10 @@ if ($businessdata1[0]['user_id'] != $userid) {
 <?php } ?>
 <div class="">
   <div id="ripple" class="centered" >
-  <div class="circle" ></div>
-  <div class="circle"></div>    
-  <div class="circle"></div>    
+  <div class="circle"><a href="" style="position: absolute;
+    top: 7px;
+    left: 7px;"><i class="fa fa-user-plus" style="color: #1b8ab9;" aria-hidden="true"></i></a></div>
+
 
 </div>
   <div class="addtocont" style="    position: absolute;
