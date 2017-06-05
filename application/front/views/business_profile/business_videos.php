@@ -15,42 +15,7 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/jquery.jMosaic.css'); ?>">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
 <link rel="stylesheet" href="<?php echo base_url('assets/css/croppie.css'); ?>">
-<style>
-    .top-tab{
-        text-align: center;
-    }
-    .top-tab ul li{
-        float: left;
-    }
-    .top-tab .remove_tab{
-        display: inline-block;
-        width: auto !important;
-        margin-top: 25px !important;
-    }
-    .top-tab .remove_tab a{
-        width:100% !important;
-    }
-    .all-box{
-        text-align: center;
-        padding-top: 25px;
-    }
-    .all-box ul{
-        display: inline-block;
-    }
-    .all-box .video li{
-        display: inline-block;
-        list-style-type: none;
-        width:270px;
-        height: 250px;
-        margin: 5px 5px 10px;
-        padding: 0;
-    }
-    .all-box .video li video{
-        width:270px;
-        height: 250px;
-    }
 
-</style>
 
 
 

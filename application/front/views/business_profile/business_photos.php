@@ -24,39 +24,7 @@
 <link rel="stylesheet" href="<?php echo base_url('assets/css/croppie.css'); ?>">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <style>
-    .top-tab{
-        text-align: center;
-    }
-    .top-tab ul li{
-        float: left;
-    }
-    .top-tab .remove_tab{
-        display: inline-block;
-        width: auto !important;
-        margin-top: 25px !important;
-    }
-    .top-tab .remove_tab a{
-        width:100% !important;
-    }
-    .all-box{
-        text-align: center;
-        padding-top: 25px;
-    }
-    .all-box ul{
-        display: inline-block;
-    }
-    .all-box li{
-        display: inline-block;
-        list-style-type: none;
-        width:220px;
-        height: 220px;
-        margin-bottom: 15px;
-    }
-    .all-box li img{
-        width: 220px;
-        height: 220px;
-    }
-
+   
 </style>
 
 <!-- END HEADER -->
