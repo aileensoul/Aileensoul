@@ -168,7 +168,7 @@ ul.nav li:hover li:active{
 section{width: 100%; overflow: hidden;}
 /* Ul Li & Ol Li CSS */
 ul, ol { margin:0; padding:0 0 0 20px; }
-ul li, ol li { margin:0 0 10px; padding:0; font-size:15px; color:#4c4c4c; font-weight: normal; }
+ul li, ol li { margin:0 0 10px; padding:0; font-size:13px; color:#4c4c4c; font-weight: normal; }
 ul li{padding-left: 11px;}
 
 ol li{list-tyle:numaric;}
@@ -270,7 +270,7 @@ bottom: 0;}
 .left-side-bar ul li a { background: #1b8ab9; padding: 10px 15px; display: inline-block; margin-bottom: 2px; color: #fff; display: block;}
 .left-side-bar ul li a:hover { background: #156f95;text-decoration: none;}
 .left-side-bar ul li.active { position:relative; background:#000; }
-.left-side-bar ul li.active a { background:#156f95; }
+.left-side-bar ul li.active a { background:#156f95!important; }
 .left-side-bar ul li.active:after { content:"\f00c"; font-family: 'FontAwesome'; position:absolute; top:11px; right:8px; color:#fff; }
 
 .job-post-detail { border-radius: 4px; margin-bottom: 15px; border: 1px solid #ddd; }
@@ -2864,7 +2864,7 @@ label.cameraButton input[accept*="camera"] {
 }
 .post-design-name ul li a span{ color: #91949d; font-size: 14px;}
 /*.post-design-name ul li a span:before{content: "\00b7";*/
-.post-design-name ul li .datespan span:before{content: " \00b7 ";}
+.post-design-name ul li .datespan span:before{content: " \00b7 ";font-size:16px;}
       .post-design-product  span:before{content: "\00b7";}
       .post-design-product .span_main_name:before{content: ""; }
       .datespan{display: inline-block;}
@@ -5369,7 +5369,7 @@ fieldset .add_post_btns:hover{background-color:#156f95!important}
 .profile-text-bui-user .profile-boxProfile-name a:hover{color: #1b8ab9}
    .profile-box-job-menu ul li   {padding-left: 13px;}
  .profile-box-bui-menu    ul li {
-    padding-left: 13px;
+    padding-left: 15px;
 }
 .profile-box-busi-menu    ul li{padding-left: 0px;}
 .profile-box-freehire-menu ul li {
@@ -5440,3 +5440,65 @@ fieldset .add_post_btns:hover{background-color:#156f95!important}
 .pad_right{padding-right: 9px;}
 
 .main_form{padding-top:70px;}
+
+.post-design-name ul li .post-design-product a{padding-right: 2px;}
+.post-design-name ul li a{padding-right: 2px;}
+
+
+.circle {
+    top: 50%;
+    right: 8%;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background-color: #e8f3f8;
+    position: absolute;
+    /* top: 100px; */
+    /* left: 300px; */
+    -webkit-transition: height .25s ease, width .25s ease;
+    transition: height .25s ease, width .25s ease;
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}
+
+.circle:hover{
+  
+}
+
+.circle:before,
+.circle:after {
+  content:'';
+  display:block;
+  position:absolute;
+  top:0; right:0; bottom:0; left:0;
+  border-radius:50%;
+  border:1px solid #1b8ab9;
+}
+
+.circle:before {
+  -webkit-animation: ripple 2s linear 1s infinite;
+  animation: ripple 2s linear 1s infinite;
+}
+.circle:after {
+  -webkit-animation: ripple 2s linear 1s infinite;
+  animation: ripple 2s linear 1s infinite;
+}
+
+.circle:hover:before,
+.circle:hover:after {
+  -webkit-animation: ripple 2s linear 1s infinite;
+  animation: ripple 2s linear 1s infinite;
+  
+}
+
+@-webkit-keyframes ripple{
+  0% {-webkit-transform:scale(1); }
+  75% {-webkit-transform:scale(1.75); opacity:1;}
+  100% {-webkit-transform:scale(2); opacity:0;}
+}
+
+@keyframes ripple{
+  0% {transform:scale(1); }
+  75% {transform:scale(1.75); opacity:1;}
+  100% {transform:scale(2); opacity:0;}
+}

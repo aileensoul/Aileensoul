@@ -59,11 +59,16 @@ class Registration extends CI_Controller {
 
    
     public function reg_insert()
-    {
+    {  
+//        $bod = $this->input->post('datepicker');
+//                $bod = str_replace('/', '-', $bod);
 
-        $bod = $this->input->post('datepicker');
-                $bod = str_replace('/', '-', $bod);
-
+      $date = $this->input->post('date');
+      $month = $this->input->post('month');
+      $year = $this->input->post('year');
+      
+      $dob = $year . '-' . $month . '-' . $date;
+     
        if ($this->session->userdata('fbuser')) {
           $this->session->unset_userdata('fbuser');
        }
@@ -78,7 +83,9 @@ class Registration extends CI_Controller {
         $this->form_validation->set_rules('email', 'Store  email', 'required|valid_email');
         $this->form_validation->set_rules('password', 'Password', 'trim|required');
         // $this->form_validation->set_rules('password2', 'Confirm Password', 'trim|required|matches[password]');
-        $this->form_validation->set_rules('datepicker','DOB','required'); 
+        $this->form_validation->set_rules('date','date','required'); 
+        $this->form_validation->set_rules('month','month','required'); 
+        $this->form_validation->set_rules('year','year','required'); 
         $this->form_validation->set_rules('gen', 'Gender', 'required');
      
          
@@ -94,7 +101,7 @@ class Registration extends CI_Controller {
 
         if ($this->form_validation->run() == FALSE) 
         { 
-           // echo "hi";die();
+        
          $this->load->view('registration/registration'); 
          } 
 
@@ -106,8 +113,7 @@ class Registration extends CI_Controller {
                  'last_name' => $this->input->post('lname'),
                  'user_email' => $this->input->post('email'),
                  'user_password' => md5($this->input->post('password')),
-                 
-                   'user_dob' => date('Y-m-d', strtotime($bod)),
+                 'user_dob' => $dob,
                  'user_gender' => $this->input->post('gen'),
                  'user_agree' => '1',
                  'is_delete' => '0',
@@ -117,7 +123,7 @@ class Registration extends CI_Controller {
                  'user_last_login'=> date('Y-m-d h:i:s',time()),
                  'user_verify'=> '0'
         ); 
-           //echo "<pre>"; print_r($data); die(); 
+            
             $insert_id = $this->common->insert_data_getid($data,'user'); 
          
         //for getting last insrert id
