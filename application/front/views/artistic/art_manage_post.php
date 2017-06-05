@@ -3949,7 +3949,7 @@
             
              $( document ).on( 'keydown', function ( e ) {
     if ( e.keyCode === 27 ) {
-        $( ".post-editor" ).hide();
+        document.getElementById('myModal3').style.display = "none";
     }
 });
         </script>
