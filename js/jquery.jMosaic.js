@@ -67,6 +67,7 @@
 		}
 
 		$(it.element).append("<div class='jMosaic-clear'></div>");
+		
 	};
 
 	jMosaic.prototype.clear = function() {
