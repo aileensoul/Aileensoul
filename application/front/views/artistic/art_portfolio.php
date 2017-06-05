@@ -73,7 +73,7 @@
                     </div>
 
 
-                        <div class="common-form">
+                        <div class="common-form common-form_border">
                         <h3>Portfolio</h3>
                         
                           

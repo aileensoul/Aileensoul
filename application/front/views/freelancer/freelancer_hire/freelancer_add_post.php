@@ -60,7 +60,7 @@
                                         }?>
                     </div>
 
-                        <div class="common-form">
+                        <div class="common-form ">
                             <div class="job-saved-box">
                                 <h3>Post Your Project</h3> 
                                 

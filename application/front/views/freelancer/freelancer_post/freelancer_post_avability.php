@@ -84,7 +84,7 @@
                             ?>
                         </div>
 
-                        <div class="common-form">
+                        <div class="common-form common-form_border">
                             <h3>ADD Your Avability</h3>
                             <?php echo form_open(base_url('freelancer/freelancer_post_avability_insert'), array('id' => 'freelancer_post_avability', 'name' => 'freelancer_post_avability', 'class' => 'clearfix')); ?>
 

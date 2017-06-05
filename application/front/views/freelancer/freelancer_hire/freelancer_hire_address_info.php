@@ -77,7 +77,7 @@
                                         }?>
                     </div>
 
-						<div class="common-form">
+						<div class="common-form common-form_border">
 							<h3>Address Information</h3>
                            
                             	<?php echo form_open_multipart(base_url('freelancer_hire/freelancer_hire_address_info_insert'), array('id' => 'address_info','name' => 'address_info','class' => 'clearfix')); ?>

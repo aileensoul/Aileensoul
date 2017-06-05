@@ -99,7 +99,7 @@
                     </div>
                     <!--- search end -->
                     <div class="col-md-7 col-sm-7 all-form-content">
-                        <div class="common-form">
+                        <div class="common-form ">
                             <div class="job-saved-box">
                                 <h3>Recommended Candidate</h3>
                                 <div class="contact-frnd-post">

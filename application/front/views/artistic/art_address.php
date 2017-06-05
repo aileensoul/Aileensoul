@@ -68,7 +68,7 @@
                                         }?>
                     </div>
 
-                        <div class="common-form">
+                        <div class="common-form common-form_border">
                          <h3>
                            Address
                         </h3>

@@ -31,7 +31,7 @@
 
         <div class="user-midd-section " id="paddingtop_fixed_job">
             
-           <div class="common-form1">
+           <div class="common-form1 ">
              <div class="col-md-3 col-sm-4"></div>
 
              <?php 
