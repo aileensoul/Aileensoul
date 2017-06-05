@@ -94,10 +94,10 @@ $(window).load(function(){
                         );
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
-                addmsg("error", textStatus + " (" + errorThrown + ")");
-                setTimeout(
-                        waitForMsg,
-                        15000);
+//                addmsg("error", textStatus + " (" + errorThrown + ")");
+//                setTimeout(
+//                        waitForMsg,
+//                        15000);
             }
         });
     }
@@ -160,10 +160,10 @@ $(window).load(function(){
                         );
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
-                addmsg1("error", textStatus + " (" + errorThrown + ")");
-                setTimeout(
-                        waitForMsg1,
-                        15000);
+//                addmsg1("error", textStatus + " (" + errorThrown + ")");
+//                setTimeout(
+//                        waitForMsg1,
+//                        15000);
             }
         });
     }
