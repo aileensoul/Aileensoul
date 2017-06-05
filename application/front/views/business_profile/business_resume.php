@@ -6,65 +6,6 @@
      <style>
       /* NOTE: The styles were added inline because Prefixfree needs access to your styles and they must be inlined if they are on local disk! */
 
-
-.circle {
-    top: 50%;
-    right: 8%;
-    height: 30px;
-    width: 30px;
-    border-radius: 50%;
-    background-color: #e8f3f8;
-    position: absolute;
-    /* top: 100px; */
-    /* left: 300px; */
-    -webkit-transition: height .25s ease, width .25s ease;
-    transition: height .25s ease, width .25s ease;
-    -webkit-transform: translate(-50%,-50%);
-    transform: translate(-50%,-50%);
-}
-
-.circle:hover{
-  
-}
-
-.circle:before,
-.circle:after {
-  content:'';
-  display:block;
-  position:absolute;
-  top:0; right:0; bottom:0; left:0;
-  border-radius:50%;
-  border:1px solid #1b8ab9;
-}
-
-.circle:before {
-  -webkit-animation: ripple 2s linear 1s infinite;
-  animation: ripple 2s linear 1s infinite;
-}
-.circle:after {
-  -webkit-animation: ripple 2s linear 1s infinite;
-  animation: ripple 2s linear 1s infinite;
-}
-
-.circle:hover:before,
-.circle:hover:after {
-  -webkit-animation: ripple 2s linear 1s infinite;
-  animation: ripple 2s linear 1s infinite;
-  
-}
-
-@-webkit-keyframes ripple{
-  0% {-webkit-transform:scale(1); }
-  75% {-webkit-transform:scale(1.75); opacity:1;}
-  100% {-webkit-transform:scale(2); opacity:0;}
-}
-
-@keyframes ripple{
-  0% {transform:scale(1); }
-  75% {transform:scale(1.75); opacity:1;}
-  100% {transform:scale(2); opacity:0;}
-}
-
     </style>
 <?php echo $head; ?>
 
@@ -256,11 +197,12 @@ if ($businessdata1[0]['user_id'] != $userid) {
      </div>
                     -->
 <?php } ?>
+<a href="" style="cursor: pointer;">
 <div class="">
   <div id="ripple" class="centered" >
-  <div class="circle"><a href="" style="position: absolute; z-index: 1; cursor: pointer;
+  <div class="circle"><span href="" style="position: absolute; z-index: 1; 
     top: 7px;
-    left: 7px;"><i class="fa fa-user-plus" aria-hidden="true"></i></a></div>
+    left: 7px;"><i class="fa fa-user-plus" style="color: #;" aria-hidden="true"></i></span></div>
 
 
 </div>
@@ -270,11 +212,11 @@ if ($businessdata1[0]['user_id'] != $userid) {
     /* margin-top: 0%; */
     right: 7%;
     top: 62px;">
-  <a style="    
-    font-size: 13px; cursor: pointer;"><i class="icon-user"></i>Add to contact</a>
+  <span style="    
+    font-size: 13px; ""><i class="icon-user"></i>Add to contact</span>
   </div>
 </div>
-
+</a>
             </div>
             <!-- PICKUP -->
             <!-- menubar --><div class="business-data-menu  col-md-12 padding_less_right">
