@@ -1266,7 +1266,10 @@
 
 
                                                 <div id="<?php echo 'editpostdetails' . $row['business_profile_post_id']; ?>" style="display:block;">
-                                                    <span class="show">  <?php print $this->common->make_links($row['product_description']); ?>
+                                                    <span class="show">  
+                                                        <?php $new_product_description = $this->common->make_links($row['product_description']); ?>
+                                                                <?php // echo  nl2br(htmlentities($new_product_description, ENT_QUOTES, 'UTF-8')); ?>
+                                                                <?php echo  nl2br($new_product_description); ?>
                                                     </span>
                                                 </div>
 
@@ -3357,7 +3360,8 @@
                     var $field = $('#editpostname' + abc);
                     //var data = $field.val();
                     var editpostdetails = $('#editpostdesc' + abc).html();
-// end khyati code
+                    
+                    editpostdetails = editpostdetails.replace(/&/g,"%26");
 
 
                     // $('#editpostdesc' + abc).html("");
@@ -3696,7 +3700,8 @@
 
             <script>
                 $(function () {
-                    var showTotalChar = 200, showChar = "More", hideChar = "Less";
+//                    var showTotalChar = 200, showChar = "More", hideChar = "Less";
+                    var showTotalChar = 250, showChar = "More", hideChar = "";
                     $('.show').each(function () {
                         //var content = $(this).text();
                         var content = $(this).html();

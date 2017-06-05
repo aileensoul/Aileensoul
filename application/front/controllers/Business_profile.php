@@ -4009,9 +4009,9 @@ class Business_profile extends MY_Controller {
             }
             if ($this->data['businessdata'][0]['product_description']) {
 
-                $editpostdes = '<div>';
+                $editpostdes = '<span class="show">';
                 $editpostdes .= $this->common->make_links($businessdata[0]['product_description']) . "<br>";
-                $editpostdes .= '</div>';
+                $editpostdes .= '</span>';
             }
             //echo $editpost;   echo $editpostdes;
             echo json_encode(
