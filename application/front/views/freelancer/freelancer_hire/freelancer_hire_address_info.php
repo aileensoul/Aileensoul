@@ -1,4 +1,6 @@
-
+<html>
+<div class="js">
+ 
 <!-- HEAD Start -->
 <?php  echo $head; ?>
     <!-- END HEAD -->
@@ -13,19 +15,21 @@
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/test.css'); ?>">
 <!-- pallavi code start 15-4 -->
 <?php if ($freehiredata[0]['free_hire_step'] == '3'){ 
      echo $freelancer_hire_header2_border; } ?> 
      <!-- pallavi code end 15-4 -->
 
+
 <body>
-	
-		
-	
-	<section>
-		    
-		<div class="user-midd-section" id="paddingtop_fixed">
-		<div class="common-form1">
+  <div id="preloader"></div>
+   
+  
+  <section>
+        
+    <div class="user-midd-section" id="paddingtop_fixed">
+    <div class="common-form1">
              <div class="col-md-3 col-sm-4"></div>
 
                      <?php 
@@ -49,25 +53,25 @@
             <br>
             <br>
             <br>
-        	<div class="container">
-				<div class="row">
-					<div class="col-md-3 col-sm-3">
-						<div class="left-side-bar">
-							<ul>
-							<li> <a href="<?php echo base_url('freelancer_hire/freelancer_hire_basic_info'); ?>">Basic Information</a></li>
+          <div class="container">
+        <div class="row">
+          <div class="col-md-3 col-sm-3">
+            <div class="left-side-bar">
+              <ul>
+              <li> <a href="<?php echo base_url('freelancer_hire/freelancer_hire_basic_info'); ?>">Basic Information</a></li>
 
                                 <li <?php if($this->uri->segment(1) == 'freelancer_hire'){?> class="active" <?php } ?>><a href="#">Address Information</a></li>
 
-								<li class="<?php if($freehiredata[0]['free_hire_step'] < '2'){echo "khyati";}?>"><a href="<?php echo base_url('freelancer_hire/freelancer_hire_professional_info'); ?>">Professional Information</a></li>
+                <li class="<?php if($freehiredata[0]['free_hire_step'] < '2'){echo "khyati";}?>"><a href="<?php echo base_url('freelancer_hire/freelancer_hire_professional_info'); ?>">Professional Information</a></li>
 
                                 
-								
-							</ul>
-						</div>
-					</div>
-					<div class="col-md-6 col-sm-8">
+                
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-8">
 
-						<div>
+            <div>
                         <?php
                                         if ($this->session->flashdata('error')) {
                                             echo '<div class="alert alert-danger">' . $this->session->flashdata('error') . '</div>';
@@ -77,10 +81,10 @@
                                         }?>
                     </div>
 
-						<div class="common-form common-form_border">
-							<h3>Address Information</h3>
+            <div class="common-form common-form_border">
+              <h3>Address Information</h3>
                            
-                            	<?php echo form_open_multipart(base_url('freelancer_hire/freelancer_hire_address_info_insert'), array('id' => 'address_info','name' => 'address_info','class' => 'clearfix')); ?>
+                              <?php echo form_open_multipart(base_url('freelancer_hire/freelancer_hire_address_info_insert'), array('id' => 'address_info','name' => 'address_info','class' => 'clearfix')); ?>
 
                  <div>
                                    <span style="color:#7f7f7e;padding-left: 8px;">( </span><span class="red">*</span><span style="color:#7f7f7e"> )</span> <span style="color:#7f7f7e">Indicates required field</span>
@@ -94,12 +98,12 @@
                          $address =  form_error('address'); 
 
                          ?>
-								
+                
                                  <fieldset <?php if($country) {  ?> class="error-msg" <?php } ?>>
-									<label>Country:<span class="red">*</span></label>
-									 <select name="country" id="country">
-    							<option value="">Select Country</option>
-    							<?php
+                  <label>Country:<span class="red">*</span></label>
+                   <select name="country" id="country">
+                  <option value="">Select Country</option>
+                  <?php
                                             if(count($countries) > 0){
                                                 foreach($countries as $cnt){
                                           
@@ -120,15 +124,15 @@
        
                                             }}
                                             ?>
-							</select>
+              </select>
                             <?php echo form_error('country'); ?>
-							    </fieldset>
-							     
+                  </fieldset>
+                   
 
-							    <fieldset <?php if($state) {  ?> class="error-msg" <?php } ?>>
-									<label>State:<span class="red">*</span></label>
-									 <select name="state" id="state">
-    							<?php
+                  <fieldset <?php if($state) {  ?> class="error-msg" <?php } ?>>
+                  <label>State:<span class="red">*</span></label>
+                   <select name="state" id="state">
+                  <?php
                                           if($state1)
 
                                             {
@@ -150,16 +154,16 @@
                                             
                                             }
                                             ?>
-								</select>
+                </select>
                                 <?php echo form_error('state'); ?>
-							    </fieldset>
-							     
+                  </fieldset>
+                   
 
-								
+                
                                 <fieldset>
-									<label>City:</label>
-									<select name="city" id="city">
-    								<?php
+                  <label>City:</label>
+                  <select name="city" id="city">
+                    <?php
 
                                         if($city1)
 
@@ -184,25 +188,25 @@
                                             
                                             }
                                             ?>
-									</select>
-								</fieldset>
-								 <?php  ?>
+                  </select>
+                </fieldset>
+                 <?php  ?>
 
                                 <fieldset>
-									<label>Pincode:</span></label>
-									<input type="text" name="pincode" id="pincode" placeholder="Enter Pincode"  value="<?php if($pincode1){ echo $pincode1; } ?>">
-								</fieldset>
-								 <?php  ?>
+                  <label>Pincode:</span></label>
+                  <input type="text" name="pincode" id="pincode" placeholder="Enter Pincode"  value="<?php if($pincode1){ echo $pincode1; } ?>">
+                </fieldset>
+                 <?php  ?>
 
-								
-								<fieldset class="full-width">
-									<label>Postal Address:<span class="red">*</span></label>
-									 <textarea name="address" id="address" placeholder="Enter Address" rows="5" cols="40" style="resize:none"/><?php if($address1){ echo $address1; } ?></textarea>
+                
+                <fieldset class="full-width">
+                  <label>Postal Address:<span class="red">*</span></label>
+                   <textarea name="address" id="address" placeholder="Enter Address" rows="5" cols="40" style="resize:none"/><?php if($address1){ echo $address1; } ?></textarea>
                                      <?php echo form_error('address'); ?>
-								</fieldset>
-								 
+                </fieldset>
+                 
 
-								
+                
                                 <fieldset class="hs-submit full-width">
                                    
 
@@ -211,16 +215,16 @@
                                    
                                 </fieldset>
 
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
 
-	<script src="<?php echo base_url('js/jquery.min.js'); ?>"></script>
+  <script src="<?php echo base_url('js/jquery.min.js'); ?>"></script>
 <script type="text/javascript">
 $(document).ready(function(){
     $('#country').on('change',function(){ 
@@ -259,12 +263,14 @@ $(document).ready(function(){
 });
 </script>
 
-	<footer>
-		
-		<?php echo $footer;  ?>
-	</footer>
+  <footer>
+    
+    <?php echo $footer;  ?>
+  </footer>
 </body>
+</div>
 </html>
+
 
 <script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
  <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
@@ -433,4 +439,14 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
 
 <script type="text/javascript"> 
  $(".alert").delay(3200).fadeOut(300);
+</script>
+<script type="text/javascript">
+  jQuery(document).ready(function($) {  
+
+// site preloader -- also uncomment the div in the header and the css style for #preloader
+$(window).load(function(){
+  $('#preloader').fadeOut('slow',function(){$(this).remove();});
+});
+
+});
 </script>
