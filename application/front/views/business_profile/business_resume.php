@@ -3,7 +3,10 @@
 <style type="text/css">
     #popup-form img{display: none;}
 </style>
+     <style>
+      /* NOTE: The styles were added inline because Prefixfree needs access to your styles and they must be inlined if they are on local disk! */
 
+    </style>
 <?php echo $head; ?>
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
@@ -194,7 +197,26 @@ if ($businessdata1[0]['user_id'] != $userid) {
      </div>
                     -->
 <?php } ?>
+<a href="" style="cursor: pointer;">
+<div class="">
+  <div id="ripple" class="centered" >
+  <div class="circle"><span href="" style="position: absolute; z-index: 1; 
+    top: 7px;
+    left: 7px;"><i class="fa fa-user-plus" style="color: #;" aria-hidden="true"></i></span></div>
 
+
+</div>
+  <div class="addtocont" style="    position: absolute;
+    display: block;
+    /* margin-left: 69.4%; */
+    /* margin-top: 0%; */
+    right: 7%;
+    top: 62px;">
+  <span style="    
+    font-size: 13px; ""><i class="icon-user"></i>Add to contact</span>
+  </div>
+</div>
+</a>
             </div>
             <!-- PICKUP -->
             <!-- menubar --><div class="business-data-menu  col-md-12 padding_less_right">
@@ -407,7 +429,8 @@ function text2link($text) {
                                                     <li><b> Contact Email</b> <span><?php echo $businessdata1[0]['contact_email']; ?></span> </li>
 
                                                     <li> <b>Contact Website</b><span>
-                                                            <a href="https://<?php echo $businessdata1[0]['contact_website']; ?>" target="_blank"><?php echo $this->common->make_links($businessdata1[0]['contact_website']); ?></a></span>
+                                                            <!--<a href="https://<?php echo $businessdata1[0]['contact_website']; ?>" target="_blank"><?php echo $this->common->make_links($businessdata1[0]['contact_website']); ?></a></span>-->
+                                                            <a href="<?php echo $businessdata1[0]['contact_website']; ?>" target="_blank"><?php echo $businessdata1[0]['contact_website']; ?></a></span>
                                                     </li>
 
                                                 </ul>

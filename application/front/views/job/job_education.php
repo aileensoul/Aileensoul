@@ -698,7 +698,7 @@
 
 
                                                             <fieldset class="full-width">
-                                        <h6>Strddeam :<span class="red">*</span></h6>
+                                        <h6>Stream :<span class="red">*</span></h6>
                                              <select name="stream[]" id="stream1" class="stream" >
                                             
                                            <?php
@@ -1259,9 +1259,11 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
                                         required: true,
                                        // range: [1, 100],
                                         //pattern: /^[A-Za-z]{0,}$/
-                                          minlength: 1,
-                                          maxlength: 5,
-                                        pattern: /^[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)$/
+                                           // minlength: 1,
+                                           // maxlength: 5,
+                                        // pattern: /^[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)$/
+                                        number:true,
+                                         pattern_primary: /^([0-9]{1,2}){1}(\.[0-9]{1,2})?$/
                                        // pattern1: /^[0-9]{1,2}(\.[0-9]{0,1})?$/
 
                                     },
@@ -1309,7 +1311,7 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
                         });
 
             //pattern validation at percentage start//
-              $.validator.addMethod("pattern", function(value, element, param) {
+              $.validator.addMethod("pattern_primary", function(value, element, param) {
               if (this.optional(element)) {
                return true;
               }
@@ -1317,7 +1319,7 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
                 param = new RegExp("^(?:" + param + ")$");
               }
               return param.test(value);
-            }, "Characters Are Not Allowed");
+            }, "Please Select Percentage In Proper Format");
   
              //pattern validation at percentage end//
         </script>
@@ -1354,9 +1356,14 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
                                     percentage_secondary: {
 
                                         required: true,
-                                        minlength: 1,
-                                          maxlength: 5,
-                                         pattern: /^[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)$/
+                                       // range: [1, 100],
+                                        //pattern: /^[A-Za-z]{0,}$/
+                                           // minlength: 1,
+                                           // maxlength: 5,
+                                        // pattern: /^[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)$/
+                                        number:true,
+                                         pattern_secondary: /^([0-9]{1,2}){1}(\.[0-9]{1,2})?$/
+                                       // pattern1: /^[0-9]{1,2}(\.[0-9]{0,1})?$/
                                     },
 
                                     pass_year_secondary: {
@@ -1401,7 +1408,7 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
                         });
 
                      //pattern validation at percentage start//
-              $.validator.addMethod("pattern", function(value, element, param) {
+             $.validator.addMethod("pattern_secondary", function(value, element, param) {
               if (this.optional(element)) {
                return true;
               }
@@ -1409,7 +1416,7 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
                 param = new RegExp("^(?:" + param + ")$");
               }
               return param.test(value);
-            }, "Characters Are Not Allowed");
+            }, "Please Select Percentage In Proper Format");
   
              //pattern validation at percentage end//
                     </script>
@@ -1452,10 +1459,15 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
 
                                     percentage_higher_secondary: {
 
-                                        required: true,
-                                         minlength: 1,
-                                          maxlength: 5,
-                                          pattern: /^[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)$/
+                                         required: true,
+                                       // range: [1, 100],
+                                        //pattern: /^[A-Za-z]{0,}$/
+                                           // minlength: 1,
+                                           // maxlength: 5,
+                                        // pattern: /^[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)$/
+                                        number:true,
+                                         pattern_higher_secondary: /^([0-9]{1,2}){1}(\.[0-9]{1,2})?$/
+                                       // pattern1: /^[0-9]{1,2}(\.[0-9]{0,1})?$/
 
                                     },
 
@@ -1507,7 +1519,7 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
                         });
 
                  //pattern validation at percentage start//
-              $.validator.addMethod("pattern", function(value, element, param) {
+             $.validator.addMethod("pattern_higher_secondary", function(value, element, param) {
               if (this.optional(element)) {
                return true;
               }
@@ -1515,7 +1527,7 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
                 param = new RegExp("^(?:" + param + ")$");
               }
               return param.test(value);
-            }, "Characters Are Not Allowed");
+            }, "Please Select Percentage In Proper Format");
   
              //pattern validation at percentage end//
                     </script>
@@ -1572,10 +1584,14 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
                                     'percentage[]': {
 
                                         required: true,
-                                        minlength: 1,
-                                          maxlength: 5,
-                                        pattern: /^[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)$/
-
+                                       // range: [1, 100],
+                                        //pattern: /^[A-Za-z]{0,}$/
+                                           // minlength: 1,
+                                           // maxlength: 5,
+                                        // pattern: /^[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)$/
+                                        number:true,
+                                         pattern_degree: /^([0-9]{1,2}){1}(\.[0-9]{1,2})?$/
+                                       // pattern1: /^[0-9]{1,2}(\.[0-9]{0,1})?$/
                                     },
                                     'pass_year[]': {
 
@@ -1635,7 +1651,7 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
                         });
 
                          //pattern validation at percentage start//
-              $.validator.addMethod("pattern", function(value, element, param) {
+              $.validator.addMethod("pattern_degree", function(value, element, param) {
               if (this.optional(element)) {
                return true;
               }
@@ -1643,8 +1659,7 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
                 param = new RegExp("^(?:" + param + ")$");
               }
               return param.test(value);
-            }, "Characters Are Not Allowed");
-  
+            }, "Please Select Percentage In Proper Format");
              //pattern validation at percentage end//
                     </script>
 

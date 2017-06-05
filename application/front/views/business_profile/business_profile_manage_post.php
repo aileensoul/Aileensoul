@@ -608,7 +608,7 @@
                                     <tr>
                                         <td class="business_data_td1"><i class="fa fa-globe"></i></td>
                                         <!--<td class="business_data_td2 website"><span><a target="_blank" href="https://<?php echo $businessdata1[0]['contact_website']; ?>"> <?php echo $this->common->make_links($businessdata1[0]['contact_website']); ?></a></span></td>-->
-                                        <td class="business_data_td2 website"><span><a target="_blank" href="<?php echo $businessdata1[0]['contact_website']; ?>"> <?php echo $this->common->make_links($businessdata1[0]['contact_website']); ?></a></span></td>
+                                        <td class="business_data_td2 website"><span><a target="_blank" href="<?php echo $businessdata1[0]['contact_website']; ?>"> <?php echo $businessdata1[0]['contact_website']; ?></a></span></td>
                                     </tr>
 
                                 <?php } ?>
@@ -1266,7 +1266,10 @@
 
 
                                                 <div id="<?php echo 'editpostdetails' . $row['business_profile_post_id']; ?>" style="display:block;">
-                                                    <span class="show">  <?php print $this->common->make_links($row['product_description']); ?>
+                                                    <span class="show">  
+                                                        <?php $new_product_description = $this->common->make_links($row['product_description']); ?>
+                                                                <?php  echo  nl2br(htmlentities($new_product_description, ENT_QUOTES, 'UTF-8')); ?>
+                                                                <?php //echo  nl2br($new_product_description); ?>
                                                     </span>
                                                 </div>
 
@@ -1685,7 +1688,7 @@
                                                                 <div class="edit-comment-box">
                                                                     <div class="inputtype-edit-comment">
 
-                                                                        <div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="<?php echo $rowdata['business_profile_post_comment_id']; ?>"  id="<?php echo "editcomment" . $rowdata['business_profile_post_comment_id']; ?>" placeholder="Add a Commnet Comment " value= ""  onkeyup="commentedit(<?php echo $rowdata['business_profile_post_comment_id']; ?>)"><?php echo $rowdata['comments']; ?></div>
+                                                                        <div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 78%;" class="editable_text" name="<?php echo $rowdata['business_profile_post_comment_id']; ?>"  id="<?php echo "editcomment" . $rowdata['business_profile_post_comment_id']; ?>" placeholder="Add a Commnet Comment " value= ""  onkeyup="commentedit(<?php echo $rowdata['business_profile_post_comment_id']; ?>)"><?php echo $rowdata['comments']; ?></div>
                                                                         <span class="comment-edit-button"><button id="<?php echo "editsubmit" . $rowdata['business_profile_post_comment_id']; ?>" style="display:none" onClick="edit_comment(<?php echo $rowdata['business_profile_post_comment_id']; ?>)">Save</button></span>
                                                                     </div>
                                                                 </div>
@@ -3357,7 +3360,8 @@
                     var $field = $('#editpostname' + abc);
                     //var data = $field.val();
                     var editpostdetails = $('#editpostdesc' + abc).html();
-// end khyati code
+                    
+                    editpostdetails = editpostdetails.replace(/&/g,"%26");
 
 
                     // $('#editpostdesc' + abc).html("");
@@ -3696,7 +3700,8 @@
 
             <script>
                 $(function () {
-                    var showTotalChar = 200, showChar = "More", hideChar = "Less";
+//                    var showTotalChar = 200, showChar = "More", hideChar = "Less";
+                    var showTotalChar = 250, showChar = "More", hideChar = "";
                     $('.show').each(function () {
                         //var content = $(this).text();
                         var content = $(this).html();

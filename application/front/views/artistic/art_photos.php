@@ -11,7 +11,7 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/jquery.jMosaic.css'); ?>">
 <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
@@ -311,7 +311,7 @@ if ($status == 0 || $status == " ") {
                                     <div class="">
 
                                         <h2 class="add_tag_design"> Photos</h2>
-                                        <div class="contact-frnd-post">
+                                        <div class="contact-frnd-post ta_tble">
 
                                             <!-- khyati changes start -->
                                            
@@ -333,9 +333,8 @@ if ($status == 0 || $status == " ") {
                                                      <div class="pictures">
                                               <?php      foreach ($databus as $data) {
                                                          ?>
-                                            
-                                                        <img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $data['image_name']) ?>" onclick="openModal();currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor" width="280" height="300"/>
-                                                 
+                                            <div class="pht_ph_dash">                                                         <img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $data['image_name']) ?>" onclick="openModal();currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor"/>
+                                                 </div>
                                                         <?php
                                                         $i++;
                                                     }?>
@@ -2262,4 +2261,12 @@ if ($status == 0 || $status == " ") {
 
                 });
                    });
+                   
+                   
+                       
+             $( document ).on( 'keydown', function ( e ) {
+    if ( e.keyCode === 27 ) {
+        $( "#myModal1" ).hide();
+    }
+});
   </script>

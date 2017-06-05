@@ -65,7 +65,7 @@
                                 <h3>Post Your Project</h3> 
                                 
                                 
-                           <?php echo form_open(base_url('freelancer/freelancer_add_post_insert'), array('id' => 'postinfo','name' => 'postinfo','class' => 'clearfix', 'onsubmit' => "imgval()")); ?>
+                           <?php echo form_open(base_url('freelancer/freelancer_add_post_insert'), array('id' => 'postinfo','name' => 'postinfo','class' => 'clearfix form_addedit', 'onsubmit' => "imgval()")); ?>
                             <div>
                                 <h4 class="freelancer_editpost_title"> Project Description</h4></div>
 

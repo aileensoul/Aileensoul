@@ -94,10 +94,10 @@ $(window).load(function(){
                         );
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
-                addmsg("error", textStatus + " (" + errorThrown + ")");
-                setTimeout(
-                        waitForMsg,
-                        15000);
+//                addmsg("error", textStatus + " (" + errorThrown + ")");
+//                setTimeout(
+//                        waitForMsg,
+//                        15000);
             }
         });
     }
@@ -160,10 +160,10 @@ $(window).load(function(){
                         );
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
-                addmsg1("error", textStatus + " (" + errorThrown + ")");
-                setTimeout(
-                        waitForMsg1,
-                        15000);
+//                addmsg1("error", textStatus + " (" + errorThrown + ")");
+//                setTimeout(
+//                        waitForMsg1,
+//                        15000);
             }
         });
     }
@@ -202,6 +202,7 @@ $(window).load(function(){
     $(document).ready(function () {
         $("body").click(function (event) {
             $("#InboxContainer").hide(600);
+
             event.stopPropagation();
         });
 
@@ -235,18 +236,31 @@ $(window).load(function(){
 <!-- Click event on button show the element notification & Message end-->
 
 <script type="text/javascript" >
-//Document Click
+
+// 
+$( document ).on( 'keydown', function ( e ) {
+    if ( e.keyCode === 27 ) {
+        $( "#notificationContainer" ).hide();
+    }
+});
+
+$( document ).on( 'keydown', function ( e ) {
+    if ( e.keyCode === 27 ) {
+        $( "#InboxContainer" ).hide();
+    }
+});
+
     $(document).ready(function ()
     {
         $("#notificationLink").click(function ()
         {
 //$("#notificationLink").hide();
-
+                
             $("#InboxContainer").hide();
             $("#Inbox_count").hide();
             $(".dropdown-menu").hide();
             $("#dropdown-content_hover").hide();
-
+            $("#addcontactContainer").hide();
 
 
             $("#Frnd_reqContainer").hide();
@@ -258,6 +272,7 @@ $(window).load(function(){
 
     });
 
+//Document Click
     $(document).ready(function ()
     {
         $("#InboxLink").click(function ()
@@ -267,7 +282,7 @@ $(window).load(function(){
             $("#Frnd_reqContainer").hide();
             $("#Frnd_req_count").hide();
             $(".dropdown-menu").hide();
-
+            $("#addcontactContainer").hide();
             $("#notificationContainer").hide();
             $("#notification_count").hide();
             $("#dropdown-content_hover").hide();
@@ -287,7 +302,7 @@ $(window).load(function(){
 
             $("#Frnd_reqContainer").hide();
             $("#Frnd_req_count").hide();
-
+            $("#addcontactContainer").hide();
             $("#notificationContainer").hide();
             $("#notification_count").hide();
             $("#InboxContainer").hide();

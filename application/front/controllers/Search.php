@@ -76,7 +76,7 @@ class Search extends CI_Controller {
 
             
         } elseif ($this->input->post('searchplace') == "") {
-             //echo "skill";
+             echo "skill"; 
 
             $contition_array = array('is_delete' => '0', 'status' => '1', 'type' => '2');
 
@@ -103,8 +103,7 @@ class Search extends CI_Controller {
                     }
                 }
             }
-            // echo "<pre>"; print_r($artskillpost); die();
-
+             //echo "<pre>"; print_r($artskillpost);
             $contition_array = array('art_reg.is_delete' => '0', 'art_reg.status' => '1','art_reg.user_id !=' => $userid);
 
             $search_condition = "(designation LIKE '%$searchskill%' or other_skill LIKE '%$searchskill%' or art_name LIKE '%$searchskill%' or art_lastname LIKE '%$searchskill%' or art_yourart LIKE '%$searchskill%')";
@@ -129,18 +128,20 @@ class Search extends CI_Controller {
 
             // echo "<pre>"; print_r($fullname) ;
             if ($fullname[1] == "") {
-                // echo "pallavi";
+                 //echo "pallavi";
+                 //echo count($artskillpost); 
 
-                if (count($artskillpost) == 0) {
+                if (count($artskillpost) > 0) {
                    // echo "tt";
                     $unique = array_merge($artpost, $otherdata);
                    // echo "<pre>";print_r($unique);die();
                 } else {
-                   // echo "pqr";
+                    //echo "pqr";
                     $unique = array_merge($artskillpost, $artpost, $otherdata);
                 }
 
-                // $unique=array_merge($artpost,$otherdata);
+                 //$unique=array_merge($artpost,$otherdata); die();
+               // echo "<pre>";print_r($unique);die();
                 // echo count($unique);
 
 //                 foreach ($unique as $ke => $arr) {
@@ -159,7 +160,7 @@ class Search extends CI_Controller {
 
                  //echo "<pre>";print_r($new);die();
             } else {
-                // echo "panalia";
+               //  echo "panalia"; die();
                 $search_condition = "(art_name LIKE '%$fullname[0]%' or art_lastname LIKE '%$fullname[1]%')";
 
                 // echo $search_condition;
@@ -168,7 +169,7 @@ class Search extends CI_Controller {
 
                 // echo "<pre>"; print_r($artfullname);
 
-                if (count($artskillpost) == 0) {
+                if (count($artskillpost) > 0) {
                     $unique = array_merge($artpost, $otherdata, $artfullname);
                 } else {
                     $unique = array_merge($artskillpost, $artpost, $otherdata, $artfullname);
@@ -249,7 +250,7 @@ class Search extends CI_Controller {
             // echo $fullname;
             if ($fullname[1] == "") {
 
-                if (count($artskillpost) == 0) {
+                if (count($artskillpost) > 0) {
                     $unique = array_merge($artpost, $otherdata, $artfullname);
                 } else {
                     $unique = array_merge($artskillpost, $artpost, $otherdata, $artfullname);
@@ -285,7 +286,7 @@ class Search extends CI_Controller {
 
 
 
-                if (count($artskillpost) == 0) {
+                if (count($artskillpost) > 0) {
                     $unique = array_merge($artpost, $otherdata, $artfullname);
                 } else {
                     $unique = array_merge($artskillpost, $artpost, $otherdata, $artfullname);
@@ -1693,15 +1694,11 @@ if ($this->input->post('skills') == "" && $this->input->post('searchplace') == "
 
         $skill = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
 
-        $contition_array = array('status' => '1');
-
-        $results_post = $this->data['results'] = $this->common->select_data_by_condition('freelancer_post', $contition_array, $data = 'post_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-
         $contition_array = array('status' => '1', 'is_delete' => '0');
 
         $field = $this->data['results'] = $this->common->select_data_by_condition('category', $contition_array, $data = 'category_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
 
-        $uni = array_merge($skill, $freelancer_postdata, $field,$results_post);
+        $uni = array_merge($skill, $freelancer_postdata, $field);
         // echo count($unique);
         // $this->data['demo']=$uni;
 
@@ -1714,8 +1711,7 @@ if ($this->input->post('skills') == "" && $this->input->post('searchplace') == "
                 }
             }
         }
-         $results = array_unique($result);
-        foreach ($results as $key => $value) {
+        foreach ($result as $key => $value) {
             $result1[$key]['label'] = $value;
             $result1[$key]['value'] = $value;
         }

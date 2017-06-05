@@ -79,7 +79,7 @@
                             ?>
                         </div>
 
-                        <div class="common-form">
+                        <div class="common-form common-form_border">
                             <h3>Rate</h3>
 <?php echo form_open(base_url('freelancer/freelancer_post_rate_insert'), array('id' => 'freelancer_post_rate', 'name' => 'freelancer_post_rate', 'class' => 'clearfix')); ?>
 

@@ -1252,8 +1252,7 @@ class Business_profile extends MY_Controller {
     }
 
     public function business_profile_addpost_insert($id = "", $para = "") {
-
-
+        
         $userid = $this->session->userdata('aileenuser');
 
         $contition_array = array('user_id' => $para, 'status' => '1');
@@ -4004,15 +4003,15 @@ class Business_profile extends MY_Controller {
 
             //echo "<pre>"; print_r($artdata); die();
             if ($this->data['businessdata'][0]['product_name']) {
-                $editpost = '<div>';
-                $editpost .= $businessdata[0]['product_name'] . "<br>";
-                $editpost .= '</div>';
+                $editpost = '<div><a style="margin-bottom: 0px; font-size: 16px">';
+                $editpost .= $businessdata[0]['product_name'] . "";
+                $editpost .= '</a></div>';
             }
             if ($this->data['businessdata'][0]['product_description']) {
 
-                $editpostdes = '<div>';
+                $editpostdes = '<span class="show">';
                 $editpostdes .= $this->common->make_links($businessdata[0]['product_description']) . "<br>";
-                $editpostdes .= '</div>';
+                $editpostdes .= '</span>';
             }
             //echo $editpost;   echo $editpostdes;
             echo json_encode(
@@ -7371,6 +7370,9 @@ class Business_profile extends MY_Controller {
         if ($delete_data) {
             echo 'ok';
         }
+    }
+    public function contact_list(){
+        $this->load->view('business_profile/contact_list', $this->data);
     }
 
 }

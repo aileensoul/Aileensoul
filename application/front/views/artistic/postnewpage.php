@@ -3289,7 +3289,14 @@
                                 $('div[id^=myDropdown]').hide().removeClass('show');
                             }
 
-                        });
+                        }); 
+                        
+                        
+   $( document ).on( 'keydown', function ( e ) {
+    if ( e.keyCode === 27 ) {
+        $( "#myModal1" ).hide();
+    }
+});
 
                     </script>
                     <!-- This  script use for close dropdown in every post -->

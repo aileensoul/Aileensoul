@@ -786,8 +786,13 @@
 
 
                                         <div id="<?php echo 'editpostdetails' . $busienss_data[0]['business_profile_post_id']; ?>" style="display:block;">
-                                            <span class="show">  <?php print $this->common->make_links($busienss_data[0]['product_description']); ?>
-                                            </span>
+<!--                                            <span class="show">  <?php print $this->common->make_links($busienss_data[0]['product_description']); ?>
+                                            </span>-->
+                                            <span class="show">  
+                                                        <?php $new_product_description = $this->common->make_links($busienss_data[0]['product_description']); ?>
+                                                                <?php echo  nl2br(htmlentities($new_product_description, ENT_QUOTES, 'UTF-8')); ?>
+                                                                <?php //echo  nl2br($new_product_description); ?>
+                                                    </span>
                                         </div>
 
                                         <div id="<?php echo 'editpostdetailbox' . $busienss_data[0]['business_profile_post_id']; ?>" style="display:none;">
@@ -2867,7 +2872,8 @@ $( "#tags" ).autocomplete({
 <script src="jquery-1.8.2.js"></script>
 <script>
     $(function () {
-        var showTotalChar = 150, showChar = "More", hideChar = "less";
+//        var showTotalChar = 150, showChar = "More", hideChar = "less";
+        var showTotalChar = 250, showChar = "More", hideChar = "";
         $('.show').each(function () {
             //var content = $(this).text();
             var content = $(this).html();

@@ -71,7 +71,7 @@
                                         }?>
                     </div>
 
-                        <div class="common-form clearfix">
+                        <div class="common-form common-form common-form_border clearfix">
                          <h3>
                             Basic Information
                         </h3>
