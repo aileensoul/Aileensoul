@@ -411,6 +411,7 @@
   Your browser does not support HTML5 video.
 </video>
                                                 </li> -->
+   
                                                  <?php
 
           $contition_array = array('user_id' => $businessdata1[0]['user_id']);
@@ -444,6 +445,7 @@
                   }
                 } 
                 ?>
+                             
                                             </ul>
                                         </div>
                                
