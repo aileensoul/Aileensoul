@@ -1444,18 +1444,32 @@ echo $job_header2;
 </script> 
                         <!-- save post start -->
             <script type="text/javascript">
-                  function save_user(abc)
-                        {
-           var saveid = document.getElementById("hideenuser" + abc);
-                $.ajax({
-        type: 'POST',
-        url: '<?php echo base_url() . "recruiter/save_search_user" ?>',
-        data: 'user_id=' + abc + '&save_id=' + saveid.value,
-        success: function (data) {
-    $('.' + 'saveduser' + abc).html(data).addClass('saved');
-                                }
-                            });
-                        }
+    //               function save_user(abc)
+    //                     {
+    //        var saveid = document.getElementById("hideenuser" + abc);
+    //             $.ajax({
+    //     type: 'POST',
+    //     url: '<?php //echo base_url() . "recruiter/save_search_user" ?>',
+    //     data: 'user_id=' + abc + '&save_id=' + saveid.value,
+    //     success: function (data) {
+    // $('.' + 'saveduser' + abc).html(data).addClass('saved');
+    //                             }
+    //                         });
+    //                     }
+
+
+                          function save_user(abc)
+                    {
+                        $.ajax({
+                            type: 'POST',
+                            url: '<?php echo base_url() ."recruiter/save_search_user" ?>',
+                            data: 'user_id=' + abc,
+                            success: function (data) {
+                                $('.' + 'saveduser' + abc).html(data).addClass('saved');
+                            }
+                        });
+
+                    }
                     </script>
                     <!-- save post end-->
                         <script>

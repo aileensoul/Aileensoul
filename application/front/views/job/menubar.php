@@ -58,17 +58,20 @@
             $contition_array = array('from_id' => $userid, 'to_id' => $this->uri->segment(3), 'save_type' => 1, 'status' => '0');
              $data = $this->common->select_data_by_condition('save', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                                                                 //echo "<pre>"; print_r($data); die();
-             if (!$data) {
+             if ($data) {
           ?> 
                         <li> 
-                            <input type="hidden" id="<?php echo 'hideenuser' . $this->uri->segment(3); ?>" value= "<?php echo $this->uri->segment(3); ?>">
-                    <a id="<?php echo $this->uri->segment(3); ?>" onClick="savepopup(<?php echo $this->uri->segment(3); ?>)" href="javascript:void(0);" class="<?php echo 'saveduser' . $this->uri->segment(3); ?>">
-                        Save
-                    </a> 
+                 <a class="button saved save_saved_btn">Saved</a>
+                           
+
+                           <!--  <input type="hidden" id="<?php echo 'hideenuser' . $this->uri->segment(3); ?>" value= "<?php echo $this->uri->segment(3); ?>"> -->
+                    
                         </li>
                                                                 <?php } else{ ?>
                         <li> 
-                           <a title="Saved Job" class="saved">Saved </a> 
+                         <a id="<?php echo $this->uri->segment(3); ?>" onClick="savepopup(<?php echo $this->uri->segment(3); ?>)" href="javascript:void(0);" class="<?php echo 'saveduser' . $this->uri->segment(3); ?> button save_saved_btn">
+                        Save
+                    </a>
                         </li>
                                                                 <?php } ?>
                        <li> <a href="<?php echo base_url('chat/abc/' . $this->uri->segment(3)); ?>">Message</a> </li>
