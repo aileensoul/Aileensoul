@@ -1224,8 +1224,10 @@
                                                                         </div>
                                                                         <div class="comment-details" id= "<?php echo "showcomment" . $rowdata['business_profile_post_comment_id']; ?>">
                                                                             <?php
-                                                                            echo $this->common->make_links($rowdata['comments']);
+                                                                         //   echo $this->common->make_links($rowdata['comments']);
                                                                             //echo '</br>';
+                                                                    $new_product_comment = $this->common->make_links($rowdata['comments']);
+                                                                    echo  nl2br(htmlspecialchars_decode(htmlentities($new_product_comment, ENT_QUOTES, 'UTF-8'))); ?>
                                                                             ?>
                                                                         </div>
                                                                         <!--                                                                <div class="col-md-12">
@@ -1580,7 +1582,7 @@
         {
             return false;
         }
-
+        txt = txt.replace(/&/g,"%26");
         $('#post_comment' + clicked_id).html("");
 
         var x = document.getElementById('threecomment' + clicked_id);
@@ -1699,6 +1701,7 @@
                 {
                     return false;
                 }
+                txt = txt.replace(/&/g,"%26");
                 $('#post_comment' + clicked_id).html("");
 
                 if (window.preventDuplicateKeyPresses)
@@ -2021,6 +2024,7 @@
         {
             return false;
         }
+        txt = txt.replace(/&/g,"%26");
 //                    alert(txt);
 //                    return false;
         $.ajax({
@@ -2105,6 +2109,7 @@
                 {
                     return false;
                 }
+                txt = txt.replace(/&/g,"%26");
                 //$('#editcomment' + abc).html("");
 
                 if (window.preventDuplicateKeyPresses)
@@ -2177,6 +2182,7 @@
         {
             return false;
         }
+        txt = txt.replace(/&/g,"%26");
         $.ajax({
             type: 'POST',
             url: '<?php echo base_url() . "business_profile/edit_comment_insert" ?>',
@@ -2269,7 +2275,7 @@
                 {
                     return false;
                 }
-
+                txt = txt.replace(/&/g,"%26");
                 //$('#editcommenttwo' + abc).html("");
 
                 if (window.preventDuplicateKeyPresses)
@@ -3036,7 +3042,6 @@
                 event.preventDefault();
                 var sel = $("#post_comment" + clicked_id);
                 var txt = sel.html();
-
                 txt = txt.replace(/&nbsp;/gi, " ");
                 txt = txt.replace(/<br>$/, '');
                 if (txt == '' || txt == '<br>') {
@@ -3046,7 +3051,7 @@
                 {
                     return false;
                 }
-
+                txt = txt.replace(/&/g,"%26");
                 $('#post_comment' + clicked_id).html("");
                 // $("#result").html(txt);
                 // sel.html("")

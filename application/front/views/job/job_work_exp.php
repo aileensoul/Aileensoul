@@ -103,7 +103,7 @@
                                             <h3>Work Experience</h3>
                                             <div class="tablet-hi">
                                                 <a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">Fresher</a>
-                                                <a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'Paris')">Experience</a>
+                                                <a href="javascript:void(0)"  class="tablinks active2" onclick="openCity(event, 'Paris')">Experience</a>
                                             </div>                                 
 
 

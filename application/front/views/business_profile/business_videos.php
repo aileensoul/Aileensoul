@@ -341,7 +341,7 @@
 
                             <div class="all-box">
                                             <ul class="video"> 
-                                                <li>
+                                               <!--  <li>
                                                     <video controls>
   <source src="mov_bbb.mp4" type="video/mp4">
   <source src="mov_bbb.ogg" type="video/ogg">
@@ -375,16 +375,9 @@
   <source src="mov_bbb.ogg" type="video/ogg">
   Your browser does not support HTML5 video.
 </video>
-                                                </li>
-                                                
-                                            </ul>
-                                        </div>
-                               
-                                 <div class="contact-frnd-post">
-                               <tr>
-
-
-            <?php
+                                                </li> -->
+   
+                                                 <?php
 
           $contition_array = array('user_id' => $businessdata1[0]['user_id']);
          $busvideo = $this->data['busvideo'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -417,6 +410,15 @@
                   }
                 } 
                 ?>
+                             
+                                            </ul>
+                                        </div>
+                               
+                                 <div class="contact-frnd-post">
+                               <tr>
+
+
+           
         <?php  if($singlearray1) {  
 
             foreach ($singlearray1 as $videov) {

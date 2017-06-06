@@ -44,7 +44,7 @@
  -->
 
         <div class="row" id="row1" style="display:none;">
-            <div class="col-md-12 text-center">
+            <div class="col-md-12 text-center padding_less_left">
                 <div id="upload-demo" style="width:100%"></div>
             </div>
             <div class="col-md-12 cover-pic" style="padding-top: 25px;text-align: center;">
@@ -1153,7 +1153,7 @@
                                                     <!-- like comment div start -->
                                                     <ul>
                                                         <li class="<?php echo 'likepost' . $row['art_post_id']; ?>">
-                                                            <a class="ripple" id="<?php echo $row['art_post_id']; ?>" onClick="post_like(this.id)">
+                                                            <a class="ripple like_h_w" id="<?php echo $row['art_post_id']; ?>" onClick="post_like(this.id)">
 
                                                                 <?php
                                                                 $userid = $this->session->userdata('aileenuser');
@@ -1171,7 +1171,12 @@
             ?>
 
 
-                                                                <span>
+                                                               
+                                                            </a>
+                                                          
+                                                        </li>
+<li class="m4-24">
+      <span>
 
                                                                     <?php
                                                                     if ($row['art_likes_count'] > 0) {
@@ -1179,25 +1184,28 @@
                                                                     }
                                                                     ?>
 
-                                                                </span>
-                                                            </a>
-                                                        </li>
-
+                                                                </span> 
+</li>
                                                         <li id="<?php echo 'insertcount' . $row['art_post_id']; ?>" style="visibility:show">
 
             <?php
             $contition_array = array('art_post_id' => $row['art_post_id'], 'status' => '1', 'is_delete' => '0');
             $commnetcount = $this->common->select_data_by_condition('artistic_post_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
             ?>
-                                                            <a  onClick="commentall(this.id)" id="<?php echo $row['art_post_id']; ?>">
+                                                            <a  class="ripple" onClick="commentall(this.id)" id="<?php echo $row['art_post_id']; ?>">
                                                                 <i class="fa fa-comment-o" aria-hidden="true">
-                                                                    <?php
+                                                                   
+                                                                </i>  
+                                                            </a>
+                                                        </li>
+                                                       <li class="m4-24">
+                                                           <span>
+                                                                <?php
                                                                     if (count($commnetcount) > 0) {
                                                                         echo count($commnetcount);
                                                                     }
                                                                     ?>
-                                                                </i>  
-                                                            </a>
+                                                           </span> 
                                                         </li>
                                                     </ul>
                                                     <!-- like comment div end -->
@@ -3949,7 +3957,7 @@
             
              $( document ).on( 'keydown', function ( e ) {
     if ( e.keyCode === 27 ) {
-        $( ".post-editor" ).hide();
+        document.getElementById('myModal3').style.display = "none";
     }
 });
         </script>
