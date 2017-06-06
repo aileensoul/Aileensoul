@@ -375,7 +375,7 @@
 
                                 <div class="all-box">
                                             <ul class="audio-sec"> 
-                                                <li>
+                                               <!--  <li>
                                                     <img src="http://localhost/aileensoul/uploads/business_post/thumbs/file_1496664178_jh179.jpg">
                                                 </li>
                                                 <li>
@@ -395,14 +395,8 @@
                                                 </li>
                                                 <li>
                                                     <img src="http://localhost/aileensoul/uploads/business_post/thumbs/file_1496664178_jh179.jpg">
-                                                </li>
-                                            </ul>
-                                        </div>
-                            
-                                       <div class="add_audio"> 
-                                 <div class="vidoe_tag">
-       
-                                  <?php
+                                                </li> -->
+                                                 <?php
 
           $contition_array = array('user_id' => $businessdata1[0]['user_id']);
          $busaudio = $this->data['busaudio'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -439,14 +433,22 @@
                 foreach ($singlearray2 as $audiov) {
                   
                  ?>
+                 <li>
 
                             <audio controls>
                             <source src="<?php echo base_url($this->config->item('bus_post_main_upload_path').$audiov['image_name']); ?>" type="audio/ogg">
                             <source src="movie.ogg" type="audio/mpeg">
                            Your browser does not support the audio tag.
                             </audio>
-
+                    </li>
                <?php } } else{?>
+                                            </ul>
+                                        </div>
+                            
+                                       <div class="add_audio"> 
+                                 <div class="vidoe_tag">
+       
+                                 
          <div class="not_img">
                   <div class="not_avali" >
                                 <img src="<?php echo base_url('images/color_008.png'); ?>"  >

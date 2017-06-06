@@ -4344,7 +4344,8 @@ input:-moz-placeholder { color:#999; font-size: 15px; }
 }
 
 .tabs-left>li.active>a
-{border-bottom: 3px solid #1b8ab9!important; color: #1b8ab9!important;}
+{/*border-bottom: 3px solid #1b8ab9!important;*/ color: #1b8ab9!important;}
+.remove_tab li.active a::before{width:100%; left:0 !important;}
 .tabs-right>li.active>a,
 .tabs-right>li.active>a:hover,
 .tabs-right>li.active>a:focus {
@@ -5456,10 +5457,10 @@ fieldset .add_post_btns:hover{background-color:#156f95!important}
 
 
 .circle {
-    top: 50%;
+    top: 40%;
     right: 8%;
-    height: 10px;
-    width: 10x;
+    height: 37px;
+    width: 37px;
     border-radius: 50%;
     background-color: #e8f3f8;
     position: absolute;
@@ -5564,4 +5565,6 @@ fieldset .add_post_btns:hover{background-color:#156f95!important}
         height: 250px;
     }
 
-.m4-24{margin-left: -24px!important;}
+.m4-24{margin-left: -24px !important; padding: 4px 0px 1px 2px !important;}
+.like_img{height: 20px; width: 20px;}
+.like_img img{width: 100%; height: 100%;}

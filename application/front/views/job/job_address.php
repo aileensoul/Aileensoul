@@ -379,16 +379,7 @@
 
 </body>
 </html>
-<script type="text/javascript">
-  jQuery(document).ready(function($) {  
 
-// site preloader -- also uncomment the div in the header and the css style for #preloader
-$(window).load(function(){
-  $('#preloader').fadeOut('slow',function(){$(this).remove();});
-});
-
-});
-</script>
 
 <!-- Calender JS Start-->
 <script src="<?php echo base_url('js/jquery.js'); ?>"></script>
@@ -445,7 +436,7 @@ $(window).load(function(){
 
 </script>
 
-<script>
+<!-- <script>
 //select2 autocomplete start for skill
     $('#searchskills').select2({
 
@@ -499,7 +490,7 @@ $(window).load(function(){
 //select2 autocomplete End for Location
 
 </script>
-
+ -->
 <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.min.js') ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
 
@@ -544,7 +535,7 @@ $(window).load(function(){
 <!-- script for click on copy button to get similar value  end -->
 
 <!-- script for country,state,city start -->
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     $(document).ready(function () {
         $('#country').on('change', function () {
             var countryID = $(this).val();
@@ -552,7 +543,7 @@ $(window).load(function(){
             if (countryID) {
                 $.ajax({
                     type: 'POST',
-                    url: '<?php echo base_url() . "job_profile/ajax_data"; ?>',
+                    url: '<?php //echo base_url() . "job_profile/ajax_data"; ?>',
                     data: 'country_id=' + countryID,
                     success: function (html) {
                         $('#state').html(html);
@@ -572,7 +563,7 @@ $(window).load(function(){
             if (stateID) {
                 $.ajax({
                     type: 'POST',
-                    url: '<?php echo base_url() . "job_profile/ajax_data"; ?>',
+                    url: '<?php //echo base_url() . "job_profile/ajax_data"; ?>',
                     data: 'state_id=' + stateID,
                     success: function (html) {
 
@@ -584,56 +575,53 @@ $(window).load(function(){
             }
         });
     });
-</script>
+</script> -->
 <!-- script for country,state,city end -->
 
 <!-- script for country,state,city copy start -->
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     $(document).ready(function () {
-        $('#country_permenant').on('change', function () {
-            var countryID = $(this).val();
-
-            if (countryID) {
-                $.ajax({
-                    type: 'POST',
-                    url: '<?php echo base_url() . "job_profile/ajax_data"; ?>',
-                    data: 'country_id=' + countryID,
-                    success: function (html) {
-                        $('#state_permenant').html(html);
-                        $('#city_permenant').html('<option value="">Select state first</option>');
-                    }
-                });
-            } else {
-                $('#state_permenant').html('<option value="">Select country first</option>');
-                $('#city_permenant').html('<option value="">Select state first</option>');
-            }
-        });
-
-        $('#state_permenant').on('change', function () {
-            var stateID = $(this).val();
-            if (stateID) {
-                $.ajax({
-                    type: 'POST',
-                    url: '<?php echo base_url() . "job_profile/ajax_data"; ?>',
-                    data: 'state_id=' + stateID,
-                    success: function (html) {
-                        $('#city_permenant').html(html);
-                    }
-                });
-            } else {
-                $('#city_permenant').html('<option value="">Select state first</option>');
-            }
-        });
+        
     });
-</script>
+</script> -->
 <!-- script for country,state,city copy end -->
 
 
 
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 
-    //validation for edit email formate form
+    
+    $(document).ready(function () {
+
+        
+    });
+</script> -->
+
+
+<script>
+
+    var complex = <?php echo json_encode($selectdata); ?>;
+    $("#lan").select2().select2('val', complex)
+
+</script>
+<!-- script for Language textbox automatic end (option 2)-->
+<script type="text/javascript">
+    $(".alert").delay(3200).fadeOut(300);
+
+    $(".formSentMsg").delay(3200).fadeOut(300);
+</script>
+<script type="text/javascript">
+  jQuery(document).ready(function($) {  
+
+// site preloader -- also uncomment the div in the header and the css style for #preloader
+$(window).load(function(){
+  $('#preloader').fadeOut('slow',function(){$(this).remove();});
+});
+
+
+
+//validation for edit email formate form
 
     jQuery.validator.addMethod("noSpace", function(value, element) { 
       return value == '' || value.trim().length != 0;  
@@ -643,9 +631,8 @@ $(window).load(function(){
     return regexpr.test(value);
 }, "Only space, only number and only special characters are not allow");
 
-    $(document).ready(function () {
 
-        $("#jobseeker_regform").validate({
+$("#jobseeker_regform").validate({
 
             rules: {
 
@@ -732,20 +719,45 @@ $(window).load(function(){
             },
 
         });
-    });
+
+
+
+$('#country_permenant').on('change', function () {
+            var countryID = $(this).val();
+
+            if (countryID) {
+                $.ajax({
+                    type: 'POST',
+                    url: '<?php echo base_url() . "job_profile/ajax_data"; ?>',
+                    data: 'country_id=' + countryID,
+                    success: function (html) {
+                        $('#state_permenant').html(html);
+                        $('#city_permenant').html('<option value="">Select state first</option>');
+                    }
+                });
+            } else {
+                $('#state_permenant').html('<option value="">Select country first</option>');
+                $('#city_permenant').html('<option value="">Select state first</option>');
+            }
+        });
+
+        $('#state_permenant').on('change', function () {
+            var stateID = $(this).val();
+            if (stateID) {
+                $.ajax({
+                    type: 'POST',
+                    url: '<?php echo base_url() . "job_profile/ajax_data"; ?>',
+                    data: 'state_id=' + stateID,
+                    success: function (html) {
+                        $('#city_permenant').html(html);
+                    }
+                });
+            } else {
+                $('#city_permenant').html('<option value="">Select state first</option>');
+            }
+        });
+
+
+
+});
 </script>
-
-
-<script>
-
-    var complex = <?php echo json_encode($selectdata); ?>;
-    $("#lan").select2().select2('val', complex)
-
-</script>
-<!-- script for Language textbox automatic end (option 2)-->
-<script type="text/javascript">
-    $(".alert").delay(3200).fadeOut(300);
-
-    $(".formSentMsg").delay(3200).fadeOut(300);
-</script>
-

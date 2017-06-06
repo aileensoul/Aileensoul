@@ -410,6 +410,22 @@
                   }
                 } 
                 ?>
+                 <?php  if($singlearray1) {  
+
+            foreach ($singlearray1 as $videov) {
+         
+         ?>
+<li>
+             <td class="vidoe_tag"> 
+                 <video controls>
+                    <source src="<?php echo base_url($this->config->item('bus_post_main_upload_path').$videov['image_name']); ?>" type="video/mp4">
+                    <source src="movie.ogg" type="video/ogg">
+               Your browser does not support the video tag.
+                  </video>
+              </td>
+</li>
+
+      <?php }   }  else{?>
                              
                                             </ul>
                                         </div>
@@ -419,21 +435,7 @@
 
 
            
-        <?php  if($singlearray1) {  
-
-            foreach ($singlearray1 as $videov) {
-         
-         ?>
-
-             <td class="vidoe_tag"> 
-                 <video controls>
-                    <source src="<?php echo base_url($this->config->item('bus_post_main_upload_path').$videov['image_name']); ?>" type="video/mp4">
-                    <source src="movie.ogg" type="video/ogg">
-               Your browser does not support the video tag.
-                  </video>
-              </td>
-
-      <?php }   }  else{?>
+       
 
       <div class="not_img">
                   <div class="not_avali" >

@@ -3298,5 +3298,201 @@
     }
 });
 
+
+var pasteArea = document.getElementById("post_comment4");
+var fWeight = document.getElementById("fWeight");
+var fStyle = document.getElementById("fStyle");
+
+
+// Event Listener
+pasteArea.addEventListener('paste', function(e) {
+    
+    e.preventDefault();
+    
+    var clipboardData = {},
+    rDataText,
+    rDataHTML;
+
+    if(e.clipboardData) {
+
+        // Mozilla & Chrome    
+        clipboardData = e.clipboardData;
+        rDataHTML = clipboardData.getData('text/html');
+        rDataPText = clipboardData.getData('text/plain');
+
+    } else if( window.clipboardData ) {
+        // IE9
+        clipboardData = window.clipboardData;
+
+        try {
+            rDataHTML = clipboardData.getData('Html');    
+        } catch(e) {
+            console.log(e);
+        }
+        
+        rDataPText = clipboardData.getData('Text');                
+    } 
+
+    if (rDataHTML && rDataHTML.trim().length != 0) {
+        console.log('data in clipboard is html');
+        HtmlHandler(rDataHTML);
+        return false;
+    }
+    
+    if (rDataPText && rDataPText.trim().length != 0) {
+        console.log('data in clipboard is plain text');
+        PlainTextHandler(rDataPText);
+        return false;
+    }
+   
+}, false);
+
+// Remove Line Break In PlainText
+function PlainTextHandler(pText) {
+    pText.replace(/\r?\n|\r/, " ");
+    insertNode( document.createTextNode(pText) )
+    pasteArea.removeClassName('loading');
+}
+
+// Remove Unwanted Tag and Attributes 
+function HtmlHandler(htmlStr) {
+    
+    var wrap = document.createElement("span"); // for ease of finding elements appended to a span
+    wrap.innerHTML = htmlStr;
+
+    var allNodes = wrap.getElementsByTagName('*'); // get all elements
+    var allNodesLen = allNodes.length;
+
+    pasteArea.addClassName('loading'); // loading gif
+
+    function formatHtml(elem, complete) {
+        var flag_italic = false;
+        var flag_weight = false;
+        var fontStyle;
+        var fontWeight;
+        console.log(elem)
+        if (elem.nodeType == 1) { // 
+            
+            // get style in css 
+            var CSSStyle = window.getComputedStyle(elem);
+            fontStyle = CSSStyle.fontStyle;
+            fontWeight = CSSStyle.fontWeight;
+            
+            // get style defined by inline
+            var InlineStyle = elem.style;
+            inlineFontStyle = InlineStyle['font-style'];
+            inlineFontWeight = InlineStyle['font-weight'];
+            if (inlineFontStyle && inlineFontStyle.trim() != '') fontStyle = inlineFontStyle;
+            if (inlineFontWeight && inlineFontWeight.trim() != '') fontWeight = inlineFontWeight;
+            
+            // get style defined in MSword
+            var msStyle = elem.getAttribute('style');
+            if (/mso-bidi/.test(msStyle)) {
+                var MSStyleObj = {};
+                var styleStrArr = msStyle.split(";");
+                for (i = 0; i < styleStrArr.length; i++) {
+                    var temp = styleStrArr[i].split(":");
+                    MSStyleObj[temp[0]] = temp[1];
+                }
+                fontStyle = MSStyleObj['mso-bidi-font-style'];
+                fontWeight = MSStyleObj['mso-bidi-font-weight'];
+            }
+
+            if (fontStyle && fontStyle == 'italic') flag_italic = true; // flag true if italic
+            
+            if (fontWeight && (fontWeight == 'bold' || 600 <= (+fontWeight))) flag_weight = true;  // flag true if bold - 600 is semi bold
+            
+            // bold & italic are not applied via style
+            // these styles are applied by appending contents in new tags string & bold
+            if (flag_italic && flag_weight) {
+                var strong = document.createElement('strong');
+                var italic = document.createElement('i');
+                strong.appendChild(italic);
+                newtag = strong;
+            } else {
+                if (flag_italic) {
+                    newtag = document.createElement('i');
+                } else if (flag_weight) {
+                    newtag = document.createElement('strong');
+                } else {
+                    // remove un wanted attributes & element
+                    var tagName = elem.tagName;
+                    if (tagName == 'STRONG' || tagName == 'B') {
+                        newtag = document.createElement('strong');
+                    } else if (tagName == 'I') {
+                        newtag = document.createElement('i');
+                    } else {
+                        newtag = document.createElement('span');
+                    }
+                }
+            }
+
+            // content appended
+            var elemHTML = elem.innerHTML;
+            if (flag_italic && flag_weight) {
+                newtag.childNodes[0].innerHTML = elemHTML;
+            } else {
+                newtag.innerHTML = elemHTML;
+            }
+
+            // curr element is replaced by new
+            elem.parentNode.insertBefore(newtag, elem);
+            elem.parentNode.removeChild(elem);
+        }
+        complete() // completed one iteration
+    }
+
+    // call , iteration is completed
+    function done() {
+        insertNode( wrap )
+        pasteArea.removeClassName('loading');
+    }
+
+    // async approach to iterate dom elements
+    function asyncEach(domCol, computeFunc, donFunc) {
+        function process() {
+            allNodesLen -= 1; // move forward
+            if (allNodesLen >= 0) {
+                computeFunc(domCol[allNodesLen], function() {
+                    setTimeout(process, 0);
+                }); // function call
+            } else {
+                donFunc(); //completed
+            }
+        }; // function definition
+        if (allNodesLen >= 0) {
+            setTimeout(process, 0); //start here
+        } else {
+            donFunc(); //completed
+        }
+    }
+    asyncEach(allNodes, formatHtml, done) // async each call  - iteration starts heres
+}
+
+// add class remove class code
+Element.prototype.hasClassName = function(name) {
+    return new RegExp("(?:^|\\s+)" + name + "(?:\\s+|$)").test(this.className);
+};
+
+Element.prototype.addClassName = function(name) {
+    if (!this.hasClassName(name)) {
+        this.className = this.className ? [this.className, name].join(' ') : name;
+    }
+};
+
+Element.prototype.removeClassName = function(name) {
+    if (this.hasClassName(name)) {
+        var c = this.className;
+        this.className = c.replace(new RegExp("(?:^|\\s+)" + name + "(?:\\s+|$)", "g"), "");
+    }
+};
+
+
+function insertNode( node ) {
+    sel = window.getSelection();
+    range = sel.getRangeAt(0);
+    range.deleteContents();
+    range.insertNode( node );
+}
                     </script>
                     <!-- This  script use for close dropdown in every post -->
