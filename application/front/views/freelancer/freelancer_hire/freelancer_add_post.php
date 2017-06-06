@@ -473,7 +473,7 @@ function imgval(){
 
 
 $.validator.addMethod("regx", function(value, element, regexpr) {          
-    return regexpr.test(value);
+    return value == '' || value.trim().length != 0; 
 }, "Only space, only number and only special characters are not allow");
 
 
@@ -488,8 +488,10 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
 
                         post_name: {
 
-                            required: true,
-                            regx:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]/
+                           required: true,
+                            //regx:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]/
+                            regx:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/
+                            //regx:/\A[a-z0-9\s]+\Z/i
                             //noSpace: true
                            
                         },
@@ -503,7 +505,7 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
                         other_skill: {
                             
                            require_from_group: [1, ".keyskil"],
-                          noSpace: true
+                            regx:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/
                             // required:true 
                         },
                         fields_req:{
@@ -513,7 +515,7 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
                        post_desc: {
 
                             required: true,
-                            regx:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]/
+                            regx:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/
                            //noSpace: true
                            
                         },
