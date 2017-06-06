@@ -1163,11 +1163,16 @@
 
                                                                 if (!in_array($userid, $likeuserarray)) {
                                                                     ?>
-                                                                    <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>
+                                                                    <div class="like_img">
+                                                                        <img src="<?php echo base_url('images/like1.png'); ?>">
+                                                                    </div>
+                                                                   
                                                                 <?php } else {
                                                                     ?>
-                                                                    <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-            <?php }
+                                                                    <div class="like_img">
+                                                                        <img src="<?php echo base_url('images/like2.png'); ?>">
+                                                                    </div>
+                                                                               <?php }
             ?>
 
 
