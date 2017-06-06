@@ -6,6 +6,7 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
  <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
 <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/test.css'); ?>">
 <style type="text/css">
 .header2{border-bottom-left-radius: 4px;border-bottom-right-radius: 4px; }
 .full-width  img{display: none;}
@@ -21,7 +22,9 @@
     <?php if($businessdata[0]['business_step'] == 4){?>
 <?php echo $business_header2_border; ?>
 <?php }?>
+<div class="js">
     <body class="page-container-bg-solid page-boxed">
+    <div id="preloader"></div>
 
       <section>
         
@@ -152,6 +155,7 @@
     </footer>
     
 </body>
+</div>
 </html>
 
  <script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
@@ -290,4 +294,13 @@ $('#searchplace').select2({
     $("#image1").change(function(){ 
         readURL(this);
     });
+</script>
+<script type="text/javascript">
+  jQuery(document).ready(function($) {  
+
+// site preloader -- also uncomment the div in the header and the css style for #preloader
+$(window).load(function(){
+  $('#preloader').fadeOut('slow',function(){$(this).remove();});
+});
+});
 </script>
