@@ -5457,10 +5457,10 @@ fieldset .add_post_btns:hover{background-color:#156f95!important}
 
 
 .circle {
-    top: 50%;
+    top: 40%;
     right: 8%;
-    height: 10px;
-    width: 10x;
+    height: 37px;
+    width: 37px;
     border-radius: 50%;
     background-color: #e8f3f8;
     position: absolute;
