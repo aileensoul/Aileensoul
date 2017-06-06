@@ -75,6 +75,7 @@
                            <fieldset class="full-width" <?php if($fields_req) {  ?> class="error-msg" <?php } ?>>
                   <label>Fields Of Requirement:<span style="color:red">*</span></label>
                    <select name="fields_req" id="fields_req">
+                        <option value="" selected option disabled>Select Fields of Requirement</option>
                  <?php  
                                             if(count($category) > 0){ 
                                                            foreach($category as $cnt){  
@@ -104,7 +105,8 @@
                             <fieldset class="full-width" <?php if($post_skill) {  ?> class="error-msg" <?php } ?>>
                                 <label>Skills of Requirements:<span style="color:red">*</span></label>
                                
-                                  <select name="skills[]" id ="skill1" multiple="multiple" style="width:100% " class="skill1">
+                                  <select name="skills[]" id ="skill1" multiple="multiple" style="width:100% " class="keyskil">
+
 
                                  <?php foreach ($skill1 as $skill) { ?>
                                 <option value="<?php echo $skill['skill_id']; ?>"><?php echo $skill['skill']; ?></option>
@@ -117,7 +119,7 @@
 
                             <fieldset class="full-width" <?php if($other_skill) {  ?> class="error-msg" <?php } ?> >
                             <label class="control-label">Other Skill:</label>
-                            <input name="other_skill" type="text" id="other_skill" placeholder="Enter Your Other Skill" value="<?php echo $freelancerpostdata[0]['post_other_skill']; ?>" />
+                            <input name="other_skill" type="text" id="other_skill" class="keyskil" placeholder="Enter Your Other Skill" value="<?php echo $freelancerpostdata[0]['post_other_skill']; ?>" />
                                 <span id="fullname-error"></span>
                                 <?php echo form_error('other_skill'); ?>
                         </fieldset>
@@ -127,42 +129,45 @@
                                 <label>Experience:</label>
                                 
                                 <select name="year" id="year">
-                                    <option value="<?php echo $freelancerpostdata[0]['post_exp_year']?>"><?php echo $freelancerpostdata[0]['post_exp_year']." Year"?></option>
-                                    <option value="0">0 Year</option>
-                                    <option value="1">1 Year</option>
-                                    <option value="2">2 Year</option>
-                                    <option value="3">3 Year</option>
-                                    <option value="4">4 Year</option>
-                                    <option value="5">5 Year</option>
-                                    <option value="6">6 Year</option>
-                                    <option value="7">7 Year</option>
-                                    <option value="8">8 Year</option>
-                                    <option value="9">9 Year</option>
-                                    <option value="10">10 Year</option>
-                                    <option value="11">11 Year</option>
-                                    <option value="12">12 Year</option>
-                                    <option value="13">13 Year</option>
-                                    <option value="14">14 Year</option>
-                                    <option value="15">15 Year</option>
-                                    <option value="16">16 Year</option>
-                                    <option value="17">17 Year</option>
-                                    <option value="18">18 Year</option>
-                                    <option value="19">19 Year</option>
-                                    <option value="20">20 Year</option>
+                                    <!-- <option value="<?php //echo $freelancerpostdata[0]['post_exp_year']?>"><?php //echo $freelancerpostdata[0]['post_exp_year']." Year"?></option> -->
+                       <option value="" selected option disabled>Year</option>
+                                    <option value="0" <?php if($freelancerpostdata[0]['post_exp_year']=="0") echo 'selected="selected"'; ?>>0 Year</option>
+                                    <option value="1" <?php if($freelancerpostdata[0]['post_exp_year']=="1") echo 'selected="selected"'; ?>>1 Year</option>
+                                    <option value="2" <?php if($freelancerpostdata[0]['post_exp_year']=="2") echo 'selected="selected"'; ?>>2 Year</option>
+                                    <option value="3" <?php if($freelancerpostdata[0]['post_exp_year']=="3") echo 'selected="selected"'; ?>>3 Year</option>
+                                    <option value="4" <?php if($freelancerpostdata[0]['post_exp_year']=="4") echo 'selected="selected"'; ?>>4 Year</option>
+                                    <option value="5" <?php if($freelancerpostdata[0]['post_exp_year']=="5") echo 'selected="selected"'; ?>>5 Year</option>
+                                    <option value="6" <?php if($freelancerpostdata[0]['post_exp_year']=="6") echo 'selected="selected"'; ?>>6 Year</option>
+                                    <option value="7" <?php if($freelancerpostdata[0]['post_exp_year']=="7") echo 'selected="selected"'; ?>>7 Year</option>
+                                    <option value="8" <?php if($freelancerpostdata[0]['post_exp_year']=="8") echo 'selected="selected"'; ?>>8 Year</option>
+                                    <option value="9" <?php if($freelancerpostdata[0]['post_exp_year']=="9") echo 'selected="selected"'; ?>>9 Year</option>
+                                    <option value="10" <?php if($freelancerpostdata[0]['post_exp_year']=="10") echo 'selected="selected"'; ?>>10 Year</option>
+                                    <option value="11" <?php if($freelancerpostdata[0]['post_exp_year']=="11") echo 'selected="selected"'; ?>>11 Year</option>
+                                    <option value="12" <?php if($freelancerpostdata[0]['post_exp_year']=="12") echo 'selected="selected"'; ?>>12 Year</option>
+                                    <option value="13" <?php if($freelancerpostdata[0]['post_exp_year']=="13") echo 'selected="selected"'; ?>>13 Year</option>
+                                    <option value="14" <?php if($freelancerpostdata[0]['post_exp_year']=="14") echo 'selected="selected"'; ?>>14 Year</option>
+                                    <option value="15" <?php if($freelancerpostdata[0]['post_exp_year']=="15") echo 'selected="selected"'; ?>>15 Year</option>
+                                    <option value="16" <?php if($freelancerpostdata[0]['post_exp_year']=="16") echo 'selected="selected"'; ?>>16 Year</option>
+                                    <option value="17" <?php if($freelancerpostdata[0]['post_exp_year']=="17") echo 'selected="selected"'; ?>>17 Year</option>
+                                    <option value="18" <?php if($freelancerpostdata[0]['post_exp_year']=="18") echo 'selected="selected"'; ?>>18 Year</option>
+                                    <option value="19" <?php if($freelancerpostdata[0]['post_exp_year']=="19") echo 'selected="selected"'; ?>>19 Year</option>
+                                    <option value="20" <?php if($freelancerpostdata[0]['post_exp_year']=="20") echo 'selected="selected"'; ?>>20 Year</option>
                                 </select>
                                 <span id="fullname-error"></span>
                                 <?php echo form_error('year'); ?>
 
                                 <select name="month" style="margin-left: 8px;" id="month">
-                                    <option value="<?php echo $freelancerpostdata[0]['post_exp_month']?> "><?php echo $freelancerpostdata[0]['post_exp_month']." Month"?></option>
+                                   <!--  <option value="<?php //echo $freelancerpostdata[0]['post_exp_month']?> "><?php //echo $freelancerpostdata[0]['post_exp_month']." Month"?></option> -->
                                     <!-- <option >Month</option> -->
-                                    <option value="0">0 Month</option>
-                                   <option value="1">1 Month</option>
-                                  <option value="2">2 Month</option>
-                                  <option value="3">3 Month</option>
-                                  <option value="4">4 Month</option>
-                                   <option value="5">5 Month</option>
-                                  <option value="6">6 Month</option>
+                                     <option value="" selected option disabled>Month</option>
+
+                                  <option value="0" <?php if($freelancerpostdata[0]['post_exp_month']=="0") echo 'selected="selected"'; ?>>0 Month</option>
+                                   <option value="1" <?php if($freelancerpostdata[0]['post_exp_month']=="1") echo 'selected="selected"'; ?>>1 Month</option>
+                                  <option value="2" <?php if($freelancerpostdata[0]['post_exp_month']=="2") echo 'selected="selected"'; ?>>2 Month</option>
+                                  <option value="3" <?php if($freelancerpostdata[0]['post_exp_month']=="3") echo 'selected="selected"'; ?>>3 Month</option>
+                                  <option value="4" <?php if($freelancerpostdata[0]['post_exp_month']=="4") echo 'selected="selected"'; ?>>4 Month</option>
+                                   <option value="5" <?php if($freelancerpostdata[0]['post_exp_month']=="5") echo 'selected="selected"'; ?>>5 Month</option>
+                                  <option value="6"<?php if($freelancerpostdata[0]['post_exp_month']=="6") echo 'selected="selected"'; ?>>6 Month</option>
                                </select>
                                 <?php echo form_error('month'); ?>
                                 
@@ -184,8 +189,9 @@
                             </fieldset>
 
                             <fieldset class=" col-md-4"> 
-                     <label>Currency:</label>
+                     <label>Currency:<span class="red">*</span></label>
                             <select name="currency" id="currency">
+                             <option value="" selected option disabled>Select Currency</option>
                             <?php if(count($currency) > 0){
                             foreach($currency as $cur){ 
 
@@ -247,7 +253,8 @@
                 <label>Country:<span style="color:red">*</span></label>
                 
                         <select name="country" id="country">
-                          <option value="">Select Country</option>
+                         
+                           <option value="" selected option disabled>Select Country</option>
                           <?php
                                             if(count($countries) > 0){
                                                 foreach($countries as $cnt){
@@ -465,17 +472,28 @@ $('#searchplace').select2({
 
 <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.min.js') ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('js/jquery.validate1.15.0..min.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('js/additional-methods1.15.0.min.js'); ?>"></script> 
 <!-- Field Validation Js End -->
 <!-- javascript validation start -->
    <script type="text/javascript">
 
-           $.validator.addMethod("regx", function(value, element, regexpr) {          
+           jQuery.validator.addMethod("noSpace", function(value, element) { 
+      return value == '' || value.trim().length != 0;  
+    }, "No space please and don't leave it empty");
+
+
+$.validator.addMethod("regx", function(value, element, regexpr) {          
     return regexpr.test(value);
 }, "Only space, only number and only special characters are not allow");
+
+
 
             $(document).ready(function () { 
 
                 $("#postinfo").validate({
+
+                  ignore: '*:not([name])',
 
                     rules: {
 
@@ -483,67 +501,47 @@ $('#searchplace').select2({
 
                             required: true,
                             regx:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]/
+                            //noSpace: true
                            
                         },
 
-                         skills: {
-
-                            required: true,
-                           
-                        },
-                       
-                       hourly: {
-
-                            required: true,
+                         'skills[]': {
                             
-                        },
-                       
-                       est_time: {
+                          require_from_group: [1, ".keyskil"] 
+                          //required:true 
+                        }, 
 
-                            required: true,
-                           
-                           
+                        other_skill: {
+                            
+                           require_from_group: [1, ".keyskil"],
+                          noSpace: true
+                            // required:true 
                         },
-                        year: {
-
-                            required: true,
-                           
+                        fields_req:{
+                            required:true,
                         },
-                       month: {
-
-                            required: true,
-                           
-                        },
-                        position: {
-
-                            required: true,
-                           
-                        },
+                      
                        post_desc: {
 
                             required: true,
                             regx:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]/
+                           //noSpace: true
                            
                         },
-                        interview: {
-
-                            required: true,
-                           
-                        },
-                       datepicker: {
-
-                            required: true,
-                           
-                        }, 
-                        country: {
-
-                            required: true,
-                           
-                        },
-                          
                         last_date:{
                           required:true,
-                        }
+                        },
+                        currency:{
+                          required:true,
+                        },
+                        rate:{
+                          required:true,
+                          noSpace: true
+                        },
+                        country:{
+                          required:true,
+                        },
+                      
                     },
 
                     messages: {
@@ -554,69 +552,44 @@ $('#searchplace').select2({
                             
                         },
 
-                        skills: {
+                       'skills[]': {
 
-                            required: "Skill Is Required.",
-                            
+                            require_from_group: "You must either fill out 'Keyskills' or 'Other Skills'",
+
                         },
 
-                         hourly: {
+                        other_skill: {
 
-                            required: "Hour Selection Is Required.",
-                            
+                            require_from_group: "You must either fill out 'Keyskills' or 'Other Skills'",
                         },
-
-                        est_time: {
-
-                            required: "Estimated Time Is Required.",
-                            
+                        fields_req:{
+                          required:"Please Select Field of Requirement",
                         },
-                         year: {
-
-                            required: "Year Selection Is Required.",
-                            
-                        },
-                        month: {
-
-                            required: "Month Selection Is Required.",
-                            
-                        },
-                        position: {
-
-                            required: "Position Selection Is Required.",
-                            
-                        },
+                        
                         post_desc: {
 
                             required: "Post Description  Is Required.",
                             
                         },
-                        interview: {
+                       last_date:{
+                         required:"Last Date of apply is required.",
+                       },
+                       currency:{
+                        required:"Please select currency type",
+                       },
+                       rate:{
+                        required:"Rate is Required",
+                       },
+                       country:{
+                        required:"Please Select Country"
+                       },
 
-                            required: "Interview Selection Is Required.",
-                            
-                        },
-                       datepicker: {
-
-                            required: "Last Date Selection Is Required.",
-                            
-                        },
-                        country: {
-
-                            required: " Country Is Required.",
-                            
-                        },
-                        
-                        last_date:{
-                          required:"Last Date of apply is required.",
-                        }
-
-                    },
+                    }
 
                 });
                    });
 </script>
-
+<!-- javascript validation End -->
 
 <!-- country city dependent -->
 

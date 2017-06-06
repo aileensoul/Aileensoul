@@ -1680,24 +1680,25 @@ $results = array_unique($result);
         $skills = $this->input->post('skills');
         $this->form_validation->set_rules('post_name', 'Post Name', 'required');
         $this->form_validation->set_rules('post_desc', 'Post description', 'required');
-        $this->form_validation->set_rules('fields_req', 'Field required', 'required');
+      //  $this->form_validation->set_rules('fields_req', 'Field required', 'required');
 
        
         $this->form_validation->set_rules('est_time', 'Estimated time', 'required');
         $this->form_validation->set_rules('rate', 'Rate', 'required');
         $this->form_validation->set_rules('currency', 'Currency', 'required');
         $this->form_validation->set_rules('rating', 'Rating', 'required');
-        $this->form_validation->set_rules('month', 'Month', 'required');
-        $this->form_validation->set_rules('year', 'Year', 'required');
+        
 
         $this->form_validation->set_rules('country', 'Country', 'required');
         
 
         $this->form_validation->set_rules('last_date', 'Last date', 'required');
 
-        if ($this->form_validation->run() == FALSE) {
-            $this->load->view('freelancer/freelancer_hire/freelancer_edit_post');
-        } else {
+        // if ($this->form_validation->run() == FALSE) {
+          
+        //     $this->load->view('freelancer/freelancer_hire/freelancer_edit_post');
+        // } else {
+        //     echo "hello";die();
                  $datereplace=$this->input->post('last_date');
                  $lastdate=str_replace('/', '-',$datereplace);
             
@@ -1731,7 +1732,7 @@ $results = array_unique($result);
                 $this->session->flashdata('error', 'Sorry!! Your data not inserted');
                 redirect('freelancer/freelancer_edit_post', refresh);
             }
-        }
+        //}
     }
 
     //Freelancer Job All Post Start

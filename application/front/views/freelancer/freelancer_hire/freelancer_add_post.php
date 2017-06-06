@@ -105,7 +105,8 @@
                        <fieldset class="full-width" <?php if($fields_req) {  ?> class="error-msg" <?php } ?>>
                   <label>Fields Of Requirement:<span style="color:red">*</span></label>
                    <select name="fields_req" id="fields_req">
-                  <option value="">Select Fields of Requirement</option>
+                     <option value="" selected option disabled>Select Fields of Requirement</option>
+                  
                   <?php
                                             if(count($category) > 0){
                                                 foreach($category as $cnt){
@@ -151,7 +152,8 @@
                      <label>Experience:</label>
 
                           <select name="year">
-                            <option value="0">Year</option>
+                             <option value="" selected option disabled>Year</option>
+                        
                             <option value="0">0 Year</option>
                             <option value="1">1 Year</option>
                             <option value="2">2 Year</option>
@@ -178,7 +180,8 @@
                             <?php echo form_error('year'); ?>
 
                             <select class="margin-month " name="month" id="month">
-                            <option value="0">Month</option>
+                               <option value="" selected option disabled>Month</option>
+                         
                             <option value="0">0 Month</option>
                             <option value="1">1 Month</option>
                             <option value="2">2 Month</option>
@@ -210,7 +213,7 @@
                           <fieldset class="col-md-4" <?php if($csurrency) {  ?> class="error-msg" <?php } ?> class="two-select-box"> 
                      <label>Currency:<span class="red">*</span></label>
                             <select name="currency" id="currency">
-
+                              <option value="" selected option disabled>Select Currency</option>
                             <?php foreach($currency as $cur){ ?>
                              <option value="<?php echo $cur['currency_id']; ?>"><?php echo $cur['currency_name']; ?></option>
                              <?php } ?>
@@ -254,7 +257,7 @@
                 <label>Country:<span style="color:red">*</span></label>
                 
                         <select name="country" id="country">
-                          <option value="">Select Country</option>
+                         <option value="" selected option disabled>Select Country</option>
                           <?php
                                             if(count($countries) > 0){
                                                 foreach($countries as $cnt){
@@ -695,3 +698,6 @@ $('#skills').select2({
 
 </script>
 
+<style type="text/css">
+  #skills-error{margin-top: 38px;}
+</style>
