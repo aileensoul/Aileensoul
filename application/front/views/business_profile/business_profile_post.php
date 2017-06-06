@@ -205,12 +205,12 @@
                                             <div class="profile-boxProfile-name">
                                                 <a style="padding-left: 4px;" href="<?php echo base_url('business_profile/business_profile_manage_post/'); ?> " title="<?php echo ucwords($businessdata[0]['company_name']); ?>" >
                                                     <?php
-                                                        if ($category) {
-                                                            echo $category;
-                                                        } else {
-                                                            echo $businessdata[0]['other_industrial'];
-                                                        }
-                                                        ?>
+                                                    if ($category) {
+                                                        echo $category;
+                                                    } else {
+                                                        echo $businessdata[0]['other_industrial'];
+                                                    }
+                                                    ?>
                                                 </a>
                                             </div>
                                         </div>
@@ -253,7 +253,7 @@
                                     <h3 class="user_list_head">User List
                                     </h3>
                                     <div class="seeall">
-                                        <a href="<?php echo base_url('business_profile/userlist/'. $businessdata[0]['business_slug']); ?>">All User
+                                        <a href="<?php echo base_url('business_profile/userlist/' . $businessdata[0]['business_slug']); ?>">All User
                                         </a>
                                     </div>
                                 </div>
@@ -343,8 +343,8 @@
                                                         $category = $this->db->get_where('industry_type', array('industry_id' => $userlist['industriyal'], 'status' => 1))->row()->industry_name;
                                                         $contition_array = array('follow_to' => $userlist['business_profile_id'], 'follow_from' => $followfrom, 'follow_status' => '1', 'follow_type' => '2');
                                                         $businessfollow = $this->data['businessfollow'] = $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '1', $offset = '', $join_str = array(), $groupby = '');
-                                                       
-                                                        
+
+
                                                         if (!$businessfollow) {
                                                             ?>                             
                                                             <div class="profile-job-post-title-inside clearfix">
@@ -411,21 +411,20 @@
                                                         $contition_array = array('follow_to' => $userlist['business_profile_id'], 'follow_from' => $followfrom, 'follow_status' => '1', 'follow_type' => '2');
                                                         $buisnessfollow = $this->data['buisnessfollow'] = $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '1', $offset = '', $join_str = array(), $groupby = '');
                                                         if (!$buisnessfollow) {
-                                                            
                                                             ?>                             
                                                             <div class="profile-job-post-title-inside clearfix">
                                                                 <div class=" col-md-12 follow_left_box_main" id="<?php echo "fad" . $userlist['business_profile_id']; ?>">                   
                                                                     <div class="post-design-pro-img_follow">
                                                                         <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>">
                                                                             <?php
-                                                                            if($userlist['business_user_image'] != ''){
-                                                                            ?>
-                                                                            <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $userlist['business_user_image']); ?>"  alt="">
-                                                                            <?php
-                                                                            }else{
+                                                                            if ($userlist['business_user_image'] != '') {
                                                                                 ?>
-                                                                            <img  src="<?php echo base_url(NOIMAGE); ?>"  alt="">
-                                                                            <?php
+                                                                                <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $userlist['business_user_image']); ?>"  alt="">
+                                                                                <?php
+                                                                            } else {
+                                                                                ?>
+                                                                                <img  src="<?php echo base_url(NOIMAGE); ?>"  alt="">
+                                                                                <?php
                                                                             }
                                                                             ?>
                                                                         </a>
@@ -876,7 +875,7 @@
                                                             <span class="show"> 
                                                                 <?php $new_product_description = $this->common->make_links($row['product_description']); ?>
                                                                 <?php // echo  nl2br(htmlentities($new_product_description, ENT_QUOTES, 'UTF-8')); ?>
-                                                                <?php echo  nl2br(htmlentities($new_product_description, ENT_QUOTES, 'UTF-8')); ?>
+                                                                <?php echo nl2br(htmlentities($new_product_description, ENT_QUOTES, 'UTF-8')); ?>
                                                                 <?php // echo  nl2br($new_product_description); ?>
                                                             </span>
                                                         </div>
@@ -1224,10 +1223,10 @@
                                                                         </div>
                                                                         <div class="comment-details" id= "<?php echo "showcomment" . $rowdata['business_profile_post_comment_id']; ?>">
                                                                             <?php
-                                                                         //   echo $this->common->make_links($rowdata['comments']);
+                                                                            //   echo $this->common->make_links($rowdata['comments']);
                                                                             //echo '</br>';
-                                                                    $new_product_comment = $this->common->make_links($rowdata['comments']);
-                                                                    echo  nl2br(htmlspecialchars_decode(htmlentities($new_product_comment, ENT_QUOTES, 'UTF-8'))); ?>
+                                                                            $new_product_comment = $this->common->make_links($rowdata['comments']);
+                                                                            echo nl2br(htmlspecialchars_decode(htmlentities($new_product_comment, ENT_QUOTES, 'UTF-8')));
                                                                             ?>
                                                                         </div>
                                                                         <!--                                                                <div class="col-md-12">
@@ -1342,7 +1341,7 @@
                                                     </div>
                                                     <div class="">
                                                         <div id="content" class="col-md-12  inputtype-comment cmy_2" >
-                                                            <div contenteditable="true" class="edt_2 editable_text" name="<?php echo $row['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $row['business_profile_post_id']; ?>" placeholder="Add a Comment ..." onClick="entercomment(<?php echo $row['business_profile_post_id']; ?>)"></div>
+                                                            <div contenteditable="true" class="edt_2 editable_text" name="<?php echo $row['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $row['business_profile_post_id']; ?>" placeholder="Add a Comment ..." onClick="entercomment(<?php echo $row['business_profile_post_id']; ?>)" onkeyup="comment_wo_div(<?php echo $row['business_profile_post_id']; ?>);"></div>
                                                         </div>
                                                         <?php echo form_error('post_comment'); ?> 
                                                         <div class="comment-edit-butn">       
@@ -1582,7 +1581,7 @@
         {
             return false;
         }
-        txt = txt.replace(/&/g,"%26");
+        txt = txt.replace(/&/g, "%26");
         $('#post_comment' + clicked_id).html("");
 
         var x = document.getElementById('threecomment' + clicked_id);
@@ -1701,7 +1700,7 @@
                 {
                     return false;
                 }
-                txt = txt.replace(/&/g,"%26");
+                txt = txt.replace(/&/g, "%26");
                 $('#post_comment' + clicked_id).html("");
 
                 if (window.preventDuplicateKeyPresses)
@@ -1771,7 +1770,7 @@
         var x = document.getElementById('threecomment' + clicked_id);
         var y = document.getElementById('fourcomment' + clicked_id);
         var z = document.getElementById('insertcount' + clicked_id);
-        
+
         $('.post-design-commnet-box').show();
         if (x.style.display === 'block' && y.style.display === 'none') {
             x.style.display = 'none';
@@ -1793,7 +1792,7 @@
         //      z.style.display = 'block';
         //      $.ajax({ 
         //             type:'POST',
-        //          url:'<?php //echo base_url() . "business_profile/fourcomment"                                                                 ?>',
+        //          url:'<?php //echo base_url() . "business_profile/fourcomment"                                                                     ?>',
         //             data:'art_post_id='+clicked_id,
         //             //alert(data);
         //             success:function(data){
@@ -2024,7 +2023,7 @@
         {
             return false;
         }
-        txt = txt.replace(/&/g,"%26");
+        txt = txt.replace(/&/g, "%26");
 //                    alert(txt);
 //                    return false;
         $.ajax({
@@ -2109,7 +2108,7 @@
                 {
                     return false;
                 }
-                txt = txt.replace(/&/g,"%26");
+                txt = txt.replace(/&/g, "%26");
                 //$('#editcomment' + abc).html("");
 
                 if (window.preventDuplicateKeyPresses)
@@ -2182,7 +2181,7 @@
         {
             return false;
         }
-        txt = txt.replace(/&/g,"%26");
+        txt = txt.replace(/&/g, "%26");
         $.ajax({
             type: 'POST',
             url: '<?php echo base_url() . "business_profile/edit_comment_insert" ?>',
@@ -2275,7 +2274,7 @@
                 {
                     return false;
                 }
-                txt = txt.replace(/&/g,"%26");
+                txt = txt.replace(/&/g, "%26");
                 //$('#editcommenttwo' + abc).html("");
 
                 if (window.preventDuplicateKeyPresses)
@@ -2652,10 +2651,10 @@
             // If required Alert can be removed. 
             var msg = "You have reached your maximum limit of characters allowed";
             //alert(msg);
-            
+
             $('.biderror .mes').html("<div class='pop_content'>" + msg + "</div>");
             $('#bidmodal').modal('show');
-            
+
             // Reached the Maximum length so trim the textarea
             my_form.my_text.value = my_form.my_text.value.substring(0, maxLen);
         } else {
@@ -2688,8 +2687,8 @@
         //var data = $field.val();
         var editpostdetails = $('#editpostdesc' + abc).html();
 //        editpostdetails = editpostdetails.replaceAll('&', '%26');
-        editpostdetails = editpostdetails.replace(/&/g,"%26");
-        
+        editpostdetails = editpostdetails.replace(/&/g, "%26");
+
 // end khyati code
 
 
@@ -3051,7 +3050,7 @@
                 {
                     return false;
                 }
-                txt = txt.replace(/&/g,"%26");
+                txt = txt.replace(/&/g, "%26");
                 $('#post_comment' + clicked_id).html("");
                 // $("#result").html(txt);
                 // sel.html("")
@@ -3099,15 +3098,12 @@
             event.preventDefault();
             $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1200);
         });
-
         // });
-
     }
 </script>
 
 <script type="text/javascript">
     function likeuserlist(post_id) {
-
         $.ajax({
             type: 'POST',
             url: '<?php echo base_url() . "business_profile/likeuserlist" ?>',
@@ -3119,8 +3115,6 @@
                 $('#likeusermodal').modal('show');
             }
         });
-
-
     }
 </script>
 <script type="text/javascript">
@@ -3284,4 +3278,213 @@
             modal.style.display = "none";
         }
     }
+</script>
+
+<script type="text/javascript">
+    $('div.edt_2').on('paste', function () {
+        var element = this.id;
+        var clicked_id =  element.replace('post_comment', '');
+        
+        var pasteArea = document.getElementById("post_comment" + clicked_id);
+        var fWeight = document.getElementById("fWeight");
+        var fStyle = document.getElementById("fStyle");
+        
+        
+        // Event Listener
+        pasteArea.addEventListener('paste', function (e) {
+            e.preventDefault();
+
+            var clipboardData = {},
+                    rDataText,
+                    rDataHTML;
+
+            if (e.clipboardData) {
+
+                // Mozilla & Chrome    
+                clipboardData = e.clipboardData;
+                rDataHTML = clipboardData.getData('text/html');
+                rDataPText = clipboardData.getData('text/plain');
+
+            } else if (window.clipboardData) {
+                // IE9
+                clipboardData = window.clipboardData;
+
+                try {
+                    rDataHTML = clipboardData.getData('Html');
+                } catch (e) {
+                    console.log(e);
+                }
+
+                rDataPText = clipboardData.getData('Text');
+            }
+
+            if (rDataHTML && rDataHTML.trim().length != 0) {
+                console.log('data in clipboard is html');
+                HtmlHandler(rDataHTML);
+                return false;
+            }
+
+            if (rDataPText && rDataPText.trim().length != 0) {
+                console.log('data in clipboard is plain text');
+                PlainTextHandler(rDataPText);
+                return false;
+            }
+
+        }, false);
+
+// Remove Line Break In PlainText
+        function PlainTextHandler(pText) {
+            pText.replace(/\r?\n|\r/, " ");
+            insertNode(document.createTextNode(pText))
+            pasteArea.removeClassName('loading');
+        }
+
+// Remove Unwanted Tag and Attributes 
+        function HtmlHandler(htmlStr) {
+
+            var wrap = document.createElement("span"); 
+            wrap.innerHTML = htmlStr;
+
+            var allNodes = wrap.getElementsByTagName('*'); 
+            var allNodesLen = allNodes.length;
+
+            pasteArea.addClassName('loading'); // loading gif
+
+            function formatHtml(elem, complete) {
+                var flag_italic = false;
+                var flag_weight = false;
+                var fontStyle;
+                var fontWeight;
+                console.log(elem)
+                if (elem.nodeType == 1) { // 
+
+                    // get style in css 
+                    var CSSStyle = window.getComputedStyle(elem);
+                    fontStyle = CSSStyle.fontStyle;
+                    fontWeight = CSSStyle.fontWeight;
+
+                    // get style defined by inline
+                    var InlineStyle = elem.style;
+                    inlineFontStyle = InlineStyle['font-style'];
+                    inlineFontWeight = InlineStyle['font-weight'];
+                    if (inlineFontStyle && inlineFontStyle.trim() != '')
+                        fontStyle = inlineFontStyle;
+                    if (inlineFontWeight && inlineFontWeight.trim() != '')
+                        fontWeight = inlineFontWeight;
+
+                    // get style defined in MSword
+                    var msStyle = elem.getAttribute('style');
+                    if (/mso-bidi/.test(msStyle)) {
+                        var MSStyleObj = {};
+                        var styleStrArr = msStyle.split(";");
+                        for (i = 0; i < styleStrArr.length; i++) {
+                            var temp = styleStrArr[i].split(":");
+                            MSStyleObj[temp[0]] = temp[1];
+                        }
+                        fontStyle = MSStyleObj['mso-bidi-font-style'];
+                        fontWeight = MSStyleObj['mso-bidi-font-weight'];
+                    }
+
+                    if (fontStyle && fontStyle == 'italic')
+                        flag_italic = true; // flag true if italic
+
+                    if (fontWeight && (fontWeight == 'bold' || 600 <= (+fontWeight)))
+                        flag_weight = true;  // flag true if bold - 600 is semi bold
+
+                    // bold & italic are not applied via style
+                    // these styles are applied by appending contents in new tags string & bold
+                    if (flag_italic && flag_weight) {
+                        var strong = document.createElement('strong');
+                        var italic = document.createElement('i');
+                        strong.appendChild(italic);
+                        newtag = strong;
+                    } else {
+                        if (flag_italic) {
+                            newtag = document.createElement('i');
+                        } else if (flag_weight) {
+                            newtag = document.createElement('strong');
+                        } else {
+                            // remove un wanted attributes & element
+                            var tagName = elem.tagName;
+                            if (tagName == 'STRONG' || tagName == 'B') {
+                                newtag = document.createElement('strong');
+                            } else if (tagName == 'I') {
+                                newtag = document.createElement('i');
+                            } else {
+                                newtag = document.createElement('span');
+                            }
+                        }
+                    }
+
+                    // content appended
+                    var elemHTML = elem.innerHTML;
+                    if (flag_italic && flag_weight) {
+                        newtag.childNodes[0].innerHTML = elemHTML;
+                    } else {
+                        newtag.innerHTML = elemHTML;
+                    }
+                    
+                    // curr element is replaced by new
+                    elem.parentNode.insertBefore(newtag, elem);
+                    elem.parentNode.removeChild(elem);
+                }
+                complete() // completed one iteration
+            }
+
+            // call , iteration is completed
+            function done() {
+                insertNode(wrap)
+                pasteArea.removeClassName('loading');
+            }
+
+            // async approach to iterate dom elements
+            function asyncEach(domCol, computeFunc, donFunc) {
+                function process() {
+                    allNodesLen -= 1; // move forward
+                    if (allNodesLen >= 0) {
+                        computeFunc(domCol[allNodesLen], function () {
+                            setTimeout(process, 0);
+                        }); // function call
+                    } else {
+                        donFunc(); //completed
+                    }
+                }
+                ; // function definition
+                if (allNodesLen >= 0) {
+                    setTimeout(process, 0); //start here
+                } else {
+                    donFunc(); //completed
+                }
+            }
+            asyncEach(allNodes, formatHtml, done) // async each call  - iteration starts heres
+        }
+
+// add class remove class code
+        Element.prototype.hasClassName = function (name) {
+            return new RegExp("(?:^|\\s+)" + name + "(?:\\s+|$)").test(this.className);
+        };
+
+        Element.prototype.addClassName = function (name) {
+            if (!this.hasClassName(name)) {
+                this.className = this.className ? [this.className, name].join(' ') : name;
+            }
+        };
+
+        Element.prototype.removeClassName = function (name) {
+            if (this.hasClassName(name)) {
+                var c = this.className;
+                this.className = c.replace(new RegExp("(?:^|\\s+)" + name + "(?:\\s+|$)", "g"), "");
+            }
+        };
+
+
+        function insertNode(node) {
+            sel = window.getSelection();
+            range = sel.getRangeAt(0);
+            range.deleteContents();
+            range.insertNode(node);
+        }
+        
+    });
+
 </script>
