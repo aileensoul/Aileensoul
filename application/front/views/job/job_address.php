@@ -628,8 +628,21 @@ $(window).load(function(){
     }, "No space please and don't leave it empty");
 
     $.validator.addMethod("regx", function(value, element, regexpr) {          
-    return regexpr.test(value);
+    //return value == '' || value.trim().length != 0; 
+     if(!value) 
+            {
+                return true;
+            }
+            else
+            {
+                  return regexpr.test(value);
+            }
+     // return regexpr.test(value);
 }, "Only space, only number and only special characters are not allow");
+
+    $.validator.addMethod("reg_candidate", function(value, element, regexpr) {          
+    return regexpr.test(value);
+}, "Pin Number Is Not Proper");
 
 
 $("#jobseeker_regform").validate({
@@ -651,7 +664,7 @@ $("#jobseeker_regform").validate({
                 address: {
 
                     required: true,
-                    regx:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]/,
+                    regx:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/,
                     //noSpace: true
 
                 },
@@ -671,9 +684,18 @@ $("#jobseeker_regform").validate({
                 address_permenant: {
 
                     required: true,
-                    regx:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]/
+                    regx:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/
                     //noSpace: true
 
+                },
+                pincode: {
+                    number:true,
+                    reg_candidate:/^-?(([0-9]{0,100}))$/
+                   
+                },
+                pincode_permenant: {
+                   number:true,
+                   reg_candidate:/^-?(([0-9]{0,100}))$/
                 },
 
             },
@@ -715,6 +737,7 @@ $("#jobseeker_regform").validate({
                     required: "Address  Is Required.",
 
                 },
+
 
             },
 
