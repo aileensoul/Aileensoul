@@ -535,15 +535,15 @@
 <!-- script for click on copy button to get similar value  end -->
 
 <!-- script for country,state,city start -->
-<!-- <script type="text/javascript">
+<script type="text/javascript">
     $(document).ready(function () {
         $('#country').on('change', function () {
             var countryID = $(this).val();
-
+            //alert(countryID);
             if (countryID) {
                 $.ajax({
                     type: 'POST',
-                    url: '<?php //echo base_url() . "job_profile/ajax_data"; ?>',
+                    url: '<?php echo base_url() . "job_profile/ajax_data"; ?>',
                     data: 'country_id=' + countryID,
                     success: function (html) {
                         $('#state').html(html);
@@ -575,7 +575,7 @@
             }
         });
     });
-</script> -->
+</script>
 <!-- script for country,state,city end -->
 
 <!-- script for country,state,city copy start -->
@@ -747,6 +747,7 @@ $("#jobseeker_regform").validate({
 
 $('#country_permenant').on('change', function () {
             var countryID = $(this).val();
+            alert(countryID);
 
             if (countryID) {
                 $.ajax({
