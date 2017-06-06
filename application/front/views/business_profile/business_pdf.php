@@ -535,7 +535,7 @@ label.cameraButton input[accept*="camera"] {
                             <div class="">
                                 <div class="all-box">
                                             <ul> 
-                                                <li>
+                                               <!--  <li>
                                                     <img src="http://localhost/aileensoul/uploads/business_post/thumbs/file_1496664178_jh179.jpg">
                                                 </li>
                                                 <li>
@@ -555,15 +555,8 @@ label.cameraButton input[accept*="camera"] {
                                                 </li>
                                                 <li>
                                                     <img src="http://localhost/aileensoul/uploads/business_post/thumbs/file_1496664178_jh179.jpg">
-                                                </li>
-                                            </ul>
-                                        </div>
-                              
-                                 <div class="contact-frnd-post">
-                                 <div class="pictures1">
-
-
-                                 <?php
+                                                </li> -->
+                                                 <?php
 
           $contition_array = array('user_id' => $businessdata1[0]['user_id']);
          $businessimage = $this->data['businessimage'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -603,11 +596,14 @@ label.cameraButton input[accept*="camera"] {
                 foreach ($singlearray3 as $pdfv) {
                   
               ?>
-
+<li>
 <div class="main_box_pdf">
 <div class="main_box_img">
+
         <a href="<?php echo base_url('business_profile/creat_pdf/'.$pdfv['image_id']) ?>"><div class="" style="margin: 0!important;">
+
                 <img src="<?php echo base_url('images/PDF.jpg')?>" style="height: 100%; width: 100%;">
+              
                                                               
           </div></a> </div> 
           <?php 
@@ -615,9 +611,20 @@ label.cameraButton input[accept*="camera"] {
          $businesstitle = $this->data['businesstitle'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
           ?>
+
          <div class="pdf_name"><a title="Zalak infotech .in pdf" href="<?php echo base_url('business_profile/creat_pdf/'.$pdfv['image_id']) ?>"><?php echo ucwords($businesstitle[0]['product_name']); ?></a> </div>
+
 </div>
+</li>
         <?php } } else{?>
+                                            </ul>
+                                        </div>
+                              
+                                 <div class="contact-frnd-post">
+                                 <div class="pictures1">
+
+
+                                
 
           <div class="not_img">
                   <div class="not_avali" >
