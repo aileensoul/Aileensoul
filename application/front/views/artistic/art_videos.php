@@ -321,6 +321,8 @@ if ($status == 0 || $status == " ") {
 
        
                     <div class="col-xs-9 padding_less main_art" >   <!-- Tab panes -->
+                    <div class="top-tab">
+                    </div>
           <div class="tab-content">
             <div class="tab-pane active" id="home"><div class="common-form">
                             <!-- <div class="add_audio" >
