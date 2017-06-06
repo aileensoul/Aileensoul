@@ -329,24 +329,46 @@ if ($status == 0 || $status == " ") {
 
 
       <div  class="col-sm-12 border_tag padding_low_data padding_les" >
-      
-        <div class="col-xs-3 padding_low_data padding_les"> <!-- required for floating -->
-          <!-- Nav tabs -->
-          <ul class="nav nav-tabs tabs-left remove_tab">
-            <li> <a href="<?php echo base_url('artistic/art_photos/'.$artisticdata[0]['user_id']) ?>" data-toggle="tab"><i class="fa fa-camera" aria-hidden="true"></i>   Photos</a></li>
-            <li> <a href="<?php echo base_url('artistic/art_videos/'.$artisticdata[0]['user_id']) ?>" data-toggle="tab"><i class="fa fa-video-camera" aria-hidden="true"></i>  Video</a></li>
-            <li><a href="<?php echo base_url('artistic/art_audios/'.$artisticdata[0]['user_id']) ?>" data-toggle="tab"><i class="fa fa-music" aria-hidden="true"></i>  Audio</a></li>
-            <li class="active">    <a href="<?php echo base_url('artistic/art_pdf/'.$artisticdata[0]['user_id']) ?>" data-toggle="tab"><i class="fa fa-file-pdf-o" aria-hidden="true"></i>  Pdf</a></li>
-          </ul>
-        </div>
-
-                    <div class="col-xs-9 padding_less main_art" >
+        <div class="padding_less main_art" >
+                        <div class="top-tab">
+                            <ul class="nav nav-tabs tabs-left remove_tab">
+                                <li> <a href="<?php echo base_url('artistic/art_photos/'.$artisticdata[0]['user_id']) ?>" data-toggle="tab"><i class="fa fa-camera" aria-hidden="true"></i>   Photos</a></li>
+                                <li> <a href="<?php echo base_url('artistic/art_videos/'.$artisticdata[0]['user_id']) ?>" data-toggle="tab"><i class="fa fa-video-camera" aria-hidden="true"></i>  Video</a></li>
+                                <li><a href="<?php echo base_url('artistic/art_audios/'.$artisticdata[0]['user_id']) ?>" data-toggle="tab"><i class="fa fa-music" aria-hidden="true"></i>  Audio</a></li>
+                                <li class="active">    <a href="<?php echo base_url('artistic/art_pdf/'.$artisticdata[0]['user_id']) ?>" data-toggle="tab"><i class="fa fa-file-pdf-o" aria-hidden="true"></i>  Pdf</a></li>
+                              </ul>
+                        </div>
           <!-- Tab panes -->
           <div class="tab-content">
             <div class="tab-pane active" id="home"><div class="common-form">
                             <div class="">
 
-                                <h2 class="add_tag_design"> PDF</h2>
+                                                    <div class="all-box">
+                                            <ul> 
+                                               <li>
+                                                    <img src="http://localhost/aileensoul/uploads/business_post/thumbs/file_1496664178_jh179.jpg">
+                                                </li>
+                                                <li>
+                                                    <img src="http://localhost/aileensoul/uploads/business_post/thumbs/file_1496664178_jh179.jpg">
+                                                </li>
+                                                <li>
+                                                    <img src="http://localhost/aileensoul/uploads/business_post/thumbs/file_1496664178_jh179.jpg">
+                                                </li>
+                                                <li>
+                                                    <img src="http://localhost/aileensoul/uploads/business_post/thumbs/file_1496664178_jh179.jpg">
+                                                </li>
+                                                <li>
+                                                    <img src="http://localhost/aileensoul/uploads/business_post/thumbs/file_1496664178_jh179.jpg">
+                                                </li>
+                                                <li>
+                                                    <img src="http://localhost/aileensoul/uploads/business_post/thumbs/file_1496664178_jh179.jpg">
+                                                </li>
+
+                                                <li>
+                                                    <img src="http://localhost/aileensoul/uploads/business_post/thumbs/file_1496664178_jh179.jpg">
+                                                </li>
+                                            </ul>
+                                        </div>
                                <div class="add_audio">
                                  <div class="pictures1">
 
@@ -819,3 +841,8 @@ $( "#tags" ).autocomplete({
                 });
                    });
   </script>
+   <script type="text/javascript">
+      $(document).ready(function() {
+  $("html,body").animate({scrollTop: 350}, 100); //100ms for example
+});
+    </script>

@@ -2294,3 +2294,8 @@ if ($status == 0 || $status == " ") {
     }
 });
   </script>
+   <script type="text/javascript">
+      $(document).ready(function() {
+  $("html,body").animate({scrollTop: 350}, 100); //100ms for example
+});
+    </script>
