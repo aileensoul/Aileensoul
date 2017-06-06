@@ -44,7 +44,7 @@
  -->
 
         <div class="row" id="row1" style="display:none;">
-            <div class="col-md-12 text-center">
+            <div class="col-md-12 text-center padding_less_left">
                 <div id="upload-demo" style="width:100%"></div>
             </div>
             <div class="col-md-12 cover-pic" style="padding-top: 25px;text-align: center;">
@@ -1192,15 +1192,20 @@
             $contition_array = array('art_post_id' => $row['art_post_id'], 'status' => '1', 'is_delete' => '0');
             $commnetcount = $this->common->select_data_by_condition('artistic_post_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
             ?>
-                                                            <a  onClick="commentall(this.id)" id="<?php echo $row['art_post_id']; ?>">
+                                                            <a  class="ripple" onClick="commentall(this.id)" id="<?php echo $row['art_post_id']; ?>">
                                                                 <i class="fa fa-comment-o" aria-hidden="true">
-                                                                    <?php
+                                                                   
+                                                                </i>  
+                                                            </a>
+                                                        </li>
+                                                       <li class="m4-24">
+                                                           <span>
+                                                                <?php
                                                                     if (count($commnetcount) > 0) {
                                                                         echo count($commnetcount);
                                                                     }
                                                                     ?>
-                                                                </i>  
-                                                            </a>
+                                                           </span> 
                                                         </li>
                                                     </ul>
                                                     <!-- like comment div end -->

@@ -2193,7 +2193,7 @@ border-bottom: 1px solid #000033;
 
 }
 .profile-main-rec-box-menu{margin-top: -80px;
-                           border-left: 2px solid #bfbfbf; border-bottom: 2px solid #bfbfbf; border-right: 2px solid #bfbfbf; z-index: -1;}
+                           border-left: 1px solid #d9d9d9; border-bottom: 1px solid #d9d9d9; border-right: 1px solid #d9d9d9; z-index: -1;}
 
 .profile-main-rec-box-menu ul {
     list-style-type: none;
