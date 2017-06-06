@@ -64,7 +64,7 @@
                     </div>
  <form action="<?php echo base_url(); ?>login/check_login" method="post" id="login_form" name="login_form">
            <div class="col-md-6 col-sm-7 header-left-menu">
- <div class="col-md-4 reg_form">
+ <div class="col-md-4 col-sm-5 reg_form">
                         <input type="text" tabindex="1" name="user_name" id="user_name" placeholder="Email Address" value="<?php if (isset($_COOKIE['user_name'])) { echo $_COOKIE['user_name']; } ?>">
 
                       
@@ -72,7 +72,7 @@
                                      <span class="remb_1" >Remember me</span>
                       
         </div> 
-         <div class="col-md-4 reg_form">              
+         <div class="col-md-4 col-sm-5 reg_form">              
                                <input type="password" name="password" id="password" placeholder="Password" value="<?php if (isset($_COOKIE['password'])) { echo $_COOKIE['password']; } ?>">
 
                                 <input type="hidden" name="hiddenf" id="hiddenf" value="main">
@@ -84,7 +84,7 @@
 
 
 </div> 
-<div class="col-md-2 reg_button">
+<div class="col-md-2 col-sm-2 reg_button">
                          <input type="submit" value="login" name="">
       </div>                          </div>
        </form>
@@ -132,7 +132,7 @@
             <div class="col-md-5">
                <div class="main_reg_form">
                 <div class="head_ad">
-                    <h2>Join Aileensoul</h2>
+                    <h2>Join Aileensoul - It's Free</h2>
                 </div>
            <?php echo form_open_multipart(base_url('registration/reg_insert'),array('id' => 'regform','name' => 'regform','class' => "clearfix"));
   
@@ -170,13 +170,14 @@
                   
                   <input type="password" name="password" id="password" class="showpassword2"  placeholder="Enter Password" placeholder="">
                       <?php echo form_error('password'); ?>
-                </fieldset>
-            <div>
+                       <div>
               <label for="checkbox_eye" class="che_eye"  >
   <img style="height: 20px; width: 20px;" src="<?php echo base_url('images/eye.png'); ?>">
 </label>
         
             </div>
+                </fieldset>
+           
             
                 <fieldset class="col-md-9 date_tm">
                     <label>Date Of Birth</label>
@@ -388,7 +389,7 @@ $('#datepicker').datetimepicker({
  $(function(){
     $(".showpassword2").each(function(index,input) { 
         var $input = $(input);
-        $('<div class="checkbox2 show" style="display: block;">').append(
+        $('<div class="" style="display: block;">').append(
             $("<input type='checkbox' class='showpasswordcheckbox2'  id='checkbox_eye' style='display:none;'></div> ").click(function() {
                 var change = $(this).is(":checked") ? "text" : "password";
                 var rep = $("<input type='" + change + "' />")
