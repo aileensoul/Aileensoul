@@ -1224,8 +1224,10 @@
                                                                         </div>
                                                                         <div class="comment-details" id= "<?php echo "showcomment" . $rowdata['business_profile_post_comment_id']; ?>">
                                                                             <?php
-                                                                            echo $this->common->make_links($rowdata['comments']);
+                                                                         //   echo $this->common->make_links($rowdata['comments']);
                                                                             //echo '</br>';
+                                                                    $new_product_comment = $this->common->make_links($rowdata['comments']);
+                                                                    echo  nl2br(htmlspecialchars_decode(htmlentities($new_product_comment, ENT_QUOTES, 'UTF-8'))); ?>
                                                                             ?>
                                                                         </div>
                                                                         <!--                                                                <div class="col-md-12">
