@@ -2028,18 +2028,18 @@ $contition_array = array('status' => '1', 'is_delete' => '0');
 
         $contition_array = array('user_id' => $userid, 'is_delete' => 0, 'status' => 1);
         $recruiterdata = $this->data['recruiterdata'] = $this->common->select_data_by_condition('rec_post', $contition_array, $data = '*', $sortby = 'post_id', $orderby = 'DESC', $limit = '1', $offset = '', $join_str = array(), $groupby = '');
-       // echo "<pre>"; print_r($this->data['recruiterdata']); 
+      // echo "<pre>"; print_r($this->data['recruiterdata']); die();
 
 
         $contition_array = array('user_id' => $userid, 'is_delete' => 0, 're_status' => 1);
          $this->data['recruiterdata1'] = $this->common->select_data_by_condition('recruiter', $contition_array, $data = '*', $sortby = '', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-        // echo "<pre>"; print_r($this->data['recruiterdata1']);
+        // echo "<pre>"; print_r($this->data['recruiterdata1']); die();
 
 
          $post_skill = $this->data['recruiterdata'][0]['post_skill'];
         $postuserarray = explode(',', $post_skill);
-        //print_r($postuserarray);
+        //print_r($postuserarray); die();
 
 
 
@@ -2068,10 +2068,18 @@ $contition_array = array('status' => '1', 'is_delete' => '0');
 
         foreach ($candidate as $jobcan) {  //echo "123"; die();
             $keyskill = explode(',', $jobcan['keyskill']);
+//echo "<pre>"; print_r($keyskill);
+
             $result = array_intersect($postuserarray, $keyskill);
+//echo "<pre>"; print_r($result);
+
+
             
+
            
       if($result){
+
+       //echo "string";
         
 $join_str1 = array(
             array(
@@ -2100,7 +2108,7 @@ $join_str1 = array(
            
 
         }
-
+//die();
      //echo "<pre>"; Print_r($canlocation);die();
 
 
