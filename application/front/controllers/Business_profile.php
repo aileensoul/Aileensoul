@@ -3511,9 +3511,9 @@ class Business_profile extends MY_Controller {
 
                 $cmtlike = '<li>';
                 $cmtlike .= '<a id="' . $businessprofiledata2[0]['business_profile_post_id'] . '" onClick="post_like(this.id)">';
-                $cmtlike .= '<i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true">';
+                $cmtlike .= '<i class="fa fa-thumbs-up" style="color: #999;" aria-hidden="true">';
                 $cmtlike .= '</i>';
-                $cmtlike .= '<span>';
+                $cmtlike .= '<span class="like_As_count">';
                 if ($businessprofiledata2[0]['business_likes_count'] > 0) {
                     $cmtlike .= $businessprofiledata2[0]['business_likes_count'] . '';
                 }
