@@ -172,10 +172,7 @@
                       <?php echo form_error('password'); ?>
                 </fieldset>
             <div>
-              <label for="checkbox_eye"  style="      cursor: pointer;
-    position: absolute;
-    top: 39%;
-    right: 13%;" >
+              <label for="checkbox_eye" class="che_eye"  >
   <img style="height: 20px; width: 20px;" src="<?php echo base_url('images/eye.png'); ?>">
 </label>
         
