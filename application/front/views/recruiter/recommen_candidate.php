@@ -4,7 +4,7 @@
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+<!--link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" /-->
 <link rel="stylesheet" href="<?php echo base_url('css/bootstrap.min.css'); ?>" />
 <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
 <!--post save success pop up style end -->
@@ -22,7 +22,7 @@
         <div class="user-midd-section" id="paddingtop_fixed">
             <div class="container">
                 <div class="row row4">
-                    <div class="col-md-4"><div class="profile-box profile-box-left">
+                    <div class="col-md-4 profile-box profile-box-left"><div class="">
                            
                             <div class="full-box-module">    
                                 <div class="profile-boxProfileCard  module">
@@ -98,7 +98,7 @@
                       
                     </div>
                     <!--- search end -->
-                    <div class="col-md-7 col-sm-7 all-form-content">
+                    <div class="col-md-7 col-sm-7 all-form-content fixed_left">
                         <div class="common-form ">
                             <div class="job-saved-box">
                                 <h3>Recommended Candidate</h3>
