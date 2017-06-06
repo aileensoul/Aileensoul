@@ -273,13 +273,9 @@
                                                                 $cityname = $this->db->get_where('cities', array('city_id' => $row['city_id']))->row()->city_name;
                                                                 ?>
                                                                 <li><b>Location</b> <span>
-                                                                        <?php
-                                                                        if ($countryname || $cityname) {
-                                                 echo $cityname .', '. $countryname; 
-                                                                        } else {
-                                                                            echo PROFILENA;
-                                                                        }
-                                                                        ?>
+                                                                          <?php  if($cityname){echo $cityname;echo ', ';}
+                                                                        echo $countryname;
+                                                                         ?> 
                                                                     </span></li>
             <?php if($row['board_primary'] && $row['board_secondary'] && $row['board_higher_secondary'] && $row['degree']){ ?>
             <li>
