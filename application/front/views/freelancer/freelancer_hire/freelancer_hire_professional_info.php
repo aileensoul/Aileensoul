@@ -77,7 +77,7 @@
                     </div>
 						<div class="common-form common-form_border ">
 							<h3>Proessional Information</h3>
-							<?php echo form_open_multipart(base_url('freelancer_hire/freelancer_hire_professional_info_insert'), array('id' => 'professional_info','name' => 'professional_info','class' => 'clearfix')); ?>
+							<?php echo form_open_multipart(base_url('freelancer_hire/freelancer_hire_professional_info_insert'), array('id' => 'professional_info1','name' => 'professional_info','class' => 'clearfix')); ?>
 
                      <div>
                                    <span style="color:#7f7f7e;padding-left: 8px;">( </span><span class="red">*</span><span style="color:#7f7f7e"> )</span> <span style="color:#7f7f7e">Indicates required field</span>
@@ -130,6 +130,8 @@
 
 <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.min.js') ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
+
+
  
 
 <script type="text/javascript">
@@ -213,8 +215,19 @@ $( "#tags" ).autocomplete({
                     </script>
 <!-- pallavi 15-4 -->
 
-<script type="text/javascript">
 
+<script type="text/javascript">
+  jQuery(document).ready(function($) {  
+
+// site preloader -- also uncomment the div in the header and the css style for #preloader
+$(window).load(function(){
+  $('#preloader').fadeOut('slow',function(){$(this).remove();});
+});
+
+});
+</script>
+<script type="text/javascript">
+//alert(123);
             //validation for edit email formate form
 
 jQuery.validator.addMethod("noSpace", function(value, element) { 
@@ -230,14 +243,14 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
 
             $(document).ready(function () { 
 
-                $("#professional_info").validate({
+                $("#professional_info1").validate({
 
                     rules: {
 
                         professional_info: {
 
                             required: true,
-                            regx:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[)[-@./#&+_(,]\w\s]*$/,
+                             regx:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]/
 
                             //noSpace: true
                            
@@ -249,7 +262,7 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
 
                         professional_info: {
 
-                            required: "Professional Information Is Required.",
+                            required: "Professional Information Is Required."
                             
                         },
                     },
@@ -259,13 +272,4 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
   </script>
 <script type="text/javascript"> 
  $(".alert").delay(3200).fadeOut(300);
-</script>
-<script type="text/javascript">
-  jQuery(document).ready(function($) {  
-
-// site preloader -- also uncomment the div in the header and the css style for #preloader
-$(window).load(function(){
-  $('#preloader').fadeOut('slow',function(){$(this).remove();});
-});
-});
 </script>

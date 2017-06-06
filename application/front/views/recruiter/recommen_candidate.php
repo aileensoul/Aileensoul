@@ -256,15 +256,42 @@
                                                                         </span></li>
                                                                     <?php
                                                                 }
+                
+
                                                                 ?> -->
+
+  <?php 
+$contition_array =array('user_id' => $row['iduser'], 'experience' => 'Experience', 'status' => '1');
+
+        //echo "<pre>"; print_r($other_skill);
+            $experiance = $this->common->select_data_by_condition('job_add_workexp', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            
+
+            $total_work_year=0;
+            $total_work_month=0;
+            foreach ($experiance as $work1) {
+
+            $total_work_year+=$work1['experience_year'];
+            $total_work_month+=$work1['experience_month'];
+            }
+             ?>
           <li> <b> Total Experience</b>
               <span>
                    <?php
-              if ($row['experience_year'] || $row['experience_month']) {
-                                                                            echo $row['experience_year'] . ' ' . $row['experience_month'];
-                                                                        } else {
-                                                                            echo PROFILENA;
-                                                                        }
+              if($total_work_month == '12 month' && $total_work_year =='0 year'){
+                echo "1 year";
+            }
+            elseif($total_work_year !='0 year' && $total_work_month == '12 month'){
+                 $month = explode(' ', $total_work_year);
+                                                $year=$month[0];
+                                                $years=$year + 1;
+                                                echo $years." Years";
+            }
+            else{
+                echo $total_work_year; echo "&nbsp"; echo "Year";
+            echo "&nbsp";
+            echo $total_work_month; echo "&nbsp"; echo "Month";
+            }
                                                                         ?>
                                                                     </span>
                                                                 </li>

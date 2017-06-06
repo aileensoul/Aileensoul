@@ -69,7 +69,7 @@
 </header>
    <div class="container">
         <div class="row">
-          <div class="col-md-10"> <div class="reg">
+          <div class="col-md-12"> <div class="reg">
                <div class="abt_a reg_j">
               <h1><span>Join Aileensoul</span></h1>
             </div>
@@ -103,26 +103,19 @@
                      <input type="text" name="email" id="email" placeholder="Enter Email address" value="">
               <?php echo form_error('email'); ?>
                 </fieldset>
-                    <div class="top-row">
-            <div class="field-wrap full-width" style="padding-bottom: 0px;">
-        <label class="fname_reg">Password<span class="req">*</span></label>
-    <input type="password" name="password" id="password" class="showpassword2" placeholder="">
+ <fieldset class="col-md-12">
+                    <label>Password</label>
+                    <input type="password" name="password" id="password" placeholder="Enter Password" class="showpassword2" placeholder="">
                       <?php echo form_error('password'); ?>
-            
-            </div>
-            <label for="checkbox_eye"  style="      position: absolute;
-    /* top: 8px; */
-    right: 165px;
-    bottom: -25px;" >
+             <div>
+    <label for="checkbox_eye" class="rela_eye"  >
   <img style="height: 20px; width: 20px;" src="<?php echo base_url('images/eye.png'); ?>">
 </label>
+</div>
         
-         <!--    <div class="field-wrap">
-                <label class="fname_reg">Confirm Password<span class="req">*</span></label>
-   <input type="password" name="password2" id="password2" class="showpassword2" placeholder="" onkeypress="return RestrictSpace()"/>
-                <?php echo form_error('password2'); ?>
-            </div> -->
-          </div>
+                </fieldset>
+
+          
                 <fieldset class="col-md-9 date_tm">
                     <label>Date Of Birth</label>
 
@@ -333,8 +326,8 @@ $('#datepicker').datetimepicker({
  $(function(){
     $(".showpassword2").each(function(index,input) {
         var $input = $(input);
-        $('<div class="checkbox2 show" style="display: block;">').append(
-            $("<input type='checkbox' class='showpasswordcheckbox2' /><h6>Show Password</h6></div> ").click(function() {
+        $('<div class="" >').append(
+            $("<input type='checkbox' class='showpasswordcheckbox2' id='checkbox_eye' style='display:none;'</div> ").click(function() {
                 var change = $(this).is(":checked") ? "text" : "password";
                 var rep = $("<input type='" + change + "' />")
                     .attr("id", $input.attr("id"))
