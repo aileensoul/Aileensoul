@@ -1148,13 +1148,13 @@ if (count($finalsorting) > 0) {
 
                                                                     if (!in_array($userid, $likeuserarray)) {
                                                                         ?>
-                                                                            <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>
+                                                                            <i class="fa fa-thumbs-up" style="color: #999;" aria-hidden="true"></i>
             <?php } else {
                 ?>
                                                                             <i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i>
             <?php }
             ?>
-                                                                        <span>
+                                                                         <span class="like_As_count">
             <?php
             if ($row['art_likes_count'] > 0) {
                 echo $row['art_likes_count'];

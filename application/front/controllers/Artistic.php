@@ -3378,7 +3378,7 @@ class Artistic extends MY_Controller {
                 $cmtlike .= '<a id="' . $artdata1[0]['art_post_id'] . '" onClick="post_like(this.id)">';
                 $cmtlike .= ' <i class="fa fa-thumbs-up fa-1x" aria-hidden="true">';
                 $cmtlike .= '</i>';
-                $cmtlike .= '<span> ';
+                $cmtlike .= '<span class="like_As_count"> ';
                 if ($artdata1[0]['art_likes_count'] > 0) {
                     $cmtlike .= $artdata1[0]['art_likes_count'] . '';
                 }
