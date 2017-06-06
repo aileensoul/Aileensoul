@@ -8724,7 +8724,8 @@ fieldset .add_post_btns:hover {
 .notifications li .notification-data-inside div {
     font-size: 11px;
     color: #999;
-    padding-top: 4px;
+    padding-top: 0px;
+    line-height: 1px;
 }
 .notificationsmsg li {
     border-bottom: 1px solid #999999;
@@ -8977,7 +8978,7 @@ fieldset .add_post_btns:hover {
     margin: 5px;
 }
 .notification-data-inside h6 b i{
-    padding-left: 0;
+    padding-left: 0!important;
 }
 
 .m4-24 {
