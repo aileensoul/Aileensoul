@@ -158,8 +158,8 @@
         <div class="user-midd-section" id="paddingtop_fixed">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-4">
-                        <div class="profile-box profile-box-left">
+                    <div class="col-md-4 profile-box profile-box-left">
+                        <div class="">
                             <div class="full-box-module">    
                                 <div class="profile-boxProfileCard  module">
                                     <div class="profile-boxProfileCard-cover">    
@@ -556,27 +556,7 @@
 
                     </div>
                     <!-- popup start -->
-                    <div class="col-md-7 col-sm-7 all-form-content">
-                        <div class="post-editor col-md-12">
-                            <div class="main-text-area col-md-12">
-                                <div class="popup-img col-md-1"> 
-                                    <?php if ($businessdata[0]['business_user_image']) { ?>
-                                        <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $businessdata[0]['business_user_image']); ?>"  alt="">
-                                    <?php } else { ?>
-                                        <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
-                                    <?php } ?>
-                                </div>
-                                <div id="myBtn"  class="editor-content col-md-11 popup-text">
-                                    <span> Post Your Product....
-                                    </span> 
-                                </div>
-                            </div>
-                            <!-- <div class="fr">
-                              <a class="button">Post
-                              </a>
-                            </div> -->
-                        </div>
-                    </div>
+                    
                     <!-- Trigger/Open The Modal -->
                     <!-- <div id="myBtn">Open Modal</div>-->
                     <!-- The Modal -->
@@ -671,6 +651,29 @@
                     ?>
 
                     <div class="col-md-7 col-sm-7 all-form-content  fixed_left" >
+                        
+                        <div class="post-editor col-md-12">
+                            <div class="main-text-area col-md-12">
+                                <div class="popup-img col-md-1"> 
+                                    <?php if ($businessdata[0]['business_user_image']) { ?>
+                                        <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $businessdata[0]['business_user_image']); ?>"  alt="">
+                                    <?php } else { ?>
+                                        <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
+                                    <?php } ?>
+                                </div>
+                                <div id="myBtn"  class="editor-content col-md-11 popup-text">
+                                    <span> Post Your Product....
+                                    </span> 
+                                </div>
+                            </div>
+                            <!-- <div class="fr">
+                              <a class="button">Post
+                              </a>
+                            </div> -->
+                        </div>
+                    
+                        
+                        
                         <!-- body content start-->
 
                         <?php
@@ -3299,18 +3302,21 @@
                     rDataHTML;
 
             if (e.clipboardData) {
-
                 // Mozilla & Chrome    
                 clipboardData = e.clipboardData;
                 rDataHTML = clipboardData.getData('text/html');
+                rDataHTML =  rDataHTML.replace('<!--StartFragment-->', '');
+                rDataHTML =  rDataHTML.replace('<!--EndFragment-->', '');
                 rDataPText = clipboardData.getData('text/plain');
-
+                
             } else if (window.clipboardData) {
                 // IE9
                 clipboardData = window.clipboardData;
 
                 try {
                     rDataHTML = clipboardData.getData('Html');
+                    rDataHTML =  rDataHTML.replace('<!--StartFragment-->', '');
+                    rDataHTML =  rDataHTML.replace('<!--EndFragment-->', '');
                 } catch (e) {
                     console.log(e);
                 }
@@ -3415,7 +3421,6 @@
                             }
                         }
                     }
-
                     // content appended
                     var elemHTML = elem.innerHTML;
                     if (flag_italic && flag_weight) {
@@ -3423,7 +3428,6 @@
                     } else {
                         newtag.innerHTML = elemHTML;
                     }
-                    
                     // curr element is replaced by new
                     elem.parentNode.insertBefore(newtag, elem);
                     elem.parentNode.removeChild(elem);
@@ -3448,8 +3452,7 @@
                     } else {
                         donFunc(); //completed
                     }
-                }
-                ; // function definition
+                }; // function definition
                 if (allNodesLen >= 0) {
                     setTimeout(process, 0); //start here
                 } else {
