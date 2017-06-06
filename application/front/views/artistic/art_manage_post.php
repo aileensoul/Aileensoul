@@ -1153,7 +1153,7 @@
                                                     <!-- like comment div start -->
                                                     <ul>
                                                         <li class="<?php echo 'likepost' . $row['art_post_id']; ?>">
-                                                            <a class="ripple like_h_w" id="<?php echo $row['art_post_id']; ?>" onClick="post_like(this.id)">
+                                                            <a title="Like" class="ripple like_h_w" id="<?php echo $row['art_post_id']; ?>" onClick="post_like(this.id)">
 
                                                                 <?php
                                                                 $userid = $this->session->userdata('aileenuser');
@@ -1192,21 +1192,17 @@
             $contition_array = array('art_post_id' => $row['art_post_id'], 'status' => '1', 'is_delete' => '0');
             $commnetcount = $this->common->select_data_by_condition('artistic_post_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
             ?>
-                                                            <a  class="ripple" onClick="commentall(this.id)" id="<?php echo $row['art_post_id']; ?>">
+                                                            <a title="Comment" class="ripple" onClick="commentall(this.id)" id="<?php echo $row['art_post_id']; ?>">
                                                                 <i class="fa fa-comment-o" aria-hidden="true">
-                                                                   
-                                                                </i>  
-                                                            </a>
-                                                        </li>
-                                                       <li class="m4-24">
-                                                           <span>
-                                                                <?php
+                                                                     <?php
                                                                     if (count($commnetcount) > 0) {
                                                                         echo count($commnetcount);
                                                                     }
                                                                     ?>
-                                                           </span> 
+                                                                </i>  
+                                                            </a>
                                                         </li>
+                                                     
                                                     </ul>
                                                     <!-- like comment div end -->
                                                 </div>

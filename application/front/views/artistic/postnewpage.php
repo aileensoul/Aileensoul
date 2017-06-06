@@ -775,7 +775,7 @@
                                     <div class="post-design-menu">
                                         <ul>
                                             <li class="<?php echo 'likepost' . $art_data[0]['art_post_id']; ?>">
-                                                <a id="<?php echo $art_data[0]['art_post_id']; ?>"   onClick="post_like(this.id)">
+                                                <a title="Like" id="<?php echo $art_data[0]['art_post_id']; ?>"   onClick="post_like(this.id)">
                                                     <?php
                                                     $userid = $this->session->userdata('aileenuser');
                                                     $contition_array = array('art_post_id' => $art_data[0]['art_post_id'], 'status' => '1');
@@ -784,11 +784,11 @@
                                                     $likeuserarray = explode(',', $active[0]['art_like_user']);
                                                     if (!in_array($userid, $likeuserarray)) {
                                                         ?>               
-                                                        <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>
+                                                         <i class="fa fa-thumbs-up" style="color: #999;" aria-hidden="true"></i>
                                                     <?php } else { ?> 
                                                         <i class="fa fa-thumbs-up" aria-hidden="true"></i>
                                                         <?php } ?>
-                                                    <span>
+                                                    <span  class="like_As_count">
                                                         <?php
                                                         if ($art_data[0]['art_likes_count'] > 0) {
                                                             echo $art_data[0]['art_likes_count'];
@@ -802,7 +802,7 @@
                                                 $contition_array = array('art_post_id' => $art_data[0]['art_post_id'], 'status' => '1', 'is_delete' => '0');
                                                 $commnetcount = $this->common->select_data_by_condition('artistic_post_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                                                 ?>
-                                                <a  onClick="commentall(this.id)" id="<?php echo $art_data[0]['art_post_id']; ?>"><i class="fa fa-comment-o" aria-hidden="true"> 
+                                                <a title="Comment"  onClick="commentall(this.id)" id="<?php echo $art_data[0]['art_post_id']; ?>"><i class="fa fa-comment-o" aria-hidden="true"> 
                                                         <?php
                                                         if (count($commnetcount) > 0) {
                                                             echo count($commnetcount);

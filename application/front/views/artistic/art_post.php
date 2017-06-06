@@ -1138,7 +1138,7 @@ if (count($finalsorting) > 0) {
                                                             <ul>
 
                                                                 <li class="<?php echo 'likepost' . $row['art_post_id']; ?>">
-                                                                    <a id="<?php echo $row['art_post_id']; ?>" onClick="post_like(this.id)">
+                                                                    <a title="Like" id="<?php echo $row['art_post_id']; ?>" onClick="post_like(this.id)">
 
                                                                     <?php
                                                                     $userid = $this->session->userdata('aileenuser');
@@ -1168,7 +1168,7 @@ if (count($finalsorting) > 0) {
                                                         $contition_array = array('art_post_id' => $row['art_post_id'], 'status' => '1', 'is_delete' => '0');
                                                         $commnetcount = $this->common->select_data_by_condition('artistic_post_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                                                         ?>
-                                                                    <a  onClick="commentall(this.id)" id="<?php echo $row['art_post_id']; ?>">
+                                                                    <a  title="Comment" onClick="commentall(this.id)" id="<?php echo $row['art_post_id']; ?>">
                                                                         <i class="fa fa-comment-o" aria-hidden="true">
                                                         <?php if(count($commnetcount) > 0) { 
                                                             echo count($commnetcount);
