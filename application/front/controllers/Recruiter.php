@@ -825,7 +825,7 @@ class Recruiter extends MY_Controller {
         //$this->form_validation->set_rules('location', 'location', 'required|alpha');
         $this->form_validation->set_rules('country', 'Country', 'required');
         $this->form_validation->set_rules('state', 'State', 'required');
-        $this->form_validation->set_rules('currency', 'Currency', 'required');
+       
 
         //$this->form_validation->set_rules('city', 'City', 'required');
         // $this->form_validation->set_rules('minsal', 'location', 'regex_match[/^[0-9,]+$/]');
@@ -1128,7 +1128,9 @@ class Recruiter extends MY_Controller {
         $skildata = explode(',', $this->data['postdata'][0]['post_skill']);
         $this->data['selectdata'] = $skildata;
 
-
+ $this->data['country1'] = $this->data['postdata'][0]['country'];
+        $this->data['city1'] = $this->data['postdata'][0]['city'];
+        
 $contition_array = array('status' => '1', 'is_delete' => '0');
 
 

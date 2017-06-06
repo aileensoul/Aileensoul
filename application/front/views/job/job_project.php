@@ -297,4 +297,105 @@ $(window).load(function(){
 </script>
 
 
+
+
+<script type="text/javascript">
+                       
+
+$.validator.addMethod("regx1", function(value, element, regexpr) {          
+    //return value == '' || value.trim().length != 0; 
+     if(!value) 
+            {
+                return true;
+            }
+            else
+            {
+                  return regexpr.test(value);
+            }
+     // return regexpr.test(value);
+}, "Only space, only number and only special characters are not allow");
+
+
+                            $("#jobseeker_regform").validate({
+
+                                rules: {
+
+                                    project_name: {
+
+                                        
+                                        regx1:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/,
+
+                                    },
+
+                                    project_description: {
+
+                                        
+                                         regx1:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/,
+
+                                    },
+
+                                    percentage_primary: {
+
+                                        required: true,
+                                       // range: [1, 100],
+                                        //pattern: /^[A-Za-z]{0,}$/
+                                           // minlength: 1,
+                                           // maxlength: 5,
+                                        // pattern: /^[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)$/
+                                        number:true,
+                                         pattern_primary: /^([0-9]{1,2}){1}(\.[0-9]{1,2})?$/
+                                       // pattern1: /^[0-9]{1,2}(\.[0-9]{0,1})?$/
+
+                                    },
+
+                                    pass_year_primary: {
+
+                                        required: true,
+
+                                    },
+
+                                },
+
+                                messages: {
+
+                                   
+
+                                   
+
+                                    percentage_primary: {
+
+                                        required: "Percentage Is Required.",
+                                         minlength: "Please Select Percentage Between 1-100 Only",
+                                         maxlength: "Please Select Percentage Between 1-100 Only",
+                                        
+
+                                    },
+
+                                    pass_year_primary: {
+
+                                        required: "Year Of Passing Is Required.",
+
+                                    },
+
+                                }
+
+                            });
+                        });
+
+            //pattern validation at percentage start//
+              $.validator.addMethod("pattern_primary", function(value, element, param) {
+              if (this.optional(element)) {
+               return true;
+              }
+              if (typeof param === "string") {
+                param = new RegExp("^(?:" + param + ")$");
+              }
+              return param.test(value);
+            }, "Please Select Percentage In Proper Format");
+  
+             //pattern validation at percentage end//
+        </script>
+
+
+
     
