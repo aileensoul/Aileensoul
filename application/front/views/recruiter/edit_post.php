@@ -218,7 +218,7 @@
                 <fieldset class="full-width">
                       <label>Interview process:<!-- <span style="color:red">*</span> --></label>
 
-                      <textarea name="interview" id="interview" placeholder="Enter Interview Process"><?php  echo $postdata[0]['interview_process']; ?></textarea>
+                      <textarea name="interview" id="interview" rows="4" placeholder="Enter Interview Process"><?php  echo $postdata[0]['interview_process']; ?></textarea>
                      
                       <?php echo form_error('interview'); ?> 
                 </fieldset>
@@ -357,9 +357,9 @@
                     </fieldset>
                <fieldset class="hs-submit full-width">
                   <!--   <input type="reset"> -->
-                    <input type="submit" id="submit" class="add_post_btns" name="submit" value="save">
+                   
                     <a class="add_post_btns" href="javascript:history.back()">Cancel</a>
-                    
+                     <input type="submit" id="submit" class="add_post_btns" name="submit" value="save">                    
                 </fieldset>
             </div>
 

@@ -233,7 +233,7 @@
  <?php  $contition_array = array('invite_user_id' => $row['user_id'], 'post_id' => $postid, 'profile' => 'freelancer');
         $userdata = $this->common->select_data_by_condition('user_invite', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         if($userdata){ ?>
-          <a href="javascript:void(0);" class="button invited" style="letter-spacing: 1px;" id="<?php echo 'invited' . $row['user_id']; ?>" style="cursor: default;"> Selected</a>       
+          <a href="javascript:void(0);" class="button invited" id="<?php echo 'invited' . $row['user_id']; ?>" style="cursor: default;"> Selected</a>       
          <?php }else{ ?>
          <a class=""  href="#" class="button invite_border" id="<?php echo 'invited' . $row['user_id']; ?>" onClick="inviteuserpopup(<?php echo $row['user_id']; ?>)"> Select</a>
               <!-- <a href="javascript:void(0);" class="button invite_border" id="<?php echo 'invited' . $row['user_id']; ?>" onclick="inviteuserpopup(<?php echo $row['user_id']; ?>)"> Invite</a> -->

@@ -287,8 +287,9 @@
 
 
                                 <fieldset style="padding: 3px 3px;" class="hs-submit">
-                                     <input type="submit" id="submit" class="add_post_btns" name="submit" value="Post">
+                                    
                                  <a class="add_post_btnc" href="javascript:history.back()">Cancel</a>
+                                  <input type="submit" id="submit" class="add_post_btns" name="submit" value="Post">
                                     <!--<input type="reset" >-->
                                    
                                     <!--<input type="submit" id="Cancel" name="cancel" value="Cancel">-->
