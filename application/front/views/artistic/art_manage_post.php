@@ -1171,7 +1171,12 @@
             ?>
 
 
-                                                                <span>
+                                                               
+                                                            </a>
+                                                          
+                                                        </li>
+<li class="m4-24">
+      <span>
 
                                                                     <?php
                                                                     if ($row['art_likes_count'] > 0) {
@@ -1179,10 +1184,8 @@
                                                                     }
                                                                     ?>
 
-                                                                </span>
-                                                            </a>
-                                                        </li>
-
+                                                                </span> 
+</li>
                                                         <li id="<?php echo 'insertcount' . $row['art_post_id']; ?>" style="visibility:show">
 
             <?php
