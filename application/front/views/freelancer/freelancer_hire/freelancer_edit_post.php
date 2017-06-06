@@ -484,7 +484,16 @@ $('#searchplace').select2({
 
 
 $.validator.addMethod("regx", function(value, element, regexpr) {          
-    return value == '' || value.trim().length != 0; 
+    //return value == '' || value.trim().length != 0; 
+     if(!value) 
+            {
+                return true;
+            }
+            else
+            {
+                  return regexpr.test(value);
+            }
+     // return regexpr.test(value);
 }, "Only space, only number and only special characters are not allow");
 
 
