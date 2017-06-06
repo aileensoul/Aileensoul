@@ -916,3 +916,17 @@ $('#datepicker').datetimepicker({
 </script>
 <!-- Calender Js End
 
+-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+  $("html,body").animate({scrollTop: 200}, 100); //100ms for example
+});
+    </script>
+
+    <style type="text/css">
+      #skils{margin-top: 42px !important;}
+      #minyear{margin-top: 42px !important;}
+      #minmonth{margin-top: 42px !important;}
+      #maxyear{margin-top: 42px !important;}
+      #maxmonth{margin-top: 42px !important;}
+    </style>
