@@ -13,15 +13,16 @@
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/test.css'); ?>">
 <!-- pallavi code start 15-4 -->
 
 <?php if ($freehiredata[0]['free_hire_step'] == '3'){ 
      echo $freelancer_hire_header2_border; } ?>
 <!-- pallavi code end 15-4 -->
+<div class="js">
 <body>
-    <header>
-
-    </header>
+<div id="preloader"></div>
+    
     <section>
 
         <div class="user-midd-section" id="paddingtop_fixed">
@@ -172,6 +173,7 @@
 <?php echo $footer; ?>
     </footer>
 </body>
+</div>
 </html>
 
 <script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
@@ -357,4 +359,13 @@ $( "#tags" ).autocomplete({
 
         });
     });
+</script>
+<script type="text/javascript">
+  jQuery(document).ready(function($) {  
+
+// site preloader -- also uncomment the div in the header and the css style for #preloader
+$(window).load(function(){
+  $('#preloader').fadeOut('slow',function(){$(this).remove();});
+});
+});
 </script>

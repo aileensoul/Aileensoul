@@ -10,6 +10,7 @@
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/test.css'); ?>">
 
 
 
@@ -17,9 +18,9 @@
    <?php if ($freehiredata[0]['free_hire_step'] == '3'){ 
      echo $freelancer_hire_header2_border; } ?>
 <!-- pallavi code end 15-4 -->
-
+<div class="js">
 <body>
-	
+	<div id="preloader"></div>
 	<section>
 		
 		<div class="user-midd-section" id="paddingtop_fixed">
@@ -116,6 +117,7 @@
 	</footer>
 	
 </body>
+</div>
 </html>
 
  <script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
@@ -257,4 +259,13 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
   </script>
 <script type="text/javascript"> 
  $(".alert").delay(3200).fadeOut(300);
+</script>
+<script type="text/javascript">
+  jQuery(document).ready(function($) {  
+
+// site preloader -- also uncomment the div in the header and the css style for #preloader
+$(window).load(function(){
+  $('#preloader').fadeOut('slow',function(){$(this).remove();});
+});
+});
 </script>

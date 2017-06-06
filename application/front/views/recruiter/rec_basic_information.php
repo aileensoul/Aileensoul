@@ -6,6 +6,7 @@
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/test.css'); ?>">
     <!-- start header -->
 <?php echo $header; ?>
 
@@ -13,8 +14,9 @@
     <?php echo $recruiter_header2_border; ?>
 <?php }?>
     <!-- END HEADER -->
+    <div class="js">
     <body class="page-container-bg-solid page-boxed">
-
+<div id="preloader"></div>
       <section>
        
         <div class="user-midd-section" id="paddingtop_fixed">
@@ -283,4 +285,13 @@
                                             });
                                         });
 
+</script>
+<script type="text/javascript">
+  jQuery(document).ready(function($) {  
+
+// site preloader -- also uncomment the div in the header and the css style for #preloader
+$(window).load(function(){
+  $('#preloader').fadeOut('slow',function(){$(this).remove();});
+});
+});
 </script>

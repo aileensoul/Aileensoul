@@ -9,6 +9,7 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
 <link rel="stylesheet" href="<?php echo base_url('css/bootstrap.min.css') ?>" />
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/test.css'); ?>">
     
     <?php if ($freepostdata[0]['user_id'] && $freepostdata[0]['free_post_step'] == '7'){ 
      echo $freelancer_post_header2_border; } ?>
@@ -19,8 +20,9 @@
    /* img{display: none;}*/
 </style>
 
-
+<div class="js">
 <body>
+<div id="preloader"></div>
     
     <section>
         <div class="user-midd-section" id="paddingtop_fixed">
@@ -188,9 +190,19 @@ $( "#tags" ).autocomplete({
 
  
 </body>
+</div>
 </html>
 
 <script type="text/javascript"> 
  $(".alert").delay(3200).fadeOut(300);
+</script>
+<script type="text/javascript">
+  jQuery(document).ready(function($) {  
+
+// site preloader -- also uncomment the div in the header and the css style for #preloader
+$(window).load(function(){
+  $('#preloader').fadeOut('slow',function(){$(this).remove();});
+});
+});
 </script>
  
