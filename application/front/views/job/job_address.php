@@ -436,7 +436,7 @@
 
 </script>
 
-<!-- <script>
+<script>
 //select2 autocomplete start for skill
     $('#searchskills').select2({
 
@@ -490,7 +490,7 @@
 //select2 autocomplete End for Location
 
 </script>
- -->
+
 <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.min.js') ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
 

@@ -12,6 +12,7 @@
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/test.css'); ?>">
 <!-- <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/select2.min.css'); ?>">
 
  -->
@@ -25,8 +26,9 @@
 <style type="text/css">
    
 </style>
+<div class="js">
 <body class="page-container-bg-solid page-boxed">
-
+<div id="preloader"></div>
     <section>
 
         <div class="user-midd-section " id="paddingtop_fixed_job">
@@ -585,5 +587,15 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
 <!-- script for Language textbox automatic end (option 2)-->
 <script type="text/javascript">
     $(".alert").delay(3200).fadeOut(300);
+</script>
+
+<script type="text/javascript">
+  jQuery(document).ready(function($) {  
+
+// site preloader -- also uncomment the div in the header and the css style for #preloader
+$(window).load(function(){
+  $('#preloader').fadeOut('slow',function(){$(this).remove();});
+});
+});
 </script>
 
