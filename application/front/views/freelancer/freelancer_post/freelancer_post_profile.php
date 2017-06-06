@@ -29,7 +29,7 @@ echo $freelancer_post_header2;
 
 <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
 
-<!-- <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap-3.min.css'); ?>"> -->
+<!-- <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap-3.min.css'); ?>">  -->
 <link rel="stylesheet" href="<?php echo base_url('assets/css/croppie.css'); ?>">
 
 <!-- END HEADER -->
@@ -178,14 +178,15 @@ echo $freelancer_post_header2;
       if($this->uri->segment(3) != ""){
     if (!$data) {  ?> 
                         <li> 
-                            <input type="hidden" id="<?php echo 'hideenuser' . $this->uri->segment(3); ?>" value= "<?php echo $this->uri->segment(3); ?>">
+                          <!--   <input type="hidden" id="<?php echo 'hideenuser' . $this->uri->segment(3); ?>" value= "<?php echo $this->uri->segment(3); ?>"> -->
                     <a id="<?php echo $this->uri->segment(3); ?>" onClick="savepopup(<?php echo $this->uri->segment(3); ?>)" href="javascript:void(0);" class="<?php echo 'saveduser' . $this->uri->segment(3); ?>">
                         Save
                     </a> 
                     
                         </li> <?php } else{ ?>
                         <li> 
-                           <a class="saved">Saved </a> 
+       <a class="saved  button <?php echo 'saveduser' . $this->uri->segment(3); ?>">Saved</a>
+                           
                         </li> <?php 
                                                                 } ?>
                       <li>
@@ -960,10 +961,11 @@ if ($freelancerpostdata[0]['freelancer_post_portfolio']) {
                             });
                         </script>
 
-                <script type="text/javascript">
+                <!-- <script type="text/javascript">
                   function save_user(abc)
                         {
            var saveid = document.getElementById("hideenuser" + abc);
+           alert(saveid); 
                 $.ajax({
         type: 'POST',
         url: '<?php echo base_url() . "freelancer/save_user1" ?>',
@@ -973,7 +975,23 @@ if ($freelancerpostdata[0]['freelancer_post_portfolio']) {
                                 }
                             });
                         }
-                    </script>
+                    </script> -->
+
+                      <script type="text/javascript">
+                    function save_user(abc)
+                    {
+                        $.ajax({
+                            type: 'POST',
+                            url: '<?php echo base_url() . "freelancer/save_user1" ?>',
+                            data: 'user_id=' + abc,
+                            success: function (data) {
+                                $('.' + 'saveduser' + abc).html(data).addClass('saved');
+                            }
+                        });
+
+                    }
+                </script>
+                
                         
                         
                     <!-- pallavi changes 15-4 -->
