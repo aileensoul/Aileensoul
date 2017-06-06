@@ -3461,7 +3461,7 @@ a:focus {
   height: 43px;
   margin: 0 auto;
   font-size: 14px;
-  line-height: 1;
+  line-height: 1.2;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
