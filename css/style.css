@@ -3801,14 +3801,16 @@ abbr {
 
 .follow-li-text {
     white-space: nowrap;
+    width: 100%;
 }
-.follow-li-text a {
-    overflow: hidden;
+.follow-li-text a{
+ overflow: hidden;
     display: block;
     text-overflow: ellipsis;
-    max-width: 97%;
-    min-width: 30%;
+    width: 90%;
+    /* min-width: 30%; */
     white-space: nowrap;
+
 }
 .win10-wrapper .profile-box {
     display: none
@@ -5273,11 +5275,11 @@ label.cameraButton input[accept*="camera"] {
     font-weight: 600;
 }
 .all-comment-comment-box {
-    padding-bottom: 10px;
+    padding-bottom: 10px;padding-top:5px; padding-bottom:5px;
     /*
     margin-bottom: 10px;*/
     
-    border-bottom: 2px solid #efefef;
+    border-bottom: 2px solid #d9d9d9;
 }
 .dropbtn {
     color: white;
