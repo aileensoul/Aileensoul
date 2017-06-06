@@ -563,7 +563,7 @@
             if (stateID) {
                 $.ajax({
                     type: 'POST',
-                    url: '<?php //echo base_url() . "job_profile/ajax_data"; ?>',
+                    url: '<?php echo base_url() . "job_profile/ajax_data"; ?>',
                     data: 'state_id=' + stateID,
                     success: function (html) {
 
