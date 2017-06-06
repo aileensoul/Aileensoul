@@ -699,9 +699,9 @@
                                                                                     <p> <?php
                                                                                         /*   $new_date = date('Y-m-d H:i:s',strtotime($rowdata['created_date']));
                                                                                          */
-                                                                                        /* 							$new_time =	$this->time_elapsed_string($new_date);
+                                                                                        /*                          $new_time = $this->time_elapsed_string($new_date);
                                                                                          */
-//							echo $new_time. '<br>';
+//                          echo $new_time. '<br>';
                                                                                         echo $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($rowdata['created_date'])));
                                                                                         echo '</br>';
                                                                                         ?>
@@ -1057,9 +1057,9 @@
                                                                 <p> <?php
                                                                     /*   $new_date = date('Y-m-d H:i:s',strtotime($rowdata['created_date']));
                                                                      */
-                                                                    /* 							$new_time =	$this->time_elapsed_string($new_date);
+                                                                    /*                          $new_time = $this->time_elapsed_string($new_date);
                                                                      */
-//							echo $new_time. '<br>';
+//                          echo $new_time. '<br>';
                                                                     echo $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($rowdata['created_date'])));
                                                                     echo '</br>';
                                                                     ?>
