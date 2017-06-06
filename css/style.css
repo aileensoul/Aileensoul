@@ -5576,3 +5576,10 @@ fieldset .add_post_btns:hover{background-color:#156f95!important}
 .profile-job-post-detail .profile-job-post-title .button{
     font-size:15px;font-weight:bold;
 }
+.msg_btn{
+    font-size: 15px;
+    font-weight: bold;
+}
+.like_As_count{
+    display:none;
+}
