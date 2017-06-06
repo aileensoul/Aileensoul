@@ -3453,8 +3453,19 @@ a:focus {
     font-weight: 600;
     font-size: 15px;
     line-height: 13px;
-    padding-top: 6px;
+    padding:5px 10px 0;
     color: #156f95;
+    display: block;
+  display: -webkit-box;
+  max-width: 100%;
+  height: 43px;
+  margin: 0 auto;
+  font-size: 14px;
+  line-height: 1;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .notification-database {
     height: 68px;
@@ -8963,6 +8974,10 @@ fieldset .add_post_btns:hover {
     padding-top: 180px;
     margin: 5px;
 }
+.notification-data-inside h6 b i{
+    padding-left: 0;
+}
+
 .m4-24 {
     margin-left: -24px !important;
     padding: 4px 0px 1px 2px !important;
