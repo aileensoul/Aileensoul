@@ -1163,25 +1163,14 @@
 
                                                                 if (!in_array($userid, $likeuserarray)) {
                                                                     ?>
-                                                                    <div class="like_img">
-                                                                        <img src="<?php echo base_url('images/like1.png'); ?>">
-                                                                    </div>
-                                                                   
+                                                                    <i class="fa fa-thumbs-up" style="color: #999;" aria-hidden="true"></i>
                                                                 <?php } else {
                                                                     ?>
-                                                                    <div class="like_img">
-                                                                        <img src="<?php echo base_url('images/like2.png'); ?>">
-                                                                    </div>
-                                                                               <?php }
+                                                                    <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+            <?php }
             ?>
 
-
-                                                               
-                                                            </a>
-                                                          
-                                                        </li>
-<li class="m4-24">
-      <span>
+   <span class="like_As_count">
 
                                                                     <?php
                                                                     if ($row['art_likes_count'] > 0) {
@@ -1190,7 +1179,13 @@
                                                                     ?>
 
                                                                 </span> 
-</li>
+                                                               
+                                                            </a>
+                                                          
+                                                        </li>
+<!-- <li class="m4-24">
+   
+</li> -->
                                                         <li id="<?php echo 'insertcount' . $row['art_post_id']; ?>" style="visibility:show">
 
             <?php
