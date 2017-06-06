@@ -29,8 +29,8 @@
         <div class="container" >
             <div class="row row4">
 
-                <div class="col-md-4">
-                    <div class="profile-box profile-box-left">
+                <div class="col-md-4 profile-box profile-box-left">
+                    <div class="">
                                 
                         <div class="full-box-module">    
                             <div class="profile-boxProfileCard  module">
@@ -104,7 +104,7 @@
                 </div>
 
 
-                <div class="col-md-7 col-sm-7 all-form-content">
+                <div class="col-md-7 col-sm-7 all-form-content fixed_left">
                     <div class="common-form">
                         <div class="job-saved-box">
                             <h3>Recommended Job</h3>
