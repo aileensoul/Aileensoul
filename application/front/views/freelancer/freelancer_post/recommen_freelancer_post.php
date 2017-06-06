@@ -248,7 +248,7 @@ function text2link($text) {
     return $text;
 }
 ?>
-                                    <div >
+                                    
                                         <!-- start -->
                                         <!-- @nk!t 7-4-2017 start -->
                                         <?php
@@ -288,7 +288,7 @@ function text2link($text) {
                                         <div class="profile-job-post-detail clearfix" id="<?php echo "removeapply" . $post['post_id']; ?>">
                                             <div class="profile-job-post-title-inside clearfix">
 
-                  <div class="profile-job-post-title clearfix search margin_btm" >
+                  <div class="profile-job-post-title clearfix  margin_btm" >
                   <div class="profile-job-profile-button clearfix">
                      <div class="profile-job-details col-md-12">
                           <ul>
@@ -434,6 +434,7 @@ $userid = $this->session->userdata('aileenuser');
                                                         </div>
                                                     </div>
                                         </div>
+                                        </div>
 
 
                                                 </div>
@@ -454,11 +455,13 @@ $userid = $this->session->userdata('aileenuser');
                                     </div>
                                     <?php }
                                 ?> 
+                                </div>
                               
                           
  </div>
 
                         </div>
+                    </div>
                     </div>
                 </div>
                 </section>
