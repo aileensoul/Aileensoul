@@ -1164,4 +1164,9 @@ $('#artpost').validate({
 
 }
 #skills-error{margin-top: 34px !important;}
+#minmonth-error{margin-top: 42px !important;}
+#minyear-error{margin-top: 42px !important;}
+#maxmonth-error{margin-top: 42px !important;}
+#maxyear-error{margin-top: 42px !important;}
+
 </style>

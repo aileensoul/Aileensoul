@@ -29,13 +29,14 @@
                 if ($jobdata[0]['job_step'] == 10) { ?>
                   
                   <div class="col-md-6 col-sm-8"><h3>You are updating your Job Profile.</h3></div>
-                    <br>
+            
                <?php } else {
                     ?>
                     <div class="col-md-6 col-sm-8"><h3>You are making your Job Profile.</h3></div>
 
                 <?php } ?>
             </div>
+            <br>
             <br>
             <br>
             <div class="container">
