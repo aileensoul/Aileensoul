@@ -3307,11 +3307,10 @@
                     </script>
                     <!-- This  script use for close dropdown in every post -->
 
-                    <script type="text/javascript">
+                    <script>
                         
-                    function comment_wo_div(clicked_id){
-                        alert(clicked_id);
-                        //var pasteArea = document.getElementById("post_comment" + clicked_id);
+                    function comment_wo_div(){
+                        var pasteArea = document.getElementById("post_comment" + clicked_id);
                         var pasteArea = document.getElementById("post_comment14");
                         var fWeight = document.getElementById("fWeight");
                         var fStyle = document.getElementById("fStyle");
