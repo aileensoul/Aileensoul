@@ -491,7 +491,7 @@ input[type="radio"] {
     display: inline-block;
 }
 
-#gen{padding:15px;}
+#gen{padding:4px;}
 
 .main_bdy_c{
     filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#f5f5f5, endColorstr=#e4e4e4);

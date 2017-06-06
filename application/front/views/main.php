@@ -165,27 +165,22 @@
               <?php echo form_error('email'); ?>
                 </fieldset>
             
-            
-                   <div class="top-row">
-            <div class="field-wrap full-width" style="padding-bottom: 0px;">
-        <label class="fname_reg">Password<span class="req">*</span></label>
-    <input type="password" name="password" id="password" class="showpassword2" placeholder="">
+                 <fieldset class="col-md-12">
+                    <label>Password</label>
+                  
+                  <input type="password" name="password" id="password" class="showpassword2"  placeholder="Enter Password" placeholder="">
                       <?php echo form_error('password'); ?>
-            
-            </div>
-            <label for="checkbox_eye"  style="      position: absolute;
-    /* top: 8px; */
-    right: 165px;
-    bottom: -25px;" >
+                </fieldset>
+            <div>
+              <label for="checkbox_eye"  style="      cursor: pointer;
+    position: absolute;
+    top: 39%;
+    right: 13%;" >
   <img style="height: 20px; width: 20px;" src="<?php echo base_url('images/eye.png'); ?>">
 </label>
         
-         <!--    <div class="field-wrap">
-                <label class="fname_reg">Confirm Password<span class="req">*</span></label>
-   <input type="password" name="password2" id="password2" class="showpassword2" placeholder="" onkeypress="return RestrictSpace()"/>
-                <?php echo form_error('password2'); ?>
-            </div> -->
-          </div>
+            </div>
+            
                 <fieldset class="col-md-9 date_tm">
                     <label>Date Of Birth</label>
                     
