@@ -822,7 +822,7 @@ ul.business_pf_ct_person_detail li b {font-size: 16px; display: inline-block; wi
    .edit_bui_img img{width: 100%; height: 100%;}
 .bui_res_i{margin: 4px;}
 .profile-job-details { float:left; padding-left:20px; }
-.profile-job-post-detail .profile-job-post-title .button { margin-right: 4px; margin-left: 4px; padding: 3px 16px;  background-color:#ffffff; text-transform: capitalize; color:#1b8ab9; border:2px solid #1b8ab9; float: right; font-size: 14px;}
+.profile-job-post-detail .profile-job-post-title .button { margin-right: 4px; margin-left: 4px; padding: 3px 16px;  background-color:#ffffff; text-transform: capitalize; color:#1b8ab9; border:2px solid #1b8ab9; float: right; font-size: 15px; font-weight: bold;}
 .profile-job-post-detail .profile-job-post-title .button:hover { color: #fff; background-color: #1b8ab9; }
 .profile-job-post-title-inside .profile-job-post-title { padding: 0px; margin-bottom: 18px; }
 .profile-job-profile-button { background-color:#e8f3f8; padding: 4px 0px; }
@@ -861,7 +861,7 @@ text-align: center*/;
   padding-left:45px;
     padding-right: 10px; 
     /* margin-top: -19px; */}
-.job-menu-profile h5 { text-transform: capitalize; font-size: 25px; font-weight: 600; }
+.job-menu-profile h5 { text-transform: capitalize; font-size: 25px; font-weight: 600; display: inline-block;}
 
 .job-search-box fieldset { padding-left: 16px; padding-right: 0px; }
 .job-search-box fieldset input[type=submit]{margin-top:27px;     padding: 8px 30px 8px 28px;}
@@ -3601,8 +3601,7 @@ padding-bottom: 1px;
 
 
 
-.vidoe_tag{height: 300px; width: 300px; float: left;     margin-left: 4px;
-    margin-right: 4px;}
+.vidoe_tag{height: 300px; width: 300px; margin: 0 auto;}
 .vidoe_tag video{height: 100%; width: 100%;}
 .post-design-product-img_post{}
 #paddingtop_fixed1{padding-top:62px!important;}
@@ -4217,7 +4216,7 @@ border-bottom: 1px solid #000033;
 
 .profile-box-rec-menu ul li {
     float: left;
-    margin-left: 1px;
+    margin-left: 10px;
     /* margin-right: -2px;*/
     /*  border-right: 1px solid #000000;
 border-bottom: 1px solid #000033;
@@ -4304,18 +4303,19 @@ input:-moz-placeholder { color:#999; font-size: 15px; }
     border-bottom: 1px solid #d9d9d9;
     text-transform: capitalize;
   }
-  .not_avali{padding: 20px;
-    height: 200px;
+  .not_avali{/*padding: 20px;*/
+    /*height: 200px;*/
     width: 200px;
     position: relative;
+    margin:0 auto;
 }
-    .not_avali img{height: 95%; width: 100%;}
-    .not_text{  bottom: 0;     position: absolute;
+    .not_avali img{/*height: 95%;*/ width: 100%;}
+    .not_text{  bottom: 0; /*    position: absolute;*/
     columns: #1b8ab9;
     color: #728bc0;
     font-size: 19px;
     font-weight: 600;
-    left: 18px;}
+    left: 18px; width:100%; text-align: center; padding-top: 10px;}
     .tabs-left, .tabs-right {
   border-bottom: none;
 
@@ -5248,12 +5248,12 @@ cover pic css*/
 #upload-demo-i{background:#e1e1e1;width:100%;padding:30px;height:3px;margin-top:30px}
 #upload-demo{width: 100%;}
 .main_art{padding-left: 0;padding-right: 0; height: 100%; border-left: 1px solid #d9d9d9;}
-.not_img{margin-left: 350px; margin-top: 20px;}
+.not_img{margin-top: 20px;}
 /*.add_audio{padding: 10px;}*/
 
 /*Zalak 25-5*/
 .margin_less{ margin:0px!important;}
-.main_pdf_box{margin-left:380px; margin-top: 20px;}
+.main_pdf_box{/*margin-left:380px;*/ margin-top: 20px;}
 .grybod{border: 1px solid #d9d9d9!important;}
 .edit_cpmment_edit{display: inline-block;width: 81%;min-height: 37px !important;margin-top: 0px !important;margin-left: 1.5% !important;}
 
@@ -5540,6 +5540,7 @@ fieldset .add_post_btns:hover{background-color:#156f95!important}
     }
     .all-box ul{
         display: inline-block;
+        padding-left: 0;
     }
     .all-box li{
         display: inline-block;
@@ -5547,6 +5548,7 @@ fieldset .add_post_btns:hover{background-color:#156f95!important}
         width:220px;
         height: 220px;
         margin-bottom: 15px;
+        padding: 5px;
     }
     .all-box li img{
         width: 220px;
@@ -5568,3 +5570,9 @@ fieldset .add_post_btns:hover{background-color:#156f95!important}
 .m4-24{margin-left: -24px !important; padding: 4px 0px 1px 2px !important;}
 .like_img{height: 20px; width: 20px;}
 .like_img img{width: 100%; height: 100%;}
+
+
+/*** css jay  ***/
+.profile-job-post-detail .profile-job-post-title .button{
+    font-size:15px;font-weight:bold;
+}
