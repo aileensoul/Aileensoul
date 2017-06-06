@@ -4883,11 +4883,11 @@ label.cameraButton input[accept*="camera"] {
 }
 .profile-box {
     position: fixed;
-    width: 30%;
+    /*width: 30%;*/
 }
 .profile-art-box {
     position: fixed;
-    width: 32.5%;
+    /*width: 32.5%;*/
 }
 /*loader*/
 
