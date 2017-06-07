@@ -5255,7 +5255,7 @@ label.cameraButton input[accept*="camera"] {
 }
 .post-design-desc {
     clear: both;
-    padding: 10px 20px 15px 20px;
+    padding: 10px 20px 0px 20px;
     text-align: left;
     word-break: break-all;
     /* word-break: break-word;word-wrap: break-word;*/
