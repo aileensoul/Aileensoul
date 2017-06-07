@@ -427,6 +427,23 @@ if ($this->session->flashdata('success')) {
 jQuery.validator.addMethod("noSpace", function(value, element) { 
       return value == '' || value.trim().length != 0;  
     }, "No space please and don't leave it empty");
+
+
+
+$.validator.addMethod("regx1", function(value, element, regexpr) {          
+    //return value == '' || value.trim().length != 0; 
+     if(!value) 
+            {
+                return true;
+            }
+            else
+            {
+                  return regexpr.test(value);
+            }
+     // return regexpr.test(value);
+}, "Only space, only number and only special characters are not allow");
+
+
     $(document).ready(function () {
        
         //alert(123);
@@ -447,7 +464,8 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
                 other_skill: {
 
                     require_from_group: [1, ".keyskil"],
-                    noSpace: true
+                    //regx1:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/
+                    //noSpace: true
                             // required:true 
                 }
             },
