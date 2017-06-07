@@ -7535,11 +7535,18 @@ $updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $
   $busdata = $this->common->select_data_by_id('business_profile', 'user_id', $contact['contact_from_id'], $data = '*', $join_str = array());
   $inddata = $this->common->select_data_by_id('industry_type', 'industry_id', $busdata[0]['industriyal'], $data = '*', $join_str = array());
    //echo $busdata[0]['industriyal'];  echo '<pre>'; print_r($inddata); die();
-    $contactdata .=     '<ul>';
+    $contactdata .=     '<ul id="' . $contact['contact_id'] . '">';
     $contactdata .=    '<li>';
     $contactdata .=    '<div class="addcontact-left">';
     $contactdata .=    '<a href="#">';
-    $contactdata .=    '<div class="addcontact-pic"><img src="' . base_url($this->config->item('bus_bg_main_upload_path') . $busdata[0]['business_user_image']) . '"></div>';
+    $contactdata .=    '<div class="addcontact-pic">';
+   
+          if($busdata[0]['business_user_image']){
+    $contactdata .=  '<img src="' . base_url($this->config->item('bus_bg_main_upload_path') . $busdata[0]['business_user_image']) . '">';
+    }else{
+    $contactdata .=  '<img src="' . base_url(WHITEIMAGE) . '">';
+    }
+    $contactdata .=   '</div>';
     $contactdata .=    '<div class="addcontact-text">';
     $contactdata .=    '<span><b>' . $busdata[0]['company_name'] . '</b></span>';
     $contactdata .=     '' . $inddata[0]['industry_name'] . '';
@@ -7561,16 +7568,11 @@ $updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $
     $contactdata .=    '<li>';
     $contactdata .=    '<div class="addcontact-left">';
     $contactdata .=    '<a href="#">';
-    $contactdata .=    '<div class="addcontact-pic"><img src="http://localhost/aileensoul/uploads/user_profile/thumbs/44133ff3ac01fab88e1651efcc5827831.jpg"></div>';
     $contactdata .=    '<div class="addcontact-text">';
-    $contactdata .=    '<span><b>Contact Name Contact Name Contact Name </b></span>';
-    $contactdata .=     'Aileensoul request a connection.';
+    $contactdata .=     'Not data available...';
     $contactdata .=     '</div>';
     $contactdata .=     '</a>';
     $contactdata .=     '</div>';
-    $contactdata .=     '<div class="addcontact-right">';
-    $contactdata .=     '<a href="#"><i class="fa fa-check" aria-hidden="true"></i></a>';
-    $contactdata .=    '<a href="#"><i class="fa fa-times" aria-hidden="true"></i></a>';
     $contactdata .=    '</div>';
     $contactdata .=    '</li>';
     $contactdata .=     '</ul>';
