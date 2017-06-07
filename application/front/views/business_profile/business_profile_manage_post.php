@@ -1089,11 +1089,15 @@
 
 
 
-
+                                          
                                             <div class="post-design-desc ">
+                                              <?php if($row['product_name']){?>
                                                 <div id="<?php echo 'editpostdata' . $row['business_profile_post_id']; ?>" style="display:block;">
                                                     <a  ><?php echo $this->common->make_links($row['product_name']); ?></a>
-                                                </div>
+                                                    </div>
+                                                     <?php } ?>
+                                                
+                                               
 
                                                 <div id="<?php echo 'editpostbox' . $row['business_profile_post_id']; ?>" style="display:none;">
                                                     <input type="text" id="<?php echo 'editpostname' . $row['business_profile_post_id']; ?>" name="editpostname" placeholder="Product Name" value="<?php echo $row['product_name']; ?>">
