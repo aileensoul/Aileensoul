@@ -323,7 +323,7 @@ if ($status == 0 || $status == " ") {
  -->
                                                   <div class="all-box">
                                             <ul class="video"> 
-                                               <li>
+                                               <!-- <li>
                                                     <img src="http://localhost/aileensoul/uploads/business_post/thumbs/file_1496664178_jh179.jpg">
                                                 </li>
                                                 <li>
@@ -344,14 +344,8 @@ if ($status == 0 || $status == " ") {
 
                                                 <li>
                                                     <img src="http://localhost/aileensoul/uploads/business_post/thumbs/file_1496664178_jh179.jpg">
-                                                </li>
-                                            </ul>
-                                        </div>
-
-                             
-
-
-            <?php
+                                                </li> -->
+                                                 <?php
 
           $contition_array = array('user_id' => $artisticdata[0]['user_id']);
          $artvideo = $this->data['artvideo'] = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -389,7 +383,7 @@ if ($status == 0 || $status == " ") {
             foreach ($singlearray1 as $videov) {
          
          ?>
-
+         <li>
              <div class="vidoe_tag"> 
                  <video controls>
                     <source src="<?php echo base_url($this->config->item('art_post_main_upload_path').$videov['image_name'])?>" type="video/mp4">
@@ -397,10 +391,12 @@ if ($status == 0 || $status == " ") {
                Your browser does not support the video tag.
                   </video>
               </div>
+             </li>
 
       <?php }   }  else{?>
-
+<li>
      <div class="main_pdf_box"  >
+
                 <div class="not_avali" >
                                 <img src="<?php echo base_url('images/010.png'); ?>"  >
                                <div>
@@ -408,7 +404,15 @@ if ($status == 0 || $status == " ") {
                                </div>
                                </div>
                                </div>
+  </li>
         <?php }?>
+                                            </ul>
+                                        </div>
+
+                             
+
+
+           
 
            </div>
 </div>
