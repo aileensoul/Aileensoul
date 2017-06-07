@@ -7410,10 +7410,7 @@ class Business_profile extends MY_Controller {
             echo 'ok';
         }
     }
-    public function contact_list(){
-        $this->load->view('business_profile/contact_list', $this->data);
-    }
-
+    
     public function contact_person(){
      $to_id = $_POST['toid']; 
      $userid = $this->session->userdata('aileenuser');
@@ -7662,5 +7659,20 @@ $updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $
     }
      echo $contactdata;
      }
+     
+     public function contact_list(){
+         
+          $userid = $this->session->userdata('aileenuser');
+      
+      $join_str[0]['table'] = 'business_profile';
+      $join_str[0]['join_table_id'] = 'business_profile.user_id';
+      $join_str[0]['from_table_id'] = 'contact_person.contact_from_id';
+      $join_str[0]['join_type'] = '';
+      
+     $contition_array = array('contact_to_id' => $userid, 'contact_person.status' => 'confirm');
+     $friendlist = $this->data['friendlist'] = $this->common->select_data_by_condition('contact_person', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
+    // echo '<pre>'; print_r($friendlist); die();
+        $this->load->view('business_profile/contact_list', $this->data);
+    }
 
 }
