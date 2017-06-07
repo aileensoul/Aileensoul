@@ -52,9 +52,9 @@
 //                var showTotalChar = 150, showChar = "More", hideChar = "less";
                 var showTotalChar = 180, showChar = "More", hideChar = "";
                 $('.show').each(function () {
-                   // var content = $(this).text();
+                    // var content = $(this).text();
                     var content = $(this).html();
-                    content = content.replace(/ /g,'');
+                    content = content.replace(/ /g, '');
                     if (content.length > showTotalChar) {
                         var con = content.substr(0, showTotalChar);
                         var hcon = content.substr(showTotalChar, content.length - showTotalChar);
@@ -666,10 +666,10 @@
                                     <span> Post Your Product....
                                     </span> 
                                 </div>
-                                  <div class="col-md-1 padding-left padding_les_left camer_h">
-                                        <i class=" fa fa-camera" >
-                                        </i> 
-                                    </div>
+                                <div class="col-md-1 padding-left padding_les_left camer_h">
+                                    <i class=" fa fa-camera" >
+                                    </i> 
+                                </div>
                             </div>
                             <!-- <div class="fr">
                               <a class="button">Post
@@ -1055,8 +1055,8 @@
                                                                     $likeuserarray = explode(',', $active[0]['business_like_user']);
                                                                     if (!in_array($userid, $likeuserarray)) {
                                                                         ?>               
-                    <!--                                                                        <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true">
-                                                                                </i>-->
+                        <!--                                                                        <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true">
+                                                                                    </i>-->
                                                                         <i class="fa fa-thumbs-up" style="color: #999;" aria-hidden="true"></i>
                                                                     <?php } else { ?> 
                 <!--                                                                        <i class="fa fa-thumbs-up" aria-hidden="true">
@@ -1080,29 +1080,46 @@
                                                                 <a  onClick="commentall(this.id)" id="<?php echo $row['business_profile_post_id']; ?>">
                                                                     <i class="fa fa-comment-o" aria-hidden="true"> 
                                                                         <?php
-                                                                        if (count($commnetcount) > 0) {
+                                                                     /*   if (count($commnetcount) > 0) {
                                                                             echo count($commnetcount);
-                                                                        }
+                                                                        } */
                                                                         ?>
                                                                     </i> 
                                                                 </a>
                                                             </li>
                                                         </ul>
-                                                          <ul class="col-md-6 like_cmnt_count">
+                                                        <ul class="col-md-6 like_cmnt_count">
 
-<li>
-<div class="like_count_ext">
-<span class="comment_count<?php echo $row['business_profile_post_id']; ?>" > 0 </span> 
-<span> Comment</span>
-</div>
-</li>
+                                                            <li>
+                                                                <div class="like_count_ext">
+                                                                    <span class="comment_count<?php echo $row['business_profile_post_id']; ?>" > 
+                                                                        <?php
+                                                                        if (count($commnetcount) > 0) {
+                                                                            echo count($commnetcount);
+                                                                        }else{
+                                                                            echo '0';
+                                                                        }
+                                                                        ?> 
+                                                                    </span> 
+                                                                    <span> Comment</span>
+                                                                </div>
+                                                            </li>
 
-<li>
-<div class="comnt_count_ext">
-    <span class="comment_like_count<?php echo $row['business_profile_post_id']; ?>"> 0 </span> 
-<span> Like</span>
-</div></li>
-                                        </ul>
+                                                            <li>
+                                                                <div class="comnt_count_ext">
+                                                                    <span class="comment_like_count<?php echo $row['business_profile_post_id']; ?>"> 
+                                                                        <?php
+                                                                        if ($row['business_likes_count'] > 0) {
+                                                                            echo $row['business_likes_count'];
+                                                                        }else{
+                                                                         echo '0';   
+                                                                        }
+                                                                        
+                                                                        ?>
+                                                                    </span> 
+                                                                    <span> Like</span>
+                                                                </div></li>
+                                                        </ul>
                                                     </div>
                                                 </div>
                                                 <!-- like user list start -->
@@ -1545,11 +1562,11 @@
             success: function (data) {
                 // $('.' + 'likepost' + clicked_id).html(data);
                 //alert(data.like_user_count);
-                
+
                 $('.' + 'likepost' + clicked_id).html(data.like);
                 $('.likeusername' + clicked_id).html(data.likeuser);
                 $('.comment_like_count' + clicked_id).html(data.like_user_count);
-                
+
                 $('.likeduserlist' + clicked_id).hide();
                 if (data.like_user_count == '0') {
                     document.getElementById('likeusername' + clicked_id).style.display = "none";
@@ -1752,10 +1769,10 @@
                             $('textarea').each(function () {
                                 $(this).val('');
                             });
-
                             //  $('.insertcomment' + clicked_id).html(data);
                             $('#' + 'insertcount' + clicked_id).html(data.count);
                             $('.insertcomment' + clicked_id).html(data.comment);
+                            $('.comment_count' + clicked_id).html(data.comment_count);
 
                         }
                     });
@@ -1818,7 +1835,7 @@
         //      z.style.display = 'block';
         //      $.ajax({ 
         //             type:'POST',
-        //          url:'<?php //echo base_url() . "business_profile/fourcomment"                                                                       ?>',
+        //          url:'<?php //echo base_url() . "business_profile/fourcomment"                                                                        ?>',
         //             data:'art_post_id='+clicked_id,
         //             //alert(data);
         //             success:function(data){
