@@ -85,7 +85,7 @@ class Business_profile extends MY_Controller {
             }
         }
 
-        // dependentacy industrial and sub industriyal end	
+        // dependentacy industrial and sub industriyal end  
 
 
         if (isset($_POST["country_id"]) && !empty($_POST["country_id"])) {
@@ -7413,7 +7413,7 @@ class Business_profile extends MY_Controller {
     public function contact_list(){
         $this->load->view('business_profile/contact_list', $this->data);
     }
-    
+
     public function contact_person(){
      $to_id = $_POST['toid']; 
      $userid = $this->session->userdata('aileenuser');
@@ -7578,4 +7578,5 @@ $updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $
     }
      echo $contactdata;
      }
+
 }
