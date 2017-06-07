@@ -480,7 +480,7 @@ img.aligncenter {
     color: #fff;
 }
 .button {
-    background: #1b8ab9;
+    background: #1b8ab9 !important;
     color: #fff;
     padding: 10px 35px;
     display: inline-block;

@@ -222,7 +222,7 @@
                                 <fieldset <?php if ($country) { ?> class="error-msg" <?php } ?>>
                                     <label >Country:<span style="color:red">*</span></label>
                                     <select style="cursor:pointer;" name="country" id="country">
-                                        <option value="">Select Country</option>
+                                       <option value="" selected option disabled>Select Country</option>
                                         <?php
                                         if (count($countries) > 0) {
                                             foreach ($countries as $cnt) {
@@ -270,9 +270,11 @@
                                 </fieldset>
 
                                  <fieldset class="col-md-4 pad_right" <?php if($csurrency) {  ?> class="error-msg" <?php } ?> class="two-select-box"> 
-                     <label>Currency:<span class="red">*</span></label>
+                     <label>Currency:</label>
                             <select name="currency" id="currency">
-                                
+
+                               <option value="" selected option disabled>Select Currency</option>
+                                 
                             <?php foreach($currency as $cur){ ?>
                              <option value="<?php echo $cur['currency_id']; ?>"><?php echo $cur['currency_name']; ?></option>
                              <?php } ?>
@@ -357,7 +359,16 @@ function imgval(){
 
 
 $.validator.addMethod("regx", function(value, element, regexpr) {          
-    return regexpr.test(value);
+    //return value == '' || value.trim().length != 0; 
+     if(!value) 
+            {
+                return true;
+            }
+            else
+            {
+                  return regexpr.test(value);
+            }
+     // return regexpr.test(value);
 }, "Only space, only number and only special characters are not allow");
 
 jQuery.validator.addMethod("noSpace", function(value, element) { 
@@ -472,7 +483,8 @@ else
                        
                         post_name: {
                             
-                            required: true
+                            required: true,
+                            regx:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/
                             
                         },
                           'skills[]': {
@@ -484,7 +496,7 @@ else
                         other_skill: {
                             
                            require_from_group: [1, ".skill_other"],
-                          noSpace: true
+                         regx:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/
                             // required:true 
                         },
                         position_no:{
@@ -506,7 +518,7 @@ else
                          post_desc: {
 
                             required: true,
-                            regx:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]/
+                           regx:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/
                            
                         },
                          country: {

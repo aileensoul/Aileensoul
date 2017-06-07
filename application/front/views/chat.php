@@ -30,7 +30,7 @@
         <div class="container_chat " id="paddingtop_fixed">
             <div class="chat_nobcx">
                 <div class="people-list" id="people-list">
-                    <div class="search">
+                    <div class="searc border_btm">
                         <input type="text" name=""  id="user_search" placeholder="search" value= ""  />
                         <i class="fa fa-search"></i>
                     </div>
@@ -80,7 +80,7 @@
                 if ($lstusrdata) {
                     ?>
                     <div class="chat">
-                        <div class="chat-header clearfix">
+                        <div class="chat-header clearfix border_btm">
 
                             <?php if ($lstusrdata[0]['user_image']) { ?>
                                 <div class="chat_heae_img">

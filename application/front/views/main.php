@@ -817,3 +817,14 @@ window.onclick = function(event) {
 }
 </script>
 
+
+<style type="text/css">
+  #fname-error{margin-top: 33px;}
+  #lname-error{margin-top:33px; }
+  #email-error{margin-top:33px; }
+  #password-error{margin-top: 33px;}
+  #year-error{margin-top: -1px;}
+  #date-error{margin-top: -1px;} 
+  #month-error{margin-top: -1px;} 
+  #gen-error{margin-top: -1px;} 
+</style>

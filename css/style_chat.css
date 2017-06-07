@@ -6,7 +6,7 @@
                 background-color: #fff;
                 /* padding: 10px; */
                 font-size: 13px;
-                min-height: 41px;
+                min-height: 35px;
                 position: relative;
                 max-height: 120px;
                 overflow-y: scroll;
@@ -306,10 +306,11 @@ hr{ border: none; margin: 20px 0; background:#cacaca; height: 1px; }
 .back-btn, .back-btn input { min-width: 100px; margin-bottom: 15px; width: auto; padding: 6px 30px 8px;   }
 
 .btn {    margin: 0px!important;
-    height: 41px!important;
+    height: 35px!important;
     padding: 11px 20px!important;
     background: #003!important;
     border: none!important;
+    width: 75px;
 }
 .btn:hover{opacity: 0.8!important;}
 /* Common Style End */
@@ -3757,10 +3758,10 @@ follow box*/
                                          left: 0; margin-bottom: -37px;}
 .input-group-addon button { padding: 0px; }
 .main_send{padding: 10px!important;
-                                                    background: #003!important;
+                                                    background: #1b8ab9!important;
                                                     /* left: -91px; */
-                                                    right: -10px!important;
-                                                    border: 1px solid #003!important;
+                                                    right: -30px!important;
+                                                    border: 1px solid #1b8ab9!important;
                                                     position: absolute!important;
                                                     bottom: 0!important;}
 .stylish-input-group .form-control{
@@ -4808,7 +4809,7 @@ fieldset .add_post_btns{min-width: 120px;padding:8px 30px 8px;}
 
     .people-list {
  
-    border-right: 1px solid #e4e5e7;
+    border-right: 1px solid #ccc;
     width: 258px;
     float: left;
     opacity: 0.9;
@@ -4833,7 +4834,7 @@ fieldset .add_post_btns{min-width: 120px;padding:8px 30px 8px;}
 .people-list .search input{
  
     border-radius: 3px;
-    border: none;
+    border: 1px solid #d9d9d9;
     padding: 14px;
 
     background: #fff;
@@ -5107,7 +5108,7 @@ color: #003;
     background: linear-gradient(to bottom, #f9f9f9 5%, #e9e9e9 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f9f9f9', endColorstr='#e9e9e9',GradientType=0);
     background-color: #f9f9f9;
-    border-top: 1px solid #e4e5e7}
+    border-top: 1px solid #ccc}
 .name a{color: #003;}
 .padding_less_left{padding-left: 0px;}
 
@@ -5160,3 +5161,5 @@ color: #003;
                                                     border: 1px solid #003;
                                                     position: absolute;
                                                     bottom: 0;}
+
+   .border_btm {border-bottom: 1px solid #cccccc;}

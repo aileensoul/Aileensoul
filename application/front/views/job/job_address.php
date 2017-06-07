@@ -535,15 +535,15 @@
 <!-- script for click on copy button to get similar value  end -->
 
 <!-- script for country,state,city start -->
-<!-- <script type="text/javascript">
+<script type="text/javascript">
     $(document).ready(function () {
         $('#country').on('change', function () {
             var countryID = $(this).val();
-
+            //alert(countryID);
             if (countryID) {
                 $.ajax({
                     type: 'POST',
-                    url: '<?php //echo base_url() . "job_profile/ajax_data"; ?>',
+                    url: '<?php echo base_url() . "job_profile/ajax_data"; ?>',
                     data: 'country_id=' + countryID,
                     success: function (html) {
                         $('#state').html(html);
@@ -563,7 +563,7 @@
             if (stateID) {
                 $.ajax({
                     type: 'POST',
-                    url: '<?php //echo base_url() . "job_profile/ajax_data"; ?>',
+                    url: '<?php echo base_url() . "job_profile/ajax_data"; ?>',
                     data: 'state_id=' + stateID,
                     success: function (html) {
 
@@ -575,7 +575,7 @@
             }
         });
     });
-</script> -->
+</script>
 <!-- script for country,state,city end -->
 
 <!-- script for country,state,city copy start -->
@@ -628,8 +628,21 @@ $(window).load(function(){
     }, "No space please and don't leave it empty");
 
     $.validator.addMethod("regx", function(value, element, regexpr) {          
-    return regexpr.test(value);
+    //return value == '' || value.trim().length != 0; 
+     if(!value) 
+            {
+                return true;
+            }
+            else
+            {
+                  return regexpr.test(value);
+            }
+     // return regexpr.test(value);
 }, "Only space, only number and only special characters are not allow");
+
+    $.validator.addMethod("reg_candidate", function(value, element, regexpr) {          
+    return regexpr.test(value);
+}, "Pin Number Is Not Proper");
 
 
 $("#jobseeker_regform").validate({
@@ -651,7 +664,7 @@ $("#jobseeker_regform").validate({
                 address: {
 
                     required: true,
-                    regx:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]/,
+                    regx:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/,
                     //noSpace: true
 
                 },
@@ -671,9 +684,18 @@ $("#jobseeker_regform").validate({
                 address_permenant: {
 
                     required: true,
-                    regx:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]/
+                    regx:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/
                     //noSpace: true
 
+                },
+                pincode: {
+                    number:true,
+                    reg_candidate:/^-?(([0-9]{0,100}))$/
+                   
+                },
+                pincode_permenant: {
+                   number:true,
+                   reg_candidate:/^-?(([0-9]{0,100}))$/
                 },
 
             },
@@ -716,6 +738,7 @@ $("#jobseeker_regform").validate({
 
                 },
 
+
             },
 
         });
@@ -724,6 +747,7 @@ $("#jobseeker_regform").validate({
 
 $('#country_permenant').on('change', function () {
             var countryID = $(this).val();
+            alert(countryID);
 
             if (countryID) {
                 $.ajax({

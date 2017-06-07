@@ -27,7 +27,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="container_chat " id="paddingtop_fixed">
             <div class="chat_nobcx">
                 <div class="people-list" id="people-list">
-                    <div class="search">
+                    <div class="search border_btm">
                         <input type="text" name=""  id="user_search" placeholder="search" value= ""  />
                         <i class="fa fa-search"></i>
                     </div>
@@ -143,7 +143,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         if ($lstusrdata) {
                             ?>
                     <div class="chat">
-                        <div class="chat-header clearfix">
+                        <div class="chat-header clearfix border_btm">
 
                             <?php if ($lstusrdata[0]['user_image']) { ?>
                                 <div class="chat_heae_img">
@@ -223,7 +223,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <?php } else { ?>
 
                     <div class="chat">
-                        <div class="chat-header clearfix">
+                        <div class="chat-header clearfix ">
 
 
 
