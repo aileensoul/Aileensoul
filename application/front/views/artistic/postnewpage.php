@@ -266,9 +266,7 @@
                                                         <span class="ctre_date">  <?php echo date('d-M-Y', strtotime($art_data[0]['created_date'])); ?></span></div>
 
                                                 <?php } ?>                 </li>
-                                            <!-- 
-                                            <li><div class="post-design-product"><a><?php //echo $listFinal ;        ?> </a></div></li>
-                                            -->
+                                           
                                             <li> 
                                                 <div id="<?php echo 'editpostdata' . $art_data[0]['art_post_id']; ?>" style="display:block;">
                                                     <a><?php print $this->common->make_links($art_data[0]['art_post']); ?></a>
