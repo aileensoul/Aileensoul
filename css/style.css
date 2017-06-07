@@ -9023,6 +9023,9 @@ fieldset .add_post_btns:hover {
 .like_As_count {
     display: none;
 }
+.audio-sec li audio{
+    width:100%;
+}
 
 .notification-database:hover{
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f9f9f9), color-stop(1, #e9e9e9));

@@ -3,7 +3,8 @@
 <?php echo $head; ?>
 
 <style type="text/css">
-    .imge_psot{width: 100%; text-align: center;}
+  /*  .imge_psot{width: 100%; text-align: center;}*/
+  .imge_psot img {height: 70%; width: 100%;}
 </style>
 
 <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
