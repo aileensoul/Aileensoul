@@ -76,7 +76,7 @@ class Search extends CI_Controller {
 
             
         } elseif ($this->input->post('searchplace') == "") {
-             echo "skill"; 
+             //echo "skill"; 
 
             $contition_array = array('is_delete' => '0', 'status' => '1', 'type' => '2');
 
@@ -131,7 +131,7 @@ class Search extends CI_Controller {
                  //echo "pallavi";
                  //echo count($artskillpost); 
 
-                if (count($artskillpost) > 0) {
+                if (count($artskillpost) == 0) {
                    // echo "tt";
                     $unique = array_merge($artpost, $otherdata);
                    // echo "<pre>";print_r($unique);die();
@@ -169,7 +169,7 @@ class Search extends CI_Controller {
 
                 // echo "<pre>"; print_r($artfullname);
 
-                if (count($artskillpost) > 0) {
+                if (count($artskillpost) == 0) {
                     $unique = array_merge($artpost, $otherdata, $artfullname);
                 } else {
                     $unique = array_merge($artskillpost, $artpost, $otherdata, $artfullname);
@@ -250,7 +250,7 @@ class Search extends CI_Controller {
             // echo $fullname;
             if ($fullname[1] == "") {
 
-                if (count($artskillpost) > 0) {
+                if (count($artskillpost) == 0) {
                     $unique = array_merge($artpost, $otherdata, $artfullname);
                 } else {
                     $unique = array_merge($artskillpost, $artpost, $otherdata, $artfullname);
@@ -286,7 +286,7 @@ class Search extends CI_Controller {
 
 
 
-                if (count($artskillpost) > 0) {
+                if (count($artskillpost) == 0) {
                     $unique = array_merge($artpost, $otherdata, $artfullname);
                 } else {
                     $unique = array_merge($artskillpost, $artpost, $otherdata, $artfullname);
