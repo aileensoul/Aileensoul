@@ -506,8 +506,24 @@ class Freelancer extends MY_Controller {
 
 
          $skildata = explode(',', $this->data['postdata'][0]['freelancer_post_area']);
-          // echo "<pre>"; print_r($skildata); die();
+         // echo "<pre>"; print_r($skildata); die();
         $this->data['selectdata'] = $skildata;
+
+//           $json = [];
+
+//         $this->load->database('aileensoul');
+
+       
+//         if (!empty($this->input->get("q"))) {
+//      $search_condition = "(skill LIKE '" . trim($this->input->get("q")) . "%')";
+
+//      $tolist = $this->common->select_data_by_search('skill', $search_condition,$contition_array = array(), $data = 'skill_id as id,skill as text', $sortby = 'skill', $orderby = 'desc', $limit = '', $offset = '', $join_str5 = '', $groupby = '');
+   
+// //echo '<pre>'; print_r($tolist); die();
+//      }
+//       //  echo json_encode($tolist);
+//         echo json_encode($tolist);
+    
 
 
         $contition_array = array('status' => 1);
@@ -515,7 +531,7 @@ class Freelancer extends MY_Controller {
 
 
         $contition_array = array('status' => 1, 'type' => 1);
-        $this->data['skill1'] = $this->common->select_data_by_condition('skill', $contition_array, $data = '*', $sortby = 'skill', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        $this->data['skill1'] = $this->common->select_data_by_condition('skill', $contition_array, $data = '*', $sortby = 'skill', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
 
         if ($userdata) {
