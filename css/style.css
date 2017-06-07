@@ -4201,7 +4201,7 @@ border-bottom: 1px solid #000033;
     color: #1b8ab9;
 }
 .profile-box-bui-menu li a {
-    margin-right: 3.5px;
+    margin-right: 6px;
     display: block;
     text-align: center;
     padding: 2px 12px;
@@ -8645,7 +8645,7 @@ label.cameraButton input[accept*="camera"] {
 .pl-4 {
     padding-left: 4px!important;
 }
-/*.ml-4{margin-left: 4px!important;}*/
+.ml-4{margin-left: 4px!important;}
 
 fieldset .add_post_btns:hover {
     background-color: #156f95!important;
