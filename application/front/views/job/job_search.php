@@ -6,8 +6,9 @@
                                 </select>
                             </fieldset>
                             <fieldset class="col-md-3">
-                              
-                              <select class="" name="searchplace[]" id="searchplace" multiple="multiple"  placeholder="Find Your location">
+                            
+                              <input type="text" id="searchplace" name="searchplace" placeholder="Find Your location">
+                              <!-- <select class="" name="searchplace[]" id="searchplace" multiple="multiple"  placeholder="Find Your location"> -->
                                 </select>
                             </fieldset>
                         <!--     <fieldset class="col-md-2">
