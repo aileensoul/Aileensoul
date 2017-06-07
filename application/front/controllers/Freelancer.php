@@ -1239,7 +1239,7 @@ class Freelancer extends MY_Controller {
 
         $this->data['city_data']= array_values($loc);
 
-         
+
          $this->data['demo']= array_values($result1);
 
 
@@ -3047,15 +3047,18 @@ $contition_array = array('user_id' => $userid);
           }
           //echo "<pre>"; print_r($location);die();
           foreach ($location as $key => $value) {
-              $loc[$key]['label'] =$value;
-              $loc[$key]['value'] =$value;
+              $loc[$key]['label1'] =$value;
+              $loc[$key]['value1'] =$value;
           }
          
  //echo "<pre>"; print_r($loc);die();
 
+         // echo "<pre>"; print_r($loc);
+          // echo "<pre>"; print_r($result1);die();
+
         $this->data['city_data']= array_values($loc);
 
-         
+
          $this->data['demo']= array_values($result1);
 
 
