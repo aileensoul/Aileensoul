@@ -345,7 +345,7 @@ if ($status == 0 || $status == " ") {
 
                                                     <div class="all-box">
                                             <ul> 
-                                               <li>
+                                               <!-- <li>
                                                     <img src="http://localhost/aileensoul/uploads/business_post/thumbs/file_1496664178_jh179.jpg">
                                                 </li>
                                                 <li>
@@ -366,14 +366,9 @@ if ($status == 0 || $status == " ") {
 
                                                 <li>
                                                     <img src="http://localhost/aileensoul/uploads/business_post/thumbs/file_1496664178_jh179.jpg">
-                                                </li>
-                                            </ul>
-                                        </div>
-                               <div class="add_audio">
-                                 <div class="pictures1">
+                                                </li> -->
 
-
-                                 <?php
+                                                                                <?php
 
           $contition_array = array('user_id' => $artisticdata[0]['user_id']);
          $artisticimage = $this->data['artisticimage'] = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -414,6 +409,7 @@ if ($status == 0 || $status == " ") {
                   
               ?>
 
+  <li>
   <div class="main_box_pdf">
 <div class="main_box_img">
         <a href="<?php echo base_url('artistic/creat_pdf/'.$pdfv['image_id']) ?>">
@@ -428,11 +424,18 @@ if ($status == 0 || $status == " ") {
               ?>
         <div class="pdf_name"><a title="Zalak infotech .in pdf" href="<?php echo base_url('artistic/creat_pdf/'.$pdfv['image_id']) ?>"><?php echo ucwords($artistictitle[0]['art_post']); ?></a> </div>
 </div>
-
+</li>
         <!-- <a href="<?php echo base_url('artistic/creat_pdf/'.$pdfv['image_id']) ?>">
         <div class="pdf_name"><a title="Zalak infotech .in pdf" href="">Zalak infotech .in pdf</a> </div></a> -->
 
         <?php } } else{?>
+                                            </ul>
+                                        </div>
+                               <div class="add_audio">
+                                 <div class="pictures1">
+
+
+ 
  
       <div class="main_pdf_box"  >
                  <div class="not_avali" >
