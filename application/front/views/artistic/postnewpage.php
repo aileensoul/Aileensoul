@@ -3,7 +3,8 @@
 <?php echo $head; ?>
 
 <style type="text/css">
-    .imge_psot{width: 100%; text-align: center;}
+  /*  .imge_psot{width: 100%; text-align: center;}*/
+  .imge_psot img {height: 70%; width: 100%;}
 </style>
 
 <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
@@ -764,7 +765,7 @@
                                             ?>
                                             <!-- slider image rotation end  -->
 
-                                            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                                            <a class="prev" style="left: 0;" onclick="plusSlides(-1)">&#10094;</a>
                                             <a class="next" onclick="plusSlides(1)">&#10095;</a>
                                             <div class="caption-container">
                                                 <p id="caption"></p>

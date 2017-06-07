@@ -358,7 +358,7 @@
                                                 <?php
                                                 $i++;
                                             }
-                                            ?>
+                                            ?>x
                                         </div>
 <?php } else { ?>
                                         <div class="main_pdf_box"  >

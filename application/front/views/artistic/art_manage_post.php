@@ -1010,7 +1010,7 @@
                                                             </div>
                                                             <!-- one image end -->
 
-                <?php } elseif (in_array($ext, $allowespdf)) { ?>
+              <?php } elseif (in_array($ext, $allowespdf)) { ?>
 
                                                             <!-- one pdf start -->
                                                             <div id="basic-responsive-image" >
