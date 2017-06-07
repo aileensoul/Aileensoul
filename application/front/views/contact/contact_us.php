@@ -19,7 +19,7 @@
            <div class="col-md-6 col-sm-7 header-left-menu">
                    <ul class="fr">
                     <li class=""><a class="login_butn"  href="<?php echo base_url('login') ?>">Login</a></li>
-                    <li class=""><a class="crt_butn"  href="<?php echo base_url('registration') ?>">Create an account</a></li>
+                    <li class=""><a class="crt_butn button6"  href="<?php echo base_url('registration') ?>">Create an account</a></li>
                       
                     </ul>
 

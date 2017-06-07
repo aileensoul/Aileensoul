@@ -885,7 +885,7 @@
                                                         <div id="<?php echo 'editpostdetailbox' . $row['business_profile_post_id']; ?>" style="display:none;">
                                                           <!-- <textarea id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" placeholder="Product Description" class="textbuis" name="editpostdesc"><?php echo $row['product_description']; ?></textarea>
                                                             -->
-                                                            <div contenteditable="true" id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" placeholder="Product Description" class="textbuis  editable_text"  name="editpostdesc"><?php echo $row['product_description']; ?></div>                  
+                                                            <div contenteditable="true" id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" placeholder="Product Description" class="textbuis  editable_text"  name="editpostdesc" onpaste="OnPaste_StripFormatting(this, event);"><?php echo $row['product_description']; ?></div>                  
                                                         </div>
                                                         <button class="fr" id="<?php echo "editpostsubmit" . $row['business_profile_post_id']; ?>" style="display:none;margin: 5px 0; border-radius: 3px;" onClick="edit_postinsert(<?php echo $row['business_profile_post_id']; ?>)">Save
                                                         </button>
@@ -1248,7 +1248,7 @@
                                                                         <div class="edit-comment-box">
                                                                             <div class="inputtype-edit-comment">
                                                                                 <!--<textarea type="text" class="textarea" name="<?php echo $rowdata['business_profile_post_comment_id']; ?>" id="<?php echo "editcomment" . $rowdata['business_profile_post_comment_id']; ?>" style="display:none;resize: none;" onClick="commentedit(this.name)"><?php echo $rowdata['comments']; ?></textarea>-->
-                                                                                <div contenteditable="true" class="editable_text editav_2" name="<?php echo $rowdata['business_profile_post_comment_id']; ?>"  id="<?php echo "editcomment" . $rowdata['business_profile_post_comment_id']; ?>" placeholder="Enter Your Comment " value= ""  onkeyup="commentedit(<?php echo $rowdata['business_profile_post_comment_id']; ?>)"><?php echo $rowdata['comments']; ?></div>
+                                                                                <div contenteditable="true" class="editable_text editav_2" name="<?php echo $rowdata['business_profile_post_comment_id']; ?>"  id="<?php echo "editcomment" . $rowdata['business_profile_post_comment_id']; ?>" placeholder="Enter Your Comment " value= ""  onkeyup="commentedit(<?php echo $rowdata['business_profile_post_comment_id']; ?>)" onpaste="OnPaste_StripFormatting(this, event);"><?php echo $rowdata['comments']; ?></div>
                                                                                 <span class="comment-edit-button"><button id="<?php echo "editsubmit" . $rowdata['business_profile_post_comment_id']; ?>" style="display:none" onClick="edit_comment(<?php echo $rowdata['business_profile_post_comment_id']; ?>)">Save</button></span>
                                                                             </div>
                                                                         </div>
@@ -1346,7 +1346,7 @@
                                                     </div>
                                                     <div class="">
                                                         <div id="content" class="col-md-12  inputtype-comment cmy_2" >
-                                                            <div contenteditable="true" class="edt_2 editable_text" name="<?php echo $row['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $row['business_profile_post_id']; ?>" placeholder="Add a Comment ..." onClick="entercomment(<?php echo $row['business_profile_post_id']; ?>)" onkeyup="comment_wo_div(<?php echo $row['business_profile_post_id']; ?>);"></div>
+                                                            <div contenteditable="true" class="edt_2 editable_text" name="<?php echo $row['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $row['business_profile_post_id']; ?>" placeholder="Add a Comment ..." onClick="entercomment(<?php echo $row['business_profile_post_id']; ?>)" onpaste="OnPaste_StripFormatting(this, event);"></div>
                                                         </div>
                                                         <?php echo form_error('post_comment'); ?> 
                                                         <div class="comment-edit-butn">       
@@ -3285,199 +3285,31 @@
     }
 </script>
 
+
 <script type="text/javascript">
-                            $('div.edt_2').on('paste', function () {
-                    var element = this.id;
-                            var clicked_id = element.replace('post_comment', '');
-                                    var pasteArea = document.getElementById("post_comment" + clicked_id);
-                                    var fWeight = document.getElementById("fWeight");
-                                    var fStyle = document.getElementById("fStyle");
-                            // Event Listener
-                                    pasteArea.addEventListener('paste', function (e) {
-                                    e.preventDefault();
-                                            var clipboardData = {},
-                                            rDataText,
-                                            rDataHTML;
-                                            if (e.clipboardData) {
-                                    // Mozilla & Chrome    
-                                    clipboardData = e.clipboardData;
-                                            rDataHTML = clipboardData.getData('text/html');
-                                            rDataHTML = rDataHTML.replace('<!--StartFragment-->', '');
-                                            rDataHTML = rDataHTML.replace('<!--EndFragment-->', '');
-                                            rDataPText = clipboardData.getData('text/plain');
-                                    } else if (window.clipboardData) {
-                                    // IE9
-                                    clipboardData = window.clipboardData;
-                                            try {
-                                            rDataHTML = clipboardData.getData('Html');
-                                                    rDataHTML = rDataHTML.replace('<!--StartFragment-->', '');
-                                                    rDataHTML = rDataHTML.replace('<!--EndFragment-->', '');
-                                            } catch (e) {
-                                    console.log(e);
-                                    }
 
-                                    rDataPText = clipboardData.getData('Text');
-                                    }
+    var _onPaste_StripFormatting_IEPaste = false;
 
-                                    if (rDataHTML && rDataHTML.trim().length != 0) {
-                                    console.log('data in clipboard is html');
-                                            HtmlHandler(rDataHTML);
-                                            return false;
-                                    }
+    function OnPaste_StripFormatting(elem, e) {
 
-                                    if (rDataPText && rDataPText.trim().length != 0) {
-                                    console.log('data in clipboard is plain text');
-                                            PlainTextHandler(rDataPText);
-                                            return false;
-                                    }
-
-                                    }, false);
-// Remove Line Break In PlainText
-                                    function PlainTextHandler(pText) {
-                                    pText.replace(/\r?\n|\r/, " ");
-                                            insertNode(document.createTextNode(pText))
-                                            pasteArea.removeClassName('loading');
-                                    }
-
-// Remove Unwanted Tag and Attributes 
-                            function HtmlHandler(htmlStr) {
-
-                            var wrap = document.createElement("span");
-                                    wrap.innerHTML = htmlStr;
-                                    var allNodes = wrap.getElementsByTagName('*');
-                                    var allNodesLen = allNodes.length;
-                                    pasteArea.addClassName('loading'); // loading gif
-
-                                    function formatHtml(elem, complete) {
-                                    var flag_italic = false;
-                                            var flag_weight = false;
-                                            var fontStyle;
-                                            var fontWeight;
-                                            console.log(elem)
-                                            if (elem.nodeType == 1) { // 
-
-                                    // get style in css 
-                                    var CSSStyle = window.getComputedStyle(elem);
-                                            fontStyle = CSSStyle.fontStyle;
-                                            fontWeight = CSSStyle.fontWeight;
-                                            // get style defined by inline
-                                            var InlineStyle = elem.style;
-                                            inlineFontStyle = InlineStyle['font-style'];
-                                            inlineFontWeight = InlineStyle['font-weight'];
-                                            if (inlineFontStyle && inlineFontStyle.trim() != '')
-                                            fontStyle = inlineFontStyle;
-                                            if (inlineFontWeight && inlineFontWeight.trim() != '')
-                                            fontWeight = inlineFontWeight;
-                                            // get style defined in MSword
-                                            var msStyle = elem.getAttribute('style');
-                                            if (/mso-bidi/.test(msStyle)) {
-                                    var MSStyleObj = {};
-                                            var styleStrArr = msStyle.split(";");
-                                            for (i = 0; i < styleStrArr.length; i++) {
-                                    var temp = styleStrArr[i].split(":");
-                                            MSStyleObj[temp[0]] = temp[1];
-                                    }
-                                    fontStyle = MSStyleObj['mso-bidi-font-style'];
-                                            fontWeight = MSStyleObj['mso-bidi-font-weight'];
-                                    }
-
-                                    if (fontStyle && fontStyle == 'italic')
-                                            flag_italic = true; // flag true if italic
-
-                                            if (fontWeight && (fontWeight == 'bold' || 600 <= ( + fontWeight)))
-                                            flag_weight = true; // flag true if bold - 600 is semi bold
-
-                                            // bold & italic are not applied via style
-                                            // these styles are applied by appending contents in new tags string & bold
-                                            if (flag_italic && flag_weight) {
-                                    var strong = document.createElement('strong');
-                                            var italic = document.createElement('i');
-                                            strong.appendChild(italic);
-                                            newtag = strong;
-                                    } else {
-                                    if (flag_italic) {
-                                    newtag = document.createElement('i');
-                                    } else if (flag_weight) {
-                                    newtag = document.createElement('strong');
-                                    } else {
-                                    // remove un wanted attributes & element
-                                    var tagName = elem.tagName;
-                                            if (tagName == 'STRONG' || tagName == 'B') {
-                                    newtag = document.createElement('strong');
-                                    } else if (tagName == 'I') {
-                                    newtag = document.createElement('i');
-                                    } else {
-                                    newtag = document.createElement('span');
-                                    }
-                                    }
-                                    }
-                                    // content appended
-                                    var elemHTML = elem.innerHTML;
-                                            if (flag_italic && flag_weight) {
-                                    newtag.childNodes[0].innerHTML = elemHTML;
-                                    } else {
-                                    newtag.innerHTML = elemHTML;
-                                    }
-                                    // curr element is replaced by new
-                                    elem.parentNode.insertBefore(newtag, elem);
-                                            elem.parentNode.removeChild(elem);
-                                    }
-                                    complete() // completed one iteration
-                                    }
-
-                            // call , iteration is completed
-                            function done() {
-                            insertNode(wrap)
-                                    pasteArea.removeClassName('loading');
-                            }
-
-                            // async approach to iterate dom elements
-                            function asyncEach(domCol, computeFunc, donFunc) {
-                            function process() {
-                            allNodesLen -= 1; // move forward
-                                    if (allNodesLen >= 0) {
-                            computeFunc(domCol[allNodesLen], function () {
-                            setTimeout(process, 0);
-                            }); // function call
-                    } else {
-                        donFunc(); //completed
-                    }
-                }; // function definition
-                if (allNodesLen >= 0) {
-                    setTimeout(process, 0); //start here
-                } else {
-                    donFunc(); //completed
-                }
+        if (e.originalEvent && e.originalEvent.clipboardData && e.originalEvent.clipboardData.getData) {
+            e.preventDefault();
+            var text = e.originalEvent.clipboardData.getData('text/plain');
+            window.document.execCommand('insertText', false, text);
+        } else if (e.clipboardData && e.clipboardData.getData) {
+            e.preventDefault();
+            var text = e.clipboardData.getData('text/plain');
+            window.document.execCommand('insertText', false, text);
+        } else if (window.clipboardData && window.clipboardData.getData) {
+            // Stop stack overflow
+            if (!_onPaste_StripFormatting_IEPaste) {
+                _onPaste_StripFormatting_IEPaste = true;
+                e.preventDefault();
+                window.document.execCommand('ms-pasteTextOnly', false);
             }
-            asyncEach(allNodes, formatHtml, done) // async each call  - iteration starts heres
+            _onPaste_StripFormatting_IEPaste = false;
         }
 
-// add class remove class code
-        Element.prototype.hasClassName = function (name) {
-            return new RegExp("(?:^|\\s+)" + name + "(?:\\s+|$)").test(this.className);
-        };
-
-        Element.prototype.addClassName = function (name) {
-            if (!this.hasClassName(name)) {
-                this.className = this.className ? [this.className, name].join(' ') : name;
-            }
-        };
-
-        Element.prototype.removeClassName = function (name) {
-            if (this.hasClassName(name)) {
-                var c = this.className;
-                this.className = c.replace(new RegExp("(?:^|\\s+)" + name + "(?:\\s+|$)", "g"), "");
-            }
-        };
-
-
-        function insertNode(node) {
-            sel = window.getSelection();
-            range = sel.getRangeAt(0);
-            range.deleteContents();
-            range.insertNode(node);
-        }
-        
-    });
+    }
 
 </script>

@@ -1477,6 +1477,8 @@ echo $job_header2;
                             save_user(id);
                       
             $('.biderror .mes').html("<div class='pop_content'>Candidate successfully saved.");
+
+        
             $('#bidmodal').modal('show');
                         }
                     </script>

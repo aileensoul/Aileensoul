@@ -326,23 +326,7 @@ $(document).ready(function ()
                                         <div id="addcontactTitle">Contact Request</div>
 
                                         <div id="addcontactBody" class="notifications">
-                                            <ul>
-                                              <li>
-                                                <div class="addcontact-left">
-                                                  <a href="#">
-                                                  <div class="addcontact-pic"><img src="http://localhost/aileensoul/uploads/user_profile/thumbs/44133ff3ac01fab88e1651efcc5827831.jpg"></div>
-                                                  <div class="addcontact-text">
-                                                  <span><b>Contact Name Contact Name Contact Name </b></span>
-                                                  Aileensoul request a connection.
-                                                  </div>
-                                                  </a>
-                                                </div>
-                                                <div class="addcontact-right">
-                                                <a href="#"><i class="fa fa-check" aria-hidden="true"></i></a>
-                                                <a href="#"><i class="fa fa-times" aria-hidden="true"></i></a>
-                                                </div>
-                                              </li>
-                                            </ul>
+
 
                                         </div>
                                         <div id="addcontactFooter"><a href="<?php echo base_url('business_profile/contact_list'); ?>">See All</a></div>

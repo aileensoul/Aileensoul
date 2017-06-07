@@ -99,39 +99,43 @@
 
 
                                     <select style="cursor:pointer;" name="minyear" id="minyear" class="keyskil">
-                                        <option value="<?php echo $postdata[0]['min_year']; ?>"><?php echo $postdata[0]['min_year']; ?> Year</option>
-                                        <option value="0">0 Year</option>
-                                        <option value="1">1 Year</option>
-                                        <option value="2">2 Year</option>
-                                        <option value="3">3 Year</option>
-                                        <option value="4">4 Year</option>
-                                        <option value="5">5 Year</option>
-                                        <option value="6">6 Year</option>
-                                        <option value="7">7 Year</option>
-                                        <option value="8">8 Year</option>
-                                        <option value="9">9 Year</option>
-                                        <option value="10">10 Year</option>
-                                        <option value="11">11 Year</option>
-                                        <option value="12">12 Year</option>
-                                        <option value="13">13 Year</option>
-                                        <option value="14">14 Year</option>
-                                        <option value="15">15 Year</option>
-                                        <option value="16">16 Year</option>
-                                        <option value="17">17 Year</option>
-                                        <option value="18">18 Year</option>
-                                        <option value="19">19 Year</option>
-                                        <option value="20">20 Year</option>
+                                       
+                                         <option value="" selected option disabled>Year</option>
+                                    
+                                       <option value="0" <?php if($postdata[0]['min_year']=="0") echo 'selected="selected"'; ?>>0 Year</option>
+                                    <option value="1" <?php if($postdata[0]['min_year']=="1") echo 'selected="selected"'; ?>>1 Year</option>
+                                    <option value="2" <?php if($postdata[0]['min_year']=="2") echo 'selected="selected"'; ?>>2 Year</option>
+                                    <option value="3" <?php if($postdata[0]['min_year']=="3") echo 'selected="selected"'; ?>>3 Year</option>
+                                    <option value="4" <?php if($postdata[0]['min_year']=="4") echo 'selected="selected"'; ?>>4 Year</option>
+                                    <option value="5" <?php if($postdata[0]['min_year']=="5") echo 'selected="selected"'; ?>>5 Year</option>
+                                    <option value="6" <?php if($postdata[0]['min_year']=="6") echo 'selected="selected"'; ?>>6 Year</option>
+                                    <option value="7" <?php if($postdata[0]['min_year']=="7") echo 'selected="selected"'; ?>>7 Year</option>
+                                    <option value="8" <?php if($postdata[0]['min_year']=="8") echo 'selected="selected"'; ?>>8 Year</option>
+                                    <option value="9" <?php if($postdata[0]['min_year']=="9") echo 'selected="selected"'; ?>>9 Year</option>
+                                    <option value="10" <?php if($postdata[0]['min_year']=="10") echo 'selected="selected"'; ?>>10 Year</option>
+                                    <option value="11" <?php if($postdata[0]['min_year']=="11") echo 'selected="selected"'; ?>>11 Year</option>
+                                    <option value="12" <?php if($postdata[0]['min_year']=="12") echo 'selected="selected"'; ?>>12 Year</option>
+                                    <option value="13" <?php if($postdata[0]['min_year']=="13") echo 'selected="selected"'; ?>>13 Year</option>
+                                    <option value="14" <?php if($postdata[0]['min_year']=="14") echo 'selected="selected"'; ?>>14 Year</option>
+                                    <option value="15" <?php if($postdata[0]['min_year']=="15") echo 'selected="selected"'; ?>>15 Year</option>
+                                    <option value="16" <?php if($postdata[0]['min_year']=="16") echo 'selected="selected"'; ?>>16 Year</option>
+                                    <option value="17" <?php if($postdata[0]['min_year']=="17") echo 'selected="selected"'; ?>>17 Year</option>
+                                    <option value="18" <?php if($postdata[0]['min_year']=="18") echo 'selected="selected"'; ?>>18 Year</option>
+                                    <option value="19" <?php if($postdata[0]['min_year']=="19") echo 'selected="selected"'; ?>>19 Year</option>
+                                    <option value="20" <?php if($postdata[0]['min_year']=="20") echo 'selected="selected"'; ?>>20 Year</option>
                                     </select>
                                     
                                     <select style="cursor:pointer;" name="minmonth" id="minmonth" class="keyskil margin-month ">
-                                        <option value="<?php echo $postdata[0]['min_month']; ?>"><?php echo $postdata[0]['min_month']; ?> Month</option>
-                                        <option value="0">0 Month</option>
-                                        <option value="1">1 Month</option>
-                                        <option value="2">2 Month</option>
-                                        <option value="3">3 Month</option>
-                                        <option value="4">4 Month</option>
-                                        <option value="5">5 Month</option>
-                                        <option value="6">6 Month</option>
+                                       
+                                        <option value="" selected option disabled>Month</option>
+
+                                  <option value="0" <?php if($postdata[0]['min_month']=="0") echo 'selected="selected"'; ?>>0 Month</option>
+                                   <option value="1" <?php if($postdata[0]['min_month']=="1") echo 'selected="selected"'; ?>>1 Month</option>
+                                  <option value="2" <?php if($postdata[0]['min_month']=="2") echo 'selected="selected"'; ?>>2 Month</option>
+                                  <option value="3" <?php if($postdata[0]['min_month']=="3") echo 'selected="selected"'; ?>>3 Month</option>
+                                  <option value="4" <?php if($postdata[0]['min_month']=="4") echo 'selected="selected"'; ?>>4 Month</option>
+                                   <option value="5" <?php if($postdata[0]['min_month']=="5") echo 'selected="selected"'; ?>>5 Month</option>
+                                  <option value="6"<?php if($postdata[0]['min_month']=="6") echo 'selected="selected"'; ?>>6 Month</option>
                                     </select>
                                      
                                     <span id="fullname-error"></span>
@@ -145,41 +149,46 @@
 
 
                                       <select style="cursor:pointer;" name="maxyear"  id="maxyear" class="keyskil1">
-                                        <option value="<?php echo $postdata[0]['max_year']; ?>"><?php echo $postdata[0]['max_year']; ?> Year</option>
-                                        <option value="0">0 Year</option>
-                                        <option value="1">1 Year</option>
-                                        <option value="2">2 Year</option>
-                                        <option value="3">3 Year</option>
-                                        <option value="4">4 Year</option>
-                                        <option value="5">5 Year</option>
-                                        <option value="6">6 Year</option>
-                                        <option value="7">7 Year</option>
-                                        <option value="8">8 Year</option>
-                                        <option value="9">9 Year</option>
-                                        <option value="10">10 Year</option>
-                                        <option value="11">11 Year </option>
-                                        <option value="12">12 Year </option>
-                                        <option value="13">13 Year </option>
-                                        <option value="14">14 Year </option>
-                                        <option value="15">15 Year </option>
-                                        <option value="16">16 Year </option>
-                                        <option value="17">17 Year </option>
-                                        <option value="18">18 Year </option>
-                                        <option value="19">19 Year </option>
-                                        <option value="20">20 Year </option>
+
+                                        <option value="" selected option disabled>Year</option>
+                                    
+                                       <option value="0" <?php if($postdata[0]['max_year']=="0") echo 'selected="selected"'; ?>>0 Year</option>
+                                    <option value="1" <?php if($postdata[0]['max_year']=="1") echo 'selected="selected"'; ?>>1 Year</option>
+                                    <option value="2" <?php if($postdata[0]['max_year']=="2") echo 'selected="selected"'; ?>>2 Year</option>
+                                    <option value="3" <?php if($postdata[0]['max_year']=="3") echo 'selected="selected"'; ?>>3 Year</option>
+                                    <option value="4" <?php if($postdata[0]['max_year']=="4") echo 'selected="selected"'; ?>>4 Year</option>
+                                    <option value="5" <?php if($postdata[0]['max_year']=="5") echo 'selected="selected"'; ?>>5 Year</option>
+                                    <option value="6" <?php if($postdata[0]['max_year']=="6") echo 'selected="selected"'; ?>>6 Year</option>
+                                    <option value="7" <?php if($postdata[0]['max_year']=="7") echo 'selected="selected"'; ?>>7 Year</option>
+                                    <option value="8" <?php if($postdata[0]['max_year']=="8") echo 'selected="selected"'; ?>>8 Year</option>
+                                    <option value="9" <?php if($postdata[0]['max_year']=="9") echo 'selected="selected"'; ?>>9 Year</option>
+                                    <option value="10" <?php if($postdata[0]['max_year']=="10") echo 'selected="selected"'; ?>>10 Year</option>
+                                    <option value="11" <?php if($postdata[0]['max_year']=="11") echo 'selected="selected"'; ?>>11 Year</option>
+                                    <option value="12" <?php if($postdata[0]['max_year']=="12") echo 'selected="selected"'; ?>>12 Year</option>
+                                    <option value="13" <?php if($postdata[0]['max_year']=="13") echo 'selected="selected"'; ?>>13 Year</option>
+                                    <option value="14" <?php if($postdata[0]['max_year']=="14") echo 'selected="selected"'; ?>>14 Year</option>
+                                    <option value="15" <?php if($postdata[0]['max_year']=="15") echo 'selected="selected"'; ?>>15 Year</option>
+                                    <option value="16" <?php if($postdata[0]['max_year']=="16") echo 'selected="selected"'; ?>>16 Year</option>
+                                    <option value="17" <?php if($postdata[0]['max_year']=="17") echo 'selected="selected"'; ?>>17 Year</option>
+                                    <option value="18" <?php if($postdata[0]['max_year']=="18") echo 'selected="selected"'; ?>>18 Year</option>
+                                    <option value="19" <?php if($postdata[0]['max_year']=="19") echo 'selected="selected"'; ?>>19 Year</option>
+                                    <option value="20" <?php if($postdata[0]['max_year']=="20") echo 'selected="selected"'; ?>>20 Year</option>
                                     </select>
 
                                       
 
                                     <select style="cursor:pointer;" name="maxmonth" id="maxmonth" class="keyskil1 margin-month ">
-                                        <option  value="<?php echo $postdata[0]['max_month']; ?>"><?php echo $postdata[0]['max_month']; ?> Month</option>
-                                        <option value="0">0 Month</option>
-                                        <option value="1">1 Month</option>
-                                        <option value="2">2 Month</option>
-                                        <option value="3">3 Month</option>
-                                        <option value="4">4 Month</option>
-                                        <option value="5">5 Month</option>
-                                        <option value="6">6 Month</option>
+                                       
+
+                                         <option value="" selected option disabled>Month</option>
+
+                                  <option value="0" <?php if($postdata[0]['max_month']=="0") echo 'selected="selected"'; ?>>0 Month</option>
+                                   <option value="1" <?php if($postdata[0]['max_month']=="1") echo 'selected="selected"'; ?>>1 Month</option>
+                                  <option value="2" <?php if($postdata[0]['max_month']=="2") echo 'selected="selected"'; ?>>2 Month</option>
+                                  <option value="3" <?php if($postdata[0]['max_month']=="3") echo 'selected="selected"'; ?>>3 Month</option>
+                                  <option value="4" <?php if($postdata[0]['max_month']=="4") echo 'selected="selected"'; ?>>4 Month</option>
+                                   <option value="5" <?php if($postdata[0]['max_month']=="5") echo 'selected="selected"'; ?>>5 Month</option>
+                                  <option value="6"<?php if($postdata[0]['max_month']=="6") echo 'selected="selected"'; ?>>6 Month</option>
                                     </select>
 
                                    <span id="fullname-error"></span>
@@ -352,6 +361,8 @@
                                       <fieldset class=" col-md-4 pad_right"> 
                      <label>Currency:</label>
                             <select name="currency" id="currency">
+                               <option value="" selected option disabled>Select Currency</option>
+                                 
                             <?php if(count($currency) > 0){
                             foreach($currency as $cur){ 
 
@@ -460,7 +471,16 @@ function imgval(){
 
 
 $.validator.addMethod("regx", function(value, element, regexpr) {          
-    return regexpr.test(value);
+    //return value == '' || value.trim().length != 0; 
+     if(!value) 
+            {
+                return true;
+            }
+            else
+            {
+                  return regexpr.test(value);
+            }
+     // return regexpr.test(value);
 }, "Only space, only number and only special characters are not allow");
 
 jQuery.validator.addMethod("noSpace", function(value, element) { 
@@ -578,7 +598,8 @@ jQuery.noConflict();
                        
                         post_name: {
                             
-                            required: true
+                            required: true,
+                             regx:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/
                             
                         },
                           'skills[]': {
@@ -590,7 +611,7 @@ jQuery.noConflict();
                         other_skill: {
                             
                            require_from_group: [1, ".skill_other"],
-                          noSpace: true
+                           regx:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/
                             // required:true 
                         },
                         position:{
@@ -613,7 +634,7 @@ jQuery.noConflict();
                          post_desc: {
 
                             required: true,
-                            regx:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]/
+                           regx:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/
                            
                         },
                          country: {
@@ -912,7 +933,7 @@ window.onclick = function(event) {
 </script>
 
 <!-- Calender JS Start-->
-<script src="<?php //echo base_url('js/jquery.js'); ?>"></script>
+<script src="<?php echo base_url('js/jquery.js'); ?>"></script>
  <script src="<?php echo base_url('js/jquery.datetimepicker.full.js'); ?>"></script>
 <script type="text/javascript">
 $('#datepicker').datetimepicker({
