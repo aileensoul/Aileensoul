@@ -822,13 +822,10 @@
                                     <img alt=""  src="<?php echo base_url(NOIMAGE); ?>" alt="" />
                                 <?php } ?>
                             </div>
-                            <div id="myBtn1"  class="editor-content col-md-10 popup-text"   >
+                            <div id="myBtn1"  class="editor-content col-md-11 popup-text"   >
                                 <span>Post Your Product....</span>
 
                             </div>
-
-                              <div class="col-md-1 padding-left camer_h" ><i class=" fa fa-camera " ></i> </div>
-
                         </div>
 
                     </div>
@@ -1093,20 +1090,12 @@
 
   <?php if($row['product_name'] || $row['product_description']){?>
 
-<<<<<<< HEAD
-
-                                            <div class="post-design-desc ">
-                                                <div id="<?php echo 'editpostdata' . $row['business_profile_post_id']; ?>" style="display:block;">
-                                                    <a  ><?php echo $this->common->make_links($row['product_name']); ?></a>
-                                                </div>
-=======
                                             <div class="post-design-desc ">
                 <?php }?>                          
                                                 <div id="<?php echo 'editpostdata' . $row['business_profile_post_id']; ?>" style="display:block;">
                                                     <a  ><?php echo $this->common->make_links($row['product_name']); ?></a>
                                                 </div>
                                                 
->>>>>>> 4efe90f6425b7012106c45be957402c1611058fb
 
                                                 <div id="<?php echo 'editpostbox' . $row['business_profile_post_id']; ?>" style="display:none;">
                                                     <input type="text" id="<?php echo 'editpostname' . $row['business_profile_post_id']; ?>" name="editpostname" placeholder="Product Name" value="<?php echo $row['product_name']; ?>">
