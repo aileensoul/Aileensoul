@@ -156,7 +156,7 @@
 
 <div id="preloader"></div>
 
-    <section style="overflow:auto;">
+    <section>
 
         <div class="user-midd-section" id="paddingtop_fixed_job">
 
