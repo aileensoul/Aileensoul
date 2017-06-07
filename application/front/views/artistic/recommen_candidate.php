@@ -11,9 +11,9 @@
 <script src="<?php echo base_url() ?>js/themes/explorer/theme.js" type="text/javascript"></script>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
-<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/demo.css'); ?>">
 
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/demo.css'); ?>">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
 
     <!-- start header -->
 <?php echo $header; ?>
@@ -541,7 +541,7 @@ if($status == 0 || $status == " "){?>
                                         </div>
                                         <div class="post-design-like-box col-md-12" style="border: none;">
                                             <div class="post-design-menu">
-                                                <ul>
+                                                <ul class="col-md-6">
 
                                                     <li class="<?php echo 'likepost' . $key['art_post_id']; ?>">
                                                         <a id="<?php echo $key['art_post_id']; ?>" onClick="post_like(this.id)">
@@ -581,7 +581,21 @@ if($status == 0 || $status == " "){?>
                                                         </a>
                                                     </li>
                                                 </ul>
+ <ul class="col-md-6 like_cmnt_count">
 
+<li>
+<div class="like_count_ext">
+<span > 5 </span> 
+<span> Comment</span>
+</div>
+</li>
+
+<li>
+<div class="comnt_count_ext">
+<span> 5 </span> 
+<span> Like</span>
+</div></li>
+                                        </ul>
                                             </div>
                                         </div>
                                                                                 <?php
@@ -912,7 +926,7 @@ if($status == 0 || $status == " "){?>
                     <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
                     <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
                     <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+                  
 
 
 <script src="<?php echo base_url('js/jquery.highlite.js'); ?>"></script>
@@ -939,7 +953,7 @@ if($status == 0 || $status == " "){?>
 <script>
 
                                                 var data = <?php echo json_encode($demo); ?>;
-                                               // alert(data);
+                                             //  alert(data);
 
 
                                                 $(function () {
@@ -967,6 +981,39 @@ if($status == 0 || $status == " "){?>
                                                 });
 
                     </script>
+
+                    <script>
+
+                                                var data1 = <?php echo json_encode($de); ?>;
+                                              // alert(data1);
+
+
+                                                $(function () {
+                                                    // alert('hi');
+                                                    $("#searchplace").autocomplete({
+                                                        source: function (request, response) {
+                                                            var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+                                                            response($.grep(data1, function (item) {
+                                                                return matcher.test(item.label);
+                                                            }));
+                                                        },
+                                                        minLength: 1,
+                                                        select: function (event, ui) {
+                                                            event.preventDefault();
+                                                            $("#searchplace").val(ui.item.label);
+                                                            $("#selected-tag").val(ui.item.label);
+                                                            // window.location.href = ui.item.value;
+                                                        }
+                                                        ,
+                                                        focus: function (event, ui) {
+                                                            event.preventDefault();
+                                                            $("#searchplace").val(ui.item.label);
+                                                        }
+                                                    });
+                                                });
+
+                    </script>
+
                     <script type="text/javascript">
                         function checkvalue() {
                             //alert("hi");
@@ -980,7 +1027,7 @@ if($status == 0 || $status == " "){?>
                             }
                         }
                     </script>
-                    <script>
+                    <!-- <script>
                         //select2 autocomplete start for skill
                         $('#searchskills').select2({
 
@@ -1037,7 +1084,7 @@ if($status == 0 || $status == " "){?>
 
                     </script>
 <!-- popup form edit start -->
-
+ -->
                     <script>
                         // Get the modal
                         var modal = document.getElementById('myModal');
@@ -1629,7 +1676,7 @@ if($status == 0 || $status == " "){?>
 
                     <!--comment edit box end-->
 <!-- comment edit insert start -->
-                    <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
+                    <!-- <script src="<?php //echo base_url('js/bootstrap.min.js'); ?>"></script> -->
                     <script type="text/javascript">
                         //                        function edit_comment(abc)
                         //                        {
@@ -2176,7 +2223,7 @@ if($status == 0 || $status == " "){?>
 
                     <!-- save post end -->
 <!-- remove save post start -->
-                    <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
+                    <!-- <script src="<?php //echo base_url('js/bootstrap.min.js'); ?>"></script> -->
 
                     <script type="text/javascript">
 

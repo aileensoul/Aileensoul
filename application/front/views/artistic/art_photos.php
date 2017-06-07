@@ -358,7 +358,7 @@
                                                 <?php
                                                 $i++;
                                             }
-                                            ?>
+                                            ?>x
                                         </div>
 <?php } else { ?>
                                         <div class="main_pdf_box"  >
@@ -750,7 +750,7 @@
                                             <!-- khyati chnages end-->
                                         </div>
 
-                                        <a class="prev" style="left: 5;" onclick="plusSlides(-1)">&#10094;</a>
+                                        <a class="prev" style="left: 230px;" onclick="plusSlides(-1)">&#10094;</a>
                                         <a class="next" onclick="plusSlides(1)">&#10095;</a>
 
                                         <div class="caption-container">

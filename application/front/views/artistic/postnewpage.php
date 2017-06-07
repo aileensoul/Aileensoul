@@ -3,7 +3,8 @@
 <?php echo $head; ?>
 
 <style type="text/css">
-    .imge_psot{width: 100%; text-align: center;}
+  /*  .imge_psot{width: 100%; text-align: center;}*/
+  .imge_psot img {height: 70%; width: 100%;}
 </style>
 
 <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
@@ -429,7 +430,7 @@
                                                         <div class="post-design-like-box col-md-12">
                                                             <div class="post-design-menu">
                                                                 <!-- like comment div start -->
-                                                                <ul>
+                                                                <ul class="col-md-6">
 
                                                                     <li class="<?php echo 'likepostimg' . $artdata['image_id']; ?>">
                                                                         <a id="<?php echo $artdata['image_id']; ?>" onClick="post_likeimg(this.id)">
@@ -478,6 +479,21 @@
                                                                         </a>
                                                                     </li>
                                                                 </ul>
+                                                                 <ul class="col-md-6 like_cmnt_count">
+
+<li>
+<div class="like_count_ext">
+<span > 5 </span> 
+<span> Comment</span>
+</div>
+</li>
+
+<li>
+<div class="comnt_count_ext">
+<span> 5 </span> 
+<span> Like</span>
+</div></li>
+                                        </ul>
                                                                 <!-- like comment div end -->
                                                             </div>
                                                         </div>
@@ -764,7 +780,7 @@
                                             ?>
                                             <!-- slider image rotation end  -->
 
-                                            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                                            <a class="prev" style="left: 0;" onclick="plusSlides(-1)">&#10094;</a>
                                             <a class="next" onclick="plusSlides(1)">&#10095;</a>
                                             <div class="caption-container">
                                                 <p id="caption"></p>
@@ -778,7 +794,7 @@
 
                                 <div class="post-design-like-box col-md-12">
                                     <div class="post-design-menu">
-                                        <ul>
+                                        <ul class="col-md-6">
                                             <li class="<?php echo 'likepost' . $art_data[0]['art_post_id']; ?>">
                                                 <a title="Like" id="<?php echo $art_data[0]['art_post_id']; ?>"   onClick="post_like(this.id)">
                                                     <?php
@@ -818,6 +834,21 @@
                                                     </i> 
                                                 </a>
                                             </li>
+                                        </ul>
+                                         <ul class="col-md-6 like_cmnt_count">
+
+<li>
+<div class="like_count_ext">
+<span > 5 </span> 
+<span> Comment</span>
+</div>
+</li>
+
+<li>
+<div class="comnt_count_ext">
+<span> 5 </span> 
+<span> Like</span>
+</div></li>
                                         </ul>
                                     </div>
                                 </div>

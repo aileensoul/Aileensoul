@@ -417,8 +417,9 @@
  <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
 <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
           
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/3.3.0/select2.js"></script>
+<script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
+
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/3.3.0/select2.js"></script>
 
 <script type="text/javascript" src="<?php echo base_url('js/jquery.validate1.15.0..min.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('js/additional-methods1.15.0.min.js'); ?>"></script>
@@ -765,7 +766,7 @@ jQuery.noConflict();
   </script>
 
    <!-- popup form edit start -->
-   <script type="text/javascript">
+   <!-- <script type="text/javascript">
 //select2 autocomplete start for skill
 
 jQuery.noConflict();
@@ -826,7 +827,7 @@ jQuery.noConflict();
     })(jQuery);
 //select2 autocomplete End for Location
 </script>
-
+ -->
   
 <script>
 jQuery.noConflict();
@@ -862,6 +863,41 @@ jQuery.noConflict();
     })(jQuery);
 
 </script>
+<script>
+jQuery.noConflict();
+
+                (function ($) {
+   var data1 = <?php echo json_encode($de); ?>;
+// alert(data);
+
+
+   $(function () {
+       // alert('hi');
+       $("#searchplace").autocomplete({
+           source: function (request, response) {
+               var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+               response($.grep(data1, function (item) {
+                   return matcher.test(item.label);
+               }));
+           },
+           minLength: 1,
+           select: function (event, ui) {
+               event.preventDefault();
+               $("#searchplace").val(ui.item.label);
+               $("#selected-tag").val(ui.item.label);
+               // window.location.href = ui.item.value;
+           }
+           ,
+           focus: function (event, ui) {
+               event.preventDefault();
+               $("#searchplace").val(ui.item.label);
+           }
+       });
+   });
+    })(jQuery);
+
+</script>
+
 
 
 <script type="text/javascript">

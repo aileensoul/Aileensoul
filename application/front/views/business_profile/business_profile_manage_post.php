@@ -822,10 +822,14 @@
                                     <img alt=""  src="<?php echo base_url(NOIMAGE); ?>" alt="" />
                                 <?php } ?>
                             </div>
-                            <div id="myBtn1"  class="editor-content col-md-11 popup-text"   >
+                            <div id="myBtn1"  class="editor-content col-md-10 popup-text">
                                 <span>Post Your Product....</span>
 
                             </div>
+                            <div class="col-md-1 padding-left padding_les_left camer_h">
+                                        <i class=" fa fa-camera">
+                                        </i> 
+                                    </div>
                         </div>
 
                     </div>
@@ -1088,12 +1092,14 @@
                                             </div>
 
 
-
+  <?php if($row['product_name'] || $row['product_description']){?>
 
                                             <div class="post-design-desc ">
+                <?php }?>                          
                                                 <div id="<?php echo 'editpostdata' . $row['business_profile_post_id']; ?>" style="display:block;">
                                                     <a  ><?php echo $this->common->make_links($row['product_name']); ?></a>
                                                 </div>
+                                                
 
                                                 <div id="<?php echo 'editpostbox' . $row['business_profile_post_id']; ?>" style="display:none;">
                                                     <input type="text" id="<?php echo 'editpostname' . $row['business_profile_post_id']; ?>" name="editpostname" placeholder="Product Name" value="<?php echo $row['product_name']; ?>">
@@ -1126,7 +1132,10 @@
 
 
                                             </div> 
+                                            <?php if($row['product_name'] || $row['product_description']){?>
                                         </div>
+                                       <?php } ?>
+                                      
 
 
                                         <div class="post-design-mid col-md-12" >  
@@ -1311,7 +1320,7 @@
                                         </div>
                                         <div class="post-design-like-box col-md-12">
                                             <div class="post-design-menu">
-                                                <ul>
+                                                <ul class="col-md-6">
                                                     <li class="<?php echo 'likepost' . $row['business_profile_post_id']; ?>">
                                                         <a id="<?php echo $row['business_profile_post_id']; ?>"   onClick="post_like(this.id)">
                                                             <?php
@@ -1359,7 +1368,21 @@
                                                         </a>
                                                     </li> 
                                                 </ul>
+  <ul class="col-md-6 like_cmnt_count">
 
+<li>
+<div class="like_count_ext">
+<span > 5 </span> 
+<span> Comment</span>
+</div>
+</li>
+
+<li>
+<div class="comnt_count_ext">
+<span> 5 </span> 
+<span> Like</span>
+</div></li>
+                                        </ul>
                                             </div>
                                         </div>
 

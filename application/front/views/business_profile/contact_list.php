@@ -99,29 +99,39 @@
 
                     </div>  
                     <div class="all-list">
-                        <ul>
-                            <?php foreach($friendlist as $friend){ 
+                        <ul  id="contactlist">
+                            <?php
+                            if($friendlist){
+                                foreach($friendlist as $friend){ 
                    $inddata = $this->common->select_data_by_id('industry_type', 'industry_id', $friend['industriyal'], $data = '*', $join_str = array()); ?>
-                   <a href="<?php echo base_url('business_profile/business_profile_manage_post/'.$friend['business_slug']); ?>"> 
-                            <li>
+                   
+                            <li id="<?php echo  $friend['contact_from_id']; ?>">
                                 <div class="list-box">
                                     <div class="profile-img">
-                                        <img src="http://localhost/aileensoul/uploads/user_profile/thumbs/images_(4).jpg">
+                                         <?php if($friend['business_user_image'] != ''){ ?>
+                           <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $friend['business_user_image']);?>">
+                            <?php } else { ?>
+                            <img src="<?php echo base_url(NOIMAGE); ?>" />
+                            <?php } ?>
+                                        <!--<img src="http://localhost/aileensoul/uploads/user_profile/thumbs/images_(4).jpg">-->
                                     </div>
                                     <div class="profile-content">
-<!--                                       <a href="#">-->
+                                      <a href="<?php echo base_url('business_profile/business_profile_manage_post/'.$friend['business_slug']); ?>">
                                            <h5><?php echo $friend['company_name']; ?></h5>
                                         <p><?php echo $inddata[0]['industry_name']; ?></p>
-<!--                                        </a>-->
+                                        </a>
                                         <p class="connect-link">
-                                            <!--<a href="#">-->
-                                                Connect
-                                            <!--</a>-->
+                                           <a href="#" onclick = "return contactapprove(<?php echo  $friend['contact_from_id']; ?>,1);"><i class="fa fa-check" aria-hidden="true"></i></a>
+                                           <a href="#" onclick = "return contactapprove(<?php echo  $friend['contact_from_id']; ?>,0);"><i class="fa fa-times" aria-hidden="true"></i></a>
                                         </p>
                                     </div>
                                 </div>
                             </li>
-                   </a>
+           
+                            <?php }}else{ ?>
+                            
+                            No contacts available...
+                            
                             <?php } ?>
                         </ul>
                     </div>        
@@ -169,4 +179,39 @@
 <!-- BEGIN FOOTER -->
 <!-- BEGIN INNER FOOTER -->
 <?php echo $footer; ?>
-    
+
+<!-- script for update all read notification start-->
+<script type="text/javascript">
+
+
+    function contactperson() {
+
+        $.ajax({
+            url: "<?php echo base_url(); ?>business_profile/contact_notification",
+            type: "POST",
+            success: function (data) {
+               
+                $('#addcontactBody').html(data);
+               
+            }
+        });
+
+    }
+     
+     function contactapprove(toid,status) {
+      
+        $.ajax({
+                url: "<?php echo base_url(); ?>business_profile/contact_list_approve",
+                type: "POST",
+                data: 'toid=' + toid + '&status=' + status,
+                success: function (data) {
+               //document.getElementById(toid).remove();
+                     $('#contactlist').html(data);
+                  
+                }
+            });
+
+        }
+
+</script>
+<!-- script for update all read notification end -->
