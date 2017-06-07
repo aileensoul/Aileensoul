@@ -2,7 +2,9 @@
 <!-- start head -->
 <?php echo $head; ?>
 
-
+<style type="text/css">
+    .imge_psot{width: 100%; text-align: center;}
+</style>
 
 <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
 
@@ -418,8 +420,8 @@
                                                 ?>
                                                 <div class="mySlides">
                                                     <div class="numbertext"><?php echo $i ?> / <?php echo count($databus1) ?></div>
-                                                    <div>
-                                                        <img src="<?php echo base_url($this->config->item('art_post_main_upload_path') . $artdata['image_name']) ?>" style="width:100%; height: 70%;">
+                                                    <div class="imge_psot">
+                                                        <img src="<?php echo base_url($this->config->item('art_post_main_upload_path') . $artdata['image_name']) ?>">
                                                     </div>
                                                     <!-- 9-5 like comment start -->
 
@@ -762,7 +764,7 @@
                                             ?>
                                             <!-- slider image rotation end  -->
 
-                                            <a class="prev" style="left: 10" onclick="plusSlides(-1)">&#10094;</a>
+                                            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
                                             <a class="next" onclick="plusSlides(1)">&#10095;</a>
                                             <div class="caption-container">
                                                 <p id="caption"></p>
