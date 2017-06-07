@@ -736,7 +736,7 @@
                     </div>
                     <!-- popup end -->
                 </div>
-                <div class="col-md-7 col-sm-7 col-md-push-4">
+                <div class="col-md-7 col-sm-7 col-md-push-4 right-section">
 
 
 
