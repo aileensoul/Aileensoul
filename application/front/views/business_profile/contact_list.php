@@ -100,111 +100,29 @@
                     </div>  
                     <div class="all-list">
                         <ul>
+                            <?php foreach($friendlist as $friend){ 
+                   $inddata = $this->common->select_data_by_id('industry_type', 'industry_id', $friend['industriyal'], $data = '*', $join_str = array()); ?>
+                   <a href="<?php echo base_url('business_profile/business_profile_manage_post/'.$friend['business_slug']); ?>"> 
                             <li>
                                 <div class="list-box">
                                     <div class="profile-img">
                                         <img src="http://localhost/aileensoul/uploads/user_profile/thumbs/images_(4).jpg">
                                     </div>
                                     <div class="profile-content">
-                                       <a href="#"><h5>Contact Name</h5>
-                                        <p>Lorem ipsum is a dummy text. That we use as a demo text.</p>
-                                        </a>
+<!--                                       <a href="#">-->
+                                           <h5><?php echo $friend['company_name']; ?></h5>
+                                        <p><?php echo $inddata[0]['industry_name']; ?></p>
+<!--                                        </a>-->
                                         <p class="connect-link">
-                                            <a href="#">Connect</a>
+                                            <!--<a href="#">-->
+                                                Connect
+                                            <!--</a>-->
                                         </p>
                                     </div>
                                 </div>
                             </li>
-                            <li>
-                                <div class="list-box">
-                                    <div class="profile-img">
-                                        <img src="http://localhost/aileensoul/uploads/user_profile/thumbs/images_(4).jpg">
-                                    </div>
-                                    <div class="profile-content">
-                                        <a href="#"><h5>Contact Name</h5>
-                                        <p>Lorem ipsum is a dummy text. That we use as a demo text.</p>
-                                        </a>
-                                        <p class="connect-link">
-                                            <a href="#">Connect</a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="list-box">
-                                    <div class="profile-img">
-                                        <img src="http://localhost/aileensoul/uploads/user_profile/thumbs/images_(4).jpg">
-                                    </div>
-                                    <div class="profile-content">
-                                        <a href="#"><h5>Contact Name</h5>
-                                        <p>Lorem ipsum is a dummy text. That we use as a demo text.</p>
-                                        </a>
-                                        <p class="connect-link">
-                                            <a href="#">Connect</a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="list-box">
-                                    <div class="profile-img">
-                                        <img src="http://localhost/aileensoul/uploads/user_profile/thumbs/images_(4).jpg">
-                                    </div>
-                                    <div class="profile-content">
-                                        <a href="#"><h5>Contact Name</h5>
-                                        <p>Lorem ipsum is a dummy text. That we use as a demo text.</p>
-                                        </a>
-                                        <p class="connect-link">
-                                            <a href="#">Connect</a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="list-box">
-                                    <div class="profile-img">
-                                        <img src="http://localhost/aileensoul/uploads/user_profile/thumbs/images_(4).jpg">
-                                    </div>
-                                    <div class="profile-content">
-                                        <a href="#"><h5>Contact Name</h5>
-                                        <p>Lorem ipsum is a dummy text. That we use as a demo text.</p>
-                                        </a>
-                                        <p class="connect-link">
-                                            <a href="#">Connect</a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="list-box">
-                                    <div class="profile-img">
-                                        <img src="http://localhost/aileensoul/uploads/user_profile/thumbs/images_(4).jpg">
-                                    </div>
-                                    <div class="profile-content">
-                                        <a href="#"><h5>Contact Name</h5>
-                                        <p>Lorem ipsum is a dummy text. That we use as a demo text.</p>
-                                        </a>
-                                        <p class="connect-link">
-                                            <a href="#">Connect</a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="list-box">
-                                    <div class="profile-img">
-                                        <img src="http://localhost/aileensoul/uploads/user_profile/thumbs/images_(4).jpg">
-                                    </div>
-                                    <div class="profile-content">
-                                        <a href="#"><h5>Contact Name</h5>
-                                        <p>Lorem ipsum is a dummy text. That we use as a demo text.</p>
-                                        </a>
-                                        <p class="connect-link">
-                                            <a href="#">Connect</a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </li>
+                   </a>
+                            <?php } ?>
                         </ul>
                     </div>        
                 </div>

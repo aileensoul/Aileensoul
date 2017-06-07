@@ -316,7 +316,7 @@ if ($status == 0 || $status == " ") {
 
                                                   <div class="all-box">
                                             <ul class="audio-sec"> 
-                                               <li>
+                                              <!--  <li>
                                                     
                                                 </li>
                                                 <li>
@@ -337,13 +337,8 @@ if ($status == 0 || $status == " ") {
 
                                                 <li>
                                                   
-                                                </li>
-                                            </ul>
-                                        </div>
-                              <!--   <div class="add_audio"> -->
-                                 <div class="vidoe_tag">
-       
-                                  <?php
+                                                </li> -->
+                                                                          <?php
 
           $contition_array = array('user_id' => $artisticdata[0]['user_id']);
          $artaudio = $this->data['artaudio'] = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -380,15 +375,17 @@ if ($status == 0 || $status == " ") {
                 foreach ($singlearray2 as $audiov) {
                   
                  ?>
+                 <li>
 
                             <audio controls>
                             <source src="<?php echo base_url($this->config->item('art_post_main_upload_path').$audiov['image_name'])?>" type="audio/ogg">
                             <source src="movie.ogg" type="audio/mpeg">
                            Your browser does not support the audio tag.
                             </audio>
+                            </li>
 
                <?php } } else{?>
-             
+             <li class="no-audio">
       <div class="not_img">
                 <div class="not_avali" >
                                 <img src="<?php echo base_url('images/color_008.png'); ?>"  >
@@ -397,8 +394,15 @@ if ($status == 0 || $status == " ") {
                                </div>
                                </div>
                                </div>
+                               </li>
               
                <?php }?>             
+                                            </ul>
+                                        </div>
+                              <!--   <div class="add_audio"> -->
+                                 <div class="vidoe_tag">
+       
+        
       
                          </div>
 </div>

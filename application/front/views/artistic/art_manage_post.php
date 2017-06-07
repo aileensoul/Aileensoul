@@ -844,11 +844,21 @@
 
                                                     <?php if ($row['posted_user_id']) { ?>
                                                         <a  class="post_dot" title="<?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?>" href="<?php echo base_url('artistic/art_manage_post/' . $row['posted_user_id']); ?>">
+                                                        <img alt=""  src="<?php echo base_url(NOIMAGE); ?>" alt="" />
                                                             <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $userimageposted); ?>" name="image_src" id="image_src" /> </a>
 
                                                     <?php } else { ?>
+
+
                                                         <a class="post_dot"  href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>">
-                                                            <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $userimage); ?>" name="image_src" id="image_src" /> </a>
+                                                         <?php
+                            if ($artisticdata[0]['art_user_image']) {
+                                ?>
+                                <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $userimage); ?>" name="image_src" id="image_src" />
+                                  <?php } else { ?>
+                                <img alt=""  src="<?php echo base_url(NOIMAGE); ?>" alt="" />
+                            <?php } ?>
+                                                            </a>
 
                                                     <?php } ?>
                                                 </div>
@@ -994,11 +1004,13 @@
 
                                                             <!-- one image start -->
                                                             <div id="basic-responsive-image" >
-                                                                <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img src="<?php echo base_url(ARTPOSTIMAGE . $artmultiimage[0]['image_name']) ?>" > </a>
+                                                                <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $artmultiimage[0]['image_name']) ?>" > </a>
+
+                                           
                                                             </div>
                                                             <!-- one image end -->
 
-                <?php } elseif (in_array($ext, $allowespdf)) { ?>
+              <?php } elseif (in_array($ext, $allowespdf)) { ?>
 
                                                             <!-- one pdf start -->
                                                             <div id="basic-responsive-image" >

@@ -1338,7 +1338,7 @@ fieldset.full-width {
 }
 .hs-submit input[type=submit]:hover {
     opacity: 0.8;
-    background-color: #1b8ab9;
+    background-color: #156f95!important;
 }
 .hs-submit a {
     background: #1b8ab9;
@@ -5217,8 +5217,8 @@ label.cameraButton input[accept*="camera"] {
     display: inline-block;
 }
 .post-design-product .span_main_name {
-    color: #000;
-    font-size: 18px;
+    color: #1b8ab9;
+    font-size: 16px;
 }
 .post-design-name {
     padding-left: 0;
@@ -5279,7 +5279,7 @@ label.cameraButton input[accept*="camera"] {
     /*
     margin-bottom: 10px;*/
     
-    border-bottom: 2px solid #d9d9d9;
+    border-bottom: 1px solid #d9d9d9;
 }
 .dropbtn {
     color: white;
@@ -6876,7 +6876,7 @@ body.modal-open {
     height: 160px;
     width: 80%;
     background-color: #fff;
-    margin-top: 26%;
+    margin-top: 16%;
     border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 0px 0px 20px 2px #bfbfbf;
@@ -7383,12 +7383,14 @@ input:-moz-placeholder {
 
 .prev,
 .next {
+  
+    transform: translate(0, -50%);
     cursor: pointer;
     position: absolute;
-    top: 220px !important;
+    top: 50% !important;
     width: auto;
     padding: 16px;
-    margin-top: -50px;
+    /* margin-top: -50px; */
     color: white;
     font-weight: bold;
     font-size: 20px;
@@ -7416,8 +7418,11 @@ input:-moz-placeholder {
 /* Position the "next button" to the right */
 
 .next {
+    background-color: #000;
     right: 0;
     border-radius: 3px 0 0 3px;
+}
+.prev{background-color: #000;
 }
 /* On hover, add a black background color with a little bit see-through */
 
@@ -8175,7 +8180,7 @@ paginatiom*/
     filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#f9f9f9', endColorstr='#e9e9e9', GradientType=0);
     background-color: #808080;
     color: black;
-    margin-bottom: 10px;
+    /*margin-bottom: 10px;*/
     font-size: 19px;
     font-weight: 600;
     padding: 3px;
@@ -8643,7 +8648,7 @@ label.cameraButton input[accept*="camera"] {
 /*.ml-4{margin-left: 4px!important;}*/
 
 fieldset .add_post_btns:hover {
-    background-color: #156f95!important
+    background-color: #156f95!important;
 }
 .job-profile-left-side-bar .left-side-bar ul li.active a:hover {
     background-color: #156f95
@@ -9001,6 +9006,10 @@ fieldset .add_post_btns:hover {
     width: 100%;
     height: 100%;
 }
+.no-audio{
+    background:none !important;
+    padding: 0 !important;
+}
 /*** css jay  ***/
 
 .profile-job-post-detail .profile-job-post-title .button {
@@ -9013,6 +9022,9 @@ fieldset .add_post_btns:hover {
 }
 .like_As_count {
     display: none;
+}
+.audio-sec li audio{
+    width:100%;
 }
 
 .notification-database:hover{
@@ -9042,3 +9054,18 @@ fieldset .add_post_btns:hover {
     background: #1b8ab9 !important;
     color: #fff !important;
 }
+
+.common-form .job-saved-box {border:none;}
+
+.user_btn button:hover{-webkit-transform: none;
+    transform: none;
+    background: -webkit-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 100%);
+    background: -moz-linear-gradient(top, #e9e9e9 5%, #f9f9f9 100%);
+    background: -webkit-linear-gradient(top, #e9e9e9 5%, #f9f9f9 100%);
+    background: -o-linear-gradient(top, #e9e9e9 5%, #f9f9f9 100%);
+    background: -ms-linear-gradient(top, #e9e9e9 5%, #f9f9f9 100%);
+    background: linear-gradient(to bottom, #e9e9e9 5%, #f9f9f9 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#e9e9e9', endColorstr='#f9f9f9', GradientType=0);
+    background-color: #e9e9e9;
+    color: #1b8ab9;}
+.bg_following:hover{background-color: #156f95 !important;}
