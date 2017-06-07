@@ -50,10 +50,11 @@
         <script>
             $(function () {
 //                var showTotalChar = 150, showChar = "More", hideChar = "less";
-                var showTotalChar = 250, showChar = "More", hideChar = "";
+                var showTotalChar = 180, showChar = "More", hideChar = "";
                 $('.show').each(function () {
-                    //var content = $(this).text();
+                   // var content = $(this).text();
                     var content = $(this).html();
+                    content = content.replace(/ /g,'');
                     if (content.length > showTotalChar) {
                         var con = content.substr(0, showTotalChar);
                         var hcon = content.substr(showTotalChar, content.length - showTotalChar);
@@ -197,13 +198,13 @@
                                         </div>
                                         <div class="profile-box-user  profile-text-bui-user  fr col-md-9">
                                             <span class="profile-company-name ">
-                                                <a style="margin-left: 3px;" href="<?php echo base_url('business_profile/business_profile_manage_post/'); ?> " title="<?php echo ucwords($businessdata[0]['company_name']); ?>"> 
+                                                <a class="ml-4" href="<?php echo base_url('business_profile/business_profile_manage_post/'); ?> " title="<?php echo ucwords($businessdata[0]['company_name']); ?>"> 
                                                     <?php echo ucwords($businessdata[0]['company_name']); ?>
                                                 </a> 
                                             </span>
                                             <?php $category = $this->db->get_where('industry_type', array('industry_id' => $businessdata[0]['industriyal'], 'status' => 1))->row()->industry_name; ?>
                                             <div class="profile-boxProfile-name">
-                                                <a style="padding-left: 4px;" href="<?php echo base_url('business_profile/business_profile_manage_post/'); ?> " title="<?php echo ucwords($businessdata[0]['company_name']); ?>" >
+                                                <a style="padding-left:3px;" href="<?php echo base_url('business_profile/business_profile_manage_post/'); ?> " title="<?php echo ucwords($businessdata[0]['company_name']); ?>" >
                                                     <?php
                                                     if ($category) {
                                                         echo $category;
@@ -661,10 +662,14 @@
                                         <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
                                     <?php } ?>
                                 </div>
-                                <div id="myBtn"  class="editor-content col-md-11 popup-text">
+                                <div id="myBtn"  class="editor-content col-md-10 popup-text">
                                     <span> Post Your Product....
                                     </span> 
                                 </div>
+                                  <div class="col-md-1 padding-left padding_les_left camer_h">
+                                        <i class=" fa fa-camera" >
+                                        </i> 
+                                    </div>
                             </div>
                             <!-- <div class="fr">
                               <a class="button">Post
@@ -1039,7 +1044,7 @@
                                                 </div>
                                                 <div class="post-design-like-box col-md-12">
                                                     <div class="post-design-menu">
-                                                        <ul>
+                                                        <ul class="col-md-6">
                                                             <li class="<?php echo 'likepost' . $row['business_profile_post_id']; ?>">
                                                                 <a id="<?php echo $row['business_profile_post_id']; ?>" class="like_ripple"  onClick="post_like(this.id)">
                                                                     <?php
@@ -1083,6 +1088,21 @@
                                                                 </a>
                                                             </li>
                                                         </ul>
+                                                          <ul class="col-md-6 like_cmnt_count">
+
+<li>
+<div class="like_count_ext">
+<span class="comment_count<?php echo $row['business_profile_post_id']; ?>" > 0 </span> 
+<span> Comment</span>
+</div>
+</li>
+
+<li>
+<div class="comnt_count_ext">
+    <span class="comment_like_count<?php echo $row['business_profile_post_id']; ?>"> 0 </span> 
+<span> Like</span>
+</div></li>
+                                        </ul>
                                                     </div>
                                                 </div>
                                                 <!-- like user list start -->
@@ -1525,10 +1545,11 @@
             success: function (data) {
                 // $('.' + 'likepost' + clicked_id).html(data);
                 //alert(data.like_user_count);
-
+                
                 $('.' + 'likepost' + clicked_id).html(data.like);
                 $('.likeusername' + clicked_id).html(data.likeuser);
-
+                $('.comment_like_count' + clicked_id).html(data.like_user_count);
+                
                 $('.likeduserlist' + clicked_id).hide();
                 if (data.like_user_count == '0') {
                     document.getElementById('likeusername' + clicked_id).style.display = "none";

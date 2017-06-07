@@ -737,10 +737,14 @@
                                 <img alt=""  src="<?php echo base_url(NOIMAGE); ?>" alt="" />
                             <?php } ?>
                         </div>
-                        <div id="myBtn3"  class="editor-content col-md-11 popup-text">
+                        <div id="myBtn3"  class="editor-content col-md-10 popup-text">
                             <span> Post Your Art....</span> 
 
                         </div>
+                        <div class="col-md-1 padding-left padding_les_left camer_h">
+                                <i class=" fa fa-camera" >
+                                </i> 
+                            </div>
                     </div>
 
                 </div>
@@ -1165,7 +1169,7 @@
                                             <div class="post-design-like-box col-md-12">
                                                 <div class="post-design-menu">
                                                     <!-- like comment div start -->
-                                                    <ul>
+                                                    <ul class="col-md-6">
                                                         <li class="<?php echo 'likepost' . $row['art_post_id']; ?>">
                                                             <a title="Like" class="ripple like_h_w" id="<?php echo $row['art_post_id']; ?>" onClick="post_like(this.id)">
 
@@ -1218,6 +1222,21 @@
                                                         </li>
 
                                                     </ul>
+                                                     <ul class="col-md-6 like_cmnt_count">
+
+<li>
+<div class="like_count_ext">
+<span > 5 </span> 
+<span> Comment</span>
+</div>
+</li>
+
+<li>
+<div class="comnt_count_ext">
+<span> 5 </span> 
+<span> Like</span>
+</div></li>
+                                        </ul>
                                                     <!-- like comment div end -->
                                                 </div>
                                             </div>
