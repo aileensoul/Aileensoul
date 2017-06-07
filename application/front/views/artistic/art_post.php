@@ -736,7 +736,7 @@
                     </div>
                     <!-- popup end -->
                 </div>
-                <div class="col-md-7 col-sm-7 col-md-push-4 right-section">
+                <div class="col-md-7 col-sm-7 all-form-content fixed_left">
 
 
 
@@ -1394,17 +1394,6 @@
                                                                                     </span>
                                                                                 </a>
                                                                             </div>
-                                                                     <div class="edit-comment-box">
-                                                                                <div class="inputtype-edit-comment">
-                                                                                    <div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 78%!important;" class="editable_text" name="<?php echo $rowdata['artistic_post_comment_id']; ?>"  id="editcomment<?php echo $rowdata['artistic_post_comment_id']; ?>" placeholder="Enter Your Comment " value= ""  onkeyup="commentedit(<?php echo $rowdata['artistic_post_comment_id']; ?>)"><?php echo $rowdata['comments']; ?></div>
-                                                                                    <span class="comment-edit-button"><button id="<?php echo "editsubmit" . $rowdata['artistic_post_comment_id']; ?>" style="display:none" onClick="edit_comment(<?php echo $rowdata['artistic_post_comment_id']; ?>)">Save</button></span>
-                                                                                </div>
-                                                                            </div>
-
-                                                                            <div class="art-comment-menu-design"> 
-                                                                                <div class="comment-details-menu" id="<?php echo 'likecomment1' . $rowdata['artistic_post_comment_id']; ?>">
-                                                                                    <a id="<?php echo $rowdata['artistic_post_comment_id']; ?>"   onClick="comment_like1(this.id)">
-
 
 
                                                                             <?php

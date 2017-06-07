@@ -414,7 +414,7 @@ ul.nav li:hover li:active {
 
 section {
     width: 100%;
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 /* Ul Li & Ol Li CSS */
 
@@ -9031,3 +9031,14 @@ fieldset .add_post_btns:hover {
      
          
         
+.butt_rec {
+    background: #1b8ab9 !important;
+    color: #fff !important;
+    padding: 10px 35px ;
+    display: inline-block !important;
+    border-radius: 4px ;
+}
+.butt_rec:hover {
+    background: #1b8ab9 !important;
+    color: #fff !important;
+}
