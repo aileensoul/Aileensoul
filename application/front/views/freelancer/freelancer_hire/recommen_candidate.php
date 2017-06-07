@@ -498,7 +498,7 @@
                     </script>
 
 <script>
-                           var data = <?php echo json_encode($city_data); ?>;
+                           var data1 = <?php echo json_encode($city_data); ?>;
                                           //alert(data);
 
                                                             $(function () {
@@ -506,7 +506,7 @@
                                                                 $("#searchplace").autocomplete({
                                                                     source: function (request, response) {
                                                                         var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
-                                                                        response($.grep(data, function (item) {
+                                                                        response($.grep(data1, function (item) {
                                                                             return matcher.test(item.label);
                                                                         }));
                                                                     },
