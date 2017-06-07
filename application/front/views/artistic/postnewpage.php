@@ -202,9 +202,10 @@
 
 
 
-                    <div class="col-md-7 col-sm-7 all-form-content fixed_left">
+                     <div class="col-md-7 col-sm-7 col-md-push-4 custom-right">
 
-                        <div class="col-md-12 col-sm-12 post-design-box">
+
+    <div class="col-md-12 col-sm-12 post-design-box">
 
                             <div class=" ">
                                 <div class="post-design-top col-md-12" >  
