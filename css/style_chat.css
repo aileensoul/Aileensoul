@@ -445,7 +445,7 @@ ul.dropdown-menu li a i { padding-right: 2px; }
     border: 10px solid black;
     border-color: transparent transparent #fff;
     margin-top: -18px;
-   right: 8;
+   right: 8px !important;
 }
 /*.dropdown:hover .dropdown-menu { display: block; }*/
 .header ul li.dropdown-user a { padding: 13px; text-transform: capitalize;}
@@ -4579,7 +4579,7 @@ word-break: break-all;
   left: 7px;
   visibility: visible;
 }
-.dropdown-menu{left: -50px!important;}
+.dropdown-menu{left: -40px!important;}
 
 /* vishang 4-5-17 */
 
