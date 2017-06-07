@@ -7,7 +7,7 @@
 <?php echo $header; ?>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+
 <link rel="stylesheet" href="<?php echo base_url('css/bootstrap.min.css') ?>" />
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/test.css'); ?>">
     
@@ -135,8 +135,7 @@
    <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
     <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
     <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
-
+   
     <script>
 var data= <?php echo json_encode($demo); ?>;
 //alert(data);
@@ -166,7 +165,38 @@ $( "#tags" ).autocomplete({
 });
   
 </script>
- <script>
+<script>
+
+var data= <?php echo json_encode($city_data); ?>;
+//alert(data);
+
+        
+$(function() {
+    // alert('hi');
+$( "#searchplace" ).autocomplete({
+     source: function( request, response ) {
+         var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
+         response( $.grep( data, function( item ){
+             return matcher.test( item.label );
+         }) );
+   },
+    minLength: 1,
+    select: function(event, ui) {
+        event.preventDefault();
+        $("#searchplace").val(ui.item.label);
+        $("#selected-tag").val(ui.item.label);
+        // window.location.href = ui.item.value;
+    }
+    ,
+    focus: function(event, ui) {
+        event.preventDefault();
+        $("#searchplace").val(ui.item.label);
+    }
+});
+});
+  
+</script>
+ <!-- <script>
                     
                     //select2 autocomplete start for Location
                     $('#searchplace').select2({
@@ -187,7 +217,7 @@ $( "#tags" ).autocomplete({
                     });
                     //select2 autocomplete End for Location
                 </script>
-
+ -->
  
 </body>
 </div>
