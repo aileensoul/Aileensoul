@@ -5167,22 +5167,22 @@ label.cameraButton input[accept*="camera"] {
 }
 .post-design-menu ul li a {
     cursor: pointer;
-    color: #1b8ab9;
+    color: #999;
     margin-right: 18px!important;
-    padding: 4px 5px 4px 0px!important;
+       padding: 8px !important;
     font-weight: 400;
     display: block;
     position: relative;
 }
-.post-design-menu ul li a {
+/*.post-design-menu ul li a {
     border-radius: 50%;
     cursor: pointer;
     color: #1b8ab9;
     margin-right: 18px!important;
-    padding: 8px !important;
+
     font-weight: 400;
     display: block;
-}
+}*/
 .post-design-menu ul li a i {
     cursor: pointer;
     font-size: 19px;
@@ -9070,3 +9070,10 @@ fieldset .add_post_btns:hover {
     background-color: #e9e9e9;
     color: #1b8ab9;}
 .bg_following:hover{background-color: #156f95 !important;}
+.like_cmnt_count li{float: right;    word-spacing: 2px;
+    letter-spacing: 1px; color: #999;}
+.like_count_ext{padding: 8px; font-size: 12px; color: #999;    word-spacing: 2px;
+    letter-spacing: 1px;}
+.comnt_count_ext{padding: 8px; font-size: 12px; }
+/*.border_left_span{    border-left: 1px solid #999;
+    padding-left: 16px;}*/
