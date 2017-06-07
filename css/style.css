@@ -9007,7 +9007,8 @@ fieldset .add_post_btns:hover {
     height: 100%;
 }
 .no-audio{
-    background:none;
+    background:none !important;
+    padding: 0 !important;
 }
 /*** css jay  ***/
 
