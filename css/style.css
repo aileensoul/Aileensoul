@@ -1338,7 +1338,7 @@ fieldset.full-width {
 }
 .hs-submit input[type=submit]:hover {
     opacity: 0.8;
-    background-color: #1b8ab9;
+    background-color: #156f95!important;
 }
 .hs-submit a {
     background: #1b8ab9;
@@ -8646,7 +8646,7 @@ label.cameraButton input[accept*="camera"] {
 /*.ml-4{margin-left: 4px!important;}*/
 
 fieldset .add_post_btns:hover {
-    background-color: #156f95!important
+    background-color: #156f95!important;
 }
 .job-profile-left-side-bar .left-side-bar ul li.active a:hover {
     background-color: #156f95
