@@ -54,6 +54,7 @@
                 $('.show').each(function () {
                     //var content = $(this).text();
                     var content = $(this).html();
+                    console.log(content);
                     if (content.length > showTotalChar) {
                         var con = content.substr(0, showTotalChar);
                         var hcon = content.substr(showTotalChar, content.length - showTotalChar);
@@ -661,10 +662,14 @@
                                         <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
                                     <?php } ?>
                                 </div>
-                                <div id="myBtn"  class="editor-content col-md-11 popup-text">
+                                <div id="myBtn"  class="editor-content col-md-10 popup-text">
                                     <span> Post Your Product....
                                     </span> 
                                 </div>
+                                  <div class="col-md-1 padding-left padding_les_left camer_h">
+                                        <i class=" fa fa-camera" >
+                                        </i> 
+                                    </div>
                             </div>
                             <!-- <div class="fr">
                               <a class="button">Post

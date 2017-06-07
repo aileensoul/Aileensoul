@@ -3329,6 +3329,7 @@ a:active,
 a:focus {
     text-decoration: none;
     outline: 0;
+    
 }
 .message-icon {
     padding-top: 10px;
