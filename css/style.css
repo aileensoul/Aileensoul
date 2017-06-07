@@ -7383,12 +7383,14 @@ input:-moz-placeholder {
 
 .prev,
 .next {
+  
+    transform: translate(0, -50%);
     cursor: pointer;
     position: absolute;
-    top: 220px !important;
+    top: 50% !important;
     width: auto;
     padding: 16px;
-    margin-top: -50px;
+    /* margin-top: -50px; */
     color: white;
     font-weight: bold;
     font-size: 20px;
@@ -9003,6 +9005,9 @@ fieldset .add_post_btns:hover {
 .like_img img {
     width: 100%;
     height: 100%;
+}
+.no-audio{
+    background:none;
 }
 /*** css jay  ***/
 
