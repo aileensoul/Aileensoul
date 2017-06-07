@@ -6,10 +6,17 @@
                                 </select>
                             </fieldset>
                             <fieldset class="col-md-3">
+<<<<<<< HEAD
                             
                               <input type="text" id="searchplace" name="searchplace" placeholder="Find Your location">
                               <!-- <select class="" name="searchplace[]" id="searchplace" multiple="multiple"  placeholder="Find Your location"> -->
                                 </select>
+=======
+                              
+                             <!--  <select class="" name="searchplace[]" id="searchplace" multiple="multiple"  placeholder="Find Your location">
+                                </select> -->
+                                 <input type="text" id="searchplace" name="searchplace" placeholder="Find Your location">
+>>>>>>> 32aaec8b286052da470cabc2508aa0a80cca0859
                             </fieldset>
                         <!--     <fieldset class="col-md-2">
                                 <button onclick="return checkvalue();"> Search</button>

@@ -378,29 +378,29 @@ $( "#searchplace" ).autocomplete({
 
 <!-- <script>
 //select2 autocomplete start for skill
-    $('#searchskills').select2({
+    // $('#searchskills').select2({
 
-        placeholder: 'Find Your Skills',
+    //     placeholder: 'Find Your Skills',
 
-        ajax: {
+    //     ajax: {
 
-            url: "<?php echo base_url(); ?>job/keyskill",
-            dataType: 'json',
-            delay: 250,
+    //         url: "<?php echo base_url(); ?>job/keyskill",
+    //         dataType: 'json',
+    //         delay: 250,
 
-            processResults: function (data) {
+    //         processResults: function (data) {
 
-                return {
+    //             return {
 
-                    results: data
+    //                 results: data
 
 
-                };
+    //             };
 
-            },
-            cache: true
-        }
-    });
+    //         },
+    //         cache: true
+    //     }
+    // });
 //select2 autocomplete End for skill
 
 //select2 autocomplete start for Location

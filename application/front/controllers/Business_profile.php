@@ -3767,8 +3767,9 @@ class Business_profile extends MY_Controller {
         }
         echo json_encode(
                 array("comment" => $cmtinsert,
-                    "count" => $cmtcount));
-        // khyati chande 
+                    "count" => $cmtcount,
+                    "comment_count" => count($buscmtcnt)));
+         
     }
 
     public function insert_comment() {

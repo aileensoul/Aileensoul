@@ -8,7 +8,6 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
 
    <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/jquery.datetimepicker.css'); ?>">
 
@@ -336,7 +335,7 @@
 <script type="text/javascript" src="<?php echo base_url('js/jquery.validate1.15.0..min.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('js/additional-methods1.15.0.min.js'); ?>"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+
 
 <script type="text/javascript">
   
@@ -681,6 +680,38 @@ else
 
 </script>
 
+<script>
+
+   var data1 = <?php echo json_encode($de); ?>;
+//alert(data);
+
+
+   $(function () {
+       // alert('hi');
+       $("#searchplace").autocomplete({
+           source: function (request, response) {
+               var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+               response($.grep(data1, function (item) {
+                   return matcher.test(item.label);
+               }));
+           },
+           minLength: 1,
+           select: function (event, ui) {
+               event.preventDefault();
+               $("#searchplace").val(ui.item.label);
+               $("#selected-tag").val(ui.item.label);
+               // window.location.href = ui.item.value;
+           }
+           ,
+           focus: function (event, ui) {
+               event.preventDefault();
+               $("#searchplace").val(ui.item.label);
+           }
+       });
+   });
+
+</script>
+
 <script type="text/javascript">
     function checkvalue() {
         //alert("hi");
@@ -949,30 +980,30 @@ $('#artpost').validate({
 <script>
 
 
-    $('#skills').select2({
+    // $('#skills').select2({
 
-        placeholder: 'Enter the skills you want',
+    //     placeholder: 'Enter the skills you want',
 
-        ajax: {
+    //     ajax: {
 
-            url: "<?php echo base_url(); ?>recruiter/keyskill",
-            dataType: 'json',
-            delay: 250,
+    //         url: "<?php echo base_url(); ?>recruiter/keyskill",
+    //         dataType: 'json',
+    //         delay: 250,
 
-            processResults: function (data) {
+    //         processResults: function (data) {
 
-                return {
-                    //alert(data);
+    //             return {
+    //                 //alert(data);
 
-                    results: data
+    //                 results: data
 
 
-                };
+    //             };
 
-            },
-            cache: true
-        }
-    }).select2('data', PRESELECTED_FRUITS);
+    //         },
+    //         cache: true
+    //     }
+    // }).select2('data', PRESELECTED_FRUITS);
 
 //select2 autocomplete End for skill
 
@@ -1112,7 +1143,7 @@ $('#artpost').validate({
 </script>
 
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 //select2 autocomplete start for skill
     $('#searchskills').select2({
 
@@ -1167,7 +1198,7 @@ $('#artpost').validate({
     });
 //select2 autocomplete End for Location
 </script>
-
+ -->
 
 
 <style type="text/css">

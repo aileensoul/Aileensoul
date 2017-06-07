@@ -2257,7 +2257,7 @@ class Job extends MY_Controller {
         // $return_array = array(); 
         //        //  //echo  $return_array;
         //           foreach ($artdata as $get) {
-        //               $return = array();
+        //               $return = array(
         //               $return = $get;
         //               $return['firstname'] =$get['art_name'] . " " . $get['art_lastname'];
         //                            unset($return['art_name']);
