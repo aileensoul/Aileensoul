@@ -156,7 +156,7 @@
             <div class="row row4">
 
 
-                <div class="col-md-4"><div class="profile-box profile-box-left">
+                <div class="col-md-4 profile-box profile-box-left"><div class="">
 <!--                        <div class="full-box-module">    
 
 

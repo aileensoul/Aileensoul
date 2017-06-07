@@ -650,7 +650,7 @@
                     }
                     ?>
 
-                    <div class="col-md-7 col-sm-7 all-form-content  fixed_left" >
+                    <div class="col-md-7 col-sm-7 col-md-push-4 custom-right">
 
                         <div class="post-editor col-md-12">
                             <div class="main-text-area col-md-12">
@@ -1050,15 +1050,15 @@
                                                                     $likeuserarray = explode(',', $active[0]['business_like_user']);
                                                                     if (!in_array($userid, $likeuserarray)) {
                                                                         ?>               
-                <!--                                                                        <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true">
-                                                                            </i>-->
+                    <!--                                                                        <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true">
+                                                                                </i>-->
                                                                         <i class="fa fa-thumbs-up" style="color: #999;" aria-hidden="true"></i>
                                                                     <?php } else { ?> 
                 <!--                                                                        <i class="fa fa-thumbs-up" aria-hidden="true">
                                                                             </i>-->
                                                                         <i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i>
                                                                     <?php } ?>
-                                                                        <span class="like_As_count">
+                                                                    <span class="like_As_count">
                                                                         <?php
                                                                         if ($row['business_likes_count'] > 0) {
                                                                             echo $row['business_likes_count'];
@@ -1427,41 +1427,41 @@
 
 <script>
 
-                                                                jQuery.noConflict();
+                                                    jQuery.noConflict();
 
-                                                                (function ($) {
+                                                    (function ($) {
 
 
-                                                                    var data = <?php echo json_encode($demo);
+                                                        var data = <?php echo json_encode($demo);
     ?>;
-                                                                    //alert(data);
-                                                                    $(function () {
-                                                                        // alert('hi');
-                                                                        $("#tags").autocomplete({
-                                                                            source: function (request, response) {
-                                                                                var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
-                                                                                response($.grep(data, function (item) {
-                                                                                    return matcher.test(item.label);
-                                                                                }));
-                                                                            }
-                                                                            ,
-                                                                            minLength: 1,
-                                                                            select: function (event, ui) {
-                                                                                event.preventDefault();
-                                                                                $("#tags").val(ui.item.label);
-                                                                                $("#selected-tag").val(ui.item.label);
-                                                                                // window.location.href = ui.item.value;
-                                                                            }
-                                                                            ,
-                                                                            focus: function (event, ui) {
-                                                                                event.preventDefault();
-                                                                                $("#tags").val(ui.item.label);
-                                                                            }
-                                                                        });
-                                                                    }
-                                                                    );
+                                                        //alert(data);
+                                                        $(function () {
+                                                            // alert('hi');
+                                                            $("#tags").autocomplete({
+                                                                source: function (request, response) {
+                                                                    var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+                                                                    response($.grep(data, function (item) {
+                                                                        return matcher.test(item.label);
+                                                                    }));
+                                                                }
+                                                                ,
+                                                                minLength: 1,
+                                                                select: function (event, ui) {
+                                                                    event.preventDefault();
+                                                                    $("#tags").val(ui.item.label);
+                                                                    $("#selected-tag").val(ui.item.label);
+                                                                    // window.location.href = ui.item.value;
+                                                                }
+                                                                ,
+                                                                focus: function (event, ui) {
+                                                                    event.preventDefault();
+                                                                    $("#tags").val(ui.item.label);
+                                                                }
+                                                            });
+                                                        }
+                                                        );
 
-                                                                })(jQuery);
+                                                    })(jQuery);
 
 </script>
 
@@ -1797,7 +1797,7 @@
         //      z.style.display = 'block';
         //      $.ajax({ 
         //             type:'POST',
-        //          url:'<?php //echo base_url() . "business_profile/fourcomment"                                                                      ?>',
+        //          url:'<?php //echo base_url() . "business_profile/fourcomment"                                                                       ?>',
         //             data:'art_post_id='+clicked_id,
         //             //alert(data);
         //             success:function(data){
@@ -2563,8 +2563,18 @@
     /* When the user clicks on the button, 
      toggle between hiding and showing the dropdown content */
     function myFunction(clicked_id) {
-        $('.dropdown-content1').removeClass('show');
-        document.getElementById('myDropdown' + clicked_id).classList.toggle("show");
+//        $('.dropdown-content1').removeClass('show');
+//        document.getElementById('myDropdown' + clicked_id).classList.toggle("show");
+
+        var dropDownClass = document.getElementById('myDropdown' + clicked_id).className;
+        dropDownClass = dropDownClass.split(" ").pop(-1);
+        if (dropDownClass != 'show') {
+            $('.dropdown-content1').removeClass('show');
+            $('#myDropdown' + clicked_id).addClass('show');
+        } else {
+            $('.dropdown-content1').removeClass('show');
+        }
+
     }
     // Close the dropdown if the user clicks outside of it
     window.onclick = function (event) {

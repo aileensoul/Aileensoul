@@ -736,8 +736,9 @@
                     </div>
                     <!-- popup end -->
                 </div>
-                <div class="col-md-7 col-sm-7 all-form-content fixed_left">
+               
 
+                     <div class="col-md-7 col-sm-7 col-md-push-4 custom-right">
 
 
                     <div class="post-editor col-md-12">
@@ -1012,7 +1013,7 @@
                 <?php } elseif (in_array($ext, $allowesaudio)) { ?>
 
                                                             <!-- one audio start -->
-                                                            <div>
+                                                         
                                                                 <div class="audio_main_div">
                                                                     <div class="audio_img">
                                                                         <img src="<?php echo base_url('images/music-icon.png') ?> ">  

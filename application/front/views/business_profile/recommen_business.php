@@ -136,7 +136,7 @@
         <div class="user-midd-section" id="paddingtop_fixed">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-4"><div class="profile-box profile-box-left">
+                    <div class="col-md-4  profile-box profile-box-left"><div class="">
 
                             <div class="full-box-module">    
                                 <div class="profile-boxProfileCard  module">
@@ -214,7 +214,8 @@
                         </div>
                     </div>
 
-                    <div class="col-md-7 col-sm-7 all-form-content" style="height: 150%;">
+                    
+                       <div class="col-md-7 col-sm-7 col-md-push-4 custom-right" style="height: 150%;">
                         <div class="common-form">
                             <div class="job-saved-box">
 
@@ -240,7 +241,7 @@
                                                     foreach ($profile as $p) {
 //                                                 echo "<pre>"; print_r($p);die();
                                                         ?>
-                                                    <div class="profile-job-profile-button clearfix box_search_module" style="height: 20%;border: 1px solid #efefef;margin-bottom: 20px!important;">
+                                                    <div class="profile-job-profile-button clearfix box_search_module" style="height: 25%;border: 1px solid #efefef;margin-bottom: 20px!important;">
                                      
                                                             
      <div class="profile-job-post-location-name-rec">

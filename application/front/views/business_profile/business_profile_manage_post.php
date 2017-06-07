@@ -3117,8 +3117,16 @@
                 /* When the user clicks on the button, 
                  toggle between hiding and showing the dropdown content */
                 function myFunction1(clicked_id) {
-                    $('.dropdown-content2').removeClass('show');
-                    document.getElementById('myDropdown' + clicked_id).classList.toggle("show");
+                    
+                    var dropDownClass = document.getElementById('myDropdown' + clicked_id).className;
+                    dropDownClass = dropDownClass.split(" ").pop(-1);
+                    if(dropDownClass != 'show'){
+                        $('.dropdown-content2').removeClass('show');
+                        $('#myDropdown' + clicked_id).addClass('show');
+                    }
+                    else{
+                        $('.dropdown-content2').removeClass('show');
+                    }
                 }
 
                 // Close the dropdown if the user clicks outside of it

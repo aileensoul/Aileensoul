@@ -310,7 +310,7 @@
                             <div class="">
                                 <div class="all-box">
                                     <ul> 
-                                        <li>
+                                        <!-- <li>
                                             <img src="http://localhost/aileensoul/uploads/business_post/thumbs/file_1496664178_jh179.jpg">
                                         </li>
                                         <li>
@@ -331,16 +331,8 @@
 
                                         <li>
                                             <img src="http://localhost/aileensoul/uploads/business_post/thumbs/file_1496664178_jh179.jpg">
-                                        </li>
-                                    </ul>
-                                </div>
-
-                                <div class="contact-frnd-post ta_tble">
-
-                                    <!-- khyati changes start -->
-
-
-                                    <?php
+                                        </li> -->
+                                          <?php
                                     $i = 1;
 
                                     $allowed = array('gif', 'png', 'jpg');
@@ -358,8 +350,11 @@
                                         <div class="pictures">
                                             <?php foreach ($databus as $data) {
                                                 ?>
-                                                <div class="pht_ph_dash">                                                         <img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $data['image_name']) ?>" onclick="openModal();currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor"/>
+                                                <li>   
+                                                <div class="pht_ph_dash">                                                      <img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $data['image_name']) ?>" onclick="openModal();currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor"/>
+                                              
                                                 </div>
+                                                  </li>
                                                 <?php
                                                 $i++;
                                             }
@@ -368,7 +363,9 @@
 <?php } else { ?>
                                         <div class="main_pdf_box"  >
                                             <div class="not_avali" >
+                                            <li>
                                                 <img src="<?php echo base_url('images/020-c.png'); ?>"  >
+                                                </li>
                                                 <div>
                                                     <div class="not_text" >Photo not avalible</div>
                                                 </div>
@@ -376,6 +373,15 @@
                                         </div>
 <?php }
 ?>
+                                    </ul>
+                                </div>
+
+                                <div class="contact-frnd-post ta_tble">
+
+                                    <!-- khyati changes start -->
+
+
+                                  
 
 
 

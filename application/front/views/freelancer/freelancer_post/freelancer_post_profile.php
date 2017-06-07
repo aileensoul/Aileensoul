@@ -185,7 +185,7 @@ echo $freelancer_post_header2;
                     
                         </li> <?php } else{ ?>
                         <li> 
-       <a class="saved  button <?php echo 'saveduser' . $this->uri->segment(3); ?>">Saved</a>
+       <a class="saved butt_rec <?php echo 'saveduser' . $this->uri->segment(3); ?> ">Saved</a>
                            
                         </li> <?php 
                                                                 } ?>
