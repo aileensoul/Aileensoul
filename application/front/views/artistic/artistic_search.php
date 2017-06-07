@@ -11,7 +11,8 @@
         <fieldset class="col-md-3">
             <!--    <label>Find Your Location</label>
             -->   
-            <select class="" name="searchplace[]" id="searchplace" multiple="multiple"></select>
+         
+              <input type="text" id="searchplace" name="searchplace" placeholder="Find Your Location">
         </fieldset>
         <!--                            <fieldset class="col-md-2">
                                        <input type="submit" name="search_submit" value="Search" onclick="return checkvalue()">
