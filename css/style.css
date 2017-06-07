@@ -7424,7 +7424,7 @@ input:-moz-placeholder {
 
 .next {
     background-color: #000;
-    right: 0;
+    right: 233px;
     border-radius: 3px 0 0 3px;
 }
 .prev{background-color: #000;
@@ -7641,7 +7641,7 @@ input:-moz-placeholder {
     visibility: visible;
 }
 .dropdown-menu {
-    left: -42px!important;
+    left: -39px!important;
 }
 /* vishang 4-5-17 */
 
