@@ -317,7 +317,7 @@ $(document).ready(function ()
                                 <!-- Friend Request Start-->
 
                                  <li id="add_contact">
-                                    <a class="action-button shadow animate" href="javascript:void(0)" id="addcontactLink" onclick = "return Notificationheader();"> <i class="fa fa-user-o" aria-hidden="true"></i>
+                                    <a class="action-button shadow animate" href="javascript:void(0)" id="addcontactLink" onclick = "return contactperson();"> <i class="fa fa-user-o" aria-hidden="true"></i>
 
                                         <span id="addcontact_count"></span>
 
@@ -343,7 +343,6 @@ $(document).ready(function ()
                                                 </div>
                                               </li>
                                             </ul>
-
 
                                         </div>
                                         <div id="addcontactFooter"><a href="<?php echo base_url('business_profile/contact_list'); ?>">See All</a></div>
@@ -447,3 +446,28 @@ $(document).ready(function() {
 
  }
  </script>
+ 
+  <!-- script for update all read notification start-->
+    <script type="text/javascript">
+
+        
+        function contactperson() {
+         
+        $.ajax({
+                url: "<?php echo base_url(); ?>business_profile/contact_notification",
+                type: "POST",
+                //data: {uid: 12341234}, //this sends the user-id to php as a post variable, in php it can be accessed as $_POST['uid']
+                success: function (data) {
+                //    data = JSON.parse(data);
+                    alert(data);
+                     $('#addcontactBody').html(data);
+                    //update some fields with the updated data
+                    //you can access the data like 'data["driver"]'
+                }
+            });
+
+        }
+
+       
+    </script>
+    <!-- script for update all read notification end -->
