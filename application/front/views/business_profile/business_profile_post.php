@@ -650,7 +650,7 @@
                     }
                     ?>
 
-                    <div class="col-md-7 col-sm-7 all-form-content  fixed_left" >
+                    <div class="col-md-7 col-sm-7 col-md-push-4 custom-right">
 
                         <div class="post-editor col-md-12">
                             <div class="main-text-area col-md-12">

@@ -326,8 +326,17 @@ $( "#tags" ).autocomplete({
 }, "Only space not allow");
 
 
-            $.validator.addMethod("regx", function(value, element, regexpr) {          
-    return regexpr.test(value);
+$.validator.addMethod("regx", function(value, element, regexpr) {          
+    //return value == '' || value.trim().length != 0; 
+     if(!value) 
+            {
+                return true;
+            }
+            else
+            {
+                  return regexpr.test(value);
+            }
+     // return regexpr.test(value);
 }, "Only space, only number and only special characters are not allow");
 
 
@@ -341,7 +350,7 @@ $( "#tags" ).autocomplete({
                         artname: {
 
                             required: true,
-                            regx:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]/
+                            regx:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/
                             //noSpace: true,
 
                          
@@ -355,14 +364,14 @@ $( "#tags" ).autocomplete({
                         other_skill: {
                             
                            require_from_group: [1, ".keyskil"],
-                            regx:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]/
+                           regx:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/
                            //noSpace: true
                             
                         },
                        desc_art: {
 
                             required: true,
-                             regx:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]/
+                             regx:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/
                            // noSpace: true
                             
                         },

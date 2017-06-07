@@ -388,8 +388,17 @@ $('#searchplace').select2({
     //   return value == '' || value.trim().length != 0;  
     // }, "No space please and don't leave it empty");
 
-             $.validator.addMethod("regx", function(value, element, regexpr) {          
-    return regexpr.test(value);
+      $.validator.addMethod("regx", function(value, element, regexpr) {          
+    //return value == '' || value.trim().length != 0; 
+     if(!value) 
+            {
+                return true;
+            }
+            else
+            {
+                  return regexpr.test(value);
+            }
+     // return regexpr.test(value);
 }, "Only space, only number and only special characters are not allow");
 
 
@@ -402,7 +411,7 @@ $('#searchplace').select2({
                         companyname: {
 
                             required: true,
-                             regx:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]/
+                               regx:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/
                              //noSpace: true
                            
                         },
@@ -425,7 +434,7 @@ $('#searchplace').select2({
                          business_address: {
 
                             required: true,
-                             regx:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]/
+                               regx:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/
                             //noSpace: true
                             
                            
