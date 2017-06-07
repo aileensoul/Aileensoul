@@ -6043,7 +6043,7 @@ follow box*/
 #two_images_art {
     float: left;
     height: 250px;
-    width: 49.7%;
+    width: 323.3px;
     margin: 1px;
 }
 #two_images_art img {
@@ -9080,3 +9080,9 @@ fieldset .add_post_btns:hover {
 .like_cmnt_count li .comnt_count_ext{padding: 8px; font-size: 12px; }
 /*.border_left_span{    border-left: 1px solid #999;
     padding-left: 16px;}*/
+
+
+
+    .left_nest{position: absolute;
+    bottom: 0px;
+    left: 28%;}
