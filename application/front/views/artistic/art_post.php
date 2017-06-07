@@ -745,10 +745,14 @@
                         <div class="main-text-area col-md-12">
                             <div class="popup-img col-md-1"> <img  src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image']); ?>"  alt="">
                             </div>
-                            <div id="myBtn"  class="editor-content col-md-11 popup-text">
+                            <div id="myBtn"  class="editor-content col-md-10 popup-text">
                                 <span > Post Your Art....</span> 
 
                             </div>
+                            <div class="col-md-1 padding-left padding_les_left camer_h">
+                                        <i class=" fa fa-camera" >
+                                        </i> 
+                                    </div>
                         </div>
 
                     </div>
