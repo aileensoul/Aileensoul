@@ -122,6 +122,26 @@ class Freelancer extends MY_Controller {
           }
 
          
+ $contition_array = array('status' => '1');
+          $location_list = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+   
+
+          foreach ($location_list as $key1 => $value1) {
+              foreach ($value1 as $ke1 => $val1) {
+                 $location[] = $val1;
+              }
+          }
+          //echo "<pre>"; print_r($location);die();
+          foreach ($location as $key => $value) {
+              $loc[$key]['label'] =$value;
+              $loc[$key]['value'] =$value;
+          }
+         
+ //echo "<pre>"; print_r($loc);die();
+
+        $this->data['city_data']= array_values($loc);
+
+
          $this->data['demo']= array_values($result1);
 
 
@@ -358,6 +378,25 @@ class Freelancer extends MY_Controller {
             $result1[$key]['value']=$value;
           }
 
+
+ $contition_array = array('status' => '1');
+          $location_list = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+   
+
+          foreach ($location_list as $key1 => $value1) {
+              foreach ($value1 as $ke1 => $val1) {
+                 $location[] = $val1;
+              }
+          }
+          //echo "<pre>"; print_r($location);die();
+          foreach ($location as $key => $value) {
+              $loc[$key]['label'] =$value;
+              $loc[$key]['value'] =$value;
+          }
+         
+ //echo "<pre>"; print_r($loc);die();
+
+        $this->data['city_data']= array_values($loc);
          
          $this->data['demo']= array_values($result1);
 
@@ -574,6 +613,27 @@ class Freelancer extends MY_Controller {
             $result1[$key]['value']=$value;
           }
 
+
+
+
+ $contition_array = array('status' => '1');
+          $location_list = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+   
+
+          foreach ($location_list as $key1 => $value1) {
+              foreach ($value1 as $ke1 => $val1) {
+                 $location[] = $val1;
+              }
+          }
+          //echo "<pre>"; print_r($location);die();
+          foreach ($location as $key => $value) {
+              $loc[$key]['label'] =$value;
+              $loc[$key]['value'] =$value;
+          }
+         
+ //echo "<pre>"; print_r($loc);die();
+
+        $this->data['city_data']= array_values($loc);
          
          $this->data['demo']= array_values($result1);
 
@@ -707,7 +767,24 @@ class Freelancer extends MY_Controller {
             $result1[$key]['value']=$value;
           }
 
+          $contition_array = array('status' => '1');
+          $location_list = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+   
+
+          foreach ($location_list as $key1 => $value1) {
+              foreach ($value1 as $ke1 => $val1) {
+                 $location[] = $val1;
+              }
+          }
+          //echo "<pre>"; print_r($location);die();
+          foreach ($location as $key => $value) {
+              $loc[$key]['label'] =$value;
+              $loc[$key]['value'] =$value;
+          }
          
+ //echo "<pre>"; print_r($loc);die();
+
+        $this->data['city_data']= array_values($loc);
          $this->data['demo']= array_values($result1);
 
 
@@ -833,6 +910,25 @@ class Freelancer extends MY_Controller {
             $result1[$key]['value']=$value;
           }
 
+
+ $contition_array = array('status' => '1');
+          $location_list = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+   
+
+          foreach ($location_list as $key1 => $value1) {
+              foreach ($value1 as $ke1 => $val1) {
+                 $location[] = $val1;
+              }
+          }
+          //echo "<pre>"; print_r($location);die();
+          foreach ($location as $key => $value) {
+              $loc[$key]['label'] =$value;
+              $loc[$key]['value'] =$value;
+          }
+         
+ //echo "<pre>"; print_r($loc);die();
+
+        $this->data['city_data']= array_values($loc);
          
          $this->data['demo']= array_values($result1);
 
@@ -967,6 +1063,25 @@ class Freelancer extends MY_Controller {
             $result1[$key]['value']=$value;
           }
 
+
+ $contition_array = array('status' => '1');
+          $location_list = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+   
+
+          foreach ($location_list as $key1 => $value1) {
+              foreach ($value1 as $ke1 => $val1) {
+                 $location[] = $val1;
+              }
+          }
+          //echo "<pre>"; print_r($location);die();
+          foreach ($location as $key => $value) {
+              $loc[$key]['label'] =$value;
+              $loc[$key]['value'] =$value;
+          }
+         
+ //echo "<pre>"; print_r($loc);die();
+
+        $this->data['city_data']= array_values($loc);
          
          $this->data['demo']= array_values($result1);
 
@@ -1103,6 +1218,26 @@ class Freelancer extends MY_Controller {
             $result1[$key]['label']=$value;
             $result1[$key]['value']=$value;
           }
+
+         
+ $contition_array = array('status' => '1');
+          $location_list = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+   
+
+          foreach ($location_list as $key1 => $value1) {
+              foreach ($value1 as $ke1 => $val1) {
+                 $location[] = $val1;
+              }
+          }
+          //echo "<pre>"; print_r($location);die();
+          foreach ($location as $key => $value) {
+              $loc[$key]['label'] =$value;
+              $loc[$key]['value'] =$value;
+          }
+         
+ //echo "<pre>"; print_r($loc);die();
+
+        $this->data['city_data']= array_values($loc);
 
          
          $this->data['demo']= array_values($result1);
@@ -1277,6 +1412,28 @@ $results = array_unique($result);
             $result1[$key]['value']=$value;
           }
 
+
+
+ $contition_array = array('status' => '1');
+          $location_list = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+   
+
+          foreach ($location_list as $key1 => $value1) {
+              foreach ($value1 as $ke1 => $val1) {
+                 $location[] = $val1;
+              }
+          }
+          //echo "<pre>"; print_r($location);die();
+          foreach ($location as $key => $value) {
+              $loc[$key]['label'] =$value;
+              $loc[$key]['value'] =$value;
+          }
+         
+ //echo "<pre>"; print_r($loc);die();
+
+        $this->data['city_data']= array_values($loc);
+
+
          
          $this->data['demo']= array_values($result1);
 
@@ -1340,6 +1497,24 @@ $results = array_unique($result);
             $result1[$key]['label']=$value;
             $result1[$key]['value']=$value;
           }
+ $contition_array = array('status' => '1');
+          $location_list = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+   
+
+          foreach ($location_list as $key1 => $value1) {
+              foreach ($value1 as $ke1 => $val1) {
+                 $location[] = $val1;
+              }
+          }
+          //echo "<pre>"; print_r($location);die();
+          foreach ($location as $key => $value) {
+              $loc[$key]['label'] =$value;
+              $loc[$key]['value'] =$value;
+          }
+         
+ //echo "<pre>"; print_r($loc);die();
+
+        $this->data['city_data']= array_values($loc);
 
          
          $this->data['demo']= array_values($result1);
@@ -1578,13 +1753,37 @@ $new = array();
             }
         }
         $results = array_unique($result);
+        //echo "<pre>";print_r($results);die();
        foreach($results as $key =>$value){
             $result1[$key]['label']=$value;
             $result1[$key]['value']=$value;
           }
             // echo "<pre>"; print_r($result1);die();
+          //echo "<pre>"; print_r($this->data['skill']);die();
+        $contition_array = array('status' => '1');
+          $location_list = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+   
+
+          foreach ($location_list as $key1 => $value1) {
+              foreach ($value1 as $ke1 => $val1) {
+                 $location[] = $val1;
+              }
+          }
+          //echo "<pre>"; print_r($location);die();
+          foreach ($location as $key => $value) {
+              $loc[$key]['label'] =$value;
+              $loc[$key]['value'] =$value;
+          }
          
+ //echo "<pre>"; print_r($loc);die();
+
+        $this->data['city_data']= array_values($loc);
+        // echo "<pre>"; print_r($location);die();
+
          $this->data['demo']= array_values($result1);
+
+
+
 
 
 
@@ -1664,7 +1863,25 @@ $results = array_unique($result);
             $result1[$key]['value']=$value;
           }
 
+          $contition_array = array('status' => '1');
+          $location_list = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+   
+
+          foreach ($location_list as $key1 => $value1) {
+              foreach ($value1 as $ke1 => $val1) {
+                 $location[] = $val1;
+              }
+          }
+          //echo "<pre>"; print_r($location);die();
+          foreach ($location as $key => $value) {
+              $loc[$key]['label'] =$value;
+              $loc[$key]['value'] =$value;
+          }
          
+ //echo "<pre>"; print_r($loc);die();
+
+        $this->data['city_data']= array_values($loc);
+
          $this->data['demo']= array_values($result1);
 
 
@@ -1844,6 +2061,26 @@ $results = array_unique($result);
           }
 
          
+ $contition_array = array('status' => '1');
+          $location_list = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+   
+
+          foreach ($location_list as $key1 => $value1) {
+              foreach ($value1 as $ke1 => $val1) {
+                 $location[] = $val1;
+              }
+          }
+          //echo "<pre>"; print_r($location);die();
+          foreach ($location as $key => $value) {
+              $loc[$key]['label'] =$value;
+              $loc[$key]['value'] =$value;
+          }
+         
+ //echo "<pre>"; print_r($loc);die();
+
+        $this->data['city_data']= array_values($loc);
+
+
          $this->data['demo']= array_values($result1);
 
 
@@ -2073,6 +2310,27 @@ $updatedata = $this->common->insert_data_getid($data, 'notification');
             $result1[$key]['value']=$value;
          
           }
+
+ $contition_array = array('status' => '1');
+          $location_list = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+   
+
+          foreach ($location_list as $key1 => $value1) {
+              foreach ($value1 as $ke1 => $val1) {
+                 $location[] = $val1;
+              }
+          }
+          //echo "<pre>"; print_r($location);die();
+          foreach ($location as $key => $value) {
+              $loc[$key]['label'] =$value;
+              $loc[$key]['value'] =$value;
+          }
+         
+ //echo "<pre>"; print_r($loc);die();
+
+        $this->data['city_data']= array_values($loc);
+
+
 
          
          $this->data['demo']= array_values($result1);
@@ -2315,6 +2573,27 @@ $this->data['demo']= array_values($result1);
           }
 
          
+
+ $contition_array = array('status' => '1');
+          $location_list = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+   
+
+          foreach ($location_list as $key1 => $value1) {
+              foreach ($value1 as $ke1 => $val1) {
+                 $location[] = $val1;
+              }
+          }
+          //echo "<pre>"; print_r($location);die();
+          foreach ($location as $key => $value) {
+              $loc[$key]['label'] =$value;
+              $loc[$key]['value'] =$value;
+          }
+         
+ //echo "<pre>"; print_r($loc);die();
+
+        $this->data['city_data']= array_values($loc);
+
+
 $this->data['demo']= array_values($result1);
 $this->load->view('freelancer/freelancer_hire/freelancer_save', $this->data);
    
@@ -2378,6 +2657,26 @@ $this->load->view('freelancer/freelancer_hire/freelancer_save', $this->data);
             $result1[$key]['label']=$value;
             $result1[$key]['value']=$value;
           }
+
+
+ $contition_array = array('status' => '1');
+          $location_list = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+   
+
+          foreach ($location_list as $key1 => $value1) {
+              foreach ($value1 as $ke1 => $val1) {
+                 $location[] = $val1;
+              }
+          }
+          //echo "<pre>"; print_r($location);die();
+          foreach ($location as $key => $value) {
+              $loc[$key]['label'] =$value;
+              $loc[$key]['value'] =$value;
+          }
+         
+ //echo "<pre>"; print_r($loc);die();
+
+        $this->data['city_data']= array_values($loc);
 
     $this->data['demo']= array_values($result1);
     $this->load->view('freelancer/freelancer_post/freelancer_save_post', $this->data);
@@ -2737,6 +3036,25 @@ $contition_array = array('user_id' => $userid);
             $result1[$key]['value']=$value;
           }
 
+ $contition_array = array('status' => '1');
+          $location_list = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+   
+
+          foreach ($location_list as $key1 => $value1) {
+              foreach ($value1 as $ke1 => $val1) {
+                 $location[] = $val1;
+              }
+          }
+          //echo "<pre>"; print_r($location);die();
+          foreach ($location as $key => $value) {
+              $loc[$key]['label'] =$value;
+              $loc[$key]['value'] =$value;
+          }
+         
+ //echo "<pre>"; print_r($loc);die();
+
+        $this->data['city_data']= array_values($loc);
+
          
          $this->data['demo']= array_values($result1);
 
@@ -2812,6 +3130,25 @@ $contition_array = array('user_id' => $userid);
             $result1[$key]['label']=$value;
             $result1[$key]['value']=$value;
           }
+
+ $contition_array = array('status' => '1');
+          $location_list = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+   
+
+          foreach ($location_list as $key1 => $value1) {
+              foreach ($value1 as $ke1 => $val1) {
+                 $location[] = $val1;
+              }
+          }
+          //echo "<pre>"; print_r($location);die();
+          foreach ($location as $key => $value) {
+              $loc[$key]['label'] =$value;
+              $loc[$key]['value'] =$value;
+          }
+         
+ //echo "<pre>"; print_r($loc);die();
+
+        $this->data['city_data']= array_values($loc);
 
          
          $this->data['demo']= array_values($result1);
