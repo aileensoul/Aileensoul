@@ -1327,7 +1327,7 @@
                                         </div>
                                         <div class="post-design-like-box col-md-12">
                                             <div class="post-design-menu">
-                                                <ul>
+                                                <ul class="col-md-6">
                                                     <li class="<?php echo 'likepost' . $row['business_profile_post_id']; ?>">
                                                         <a id="<?php echo $row['business_profile_post_id']; ?>"   onClick="post_like(this.id)">
                                                             <?php
@@ -1375,7 +1375,21 @@
                                                         </a>
                                                     </li> 
                                                 </ul>
+  <ul class="col-md-6 like_cmnt_count">
 
+<li>
+<div class="like_count_ext">
+<span > 5 </span> 
+<span> Comment</span>
+</div>
+</li>
+
+<li>
+<div class="comnt_count_ext">
+<span> 5 </span> 
+<span> Like</span>
+</div></li>
+                                        </ul>
                                             </div>
                                         </div>
 

@@ -7688,5 +7688,71 @@ $updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $
      
      $this->load->view('business_profile/contact_list', $this->data);
     }
+    
+    
+     public function contact_list_approve(){
+    
+      $toid = $_POST['toid'];
+      $status = $_POST['status'];
+      $userid = $this->session->userdata('aileenuser');
+      
+     $contition_array = array('contact_from_id' => $toid,'contact_to_id' => $userid, 'status' => 'pending');
+     $person = $this->common->select_data_by_condition('contact_person', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+     $contactid = $person[0]['contact_id'];
+      if($status == 1){
+            $data = array(
+                    'modify_date' => date('Y-m-d', time()),
+                    'status' => 'confirm'
+                );
+
+                $updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $contactid);
+      }else{
+           
+            $data = array(
+                    'modify_date' => date('Y-m-d', time()),
+                    'status' => 'reject'
+                    );
+
+                $updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $contactid);
+      }
+     
+     $contition_array = array('contact_to_id' => $userid, 'status' => 'pending');
+     $contactperson = $this->common->select_data_by_condition('contact_person', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+     
+     if($contactperson){
+     foreach($contactperson as $contact){
+         
+  $busdata = $this->common->select_data_by_id('business_profile', 'user_id', $contact['contact_from_id'], $data = '*', $join_str = array());
+  $inddata = $this->common->select_data_by_id('industry_type', 'industry_id', $busdata[0]['industriyal'], $data = '*', $join_str = array());
+   //echo $busdata[0]['industriyal'];  echo '<pre>'; print_r($inddata); die();
+    $contactdata .= '<li id="' . $friend['contact_from_id'] . '">';
+    $contactdata .= '<div class="list-box">';
+    $contactdata .= '<div class="profile-img">';
+                                        if($busdata[0]['business_user_image'] != ''){ 
+    $contactdata .= '<img src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $busdata[0]['business_user_image']) . '">';
+                            } else { 
+    $contactdata .=                       '<img src="' . base_url(NOIMAGE) . '" />';
+                            } 
+                                       
+    $contactdata .=   '</div>';
+    $contactdata .=    '<div class="profile-content">';
+    $contactdata .=    '<a href="' . base_url('business_profile/business_profile_manage_post/'.$busdata[0]['business_slug']) . '">';
+    $contactdata .=    '<h5>' . $busdata[0]['company_name'] . '</h5>';
+    $contactdata .=    '<p>' . $inddata[0]['industry_name'] . '</p>';
+    $contactdata .=    '</a>';
+    $contactdata .=    '<p class="connect-link">';
+    $contactdata .=    '<a href="#" onclick = "return contactapprove(' . $contact['contact_from_id'] . ',1);"><i class="fa fa-check" aria-hidden="true"></i></a>';
+    $contactdata .=    '<a href="#" onclick = "return contactapprove(' . $contact['contact_from_id'] . ',0);"><i class="fa fa-times" aria-hidden="true"></i></a>';
+    $contactdata .=     '</p>';
+    $contactdata .=    '</div>';
+    $contactdata .=    '</div>';
+    $contactdata .=    '</li>';
+     }
+       }else{
+       $contactdata =    'No contacts available...';
+      }
+     echo $contactdata;
+     }
+     
 
 }

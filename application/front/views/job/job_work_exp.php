@@ -121,7 +121,7 @@
                         <input type="checkbox" id="fresher" name="radio" value="Fresher" <?php echo ($userdata[0]['experience'] == 'Fresher') ? 'checked' : '' ?>>
                                                     Fresher&nbsp;&nbsp;
                                                 </label>
-                                                <fieldset class="hs-submit full-width">
+                                                <fieldset class="hs-submit full-width left_nest">
 
                                                     <input type="submit" id="next" name="next" value="Next" onclick="document.getElementById('experience1')[0].style.display = 'block';">
 
