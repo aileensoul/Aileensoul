@@ -85,7 +85,7 @@ class Business_profile extends MY_Controller {
             }
         }
 
-        // dependentacy industrial and sub industriyal end	
+        // dependentacy industrial and sub industriyal end  
 
 
         if (isset($_POST["country_id"]) && !empty($_POST["country_id"])) {
@@ -7413,5 +7413,170 @@ class Business_profile extends MY_Controller {
     public function contact_list(){
         $this->load->view('business_profile/contact_list', $this->data);
     }
+
+    public function contact_person(){
+     $to_id = $_POST['toid']; 
+     $userid = $this->session->userdata('aileenuser');
+     
+     $contition_array = array('contact_to_id' => $to_id, 'contact_from_id' => $userid);
+     $contactperson = $this->common->select_data_by_condition('contact_person', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+     if($contactperson){
+         
+       $status =  $contactperson[0]['status'];
+       $contact_id =  $contactperson[0]['contact_id'];
+      
+       if($status == 'pending'){
+              $data = array(
+            'created_date' => date('Y-m-d H:i:s'),
+            'status' => 'cancel'
+        );
+
+
+ $updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $contact_id);
+       
+ $contactdata =  '<a href="#" onclick="return contact_person(' . $to_id . ');" style="cursor: pointer;">';
+ $contactdata .=  '<div class="">';
+ $contactdata .=  '<div id="ripple" class="centered">';
+ $contactdata .=  '<div class="circle"><span href="" style="position: absolute; z-index: 1; 
+                                                      top: 7px;
+                                                      left: 7px;"><i class="fa fa-user-plus"  aria-hidden="true"></i></span></div>';
+
+
+  $contactdata .=   '</div>';
+  $contactdata .=   '<div class="addtocont" style="    position: absolute;
+                             display: block;
+                             /* margin-left: 69.4%; */
+                             /* margin-top: 0%; */
+                             right: 7%;
+                             top: 62px;">';
+  $contactdata .= '<span style="font-size: 13px; ""><i class="icon-user"></i>Add to contact</span>';
+  $contactdata .= '</div>';
+  $contactdata .= '</div>';
+  $contactdata .= '</a>';
+       
+       }elseif($status == 'cancel'){
+              $data = array(
+            'created_date' => date('Y-m-d H:i:s'),
+            'status' => 'pending'
+        );
+
+
+$updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $contact_id);
+    $contactdata =  '<a href="#" onclick="return contact_person(' . $to_id . ');" style="cursor: pointer;">';
+ $contactdata .=  '<div class="">';
+ $contactdata .=  '<div id="ripple" class="centered">';
+ $contactdata .=  '<div class="circle"><span href="" style="position: absolute; z-index: 1; 
+                                                      top: 7px;
+                                                      left: 7px;"><i class="fa fa-user-plus"  aria-hidden="true"></i></span></div>';
+
+
+  $contactdata .=   '</div>';
+  $contactdata .=   '<div class="addtocont" style="    position: absolute;
+                             display: block;
+                             /* margin-left: 69.4%; */
+                             /* margin-top: 0%; */
+                             right: 7%;
+                             top: 62px;">';
+  $contactdata .= '<span style="font-size: 13px; ""><i class="icon-user"></i>Cancel request</span>';
+  $contactdata .= '</div>';
+  $contactdata .= '</div>';
+  $contactdata .= '</a>';
+       }
+       
+     }else{
+          
+         $data = array(
+                    'contact_from_id' => $userid,
+                    'contact_to_id' => $to_id,
+                    'contact_type' => 2,
+                    'created_date' => date('Y-m-d H:i:s'),
+                    'status' => 'pending'
+                     );
+
+           $insert_id = $this->common->insert_data_getid($data, 'contact_person');
+           
+          $contactdata =  '<a href="#" onclick="return contact_person(' . $to_id . ');" style="cursor: pointer;">';
+ $contactdata .=  '<div class="">';
+ $contactdata .=  '<div id="ripple" class="centered">';
+ $contactdata .=  '<div class="circle"><span href="" style="position: absolute; z-index: 1; 
+                                                      top: 7px;
+                                                      left: 7px;"><i class="fa fa-user-plus"  aria-hidden="true"></i></span></div>';
+
+
+  $contactdata .=   '</div>';
+  $contactdata .=   '<div class="addtocont" style="    position: absolute;
+                             display: block;
+                             /* margin-left: 69.4%; */
+                             /* margin-top: 0%; */
+                             right: 7%;
+                             top: 62px;">';
+  $contactdata .= '<span style="font-size: 13px; ""><i class="icon-user"></i>Cancel request</span>';
+  $contactdata .= '</div>';
+  $contactdata .= '</div>';
+  $contactdata .= '</a>';
+    }
+    
+    echo $contactdata;
+    }
+    
+     public function contact_notification(){
+    
+     $userid = $this->session->userdata('aileenuser');
+     
+     $contition_array = array('contact_to_id' => $userid, 'status' => 'pending');
+     $contactperson = $this->common->select_data_by_condition('contact_person', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+     
+     
+     
+   
+     if($contactperson){
+     foreach($contactperson as $contact){
+         
+  $busdata = $this->common->select_data_by_id('business_profile', 'user_id', $contact['contact_from_id'], $data = '*', $join_str = array());
+  $inddata = $this->common->select_data_by_id('industry_type', 'industry_id', $busdata[0]['industriyal'], $data = '*', $join_str = array());
+   //echo $busdata[0]['industriyal'];  echo '<pre>'; print_r($inddata); die();
+    $contactdata .=     '<ul>';
+    $contactdata .=    '<li>';
+    $contactdata .=    '<div class="addcontact-left">';
+    $contactdata .=    '<a href="#">';
+    $contactdata .=    '<div class="addcontact-pic"><img src="' . base_url($this->config->item('bus_bg_main_upload_path') . $busdata[0]['business_user_image']) . '"></div>';
+    $contactdata .=    '<div class="addcontact-text">';
+    $contactdata .=    '<span><b>' . $busdata[0]['company_name'] . '</b></span>';
+    $contactdata .=     '' . $inddata[0]['industry_name'] . '';
+    $contactdata .=     '</div>';
+    $contactdata .=     '</a>';
+    $contactdata .=     '</div>';
+    $contactdata .=     '<div class="addcontact-right">';
+    $contactdata .=     '<a href="#"><i class="fa fa-check" aria-hidden="true"></i></a>';
+    $contactdata .=    '<a href="#"><i class="fa fa-times" aria-hidden="true"></i></a>';
+    $contactdata .=    '</div>';
+    $contactdata .=    '</li>';
+    $contactdata .=     '</ul>';
+        
+     }
+     
+     }else{
+         
+    $contactdata =     '<ul>';
+    $contactdata .=    '<li>';
+    $contactdata .=    '<div class="addcontact-left">';
+    $contactdata .=    '<a href="#">';
+    $contactdata .=    '<div class="addcontact-pic"><img src="http://localhost/aileensoul/uploads/user_profile/thumbs/44133ff3ac01fab88e1651efcc5827831.jpg"></div>';
+    $contactdata .=    '<div class="addcontact-text">';
+    $contactdata .=    '<span><b>Contact Name Contact Name Contact Name </b></span>';
+    $contactdata .=     'Aileensoul request a connection.';
+    $contactdata .=     '</div>';
+    $contactdata .=     '</a>';
+    $contactdata .=     '</div>';
+    $contactdata .=     '<div class="addcontact-right">';
+    $contactdata .=     '<a href="#"><i class="fa fa-check" aria-hidden="true"></i></a>';
+    $contactdata .=    '<a href="#"><i class="fa fa-times" aria-hidden="true"></i></a>';
+    $contactdata .=    '</div>';
+    $contactdata .=    '</li>';
+    $contactdata .=     '</ul>';
+   
+    }
+     echo $contactdata;
+     }
 
 }
