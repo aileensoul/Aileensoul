@@ -462,8 +462,17 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
 
 
 
-$.validator.addMethod("regx", function(value, element, regexpr) {          
-    return regexpr.test(value);
+  $.validator.addMethod("regx", function(value, element, regexpr) {          
+    //return value == '' || value.trim().length != 0; 
+     if(!value) 
+            {
+                return true;
+            }
+            else
+            {
+                  return regexpr.test(value);
+            }
+     // return regexpr.test(value);
 }, "Only space, only number and only special characters are not allow");
 
 
@@ -493,7 +502,7 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
                 business_details: {
 
                     required: true,
-                     regx:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]/
+                     regx:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/
                     //noSpace: true
 
                 },
