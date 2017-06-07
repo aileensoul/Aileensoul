@@ -742,7 +742,7 @@ footer {
     color: #000;
 }
 .job-post-detail span {
-    color: #000;
+    
     word-break: break-word;
     word-wrap: break-word;
 }
@@ -844,7 +844,10 @@ footer {
 .dropdown {
     position: relative;
 }
+.next{right:300px}
+.job-saved-box h3{    border: 1px solid #d9d9d9;}
 .dropdown-menu {
+       left: -39px!important;
     position: absolute;
 }
 ul.dropdown-menu li {
@@ -9071,9 +9074,9 @@ fieldset .add_post_btns:hover {
     color: #1b8ab9;}
 .bg_following:hover{background-color: #156f95 !important;}
 .like_cmnt_count li{float: right;    word-spacing: 2px;
-    letter-spacing: 1px; color: #999;}
-.like_count_ext{padding: 8px; font-size: 12px; color: #999;    word-spacing: 2px;
+    letter-spacing: 1px; color: #999!important;}
+.like_cmnt_count li .like_count_ext{padding: 8px; font-size: 12px; color: #999!important;    word-spacing: 2px;
     letter-spacing: 1px;}
-.comnt_count_ext{padding: 8px; font-size: 12px; }
+.like_cmnt_count li .comnt_count_ext{padding: 8px; font-size: 12px; }
 /*.border_left_span{    border-left: 1px solid #999;
     padding-left: 16px;}*/
