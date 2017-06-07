@@ -5110,6 +5110,7 @@ label.cameraButton input[accept*="camera"] {
     width: 100%;
 }
 .post-design-mid {
+    padding-top: 5px;
     background-color: #ffffff;
     border-bottom: 6px solid #f6f4f5;
     background-color: #ffffff;
