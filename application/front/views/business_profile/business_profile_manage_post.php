@@ -822,14 +822,13 @@
                                     <img alt=""  src="<?php echo base_url(NOIMAGE); ?>" alt="" />
                                 <?php } ?>
                             </div>
-                            <div id="myBtn1"  class="editor-content col-md-11 popup-text"   >
+                            <div id="myBtn1"  class="editor-content col-md-10 popup-text"   >
                                 <span>Post Your Product....</span>
 
                             </div>
-<<<<<<< HEAD
+
                               <div class="col-md-1 padding-left camer_h" ><i class=" fa fa-camera " ></i> </div>
-=======
->>>>>>> 4efe90f6425b7012106c45be957402c1611058fb
+
                         </div>
 
                     </div>
