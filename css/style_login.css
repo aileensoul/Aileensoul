@@ -6,11 +6,11 @@
 html {
 /*  overflow-y: scroll;*/
 }
-textarea::-webkit-input-placeholder { color:#ccc;font-size: 15px; }
-input::-webkit-input-placeholder { color:#ccc;font-size: 15px; }
-input::-moz-placeholder { color:#ccc; font-size: 15px;} /* firefox 19+ */
-input:-ms-input-placeholder { color:#ccc; font-size: 15px;} /* ie */
-input:-moz-placeholder { color:#ccc;font-size: 15px; }
+textarea::-webkit-input-placeholder { color:#999;font-size: 15px; }
+input::-webkit-input-placeholder { color:#999;font-size: 15px; }
+input::-moz-placeholder { color:#999; font-size: 15px;} /* firefox 19+ */
+input:-ms-input-placeholder { color:#999; font-size: 15px;} /* ie */
+input:-moz-placeholder { color:#999;font-size: 15px; }
 .main_reg_form input::-webkit-input-placeholder { color:#ccc;font-size: 15px; }
 .contus input::-webkit-input-placeholder { color:#000;font-size: 15px; }
 .contus textarea::-webkit-input-placeholder { color:#000  ;font-size: 15px; }
@@ -231,7 +231,7 @@ label.highlight {
   width: 100%;
 
   padding: 3px 10px;
-  background: none;
+  background: #fff;
   background-image: none;
   border: 1px solid #fff;
   color: #000000;
@@ -260,7 +260,12 @@ input:focus, textarea:focus {
 
 .par-3{padding-right:3px!important }
 .pal-3{padding-left:3px!important }
-label { font-size: 14px; font-weight: 400; color: #616060; margin-bottom: 7px!important; margin-top: 7px; padding-left: 2px;}
+label {    font-size: 16px;
+    font-weight: 400!important;
+    color: #616060;
+    margin-bottom: 3px!important;
+    margin-top: 15px;
+    padding-left: 2px}
 fieldset { width: 50%; float: left; padding: 4px 8px; position: relative; }
 textarea {
   border: 2px solid #a0b3b0;
@@ -319,13 +324,15 @@ textarea {
 }
 
 footer{position: absolute; width: 100%;    background: #88878d;
-bottom: 0;}
+bottom: -9px;}
 #login{
     width: 86%;
     margin: 0 auto;
 }
 .c_account{
-   margin: 10px 0;
+  padding-top: 10px;
+  width: 60%;
+   margin: 0 auto;
 }
 .c_account a span h6{
    color:#a0b3b0;font-size: 14px;
@@ -1142,11 +1149,12 @@ word-break: break-all;
    }
     .date_tm label{display: block;}
     .terms{padding: 17px 0px 6px 15px;}
-    .terms p{color:#000; }
+    .terms p{color:#000; margin-bottom: 0px!important; }
     .terms p a{color: #787878; }
 .head_ad h2{width: 100%;
     text-align: center;
-    color: #1b89ba;}
+    color: #1b89ba;
+    font-size: 34px;}
 
     .frtgt a{font-size: 13px; font-weight: 400!important; color: #fff!important; display: inline-block; padding-top: 3px;}
     .remb_1{    font-size: 13px;
@@ -1160,7 +1168,7 @@ word-break: break-all;
     /* word-spacing: 2px; */
     word-wrap: break-word;}
     .contus{ position: relative;
-    top: 0px;
+    top: 0px; 
     width: 60%;
     left: 21%;
     height: 45%;
@@ -1192,8 +1200,8 @@ word-break: break-all;
 
 .btnsa{padding-right: 25px;}
 .btnsa button{padding: 10px 0px 10px 0px; width: 50%; float: right; background-color: #1b8ab8; color: #fff; font-size: 18px;}
- .contactx textarea::-webkit-input-placeholder { color:#ccc;font-size: 18px;  }
- .contactx input::-webkit-input-placeholder { color:#ccc;font-size: 18px; }
+ .contactx textarea::-webkit-input-placeholder { color:#999;font-size: 18px;  }
+ .contactx input::-webkit-input-placeholder { color:#999;font-size: 18px; }
 .textss {position: absolute;
     top: 160px;}
 .textss h1{
@@ -1208,10 +1216,10 @@ word-break: break-all;
     /* top: 8px; */
     bottom: 0px;
      right: 28px; }
-     .che_eye{  cursor: pointer;
+     .che_eye{      cursor: pointer;
     position: absolute;
-    top: 39%;
-    right: 13%;}
+    bottom: 2px;
+    right: 7%;}
 
     .log_eye{position: absolute;
        top: 2px;

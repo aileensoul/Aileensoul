@@ -556,7 +556,7 @@
 
                     </div>
                     <!-- popup start -->
-                    
+
                     <!-- Trigger/Open The Modal -->
                     <!-- <div id="myBtn">Open Modal</div>-->
                     <!-- The Modal -->
@@ -651,7 +651,7 @@
                     ?>
 
                     <div class="col-md-7 col-sm-7 all-form-content  fixed_left" >
-                        
+
                         <div class="post-editor col-md-12">
                             <div class="main-text-area col-md-12">
                                 <div class="popup-img col-md-1"> 
@@ -671,9 +671,9 @@
                               </a>
                             </div> -->
                         </div>
-                    
-                        
-                        
+
+
+
                         <!-- body content start-->
 
                         <?php
@@ -1050,13 +1050,15 @@
                                                                     $likeuserarray = explode(',', $active[0]['business_like_user']);
                                                                     if (!in_array($userid, $likeuserarray)) {
                                                                         ?>               
-                                                                        <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true">
-                                                                        </i>
+                <!--                                                                        <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true">
+                                                                            </i>-->
+                                                                        <i class="fa fa-thumbs-up" style="color: #999;" aria-hidden="true"></i>
                                                                     <?php } else { ?> 
-                                                                        <i class="fa fa-thumbs-up" aria-hidden="true">
-                                                                        </i>
+                <!--                                                                        <i class="fa fa-thumbs-up" aria-hidden="true">
+                                                                            </i>-->
+                                                                        <i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i>
                                                                     <?php } ?>
-                                                                    <span>
+                                                                        <span class="like_As_count">
                                                                         <?php
                                                                         if ($row['business_likes_count'] > 0) {
                                                                             echo $row['business_likes_count'];
@@ -1795,7 +1797,7 @@
         //      z.style.display = 'block';
         //      $.ajax({ 
         //             type:'POST',
-        //          url:'<?php //echo base_url() . "business_profile/fourcomment"                                                                     ?>',
+        //          url:'<?php //echo base_url() . "business_profile/fourcomment"                                                                      ?>',
         //             data:'art_post_id='+clicked_id,
         //             //alert(data);
         //             success:function(data){
@@ -3284,171 +3286,159 @@
 </script>
 
 <script type="text/javascript">
-    $('div.edt_2').on('paste', function () {
-        var element = this.id;
-        var clicked_id =  element.replace('post_comment', '');
-        
-        var pasteArea = document.getElementById("post_comment" + clicked_id);
-        var fWeight = document.getElementById("fWeight");
-        var fStyle = document.getElementById("fStyle");
-        
-        
-        // Event Listener
-        pasteArea.addEventListener('paste', function (e) {
-            e.preventDefault();
+                            $('div.edt_2').on('paste', function () {
+                    var element = this.id;
+                            var clicked_id = element.replace('post_comment', '');
+                                    var pasteArea = document.getElementById("post_comment" + clicked_id);
+                                    var fWeight = document.getElementById("fWeight");
+                                    var fStyle = document.getElementById("fStyle");
+                            // Event Listener
+                                    pasteArea.addEventListener('paste', function (e) {
+                                    e.preventDefault();
+                                            var clipboardData = {},
+                                            rDataText,
+                                            rDataHTML;
+                                            if (e.clipboardData) {
+                                    // Mozilla & Chrome    
+                                    clipboardData = e.clipboardData;
+                                            rDataHTML = clipboardData.getData('text/html');
+                                            rDataHTML = rDataHTML.replace('<!--StartFragment-->', '');
+                                            rDataHTML = rDataHTML.replace('<!--EndFragment-->', '');
+                                            rDataPText = clipboardData.getData('text/plain');
+                                    } else if (window.clipboardData) {
+                                    // IE9
+                                    clipboardData = window.clipboardData;
+                                            try {
+                                            rDataHTML = clipboardData.getData('Html');
+                                                    rDataHTML = rDataHTML.replace('<!--StartFragment-->', '');
+                                                    rDataHTML = rDataHTML.replace('<!--EndFragment-->', '');
+                                            } catch (e) {
+                                    console.log(e);
+                                    }
 
-            var clipboardData = {},
-                    rDataText,
-                    rDataHTML;
+                                    rDataPText = clipboardData.getData('Text');
+                                    }
 
-            if (e.clipboardData) {
-                // Mozilla & Chrome    
-                clipboardData = e.clipboardData;
-                rDataHTML = clipboardData.getData('text/html');
-                rDataHTML =  rDataHTML.replace('<!--StartFragment-->', '');
-                rDataHTML =  rDataHTML.replace('<!--EndFragment-->', '');
-                rDataPText = clipboardData.getData('text/plain');
-                
-            } else if (window.clipboardData) {
-                // IE9
-                clipboardData = window.clipboardData;
+                                    if (rDataHTML && rDataHTML.trim().length != 0) {
+                                    console.log('data in clipboard is html');
+                                            HtmlHandler(rDataHTML);
+                                            return false;
+                                    }
 
-                try {
-                    rDataHTML = clipboardData.getData('Html');
-                    rDataHTML =  rDataHTML.replace('<!--StartFragment-->', '');
-                    rDataHTML =  rDataHTML.replace('<!--EndFragment-->', '');
-                } catch (e) {
-                    console.log(e);
-                }
+                                    if (rDataPText && rDataPText.trim().length != 0) {
+                                    console.log('data in clipboard is plain text');
+                                            PlainTextHandler(rDataPText);
+                                            return false;
+                                    }
 
-                rDataPText = clipboardData.getData('Text');
-            }
-
-            if (rDataHTML && rDataHTML.trim().length != 0) {
-                console.log('data in clipboard is html');
-                HtmlHandler(rDataHTML);
-                return false;
-            }
-
-            if (rDataPText && rDataPText.trim().length != 0) {
-                console.log('data in clipboard is plain text');
-                PlainTextHandler(rDataPText);
-                return false;
-            }
-
-        }, false);
-
+                                    }, false);
 // Remove Line Break In PlainText
-        function PlainTextHandler(pText) {
-            pText.replace(/\r?\n|\r/, " ");
-            insertNode(document.createTextNode(pText))
-            pasteArea.removeClassName('loading');
-        }
+                                    function PlainTextHandler(pText) {
+                                    pText.replace(/\r?\n|\r/, " ");
+                                            insertNode(document.createTextNode(pText))
+                                            pasteArea.removeClassName('loading');
+                                    }
 
 // Remove Unwanted Tag and Attributes 
-        function HtmlHandler(htmlStr) {
+                            function HtmlHandler(htmlStr) {
 
-            var wrap = document.createElement("span"); 
-            wrap.innerHTML = htmlStr;
+                            var wrap = document.createElement("span");
+                                    wrap.innerHTML = htmlStr;
+                                    var allNodes = wrap.getElementsByTagName('*');
+                                    var allNodesLen = allNodes.length;
+                                    pasteArea.addClassName('loading'); // loading gif
 
-            var allNodes = wrap.getElementsByTagName('*'); 
-            var allNodesLen = allNodes.length;
+                                    function formatHtml(elem, complete) {
+                                    var flag_italic = false;
+                                            var flag_weight = false;
+                                            var fontStyle;
+                                            var fontWeight;
+                                            console.log(elem)
+                                            if (elem.nodeType == 1) { // 
 
-            pasteArea.addClassName('loading'); // loading gif
+                                    // get style in css 
+                                    var CSSStyle = window.getComputedStyle(elem);
+                                            fontStyle = CSSStyle.fontStyle;
+                                            fontWeight = CSSStyle.fontWeight;
+                                            // get style defined by inline
+                                            var InlineStyle = elem.style;
+                                            inlineFontStyle = InlineStyle['font-style'];
+                                            inlineFontWeight = InlineStyle['font-weight'];
+                                            if (inlineFontStyle && inlineFontStyle.trim() != '')
+                                            fontStyle = inlineFontStyle;
+                                            if (inlineFontWeight && inlineFontWeight.trim() != '')
+                                            fontWeight = inlineFontWeight;
+                                            // get style defined in MSword
+                                            var msStyle = elem.getAttribute('style');
+                                            if (/mso-bidi/.test(msStyle)) {
+                                    var MSStyleObj = {};
+                                            var styleStrArr = msStyle.split(";");
+                                            for (i = 0; i < styleStrArr.length; i++) {
+                                    var temp = styleStrArr[i].split(":");
+                                            MSStyleObj[temp[0]] = temp[1];
+                                    }
+                                    fontStyle = MSStyleObj['mso-bidi-font-style'];
+                                            fontWeight = MSStyleObj['mso-bidi-font-weight'];
+                                    }
 
-            function formatHtml(elem, complete) {
-                var flag_italic = false;
-                var flag_weight = false;
-                var fontStyle;
-                var fontWeight;
-                console.log(elem)
-                if (elem.nodeType == 1) { // 
+                                    if (fontStyle && fontStyle == 'italic')
+                                            flag_italic = true; // flag true if italic
 
-                    // get style in css 
-                    var CSSStyle = window.getComputedStyle(elem);
-                    fontStyle = CSSStyle.fontStyle;
-                    fontWeight = CSSStyle.fontWeight;
+                                            if (fontWeight && (fontWeight == 'bold' || 600 <= ( + fontWeight)))
+                                            flag_weight = true; // flag true if bold - 600 is semi bold
 
-                    // get style defined by inline
-                    var InlineStyle = elem.style;
-                    inlineFontStyle = InlineStyle['font-style'];
-                    inlineFontWeight = InlineStyle['font-weight'];
-                    if (inlineFontStyle && inlineFontStyle.trim() != '')
-                        fontStyle = inlineFontStyle;
-                    if (inlineFontWeight && inlineFontWeight.trim() != '')
-                        fontWeight = inlineFontWeight;
+                                            // bold & italic are not applied via style
+                                            // these styles are applied by appending contents in new tags string & bold
+                                            if (flag_italic && flag_weight) {
+                                    var strong = document.createElement('strong');
+                                            var italic = document.createElement('i');
+                                            strong.appendChild(italic);
+                                            newtag = strong;
+                                    } else {
+                                    if (flag_italic) {
+                                    newtag = document.createElement('i');
+                                    } else if (flag_weight) {
+                                    newtag = document.createElement('strong');
+                                    } else {
+                                    // remove un wanted attributes & element
+                                    var tagName = elem.tagName;
+                                            if (tagName == 'STRONG' || tagName == 'B') {
+                                    newtag = document.createElement('strong');
+                                    } else if (tagName == 'I') {
+                                    newtag = document.createElement('i');
+                                    } else {
+                                    newtag = document.createElement('span');
+                                    }
+                                    }
+                                    }
+                                    // content appended
+                                    var elemHTML = elem.innerHTML;
+                                            if (flag_italic && flag_weight) {
+                                    newtag.childNodes[0].innerHTML = elemHTML;
+                                    } else {
+                                    newtag.innerHTML = elemHTML;
+                                    }
+                                    // curr element is replaced by new
+                                    elem.parentNode.insertBefore(newtag, elem);
+                                            elem.parentNode.removeChild(elem);
+                                    }
+                                    complete() // completed one iteration
+                                    }
 
-                    // get style defined in MSword
-                    var msStyle = elem.getAttribute('style');
-                    if (/mso-bidi/.test(msStyle)) {
-                        var MSStyleObj = {};
-                        var styleStrArr = msStyle.split(";");
-                        for (i = 0; i < styleStrArr.length; i++) {
-                            var temp = styleStrArr[i].split(":");
-                            MSStyleObj[temp[0]] = temp[1];
-                        }
-                        fontStyle = MSStyleObj['mso-bidi-font-style'];
-                        fontWeight = MSStyleObj['mso-bidi-font-weight'];
-                    }
-
-                    if (fontStyle && fontStyle == 'italic')
-                        flag_italic = true; // flag true if italic
-
-                    if (fontWeight && (fontWeight == 'bold' || 600 <= (+fontWeight)))
-                        flag_weight = true;  // flag true if bold - 600 is semi bold
-
-                    // bold & italic are not applied via style
-                    // these styles are applied by appending contents in new tags string & bold
-                    if (flag_italic && flag_weight) {
-                        var strong = document.createElement('strong');
-                        var italic = document.createElement('i');
-                        strong.appendChild(italic);
-                        newtag = strong;
-                    } else {
-                        if (flag_italic) {
-                            newtag = document.createElement('i');
-                        } else if (flag_weight) {
-                            newtag = document.createElement('strong');
-                        } else {
-                            // remove un wanted attributes & element
-                            var tagName = elem.tagName;
-                            if (tagName == 'STRONG' || tagName == 'B') {
-                                newtag = document.createElement('strong');
-                            } else if (tagName == 'I') {
-                                newtag = document.createElement('i');
-                            } else {
-                                newtag = document.createElement('span');
+                            // call , iteration is completed
+                            function done() {
+                            insertNode(wrap)
+                                    pasteArea.removeClassName('loading');
                             }
-                        }
-                    }
-                    // content appended
-                    var elemHTML = elem.innerHTML;
-                    if (flag_italic && flag_weight) {
-                        newtag.childNodes[0].innerHTML = elemHTML;
-                    } else {
-                        newtag.innerHTML = elemHTML;
-                    }
-                    // curr element is replaced by new
-                    elem.parentNode.insertBefore(newtag, elem);
-                    elem.parentNode.removeChild(elem);
-                }
-                complete() // completed one iteration
-            }
 
-            // call , iteration is completed
-            function done() {
-                insertNode(wrap)
-                pasteArea.removeClassName('loading');
-            }
-
-            // async approach to iterate dom elements
-            function asyncEach(domCol, computeFunc, donFunc) {
-                function process() {
-                    allNodesLen -= 1; // move forward
-                    if (allNodesLen >= 0) {
-                        computeFunc(domCol[allNodesLen], function () {
+                            // async approach to iterate dom elements
+                            function asyncEach(domCol, computeFunc, donFunc) {
+                            function process() {
+                            allNodesLen -= 1; // move forward
+                                    if (allNodesLen >= 0) {
+                            computeFunc(domCol[allNodesLen], function () {
                             setTimeout(process, 0);
-                        }); // function call
+                            }); // function call
                     } else {
                         donFunc(); //completed
                     }

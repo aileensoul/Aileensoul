@@ -233,17 +233,31 @@
                  $countryname =  $this->db->get_where('countries',array('country_id' => $postdata[0]['country']))->row()->country_name; ?>
 
                                      <select style="cursor:pointer;" name="country" id="country">
-                                    <option value="<?php echo $postdata[0]['country'] ;?>"><?php echo $countryname ;?></option>
-                                    <?php
-                                    if(count($countries) > 0){
-                                    foreach($countries as $cnt){
-                                      if($cnt['country_id'] != $postdata[0]['country'])
-                                      {
-                                    ?>
 
-                                    <option value="<?php echo $cnt['country_id']; ?>"><?php echo $cnt['country_name']; ?></option>
-                                    <?php }}}
-                                    ?>
+                                  
+
+                                     <option value="" selected option disabled>Select Country</option>
+                          <?php
+                                            if(count($countries) > 0){
+                                                foreach($countries as $cnt){
+                                          
+                                            if($country1)
+                                            {
+                                              ?>
+                                                 <option value="<?php echo $cnt['country_id']; ?>" <?php if($cnt['country_id']==$country1) echo 'selected';?>><?php echo $cnt['country_name'];?></option>
+                                               
+                                                <?php
+                                                }
+                                                else
+                                                {
+                                            ?>
+                                                 <option value="<?php echo $cnt['country_id']; ?>"><?php echo $cnt['country_name'];?></option>
+                                                  <?php
+                                            
+                                            }
+       
+                                            }}
+                                            ?>
                                       </select> 
                                       
                                       <?php echo form_error('country'); ?>

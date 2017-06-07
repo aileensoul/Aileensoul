@@ -1381,12 +1381,14 @@
                                                     if (!in_array($userid, $likeuserarray)) {
                                                         ?>               
 
-                                                        <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>
+                                                        <!--<i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>-->
+                                                    <i class="fa fa-thumbs-up" style="color: #999;" aria-hidden="true"></i>
 
                                                     <?php } else { ?> 
-                                                        <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                                        <!--<i class="fa fa-thumbs-up" aria-hidden="true"></i>-->
+                                                    <i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i>
                                                     <?php } ?>
-                                                    <span>
+                                                    <span class="like_As_count">
                                                         <?php
                                                         if ($busienss_data[0]['business_likes_count'] > 0) {
                                                             echo $busienss_data[0]['business_likes_count'];

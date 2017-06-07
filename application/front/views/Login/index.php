@@ -71,14 +71,16 @@
                             </fieldset>
 
 <fieldset class="col-md-12">
-     <button type="submit" id="btnShow" name="login" value="Login" class="button button-block vfhh" style="background:#1b8ab8!important; background-repeat: no-repeat; background-position: right center">Log In</button>
-                            <div class="c_account">
+     <button type="submit" id="btnShow" name="login" value="Login" class="button button-block vfhh" style="background:#1b8ab8!important; background-repeat: no-repeat; background-position: right center; margin-top: 0px;">Log In</button>
+                           
+</fieldset>
+    
+<fieldset class="col-md-12">
+     <div class="c_account">
                                 <span style="font-size: 14px;">Don't have an account?</span>
                                 <a  href="<?php echo base_url('registration'); ?>">Create an account</a>
                             </div>
 </fieldset>
-    
-
                
             </div>
 

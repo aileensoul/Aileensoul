@@ -1234,8 +1234,17 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
       return value == '' || value.trim().length != 0;  
     }, "No space please and don't leave it empty");
 
- $.validator.addMethod("regx1", function(value, element, regexpr) {          
-    return regexpr.test(value);
+$.validator.addMethod("regx1", function(value, element, regexpr) {          
+    //return value == '' || value.trim().length != 0; 
+     if(!value) 
+            {
+                return true;
+            }
+            else
+            {
+                  return regexpr.test(value);
+            }
+     // return regexpr.test(value);
 }, "Only space, only number and only special characters are not allow");
 
 
@@ -1246,14 +1255,14 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
                                     board_primary: {
 
                                         required: true,
-                                        regx1:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]/,
+                                        regx1:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/,
 
                                     },
 
                                     school_primary: {
 
                                         required: true,
-                                         regx1:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]/,
+                                         regx1:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/,
 
                                     },
 
@@ -1334,7 +1343,16 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
     }, "No space please and don't leave it empty");
 
                             $.validator.addMethod("regx1", function(value, element, regexpr) {          
-    return regexpr.test(value);
+    //return value == '' || value.trim().length != 0; 
+     if(!value) 
+            {
+                return true;
+            }
+            else
+            {
+                  return regexpr.test(value);
+            }
+     // return regexpr.test(value);
 }, "Only space, only number and only special characters are not allow");
 
 
@@ -1345,14 +1363,14 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
                                     board_secondary: {
 
                                         required: true,
-                                        regx1:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]/,
+                                        regx1:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/,
 
                                     },
 
                                     school_secondary: {
 
                                         required: true,
-                                         regx1:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]/,
+                                         regx1:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/,
 
                                     },
 
@@ -1431,8 +1449,17 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
       return value == '' || value.trim().length != 0;  
     }, "No space please and don't leave it empty");
 
-                             $.validator.addMethod("regx1", function(value, element, regexpr) {          
-    return regexpr.test(value);
+     $.validator.addMethod("regx1", function(value, element, regexpr) {          
+    //return value == '' || value.trim().length != 0; 
+     if(!value) 
+            {
+                return true;
+            }
+            else
+            {
+                  return regexpr.test(value);
+            }
+     // return regexpr.test(value);
 }, "Only space, only number and only special characters are not allow");
 
 
@@ -1443,13 +1470,13 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
                                     board_higher_secondary: {
 
                                         required: true,
-                                         regx1:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]/,
+                                         regx1:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/,
 
                                     },
                                     stream_higher_secondary: {
 
                                         required: true,
-                                         regx1:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]/,
+                                         regx1:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/,
 
                                     },
 
