@@ -826,9 +826,7 @@
                                 <span>Post Your Product....</span>
 
                             </div>
-                            <div class="col-md-1 padding-left camer_h" ><i class=" fa fa-camera " ></i> </div>
-
-                                    </div>
+                              <div class="col-md-1 padding-left camer_h" ><i class=" fa fa-camera " ></i> </div>
                         </div>
 
                     </div>
@@ -1092,15 +1090,11 @@
 
 
 
-                                          
+
                                             <div class="post-design-desc ">
-                                              <?php if($row['product_name']){?>
                                                 <div id="<?php echo 'editpostdata' . $row['business_profile_post_id']; ?>" style="display:block;">
                                                     <a  ><?php echo $this->common->make_links($row['product_name']); ?></a>
-                                                    </div>
-                                                     <?php } ?>
-                                                
-                                               
+                                                </div>
 
                                                 <div id="<?php echo 'editpostbox' . $row['business_profile_post_id']; ?>" style="display:none;">
                                                     <input type="text" id="<?php echo 'editpostname' . $row['business_profile_post_id']; ?>" name="editpostname" placeholder="Product Name" value="<?php echo $row['product_name']; ?>">
@@ -3547,11 +3541,10 @@
             <script>
                 $(function () {
 //                    var showTotalChar = 200, showChar = "More", hideChar = "Less";
-                    var showTotalChar = 180, showChar = "More", hideChar = "";
+                    var showTotalChar = 250, showChar = "More", hideChar = "";
                     $('.show').each(function () {
                         //var content = $(this).text();
                         var content = $(this).html();
-                        content = content.replace(/ /g,'');
                         if (content.length > showTotalChar) {
                             var con = content.substr(0, showTotalChar);
                             var hcon = content.substr(showTotalChar, content.length - showTotalChar);
