@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
-<!-- <link rel="stylesheet" type="text/css" href="<?php //echo base_url('css/select2-4.0.3.min.css');    ?>"> -->
+<!-- <link rel="stylesheet" type="text/css" href="<?php //echo base_url('css/select2-4.0.3.min.css');     ?>"> -->
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/jquery.jMosaic.css'); ?>">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
@@ -266,7 +266,7 @@
 
                                                 <?php } ?>                 </li>
                                             <!-- 
-                                            <li><div class="post-design-product"><a><?php //echo $listFinal ;       ?> </a></div></li>
+                                            <li><div class="post-design-product"><a><?php //echo $listFinal ;        ?> </a></div></li>
                                             -->
                                             <li> 
                                                 <div id="<?php echo 'editpostdata' . $art_data[0]['art_post_id']; ?>" style="display:block;">
@@ -301,7 +301,7 @@
 
                                                     <a href="<?php echo base_url('artistic/artistic_contactperson/' . $art_data[0]['user_id'] . ''); ?>"><i class="fa fa-user" aria-hidden="true"></i> Contact Person</a>
 
-                                                <?php
+                                                    <?php
                                                 }
                                             } else {
                                                 ?>  
@@ -315,11 +315,11 @@
                                                     <a id="<?php echo $art_data[0]['art_post_id']; ?>" onClick="deleteownpostmodel(this.id)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete Post</a>
 
                                                     <a id="<?php echo $art_data[0]['art_post_id']; ?>" onClick="editpost(this.id)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit</a>
-    <?php } else { ?>
+                                                <?php } else { ?>
                                                     <a href="<?php echo "#popup5" . $row['art_post_id']; ?>"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete Post</a>
 
                                                     <a href="<?php echo base_url('artistic/artistic_contactperson/' . $art_data[0]['user_id'] . ''); ?>"><i class="fa fa-user" aria-hidden="true"></i> Contact Person</a>
-                                                <?php
+                                                    <?php
                                                 }
                                             }
                                             ?>
@@ -328,10 +328,10 @@
                                     <div class="post-design-desc">
                                         <span> 
                                             <div class="margin_btm" id="<?php echo 'editpostdetails' . $art_data[0]['art_post_id']; ?>" style="display:block;"><span class="show">
-<?php print $this->common->make_links($art_data[0]['art_description']); ?></span>
+                                                    <?php print $this->common->make_links($art_data[0]['art_description']); ?></span>
                                             </div>
                                             <div id="<?php echo 'editpostdetailbox' . $art_data[0]['art_post_id']; ?>" style="display:none;">
-                                                <div contenteditable="true" id="<?php echo 'editpostdesc' . $art_data[0]['art_post_id']; ?>" name="editpostdesc" class="editable_text " ><?php echo $art_data[0]['art_description']; ?>
+                                                <div contenteditable="true" id="<?php echo 'editpostdesc' . $art_data[0]['art_post_id']; ?>" name="editpostdesc" class="editable_text" onpaste="OnPaste_StripFormatting(this, event);"><?php echo $art_data[0]['art_description']; ?>
                                                 </div> 
                                             </div>
                                             <button class="fr" id="<?php echo "editpostsubmit" . $art_data[0]['art_post_id']; ?>" style="display:none; "" onClick="edit_postinsert(<?php echo $art_data[0]['art_post_id']; ?>)">Save</button>
@@ -367,11 +367,11 @@
 
                                                 <div class="basic-responsive-image" >
                                                     <img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $data['image_name']) ?>" style="width: 100%; height: 100%;" onclick="openModal();
-                                                                    currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
+                                                            currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
 
                                                 </div>
 
-    <?php } elseif (in_array($ext, $allowesvideo)) { ?>
+                                            <?php } elseif (in_array($ext, $allowesvideo)) { ?>
                                                 <!-- one video start -->
                                                 <div>
                                                     <video style="height: 50%; width: 100%; margin-bottom: 10px;"controls>
@@ -381,7 +381,7 @@
                                                     </video>
                                                 </div>
                                                 <!-- one video end -->
-    <?php } elseif (in_array($ext, $allowesaudio)) { ?>
+                                            <?php } elseif (in_array($ext, $allowesaudio)) { ?>
                                                 <!-- one audio start -->
                                                 <div>
                                                     <audio style="height: 50%; width: 100%; margin-bottom: 10px;" controls>
@@ -424,7 +424,7 @@
                                                     </div>
                                                     <!-- 9-5 like comment start -->
 
-    <?php if (count($databus1) > 1) { ?>
+                                                    <?php if (count($databus1) > 1) { ?>
                                                         <div class="post-design-like-box col-md-12">
                                                             <div class="post-design-menu">
                                                                 <!-- like comment div start -->
@@ -444,7 +444,7 @@
                                                                                 <i class="fa fa-thumbs-up" aria-hidden="true"></i>
                                                                             <?php } else { ?>
                                                                                 <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>
-        <?php } ?>
+                                                                            <?php } ?>
 
 
                                                                             <span class="<?php echo 'likeimage' . $artdata['image_id']; ?>"> <?php
@@ -499,7 +499,7 @@
                                                                     $art_fname1 = $this->db->get_where('art_reg', array('user_id' => $comment['user_id'], 'status' => 1))->row()->art_name;
                                                                     $art_lname1 = $this->db->get_where('art_reg', array('user_id' => $comment['user_id'], 'status' => 1))->row()->art_lastname;
                                                                     ?>
-                                                                    <?php } ?>
+                                                                <?php } ?>
                                                                 <!-- pop up box end-->
                                                                 <a href="javascript:void(0);"  onclick="likeuserlistimg(<?php echo $artdata['image_id']; ?>);">
                                                                     <?php
@@ -544,7 +544,7 @@
                                                                 $art_fname1 = $this->db->get_where('art_reg', array('user_id' => $comment['user_id'], 'status' => 1))->row()->art_name;
                                                                 $art_lname1 = $this->db->get_where('art_reg', array('user_id' => $comment['user_id'], 'status' => 1))->row()->art_lastname;
                                                                 ?>
-                                                                <?php } ?>
+                                                            <?php } ?>
                                                             <!-- pop up box end-->
                                                             <a href="javascript:void(0);"  onclick="likeuserlistimg(<?php echo $artdata['image_id']; ?>);">
                                                                 <?php
@@ -622,7 +622,7 @@
 
                                                                                 <div class="edit-comment-box">
                                                                                     <div class="inputtype-edit-comment">
-                                                                                        <div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="<?php echo $rowdata['post_image_comment_id']; ?>"  id="editcommentimg<?php echo $rowdata['post_image_comment_id']; ?>" placeholder="Enter Your Comment " value= ""  onkeyup="commenteditimg(<?php echo $rowdata['post_image_comment_id']; ?>)"><?php echo $rowdata['comment']; ?></div>
+                                                                                        <div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="<?php echo $rowdata['post_image_comment_id']; ?>"  id="editcommentimg<?php echo $rowdata['post_image_comment_id']; ?>" placeholder="Enter Your Comment " value= ""  onkeyup="commenteditimg(<?php echo $rowdata['post_image_comment_id']; ?>)" onpaste="OnPaste_StripFormatting(this, event);"><?php echo $rowdata['comment']; ?></div>
                                                                                         <span class="comment-edit-button"><button id="<?php echo "editsubmitimg" . $rowdata['post_image_comment_id']; ?>" style="display:none" onClick="edit_commentimg(<?php echo $rowdata['post_image_comment_id']; ?>)">Save</button></span>
                                                                                     </div>
                                                                                 </div>
@@ -644,7 +644,7 @@
 
                                                                                             <?php } else { ?>
                                                                                                 <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-                                                                                                <?php } ?>
+                                                                                            <?php } ?>
                                                                                             <span>
 
                                                                                                 <?php
@@ -695,7 +695,7 @@
                                                                                                 </span>
                                                                                             </a>
                                                                                         </div>
-                <?php } ?>
+                                                                                    <?php } ?>
 
                                                                                     <span role="presentation" aria-hidden="true"> · </span>
 
@@ -725,7 +725,7 @@
 
                                                         </div>
 
-                                                            <?php //  }    ?>
+                                                        <?php //  }    ?>
                                                         <div class="post-design-commnet-box col-md-12">
                                                             <?php
                                                             $userid = $this->session->userdata('aileenuser');
@@ -744,9 +744,9 @@
                                                             </div>
                                                             <div class="">
                                                                 <div id="content" class="col-md-12 inputtype-comment cmy_2" >
-                                                                    <div contenteditable="true"  class="editable_text edt_2" name="<?php echo $artdata['image_id']; ?>"  id="<?php echo "post_commentimg" . $artdata['image_id']; ?>" placeholder="Add a Comment ..." onclick="entercommentimg(<?php echo $artdata['image_id']; ?>)" onkeyup="comment_wo_div(<?php echo $artdata['image_id']; ?>)"></div>
+                                                                    <div contenteditable="true"  class="editable_text edt_2" name="<?php echo $artdata['image_id']; ?>"  id="<?php echo "post_commentimg" . $artdata['image_id']; ?>" placeholder="Add a Comment ..." onclick="entercommentimg(<?php echo $artdata['image_id']; ?>)" onpaste="OnPaste_StripFormatting(this, event);" ></div>
                                                                 </div>
-        <?php echo form_error('post_commentimg'); ?>
+                                                                <?php echo form_error('post_commentimg'); ?>
                                                                 <div class="comment-edit-butn">   
                                                                     <button id="<?php echo $artdata['image_id']; ?>" onClick="insert_commentimg(this.id)">Comment</button> 
                                                                 </div>
@@ -791,7 +791,7 @@
                                                         <i class="fa fa-thumbs-up" style="color: #999;" aria-hidden="true"></i>
                                                     <?php } else { ?> 
                                                         <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-                                                        <?php } ?>
+                                                    <?php } ?>
                                                     <span  class="like_As_count">
                                                         <?php
                                                         if ($art_data[0]['art_likes_count'] > 0) {
@@ -837,7 +837,7 @@
                                             $art_fname1 = $this->db->get_where('art_reg', array('user_id' => $value, 'status' => 1))->row()->art_name;
                                             $art_lname1 = $this->db->get_where('art_reg', array('user_id' => $value, 'status' => 1))->row()->art_lastname;
                                             ?>
-                                            <?php } ?>
+                                        <?php } ?>
                                         <!-- pop up box end-->
                                         <a href="javascript:void(0);"  onclick="likeuserlist(<?php echo $row['art_post_id']; ?>);">
                                             <?php
@@ -887,7 +887,7 @@
                                         $art_fname1 = $this->db->get_where('art_reg', array('user_id' => $value, 'status' => 1))->row()->art_name;
                                         $art_lname1 = $this->db->get_where('art_reg', array('user_id' => $value, 'status' => 1))->row()->art_lastname;
                                         ?>
-                                        <?php } ?>
+                                    <?php } ?>
                                     <!-- pop up box end-->
                                     <a href="javascript:void(0);"  onclick="likeuserlist(<?php echo $art_data[0]['art_post_id']; ?>);">
                                         <?php
@@ -983,7 +983,7 @@
                                                                                                                                 </div>-->
                                                         <div class="edit-comment-box">
                                                             <div class="inputtype-edit-comment">
-                                                                <div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="<?php echo $rowdata['artistic_post_comment_id']; ?>"  id="editcomment<?php echo $rowdata['artistic_post_comment_id']; ?>" placeholder="Enter Your Comment " value= ""  onkeyup="commentedit(<?php echo $rowdata['artistic_post_comment_id']; ?>)"><?php echo $rowdata['comments']; ?></div>
+                                                                <div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="<?php echo $rowdata['artistic_post_comment_id']; ?>"  id="editcomment<?php echo $rowdata['artistic_post_comment_id']; ?>" placeholder="Enter Your Comment " value= ""  onkeyup="commentedit(<?php echo $rowdata['artistic_post_comment_id']; ?>)" onpaste="OnPaste_StripFormatting(this, event);"><?php echo $rowdata['comments']; ?></div>
                                                                 <span class="comment-edit-button"><button id="<?php echo "editsubmit" . $rowdata['artistic_post_comment_id']; ?>" style="display:none" onClick="edit_comment(<?php echo $rowdata['artistic_post_comment_id']; ?>)">Save</button></span>
                                                             </div>
                                                         </div>
@@ -1005,8 +1005,8 @@
                                                                     <?php } else {
                                                                         ?>
                                                                         <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-                                                                        <?php }
-                                                                        ?>
+                                                                    <?php }
+                                                                    ?>
                                                                     <span>
                                                                         <?php
                                                                         if ($rowdata['artistic_comment_likes_count'] > 0) {
@@ -1052,7 +1052,7 @@
                                                                         </span>
                                                                     </a>
                                                                 </div>
-        <?php } ?>
+                                                            <?php } ?>
 
                                                             <span role="presentation" aria-hidden="true"> · </span>
 
@@ -1100,9 +1100,9 @@
                                     </div>
                                     <div class="">
                                         <div id="content" class="col-md-12 inputtype-comment cmy_2" >
-                                            <div contenteditable="true"  class="editable_text edt_2" name="<?php echo $art_data[0]['art_post_id']; ?>"  id="<?php echo "post_comment" . $art_data[0]['art_post_id']; ?>" placeholder="Add a Comment ..." onClick="entercomment(<?php echo $art_data[0]['art_post_id']; ?>)" onkeyup="comment_wo_div(<?php echo $art_data[0]['art_post_id']; ?>)"></div>
+                                            <div contenteditable="true"  class="editable_text edt_2" name="<?php echo $art_data[0]['art_post_id']; ?>"  id="<?php echo "post_comment" . $art_data[0]['art_post_id']; ?>" placeholder="Add a Comment ..." onClick="entercomment(<?php echo $art_data[0]['art_post_id']; ?>)" onpaste="OnPaste_StripFormatting(this, event);" ></div>
                                         </div>
-<?php echo form_error('post_comment'); ?>
+                                        <?php echo form_error('post_comment'); ?>
                                         <div class=" comment-edit-butn">   
                                             <button id="<?php echo $art_data[0]['art_post_id']; ?>" onClick="insert_comment(this.id)">Comment</button> 
                                         </div>
@@ -3307,209 +3307,31 @@
                     </script>
                     <!-- This  script use for close dropdown in every post -->
 
-                    <script>
-                        
-                    function comment_wo_div(){
-                        var pasteArea = document.getElementById("post_comment" + clicked_id);
-                        var pasteArea = document.getElementById("post_comment14");
-                        var fWeight = document.getElementById("fWeight");
-                        var fStyle = document.getElementById("fStyle");
 
+                    <script type="text/javascript">
 
-// Event Listener
-                        pasteArea.addEventListener('paste', function (e) {
+                        var _onPaste_StripFormatting_IEPaste = false;
 
-                            e.preventDefault();
+                        function OnPaste_StripFormatting(elem, e) {
 
-                            var clipboardData = {},
-                                    rDataText,
-                                    rDataHTML;
-
-                            if (e.clipboardData) {
-
-                                // Mozilla & Chrome    
-                                clipboardData = e.clipboardData;
-                                rDataHTML = clipboardData.getData('text/html');
-                                rDataPText = clipboardData.getData('text/plain');
-
-                            } else if (window.clipboardData) {
-                                // IE9
-                                clipboardData = window.clipboardData;
-
-                                try {
-                                    rDataHTML = clipboardData.getData('Html');
-                                } catch (e) {
-                                    console.log(e);
+                            if (e.originalEvent && e.originalEvent.clipboardData && e.originalEvent.clipboardData.getData) {
+                                e.preventDefault();
+                                var text = e.originalEvent.clipboardData.getData('text/plain');
+                                window.document.execCommand('insertText', false, text);
+                            } else if (e.clipboardData && e.clipboardData.getData) {
+                                e.preventDefault();
+                                var text = e.clipboardData.getData('text/plain');
+                                window.document.execCommand('insertText', false, text);
+                            } else if (window.clipboardData && window.clipboardData.getData) {
+                                // Stop stack overflow
+                                if (!_onPaste_StripFormatting_IEPaste) {
+                                    _onPaste_StripFormatting_IEPaste = true;
+                                    e.preventDefault();
+                                    window.document.execCommand('ms-pasteTextOnly', false);
                                 }
-
-                                rDataPText = clipboardData.getData('Text');
+                                _onPaste_StripFormatting_IEPaste = false;
                             }
 
-                            if (rDataHTML && rDataHTML.trim().length != 0) {
-                                console.log('data in clipboard is html');
-                                HtmlHandler(rDataHTML);
-                                return false;
-                            }
-
-                            if (rDataPText && rDataPText.trim().length != 0) {
-                                console.log('data in clipboard is plain text');
-                                PlainTextHandler(rDataPText);
-                                return false;
-                            }
-
-                        }, false);
-
-// Remove Line Break In PlainText
-                        function PlainTextHandler(pText) {
-                            pText.replace(/\r?\n|\r/, " ");
-                            insertNode(document.createTextNode(pText))
-                            pasteArea.removeClassName('loading');
                         }
 
-// Remove Unwanted Tag and Attributes 
-                        function HtmlHandler(htmlStr) {
-
-                            var wrap = document.createElement("span"); // for ease of finding elements appended to a span
-                            wrap.innerHTML = htmlStr;
-
-                            var allNodes = wrap.getElementsByTagName('*'); // get all elements
-                            var allNodesLen = allNodes.length;
-
-                            pasteArea.addClassName('loading'); // loading gif
-
-                            function formatHtml(elem, complete) {
-                                var flag_italic = false;
-                                var flag_weight = false;
-                                var fontStyle;
-                                var fontWeight;
-                                console.log(elem)
-                                if (elem.nodeType == 1) { // 
-
-                                    // get style in css 
-                                    var CSSStyle = window.getComputedStyle(elem);
-                                    fontStyle = CSSStyle.fontStyle;
-                                    fontWeight = CSSStyle.fontWeight;
-
-                                    // get style defined by inline
-                                    var InlineStyle = elem.style;
-                                    inlineFontStyle = InlineStyle['font-style'];
-                                    inlineFontWeight = InlineStyle['font-weight'];
-                                    if (inlineFontStyle && inlineFontStyle.trim() != '')
-                                        fontStyle = inlineFontStyle;
-                                    if (inlineFontWeight && inlineFontWeight.trim() != '')
-                                        fontWeight = inlineFontWeight;
-
-                                    // get style defined in MSword
-                                    var msStyle = elem.getAttribute('style');
-                                    if (/mso-bidi/.test(msStyle)) {
-                                        var MSStyleObj = {};
-                                        var styleStrArr = msStyle.split(";");
-                                        for (i = 0; i < styleStrArr.length; i++) {
-                                            var temp = styleStrArr[i].split(":");
-                                            MSStyleObj[temp[0]] = temp[1];
-                                        }
-                                        fontStyle = MSStyleObj['mso-bidi-font-style'];
-                                        fontWeight = MSStyleObj['mso-bidi-font-weight'];
-                                    }
-
-                                    if (fontStyle && fontStyle == 'italic')
-                                        flag_italic = true; // flag true if italic
-
-                                    if (fontWeight && (fontWeight == 'bold' || 600 <= (+fontWeight)))
-                                        flag_weight = true;  // flag true if bold - 600 is semi bold
-
-                                    // bold & italic are not applied via style
-                                    // these styles are applied by appending contents in new tags string & bold
-                                    if (flag_italic && flag_weight) {
-                                        var strong = document.createElement('strong');
-                                        var italic = document.createElement('i');
-                                        strong.appendChild(italic);
-                                        newtag = strong;
-                                    } else {
-                                        if (flag_italic) {
-                                            newtag = document.createElement('i');
-                                        } else if (flag_weight) {
-                                            newtag = document.createElement('strong');
-                                        } else {
-                                            // remove un wanted attributes & element
-                                            var tagName = elem.tagName;
-                                            if (tagName == 'STRONG' || tagName == 'B') {
-                                                newtag = document.createElement('strong');
-                                            } else if (tagName == 'I') {
-                                                newtag = document.createElement('i');
-                                            } else {
-                                                newtag = document.createElement('span');
-                                            }
-                                        }
-                                    }
-
-                                    // content appended
-                                    var elemHTML = elem.innerHTML;
-                                    if (flag_italic && flag_weight) {
-                                        newtag.childNodes[0].innerHTML = elemHTML;
-                                    } else {
-                                        newtag.innerHTML = elemHTML;
-                                    }
-
-                                    // curr element is replaced by new
-                                    elem.parentNode.insertBefore(newtag, elem);
-                                    elem.parentNode.removeChild(elem);
-                                }
-                                complete() // completed one iteration
-                            }
-
-                            // call , iteration is completed
-                            function done() {
-                                insertNode(wrap)
-                                pasteArea.removeClassName('loading');
-                            }
-
-                            // async approach to iterate dom elements
-                            function asyncEach(domCol, computeFunc, donFunc) {
-                                function process() {
-                                    allNodesLen -= 1; // move forward
-                                    if (allNodesLen >= 0) {
-                                        computeFunc(domCol[allNodesLen], function () {
-                                            setTimeout(process, 0);
-                                        }); // function call
-                                    } else {
-                                        donFunc(); //completed
-                                    }
-                                }
-                                ; // function definition
-                                if (allNodesLen >= 0) {
-                                    setTimeout(process, 0); //start here
-                                } else {
-                                    donFunc(); //completed
-                                }
-                            }
-                            asyncEach(allNodes, formatHtml, done) // async each call  - iteration starts heres
-                        }
-
-// add class remove class code
-                        Element.prototype.hasClassName = function (name) {
-                            return new RegExp("(?:^|\\s+)" + name + "(?:\\s+|$)").test(this.className);
-                        };
-
-                        Element.prototype.addClassName = function (name) {
-                            if (!this.hasClassName(name)) {
-                                this.className = this.className ? [this.className, name].join(' ') : name;
-                            }
-                        };
-
-                        Element.prototype.removeClassName = function (name) {
-                            if (this.hasClassName(name)) {
-                                var c = this.className;
-                                this.className = c.replace(new RegExp("(?:^|\\s+)" + name + "(?:\\s+|$)", "g"), "");
-                            }
-                        };
-
-
-                        function insertNode(node) {
-                            sel = window.getSelection();
-                            range = sel.getRangeAt(0);
-                            range.deleteContents();
-                            range.insertNode(node);
-                        }
-                    }
                     </script>
