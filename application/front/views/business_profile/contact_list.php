@@ -201,12 +201,12 @@
      function contactapprove(toid,status) {
       
         $.ajax({
-                url: "<?php echo base_url(); ?>business_profile/contact_approve",
+                url: "<?php echo base_url(); ?>business_profile/contact_list_approve",
                 type: "POST",
                 data: 'toid=' + toid + '&status=' + status,
                 success: function (data) {
-               document.getElementById(toid).remove();
-                     $('#addcontactBody').html(data);
+               //document.getElementById(toid).remove();
+                     $('#contactlist').html(data);
                   
                 }
             });
