@@ -18,7 +18,7 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+
 <link rel="stylesheet" href="<?php echo base_url('css/bootstrap.min.css'); ?>" />
 
 <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
@@ -450,7 +450,6 @@ Details</a>
    <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
     <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
     <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 
 <script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script>
 
@@ -485,10 +484,41 @@ $( "#tags" ).autocomplete({
 });
   
 </script>
+<script>
+
+var data= <?php echo json_encode($city_data); ?>;
+//alert(data);
+
+        
+$(function() {
+    // alert('hi');
+$( "#searchplace" ).autocomplete({
+     source: function( request, response ) {
+         var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
+         response( $.grep( data, function( item ){
+             return matcher.test( item.label );
+         }) );
+   },
+    minLength: 1,
+    select: function(event, ui) {
+        event.preventDefault();
+        $("#searchplace").val(ui.item.label);
+        $("#selected-tag").val(ui.item.label);
+        // window.location.href = ui.item.value;
+    }
+    ,
+    focus: function(event, ui) {
+        event.preventDefault();
+        $("#searchplace").val(ui.item.label);
+    }
+});
+});
+  
+</script>
 
 <!-- Script for Coppier  End -->
 
-<script>
+<!-- <script>
 //select2 autocomplete start for skill
     $('#searchskills').select2({
 
@@ -543,7 +573,7 @@ $( "#tags" ).autocomplete({
     });
 //select2 autocomplete End for Location
 
-</script>
+</script> -->
 
 
 <!-- cover image start -->
