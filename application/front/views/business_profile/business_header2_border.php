@@ -213,11 +213,20 @@
     }
 </style>
 <script>
+    
     $(document).ready(function () {
-
-        $("body").click(function (event) {
-            $("#addcontactContainer").hide(600);
+        $("#addcontactBody").click(function (event) { 
+             $("#addcontactContainer").show();
             event.stopPropagation();
+        
+            
+        });
+        
+        $("body").click(function (event) { 
+                $("#addcontactContainer").hide(600);
+            event.stopPropagation();
+        
+            
         });
 
     });
@@ -322,23 +331,7 @@
                                         <div id="addcontactTitle">Contact Request</div>
 
                                         <div id="addcontactBody" class="notifications">
-                                            <ul>
-                                                <li>
-                                                    <div class="addcontact-left">
-                                                        <a href="#">
-                                                            <div class="addcontact-pic"><img src="http://localhost/aileensoul/uploads/user_profile/thumbs/44133ff3ac01fab88e1651efcc5827831.jpg"></div>
-                                                            <div class="addcontact-text">
-                                                                <span><b>Contact Name Contact Name Contact Name </b></span>
-                                                                Aileensoul request a connection.
-                                                            </div>
-                                                        </a>
-                                                    </div>
-                                                    <div class="addcontact-right">
-                                                        <a href="#"><i class="fa fa-check" aria-hidden="true"></i></a>
-                                                        <a href="#"><i class="fa fa-times" aria-hidden="true"></i></a>
-                                                    </div>
-                                                </li>
-                                            </ul>
+
 
                                         </div>
                                         <div id="addcontactFooter"><a href="<?php echo base_url('business_profile/contact_list'); ?>">See All</a></div>
@@ -452,18 +445,30 @@
         $.ajax({
             url: "<?php echo base_url(); ?>business_profile/contact_notification",
             type: "POST",
-            //data: {uid: 12341234}, //this sends the user-id to php as a post variable, in php it can be accessed as $_POST['uid']
             success: function (data) {
-                //    data = JSON.parse(data);
-                alert(data);
+               
                 $('#addcontactBody').html(data);
-                //update some fields with the updated data
-                //you can access the data like 'data["driver"]'
+               
             }
         });
 
     }
+     
+     function contactapprove(toid,status) {
+      
+        $.ajax({
+                url: "<?php echo base_url(); ?>business_profile/contact_approve",
+                type: "POST",
+                data: 'toid=' + toid + '&status=' + status,
+                success: function (data) {
+               
+                     $('#addcontactBody').html(data);
+                  
+                    
+                }
+            });
 
+        }
 
 </script>
 <!-- script for update all read notification end -->

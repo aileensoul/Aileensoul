@@ -7459,7 +7459,7 @@ class Business_profile extends MY_Controller {
 
 
 $updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $contact_id);
-    $contactdata =  '<a href="#" onclick="return contact_person(' . $to_id . ');" style="cursor: pointer;">';
+ $contactdata =  '<a href="#" onclick="return contact_person(' . $to_id . ');" style="cursor: pointer;">';
  $contactdata .=  '<div class="">';
  $contactdata .=  '<div id="ripple" class="centered">';
  $contactdata .=  '<div class="circle"><span href="" style="position: absolute; z-index: 1; 
@@ -7539,9 +7539,9 @@ $updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $
     $contactdata .=    '<div class="addcontact-pic">';
    
           if($busdata[0]['business_user_image']){
-    $contactdata .=  '<img src="' . base_url($this->config->item('bus_bg_main_upload_path') . $busdata[0]['business_user_image']) . '">';
+    $contactdata .=  '<img src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $busdata[0]['business_user_image']) . '">';
     }else{
-    $contactdata .=  '<img src="' . base_url(WHITEIMAGE) . '">';
+    $contactdata .=  '<img src="' . base_url(NOIMAGE) . '">';
     }
     $contactdata .=   '</div>';
     $contactdata .=    '<div class="addcontact-text">';
@@ -7551,8 +7551,8 @@ $updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $
     $contactdata .=     '</a>';
     $contactdata .=     '</div>';
     $contactdata .=     '<div class="addcontact-right">';
-    $contactdata .=     '<a href="#" onclick = "return contactapprove(' . $contact['contact_from_id'] . ',1);"><i class="fa fa-check" aria-hidden="true"></i></a>';
-    $contactdata .=    '<a href="#" onclick = "return contactapprove(' . $contact['contact_from_id'] . ',0);"><i class="fa fa-times" aria-hidden="true"></i></a>';
+    $contactdata .=     '<a href="#"  onclick = "return contactapprove(' . $contact['contact_from_id'] . ',1);"><i class="fa fa-check" aria-hidden="true"></i></a>';
+    $contactdata .=    '<a href="#"  onclick = "return contactapprove(' . $contact['contact_from_id'] . ',0);"><i class="fa fa-times" aria-hidden="true"></i></a>';
     $contactdata .=    '</div>';
     $contactdata .=    '</li>';
     $contactdata .=     '</ul>';
@@ -7621,7 +7621,7 @@ $updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $
     $contactdata .=    '<div class="addcontact-pic">';
    
     if($busdata[0]['business_user_image']){
-    $contactdata .=  '<img src="' . base_url($this->config->item('bus_bg_main_upload_path') . $busdata[0]['business_user_image']) . '">';
+    $contactdata .=  '<img src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $busdata[0]['business_user_image']) . '">';
     }else{
     $contactdata .=  '<img src="' . base_url(WHITEIMAGE) . '">';
     }
@@ -7662,17 +7662,31 @@ $updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $
      
      public function contact_list(){
          
-          $userid = $this->session->userdata('aileenuser');
+      $userid = $this->session->userdata('aileenuser');
+      $bussdata = $this->common->select_data_by_id('business_profile', 'user_id', $userid, $data = '*', $join_str = array());
+    //  echo '<pre>'; print_r($bussdata); 
       
       $join_str[0]['table'] = 'business_profile';
       $join_str[0]['join_table_id'] = 'business_profile.user_id';
       $join_str[0]['from_table_id'] = 'contact_person.contact_from_id';
       $join_str[0]['join_type'] = '';
       
-     $contition_array = array('contact_to_id' => $userid, 'contact_person.status' => 'confirm');
+     $contition_array = array('contact_to_id' => $userid, 'contact_person.status' => 'pending');
      $friendlist = $this->data['friendlist'] = $this->common->select_data_by_condition('contact_person', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
-    // echo '<pre>'; print_r($friendlist); die();
-        $this->load->view('business_profile/contact_list', $this->data);
+    
+  //    city wise fetch users
+//     $contition_array = array('contact_to_id' => $userid);
+//     $buslist = $this->data['buslist'] = $this->common->select_data_by_condition('contact_person', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = '', $groupby = '');
+//      echo '<pre>'; print_r($buslist); 
+//     $contition_array = array('city' => $bussdata[0]['city'], 'status' => '1','is_deleted' => 0,'user_id !=' => $userid);
+//     $citylist = $this->data['citylist'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = '', $groupby = '');
+//       echo '<pre>'; print_r($citylist); 
+  //    category wise fetch users
+//     $contition_array = array('industriyal' => $bussdata[0]['industriyal'], 'status' => '1','is_deleted' => 0,'user_id !=' => $userid);
+//     $catlist = $this->data['catlist'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = '', $groupby = '');
+//      echo '<pre>'; print_r($catlist); die();
+     
+     $this->load->view('business_profile/contact_list', $this->data);
     }
 
 }
