@@ -1465,7 +1465,7 @@ echo $job_header2;
                             url: '<?php echo base_url() ."recruiter/save_search_user" ?>',
                             data: 'user_id=' + abc,
                             success: function (data) {
-                                $('.' + 'saveduser' + abc).html(data).addClass('saved');
+                                $('.' + 'saveduser' + abc).html(data).addClass('save_saved_btn');
                             }
                         });
 
