@@ -3089,7 +3089,7 @@ class Artistic extends MY_Controller {
 //            $cmtinsert .= '' . $art['comments'] . '';
 //            $cmtinsert .= '</textarea>';
 
-                $cmtinsert .= '<div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="' . $art['artistic_post_comment_id'] . '"  id="editcomment' . $art['artistic_post_comment_id'] . '" placeholder="Type Message ..." value= ""  onkeyup="commentedit(' . $art['artistic_post_comment_id'] . ')">' . $art['comments'] . '</div>';
+                $cmtinsert .= '<div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="' . $art['artistic_post_comment_id'] . '"  id="editcomment' . $art['artistic_post_comment_id'] . '" placeholder="Type Message ..." value= ""  onkeyup="commentedit(' . $art['artistic_post_comment_id'] . ')" onpaste="OnPaste_StripFormatting(this, event);">' . $art['comments'] . '</div>';
                 $cmtinsert .= '<span class="comment-edit-button"><button id="editsubmit' . $art['artistic_post_comment_id'] . '" style="display:none" onClick="edit_comment(' . $art['artistic_post_comment_id'] . ')">Save</button></span>';
                 $cmtinsert .= '</div></div>';
 
@@ -3209,7 +3209,7 @@ class Artistic extends MY_Controller {
 //            $cmtinsert .= '<textarea  name="' . $art['artistic_post_comment_id'] . '" id="editcommenttwo' . $art['artistic_post_comment_id'] . '" style="display:none" onClick="commentedittwo(this.name)">';
 //            $cmtinsert .= '' . $art['comments'] . '';
 //            $cmtinsert .= '</textarea>';
-                $cmtinsert .= '<div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="' . $art['artistic_post_comment_id'] . '"  id="editcommenttwo' . $art['artistic_post_comment_id'] . '" placeholder="Type Message ..." value= ""  onkeyup="commentedittwo(' . $art['artistic_post_comment_id'] . ')">' . $art['comments'] . '</div>';
+                $cmtinsert .= '<div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="' . $art['artistic_post_comment_id'] . '"  id="editcommenttwo' . $art['artistic_post_comment_id'] . '" placeholder="Type Message ..." value= ""  onkeyup="commentedittwo(' . $art['artistic_post_comment_id'] . ')" onpaste="OnPaste_StripFormatting(this, event);">' . $art['comments'] . '</div>';
                 //$cmtinsert .= '<button id="editsubmittwo' . $art['artistic_post_comment_id'] . '" style="display:none" onClick="edit_commenttwo(' . $art['artistic_post_comment_id'] . ')">Comment</button><div class="art-comment-menu-design"> <div class="comment-details-menu" id="likecomment1' . $art['artistic_post_comment_id'] . '">';
                 $cmtinsert .= '<span class="comment-edit-button"><button id="editsubmittwo' . $art['artistic_post_comment_id'] . '" style="display:none" onClick="edit_commenttwo(' . $art['artistic_post_comment_id'] . ')">Save</button></span>';
                 $cmtinsert .= '</div></div>';
@@ -3646,7 +3646,7 @@ class Artistic extends MY_Controller {
 //            $cmtinsert .= '<textarea  name="' . $art['artistic_post_comment_id'] . '" id="editcommenttwo' . $art['artistic_post_comment_id'] . '" style="display:none" onClick="commentedittwo(this.name)">';
 //            $cmtinsert .= '' . $art['comments'] . '';
 //            $cmtinsert .= '</textarea>';
-            $cmtinsert .= '<div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="' . $art['artistic_post_comment_id'] . '"  id="editcommenttwo' . $art['artistic_post_comment_id'] . '" placeholder="Type Message ..." value= ""  onkeyup="commentedittwo(' . $art['artistic_post_comment_id'] . ')">' . $art['comments'] . '</div>';
+            $cmtinsert .= '<div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="' . $art['artistic_post_comment_id'] . '"  id="editcommenttwo' . $art['artistic_post_comment_id'] . '" placeholder="Type Message ..." value= ""  onkeyup="commentedittwo(' . $art['artistic_post_comment_id'] . ')" onpaste="OnPaste_StripFormatting(this, event);">' . $art['comments'] . '</div>';
             $cmtinsert .= '<span class="comment-edit-button"><button id="editsubmittwo' . $art['artistic_post_comment_id'] . '" style="display:none" onclick="edit_commenttwo(' . $art['artistic_post_comment_id'] . ')">Save</button></span>';
             $cmtinsert .= '</div></div>';
 
@@ -3808,7 +3808,7 @@ class Artistic extends MY_Controller {
             $cmtinsert .= $this->common->make_links($art['comments']);
             $cmtinsert .= '</div>';
             $cmtinsert .= '<div class="edit-comment-box"><div class="inputtype-edit-comment">';
-            $cmtinsert .= '<div contenteditable="true" class="editable_text"  name="' . $art['artistic_post_comment_id'] . '" id="editcomment' . $art['artistic_post_comment_id'] . '" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" onkeyup="commentedit(' . $art['artistic_post_comment_id'] . ')">';
+            $cmtinsert .= '<div contenteditable="true" class="editable_text"  name="' . $art['artistic_post_comment_id'] . '" id="editcomment' . $art['artistic_post_comment_id'] . '" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" onkeyup="commentedit(' . $art['artistic_post_comment_id'] . ')" onpaste="OnPaste_StripFormatting(this, event);">';
             $cmtinsert .= '' . $art['comments'] . '';
             $cmtinsert .= '</div>';
             $cmtinsert .= '<span class="comment-edit-button"><button id="editsubmit' . $art['artistic_post_comment_id'] . '" style="display:none" onClick="edit_comment(' . $art['artistic_post_comment_id'] . ')">Save</button></span>';
@@ -4875,7 +4875,7 @@ class Artistic extends MY_Controller {
             $cmtinsert .= '<div class="comment-details" id= "showcommentimg' . $art_comment['post_image_comment_id'] . '"" >';
             $cmtinsert .= $this->common->make_links($art_comment['comment']);
             $cmtinsert .= '</div>';
-            $cmtinsert .= '<div contenteditable="true" class="editable_text" name="' . $art_comment['post_image_comment_id'] . '" id="editcommentimg' . $art_comment['post_image_comment_id'] . '"style="display:none;" onkeyup="commenteditimg(' . $art_comment['post_image_comment_id'] . ')">';
+            $cmtinsert .= '<div contenteditable="true" class="editable_text" name="' . $art_comment['post_image_comment_id'] . '" id="editcommentimg' . $art_comment['post_image_comment_id'] . '"style="display:none;" onkeyup="commenteditimg(' . $art_comment['post_image_comment_id'] . ')" onpaste="OnPaste_StripFormatting(this, event);">';
 
             $cmtinsert .= '' . $art_comment['comment'] . '';
             $cmtinsert .= '</div>';
@@ -5041,7 +5041,7 @@ class Artistic extends MY_Controller {
             $cmtinsert .= '<div class="comment-details" id= "showcommenttwo' . $art_comment['post_image_comment_id'] . '"" >';
             $cmtinsert .= $this->common->make_links($art_comment['comment']);
             $cmtinsert .= '</div>';
-            $cmtinsert .= '<div contenteditable="true"   class="editable_text" name="' . $art_comment['post_image_comment_id'] . '" id="editcommenttwo' . $art_comment['post_image_comment_id'] . '"style="display:none;" onkeyup="commentedittwo(' . $art_comment['post_image_comment_id'] . ')">';
+            $cmtinsert .= '<div contenteditable="true"   class="editable_text" name="' . $art_comment['post_image_comment_id'] . '" id="editcommenttwo' . $art_comment['post_image_comment_id'] . '"style="display:none;" onkeyup="commentedittwo(' . $art_comment['post_image_comment_id'] . ')" onpaste="OnPaste_StripFormatting(this, event);">';
 
             $cmtinsert .= '' . $art_comment['comment'] . '';
             $cmtinsert .= '</div>';
@@ -5566,7 +5566,7 @@ class Artistic extends MY_Controller {
             $cmtinsert .= '<div class="comment-details" id= "showcommentimg' . $art_comment['post_image_comment_id'] . '">';
             $cmtinsert .= $art_comment['comment'];
             $cmtinsert .= '</div>';
-            $cmtinsert .= '<div contenteditable="true"   class="editable_text" name="' . $art_comment['post_image_comment_id'] . '" id="editcommentimg' . $art_comment['post_image_comment_id'] . '"style="display:none;" onkeyup="commenteditimg(' . $art_comment['post_image_comment_id'] . ')">';
+            $cmtinsert .= '<div contenteditable="true"   class="editable_text" name="' . $art_comment['post_image_comment_id'] . '" id="editcommentimg' . $art_comment['post_image_comment_id'] . '"style="display:none;" onkeyup="commenteditimg(' . $art_comment['post_image_comment_id'] . ')" onpaste="OnPaste_StripFormatting(this, event);">';
 
             $cmtinsert .= '' . $this->common->make_links($art_comment['comment']) . '';
             $cmtinsert .= '</div>';
@@ -5701,7 +5701,7 @@ class Artistic extends MY_Controller {
                 $cmtinsert .= '<div class="comment-details" id= "showcommentimgtwo' . $art_comment['post_image_comment_id'] . '">';
                 $cmtinsert .= $this->common->make_links($art_comment['comment']);
                 $cmtinsert .= '</div>';
-                $cmtinsert .= '<div contenteditable="true" class="editable_text" name="' . $art_comment['post_image_comment_id'] . '" id="editcommentimgtwo' . $art_comment['post_image_comment_id'] . '"style="display:none;" onkeyup="commenteditimgtwo(' . $art_comment['post_image_comment_id'] . ')">';
+                $cmtinsert .= '<div contenteditable="true" class="editable_text" name="' . $art_comment['post_image_comment_id'] . '" id="editcommentimgtwo' . $art_comment['post_image_comment_id'] . '"style="display:none;" onkeyup="commenteditimgtwo(' . $art_comment['post_image_comment_id'] . ')" onpaste="OnPaste_StripFormatting(this, event);">';
 
                 $cmtinsert .= '' . $art_comment['comment'] . '';
                 $cmtinsert .= '</div>';
@@ -5848,7 +5848,7 @@ class Artistic extends MY_Controller {
 //                $fourdata .= '' . $rowdata['comments'] . '';
 //                $fourdata .= '</textarea>';
                 $fourdata .= '<div class="edit-comment-box"><div class="inputtype-edit-comment">';
-                $fourdata .= '<div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="' . $rowdata['artistic_post_comment_id'] . '"  id="editcommenttwo' . $rowdata['artistic_post_comment_id'] . '" placeholder="Type Message ..." value= ""  onkeyup="commentedittwo(' . $rowdata['artistic_post_comment_id'] . ')">' . $rowdata['comments'] . '</div>';
+                $fourdata .= '<div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="' . $rowdata['artistic_post_comment_id'] . '"  id="editcommenttwo' . $rowdata['artistic_post_comment_id'] . '" placeholder="Type Message ..." value= ""  onkeyup="commentedittwo(' . $rowdata['artistic_post_comment_id'] . ')" onpaste="OnPaste_StripFormatting(this, event);">' . $rowdata['comments'] . '</div>';
                 $fourdata .= '<span class="comment-edit-button"><button id="editsubmittwo' . $rowdata['artistic_post_comment_id'] . '" style="display:none" onClick="edit_commenttwo(' . $rowdata['artistic_post_comment_id'] . ')">Save</button></span>';
 //                $fourdata .= '<input type="text" name="' . $rowdata['artistic_post_comment_id'] . '" id="editcommenttwo' . $rowdata['artistic_post_comment_id'] . '" style="display:none" value="' . $rowdata['comments'] . '"  onClick="commentedittwo(this.name)">';
 //                $fourdata .= '<button id="editsubmittwo' . $rowdata['artistic_post_comment_id'] . '" style="display:none" onClick="edit_commenttwo(' . $rowdata['artistic_post_comment_id'] . ')">Comment</button>';
@@ -5948,7 +5948,7 @@ class Artistic extends MY_Controller {
             $fourdata .= '<div class="comment-details" id= "showcommentimgtwo' . $rowdata['post_image_comment_id'] . '">';
             $fourdata .= '' . $this->common->make_links($rowdata['comment']) . '</br></div>';
 
-            $fourdata .= '<div contenteditable="true" class="editable_text" name="' . $rowdata['post_image_comment_id'] . '" id="editcommentimgtwo' . $rowdata['post_image_comment_id'] . '" style="display:none"  onClick="commenteditimgtwo(' . $rowdata['post_image_comment_id'] . ')">';
+            $fourdata .= '<div contenteditable="true" class="editable_text" name="' . $rowdata['post_image_comment_id'] . '" id="editcommentimgtwo' . $rowdata['post_image_comment_id'] . '" style="display:none"  onClick="commenteditimgtwo(' . $rowdata['post_image_comment_id'] . ')" onpaste="OnPaste_StripFormatting(this, event);">';
 
             $fourdata .= '' . $rowdata['comment'] . '';
             $fourdata .= '</div>';
@@ -6152,7 +6152,7 @@ class Artistic extends MY_Controller {
             $cmtinsert .= '<div class="comment-details" id= "showcommentimgtwo' . $art_comment['post_image_comment_id'] . '"" >';
             $cmtinsert .= $this->common->make_links($art_comment['comment']);
             $cmtinsert .= '</div>';
-            $cmtinsert .= '<div contenteditable="true" class="editable_text" name="' . $art_comment['post_image_comment_id'] . '" id="editcommentimgtwo' . $art_comment['post_image_comment_id'] . '"style="display:none;" onkeyup="commenteditimgtwo(' . $art_comment['post_image_comment_id'] . ')">';
+            $cmtinsert .= '<div contenteditable="true" class="editable_text" name="' . $art_comment['post_image_comment_id'] . '" id="editcommentimgtwo' . $art_comment['post_image_comment_id'] . '"style="display:none;" onkeyup="commenteditimgtwo(' . $art_comment['post_image_comment_id'] . ')" onpaste="OnPaste_StripFormatting(this, event);">';
 
             $cmtinsert .= '' . $art_comment['comment'] . '';
             $cmtinsert .= '</div>';

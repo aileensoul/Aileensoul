@@ -39,9 +39,9 @@
 
 
     <div class="container" id="paddingtop_fixed_art">
-<!--khyati 3-6-->
-<!--     <div class="container" id="paddingtop_fixed paddingtop_fixed1">
- -->
+        <!--khyati 3-6-->
+        <!--     <div class="container" id="paddingtop_fixed paddingtop_fixed1">
+        -->
 
         <div class="row" id="row1" style="display:none;">
             <div class="col-md-12 text-center padding_less_left">
@@ -273,7 +273,7 @@
 
                         </a>
 
-                                <!-- <a id="myBtn"><?php echo ucwords($artisticdata[0]['designation']); ?></a> -->
+                                        <!-- <a id="myBtn"><?php echo ucwords($artisticdata[0]['designation']); ?></a> -->
                     <?php } else { ?>
                         <a><?php echo ucwords($artisticdata[0]['designation']); ?></a>
                     <?php } ?>
@@ -728,14 +728,14 @@
                 <div class="post-editor col-md-12">
                     <div class="main-text-area col-md-12" style="padding-left: 1px;">
                         <div class="popup-img col-md-1"> 
-                              <?php if ($artisticdata[0]['art_user_image']) 
-                                    { 
+                            <?php
+                            if ($artisticdata[0]['art_user_image']) {
                                 ?>
-                        <img  src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image']); ?>"  alt="" style="
-                                                               margin-top: 6px;">
-                                            <?php } else { ?>
-                                             <img alt=""  src="<?php echo base_url(NOIMAGE); ?>" alt="" />
-                                <?php } ?>
+                                <img  src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image']); ?>"  alt="" style="
+                                      margin-top: 6px;">
+                                  <?php } else { ?>
+                                <img alt=""  src="<?php echo base_url(NOIMAGE); ?>" alt="" />
+                            <?php } ?>
                         </div>
                         <div id="myBtn3"  class="editor-content col-md-11 popup-text">
                             <span> Post Your Art....</span> 
@@ -911,8 +911,9 @@
 
                                                                 <a href="<?php echo base_url('artistic/artistic_contactperson/' . $row['user_id'] . ''); ?>"><i class="fa fa-user" aria-hidden="true"></i> Contact Person</a>
 
-                <?php }
-            } else { ?>  
+                                                            <?php }
+                                                        } else {
+                                                            ?>  
 
 
                                                             <?php
@@ -930,8 +931,9 @@
 
 
                                                                 <a href="<?php echo base_url('artistic/artistic_contactperson/' . $row['user_id'] . ''); ?>"><i class="fa fa-user" aria-hidden="true"></i> Contact Person</a>
-                <?php }
-            } ?>
+                                                            <?php }
+                                                        }
+                                                        ?>
 
                                                     </div>
                                                 </div>
@@ -947,16 +949,16 @@
                                                         </div>
                                                         <div  id="<?php echo 'editpostdetails' . $row['art_post_id']; ?>" style="display:block;">
 
-            <?php
-            //echo $row['art_description'];
-            $text = $this->common->make_links($row['art_description']);
-            ?>
+                                                            <?php
+                                                            //echo $row['art_description'];
+                                                            $text = $this->common->make_links($row['art_description']);
+                                                            ?>
                                                             <span class="show"><?php echo $text; ?></span>
                                                         </div>
 
                                                         <div id="<?php echo 'editpostdetailbox' . $row['art_post_id']; ?>" style="display:none;">
 
-                                                            <div contenteditable="true" class="editable_text"  id="<?php echo 'editpostdesc' . $row['art_post_id']; ?>" placeholder="Art Description" name="editpostdesc"><?php echo $row['art_description']; ?>
+                                                            <div contenteditable="true" class="editable_text"  id="<?php echo 'editpostdesc' . $row['art_post_id']; ?>" placeholder="Art Description" name="editpostdesc" onpaste="OnPaste_StripFormatting(this, event);"><?php echo $row['art_description']; ?>
                                                             </div> 
                                                         </div>
 
@@ -1046,9 +1048,9 @@
 
                                                         <?php } elseif (count($artmultiimage) == 2) { ?>
 
-                <?php
-                foreach ($artmultiimage as $multiimage) {
-                    ?>
+                                                            <?php
+                                                            foreach ($artmultiimage as $multiimage) {
+                                                                ?>
 
                                                                 <!-- two image start -->
                                                                 <div  id="two_manage_images_art" >
@@ -1056,7 +1058,7 @@
                                                                 </div>
 
                                                                 <!-- two image end -->
-                <?php } ?>
+                                                            <?php } ?>
 
             <?php } elseif (count($artmultiimage) == 3) { ?>
 
@@ -1080,9 +1082,9 @@
                                                         <?php } elseif (count($artmultiimage) == 4) { ?>
 
 
-                <?php
-                foreach ($artmultiimage as $multiimage) {
-                    ?>
+                                                            <?php
+                                                            foreach ($artmultiimage as $multiimage) {
+                                                                ?>
 
                                                                 <!-- four image start -->
                                                                 <div id="responsive_manage-images-breakpoints">
@@ -1092,17 +1094,17 @@
 
                                                                 <!-- four image end -->
 
-                <?php } ?>
+                                                            <?php } ?>
 
 
-                                                        <?php } elseif (count($artmultiimage) > 4) { ?>
+            <?php } elseif (count($artmultiimage) > 4) { ?>
 
 
 
-                <?php
-                $i = 0;
-                foreach ($artmultiimage as $multiimage) {
-                    ?>
+                                                            <?php
+                                                            $i = 0;
+                                                            foreach ($artmultiimage as $multiimage) {
+                                                                ?>
 
                                                                 <!-- five image start -->
                                                                 <div>
@@ -1170,7 +1172,7 @@
             <?php }
             ?>
 
-   <span class="like_As_count">
+                                                                <span class="like_As_count">
 
                                                                     <?php
                                                                     if ($row['art_likes_count'] > 0) {
@@ -1179,22 +1181,22 @@
                                                                     ?>
 
                                                                 </span> 
-                                                               
+
                                                             </a>
-                                                          
+
                                                         </li>
-<!-- <li class="m4-24">
-   
-</li> -->
+                                                        <!-- <li class="m4-24">
+                                                           
+                                                        </li> -->
                                                         <li id="<?php echo 'insertcount' . $row['art_post_id']; ?>" style="visibility:show">
 
-            <?php
-            $contition_array = array('art_post_id' => $row['art_post_id'], 'status' => '1', 'is_delete' => '0');
-            $commnetcount = $this->common->select_data_by_condition('artistic_post_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-            ?>
+                                                            <?php
+                                                            $contition_array = array('art_post_id' => $row['art_post_id'], 'status' => '1', 'is_delete' => '0');
+                                                            $commnetcount = $this->common->select_data_by_condition('artistic_post_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                                            ?>
                                                             <a title="Comment" class="ripple" onClick="commentall(this.id)" id="<?php echo $row['art_post_id']; ?>">
                                                                 <i class="fa fa-comment-o" aria-hidden="true">
-                                                                     <?php
+                                                                    <?php
                                                                     if (count($commnetcount) > 0) {
                                                                         echo count($commnetcount);
                                                                     }
@@ -1202,7 +1204,7 @@
                                                                 </i>  
                                                             </a>
                                                         </li>
-                                                     
+
                                                     </ul>
                                                     <!-- like comment div end -->
                                                 </div>
@@ -1212,9 +1214,9 @@
 
 
                                             <!-- pop up box start-->
-                                                <?php
-                                                if ($row['art_likes_count'] > 0) {
-                                                    ?>
+                                            <?php
+                                            if ($row['art_likes_count'] > 0) {
+                                                ?>
                                                 <div class="likeduserlist<?php echo $row['art_post_id'] ?>">
                                                     <?php
                                                     $contition_array = array('art_post_id' => $row['art_post_id'], 'status' => '1', 'is_delete' => '0');
@@ -1258,13 +1260,13 @@
                                                                 echo "&nbsp;";
                                                                 echo "others";
                                                                 ?> 
-                                                <?php } ?>
+                <?php } ?>
                                                         </div>
                                                     </a>
                                                 </div>
-                                                    <?php
-                                                }
-                                                ?>
+                                                <?php
+                                            }
+                                            ?>
                                             <div class="<?php echo "likeusername" . $row['art_post_id']; ?>" id="<?php echo "likeusername" . $row['art_post_id']; ?>" style="display:none">
                                                 <?php
                                                 $contition_array = array('art_post_id' => $row['art_post_id'], 'status' => '1', 'is_delete' => '0');
@@ -1335,40 +1337,40 @@
                                                                 ?>
                                                                 <div class="all-comment-comment-box">
                                                                     <div class="post-design-pro-comment-img"> 
-                                                                        <?php $art_userimage = $this->db->get_where('art_reg', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->art_user_image; ?>
-                                                                        <?php if ($art_userimage) { ?>
+                    <?php $art_userimage = $this->db->get_where('art_reg', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->art_user_image; ?>
+                    <?php if ($art_userimage) { ?>
                                                                             <a href="<?php echo base_url('artistic/art_manage_post/' . $rowdata['user_id'] . ''); ?>">
                                                                                 <img  src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage); ?>"  alt="">
                                                                             </a>
-                        <?php
-                    } else {
-                        ?>
+                                                                            <?php
+                                                                        } else {
+                                                                            ?>
                                                                             <a href="<?php echo base_url('artistic/art_manage_post/' . $rowdata['user_id'] . ''); ?>">
                                                                                 <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
                                                                             </a>
-                        <?php
-                    }
-                    ?>
+                                                                            <?php
+                                                                        }
+                                                                        ?>
                                                                     </div>
                                                                     <div class="comment-name">
                                                                         <b><?php
-                                                        echo ucwords($artname);
-                                                        echo "&nbsp;";
-                                                        echo ucwords($artlastname);
-                    ?></b><?php echo '</br>'; ?>
+                                                                            echo ucwords($artname);
+                                                                            echo "&nbsp;";
+                                                                            echo ucwords($artlastname);
+                                                                            ?></b><?php echo '</br>'; ?>
                                                                     </div>
 
                                                                     <div class="comment-details" id= "<?php echo "showcomment" . $rowdata['artistic_post_comment_id']; ?>">
-                    <?php
-                    echo $this->common->make_links($rowdata['comments']);
+                                                                        <?php
+                                                                        echo $this->common->make_links($rowdata['comments']);
 //                                                                echo '</br>';
-                    ?>
+                                                                        ?>
                                                                     </div>
 
                                                                     <div class="edit-comment-box">
                                                                         <div class="inputtype-edit-comment">
 
-                                                                            <div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 78%;" class="editable_text" name="<?php echo $rowdata['artistic_post_comment_id']; ?>"  id="<?php echo "editcomment" . $rowdata['artistic_post_comment_id']; ?>" placeholder="Add a Comment ..." value= ""  onkeyup="commentedit(<?php echo $rowdata['artistic_post_comment_id']; ?>)"><?php echo $rowdata['comments']; ?></div>
+                                                                            <div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 78%;" class="editable_text" name="<?php echo $rowdata['artistic_post_comment_id']; ?>"  id="<?php echo "editcomment" . $rowdata['artistic_post_comment_id']; ?>" placeholder="Add a Comment ..." value= ""  onkeyup="commentedit(<?php echo $rowdata['artistic_post_comment_id']; ?>)" onpaste="OnPaste_StripFormatting(this, event);"><?php echo $rowdata['comments']; ?></div>
                                                                             <span class="comment-edit-button"><button id="<?php echo "editsubmit" . $rowdata['artistic_post_comment_id']; ?>" style="display:none" onClick="edit_comment(<?php echo $rowdata['artistic_post_comment_id']; ?>)">Save</button></span>
                                                                         </div>
                                                                     </div>
@@ -1443,15 +1445,15 @@
 
                                                                         <div class="comment-details-menu">
                                                                             <p> <?php
-                    echo $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($rowdata['created_date'])));
-                    echo '</br>';
-                    ?>
+                                                                                echo $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($rowdata['created_date'])));
+                                                                                echo '</br>';
+                                                                                ?>
                                                                             </p></div></div>
                                                                 </div>
-                    <?php
-                }
-            }
-            ?>
+                                                                <?php
+                                                            }
+                                                        }
+                                                        ?>
                                                     </div> </div>
                                                 <!-- khyati changes end -->
                                                 <!-- all comments code end -->
@@ -1467,7 +1469,7 @@
                                                 <div class="<?php echo 'insertcomment' . $row['art_post_id']; ?>">
                                                 </div>
                                             </div>
-                                                <?php } ?>
+        <?php } ?>
                                         <!--</div>-->
                                         <div class="post-design-commnet-box col-md-12">
                                             <div class="post-design-proo-img">
@@ -1483,13 +1485,13 @@
                                                 } else {
                                                     ?>
                                                     <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
-            <?php
-        }
-        ?>
+                                                    <?php
+                                                }
+                                                ?>
                                             </div>
                                             <div class="">
                                                 <div id="content" class="col-md-12 inputtype-comment" style="width: 80%; padding-left: 7px;">
-                                                    <div contenteditable="true" class="editable_text" type="text" name="<?php echo $row['art_post_id']; ?>"  id="<?php echo "post_comment" . $row['art_post_id']; ?>" placeholder="Add a Comment ..." value= "" onClick="entercomment(<?php echo $row['art_post_id']; ?>)"></div>
+                                                    <div contenteditable="true" class="editable_text" type="text" name="<?php echo $row['art_post_id']; ?>"  id="<?php echo "post_comment" . $row['art_post_id']; ?>" placeholder="Add a Comment ..." value= "" onClick="entercomment(<?php echo $row['art_post_id']; ?>)" onpaste="OnPaste_StripFormatting(this, event);"></div>
                                                 </div>    
         <?php echo form_error('post_comment'); ?>
 
@@ -1502,10 +1504,10 @@
                                     </div>
                                 </div>
 
-        <?php
-    }
-} else {
-    ?>
+                                <?php
+                            }
+                        } else {
+                            ?>
 
                             <div class="text-center rio">
                                 <h4 class="page-heading  product-listing" style="border:0px;margin-bottom: 11px;">No Post Found.</h4>
@@ -1594,38 +1596,38 @@
 
 
         <script>
-                                                        jQuery.noConflict();
+                                                jQuery.noConflict();
 
-                                                        (function ($) {
+                                                (function ($) {
 
-                                                            var data = <?php echo json_encode($demo); ?>;
-                                                            // alert(data);
+                                                    var data = <?php echo json_encode($demo); ?>;
+                                                    // alert(data);
 
 
-                                                            $(function () {
-                                                                // alert('hi');
-                                                                $("#tags").autocomplete({
-                                                                    source: function (request, response) {
-                                                                        var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
-                                                                        response($.grep(data, function (item) {
-                                                                            return matcher.test(item.label);
-                                                                        }));
-                                                                    },
-                                                                    minLength: 1,
-                                                                    select: function (event, ui) {
-                                                                        event.preventDefault();
-                                                                        $("#tags").val(ui.item.label);
-                                                                        $("#selected-tag").val(ui.item.label);
-                                                                        // window.location.href = ui.item.value;
-                                                                    }
-                                                                    ,
-                                                                    focus: function (event, ui) {
-                                                                        event.preventDefault();
-                                                                        $("#tags").val(ui.item.label);
-                                                                    }
-                                                                });
-                                                            });
-                                                        })(jQuery);
+                                                    $(function () {
+                                                        // alert('hi');
+                                                        $("#tags").autocomplete({
+                                                            source: function (request, response) {
+                                                                var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+                                                                response($.grep(data, function (item) {
+                                                                    return matcher.test(item.label);
+                                                                }));
+                                                            },
+                                                            minLength: 1,
+                                                            select: function (event, ui) {
+                                                                event.preventDefault();
+                                                                $("#tags").val(ui.item.label);
+                                                                $("#selected-tag").val(ui.item.label);
+                                                                // window.location.href = ui.item.value;
+                                                            }
+                                                            ,
+                                                            focus: function (event, ui) {
+                                                                event.preventDefault();
+                                                                $("#tags").val(ui.item.label);
+                                                            }
+                                                        });
+                                                    });
+                                                })(jQuery);
 
         </script>
 
@@ -1973,19 +1975,19 @@
         <!-- comment like script start -->
 
         <script type="text/javascript">
-        //    function comment_like(clicked_id)
-        //    {
-        //
-        //        $.ajax({
-        //            type: 'POST',
-        //            url: '<?php echo base_url() . "artistic/like_comment" ?>',
-        //            data: 'post_id=' + clicked_id,
-        //            success: function (data) {
-        //                $('#' + 'likecomment' + clicked_id).html(data);
-        //
-        //            }
-        //        });
-        //    }
+            //    function comment_like(clicked_id)
+            //    {
+            //
+            //        $.ajax({
+            //            type: 'POST',
+            //            url: '<?php echo base_url() . "artistic/like_comment" ?>',
+            //            data: 'post_id=' + clicked_id,
+            //            success: function (data) {
+            //                $('#' + 'likecomment' + clicked_id).html(data);
+            //
+            //            }
+            //        });
+            //    }
             function comment_like(clicked_id)
             {
 
@@ -2002,19 +2004,19 @@
         </script>
 
         <script type="text/javascript">
-        //    function comment_like1(clicked_id)
-        //    {
-        //
-        //        $.ajax({
-        //            type: 'POST',
-        //            url: '<?php echo base_url() . "artistic/like_comment1" ?>',
-        //            data: 'post_id=' + clicked_id,
-        //            success: function (data) {
-        //                $('#' + 'likecomment1' + clicked_id).html(data);
-        //
-        //            }
-        //        });
-        //    }
+            //    function comment_like1(clicked_id)
+            //    {
+            //
+            //        $.ajax({
+            //            type: 'POST',
+            //            url: '<?php echo base_url() . "artistic/like_comment1" ?>',
+            //            data: 'post_id=' + clicked_id,
+            //            success: function (data) {
+            //                $('#' + 'likecomment1' + clicked_id).html(data);
+            //
+            //            }
+            //        });
+            //    }
 
             function comment_like1(clicked_id)
             {
@@ -2113,63 +2115,63 @@
             }
 
 
-        //                        function comment_deletetwo(clicked_id)
-        //                        {
-        //
-        //                            var post_delete = document.getElementById("post_delete2");
-        //
-        //                            $.ajax({
-        //                                type: 'POST',
-        //                                url: '<?php echo base_url() . "artistic/delete_commenttwo" ?>',
-        //                                data: 'post_id=' + clicked_id + '&post_delete=' + post_delete.value,
-        //                                success: function (data) {
-        //
-        //                                    $('#' + 'fourcomment' + post_delete.value).html(data);
-        //
-        //                                }
-        //                            });
-        //                        }
+            //                        function comment_deletetwo(clicked_id)
+            //                        {
+            //
+            //                            var post_delete = document.getElementById("post_delete2");
+            //
+            //                            $.ajax({
+            //                                type: 'POST',
+            //                                url: '<?php echo base_url() . "artistic/delete_commenttwo" ?>',
+            //                                data: 'post_id=' + clicked_id + '&post_delete=' + post_delete.value,
+            //                                success: function (data) {
+            //
+            //                                    $('#' + 'fourcomment' + post_delete.value).html(data);
+            //
+            //                                }
+            //                            });
+            //                        }
         </script>
 
 
         <script type="text/javascript">
-        //    function comment_delete(clicked_id)
-        //    {
-        //
-        //        var post_delete = document.getElementById("post_delete");
-        //        // alert(post_delete);
-        //        $.ajax({
-        //            type: 'POST',
-        //            url: '<?php echo base_url() . "artistic/delete_comment" ?>',
-        //            data: 'post_id=' + clicked_id + '&post_delete=' + post_delete.value,
-        //            dataType: "json",
-        //            success: function (data) {
-        //
-        //                // $('.' + 'insertcomment' + post_delete.value).html(data);
-        //                $('#' + 'commnetpost' + post_delete.value).html(data.count);
-        //                $('.insertcomment' + post_delete.value).html(data.comment);
-        //
-        //            }
-        //        });
-        //    }
+            //    function comment_delete(clicked_id)
+            //    {
+            //
+            //        var post_delete = document.getElementById("post_delete");
+            //        // alert(post_delete);
+            //        $.ajax({
+            //            type: 'POST',
+            //            url: '<?php echo base_url() . "artistic/delete_comment" ?>',
+            //            data: 'post_id=' + clicked_id + '&post_delete=' + post_delete.value,
+            //            dataType: "json",
+            //            success: function (data) {
+            //
+            //                // $('.' + 'insertcomment' + post_delete.value).html(data);
+            //                $('#' + 'commnetpost' + post_delete.value).html(data.count);
+            //                $('.insertcomment' + post_delete.value).html(data.comment);
+            //
+            //            }
+            //        });
+            //    }
 
 
-        //    function comment_deletetwo(clicked_id)
-        //    {
-        //
-        //        var post_delete = document.getElementById("post_delete2");
-        //
-        //        $.ajax({
-        //            type: 'POST',
-        //            url: '<?php echo base_url() . "artistic/delete_commenttwo" ?>',
-        //            data: 'post_id=' + clicked_id + '&post_delete=' + post_delete.value,
-        //            success: function (data) {
-        //
-        //                $('#' + 'fourcomment' + post_delete.value).html(data);
-        //
-        //            }
-        //        });
-        //    }
+            //    function comment_deletetwo(clicked_id)
+            //    {
+            //
+            //        var post_delete = document.getElementById("post_delete2");
+            //
+            //        $.ajax({
+            //            type: 'POST',
+            //            url: '<?php echo base_url() . "artistic/delete_commenttwo" ?>',
+            //            data: 'post_id=' + clicked_id + '&post_delete=' + post_delete.value,
+            //            success: function (data) {
+            //
+            //                $('#' + 'fourcomment' + post_delete.value).html(data);
+            //
+            //            }
+            //        });
+            //    }
         </script>
 
         <!--comment delete script end -->
@@ -2178,57 +2180,57 @@
         <!-- insert comment using enter -->
         <script type="text/javascript">
 
-        //    function insert_comment(clicked_id)
-        //    {
-        //
-        //        var post_comment = document.getElementById("post_comment" + clicked_id);
-        //
-        //
-        //        var x = document.getElementById('threecomment' + clicked_id);
-        //        var y = document.getElementById('fourcomment' + clicked_id);
-        //
-        //
-        //        if (post_comment.value == '') {
-        //
-        //            event.preventDefault();
-        //            return false;
-        //        } else {
-        //
-        //
-        //            if (x.style.display === 'block' && y.style.display === 'none') {
-        //
-        //                $.ajax({
-        //                    type: 'POST',
-        //                    url: '<?php echo base_url() . "artistic/insert_commentthree" ?>',
-        //                    data: 'post_id=' + clicked_id + '&comment=' + post_comment.value,
-        //                    dataType: "json",
-        //                    success: function (data) {
-        //                        $('textarea').each(function () {
-        //                            $(this).val('');
-        //                        });
-        //                        //$('.' + 'insertcomment' + clicked_id).html(data);
-        //                        $('#' + 'commnetpost' + clicked_id).html(data.count);
-        //                        $('.insertcomment' + clicked_id).html(data.comment);
-        //                    }
-        //                });
-        //            } else {
-        //
-        //                $.ajax({
-        //                    type: 'POST',
-        //                    url: '<?php echo base_url() . "artistic/insert_comment" ?>',
-        //                    data: 'post_id=' + clicked_id + '&comment=' + post_comment.value,
-        //                    // dataType: "json",
-        //                    success: function (data) {
-        //                        $('textarea').each(function () {
-        //                            $(this).val('');
-        //                        });
-        //                        $('#' + 'fourcomment' + clicked_id).html(data);
-        //                    }
-        //                });
-        //            }
-        //        }
-        //
-        //    }
+            //    function insert_comment(clicked_id)
+            //    {
+            //
+            //        var post_comment = document.getElementById("post_comment" + clicked_id);
+            //
+            //
+            //        var x = document.getElementById('threecomment' + clicked_id);
+            //        var y = document.getElementById('fourcomment' + clicked_id);
+            //
+            //
+            //        if (post_comment.value == '') {
+            //
+            //            event.preventDefault();
+            //            return false;
+            //        } else {
+            //
+            //
+            //            if (x.style.display === 'block' && y.style.display === 'none') {
+            //
+            //                $.ajax({
+            //                    type: 'POST',
+            //                    url: '<?php echo base_url() . "artistic/insert_commentthree" ?>',
+            //                    data: 'post_id=' + clicked_id + '&comment=' + post_comment.value,
+            //                    dataType: "json",
+            //                    success: function (data) {
+            //                        $('textarea').each(function () {
+            //                            $(this).val('');
+            //                        });
+            //                        //$('.' + 'insertcomment' + clicked_id).html(data);
+            //                        $('#' + 'commnetpost' + clicked_id).html(data.count);
+            //                        $('.insertcomment' + clicked_id).html(data.comment);
+            //                    }
+            //                });
+            //            } else {
+            //
+            //                $.ajax({
+            //                    type: 'POST',
+            //                    url: '<?php echo base_url() . "artistic/insert_comment" ?>',
+            //                    data: 'post_id=' + clicked_id + '&comment=' + post_comment.value,
+            //                    // dataType: "json",
+            //                    success: function (data) {
+            //                        $('textarea').each(function () {
+            //                            $(this).val('');
+            //                        });
+            //                        $('#' + 'fourcomment' + clicked_id).html(data);
+            //                    }
+            //                });
+            //            }
+            //        }
+            //
+            //    }
 
             function insert_comment(clicked_id)
             {
@@ -2296,64 +2298,64 @@
 
         <script type="text/javascript">
 
-        //    function entercomment(clicked_id)
-        //    {
-        //         $('#post_comment' + clicked_id).keypress(function (e) {
-        //
-        //
-        //            if (e.keyCode == 13 && !e.shiftKey) {
-        //                var val = $('#post_comment' + clicked_id).val();
-        //                e.preventDefault();
-        //                if (window.preventDuplicateKeyPresses)
-        //                    return;
-        //                window.preventDuplicateKeyPresses = true;
-        //                window.setTimeout(function () {
-        //                    window.preventDuplicateKeyPresses = false;
-        //                }, 500);
-        //               
-        //                var x = document.getElementById('threecomment' + clicked_id);
-        //                var y = document.getElementById('fourcomment' + clicked_id);
-        //
-        //
-        //                if (val == '') {
-        //
-        //                    event.preventDefault();
-        //                    return false;
-        //                } else {
-        //                    if (x.style.display === 'block' && y.style.display === 'none') {
-        //                        $.ajax({
-        //                            type: 'POST',
-        //                            url: '<?php echo base_url() . "artistic/insert_commentthree" ?>',
-        //                            data: 'post_id=' + clicked_id + '&comment=' + val,
-        //                            dataType: "json",
-        //                            success: function (data) {
-        //                                $('textarea').each(function () {
-        //                                    $(this).val('');
-        //                                });
-        //                                $('#' + 'commnetpost' + clicked_id).html(data.count);
-        //                                $('.insertcomment' + clicked_id).html(data.comment);
-        //                            }
-        //                        });
-        //                    } else {
-        //
-        //                        $.ajax({
-        //                            type: 'POST',
-        //                            url: '<?php echo base_url() . "artistic/insert_comment" ?>',
-        //                            data: 'post_id=' + clicked_id + '&comment=' + val,
-        //                            success: function (data) {
-        //                                $('textarea').each(function () {
-        //                                    $(this).val('');
-        //                                });
-        //                                $('#' + 'fourcomment' + clicked_id).html(data);
-        //                       
-        //                            }
-        //                        });
-        //                    }
-        //                }
-        //                e.preventDefault();
-        //            }
-        //        });
-        //    }
+            //    function entercomment(clicked_id)
+            //    {
+            //         $('#post_comment' + clicked_id).keypress(function (e) {
+            //
+            //
+            //            if (e.keyCode == 13 && !e.shiftKey) {
+            //                var val = $('#post_comment' + clicked_id).val();
+            //                e.preventDefault();
+            //                if (window.preventDuplicateKeyPresses)
+            //                    return;
+            //                window.preventDuplicateKeyPresses = true;
+            //                window.setTimeout(function () {
+            //                    window.preventDuplicateKeyPresses = false;
+            //                }, 500);
+            //               
+            //                var x = document.getElementById('threecomment' + clicked_id);
+            //                var y = document.getElementById('fourcomment' + clicked_id);
+            //
+            //
+            //                if (val == '') {
+            //
+            //                    event.preventDefault();
+            //                    return false;
+            //                } else {
+            //                    if (x.style.display === 'block' && y.style.display === 'none') {
+            //                        $.ajax({
+            //                            type: 'POST',
+            //                            url: '<?php echo base_url() . "artistic/insert_commentthree" ?>',
+            //                            data: 'post_id=' + clicked_id + '&comment=' + val,
+            //                            dataType: "json",
+            //                            success: function (data) {
+            //                                $('textarea').each(function () {
+            //                                    $(this).val('');
+            //                                });
+            //                                $('#' + 'commnetpost' + clicked_id).html(data.count);
+            //                                $('.insertcomment' + clicked_id).html(data.comment);
+            //                            }
+            //                        });
+            //                    } else {
+            //
+            //                        $.ajax({
+            //                            type: 'POST',
+            //                            url: '<?php echo base_url() . "artistic/insert_comment" ?>',
+            //                            data: 'post_id=' + clicked_id + '&comment=' + val,
+            //                            success: function (data) {
+            //                                $('textarea').each(function () {
+            //                                    $(this).val('');
+            //                                });
+            //                                $('#' + 'fourcomment' + clicked_id).html(data);
+            //                       
+            //                            }
+            //                        });
+            //                    }
+            //                }
+            //                e.preventDefault();
+            //            }
+            //        });
+            //    }
 
 
             function entercomment(clicked_id)
@@ -2383,9 +2385,9 @@
                             return false;
                         }
 
-        //                if (txt == '') {
-        //                    return false;
-        //                }
+                        //                if (txt == '') {
+                        //                    return false;
+                        //                }
 
                         $('#post_comment' + clicked_id).html("");
 
@@ -2445,47 +2447,47 @@
         <!-- comment edit box start-->
         <script type="text/javascript">
 
-        //    function comment_editbox(clicked_id) {
-        //        document.getElementById('editcomment' + clicked_id).style.display = 'block';
-        //        document.getElementById('showcomment' + clicked_id).style.display = 'none';
-        //        document.getElementById('editsubmit' + clicked_id).style.display = 'block';
-        //        document.getElementById('editbox' + clicked_id).style.display = 'none';
-        //        document.getElementById('editcancle' + clicked_id).style.display = 'block';
-        //
-        //    }
-        //
-        //    function comment_editcancle(clicked_id) {
-        //
-        //        document.getElementById('editbox' + clicked_id).style.display = 'block';
-        //        document.getElementById('editcancle' + clicked_id).style.display = 'none';
-        //
-        //        document.getElementById('editcomment' + clicked_id).style.display = 'none';
-        //        document.getElementById('showcomment' + clicked_id).style.display = 'block';
-        //        document.getElementById('editsubmit' + clicked_id).style.display = 'none';
-        //
-        //    }
-        //    function comment_editboxtwo(clicked_id) {
-        //
-        //        document.getElementById('editcommenttwo' + clicked_id).style.display = 'block';
-        //        document.getElementById('showcommenttwo' + clicked_id).style.display = 'none';
-        //        document.getElementById('editsubmittwo' + clicked_id).style.display = 'block';
-        //        document.getElementById('editboxtwo' + clicked_id).style.display = 'none';
-        //        document.getElementById('editcancletwo' + clicked_id).style.display = 'block';
-        //
-        //    }
-        //
-        //
-        //
-        //    function comment_editcancletwo(clicked_id) {
-        //
-        //        document.getElementById('editboxtwo' + clicked_id).style.display = 'block';
-        //        document.getElementById('editcancletwo' + clicked_id).style.display = 'none';
-        //
-        //        document.getElementById('editcommenttwo' + clicked_id).style.display = 'none';
-        //        document.getElementById('showcommenttwo' + clicked_id).style.display = 'block';
-        //        document.getElementById('editsubmittwo' + clicked_id).style.display = 'none';
-        //
-        //    }
+            //    function comment_editbox(clicked_id) {
+            //        document.getElementById('editcomment' + clicked_id).style.display = 'block';
+            //        document.getElementById('showcomment' + clicked_id).style.display = 'none';
+            //        document.getElementById('editsubmit' + clicked_id).style.display = 'block';
+            //        document.getElementById('editbox' + clicked_id).style.display = 'none';
+            //        document.getElementById('editcancle' + clicked_id).style.display = 'block';
+            //
+            //    }
+            //
+            //    function comment_editcancle(clicked_id) {
+            //
+            //        document.getElementById('editbox' + clicked_id).style.display = 'block';
+            //        document.getElementById('editcancle' + clicked_id).style.display = 'none';
+            //
+            //        document.getElementById('editcomment' + clicked_id).style.display = 'none';
+            //        document.getElementById('showcomment' + clicked_id).style.display = 'block';
+            //        document.getElementById('editsubmit' + clicked_id).style.display = 'none';
+            //
+            //    }
+            //    function comment_editboxtwo(clicked_id) {
+            //
+            //        document.getElementById('editcommenttwo' + clicked_id).style.display = 'block';
+            //        document.getElementById('showcommenttwo' + clicked_id).style.display = 'none';
+            //        document.getElementById('editsubmittwo' + clicked_id).style.display = 'block';
+            //        document.getElementById('editboxtwo' + clicked_id).style.display = 'none';
+            //        document.getElementById('editcancletwo' + clicked_id).style.display = 'block';
+            //
+            //    }
+            //
+            //
+            //
+            //    function comment_editcancletwo(clicked_id) {
+            //
+            //        document.getElementById('editboxtwo' + clicked_id).style.display = 'block';
+            //        document.getElementById('editcancletwo' + clicked_id).style.display = 'none';
+            //
+            //        document.getElementById('editcommenttwo' + clicked_id).style.display = 'none';
+            //        document.getElementById('showcommenttwo' + clicked_id).style.display = 'block';
+            //        document.getElementById('editsubmittwo' + clicked_id).style.display = 'none';
+            //
+            //    }
 
             function comment_editbox(clicked_id) {
                 document.getElementById('editcomment' + clicked_id).style.display = 'inline-block';
@@ -2592,39 +2594,39 @@
         <!-- comment edit insert start -->
         <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
         <script type="text/javascript">
-        //    function edit_comment(abc)
-        //    {
-        //
-        //        var post_comment_edit = document.getElementById("editcomment" + abc);
-        //
-        //        if (post_comment_edit.value == '') {
-        //            $('.biderror .mes').html("<div class='pop_content'>Are you sure want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-        //            $('#bidmodal').modal('show');
-        //
-        //        } else {
-        //
-        //            $.ajax({
-        //                type: 'POST',
-        //                url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
-        //                data: 'post_id=' + abc + '&comment=' + post_comment_edit.value,
-        //                success: function (data) {
-        //
-        //
-        //                    document.getElementById('editcomment' + abc).style.display = 'none';
-        //                    document.getElementById('showcomment' + abc).style.display = 'block';
-        //                    document.getElementById('editsubmit' + abc).style.display = 'none';
-        //
-        //                    document.getElementById('editbox' + abc).style.display = 'block';
-        //                    document.getElementById('editcancle' + abc).style.display = 'none';
-        //
-        //                    $('#' + 'showcomment' + abc).html(data);
-        //
-        //
-        //
-        //                }
-        //            });
-        //        }
-        //    }
+            //    function edit_comment(abc)
+            //    {
+            //
+            //        var post_comment_edit = document.getElementById("editcomment" + abc);
+            //
+            //        if (post_comment_edit.value == '') {
+            //            $('.biderror .mes').html("<div class='pop_content'>Are you sure want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+            //            $('#bidmodal').modal('show');
+            //
+            //        } else {
+            //
+            //            $.ajax({
+            //                type: 'POST',
+            //                url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
+            //                data: 'post_id=' + abc + '&comment=' + post_comment_edit.value,
+            //                success: function (data) {
+            //
+            //
+            //                    document.getElementById('editcomment' + abc).style.display = 'none';
+            //                    document.getElementById('showcomment' + abc).style.display = 'block';
+            //                    document.getElementById('editsubmit' + abc).style.display = 'none';
+            //
+            //                    document.getElementById('editbox' + abc).style.display = 'block';
+            //                    document.getElementById('editcancle' + abc).style.display = 'none';
+            //
+            //                    $('#' + 'showcomment' + abc).html(data);
+            //
+            //
+            //
+            //                }
+            //            });
+            //        }
+            //    }
 
 
             function edit_comment(abc)
@@ -2649,10 +2651,10 @@
                     return false;
                 }
 
-        //        if (txt == '' || txt == '<br>') {
-        //           
-        //            return false;
-        //        }
+                //        if (txt == '' || txt == '<br>') {
+                //           
+                //            return false;
+                //        }
                 $.ajax({
                     type: 'POST',
                     url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
@@ -2704,49 +2706,49 @@
 
         <script type="text/javascript">
 
-        //    function commentedit(abc)
-        //    {
-        //        $('#editcomment' + abc).keypress(function (e) {
-        //            if (e.keyCode == 13 && !e.shiftKey) {
-        //                var val = $('#editcomment' + abc).val();
-        //                e.preventDefault();
-        //
-        //                if (window.preventDuplicateKeyPresses)
-        //                    return;
-        //
-        //                window.preventDuplicateKeyPresses = true;
-        //                window.setTimeout(function () {
-        //                    window.preventDuplicateKeyPresses = false;
-        //                }, 500);
-        //
-        //                if (val == '') {
-        //
-        //                    $('.biderror .mes').html("<div class='pop_content'>Are you sure want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-        //                    $('#bidmodal').modal('show');
-        //
-        //                } else {
-        //
-        //                    $.ajax({
-        //                        type: 'POST',
-        //                        url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
-        //                        data: 'post_id=' + abc + '&comment=' + val,
-        //                        success: function (data) {
-        //
-        //
-        //                            document.getElementById('editcomment' + abc).style.display = 'none';
-        //                            document.getElementById('showcomment' + abc).style.display = 'block';
-        //                            document.getElementById('editsubmit' + abc).style.display = 'none';
-        //
-        //                            document.getElementById('editbox' + abc).style.display = 'block';
-        //                            document.getElementById('editcancle' + abc).style.display = 'none';
-        //
-        //                            $('#' + 'showcomment' + abc).html(data);
-        //                        }
-        //                    });
-        //                }
-        //            }
-        //        });
-        //    }
+            //    function commentedit(abc)
+            //    {
+            //        $('#editcomment' + abc).keypress(function (e) {
+            //            if (e.keyCode == 13 && !e.shiftKey) {
+            //                var val = $('#editcomment' + abc).val();
+            //                e.preventDefault();
+            //
+            //                if (window.preventDuplicateKeyPresses)
+            //                    return;
+            //
+            //                window.preventDuplicateKeyPresses = true;
+            //                window.setTimeout(function () {
+            //                    window.preventDuplicateKeyPresses = false;
+            //                }, 500);
+            //
+            //                if (val == '') {
+            //
+            //                    $('.biderror .mes').html("<div class='pop_content'>Are you sure want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+            //                    $('#bidmodal').modal('show');
+            //
+            //                } else {
+            //
+            //                    $.ajax({
+            //                        type: 'POST',
+            //                        url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
+            //                        data: 'post_id=' + abc + '&comment=' + val,
+            //                        success: function (data) {
+            //
+            //
+            //                            document.getElementById('editcomment' + abc).style.display = 'none';
+            //                            document.getElementById('showcomment' + abc).style.display = 'block';
+            //                            document.getElementById('editsubmit' + abc).style.display = 'none';
+            //
+            //                            document.getElementById('editbox' + abc).style.display = 'block';
+            //                            document.getElementById('editcancle' + abc).style.display = 'none';
+            //
+            //                            $('#' + 'showcomment' + abc).html(data);
+            //                        }
+            //                    });
+            //                }
+            //            }
+            //        });
+            //    }
 
             function commentedit(abc)
             {
@@ -2771,10 +2773,10 @@
                             return false;
                         }
 
-        //                if (txt == '' || txt == '<br>') {
-        //                   
-        //                    return false;
-        //                }
+                        //                if (txt == '' || txt == '<br>') {
+                        //                   
+                        //                    return false;
+                        //                }
                         if (window.preventDuplicateKeyPresses)
                             return;
                         window.preventDuplicateKeyPresses = true;
@@ -2805,35 +2807,35 @@
         </script>
 
         <script type="text/javascript">
-        //    function edit_commenttwo(abc)
-        //    {
-        //        var post_comment_edit = document.getElementById("editcommenttwo" + abc);
-        //        if (post_comment_edit.value == '') {
-        //
-        //            $('.biderror .mes').html("<div class='pop_content'>Are you sure want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deletetwo(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-        //            $('#bidmodal').modal('show');
-        //
-        //        } else {
-        //
-        //            $.ajax({
-        //                type: 'POST',
-        //                url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
-        //                data: 'post_id=' + abc + '&comment=' + post_comment_edit.value,
-        //                success: function (data) {
-        //                    document.getElementById('showcommenttwo' + abc).style.display = 'block';
-        //                    document.getElementById('showcommenttwo' + abc).innerHTML = data;
-        //                    document.getElementById('editboxtwo' + abc).style.display = 'block';
-        //
-        //                    document.getElementById('editcommenttwo' + abc).style.display = 'none';
-        //
-        //                    document.getElementById('editsubmittwo' + abc).style.display = 'none';
-        //                    document.getElementById('editcancletwo' + abc).style.display = 'none';
-        //
-        //                }
-        //            });
-        //        }
-        //
-        //    }
+            //    function edit_commenttwo(abc)
+            //    {
+            //        var post_comment_edit = document.getElementById("editcommenttwo" + abc);
+            //        if (post_comment_edit.value == '') {
+            //
+            //            $('.biderror .mes').html("<div class='pop_content'>Are you sure want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deletetwo(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+            //            $('#bidmodal').modal('show');
+            //
+            //        } else {
+            //
+            //            $.ajax({
+            //                type: 'POST',
+            //                url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
+            //                data: 'post_id=' + abc + '&comment=' + post_comment_edit.value,
+            //                success: function (data) {
+            //                    document.getElementById('showcommenttwo' + abc).style.display = 'block';
+            //                    document.getElementById('showcommenttwo' + abc).innerHTML = data;
+            //                    document.getElementById('editboxtwo' + abc).style.display = 'block';
+            //
+            //                    document.getElementById('editcommenttwo' + abc).style.display = 'none';
+            //
+            //                    document.getElementById('editsubmittwo' + abc).style.display = 'none';
+            //                    document.getElementById('editcancletwo' + abc).style.display = 'none';
+            //
+            //                }
+            //            });
+            //        }
+            //
+            //    }
 
             function edit_commenttwo(abc)
             {
@@ -2857,10 +2859,10 @@
                     return false;
                 }
 
-        //        if (txt == '' || txt == '<br>') {
-        //          
-        //            return false;
-        //        }
+                //        if (txt == '' || txt == '<br>') {
+                //          
+                //            return false;
+                //        }
                 $.ajax({
                     type: 'POST',
                     url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
@@ -2885,52 +2887,52 @@
 
         <script type="text/javascript">
 
-        //    function commentedittwo(abc)
-        //    {
-        //
-        //        $('#editcommenttwo' + abc).keypress(function (e) {
-        //       
-        //            if (e.keyCode == 13 && !e.shiftKey) {
-        //                var val = $('#editcommenttwo' + abc).val();
-        //                e.preventDefault();
-        //
-        //                if (window.preventDuplicateKeyPresses)
-        //                    return;
-        //
-        //                window.preventDuplicateKeyPresses = true;
-        //                window.setTimeout(function () {
-        //                    window.preventDuplicateKeyPresses = false;
-        //                }, 500);
-        //
-        //                if (val == '') {
-        //
-        //                    $('.biderror .mes').html("<div class='pop_content'>Are you sure want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deletetwo(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-        //                    $('#bidmodal').modal('show');
-        //
-        //                } else {
-        //                    $.ajax({
-        //                        type: 'POST',
-        //                        url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
-        //                        data: 'post_id=' + abc + '&comment=' + val,
-        //                        success: function (data) {
-        //
-        //
-        //                            document.getElementById('editcommenttwo' + abc).style.display = 'none';
-        //                            document.getElementById('showcommenttwo' + abc).style.display = 'block';
-        //                            document.getElementById('editsubmittwo' + abc).style.display = 'none';
-        //
-        //                            document.getElementById('editboxtwo' + abc).style.display = 'block';
-        //                            document.getElementById('editcancletwo' + abc).style.display = 'none';
-        //
-        //                            $('#' + 'showcommenttwo' + abc).html(data);
-        //                        }
-        //                    });
-        //                }
-        //            }
-        //            e.preventDefault();
-        //        });
-        //        
-        //    }
+            //    function commentedittwo(abc)
+            //    {
+            //
+            //        $('#editcommenttwo' + abc).keypress(function (e) {
+            //       
+            //            if (e.keyCode == 13 && !e.shiftKey) {
+            //                var val = $('#editcommenttwo' + abc).val();
+            //                e.preventDefault();
+            //
+            //                if (window.preventDuplicateKeyPresses)
+            //                    return;
+            //
+            //                window.preventDuplicateKeyPresses = true;
+            //                window.setTimeout(function () {
+            //                    window.preventDuplicateKeyPresses = false;
+            //                }, 500);
+            //
+            //                if (val == '') {
+            //
+            //                    $('.biderror .mes').html("<div class='pop_content'>Are you sure want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deletetwo(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+            //                    $('#bidmodal').modal('show');
+            //
+            //                } else {
+            //                    $.ajax({
+            //                        type: 'POST',
+            //                        url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
+            //                        data: 'post_id=' + abc + '&comment=' + val,
+            //                        success: function (data) {
+            //
+            //
+            //                            document.getElementById('editcommenttwo' + abc).style.display = 'none';
+            //                            document.getElementById('showcommenttwo' + abc).style.display = 'block';
+            //                            document.getElementById('editsubmittwo' + abc).style.display = 'none';
+            //
+            //                            document.getElementById('editboxtwo' + abc).style.display = 'block';
+            //                            document.getElementById('editcancletwo' + abc).style.display = 'none';
+            //
+            //                            $('#' + 'showcommenttwo' + abc).html(data);
+            //                        }
+            //                    });
+            //                }
+            //            }
+            //            e.preventDefault();
+            //        });
+            //        
+            //    }
 
             function commentedittwo(abc)
             {
@@ -2956,9 +2958,9 @@
                             return false;
                         }
 
-        //                if (txt == '' || txt == '<br>') {.
-        //                    return false;
-        //                }
+                        //                if (txt == '' || txt == '<br>') {.
+                        //                    return false;
+                        //                }
 
                         if (window.preventDuplicateKeyPresses)
                             return;
@@ -3265,11 +3267,11 @@
         <script type="text/javascript">
             function editpost(abc)
             {
-        //        document.getElementById('editpostdata' + abc).style.display = 'none';
-        //        document.getElementById('editpostbox' + abc).style.display = 'block';
-        //        document.getElementById('editpostdetails' + abc).style.display = 'none';
-        //        document.getElementById('editpostdetailbox' + abc).style.display = 'block';
-        //        document.getElementById('editpostsubmit' + abc).style.display = 'block';
+                //        document.getElementById('editpostdata' + abc).style.display = 'none';
+                //        document.getElementById('editpostbox' + abc).style.display = 'block';
+                //        document.getElementById('editpostdetails' + abc).style.display = 'none';
+                //        document.getElementById('editpostdetailbox' + abc).style.display = 'block';
+                //        document.getElementById('editpostsubmit' + abc).style.display = 'block';
 
                 $('div[id^=myDropdown]').hide().removeClass('show');
 
@@ -3283,34 +3285,34 @@
 
 
         <script type="text/javascript">
-        //    function edit_postinsert(abc)
-        //    {
-        //        var editpostname = document.getElementById("editpostname" + abc);
-        //        var editpostdetails = document.getElementById("editpostdesc" + abc);
-        //        var $field = $('#editpostdesc' + abc);
-        //        var editpostdetails = $('#editpostdesc' + abc).html();
-        //
-        //        $.ajax({
-        //            type: 'POST',
-        //            url: '<?php echo base_url() . "artistic/edit_post_insert" ?>',
-        //            data: 'art_post_id=' + abc + '&art_post=' + editpostname.value + '&art_description=' + editpostdetails,
-        //            dataType: "json",
-        //            success: function (data) {
-        //
-        //                document.getElementById('editpostdata' + abc).style.display = 'block';
-        //                document.getElementById('editpostbox' + abc).style.display = 'none';
-        //                document.getElementById('editpostdetails' + abc).style.display = 'block';
-        //                document.getElementById('editpostdetailbox' + abc).style.display = 'none';
-        //
-        //                document.getElementById('editpostsubmit' + abc).style.display = 'none';
-        //
-        //                $('#' + 'editpostdata' + abc).html(data.title);
-        //                $('#' + 'editpostdetails' + abc).html(data.description);
-        //
-        //            }
-        //        });
-        //
-        //    }
+            //    function edit_postinsert(abc)
+            //    {
+            //        var editpostname = document.getElementById("editpostname" + abc);
+            //        var editpostdetails = document.getElementById("editpostdesc" + abc);
+            //        var $field = $('#editpostdesc' + abc);
+            //        var editpostdetails = $('#editpostdesc' + abc).html();
+            //
+            //        $.ajax({
+            //            type: 'POST',
+            //            url: '<?php echo base_url() . "artistic/edit_post_insert" ?>',
+            //            data: 'art_post_id=' + abc + '&art_post=' + editpostname.value + '&art_description=' + editpostdetails,
+            //            dataType: "json",
+            //            success: function (data) {
+            //
+            //                document.getElementById('editpostdata' + abc).style.display = 'block';
+            //                document.getElementById('editpostbox' + abc).style.display = 'none';
+            //                document.getElementById('editpostdetails' + abc).style.display = 'block';
+            //                document.getElementById('editpostdetailbox' + abc).style.display = 'none';
+            //
+            //                document.getElementById('editpostsubmit' + abc).style.display = 'none';
+            //
+            //                $('#' + 'editpostdata' + abc).html(data.title);
+            //                $('#' + 'editpostdetails' + abc).html(data.description);
+            //
+            //            }
+            //        });
+            //
+            //    }
 
 
             function edit_postinsert(abc)
@@ -3950,10 +3952,38 @@
             $('.modal-close').on('click', function () {
                 $('#myModal3').modal(show);
             });
-            
-             $( document ).on( 'keydown', function ( e ) {
-    if ( e.keyCode === 27 ) {
-        document.getElementById('myModal3').style.display = "none";
-    }
-});
+
+            $(document).on('keydown', function (e) {
+                if (e.keyCode === 27) {
+                    document.getElementById('myModal3').style.display = "none";
+                }
+            });
+        </script>
+
+        <script type="text/javascript">
+
+            var _onPaste_StripFormatting_IEPaste = false;
+
+            function OnPaste_StripFormatting(elem, e) {
+
+                if (e.originalEvent && e.originalEvent.clipboardData && e.originalEvent.clipboardData.getData) {
+                    e.preventDefault();
+                    var text = e.originalEvent.clipboardData.getData('text/plain');
+                    window.document.execCommand('insertText', false, text);
+                } else if (e.clipboardData && e.clipboardData.getData) {
+                    e.preventDefault();
+                    var text = e.clipboardData.getData('text/plain');
+                    window.document.execCommand('insertText', false, text);
+                } else if (window.clipboardData && window.clipboardData.getData) {
+                    // Stop stack overflow
+                    if (!_onPaste_StripFormatting_IEPaste) {
+                        _onPaste_StripFormatting_IEPaste = true;
+                        e.preventDefault();
+                        window.document.execCommand('ms-pasteTextOnly', false);
+                    }
+                    _onPaste_StripFormatting_IEPaste = false;
+                }
+
+            }
+
         </script>
