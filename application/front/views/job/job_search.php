@@ -7,8 +7,9 @@
                             </fieldset>
                             <fieldset class="col-md-3">
                               
-                              <select class="" name="searchplace[]" id="searchplace" multiple="multiple"  placeholder="Find Your location">
-                                </select>
+                             <!--  <select class="" name="searchplace[]" id="searchplace" multiple="multiple"  placeholder="Find Your location">
+                                </select> -->
+                                 <input type="text" id="searchplace" name="searchplace" placeholder="Find Your location">
                             </fieldset>
                         <!--     <fieldset class="col-md-2">
                                 <button onclick="return checkvalue();"> Search</button>

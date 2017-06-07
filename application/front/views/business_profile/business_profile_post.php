@@ -1092,14 +1092,14 @@
 
 <li>
 <div class="like_count_ext">
-<span > 5 </span> 
+<span class="comment_count<?php echo $row['business_profile_post_id']; ?>" > 0 </span> 
 <span> Comment</span>
 </div>
 </li>
 
 <li>
 <div class="comnt_count_ext">
-<span> 5 </span> 
+    <span class="comment_like_count<?php echo $row['business_profile_post_id']; ?>"> 0 </span> 
 <span> Like</span>
 </div></li>
                                         </ul>
@@ -1545,10 +1545,11 @@
             success: function (data) {
                 // $('.' + 'likepost' + clicked_id).html(data);
                 //alert(data.like_user_count);
-
+                
                 $('.' + 'likepost' + clicked_id).html(data.like);
                 $('.likeusername' + clicked_id).html(data.likeuser);
-
+                $('.comment_like_count' + clicked_id).html(data.like_user_count);
+                
                 $('.likeduserlist' + clicked_id).hide();
                 if (data.like_user_count == '0') {
                     document.getElementById('likeusername' + clicked_id).style.display = "none";

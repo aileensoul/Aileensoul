@@ -99,6 +99,28 @@ class Recruiter extends MY_Controller {
 //echo '<pre>'; print_r($result1); die();
          
          $this->data['demo']= $result1;
+            $contition_array = array('status' => '1');
+
+       
+        $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+           
+
+            foreach ($cty as $key => $value) {
+            foreach ($value as $ke => $val) {
+                if ($val != "") {
+
+
+                    $resu[] = $val;
+                }
+            }
+        }
+        $resul = array_unique($resu);
+        foreach ($resul as $key => $value) {
+            $res[$key]['label'] = $value;
+            $res[$key]['value'] = $value;
+        }
+        
+        $this->data['de'] = array_values($res);
 
 
 
@@ -336,6 +358,28 @@ class Recruiter extends MY_Controller {
          
          $this->data['demo']= $result1;
 
+   $contition_array = array('status' => '1');
+
+       
+        $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+           
+
+            foreach ($cty as $key => $value) {
+            foreach ($value as $ke => $val) {
+                if ($val != "") {
+
+
+                    $resu[] = $val;
+                }
+            }
+        }
+        $resul = array_unique($resu);
+        foreach ($resul as $key => $value) {
+            $res[$key]['label'] = $value;
+            $res[$key]['value'] = $value;
+        }
+        
+        $this->data['de'] = array_values($res);
 
 
         $this->load->view('recruiter/company_information', $this->data);
@@ -546,6 +590,28 @@ class Recruiter extends MY_Controller {
 //echo '<pre>'; print_r($result1); die();
          
          $this->data['demo']= $result1;
+            $contition_array = array('status' => '1');
+
+       
+        $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+           
+
+            foreach ($cty as $key => $value) {
+            foreach ($value as $ke => $val) {
+                if ($val != "") {
+
+
+                    $resu[] = $val;
+                }
+            }
+        }
+        $resul = array_unique($resu);
+        foreach ($resul as $key => $value) {
+            $res[$key]['label'] = $value;
+            $res[$key]['value'] = $value;
+        }
+        
+        $this->data['de'] = array_values($res);
 
 
         //echo "<pre>"; print_r( $this->data['countrydata'] ); die();
@@ -727,6 +793,28 @@ class Recruiter extends MY_Controller {
 //echo '<pre>'; print_r($result1); die();
          
          $this->data['demo']= $result1;
+            $contition_array = array('status' => '1');
+
+       
+        $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+           
+
+            foreach ($cty as $key => $value) {
+            foreach ($value as $ke => $val) {
+                if ($val != "") {
+
+
+                    $resu[] = $val;
+                }
+            }
+        }
+        $resul = array_unique($resu);
+        foreach ($resul as $key => $value) {
+            $res[$key]['label'] = $value;
+            $res[$key]['value'] = $value;
+        }
+        
+        $this->data['de'] = array_values($res);
 
 
         //     echo "<pre>";print_r($this->data['postdata']);die();
@@ -799,6 +887,28 @@ class Recruiter extends MY_Controller {
 
 
         $this->data['demo'] = array_values($result1);
+           $contition_array = array('status' => '1');
+
+       
+        $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+           
+
+            foreach ($cty as $key => $value) {
+            foreach ($value as $ke => $val) {
+                if ($val != "") {
+
+
+                    $resu[] = $val;
+                }
+            }
+        }
+        $resul = array_unique($resu);
+        foreach ($resul as $key => $value) {
+            $res[$key]['label'] = $value;
+            $res[$key]['value'] = $value;
+        }
+        
+        $this->data['de'] = array_values($res);
 
 
         $this->load->view('recruiter/add_post', $this->data);
@@ -899,6 +1009,29 @@ class Recruiter extends MY_Controller {
 
 
         $this->data['demo'] = array_values($result1);
+           $contition_array = array('status' => '1');
+
+       
+        $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+           
+
+            foreach ($cty as $key => $value) {
+            foreach ($value as $ke => $val) {
+                if ($val != "") {
+
+
+                    $resu[] = $val;
+                }
+            }
+        }
+        $resul = array_unique($resu);
+        foreach ($resul as $key => $value) {
+            $res[$key]['label'] = $value;
+            $res[$key]['value'] = $value;
+        }
+        
+        $this->data['de'] = array_values($res);
+
 
 
              // echo "hi"; die();
@@ -1044,6 +1177,29 @@ class Recruiter extends MY_Controller {
 
         $this->data['demo'] = array_values($result1);
 
+           $contition_array = array('status' => '1');
+
+       
+        $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+           
+
+            foreach ($cty as $key => $value) {
+            foreach ($value as $ke => $val) {
+                if ($val != "") {
+
+
+                    $resu[] = $val;
+                }
+            }
+        }
+        $resul = array_unique($resu);
+        foreach ($resul as $key => $value) {
+            $res[$key]['label'] = $value;
+            $res[$key]['value'] = $value;
+        }
+        
+        $this->data['de'] = array_values($res);
+
 
 
 
@@ -1178,6 +1334,29 @@ $contition_array = array('status' => '1', 'is_delete' => '0');
 
         $this->data['demo'] = array_values($result1);
 
+           $contition_array = array('status' => '1');
+
+       
+        $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+           
+
+            foreach ($cty as $key => $value) {
+            foreach ($value as $ke => $val) {
+                if ($val != "") {
+
+
+                    $resu[] = $val;
+                }
+            }
+        }
+        $resul = array_unique($resu);
+        foreach ($resul as $key => $value) {
+            $res[$key]['label'] = $value;
+            $res[$key]['value'] = $value;
+        }
+        
+        $this->data['de'] = array_values($res);
+
 
         
 
@@ -1310,6 +1489,29 @@ $contition_array = array('status' => '1', 'is_delete' => '0');
 
         $this->data['demo'] = array_values($result1);
 
+           $contition_array = array('status' => '1');
+
+       
+        $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+           
+
+            foreach ($cty as $key => $value) {
+            foreach ($value as $ke => $val) {
+                if ($val != "") {
+
+
+                    $resu[] = $val;
+                }
+            }
+        }
+        $resul = array_unique($resu);
+        foreach ($resul as $key => $value) {
+            $res[$key]['label'] = $value;
+            $res[$key]['value'] = $value;
+        }
+        
+        $this->data['de'] = array_values($res);
+
 
 
 
@@ -1408,6 +1610,29 @@ $contition_array = array('status' => '1', 'is_delete' => '0');
 
 
         $this->data['demo'] = array_values($result1);
+
+           $contition_array = array('status' => '1');
+
+       
+        $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+           
+
+            foreach ($cty as $key => $value) {
+            foreach ($value as $ke => $val) {
+                if ($val != "") {
+
+
+                    $resu[] = $val;
+                }
+            }
+        }
+        $resul = array_unique($resu);
+        foreach ($resul as $key => $value) {
+            $res[$key]['label'] = $value;
+            $res[$key]['value'] = $value;
+        }
+        
+        $this->data['de'] = array_values($res);
 
         //echo "<pre>";print_r($this->data['recdata']);die();
         $this->load->view('recruiter/saved_candidate', $this->data);
@@ -2018,6 +2243,29 @@ $contition_array = array('status' => '1', 'is_delete' => '0');
 
         $this->data['demo'] = array_values($result1);
 
+           $contition_array = array('status' => '1');
+
+       
+        $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+           
+
+            foreach ($cty as $key => $value) {
+            foreach ($value as $ke => $val) {
+                if ($val != "") {
+
+
+                    $resu[] = $val;
+                }
+            }
+        }
+        $resul = array_unique($resu);
+        foreach ($resul as $key => $value) {
+            $res[$key]['label'] = $value;
+            $res[$key]['value'] = $value;
+        }
+        
+        $this->data['de'] = array_values($res);
+
         $this->load->view('recruiter/recommen_candidate', $this->data);
     }
 
@@ -2174,6 +2422,29 @@ $join_str1 = array(
 
 
         $this->data['demo'] = array_values($result1);
+
+           $contition_array = array('status' => '1');
+
+       
+        $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+           
+
+            foreach ($cty as $key => $value) {
+            foreach ($value as $ke => $val) {
+                if ($val != "") {
+
+
+                    $resu[] = $val;
+                }
+            }
+        }
+        $resul = array_unique($resu);
+        foreach ($resul as $key => $value) {
+            $res[$key]['label'] = $value;
+            $res[$key]['value'] = $value;
+        }
+        
+        $this->data['de'] = array_values($res);
 
 
 
