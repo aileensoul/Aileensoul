@@ -799,7 +799,7 @@
 
               <!-- <textarea id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" name="editpostdesc"><?php echo $row['product_description']; ?>
                      </textarea>  -->
-                                            <div  contenteditable="true" id="<?php echo 'editpostdesc' . $busienss_data[0]['business_profile_post_id']; ?>" placeholder="Product Description" class="textbuis  editable_text" placeholder="Description of Your Product"  name="editpostdesc"><?php echo $busienss_data[0]['product_description']; ?></div>
+                                            <div  contenteditable="true" id="<?php echo 'editpostdesc' . $busienss_data[0]['business_profile_post_id']; ?>" placeholder="Product Description" class="textbuis  editable_text" placeholder="Description of Your Product"  name="editpostdesc" onpaste="OnPaste_StripFormatting(this, event);"><?php echo $busienss_data[0]['product_description']; ?></div>
 
                 <!-- <div contenteditable="true"  id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" placeholder="Product Description" class="textbuis  editable_text"  name="editpostdesc"><?php echo $row['product_description']; ?></div>  -->
 
@@ -1177,7 +1177,7 @@
 
                                                                                     <div class="edit-comment-box">
                                                                                         <div class="inputtype-edit-comment">
-                                                                                            <div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="<?php echo $rowdata['post_image_comment_id']; ?>"  id="<?php echo "imgeditcomment" . $rowdata['post_image_comment_id']; ?>" placeholder="Add a Comment ... " value= ""  onkeyup="imgcommentedit(<?php echo $rowdata['post_image_comment_id']; ?>)"><?php echo $rowdata['comment']; ?></div>
+                                                                                            <div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="<?php echo $rowdata['post_image_comment_id']; ?>"  id="<?php echo "imgeditcomment" . $rowdata['post_image_comment_id']; ?>" placeholder="Add a Comment ... " value= ""  onkeyup="imgcommentedit(<?php echo $rowdata['post_image_comment_id']; ?>)" onpaste="OnPaste_StripFormatting(this, event);"><?php echo $rowdata['comment']; ?></div>
                                                                                             <span class="comment-edit-button"><button id="<?php echo "imgeditsubmit" . $rowdata['post_image_comment_id']; ?>" style="display:none" onClick="imgedit_comment(<?php echo $rowdata['post_image_comment_id']; ?>)">Save</button></span>
                                                                                         </div>
                                                                                     </div>
@@ -1317,7 +1317,7 @@
 
                                                                 <div class="">
                                                                     <div class="col-md-12 inputtype-comment" style="width: 80%; padding-left: 7px;">
-                                                                        <div contenteditable="true" class="editable_text" name="<?php echo $busdata['image_id']; ?>" id="<?php echo "post_imgcomment" . $busdata['image_id']; ?>" placeholder="Add a Comment ..." onkeyup="entercommentimg(<?php echo $busdata['image_id']; ?>)"></div>
+                                                                        <div contenteditable="true" class="editable_text" name="<?php echo $busdata['image_id']; ?>" id="<?php echo "post_imgcomment" . $busdata['image_id']; ?>" placeholder="Add a Comment ..." onkeyup="entercommentimg(<?php echo $busdata['image_id']; ?>)" onpaste="OnPaste_StripFormatting(this, event);"></div>
                                                                     </div>
 
                                                                     <div class="comment-edit-butn">                                      
@@ -1668,7 +1668,7 @@
                                                         <div class="edit-comment-box">
                                                             <div class="inputtype-edit-comment">
                                                                 <!--<textarea type="text" class="textarea" name="<?php echo $rowdata['business_profile_post_comment_id']; ?>" id="<?php echo "editcomment" . $rowdata['business_profile_post_comment_id']; ?>" style="display:none;resize: none;" onClick="commentedit(this.name)"><?php echo $rowdata['comments']; ?></textarea>-->
-                                                                <div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="<?php echo $rowdata['business_profile_post_comment_id']; ?>"  id="<?php echo "editcomment" . $rowdata['business_profile_post_comment_id']; ?>" placeholder="Enter Your Comment " value= ""  onkeyup="commentedit(<?php echo $rowdata['business_profile_post_comment_id']; ?>)"><?php echo $rowdata['comments']; ?></div>
+                                                                <div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="<?php echo $rowdata['business_profile_post_comment_id']; ?>"  id="<?php echo "editcomment" . $rowdata['business_profile_post_comment_id']; ?>" placeholder="Enter Your Comment " value= ""  onkeyup="commentedit(<?php echo $rowdata['business_profile_post_comment_id']; ?>)" onpaste="OnPaste_StripFormatting(this, event);"><?php echo $rowdata['comments']; ?></div>
                                                                 <span class="comment-edit-button"><button id="<?php echo "editsubmit" . $rowdata['business_profile_post_comment_id']; ?>" style="display:none" onClick="edit_comment(<?php echo $rowdata['business_profile_post_comment_id']; ?>)">Save</button></span>
                                                             </div>
                                                         </div>
@@ -1797,7 +1797,7 @@ if ($business_userimage) {
 
                                     <div class="">
                                         <div class="col-md-12 inputtype-comment" style="  width: 80%;  padding-left: 7px;">
-                                            <div contenteditable="true" class="editable_text" name="<?php echo $busienss_data[0]['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $busienss_data[0]['business_profile_post_id']; ?>" placeholder="Add a Comment ..." value= "" onClick="entercomment(<?php echo $busienss_data[0]['business_profile_post_id']; ?>)"></div></div>
+                                            <div contenteditable="true" class="editable_text" name="<?php echo $busienss_data[0]['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $busienss_data[0]['business_profile_post_id']; ?>" placeholder="Add a Comment ..." value= "" onClick="entercomment(<?php echo $busienss_data[0]['business_profile_post_id']; ?>)" onpaste="OnPaste_StripFormatting(this, event);"></div></div>
                                         <div class="comment-edit-butn">        
                                             <button id="<?php echo $busienss_data[0]['business_profile_post_id']; ?>" onClick="insert_comment(this.id)">Comment</button></div>
                                     </div>
@@ -3868,4 +3868,35 @@ $( "#tags" ).autocomplete({
 
 
 </script>
-<!-- This  script use for close dropdown in every post
+<!-- This  script use for close dropdown in every post -->
+
+
+
+<script type="text/javascript">
+
+    var _onPaste_StripFormatting_IEPaste = false;
+
+    function OnPaste_StripFormatting(elem, e) {
+
+        if (e.originalEvent && e.originalEvent.clipboardData && e.originalEvent.clipboardData.getData) {
+            e.preventDefault();
+            var text = e.originalEvent.clipboardData.getData('text/plain');
+            window.document.execCommand('insertText', false, text);
+        } else if (e.clipboardData && e.clipboardData.getData) {
+            e.preventDefault();
+            var text = e.clipboardData.getData('text/plain');
+            window.document.execCommand('insertText', false, text);
+        } else if (window.clipboardData && window.clipboardData.getData) {
+            // Stop stack overflow
+            if (!_onPaste_StripFormatting_IEPaste) {
+                _onPaste_StripFormatting_IEPaste = true;
+                e.preventDefault();
+                window.document.execCommand('ms-pasteTextOnly', false);
+            }
+            _onPaste_StripFormatting_IEPaste = false;
+        }
+
+    }
+
+</script>
+

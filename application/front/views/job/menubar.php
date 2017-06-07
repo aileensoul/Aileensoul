@@ -61,7 +61,7 @@
              if ($data) {
           ?> 
                         <li> 
-                 <a class="button saved save_saved_btn">Saved</a>
+                 <a class=" butt_rec  save_saved_btn">Saved</a>
                            
 
                            <!--  <input type="hidden" id="<?php echo 'hideenuser' . $this->uri->segment(3); ?>" value= "<?php echo $this->uri->segment(3); ?>"> -->
@@ -69,7 +69,7 @@
                         </li>
                                                                 <?php } else{ ?>
                         <li> 
-                         <a id="<?php echo $this->uri->segment(3); ?>" onClick="savepopup(<?php echo $this->uri->segment(3); ?>)" href="javascript:void(0);" class="<?php echo 'saveduser' . $this->uri->segment(3); ?> button save_saved_btn">
+                         <a id="<?php echo $this->uri->segment(3); ?>" onClick="savepopup(<?php echo $this->uri->segment(3); ?>)" href="javascript:void(0);" class= "save_saved_btn <?php echo 'saveduser' . $this->uri->segment(3); ?>butt_rec ">
                         Save
                     </a>
                         </li>

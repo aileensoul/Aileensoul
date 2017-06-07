@@ -643,7 +643,7 @@
 
                                                                                         <div class="edit-comment-box">
                                                                                             <div class="inputtype-edit-comment">
-                                                                                                <div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="<?php echo $rowdata['post_image_comment_id']; ?>"  id="<?php echo "imgeditcomment" . $rowdata['post_image_comment_id']; ?>" placeholder="Enter Your Comment " value= ""  onkeyup="imgcommentedit(<?php echo $rowdata['post_image_comment_id']; ?>)"><?php echo $rowdata['comment']; ?></div>
+                                                                                                <div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="<?php echo $rowdata['post_image_comment_id']; ?>"  id="<?php echo "imgeditcomment" . $rowdata['post_image_comment_id']; ?>" placeholder="Enter Your Comment " value= ""  onkeyup="imgcommentedit(<?php echo $rowdata['post_image_comment_id']; ?>)" onpaste="OnPaste_StripFormatting(this, event);"><?php echo $rowdata['comment']; ?></div>
                                                                                                 <span class="comment-edit-button"><button id="<?php echo "imgeditsubmit" . $rowdata['post_image_comment_id']; ?>" style="display:none" onClick="imgedit_comment(<?php echo $rowdata['post_image_comment_id']; ?>)">Save</button></span>
                                                                                             </div>
                                                                                         </div>
@@ -776,7 +776,7 @@
 
                                                                     <div class="">
                                                                         <div class="col-md-10 inputtype-comment" style="padding-left: 7px;">
-                                                                            <div contenteditable="true" class="editable_text" name="<?php echo $busdata['image_id']; ?>" id="<?php echo "post_imgcomment" . $busdata['image_id']; ?>" placeholder="Type Comment ..." onkeyup="entercommentimg(<?php echo $busdata['image_id']; ?>)"></div>
+                                                                            <div contenteditable="true" class="editable_text" name="<?php echo $busdata['image_id']; ?>" id="<?php echo "post_imgcomment" . $busdata['image_id']; ?>" placeholder="Type Comment ..." onkeyup="entercommentimg(<?php echo $busdata['image_id']; ?>)" onpaste="OnPaste_StripFormatting(this, event);"></div>
                                                                         </div>
 
                                                                         <div class="comment-edit-butn">                                      
@@ -2329,4 +2329,33 @@ $('#searchplace').select2({
 <script type="text/javascript">
 //    $('#myModal').modal({backdrop: 'true'}) 
     j$('#myModal').modal({backdrop:'true'});
+</script>
+
+
+<script type="text/javascript">
+
+    var _onPaste_StripFormatting_IEPaste = false;
+
+    function OnPaste_StripFormatting(elem, e) {
+
+        if (e.originalEvent && e.originalEvent.clipboardData && e.originalEvent.clipboardData.getData) {
+            e.preventDefault();
+            var text = e.originalEvent.clipboardData.getData('text/plain');
+            window.document.execCommand('insertText', false, text);
+        } else if (e.clipboardData && e.clipboardData.getData) {
+            e.preventDefault();
+            var text = e.clipboardData.getData('text/plain');
+            window.document.execCommand('insertText', false, text);
+        } else if (window.clipboardData && window.clipboardData.getData) {
+            // Stop stack overflow
+            if (!_onPaste_StripFormatting_IEPaste) {
+                _onPaste_StripFormatting_IEPaste = true;
+                e.preventDefault();
+                window.document.execCommand('ms-pasteTextOnly', false);
+            }
+            _onPaste_StripFormatting_IEPaste = false;
+        }
+
+    }
+
 </script>

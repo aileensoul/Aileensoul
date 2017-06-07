@@ -98,9 +98,7 @@
                       
                     </div>
                     <!--- search end -->
-                   
-
-                     <div class="col-md-7 col-sm-7 col-md-push-4 custom-right">
+                    <div class="col-md-7 col-sm-7 all-form-content fixed_left">
                         <div class="common-form ">
                             <div class="job-saved-box">
                                 <h3>Recommended Candidate</h3>
@@ -858,6 +856,7 @@ $data = $this->common->select_data_by_condition('save', $contition_array, $data 
                   function save_user(abc)
                         {
            var saveid = document.getElementById("hideenuser" + abc);
+           alert(saveid);
                 $.ajax({
         type: 'POST',
         url: '<?php echo base_url() . "recruiter/save_search_user" ?>',

@@ -213,7 +213,7 @@ if ($this->session->flashdata('success')) {
                                             $count = count($skill_other);
                                             foreach ($skill_other as $post) {
                                                 ?>
-                                                <input type="text" class="keyskil" name="other_skill<?php echo $post['skill_id']; ?>" id="other_keyskill-<?php echo $post['skill_id']; ?>" placeholder="Enter Other Skill" value="<?php echo $post['skill']; ?>"> 
+                                                <input type="text" class="edit_other_skill1" name="other_skill<?php echo $post['skill_id']; ?>" id="other_keyskill-<?php echo $post['skill_id']; ?>" placeholder="Enter Other Skill" value="<?php echo $post['skill']; ?>"> 
                                                 <div class="action-buttons btn-group" id="edit-other-skill-<?php echo $post['skill_id']; ?>">
                                                     <a href="javascript:void(0);" class="edit_other_skill" id="edit_other_skill-<?php echo $post['skill_id']; ?>"><i class="fa fa-minus" aria-hidden="true"></i></a>
                                                 </div>
@@ -427,7 +427,32 @@ if ($this->session->flashdata('success')) {
 jQuery.validator.addMethod("noSpace", function(value, element) { 
       return value == '' || value.trim().length != 0;  
     }, "No space please and don't leave it empty");
+
+
+
+$.validator.addMethod("regx", function(value, element, regexpr) {          
+    //return value == '' || value.trim().length != 0; 
+     if(!value) 
+            {
+                return true;
+            }
+            else
+            {
+                  return regexpr.test(value);
+            }
+     // return regexpr.test(value);
+}, "Only space, only number and only special characters are not allow");
+
+
+
+
     $(document).ready(function () {
+//         $('.edit_other_skill1').each(function() {
+//     $(this).rules('add', {
+//         regx:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/
+      
+//     });
+// });
        
         //alert(123);
      $("#jobseeker_regform").validate({
@@ -447,9 +472,20 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
                 other_skill: {
 
                     require_from_group: [1, ".keyskil"],
-                    noSpace: true
+                     regx:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/
+                    //regx1:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/
+                    //noSpace: true
                             // required:true 
-                }
+                },
+                 other_skill1: {
+
+                   
+                     regx:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/
+                    //regx1:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/
+                    //noSpace: true
+                            // required:true 
+                },
+               
             },
 
        messages: {
@@ -467,6 +503,20 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
             }
 
         });
+
+//validation with class name start
+     $('.edit_other_skill1').each(function() {
+        $(this).rules('add', {
+           required: true,
+            regx:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/,
+            messages: {
+                required:  "Please Write Other Skill",
+                //number:  "your custom number message"
+            }
+        });
+    });
+//validation with class name End
+
           });
 //validation end
 

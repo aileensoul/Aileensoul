@@ -1465,7 +1465,7 @@ echo $job_header2;
                             url: '<?php echo base_url() ."recruiter/save_search_user" ?>',
                             data: 'user_id=' + abc,
                             success: function (data) {
-                                $('.' + 'saveduser' + abc).html(data).addClass('saved');
+                                $('.' + 'saveduser' + abc).html(data).addClass('save_saved_btn');
                             }
                         });
 
@@ -1477,6 +1477,8 @@ echo $job_header2;
                             save_user(id);
                       
             $('.biderror .mes').html("<div class='pop_content'>Candidate successfully saved.");
+
+        
             $('#bidmodal').modal('show');
                         }
                     </script>
