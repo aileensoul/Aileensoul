@@ -2744,7 +2744,7 @@ ul.buttons li {
     background: #1b8ab9;
     color: #fff;
     padding: 6px 15px;
-    margin-bottom: 20px;
+    /*margin-bottom: 20px;*/
     text-align: center;
 }
 .change-password-box .hs-submit input {
@@ -9109,3 +9109,4 @@ fieldset .add_post_btns:hover {
 .post-editor .camer_h {margin-top: -9px;}
 
 .follow_mid{margin-bottom: 100px;}
+.change-password-box form{background-color: #ffffff;}

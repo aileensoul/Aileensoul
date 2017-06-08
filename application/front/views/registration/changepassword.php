@@ -8,9 +8,10 @@
 <div class="change-password">
 	<div class="container">
 		<div class="change-password-box">
+		<h4>Change Password</h4>
 			<!-- <input action="action" type="button" value="Back" class="back-btn" onclick="history.back();" /> -->
 		 	<?php echo form_open(base_url('registration/changepassword_insert'), array('id' => 'regform','name' => 'regform','class' => 'clearfix')); ?>
-				<h4>Change Password</h4>
+				
 				<fieldset class="full-width">
 					<label>Old Password <span style="color:red">*</span></label>
 					<input type="password" name="oldpassword"  id="oldpassword" placeholder="Old Password" /> <span id="password1-error"> </span>
