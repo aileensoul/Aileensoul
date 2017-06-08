@@ -285,10 +285,10 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
   <script>
 
                                         var data = <?php echo json_encode($demo); ?>;
-
+//alert(data);
                                         $(function () {
                                             // alert('hi');
-                                            $("#searchplace").autocomplete({
+                                            $("#tags").autocomplete({
                                                 source: function (request, response) {
                                                     var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
                                                     response($.grep(data, function (item) {
@@ -298,14 +298,14 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
                                                 minLength: 1,
                                                 select: function (event, ui) {
                                                     event.preventDefault();
-                                                    $("#searchplace").val(ui.item.label);
+                                                    $("#tags").val(ui.item.label);
                                                     $("#selected-tag").val(ui.item.label);
                                                     // window.location.href = ui.item.value;
                                                 }
                                                 ,
                                                 focus: function (event, ui) {
                                                     event.preventDefault();
-                                                    $("#searchplace").val(ui.item.label);
+                                                    $("#tags").val(ui.item.label);
                                                 }
                                             });
                                         });
