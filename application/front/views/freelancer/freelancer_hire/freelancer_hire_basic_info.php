@@ -11,6 +11,8 @@
 <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
+
+
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/test.css'); ?>">
 <!-- pallavi code start 15-4 -->
@@ -185,10 +187,11 @@
 
 
 
+
  <script>
 
 var data= <?php echo json_encode($demo); ?>;
-// alert(data);
+alert(data);
 
         
 $(function() {
@@ -199,9 +202,12 @@ $( "#tags" ).autocomplete({
          response( $.grep( data, function( item ){
              return matcher.test( item.label );
          }) );
+
+         alert(item)
    },
     minLength: 1,
     select: function(event, ui) {
+        alert(event);
         event.preventDefault();
         $("#tags").val(ui.item.label);
         $("#selected-tag").val(ui.item.label);
@@ -224,11 +230,16 @@ alert(data1);
 
         
 $(function() {
-    // alert('hi');
+    //alert('hi');
 $( "#searchplace" ).autocomplete({
+
      source: function( request, response ) {
          var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
+
          response( $.grep( data1, function( item ){
+
+        //alert(111);
+
              return matcher.test( item.label );
          }) );
    },
