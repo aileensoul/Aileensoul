@@ -191,23 +191,24 @@
  <script>
 
 var data= <?php echo json_encode($demo); ?>;
-alert(data);
+//1alert(data);
 
         
 $(function() {
-    // alert('hi');
+    //alert('hi');
 $( "#tags" ).autocomplete({
      source: function( request, response ) {
          var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
          response( $.grep( data, function( item ){
              return matcher.test( item.label );
+
          }) );
 
-         alert(item)
+       
    },
     minLength: 1,
     select: function(event, ui) {
-        alert(event);
+        
         event.preventDefault();
         $("#tags").val(ui.item.label);
         $("#selected-tag").val(ui.item.label);
@@ -226,7 +227,7 @@ $( "#tags" ).autocomplete({
  <script>
 
 var data1 = <?php echo json_encode($city_data); ?>;
-alert(data1);
+//alert(data1);
 
         
 $(function() {
@@ -234,13 +235,15 @@ $(function() {
 $( "#searchplace" ).autocomplete({
 
      source: function( request, response ) {
+        
          var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
 
          response( $.grep( data1, function( item ){
 
-        //alert(111);
+     
 
-             return matcher.test( item.label );
+                return matcher.test( item.label );
+
          }) );
    },
     minLength: 1,
