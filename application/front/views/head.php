@@ -44,7 +44,8 @@
        <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/select2_new.css'); ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style.css'); ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style_new.css'); ?>">
-    
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style_harshad.css'); ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style_yatin.css'); ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/media.css'); ?>">
  <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/gyc.css'); ?>">
  
