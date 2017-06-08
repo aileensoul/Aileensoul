@@ -15,7 +15,9 @@
                             <fieldset class="col-md-3">
                              <!--    <label>Find Your Location</label>
                               -->  
-                             <select class="" name="searchplace[]" id="searchplace" multiple="multiple">
+
+                              <input type="text" id="searchplace" name="searchplace" placeholder="Find Your Business">
+                            <!--  <select class="" name="searchplace[]" id="searchplace" multiple="multiple"> -->
                                 </select>
                             </fieldset>
                             <fieldset class="col-md-2">
