@@ -3957,18 +3957,12 @@
 
             </script>
             <script>
-// $(document).click(function (e) {
-//     if ($(e.target).parents("#close").length === 0) 
-//     {
-//         $("#close").hide();
-//     }
-// });
-// $('body').click(function() {
-//    $('#myModal3').hide(); 
-// });
+
+
+// pop up open & close aarati code start 
 jQuery(document).mouseup(function (e) {
-            var container = $("#myBtn1");
-             var container1 = $("#close");
+            //var container3 = $("#myBtn1");
+             var container1 = $("#myModal3");
             //container.show();
             
                 //alert('bb');
@@ -3977,19 +3971,21 @@ jQuery(document).mouseup(function (e) {
 
                 {
                      jQuery(document).mouseup(function (e) {
-            var container = $("#close");
+                    var container = $("#close");
+
             //container.show();
             if (!container.is(e.target) // if the target of the click isn't the container...
                 && container.has(e.target).length === 0) // ... nor a descendant of the container
             {
                // alert('aa');
-                container.hide();
+                container1.hide();
             }
         });
                 }
         
         });
 
+// pop up open & close aarati code end
 
  
 // $('#myModal3').click(function(event){
