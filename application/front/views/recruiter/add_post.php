@@ -745,6 +745,98 @@ else
             return false;
         }
     }
+
+//Leave Page on add and edit post page start
+    function leave_page(clicked_id)
+    {
+
+ 
+ var post_name = document.getElementById('post_name').value;
+ var skills = document.getElementById('skills').value;
+ var other_skill = document.getElementById('other_skill').value;
+ var minyear = document.getElementById('minyear').value;
+ var minmonth = document.getElementById('minmonth').value;
+ var maxyear = document.getElementById('maxyear').value;
+ var maxmonth = document.getElementById('maxmonth').value;
+ var post_desc = document.getElementById('post_desc').value;
+ var interview = document.getElementById('interview').value;
+ var country = document.getElementById('country').value;
+ var state = document.getElementById('state').value;
+ var city = document.getElementById('city').value;
+ var datepicker = document.getElementById('datepicker').value;
+ var minsal = document.getElementById('minsal').value;
+ var maxsal = document.getElementById('maxsal').value;
+ var currency = document.getElementById('currency').value;
+ 
+ 
+ 
+ if(post_name=="" && skills=="" && other_skill=="" && minyear=="" && minmonth=="" && maxyear=="" && maxmonth=="" && post_desc=="" && interview=="" && country=="" && state=="" && datepicker=="" && minsal=="" && maxsal=="" && currency=="")
+ {
+    //alert("hi");
+    if(clicked_id==1)
+    {
+            location.href = '<?php echo base_url() ?>recruiter/recommen_candidate';
+    }
+    if(clicked_id==2)
+    {
+            location.href = '<?php echo base_url() ?>recruiter/rec_profile';
+    }
+    if(clicked_id==3)
+    {
+            location.href = '<?php echo base_url() ?>recruiter/rec_basic_information';
+    }
+ }
+ else
+ {
+    //alert("hi1");
+        home(clicked_id);
+
+ }
+
+    }
+      function home(clicked_id) {
+   // alert(clicked_id);
+      $('.biderror .mes').html("<div class='pop_content'> Do you want to leave this page?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='home_profile(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+          $('#bidmodal').modal('show');
+ }
+
+ function home_profile(clicked_id){
+                  $.ajax({
+                      type: 'POST',
+                      //url: '<?php echo base_url() . "recruiter/home" ?>',
+                      data: 'id=' + clicked_id,
+                        success: function (data) {
+                            if(clicked_id==1)
+                            {
+                              // alert("hsjdh");
+
+                                  window.location= "<?php echo base_url() ?>recruiter/recommen_candidate";    
+                            }
+                            else if(clicked_id==2)
+                            {
+                                window.location= "<?php echo base_url() ?>recruiter/rec_profile"; 
+                            }
+                            else if(clicked_id==3)
+                            {
+                                window.location= "<?php echo base_url() ?>recruiter/rec_basic_information"; 
+                            }
+                            else if(clicked_id==4)
+                            {
+                                alert("hi");
+                                // window.location= "<?php echo base_url() ?>recruiter/rec_basic_information"; 
+                            }
+                            else
+                            {
+                                alert("edit profilw");
+                            }
+                                     
+                                }
+                            });
+
+
+ }
+ //Leave Page on add and edit post page End
+
 </script>
 <script src="<?php echo base_url('js/jquery.datetimepicker.full.js'); ?>"></script>
 
@@ -1046,110 +1138,7 @@ $('#artpost').validate({
 
     }
 
-function leave_page(clicked_id)
-    {
 
- 
- var post_name = document.getElementById('post_name').value;
- var skills = document.getElementById('skills').value;
- var other_skill = document.getElementById('other_skill').value;
- var minyear = document.getElementById('minyear').value;
- var minmonth = document.getElementById('minmonth').value;
- var maxyear = document.getElementById('maxyear').value;
- var maxmonth = document.getElementById('maxmonth').value;
- var post_desc = document.getElementById('post_desc').value;
- var interview = document.getElementById('interview').value;
- var country = document.getElementById('country').value;
- var state = document.getElementById('state').value;
- var city = document.getElementById('city').value;
- var datepicker = document.getElementById('datepicker').value;
- var minsal = document.getElementById('minsal').value;
- var maxsal = document.getElementById('maxsal').value;
- var currency = document.getElementById('currency').value;
- 
- 
- // alert(post_name);
- // alert(skills);
- // alert(other_skill);
- // alert(minyear);
- // alert(minmonth);
- // alert(maxyear);
- // alert(maxmonth);
- // alert(interview);
- // alert(country);
- // alert(state);
- // alert(city);
- // alert(datepicker);
- // alert(minsal);
- // alert(maxsal);
- // alert(currency);
- 
- if(post_name=="" && skills=="" && other_skill=="" && minyear=="" && minmonth=="" && maxyear=="" && maxmonth=="" && post_desc=="" && interview=="" && country=="" && state=="" && datepicker=="" && minsal=="" && maxsal=="" && currency=="")
- {
-    //alert("hi");
-    if(clicked_id==1)
-    {
-            location.href = '<?php echo base_url() ?>recruiter/recommen_candidate';
-    }
-    if(clicked_id==2)
-    {
-            location.href = '<?php echo base_url() ?>recruiter/rec_profile';
-    }
-    if(clicked_id==3)
-    {
-            location.href = '<?php echo base_url() ?>recruiter/rec_basic_information';
-    }
- }
- else
- {
-    //alert("hi1");
-        home(clicked_id);
-
- }
-
-    }
-      function home(clicked_id) {
-   // alert(clicked_id);
-      $('.biderror .mes').html("<div class='pop_content'> Do you want to leave this page?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='home_profile(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-          $('#bidmodal').modal('show');
- }
-
- function home_profile(clicked_id){
-                  $.ajax({
-                      type: 'POST',
-                      //url: '<?php echo base_url() . "recruiter/home" ?>',
-                      data: 'id=' + clicked_id,
-                        success: function (data) {
-                            if(clicked_id==1)
-                            {
-                              // alert("hsjdh");
-
-                                  window.location= "<?php echo base_url() ?>recruiter/recommen_candidate";    
-                            }
-                            else if(clicked_id==2)
-                            {
-                                window.location= "<?php echo base_url() ?>recruiter/rec_profile"; 
-                            }
-                            else if(clicked_id==3)
-                            {
-                                window.location= "<?php echo base_url() ?>recruiter/rec_basic_information"; 
-                            }
-                            else if(clicked_id==4)
-                            {
-                                alert("hi");
-                                // window.location= "<?php echo base_url() ?>recruiter/rec_basic_information"; 
-                            }
-                            else
-                            {
-                                alert("edit profilw");
-                            }
-                                     
-                                }
-                            });
-
-
-
- }
 
 
 
