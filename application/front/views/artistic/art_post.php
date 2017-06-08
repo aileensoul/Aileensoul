@@ -666,20 +666,7 @@ if ($userlistview4 > 0) {
                     <!-- cover pic end -->
 
                     <!-- popup start -->
-                    <div class="col-md-7 col-sm-7 all-form-content fixed_left">
-
-                        <div class="post-editor col-md-12">
-                            <div class="main-text-area col-md-12">
-                                <div class="popup-img col-md-1"> <img  src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image']); ?>"  alt="">
-                                </div>
-                                <div id="myBtn"  class="editor-content col-md-11 popup-text">
-                                    <span > Post Your Art....</span> 
-                               
-                                </div>
-                            </div>
-                           
-                        </div>
-                    </div>
+                
                     <!-- Trigger/Open The Modal -->
                    
                     <!-- The Modal -->
@@ -749,9 +736,21 @@ if ($userlistview4 > 0) {
                     </div>
                     <!-- popup end -->
                     </div>
-                    <div class="col-md-7 col-sm-7 all-form-content fixed_left">
+                  <div class="col-md-7 col-sm-7 col-md-push-4 col-md-push-4 custom-right">
+    <div >
 
-
+                        <div class="post-editor col-md-12">
+                            <div class="main-text-area col-md-12">
+                                <div class="popup-img col-md-1"> <img  src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image']); ?>"  alt="">
+                                </div>
+                                <div id="myBtn"  class="editor-content col-md-11 popup-text">
+                                    <span > Post Your Art....</span> 
+                               
+                                </div>
+                            </div>
+                           
+                        </div>
+                    </div>
 
                         <!--like comment start -->
 
@@ -1135,7 +1134,7 @@ if (count($finalsorting) > 0) {
                                                     <div class="post-design-like-box col-md-12">
                                                         <div class="post-design-menu">
                                                             <!-- like comment div start -->
-                                                            <ul>
+                                                            <ul class="col-md-6">
 
                                                                 <li class="<?php echo 'likepost' . $row['art_post_id']; ?>">
                                                                     <a id="<?php echo $row['art_post_id']; ?>" onClick="post_like(this.id)">
@@ -1177,6 +1176,21 @@ if (count($finalsorting) > 0) {
                                                                     </a>
                                                                 </li>
                                                             </ul>
+                                                                <ul class="col-md-6 like_cmnt_count">
+
+<li>
+<div class="like_count_ext">
+<span > 5 </span> 
+<span> Comment</span>
+</div>
+</li>
+
+<li>
+<div class="comnt_count_ext">
+<span> 5 </span> 
+<span> Like</span>
+</div></li>
+                                        </ul>
                                                             <!-- like comment div end -->
                                                         </div>
                                                     </div>

@@ -414,24 +414,24 @@ $this->load->view('business_profile/temp');
             $result1[$key]['value'] = $value;
         }
 
-         $contition_array = array('status' => '1');
-          $location_list = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+ //         $contition_array = array('status' => '1');
+ //          $location_list = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
    
 
-          foreach ($location_list as $key1 => $value1) {
-              foreach ($value1 as $ke1 => $val1) {
-                 $location[] = $val1;
-              }
-          }
-          //echo "<pre>"; print_r($location);die();
-          foreach ($location as $key => $value) {
-              $loc[$key]['label'] =$value;
-              $loc[$key]['value'] =$value;
-          }
+ //          foreach ($location_list as $key1 => $value1) {
+ //              foreach ($value1 as $ke1 => $val1) {
+ //                 $location[] = $val1;
+ //              }
+ //          }
+ //          //echo "<pre>"; print_r($location);die();
+ //          foreach ($location as $key => $value) {
+ //              $loc[$key]['label'] =$value;
+ //              $loc[$key]['value'] =$value;
+ //          }
          
- //echo "<pre>"; print_r($loc);die();
+ // //echo "<pre>"; print_r($loc);die();
 
-        $this->data['city_data']= array_values($loc);
+ //        $this->data['city_data']= array_values($loc);
 
         $this->data['demo'] = array_values($result1);
         $this->load->view('job/job_address', $this->data);
@@ -3327,7 +3327,7 @@ $files[] = $_FILES;
         } else {
             $data = array(
                 'carrier' => $this->input->post('carrier'),
-                 'declaration' => $this->input->post('declaration'),
+             'declaration' => $this->input->post('declaration'),
                 'modified_date' => date('Y-m-d h:i:s', time()),
                 'job_step' => 10,
             );
