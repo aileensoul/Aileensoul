@@ -204,8 +204,8 @@ $contition_array = array('status' => '1');
           }
           //echo "<pre>"; print_r($location);die();
           foreach ($location as $key => $value) {
-              $loc[$key]['label1'] =$value;
-              $loc[$key]['value1'] =$value;
+              $loc[$key]['label'] =$value;
+              $loc[$key]['value'] =$value;
           }
          
  //echo "<pre>"; print_r($loc);die();
@@ -416,8 +416,8 @@ $contition_array = array('status' => '1');
           }
           //echo "<pre>"; print_r($location);die();
           foreach ($location as $key => $value) {
-              $loc[$key]['label1'] =$value;
-              $loc[$key]['value1'] =$value;
+              $loc[$key]['label'] =$value;
+              $loc[$key]['value'] =$value;
           }
          
  //echo "<pre>"; print_r($loc);die();
@@ -598,8 +598,8 @@ $contition_array = array('status' => '1');
           }
           //echo "<pre>"; print_r($location);die();
           foreach ($location as $key => $value) {
-              $loc[$key]['label1'] =$value;
-              $loc[$key]['value1'] =$value;
+              $loc[$key]['label'] =$value;
+              $loc[$key]['value'] =$value;
           }
          
  //echo "<pre>"; print_r($loc);die();
@@ -723,8 +723,8 @@ $contition_array = array('status' => '1');
           }
           //echo "<pre>"; print_r($location);die();
           foreach ($location as $key => $value) {
-              $loc[$key]['label1'] =$value;
-              $loc[$key]['value1'] =$value;
+              $loc[$key]['label'] =$value;
+              $loc[$key]['value'] =$value;
           }
          
  //echo "<pre>"; print_r($loc);die();
@@ -971,8 +971,8 @@ $contition_array = array('status' => '1');
           }
           //echo "<pre>"; print_r($location);die();
           foreach ($location as $key => $value) {
-              $loc[$key]['label1'] =$value;
-              $loc[$key]['value1'] =$value;
+              $loc[$key]['label'] =$value;
+              $loc[$key]['value'] =$value;
           }
          
  //echo "<pre>"; print_r($loc);die();
@@ -1251,8 +1251,8 @@ $contition_array = array('status' => '1');
           }
           //echo "<pre>"; print_r($location);die();
           foreach ($location as $key => $value) {
-              $loc[$key]['label1'] =$value;
-              $loc[$key]['value1'] =$value;
+              $loc[$key]['label'] =$value;
+              $loc[$key]['value'] =$value;
           }
          
  //echo "<pre>"; print_r($loc);die();
@@ -1353,8 +1353,8 @@ $contition_array = array('status' => '1');
           }
           //echo "<pre>"; print_r($location);die();
           foreach ($location as $key => $value) {
-              $loc[$key]['label1'] =$value;
-              $loc[$key]['value1'] =$value;
+              $loc[$key]['label'] =$value;
+              $loc[$key]['value'] =$value;
           }
          
  //echo "<pre>"; print_r($loc);die();
@@ -1688,8 +1688,8 @@ $contition_array = array('status' => '1');
           }
           //echo "<pre>"; print_r($location);die();
           foreach ($location as $key => $value) {
-              $loc[$key]['label1'] =$value;
-              $loc[$key]['value1'] =$value;
+              $loc[$key]['label'] =$value;
+              $loc[$key]['value'] =$value;
           }
          
  //echo "<pre>"; print_r($loc);die();
@@ -2036,8 +2036,8 @@ $contition_array = array('status' => '1');
           }
           //echo "<pre>"; print_r($location);die();
           foreach ($location as $key => $value) {
-              $loc[$key]['label1'] =$value;
-              $loc[$key]['value1'] =$value;
+              $loc[$key]['label'] =$value;
+              $loc[$key]['value'] =$value;
           }
          
  //echo "<pre>"; print_r($loc);die();
@@ -2243,8 +2243,8 @@ $contition_array = array('status' => '1');
           }
           //echo "<pre>"; print_r($location);die();
           foreach ($location as $key => $value) {
-              $loc[$key]['label1'] =$value;
-              $loc[$key]['value1'] =$value;
+              $loc[$key]['label'] =$value;
+              $loc[$key]['value'] =$value;
           }
          
  //echo "<pre>"; print_r($loc);die();
@@ -2649,8 +2649,8 @@ $contition_array = array('status' => '1');
           }
           //echo "<pre>"; print_r($location);die();
           foreach ($location as $key => $value) {
-              $loc[$key]['label1'] =$value;
-              $loc[$key]['value1'] =$value;
+              $loc[$key]['label'] =$value;
+              $loc[$key]['value'] =$value;
           }
          
  //echo "<pre>"; print_r($loc);die();
@@ -2755,8 +2755,8 @@ $contition_array = array('status' => '1');
           }
           //echo "<pre>"; print_r($location);die();
           foreach ($location as $key => $value) {
-              $loc[$key]['label1'] =$value;
-              $loc[$key]['value1'] =$value;
+              $loc[$key]['label'] =$value;
+              $loc[$key]['value'] =$value;
           }
          
  //echo "<pre>"; print_r($loc);die();
@@ -4286,8 +4286,8 @@ $contition_array = array('status' => '1');
           }
           //echo "<pre>"; print_r($location);die();
           foreach ($location as $key => $value) {
-              $loc[$key]['label1'] =$value;
-              $loc[$key]['value1'] =$value;
+              $loc[$key]['label'] =$value;
+              $loc[$key]['value'] =$value;
           }
          
  //echo "<pre>"; print_r($loc);die();
@@ -4487,8 +4487,8 @@ $contition_array = array('status' => '1');
           }
           //echo "<pre>"; print_r($location);die();
           foreach ($location as $key => $value) {
-              $loc[$key]['label1'] =$value;
-              $loc[$key]['value1'] =$value;
+              $loc[$key]['label'] =$value;
+              $loc[$key]['value'] =$value;
           }
          
  //echo "<pre>"; print_r($loc);die();
@@ -4579,8 +4579,8 @@ $contition_array = array('status' => '1');
           }
           //echo "<pre>"; print_r($location);die();
           foreach ($location as $key => $value) {
-              $loc[$key]['label1'] =$value;
-              $loc[$key]['value1'] =$value;
+              $loc[$key]['label'] =$value;
+              $loc[$key]['value'] =$value;
           }
          
  //echo "<pre>"; print_r($loc);die();
@@ -4675,8 +4675,8 @@ $contition_array = array('status' => '1');
           }
           //echo "<pre>"; print_r($location);die();
           foreach ($location as $key => $value) {
-              $loc[$key]['label1'] =$value;
-              $loc[$key]['value1'] =$value;
+              $loc[$key]['label'] =$value;
+              $loc[$key]['value'] =$value;
           }
          
  //echo "<pre>"; print_r($loc);die();
@@ -4767,8 +4767,8 @@ $contition_array = array('status' => '1');
           }
           //echo "<pre>"; print_r($location);die();
           foreach ($location as $key => $value) {
-              $loc[$key]['label1'] =$value;
-              $loc[$key]['value1'] =$value;
+              $loc[$key]['label'] =$value;
+              $loc[$key]['value'] =$value;
           }
          
  //echo "<pre>"; print_r($loc);die();
