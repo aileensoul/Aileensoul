@@ -1,12 +1,12 @@
- jQuery(document).ready(function() {
-	$(window).scroll(function(){
-      if ($(window).scrollTop() >= 130) {
-        $('.header').addClass('fixed');
-       }
-       else {
-        $('.header').removeClass('fixed');
-       }
-    });
+ // jQuery(document).ready(function() {
+	// $(window).scroll(function(){
+ //      if ($(window).scrollTop() >= 130) {
+ //        $('.header').addClass('fixed');
+ //       }
+ //       else {
+ //        $('.header').removeClass('fixed');
+ //       }
+ //    });
 $(window).scroll(function(){
       if ($(window).scrollTop() >= 440) {
         $('.job-profile-left-side-bar').addClass('sticky');

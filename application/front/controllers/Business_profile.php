@@ -3436,7 +3436,7 @@ $contition_array = array('status' => '1');
         echo json_encode(
                 array("comment" => $cmtinsert,
                     "count" => $cmtcount,
-                    "comment_count" => count($buscmtcnt),
+                    "comment_count" => count($buscmtcnt)
                     ));
     }
 
@@ -3580,7 +3580,7 @@ $contition_array = array('status' => '1');
         echo json_encode(
                 array("comment" => $cmtinsert,
                     "count" => $cmtcount,
-                    "comment_count" => count($businessprofiledata),
+                    "comment_count" => count($businessprofiledata)
                     ));
     }
 
@@ -3843,7 +3843,7 @@ $contition_array = array('status' => '1');
 
 
                 $like_user_count = $commnetcount[0]['business_likes_count'];
-
+//                $like_user_count = $businessprofiledata1[0]['business_likes_count'];
                 echo json_encode(
                         array("like" => $cmtlike,
                             "likeuser" => $cmtlikeuser,
@@ -5239,7 +5239,9 @@ $contition_array = array('status' => '1');
         }
         echo json_encode(
                 array("comment" => $cmtinsert,
-                    "count" => $cmtcount));
+                    "count" => $cmtcount,
+                    "comment_count" => count($buscmtcnt)
+                    ));
     }
 
     public function mulimg_comment() {
@@ -5411,7 +5413,9 @@ $contition_array = array('status' => '1');
         }
         echo json_encode(
                 array("comment" => $cmtinsert,
-                    "count" => $cmtcount));
+                    "count" => $cmtcount,
+                    "comment_count" => count($buscmtcnt)
+                    ));
     }
 
     public function pnmulimg_comment() {
@@ -5581,7 +5585,9 @@ $contition_array = array('status' => '1');
         header('Content-type: application/json');
         echo json_encode(
                 array("comment" => $cmtinsert,
-                    "count" => $cmtcount));
+                    "count" => $cmtcount,
+                    "comment_count" => count($buscmtcnt)
+                    ));
     }
 
     public function pnmulimgcommentthree() {
@@ -5748,7 +5754,9 @@ $contition_array = array('status' => '1');
         }
         echo json_encode(
                 array("comment" => $cmtinsert,
-                    "count" => $cmtcount));
+                    "count" => $cmtcount,
+                    "comment_count" => count($buscmtcnt)
+                    ));
     }
 
 //multiple images comment end 
@@ -6299,7 +6307,9 @@ $contition_array = array('status' => '1');
         }
         echo json_encode(
                 array("comment" => $cmtinsert,
-                    "count" => $cmtcount));
+                    "count" => $cmtcount,
+                    "comment_count" => count($buscmtcnt)
+                    ));
     }
 
     public function mul_delete_commenttwo() {
@@ -6441,7 +6451,8 @@ $contition_array = array('status' => '1');
         //header('Content-type: application/json');
         echo json_encode(
                 array("comment" => $cmtinsert,
-                    "count" => $cmtcount));
+                    "count" => $cmtcount,
+                    "comment_count" => count($businesscomment)));
     }
 
     //mulitple images commnet delete end  
@@ -6948,13 +6959,10 @@ $contition_array = array('status' => '1');
             $likeuserarray = explode(',', $businesscommentlike[0]['business_comment_like_user']);
 
             if (!in_array($userid, $likeuserarray)) {
-
-
                 $cmtinsert .= '<i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>';
             } else {
                 $cmtinsert .= '<i class="fa fa-thumbs-up" aria-hidden="true"></i>';
             }
-
 
             $cmtinsert .= '<span>';
             if ($business_profile['business_comment_likes_count'] > 0) {
@@ -7027,7 +7035,9 @@ $contition_array = array('status' => '1');
         }
         echo json_encode(
                 array("comment" => $cmtinsert,
-                    "count" => $cmtcount));
+                    "count" => $cmtcount,
+                    "comment_count" => count($buscmtcnt)
+                    ));
         // khyati chande 
     }
 
@@ -7200,7 +7210,9 @@ $contition_array = array('status' => '1');
 //        echo $cmtinsert;
         echo json_encode(
                 array("comment" => $cmtinsert,
-                    "count" => $cmtcount));
+                    "count" => $cmtcount,
+                    "comment_count" => count($businessprofiledata)
+                    ));
 
         // khyati chande 
     }
@@ -7350,7 +7362,9 @@ $contition_array = array('status' => '1');
         }
         echo json_encode(
                 array("comment" => $cmtinsert,
-                    "count" => $cmtcount));
+                    "count" => $cmtcount,
+                    "comment_count" => count($buscmtcnt)
+                    ));
     }
 
     /*
@@ -7614,7 +7628,9 @@ $contition_array = array('status' => '1');
         }
         echo json_encode(
                 array("comment" => $cmtinsert,
-                    "count" => $cmtcount));
+                    "count" => $cmtcount,
+                    "comment_count" => count($businessprofiledata)
+                    ));
     }
 
     public function pnmulimagefourcomment() {
