@@ -1606,7 +1606,7 @@ label.error {
 }
 .profile-head-text {
     padding-top: 6px;
-    padding-bottom: 6px;
+    /*padding-bottom: 6px;*/
 }
 .profile-pho {
     height: 160px;
@@ -1652,8 +1652,7 @@ label.error {
     height: 100%;
     width: 100%;
     overflow: hidden;
-    padding-left: 5px;
-    padding-top: 6px;
+
 }
 .user-pic-picture .user-pic {
     height: 152px;
@@ -3460,7 +3459,7 @@ a:focus {
     font-weight: 600;
     font-size: 15px;
     line-height: 13px;
-    padding:5px 10px 0;
+    padding:5px 0px 0;
     color: #156f95;
     display: block;
   display: -webkit-box;
@@ -8803,6 +8802,7 @@ fieldset .add_post_btns:hover {
     overflow: hidden;
     text-overflow: ellipsis;
     font-size: 14px;
+    color:#777;
 }
 .data_noti_msg {
     font-size: 12px;
