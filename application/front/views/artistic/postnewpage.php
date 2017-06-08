@@ -13,7 +13,7 @@
 <!-- <link rel="stylesheet" type="text/css" href="<?php //echo base_url('css/select2-4.0.3.min.css');     ?>"> -->
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/jquery.jMosaic.css'); ?>">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+
 <!-- END HEAD -->
 <!-- start header -->
 <?php echo $header; ?>
@@ -1184,7 +1184,6 @@
                     <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
                     <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
 
-                    <script type="text/javascript" src="<?php echo base_url('js/select2-4.0.3.min.js'); ?>"></script>
                     <!-- script for skill textbox automatic end (option 2)-->
 
                     <script src="<?php echo base_url('js/jquery.jMosaic.js'); ?>"></script>
@@ -1213,6 +1212,37 @@
                                                         focus: function (event, ui) {
                                                             event.preventDefault();
                                                             $("#tags").val(ui.item.label);
+                                                        }
+                                                    });
+                                                });
+
+                    </script>
+
+                      <script>
+
+                                                var data1 = <?php echo json_encode($de); ?>;
+                                                // alert(data);
+
+
+                                                $(function () {
+
+                                                    $("#searchplace").autocomplete({
+                                                        source: function (request, response) {
+                                                            var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+                                                            response($.grep(data1, function (item) {
+                                                                return matcher.test(item.label);
+                                                            }));
+                                                        },
+                                                        minLength: 1,
+                                                        select: function (event, ui) {
+                                                            event.preventDefault();
+                                                            $("#searchplace").val(ui.item.label);
+                                                            $("#selected-tag").val(ui.item.label);
+                                                            // window.location.href = ui.item.value;
+                                                        },
+                                                        focus: function (event, ui) {
+                                                            event.preventDefault();
+                                                            $("#searchplace").val(ui.item.label);
                                                         }
                                                     });
                                                 });
@@ -1267,7 +1297,7 @@
                             captionText.innerHTML = dots[slideIndex - 1].alt;
                         }
                     </script>
-                    <script>
+                    <!-- <script>
                         $('#searchskills').select2({
                             placeholder: 'Find Your Skills',
                             ajax: {
@@ -1306,7 +1336,7 @@
                                 cache: true
                             }
                         });
-                    </script>
+                    </script> -->
                     <script>
                         var modal = document.getElementById('myModal');
                         var btn = document.getElementById("myBtn");

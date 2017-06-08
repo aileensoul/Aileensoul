@@ -1657,7 +1657,10 @@ jQuery.noConflict();
                        })( jQuery  );
  
 </script>
+<<<<<<< HEAD
+=======
 
+>>>>>>> c19c2f4fb780ee06b46edcbe372df5152614099d
                         <script type="text/javascript">
                             function checkvalue() {
                                 //alert("hi");

@@ -494,13 +494,13 @@
                 (function ($) {
 var data= <?php echo json_encode($demo); ?>;
 
-        
+       alert(data); 
 $(function() {
     // alert('hi');
 $( "#tags" ).autocomplete({
      source: function( request, response ) {
          var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
-         response( $.grep( data, function( item ){
+         response( $.grep(data, function( item ){
              return matcher.test( item.label );
          }) );
    },
@@ -527,14 +527,14 @@ $( "#tags" ).autocomplete({
 
                 (function ($) {
 var data1= <?php echo json_encode($city_data); ?>;
-
+alert(data1);
         
 $(function() {
     // alert('hi');
 $( "#searchplace" ).autocomplete({
      source: function( request, response ) {
          var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
-         response( $.grep( data1, function( item ){
+         response($.grep(data1, function( item ){
              return matcher.test( item.label );
          }) );
    },
@@ -588,7 +588,7 @@ $( "#searchplace" ).autocomplete({
                     document.getElementById('row2').style.display = "none";
                 }
             </script>
-            <script>
+            <!-- <script>
 
 //select2 autocomplete start for Location
 // $('#searchplace').select2({
@@ -619,7 +619,7 @@ $( "#searchplace" ).autocomplete({
 
 </script>
 
-
+ -->
 <script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script>
 
             <script type="text/javascript">
