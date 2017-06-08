@@ -7,15 +7,15 @@
 <!--post save success pop up style end -->
 
 
-<!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" /> -->
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
 <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
-<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/jquery.jMosaic.css'); ?>">
-
+ <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/jquery.jMosaic.css'); ?>"> 
+<link rel="stylesheet" href="<?php echo base_url('assets/css/croppie.css'); ?>">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
  
-
+ 
+<script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
 
     <!-- END HEAD -->
 
@@ -27,7 +27,6 @@
 
  <!-- script for cropiee immage End-->
  <link rel="stylesheet" href="<?php echo base_url('css/bootstrap.min.css'); ?>" />
-<link rel="stylesheet" href="<?php echo base_url('assets/css/croppie.css'); ?>">
 <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
 
   
@@ -476,17 +475,18 @@
 </body>
 
 </html>
-<script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script> -->
+
+
 <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
 <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
 <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
 <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
 
+<script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script>
 
 
 <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
-<script src="<?php echo base_url('js/jquery.jMosaic.js'); ?>"></script>
+<script src="<?php echo base_url('js/jquery.jMosaic.js'); ?>"></script> 
 
 <script>
           jQuery.noConflict();
@@ -499,7 +499,12 @@ $(function() {
     // alert('hi');
 $( "#tags" ).autocomplete({
      source: function( request, response ) {
-         var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
+    
+         var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" //alert(matcher);
+            );
+
+                 alert('hii');
+
          response( $.grep(data, function( item ){
              return matcher.test( item.label );
          }) );
@@ -525,16 +530,18 @@ $( "#tags" ).autocomplete({
 <script>
           jQuery.noConflict();
 
-                (function ($) {
-var data1= <?php echo json_encode($city_data); ?>;
-alert(data1);
+            (function ($) {
+var dat1= <?php echo json_encode($city_data); ?>;
+//alert(dat1);
         
 $(function() {
     // alert('hi');
 $( "#searchplace" ).autocomplete({
      source: function( request, response ) {
-         var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
-         response($.grep(data1, function( item ){
+                 var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" 
+            );
+
+         response($.grep(dat1, function( item ){
              return matcher.test( item.label );
          }) );
    },
@@ -620,7 +627,6 @@ $( "#searchplace" ).autocomplete({
 </script>
 
  -->
-<script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script>
 
             <script type="text/javascript">
 
