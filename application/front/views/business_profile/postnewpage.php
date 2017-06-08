@@ -62,7 +62,7 @@
     .modal2 {
         display: none;
         position: fixed;
-        z-index:1005;
+        z-index:1000;
         padding-top: 35px;
         left: 0;
         top: 0;
@@ -91,7 +91,7 @@
         top: 50%;
         width: auto;
         padding: 16px;
-        margin-top: 10px;
+        margin-top: -50px;
         color: white;
         font-weight: bold;
         font-size: 20px;
@@ -415,9 +415,9 @@
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
 
 
-<!-- <script src="<?php //echo base_url('js/jquery.min.js');                                           ?>"></script> -->
-        <!-- <script src="<?php //echo base_url('js/jquery-ui.min.js');  ?>"></script>
-        <script src="<?php //echo base_url('js/jquery.wallform.js');  ?>"></script> -->
+<!-- <script src="<?php //echo base_url('js/jquery.min.js');                                              ?>"></script> -->
+        <!-- <script src="<?php //echo base_url('js/jquery-ui.min.js');     ?>"></script>
+        <script src="<?php //echo base_url('js/jquery.wallform.js');     ?>"></script> -->
         <script>
             $(document).ready(function ()
             {
@@ -970,26 +970,26 @@
                                                                     <ul class="col-md-6">
                                                                         <li class="<?php echo 'likepostimg' . $busdata['image_id']; ?>">
                                                                             <a id="<?php echo $busdata['image_id']; ?>" onClick="mulimg_like(this.id)">
-        <?php
-        $userid = $this->session->userdata('aileenuser');
-        $contition_array = array('post_image_id' => $busdata['image_id'], 'user_id' => $userid, 'is_unlike' => 0);
+                                                                                <?php
+                                                                                $userid = $this->session->userdata('aileenuser');
+                                                                                $contition_array = array('post_image_id' => $busdata['image_id'], 'user_id' => $userid, 'is_unlike' => 0);
 
-        $activedata = $this->data['activedata'] = $this->common->select_data_by_condition('bus_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                                                                $activedata = $this->data['activedata'] = $this->common->select_data_by_condition('bus_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-        if ($activedata) {
-            ?>
+                                                                                if ($activedata) {
+                                                                                    ?>
                                                                                     <i class="fa fa-thumbs-up" aria-hidden="true"></i>
                                                                                 <?php } else { ?>
-                                                                                    <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>
+                                                                                    <i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i>
                                                                                 <?php } ?>
 
                                                                                 <span class="<?php echo 'likeimage' . $busdata['image_id']; ?>"> <?php
-                                                                                $contition_array = array('post_image_id' => $busdata['image_id'], 'is_unlike' => 0);
-                                                                                $likecount = $this->common->select_data_by_condition('bus_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-                                                                                if ($likecount) {
-                                                                                    echo count($likecount);
-                                                                                }
-                                                                                ?>
+                                                                                    $contition_array = array('post_image_id' => $busdata['image_id'], 'is_unlike' => 0);
+                                                                                    $likecount = $this->common->select_data_by_condition('bus_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                                                                    if ($likecount) {
+                                                                                        echo count($likecount);
+                                                                                    }
+                                                                                    ?>
 
                                                                                 </span>
                                                                             </a>
@@ -997,18 +997,18 @@
 
                                                                         <li id="<?php echo 'insertcountimg' . $busdata['image_id']; ?>">
 
-        <?php
-        $contition_array = array('post_image_id' => $busdata['image_id'], 'is_delete' => '0');
-        $commnetcount = $this->common->select_data_by_condition('bus_post_image_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-        ?>
+                                                                            <?php
+                                                                            $contition_array = array('post_image_id' => $busdata['image_id'], 'is_delete' => '0');
+                                                                            $commnetcount = $this->common->select_data_by_condition('bus_post_image_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                                                            ?>
 
                                                                             <a onClick="imgcommentall(this.id)" id="<?php echo $busdata['image_id']; ?>">
                                                                                 <i class="fa fa-comment-o" aria-hidden="true">
-        <?php
-        if (count($commnetcount) > 0) {
-            echo count($commnetcount);
-        }
-        ?>
+                                                                                    <?php
+                                                                                 /*   if (count($commnetcount) > 0) {
+                                                                                        echo count($commnetcount);
+                                                                                    } */
+                                                                                    ?>
                                                                                 </i> 
                                                                             </a>
                                                                         </li>
@@ -1017,56 +1017,74 @@
 
                                                                         <li>
                                                                             <div class="like_count_ext">
-                                                                                <span > 5 </span> 
+                                                                                <span class="comment_count_img<?php echo $busdata['image_id']; ?>" > 
+                                                                                    <?php
+                                                                                    if (count($commnetcount) > 0) {
+                                                                                        echo count($commnetcount);
+                                                                                    }
+                                                                                    else{
+                                                                                        echo '0';
+                                                                                    }
+                                                                                    ?>
+                                                                                </span> 
                                                                                 <span> Comment</span>
                                                                             </div>
                                                                         </li>
 
                                                                         <li>
                                                                             <div class="comnt_count_ext">
-                                                                                <span> 5 </span> 
+                                                                                <span class="comment_like_count_img<?php echo $busdata['image_id']; ?>"> 
+                                                                                    <?php
+                                                                                    if ($row['business_likes_count'] > 0) {
+                                                                                        echo $row['business_likes_count'];
+                                                                                    } else {
+                                                                                        echo '0';
+                                                                                    }
+                                                                                    ?>
+                                                                                </span> 
                                                                                 <span> Like</span>
-                                                                            </div></li>
+                                                                            </div>
+                                                                        </li>
                                                                     </ul>
                                                                 </div>
                                                             </div>
 
-        <?php
-        $contition_array = array('post_image_id' => $busdata['image_id'], 'is_unlike' => '0');
-        $commneteduser = $this->common->select_data_by_condition('bus_post_image_like', $contition_array, $data = 'post_image_like_id,post_image_id,user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-        if (count($commneteduser) > 0) {
-            ?>
-                                                                <div class="likeduserlistimg<?php echo $busdata['image_id'] ?>">
-                                                                <?php
-                                                                $contition_array = array('post_image_id' => $busdata['image_id'], 'is_unlike' => '0');
-                                                                $commneteduser = $this->common->select_data_by_condition('bus_post_image_like', $contition_array, $data = 'post_image_like_id,post_image_id,user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-//                                                                echo '<pre>';
-//                                                                print_r($commneteduser);
-//                                                                
-                                                                $countlike = count($commneteduser) - 1;
-                                                                foreach ($commneteduser as $userdata) {
-                                                                    $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $userdata['user_id'], 'status' => 1))->row()->company_name;
-                                                                }
+                                                            <?php
+                                                            $contition_array = array('post_image_id' => $busdata['image_id'], 'is_unlike' => '0');
+                                                            $commneteduser = $this->common->select_data_by_condition('bus_post_image_like', $contition_array, $data = 'post_image_like_id,post_image_id,user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                                            if (count($commneteduser) > 0) {
                                                                 ?>
-                                                                    <!-- pop up box end-->
-                                                                    <a href="javascript:void(0);"  onclick="likeuserlistimg(<?php echo $busdata['image_id'] ?>);">
+                                                                <div class="likeduserlistimg<?php echo $busdata['image_id'] ?>">
                                                                     <?php
                                                                     $contition_array = array('post_image_id' => $busdata['image_id'], 'is_unlike' => '0');
                                                                     $commneteduser = $this->common->select_data_by_condition('bus_post_image_like', $contition_array, $data = 'post_image_like_id,post_image_id,user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-//                                                              
+//                                                                echo '<pre>';
+//                                                                print_r($commneteduser);
+//                                                                
                                                                     $countlike = count($commneteduser) - 1;
-                                                                    $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $commneteduser[0]['user_id'], 'status' => 1))->row()->company_name;
+                                                                    foreach ($commneteduser as $userdata) {
+                                                                        $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $userdata['user_id'], 'status' => 1))->row()->company_name;
+                                                                    }
                                                                     ?>
-                                                                        <div class="like_one_other_img">
+                                                                    <!-- pop up box end-->
+                                                                    <a href="javascript:void(0);"  onclick="likeuserlistimg(<?php echo $busdata['image_id'] ?>);">
                                                                         <?php
-                                                                        if ($userid == $commneteduser[0]['user_id']) {
-                                                                            echo "You";
-                                                                            echo "&nbsp;";
-                                                                        } else {
-                                                                            echo ucwords($business_fname1);
-                                                                            echo "&nbsp;";
-                                                                        }
+                                                                        $contition_array = array('post_image_id' => $busdata['image_id'], 'is_unlike' => '0');
+                                                                        $commneteduser = $this->common->select_data_by_condition('bus_post_image_like', $contition_array, $data = 'post_image_like_id,post_image_id,user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+//                                                              
+                                                                        $countlike = count($commneteduser) - 1;
+                                                                        $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $commneteduser[0]['user_id'], 'status' => 1))->row()->company_name;
                                                                         ?>
+                                                                        <div class="like_one_other_img">
+                                                                            <?php
+                                                                            if ($userid == $commneteduser[0]['user_id']) {
+                                                                                echo "You";
+                                                                                echo "&nbsp;";
+                                                                            } else {
+                                                                                echo ucwords($business_fname1);
+                                                                                echo "&nbsp;";
+                                                                            }
+                                                                            ?>
                                                                             <?php
                                                                             if (count($commneteduser) > 1) {
                                                                                 ?>
@@ -1080,36 +1098,36 @@
                                                                         </div>
                                                                     </a>
                                                                 </div>
-            <?php
-        }
-        ?>
-
-                                                            <div class="<?php echo "likeusernameimg" . $busdata['image_id']; ?>" id="<?php echo "likeusernameimg" . $busdata['image_id']; ?>" style="display:none">
-                                                            <?php
-                                                            $contition_array = array('post_image_id' => $busdata['image_id'], 'is_unlike' => '0');
-                                                            $commneteduser = $this->common->select_data_by_condition('bus_post_image_like', $contition_array, $data = 'post_image_like_id,post_image_id,user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-//                                                                echo '<pre>';
-//                                                                print_r($commneteduser);
-//                                                                
-                                                            $countlike = count($commneteduser) - 1;
-                                                            foreach ($commneteduser as $userdata) {
-                                                                $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $userdata['user_id'], 'status' => 1))->row()->company_name;
+                                                                <?php
                                                             }
                                                             ?>
-                                                                <!-- pop up box end-->
-                                                                <a href="javascript:void(0);"  onclick="likeuserlistimg(<?php echo $busdata['image_id'] ?>);">
+
+                                                            <div class="<?php echo "likeusernameimg" . $busdata['image_id']; ?>" id="<?php echo "likeusernameimg" . $busdata['image_id']; ?>" style="display:none">
                                                                 <?php
                                                                 $contition_array = array('post_image_id' => $busdata['image_id'], 'is_unlike' => '0');
                                                                 $commneteduser = $this->common->select_data_by_condition('bus_post_image_like', $contition_array, $data = 'post_image_like_id,post_image_id,user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-//                                                              
+//                                                                echo '<pre>';
+//                                                                print_r($commneteduser);
+//                                                                
                                                                 $countlike = count($commneteduser) - 1;
-                                                                $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $commneteduser[0]['user_id'], 'status' => 1))->row()->company_name;
+                                                                foreach ($commneteduser as $userdata) {
+                                                                    $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $userdata['user_id'], 'status' => 1))->row()->company_name;
+                                                                }
                                                                 ?>
-                                                                    <div class="like_one_other_img" style="">
+                                                                <!-- pop up box end-->
+                                                                <a href="javascript:void(0);"  onclick="likeuserlistimg(<?php echo $busdata['image_id'] ?>);">
                                                                     <?php
-                                                                    echo ucwords($business_fname1);
-                                                                    echo "&nbsp;";
+                                                                    $contition_array = array('post_image_id' => $busdata['image_id'], 'is_unlike' => '0');
+                                                                    $commneteduser = $this->common->select_data_by_condition('bus_post_image_like', $contition_array, $data = 'post_image_like_id,post_image_id,user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+//                                                              
+                                                                    $countlike = count($commneteduser) - 1;
+                                                                    $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $commneteduser[0]['user_id'], 'status' => 1))->row()->company_name;
                                                                     ?>
+                                                                    <div class="like_one_other_img" style="">
+                                                                        <?php
+                                                                        echo ucwords($business_fname1);
+                                                                        echo "&nbsp;";
+                                                                        ?>
                                                                         <?php
                                                                         if (count($commneteduser) > 1) {
                                                                             ?>
@@ -1130,23 +1148,23 @@
                                                                 <div  id="<?php echo "threeimgcomment" . $busdata['image_id']; ?>" style="display:block">
                                                                     <div class="<?php echo 'insertimgcomment' . $busdata['image_id']; ?>">
 
-        <?php
-        $contition_array = array('post_image_id' => $busdata['image_id'], 'is_delete' => '0');
+                                                                        <?php
+                                                                        $contition_array = array('post_image_id' => $busdata['image_id'], 'is_delete' => '0');
 
-        $busmulimage = $this->common->select_data_by_condition('bus_post_image_comment', $contition_array, $data = '*', $sortby = 'post_image_comment_id', $orderby = 'DESC', $limit = '1', $offset = '', $join_str = array(), $groupby = '');
+                                                                        $busmulimage = $this->common->select_data_by_condition('bus_post_image_comment', $contition_array, $data = '*', $sortby = 'post_image_comment_id', $orderby = 'DESC', $limit = '1', $offset = '', $join_str = array(), $groupby = '');
 
-        if ($busmulimage) {
-            foreach ($busmulimage as $rowdata) {
-                $companyname = $this->db->get_where('business_profile', array('user_id' => $rowdata['user_id']))->row()->company_name;
-                ?>
+                                                                        if ($busmulimage) {
+                                                                            foreach ($busmulimage as $rowdata) {
+                                                                                $companyname = $this->db->get_where('business_profile', array('user_id' => $rowdata['user_id']))->row()->company_name;
+                                                                                ?>
 
                                                                                 <div class="all-comment-comment-box">
 
                                                                                     <div class="post-design-pro-comment-img"> 
-                <?php
-                $business_userimage = $this->db->get_where('business_profile', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->business_user_image;
-                if ($business_userimage != '') {
-                    ?>
+                                                                                        <?php
+                                                                                        $business_userimage = $this->db->get_where('business_profile', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->business_user_image;
+                                                                                        if ($business_userimage != '') {
+                                                                                            ?>
                                                                                             <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage); ?>"  alt="">
                                                                                             <?php
                                                                                         } else {
@@ -1160,20 +1178,20 @@
                                                                                     <div class="comment-name">
 
                                                                                         <b>  <?php
-                                                                                        echo ucwords($companyname);
-                                                                                        echo '</br>';
-                                                                                        ?>
+                                                                                            echo ucwords($companyname);
+                                                                                            echo '</br>';
+                                                                                            ?>
                                                                                         </b>
                                                                                     </div>
 
                                                                                     <div class="comment-details" id= "<?php echo "imgshowcomment" . $rowdata['post_image_comment_id']; ?>">
-                <?php
+                                                                                        <?php
 //                                                                                        echo $this->common->make_links($rowdata['comment']);
 
-                $new_product_comment = $this->common->make_links($rowdata['comments']);
-                echo nl2br(htmlspecialchars_decode(htmlentities($new_product_comment, ENT_QUOTES, 'UTF-8')));
-                ?>
+                                                                                       echo $new_product_comment = $this->common->make_links($rowdata['comment']);
+                                                                                        echo nl2br(htmlspecialchars_decode(htmlentities($new_product_comment, ENT_QUOTES, 'UTF-8')));
                                                                                         ?>
+                                                                                        
                                                                                     </div>
 
 
@@ -1205,31 +1223,31 @@
 
                                                                                             <a id="<?php echo $rowdata['post_image_comment_id']; ?>"   onClick="imgcomment_like(this.id)">
 
-                <?php
-                $userid = $this->session->userdata('aileenuser');
-                $contition_array = array('post_image_comment_id' => $rowdata['post_image_comment_id'], 'user_id' => $userid, 'is_unlike' => 0);
+                                                                                                <?php
+                                                                                                $userid = $this->session->userdata('aileenuser');
+                                                                                                $contition_array = array('post_image_comment_id' => $rowdata['post_image_comment_id'], 'user_id' => $userid, 'is_unlike' => 0);
 
-                $businesscommentlike1 = $this->common->select_data_by_condition('bus_comment_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-                //echo "<pre>"; print_r($businesscommentlike); 
-                //echo count($businesscommentlike); 
-                if (count($businesscommentlike1) == 0) {
-                    ?>
-                                                                                                    <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>
+                                                                                                $businesscommentlike1 = $this->common->select_data_by_condition('bus_comment_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                                                                                //echo "<pre>"; print_r($businesscommentlike); 
+                                                                                                //echo count($businesscommentlike); 
+                                                                                                if (count($businesscommentlike1) == 0) {
+                                                                                                    ?>
+                                                                                                    <i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i>
 
-                <?php } else {
-                    ?>
+                                                                                                <?php } else {
+                                                                                                    ?>
                                                                                                     <i class="fa fa-thumbs-up" aria-hidden="true"></i>
                                                                                                 <?php } ?>
                                                                                                 <span>
 
-                <?php
-                $contition_array = array('post_image_comment_id' => $rowdata['post_image_comment_id'], 'is_unlike' => '0');
-                $mulcountlike = $this->data['mulcountlike'] = $this->common->select_data_by_condition('bus_comment_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                                                                                    <?php
+                                                                                                    $contition_array = array('post_image_comment_id' => $rowdata['post_image_comment_id'], 'is_unlike' => '0');
+                                                                                                    $mulcountlike = $this->data['mulcountlike'] = $this->common->select_data_by_condition('bus_comment_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-                if (count($mulcountlike) > 0) {
-                    echo count($mulcountlike);
-                }
-                ?>
+                                                                                                    if (count($mulcountlike) > 0) {
+                                                                                                        echo count($mulcountlike);
+                                                                                                    }
+                                                                                                    ?>
 
                                                                                                 </span>
                                                                                             </a>
@@ -1241,10 +1259,10 @@
 
                                                                                         <!-- comment edit start -->
 
-                <?php
-                $userid = $this->session->userdata('aileenuser');
-                if ($rowdata['user_id'] == $userid) {
-                    ?>
+                                                                                        <?php
+                                                                                        $userid = $this->session->userdata('aileenuser');
+                                                                                        if ($rowdata['user_id'] == $userid) {
+                                                                                            ?>
                                                                                             <div class="comment-details-menu">
 
                                                                                                 <div id="<?php echo 'imgeditcommentbox' . $rowdata['post_image_comment_id']; ?>" style="display:block;">
@@ -1255,25 +1273,25 @@
 
                                                                                             </div>
 
-                <?php } ?>
+                                                                                        <?php } ?>
                                                                                         <!-- comment edit end -->
 
                                                                                         <!-- comment delete start -->
-                <?php
-                $userid = $this->session->userdata('aileenuser');
+                                                                                        <?php
+                                                                                        $userid = $this->session->userdata('aileenuser');
 
-                $business_userid = $this->db->get_where('business_profile_post', array('business_profile_post_id' => $rowdata['post_image_id'], 'status' => 1))->row()->user_id;
+                                                                                        $business_userid = $this->db->get_where('business_profile_post', array('business_profile_post_id' => $rowdata['post_image_id'], 'status' => 1))->row()->user_id;
 
 
-                if ($rowdata['user_id'] == $userid || $business_userid == $userid) {
-                    ?>
+                                                                                        if ($rowdata['user_id'] == $userid || $business_userid == $userid) {
+                                                                                            ?>
                                                                                             <span role="presentation" aria-hidden="true"> · </span>
                                                                                             <div class="comment-details-menu">
                                                                                                 <input type="hidden" name="imgpost_delete"  id="imgpost_delete_<?php echo $rowdata['post_image_comment_id']; ?>" value= "<?php echo $rowdata['post_image_id']; ?>">
                                                                                                 <a id="<?php echo $rowdata['post_image_comment_id']; ?>"   onClick="imgcomment_delete(this.id)"> Delete<span class="<?php echo 'imginsertcomment' . $rowdata['post_image_comment_id']; ?>">
                                                                                                     </span> </a> </div>
 
-                <?php } ?>
+                                                                                        <?php } ?>
                                                                                         <!-- comment delete end -->
 
 
@@ -1282,19 +1300,19 @@
                                                                                         <span role="presentation" aria-hidden="true"> · </span>
                                                                                         <div class="comment-details-menu">
                                                                                             <p><?php
-                echo $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($rowdata['created_date'])));
-                echo '</br>';
-                ?>
+                                                                                                echo $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($rowdata['created_date'])));
+                                                                                                echo '</br>';
+                                                                                                ?>
                                                                                             </p></div>
 
                                                                                         <!-- created date end -->
 
                                                                                     </div>
                                                                                 </div>
-                <?php
-            }
-        }
-        ?>
+                                                                                <?php
+                                                                            }
+                                                                        }
+                                                                        ?>
 
                                                                     </div>
                                                                 </div>
@@ -1314,11 +1332,11 @@
 
                                                                 <div class="post-design-proo-img"> 
 
-        <?php
-        $userid = $this->session->userdata('aileenuser');
-        $business_userimage = $this->db->get_where('business_profile', array('user_id' => $userid, 'status' => 1))->row()->business_user_image;
-        if ($business_userimage != '') {
-            ?>
+                                                                    <?php
+                                                                    $userid = $this->session->userdata('aileenuser');
+                                                                    $business_userimage = $this->db->get_where('business_profile', array('user_id' => $userid, 'status' => 1))->row()->business_user_image;
+                                                                    if ($business_userimage != '') {
+                                                                        ?>
                                                                         <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage); ?>" alt="">
                                                                         <?php
                                                                     } else {
@@ -1345,20 +1363,20 @@
                                                             <!-- insert comment code end -->
 
                                                         </div>
-        <?php
-    }
-    ?>
+                                                        <?php
+                                                    }
+                                                    ?>
                                                     <!-- like comment end -->
 
                                                 </div>
-    <?php
-    $i++;
-}
-?>
+                                                <?php
+                                                $i++;
+                                            }
+                                            ?>
 
                                             <!-- slider image rotation end  -->
 
-                                            <a class="prev" style="left: 0px;" onclick="plusSlides(-1)">&#10094;</a>
+                                            <a class="prev" style="left: 0px" onclick="plusSlides(-1)">&#10094;</a>
                                             <a class="next" onclick="plusSlides(1)">&#10095;</a>
 
                                             <div class="caption-container">
@@ -1385,48 +1403,48 @@
                                             <li class="<?php echo 'likepost' . $busienss_data[0]['business_profile_post_id']; ?>">
                                                 <a id="<?php echo $busienss_data[0]['business_profile_post_id']; ?>"   onClick="post_like(this.id)">
 
-<?php
-$userid = $this->session->userdata('aileenuser');
-$contition_array = array('business_profile_post_id' => $busienss_data[0]['business_profile_post_id'], 'status' => '1');
-$active = $this->data['active'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                                    <?php
+                                                    $userid = $this->session->userdata('aileenuser');
+                                                    $contition_array = array('business_profile_post_id' => $busienss_data[0]['business_profile_post_id'], 'status' => '1');
+                                                    $active = $this->data['active'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-$likeuser = $this->data['active'][0]['business_like_user'];
-$likeuserarray = explode(',', $active[0]['business_like_user']);
+                                                    $likeuser = $this->data['active'][0]['business_like_user'];
+                                                    $likeuserarray = explode(',', $active[0]['business_like_user']);
 
-if (!in_array($userid, $likeuserarray)) {
-    ?>               
+                                                    if (!in_array($userid, $likeuserarray)) {
+                                                        ?>               
 
-                                                            <!--<i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>-->
+                                                                        <!--<i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i>-->
                                                         <i class="fa fa-thumbs-up" style="color: #999;" aria-hidden="true"></i>
 
-<?php } else { ?> 
-                                                            <!--<i class="fa fa-thumbs-up" aria-hidden="true"></i>-->
+                                                    <?php } else { ?> 
+                                                                        <!--<i class="fa fa-thumbs-up" aria-hidden="true"></i>-->
                                                         <i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i>
-<?php } ?>
+                                                    <?php } ?>
                                                     <span class="like_As_count">
-                                                    <?php
-                                                    if ($busienss_data[0]['business_likes_count'] > 0) {
-                                                        echo $busienss_data[0]['business_likes_count'];
-                                                    }
-                                                    ?>
+                                                        <?php
+                                                        if ($busienss_data[0]['business_likes_count'] > 0) {
+                                                            echo $busienss_data[0]['business_likes_count'];
+                                                        }
+                                                        ?>
                                                     </span>
                                                 </a>
                                             </li>
 
                                             <li id="<?php echo 'insertcount' . $busienss_data[0]['business_profile_post_id']; ?>">
-<?php
-$contition_array = array('business_profile_post_id' => $busienss_data[0]['business_profile_post_id'], 'status' => '1', 'is_delete' => '0');
-$commnetcount = $this->common->select_data_by_condition('business_profile_post_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-?>
+                                                <?php
+                                                $contition_array = array('business_profile_post_id' => $busienss_data[0]['business_profile_post_id'], 'status' => '1', 'is_delete' => '0');
+                                                $commnetcount = $this->common->select_data_by_condition('business_profile_post_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                                ?>
 
                                                 <a  onClick="commentall(this.id)" id="<?php echo $busienss_data[0]['business_profile_post_id']; ?>"><i class="fa fa-comment-o" aria-hidden="true"> 
-<?php
-if (count($commnetcount) > 0) {
-    echo count($commnetcount);
-} else {
-    
-}
-?>
+                                                        <?php
+                                                    /*    if (count($commnetcount) > 0) {
+                                                            echo count($commnetcount);
+                                                        } else {
+                                                            
+                                                        } */
+                                                        ?>
                                                     </i> 
                                                 </a>
 
@@ -1436,16 +1454,33 @@ if (count($commnetcount) > 0) {
 
                                             <li>
                                                 <div class="like_count_ext">
-                                                    <span > 5 </span> 
+                                                    <span class="comment_count<?php echo $busienss_data[0]['business_profile_post_id']; ?>" > 
+                                                        <?php
+                                                        if (count($commnetcount) > 0) {
+                                                            echo count($commnetcount);
+                                                        } else {
+                                                            echo '0';
+                                                        }
+                                                        ?> 
+                                                    </span> 
                                                     <span> Comment</span>
                                                 </div>
                                             </li>
 
                                             <li>
                                                 <div class="comnt_count_ext">
-                                                    <span> 5 </span> 
+                                                    <span class="comment_like_count<?php echo $busienss_data[0]['business_profile_post_id']; ?>"> 
+                                                        <?php
+                                                        if ($busienss_data[0]['business_likes_count'] > 0) {
+                                                            echo $busienss_data[0]['business_likes_count'];
+                                                        } else {
+                                                            echo '0';
+                                                        }
+                                                        ?>
+                                                    </span> 
                                                     <span> Like</span>
-                                                </div></li>
+                                                </div>
+                                            </li>
                                         </ul>
 
                                     </div>
@@ -1459,42 +1494,42 @@ if (count($commnetcount) > 0) {
 
                                 <!-- pop up box start-->
 
-<?php
-if ($busienss_data[0]['business_likes_count'] > 0) {
-    ?>
-                                    <div class="likeduserlist<?php echo $busienss_data[0]['business_profile_post_id'] ?>">
-                                    <?php
-                                    $contition_array = array('business_profile_post_id' => $busienss_data[0]['business_profile_post_id'], 'status' => '1', 'is_delete' => '0');
-                                    $commnetcount = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-                                    $likeuser = $commnetcount[0]['business_like_user'];
-                                    $countlike = $commnetcount[0]['business_likes_count'] - 1;
-                                    $likelistarray = explode(',', $likeuser);
-                                    foreach ($likelistarray as $key => $value) {
-                                        $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $value, 'status' => 1))->row()->company_name;
-                                    }
+                                <?php
+                                if ($busienss_data[0]['business_likes_count'] > 0) {
                                     ?>
+                                    <div class="likeduserlist<?php echo $busienss_data[0]['business_profile_post_id'] ?>">
+                                        <?php
+                                        $contition_array = array('business_profile_post_id' => $busienss_data[0]['business_profile_post_id'], 'status' => '1', 'is_delete' => '0');
+                                        $commnetcount = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                        $likeuser = $commnetcount[0]['business_like_user'];
+                                        $countlike = $commnetcount[0]['business_likes_count'] - 1;
+                                        $likelistarray = explode(',', $likeuser);
+                                        foreach ($likelistarray as $key => $value) {
+                                            $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $value, 'status' => 1))->row()->company_name;
+                                        }
+                                        ?>
                                         <!-- pop up box end-->
                                         <a href="javascript:void(0);"  onclick="likeuserlist(<?php echo $busienss_data[0]['business_profile_post_id']; ?>);">
-    <?php
-    $contition_array = array('business_profile_post_id' => $busienss_data[0]['business_profile_post_id'], 'status' => '1', 'is_delete' => '0');
-    $commnetcount = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
-    $likeuser = $commnetcount[0]['business_like_user'];
-    $countlike = $commnetcount[0]['business_likes_count'] - 1;
-    $likelistarray = explode(',', $likeuser);
-
-    $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $value, 'status' => 1))->row()->company_name;
-    ?>
-                                            <div class="like_one_other">
                                             <?php
-                                            if ($userid == $value) {
-                                                echo "You";
-                                                echo "&nbsp;";
-                                            } else {
-                                                echo ucwords($business_fname1);
-                                                echo "&nbsp;";
-                                            }
+                                            $contition_array = array('business_profile_post_id' => $busienss_data[0]['business_profile_post_id'], 'status' => '1', 'is_delete' => '0');
+                                            $commnetcount = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+                                            $likeuser = $commnetcount[0]['business_like_user'];
+                                            $countlike = $commnetcount[0]['business_likes_count'] - 1;
+                                            $likelistarray = explode(',', $likeuser);
+
+                                            $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $value, 'status' => 1))->row()->company_name;
                                             ?>
+                                            <div class="like_one_other">
+                                                <?php
+                                                if ($userid == $value) {
+                                                    echo "You";
+                                                    echo "&nbsp;";
+                                                } else {
+                                                    echo ucwords($business_fname1);
+                                                    echo "&nbsp;";
+                                                }
+                                                ?>
                                                 <?php
                                                 if (count($likelistarray) > 1) {
                                                     ?>
@@ -1508,38 +1543,38 @@ if ($busienss_data[0]['business_likes_count'] > 0) {
                                             </div>
                                         </a>
                                     </div>
-    <?php
-}
-?>
+                                    <?php
+                                }
+                                ?>
 
                                 <div class="<?php echo "likeusername" . $busienss_data[0]['business_profile_post_id']; ?>" id="<?php echo "likeusername" . $busienss_data[0]['business_profile_post_id']; ?>" style="display:none">
-<?php
-$contition_array = array('business_profile_post_id' => $busienss_data[0]['business_profile_post_id'], 'status' => '1', 'is_delete' => '0');
-$commnetcount = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-$likeuser = $commnetcount[0]['business_like_user'];
-$countlike = $commnetcount[0]['business_likes_count'] - 1;
-$likelistarray = explode(',', $likeuser);
-foreach ($likelistarray as $key => $value) {
-    $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $value, 'status' => 1))->row()->company_name;
-}
-?>
+                                    <?php
+                                    $contition_array = array('business_profile_post_id' => $busienss_data[0]['business_profile_post_id'], 'status' => '1', 'is_delete' => '0');
+                                    $commnetcount = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                    $likeuser = $commnetcount[0]['business_like_user'];
+                                    $countlike = $commnetcount[0]['business_likes_count'] - 1;
+                                    $likelistarray = explode(',', $likeuser);
+                                    foreach ($likelistarray as $key => $value) {
+                                        $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $value, 'status' => 1))->row()->company_name;
+                                    }
+                                    ?>
                                     <!-- pop up box end-->
                                     <a href="javascript:void(0);"  onclick="likeuserlist(<?php echo $busienss_data[0]['business_profile_post_id']; ?>);">
-<?php
-$contition_array = array('business_profile_post_id' => $row['business_profile_post_id'], 'status' => '1', 'is_delete' => '0');
-$commnetcount = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
-$likeuser = $commnetcount[0]['business_like_user'];
-$countlike = $commnetcount[0]['business_likes_count'] - 1;
-$likelistarray = explode(',', $likeuser);
-
-$business_fname1 = $this->db->get_where('business_profile', array('user_id' => $value, 'status' => 1))->row()->company_name;
-?>
-                                        <div class="like_one_other">
                                         <?php
-                                        echo ucwords($business_fname1);
-                                        echo "&nbsp;";
+                                        $contition_array = array('business_profile_post_id' => $row['business_profile_post_id'], 'status' => '1', 'is_delete' => '0');
+                                        $commnetcount = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+                                        $likeuser = $commnetcount[0]['business_like_user'];
+                                        $countlike = $commnetcount[0]['business_likes_count'] - 1;
+                                        $likelistarray = explode(',', $likeuser);
+
+                                        $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $value, 'status' => 1))->row()->company_name;
                                         ?>
+                                        <div class="like_one_other">
+                                            <?php
+                                            echo ucwords($business_fname1);
+                                            echo "&nbsp;";
+                                            ?>
                                             <?php
                                             if (count($likelistarray) > 1) {
                                                 ?>
@@ -1559,27 +1594,27 @@ $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $
 
                                         <div class="pop_content">
 
-<?php /*
-  $contition_array = array('business_profile_post_id' => $busienss_data[0]['business_profile_post_id'], 'status' => '1', 'is_delete' => '0');
-  $commnetcount = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                <?php /*
+                                  $contition_array = array('business_profile_post_id' => $busienss_data[0]['business_profile_post_id'], 'status' => '1', 'is_delete' => '0');
+                                  $commnetcount = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-  $likeuser = $commnetcount[0]['business_like_user'];
-  $countlike = $commnetcount[0]['business_likes_count'] - 1;
+                                  $likeuser = $commnetcount[0]['business_like_user'];
+                                  $countlike = $commnetcount[0]['business_likes_count'] - 1;
 
-  $likelistarray = explode(',', $likeuser);
+                                  $likelistarray = explode(',', $likeuser);
 
 
-  foreach ($likelistarray as $key => $value) {
+                                  foreach ($likelistarray as $key => $value) {
 
-  $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $value, 'status' => 1))->row()->company_name;
-  ?>
+                                  $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $value, 'status' => 1))->row()->company_name;
+                                  ?>
 
-  <a href="<?php echo base_url('business_profile/business_resume/' . $value); ?>">
-  <?php echo ucwords($business_fname1); ?>
+                                  <a href="<?php echo base_url('business_profile/business_resume/' . $value); ?>">
+                                  <?php echo ucwords($business_fname1); ?>
 
-  </a>
+                                  </a>
 
-  <?php } */ ?>
+                                  <?php } */ ?>
 
                                             <p class="okk"><a class="cnclbtn" href="#">Cancle</a></p>
 
@@ -1590,43 +1625,43 @@ $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $
                                 <!-- pop up box end-->
                                 <!--                                <div class="like_other">
                                                                     <a  href="<?php echo "#popuplike" . $busienss_data[0]['business_profile_post_id']; ?>">
-<?php /*
-  $contition_array = array('business_profile_post_id' => $busienss_data[0]['business_profile_post_id'], 'status' => '1', 'is_delete' => '0');
-  $commnetcount = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                <?php /*
+                                  $contition_array = array('business_profile_post_id' => $busienss_data[0]['business_profile_post_id'], 'status' => '1', 'is_delete' => '0');
+                                  $commnetcount = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-  $likeuser = $commnetcount[0]['business_like_user'];
-  $countlike = $commnetcount[0]['business_likes_count'] - 1;
+                                  $likeuser = $commnetcount[0]['business_like_user'];
+                                  $countlike = $commnetcount[0]['business_likes_count'] - 1;
 
-  $likelistarray = explode(',', $likeuser);
+                                  $likelistarray = explode(',', $likeuser);
 
-  $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $value, 'status' => 1))->row()->company_name;
-  ?>
-
-
-
-  <div class="like_one_other">
-
-  <?php
-  echo ucwords($business_fname1);
-  echo "&nbsp;";
-  ?>
-
-  </div>
-
-  <?php
-  if (count($likelistarray) > 1) {
-  ?>
-  <div>
-  <?php echo "and"; ?>
-
-  <?php
-  echo $countlike;
-  echo "&nbsp;";
-  echo "others";
-  ?>
+                                  $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $value, 'status' => 1))->row()->company_name;
+                                  ?>
 
 
-  <?php } */ ?>
+
+                                  <div class="like_one_other">
+
+                                  <?php
+                                  echo ucwords($business_fname1);
+                                  echo "&nbsp;";
+                                  ?>
+
+                                  </div>
+
+                                  <?php
+                                  if (count($likelistarray) > 1) {
+                                  ?>
+                                  <div>
+                                  <?php echo "and"; ?>
+
+                                  <?php
+                                  echo $countlike;
+                                  echo "&nbsp;";
+                                  echo "others";
+                                  ?>
+
+
+                                  <?php } */ ?>
                                                                         </div>
                                                                     </a>
                                                                 </div>-->
@@ -1648,21 +1683,21 @@ $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $
                                     <div  id="<?php echo "threecomment" . $busienss_data[0]['business_profile_post_id']; ?>" style="display:block">
                                         <div class="<?php echo 'insertcomment' . $busienss_data[0]['business_profile_post_id']; ?>">
 
-<?php
-$contition_array = array('business_profile_post_id' => $busienss_data[0]['business_profile_post_id'], 'status' => '1');
+                                            <?php
+                                            $contition_array = array('business_profile_post_id' => $busienss_data[0]['business_profile_post_id'], 'status' => '1');
 
-$businessprofiledata = $this->data['businessprofiledata'] = $this->common->select_data_by_condition('business_profile_post_comment', $contition_array, $data = '*', $sortby = 'business_profile_post_comment_id', $orderby = 'DESC', $limit = '1', $offset = '', $join_str = array(), $groupby = '');
+                                            $businessprofiledata = $this->data['businessprofiledata'] = $this->common->select_data_by_condition('business_profile_post_comment', $contition_array, $data = '*', $sortby = 'business_profile_post_comment_id', $orderby = 'DESC', $limit = '1', $offset = '', $join_str = array(), $groupby = '');
 
-if ($businessprofiledata) {
-    foreach ($businessprofiledata as $rowdata) {
-        $companyname = $this->db->get_where('business_profile', array('user_id' => $rowdata['user_id']))->row()->company_name;
-        ?>
+                                            if ($businessprofiledata) {
+                                                foreach ($businessprofiledata as $rowdata) {
+                                                    $companyname = $this->db->get_where('business_profile', array('user_id' => $rowdata['user_id']))->row()->company_name;
+                                                    ?>
                                                     <div class="all-comment-comment-box">
                                                         <div class="post-design-pro-comment-img"> 
-        <?php
-        $business_userimage = $this->db->get_where('business_profile', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->business_user_image;
-        if ($business_userimage != '') {
-            ?>
+                                                            <?php
+                                                            $business_userimage = $this->db->get_where('business_profile', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->business_user_image;
+                                                            if ($business_userimage != '') {
+                                                                ?>
                                                                 <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage); ?>"  alt="">
                                                                 <?php
                                                             } else {
@@ -1675,16 +1710,16 @@ if ($businessprofiledata) {
                                                         <div class="comment-name">
 
                                                             <b>  <?php
-                                                    echo $companyname;
-                                                    echo '</br>';
-                                                            ?>
+                                                                echo $companyname;
+                                                                echo '</br>';
+                                                                ?>
                                                             </b>
                                                         </div>
                                                         <div class="comment-details" id= "<?php echo "showcomment" . $rowdata['business_profile_post_comment_id']; ?>">
-        <?php
-        echo $this->common->make_links($rowdata['comments']);
+                                                            <?php
+                                                            echo $this->common->make_links($rowdata['comments']);
 //                                                            echo '</br>';
-        ?>
+                                                            ?>
                                                         </div>
                                                         <!--                                                        <div class="col-md-12">
                                                                                                                     <div class="col-md-10">
@@ -1709,34 +1744,34 @@ if ($businessprofiledata) {
 
                                                                 <a id="<?php echo $rowdata['business_profile_post_comment_id']; ?>" onClick="comment_like1(this.id)">
 
-        <?php
-        $userid = $this->session->userdata('aileenuser');
-        $contition_array = array('business_profile_post_comment_id' => $rowdata['business_profile_post_comment_id'], 'status' => '1');
-        $businesscommentlike = $this->data['businesscommentlike'] = $this->common->select_data_by_condition('business_profile_post_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-        $likeuserarray = explode(',', $businesscommentlike[0]['business_comment_like_user']);
+                                                                    <?php
+                                                                    $userid = $this->session->userdata('aileenuser');
+                                                                    $contition_array = array('business_profile_post_comment_id' => $rowdata['business_profile_post_comment_id'], 'status' => '1');
+                                                                    $businesscommentlike = $this->data['businesscommentlike'] = $this->common->select_data_by_condition('business_profile_post_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                                                    $likeuserarray = explode(',', $businesscommentlike[0]['business_comment_like_user']);
 
-        if (!in_array($userid, $likeuserarray)) {
-            ?>
-                                                                        <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i> 
+                                                                    if (!in_array($userid, $likeuserarray)) {
+                                                                        ?>
+                                                                        <i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i> 
                                                                     <?php } else { ?>
 
                                                                         <i class="fa fa-thumbs-up" aria-hidden="true"></i>
 
-        <?php } ?>
+                                                                    <?php } ?>
                                                                     <span>
-                                                                    <?php
-                                                                    if ($rowdata['business_comment_likes_count']) {
-                                                                        echo $rowdata['business_comment_likes_count'];
-                                                                    }
-                                                                    ?>
+                                                                        <?php
+                                                                        if ($rowdata['business_comment_likes_count']) {
+                                                                            echo $rowdata['business_comment_likes_count'];
+                                                                        }
+                                                                        ?>
                                                                     </span>
                                                                 </a>
                                                             </div>
 
-        <?php
-        $userid = $this->session->userdata('aileenuser');
-        if ($rowdata['user_id'] == $userid) {
-            ?>                                     
+                                                            <?php
+                                                            $userid = $this->session->userdata('aileenuser');
+                                                            if ($rowdata['user_id'] == $userid) {
+                                                                ?>                                     
                                                                 <span role="presentation" aria-hidden="true"> · </span>
                                                                 <div class="comment-details-menu">
 
@@ -1753,44 +1788,44 @@ if ($businessprofiledata) {
                                                                 </div>
 
 
-        <?php } ?>
+                                                            <?php } ?>
 
 
 
-        <?php
-        $userid = $this->session->userdata('aileenuser');
+                                                            <?php
+                                                            $userid = $this->session->userdata('aileenuser');
 
-        $business_userid = $this->db->get_where('business_profile_post', array('business_profile_post_id' => $rowdata['business_profile_post_id'], 'status' => 1))->row()->user_id;
+                                                            $business_userid = $this->db->get_where('business_profile_post', array('business_profile_post_id' => $rowdata['business_profile_post_id'], 'status' => 1))->row()->user_id;
 
 
-        if ($rowdata['user_id'] == $userid || $business_userid == $userid) {
-            ?>      
+                                                            if ($rowdata['user_id'] == $userid || $business_userid == $userid) {
+                                                                ?>      
                                                                 <span role="presentation" aria-hidden="true"> · </span>
                                                                 <div class="comment-details-menu">
 
 
 
-                                                                    <input type="hidden" name="post_delete"  id="post_delete" value= "<?php echo $rowdata['business_profile_post_id']; ?>">
+                                                                    <input type="hidden" name="post_delete"  id="post_delete<?php echo $rowdata['business_profile_post_comment_id']; ?>" value= "<?php echo $rowdata['business_profile_post_id']; ?>">
                                                                     <a id="<?php echo $rowdata['business_profile_post_comment_id']; ?>"   onClick="comment_delete(this.id)"> Delete<span class="<?php echo 'insertcomment' . $rowdata['business_profile_post_comment_id']; ?>">
                                                                         </span>
                                                                     </a>
                                                                 </div>
 
 
-        <?php } ?>                                       
+                                                            <?php } ?>                                       
                                                             <span role="presentation" aria-hidden="true"> · </span>
                                                             <div class="comment-details-menu">
                                                                 <p><?php
-        echo $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($rowdata['created_date'])));
-        echo '</br>';
-        ?></p></div>
+                                                                    echo $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($rowdata['created_date'])));
+                                                                    echo '</br>';
+                                                                    ?></p></div>
                                                         </div></div>
 
 
-        <?php
-    }
-}
-?>
+                                                    <?php
+                                                }
+                                            }
+                                            ?>
 
                                         </div>
                                     </div>
@@ -1808,11 +1843,11 @@ if ($businessprofiledata) {
                                     <div class="post-design-proo-img"> 
 
 
-<?php
-$userid = $this->session->userdata('aileenuser');
-$business_userimage = $this->db->get_where('business_profile', array('user_id' => $userid, 'status' => 1))->row()->business_user_image;
-if ($business_userimage) {
-    ?>
+                                        <?php
+                                        $userid = $this->session->userdata('aileenuser');
+                                        $business_userimage = $this->db->get_where('business_profile', array('user_id' => $userid, 'status' => 1))->row()->business_user_image;
+                                        if ($business_userimage) {
+                                            ?>
                                             <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage); ?>"  alt="">
                                             <?php
                                         } else {
@@ -1845,7 +1880,7 @@ if ($business_userimage) {
 </section>
 
 <footer>
-<?php // echo $footer;          ?> 
+    <?php // echo $footer;          ?> 
     <!-- Bid-modal  -->
     <div class="modal fade message-box biderror" id="bidmodal" role="dialog" style="z-index: 999999 !important;">
         <div class="modal-dialog modal-lm">
@@ -1924,7 +1959,7 @@ if ($business_userimage) {
 
 
 <script src="<?php echo base_url('js/jquery.jMosaic.js'); ?>"></script>
-<!-- <script src="<?php //echo base_url('js/bootstrap.min.js');  ?>"></script> -->
+<!-- <script src="<?php //echo base_url('js/bootstrap.min.js');     ?>"></script> -->
 
 
 <script type="text/javascript">
@@ -2032,11 +2067,10 @@ if ($business_userimage) {
             data: 'post_id=' + clicked_id,
             dataType: 'json',
             success: function (data) { //alert('.' + 'likepost' + clicked_id);
-                // $('.' + 'likepost' + clicked_id).html(data);
-                alert(data.like);
+        
                 $('.' + 'likepost' + clicked_id).html(data.like);
                 $('.likeusername' + clicked_id).html(data.likeuser);
-
+                $('.comment_like_count' + clicked_id).html(data.like_user_count);
                 $('.likeduserlist' + clicked_id).hide();
                 if (data.like_user_count == '0') {
                     document.getElementById('likeusername' + clicked_id).style.display = "none";
@@ -2110,8 +2144,9 @@ if ($business_userimage) {
                     $('textarea').each(function () {
                         $(this).val('');
                     });
-                    $('#' + 'insertcount' + clicked_id).html(data.count);
+//                    $('#' + 'insertcount' + clicked_id).html(data.count);
                     $('.insertcomment' + clicked_id).html(data.comment);
+                    $('.comment_count' + clicked_id).html(data.comment_count);
 
                 }
             });
@@ -2127,8 +2162,9 @@ if ($business_userimage) {
                     $('textarea').each(function () {
                         $(this).val('');
                     });
-                    $('#' + 'insertcount' + clicked_id).html(data.count);
+//                    $('#' + 'insertcount' + clicked_id).html(data.count);
                     $('#' + 'fourcomment' + clicked_id).html(data.comment);
+                    $('.comment_count' + clicked_id).html(data.comment_count);
                 }
             });
         }
@@ -2192,12 +2228,11 @@ if ($business_userimage) {
                             $('textarea').each(function () {
                                 $(this).val('');
                             });
-
                             //  $('.insertcomment' + clicked_id).html(data);
                             //alert('.insertcount' + clicked_id);
-                            $('#' + 'insertcount' + clicked_id).html(data.count);
+                           // $('#' + 'insertcount' + clicked_id).html(data.count);
                             $('.insertcomment' + clicked_id).html(data.comment);
-
+                            $('.comment_count' + clicked_id).html(data.comment_count);
                         }
                     });
 
@@ -2212,9 +2247,9 @@ if ($business_userimage) {
                                 $(this).val('');
                             });
                             //$('#' + 'fourcomment' + clicked_id).html(data);
-                            $('#' + 'insertcount' + clicked_id).html(data.count);
+                            //$('#' + 'insertcount' + clicked_id).html(data.count);
                             $('#' + 'fourcomment' + clicked_id).html(data.comment);
-
+                            $('.comment_count' + clicked_id).html(data.comment_count);
                         }
                     });
                 }
@@ -2328,16 +2363,17 @@ if ($business_userimage) {
 
     function comment_deleted(clicked_id)
     {
-        var post_delete = document.getElementById("post_delete");
+        var post_delete = document.getElementById("post_delete" + clicked_id);
         $.ajax({
             type: 'POST',
             url: '<?php echo base_url() . "business_profile/pndelete_comment" ?>',
             data: 'post_id=' + clicked_id + '&post_delete=' + post_delete.value,
             dataType: "json",
             success: function (data) {
+//                alert(data.comment_count);
                 $('.' + 'insertcomment' + post_delete.value).html(data.comment);
-                $('#' + 'insertcount' + post_delete.value).html(data.count);
-
+                //$('#' + 'insertcount' + post_delete.value).html(data.count);
+                $('.comment_count' + post_delete.value).html(data.comment_count);
                 $('.post-design-commnet-box').show();
             }
         });
@@ -2388,8 +2424,8 @@ if ($business_userimage) {
             dataType: "json",
             success: function (data) { //alert('.' + 'insertcomment' + clicked_id);
                 $('.' + 'insertcommenttwo' + post_delete1.value).html(data.comment);
-                $('#' + 'insertcount' + post_delete1.value).html(data.count);
-
+//                $('#' + 'insertcount' + post_delete1.value).html(data.count);
+                $('.comment_count' + post_delete1.value).html(data.comment_count);
                 $('.post-design-commnet-box').show();
             }
         });
@@ -3093,7 +3129,7 @@ if ($business_userimage) {
 
                 $('.' + 'likepostimg' + clicked_id).html(data.like);
                 $('.likeusernameimg' + clicked_id).html(data.likeuser);
-
+                $('.comment_like_count_img' + clicked_id).html(data.like_user_count);
                 $('.likeduserlistimg' + clicked_id).hide();
                 if (data.like_user_count == '0') {
                     document.getElementById('likeusernameimg' + clicked_id).style.display = "none";
@@ -3229,8 +3265,8 @@ if ($business_userimage) {
                         success: function (data) {
 
                             $('.' + 'insertimgcomment' + clicked_id).html(data.comment);
-                            $('#' + 'insertcountimg' + clicked_id).html(data.count);
-
+//                            $('#' + 'insertcountimg' + clicked_id).html(data.count);
+                            $('.comment_count_img' + clicked_id).html(data.comment_count);
                         }
                     });
 
@@ -3244,9 +3280,9 @@ if ($business_userimage) {
 //                            $('#' + 'insertcommenttwo' + clicked_id).html(data);
 //alert('#' + 'insertimgcount' + clicked_id);
 
-                            $('#' + 'insertcountimg' + clicked_id).html(data.count);
+//                            $('#' + 'insertcountimg' + clicked_id).html(data.count);
                             $('#' + 'fourimgcomment' + clicked_id).html(data.comment);
-
+                            $('.comment_count_img' + clicked_id).html(data.comment_count);
                         }
                     });
                 }
@@ -3682,10 +3718,10 @@ if ($business_userimage) {
             dataType: 'json',
             data: 'post_image_comment_id=' + clicked_id + '&post_delete=' + post_delete.value,
             success: function (data) {
-
                 //$('#' + 'insertimgcount' + post_delete.value).html(data.count);
-                $('#' + 'insertcountimg' + post_delete.value).html(data.count);
+//                $('#' + 'insertcountimg' + post_delete.value).html(data.count);
                 $('.' + 'insertimgcomment' + post_delete.value).html(data.comment);
+                $('.comment_count_img' + post_delete.value).html(data.comment_count);
                 $('.post-design-commnet-box').show();
             }
         });

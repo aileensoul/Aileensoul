@@ -303,7 +303,12 @@
                     <div class="profile-boxProfileCard  module">
 
                         <div class="head_details1">
-                            <span><h5><i class="fa fa-info-circle" aria-hidden="true"></i> Information</h5>
+                            <span>
+                                  <a href="<?php echo base_url('artistic/artistic_profile/' . $this->uri->segment(3)) ?>"> 
+                                      <h5><i class="fa fa-info-circle" aria-hidden="true"></i>
+                                    Information  
+                                   </h5>
+                                  </a>     
                             </span>      </div>
                         <table class="business_data_table">
                             <tr>
@@ -920,7 +925,7 @@
                                                             <?php } else {
                                                                 ?>
 
-                                                                <a id="<?php echo $row['art_post_id']; ?>" onClick="deleteownpostmodel(this.id)"><i class="fa fa-trash-o" aria-hidden="true"></i>Delete Post</a>
+                                                                <!--<a id="<?php echo $row['art_post_id']; ?>" onClick="deleteownpostmodel(this.id)"><i class="fa fa-trash-o" aria-hidden="true"></i>Delete Post</a>-->
 
                                                                 <a href="<?php echo base_url('artistic/artistic_contactperson/' . $row['user_id'] . ''); ?>"><i class="fa fa-user" aria-hidden="true"></i> Contact Person</a>
 
@@ -938,7 +943,7 @@
                                                                 <a id="<?php echo $row['art_post_id']; ?>" onClick="editpost(this.id)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit</a>
 
                 <?php } else { ?>
-                                                                <a href="<?php echo "#popup5" . $row['art_post_id']; ?>"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete Post</a>
+                                                                <!--<a href="<?php echo "#popup5" . $row['art_post_id']; ?>"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete Post</a>-->
 
 
 

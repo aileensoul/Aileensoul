@@ -669,7 +669,24 @@ if ($userlistview4 > 0) {
                 
                     <!-- Trigger/Open The Modal -->
                    
-                    <!-- The Modal -->
+             
+                    <!-- popup end -->
+                    </div>
+                  <div class="col-md-7 col-sm-7 col-md-push-4 col-md-push-4 custom-right">
+    <div >
+
+                        <div class="post-editor col-md-12">
+                            <div class="main-text-area col-md-12">
+                                <div class="popup-img col-md-1"> <img  src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image']); ?>"  alt="">
+                                </div>
+                                <div id="myBtn"  class="editor-content col-md-11 popup-text">
+                                    <span > Post Your Art....</span> 
+                               
+                                </div>
+                            </div>
+                           
+                        </div>
+                               <!-- The Modal -->
                     <div id="myModal" class="modal-post">
 
                         <!-- Modal content -->
@@ -734,22 +751,6 @@ if ($userlistview4 > 0) {
                             </div>
                         </div>
                     </div>
-                    <!-- popup end -->
-                    </div>
-                  <div class="col-md-7 col-sm-7 col-md-push-4 col-md-push-4 custom-right">
-    <div >
-
-                        <div class="post-editor col-md-12">
-                            <div class="main-text-area col-md-12">
-                                <div class="popup-img col-md-1"> <img  src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image']); ?>"  alt="">
-                                </div>
-                                <div id="myBtn"  class="editor-content col-md-11 popup-text">
-                                    <span > Post Your Art....</span> 
-                               
-                                </div>
-                            </div>
-                           
-                        </div>
                     </div>
 
                         <!--like comment start -->
@@ -928,11 +929,8 @@ if (count($finalsorting) > 0) {
 
                 <?php } else { ?>
 
-                                                                    <a id="<?php echo $row['art_post_id']; ?>" onClick="deletepostmodel(this.id)"><i class="fa fa-trash-o" aria-hidden="true"></i>Delete Post</a>
-
-
-
-                                                                    <a href="<?php echo base_url('artistic/artistic_contactperson/' . $row['user_id'] . ''); ?>"><i class="fa fa-user" aria-hidden="true"></i> Contact Person</a>
+                                                                    <!--<a id="<?php echo $row['art_post_id']; ?>" onClick="deletepostmodel(this.id)"><i class="fa fa-trash-o" aria-hidden="true"></i>Delete Post</a>-->
+                                               <a href="<?php echo base_url('artistic/artistic_contactperson/' . $row['user_id'] . ''); ?>"><i class="fa fa-user" aria-hidden="true"></i> Contact Person</a>
                                                             <?php }
                                                         }
                                                         ?>

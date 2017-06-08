@@ -17,7 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         <!-- http://bootsnipp.com/snippets/4jXW -->
 
-        <link rel="stylesheet" href="<?php echo base_url(); ?>css/style_chat.css" />
+        <link rel="stylesheet" href="<?php echo base_url(); ?>css/style.css" />
      
     <body>
         <?php echo $header; ?>

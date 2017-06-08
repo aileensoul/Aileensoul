@@ -39,8 +39,8 @@
 <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/3.3.0/select2.css'); ?>">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>"> 
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+<!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
+
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
 
 <!-- END HEAD -->
@@ -109,8 +109,8 @@
                         ?>
                         <div class="bg-images">
                             <img src="<?php echo base_url(WHITEIMAGE); ?>" name="image_src" id="image_src" / ></div>
-                         <?php }
-                         ?>
+                    <?php }
+                    ?>
 
 
                 </div>
@@ -209,13 +209,13 @@
 
                             if ($status == 0 || $status == " ") {
                                 ?>
-                                                                                                                                                                                  <div class="msg_flw_btn_1" id= "followdiv">
-                                                                                                                                                                                      <button  id="<?php echo "follow" . $businessdata1[0]['business_profile_id']; ?>" onClick="followuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Follow</button>
-                                                                                                                                                                                  </div>
+                                                                                                                                                                                      <div class="msg_flw_btn_1" id= "followdiv">
+                                                                                                                                                                                          <button  id="<?php echo "follow" . $businessdata1[0]['business_profile_id']; ?>" onClick="followuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Follow</button>
+                                                                                                                                                                                      </div>
                             <?php } elseif ($status == 1) { ?>
-                                                                                                                                                                                  <div class="msg_flw_btn_1" id= "unfollowdiv">
-                                                                                                                                                                                      <button id="<?php echo "unfollow" . $businessdata1[0]['business_profile_id']; ?>" onClick="unfollowuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Following </button>
-                                                                                                                                                                                  </div>
+                                                                                                                                                                                      <div class="msg_flw_btn_1" id= "unfollowdiv">
+                                                                                                                                                                                          <button id="<?php echo "unfollow" . $businessdata1[0]['business_profile_id']; ?>" onClick="unfollowuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Following </button>
+                                                                                                                                                                                      </div>
                             <?php } ?>
                                       </div> 
                                       <a href="<?php echo base_url('chat/abc/' . $businessdata1[0]['user_id']); ?>">Message</a>
@@ -247,8 +247,8 @@
                                 $userid = $this->session->userdata('aileenuser');
                                 if ($businessdata1[0]['user_id'] == $userid) {
                                     ?> 
-                                                                                                              <!--  <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_profile_save_post') { ?> class="active" <?php } ?>><a href="<?php echo base_url('business_profile/business_profile_save_post'); ?>">Saved Post</a>
-                                                                                                                                                                                    </li> -->
+                                                                                                                  <!--  <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_profile_save_post') { ?> class="active" <?php } ?>><a href="<?php echo base_url('business_profile/business_profile_save_post'); ?>">Saved Post</a>
+                                                                                                                                                                                        </li> -->
 
                                     <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'userlist') { ?> class="active" <?php } ?>><a title="Userlist" href="<?php echo base_url('business_profile/userlist/' . $businessdata1[0]['business_slug']); ?>">Userlist</a>
                                     </li>
@@ -827,9 +827,9 @@
 
                             </div>
                             <div class="col-md-1 padding-left padding_les_left camer_h">
-                                        <i class=" fa fa-camera">
-                                        </i> 
-                                    </div>
+                                <i class=" fa fa-camera">
+                                </i> 
+                            </div>
                         </div>
 
                     </div>
@@ -864,7 +864,7 @@
                                        <!-- <textarea name="product_title" placeholder="Post Your Product...."></textarea>  -->
                                     <textarea id= "test-upload_product" placeholder="Post Your Product...."  onKeyPress=check_length(this.form); onKeyDown=check_length(this.form); 
                                               name=my_text rows=4 cols=30 class="post_product_name" style="position: relative;" tabindex="1"></textarea>
-                                              <div class="fifty_val">                   
+                                    <div class="fifty_val">                   
                                         <input size=1 value=50 name=text_num class="text_num" readonly> 
                                     </div>
 
@@ -872,7 +872,7 @@
 
                                 <div class="col-md-1 padding-left camer_h" ><i class=" fa fa-camera " ></i> </div>
 
-                                    </div>
+                            </div>
                             <div class="row"></div>
                             <div  id="text"  class="editor-content col-md-12 popup-textarea" >
                                 <textarea id="test-upload_des" name="product_desc" class="description" placeholder="Enter Description" tabindex="2"></textarea>
@@ -1013,7 +1013,7 @@
                                                         <li><div class="post-design-product"><a class="post_dot" title="<?php echo ucwords($companyname); ?> " href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>"><?php echo ucwords($companyname); ?> </a>
 
                                                                 <div class="datespan"> 
-                                                                  <span class="ctre_date"><?php echo date('d-M-Y', strtotime($row['created_date'])); ?> </span> 
+                                                                    <span class="ctre_date"><?php echo date('d-M-Y', strtotime($row['created_date'])); ?> </span> 
                                                                 </div>
 
                                                             </div></li>
@@ -1092,14 +1092,14 @@
                                             </div>
 
 
-  <?php if($row['product_name'] || $row['product_description']){?>
+                                            <?php if ($row['product_name'] || $row['product_description']) { ?>
 
-                                            <div class="post-design-desc ">
-                <?php }?>                          
+                                                <div class="post-design-desc ">
+                                                <?php } ?>                          
                                                 <div id="<?php echo 'editpostdata' . $row['business_profile_post_id']; ?>" style="display:block;">
                                                     <a  ><?php echo $this->common->make_links($row['product_name']); ?></a>
                                                 </div>
-                                                
+
 
                                                 <div id="<?php echo 'editpostbox' . $row['business_profile_post_id']; ?>" style="display:none;">
                                                     <input type="text" id="<?php echo 'editpostname' . $row['business_profile_post_id']; ?>" name="editpostname" placeholder="Product Name" value="<?php echo $row['product_name']; ?>">
@@ -1109,15 +1109,15 @@
                                                 <div id="<?php echo 'editpostdetails' . $row['business_profile_post_id']; ?>" style="display:block;">
                                                     <span class="show">  
                                                         <?php $new_product_description = $this->common->make_links($row['product_description']); ?>
-                                                                <?php  echo  nl2br(htmlentities($new_product_description, ENT_QUOTES, 'UTF-8')); ?>
-                                                                <?php //echo  nl2br($new_product_description); ?>
+                                                        <?php echo nl2br(htmlentities($new_product_description, ENT_QUOTES, 'UTF-8')); ?>
+                                                        <?php //echo  nl2br($new_product_description); ?>
                                                     </span>
                                                 </div>
 
                                                 <div id="<?php echo 'editpostdetailbox' . $row['business_profile_post_id']; ?>" style="display:none;">
 
-                                                                                                                                                                                                                            <!-- <textarea id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" name="editpostdesc"><?php echo $row['product_description']; ?>
-                                                                                                                                                                                                                            </textarea> 
+                                                                                                                                                                                                                                    <!-- <textarea id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" name="editpostdesc"><?php echo $row['product_description']; ?>
+                                                                                                                                                                                                                                    </textarea> 
                                                     -->
                                                     <div  contenteditable="true" id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" placeholder="Product Description" class="textbuis  editable_text" placeholder="Description of Your Product"  name="editpostdesc" onpaste="OnPaste_StripFormatting(this, event);"><?php echo $row['product_description']; ?></div>
 
@@ -1132,10 +1132,10 @@
 
 
                                             </div> 
-                                            <?php if($row['product_name'] || $row['product_description']){?>
-                                        </div>
-                                       <?php } ?>
-                                      
+                                            <?php if ($row['product_name'] || $row['product_description']) { ?>
+                                            </div>
+                                        <?php } ?>
+
 
 
                                         <div class="post-design-mid col-md-12" >  
@@ -1322,7 +1322,7 @@
                                             <div class="post-design-menu">
                                                 <ul class="col-md-6">
                                                     <li class="<?php echo 'likepost' . $row['business_profile_post_id']; ?>">
-                                                        <a id="<?php echo $row['business_profile_post_id']; ?>"   onClick="post_like(this.id)">
+                                                        <a class="ripple like_h_w" id="<?php echo $row['business_profile_post_id']; ?>"   onClick="post_like(this.id)">
                                                             <?php
                                                             $userid = $this->session->userdata('aileenuser');
                                                             $contition_array = array('business_profile_post_id' => $row['business_profile_post_id'], 'status' => '1');
@@ -1334,12 +1334,12 @@
                                                             if (!in_array($userid, $likeuserarray)) {
                                                                 ?>               
 
-                                                                <!--<i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>-->
-                                                            <i class="fa fa-thumbs-up" style="color: #999;" aria-hidden="true"></i>
+                                                                            <!--<i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>-->
+                                                                <i class="fa fa-thumbs-up" style="color: #999;" aria-hidden="true"></i>
 
                                                             <?php } else { ?> 
-                                                                <!--<i class="fa fa-thumbs-up" aria-hidden="true"></i>-->
-                                                            <i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i>
+                                                                            <!--<i class="fa fa-thumbs-up" aria-hidden="true"></i>-->
+                                                                <i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i>
                                                             <?php } ?>
 
                                                             <span class="like_As_count">
@@ -1358,31 +1358,48 @@
                                                         $commnetcount = $this->common->select_data_by_condition('business_profile_post_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                                                         ?>
 
-                                                        <a  onClick="commentall(this.id)" id="<?php echo $row['business_profile_post_id']; ?>"><i class="fa fa-comment-o" aria-hidden="true"> 
+                                                        <a class="ripple like_h_w" onClick="commentall(this.id)" id="<?php echo $row['business_profile_post_id']; ?>"><i class="fa fa-comment-o" aria-hidden="true"> 
                                                                 <?php
-                                                                if (count($commnetcount) > 0) {
+                                                               /* if (count($commnetcount) > 0) {
                                                                     echo count($commnetcount);
-                                                                }
+                                                                } */
                                                                 ?>
                                                             </i> 
                                                         </a>
                                                     </li> 
                                                 </ul>
-  <ul class="col-md-6 like_cmnt_count">
+                                                <ul class="col-md-6 like_cmnt_count">
 
-<li>
-<div class="like_count_ext">
-<span > 5 </span> 
-<span> Comment</span>
-</div>
-</li>
+                                                    <li>
+                                                        <div class="like_count_ext">
+                                                            <span class="comment_count<?php echo $row['business_profile_post_id']; ?>" > 
+                                                                <?php
+                                                                if (count($commnetcount) > 0) {
+                                                                    echo count($commnetcount);
+                                                                } else {
+                                                                    echo '0';
+                                                                }
+                                                                ?> 
+                                                            </span> 
+                                                            <span> Comment</span>
+                                                        </div>
+                                                    </li>
 
-<li>
-<div class="comnt_count_ext">
-<span> 5 </span> 
-<span> Like</span>
-</div></li>
-                                        </ul>
+                                                    <li>
+                                                        <div class="comnt_count_ext">
+                                                            <span class="comment_like_count<?php echo $row['business_profile_post_id']; ?>"> 
+                                                                <?php
+                                                                if ($row['business_likes_count'] > 0) {
+                                                                    echo $row['business_likes_count'];
+                                                                } else {
+                                                                    echo '0';
+                                                                }
+                                                                ?>
+                                                            </span> 
+                                                            <span> Like</span>
+                                                        </div>
+                                                    </li>
+                                                </ul>
                                             </div>
                                         </div>
 
@@ -1533,11 +1550,12 @@
                                                                 <div class="comment-details" id= "<?php echo "showcomment" . $rowdata['business_profile_post_comment_id']; ?>">
                                                                     <?php
                                                                     $new_product_comment = $this->common->make_links($rowdata['comments']);
-                                                                    
-                                                                //    echo  nl2br(htmlentities($new_product_comment, ENT_QUOTES, 'UTF-8')); 
-                                                                    echo  nl2br(htmlspecialchars_decode(htmlentities($new_product_comment, ENT_QUOTES, 'UTF-8'))); ?>
+
+                                                                    //    echo  nl2br(htmlentities($new_product_comment, ENT_QUOTES, 'UTF-8')); 
+                                                                    echo nl2br(htmlspecialchars_decode(htmlentities($new_product_comment, ENT_QUOTES, 'UTF-8')));
+                                                                    ?>
                                                                 </div>
-                                                                
+
                                                                 <div class="edit-comment-box">
                                                                     <div class="inputtype-edit-comment">
 
@@ -1556,10 +1574,10 @@
                                                                             if (!in_array($userid, $likeuserarray)) {
                                                                                 ?>
                                                                                 <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i> 
-                                                                            <?php } else { ?>
+                <?php } else { ?>
                                                                                 <i class="fa fa-thumbs-up" aria-hidden="true"></i>
 
-                                                                            <?php } ?>
+                                                                                <?php } ?>
                                                                             <span>
                                                                                 <?php
                                                                                 if ($rowdata['business_comment_likes_count']) {
@@ -1589,7 +1607,7 @@
 
                                                                         </div>
 
-                                                                    <?php } ?>
+                <?php } ?>
 
 
 
@@ -1612,7 +1630,7 @@
                                                                             </a>
                                                                         </div>
 
-                                                                    <?php } ?>                                   
+                <?php } ?>                                   
                                                                     <span role="presentation" aria-hidden="true"> · </span>
                                                                     <div class="comment-details-menu">
                                                                         <p><?php
@@ -1649,17 +1667,17 @@
                                                     <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage); ?>"  alt="">
                                                 <?php } else { ?>
                                                     <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
-                                                <?php } ?>
+        <?php } ?>
                                             </div>
 
 
 
                                             <div >
-                                                  <div id="content" class="col-md-12  inputtype-comment cmy_2" >
+                                                <div id="content" class="col-md-12  inputtype-comment cmy_2" >
 
                                                     <div contenteditable="true" class="editable_text edt_2" name="<?php echo $row['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $row['business_profile_post_id']; ?>" placeholder="Add a Comment... " onClick="entercomment(<?php echo $row['business_profile_post_id']; ?>)" onpaste="OnPaste_StripFormatting(this, event);"></div>
                                                 </div>
-                                                <?php echo form_error('post_comment'); ?> 
+        <?php echo form_error('post_comment'); ?> 
                                                 <div class="comment-edit-butn">       
                                                     <button id="<?php echo $row['business_profile_post_id']; ?>" onClick="insert_comment(this.id)">Comment</button></div>
                                             </div>
@@ -1678,7 +1696,7 @@
                             <h4 class="page-heading  product-listing">No Post Found.</h4>
                         </div>
 
-                    <?php } ?>
+<?php } ?>
 
 
                 </div>
@@ -1691,7 +1709,7 @@
             <!-- footer start -->
             <footer>
 
-                <?php echo $footer; ?>
+<?php echo $footer; ?>
             </footer>
 
 
@@ -1719,7 +1737,7 @@
                         <div class="modal-body">
                             <span class="mes">
                                 <div id="popup-form">
-                                    <?php echo form_open_multipart(base_url('business_profile/user_image_insert'), array('id' => 'userimage', 'name' => 'userimage', 'class' => 'clearfix')); ?>
+<?php echo form_open_multipart(base_url('business_profile/user_image_insert'), array('id' => 'userimage', 'name' => 'userimage', 'class' => 'clearfix')); ?>
                                     <input type="file" name="profilepic" accept="image/gif, image/jpeg, image/png" id="profilepic">
                                     <input type="hidden" name="hitext" id="hitext" value="5">
                                     <!--<input type="submit" name="cancel3" id="cancel3" value="Cancel">-->
@@ -1727,7 +1745,7 @@
                                     <div class="popup_previred">
                                         <img id="preview" src="#" alt="your image" />
                                     </div>
-                                    <?php echo form_close(); ?>
+<?php echo form_close(); ?>
                                 </div>
                             </span>
                         </div>
@@ -1877,37 +1895,37 @@
                 })(jQuery);
             </script>
 
-<script>
+            <script>
 
-var data1= <?php echo json_encode($city_data); ?>;
-//alert(data);
+                var data1 = <?php echo json_encode($city_data); ?>;
+                //alert(data);
 
-        
-$(function() {
-    // alert('hi');
-$( "#searchplace" ).autocomplete({
-     source: function( request, response ) {
-         var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
-         response( $.grep( data1, function( item ){
-             return matcher.test( item.label );
-         }) );
-   },
-    minLength: 1,
-    select: function(event, ui) {
-        event.preventDefault();
-        $("#searchplace").val(ui.item.label);
-        $("#selected-tag").val(ui.item.label);
-        // window.location.href = ui.item.value;
-    }
-    ,
-    focus: function(event, ui) {
-        event.preventDefault();
-        $("#searchplace").val(ui.item.label);
-    }
-});
-});
-  
-</script>
+
+                $(function () {
+                    // alert('hi');
+                    $("#searchplace").autocomplete({
+                        source: function (request, response) {
+                            var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+                            response($.grep(data1, function (item) {
+                                return matcher.test(item.label);
+                            }));
+                        },
+                        minLength: 1,
+                        select: function (event, ui) {
+                            event.preventDefault();
+                            $("#searchplace").val(ui.item.label);
+                            $("#selected-tag").val(ui.item.label);
+                            // window.location.href = ui.item.value;
+                        }
+                        ,
+                        focus: function (event, ui) {
+                            event.preventDefault();
+                            $("#searchplace").val(ui.item.label);
+                        }
+                    });
+                });
+
+            </script>
             <script type="text/javascript">
                 function checkvalue() {
                     //alert("hi");
@@ -2016,7 +2034,7 @@ $( "#searchplace" ).autocomplete({
                             // $('.' + 'likepost' + clicked_id).html(data);
                             $('.' + 'likepost' + clicked_id).html(data.like);
                             $('.likeusername' + clicked_id).html(data.likeuser);
-
+                            $('.comment_like_count' + clicked_id).html(data.like_user_count);
                             $('.likeduserlist' + clicked_id).hide();
                             if (data.like_user_count == '0') {
                                 document.getElementById('likeusername' + clicked_id).style.display = "none";
@@ -2055,7 +2073,7 @@ $( "#searchplace" ).autocomplete({
                     {
                         return false;
                     }
-                    txt = txt.replace(/&/g,"%26");
+                    txt = txt.replace(/&/g, "%26");
                     $('#post_comment' + clicked_id).html("");
 
                     var x = document.getElementById('threecomment' + clicked_id);
@@ -2071,8 +2089,9 @@ $( "#searchplace" ).autocomplete({
                                 $('textarea').each(function () {
                                     $(this).val('');
                                 });
-                                $('#' + 'insertcount' + clicked_id).html(data.count);
+//                                $('#' + 'insertcount' + clicked_id).html(data.count);
                                 $('.insertcomment' + clicked_id).html(data.comment);
+                                $('.comment_count' + clicked_id).html(data.comment_count);
 
                             }
                         });
@@ -2088,8 +2107,9 @@ $( "#searchplace" ).autocomplete({
                                 $('textarea').each(function () {
                                     $(this).val('');
                                 });
-                                $('#' + 'insertcount' + clicked_id).html(data.count);
+//                                $('#' + 'insertcount' + clicked_id).html(data.count);
                                 $('#' + 'fourcomment' + clicked_id).html(data.comment);
+                                $('.comment_count' + clicked_id).html(data.comment_count);
                             }
                         });
                     }
@@ -2166,7 +2186,7 @@ $( "#searchplace" ).autocomplete({
                             {
                                 return false;
                             }
-                            txt = txt.replace(/&/g,"%26");
+                            txt = txt.replace(/&/g, "%26");
                             $('#post_comment' + clicked_id).html("");
 
                             if (window.preventDuplicateKeyPresses)
@@ -2194,8 +2214,9 @@ $( "#searchplace" ).autocomplete({
                                         });
 
                                         //  $('.insertcomment' + clicked_id).html(data);
-                                        $('#' + 'insertcount' + clicked_id).html(data.count);
+//                                        $('#' + 'insertcount' + clicked_id).html(data.count);
                                         $('.insertcomment' + clicked_id).html(data.comment);
+                                        $('.comment_count' + clicked_id).html(data.comment_count);
 
                                     }
                                 });
@@ -2211,8 +2232,9 @@ $( "#searchplace" ).autocomplete({
                                             $(this).val('');
                                         });
                                         //$('#' + 'fourcomment' + clicked_id).html(data);
-                                        $('#' + 'insertcount' + clicked_id).html(data.count);
+//                                        $('#' + 'insertcount' + clicked_id).html(data.count);
                                         $('#' + 'fourcomment' + clicked_id).html(data.comment);
+                                        $('.comment_count' + clicked_id).html(data.comment_count);
 
                                     }
                                 });
@@ -2307,10 +2329,9 @@ $( "#searchplace" ).autocomplete({
                             $('textarea').each(function () {
                                 $(this).val('');
                             });
-
-
-                            $('.' + 'insertcount' + clicked_id).html(data.count);
+//                            $('.' + 'insertcount' + clicked_id).html(data.count);
                             $('.' + 'insertcomment1' + clicked_id).html(data.comment);
+                            $('.comment_count' + clicked_id).html(data.comment_count);
 
                         }
                     });
@@ -2349,11 +2370,9 @@ $( "#searchplace" ).autocomplete({
                                         $('textarea').each(function () {
                                             $(this).val('');
                                         });
-
-
-                                        $('.' + 'insertcount' + clicked_id).html(data.count);
+//                                        $('.' + 'insertcount' + clicked_id).html(data.count);
                                         $('.' + 'insertcomment1' + clicked_id).html(data.comment);
-
+                                        $('.comment_count' + clicked_id).html(data.comment_count);
                                     }
                                 });
                                 //alert(val);
@@ -2392,7 +2411,6 @@ $( "#searchplace" ).autocomplete({
                             //alert(data);
                             success: function (data) {
                                 $('#' + 'fourcomment' + clicked_id).html(data);
-
                             }
                         });
 
@@ -2480,8 +2498,8 @@ $( "#searchplace" ).autocomplete({
                             //document.getElementById('showcomment' + clicked_id).style.display='block';
                             //document.getElementById('editsubmit' + clicked_id).style.display='none';
                             $('.' + 'insertcomment' + post_delete.value).html(data.comment);
-                            $('#' + 'insertcount' + post_delete.value).html(data.count);
-
+//                            $('#' + 'insertcount' + post_delete.value).html(data.count);
+                            $('.comment_count' + post_delete.value).html(data.comment_count);
                             $('.post-design-commnet-box').show();
                         }
                     });
@@ -2506,8 +2524,8 @@ $( "#searchplace" ).autocomplete({
                         dataType: "json",
                         success: function (data) { //alert('.' + 'insertcomment' + clicked_id);
                             $('.' + 'insertcommenttwo' + post_delete1.value).html(data.comment);
-                            $('#' + 'insertcount' + post_delete1.value).html(data.count);
-
+//                            $('#' + 'insertcount' + post_delete1.value).html(data.count);
+                            $('.comment_count' + post_delete1.value).html(data.comment_count);
                             $('.post-design-commnet-box').show();
                         }
                     });
@@ -2674,7 +2692,7 @@ $( "#searchplace" ).autocomplete({
                     {
                         return false;
                     }
-                    txt = txt.replace(/&/g,"%26");
+                    txt = txt.replace(/&/g, "%26");
 //                    alert(txt);
 //                    return false;
                     $.ajax({
@@ -2763,7 +2781,7 @@ $( "#searchplace" ).autocomplete({
                             {
                                 return false;
                             }
-                            txt = txt.replace(/&/g,"%26");
+                            txt = txt.replace(/&/g, "%26");
                             //$('#editcomment' + abc).html("");
 
                             if (window.preventDuplicateKeyPresses)
@@ -2841,7 +2859,7 @@ $( "#searchplace" ).autocomplete({
                     {
                         return false;
                     }
-                    txt = txt.replace(/&/g,"%26");
+                    txt = txt.replace(/&/g, "%26");
                     $.ajax({
                         type: 'POST',
                         url: '<?php echo base_url() . "business_profile/edit_comment_insert" ?>',
@@ -2935,7 +2953,7 @@ $( "#searchplace" ).autocomplete({
                             {
                                 return false;
                             }
-                            txt = txt.replace(/&/g,"%26");
+                            txt = txt.replace(/&/g, "%26");
                             //$('#editcommenttwo' + abc).html("");
 
                             if (window.preventDuplicateKeyPresses)
@@ -3171,14 +3189,13 @@ $( "#searchplace" ).autocomplete({
                 /* When the user clicks on the button, 
                  toggle between hiding and showing the dropdown content */
                 function myFunction1(clicked_id) {
-                    
+
                     var dropDownClass = document.getElementById('myDropdown' + clicked_id).className;
                     dropDownClass = dropDownClass.split(" ").pop(-1);
-                    if(dropDownClass != 'show'){
+                    if (dropDownClass != 'show') {
                         $('.dropdown-content2').removeClass('show');
                         $('#myDropdown' + clicked_id).addClass('show');
-                    }
-                    else{
+                    } else {
                         $('.dropdown-content2').removeClass('show');
                     }
                 }
@@ -3253,8 +3270,8 @@ $( "#searchplace" ).autocomplete({
                     var $field = $('#editpostname' + abc);
                     //var data = $field.val();
                     var editpostdetails = $('#editpostdesc' + abc).html();
-                    
-                    editpostdetails = editpostdetails.replace(/&/g,"%26");
+
+                    editpostdetails = editpostdetails.replace(/&/g, "%26");
 
 
                     // $('#editpostdesc' + abc).html("");
@@ -3659,7 +3676,7 @@ $( "#searchplace" ).autocomplete({
                             event.preventDefault();
                             var sel = $("#post_comment" + clicked_id);
                             var txt = sel.html();
-                            txt = txt.replace(/&/g,"%26");
+                            txt = txt.replace(/&/g, "%26");
                             $('#post_comment' + clicked_id).html("");
                             // $("#result").html(txt);
                             // sel.html("")
@@ -4004,31 +4021,31 @@ $( "#searchplace" ).autocomplete({
 
 
             </script>
-            
-<script type="text/javascript">
 
-    var _onPaste_StripFormatting_IEPaste = false;
+            <script type="text/javascript">
 
-    function OnPaste_StripFormatting(elem, e) {
+                var _onPaste_StripFormatting_IEPaste = false;
 
-        if (e.originalEvent && e.originalEvent.clipboardData && e.originalEvent.clipboardData.getData) {
-            e.preventDefault();
-            var text = e.originalEvent.clipboardData.getData('text/plain');
-            window.document.execCommand('insertText', false, text);
-        } else if (e.clipboardData && e.clipboardData.getData) {
-            e.preventDefault();
-            var text = e.clipboardData.getData('text/plain');
-            window.document.execCommand('insertText', false, text);
-        } else if (window.clipboardData && window.clipboardData.getData) {
-            // Stop stack overflow
-            if (!_onPaste_StripFormatting_IEPaste) {
-                _onPaste_StripFormatting_IEPaste = true;
-                e.preventDefault();
-                window.document.execCommand('ms-pasteTextOnly', false);
-            }
-            _onPaste_StripFormatting_IEPaste = false;
-        }
+                function OnPaste_StripFormatting(elem, e) {
 
-    }
+                    if (e.originalEvent && e.originalEvent.clipboardData && e.originalEvent.clipboardData.getData) {
+                        e.preventDefault();
+                        var text = e.originalEvent.clipboardData.getData('text/plain');
+                        window.document.execCommand('insertText', false, text);
+                    } else if (e.clipboardData && e.clipboardData.getData) {
+                        e.preventDefault();
+                        var text = e.clipboardData.getData('text/plain');
+                        window.document.execCommand('insertText', false, text);
+                    } else if (window.clipboardData && window.clipboardData.getData) {
+                        // Stop stack overflow
+                        if (!_onPaste_StripFormatting_IEPaste) {
+                            _onPaste_StripFormatting_IEPaste = true;
+                            e.preventDefault();
+                            window.document.execCommand('ms-pasteTextOnly', false);
+                        }
+                        _onPaste_StripFormatting_IEPaste = false;
+                    }
 
-</script>
+                }
+
+            </script>
