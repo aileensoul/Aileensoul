@@ -601,9 +601,10 @@ if ($returnpage == 'job') {
 <!--                                                    <a class="button">Save</a>
                                                     <a  class="button ">Message</a>-->
 
+<a href="javascript:void(0);" class="button" onclick="removepopup(<?php echo $post['post_id'] ?>)">Remove</a>
 <a href="<?php echo base_url('recruiter/edit_post/' . $post['post_id']); ?>" class="button">Edit</a>
 <!-- <a href="#popup1" class="button">Remove </a> -->
- <a href="javascript:void(0);" class="button" onclick="removepopup(<?php echo $post['post_id'] ?>)">Remove</a>
+ 
                                                         <a href="<?php echo base_url('recruiter/view_apply_list/' . $post['post_id']); ?>" class="button">Applied  Candidate : <?php echo count($this->common->select_data_by_id('job_apply', 'post_id', $post['post_id'], $data = '*', $join_str = array())); ?></a>
                                                 </li>
                                         </div>
