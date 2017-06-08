@@ -2225,7 +2225,6 @@
                             $('textarea').each(function () {
                                 $(this).val('');
                             });
-                            alert(data.comment_count);
                             //  $('.insertcomment' + clicked_id).html(data);
                             //alert('.insertcount' + clicked_id);
                            // $('#' + 'insertcount' + clicked_id).html(data.count);
@@ -2247,7 +2246,7 @@
                             //$('#' + 'fourcomment' + clicked_id).html(data);
                             //$('#' + 'insertcount' + clicked_id).html(data.count);
                             $('#' + 'fourcomment' + clicked_id).html(data.comment);
-                            $('.comment_count' + clicked_id).html(data.pninsert_commentthree);
+                            $('.comment_count' + clicked_id).html(data.comment_count);
                         }
                     });
                 }
