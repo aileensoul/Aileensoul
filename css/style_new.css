@@ -1,6 +1,6 @@
 /*** new style css  ***/
 /*** new style css  ***/
-
+/*
 .prev,.next {
     background-color: #000;
 }
@@ -22,8 +22,8 @@
     border-radius: 0 3px 3px 0;
     user-select: none;
     -webkit-user-select: none;
-}
- .next {
+}*/
+/* .next {
     transform: translate(0, -50%);
     cursor: pointer;
     position: absolute;
@@ -39,7 +39,7 @@
     border-bottom-left-radius:3px; 
     user-select: none;
     -webkit-user-select: none;
-}
+}*/
 
 /*.modal2 .prev, .next {
 	top:300px !important;
