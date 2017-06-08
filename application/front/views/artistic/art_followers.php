@@ -278,7 +278,7 @@ if($status == 0 || $status == " "){?>
 
             <!-- text head end -->
                       </div>
-                      <div class="col-md-7 col-sm-7">
+                      <div class="col-md-7 col-sm-7 follow_mid">
 
                     <div>
                         <?php
@@ -398,17 +398,7 @@ if($status == 0 || $status == " "){?>
             </div>
         </div>
         </div>
-    <div class="user-midd-section">
-            <div class="container">
-                <div class="row">
-                <div class="col-md-3">
-                 
-                </div>
-      
-                                </div>
-
-                        </div>
-                    </div>
+   
     </section>
     <footer>
  <?php echo $footer;  ?>

@@ -274,7 +274,7 @@ if($status == 0 || $status == " "){?>
 
             <!-- text head end -->
                       </div>
-                      <div class="col-md-7 col-sm-7">
+                      <div class="col-md-7 col-sm-7 follow_mid">
 
                     <div>
                         <?php
