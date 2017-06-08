@@ -306,7 +306,7 @@
                 url: "<?php echo base_url() ?>dashboard/ajaxpro",
                 type: "POST",
                 data: {"image": resp},
-                success: function (data) { 
+                success: function (data) {
                     html = '<img src="' + resp + '" />';
                     if (html) {
                         window.location.reload();
@@ -319,10 +319,9 @@
     });
 
     $('.cancel-result').on('click', function (ev) {
-      $('.cr-image').remove();
         document.getElementById('row2').style.display = "block";
-        document.getElementById('row1').style.display = "block";
-        document.getElementById('message1').style.display = "block";
+        document.getElementById('row1').style.display = "none";
+        document.getElementById('message1').style.display = "none";
     });
     //aarati code start
     $('#upload').on('change', function () {
