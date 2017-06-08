@@ -781,7 +781,7 @@
                                             <!-- slider image rotation end  -->
 
                                             <a class="prev" style="left: 0;" onclick="plusSlides(-1)">&#10094;</a>
-                                            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                                            <a class="next" style="right:  0;" onclick="plusSlides(1)">&#10095;</a>
                                             <div class="caption-container">
                                                 <p id="caption"></p>
                                             </div>

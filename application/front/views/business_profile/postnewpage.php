@@ -88,11 +88,11 @@
     .next {
         cursor: pointer;
         position: absolute;
-        top: 50%;
+        top: 200px !important;
         width: auto;
         padding: 16px;
         margin-top: 10px;
-        color: white;
+        color: black;
         font-weight: bold;
         font-size: 20px;
         transition: 0.6s ease;
@@ -127,7 +127,7 @@
     /* On hover, add a black background color with a little bit see-through */
     .prev:hover,
     .next:hover {
-        background-color: rgba(0, 0, 0, 0.8);
+        background-color:silver;
     }
 
     /* Number text (1/3 etc) */
@@ -393,12 +393,12 @@
 <!-- END HEAD -->
 <!-- start header -->
 
-<div style="display: block;">
+
     <?php echo $header; ?>
-</div>
-<div style="display: block;">
+
+
     <?php echo $business_header2; ?>
-</div>
+
 <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
 
 
