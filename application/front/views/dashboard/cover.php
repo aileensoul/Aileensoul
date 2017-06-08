@@ -366,18 +366,6 @@
             return false;
         }
 
-        $.ajax({
-
-            url: "<?php echo base_url(); ?>dashboard/image",
-            type: "POST",
-            data: fd,
-            processData: false,
-            contentType: false,
-            success: function (response) {
-             alert(1);  alert(response);
-
-            }
-        });
     });
 
 //aarati code end
