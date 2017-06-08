@@ -3666,7 +3666,7 @@ $contition_array = array('status' => '1');
                 //echo"add";
 
                 $cmtlike = '<li>';
-                $cmtlike .= '<a id="' . $businessprofiledata1[0]['business_profile_post_id'] . '" onClick="post_like(this.id)">';
+                $cmtlike .= '<a id="' . $businessprofiledata1[0]['business_profile_post_id'] . '" class="ripple like_h_w" onClick="post_like(this.id)">';
                 $cmtlike .= ' <i class="fa fa-thumbs-up" aria-hidden="true">';
                 $cmtlike .= '</i>';
                 $cmtlike .= '<span class="like_As_count"> ';
@@ -3771,7 +3771,7 @@ $contition_array = array('status' => '1');
             if ($updatdata) {
 
                 $cmtlike = '<li>';
-                $cmtlike .= '<a id="' . $businessprofiledata2[0]['business_profile_post_id'] . '" onClick="post_like(this.id)">';
+                $cmtlike .= '<a id="' . $businessprofiledata2[0]['business_profile_post_id'] . '" class="ripple like_h_w" onClick="post_like(this.id)">';
                 $cmtlike .= '<i class="fa fa-thumbs-up" style="color: #999;" aria-hidden="true">';
                 $cmtlike .= '</i>';
                 $cmtlike .= '<span class="like_As_count">';
@@ -3810,7 +3810,7 @@ $contition_array = array('status' => '1');
 //popup box end like user name
 //                $cmtlikeuser .= '<a href=#popuplike' . $businessprofiledata2[0]['business_profile_post_id'] . '>';
                 //$cmtlikeuser .= '<div style="padding-top: 6px; padding-bottom: 6px;">';
-                $cmtlikeuser .= '<a href="javascript:void(0);" onclick="likeuserlist(' . $businessprofiledata2[0]['business_profile_post_id'] . ')"';
+                $cmtlikeuser .= '<a href="javascript:void(0);" class="ripple like_h_w" onclick="likeuserlist(' . $businessprofiledata2[0]['business_profile_post_id'] . ')"';
                 $contition_array = array('business_profile_post_id' => $businessprofiledata2[0]['business_profile_post_id'], 'status' => '1', 'is_delete' => '0');
                 $commnetcount = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
