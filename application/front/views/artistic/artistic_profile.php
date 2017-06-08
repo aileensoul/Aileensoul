@@ -11,42 +11,6 @@
 <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
 
-<style type="text/css" media="screen">
-
-    #row2 { overflow: hidden; width: 100%; }
-    #row2 img { height: 350px;width: 100%; }
-    .upload-img{    float: right;
-                    position: relative;
-                    margin-top: -135px;
-                    right: 50px; }
-
-    label.cameraButton {
-        display: inline-block;
-        margin: 1em 0;
-        cursor: pointer;
-        /* Styles to make it look like a button */
-        padding: 0.5em;
-        border: 2px solid #666;
-        border-color: #EEE #CCC #CCC #EEE;
-        background-color: #DDD;
-        opacity: 0.7;
-    }
-
-    /* Look like a clicked/depressed button */
-    label.cameraButton:active {
-        border-color: #CCC #EEE #EEE #CCC;
-    }
-
-    /* This is the part that actually hides the 'Choose file' text box for camera inputs */
-    label.cameraButton input[accept*="camera"] {
-        display: none;
-    }
-
-
-
-
-</style>
-
 <!-- END HEAD -->
 <!-- start header -->
 <?php echo $header; ?>
@@ -60,9 +24,9 @@
         <div class="container" id="paddingtop_fixed">
             <div class="row" id="row1" style="display:none;">
                 <div class="col-md-12 text-center">
-                    <div id="upload-demo" style="width:100%"></div>
+                    <div id="upload-demo" ></div>
                 </div>
-                <div class="col-md-12 cover-pic" style="padding-top: 25px;text-align: center;">
+                <div class="col-md-12 cover-pic" >
                     <button class="btn btn-success cancel-result">Cancel</button>
 
                     <button class="btn btn-success set-btn upload-result" onclick="myFunction()">Save</button>
@@ -81,7 +45,7 @@
                     </div>
                 </div>
                 <div class="col-md-12"  style="visibility: hidden; ">
-                    <div id="upload-demo-i" style="background:#e1e1e1;width:100%;padding:30px;height:1px;margin-top:30px"></div>
+                    <div id="upload-demo-i" ></div>
                 </div>
             </div>
 
@@ -661,10 +625,11 @@ if ($artisticdata[0]['art_bestofmine']) {
 <?php echo form_open_multipart(base_url('artistic/user_image_insert'), array('id' => 'userimage', 'name' => 'userimage', 'class' => 'clearfix')); ?>
                         <input type="file" name="profilepic" accept="image/gif, image/jpeg, image/png" id="profilepic">
                         <input type="hidden" name="hitext" id="hitext" value="4">
-
-                        <img id="preview" src="#" alt="your image" style="border: 2px solid rgb(204, 204, 204); display: none; margin: 0 auto; margin-top: 5px;padding: 5px;"/>
+ <div class="popup_previred">
+                        <img id="preview" src="#" alt="your image" />
+                        </div>
                         <!--<input type="submit" name="cancel3" id="cancel3" value="Cancel">-->
-                        <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save" style="margin-top:32px!important;">
+                        <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save" >
 <?php echo form_close(); ?>
                     </div>
                 </span>
