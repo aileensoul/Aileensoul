@@ -2,59 +2,6 @@
 <!-- start head -->
 <?php echo $head; ?>
 <!-- END HEAD -->
-<style type="text/css">
- .okk{
-        text-align: center;
-    }
-     .pop_content .okbtn{
-        position: absolute;
-        transition: all 200ms;
-        font-size: 16px;
-        text-decoration: none;
-        color: #fff;
-        padding: 8px 18px;
-        background-color: #0A2C5D;
-        left: 170px;
-        margin-top: 8px;
-        width: 100px; 
-        border-radius: 8px;
-    }
-      .pop_content .cnclbtn {
-        position: absolute;
-        transition: all 200ms;
-        font-size: 16px;
-        text-decoration: none;
-        color: #fff;
-        padding: 8px 18px;
-        background-color: #0A2C5D;
-        right: 170px;
-        margin-top: 8px;
-        width: 100px;
-        border-radius: 8px;
-    }
-
-   .popup .pop_content {
-        text-align: center;
-        margin-top: 40px;
-
-    }
-      .model_ok_cancel{
-        width:200px !important;
-    }
-
-</style>
-<style type="text/css">
-  
-  /*.keyskill_border_deactivte {
-  border: 0px solid red;
-
-}*/
-
-.keyskill_border_active {
-  border: 1px solid red !important;
-
-}
-</style>
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/3.3.0/select2.css" rel="stylesheet" /> 
 <link rel="stylesheet" href="<?php echo base_url('css/bootstrap.min.css'); ?>" />
@@ -198,7 +145,7 @@ if ($this->session->flashdata('success')) {
 
 
                                 <div  style="padding-left: 8px;">
-                                    <fieldset class="full-width" style="padding-left: 0px;">
+                                    <fieldset class="full-width padding_less_left">
                                         <label>Other skill:</label>
 
                                         <?php

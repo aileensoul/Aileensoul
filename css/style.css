@@ -9087,4 +9087,5 @@ fieldset .add_post_btns:hover {
     .left_nest{position: absolute;
     bottom: 0px;
     left: 28%;}
-    
+    .keyskill_border_active {
+  border: 1px solid red !important;}
