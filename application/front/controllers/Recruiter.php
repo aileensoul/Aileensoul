@@ -537,7 +537,7 @@ class Recruiter extends MY_Controller {
 
         //for getting city data
         $contition_array = array('status' => 1);
-        $this->data['cities'] = $this->common->select_data_by_condition('cities', $contition_array, $data = '*', $sortby = 'city_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        $cities=$this->data['cities'] = $this->common->select_data_by_condition('cities', $contition_array, $data = '*', $sortby = 'city_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         //echo "<pre>";print_r($this->data['city']);echo "</pre>";die();
 
 
@@ -590,22 +590,26 @@ class Recruiter extends MY_Controller {
 //echo '<pre>'; print_r($result1); die();
          
          $this->data['demo']= $result1;
-            $contition_array = array('status' => '1');
+            // $contition_array = array('status' => '1');
 
+foreach($cities as $key){
+    $resul[]=$key['city_name'];
+
+}
        
-        $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        // $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
            
 
-            foreach ($cty as $key => $value) {
-            foreach ($value as $ke => $val) {
-                if ($val != "") {
+        //     foreach ($cty as $key => $value) {
+        //     foreach ($value as $ke => $val) {
+        //         if ($val != "") {
 
 
-                    $resu[] = $val;
-                }
-            }
-        }
-        $resul = array_unique($resu);
+        //             $resu[] = $val;
+        //         }
+        //     }
+        // }
+        // $resul = array_unique($resu);
         foreach ($resul as $key => $value) {
             $res[$key]['label'] = $value;
             $res[$key]['value'] = $value;
@@ -1881,6 +1885,32 @@ $contition_array = array('status' => '1', 'is_delete' => '0');
     }
 
 // deactivate user end
+
+//popup for leave page at add_page and edit_page start
+    public function home() {
+        //echo "hii";die();
+
+        $id = $_POST['id'];
+        $data = array(
+            're_status' => 0
+        );
+        //echo "<pre>"; print_r($data); die(); 
+        $update = $this->common->update_data($data, 'recruiter', 'user_id', $id);
+
+        // if ($update) {
+
+        //     // $this->session->unset_userdata('aileenuser');
+        //     $this->session->set_flashdata('success', 'You are deactivate successfully.');
+        //     redirect('dashboard', 'refresh');
+        // } else {
+        //     $this->session->flashdata('error', 'Sorry!! Your are not deactivate!!');
+        //     redirect('recruiter', 'refresh');
+        // }
+    }
+
+//popup for leave page at add_page and edit_page end
+
+
 //save search user controller start
     public function save_search_user($id, $save_id) { //echo $id; echo $save_id; die();
         $id = $_POST['user_id'];
