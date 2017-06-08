@@ -24,7 +24,7 @@
         <!-- http://bootsnipp.com/snippets/4jXW -->
 
         <link rel="stylesheet" href="<?php echo base_url(); ?>css/style_chat.css" />
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style.css'); ?>">
+
 
     </head>
     <body>
@@ -32,7 +32,7 @@
         <div class="container_chat " id="paddingtop_fixed">
             <div class="chat_nobcx">
                 <div class="people-list" id="people-list">
-                    <div class="searc border_btm">
+                    <div class="search border_btm">
                         <input type="text" name=""  id="user_search" placeholder="search" value= ""  />
                         <i class="fa fa-search"></i>
                     </div>
