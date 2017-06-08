@@ -24,6 +24,7 @@
         <!-- http://bootsnipp.com/snippets/4jXW -->
 
         <link rel="stylesheet" href="<?php echo base_url(); ?>css/style_chat.css" />
+         <link rel="stylesheet" href="<?php echo base_url(); ?>css/style_harshad.css" />
 
 
     </head>
