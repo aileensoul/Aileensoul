@@ -1055,8 +1055,8 @@
                                                                     $likeuserarray = explode(',', $active[0]['business_like_user']);
                                                                     if (!in_array($userid, $likeuserarray)) {
                                                                         ?>               
-                        <!--                                                                        <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true">
-                                                                                    </i>-->
+                            <!--                                                                        <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true">
+                                                                                        </i>-->
                                                                         <i class="fa fa-thumbs-up" style="color: #999;" aria-hidden="true"></i>
                                                                     <?php } else { ?> 
                 <!--                                                                        <i class="fa fa-thumbs-up" aria-hidden="true">
@@ -1080,9 +1080,9 @@
                                                                 <a  onClick="commentall(this.id)" id="<?php echo $row['business_profile_post_id']; ?>">
                                                                     <i class="fa fa-comment-o" aria-hidden="true"> 
                                                                         <?php
-                                                                     /*   if (count($commnetcount) > 0) {
-                                                                            echo count($commnetcount);
-                                                                        } */
+                                                                        /*   if (count($commnetcount) > 0) {
+                                                                          echo count($commnetcount);
+                                                                          } */
                                                                         ?>
                                                                     </i> 
                                                                 </a>
@@ -1096,7 +1096,7 @@
                                                                         <?php
                                                                         if (count($commnetcount) > 0) {
                                                                             echo count($commnetcount);
-                                                                        }else{
+                                                                        } else {
                                                                             echo '0';
                                                                         }
                                                                         ?> 
@@ -1111,10 +1111,9 @@
                                                                         <?php
                                                                         if ($row['business_likes_count'] > 0) {
                                                                             echo $row['business_likes_count'];
-                                                                        }else{
-                                                                         echo '0';   
+                                                                        } else {
+                                                                            echo '0';
                                                                         }
-                                                                        
                                                                         ?>
                                                                     </span> 
                                                                     <span> Like</span>
@@ -1642,7 +1641,7 @@
                     });
                     $('#' + 'insertcount' + clicked_id).html(data.count);
                     $('.insertcomment' + clicked_id).html(data.comment);
-
+                    $('.comment_count' + clicked_id).html(data.comment_count);
                 }
             });
 
@@ -1659,6 +1658,7 @@
                     });
                     $('#' + 'insertcount' + clicked_id).html(data.count);
                     $('#' + 'fourcomment' + clicked_id).html(data.comment);
+                    $('.comment_count' + clicked_id).html(data.comment_count);
                 }
             });
         }
@@ -1770,7 +1770,7 @@
                                 $(this).val('');
                             });
                             //  $('.insertcomment' + clicked_id).html(data);
-                            $('#' + 'insertcount' + clicked_id).html(data.count);
+                           // $('#' + 'insertcount' + clicked_id).html(data.count);
                             $('.insertcomment' + clicked_id).html(data.comment);
                             $('.comment_count' + clicked_id).html(data.comment_count);
 
@@ -1788,9 +1788,9 @@
                                 $(this).val('');
                             });
                             //$('#' + 'fourcomment' + clicked_id).html(data);
-                            $('#' + 'insertcount' + clicked_id).html(data.count);
+                            //$('#' + 'insertcount' + clicked_id).html(data.count);
                             $('#' + 'fourcomment' + clicked_id).html(data.comment);
-
+                            $('.comment_count' + clicked_id).html(data.comment_count);
                         }
                     });
                 }
@@ -1835,7 +1835,7 @@
         //      z.style.display = 'block';
         //      $.ajax({ 
         //             type:'POST',
-        //          url:'<?php //echo base_url() . "business_profile/fourcomment"                                                                        ?>',
+        //          url:'<?php //echo base_url() . "business_profile/fourcomment"                                                                         ?>',
         //             data:'art_post_id='+clicked_id,
         //             //alert(data);
         //             success:function(data){
@@ -1882,6 +1882,7 @@
     function comment_delete(clicked_id) {
         $('.biderror .mes').html("<div class='pop_content'>Do you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='comment_deleted(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
         $('#bidmodal').modal('show');
+        
     }
 
     function comment_deleted(clicked_id)
@@ -1896,7 +1897,8 @@
             success: function (data) {
                 //alert('.' + 'insertcomment' + clicked_id);
                 $('.' + 'insertcomment' + post_delete.value).html(data.comment);
-                $('#' + 'insertcount' + post_delete.value).html(data.count);
+                //$('#' + 'insertcount' + post_delete.value).html(data.count);
+                $('.comment_count' + post_delete.value).html(data.comment_count);
                 $('.post-design-commnet-box').show();
             }
         });
@@ -1921,7 +1923,8 @@
             success: function (data) {
                 //alert('.' + 'insertcomment' + clicked_id);
                 $('.' + 'insertcommenttwo' + post_delete1.value).html(data.comment);
-                $('#' + 'insertcount' + post_delete1.value).html(data.count);
+                //$('#' + 'insertcount' + post_delete1.value).html(data.count);
+                $('.comment_count' + post_delete1.value).html(data.comment_count);
                 $('.post-design-commnet-box').show();
             }
         });
@@ -3125,6 +3128,7 @@
                             //  $('.insertcomment' + clicked_id).html(data);
                             $('#' + 'insertcount' + clicked_id).html(data.count);
                             $('.insertcomment' + clicked_id).html(data.comment);
+                            $('.comment_count' + clicked_id).html(data.comment_count);
                         }
                     });
                 } else {
@@ -3139,6 +3143,7 @@
                             }
                             );
                             $('#' + 'fourcomment' + clicked_id).html(data);
+                            $('.comment_count' + clicked_id).html(data.comment_count);
                             // $('#' + 'commnetpost' + clicked_id).html(data.count);
                             //  $('#' + 'fourcomment' + clicked_id).html(data.comment);
                         }
@@ -3332,8 +3337,23 @@
         }
     }
 </script>
-
-
+<!--<script>
+    jQuery(document).mouseup(function (e) {
+        var container1 = $("#myModal");
+        container1.show();
+        if (container1.show())
+        {
+            jQuery(document).mouseup(function (e) {
+                var container = $("#postpopup_close");
+                if (!container.is(e.target) 
+                        && container.has(e.target).length === 0)
+                {
+                    container1.hide();
+                }
+            });
+        }
+    });
+</script>-->
 <script type="text/javascript">
 
     var _onPaste_StripFormatting_IEPaste = false;
