@@ -41,7 +41,7 @@
       <link rel="icon" href="<?php echo base_url('images/favicon.png'); ?>">
     <!-- css start -->
        <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/common-style.css'); ?>">
-       <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/select2_new.css'); ?>">
+       <!-- <link rel="stylesheet" type="text/css" href="<?php //echo base_url('css/select2_new.css'); ?>"> -->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style.css'); ?>">
     
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/media.css'); ?>">
