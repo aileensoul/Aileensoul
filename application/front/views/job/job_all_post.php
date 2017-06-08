@@ -105,7 +105,7 @@
 
 
 
-                     <div class="col-md-7 col-sm-7 col-md-push-4 custom-right">
+                     <div class="col-md-7 col-sm-7 col-md-push-4 col-sm-push-4 custom-right">
                     <div class="common-form">
                         <div class="job-saved-box">
                             <h3>Recommended Job</h3>
