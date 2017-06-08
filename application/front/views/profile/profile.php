@@ -36,7 +36,8 @@
      <fieldset>           
           
             <label >E-mail Address:</label>
-              <input name="email"  type="text" id="email" class="form-control"  value="<?php echo $userdata[0]['user_email']?>"   onblur="return email_id();"/><span id="email-error"></span> <?php echo form_error('email'); ?>
+              <input name="email"  type="text" id="email"   value="<?php echo $userdata[0]['user_email']?>"   onblur="return email_id();"/><span id="email-error"></span> <?php echo form_error('email'); ?>
+
 
           </fieldset>
       <fieldset>        
