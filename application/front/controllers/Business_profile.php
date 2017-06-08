@@ -3435,7 +3435,9 @@ $contition_array = array('status' => '1');
         }
         echo json_encode(
                 array("comment" => $cmtinsert,
-                    "count" => $cmtcount));
+                    "count" => $cmtcount,
+                    "comment_count" => count($buscmtcnt),
+                    ));
     }
 
 //second page manage in manage post for function start
@@ -3577,7 +3579,9 @@ $contition_array = array('status' => '1');
         }
         echo json_encode(
                 array("comment" => $cmtinsert,
-                    "count" => $cmtcount));
+                    "count" => $cmtcount,
+                    "comment_count" => count($businessprofiledata),
+                    ));
     }
 
 //Business_profile comment delete end     
@@ -4189,7 +4193,8 @@ $contition_array = array('status' => '1');
 //        echo $cmtinsert;
         echo json_encode(
                 array("comment" => $cmtinsert,
-                    "count" => $cmtcount));
+                    "count" => $cmtcount,
+                    "comment_count" => count($businessprofiledata)));
 
         // khyati chande 
     }
