@@ -11,7 +11,7 @@ class Email_model extends CI_Model {
 	
  	function sendEmail($app_name = '', $app_email = '', $to_email = '', $subject = '', $mail_body = '', $cc = '', $bcc = '') {
 
-
+//echo "hi"; die();
          //Loading E-mail Class
          $this->load->library('email');
 
@@ -233,7 +233,7 @@ class Email_model extends CI_Model {
     
 </body>';
 
-         echo $mail_html; die();
+      //   echo $mail_html; 
          //Loading E-mail Class
 //         $config['protocol'] = "smtp";
 //         $config['smtp_host'] = $emailsetting[0]['host_name'];
@@ -262,18 +262,22 @@ class Email_model extends CI_Model {
 
 //         $this->email->subject($subject);
 //         $this->email->message(html_entity_decode($mail_body));
-        
+        $to = "khyati.aileensoul@gmail.com";
+        $sub = "khytiii";
+
         $this->email->from('aileensoul@gmail.com', 'Aileensoul');
         $this->email->to($to);
         $this->email->reply_to('no-replay@aileensoul.com', 'Explendid Videos');
         $this->email->subject($sub);
-        $this->email->message($msg);
+        $this->email->message($mail_html);
+        $this->email->set_mailtype("html");
         $this->email->send();
    
-
+//echo '<pre>'; print_r($this->email->print_debugger()); die();
          if ($this->email->send()) {
+            echo "111"; die();
              return true;
-         } else {
+         } else {  echo "222"; die();
              return FALSE;
         }
     }
