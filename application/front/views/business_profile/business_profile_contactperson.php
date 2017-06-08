@@ -41,9 +41,10 @@
                                 
                             </div> 
                             <div>
+                           
                                <div class="business_pf_ct_person_form clearfix">
-                          
-                            <h3>Contact Person</h3> 
+                           <h3>Contact Person</h3> 
+                           
                                 
                             <?php echo form_open_multipart(base_url('business_profile/business_profile_contactperson_query/'.$contactperson[0]['user_id']), array('id' => 'contactperson','name' => 'contactperson','class' => 'clearfix')); ?>
                             <ul class="business_pf_ct_person_detail">

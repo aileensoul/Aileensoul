@@ -4,7 +4,7 @@
 
         <!--- for dispaly div insted of input type start -->
        
-          <?php echo $header; ?>
+        <?php echo $header; ?>
         <!--- for dispaly div insted of input type end -->
         <meta charset="utf-8">
         <title>Chat</title>
@@ -17,10 +17,15 @@
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
         <script src="<?php echo base_url('js/moment.js'); ?>"></script>
 
+        <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
+
+        <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
         <!-- http://bootsnipp.com/snippets/4jXW -->
 
-        <link rel="stylesheet" href="<?php echo base_url(); ?>css/style.css" />
+        <link rel="stylesheet" href="<?php echo base_url(); ?>css/style_chat.css" />
+    
+         <link rel="stylesheet" href="<?php echo base_url(); ?>css/style_harshad.css" />
 
 
     </head>
@@ -42,8 +47,7 @@
                                 foreach ($userlist as $user) {
                                     ?>
                                     <a href="<?php echo base_url() . 'chat/abc/' . $user['user_id']; ?>">
-           <li class="clearfix <?php  if ($user['user_id'] == $lstusr) {
-                                echo "active"; } ?>">
+                                        <li class="clearfix">
                                             <?php if ($user['user_image']) { ?>
                                                 <div class="chat_heae_img">
                                                     <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $user['user_image']); ?>" alt="" >
