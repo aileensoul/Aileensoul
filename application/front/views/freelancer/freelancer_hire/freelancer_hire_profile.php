@@ -13,7 +13,7 @@
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+
 <link rel="stylesheet" href="<?php echo base_url('assets/css/croppie.css'); ?>">
 <link rel="stylesheet" href="<?php echo base_url('css/bootstrap.min.css'); ?>" />
 <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
@@ -444,7 +444,7 @@ $( "#tags" ).autocomplete({
 <script>
 
 var data1= <?php echo json_encode($city_data); ?>;
-//alert(data);
+//alert(data1);
 
         
 $(function() {
@@ -497,7 +497,7 @@ function checkvalue(){
 </script>
  
 
-<script>
+<!-- <script>
 //select2 autocomplete start for skill
 $('#searchskills').select2({
         
@@ -556,7 +556,7 @@ $('#searchplace').select2({
 //select2 autocomplete End for Location
 
 </script>
-
+ -->
 
 
 <!-- cover image start -->

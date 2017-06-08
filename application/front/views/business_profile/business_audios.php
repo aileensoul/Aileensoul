@@ -494,7 +494,7 @@
                 (function ($) {
 var data= <?php echo json_encode($demo); ?>;
 
-       alert(data); 
+       //alert(data); 
 $(function() {
     // alert('hi');
 $( "#tags" ).autocomplete({
@@ -503,8 +503,7 @@ $( "#tags" ).autocomplete({
          var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" //alert(matcher);
             );
 
-                 alert('hii');
-
+              
          response( $.grep(data, function( item ){
              return matcher.test( item.label );
          }) );

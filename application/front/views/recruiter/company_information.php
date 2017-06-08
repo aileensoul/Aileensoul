@@ -318,7 +318,7 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
 
                                         $(function () {
                                             // alert('hi');
-                                            $("#tags").autocomplete({
+                                            $("#searchplace").autocomplete({
                                                 source: function (request, response) {
                                                     var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
                                                     response($.grep(data1, function (item) {
@@ -328,14 +328,14 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
                                                 minLength: 1,
                                                 select: function (event, ui) {
                                                     event.preventDefault();
-                                                    $("#tags").val(ui.item.label);
+                                                    $("#searchplace").val(ui.item.label);
                                                     $("#selected-tag").val(ui.item.label);
                                                     // window.location.href = ui.item.value;
                                                 }
                                                 ,
                                                 focus: function (event, ui) {
                                                     event.preventDefault();
-                                                    $("#tags").val(ui.item.label);
+                                                    $("#searchplace").val(ui.item.label);
                                                 }
                                             });
                                         });
