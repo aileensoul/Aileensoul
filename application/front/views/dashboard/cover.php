@@ -319,14 +319,16 @@
     });
 
     $('.cancel-result').on('click', function (ev) {
+    
+          $('.cr-image').remove();
         document.getElementById('row2').style.display = "block";
-        document.getElementById('row1').style.display = "none";
+        document.getElementById('row1').style.display = "block";
         document.getElementById('message1').style.display = "none";
     });
     //aarati code start
     $('#upload').on('change', function () {
         var reader = new FileReader();
-        //alert(reader);
+       alert(reader);
         reader.onload = function (e) {
             $uploadCrop.croppie('bind', {
                 url: e.target.result
@@ -372,7 +374,7 @@
             processData: false,
             contentType: false,
             success: function (response) {
-                //alert(response);
+             alert(1);  alert(response);
 
             }
         });

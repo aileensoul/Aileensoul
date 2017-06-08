@@ -1627,7 +1627,7 @@ class Notification extends MY_Controller {
         foreach ($user_message as $msg) {
 
             $notmsg .= '<a href="' . base_url('chat/abc/' . $msg['user_id']) . '" class="clearfix msg_dot">';
-            $notmsg .= '<li><div class="notification-database">';
+            $notmsg .= '<li class="active2"><div class="notification-database">';
             $notmsg .= '<div class="notification-pic">';
             $notmsg .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $msg['user_image']) . '">';
             $notmsg .= '</div><div class="notification-data-inside">';
