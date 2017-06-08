@@ -3,7 +3,7 @@
     <!-- END HEAD -->
 
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+
  <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
 <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/test.css'); ?>">
@@ -198,6 +198,39 @@ $( "#tags" ).autocomplete({
   
 </script>
 
+<script>
+
+var data1= <?php echo json_encode($city_data); ?>;
+//alert(data);
+
+        
+$(function() {
+    // alert('hi');
+$( "#searchplace" ).autocomplete({
+     source: function( request, response ) {
+         var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
+         response( $.grep( data1, function( item ){
+             return matcher.test( item.label );
+         }) );
+   },
+    minLength: 1,
+    select: function(event, ui) {
+        event.preventDefault();
+        $("#searchplace").val(ui.item.label);
+        $("#selected-tag").val(ui.item.label);
+        // window.location.href = ui.item.value;
+    }
+    ,
+    focus: function(event, ui) {
+        event.preventDefault();
+        $("#searchplace").val(ui.item.label);
+    }
+});
+});
+  
+</script>
+
+
 <script type="text/javascript">
                         function checkvalue() {
                             //alert("hi");
@@ -214,7 +247,7 @@ $( "#tags" ).autocomplete({
   <!-- end of business search auto fill -->
 
 
-<script>
+<!-- <script>
 
 //select2 autocomplete start for Location
 $('#searchplace').select2({
@@ -243,7 +276,7 @@ $('#searchplace').select2({
       });
 //select2 autocomplete End for Location
 
-</script>
+</script> -->
 
 
 
