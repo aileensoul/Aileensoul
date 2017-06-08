@@ -10,6 +10,7 @@ body {
     margin: 0;
     line-height: 22px;
     font-family: 'Lato', sans-serif;
+    height: 100vh;
 }
 p {
     margin: 0;
@@ -4693,7 +4694,7 @@ form {
     position: fixed;
     /* Stay in place */
     
-    z-index: 1001;
+    z-index: 1003;
     /* Sit on top */
     
     padding-top: 100px;
