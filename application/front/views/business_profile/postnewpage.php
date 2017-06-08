@@ -1413,12 +1413,10 @@
 
                                                     if (!in_array($userid, $likeuserarray)) {
                                                         ?>               
-
-                                                                        <!--<i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i>-->
+                                                      <!--<i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i>-->
                                                         <i class="fa fa-thumbs-up" style="color: #999;" aria-hidden="true"></i>
-
                                                     <?php } else { ?> 
-                                                                        <!--<i class="fa fa-thumbs-up" aria-hidden="true"></i>-->
+                                                      <!--<i class="fa fa-thumbs-up" aria-hidden="true"></i>-->
                                                         <i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i>
                                                     <?php } ?>
                                                     <span class="like_As_count">
