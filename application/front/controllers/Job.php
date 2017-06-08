@@ -24,6 +24,10 @@ class Job extends MY_Controller {
 
     //job seeker basic info controller start
 
+ public function temp() {
+
+$this->load->view('business_profile/temp');
+ }
     public function index() {
 
 

@@ -4,91 +4,6 @@
 <!-- END HEAD -->
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/demo.css'); ?>">
 <!--post save success pop up style strat -->
-<style>
-    /* body {
-         font-family: Arial, sans-serif;
-         background-size: cover;
-         height: 100vh;
-     }*/
-    /*.designation_rec ul li{    display: block;
-    padding-bottom: 10px;
-    padding-left: 10px;
-padding-top: 1px;}
-    */
-    /*.box {
-        width: 40%;
-        margin: 0 auto;
-        background: rgba(255,255,255,0.2);
-        padding: 35px;
-        border: 2px solid #fff;
-        border-radius: 20px/50px;
-        background-clip: padding-box;
-        text-align: center;
-    }*/
-    /*.overlay {
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: rgba(0, 0, 0, 0.7);
-        transition: opacity 500ms;
-        visibility: hidden;
-        opacity: 0;
-        z-index: 10;
-    }*/
-    /* .overlay:target {
-         visibility: visible;
-         opacity: 1;
-     }
- 
-     .popup {
-         margin: 70px auto;
-         padding: 20px;
-         background: #fff;
-         border-radius: 5px;
-         width: 30%;
-         height: 200px;
-         position: relative;
-         transition: all 5s ease-in-out;
-     }*/
-    .okk{
-        text-align: center;
-    }
-    .pop_content .okbtn{
-        position: absolute;
-        transition: all 200ms;
-        font-size: 16px;
-        text-decoration: none;
-        color: #fff;
-        padding: 8px 18px;
-        background-color: #0A2C5D;
-        left: 170px;
-        margin-top: 8px;
-        width: 100px; 
-        border-radius: 8px;
-    }
-    .pop_content .cnclbtn {
-        position: absolute;
-        transition: all 200ms;
-        font-size: 16px;
-        text-decoration: none;
-        color: #fff;
-        padding: 8px 18px;
-        background-color: #0A2C5D;
-        right: 170px;
-        margin-top: 8px;
-        width: 100px;
-        border-radius: 8px;
-    }
-    .popup .pop_content {
-        text-align: center;
-        margin-top: 40px;
-    }
-    .model_ok_cancel{
-        width:200px !important;
-    }
-</style>
 
 <!--post save success pop up style end -->
 
@@ -210,7 +125,7 @@ padding-top: 1px;}
 
                     <!--- search end -->
 
-                   <div class="col-md-7 col-sm-7 col-md-push-4 custom-right">
+                   <div class="col-md-7 col-sm-7 col-md-push-4 col-sm-push-4 custom-right">
                         <div class="common-form">
                             <div class="job-saved-box">
 
