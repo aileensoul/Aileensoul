@@ -113,8 +113,8 @@
              </div>
            <?php }?>
             <div class="profile-photo">
-            <div class="buisness-menu">
-              <div class="profile-pho-bui">
+            
+              <div class="profile-pho">
 
                 <div class="user-pic">
                         <?php if($artisticdata[0]['art_user_image'] != ''){ ?>
@@ -145,37 +145,14 @@
 
                 </div>
 
-                <div class="bui-menu-profile col-md-10">
+               
 
-                  
-
-                     <h4 class="profile-head-text"><a href="<?php echo base_url('artistic/art_manage_post/'.$artisticdata[0]['user_id'].''); ?>"> <?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?></a></h4>
-
-                     <?php
-                    if ($artisticdata[0]['designation'] == '') {
-                        ?>
-
-                        <?php if ($artisticdata[0]['user_id'] == $userid) { ?>
-                            <a id="myBtn">Designation</a>
-                        <?php } ?>
-
-                    <?php } else { ?> 
-
-                        <?php if ($artisticdata[0]['user_id'] == $userid) { ?>
-                            <a id="myBtn"><?php echo ucwords($artisticdata[0]['designation']); ?></a>
-                        <?php } else { ?>
-                            <a><?php echo ucwords($artisticdata[0]['designation']); ?></a>
-                        <?php } ?>
-
-                    <?php } ?>
-
-              </div>
                 <!-- PICKUP -->
-                                   <!-- menubar --><div class="business-data-menu  col-md-12 ">
+                                   <!-- menubar -->
+                                   <div class="profile-main-rec-box-menu  col-md-12 padding_les">
 
-<div class="left-side-menu col-md-2">   </div>
-        
-       <div class="profile-main-box-buis-menu  col-md-7">  
+ <div class="left-side-menu col-md-1">  </div>
+  <div class="right-side-menu col-md-7">  
  <ul class="">
  
                                     <li <?php if($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'art_manage_post'){?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/art_manage_post/'.$artisticdata[0]['user_id']); ?>"> Dashboard</a>
@@ -236,6 +213,7 @@ $followingotherdata = $this->data['followingotherdata'] =  $this->common->select
                                 </ul>
 
 </div>
+
   <?php 
                     $userid  = $this->session->userdata('aileenuser'); 
                     if($artisticdata[0]['user_id'] != $userid){
@@ -260,11 +238,11 @@ if ($status == 0 || $status == " ") {
     ?>
 
                                 <div id= "followdiv">
-                                    <button id="<?php echo "follow" . $artisticdata[0]['art_id']; ?>" onClick="followuser(<?php echo $artisticdata[0]['art_id']; ?>)">Follow</a>
+                                    <button id="<?php echo "follow" . $artisticdata[0]['art_id']; ?>" onClick="followuser(<?php echo $artisticdata[0]['art_id']; ?>)">Follow</button>
                                 </div>
 <?php } elseif ($status == 1) { ?>
                                 <div id= "unfollowdiv">
-                                    <button id="<?php echo "unfollow" . $artisticdata[0]['art_id']; ?>" onClick="unfollowuser(<?php echo $artisticdata[0]['art_id']; ?>)"> Following</a>
+                                    <button id="<?php echo "unfollow" . $artisticdata[0]['art_id']; ?>" onClick="unfollowuser(<?php echo $artisticdata[0]['art_id']; ?>)"> Following</button>
                                 </div>
 
 
@@ -280,18 +258,40 @@ if ($status == 0 || $status == " ") {
             <?php
                     }
             ?>
+
 </div>
 
               <!-- pickup -->
-            </div>
-            </div>
-        </div>
-       </div>
-        
-  
+          
   </div>
 
 
+
+             <div class="bui-menu-profile col-md-10">
+
+                  
+
+                     <h4 class="profile-head-text"><a href="<?php echo base_url('artistic/art_manage_post/'.$artisticdata[0]['user_id'].''); ?>"> <?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?></a></h4>
+
+                     <?php
+                    if ($artisticdata[0]['designation'] == '') {
+                        ?>
+
+                        <?php if ($artisticdata[0]['user_id'] == $userid) { ?>
+                            <a id="myBtn">Designation</a>
+                        <?php } ?>
+
+                    <?php } else { ?> 
+
+                        <?php if ($artisticdata[0]['user_id'] == $userid) { ?>
+                            <a id="myBtn"><?php echo ucwords($artisticdata[0]['designation']); ?></a>
+                        <?php } else { ?>
+                            <a><?php echo ucwords($artisticdata[0]['designation']); ?></a>
+                        <?php } ?>
+
+                    <?php } ?>
+
+              </div>
 
         
         <div class="container " >
