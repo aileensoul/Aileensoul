@@ -1,1 +1,42 @@
 /*** new style css  ***/
+/*** new style css  ***/
+
+.prev,.next {
+    background-color: #000;
+}
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+.prev {
+    transform: translate(0, -50%);
+    cursor: pointer;
+    position: absolute;
+    top: 200px !important;
+    width: auto;
+    padding: 16px;
+    /* margin-top: -50px; */
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
+}
+ .next {
+    transform: translate(0, -50%);
+    cursor: pointer;
+    position: absolute;
+    top: 200px !important;
+    width: auto;
+    padding: 16px;
+    /* margin-top: -50px; */
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.6s ease;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius:3px; 
+    user-select: none;
+    -webkit-user-select: none;
+}
