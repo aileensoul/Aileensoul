@@ -88,16 +88,11 @@
     .next {
         cursor: pointer;
         position: absolute;
-        top: 200px !important;
+        top: 50%;
         width: auto;
         padding: 16px;
-<<<<<<< HEAD
-        margin-top: 10px;
-        color: black;
-=======
         margin-top: -50px;
         color: white;
->>>>>>> 70955a155b47dba947971761b62340eaadf720bf
         font-weight: bold;
         font-size: 20px;
         transition: 0.6s ease;
@@ -132,7 +127,7 @@
     /* On hover, add a black background color with a little bit see-through */
     .prev:hover,
     .next:hover {
-        background-color:silver;
+        background-color: rgba(0, 0, 0, 0.8);
     }
 
     /* Number text (1/3 etc) */
@@ -398,12 +393,12 @@
 <!-- END HEAD -->
 <!-- start header -->
 
-
+<div style="display: block;">
     <?php echo $header; ?>
-
-
+</div>
+<div style="display: block;">
     <?php echo $business_header2; ?>
-
+</div>
 <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
 
 
@@ -985,7 +980,7 @@
                                                                                     ?>
                                                                                     <i class="fa fa-thumbs-up" aria-hidden="true"></i>
                                                                                 <?php } else { ?>
-                                                                                    <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>
+                                                                                    <i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i>
                                                                                 <?php } ?>
 
                                                                                 <span class="<?php echo 'likeimage' . $busdata['image_id']; ?>"> <?php
@@ -1010,9 +1005,9 @@
                                                                             <a onClick="imgcommentall(this.id)" id="<?php echo $busdata['image_id']; ?>">
                                                                                 <i class="fa fa-comment-o" aria-hidden="true">
                                                                                     <?php
-                                                                                    if (count($commnetcount) > 0) {
+                                                                                 /*   if (count($commnetcount) > 0) {
                                                                                         echo count($commnetcount);
-                                                                                    }
+                                                                                    } */
                                                                                     ?>
                                                                                 </i> 
                                                                             </a>
@@ -1022,10 +1017,13 @@
 
                                                                         <li>
                                                                             <div class="like_count_ext">
-                                                                                <span class="comment_count<?php echo $row['business_profile_post_id']; ?>" > 
+                                                                                <span class="comment_count_img<?php echo $busdata['image_id']; ?>" > 
                                                                                     <?php
                                                                                     if (count($commnetcount) > 0) {
                                                                                         echo count($commnetcount);
+                                                                                    }
+                                                                                    else{
+                                                                                        echo '0';
                                                                                     }
                                                                                     ?>
                                                                                 </span> 
@@ -1035,7 +1033,7 @@
 
                                                                         <li>
                                                                             <div class="comnt_count_ext">
-                                                                                <span class="comment_like_count<?php echo $row['business_profile_post_id']; ?>"> 
+                                                                                <span class="comment_like_count_img<?php echo $busdata['image_id']; ?>"> 
                                                                                     <?php
                                                                                     if ($row['business_likes_count'] > 0) {
                                                                                         echo $row['business_likes_count'];
@@ -1190,10 +1188,10 @@
                                                                                         <?php
 //                                                                                        echo $this->common->make_links($rowdata['comment']);
 
-                                                                                        $new_product_comment = $this->common->make_links($rowdata['comments']);
+                                                                                       echo $new_product_comment = $this->common->make_links($rowdata['comment']);
                                                                                         echo nl2br(htmlspecialchars_decode(htmlentities($new_product_comment, ENT_QUOTES, 'UTF-8')));
                                                                                         ?>
-                                                                                        ?>
+                                                                                        
                                                                                     </div>
 
 
@@ -1234,7 +1232,7 @@
                                                                                                 //echo count($businesscommentlike); 
                                                                                                 if (count($businesscommentlike1) == 0) {
                                                                                                     ?>
-                                                                                                    <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>
+                                                                                                    <i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i>
 
                                                                                                 <?php } else {
                                                                                                     ?>
@@ -1416,7 +1414,7 @@
                                                     if (!in_array($userid, $likeuserarray)) {
                                                         ?>               
 
-                                                                        <!--<i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>-->
+                                                                        <!--<i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i>-->
                                                         <i class="fa fa-thumbs-up" style="color: #999;" aria-hidden="true"></i>
 
                                                     <?php } else { ?> 
@@ -1754,7 +1752,7 @@
 
                                                                     if (!in_array($userid, $likeuserarray)) {
                                                                         ?>
-                                                                        <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i> 
+                                                                        <i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i> 
                                                                     <?php } else { ?>
 
                                                                         <i class="fa fa-thumbs-up" aria-hidden="true"></i>
@@ -3131,7 +3129,7 @@
 
                 $('.' + 'likepostimg' + clicked_id).html(data.like);
                 $('.likeusernameimg' + clicked_id).html(data.likeuser);
-
+                $('.comment_like_count_img' + clicked_id).html(data.like_user_count);
                 $('.likeduserlistimg' + clicked_id).hide();
                 if (data.like_user_count == '0') {
                     document.getElementById('likeusernameimg' + clicked_id).style.display = "none";
@@ -3268,7 +3266,7 @@
 
                             $('.' + 'insertimgcomment' + clicked_id).html(data.comment);
 //                            $('#' + 'insertcountimg' + clicked_id).html(data.count);
-                            $('.comment_countimg' + clicked_id).html(data.comment_count);
+                            $('.comment_count_img' + clicked_id).html(data.comment_count);
                         }
                     });
 
@@ -3284,7 +3282,7 @@
 
 //                            $('#' + 'insertcountimg' + clicked_id).html(data.count);
                             $('#' + 'fourimgcomment' + clicked_id).html(data.comment);
-                            $('.comment_countimg' + clicked_id).html(data.comment_count);
+                            $('.comment_count_img' + clicked_id).html(data.comment_count);
                         }
                     });
                 }
@@ -3720,10 +3718,10 @@
             dataType: 'json',
             data: 'post_image_comment_id=' + clicked_id + '&post_delete=' + post_delete.value,
             success: function (data) {
-
                 //$('#' + 'insertimgcount' + post_delete.value).html(data.count);
-                $('#' + 'insertcountimg' + post_delete.value).html(data.count);
+//                $('#' + 'insertcountimg' + post_delete.value).html(data.count);
                 $('.' + 'insertimgcomment' + post_delete.value).html(data.comment);
+                $('.comment_count_img' + post_delete.value).html(data.comment_count);
                 $('.post-design-commnet-box').show();
             }
         });
