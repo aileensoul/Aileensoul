@@ -1046,7 +1046,7 @@
                                                     <div class="post-design-menu">
                                                         <ul class="col-md-6">
                                                             <li class="<?php echo 'likepost' . $row['business_profile_post_id']; ?>">
-                                                                <a id="<?php echo $row['business_profile_post_id']; ?>" class="like_ripple"  onClick="post_like(this.id)">
+                                                                <a id="<?php echo $row['business_profile_post_id']; ?>" class="ripple like_h_w"  onClick="post_like(this.id)">
                                                                     <?php
                                                                     $userid = $this->session->userdata('aileenuser');
                                                                     $contition_array = array('business_profile_post_id' => $row['business_profile_post_id'], 'status' => '1');
@@ -1077,7 +1077,7 @@
                                                                 $contition_array = array('business_profile_post_id' => $row['business_profile_post_id'], 'status' => '1', 'is_delete' => '0');
                                                                 $commnetcount = $this->common->select_data_by_condition('business_profile_post_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                                                                 ?>
-                                                                <a  onClick="commentall(this.id)" id="<?php echo $row['business_profile_post_id']; ?>">
+                                                                <a  onClick="commentall(this.id)" id="<?php echo $row['business_profile_post_id']; ?>" class="ripple like_h_w">
                                                                     <i class="fa fa-comment-o" aria-hidden="true"> 
                                                                         <?php
                                                                         /*   if (count($commnetcount) > 0) {

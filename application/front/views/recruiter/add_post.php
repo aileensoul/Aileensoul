@@ -8,11 +8,11 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
-
+ <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
    <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/jquery.datetimepicker.css'); ?>">
 
 <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
-
+ 
 <?php echo $header; ?>
 
 <!-- END HEADER -->
@@ -332,9 +332,10 @@
 <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
 <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
 
+
 <script type="text/javascript" src="<?php echo base_url('js/jquery.validate1.15.0..min.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('js/additional-methods1.15.0.min.js'); ?>"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 
 
 <script type="text/javascript">
@@ -980,30 +981,30 @@ $('#artpost').validate({
 <script>
 
 
-    // $('#skills').select2({
+    $('#skills').select2({
 
-    //     placeholder: 'Enter the skills you want',
+        placeholder: 'Enter the skills you want',
 
-    //     ajax: {
+        ajax: {
 
-    //         url: "<?php echo base_url(); ?>recruiter/keyskill",
-    //         dataType: 'json',
-    //         delay: 250,
+            url: "<?php echo base_url(); ?>recruiter/keyskill",
+            dataType: 'json',
+            delay: 250,
 
-    //         processResults: function (data) {
+            processResults: function (data) {
 
-    //             return {
-    //                 //alert(data);
+                return {
+                    //alert(data);
 
-    //                 results: data
+                    results: data
 
 
-    //             };
+                };
 
-    //         },
-    //         cache: true
-    //     }
-    // }).select2('data', PRESELECTED_FRUITS);
+            },
+            cache: true
+        }
+    }).select2('data', PRESELECTED_FRUITS);
 
 //select2 autocomplete End for skill
 

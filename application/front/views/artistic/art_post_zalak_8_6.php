@@ -666,20 +666,7 @@ if ($userlistview4 > 0) {
                     <!-- cover pic end -->
 
                     <!-- popup start -->
-                    <div class="col-md-7 col-sm-7 all-form-content fixed_left">
-
-                        <div class="post-editor col-md-12">
-                            <div class="main-text-area col-md-12">
-                                <div class="popup-img col-md-1"> <img  src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image']); ?>"  alt="">
-                                </div>
-                                <div id="myBtn"  class="editor-content col-md-11 popup-text">
-                                    <span > Post Your Art....</span> 
-                               
-                                </div>
-                            </div>
-                           
-                        </div>
-                    </div>
+                 
                     <!-- Trigger/Open The Modal -->
                    
                     <!-- The Modal -->
@@ -749,8 +736,18 @@ if ($userlistview4 > 0) {
                     </div>
                     <!-- popup end -->
                     </div>
-                    <div class="col-md-7 col-sm-7 all-form-content fixed_left">
-
+                 <div class="col-md-7 col-sm-7 col-md-push-4 col-sm-push-4 custom-right">
+<div class="post-editor col-md-12">
+                            <div class="main-text-area col-md-12">
+                                <div class="popup-img col-md-1"> <img  src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image']); ?>"  alt="">
+                                </div>
+                                <div id="myBtn"  class="editor-content col-md-11 popup-text">
+                                    <span > Post Your Art....</span> 
+                               
+                                </div>
+                            </div>
+                           
+                        </div>
 
 
                         <!--like comment start -->
@@ -1657,8 +1654,7 @@ jQuery.noConflict();
                        })( jQuery  );
  
 </script>
-
-    <script>
+ <script>
  
 jQuery.noConflict();
  
@@ -1695,6 +1691,7 @@ jQuery.noConflict();
                        })( jQuery  );
  
 </script>
+
                         <script type="text/javascript">
                             function checkvalue() {
                                 //alert("hi");
@@ -1709,7 +1706,7 @@ jQuery.noConflict();
                             }
                         </script>
 
-                   <!--      <script>
+                        <!-- <script>
                             //select2 autocomplete start for skill
                             $('#searchskills').select2({
 
@@ -1764,8 +1761,8 @@ jQuery.noConflict();
 
 
 
-                        </script> -->
-
+                        </script>
+ -->
                         <!-- popup form edit start -->
 
                         <script>
