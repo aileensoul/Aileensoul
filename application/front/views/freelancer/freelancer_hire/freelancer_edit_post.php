@@ -312,9 +312,9 @@
                             <fieldset class="hs-submit full-width">
 
                                 <!-- <input type="reset"> -->
-                                 <input type="submit" id="submit" class="add_post_btns" name="submit" value="Save">
+                                
                                 <a href="javascript:history.back()">Cancel</a>
-                               
+                                <input type="submit" id="submit" class="add_post_btns" name="submit" value="Save">
                                 
                             </fieldset>
                             </div>
