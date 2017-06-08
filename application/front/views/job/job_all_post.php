@@ -104,16 +104,13 @@
                 </div>
 
 
-<<<<<<< HEAD
-                <div class="col-md-7 col-sm-7 all-form-content fixed_left">
-=======
 
-<<<<<<< HEAD
+                <div class="col-md-7 col-sm-7 all-form-content fixed_left">
+
                      <div class="col-md-7 col-sm-7 col-md-push-4 custom-right">
->>>>>>> 94f79a71c76fc8b9cbd771bf850785d44d89316b
-=======
+
                      <div class="col-md-7 col-sm-7 col-md-push-4 col-sm-push-4 custom-right">
->>>>>>> 92a680d51ff376b92cca07b99419c1d591bfd0ef
+
                     <div class="common-form">
                         <div class="job-saved-box">
                             <h3>Recommended Job</h3>
