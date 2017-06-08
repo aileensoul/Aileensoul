@@ -306,7 +306,7 @@
                 url: "<?php echo base_url() ?>dashboard/ajaxpro",
                 type: "POST",
                 data: {"image": resp},
-                success: function (data) {
+                success: function (data) { 
                     html = '<img src="' + resp + '" />';
                     if (html) {
                         window.location.reload();
