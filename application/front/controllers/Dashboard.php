@@ -310,9 +310,15 @@ class Dashboard extends MY_Controller {
     }
 
 // resend email for account verify end 
-    public function template(){
+    public function template(){ // echo "hoi"; die();
         
-        $this->email_model->sendEmail();
+    $mail = $this->email_model->sendEmail();
+
+    if($mail){
+      echo 1; die();
+    }else{
+       echo 2; die();
+    }
                 
         //$this->load->view('dashboard/template');
     }

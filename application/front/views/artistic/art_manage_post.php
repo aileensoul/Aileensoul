@@ -303,7 +303,12 @@
                     <div class="profile-boxProfileCard  module">
 
                         <div class="head_details1">
-                            <span><h5><i class="fa fa-info-circle" aria-hidden="true"></i> Information</h5>
+                            <span>
+                                  <a href="<?php echo base_url('artistic/artistic_profile/' . $this->uri->segment(3)) ?>"> 
+                                      <h5><i class="fa fa-info-circle" aria-hidden="true"></i>
+                                    Information  
+                                   </h5>
+                                  </a>     
                             </span>      </div>
                         <table class="business_data_table">
                             <tr>
