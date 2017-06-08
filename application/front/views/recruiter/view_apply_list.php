@@ -599,7 +599,7 @@ return false;
  <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
     <script>
     function savepopup(id) { 
-      alert(id);
+      //alert(id);
                         
       save_user(id);
 //                       

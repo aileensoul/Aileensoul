@@ -24,7 +24,7 @@
 
                     <!-- middle section start -->
  
-                    <div class="col-md-6 col-sm-8">
+                    <div class="5col-md-6 col-sm-8">
 
                      <div>
                         <?php
