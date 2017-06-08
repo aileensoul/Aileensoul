@@ -16,34 +16,7 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/jquery.jMosaic.css'); ?>">
   <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
 <!-- <link rel="stylesheet" href="<?php //echo base_url('assets/css/croppie.css'); ?>">
- --><style type="text/css" media="screen">
-#row2 { overflow: hidden; width: 100%; }
-#row2 img { height: 350px;width: 100%; } 
-.upload-img { float: right;
-    position: relative; margin-top: -135px; right: 50px; }
-
-   label.cameraButton {
-  display: inline-block;
-  margin: 1em 0;
-cursor: pointer;
-  /* Styles to make it look like a button */
-  padding: 0.5em;
-  border: 2px solid #666;
-  border-color: #EEE #CCC #CCC #EEE;
-  background-color: #DDD;
-  opacity: 0.7;
-}
-
-/* Look like a clicked/depressed button */
-label.cameraButton:active {
-  border-color: #CCC #EEE #EEE #CCC;
-}
-
-/* This is the part that actually hides the 'Choose file' text box for camera inputs */
-label.cameraButton input[accept*="camera"] {
-  display: none;
-}
-</style>
+ -->
     <!-- END HEAD -->
 
     <!-- start header -->
