@@ -1065,15 +1065,15 @@ if (count($finalsorting) > 0) {
                 foreach ($artmultiimage as $multiimage) {
                     ?>
 
-                                                                    <!-- four image start -->
-                                                                    <div id="responsive-images-breakpoints" >
-                                                                        <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="breakpoint" src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $multiimage['image_name']) ?>" > </a>
+                        <!-- four image start -->
+                                <div id="responsive-images-breakpoints" >
+                                   <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="breakpoint" src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $multiimage['image_name']) ?>" > </a>
 
-                                                                    </div>
+                                </div>
 
-                                                                    <!-- four image end -->
+                        <!-- four image end -->
 
-                                                                <?php } ?>
+           <?php } ?>
 
 
             <?php } elseif (count($artmultiimage) > 4) { ?>
