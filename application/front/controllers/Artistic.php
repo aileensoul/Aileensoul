@@ -138,6 +138,29 @@ class Artistic extends MY_Controller {
         }
 
         $this->data['demo'] = array_values($result1);
+             $contition_array = array('status' => '1');
+
+       
+        $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+           
+
+            foreach ($cty as $key => $value) {
+            foreach ($value as $ke => $val) {
+                if ($val != "") {
+
+
+                    $resu[] = $val;
+                }
+            }
+        }
+        $resul = array_unique($resu);
+        foreach ($resul as $key => $value) {
+            $res[$key]['label'] = $value;
+            $res[$key]['value'] = $value;
+        }
+        
+        $this->data['de'] = array_values($res);
+
 
         $this->load->view('artistic/art_basic_information', $this->data);
     }
@@ -325,6 +348,29 @@ class Artistic extends MY_Controller {
         }
 
         $this->data['demo'] = array_values($result1);
+             $contition_array = array('status' => '1');
+
+       
+        $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+           
+
+            foreach ($cty as $key => $value) {
+            foreach ($value as $ke => $val) {
+                if ($val != "") {
+
+
+                    $resu[] = $val;
+                }
+            }
+        }
+        $resul = array_unique($resu);
+        foreach ($resul as $key => $value) {
+            $res[$key]['label'] = $value;
+            $res[$key]['value'] = $value;
+        }
+        
+        $this->data['de'] = array_values($res);
+
 
         $this->load->view('artistic/art_address', $this->data);
     }
@@ -500,6 +546,29 @@ class Artistic extends MY_Controller {
         }
 
         $this->data['demo'] = array_values($result1);
+             $contition_array = array('status' => '1');
+
+       
+        $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+           
+
+            foreach ($cty as $key => $value) {
+            foreach ($value as $ke => $val) {
+                if ($val != "") {
+
+
+                    $resu[] = $val;
+                }
+            }
+        }
+        $resul = array_unique($resu);
+        foreach ($resul as $key => $value) {
+            $res[$key]['label'] = $value;
+            $res[$key]['value'] = $value;
+        }
+        
+        $this->data['de'] = array_values($res);
+
 
 
         $this->load->view('artistic/art_information', $this->data);
@@ -631,6 +700,29 @@ class Artistic extends MY_Controller {
         }
 
         $this->data['demo'] = array_values($result1);
+             $contition_array = array('status' => '1');
+
+       
+        $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+           
+
+            foreach ($cty as $key => $value) {
+            foreach ($value as $ke => $val) {
+                if ($val != "") {
+
+
+                    $resu[] = $val;
+                }
+            }
+        }
+        $resul = array_unique($resu);
+        foreach ($resul as $key => $value) {
+            $res[$key]['label'] = $value;
+            $res[$key]['value'] = $value;
+        }
+        
+        $this->data['de'] = array_values($res);
+
 
         $this->load->view('artistic/art_portfolio', $this->data);
     }
@@ -1095,6 +1187,29 @@ class Artistic extends MY_Controller {
         }
 
         $this->data['demo'] = array_values($result1);
+             $contition_array = array('status' => '1');
+
+       
+        $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+           
+
+            foreach ($cty as $key => $value) {
+            foreach ($value as $ke => $val) {
+                if ($val != "") {
+
+
+                    $resu[] = $val;
+                }
+            }
+        }
+        $resul = array_unique($resu);
+        foreach ($resul as $key => $value) {
+            $res[$key]['label'] = $value;
+            $res[$key]['value'] = $value;
+        }
+        
+        $this->data['de'] = array_values($res);
+
 
 
 
@@ -1179,6 +1294,29 @@ class Artistic extends MY_Controller {
         }
 
         $this->data['demo'] = array_values($result1);
+             $contition_array = array('status' => '1');
+
+       
+        $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+           
+
+            foreach ($cty as $key => $value) {
+            foreach ($value as $ke => $val) {
+                if ($val != "") {
+
+
+                    $resu[] = $val;
+                }
+            }
+        }
+        $resul = array_unique($resu);
+        foreach ($resul as $key => $value) {
+            $res[$key]['label'] = $value;
+            $res[$key]['value'] = $value;
+        }
+        
+        $this->data['de'] = array_values($res);
+
 
 
         $this->load->view('artistic/art_manage_post', $this->data);
@@ -1496,6 +1634,29 @@ class Artistic extends MY_Controller {
         }
 
         $this->data['demo'] = array_values($result1);
+             $contition_array = array('status' => '1');
+
+       
+        $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+           
+
+            foreach ($cty as $key => $value) {
+            foreach ($value as $ke => $val) {
+                if ($val != "") {
+
+
+                    $resu[] = $val;
+                }
+            }
+        }
+        $resul = array_unique($resu);
+        foreach ($resul as $key => $value) {
+            $res[$key]['label'] = $value;
+            $res[$key]['value'] = $value;
+        }
+        
+        $this->data['de'] = array_values($res);
+
         $this->load->view('artistic/artistic_contactperson', $this->data);
     }
 
@@ -1808,6 +1969,28 @@ class Artistic extends MY_Controller {
         $this->data['demo'] = array_values($result1);
 
 
+     $contition_array = array('status' => '1');
+
+       
+        $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+           
+
+            foreach ($cty as $key => $value) {
+            foreach ($value as $ke => $val) {
+                if ($val != "") {
+
+
+                    $resu[] = $val;
+                }
+            }
+        }
+        $resul = array_unique($resu);
+        foreach ($resul as $key => $value) {
+            $res[$key]['label'] = $value;
+            $res[$key]['value'] = $value;
+        }
+        
+        $this->data['de'] = array_values($res);
 
 
 
@@ -1944,6 +2127,29 @@ class Artistic extends MY_Controller {
         }
 
         $this->data['demo'] = array_values($result1);
+             $contition_array = array('status' => '1');
+
+       
+        $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+           
+
+            foreach ($cty as $key => $value) {
+            foreach ($value as $ke => $val) {
+                if ($val != "") {
+
+
+                    $resu[] = $val;
+                }
+            }
+        }
+        $resul = array_unique($resu);
+        foreach ($resul as $key => $value) {
+            $res[$key]['label'] = $value;
+            $res[$key]['value'] = $value;
+        }
+        
+        $this->data['de'] = array_values($res);
+
 
 
         $this->load->view('artistic/artistic_userlist', $this->data);
@@ -2328,6 +2534,29 @@ class Artistic extends MY_Controller {
             $result1[$key]['value'] = $value;
         }
         $this->data['demo'] = array_values($result1);
+             $contition_array = array('status' => '1');
+
+       
+        $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+           
+
+            foreach ($cty as $key => $value) {
+            foreach ($value as $ke => $val) {
+                if ($val != "") {
+
+
+                    $resu[] = $val;
+                }
+            }
+        }
+        $resul = array_unique($resu);
+        foreach ($resul as $key => $value) {
+            $res[$key]['label'] = $value;
+            $res[$key]['value'] = $value;
+        }
+        
+        $this->data['de'] = array_values($res);
+
 
         $this->load->view('artistic/art_followers', $this->data);
     }
@@ -2423,6 +2652,29 @@ class Artistic extends MY_Controller {
         }
 
         $this->data['demo'] = array_values($result1);
+             $contition_array = array('status' => '1');
+
+       
+        $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+           
+
+            foreach ($cty as $key => $value) {
+            foreach ($value as $ke => $val) {
+                if ($val != "") {
+
+
+                    $resu[] = $val;
+                }
+            }
+        }
+        $resul = array_unique($resu);
+        foreach ($resul as $key => $value) {
+            $res[$key]['label'] = $value;
+            $res[$key]['value'] = $value;
+        }
+        
+        $this->data['de'] = array_values($res);
+
 
 
 
@@ -2605,6 +2857,29 @@ class Artistic extends MY_Controller {
             }
         }
         $this->data['demo'] = $result;
+             $contition_array = array('status' => '1');
+
+       
+        $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+           
+
+            foreach ($cty as $key => $value) {
+            foreach ($value as $ke => $val) {
+                if ($val != "") {
+
+
+                    $resu[] = $val;
+                }
+            }
+        }
+        $resul = array_unique($resu);
+        foreach ($resul as $key => $value) {
+            $res[$key]['label'] = $value;
+            $res[$key]['value'] = $value;
+        }
+        
+        $this->data['de'] = array_values($res);
+
 
         $this->load->view('artistic/art_savepost', $this->data);
     }
@@ -4082,6 +4357,29 @@ class Artistic extends MY_Controller {
         }
 
         $this->data['demo'] = array_values($result1);
+             $contition_array = array('status' => '1');
+
+       
+        $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+           
+
+            foreach ($cty as $key => $value) {
+            foreach ($value as $ke => $val) {
+                if ($val != "") {
+
+
+                    $resu[] = $val;
+                }
+            }
+        }
+        $resul = array_unique($resu);
+        foreach ($resul as $key => $value) {
+            $res[$key]['label'] = $value;
+            $res[$key]['value'] = $value;
+        }
+        
+        $this->data['de'] = array_values($res);
+
 
 
         $this->load->view('artistic/postnewpage', $this->data);
@@ -4276,6 +4574,29 @@ class Artistic extends MY_Controller {
         }
 
         $this->data['demo'] = array_values($result1);
+             $contition_array = array('status' => '1');
+
+       
+        $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+           
+
+            foreach ($cty as $key => $value) {
+            foreach ($value as $ke => $val) {
+                if ($val != "") {
+
+
+                    $resu[] = $val;
+                }
+            }
+        }
+        $resul = array_unique($resu);
+        foreach ($resul as $key => $value) {
+            $res[$key]['label'] = $value;
+            $res[$key]['value'] = $value;
+        }
+        
+        $this->data['de'] = array_values($res);
+
 
 
         $this->load->view('artistic/art_photos', $this->data);
@@ -4358,6 +4679,28 @@ class Artistic extends MY_Controller {
         }
 
         $this->data['demo'] = array_values($result1);
+     $contition_array = array('status' => '1');
+
+       
+        $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+           
+
+            foreach ($cty as $key => $value) {
+            foreach ($value as $ke => $val) {
+                if ($val != "") {
+
+
+                    $resu[] = $val;
+                }
+            }
+        }
+        $resul = array_unique($resu);
+        foreach ($resul as $key => $value) {
+            $res[$key]['label'] = $value;
+            $res[$key]['value'] = $value;
+        }
+        
+        $this->data['de'] = array_values($res);
 
 
 
@@ -4442,6 +4785,29 @@ class Artistic extends MY_Controller {
         }
 
         $this->data['demo'] = array_values($result1);
+             $contition_array = array('status' => '1');
+
+       
+        $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+           
+
+            foreach ($cty as $key => $value) {
+            foreach ($value as $ke => $val) {
+                if ($val != "") {
+
+
+                    $resu[] = $val;
+                }
+            }
+        }
+        $resul = array_unique($resu);
+        foreach ($resul as $key => $value) {
+            $res[$key]['label'] = $value;
+            $res[$key]['value'] = $value;
+        }
+        
+        $this->data['de'] = array_values($res);
+
 
 
         $this->load->view('artistic/art_audios', $this->data);
@@ -4523,6 +4889,29 @@ class Artistic extends MY_Controller {
         }
 
         $this->data['demo'] = array_values($result1);
+
+     $contition_array = array('status' => '1');
+
+       
+        $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+           
+
+            foreach ($cty as $key => $value) {
+            foreach ($value as $ke => $val) {
+                if ($val != "") {
+
+
+                    $resu[] = $val;
+                }
+            }
+        }
+        $resul = array_unique($resu);
+        foreach ($resul as $key => $value) {
+            $res[$key]['label'] = $value;
+            $res[$key]['value'] = $value;
+        }
+        
+        $this->data['de'] = array_values($res);
 
 
         

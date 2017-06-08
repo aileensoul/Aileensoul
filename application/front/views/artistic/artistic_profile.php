@@ -10,42 +10,6 @@
 <link rel="stylesheet" href="<?php echo base_url('assets/css/croppie.css'); ?>">
 <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
-<style type="text/css" media="screen">
-
-    #row2 { overflow: hidden; width: 100%; }
-    #row2 img { height: 350px;width: 100%; }
-    .upload-img{    float: right;
-                    position: relative;
-                    margin-top: -135px;
-                    right: 50px; }
-
-    label.cameraButton {
-        display: inline-block;
-        margin: 1em 0;
-        cursor: pointer;
-        /* Styles to make it look like a button */
-        padding: 0.5em;
-        border: 2px solid #666;
-        border-color: #EEE #CCC #CCC #EEE;
-        background-color: #DDD;
-        opacity: 0.7;
-    }
-
-    /* Look like a clicked/depressed button */
-    label.cameraButton:active {
-        border-color: #CCC #EEE #EEE #CCC;
-    }
-
-    /* This is the part that actually hides the 'Choose file' text box for camera inputs */
-    label.cameraButton input[accept*="camera"] {
-        display: none;
-    }
-
-
-
-
-</style>
 
 <!-- END HEAD -->
 <!-- start header -->
@@ -60,9 +24,9 @@
         <div class="container" id="paddingtop_fixed">
             <div class="row" id="row1" style="display:none;">
                 <div class="col-md-12 text-center">
-                    <div id="upload-demo" style="width:100%"></div>
+                    <div id="upload-demo" ></div>
                 </div>
-                <div class="col-md-12 cover-pic" style="padding-top: 25px;text-align: center;">
+                <div class="col-md-12 cover-pic" >
                     <button class="btn btn-success cancel-result">Cancel</button>
 
                     <button class="btn btn-success set-btn upload-result" onclick="myFunction()">Save</button>
@@ -81,7 +45,7 @@
                     </div>
                 </div>
                 <div class="col-md-12"  style="visibility: hidden; ">
-                    <div id="upload-demo-i" style="background:#e1e1e1;width:100%;padding:30px;height:1px;margin-top:30px"></div>
+                    <div id="upload-demo-i" ></div>
                 </div>
             </div>
 
@@ -661,10 +625,11 @@ if ($artisticdata[0]['art_bestofmine']) {
 <?php echo form_open_multipart(base_url('artistic/user_image_insert'), array('id' => 'userimage', 'name' => 'userimage', 'class' => 'clearfix')); ?>
                         <input type="file" name="profilepic" accept="image/gif, image/jpeg, image/png" id="profilepic">
                         <input type="hidden" name="hitext" id="hitext" value="4">
-
-                        <img id="preview" src="#" alt="your image" style="border: 2px solid rgb(204, 204, 204); display: none; margin: 0 auto; margin-top: 5px;padding: 5px;"/>
+ <div class="popup_previred">
+                        <img id="preview" src="#" alt="your image" />
+                        </div>
                         <!--<input type="submit" name="cancel3" id="cancel3" value="Cancel">-->
-                        <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save" style="margin-top:32px!important;">
+                        <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save" >
 <?php echo form_close(); ?>
                     </div>
                 </span>
@@ -686,7 +651,7 @@ if ($artisticdata[0]['art_bestofmine']) {
 <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
   <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
 <script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+
 
 <!-- designation script start -->
 <script type="text/javascript">
@@ -761,6 +726,38 @@ $( "#tags" ).autocomplete({
 });
   
 </script>
+<script>
+
+var data1 = <?php echo json_encode($de); ?>;
+// alert(data);
+
+        
+$(function() {
+    // alert('hi');
+$( "#searchplace" ).autocomplete({
+     source: function( request, response ) {
+         var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
+         response( $.grep( data1, function( item ){
+             return matcher.test( item.label );
+         }) );
+   },
+    minLength: 1,
+    select: function(event, ui) {
+        event.preventDefault();
+        $("#searchplace").val(ui.item.label);
+        $("#selected-tag").val(ui.item.label);
+        // window.location.href = ui.item.value;
+    }
+    ,
+    focus: function(event, ui) {
+        event.preventDefault();
+        $("#searchplace").val(ui.item.label);
+    }
+});
+});
+  
+</script>
+
 
 <script type="text/javascript">
                         function checkvalue() {
@@ -776,7 +773,7 @@ $( "#tags" ).autocomplete({
                         }
                     </script>
 
-<script>
+<!-- <script>
 //select2 autocomplete start for skill
     $('#searchskills').select2({
 
@@ -833,7 +830,7 @@ $( "#tags" ).autocomplete({
 
 </script>
 <!-- popup form edit start -->
-
+ 
 <script>
 // Get the modal
     var modal = document.getElementById('myModal');

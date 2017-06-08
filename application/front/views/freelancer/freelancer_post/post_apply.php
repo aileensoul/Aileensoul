@@ -188,7 +188,7 @@ if ($freepostdata[0]['designation']) {
                     <!-- cover pic end -->
                   
 
-                     <div class="col-md-7 col-sm-7 col-md-push-4 custom-right">
+                     <div class="col-md-7 col-sm-7 col-md-push-4 col-sm-push-4 custom-right">
                         <div class="common-form">
                             <div class="job-saved-box">
                                 <h3> Recommended Post</h3>
@@ -476,7 +476,7 @@ $( "#tags" ).autocomplete({
 </script>
 <script>
 
-var data= <?php echo json_encode($city_data); ?>;
+var data1= <?php echo json_encode($city_data); ?>;
 //alert(data);
 
         
@@ -485,7 +485,7 @@ $(function() {
 $( "#searchplace" ).autocomplete({
      source: function( request, response ) {
          var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
-         response( $.grep( data, function( item ){
+         response( $.grep( data1, function( item ){
              return matcher.test( item.label );
          }) );
    },
