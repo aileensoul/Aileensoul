@@ -2123,6 +2123,7 @@
 
     }
 
+
     function commenteditimg(abc)
     {
         $("#editcommentimg" + abc).click(function () {
@@ -2364,9 +2365,10 @@
     }
 
 </script>
-
- <script type="text/javascript">
+<script type="text/javascript">
       $(document).ready(function() {
-  $("html,body").animate({scrollTop: 200}, 100); //100ms for example
-});
+        alert("The paragraph was clicked.");
+        //$("html,body").animate({scrollTop: 500}, 100); //100ms for example
+        });
     </script>
+

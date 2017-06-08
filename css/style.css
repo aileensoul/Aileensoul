@@ -7371,7 +7371,7 @@ input:-moz-placeholder {
 .modal2 {
     display: none;
     position: fixed;
-    z-index: 10000;
+    z-index: 1005;
     padding-top: 100px;
     left: 0;
     top: 0;
@@ -9102,9 +9102,11 @@ fieldset .add_post_btns:hover {
 .common-form .select2-container-multi .select2-choices{
     min-height: 43px;
     padding-top: 2.3px !important;
+    height: 100; 
+    overflow: inherit;
 }
 .panel-body .select2-container-multi .select2-choices{
-      min-height: 43px;
+      min-height: 43px !important;
     padding-top: 2.3px !important;
 }
 

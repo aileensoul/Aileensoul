@@ -62,7 +62,7 @@
     .modal2 {
         display: none;
         position: fixed;
-        z-index:1000;
+        z-index:1005;
         padding-top: 35px;
         left: 0;
         top: 0;
@@ -91,7 +91,7 @@
         top: 50%;
         width: auto;
         padding: 16px;
-        margin-top: -50px;
+        margin-top: 10px;
         color: white;
         font-weight: bold;
         font-size: 20px;
@@ -1358,7 +1358,7 @@
 
                                             <!-- slider image rotation end  -->
 
-                                            <a class="prev" style="left: 10" onclick="plusSlides(-1)">&#10094;</a>
+                                            <a class="prev" style="left: 0px;" onclick="plusSlides(-1)">&#10094;</a>
                                             <a class="next" onclick="plusSlides(1)">&#10095;</a>
 
                                             <div class="caption-container">
