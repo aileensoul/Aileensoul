@@ -396,7 +396,7 @@
 <div style="display: block;">
     <?php echo $header; ?>
 </div>
-<div style="display: block">
+<div style="display: block;">
     <?php echo $business_header2; ?>
 </div>
 <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
