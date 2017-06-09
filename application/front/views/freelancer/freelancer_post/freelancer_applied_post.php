@@ -118,7 +118,7 @@
     <div class="profile-photo">
         <div class="profile-pho">
 
-            <div class="user-pic">
+            <div class="user-pic padd_img">
 <?php if ($jobdata[0]['freelancer_post_user_image'] != '') { ?>
                     <img src="<?php echo base_url($this->config->item('free_post_profile_thumb_upload_path') . $jobdata[0]['freelancer_post_user_image']); ?>" alt="" >
                 <?php } else { ?>
@@ -192,7 +192,7 @@ Details</a>
         </div>
       
 
-        <div class="col-md-7 col-sm-7">
+        <div class="col-md-7 col-sm-7 follow_mid">
             <div class="common-form">
                 <div class="job-saved-box">
                     <h3>Applied Posts</h3>

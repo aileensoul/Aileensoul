@@ -3760,7 +3760,7 @@
                     padding: 7px;
                 }
                 .likeuser_list{
-                    background-color: #ccc;
+                    background-color: #f2f2f2;
                     float: left;
                     margin: 0px 6px 5px 9px;
                     padding: 5px;

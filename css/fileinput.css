@@ -117,7 +117,9 @@
     box-shadow: 3px 3px 5px 0 #333;
 }
 
-.krajee-default.file-preview-frame .kv-file-content {
+.krajee-default.file-preview-frame .kv-file-content {    width: 110px;
+    height: 100px;
+
   
 }
 ..krajee-default.file-preview-frame .kv-file-content img{height: 100%; width: 100%;}

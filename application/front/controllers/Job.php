@@ -338,7 +338,7 @@ $this->load->view('business_profile/temp');
 
         //for getting city data
         $contition_array = array('status' => 1);
-        $this->data['cities'] = $this->common->select_data_by_condition('cities', $contition_array, $data = '*', $sortby = 'city_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        $cities=$this->data['cities'] = $this->common->select_data_by_condition('cities', $contition_array, $data = '*', $sortby = 'city_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
 
 
@@ -417,6 +417,9 @@ $this->load->view('business_profile/temp');
  //         $contition_array = array('status' => '1');
  //          $location_list = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
    
+   foreach($cities as $key){
+    $location[]=$key['city_name'];
+   }
 
  //          foreach ($location_list as $key1 => $value1) {
  //              foreach ($value1 as $ke1 => $val1) {
@@ -424,14 +427,14 @@ $this->load->view('business_profile/temp');
  //              }
  //          }
  //          //echo "<pre>"; print_r($location);die();
- //          foreach ($location as $key => $value) {
- //              $loc[$key]['label'] =$value;
- //              $loc[$key]['value'] =$value;
- //          }
+          foreach ($location as $key => $value) {
+              $loc[$key]['label'] =$value;
+              $loc[$key]['value'] =$value;
+          }
          
  // //echo "<pre>"; print_r($loc);die();
 
- //        $this->data['city_data']= array_values($loc);
+        $this->data['city_data']= array_values($loc);
 
         $this->data['demo'] = array_values($result1);
         $this->load->view('job/job_address', $this->data);

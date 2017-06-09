@@ -134,7 +134,7 @@
             <div class="profile-photo">
               <div class="profile-pho">
 
-                <div class="user-pic">
+                <div class="user-pic padd_img">
                                 <?php if($recdata[0]['recruiter_user_image'] != '' ){ ?>
                            <img src="<?php echo base_url($this->config->item('rec_profile_thumb_upload_path') . $recdata[0]['recruiter_user_image']);?>" alt="" >
                             <?php } else { ?>

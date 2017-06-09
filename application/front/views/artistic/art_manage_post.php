@@ -120,7 +120,7 @@
     <div class="profile-photo">
         <div class="profile-pho">
 
-            <div class="user-pic">
+            <div class="user-pic padd_img">
                 <?php if ($artisticdata[0]['art_user_image'] != '') { ?>
                     <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image']); ?>" alt="" >
                 <?php } else { ?>
