@@ -328,7 +328,7 @@ $( "#tags" ).autocomplete({
 <script>
 
 var data1= <?php echo json_encode($city_data); ?>;
-alert(data1);
+//alert(data1);
 
         
 $(function() {
