@@ -443,7 +443,7 @@
 
                                                     <!-- two image start -->
                                                     <div id="basic-responsive-image" >
-                                                        <img src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $data['image_name']) ?>" onclick="openModal();
+                                                        <img src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $data['image_name']) ?>" onclick="openModal();
                                                                 currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
                                                     </div>
                                                     <!-- two image end -->
@@ -452,7 +452,7 @@
 
                                                     <!-- two image start -->
                                                     <div id="two_images_buip"  >
-                                                        <img src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $data['image_name']) ?>" onclick="openModal();
+                                                        <img src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $data['image_name']) ?>" onclick="openModal();
                                                                 currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
                                                     </div>
                                                     <!-- two image end -->
@@ -462,7 +462,7 @@
                                                     ?>
                                                     <!-- two image start -->
                                                     <div id="two_images_buip" >
-                                                        <img src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $data['image_name']) ?>"  onclick="openModal();
+                                                        <img src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $data['image_name']) ?>"  onclick="openModal();
                                                                 currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
                                                     </div>
                                                     <!-- two image end -->
@@ -471,14 +471,14 @@
 
                                                     <!-- two image start -->
                                                     <div id="two_images_buip"  >
-                                                        <img src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $data['image_name']) ?>" onclick="openModal();
+                                                        <img src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $data['image_name']) ?>" onclick="openModal();
                                                                 currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
                                                     </div>
                                                     <!-- two image end -->
                                                 <?php } else { ?>
 
                                                     <div id="two_images_buip"  >
-                                                        <img src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $data['image_name']) ?>"  onclick="openModal();
+                                                        <img src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $data['image_name']) ?>"  onclick="openModal();
                                                                 currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
                                                     </div>
                                                     <?php
