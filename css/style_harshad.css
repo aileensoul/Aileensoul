@@ -11,3 +11,11 @@
     height: 252px;
     background: rgba(0, 0, 0, 0.5);
     padding: 63px;}
+    .margin_btm{margin-bottom: 10px!important;}
+
+     #two_images_buip{  float: left;
+    
+    width: 100%;
+    margin-bottom: 10px;
+    text-align: center;}
+     #two_images_buip img{max-width: 100%; width: auto; }
