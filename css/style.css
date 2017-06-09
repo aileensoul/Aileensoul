@@ -873,7 +873,7 @@ ul.dropdown-menu li a i {
     border: 10px solid black;
     border-color: transparent transparent #fff;
     margin-top: -18px;
-    right: 5.5%;
+    right: 14.5%;
 }
 /*.dropdown:hover .dropdown-menu { display: block; }*/
 
@@ -1856,7 +1856,7 @@ ul.business_pf_ct_person_detail li b {
 #message_count {} #notificationLink:hover span {
     background: #1b8ab9;
     color: #fff;
-    z-index: -1;
+    z-index: 1;
 }
 /* Artistic */
 
@@ -2082,15 +2082,17 @@ ul.business_pf_ct_person_detail li b {
 }
 .job-search-box1 input {
     background: none;
-    border: 2px solid #cacaca;
+    border: 2px solid transparent;
     outline: none;
     background-color: #ffffff;
-    padding: 1px 15px;
+    padding: 4px 15px;
     color: #000;
     font-size: 14px;
     font-weight: 400;
     border-radius: 4px;
     width: 100%;
+    height: 28px;
+    line-height: 1;
 }
 .job-search-box1 fieldset {
     padding-left: 5px;
@@ -7552,7 +7554,7 @@ input:-moz-placeholder {
     }
 }
 .editable_text {
-    min-height: 6%;
+    min-height: 40px;
     background: white;
     border: 2px solid #cacaca;
     outline: none;
@@ -9579,8 +9581,8 @@ chat end*/
       }
       #notificationLink1{
         position: absolute;
-        bottom: 0;
-        left: -100px;
+        bottom: 10px;
+        left: -90px;
       }
       #notificationContainer1:before {
       content: '';
@@ -9655,3 +9657,4 @@ style chat css end*/
 /***  6-9-17 h ***/
 #msg_block #set_input{margin:0; margin-bottom:-52px;}
 .chat_nobcx .panel-footer{padding:0;}
+#set_input .input-group-addon, #set_input .input-group-btn {width:auto;}
