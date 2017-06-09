@@ -56,3 +56,5 @@
     background: rgba(0, 0, 0, 0.5);
     padding: 68px;
 }
+
+.profile-box-job-menu ul li a{margin-right: 25px;}
