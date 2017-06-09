@@ -116,7 +116,7 @@
                 <div class="profile-photo">
                     <div class="profile-pho">
 
-                        <div class="user-pic">
+                        <div class="user-pic padd_img">
                         <?php if($freelancerhiredata[0]['freelancer_hire_user_image'] != ''){ ?>
                            <img src="<?php echo base_url($this->config->item('free_hire_profile_thumb_upload_path').$freelancerhiredata[0]['freelancer_hire_user_image']);?>" alt="" >
                             <?php } else { ?>
