@@ -434,6 +434,7 @@ ol li {
 }
 ul li {
     padding-left: 11px;
+
 }
 ol li {
     list-tyle: numaric;
@@ -7043,7 +7044,7 @@ li.fr a {
 */
 
 .select2-container--default .select2-selection--multiple {
-    border: 2px solid #cacaca;
+    border: 2px solid #cacaca !important;
 }
 /* 21-4-2017 */
 /*
@@ -9637,3 +9638,7 @@ chat end*/
 /*
 style chat css end*/
 .padd_img {    padding-left: 5px !important; padding-top: 6px !important;}
+
+.job-saved-box form  .select2-selection__rendered li {margin: 8px 0 }
+
+.job-saved-box form .selection ul .select2-selection__choice {margin-top: 7px;}
