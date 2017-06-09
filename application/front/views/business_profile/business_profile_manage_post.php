@@ -918,7 +918,7 @@
 
                             </div>
                             <div class="fr">
-                                <button type="submit"  value="Submit">POST</button>    </div>
+                                <button type="submit"  value="Submit">Post</button>    </div>
                             <?php echo form_close(); ?>
                         </div>
                     </div>
