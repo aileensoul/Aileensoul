@@ -606,23 +606,30 @@ public function business_search() {
         $this->load->view('recruiter/rec_search', $this->data);
     }
 
-    public function recruiter_search() {
+    public function recruiter_search($searchkeyword,$searchplace) {
 
-        // echo "<pre>"; print_r($_POST);die();
+    if($this->input->post('search_submit')){
+         $skills1=    $this->input->post('skills');
+        $searchplace1=$this->input->post('searchplace');
+    }else{
+               $skills1=    $searchkeyword;
+                $searchplace1=$searchplace;
+    }
+         //echo "<pre>"; print_r($_POST);die();
 
         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
 
 
-if ($this->input->post('skills') == "" && $this->input->post('searchplace') == "") {
+if ( $skills1 == "" && $searchplace1 == "") {
             redirect('recruiter/recommen_candidate',refresh);
             
         }
 
-        $rec_search = trim($this->input->post('skills'));
+        $rec_search = trim( $skills1);
 
         $this->data['keyword'] = $rec_search;
 
-        $search_place = $this->input->post('searchplace');
+        $search_place = $searchplace1;
 
         //insert search keyword into database start
 
@@ -651,7 +658,7 @@ if ($this->input->post('skills') == "" && $this->input->post('searchplace') == "
         $insert_id = $this->common->insert_data_getid($data, 'search_info');
         //insert search keyword into database end
 
-        if ($this->input->post('skills') == "") {
+        if ($skills1 == "") {
             $join_str = array(array(
                     'join_type' => '',
                     'table' => 'job_add_edu',
@@ -667,7 +674,7 @@ if ($this->input->post('skills') == "" && $this->input->post('searchplace') == "
 
             $unique = $this->data['results'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
         }
-         elseif ($this->input->post('searchplace') == "") {
+         elseif ($searchplace1 == "") {
           // echo "<pre>"; print_r($business_post);die();
 
             $contition_array = array('is_delete' => '0', 'status' => '1');

@@ -1882,29 +1882,6 @@ $contition_array = array('status' => '1', 'is_delete' => '0');
 
 // deactivate user end
 
-//popup for leave page at add_page and edit_page start
-    public function home() {
-        //echo "hii";die();
-
-        $id = $_POST['id'];
-        $data = array(
-            're_status' => 0
-        );
-        //echo "<pre>"; print_r($data); die(); 
-        $update = $this->common->update_data($data, 'recruiter', 'user_id', $id);
-
-        // if ($update) {
-
-        //     // $this->session->unset_userdata('aileenuser');
-        //     $this->session->set_flashdata('success', 'You are deactivate successfully.');
-        //     redirect('dashboard', 'refresh');
-        // } else {
-        //     $this->session->flashdata('error', 'Sorry!! Your are not deactivate!!');
-        //     redirect('recruiter', 'refresh');
-        // }
-    }
-
-//popup for leave page at add_page and edit_page end
 
 
 //save search user controller start
