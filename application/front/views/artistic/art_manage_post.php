@@ -881,6 +881,8 @@
 
                                                                 $firstnameposted = $this->db->get_where('art_reg', array('user_id' => $row['posted_user_id']))->row()->art_name;
                                                                 $lastnameposted = $this->db->get_where('art_reg', array('user_id' => $row['posted_user_id']))->row()->art_lastname;
+                                                              
+                                                                 $designation = $this->db->get_where('art_reg', array('user_id' => $row['user_id']))->row()->designation;
                                                                 ?>
                                                             </span>
 
@@ -906,6 +908,15 @@
 
                                                             <?php } ?>                          
                                                         </li>
+                                                         <li><div class="post-design-product">
+                                                                <a><?php if($designation)
+                                                                    {echo $designation;
+                                                                    
+                                                                    }else{
+                                                                        echo "Current Work.";
+                                                                       }?> </a>
+                                                                
+                                                            </div></li>
 
                                                     </ul> 
                                                 </div>  
@@ -1184,7 +1195,7 @@
                                                                     <i class="fa fa-thumbs-up" style="color: #999;" aria-hidden="true"></i>
                                                                 <?php } else {
                                                                     ?>
-                                                                    <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                                                    <i class="fa fa-thumbs-up main_color" aria-hidden="true"></i>
             <?php }
             ?>
 
@@ -1213,9 +1224,9 @@
                                                             <a title="Comment" class="ripple" onClick="commentall(this.id)" id="<?php echo $row['art_post_id']; ?>">
                                                                 <i class="fa fa-comment-o" aria-hidden="true">
                                                                     <?php
-                                                                    if (count($commnetcount) > 0) {
-                                                                        echo count($commnetcount);
-                                                                    }
+//                                                                    if (count($commnetcount) > 0) {
+//                                                                        echo count($commnetcount);
+//                                                                    }
                                                                     ?>
                                                                 </i>  
                                                             </a>
@@ -1224,18 +1235,28 @@
                                                     </ul>
                                                      <ul class="col-md-6 like_cmnt_count">
 
-<li>
-<div class="like_count_ext">
-<span > 5 </span> 
-<span> Comment</span>
-</div>
-</li>
+ <li>
+                                                                <div class="like_count_ext">
+                                                                    <span class="comment_count<?php echo $row['art_post_id']; ?>" > <?php
+                                                                        if (count($commnetcount) > 0) {
+                                                                            echo count($commnetcount);
+                                                                        }
+                                                                        ?> </span> 
+                                                                    <span> Comment</span>
+                                                                </div>
+                                                            </li>
 
-<li>
-<div class="comnt_count_ext">
-<span> 5 </span> 
-<span> Like</span>
-</div></li>
+                                                            <li>
+                                                                <div class="comnt_count_ext">
+                                                                    <span class="<?php echo 'comment_like_count' . $row['art_post_id']; ?>"> 
+                                                                       <?php
+                                                                        if ($row['art_likes_count'] > 0) {
+                                                                            echo $row['art_likes_count'];
+                                                                        }
+                                                                        ?> 
+                                                                    </span> 
+                                                                    <span> Like</span>
+                                                                </div></li>
                                         </ul>
                                                     <!-- like comment div end -->
                                                 </div>
@@ -1421,7 +1442,7 @@
                                                                                     <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i> 
                                                                                 <?php } else {
                                                                                     ?>
-                                                                                    <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                                                                    <i class="fa fa-thumbs-up main_color" aria-hidden="true"></i>
                                                                                     <?php }
                                                                                     ?>
                                                                                 <span>
@@ -2025,6 +2046,8 @@
                     success: function (data) {
                         $('.' + 'likepost' + clicked_id).html(data.like);
                         $('.likeusername' + clicked_id).html(data.likeuser);
+                        
+                        $('.comment_like_count' + clicked_id).html(data.like_user_count);
 
                         $('.likeduserlist' + clicked_id).hide();
                         if (data.like_user_count == '0') {
@@ -2480,8 +2503,9 @@
                                     $('textarea').each(function () {
                                         $(this).val('');
                                     });
-                                    $('#' + 'insertcount' + clicked_id).html(data.count);
+                                 //   $('#' + 'insertcount' + clicked_id).html(data.count);
                                     $('.insertcomment' + clicked_id).html(data.comment);
+                                    $('.comment_count' + clicked_id).html(data.commentcount);
                                 }
                             });
                         } else {
