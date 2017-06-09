@@ -1339,7 +1339,7 @@
 
                                                             <?php } else { ?> 
                                                                             <!--<i class="fa fa-thumbs-up" aria-hidden="true"></i>-->
-                                                                <i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i>
+                                                                <i class="fa fa-thumbs-up main_color fa-1x" aria-hidden="true"></i>
                                                             <?php } ?>
 
                                                             <span class="like_As_count">
@@ -1575,7 +1575,7 @@
                                                                                 ?>
                                                                                 <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i> 
                 <?php } else { ?>
-                                                                                <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                                                                <i class="fa fa-thumbs-up main_color" aria-hidden="true"></i>
 
                                                                                 <?php } ?>
                                                                             <span>
@@ -3749,42 +3749,6 @@
             </script>
 
 
-            <style type="text/css">
-                .likeduser{
-                    width: 100%;
-                    background-color: #1b8ab9;
-                }
-                .likeduser-title{
-                    color: #fff;
-                    margin-bottom: 5px;
-                    padding: 7px;
-                }
-                .likeuser_list{
-                    background-color: #f2f2f2;
-                    float: left;
-                    margin: 0px 6px 5px 9px;
-                    padding: 5px;
-                    width: 47%;
-                    font-size: 14px;
-                }
-                .likeduserlist, .likeduserlist1 {
-                    float: left;
-                    /*        margin-left: 15px;
-                            margin-right: 15px;*/
-                    width: 96%;
-                    background-color: #fff !important;
-                }
-                div[class^="likeduserlist"]{
-                    width: 100% !important;
-                    background-color: #fff !important;
-                }
-                .like_one_other{
-                    /*  margin-left: 15px;
-                    */  /*  margin-right: 15px;*/
-
-                }
-
-            </style>
 
             <!-- cover image start -->
             <script>

@@ -23,3 +23,41 @@
     max-height: 100%;
     height: auto;}
     .main_color{color: #1b8ab9!important;}
+    .likeuser_list {
+  
+    background-color: #f2f2f2;
+    float: left;
+    margin: 0px 6px 6px 0px;
+    padding: 6px;
+    width: 49%;
+    font-size: 15px;
+    font-weight: 600;
+    color: #008a8a;
+    display: table;
+}
+    .likeuser_list a{color: #1b8ab9;}
+.likeduser, .likeduser1{
+        width: 100%;
+        background-color: #1b8ab9 !important;
+    }
+    .likeduser-title, .likeduser-title1{
+        color: #fff;
+        margin-bottom: 5px;
+        padding: 7px;
+    }    .likeduserlist, .likeduserlist1 {
+        float: left;
+        /*        margin-left: 15px;
+                margin-right: 15px;*/
+        width: 96%;
+        background-color: #fff !important;
+    }
+    div[class^="likeduserlist"]{
+        width: 100% !important;
+        background-color: #fff !important;
+    }
+    .like_one_other_img{
+        margin-left: 25px;
+        /*  margin-right: 15px;*/
+
+    }
+    .modal-content{display: table; width: 100%;}

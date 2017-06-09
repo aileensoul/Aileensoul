@@ -3507,42 +3507,6 @@
 <!-- post delete particular login user end -->
 
 
-<style type="text/css">
-    .likeduser, .likeduser1{
-        width: 100%;
-        background-color: #00002D;
-    }
-    .likeduser-title, .likeduser-title1{
-        color: #fff;
-        margin-bottom: 5px;
-        padding: 7px;
-    }
-    .likeuser_list, .likeuser_list1{
-        background-color: #ccc;
-        float: left;
-        margin: 0px 6px 5px 9px;
-        padding: 5px;
-        width: 47%;
-        font-size: 14px;
-    }
-    .likeduserlist, .likeduserlist1 {
-        float: left;
-        /*        margin-left: 15px;
-                margin-right: 15px;*/
-        width: 96%;
-        background-color: #fff !important;
-    }
-    div[class^="likeduserlist"]{
-        width: 100% !important;
-        background-color: #fff !important;
-    }
-    .like_one_other_img{
-        margin-left: 25px;
-        /*  margin-right: 15px;*/
-
-    }
-
-</style>
 <!-- This  script use for close dropdown in every post -->
 <script type="text/javascript">
     $('body').on("click", "*", function (e) {
