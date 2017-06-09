@@ -631,7 +631,7 @@
 
 
                                                             <fieldset class="full-width">
-                                          <h6>Grade :<span class="red">*</span></h6>
+                                          <h6>Grade :<!-- <span class="red">*</span> --></h6>
                                    <input type="text" name="grade[]" id="grade1" class="grade" placeholder="Enter Grade" value="<?php
                                      if ($grade1) {
                                      echo $grade1;
@@ -832,7 +832,7 @@
                                                      
                                                      
                                                            <fieldset class=""> -->
-                                                        <h6>Grade :<span class="red">*</span></h6>
+                                                        <h6>Grade :<!-- <span class="red">*</span> --></h6>
                                                         <input type="text" name="grade[]" id="grade1" class="grade" placeholder="Enter Grade" value="<?php
                                                         if ($grade1) {
                                                             echo $grade1;
@@ -1499,12 +1499,12 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
                                         noSpace: true
 
                                     },
-                                    'grade[]': {
+                                    // 'grade[]': {
 
-                                        required: true,
-                                        regx:/^[a-zA-Z+-]/
+                                    //     required: true,
+                                    //     regx:/^[a-zA-Z+-]/
 
-                                    },
+                                    // },
                                     'percentage[]': {
 
                                         required: true,
@@ -1551,11 +1551,11 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
                                         required: "College Is Required.",
 
                                     },
-                                    'grade[]': {
+                                    // 'grade[]': {
 
-                                        required: "Grade Is Required.",
+                                    //     required: "Grade Is Required.",
 
-                                    },
+                                    // },
                                     'percentage[]': {
 
                                         required: "Percentage Is Required.",
