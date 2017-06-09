@@ -1164,7 +1164,7 @@
 
                                                         <!-- one image start -->
                                                         <div id="basic-responsive-image" >
-                                                            <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>"><img src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $businessmultiimage[0]['image_name']) ?>" style="width: 100%; height: 100%;"> </a>
+                                                            <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>"><img src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $businessmultiimage[0]['image_name']) ?>"> </a>
                                                         </div>
                                                         <!-- one image end -->
 
@@ -3760,7 +3760,7 @@
                     padding: 7px;
                 }
                 .likeuser_list{
-                    background-color: #ccc;
+                    background-color: #f2f2f2;
                     float: left;
                     margin: 0px 6px 5px 9px;
                     padding: 5px;

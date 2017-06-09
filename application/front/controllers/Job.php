@@ -338,7 +338,7 @@ $this->load->view('business_profile/temp');
 
         //for getting city data
         $contition_array = array('status' => 1);
-        $this->data['cities'] = $this->common->select_data_by_condition('cities', $contition_array, $data = '*', $sortby = 'city_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        $cities=$this->data['cities'] = $this->common->select_data_by_condition('cities', $contition_array, $data = '*', $sortby = 'city_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
 
 
@@ -417,6 +417,9 @@ $this->load->view('business_profile/temp');
  //         $contition_array = array('status' => '1');
  //          $location_list = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
    
+   foreach($cities as $key){
+    $location[]=$key['city_name'];
+   }
 
  //          foreach ($location_list as $key1 => $value1) {
  //              foreach ($value1 as $ke1 => $val1) {
@@ -424,14 +427,14 @@ $this->load->view('business_profile/temp');
  //              }
  //          }
  //          //echo "<pre>"; print_r($location);die();
- //          foreach ($location as $key => $value) {
- //              $loc[$key]['label'] =$value;
- //              $loc[$key]['value'] =$value;
- //          }
+          foreach ($location as $key => $value) {
+              $loc[$key]['label'] =$value;
+              $loc[$key]['value'] =$value;
+          }
          
  // //echo "<pre>"; print_r($loc);die();
 
- //        $this->data['city_data']= array_values($loc);
+        $this->data['city_data']= array_values($loc);
 
         $this->data['demo'] = array_values($result1);
         $this->load->view('job/job_address', $this->data);
@@ -2447,21 +2450,23 @@ $this->load->view('business_profile/temp');
 
     public function job_work_exp_insert() {
 
-      //  echo "<pre>";print_r($_POST);die();
+       // echo "<pre>";print_r($_POST);
         $userid = $this->session->userdata('aileenuser');
 
         $userdata[] = $_POST;
-        $count1 = count($userdata[0]['experience_year']);
+       // echo "<pre>"; print_r($userdata[0]['keyskil1']);
+        $count1 = count($userdata[0]['keyskil1']);
+       // echo $count1;
         
         if ($this->input->post('previous')) {  //echo "hi";die();
             redirect('job/job_skill_update', refresh);
         }
-        
+       // echo "<pre>";print_r($this->input->post());
         $post_data = $this->input->post();
         
-//        echo '<pre>';
-//        print_r($post_data);
-//        exit;
+       // echo '<pre>';
+       // print_r($post_data);
+       // exit;
         
 //Click on Add_More_WorkExp Process start
         if ($this->input->post('add_workexp')) {
@@ -2572,6 +2577,7 @@ $this->load->view('business_profile/temp');
                 }
             } else {
 
+                //echo "ggggg";
                 // $exp = $this->input->post('radio');
 
                 $exp = 'Experience';
@@ -2671,10 +2677,14 @@ $this->load->view('business_profile/temp');
 
 
                 if ($jobdata) {
+                    //echo "pppp";
                     //Edit Multiple field into database Start 
                     for ($x = 0; $x < $count1; $x++) {
+                        // echo "888";
+                        // echo $x;
                         $exp_data = $userdata[0]['exp_data'][$x];
                         if($exp_data == 'old'){
+                           // echo "zzzz";
                         $files[] = $_FILES;
                         //echo "<pre>";print_r($files);die();
                          $work_certificate = $files['certificate']['name'][$x];
@@ -2698,7 +2708,7 @@ $this->load->view('business_profile/temp');
                         $data = array(
                             'user_id' => $userid,
                             'experience' => $exp,
-                            'experience_year' => $userdata[0]['experience_year'][$x],
+                            'experience_year' => $userdata[0]['keyskil1'][$x],
                             'experience_month' => $userdata[0]['experience_month'][$x],
                             'jobtitle' => $userdata[0]['jobtitle'][$x],
                             'companyname' => $userdata[0]['companyname'][$x],
@@ -2735,6 +2745,8 @@ $files[] = $_FILES;
                     }
                     //Edit Multiple field into database End 
                 } else {
+
+                   // echo "qqqq";die();
                     //Add Multiple field into database Start 
                     for ($x = 0; $x < $count1; $x++) {
 
@@ -2792,10 +2804,11 @@ $files[] = $_FILES;
 
 
                 if ($insert_id && $updatedata || $updatedata1 && $updatedata) {
-
+                   // echo "hhhh";
                     $this->session->set_flashdata('success', 'Work Experience updated successfully');
                     redirect('job/job_curricular_update');
                 } else {
+                   // echo "bbbb";
                     $this->session->flashdata('error', 'Your data not inserted');
                     redirect('job/job_work_exp_update', 'refresh');
                 }

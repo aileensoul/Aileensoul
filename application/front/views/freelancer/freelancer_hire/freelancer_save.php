@@ -114,7 +114,7 @@
             <div class="profile-photo">
                 <div class="profile-pho">
 
-                    <div class="user-pic">
+                    <div class="user-pic padd_img">
                         <?php if ($freehiredata[0]['freelancer_hire_user_image'] != '') { ?>
                             <img src="<?php echo base_url($this->config->item('free_hire_profile_thumb_upload_path') . $freehiredata[0]['freelancer_hire_user_image']); ?>" alt="" >
                         <?php } else { ?>
@@ -204,7 +204,7 @@
              </div>
          </div> -->
 
-                <div class="col-md-7 col-sm-7 all-form-content">
+                <div class="col-md-7 col-sm-7 all-form-content follow_mid">
                     <div class="common-form">
                         <div class="job-saved-box">
                             <h3>Saved Freelancer</h3>

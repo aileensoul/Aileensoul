@@ -1272,9 +1272,9 @@ word-break: break-all;
   transform: scale(1, 1);
 }
 
-#login_form input{
+/*#login_form input{
   height: 45px;
-}
+}*/
 .checkbox2 input{
   margin-top: 2px !important;
   height: 18px !important;

@@ -120,7 +120,7 @@ if ($returnpage == 'job') {
     <div class="profile-photo">
         <div class="profile-pho">
 
-            <div class="user-pic">
+            <div class="user-pic padd_img">
               <?php 
              
               if($postdataone[0]['recruiter_user_image'] != '' ){ ?>

@@ -546,7 +546,7 @@
                                                 </div>
                                                 
                                                 <div class="notification-data-inside" id="notification_inside">
-                                                    <h6><?php echo "<font color='yellow'><b><i>Freelancer</i></font></b><b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Applied On Your Post."; ?></h6>
+                                                    <h6><?php echo "<font color='black'><b><i>Freelancer</i></font></b><b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Applied On Your Post."; ?></h6>
                                                     <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
                                                         <?php echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                     </div>
@@ -601,7 +601,7 @@
                                             </div>
                                             
                                             <div class="notification-data-inside" id="notification_inside">
-                                                <h6><?php echo "<font color='yellow'><b><i>Freelancer</i></font></b><b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Applied on your post."; ?></h6>
+                                                <h6><?php echo "<font color='black'><b><i>Freelancer</i></font></b><b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Applied on your post."; ?></h6>
                                                 <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
                                                     <?php echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                 </div>
