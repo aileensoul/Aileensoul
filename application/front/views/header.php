@@ -454,16 +454,43 @@ $( document ).on( 'keydown', function ( e ) {
                                     <ul class="dropdown-menu" role="menu" aria-labelledby="menu1" id="myDropdown">
 
                                         <li>
-                                            <a href="<?php echo base_url() . 'profile' ?>">
+                                        <?php if(($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'add_post') || ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'edit_post')){?>
+                                
+                               <a  onclick="return leave_page(6)">
                                                 <i class="fa fa-user" aria-hidden="true"></i> Edit Profile </a>
+                                
+                                 <?php }else{?>
+
+                               <a href="<?php echo base_url() . 'profile' ?>">
+                                                <i class="fa fa-user" aria-hidden="true"></i> Edit Profile </a>
+                                 <?php } ?>
+                                            
                                         </li>
                                         <li>
-                                            <a href="<?php echo base_url('registration/changepassword') ?>">
+                                        <?php if(($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'add_post') || ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'edit_post')){?>
+                                
+                               <a  onclick="return leave_page(7)">
                                                 <i class="fa fa-exchange" aria-hidden="true"></i> Change password </a>
+                                
+                                 <?php }else{?>
+
+                              <a href="<?php echo base_url('registration/changepassword') ?>">
+                                                <i class="fa fa-exchange" aria-hidden="true"></i> Change password </a>
+                                 <?php } ?>
+                                            
                                         </li>
                                         <li class="logout">
-                                            <a href="<?php echo base_url('dashboard/logout') ?>">
+                                         <?php if(($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'add_post') || ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'edit_post')){?>
+                                
+                               <a  onclick="return leave_page(8)">
                                                 <i class="fa fa-power-off" aria-hidden="true"></i> Logout</a> 
+                                
+                                 <?php }else{?>
+
+                               <a href="<?php echo base_url('dashboard/logout') ?>">
+                                                <i class="fa fa-power-off" aria-hidden="true"></i> Logout</a> 
+                                 <?php } ?>
+                                           
 
                                             <!--                                            Logout-->
                                         </li>

@@ -292,8 +292,17 @@
 
 
                                 <fieldset style="padding: 3px 3px;" class="hs-submit">
-                                    
+                                 
+                                 <?php if(($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'add_post') || ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'edit_post')){?>
+                                
+                               
+                                 <a class="add_post_btnc" onclick="return leave_page(9)">Cancel</a>
+                                 <?php }else{?>
+
                                  <a class="add_post_btnc" href="javascript:history.back()">Cancel</a>
+                                 <?php } ?>
+
+                                
                                   <input type="submit" id="submit" class="add_post_btns" name="submit" value="Post">
                                     <!--<input type="reset" >-->
                                    
@@ -815,6 +824,23 @@ else
     {
             location.href = '<?php echo base_url('dashboard') ?>';
     }
+       if(clicked_id==6)
+    {
+            location.href = '<?php echo base_url() . 'profile' ?>';
+    }
+        if(clicked_id==7)
+    {
+            location.href = '<?php echo base_url('registration/changepassword') ?>';
+    }
+        if(clicked_id==8)
+    {
+            location.href = '<?php echo base_url('dashboard/logout') ?>';
+    }
+     if(clicked_id==9)
+    {
+            location.href = 'javascript:history.back()';
+
+    }
 
  }
  else
@@ -878,6 +904,22 @@ if (clicked_id === 4) {
                              else if(clicked_id==5)
                             {
                                 window.location= "<?php echo base_url('dashboard') ?>"; 
+                            }
+                             else if(clicked_id==6)
+                            {
+                                window.location= "<?php echo base_url() . 'profile' ?>"; 
+                            }
+                             else if(clicked_id==7)
+                            {
+                                window.location= "<?php echo base_url('registration/changepassword') ?>"; 
+                            }
+                             else if(clicked_id==8)
+                            {
+                                window.location= "<?php echo base_url('dashboard/logout') ?>"; 
+                            }
+                            else if(clicked_id==9)
+                            {
+                                        location.href = 'javascript:history.back()';
                             }
                             else
                             {
