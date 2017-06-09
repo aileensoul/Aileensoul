@@ -201,7 +201,7 @@
             </div>
         </div> -->
 
-        <div class="col-md-7 col-sm-7">
+        <div class="col-md-7 col-sm-7 follow_mid">
             <div class="common-form">
                 <div class="job-saved-box">
                     <h3>Saved Posts</h3>
