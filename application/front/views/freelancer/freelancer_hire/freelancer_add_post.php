@@ -741,6 +741,6 @@ $('#skills').select2({
 
 </script>
 
-<style type="text/css">
+<!-- <style type="text/css">
   #skills-error{margin-top: 38px;}
-</style>
+</style> -->
