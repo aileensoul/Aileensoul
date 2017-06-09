@@ -679,10 +679,14 @@
                             <div class="main-text-area col-md-12">
                                 <div class="popup-img col-md-1"> <img  src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image']); ?>"  alt="">
                                 </div>
-                                <div id="myBtn"  class="editor-content col-md-11 popup-text">
+                                <div id="myBtn"  class="editor-content col-md-10 popup-text">
                                     <span > Post Your Art....</span> 
 
                                 </div>
+                                 <div class="col-md-1 padding-left padding_les_left camer_h">
+                                            <i class=" fa fa-camera" >
+                                            </i> 
+                                        </div>
                             </div>
 
                         </div>
@@ -1170,9 +1174,9 @@
                                                                 <a  onClick="commentall(this.id)" id="<?php echo $row['art_post_id']; ?>">
                                                                     <i class="fa fa-comment-o" aria-hidden="true">
                                                                         <?php
-                                                                        if (count($commnetcount) > 0) {
-                                                                            echo count($commnetcount);
-                                                                        }
+//                                                                        if (count($commnetcount) > 0) {
+//                                                                            echo count($commnetcount);
+//                                                                        }
                                                                         ?>
                                                                     </i>  
                                                                 </a>
@@ -1182,14 +1186,24 @@
 
                                                             <li>
                                                                 <div class="like_count_ext">
-                                                                    <span class="comment_count<?php echo $row['art_post_id']; ?>" > 5 </span> 
+                                                                    <span class="comment_count<?php echo $row['art_post_id']; ?>" > <?php
+                                                                        if (count($commnetcount) > 0) {
+                                                                            echo count($commnetcount);
+                                                                        }
+                                                                        ?> </span> 
                                                                     <span> Comment</span>
                                                                 </div>
                                                             </li>
 
                                                             <li>
                                                                 <div class="comnt_count_ext">
-                                                                    <span class="<?php echo 'comment_like_count' . $row['art_post_id']; ?>"> 5 </span> 
+                                                                    <span class="<?php echo 'comment_like_count' . $row['art_post_id']; ?>"> 
+                                                                       <?php
+                                                                        if ($row['art_likes_count'] > 0) {
+                                                                            echo $row['art_likes_count'];
+                                                                        }
+                                                                        ?> 
+                                                                    </span> 
                                                                     <span> Like</span>
                                                                 </div></li>
                                                         </ul>
@@ -2262,12 +2276,13 @@
                                             url: '<?php echo base_url() . "artistic/insert_commentthree" ?>',
                                             data: 'post_id=' + clicked_id + '&comment=' + txt,
                                             dataType: "json",
-                                            success: function (data) {
+                                            success: function (data) { //alert(123); alert(data.commentcount);
                                                 $('textarea').each(function () {
                                                     $(this).val('');
                                                 });
-                                                $('#' + 'insertcount' + clicked_id).html(data.count);
+                                              //  $('#' + 'insertcount' + clicked_id).html(data.count);
                                                 $('.insertcomment' + clicked_id).html(data.comment);
+                                                $('.comment_count' + clicked_id).html(data.commentcount);
                                             }
                                         });
                                     } else {

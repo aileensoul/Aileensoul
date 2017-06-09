@@ -77,3 +77,6 @@
 }
 .pop_content .cnclbtn:hover{background-color: #156f95 !important}
 .pop_content .okbtn:hover{background-color: #156f95 !important}
+.tabordion section .label-d{padding: 5px 7px !important}
+.contact-frnd-post1 label{margin-bottom: 3px}
+.tabordion input[name="sections"]:checked + label:after{top:7px;}
