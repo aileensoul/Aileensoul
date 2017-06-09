@@ -27,7 +27,7 @@
 	h1, h1 a { font-size: 26px; line-height: 40px; }
 	h2, h2 a { font-size: 24px; line-height: 32px; }
 
-	.header ul { text-align: left; }
+	/*.header ul { text-align: left; }
 	.header ul li { display: block; border-bottom: 1px solid #5b6c90; }
 	.header ul li a { color: #fff; padding: 10px 12px; }
 	.header ul li a i { float: left; width: 30px; display: none; }
@@ -43,7 +43,7 @@
 	.pushmenu-left.pushmenu-open { background:#3b5283; box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.5); }
 	.buttonset { background: none; }
 	.buttonset { background: #3b5283; top: -53px; width: 55px; right: 0; float: right; position: relative; height: 52px; padding: 12px;}
-	.pushmenu-push-toright { left: 0; }
+	.pushmenu-push-toright { left: 0; }*/
 
 	.title-section { padding: 20px 0; }
 

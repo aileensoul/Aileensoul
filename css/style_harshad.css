@@ -1,4 +1,14 @@
 /***  css   ***/
+/*.prev {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+.Follow_close {
+    transform: translate(0, -50%);
+    float: right;
+    top: 50%;
+    position: absolute;
+    right: 0px;
+}
 .next{right: 0px!important;}
 .slider_img{width: 100%; height: 400px; text-align: center; padding-top: 10px;}
 .slider_img img {width: auto; max-width: 100%; max-height: 100%; }
@@ -6,12 +16,12 @@
     bottom: 0%;
     color: white;
     position: absolute;
-    /* left: 14px; */
+
     width: 335px;
     height: 252px;
     background: rgba(0, 0, 0, 0.5);
     padding: 63px;}
-    .margin_btm{margin-bottom: 10px!important;}
+    .margin_btm{margin-bottom: 4px!important;}
 
      #two_images_buip{  float: left;
     
@@ -23,3 +33,40 @@
     max-height: 100%;
     height: auto;}
     .main_color{color: #1b8ab9!important;}
+    .likeuser_list {
+  
+    background-color: #f2f2f2;
+    float: left;
+    margin: 0px 6px 6px 0px;
+    padding: 6px;
+    width: 49%;
+    font-size: 15px;
+    font-weight: 600;
+    color: #008a8a;
+    display: table;
+}
+    .likeuser_list a{color: #1b8ab9;}
+.likeduser, .likeduser1{
+        width: 100%;
+        background-color: #1b8ab9 !important;
+    }
+    .likeduser-title, .likeduser-title1{
+        color: #fff;
+        margin-bottom: 5px;
+        padding: 7px;
+    }    .likeduserlist, .likeduserlist1 {
+        float: left;
+       
+        width: 96%;
+        background-color: #fff !important;
+    }
+    div[class^="likeduserlist"]{
+        width: 100% !important;
+        background-color: #fff !important;
+    }
+    .like_one_other_img{
+        margin-left: 25px;
+      
+
+    }
+    .modal-content{display: table; width: 100%;}*/

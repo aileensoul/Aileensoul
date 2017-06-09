@@ -268,10 +268,12 @@ echo $job_header2;
                                                     echo $cache_time;
                                                     ?> </span>
                                             </li>
-
+                                            
 
                                             <?php
-                                            if ($job[0]['city_id']) {
+                                            if ($returnpage == 'recruiter') {
+                                                
+                                                if ($job[0]['city_id']) {
                                                 ?>
                                                 <li><b> City</b> <span><?php
                                                         $cache_time = $this->db->get_where('cities', array('city_id' => $job[0]['city_id']))->row()->city_name;
@@ -279,15 +281,66 @@ echo $job_header2;
                                                         ?></span> </li>
                                                 <?php
                                             }
+                                            else
+                                            {
+                                                echo "";
+                                            }
+                                            }
+                                            else
+                                            {
+                                                if ($job[0]['city_id']) {
+                                                ?>
+                                                <li><b> City</b> <span><?php
+                                                        $cache_time = $this->db->get_where('cities', array('city_id' => $job[0]['city_id']))->row()->city_name;
+                                                        echo $cache_time;
+                                                        ?></span> </li>
+                                                <?php
+                                            }
+
+                                            else
+                                            {
+                                                ?>
+                                                <li><b> City</b> <span>
+                                               <?php echo PROFILENA;
+                                                
+
+                                            }
+                                            }
+                                            
                                             ?>
 
-                                            <?php
-                                            if ($job[0]['pincode']) {
+                                             <?php
+                                            if ($returnpage == 'recruiter') {
+                                                
+                                                if ($job[0]['pincode']) {
                                                 ?>
                                                 <li> <b>Pincode </b><span><?php echo $job[0]['pincode']; ?></span>
                                                 </li>
                                                 <?php
                                             }
+                                            else
+                                            {
+                                                echo "";
+                                            }
+                                            }
+                                            else
+                                            { if ($job[0]['pincode']) {
+                                                ?>
+                                                <li> <b>Pincode </b><span><?php echo $job[0]['pincode']; ?></span>
+                                                </li>
+                                                <?php
+                                            }
+
+                                            else
+                                            {
+                                                ?>
+                                               <li> <b>Pincode </b><span>
+                                               <?php echo PROFILENA;
+                                                
+
+                                            }
+                                            }
+                                            
                                             ?>
 
                                             <li> <b>Address </b><span> <?php echo $job[0]['address']; ?></span>
@@ -307,10 +360,10 @@ echo $job_header2;
                                                     echo $cache_time;
                                                     ?> </span>
                                             </li>
-
-
-                                            <?php
-                                            if ($job[0]['city_permenant']) {
+  <?php
+                                            if ($returnpage == 'recruiter') {
+                                                
+                                                if ($job[0]['city_permenant']) {
                                                 ?>
                                                 <li><b> City</b> <span><?php
                                                         $cache_time = $this->db->get_where('cities', array('city_id' => $job[0]['city_permenant']))->row()->city_name;
@@ -318,16 +371,71 @@ echo $job_header2;
                                                         ?></span> </li>
                                                 <?php
                                             }
+                                            else
+                                            {
+                                                echo "";
+                                            }
+                                            }
+                                            else
+                                            {
+                                                 if ($job[0]['city_permenant']) {
+                                                ?>
+                                                <li><b> City</b> <span><?php
+                                                        $cache_time = $this->db->get_where('cities', array('city_id' => $job[0]['city_permenant']))->row()->city_name;
+                                                        echo $cache_time;
+                                                        ?></span> </li>
+                                                <?php
+                                            }
+
+                                            else
+                                            {
+                                                ?>
+                                                <li><b> City</b> <span>
+                                               <?php echo PROFILENA;
+                                                
+
+                                            }
+                                            }
+                                            
                                             ?>
 
-                                            <?php
-                                            if ($job[0]['pincode_permenant']) {
+                                             <?php
+                                            if ($returnpage == 'recruiter') {
+                                                
+                                                 if ($job[0]['pincode_permenant']) {
                                                 ?>
                                                 <li> <b>Pincode </b><span><?php echo $job[0]['pincode_permenant']; ?></span>
                                                 </li>
                                                 <?php
                                             }
+                                            else
+                                            {
+                                                echo "";
+                                            }
+                                            }
+                                            else
+                                            {
+                                                 if ($job[0]['pincode_permenant']) {
+                                                ?>
+                                                <li> <b>Pincode </b><span><?php echo $job[0]['pincode_permenant']; ?></span>
+                                                </li>
+                                                <?php
+                                            }
+                                            else
+                                            {
+                                                ?>
+                                                <li><b> Pincode</b> <span>
+                                               <?php echo PROFILENA;
+                                                
+
+                                            }
+                                            }
+                                            
                                             ?>
+
+
+                                            
+            
 
                                             <li> <b>Address </b><span> <?php echo $job[0]['address_permenant']; ?></span>
                                             </li>
@@ -346,10 +454,13 @@ echo $job_header2;
                                                 </ul>
                                             </div>
                                         </div>
-                                        <?php if($job_edu){?>
+                                       
                                         <div class="profile-job-profile-menu " id="job_education">
+
                                             <ul class="clearfix">
-                                            <?php
+
+                                              <?php if($job_edu){
+                                            
                                                 if ($job_edu[0]['board_primary']) {
                                                     ?>
                      <h5 style="text-decoration: underline; text-align: center; margin: 5px;">Primary Education</h5>
@@ -461,6 +572,7 @@ echo $job_header2;
                                                         <?php
                                                     }
                                                 }
+                                            }
                                                 ?>
 <?php if($job_graduation) { ?>
 <h5 style="text-decoration: underline; text-align: center; margin: 5px;">graduation</h5>
@@ -468,7 +580,8 @@ echo $job_header2;
 
   <!--khyati chnages 22-5 start-->                                                     
 
- <?php                                    $i = 1;
+ <?php                                
+    $i = 1;
                    foreach ($job_graduation as $graduation) {
                                                     if ($graduation['degree']) {  ?>
                                            <div id="gra<?php echo $i; ?>" class="tabcontent data_exp">
@@ -547,10 +660,16 @@ echo $job_header2;
    <?php } ?></div>
 
                                             </ul>
-</div> <?php } ?>
-<!--khyati 22-5 chanegs end-->
+</div> <?php } 
+// <!--khyati 22-5 chanegs end-->
 
-                                        <?php
+                                        
+                             ?>
+                                    <?php
+
+                                    if ($returnpage == 'recruiter') {
+                                        
+                                    
                                         if ($job[0]['project_name'] != "" || $job[0]['project_duration'] != "" || $job[0]['project_description'] != "" || $job[0]['training_as'] != "" || $job[0]['training_duration'] != "" || $job[0]['training_organization'] != "") {
                                             ?>
                                             <div class="profile-job-post-title clearfix">
@@ -577,33 +696,207 @@ echo $job_header2;
                                                         ?>
 
 
-                                                        <?php
-                                                        if ($job[0]['project_name']) {
+
+                    <?php
+                                            if ($job[0]['project_name']) {
                                                             ?>
                                                             <li> <b> Project Name (Title)</b> <span><?php echo $job[0]['project_name']; ?></span>
                                                             </li>
                                                             <?php
                                                         }
-                                                        ?>
+                                            else
+                                            {
+                                                echo "";
+                                            }
+                                            ?>
 
-
-                                                        <?php
-                                                        if ($job[0]['project_duration']) {
+                                        
+                                                <?php
+                                          
+                                                
+                                                 if ($job[0]['project_duration']) {
                                                             ?>
                                                             <li> <b>Duration</b><span><?php echo $job[0]['project_duration']; ?></span>
+                                                            </li>
+                                                            <?php
+                                                        }
+                                            else
+                                            {
+                                                echo "";
+                                            }
+                                           
+                                            
+                                            ?>
+
+                                        
+                                            <?php
+                                          
+                                                
+                                                if ($job[0]['project_description']) {
+                                                            ?>
+                                                            <li><b>Project Description</b> <span><?php echo $this->common->make_links($job[0]['project_description']); ?></span> </li>
+                                                            <?php
+                                                        }
+                                            else
+                                            {
+                                                echo "";
+                                            }
+                                            ?><br>
+
+                                                        <?php
+                                                        if ($job[0]['training_as'] != "" || $job[0]['training_duration'] != "" || $job[0]['training_organization'] != "") {
+                                                            ?>
+                                                            <li>
+     <h5 style="text-decoration: underline; text-align: center; margin: 5px;" >Internship</h5>
                                                             </li>
                                                             <?php
                                                         }
                                                         ?>
 
 
+<?php
+                                          
+                                                
+                                                if ($job[0]['training_as']) {
+                                                            ?>
+                                                            <li> <b>Intern / Trainee As </b><span><?php echo $this->common->make_links($job[0]['training_as']); ?></span>
+                                                            </li>
+                                                            <?php
+                                                        }
+                                            else
+                                            {
+                                                echo "";
+                                            }
+                                            
+                                         
+                                            ?>
+<?php
+                                           
+                                                
+                                                if ($job[0]['training_duration']) {
+                                                            ?>
+                                                            <li> <b>Duration</b><span> <?php echo $job[0]['training_duration']; ?></span>
+                                                            </li>
+                                                            <?php
+                                                        }
+                                            else
+                                            {
+                                                echo "";
+                                            }
+                                            
+                                           
+                                            ?>
+                                            <?php
+                                          
+                                                
+                                               if ($job[0]['training_organization']) {
+                                                            ?>
+                                                            <li> <b>Name of Organization</b><span> <?php echo $this->common->make_links($job[0]['training_organization']); ?></span>
+                                                            </li>
+                                                            <?php
+                                                        }
+                                            else
+                                            {
+                                                echo "";
+                                            }
+                                            
+                                             ?>
+                                
+                               </ul>
+                                                </div>
+                                                
+                                                <?php
+                                            }
+                                        }
+
+                                        else
+                                        {
+
+                                        if ($job[0]['project_name'] != "" || $job[0]['project_duration'] != "" || $job[0]['project_description'] != "" || $job[0]['training_as'] != "" || $job[0]['training_duration'] != "" || $job[0]['training_organization'] != "") {
+                                            ?>
+                                            <div class="profile-job-post-title clearfix">
+                                                <div class="profile-job-profile-button clearfix">
+                                                    <div class="profile-job-details">
+                                                        <ul>
+
+            <li><p class="details_all_tital">Project And Training / Internship</p></li>
+
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="profile-job-profile-menu">
+                                                    <ul class="clearfix">
+
                                                         <?php
-                                                        if ($job[0]['project_description']) {
+                                                        if ($job[0]['project_name'] != "" || $job[0]['project_duration'] != "" || $job[0]['project_description'] != "") {
+                                                            ?>
+                                                            <li>
+    <h5 style="text-decoration: underline; text-align: center; margin: 5px;" > Project And Training</h5>
+                                                            </li>
+                                                            <?php
+                                                        }
+                                                        ?>
+
+
+
+                    <?php
+                                           
+                                    if ($job[0]['project_name']) {
+                                                            ?>
+                                                            <li> <b> Project Name (Title)</b> <span><?php echo $job[0]['project_name']; ?></span>
+                                                            </li>
+                                                            <?php
+                                                        }
+                                            else
+                                            {
+                                                ?>
+                                                <li><b> Project Name (Title)</b> <span>
+                                               <?php echo PROFILENA;
+                                                }
+                                         ?>
+
+                                        
+<?php
+                                           
+                
+                                                 if ($job[0]['project_duration']) {
+                                                            ?>
+                                                            <li> <b>Duration</b><span><?php echo $job[0]['project_duration']; ?></span>
+                                                            </li>
+                                                            <?php
+                                                        }
+                                            else
+                                            {
+                                                ?>
+                                                <li><b> Duration</b> <span>
+                                               <?php echo PROFILENA;
+                                                
+
+                                            }
+                                            
+                                            
+                                            ?>
+
+                                        
+<?php
+                                          
+                                                 if ($job[0]['project_description']) {
                                                             ?>
                                                             <li><b>Project Description</b> <span><?php echo $this->common->make_links($job[0]['project_description']); ?></span> </li>
                                                             <?php
                                                         }
-                                                        ?>
+                                            else
+                                            {
+                                                ?>
+                                                <li><b> Project Description</b> <span>
+                                               <?php echo PROFILENA;
+                                                
+
+                                            }
+                                            
+                                            
+                                            ?>
+
                                                         <br>
 
                                                         <?php
@@ -616,48 +909,74 @@ echo $job_header2;
                                                         }
                                                         ?>
 
-                                                        <?php
-                                                        if ($job[0]['training_as']) {
+
+<?php
+                                          
+                                                  if ($job[0]['training_as']) {
                                                             ?>
                                                             <li> <b>Intern / Trainee As </b><span><?php echo $this->common->make_links($job[0]['training_as']); ?></span>
                                                             </li>
                                                             <?php
                                                         }
-                                                        ?>
+                                            else
+                                            {
+                                                ?>
+                                                <li><b>Intern / Trainee As</b> <span>
+                                               <?php echo PROFILENA;
+                                                
 
-                                                        <?php
-                                                        if ($job[0]['training_duration']) {
+                                            }
+                                            
+                                            
+                                            ?>
+<?php
+                                              if ($job[0]['training_duration']) {
                                                             ?>
                                                             <li> <b>Duration</b><span> <?php echo $job[0]['training_duration']; ?></span>
                                                             </li>
                                                             <?php
                                                         }
-                                                        ?>
+                                            else
+                                            {
+                                                ?>
+                                                <li><b>Intern / Trainee As</b> <span>
+                                               <?php echo PROFILENA;
+                                                
 
-
-                                                        <?php
-                                                        if ($job[0]['training_organization']) {
+                                            }
+                                            
+                                            
+                                            ?>
+                                            <?php
+                                          
+                                                  if ($job[0]['training_organization']) {
                                                             ?>
                                                             <li> <b>Name of Organization</b><span> <?php echo $this->common->make_links($job[0]['training_organization']); ?></span>
                                                             </li>
                                                             <?php
                                                         }
-                                                        ?>
+                                            else
+                                            {
+                                                ?>
+                                                <li><b>Intern / Trainee As</b> <span>
+                                               <?php echo PROFILENA;
+                                                
 
-                                                    </ul>
+                                            }
+                                            
+                                            
+                                            ?>
+                                
+                            
+
+                                                </ul>
                                                 </div>
+                                                
                                                 <?php
                                             }
+                                        }
+
                                             ?>
-                             <?php } else { if($returnpage == ''){?> 
-                             <div> 
-                                   <center> <a href="<?php echo base_url('job/job_education_update'); ?>"> Please Add your Education</a> </center>
-                                    </div>
-                                    <?php } else {?>
-
-                                   <center><span> No Data</span> </center>
-
-                                    <?php }}?>
                                             <div class="profile-job-post-title clearfix">
                                                 <div class="profile-job-profile-button clearfix">
                                                     <div class="profile-job-details">
@@ -856,23 +1175,80 @@ echo $job_header2;
              <li> <b>Company Name </b><span><?php echo $work['companyname']; ?></span>
              </li>
 
-    <?php
-         }
-    if ($work['experience'] == "Experience" && $work['companyemail']) {
-     ?>
+                                    <?php
+                                        }
 
-    <li><b> Company Email Address </b> <span><?php echo $work['companyemail']; ?></span> </li>
 
-             <?php
-    }
-    if ($work['experience'] == "Experience" && $work['companyphn']) {
+                                            if ($returnpage == 'recruiter') {
+                                                
+                                               if ($work['experience'] == "Experience" && $work['companyemail']) {
+                                          ?>
+
+                                    <li><b> Company Email Address </b> <span><?php echo $work['companyemail']; ?></span> </li>
+
+                                      <?php
+                                                }
+                                            else
+                                            {
+                                                echo "";
+                                            }
+                                            }
+                                            else
+                                            {
+                                                if ($work['experience'] == "Experience" && $work['companyemail']) {
+                                                              ?>
+
+                                                 <li><b> Company Email Address </b> <span><?php echo $work['companyemail']; ?></span> </li>
+
+                                                 <?php
+                                             }
+                                            else
+                                            {
+                                                ?>
+                                                <li><b> Pincode</b> <span>
+                                               <?php echo PROFILENA;
+                                                
+
+                                            }
+                                            }
+                                              
+
+                                            if ($returnpage == 'recruiter') {
+                                                
+                                                 if ($work['experience'] == "Experience" && $work['companyphn']) {
                                                                 ?>
 
-    <li> <b>Company Phone Number </b><span> <?php echo $work['companyphn']; ?></span>
-    </li>
+                                                <li> <b>Company Phone Number </b><span> <?php echo $work['companyphn']; ?></span>
+                                                    </li>
 
-<?php
-     }
+                                            <?php
+                                                 }
+                                             else
+                                            {
+                                                echo "";
+                                            }
+                                            }
+                                            else
+                                            {
+                                                 if ($work['experience'] == "Experience" && $work['companyphn']) {
+                                                                ?>
+
+                                                 <li> <b>Company Phone Number </b><span> <?php echo $work['companyphn']; ?></span>
+                                                 </li>
+
+                                                <?php
+                                                       }
+                                            else
+                                            {
+                                                ?>
+                                                <li><b> Pincode</b> <span>
+                                               <?php echo PROFILENA;
+                                                
+
+                                            }
+                                            }
+                                            
+  
 ?>
 
      <li> <b>Experience </b><span><?php
@@ -964,7 +1340,60 @@ echo $job_header2;
                                                 </div>
 
 <?php
-} 
+}
+                                            if ($returnpage == 'recruiter') {
+
+                                                if ($job[0]['curricular']) {
+                                                    
+                                                
+                                                 
+                                             
+?>
+
+                                                <div class="profile-job-post-title clearfix">
+                                                    <div class="profile-job-profile-button clearfix">
+                                                        <div class="profile-job-details">
+                                                            <ul>
+                                                            
+        <li><p class="details_all_tital"> Extra Curricular Activities</p></li>
+
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="profile-job-profile-menu">
+                                                        <ul class="clearfix">
+                                                       
+                                                            <li> <b> Extra Curricular Activites</b><span>
+                                                             <?php
+                                                            if($job[0]['curricular'])
+                                                            { 
+                                                            echo $this->common->make_links($job[0]['curricular']); 
+                                                             }
+                                                            
+                                                            else
+                                                            {
+                                                                
+                                                                        echo "";
+                                                            }
+                                                            ?>
+                                                            </span>
+                                                            </li>
+
+
+                                                        </ul>
+                                          </div>
+                                                </div>
+
+                                                 <?php         
+}
+else
+{
+    echo "";
+}
+}
+
+else
+{ 
 ?>
                                                 <div class="profile-job-post-title clearfix">
                                                     <div class="profile-job-profile-button clearfix">
@@ -978,13 +1407,30 @@ echo $job_header2;
                                                     </div>
                                                     <div class="profile-job-profile-menu">
                                                         <ul class="clearfix">
-                                                            <li> <b> Extra Curricular Activites</b><span><?php echo $this->common->make_links($job[0]['curricular']); ?></span>
+                                                            
+                                                        
+                                                            <li> <b> Extra Curricular Activites</b><span>
+                                                             <?php
+                                                            if($job[0]['curricular'])
+                                                            { 
+                                                            echo $this->common->make_links($job[0]['curricular']); 
+                                                             }
+                                                            
+                                                            else
+                                                            {
+                                                                
+                                                                        echo PROFILENA;
+                                                            }
+                                                            ?>
+                                                            </span>
                                                             </li>
 
 
                                                         </ul>
                                                     </div>
                                                 </div>
+                                              <?php  }
+                                              ?>
                                                 <div class="profile-job-post-title clearfix">
                                                     <div class="profile-job-profile-button clearfix">
                                                         <div class="profile-job-details">
@@ -1000,14 +1446,41 @@ echo $job_header2;
                                                             <li> <b> Interest </b> <span><?php echo $this->common->make_links($job[0]['interest']); ?></span>
                                                             </li>
 
-                                                            <?php
-                                                            if ($job[0]['reference']) {
+                                            <?php
+                                            if ($returnpage == 'recruiter') {
+                                                
+                                                if ($job[0]['reference']) {
                                                                 ?>
                                                                 <li> <b> Reference </b> <span><?php echo $this->common->make_links($job[0]['reference']); ?></span>
                                                                 </li>
                                                                 <?php
                                                             }
-                                                            ?>
+                                            else
+                                            {
+                                                echo "";
+                                            }
+                                            }
+                                            else
+                                            {
+                                               if ($job[0]['reference']) {
+                                                                ?>
+                                                                <li> <b> Reference </b> <span><?php echo $this->common->make_links($job[0]['reference']); ?></span>
+                                                                </li>
+                                                                <?php
+                                                            }
+
+                                            else
+                                            {
+                                                ?>
+                                                <li><b> Reference</b> <span>
+                                               <?php echo PROFILENA;
+                                                
+
+                                            }
+                                            }
+                                            
+                                            ?>
+                                                            
 
 
                                                         </ul>
@@ -1024,8 +1497,47 @@ echo $job_header2;
                                                         </div>
                                                         <div class="profile-job-profile-menu">
                                                             <ul class="clearfix">
+
+                                                              <?php
+                                            if ($returnpage == 'recruiter') {
+                                                
+                                                if ($job[0]['carrier']) {
+                                                                ?>
+                                                              
                                                                 <li> <b> Carrier Objectives </b> <span><?php echo $this->common->make_links($job[0]['carrier']); ?></span>
                                                                 </li>
+
+                                                                <?php
+                                                            }
+                                            else
+                                            {
+                                                echo "";
+                                            }
+                                            }
+                                            else
+                                            {
+                                               if ($job[0]['carrier']) {
+                                                                ?>
+                                                               
+                                                                <li> <b> Carrier Objectives </b> <span><?php echo $this->common->make_links($job[0]['carrier']); ?></span>
+                                                                </li>
+
+                                                                <?php
+                                                            }
+
+                                            else
+                                            {
+                                                ?>
+                                                <li><b> Carrier Objectives</b> <span>
+                                               <?php echo PROFILENA;
+                                                
+
+                                            }
+                                            }
+                                            
+                                            ?>
+                                                        
+                                                              
 
 
                                                             </ul>

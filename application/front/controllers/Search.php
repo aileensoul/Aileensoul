@@ -606,30 +606,23 @@ public function business_search() {
         $this->load->view('recruiter/rec_search', $this->data);
     }
 
-    public function recruiter_search($searchkeyword,$searchplace) {
+    public function recruiter_search() {
 
-    if($this->input->post('search_submit')){
-         $skills1=    $this->input->post('skills');
-        $searchplace1=$this->input->post('searchplace');
-    }else{
-               $skills1=    $searchkeyword;
-                $searchplace1=$searchplace;
-    }
-         //echo "<pre>"; print_r($_POST);die();
+        // echo "<pre>"; print_r($_POST);die();
 
         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
 
 
-if ( $skills1 == "" && $searchplace1 == "") {
+if ($this->input->post('skills') == "" && $this->input->post('searchplace') == "") {
             redirect('recruiter/recommen_candidate',refresh);
             
         }
 
-        $rec_search = trim( $skills1);
+        $rec_search = trim($this->input->post('skills'));
 
         $this->data['keyword'] = $rec_search;
 
-        $search_place = $searchplace1;
+        $search_place = $this->input->post('searchplace');
 
         //insert search keyword into database start
 
@@ -658,7 +651,7 @@ if ( $skills1 == "" && $searchplace1 == "") {
         $insert_id = $this->common->insert_data_getid($data, 'search_info');
         //insert search keyword into database end
 
-        if ($skills1 == "") {
+        if ($this->input->post('skills') == "") {
             $join_str = array(array(
                     'join_type' => '',
                     'table' => 'job_add_edu',
@@ -674,7 +667,7 @@ if ( $skills1 == "" && $searchplace1 == "") {
 
             $unique = $this->data['results'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
         }
-         elseif ($searchplace1 == "") {
+         elseif ($this->input->post('searchplace') == "") {
           // echo "<pre>"; print_r($business_post);die();
 
             $contition_array = array('is_delete' => '0', 'status' => '1');

@@ -636,7 +636,7 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <div class="fr">
+                                <div class="fr margin_btm">
                                     <button type="submit"  value="Submit">Post
                                     </button>    
                                 </div>
@@ -1061,7 +1061,7 @@
                                                                     <?php } else { ?> 
                 <!--                                                                        <i class="fa fa-thumbs-up" aria-hidden="true">
                                                                             </i>-->
-                                                                        <i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i>
+                                                                        <i class="fa fa-thumbs-up fa-1x main_color" aria-hidden="true"></i>
                                                                     <?php } ?>
                                                                     <span class="like_As_count">
                                                                         <?php
@@ -1301,7 +1301,7 @@
                                                                                         <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true">
                                                                                         </i> 
                                                                                     <?php } else { ?>
-                                                                                        <i class="fa fa-thumbs-up" aria-hidden="true">
+                                                                                        <i class="fa fa-thumbs-up main_color" aria-hidden="true">
                                                                                         </i>
                                                                                     <?php } ?>
                                                                                     <span>
@@ -3254,42 +3254,6 @@
 <!-- post delete particular login user end -->
 
 
-<style type="text/css">
-    .likeduser{
-        width: 100%;
-        background-color: #1b8ab9;
-    }
-    .likeduser-title{
-        color: #fff;
-        margin-bottom: 5px;
-        padding: 7px;
-    }
-    .likeuser_list{
-        background-color: #f2f2f2;
-        float: left;
-        margin: 0px 6px 5px 9px;
-        padding: 5px;
-        width: 47%;
-        font-size: 14px;
-    }
-    .likeduserlist, .likeduserlist1 {
-        float: left;
-        background-color: #fff!important;
-        /*        margin-left: 15px;
-                margin-right: 15px;*/
-        width: 100%!important;
-    }
-    div[class^="likeduserlist"]{
-        width: 100% !important;
-        background-color: #fff !important;
-    }
-    /*.like_one_other{
-        margin-left: 15px;*/
-    /*  margin-right: 15px;*/
-
-    /*}*/
-
-</style>
 <!-- This  script use for close dropdown in every post -->
 <script type="text/javascript">
     $('body').on("click", "*", function (e) {
