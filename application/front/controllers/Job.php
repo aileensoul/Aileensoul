@@ -3399,7 +3399,7 @@ $files[] = $_FILES;
             $this->data['other_skill'] = $this->common->select_data_by_condition('skill', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
       //   echo "<pre>";print_r( $this->data['other_skill']);die();
         } else {
-            //echo "bjb";
+            //echo "bjb"; die();
 
             //for getting data job_reg table
             $contition_array = array('job_reg.user_id' => $id, 'job_reg.is_delete' => 0, 'job_reg.status' => 1);
@@ -3420,14 +3420,14 @@ $files[] = $_FILES;
         $contition_array = array('user_id' => $id, 'status' => 1);
          $this->data['job_edu'] = $this->common->select_data_by_condition('job_add_edu', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
- $contition_array = array('user_id' => $userid);
+ $contition_array = array('user_id' => $id);
 
             $data = '*';
 
             $this->data['job_graduation'] = $this->common->select_data_by_condition('job_graduation', $contition_array, $data, $sortby, $orderby, $limit, $offset, $join_str, $groupby);
-// echo "<pre>"; print_r($this->data['job_edu']); die();
+            // echo "<pre>"; print_r($this->data['job_graduation']); die();
             //for getting data job_add_workexp table
-            $contition_array = array('user_id' => $userid, 'experience' => 'Experience', 'status' => '1');
+            $contition_array = array('user_id' => $id, 'experience' => 'Experience', 'status' => '1');
 
             $data = '*';
 
