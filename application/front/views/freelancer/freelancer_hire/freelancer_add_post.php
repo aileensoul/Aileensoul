@@ -18,7 +18,7 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
-
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
 
 <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
 
@@ -369,7 +369,7 @@
     <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
         <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
    
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
     <!-- Calender JS Start-->
 
 <script src="<?php echo base_url('js/jquery.datetimepicker.full.js'); ?>"></script>
@@ -741,6 +741,6 @@ $('#skills').select2({
 
 </script>
 
-<style type="text/css">
+<!-- <style type="text/css">
   #skills-error{margin-top: 38px;}
-</style>
+</style> -->

@@ -95,7 +95,7 @@ echo $job_header2;
     </div>
     <div class="profile-photo">
         <div class="profile-pho">
-            <div class="user-pic">
+            <div class="user-pic padd_img">
                 <?php if ($job[0]['job_user_image'] != '') { ?>
                     <img src="<?php echo base_url($this->config->item('job_profile_thumb_upload_path') . $job[0]['job_user_image']); ?>" alt="" >
                 <?php } else { ?>

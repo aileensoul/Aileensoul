@@ -97,7 +97,7 @@
 
     <div class="profile-photo">
         <div class="profile-pho">
-            <div class="user-pic">
+            <div class="user-pic padd_img">
                 <?php 
                 if ($jobdata[0]['job_user_image'] != '') { ?>
                     <img src="<?php echo base_url($this->config->item('job_profile_thumb_upload_path') . $jobdata[0]['job_user_image']); ?>" alt="" >
@@ -154,7 +154,7 @@
             <!-- text head end -->
         </div>
     </div>
-    <div class="col-md-7 col-sm-7">
+    <div class="col-md-7 col-sm-7 follow_mid">
         <div class="common-form">
             <div class="job-saved-box">
                 <h3>Applied Job</h3>

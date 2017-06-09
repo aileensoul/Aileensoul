@@ -735,7 +735,7 @@ else
 
 <script type="text/javascript">
     function checkvalue() {
-        //alert("hi");
+     
         var searchkeyword = document.getElementById('tags').value;
         var searchplace = document.getElementById('searchplace').value;
         // alert(searchkeyword);
@@ -746,11 +746,24 @@ else
         }
     }
 
+    function checkvalue_search() {
+       
+        var searchkeyword = document.getElementById('tags').value;
+        var searchplace = document.getElementById('searchplace').value;
+        
+        if (searchkeyword == "" && searchplace == "") 
+        {
+          //  alert('Please enter Keyword');
+            return false;
+        }
+    }
+
+
 //Leave Page on add and edit post page start
     function leave_page(clicked_id)
     {
 
- 
+ //alert(clicked_id);
  var post_name = document.getElementById('post_name').value;
  var skills = document.getElementById('skills').value;
  var other_skill = document.getElementById('other_skill').value;
@@ -768,7 +781,10 @@ else
  var maxsal = document.getElementById('maxsal').value;
  var currency = document.getElementById('currency').value;
  
- 
+   var searchkeyword = document.getElementById('tags').value;
+    var searchplace = document.getElementById('searchplace').value;
+        // alert(searchkeyword);
+        // alert(searchplace);
  
  if(post_name=="" && skills=="" && other_skill=="" && minyear=="" && minmonth=="" && maxyear=="" && maxmonth=="" && post_desc=="" && interview=="" && country=="" && state=="" && datepicker=="" && minsal=="" && maxsal=="" && currency=="")
  {
@@ -785,26 +801,55 @@ else
     {
             location.href = '<?php echo base_url() ?>recruiter/rec_basic_information';
     }
+    if(clicked_id==4)
+    {
+       if(searchkeyword=="" && searchplace=="" )
+       {
+            return checkvalue_search;
+       }
+       else
+       {
+            location.href = '<?php echo base_url() ?>search/recruiter_search/'+searchkeyword+'/'+searchplace;
+        }   
+    }
  }
  else
  {
-    //alert("hi1");
-        home(clicked_id);
+  
+
+      return home(clicked_id,searchkeyword,searchplace);
 
  }
 
     }
-      function home(clicked_id) {
+      function home(clicked_id,searchkeyword,searchplace) {
    // alert(clicked_id);
-      $('.biderror .mes').html("<div class='pop_content'> Do you want to leave this page?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='home_profile(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+   // alert(searchkeyword);
+   // alert(searchplace);
+    // alert(clicked_id);
+    
+                              
+      $('.biderror .mes').html("<div class='pop_content'> Do you want to leave this page?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='home_profile("+ clicked_id +','+'"'+ searchkeyword + '"'+','+'"'+ searchplace + '"' +")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
           $('#bidmodal').modal('show');
+// return false;
+
  }
 
- function home_profile(clicked_id){
+ function home_profile(clicked_id,searchkeyword,searchplace){
+  
+  var  url,data;
+
+if (clicked_id === 4) {
+    url = '<?php echo base_url() . "search/recruiter_search" ?>';
+    data='id=' + clicked_id + '&skills=' + searchkeyword+ '&searchplace=' + searchplace;
+    
+} 
+
+  
                   $.ajax({
                       type: 'POST',
-                      //url: '<?php echo base_url() . "recruiter/home" ?>',
-                      data: 'id=' + clicked_id,
+                      url: url,
+                       data: data,
                         success: function (data) {
                             if(clicked_id==1)
                             {
@@ -822,8 +867,10 @@ else
                             }
                             else if(clicked_id==4)
                             {
-                                alert("hi");
-                                // window.location= "<?php echo base_url() ?>recruiter/rec_basic_information"; 
+                                
+                             // window.location=    $.post("<?php echo base_url() ?>recrullliter/rec_basic_information/", { name: "John", time: "2pm" } );
+                              // return checkvalue_search();
+                                 window.location= "<?php echo base_url() ?>search/recruiter_search/"+searchkeyword+"/"+searchplace; 
                             }
                             else
                             {
@@ -857,205 +904,6 @@ $('#datepicker').datetimepicker({
 </script>
 
 
-
-
-
-<<!-- script type="text/javascript">
-
-
-
-$(document).ready(function ()   {
-
-$('#artpost').validate({
-   // ignore: '*:not([name])',
-            rules: {
-                       
-                        post_name: {
-
-                            required: true,
-                            regx:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]/
-                        },
-
-                       'skills[]': {
-
-                               require_from_group: [1, ".skill_other"]
-                              
-                    },
-                    other_skill: {
-
-                               require_from_group: [1, ".skill_other"],
-                               noSpace: true
-                              
-                    },
-                         
-                        year: {
-
-                            required: true
-                        },
-                       
-                     
-                        month: {
-
-                            required: true
-                           
-                        },
-
-                        position: {
-
-                            required: true,
-                            noSpace: true
-                           
-                        },
-
-                        post_desc: {
-
-                            required: true,
-                            regx:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]/
-                           
-                        },
-
-                        
-                        country: {
-
-                            required: true
-                           
-                        },
-
-                        state: {
-
-                            required: true
-                           
-                        },
-
-                        minyear: {
-                            
-                          require_from_group: [1, ".keyskil"] 
-                          //required:true 
-                        }, 
-
-                        minmonth: {
-                            
-                           require_from_group: [1, ".keyskil"]
-                            // required:true 
-                        },
-
-                        maxyear: {
-                            
-                          require_from_group: [1, ".keyskil1"] 
-                          //required:true 
-                        }, 
-
-                        maxmonth: {
-                            
-                           require_from_group: [1, ".keyskil1"]
-                            // required:true 
-                        },
-
-                        last_date: {
-                            
-                            required: true
-                            
-                        },
-                        minsal:{
-                            number: true,
-                            noSpace: true,
-                        },
-                        maxsal:{
-                           number: true,
-                           noSpace: true,
-                            greaterThan: '#minsal'
-                        },
-
-                       
-                    },
-                                      messages: {
-
-                        post_name: {
-
-                            required: "Post name Is Required."
-                            
-                        },
-                         'skills[]': {
-
-                            require_from_group: "You must either fill out 'skill' or 'other_skill'"
-                        },
-
-                        other_skill: {
-
-                            require_from_group: "You must either fill out 'skill' or 'other_skill'"
-                        },
-
-                       
-                        minyear: {
-
-                            required: "Year Selection Is Required"
-                        },
-
-                        
-                        minmonth: {
-
-                            required: "Month no Is Required."
-                            
-                        },
-
-                        position: {
-
-                            required: "Position Selection Is Required"
-                           
-                        },
-
-                         post_desc: {
-
-                            required: "Post Description Is Required"
-                           
-                        },
-
-                        
-                        country: {
-
-                            required: "Country Is Required."
-                            
-                        },
-                        state: {
-
-                            required: "State Is Required."
-                            
-                        },
-
-                        minyear: {
-
-                            require_from_group: "You must either fill out 'month' or 'year'"
-
-                        },
-
-                        minmonth: {
-
-                            require_from_group: "You must either fill out 'month' or 'year'"
-                        },
-
-                        maxyear: {
-
-                            require_from_group: "You must either fill out 'month' or 'year'"
-
-                        },
-
-                        maxmonth: {
-
-                            require_from_group: "You must either fill out 'month' or 'year'"
-                        },
-
-                        last_date: {
-
-                            required: "Last date  Is Required."
-                        },
-                        
-                    }
-
-});
-});
-
-
-</script> -->
 
 <!-- popup form edit start -->
 
