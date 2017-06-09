@@ -1182,14 +1182,14 @@
 
                                                             <li>
                                                                 <div class="like_count_ext">
-                                                                    <span > 5 </span> 
+                                                                    <span class="comment_count<?php echo $row['art_post_id']; ?>" > 5 </span> 
                                                                     <span> Comment</span>
                                                                 </div>
                                                             </li>
 
                                                             <li>
                                                                 <div class="comnt_count_ext">
-                                                                    <span> 5 </span> 
+                                                                    <span class="<?php echo 'comment_like_count' . $row['art_post_id']; ?>"> 5 </span> 
                                                                     <span> Like</span>
                                                                 </div></li>
                                                         </ul>
@@ -1906,7 +1906,8 @@
                                 success: function (data) {
                                     $('.' + 'likepost' + clicked_id).html(data.like);
                                     $('.likeusername' + clicked_id).html(data.likeuser);
-
+                                    $('.comment_like_count' + clicked_id).html(data.like_user_count);
+                                    
                                     $('.likeduserlist' + clicked_id).hide();
                                     if (data.like_user_count == '0') {
                                         document.getElementById('likeusername' + clicked_id).style.display = "none";
