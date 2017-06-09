@@ -761,9 +761,9 @@ else
 
 //Leave Page on add and edit post page start
     function leave_page(clicked_id)
-    {
+{
 
- //alert(clicked_id);
+ 
  var post_name = document.getElementById('post_name').value;
  var skills = document.getElementById('skills').value;
  var other_skill = document.getElementById('other_skill').value;
@@ -783,12 +783,10 @@ else
  
    var searchkeyword = document.getElementById('tags').value;
     var searchplace = document.getElementById('searchplace').value;
-        // alert(searchkeyword);
-        // alert(searchplace);
- 
+       
  if(post_name=="" && skills=="" && other_skill=="" && minyear=="" && minmonth=="" && maxyear=="" && maxmonth=="" && post_desc=="" && interview=="" && country=="" && state=="" && datepicker=="" && minsal=="" && maxsal=="" && currency=="")
  {
-    //alert("hi");
+    
     if(clicked_id==1)
     {
             location.href = '<?php echo base_url() ?>recruiter/recommen_candidate';
@@ -823,24 +821,22 @@ else
 
     }
       function home(clicked_id,searchkeyword,searchplace) {
-   // alert(clicked_id);
-   // alert(searchkeyword);
-   // alert(searchplace);
-    // alert(clicked_id);
-    
+  
                               
       $('.biderror .mes').html("<div class='pop_content'> Do you want to leave this page?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='home_profile("+ clicked_id +','+'"'+ searchkeyword + '"'+','+'"'+ searchplace + '"' +")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
           $('#bidmodal').modal('show');
-// return false;
 
  }
 
  function home_profile(clicked_id,searchkeyword,searchplace){
   
   var  url,data;
-
+  
+  
 if (clicked_id === 4) {
     url = '<?php echo base_url() . "search/recruiter_search" ?>';
+
+   
     data='id=' + clicked_id + '&skills=' + searchkeyword+ '&searchplace=' + searchplace;
     
 } 
@@ -849,7 +845,7 @@ if (clicked_id === 4) {
                   $.ajax({
                       type: 'POST',
                       url: url,
-                       data: data,
+                      data: data,
                         success: function (data) {
                             if(clicked_id==1)
                             {
@@ -867,10 +863,11 @@ if (clicked_id === 4) {
                             }
                             else if(clicked_id==4)
                             {
-                                
-                             // window.location=    $.post("<?php echo base_url() ?>recrullliter/rec_basic_information/", { name: "John", time: "2pm" } );
-                              // return checkvalue_search();
+                                   
+                           
                                  window.location= "<?php echo base_url() ?>search/recruiter_search/"+searchkeyword+"/"+searchplace; 
+                                 
+                                
                             }
                             else
                             {

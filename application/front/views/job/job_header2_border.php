@@ -71,12 +71,12 @@
             <div class="container">
                 <div class="row">
                  
-                    <div class="col-sm-7 col-md-7 ">
+                    <div class="col-sm-7 col-md-7 col-xs-7 fw-479">
                         <div class="job-search-box1 clearfix">
                         <?php echo $job_search; ?>
                         </div>
                     </div>
-                  <div class="col-sm-5 col-md-5">
+                  <div class="col-sm-5 col-md-5 col-xs-5 fw-479">
                        <div class="">
                             <ul class="">
                                 <li id="art_profile" <?php if($this->uri->segment(1) == 'job' && $this->uri->segment(2) == 'job_all_post'){?> class="active" <?php } ?>><a href="<?php echo base_url('job/job_all_post'); ?>" title="Home">Home</a>
