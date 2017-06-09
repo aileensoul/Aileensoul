@@ -374,8 +374,16 @@ $( document ).on( 'keydown', function ( e ) {
                         <div class="main-menu-right">
                             <ul class="">
 
-                                <li><a class=" action-button shadow animate" href="<?php echo base_url('dashboard') ?>">All</a></li>
 
+                                <?php if(($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'add_post') || ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'edit_post')){?>
+                                <li><a class=" action-button shadow animate" onclick="return leave_page(5)">All</a></li>
+
+                                 <?php }else{?>
+
+                                 <li><a class=" action-button shadow animate" href="<?php echo base_url('dashboard') ?>">All</a></li>
+                                 <?php } ?>
+
+                               
 
   <!-- <li><a href="#" id="notificationLink" onclick = "return getNotification()">Notification <i class="fa fa-bell-slash-o" aria-hidden="true"></i>
       <span id="notification_count"></span>

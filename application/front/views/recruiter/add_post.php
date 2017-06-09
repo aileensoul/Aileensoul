@@ -763,6 +763,7 @@ else
     function leave_page(clicked_id)
 {
 
+//alert(clicked_id);
  
  var post_name = document.getElementById('post_name').value;
  var skills = document.getElementById('skills').value;
@@ -810,6 +811,11 @@ else
             location.href = '<?php echo base_url() ?>search/recruiter_search/'+searchkeyword+'/'+searchplace;
         }   
     }
+     if(clicked_id==5)
+    {
+            location.href = '<?php echo base_url('dashboard') ?>';
+    }
+
  }
  else
  {
@@ -868,6 +874,10 @@ if (clicked_id === 4) {
                                  window.location= "<?php echo base_url() ?>search/recruiter_search/"+searchkeyword+"/"+searchplace; 
                                  
                                 
+                            }
+                             else if(clicked_id==5)
+                            {
+                                window.location= "<?php echo base_url('dashboard') ?>"; 
                             }
                             else
                             {
