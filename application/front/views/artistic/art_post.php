@@ -762,7 +762,7 @@
                     <?php
                     if (count($finalsorting) > 0) {
                         foreach ($finalsorting as $row) {
-
+                            //  echo '<pre>'; print_r($finalsorting); die();
                             $userid = $this->session->userdata('aileenuser');
 
                             $contition_array = array('art_post_id' => $row['art_post_id'], 'status' => '1');
@@ -823,6 +823,8 @@
 
                                                         $firstnameposted = $this->db->get_where('art_reg', array('user_id' => $row['posted_user_id']))->row()->art_name;
                                                         $lastnameposted = $this->db->get_where('art_reg', array('user_id' => $row['posted_user_id']))->row()->art_lastname;
+                                                       
+                                                        $designation = $this->db->get_where('art_reg', array('user_id' => $row['user_id']))->row()->designation;
 
 
                                                         $userskill = $this->db->get_where('art_reg', array('user_id' => $row['user_id']))->row()->art_skill;
@@ -876,20 +878,19 @@
                                                                 <?php } ?> 
 
                                                             </div></li>
-                                                        <!-- 
-                                                        <li><div class="post-design-product"><a><?php //echo $listFinal ;                                            ?> </a></div></li>
-                                                        -->
+                                                         
+                                                        <li><div class="post-design-product">
+                                                                <a><?php if($designation)
+                                                                    {echo $designation;
+                                                                    
+                                                                    }else{
+                                                                        echo "Current Work.";
+                                                                       }?> </a>
+                                                                
+                                                            </div></li>
+                                                       
 
-                                                        <li>
-                                                            <div id="<?php echo 'editpostdata' . $row['art_post_id']; ?>" style="display:block;">
-                                                                <a><?php echo $this->common->make_links($row['art_post']); ?></a>
-                                                            </div>
-
-                                                            <div id="<?php echo 'editpostbox' . $row['art_post_id']; ?>" style="display:none;">
-                                                                <input type="text" id="<?php echo 'editpostname' . $row['art_post_id']; ?>" name="editpostname" value="<?php echo $row['art_post']; ?>" style=" margin-bottom: 10px;">
-                                                            </div>
-
-                                                        </li>
+                                                       
 
                                                     </ul> 
                                                 </div>  
@@ -944,6 +945,16 @@
                                                 </div>
                                                 <div class="post-design-desc ">
                                                     <span> 
+                                                         <div>
+                                                            <div id="<?php echo 'editpostdata' . $row['art_post_id']; ?>" style="display:block;">
+                                                                <a><?php echo $this->common->make_links($row['art_post']); ?></a>
+                                                            </div>
+
+                                                            <div id="<?php echo 'editpostbox' . $row['art_post_id']; ?>" style="display:none;">
+                                                                <input type="text" id="<?php echo 'editpostname' . $row['art_post_id']; ?>" name="editpostname" value="<?php echo $row['art_post']; ?>" style=" margin-bottom: 10px;">
+                                                            </div>
+
+                                                        </div>
                                                         <div  id="<?php echo 'editpostdetails' . $row['art_post_id']; ?>" style="display:block ; ">
                                                             <?php
                                                             $text = $this->common->make_links($row['art_description']);
@@ -1406,7 +1417,7 @@
                                                                                         <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i> 
                                                                                     <?php } else {
                                                                                         ?>
-                                                                                        <i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i>
+                                                                                        <i class="fa fa-thumbs-up fa-1x main_color" aria-hidden="true"></i>
                                                                                         <?php }
                                                                                         ?>
                                                                                     <span>
