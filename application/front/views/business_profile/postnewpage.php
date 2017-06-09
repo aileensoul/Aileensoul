@@ -580,7 +580,7 @@
                                                                                     ?>
                                                                                     <i class="fa fa-thumbs-up" aria-hidden="true"></i>
                                                                                 <?php } else { ?>
-                                                                                    <i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i>
+                                                                                    <i class="fa fa-thumbs-up main_color fa-1x" aria-hidden="true"></i>
                                                                                 <?php } ?>
 
                                                                                 <span class="<?php echo 'likeimage' . $busdata['image_id']; ?>"> <?php
@@ -836,7 +836,7 @@
 
                                                                                                 <?php } else {
                                                                                                     ?>
-                                                                                                    <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                                                                                    <i class="fa main_colorfa-thumbs-up" aria-hidden="true"></i>
                                                                                                 <?php } ?>
                                                                                                 <span>
 
@@ -1017,7 +1017,7 @@
                                                         <i class="fa fa-thumbs-up" style="color: #999;" aria-hidden="true"></i>
                                                     <?php } else { ?> 
                                                       <!--<i class="fa fa-thumbs-up" aria-hidden="true"></i>-->
-                                                        <i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i>
+                                                        <i class="fa fa-thumbs-up fa-1x main_color" aria-hidden="true"></i>
                                                     <?php } ?>
                                                     <span class="like_As_count">
                                                         <?php
@@ -1353,7 +1353,7 @@
                                                                         <i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i> 
                                                                     <?php } else { ?>
 
-                                                                        <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                                                        <i class="fa fa-thumbs-up main_color" aria-hidden="true"></i>
 
                                                                     <?php } ?>
                                                                     <span>
