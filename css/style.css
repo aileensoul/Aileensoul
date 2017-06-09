@@ -122,7 +122,7 @@ a:focus {
     animation: marquee-main 5s linear infinite alternate;
 }
 [contenteditable=true]:empty:before {
-    content: attr(placeholder);
+/*    content: attr(placeholder);*/
     display: block;
     color: #cacaca;
     /* For Firefox */
@@ -9107,6 +9107,8 @@ fieldset .add_post_btns:hover {
     padding-top: 2.3px !important;
     height: 100; 
     overflow: inherit;
+    width:100%;
+    float:left;
 }
 .panel-body .select2-container-multi .select2-choices{
       min-height: 43px !important;
@@ -9127,15 +9129,16 @@ style chat css start*/
 /*  chat css*/
 
 div .comment {
-    width: 96%;
-    border: 1px solid #ccc;
-    padding-right: 50px!important;
+    width: 100%;
+    border: none;
+    border-top: 1px solid #ddd;
+    padding-right: 150px!important;
     word-break: break-all;
     background-color: #fff;
     /* padding: 10px; */
     
     font-size: 13px;
-    min-height: 35px;
+    min-height: 60px;
     position: relative;
     max-height: 120px;
     overflow-y: scroll;
@@ -9161,7 +9164,7 @@ chat end*/
     margin: 10px;
 }
 #set_input {
-    width: 94%;
+    width: 100%;
     background-color: rgba(244, 244, 244, 0.59);
     font-family: sans-serif;
     bottom: 0;
@@ -9182,16 +9185,18 @@ chat end*/
     background: #1b8ab9!important;
     /* left: -91px; */
     
-    right: -30px!important;
+    right: 10px !important;
     border: 1px solid #1b8ab9!important;
     position: absolute!important;
-    bottom: 0!important;
+    bottom: 10px !important;
 }
 .container_chat {
     padding-right: 0px !important;
     margin: 0 auto;
-    width: 1280px;
+    width: 100%;
     border-radius: 5px;
+    float:left;
+   padding:0 40px 50px;
 }
 .people-list {
     border-right: 1px solid #ccc;
@@ -9236,6 +9241,7 @@ chat end*/
     padding: 20px;
     overflow-y: scroll;
     height: 492px;
+    overflow:auto;
 }
 .people-list ul li {
     padding: 15px;
@@ -9571,9 +9577,11 @@ chat end*/
     border-radius: 5px;
     /* display: none; */ position: relative;
       }
-      #notificationLink1{position: absolute;
-                                                   bottom: 0;
-                                                   left: -49px;}
+      #notificationLink1{
+        position: absolute;
+        bottom: 0;
+        left: -100px;
+      }
       #notificationContainer1:before {
       content: '';
       display: block;
@@ -9642,3 +9650,8 @@ style chat css end*/
 .job-saved-box form  .select2-selection__rendered li {margin: 8px 0 }
 
 .job-saved-box form .selection ul .select2-selection__choice {margin-top: 7px;}
+
+
+/***  6-9-17 h ***/
+#msg_block #set_input{margin:0; margin-bottom:-52px;}
+.chat_nobcx .panel-footer{padding:0;}
