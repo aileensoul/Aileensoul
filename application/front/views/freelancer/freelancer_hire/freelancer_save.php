@@ -204,7 +204,7 @@
              </div>
          </div> -->
 
-                <div class="col-md-7 col-sm-7 all-form-content">
+                <div class="col-md-7 col-sm-7 all-form-content follow_mid">
                     <div class="common-form">
                         <div class="job-saved-box">
                             <h3>Saved Freelancer</h3>

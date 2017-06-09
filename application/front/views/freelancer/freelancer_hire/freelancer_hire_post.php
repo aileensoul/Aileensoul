@@ -230,7 +230,7 @@ echo $freelancer_hire_header2;} ?>
             </div>
         </div> -->
 
-        <div class="col-md-7 col-sm-7 all-form-content">
+        <div class="col-md-7 col-sm-7 all-form-content follow_mid">
             <div class="common-form">
                 <div class="job-saved-box">
                     <h3>Post</h3>
@@ -487,23 +487,6 @@ $contition_array = array('user_id' => $userid, 'job_save' => '2', 'post_id ' => 
         </div>
 
 
-        <div class="user-midd-section">
-            <div class="container">
-                <div class="row">
-
-
-                    <div class="col-md-4">
-
-
-                    </div>
-
-
-
-
-
-                </div>
-            </div>
-        </div>
         </section>
         <footer>
             <?php echo $footer; ?>
