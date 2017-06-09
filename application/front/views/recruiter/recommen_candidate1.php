@@ -19,7 +19,7 @@
 <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
 
 <!-- END HEADER -->
-<?php echo $job_header2_border; ?>
+<?php echo $recruiter_header2_border; ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -69,17 +69,17 @@
                                   
                                      <div class="profile-boxProfileCard-content clearfix">
                                         <div class="buisness-profile-txext col-md-4">
-                                      <a class="profile-boxProfilebuisness-avatarLink2 a-inlineBlock"  href="<?php echo base_url('recruiter/rec_profile/' . $recruiterdata1[0]['user_id']); ?>" title="<?php echo $recruiterdata1[0]['rec_firstname'] . ' ' . $recruiterdata1[0]['rec_lastname']; ?>" tabindex="-1" aria-hidden="true" rel="noopener">
+                                      <a class="profile-boxProfilebuisness-avatarLink2 a-inlineBlock"  href="<?php echo base_url('recruiter/rec_profile/' . $recdata[0]['user_id']); ?>" title="<?php echo $recdata[0]['rec_firstname'] . ' ' . $recdata[0]['rec_lastname']; ?>" tabindex="-1" aria-hidden="true" rel="noopener">
                                                 <?php
 //echo "<pre>"; print_r($recruiterdata1); die();
-                                                if ($recruiterdata1[0]['recruiter_user_image'] != '') {
+                                                if ($recdata[0]['recruiter_user_image'] != '') {
                                                     // echo "hii"; die();
                                                     ?>
-                       <img src="<?php echo base_url($this->config->item('rec_profile_thumb_upload_path') . $recruiterdata1[0]['recruiter_user_image']); ?>" alt="<?php echo $recruiterdata1[0]['rec_firstname'] . ' ' . $recruiterdata1[0]['rec_lastname']; ?>" >
+                       <img src="<?php echo base_url($this->config->item('rec_profile_thumb_upload_path') . $recdata[0]['recruiter_user_image']); ?>" alt="<?php echo $recdata[0]['rec_firstname'] . ' ' . $recdata[0]['rec_lastname']; ?>" >
                                    <?php
                               } else {
                            ?>
-                       <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo $recruiterdata1[0]['rec_firstname'] . ' ' . $recruiterdata1[0]['rec_lastname']; ?>">
+                       <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo $recdata[0]['rec_firstname'] . ' ' . $recdata[0]['rec_lastname']; ?>">
                             <?php
                                    }
                              ?>
@@ -87,13 +87,13 @@
                                         </div>
                                         <div class="profile-box-user  profile-text-bui-user  fr col-md-9">
                                             <span class="profile-company-name ">
-                                                <a href="<?php echo site_url('recruiter/rec_profile'); ?>" title="<?php echo $recruiterdata1['rec_firstname'] . ' ' . $recruiterdata1['rec_lastname']; ?>">   <?php echo $recruiterdata1[0]['rec_firstname'] . ' ' . $recruiterdata1[0]['rec_lastname']; ?></a>
+                                                <a href="<?php echo site_url('recruiter/rec_profile'); ?>" title="<?php echo $recdata['rec_firstname'] . ' ' . $recdata['rec_lastname']; ?>">   <?php echo $recdata[0]['rec_firstname'] . ' ' . $recdata[0]['rec_lastname']; ?></a>
                                             </span>
                                             <div class="profile-boxProfile-name">
-                                                <a href="<?php echo site_url('recruiter/rec_profile/' . $recruiterdata1[0]['user_id']); ?>" title="<?php echo ucwords($recruiterdata1[0]['designation']); ?>">
+                                                <a href="<?php echo site_url('recruiter/rec_profile/' . $recdata[0]['user_id']); ?>" title="<?php echo ucwords($recdata[0]['designation']); ?>">
                                                     <?php
-                                                    if (ucwords($recruiterdata1[0]['designation'])) {
-                                                        echo ucwords($recruiterdata1[0]['designation']);
+                                                    if (ucwords($recdata[0]['designation'])) {
+                                                        echo ucwords($recdata[0]['designation']);
                                                     } else {
                                                         echo "Designation";
                                                     }
