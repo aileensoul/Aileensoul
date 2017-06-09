@@ -636,7 +636,7 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <div class="fr">
+                                <div class="fr margin_btm">
                                     <button type="submit"  value="Submit">Post
                                     </button>    
                                 </div>
