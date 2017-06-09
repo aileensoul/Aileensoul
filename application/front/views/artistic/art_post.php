@@ -1154,7 +1154,7 @@
                                                                         <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>
                                                                     <?php } else {
                                                                         ?>
-                                                                        <i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i>
+                                                                        <i class="fa fa-thumbs-up fa-1x main_color" aria-hidden="true"></i>
                                                                         <?php }
                                                                         ?>
                                                                     <span>
