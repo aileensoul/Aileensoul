@@ -18,6 +18,7 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
+
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
 
 <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
@@ -360,16 +361,15 @@
 
 </html>
 <script src="<?php echo base_url('js/jquery.js'); ?>"></script>
-
-   
-    
-    
+ 
 <script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
    <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
     <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
         <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
    
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.full.js
+"></script>
     <!-- Calender JS Start-->
 
 <script src="<?php echo base_url('js/jquery.datetimepicker.full.js'); ?>"></script>
@@ -463,10 +463,188 @@ function checkvalue(){
   // alert(searchkeyword);
   // alert(searchplace);
   if(searchkeyword == "" && searchplace == ""){
-     alert('Please enter Keyword');
+     //alert('Please enter Keyword');
     return false;
   }
 }
+
+ function checkvalue_search() {
+       
+        var searchkeyword = document.getElementById('tags').value;
+        var searchplace = document.getElementById('searchplace').value;
+        
+        if (searchkeyword == "" && searchplace == "") 
+        {
+          //  alert('Please enter Keyword');
+            return false;
+        }
+    }
+
+
+//Leave Page on add and edit post page start
+  function leave_page(clicked_id)
+{
+
+//alert(clicked_id);
+ 
+ var post_name = document.getElementById('post_name').value;
+ var skills = document.getElementById('skills').value;
+ var other_skill = document.getElementById('other_skill').value;
+ var minyear = document.getElementById('minyear').value;
+ var minmonth = document.getElementById('minmonth').value;
+ var maxyear = document.getElementById('maxyear').value;
+ var maxmonth = document.getElementById('maxmonth').value;
+ var post_desc = document.getElementById('post_desc').value;
+ var interview = document.getElementById('interview').value;
+ var country = document.getElementById('country').value;
+ var state = document.getElementById('state').value;
+ var city = document.getElementById('city').value;
+ var datepicker = document.getElementById('datepicker').value;
+ var minsal = document.getElementById('minsal').value;
+ var maxsal = document.getElementById('maxsal').value;
+ var currency = document.getElementById('currency').value;
+ 
+   var searchkeyword = document.getElementById('tags').value;
+    var searchplace = document.getElementById('searchplace').value;
+       
+ if(post_name=="" && skills=="" && other_skill=="" && minyear=="" && minmonth=="" && maxyear=="" && maxmonth=="" && post_desc=="" && interview=="" && country=="" && state=="" && datepicker=="" && minsal=="" && maxsal=="" && currency=="")
+ {
+    
+    if(clicked_id==1)
+    {
+            location.href = '<?php echo base_url() ?>recruiter/recommen_candidate';
+    }
+    if(clicked_id==2)
+    {
+            location.href = '<?php echo base_url() ?>recruiter/rec_profile';
+    }
+    if(clicked_id==3)
+    {
+            location.href = '<?php echo base_url() ?>recruiter/rec_basic_information';
+    }
+    if(clicked_id==4)
+    {
+       if(searchkeyword=="" && searchplace=="" )
+       {
+            return checkvalue_search;
+       }
+       else
+       {
+            location.href = '<?php echo base_url() ?>search/recruiter_search/'+searchkeyword+'/'+searchplace;
+        }   
+    }
+     if(clicked_id==5)
+    {
+            location.href = '<?php echo base_url('dashboard') ?>';
+    }
+       if(clicked_id==6)
+    {
+            location.href = '<?php echo base_url() . 'profile' ?>';
+    }
+        if(clicked_id==7)
+    {
+            location.href = '<?php echo base_url('registration/changepassword') ?>';
+    }
+        if(clicked_id==8)
+    {
+            location.href = '<?php echo base_url('dashboard/logout') ?>';
+    }
+     if(clicked_id==9)
+    {
+            location.href = 'javascript:history.back()';
+
+    }
+
+ }
+ else
+ {
+  
+
+      return home(clicked_id,searchkeyword,searchplace);
+
+ }
+
+    }
+      function home(clicked_id,searchkeyword,searchplace) {
+  
+                              
+      $('.biderror .mes').html("<div class='pop_content'> Do you want to leave this page?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='home_profile("+ clicked_id +','+'"'+ searchkeyword + '"'+','+'"'+ searchplace + '"' +")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+          $('#bidmodal').modal('show');
+
+ }
+
+ function home_profile(clicked_id,searchkeyword,searchplace){
+  
+  var  url,data;
+  
+  
+if (clicked_id == 4) {
+    url = '<?php echo base_url() . "search/recruiter_search" ?>';
+
+   
+    data='id=' + clicked_id + '&skills=' + searchkeyword+ '&searchplace=' + searchplace;
+    
+} 
+
+  
+                  $.ajax({
+                      type: 'POST',
+                      url: url,
+                      data: data,
+                        success: function (data) {
+                            if(clicked_id==1)
+                            {
+                              // alert("hsjdh");
+
+                                  window.location= "<?php echo base_url() ?>recruiter/recommen_candidate";    
+                            }
+                            else if(clicked_id==2)
+                            {
+                                window.location= "<?php echo base_url() ?>recruiter/rec_profile"; 
+                            }
+                            else if(clicked_id==3)
+                            {
+                                window.location= "<?php echo base_url() ?>recruiter/rec_basic_information"; 
+                            }
+                            else if(clicked_id==4)
+                            {
+                                   
+                           
+                                 window.location= "<?php echo base_url() ?>search/recruiter_search/"+searchkeyword+"/"+searchplace; 
+                                 
+                                
+                            }
+                             else if(clicked_id==5)
+                            {
+                                window.location= "<?php echo base_url('dashboard') ?>"; 
+                            }
+                             else if(clicked_id==6)
+                            {
+                                window.location= "<?php echo base_url() . 'profile' ?>"; 
+                            }
+                             else if(clicked_id==7)
+                            {
+                                window.location= "<?php echo base_url('registration/changepassword') ?>"; 
+                            }
+                             else if(clicked_id==8)
+                            {
+                                window.location= "<?php echo base_url('dashboard/logout') ?>"; 
+                            }
+                            else if(clicked_id==9)
+                            {
+                                        location.href = 'javascript:history.back()';
+                            }
+                            else
+                            {
+                                alert("edit profilw");
+                            }
+                                     
+                                }
+                            });
+
+
+ }
+ //Leave Page on add and edit post page End
 </script>
 <script type="text/javascript">
   
@@ -654,65 +832,11 @@ $(document).ready(function(){
 
 
 <script>
-//select2 autocomplete start for skill
-$('#searchskills').select2({
-        
-        placeholder: 'Find Your Skills',
-       
-        ajax:{
 
-         
-          url: "<?php echo base_url(); ?>freelancer/keyskill",
-          dataType: 'json',
-          delay: 250,
-          
-          processResults: function (data) {
-            
-            return {
-              //alert(data);
-
-              results: data
-
-
-            };
-            
-          },
-           cache: true
-        }
-      });
-//select2 autocomplete End for skill
-
-//select2 autocomplete start for Location
-$('#searchplace').select2({
-        
-        placeholder: 'Find Your Location',
-        maximumSelectionLength: 1,
-       
-        ajax:{
-
-         
-          url: "<?php echo base_url(); ?>freelancer/location",
-          dataType: 'json',
-          delay: 250,
-          
-          processResults: function (data) {
-            
-            return {
-              //alert(data);
-
-              results: data
-
-
-            };
-            
-          },
-           cache: true
-        }
-      });
-//select2 autocomplete End for Location
 
 //select2 autocomplete start for skill
 $('#skills').select2({
+
         
         placeholder: 'Find Your Skills',
        
