@@ -55,43 +55,43 @@
                             $userid = $this->session->userdata('user_id');
                             $job = $this->db->get_where('job_reg', array('user_id' => $userid))->row()->job_step;
                             ?>
-                            <ul>
-                                <li><a href="<?php echo base_url('job/job_basicinfo_update'); ?>">Basic Information</a></li>
+                            <ul class="left-form-each">
+                                <li class="custom-none"><a href="<?php echo base_url('job/job_basicinfo_update'); ?>">Basic Information</a></li>
 
-                                <li><a href="<?php echo base_url('job/job_address_update'); ?>">Address</a></li>
+                                <li class="custom-none"><a href="<?php echo base_url('job/job_address_update'); ?>">Address</a></li>
 
-                                <li><a href="<?php echo base_url('job/job_education_update'); ?>">Educational Qualification</a></li>
+                                <li class="custom-none"><a href="<?php echo base_url('job/job_education_update'); ?>">Educational Qualification</a></li>
 
 
-                                <li><a href="<?php echo base_url('job/job_project_update'); ?>">Project And Training / Internship</a></li>
+                                <li class="custom-none"><a href="<?php echo base_url('job/job_project_update'); ?>">Project And Training / Internship</a></li>
 
-                                <li <?php if ($this->uri->segment(1) == 'job') { ?> class="active" <?php } ?>><a href="#">Professional Skills</a></li>
+                                <li <?php if ($this->uri->segment(1) == 'job') { ?> class="active init" <?php } ?>><a href="#">Professional Skills</a></li>
 <!-- 
-                                <li class="<?php
+                                <li class="custom-none <?php
                                 if ($jobdata[0]['job_step'] < '5') {
                                     //echo "khyati";
                                 }
                                 ?>"><a href="<?php //echo base_url('job/job_apply_for_update'); ?>">Apply For</a></li> -->
 
-                                <li class="<?php
+                                <li class="custom-none <?php
                                 if ($jobdata[0]['job_step'] < '5') {
                                     echo "khyati";
                                 }
                                 ?>"><a href="<?php echo base_url('job/job_work_exp_update'); ?>">Work Experience</a></li>
 
-                                <li class="<?php
+                                <li class="custom-none <?php
                                 if ($jobdata[0]['job_step'] < '5') {
                                     echo "khyati";
                                 }
                                 ?>"><a href="<?php echo base_url('job/job_curricular_update'); ?>">Extra Curricular Activities</a></li>
 
-                                <li class="<?php
+                                <li class="custom-none <?php
                                 if ($jobdata[0]['job_step'] < '5') {
                                     echo "khyati";
                                 }
                                 ?>"><a href="<?php echo base_url('job/job_reference_update'); ?>">Interest & Reference</a></li>
 
-                                <li class="<?php
+                                <li class="custom-none <?php
                                 if ($jobdata[0]['job_step'] < '5') {
                                     echo "khyati";
                                 }

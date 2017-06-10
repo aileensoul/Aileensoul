@@ -9771,6 +9771,7 @@ style chat css end*/
 #jobseeker_regform #other_keyskill{width:90% !important;}
 
 
+
 /***  media query  ***/
 @media screen and (max-width: 1200px) {
     .action-buttons {
@@ -9853,6 +9854,15 @@ style chat css end*/
     .header2 ul li{float:left;}
     .header2 ul {padding-left:0; padding-right:0;}
     .bg-search .header2{margin-top:-10px;}
+    .custom-none {display: none;}
+    .left-side-bar{position: relative}
+    .left-form-each{background: #fff none repeat scroll 0 0;
+    display: block;
+    left: 0;
+    position: absolute;
+    top: -40px;
+    width: 100%;
+    z-index: 99;}
 }
 @media screen and (max-width: 479px) {
     .fw-479{width: 100%;}

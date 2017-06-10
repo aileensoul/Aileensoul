@@ -615,6 +615,28 @@ $( document ).on( 'keydown', function ( e ) {
 
         }
     </script>
+    <!------  commen script harshad  ---------------->
+    <script>
+        jQuery(document).ready(function($) {
+         if(screen.width <= 767){
+             
+             $("ul.left-form-each").on("click", ".init", function() {
+                $(this).closest("ul").children('li:not(.init)').toggle();
+            });
+
+            var allOptions = $("ul").children('li:not(.init)');
+            $("ul.left-form-each").on("click", "li:not(.init)", function() {
+                allOptions.removeClass('selected');
+                $(this).addClass('selected');
+                $("ul.left-form-each").children('.init').html($(this).html());
+                allOptions.toggle();
+            });
+             
+             
+          
+            }
+        });
+    </script>
     <!-- script for update all read notification end -->
 <!-- <script>
 /* When the user clicks on the button, 

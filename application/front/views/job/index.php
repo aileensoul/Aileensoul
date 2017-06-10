@@ -54,29 +54,28 @@
 
                       <?php }?>
             </div>
-            <br>
-           <br>
+            
            <br>
             <div class="container">
                 <div class="row row4">
                     <div class="col-lg-3 col-md-4 col-sm-4">
                         <div class="left-side-bar">
                             <ul class="left-form-each">
-                                <li  <?php if ($this->uri->segment(1) == 'job') { ?> class="active" <?php } ?> ><a href="#">Basic Information</a></li>
+                                <li  <?php if ($this->uri->segment(1) == 'job') { ?> class="active init" <?php } ?> ><a href="#">Basic Information</a></li>
 
-                                <li class="<?php if ($jobdata[0]['job_step'] < '1') {
+                                <li class="custom-none <?php if ($jobdata[0]['job_step'] < '1') {
     echo "khyati";
 } ?>"><a href="<?php echo base_url('job/job_address_update'); ?>">Address</a></li>
 
-                                <li class="<?php if ($jobdata[0]['job_step'] < '1') {
+                                <li class="custom-none <?php if ($jobdata[0]['job_step'] < '1') {
     echo "khyati";
 } ?>"><a href="<?php echo base_url('job/job_education_update'); ?>">Educational Qualification</a></li>
 
-                                <li class="<?php if ($jobdata[0]['job_step'] < '1') {
+                                <li class="custom-none <?php if ($jobdata[0]['job_step'] < '1') {
     echo "khyati";
 } ?>"><a href="<?php echo base_url('job/job_project_update'); ?>">Project And Training / Internship</a></li>
 
-                                <li class="<?php if ($jobdata[0]['job_step'] < '1') {
+                                <li class="custom-none <?php if ($jobdata[0]['job_step'] < '1') {
     echo "khyati";
 } ?>"><a href="<?php echo base_url('job/job_skill_update'); ?>">Professional Skills</a></li>
 
@@ -84,19 +83,19 @@
    // echo "khyati";
 } ?>"><a href="<?php //echo base_url('job/job_apply_for_update'); ?>">Apply For</a></li> -->
 
-                                <li class="<?php if ($jobdata[0]['job_step'] < '1') {
+                                <li class="custom-none <?php if ($jobdata[0]['job_step'] < '1') {
     echo "khyati";
 } ?>"><a href="<?php echo base_url('job/job_work_exp_update'); ?>">Work Experience</a></li>
 
-                                <li class="<?php if ($jobdata[0]['job_step'] < '1') {
+                                <li class="custom-none <?php if ($jobdata[0]['job_step'] < '1') {
     echo "khyati";
 } ?>"><a href="<?php echo base_url('job/job_curricular_update'); ?>">Extra Curricular Activities</a></li>
 
-                                <li class="<?php if ($jobdata[0]['job_step'] < '1') {
+                                <li class="custom-none <?php if ($jobdata[0]['job_step'] < '1') {
                                 echo "khyati";
                             } ?>"><a href="<?php echo base_url('job/job_reference_update'); ?>">Interest & Reference</a></li>
 
-                                <li class="<?php if ($jobdata[0]['job_step'] < '1') {
+                                <li class="custom-none <?php if ($jobdata[0]['job_step'] < '1') {
                                 echo "khyati";
                             } ?>"><a href="<?php echo base_url('job/job_carrier_update'); ?>">Carrier Objectives</a></li>
                             </ul>
@@ -629,23 +628,7 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
 $(window).load(function(){
   $('#preloader').fadeOut('slow',function(){$(this).remove();});
 });
-
-    $('ul.left-form-each').each(function() {
-        var select = $(document.createElement('select')).insertBefore($(this).hide());
-        $('>li a', this).each(function() {
-            var a = $(this).click(function() {
-                if ($(this).attr('target')==='_blank') {
-                    window.open(this.href);
-                }
-                else {
-                    window.location.href = this.href;
-                }
-            }),
-            option = $(document.createElement('option')).appendTo(select).val(this.href).html($(this).html()).click(function() {
-                a.click();
-            });
-        });
-    });
+   
 
 });
 </script>
