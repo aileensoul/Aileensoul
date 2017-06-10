@@ -296,14 +296,39 @@ function text2link($text) {
                                         </li>
                                         <li><b> PhoneNo</b> <span><?php echo $freelancerpostdata[0]['freelancer_post_phoneno']; ?></span> </li>
 
-<?php
-if ($freelancerpostdata[0]['freelancer_post_skypeid']) {
-    ?>
+                                             <?php
+                                            if ($returnpage == 'job') {
+                                                   if ($freelancerpostdata[0]['freelancer_post_skypeid']) {
+                                              ?>
                                             <li> <b>Skype Id</b> <span> <?php echo $freelancerpostdata[0]['freelancer_post_skypeid']; ?> </span>
                                             </li> 
                                             <?php
-                                        }
-                                        ?>
+                                           }
+
+                                                else
+                                                   {
+                                                       echo "";
+                                                     }
+                                                 }
+
+                                                else
+                                                {
+                                                if ($freelancerpostdata[0]['freelancer_post_skypeid']) {
+                                               ?>
+                                            <li> <b>Skype Id</b> <span> <?php echo $freelancerpostdata[0]['freelancer_post_skypeid']; ?> </span>
+                                            </li> 
+                                            <?php
+                                            }              
+                                                   else
+                                                   {
+                                                     ?>
+                                                     <li><b>Skype Id</b> <span>
+                                                          <?php echo PROFILENA; ?></span>
+                                                        </li>
+                                                   <?php 
+                                                    }
+                                                   } ?>
+                                                
 
                                     </ul>
                                 </div>
