@@ -170,7 +170,7 @@
 
                                                                 <fieldset class="two-select-box full-width" style="padding: 0px;"> 
                                                                     <label>Experience<span class="red">*</span></label>
-        <select style="width: 46%; margin-right: 43px; float: left;" name="keyskil1[]" id="experience_year<?php echo $y; ?>" class="experience_year keyskil">
+        <select style="width: 46%; margin-right: 43px; float: left;" name="experience_year[]" id="experience_year<?php echo $y; ?>" class="experience_year keyskil">
                                                                         <option value="0 year" selected option disabled>Year</option>
                                                                         <option value="0 year"  <?php if ($experience_year1 == "0 year") echo 'selected'; ?>>0 year</option>
                                                                         <option value="1 year"  <?php if ($experience_year1 == "1 year") echo 'selected'; ?>>1 year</option>

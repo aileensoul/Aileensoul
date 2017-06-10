@@ -2455,8 +2455,8 @@ $this->load->view('business_profile/temp');
 
         $userdata[] = $_POST;
        // echo "<pre>"; print_r($userdata[0]['keyskil1']);
-        $count1 = count($userdata[0]['keyskil1']);
-       // echo $count1;
+        $count1 = count($userdata[0]['experience_year']);
+        //echo $count1;die();
         
         if ($this->input->post('previous')) {  //echo "hi";die();
             redirect('job/job_skill_update', refresh);
