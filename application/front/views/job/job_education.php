@@ -631,11 +631,11 @@
 
 
                                                             <fieldset class="full-width">
-<<<<<<< HEAD
-                                          <h6>Grade :</h6>
-=======
+
+                                         
+
                                           <h6>Grade :<!-- <span class="red">*</span> --></h6>
->>>>>>> ed6997f8e56a343bdc58309da57c37b90e875c87
+
                                    <input type="text" name="grade[]" id="grade1" class="grade" placeholder="Enter Grade" value="<?php
                                      if ($grade1) {
                                      echo $grade1;
@@ -836,11 +836,11 @@
                                                      
                                                      
                                                            <fieldset class=""> -->
-<<<<<<< HEAD
-                                                        <h6>Grade :</h6>
-=======
+
+                                                        
+
                                                         <h6>Grade :<!-- <span class="red">*</span> --></h6>
->>>>>>> ed6997f8e56a343bdc58309da57c37b90e875c87
+
                                                         <input type="text" name="grade[]" id="grade1" class="grade" placeholder="Enter Grade" value="<?php
                                                         if ($grade1) {
                                                             echo $grade1;
@@ -1516,15 +1516,12 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
                                         noSpace: true
 
                                     },
-                                    // 'grade[]': {
-
-<<<<<<< HEAD
-                                        
+                                     'grade[]': {
+ 
                                         regx:/^[a-zA-Z+-]/
-=======
+
                                     //     required: true,
                                     //     regx:/^[a-zA-Z+-]/
->>>>>>> ed6997f8e56a343bdc58309da57c37b90e875c87
 
                                     // },
                                     'percentage[]': {
