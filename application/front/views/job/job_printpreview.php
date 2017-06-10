@@ -22,7 +22,7 @@ echo $job_header2;
     }?>
 <body   class="page-container-bg-solid page-boxed">
 
-    <section>
+    <section class="custom-row">
         <div class="container" id="paddingtop_fixed">
 
             <div class="row" id="row1" style="display:none;">
@@ -51,9 +51,9 @@ echo $job_header2;
                 </div>
             </div>
 
-
-            <div class="container">
-                <div class="row" id="row2">
+            <div class="">
+            <div class="">
+                <div class="" id="row2">
                     <?php
                     $userid = $this->session->userdata('aileenuser');
                      if($this->uri->segment(3) == $userid){
@@ -80,6 +80,7 @@ echo $job_header2;
 
                 </div>
             </div>
+        </div>
         </div>
     </div>
 </div>   

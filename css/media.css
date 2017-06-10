@@ -2,7 +2,7 @@
 	h1, h1 a { font-size: 32px; line-height: 46px; }
 	h2, h2 a { font-size: 30px;  }
 
-	.header ul li a { font-size: 16px; padding: 18px 12px; }
+	.header ul li a {/* font-size: 16px; padding: 18px 12px;*/ }
 	.midd-section h2 { font-size: 34px; }
 
 	.user-profile { margin-bottom: 20px; padding: 10px 0; }
@@ -308,7 +308,7 @@
       
       /* menu  on */
        .left-side-menu {  width: 18%; float: left; }
-    .profile-main-rec-box-menu { height: 6.3%; left: 1.5%; width: 96.8%; margin-top: -79px; }
+    .profile-main-rec-box-menu { /*height: 6.3%;*/ left: 1.5%; width: 96.8%; margin-top: -79px; }
      .right-side-menu { float: left; height: auto; }
     .profile-main-rec-box-menu li a { padding: 11px 15px 11px 15px; font-size: 13px; }
        .flw_msg_btn { margin-top: 0px; }

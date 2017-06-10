@@ -5635,7 +5635,7 @@ label.cameraButton input[accept*="camera"] {
         min-width: 270px;
     }
     .tabordion section article:after {
-        background-color: #ccc;
+       /* background-color: #ccc;*/
         bottom: 0;
         content: "";
         display: block;
@@ -9769,6 +9769,7 @@ style chat css end*/
 
 #s2id_skils{width: 100% !important;}
 #jobseeker_regform #other_keyskill{width:90% !important;}
+.contact-frnd-post{margin-bottom: 50px;}
 
 
 
@@ -9782,12 +9783,16 @@ style chat css end*/
         width: 25px;
     }
     #paddingtop_fixed_job{padding-top:20px !important; }
+    .logo h2{font-size: 25px; line-height: 30px;}
+    .header ul li a{padding: 5px 10px;}
 }
 @media screen and (max-width: 1024px) {
     #notificationLink span{
         top:3px;
         right:5px;
     }
+    #paddingtop_fixed{padding-top: 52px !important;}
+    .profile-main-rec-box-menu{height: 41px;}
 }
 @media screen and (max-width: 991px) {
     #padding_dash{padding-top:19px !important;}
@@ -9862,7 +9867,9 @@ style chat css end*/
     position: absolute;
     top: -40px;
     width: 100%;
-    z-index: 99;}
+    z-index: 999;}
+    .tabordion section article{left: 100%;}
+    .profile-box{position: relative;}
 }
 @media screen and (max-width: 479px) {
     .fw-479{width: 100%;}
@@ -9870,6 +9877,16 @@ style chat css end*/
     .hidden-mob{display: none;}
     .search-mob-block{display: block;}
     fieldset{width: 100%;}
+    .profile-box-job-menu ul li{padding-left: 0; margin-bottom: 0;}
+    .profile-box-job-menu ul li a{margin-right: 0px !important; font-size: 13px; padding: 8px 10px 6px;}
+    .profile-company-name a{font-size: 16px;}
+    .profile-box-user .profile-boxProfile-name a{font-size: 12px;}
+    .a-inlineBlock{width: 60px; height: 60px;}
+    .profile-boxProfileCard-content .buisness-profile-txext a img{height: 52px;}
+    .profile-boxProfilebuisness-avatarLink2{margin: 10px 0 0 5px;}
+    .profile-text-bui-user{padding-top: 5px; padding-right: 5px !important;}
+    .profile-box-job-menu{margin-top: -22px;}
+    
 }
 @media screen and (max-width: 360px) {
     .logo{padding:4px 0;}

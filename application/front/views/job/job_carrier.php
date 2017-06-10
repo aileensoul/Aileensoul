@@ -42,8 +42,7 @@
                       <div class="col-md-6 col-sm-8"><h3>You are making your Job Profile.</h3></div>
                        <?php }?>
             </div>
-            <br>
-            <br>
+       
             <br>
             </div>
            
