@@ -297,7 +297,7 @@ function text2link($text) {
                                         <li><b> PhoneNo</b> <span><?php echo $freelancerpostdata[0]['freelancer_post_phoneno']; ?></span> </li>
 
                                              <?php
-                                            if ($returnpage == 'job') {
+                                            if ($returnpage == 'freelancer_hire') {
                                                    if ($freelancerpostdata[0]['freelancer_post_skypeid']) {
                                               ?>
                                             <li> <b>Skype Id</b> <span> <?php echo $freelancerpostdata[0]['freelancer_post_skypeid']; ?> </span>
@@ -351,25 +351,75 @@ function text2link($text) {
                                         ?> </span>
                                             </li>
 
-<?php
-if ($freelancerpostdata[0]['freelancer_post_city']) {
-    ?>
+
+
+                                             <?php
+                                            if ($returnpage == 'freelancer_hire') {
+                                                  if ($freelancerpostdata[0]['freelancer_post_city']) {
+                                                 ?>
                                                 <li><b> City</b> <span><?php echo
-    $this->db->get_where('cities', array('city_id' => $freelancerpostdata[0]['freelancer_post_city']))->row()->city_name;
-    ?></span> </li>
+                                                  $this->db->get_where('cities', array('city_id' => $freelancerpostdata[0]['freelancer_post_city']))->row()->city_name;
+                                                ?></span> </li>
                                                 <?php
                                             }
-                                            ?>
 
+                                                else
+                                                   {
+                                                       echo "";
+                                                     }
+                                                 }
 
-                                            <?php
-                                            if ($freelancerpostdata[0]['freelancer_post_pincode']) {
+                                                else
+                                                {
+                                               if ($freelancerpostdata[0]['freelancer_post_city']) {
+                                                ?>
+                                                <li><b> City</b> <span><?php echo
+                                                $this->db->get_where('cities', array('city_id' => $freelancerpostdata[0]['freelancer_post_city']))->row()->city_name;
+                                                ?></span> </li>
+                                                <?php
+                                            }     
+                                                   else
+                                                   {
+                                                     ?>
+                                                     <li><b>City</b> <span>
+                                                          <?php echo PROFILENA; ?></span>
+                                                        </li>
+                                                   <?php 
+                                                    }
+                                                   } ?>
+
+                                                       <?php
+                                            if ($returnpage == 'freelancer_hire') {
+                                                 if ($freelancerpostdata[0]['freelancer_post_pincode']) {
                                                 ?>
                                                 <li> <b>Pincode</b><span><?php echo $freelancerpostdata[0]['freelancer_post_pincode']; ?></span>
                                                 </li>
                                                 <?php
                                             }
-                                            ?>
+
+                                                else
+                                                   {
+                                                       echo "";
+                                                     }
+                                                 }
+
+                                                else
+                                                {
+                                             if ($freelancerpostdata[0]['freelancer_post_pincode']) {
+                                                ?>
+                                                <li> <b>Pincode</b><span><?php echo $freelancerpostdata[0]['freelancer_post_pincode']; ?></span>
+                                                </li>
+                                                <?php
+                                            }
+                                                   else
+                                                   {
+                                                     ?>
+                                                     <li><b>Pincode</b> <span>
+                                                          <?php echo PROFILENA; ?></span>
+                                                        </li>
+                                                   <?php 
+                                                    }
+                                                   } ?>
 
                     <li> <b>Postal Address</b><span><p><?php echo $freelancerpostdata[0]['freelancer_post_address']; ?></p>     </span>
                                             </li>
@@ -455,6 +505,15 @@ if ($freelancerpostdata[0]['freelancer_post_area']) {
                                         </ul>
                                     </div>
                                 </div> 
+                                <?php
+                                 if ($returnpage == 'freelancer_hire') 
+                                 {
+
+                                 if ($freelancerpostdata[0]['freelancer_post_hourly'] != ""
+                                    || $freelancerpostdata[0]['freelancer_post_ratestate'] != "") {
+                                      
+                                  ?>
+
                                 <div class="profile-job-post-title clearfix">
                                     <div class="profile-job-profile-button clearfix">
                                         <div class="profile-job-details">
@@ -475,8 +534,66 @@ if ($freelancerpostdata[0]['freelancer_post_hourly']) {
                                                 </li>
     <?php
 } else {
+        echo "";
+                                                
+}
+?>
+
+<?php
+if ($freelancerpostdata[0]['freelancer_post_ratestate']) {
     ?>
-                                                <li> <b>Hourly</b> <span> - </span>
+                                                <li> <b>Currency </b> <span>  <?php echo $this->db->get_where('currency', array('currency_id' => $freelancerpostdata[0]['freelancer_post_ratestate']))->row()->currency_name; ?> </span>
+                                                </li>
+                                                <?php
+                                            } else {
+                                                 echo "";
+                                                
+                                            }
+                                            ?>
+
+
+                                            <?php
+                                            if ($freelancerpostdata[0]['freelancer_post_fixed_rate'] == 1) {
+                                                ?>
+                                                <li><b>Also  Work On Fixed Rate</b> 
+                                                </li>
+                                                <?php
+                                            }
+                                            else
+                                            {
+                                                echo "";
+                                            }
+                                            ?>
+
+
+                                        </ul>
+                                    </div>
+                                </div> 
+                             <?php  } }
+                             else
+                             { ?>
+                          <div class="profile-job-post-title clearfix">
+                                    <div class="profile-job-profile-button clearfix">
+                                        <div class="profile-job-details">
+                                            <ul>
+                                                <li>
+                          <p class="details_all_tital "> Rate</p>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="profile-job-profile-menu">
+                                        <ul class="clearfix">
+<?php
+if ($freelancerpostdata[0]['freelancer_post_hourly']) {
+    ?>
+                                                <li> <b>Hourly</b> <span> <?php echo $freelancerpostdata[0]['freelancer_post_hourly']; ?> </span>
+                                                </li>
+    <?php
+} else {
+    ?>
+                                                <li> <b>Hourly</b> <span>  <?php echo PROFILENA; ?> </span>
                                                 </li>
     <?php
 }
@@ -490,7 +607,7 @@ if ($freelancerpostdata[0]['freelancer_post_ratestate']) {
                                                 <?php
                                             } else {
                                                 ?>
-                                                <li> <b>currency</b> <span> - </span>
+                                                <li> <b>currency</b> <span>  <?php echo PROFILENA; ?></span>
                                                 </li>
                                                 <?php
                                             }
@@ -514,6 +631,22 @@ if ($freelancerpostdata[0]['freelancer_post_ratestate']) {
                                         </ul>
                                     </div>
                                 </div> 
+
+
+
+
+                                <?php
+                             } ?>
+
+<?php
+                            if ($returnpage == 'freelancer_hire') 
+                                 {
+
+                                 if ($freelancerpostdata[0]['freelancer_post_job_type'] != ""
+                                    || $freelancerpostdata[0]['freelancer_post_work_hour']
+                                    != "") {
+                                      
+                                  ?>
                                 <div class="profile-job-post-title clearfix">
                                     <div class="profile-job-profile-button clearfix">
                                         <div class="profile-job-details">
@@ -534,14 +667,92 @@ if ($freelancerpostdata[0]['freelancer_post_ratestate']) {
                                                 </li>
                                                 <?php
                                             }
-                                            ?>
-
+                                            else
+                                            {
+                                                echo "";
+                                            }
+                                        
+                                             if ($freelancerpostdata[0]['freelancer_post_work_hour']) {
+                                                ?>
                                             <li> <b> Working Hours Per Week</b> <span> <?php echo $freelancerpostdata[0]['freelancer_post_work_hour']; ?></span>
                                             </li>
+                                       <?php
+                                            } 
+                                            else
+                                                {
+                                                    echo "";
+                                                    }?> 
+                                        </ul>
+                                    </div>
+                                </div> 
+                                <?php 
+                                }}
+                                else
+                                    { ?>
+                                         <div class="profile-job-post-title clearfix">
+                                    <div class="profile-job-profile-button clearfix">
+                                        <div class="profile-job-details">
+                                            <ul>
+                                                <li>
+                    <p class="details_all_tital ">Avability</p>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="profile-job-profile-menu">
+                                        <ul class="clearfix">
+                                            <?php
+                                            if ($freelancerpostdata[0]['freelancer_post_job_type']) {
+                                                ?>
+                                                <li> <b>Timing</b> <span><?php echo $freelancerpostdata[0]['freelancer_post_job_type']; ?> </span>
+                                                </li>
+                                                <?php
+                                            }
+
+                                            else
+                                            {
+                                                ?>
+                                                <li> <b>Timing</b> <span>
+                                                 <?php echo PROFILENA; ?>
+                                                </span>
+                                                </li>
+                                           <?php }
+                                            
+
+                                             if ($freelancerpostdata[0]['freelancer_post_work_hour']) {
+                                                ?>
+                                            <li> <b> Working Hours Per Week</b> <span> <?php echo $freelancerpostdata[0]['freelancer_post_work_hour']; ?></span>
+                                            </li>
+                                       <?php
+                                            }  else
+                                            {
+                                                ?>
+                                                <li> <b>Working Hours Per Week</b> <span>
+                                                 <?php echo PROFILENA; ?>
+                                                </span>
+                                                </li>
+                                           <?php } ?>
 
                                         </ul>
                                     </div>
                                 </div> 
+                               <?php 
+                               }
+                               ?>
+                                 
+
+                                 <?php
+                            if ($returnpage == 'freelancer_hire') 
+                                 {
+
+                                 if ($freelancerpostdata[0]['freelancer_post_degree'] != ""
+                                    || $freelancerpostdata[0]['freelancer_post_stream']
+                                    != "" || $freelancerpostdata[0]['freelancer_post_univercity'] != "" || $freelancerpostdata[0]['freelancer_post_percentage']
+                                    != ""  || $freelancerpostdata[0]['freelancer_post_passingyear']
+                                    != "" ) {
+                                      
+                                  ?>       
                                 <div class="profile-job-post-title clearfix">
                                     <div class="profile-job-profile-button clearfix">
                                         <div class="profile-job-details">
@@ -555,28 +766,214 @@ if ($freelancerpostdata[0]['freelancer_post_ratestate']) {
                                     </div>
                                     <div class="profile-job-profile-menu">
                                         <ul class="clearfix">
+
+                                        <?php
+                                        if ($freelancerpostdata[0]['freelancer_post_degree']) {
+                                        ?>
                                             <li> <b> Degree</b> <span><?php echo $this->db->get_where('degree', array('degree_id' => $freelancerpostdata[0]['freelancer_post_degree']))->row()->degree_name; ?> </span>
                                             </li>
+                                            <?php }
+                                            else
+                                            {
+                                                echo "";
+                                            }
+                                            ?>
 
+                                             <?php
+                                        if ($freelancerpostdata[0]['freelancer_post_stream']) {
+                                        ?>
                                             <li> <b>Stream</b><span> <?php echo $this->db->get_where('stream', array('stream_id' => $freelancerpostdata[0]['freelancer_post_stream']))->row()->stream_name; ?> </span>
                                             </li>
+                                            <?php }
+                                            else
+                                            {
+                                                echo "";
+                                            }
+                                            ?>
+                            <?php
+                                        if ($freelancerpostdata[0]['freelancer_post_univercity']) {
+                                        ?>
                                             <li><b> University</b> <span><?php echo $this->db->get_where('university', array('university_id' => $freelancerpostdata[0]['freelancer_post_univercity']))->row()->university_name; ?></span> </li>
-
-                                            <li><b> College</b> <span><?php echo $freelancerpostdata[0]['freelancer_post_collage']; ?></span> </li>
-
+                                            <?php }
+                                            else
+                                            {
+                                                echo "";
+                                            }
+                                            ?>
+                                           
+                                           
+<?php
+                                        if ($freelancerpostdata[0]['freelancer_post_collage']) {
+                                        ?>
+                                           <li><b> College</b> <span><?php echo $freelancerpostdata[0]['freelancer_post_collage']; ?></span> </li>
+                                            <?php }
+                                            else
+                                            {
+                                                echo "";
+                                            }
+                                            ?>
+                            
+                                           <?php
+                                        if ($freelancerpostdata[0]['freelancer_post_percentage']) {
+                                        ?>
                                             <li> <b>Percentage</b><span> <?php echo $freelancerpostdata[0]['freelancer_post_percentage']; ?> </span>
                                             </li>
-                                            <li> <b>Year Of Passing</b><span> <?php echo $freelancerpostdata[0]['freelancer_post_passingyear']; ?></span>
+                                            <?php }
+                                            else
+                                            {
+                                                echo "";
+                                            }
+                                            ?>
+                                             <?php
+                                        if ($freelancerpostdata[0]['freelancer_post_passingyear']) {
+                                        ?>
+                                            <li> <b>Year Of Passing</b><span> <?php echo $freelancerpostdata[0]['freelancer_post_passingyear']; ?> </span>
                                             </li>
-
+                                            <?php }
+                                            else
+                                            {
+                                                echo "";
+                                            }
+                                            ?>
+                            
 
                                         </ul>
                                     </div>
                                 </div> 
+                                <?php 
+                            }
+                        }
+                                else
+                                    { ?>
+
+                                  <div class="profile-job-post-title clearfix">
+                                    <div class="profile-job-profile-button clearfix">
+                                        <div class="profile-job-details">
+                                            <ul>
+                                                <li>
+                    <p class="details_all_tital ">Education</p>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="profile-job-profile-menu">
+                                        <ul class="clearfix">
+                                            <?php
+                                        if ($freelancerpostdata[0]['freelancer_post_degree']) {
+                                        ?>
+                                            <li> <b> Degree</b> <span><?php echo $this->db->get_where('degree', array('degree_id' => $freelancerpostdata[0]['freelancer_post_degree']))->row()->degree_name; ?> </span>
+                                            </li>
+                                            <?php }
+                                            else
+                                            { ?>
+                                              <li> <b> Degree</b> <span>
+                                               <?php echo PROFILENA; ?>
+                                              </span>
+                                            </li>
+                                            <?php
+                                            }
+                                            
+                                        if ($freelancerpostdata[0]['freelancer_post_stream']) {
+                                        ?>
+                                            <li> <b>Stream</b><span> <?php echo $this->db->get_where('stream', array('stream_id' => $freelancerpostdata[0]['freelancer_post_stream']))->row()->stream_name; ?> </span>
+                                            </li>
+                                           <?php }
+                                            else
+                                            { ?>
+                                              <li> <b> Stream</b> <span>
+                                               <?php echo PROFILENA; ?>
+                                              </span>
+                                            </li>
+                                            <?php
+                                            }
+                                            ?>
+                            <?php
+                                        if ($freelancerpostdata[0]['freelancer_post_univercity']) {
+                                        ?>
+                                            <li><b> University</b> <span><?php echo $this->db->get_where('university', array('university_id' => $freelancerpostdata[0]['freelancer_post_univercity']))->row()->university_name; ?></span> </li>
+                                            <?php }
+                                            else
+                                            { ?>
+                                              <li> <b> University</b> <span>
+                                               <?php echo PROFILENA; ?>
+                                              </span>
+                                            </li>
+                                            <?php
+                                            }
+                                      
+                                            ?>
+                                           
+                                           
+<?php
+                                        if ($freelancerpostdata[0]['freelancer_post_collage']) {
+                                        ?>
+                                           <li><b> College</b> <span><?php echo $freelancerpostdata[0]['freelancer_post_collage']; ?></span> </li>
+                                            <?php }
+                                            else
+                                            { ?>
+                                              <li> <b> College</b> <span>
+                                               <?php echo PROFILENA; ?>
+                                              </span>
+                                            </li>
+                                            <?php
+                                            }
+                                            ?>
+                            
+                                           <?php
+                                        if ($freelancerpostdata[0]['freelancer_post_percentage']) {
+                                        ?>
+                                            <li> <b>Percentage</b><span> <?php echo $freelancerpostdata[0]['freelancer_post_percentage']; ?> </span>
+                                            </li>
+                                            <?php }
+                                            else
+                                            { ?>
+                                              <li> <b> Percentage</b> <span>
+                                               <?php echo PROFILENA; ?>
+                                              </span>
+                                            </li>
+                                            <?php
+                                            }
+                                            ?>
+                                             <?php
+                                        if ($freelancerpostdata[0]['freelancer_post_passingyear']) {
+                                        ?>
+                                            <li> <b>Year Of Passing</b><span> <?php echo $freelancerpostdata[0]['freelancer_post_passingyear']; ?> </span>
+                                            </li>
+                                            <?php }
+                                            else
+                                            { ?>
+                                              <li> <b> Year Of Passing</b> <span>
+                                               <?php echo PROFILENA; ?>
+                                              </span>
+                                            </li>
+                                            <?php
+                                            }
+                                            ?>
+                            
+
+                                        </ul>
+                                    </div>
+                                </div> 
+                               
+                            <?php
+                             }
+                            ?>
+
+                             <?php
+                            if ($returnpage == 'freelancer_hire') 
+                                 {
+
+                                 if ($freelancerpostdata[0]['freelancer_post_portfolio_attachment'] != ""
+                                    || $freelancerpostdata[0]['freelancer_post_portfolio']
+                                    != "") {
+                                      
+                                  ?>     
+
                                 <div class="profile-job-profile-button clearfix">
                                     <div class="profile-job-details">
                                         <ul>
-         <li><p class="details_all_tital ">Portfolio</p> </li>
+                                         <li><p class="details_all_tital ">Portfolio</p> </li>
 
                                         </ul>
                                     </div>
@@ -584,31 +981,99 @@ if ($freelancerpostdata[0]['freelancer_post_ratestate']) {
                                 <div class="profile-job-profile-menu">
                                     <ul class="clearfix">
 
-<?php
-if ($freelancerpostdata[0]['freelancer_post_portfolio_attachment'] != "") {
-    ?>
+                                    <?php
+                                      if ($freelancerpostdata[0]['freelancer_post_portfolio_attachment'] != "") {
+                                         ?>
                                             <li> <b>Attachment</b><span>
                                             <div class="free_attc">
                                                     <img src="<?php echo base_url(FREELANCERPORTFOLIOIMG . $freelancerpostdata[0]['freelancer_post_portfolio_attachment']) ?>" ></span>
-                                                    </div>
+                                                   
                                             </li>
 
-    <?php
-}
-?>
+                                          <?php
+                                         }
+                                         else
+                                         {
+                                            echo "";
+                                         }
+                                         ?>
 
 
-<?php
-if ($freelancerpostdata[0]['freelancer_post_portfolio']) {
-    ?>
+                                              <?php
+                                      if ($freelancerpostdata[0]['freelancer_post_portfolio']) {
+                                           ?>
                                             <li> <b>Description</b> <span><p>
-    <?php echo $this->common->make_links($freelancerpostdata[0]['freelancer_post_portfolio']); ?> </p></span>
+                                             <?php echo $this->common->make_links($freelancerpostdata[0]['freelancer_post_portfolio']); ?> </p></span>
                                             </li>
-    <?php
-}
-?>
+                                           <?php
+                                          }
+                                          else
+                                          {
+                                            echo "";
+                                          }
+                                        ?>
 
                                     </ul>
+                                     </div>
+                                     <?php }}
+
+                                     else
+                                        { ?>
+<div class="profile-job-profile-button clearfix">
+                                    <div class="profile-job-details">
+                                        <ul>
+                                         <li><p class="details_all_tital ">Portfolio</p> </li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="profile-job-profile-menu">
+                                    <ul class="clearfix">
+
+                                    <?php
+                                      if ($freelancerpostdata[0]['freelancer_post_portfolio_attachment'] != "") {
+                                         ?>
+                                            <li> <b>Attachment</b><span>
+                                            <div class="free_attc">
+                                                    <img src="<?php echo base_url($this->config->item('free_post_profile_thumb_upload_path')   . $freelancerpostdata[0]['freelancer_post_portfolio_attachment']) ?>" ></span>
+                                                   
+                                            </li>
+
+                                          <?php
+                                         }
+                                         else
+                                         { ?>
+                                           <li> <b>Attachment</b><span> 
+                                                 <?php echo PROFILENA; ?>
+                                           </span>
+                                                   
+                                            </li>
+                                       <?php  }
+                                         
+                                      if ($freelancerpostdata[0]['freelancer_post_portfolio']) {
+                                           ?>
+                                            <li> <b>Description</b> <span><p>
+                                             <?php echo $this->common->make_links($freelancerpostdata[0]['freelancer_post_portfolio']); ?> </p></span>
+                                            </li>
+                                           <?php
+                                          }
+                                           else
+                                         { ?>
+                                           <li> <b>Description</b><span> 
+                                           <?php echo PROFILENA; ?>
+                                           </span>
+                                                   
+                                            </li>
+                                       <?php  }
+                                         ?>
+                                        
+
+                                    </ul>
+                                     </div>
+                                
+
+                                         <?php   }?>
+
                                 </div>
                             </div> 
 
