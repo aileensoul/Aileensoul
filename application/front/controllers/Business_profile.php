@@ -754,6 +754,7 @@ $contition_array = array('status' => '1');
         for ($x = 0; $x < $count1; $x++) {
             if ($_POST['filedata'][$x] == 'old') {
 
+
                 $data = array(
                     'image_name' => $_POST['filename'][$x],
                 );
@@ -798,6 +799,8 @@ $contition_array = array('status' => '1');
 
             $files = $_FILES;
             $count = count($_FILES['image1']['name']);
+
+           // echo "<pre>"; print_r($count); die();
 
             for ($i = 0; $i < $count; $i++) {
 

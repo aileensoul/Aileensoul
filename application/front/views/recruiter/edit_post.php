@@ -6,6 +6,9 @@
    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/3.3.0/select2.css" rel="stylesheet" />
    <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
 
+     <!-- This Css is used for call popup -->
+   <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
+
     <!-- Calender Css Start-->
    <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/jquery.datetimepicker.css'); ?>">
    <!-- Calender Css End-->
@@ -382,8 +385,16 @@
                     </fieldset>
                <fieldset class="hs-submit full-width">
                   <!--   <input type="reset"> -->
+                    <?php if(($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'add_post') || ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'edit_post')){?>
+                                
+                               
+                                 <a class="add_post_btns" onclick="return leave_page(9)">Cancel</a>
+                                 <?php }else{?>
+
+                                <a class="add_post_btns" href="javascript:history.back()">Cancel</a>Cancel</a>
+                                 <?php } ?>
                    
-                    <a class="add_post_btns" href="javascript:history.back()">Cancel</a>
+                   
                      <input type="submit" id="submit" class="add_post_btns" name="submit" value="save">                    
                 </fieldset>
             </div>
@@ -397,6 +408,20 @@
     <!-- END CONTAINER -->
     <!-- BEGIN FOOTER -->
     <!-- BEGIN INNER FOOTER -->
+
+     <!-- Bid-modal  -->
+          <div class="modal fade message-box biderror" id="bidmodal" role="dialog">
+              <div class="modal-dialog modal-lm">
+                  <div class="modal-content">
+                     <button type="button" class="modal-close" data-dismiss="modal">&times;</button>       
+                        <div class="modal-body">
+                         <!--<img class="icon" src="images/dollar-icon.png" alt="" />-->
+                      <span class="mes"></span>
+                    </div>
+                </div>
+          </div>
+       </div>
+                    <!-- Model Popup Close -->
     <?php echo $footer; ?>
   
         
@@ -425,7 +450,6 @@
 <script type="text/javascript" src="<?php echo base_url('js/additional-methods1.15.0.min.js'); ?>"></script>
 
 
-
 <script type="text/javascript">
 //select2 autocomplete start for skill
 var complex = <?php echo json_encode($selectdata); ?>;
@@ -437,8 +461,137 @@ $('#skils').select2().select2('val', complex)
 
 
 <script type="text/javascript">
+  function checkvalue() {
+     
+        var searchkeyword = document.getElementById('tags').value;
+        var searchplace = document.getElementById('searchplace').value;
+        // alert(searchkeyword);
+        // alert(searchplace);
+        if (searchkeyword == "" && searchplace == "") {
+            //alert('Please enter Keyword');
+            return false;
+        }
+    }
+
+    function checkvalue_search() {
+       
+        var searchkeyword = document.getElementById('tags').value;
+        var searchplace = document.getElementById('searchplace').value;
+        
+        if (searchkeyword == "" && searchplace == "") 
+        {
+          //  alert('Please enter Keyword');
+            return false;
+        }
+    }
+
+
+//Leave Page on add and edit post page start
+  function leave_page(clicked_id)
+{
+
+
+   var searchkeyword = document.getElementById('tags').value;
+    var searchplace = document.getElementById('searchplace').value;
+
+     if(clicked_id==4)
+    {
+       if(searchkeyword=="" && searchplace=="" )
+       {
+            return checkvalue_search;
+       }
+        
+    }
+
+return home(clicked_id,searchkeyword,searchplace);
+}
+
+
+  function home(clicked_id,searchkeyword,searchplace) 
+  {
   
-function imgval(){ 
+                              
+      $('.biderror .mes').html("<div class='pop_content'> Do you want to discard your changes?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='home_profile("+ clicked_id +','+'"'+ searchkeyword + '"'+','+'"'+ searchplace + '"' +")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+          $('#bidmodal').modal('show');
+
+ }
+
+ function home_profile(clicked_id,searchkeyword,searchplace){
+  
+  var  url,data;
+  
+  
+if (clicked_id == 4) {
+    url = '<?php echo base_url() . "search/recruiter_search" ?>';
+
+   
+    data='id=' + clicked_id + '&skills=' + searchkeyword+ '&searchplace=' + searchplace;
+    
+} 
+
+  
+                  $.ajax({
+                      type: 'POST',
+                      url: url,
+                      data: data,
+                        success: function (data) {
+                            if(clicked_id==1)
+                            {
+          
+                                  window.location= "<?php echo base_url() ?>recruiter/recommen_candidate";    
+                            }
+                            else if(clicked_id==2)
+                            {
+                                window.location= "<?php echo base_url() ?>recruiter/rec_profile"; 
+                            }
+                            else if(clicked_id==3)
+                            {
+                                window.location= "<?php echo base_url() ?>recruiter/rec_basic_information"; 
+                            }
+                            else if(clicked_id==4)
+                            {
+                                 
+                           
+                                 window.location= "<?php echo base_url() ?>search/recruiter_search/"+searchkeyword+"/"+searchplace; 
+                                 
+                                
+                            }
+                             else if(clicked_id==5)
+                            {
+                                window.location= "<?php echo base_url('dashboard') ?>"; 
+                            }
+                             else if(clicked_id==6)
+                            {
+                                window.location= "<?php echo base_url() . 'profile' ?>"; 
+                            }
+                             else if(clicked_id==7)
+                            {
+                                window.location= "<?php echo base_url('registration/changepassword') ?>"; 
+                            }
+                             else if(clicked_id==8)
+                            {
+                                window.location= "<?php echo base_url('dashboard/logout') ?>"; 
+                            }
+                            else if(clicked_id==9)
+                            {
+                                        location.href = 'javascript:history.back()';
+                            }
+                            else
+                            {
+                                alert("edit profilw");
+                            }
+                                     
+                                }
+                            });
+
+
+ }
+ </script>
+
+ <script type="text/javascript">
+ //Leave Page on add and edit post page End
+  
+checkvalue imgval(){ 
  
  var skill_main = document.getElementById("skills").value;
  var skill_other = document.getElementById("other_skill").value;
@@ -492,24 +645,6 @@ $.validator.addMethod("reg_candidate", function(value, element, regexpr) {
     return regexpr.test(value);
 }, "Float Number Is Not Allowed");
 
-//for min max value validator start
-
-// $.validator.addMethod("greaterThan",
-//     function (value, element, param) {
-//           var $otherElement = $(param);
-//           return parseInt(value, 10) > parseInt($otherElement.val(), 10);
-//     });
-// $.validator.addMethod("greaterThan",
-
-// function (value, element, param) {
-//   var $min = $(param);
-//   if (this.settings.onfocusout) {
-//     $min.off(".validate-greaterThan").on("blur.validate-greaterThan", function () {
-//       $(element).valid();
-//     });
-//   }
-//   return parseInt(value) > parseInt($min.val());
-// }, "Max must be greater than min");
 
 $.validator.addMethod("greaterThan",
     function (value, element, param) {
@@ -765,69 +900,7 @@ jQuery.noConflict();
    })(jQuery);
   </script>
 
-   <!-- popup form edit start -->
-   <!-- <script type="text/javascript">
-//select2 autocomplete start for skill
-
-jQuery.noConflict();
-
-                (function ($) {
-
-    $('#searchskills').select2({
-
-        placeholder: 'Find Your Skills',
-
-        ajax: {
-
-            url: "<?php echo base_url(); ?>recruiter/keyskill",
-            dataType: 'json',
-            delay: 250,
-
-            processResults: function (data) {
-
-                return {
-                    //alert(data);
-
-                    results: data
-
-
-                };
-
-            },
-            cache: true
-        }
-    });
-//select2 autocomplete End for skill
-
-//select2 autocomplete start for Location
-    $('#searchplace').select2({
-
-        placeholder: 'Find Your Location',
-        maximumSelectionLength: 1,
-        ajax: {
-
-            url: "<?php echo base_url(); ?>recruiter/location",
-            dataType: 'json',
-            delay: 250,
-
-            processResults: function (data) {
-
-                return {
-                    //alert(data);
-
-                    results: data
-
-
-                };
-
-            },
-            cache: true
-        }
-    });
-    })(jQuery);
-//select2 autocomplete End for Location
-</script>
- -->
+  
   
 <script>
 jQuery.noConflict();
@@ -1001,3 +1074,7 @@ $('#datepicker').datetimepicker({
       #maxyear{margin-top: 42px !important;}
       #maxmonth{margin-top: 42px !important;}
     </style>
+
+  <!-- This Js is used for call popup -->
+
+<script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>

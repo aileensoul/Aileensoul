@@ -631,7 +631,11 @@
 
 
                                                             <fieldset class="full-width">
+
+                                         
+
                                           <h6>Grade :<!-- <span class="red">*</span> --></h6>
+
                                    <input type="text" name="grade[]" id="grade1" class="grade" placeholder="Enter Grade" value="<?php
                                      if ($grade1) {
                                      echo $grade1;
@@ -832,7 +836,11 @@
                                                      
                                                      
                                                            <fieldset class=""> -->
+
+                                                        
+
                                                         <h6>Grade :<!-- <span class="red">*</span> --></h6>
+
                                                         <input type="text" name="grade[]" id="grade1" class="grade" placeholder="Enter Grade" value="<?php
                                                         if ($grade1) {
                                                             echo $grade1;
@@ -1468,7 +1476,16 @@ $.validator.addMethod("regx1", function(value, element, regexpr) {
 
 
 $.validator.addMethod("regx", function(value, element, regexpr) {          
-    return regexpr.test(value);
+    //return value == '' || value.trim().length != 0; 
+     if(!value) 
+            {
+                return true;
+            }
+            else
+            {
+                  return regexpr.test(value);
+            }
+     // return regexpr.test(value);
 }, "This is not allow");
 
                             $("#jobseeker_regform").validate({
@@ -1499,7 +1516,9 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
                                         noSpace: true
 
                                     },
-                                    // 'grade[]': {
+                                     'grade[]': {
+ 
+                                        regx:/^[a-zA-Z+-]/
 
                                     //     required: true,
                                     //     regx:/^[a-zA-Z+-]/

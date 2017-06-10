@@ -171,7 +171,7 @@
                             <ul class="clearfix">
                                 <li><a href="<?php echo base_url('job'); ?>">Job Profile</a></li>
                                 <li><a href="<?php echo base_url('recruiter'); ?>">Recruiter Profile</a></li>
-                                <li><a href="<?php echo base_url('freelancer'); ?>">Freelance Profile</a></li>
+                                <li><a href="<?php echo base_url('freelancer'); ?>">Freelancer Profile</a></li>
 
                             </ul>
                         </div>

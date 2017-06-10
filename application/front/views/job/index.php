@@ -59,7 +59,7 @@
            <br>
             <div class="container">
                 <div class="row row4">
-                    <div class="col-md-3 col-sm-4">
+                    <div class="col-lg-3 col-md-4 col-sm-4">
                         <div class="left-side-bar">
                             <ul>
                                 <li  <?php if ($this->uri->segment(1) == 'job') { ?> class="active" <?php } ?> ><a href="#">Basic Information</a></li>
@@ -104,7 +104,7 @@
                     </div>
 
                     <!-- middle section start -->
-                    <div class="col-md-6 col-sm-8">
+                    <div class="col-lg-6 col-md-6 col-sm-8">
 
                         <div>
                                 <?php
