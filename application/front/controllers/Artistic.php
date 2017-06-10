@@ -4010,17 +4010,25 @@ class Artistic extends MY_Controller {
 
 
             // comment aount variable start
-            $idpost = $art['art_post_id'];
-            $cmtcount = '<a onClick="commentall(this.id)" id="' . $idpost . '">';
-            $cmtcount .= '<i class="fa fa-comment-o" aria-hidden="true">';
-            $cmtcount .= ' ' . count($artdata) . '';
-            $cmtcount .= '</i></a>';
+//            $idpost = $art['art_post_id'];
+//            $cmtcount = '<a onClick="commentall(this.id)" id="' . $idpost . '">';
+//            $cmtcount .= '<i class="fa fa-comment-o" aria-hidden="true">';
+//            $cmtcount .= ' ' . count($artdata) . '';
+//            $cmtcount .= '</i></a>';
+//            
+             $cntinsert =  '<span class="comment_count" >';
+     if (count($artdata) > 0) {
+           $cntinsert .= '' . count($artdata) . ''; 
+           $cntinsert .=   '</span>'; 
+           $cntinsert .=  '<span> Comment</span>';
+        
+           }
         }
         //echo $cmtinsert;
         echo json_encode(
                 array("comment" => $cmtinsert,
                     "comment" => $cmtinsert,
-                    "commentcount" => count($artdata)));
+                    "commentcount" => $cntinsert));
         // khyati chande 
     }
 
@@ -4169,17 +4177,25 @@ class Artistic extends MY_Controller {
                 $cmtinsert .= '</a></div>';
             }
 
-            $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
-            $cmtinsert .= '<div class="comment-details-menu">';
-            $cmtinsert .= '<p>' . $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($art['created_date']))) . '</p></div></div></div>';
-            $cntinsert .= '<a onclick="commentall(this.id)" id="' . $art['art_post_id'] . '">';
-            $cntinsert .= '<i class="fa fa-comment-o" aria-hidden="true">' .
-                    count($allcomnt) . '</i>';
-        }
+//            $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
+//            $cmtinsert .= '<div class="comment-details-menu">';
+//            $cmtinsert .= '<p>' . $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($art['created_date']))) . '</p></div></div></div>';
+//            $cntinsert .= '<a onclick="commentall(this.id)" id="' . $art['art_post_id'] . '">';
+//            $cntinsert .= '<i class="fa fa-comment-o" aria-hidden="true">' .
+//                    count($allcomnt) . '</i>';
+            
+          $cntinsert =  '<span class="comment_count" >';
+     if (count($allcomnt) > 0) {
+           $cntinsert .= '' . count($allcomnt) . ''; 
+           $cntinsert .=   '</span>'; 
+           $cntinsert .=  '<span> Comment</span>';
+        
+           }
+       }
         echo json_encode(
                 array("count" => $cntinsert,
                     "comment" => $cmtinsert,
-                    "commentcount" => count($allcomnt)));
+                    "commentcount" => $cntinsert));
 
         // khyati chande 
     }
