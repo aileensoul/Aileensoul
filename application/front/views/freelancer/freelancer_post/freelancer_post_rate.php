@@ -59,10 +59,10 @@
     echo "khyati";
 } ?>"><a href="<?php echo base_url('freelancer/freelancer_post_avability'); ?>">ADD Your Avability</a></li>
 
-                                <li class="<?php if ($freepostdata[0]['free_post_step'] < '4') {
+                                <li class="<?php if ($freepostdata[0]['free_post_step'] < '5') {
     echo "khyati";
 } ?>"><a href="<?php echo base_url('freelancer/freelancer_post_education'); ?>"> Education</a></li>		    
-                                <li class="<?php if ($freepostdata[0]['free_post_step'] < '4') {
+                                <li class="<?php if ($freepostdata[0]['free_post_step'] < '6') {
     echo "khyati";
 } ?>"><a href="<?php echo base_url('freelancer/freelancer_post_portfolio'); ?>">Portfolio</a></li>
                             </ul>

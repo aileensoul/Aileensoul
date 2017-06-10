@@ -142,7 +142,7 @@
 
                     
                               <li class="text_overflow">
-                     <a href="#" class="post_title" >
+                     <a href="<?php echo base_url('recruiter/rec_profile/' . $post['user_id'].'?page=job'); ?>" class="post_title" >
               <?php echo ucwords(text2link($post['post_name'])); ?> </a>   </li>
 
                                                       <li>   
@@ -171,7 +171,7 @@
                            $cache_time1= $this->db->get_where('recruiter', array('user_id' => $post['user_id']))->row()->re_comp_name;
                            ?>
 
-                             <a href="<?php echo base_url('recruiter/rec_profile/' . $post['user_id']); ?>"  title="<?php echo $cache_time1;?>"> <?php  $out = strlen($cache_time1) > 40 ? substr($cache_time1,0,40)."..." : $cache_time1;
+                             <a href="<?php echo base_url('recruiter/rec_profile/' . $post['user_id'].'?page=job'); ?>"  title="<?php echo $cache_time1;?>"> <?php  $out = strlen($cache_time1) > 40 ? substr($cache_time1,0,40)."..." : $cache_time1;
                             
                                  echo $out;
                                
@@ -179,7 +179,7 @@
 
                                                                     </li>
 
-                            <li><a href="<?php echo base_url('recruiter/rec_profile/' . $post['user_id']); ?>"><?php
+                            <li><a href="<?php echo base_url('recruiter/rec_profile/' . $post['user_id'].'?page=job'); ?>"><?php
                           $cache_time = $this->db->get_where('recruiter', array('user_id' => $post['user_id']))->row()->rec_firstname;
 
                               $cache_time1 = $this->db->get_where('recruiter', array('user_id' => $post['user_id']))->row()->rec_lastname;
@@ -332,7 +332,7 @@
                                     </li>
 
                               <li class="text_overflow">
-                  <a href="#" class="display_inline post_title">
+                  <a href="<?php echo base_url('recruiter/rec_profile/' . $post['user_id'].'?page=job'); ?>" class="display_inline post_title">
               <?php echo ucwords(text2link($post['post_name'])); ?> </a>                                        </li>
 
                                                                     <li>   
@@ -361,13 +361,13 @@
                                     ?>
                                       
                             
-                              <a href="<?php echo base_url('recruiter/rec_profile/' . $post['user_id']); ?>" title="<?php echo $cache_time1;?>"> <?php $out = strlen($cache_time1) > 40 ? substr($cache_time1,0,40)."..." : $cache_time1;
+                              <a href="<?php echo base_url('recruiter/rec_profile/' . $post['user_id'].'?page=job'); ?>" title="<?php echo $cache_time1;?>"> <?php $out = strlen($cache_time1) > 40 ? substr($cache_time1,0,40)."..." : $cache_time1;
                                  echo $out;
                                  ?>
                                  </a>
                                     </li>
 
-                                         <li><a href="<?php echo base_url('recruiter/rec_profile/' . $post['user_id']); ?>"><?php
+                                         <li><a href="<?php echo base_url('recruiter/rec_profile/' . $post['user_id'].'?page=job'); ?>"><?php
                                         $cache_time = $this->db->get_where('recruiter', array('user_id' => $post['user_id']))->row()->rec_firstname;
                                          $cache_time1 = $this->db->get_where('recruiter', array('user_id' => $post['user_id']))->row()->rec_lastname;
                                            echo ucwords($cache_time)."  ".ucwords($cache_time1);
@@ -829,4 +829,9 @@ $( "#searchplace" ).autocomplete({
                         $('.biderror .mes').html("<div class='pop_content'>Are you sure want to apply this post?<div class='model_ok_cancel'><a class='okbtn' id=" + postid + " onClick='apply_post(" + postid + "," + userid + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
                         $('#bidmodal').modal('show');
                     }
+                </script>
+                <script type="text/javascript">
+                   window.onbeforeunload = function() {
+  unset($_POST);
+};
                 </script>

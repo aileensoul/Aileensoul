@@ -57,9 +57,9 @@
 
                                 <li class="<?php if($businessdata[0]['business_step'] < '1'){echo "khyati";}?>"><a href="<?php echo base_url('business_profile/contact_information'); ?>">Contact Information</a></li>
 
-                                <li class="<?php if($businessdata[0]['business_step'] < '1'){echo "khyati";}?>"><a href="<?php echo base_url('business_profile/description'); ?>">Description</a></li>
+                                <li class="<?php if($businessdata[0]['business_step'] < '2'){echo "khyati";}?>"><a href="<?php echo base_url('business_profile/description'); ?>">Description</a></li>
 
-                                <li class="<?php if($businessdata[0]['business_step'] < '1'){echo "khyati";}?>"><a href="<?php echo base_url('business_profile/image'); ?>">Images</a></li>
+                                <li class="<?php if($businessdata[0]['business_step'] < '3'){echo "khyati";}?>"><a href="<?php echo base_url('business_profile/image'); ?>">Images</a></li>
 
                             </ul>
                         </div>
