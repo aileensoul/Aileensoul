@@ -150,7 +150,7 @@
           <ul>
        <li>
       <a style="  font-size: 19px;
-         font-weight: 600;" href="" title="<?php echo $key['art_name'].' '.$key['art_lastname'];?>">
+         font-weight: 600;" href="<?php echo base_url('artistic/art_manage_post/' . $key['user_id'] . ''); ?>" title="<?php echo $key['art_name'].' '.$key['art_lastname'];?>">
        <?php echo $key['art_name'].' '.$key['art_lastname'];?>
        </a>
       </li>
@@ -162,7 +162,7 @@
            </a>
        </li>
          <li style="display: block;">
-         <a  class="color-search" href="">
+         <a  class="color-search" href="<?php echo base_url('artistic/art_manage_post/' . $key['user_id'] . ''); ?>">
            <?php if($key['designation']){echo $key['designation'];} else{echo PROFILENA;} ?>
          </a>
 

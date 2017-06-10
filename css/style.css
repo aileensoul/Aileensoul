@@ -3734,6 +3734,8 @@ abbr {
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
+display: table;
+width: 100%;
 }
 /* The Close Button */
 
@@ -5843,10 +5845,11 @@ follow box*/
     padding-top: 24px;
 }
 .Follow_close {
+    transform: translate(0, -50%);
     float: right;
-    top: 18px;
+    top: 50%;
     position: absolute;
-    right: 1px;
+    right: 0px;
 }
 .Follow_close i {
     color: #999999;
@@ -7377,7 +7380,7 @@ input:-moz-placeholder {
     display: none;
     position: fixed;
     z-index: 1005;
-    padding-top: 100px;
+    padding-top: 28px;
     left: 0;
     top: 0;
     width: 100%;
@@ -7392,7 +7395,7 @@ input:-moz-placeholder {
     background-color: #fefefe;
     margin: auto;
     padding: 0;
-    width: 65%;
+    width: 90%;
     max-width: 1200px;
 }
 /* Next & previous buttons */
@@ -7418,10 +7421,10 @@ input:-moz-placeholder {
 /* The Close Button */
 
 .close2 {
-    color: white;
+   color: black;
     position: absolute;
-    top: 75px;
-    right: 196px;
+    top: 5px;
+    right: 5px;
     font-size: 35px;
     font-weight: bold;
 }
@@ -7434,17 +7437,20 @@ input:-moz-placeholder {
 /* Position the "next button" to the right */
 
 .next {
-    background-color: #000;
-    right: 233px;
+     background-color: rgba(0, 0, 0, 0.3);
+    right: 0px;
     border-radius: 3px 0 0 3px;
 }
-.prev{background-color: #000;
+
+.prev {
+    background-color: rgba(0, 0, 0, 0.3);
 }
 /* On hover, add a black background color with a little bit see-through */
 
 .prev:hover,
 .next:hover {
     background-color: rgba(0, 0, 0, 0.8);
+    color: #fff!important;
 }
 /* Number text (1/3 etc) */
 
@@ -9736,4 +9742,58 @@ style chat css end*/
 }
 @media screen and (max-width: 360px) {
     .logo{padding:4px 0;}
+}/* start
+zalak 9-6 css*/
+.slider_img{width: 100%; height: 430px; text-align: center; padding-top: 10px;}
+.slider_img img {width: auto; max-width: 100%; max-height: 100%; }
+/*
+end zalak 9-6 css*/
+
+     #two_images_buip{  float: left;
+    
+    width: 100%;
+    margin-bottom: 10px;
+    text-align: center;}
+     #two_images_buip img{    max-width: 100%;
+    width: auto;
+    max-height: 100%;
+    cursor: pointer;
+    height: auto;}
+    .main_color{color: #1b8ab9!important;}
+    .likeuser_list {
+  
+    background-color: #f2f2f2;
+    float: left;
+    margin: 0px 6px 6px 0px;
+    padding: 6px;
+    width: 49%;
+    font-size: 15px;
+    font-weight: 600;
+    color: #008a8a;
+    display: table;
 }
+    .likeuser_list a{color: #1b8ab9;}
+.likeduser, .likeduser1{
+        width: 100%;
+        background-color: #1b8ab9 !important;
+    }
+    .likeduser-title, .likeduser-title1{
+        color: #fff;
+        margin-bottom: 5px;
+        padding: 7px;
+    }    .likeduserlist, .likeduserlist1 {
+        float: left;
+        /*        margin-left: 15px;
+                margin-right: 15px;*/
+        width: 96%;
+        background-color: #fff !important;
+    }
+    div[class^="likeduserlist"]{
+        width: 100% !important;
+        background-color: #fff !important;
+    }
+    .like_one_other_img{
+        margin-left: 25px;
+        /*  margin-right: 15px;*/
+
+    }
