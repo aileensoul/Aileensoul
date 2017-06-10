@@ -118,7 +118,11 @@ echo $job_header2;
         <?php echo $job_menubar; ?>   
     </div>
     <div class="job-menu-profile">
-        <a  href="javascript: void(0);" title="<?php echo $job[0]['fname'] . ' ' . $job[0]['lname']; ?>"><h3 class="profile-head-text"> <?php echo $job[0]['fname'] . ' ' . $job[0]['lname']; ?></h3></a>
+        <a  href="javascript: void(0);" title="<?php echo $job[0]['fname'] . ' ' . $job[0]['lname']; ?>"><h3 class="profile-head-text"> 
+            <!--  <?php echo ucfirst($job[0]['fname']); ?> -->
+      <?php echo ucfirst($job[0]['fname'] ). ' ' . ucfirst($job[0]['lname']); ?> 
+            
+        </h3></a>
         <!-- text head start -->
         <div class="profile-text" >
             <?php if($returnpage == ''){
@@ -192,7 +196,7 @@ echo $job_header2;
                                 </div>
                                 <div class="profile-job-profile-menu">
                                     <ul class="clearfix">
-                                        <li> <b> Name </b> <span> <?php echo $job[0]['fname']; ?> <?php echo $job[0]['lname']; ?></span>
+                                        <li> <b> Name </b> <span> <?php echo  ucfirst($job[0]['fname']); ?> <?php echo  ucfirst($job[0]['lname']); ?></span>
                                         </li>
 
                                         <li> <b>Email </b><span> <?php echo $job[0]['email']; ?> </span>
